@@ -13,7 +13,7 @@ diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
 +rm -f ${FOREMAN_HOME}/Gemfile.lock
 +
 +cat << EOF >> ${FOREMAN_HOME}/Gemfile
-+gem 'rails', '3.0.10'
++gem 'rails', '3.0.14'
 +gem "jquery-rails"
 +gem 'json'
 +gem 'rest-client', :require => 'rest_client'
