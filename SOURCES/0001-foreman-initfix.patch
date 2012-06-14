@@ -1,0 +1,10 @@
+--- foreman/extras/spec/foreman.init	2012-05-02 10:34:04.541081008 -0400
++++ foreman.initfix/extras/spec/foreman.init	2012-05-02 14:13:57.426121889 -0400
+@@ -23,6 +23,7 @@
+ 
+ start() {
+     echo -n $"Starting $prog: "
++    cd ${FOREMAN_HOME}
+     daemon --user ${FOREMAN_USER} /usr/bin/ruby ${FOREMAN_HOME}/script/rails s -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d > /dev/null
+     RETVAL=$?
+     if [ $RETVAL = 0 ]

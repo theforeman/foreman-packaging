@@ -1,0 +1,108 @@
+diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
+--- foreman/extras/prepbundle.sh	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/extras/prepbundle.sh	2012-05-29 10:55:21.829452354 -0400
+@@ -0,0 +1,104 @@
++#!/bin/bash
++#change this if foreman lives somewhere else
++FOREMAN_HOME=/usr/share/foreman
++
++cd ${FOREMAN_HOME}
++
++rm -rf ${FOREMAN_HOME}/.bundle
++rm -f ${FOREMAN_HOME}/Gemfile
++rm -f ${FOREMAN_HOME}/Gemfile.lock
++
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'rails', '3.0.10'
++gem "jquery-rails"
++gem 'json'
++gem 'rest-client', :require => 'rest_client'
++gem "acts_as_audited", "2.0.0"
++gem "has_many_polymorphs"
++gem "will_paginate", "~> 3.0.2"
++gem "ancestry", "~> 1.2.4"
++gem 'scoped_search', '>= 2.3.6'
++gem 'net-ldap'
++gem "safemode", "~> 1.0.1"
++gem 'uuidtools'
++EOF
++
++if grep -qx foreman-virt /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem "virt", ">= 0.2.1"
++gem "rbovirt", ">= 0.0.11"
++EOF
++fi
++
++if grep -qx foreman-vmware /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem "rbvmomi"
++EOF
++fi
++
++if grep -qx foreman-fog /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem "fog"
++EOF
++fi
++
++
++if grep -qx foreman-mysql /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'mysql'
++EOF
++fi
++
++if grep -qx foreman-mysql2 /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'mysql2'
++EOF
++fi
++
++if grep -qx foreman-sqlite /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'sqlite3'
++EOF
++fi
++
++if grep -qx foreman-postgresql /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'pg'
++EOF
++fi
++
++if grep -qx foreman-test /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'mocha'
++gem 'shoulda'
++gem 'rr'
++gem 'rake'
++EOF
++fi
++
++if grep -qx foreman-devel /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem "ruby-debug", :platforms => :ruby_18
++gem "ruby-debug19", :platforms => :ruby_19
++EOF
++fi
++
++if grep -qx foreman-console /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem 'wirb'
++gem 'hirb-unicode'
++gem 'awesome_print', :require => 'ap'
++EOF
++fi
++
++bundle install --local
