@@ -11,6 +11,7 @@ Group: Development/Ruby
 License: Distributable
 URL: http://www.rubyonrails.org
 Source0: %{rbname}-%{version}.gem
+Patch0: 0001-fix-activerecord-mysql-adapter.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
@@ -47,6 +48,10 @@ aggregations, migrations, and testing come baked-in.
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
 gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
+cd %{gembuilddir}/gems/activerecord-3.0.14/lib/active_record/
+cp %{PATCH0} ./
+patch -p0 < ./0001-fix-activerecord-mysql-adapter.patch
+rm ./0001-fix-activerecord-mysql-adapter.patch
 
 %clean
 %{__rm} -rf %{buildroot}
