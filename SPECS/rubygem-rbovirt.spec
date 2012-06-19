@@ -1,5 +1,5 @@
 %define rbname rbovirt
-%define version 0.0.11
+%define version 0.0.12
 %define release 1
 
 Summary: A Ruby client for oVirt REST API

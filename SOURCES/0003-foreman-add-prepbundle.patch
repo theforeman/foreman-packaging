@@ -1,7 +1,7 @@
-diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
---- foreman/extras/prepbundle.sh	1969-12-31 19:00:00.000000000 -0500
-+++ foreman-new/extras/prepbundle.sh	2012-05-29 10:55:21.829452354 -0400
-@@ -0,0 +1,104 @@
+diff -uNr foreman-orig/extras/prepbundle.sh foreman/extras/prepbundle.sh
+--- foreman-orig/extras/prepbundle.sh	1969-12-31 19:00:00.000000000 -0500
++++ foreman/extras/prepbundle.sh	2012-06-19 10:25:58.920378570 -0400
+@@ -0,0 +1,113 @@
 +#!/bin/bash
 +#change this if foreman lives somewhere else
 +FOREMAN_HOME=/usr/share/foreman
@@ -13,6 +13,8 @@ diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
 +rm -f ${FOREMAN_HOME}/Gemfile.lock
 +
 +cat << EOF >> ${FOREMAN_HOME}/Gemfile
++source 'http://rubygems.org'
++
 +gem 'rails', '3.0.14'
 +gem "jquery-rails"
 +gem 'json'
@@ -25,13 +27,20 @@ diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
 +gem 'net-ldap'
 +gem "safemode", "~> 1.0.1"
 +gem 'uuidtools'
++gem "ruby_parser", ">= 2.3.1"
 +EOF
 +
 +if grep -qx foreman-virt /usr/share/foreman/extras/bundle.list
 +then
 +cat << EOF >> ${FOREMAN_HOME}/Gemfile
 +gem "virt", ">= 0.2.1"
-+gem "rbovirt", ">= 0.0.11"
++EOF
++fi
++
++if grep -qx foreman-ovirt /usr/share/foreman/extras/bundle.list
++then
++cat << EOF >> ${FOREMAN_HOME}/Gemfile
++gem "rbovirt", ">= 0.0.12"
 +EOF
 +fi
 +
@@ -60,7 +69,7 @@ diff -uPr foreman/extras/prepbundle.sh foreman-new/extras/prepbundle.sh
 +if grep -qx foreman-mysql2 /usr/share/foreman/extras/bundle.list
 +then
 +cat << EOF >> ${FOREMAN_HOME}/Gemfile
-+gem 'mysql2'
++gem 'mysql2', '< 0.3'
 +EOF
 +fi
 +

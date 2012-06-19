@@ -4,7 +4,7 @@
 
 Name:           foreman-proxy
 Version:        0.5.1
-Release:        8%{dist}
+Release:        9%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
@@ -113,6 +113,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Jun 19 2012 jmontleo@redhat.com 0.5.1-9
+- Rebuild with todays develop branch.
 * Thu Jun 14 2012 jmontleo@redhat.com 0.5.1-8
 - Rebuild with todays develop branch.
 * Tue May 08 2012 Jason Montleon <jmontleo@redhat.com> - 0.5.1-1

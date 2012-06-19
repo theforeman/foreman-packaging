@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version:0.5.1
-Release:8%{dist}
+Release:9%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -23,6 +23,7 @@ Requires: ruby(abi) = 1.8
 Requires: rubygems
 Requires: facter
 Requires: puppet >= 0.24.4
+Requires: wget
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
@@ -41,15 +42,15 @@ Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.0.1
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
+Requires: rubygem(ruby_parser) >= 2.3.1
 
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
 %package virt
-Summary: Foreman virt support
+Summary: Foreman libvirt support
 Group:  Applications/System
 Requires: rubygem(virt) >= 0.2.1
-Requires: rubygem(rbovirt) >= 0.0.9
 Requires: %{name}-%{version}-%{release}
 Requires: foreman-fog-%{version}-%{release}
 
@@ -68,6 +69,31 @@ cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
 %preun virt
 if [ $1 = 0 ]; then
 sed -i "/^foreman-virt$/d" /usr/share/foreman/extras/bundle.list
+cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+fi
+
+%package ovirt
+Summary: Foreman ovirt support
+Group:  Applications/System
+Requires: rubygem(rbovirt) >= 0.0.12
+Requires: %{name}-%{version}-%{release}
+Requires: foreman-fog-%{version}-%{release}
+
+%description ovirt
+Meta Package to install requirements for virt support
+
+%files ovirt
+
+%post ovirt
+if ! grep -qx foreman-ovirt /usr/share/foreman/extras/bundle.list
+then
+echo foreman-ovirt >> /usr/share/foreman/extras/bundle.list
+fi
+cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+
+%preun ovirt
+if [ $1 = 0 ]; then
+sed -i "/^foreman-ovirt$/d" /usr/share/foreman/extras/bundle.list
 cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
 fi
 
@@ -356,6 +382,7 @@ cat << \EOF > %{buildroot}%{_datadir}/%{name}/extras/dbmigrate
 cd .. && /usr/bin/rake db:migrate RAILS_ENV=production
 EOF
 chmod a+x %{buildroot}%{_datadir}/%{name}/extras/dbmigrate
+echo %{version} > %{buildroot}%{_datadir}/%{name}/VERSION
 
 %clean
 rm -rf %{buildroot}
@@ -439,6 +466,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-9
+- Rebuild with todays develop branch. Add VERSION file 1688, add wget dependency 1514, update rbovirt dep to 0.0.12, and break out ovirt support to foreman-ovirt package.
 * Thu Jun 14 2012 jmontleo@redhat.com 0.5.1-8
 - Rebuild with todays develop branch.
 * Wed Jun 13 2012 jmontleo@redhat.com 0.5.1-7
