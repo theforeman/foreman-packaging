@@ -1,0 +1,205 @@
+diff -uNr foreman-orig/Gemfile foreman-new/Gemfile
+--- foreman-orig/Gemfile	2012-06-19 13:54:07.342849429 -0400
++++ foreman-new/Gemfile	2012-06-19 16:31:19.036104980 -0400
+@@ -5,7 +5,7 @@
+ gem 'json'
+ gem 'rest-client', :require => 'rest_client'
+ gem "acts_as_audited", "2.0.0"
+-gem "has_many_polymorphs", :git => "https://github.com/jystewart/has_many_polymorphs.git", :ref => '03429a61e511f394e9f96af0c8998268ca99d42b'
++gem "has_many_polymorphs"
+ gem "will_paginate", "~> 3.0.2"
+ gem "ancestry", "~> 1.2.4"
+ gem 'scoped_search', '>= 2.3.7'
+@@ -15,62 +15,75 @@
+ # Previous versions collide with Environment model
+ gem "ruby_parser", ">= 2.3.1"
+ 
+-local_gemfile = File.dirname(__FILE__) + "/Gemfile.local.rb"
++local_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.local.rb"
+ if File.file?(local_gemfile)
+-  puts "adding custom gem files"
++  puts "adding local gem files"
+   self.instance_eval(Bundler.read_file(local_gemfile))
+ end
+ 
+-group :fog do
+-  gem "fog", :git => "git://github.com/fog/fog.git"
+-  #gem "fog", ">= 1.3.2"
++fog_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.fog.rb"
++if File.file?(fog_gemfile)
++  puts "adding fog gem files"
++  self.instance_eval(Bundler.read_file(fog_gemfile))
+ end
+ 
+-group :vmware do
+-  gem "rbvmomi"
++vmware_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.vmware.rb"
++if File.file?(vmware_gemfile)
++  puts "adding vmware gem files"
++  self.instance_eval(Bundler.read_file(vmware_gemfile))
+ end
+ 
+-group :libvirt do
+-  gem "virt", ">= 0.2.1"
++libvirt_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.libvirt.rb"
++if File.file?(libvirt_gemfile)
++  puts "adding libvirt gem files"
++  self.instance_eval(Bundler.read_file(libvirt_gemfile))
+ end
+ 
+-group :ovirt do
+-  gem "rbovirt", ">= 0.0.12"
++ovirt_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.ovirt.rb"
++if File.file?(ovirt_gemfile)
++  puts "adding ovirt gem files"
++  self.instance_eval(Bundler.read_file(ovirt_gemfile))
+ end
+ 
+-# database groups, you would most likely need to use only one of these
+-# to disable the ones you don't want, simple run bundle install --without sqlite mysql mysql2 ...
+-group :sqlite do
+-  gem 'sqlite3'
++sqlite_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.sqlite.rb"
++if File.file?(sqlite_gemfile)
++  puts "adding sqlite gem files"
++  self.instance_eval(Bundler.read_file(sqlite_gemfile))
+ end
+ 
+-group :mysql do
+-  gem 'mysql'
++mysql_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.mysql.rb"
++if File.file?(mysql_gemfile)
++  puts "adding mysql gem files"
++  self.instance_eval(Bundler.read_file(mysql_gemfile))
+ end
+ 
+-group :mysql2 do
+-  gem 'mysql2', '< 0.3'
++mysql2_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.mysql2.rb"
++if File.file?(mysql2_gemfile)
++  puts "adding mysql2 gem files"
++  self.instance_eval(Bundler.read_file(mysql2_gemfile))
+ end
+ 
+-group :postgresql do
+-  gem 'pg'
++postgresql_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.postgresql.rb"
++if File.file?(postgresql_gemfile)
++  puts "adding postgresql gem files"
++  self.instance_eval(Bundler.read_file(postgresql_gemfile))
+ end
+ 
+-group :test do
+-  gem 'mocha'
+-  gem 'shoulda'
+-  gem 'rr'
+-  gem 'rake'
++test_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.test.rb"
++if File.file?(test_gemfile)
++  puts "adding test gem files"
++  self.instance_eval(Bundler.read_file(test_gemfile))
+ end
+ 
+-group :development do
+-  # To use debugger
+-  gem "ruby-debug", :platforms => :ruby_18
+-  gem "ruby-debug19", :platforms => :ruby_19
++development_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.development.rb"
++if File.file?(development_gemfile)
++  puts "adding development gem files"
++  self.instance_eval(Bundler.read_file(development_gemfile))
+ end
+ 
+-group :console do
+-  gem 'wirb'
+-  gem 'hirb-unicode'
+-  gem 'awesome_print', :require => 'ap'
++console_gemfile = File.dirname(__FILE__) + "/Gemfile.conf.d/Gemfile.console.rb"
++if File.file?(console_gemfile)
++  puts "adding console gem files"
++  self.instance_eval(Bundler.read_file(console_gemfile))
+ end
++
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.console.rb foreman-new/Gemfile.conf.d/Gemfile.console.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.console.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.console.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,5 @@
++group :console do
++  gem 'wirb'
++  gem 'hirb-unicode'
++  gem 'awesome_print', :require => 'ap'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.development.rb foreman-new/Gemfile.conf.d/Gemfile.development.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.development.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.development.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,4 @@
++group :development do
++  gem "ruby-debug", :platforms => :ruby_18
++  gem "ruby-debug19", :platforms => :ruby_19
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.fog.rb foreman-new/Gemfile.conf.d/Gemfile.fog.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.fog.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.fog.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :fog do
++  gem "fog"
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.libvirt.rb foreman-new/Gemfile.conf.d/Gemfile.libvirt.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.libvirt.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.libvirt.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :libvirt do
++  gem "virt", ">= 0.2.1"
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.mysql2.rb foreman-new/Gemfile.conf.d/Gemfile.mysql2.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.mysql2.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.mysql2.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :mysql2 do
++  gem 'mysql2', '< 0.3'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.mysql.rb foreman-new/Gemfile.conf.d/Gemfile.mysql.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.mysql.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.mysql.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :mysql do
++  gem 'mysql'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.ovirt.rb foreman-new/Gemfile.conf.d/Gemfile.ovirt.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.ovirt.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.ovirt.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :ovirt do
++  gem "rbovirt", ">= 0.0.12"
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.postgresql.rb foreman-new/Gemfile.conf.d/Gemfile.postgresql.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.postgresql.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.postgresql.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :postgresql do
++  gem 'pg'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.sqlite.rb foreman-new/Gemfile.conf.d/Gemfile.sqlite.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.sqlite.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.sqlite.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :sqlite do
++  gem 'sqlite3'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.test.rb foreman-new/Gemfile.conf.d/Gemfile.test.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.test.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.test.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,6 @@
++group :test do
++  gem 'mocha'
++  gem 'shoulda'
++  gem 'rr'
++  gem 'rake'
++end
+diff -uNr foreman-orig/Gemfile.conf.d/Gemfile.vmware.rb foreman-new/Gemfile.conf.d/Gemfile.vmware.rb
+--- foreman-orig/Gemfile.conf.d/Gemfile.vmware.rb	1969-12-31 19:00:00.000000000 -0500
++++ foreman-new/Gemfile.conf.d/Gemfile.vmware.rb	2012-06-19 16:42:49.987856742 -0400
+@@ -0,0 +1,3 @@
++group :vmware do
++  gem "rbvmomi"
++end

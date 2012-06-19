@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version:0.5.1
-Release:9%{dist}
+Release:10%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -12,7 +12,8 @@ URL:http://theforeman.org
 Source0:http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
 
 Patch0: 0001-foreman-initfix.patch
-Patch2: 0003-foreman-add-prepbundle.patch
+Patch1: 0002-move-to-conf.d-style-bundle-config.patch
+#Patch2: 0003-foreman-add-prepbundle.patch
 Patch3: 0004-foreman-mv-settings-into-place.patch
 
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -37,7 +38,7 @@ Requires: rubygem(acts_as_audited) = 2.0.0
 Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-2
 Requires: rubygem(will_paginate) >= 3.0.2
 Requires: rubygem(ancestry) >= 1.2.4
-Requires: rubygem(scoped_search) >= 2.3.6
+Requires: rubygem(scoped_search) >= 2.3.7
 Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.0.1
 Requires: rubygem(uuidtools)
@@ -47,29 +48,26 @@ Requires: rubygem(ruby_parser) >= 2.3.1
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
-%package virt
+%package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
 Requires: rubygem(virt) >= 0.2.1
 Requires: %{name}-%{version}-%{release}
 Requires: foreman-fog-%{version}-%{release}
+Obsoletes: foreman-virt
 
-%description virt
+%description libvirt
 Meta Package to install requirements for virt support
 
-%files virt
+%files libvirt
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.libvirt.rb
 
-%post virt
-if ! grep -qx foreman-virt /usr/share/foreman/extras/bundle.list
-then
-echo foreman-virt >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+%post libvirt
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
-%preun virt
-if [ $1 = 0 ]; then
-sed -i "/^foreman-virt$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+%preun libvirt
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package ovirt
@@ -80,21 +78,17 @@ Requires: %{name}-%{version}-%{release}
 Requires: foreman-fog-%{version}-%{release}
 
 %description ovirt
-Meta Package to install requirements for virt support
+Meta Package to install requirements for ovirt support
 
 %files ovirt
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.ovirt.rb
 
 %post ovirt
-if ! grep -qx foreman-ovirt /usr/share/foreman/extras/bundle.list
-then
-echo foreman-ovirt >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %preun ovirt
-if [ $1 = 0 ]; then
-sed -i "/^foreman-ovirt$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package fog
@@ -108,18 +102,14 @@ Provides: foreman-fog-%{version}-%{release}
 Meta Package to install requirements for fog support
 
 %files fog
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.fog.rb
 
 %post fog
-if ! grep -qx foreman-fog /usr/share/foreman/extras/bundle.list
-then
-echo foreman-fog >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %preun fog
-if [ $1 = 0 ]; then
-sed -i "/^foreman-fog$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package vmware
@@ -133,18 +123,14 @@ Requires: foreman-fog-%{version}-%{release}
 Meta Package to install requirements for vmware support
 
 %files vmware
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.vmware.rb
 
 %post vmware
-if ! grep -qx foreman-vmware /usr/share/foreman/extras/bundle.list
-then
-echo foreman-vmware >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %preun vmware
-if [ $1 = 0 ]; then
-sed -i "/^foreman-vmware$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package console
@@ -159,18 +145,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for console support
 
 %files console
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.console.rb
 
 %post console
-if ! grep -qx foreman-console /usr/share/foreman/extras/bundle.list
-then
-echo foreman-console >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun console
-if [ $1 = 0 ]; then
-sed -i "/^foreman-console$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package mysql
@@ -183,18 +165,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for mysql support
 
 %files mysql
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.mysql.rb
 
 %post mysql
-if ! grep -qx foreman-mysql /usr/share/foreman/extras/bundle.list
-then
-echo foreman-mysql >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun mysql
-if [ $1 = 0 ]; then
-sed -i "/^foreman-mysql$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package mysql2
@@ -207,18 +185,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for mysql2 support
 
 %files mysql2
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.mysql2.rb
 
 %post mysql2
-if ! grep -qx foreman-mysql2 /usr/share/foreman/extras/bundle.list
-then
-echo foreman-mysql2 >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun mysql2
-if [ $1 = 0 ]; then
-sed -i "/^foreman-mysql2$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package postgresql
@@ -231,18 +205,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for postgresql support
 
 %files postgresql
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.postgresql.rb
 
 %post postgresql
-if ! grep -qx foreman-postgresql /usr/share/foreman/extras/bundle.list
-then
-echo foreman-postgresql >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun postgresql
-if [ $1 = 0 ]; then
-sed -i "/^foreman-postgresql$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package sqlite
@@ -255,18 +225,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for sqlite support
 
 %files sqlite
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.sqlite.rb
 
 %post sqlite
-if ! grep -qx foreman-sqlite /usr/share/foreman/extras/bundle.list
-then
-echo foreman-sqlite >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun sqlite
-if [ $1 = 0 ]; then
-sed -i "/^foreman-sqlite$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package devel
@@ -279,18 +245,14 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for devel support
 
 %files devel
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.development.rb
 
 %post devel
-if ! grep -qx foreman-devel /usr/share/foreman/extras/bundle.list
-then
-echo foreman-devel >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun devel
-if [ $1 = 0 ]; then
-sed -i "/^foreman-devel$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package test
@@ -306,19 +268,16 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for test
 
 %files test
+%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.test.rb
 
 %post test
-if ! grep -qx foreman-test /usr/share/foreman/extras/bundle.list
-then
-echo foreman-test >> /usr/share/foreman/extras/bundle.list
-fi
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %postun test
-if [ $1 = 0 ]; then
-sed -i "/^foreman-test$/d" /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
+
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
@@ -328,7 +287,8 @@ plugins required for Foreman to work.
 %prep
 %setup -q -n %{name}
 %patch0 -p1 -b .fixinit
-%patch2 -p1 
+%patch1 -p1
+#%patch2 -p1 
 %patch3 -p1
 
 %build
@@ -344,8 +304,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -Dp -m0644 %{confdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{confdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{confdir}/logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-cp -p -r app config config.ru extras lib Rakefile script %{buildroot}%{_datadir}/%{name}
-chmod 755 %{buildroot}%{_datadir}/%{name}/extras/prepbundle.sh
+cp -p -r app Gemfile.conf.d config config.ru extras Gemfile lib Rakefile script %{buildroot}%{_datadir}/%{name}
 #chmod a+x %{buildroot}%{_datadir}/%{name}/script/{console,dbconsole,runner}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 # remove all test units from productive release
@@ -391,6 +350,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,0755)
 %doc README
 %doc VERSION
+%exclude %{_datadir}/%{name}/Gemfile.conf.d
 %{_datadir}/%{name}
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
@@ -443,12 +403,10 @@ if [ ! -d $varlibdir/%{name} -a -d $datadir/tmp -a ! -L $datadir/tmp ]; then
 fi
 
 %post
-touch /usr/share/foreman/extras/bundle.list
-cd /usr/share/foreman; ./extras/prepbundle.sh >/dev/null 2>&1
-
 /sbin/chkconfig --add %{name} || ::
 
 # initialize/migrate the database (defaults to SQLITE3)
+cd /usr/share/foreman; bundle install --local 1>/dev/null 2>&1
 su - foreman -s /bin/bash -c %{_datadir}/%{name}/extras/dbmigrate >/dev/null 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
@@ -466,6 +424,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-20
+- Implement conf.d style Gemfile configuration for bundle to replace the ugly method used in previous rpm versions. Replace foreman-virt package with foreman-libvirt package as it was confusing to have fog virt ovirt and vmware.
 * Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-9
 - Rebuild with todays develop branch. Add VERSION file 1688, add wget dependency 1514, update rbovirt dep to 0.0.12, and break out ovirt support to foreman-ovirt package.
 * Thu Jun 14 2012 jmontleo@redhat.com 0.5.1-8
