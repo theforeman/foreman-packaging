@@ -17,8 +17,7 @@ Requires: rubygems >= 1.8.10
 
 Requires: rubygem-builder 
 
-Requires: rubygem-excon => 0.13.0
-Requires: rubygem-excon < 0.14
+Requires: rubygem-excon >= 0.14.0
 
 Requires: rubygem-formatador => 0.2.0
 Requires: rubygem-formatador < 0.3
