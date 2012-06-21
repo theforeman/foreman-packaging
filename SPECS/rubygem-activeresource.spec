@@ -1,5 +1,5 @@
 %define rbname activeresource
-%define version 3.0.14
+%define version 3.0.15
 %define release 1
 
 Summary: REST modeling framework (part of Rails).
@@ -15,9 +15,9 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
 
-Requires: rubygem-activesupport = 3.0.14
+Requires: rubygem-activesupport = 3.0.15
 
-Requires: rubygem-activemodel = 3.0.14
+Requires: rubygem-activemodel = 3.0.15
 BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 1.8.10
 BuildArch: noarch
@@ -46,28 +46,28 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/activeresource-3.0.14/CHANGELOG
-%doc %{gemdir}/gems/activeresource-3.0.14/README.rdoc
-%{gemdir}/gems/activeresource-3.0.14/examples/simple.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/base.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/connection.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/custom_methods.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/exceptions.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/formats/json_format.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/formats/xml_format.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/formats.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/http_mock.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/log_subscriber.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/observing.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/railtie.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/schema.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/validations.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource/version.rb
-%{gemdir}/gems/activeresource-3.0.14/lib/active_resource.rb
+%{gemdir}/gems/activeresource-3.0.15/CHANGELOG
+%doc %{gemdir}/gems/activeresource-3.0.15/README.rdoc
+%{gemdir}/gems/activeresource-3.0.15/examples/simple.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/base.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/connection.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/custom_methods.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/exceptions.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/formats/json_format.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/formats/xml_format.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/formats.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/http_mock.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/log_subscriber.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/observing.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/railtie.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/schema.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/validations.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource/version.rb
+%{gemdir}/gems/activeresource-3.0.15/lib/active_resource.rb
 
 
-%doc %{gemdir}/doc/activeresource-3.0.14
-%{gemdir}/cache/activeresource-3.0.14.gem
-%{gemdir}/specifications/activeresource-3.0.14.gemspec
+%doc %{gemdir}/doc/activeresource-3.0.15
+%{gemdir}/cache/activeresource-3.0.15.gem
+%{gemdir}/specifications/activeresource-3.0.15.gemspec
 
 %changelog

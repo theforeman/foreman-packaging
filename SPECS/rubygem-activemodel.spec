@@ -1,5 +1,5 @@
 %define rbname activemodel
-%define version 3.0.14
+%define version 3.0.15
 %define release 1
 
 Summary: A toolkit for building modeling frameworks (part of Rails).
@@ -15,7 +15,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
 
-Requires: rubygem-activesupport = 3.0.14
+Requires: rubygem-activesupport = 3.0.15
 
 Requires: rubygem-builder => 2.1.2
 Requires: rubygem-builder < 2.2
@@ -51,47 +51,47 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/activemodel-3.0.14/CHANGELOG
-%{gemdir}/gems/activemodel-3.0.14/MIT-LICENSE
-%{gemdir}/gems/activemodel-3.0.14/README.rdoc
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/attribute_methods.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/callbacks.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/conversion.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/deprecated_error_methods.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/dirty.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/errors.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/lint.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/locale/en.yml
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/mass_assignment_security/permission_set.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/mass_assignment_security/sanitizer.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/mass_assignment_security.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/naming.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/observing.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/railtie.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/serialization.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/serializers/json.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/serializers/xml.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/test_case.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/translation.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/acceptance.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/callbacks.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/confirmation.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/exclusion.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/format.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/inclusion.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/length.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/numericality.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/presence.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/validates.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations/with.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validations.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/validator.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model/version.rb
-%{gemdir}/gems/activemodel-3.0.14/lib/active_model.rb
+%{gemdir}/gems/activemodel-3.0.15/CHANGELOG
+%{gemdir}/gems/activemodel-3.0.15/MIT-LICENSE
+%{gemdir}/gems/activemodel-3.0.15/README.rdoc
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/attribute_methods.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/callbacks.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/conversion.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/deprecated_error_methods.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/dirty.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/errors.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/lint.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/locale/en.yml
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/mass_assignment_security/permission_set.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/mass_assignment_security/sanitizer.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/mass_assignment_security.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/naming.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/observing.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/railtie.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/serialization.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/serializers/json.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/serializers/xml.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/test_case.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/translation.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/acceptance.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/callbacks.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/confirmation.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/exclusion.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/format.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/inclusion.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/length.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/numericality.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/presence.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/validates.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations/with.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validations.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/validator.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model/version.rb
+%{gemdir}/gems/activemodel-3.0.15/lib/active_model.rb
 
 
-%doc %{gemdir}/doc/activemodel-3.0.14
-%{gemdir}/cache/activemodel-3.0.14.gem
-%{gemdir}/specifications/activemodel-3.0.14.gemspec
+%doc %{gemdir}/doc/activemodel-3.0.15
+%{gemdir}/cache/activemodel-3.0.15.gem
+%{gemdir}/specifications/activemodel-3.0.15.gemspec
 
 %changelog

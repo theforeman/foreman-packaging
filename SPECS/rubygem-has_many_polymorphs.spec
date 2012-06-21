@@ -1,6 +1,6 @@
 %define rbname has_many_polymorphs
 %define version 3.0.0.beta1
-%define release 2
+%define release 3
 
 Summary: An ActiveRecord plugin for self-referential and double-sided polymorphic associations.
 Name: rubygem-%{rbname}

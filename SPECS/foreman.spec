@@ -2,8 +2,8 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version:0.5.1
-Release:10%{dist}
+Version:1.0.0
+Release:0.1%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -11,10 +11,9 @@ License:GPLv3+
 URL:http://theforeman.org
 Source0:http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
 
-Patch0: 0001-foreman-initfix.patch
-Patch1: 0002-move-to-conf.d-style-bundle-config.patch
-#Patch2: 0003-foreman-add-prepbundle.patch
-Patch3: 0004-foreman-mv-settings-into-place.patch
+Patch1: 0001-foreman-initfix.patch
+Patch2: 0002-foreman-remove-git-refs-from-gemfilew.patch
+Patch3: 0003-foreman-mv-settings-into-place.patch
 
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -31,11 +30,11 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.14
+Requires: rubygem(rails) = 3.0.15
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
-Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-2
+Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-3
 Requires: rubygem(will_paginate) >= 3.0.2
 Requires: rubygem(ancestry) >= 1.2.4
 Requires: rubygem(scoped_search) >= 2.3.7
@@ -44,7 +43,7 @@ Requires: rubygem(safemode) >= 1.0.1
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 2.3.1
-
+Requires: rubygem(audited-activerecord) >= 3.0.0
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
@@ -60,10 +59,15 @@ Obsoletes: foreman-virt
 Meta Package to install requirements for virt support
 
 %files libvirt
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.libvirt.rb
+%{_datadir}/%{name}/bundler.d/libvirt.rb
 
 %post libvirt
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %preun libvirt
 if [ $1 == 0 ]; then
@@ -81,10 +85,15 @@ Requires: foreman-fog-%{version}-%{release}
 Meta Package to install requirements for ovirt support
 
 %files ovirt
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.ovirt.rb
+%{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %post ovirt
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %preun ovirt
 if [ $1 == 0 ]; then
@@ -94,7 +103,7 @@ fi
 %package fog
 Summary: Foreman fog support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.3.1-3
+Requires: rubygem-fog >= 1.3.1-4
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-fog-%{version}-%{release}
 
@@ -102,10 +111,15 @@ Provides: foreman-fog-%{version}-%{release}
 Meta Package to install requirements for fog support
 
 %files fog
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.fog.rb
+%{_datadir}/%{name}/bundler.d/fog.rb
 
 %post fog
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %preun fog
 if [ $1 == 0 ]; then
@@ -123,10 +137,15 @@ Requires: foreman-fog-%{version}-%{release}
 Meta Package to install requirements for vmware support
 
 %files vmware
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.vmware.rb
+%{_datadir}/%{name}/bundler.d/vmware.rb
 
 %post vmware
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %preun vmware
 if [ $1 == 0 ]; then
@@ -145,10 +164,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for console support
 
 %files console
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.console.rb
+%{_datadir}/%{name}/bundler.d/console.rb
 
 %post console
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun console
 if [ $1 == 0 ]; then
@@ -165,10 +189,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for mysql support
 
 %files mysql
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.mysql.rb
+%{_datadir}/%{name}/bundler.d/mysql.rb
 
 %post mysql
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun mysql
 if [ $1 == 0 ]; then
@@ -185,10 +214,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for mysql2 support
 
 %files mysql2
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.mysql2.rb
+%{_datadir}/%{name}/bundler.d/mysql2.rb
 
 %post mysql2
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun mysql2
 if [ $1 == 0 ]; then
@@ -205,10 +239,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for postgresql support
 
 %files postgresql
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.postgresql.rb
+%{_datadir}/%{name}/bundler.d/postgresql.rb
 
 %post postgresql
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun postgresql
 if [ $1 == 0 ]; then
@@ -225,10 +264,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for sqlite support
 
 %files sqlite
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.sqlite.rb
+%{_datadir}/%{name}/bundler.d/sqlite.rb
 
 %post sqlite
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun sqlite
 if [ $1 == 0 ]; then
@@ -245,10 +289,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for devel support
 
 %files devel
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.development.rb
+%{_datadir}/%{name}/bundler.d/development.rb
 
 %post devel
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun devel
 if [ $1 == 0 ]; then
@@ -268,10 +317,15 @@ Requires: %{name}-%{version}-%{release}
 Meta Package to install requirements for test
 
 %files test
-%{_datadir}/%{name}/Gemfile.conf.d/Gemfile.test.rb
+%{_datadir}/%{name}/bundler.d/test.rb
 
 %post test
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 
 %postun test
 if [ $1 == 0 ]; then
@@ -286,10 +340,9 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1 -b .fixinit
 %patch1 -p1
-#%patch2 -p1 
-%patch3 -p1
+%patch2 -p1
+%patch3 -p1 
 
 %build
 
@@ -304,7 +357,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -Dp -m0644 %{confdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{confdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{confdir}/logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-cp -p -r app Gemfile.conf.d config config.ru extras Gemfile lib Rakefile script %{buildroot}%{_datadir}/%{name}
+cp -p -r app bundler.d config config.ru extras Gemfile lib Rakefile script %{buildroot}%{_datadir}/%{name}
 #chmod a+x %{buildroot}%{_datadir}/%{name}/script/{console,dbconsole,runner}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 # remove all test units from productive release
@@ -350,7 +403,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,0755)
 %doc README
 %doc VERSION
-%exclude %{_datadir}/%{name}/Gemfile.conf.d
+%exclude %{_datadir}/%{name}/bundler.d
 %{_datadir}/%{name}
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
@@ -406,7 +459,12 @@ fi
 /sbin/chkconfig --add %{name} || ::
 
 # initialize/migrate the database (defaults to SQLITE3)
-cd /usr/share/foreman; bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]; then
+cd /usr/share/foreman; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+if [ $1 == 2 ]; then
+cd /usr/share/foreman; /usr/bin/bundle update --local 1>/dev/null 2>&1
+fi
 su - foreman -s /bin/bash -c %{_datadir}/%{name}/extras/dbmigrate >/dev/null 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
