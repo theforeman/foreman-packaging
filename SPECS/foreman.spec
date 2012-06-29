@@ -3,14 +3,14 @@
 
 Name:   foreman
 Version:1.0.0
-Release:0.2%{dist}
+Release:0.3%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
 License:GPLv3+
-URL:http://theforeman.org
-Source0:http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
-
+URL: http://theforeman.org
+Source0: http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
+Source1: foreman.repo
 Patch1: 0001-foreman-initfix.patch
 Patch2: 0002-foreman-remove-git-refs-from-gemfiles.patch
 Patch3: 0003-foreman-mv-settings-into-place.patch
@@ -46,6 +46,30 @@ Requires: rubygem(ruby_parser) >= 2.3.1
 Requires: rubygem(audited-activerecord) >= 3.0.0
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
+
+%package cli
+Summary: Foreman CLI
+Group: Applications/System
+Requires: %{name}-%{version}-%{release}
+Requires: rubygem(foremancli) >= 1.0
+
+%description cli
+Meta Package to install rubygem-cli and its dependencies
+
+%files cli
+
+%package release
+Summary:        Foreman repository files
+Group:  	Applications/System
+
+
+%description release
+Foreman repository contains open source and other distributable software for
+Fedora. This package contains the repository configuration for Yum.
+
+%files release
+%defattr(-,root,root,-)
+%config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %package libvirt
 Summary: Foreman libvirt support
@@ -329,6 +353,11 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -Dp -m0644 %{confdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{confdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{confdir}/logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+
+install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+install -pm 644 %{SOURCE1} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+
 cp -p -r app bundler.d config config.ru extras Gemfile lib Rakefile script %{buildroot}%{_datadir}/%{name}
 #chmod a+x %{buildroot}%{_datadir}/%{name}/script/{console,dbconsole,runner}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
@@ -359,14 +388,6 @@ ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/log
 
 # Put tmp files in %{_localstatedir}/run/%{name}
 ln -sv %{_localstatedir}/run/%{name} %{buildroot}%{_datadir}/%{name}/tmp
-
-# Create a script for migrating the database
-cat << \EOF > %{buildroot}%{_datadir}/%{name}/extras/dbmigrate
-#!/bin/sh
-cd .. && /usr/bin/rake db:migrate RAILS_ENV=production
-EOF
-chmod a+x %{buildroot}%{_datadir}/%{name}/extras/dbmigrate
-echo %{version} > %{buildroot}%{_datadir}/%{name}/VERSION
 
 %clean
 rm -rf %{buildroot}
@@ -450,6 +471,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.3
+- More fixes for dbmigrate, foreman-cli and foreman-release added
 * Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.2
 - Rebuild with develop branch from today for 1.0.0 RC2. Try to fix inconsistent db:migrate runs on upgrades.
 * Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-20
