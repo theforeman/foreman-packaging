@@ -65,7 +65,7 @@ Meta Package to install requirements for virt support
 #All the foreman-* rpm's are version locked, and foreman runs this as a posttrans on i
 #install/update, so the only time this needs to be run is on install in case someone
 #installs it after the initial foreman install.
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -90,7 +90,7 @@ Meta Package to install requirements for ovirt support
 %{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %post ovirt
-if [ $1 == 1 ]	
+if [ $1 == 1 ];then 
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -433,11 +433,10 @@ exit 0
 
 %posttrans
 # We need to run the db:migrate after the  install transaction, because if there are updated gems and foreman-* packages we need to ensure everything is in place or bundler can get very upset about missing gems, etc.
-cd /usr/share/foreman 
-rm -f Gemfile.lock 
-/usr/bin/bundle install --local 1>/dev/null 2>&1; 
-su - foreman -s /bin/bash -c cd /usr/share/foreman && RAILS_ENV=production rake db:migrate 1>/dev/null 2>&1
-
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+su - foreman -s /bin/bash -c %{_datadir}/%{name}/extras/dbmigrate >/dev/null 2>&1 || :
+ (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+ exit 0
 %preun
 if [ $1 -eq 0 ] ; then
 /sbin/service %{name} stop >/dev/null 2>&1
