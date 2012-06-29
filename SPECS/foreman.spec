@@ -62,10 +62,19 @@ Meta Package to install requirements for virt support
 %{_datadir}/%{name}/bundler.d/libvirt.rb
 
 %post libvirt
+#All the foreman-* rpm's are version locked, and foreman runs this as a posttrans on i
+#install/update, so the only time this needs to be run is on install in case someone
+#installs it after the initial foreman install.
+if [ $1 == 1 ]
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
-%preun libvirt
+%postun libvirt
+#If we uninstall a package then we need to update the bundler config as well. We can no 
+#longer guarantee the dependency gems are installed otherwise.
+if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %package ovirt
 Summary: Foreman ovirt support
@@ -81,16 +90,11 @@ Meta Package to install requirements for ovirt support
 %{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %post ovirt
-#All the foreman-* rpm's are version locked, and foreman runs this as a posttrans on i
-#install/update, so the only time this needs to be run is on install in case someone
-#installs it after the initial foreman install.
 if [ $1 == 1 ]	
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
-%preun ovirt
-#If we uninstall a package then we need to update the bundler config as well. We can no 
-#longer guarantee the dependency gems are installed otherwise.
+%postun ovirt
 if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
@@ -109,11 +113,11 @@ Meta Package to install requirements for fog support
 %{_datadir}/%{name}/bundler.d/fog.rb
 
 %post fog
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
-%preun fog
+%postun fog
 if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
@@ -132,11 +136,11 @@ Meta Package to install requirements for vmware support
 %{_datadir}/%{name}/bundler.d/vmware.rb
 
 %post vmware
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
-%preun vmware
+%postun vmware
 if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
@@ -156,7 +160,7 @@ Meta Package to install requirements for console support
 %{_datadir}/%{name}/bundler.d/console.rb
 
 %post console
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -178,7 +182,7 @@ Meta Package to install requirements for mysql support
 %{_datadir}/%{name}/bundler.d/mysql.rb
 
 %post mysql
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -200,7 +204,7 @@ Meta Package to install requirements for mysql2 support
 %{_datadir}/%{name}/bundler.d/mysql2.rb
 
 %post mysql2
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -222,7 +226,7 @@ Meta Package to install requirements for postgresql support
 %{_datadir}/%{name}/bundler.d/postgresql.rb
 
 %post postgresql
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -244,7 +248,7 @@ Meta Package to install requirements for sqlite support
 %{_datadir}/%{name}/bundler.d/sqlite.rb
 
 %post sqlite
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -266,7 +270,7 @@ Meta Package to install requirements for devel support
 %{_datadir}/%{name}/bundler.d/development.rb
 
 %post devel
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
@@ -291,7 +295,7 @@ Meta Package to install requirements for test
 %{_datadir}/%{name}/bundler.d/test.rb
 
 %post test
-if [ $1 == 1 ]
+if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
