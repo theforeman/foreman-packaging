@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version:1.0.0
-Release:0.1%{dist}
+Release:0.2%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -12,7 +12,7 @@ URL:http://theforeman.org
 Source0:http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
 
 Patch1: 0001-foreman-initfix.patch
-Patch2: 0002-foreman-remove-git-refs-from-gemfilew.patch
+Patch2: 0002-foreman-remove-git-refs-from-gemfiles.patch
 Patch3: 0003-foreman-mv-settings-into-place.patch
 
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -62,10 +62,10 @@ Meta Package to install requirements for virt support
 %{_datadir}/%{name}/bundler.d/libvirt.rb
 
 %post libvirt
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %preun libvirt
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 
 %package ovirt
 Summary: Foreman ovirt support
@@ -81,17 +81,24 @@ Meta Package to install requirements for ovirt support
 %{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %post ovirt
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+#All the foreman-* rpm's are version locked, and foreman runs this as a posttrans on i
+#install/update, so the only time this needs to be run is on install in case someone
+#installs it after the initial foreman install.
+if [ $1 == 1 ]	
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %preun ovirt
+#If we uninstall a package then we need to update the bundler config as well. We can no 
+#longer guarantee the dependency gems are installed otherwise.
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package fog
 Summary: Foreman fog support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.3.1-4
+Requires: rubygem-fog >= 1.4.0
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-fog-%{version}-%{release}
 
@@ -102,11 +109,13 @@ Meta Package to install requirements for fog support
 %{_datadir}/%{name}/bundler.d/fog.rb
 
 %post fog
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %preun fog
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package vmware
@@ -123,11 +132,13 @@ Meta Package to install requirements for vmware support
 %{_datadir}/%{name}/bundler.d/vmware.rb
 
 %post vmware
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %preun vmware
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package console
@@ -145,11 +156,13 @@ Meta Package to install requirements for console support
 %{_datadir}/%{name}/bundler.d/console.rb
 
 %post console
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun console
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package mysql
@@ -165,11 +178,13 @@ Meta Package to install requirements for mysql support
 %{_datadir}/%{name}/bundler.d/mysql.rb
 
 %post mysql
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun mysql
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package mysql2
@@ -185,11 +200,13 @@ Meta Package to install requirements for mysql2 support
 %{_datadir}/%{name}/bundler.d/mysql2.rb
 
 %post mysql2
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun mysql2
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package postgresql
@@ -205,11 +222,13 @@ Meta Package to install requirements for postgresql support
 %{_datadir}/%{name}/bundler.d/postgresql.rb
 
 %post postgresql
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun postgresql
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package sqlite
@@ -225,11 +244,13 @@ Meta Package to install requirements for sqlite support
 %{_datadir}/%{name}/bundler.d/sqlite.rb
 
 %post sqlite
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun sqlite
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package devel
@@ -245,11 +266,13 @@ Meta Package to install requirements for devel support
 %{_datadir}/%{name}/bundler.d/development.rb
 
 %post devel
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun devel
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package test
@@ -268,11 +291,13 @@ Meta Package to install requirements for test
 %{_datadir}/%{name}/bundler.d/test.rb
 
 %post test
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+if [ $1 == 1 ]
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
 
 %postun test
 if [ $1 == 0 ]; then
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 
@@ -389,7 +414,7 @@ fi
 varlibdir=%{_localstatedir}/log # /var/log
 if [ ! -d $varlibdir/%{name} -a -d $datadir/log -a ! -L $datadir/log ]; then
   [ -d $varlibdir ] || mkdir -p $varlibdir
-
+fi
 
 varlibdir=%{_localstatedir}/run # /var/run
 if [ ! -d $varlibdir/%{name} -a -d $datadir/tmp -a ! -L $datadir/tmp ]; then
@@ -399,12 +424,15 @@ fi
 
 %post
 /sbin/chkconfig --add %{name} || ::
-
-# initialize/migrate the database (defaults to SQLITE3)
-cd /usr/share/foreman; rm Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
-su - foreman -s /bin/bash -c %{_datadir}/%{name}/extras/dbmigrate >/dev/null 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
+
+%posttrans
+# We need to run the db:migrate after the  install transaction, because if there are updated gems and foreman-* packages we need to ensure everything is in place or bundler can get very upset about missing gems, etc.
+cd /usr/share/foreman 
+rm -f Gemfile.lock 
+/usr/bin/bundle install --local 1>/dev/null 2>&1; 
+su - foreman -s /bin/bash -c cd /usr/share/foreman && RAILS_ENV=production rake db:migrate 1>/dev/null 2>&1
 
 %preun
 if [ $1 -eq 0 ] ; then
@@ -419,6 +447,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.2
+- Rebuild with develop branch from today for 1.0.0 RC2. Try to fix inconsistent db:migrate runs on upgrades.
 * Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-20
 - Implement conf.d style Gemfile configuration for bundle to replace the ugly method used in previous rpm versions. Replace foreman-virt package with foreman-libvirt package as it was confusing to have fog virt ovirt and vmware.
 * Tue Jun 19 2012 jmontleo@redhat.com 0-5.1-9

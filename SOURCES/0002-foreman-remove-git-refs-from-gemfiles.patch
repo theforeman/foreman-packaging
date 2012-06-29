@@ -1,12 +1,3 @@
-diff -uNr foreman/bundler.d/fog.rb foreman-nogit/bundler.d/fog.rb
---- foreman/bundler.d/fog.rb	2012-06-21 10:42:03.377979320 -0400
-+++ foreman-nogit/bundler.d/fog.rb	2012-06-21 10:50:08.742051059 -0400
-@@ -1,4 +1,4 @@
- group :fog do
--  gem "fog", :git => "git://github.com/fog/fog.git"
-+  gem "fog"
-   #gem "fog", ">= 1.3.2"
- end
 diff -uNr foreman/Gemfile foreman-nogit/Gemfile
 --- foreman/Gemfile	2012-06-21 10:47:27.318016653 -0400
 +++ foreman-nogit/Gemfile	2012-06-21 10:48:02.482250207 -0400

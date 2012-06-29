@@ -1,6 +1,6 @@
 %define rbname fog
-%define version 1.3.1
-%define release 4
+%define version 1.4.0
+%define release 1
 
 Summary: brings clouds to you
 Name: rubygem-%{rbname}
@@ -14,27 +14,18 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 1.8.10
-
 Requires: rubygem-builder 
-
 Requires: rubygem-excon >= 0.14.0
-
 Requires: rubygem-formatador => 0.2.0
 Requires: rubygem-formatador < 0.3
-
 Requires: rubygem-multi_json => 1.0
 Requires: rubygem-multi_json < 2
-
 Requires: rubygem-mime-types 
-
 Requires: rubygem-net-scp => 1.0.4
 Requires: rubygem-net-scp < 1.1
-
 Requires: rubygem-net-ssh >= 2.1.3
-
 Requires: rubygem-nokogiri => 1.5.0
 Requires: rubygem-nokogiri < 1.6
-
 Requires: rubygem-ruby-hmac 
 BuildRequires: ruby 
 BuildRequires: rubygems >= 1.8.10
@@ -87,8 +78,8 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/tests/
 %{gemdir}/gems/%{rbname}-%{version}/.irbrc
 
-#%doc %{gemdir}/doc/fog-1.3.1
-%{gemdir}/cache/./fog-1.3.1.gem
-%{gemdir}/specifications/./fog-1.3.1.gemspec
+#%doc %{gemdir}/doc/fog-%{version}
+%{gemdir}/cache/./fog-%{version}.gem
+%{gemdir}/specifications/./fog-%{version}.gemspec
 
 %changelog
