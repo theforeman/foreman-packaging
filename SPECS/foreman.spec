@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version:1.0.0
-Release:0.3%{dist}
+Release:0.4%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -76,7 +76,7 @@ Summary: Foreman libvirt support
 Group:  Applications/System
 Requires: rubygem(virt) >= 0.2.1
 Requires: %{name}-%{version}-%{release}
-Requires: foreman-fog-%{version}-%{release}
+Requires: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-virt
 
 %description libvirt
@@ -104,8 +104,8 @@ fi
 Summary: Foreman ovirt support
 Group:  Applications/System
 Requires: rubygem(rbovirt) >= 0.0.12
+Requires: foreman-ec2-%{version}-%{release}
 Requires: %{name}-%{version}-%{release}
-Requires: foreman-fog-%{version}-%{release}
 
 %description ovirt
 Meta Package to install requirements for ovirt support
@@ -123,25 +123,26 @@ if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
-%package fog
-Summary: Foreman fog support
+%package ec2
+Summary: Foreman ec2 support
 Group:  Applications/System
 Requires: rubygem-fog >= 1.4.0
 Requires: %{name}-%{version}-%{release}
-Provides: foreman-fog-%{version}-%{release}
+Provides: foreman-ec2-%{version}-%{release}
+Obsoletes: foreman-fog
 
-%description fog
-Meta Package to install requirements for fog support
+%description ec2
+Meta Package to install requirements for ec2 support
 
-%files fog
+%files ec2
 %{_datadir}/%{name}/bundler.d/fog.rb
 
-%post fog
+%post ec2
 if [ $1 == 1 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
-%postun fog
+%postun ec2
 if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
@@ -388,7 +389,7 @@ ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/log
 
 # Put tmp files in %{_localstatedir}/run/%{name}
 ln -sv %{_localstatedir}/run/%{name} %{buildroot}%{_datadir}/%{name}/tmp
-
+echo %{version} > %{buildroot}%{_datadir}/%{name}/VERSION
 %clean
 rm -rf %{buildroot}
 
@@ -471,6 +472,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Sun Jul 01 2012 jmontleo@redhat.com 1.0.0-0.4
+- Pull todays develop branch to fix dbmigrate issue, add mistakenly deleted version string back, and replace foreman-fog with foreman-ec2 as it indicates more clearly what functionality the package provides. 
 * Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.3
 - More fixes for dbmigrate, foreman-cli and foreman-release added
 * Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.2
