@@ -88,10 +88,11 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 /usr/share/gems/gems/fog-%{version}/docs/
 /usr/share/gems/gems/fog-%{version}/fog.gemspec
 /usr/share/gems/gems/fog-%{version}/tests/
+%{gemdir}/gems/%{rbname}-%{version}/.travis.yml
+%{gemdir}/gems/%{rbname}-%{version}/README.md
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.rdoc
 
 %changelog
 * Fri Jun 29 2012 jason - 1.4.0-1
