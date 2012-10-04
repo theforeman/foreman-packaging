@@ -1,5 +1,5 @@
 %define rbname fog
-%define version 1.4.0
+%define version 1.6.0
 %define release 1
 
 Summary: brings clouds to you
