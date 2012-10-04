@@ -1,0 +1,11 @@
+diff -up sqlite-3.6.4/configure.ac.orig sqlite-3.6.4/configure.ac
+--- sqlite-3.6.4/configure.ac.orig	2008-11-08 11:37:15.000000000 +0200
++++ sqlite-3.6.4/configure.ac	2008-11-08 11:35:50.000000000 +0200
+@@ -606,6 +606,7 @@ AC_ARG_ENABLE(load-extension, AC_HELP_ST
+       [use_loadextension=$enableval],[use_loadextension=no])
+ if test "${use_loadextension}" = "yes" ; then
+   OPT_FEATURE_FLAGS=""
++  AC_SEARCH_LIBS(dlopen, [dl])
+ else
+   OPT_FEATURE_FLAGS="-DSQLITE_OMIT_LOAD_EXTENSION=1"
+ fi
