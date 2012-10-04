@@ -45,7 +45,7 @@ convention over configuration.
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-ri --nordoc
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-ri --no-rdoc
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
 rmdir %{gembuilddir}/bin
