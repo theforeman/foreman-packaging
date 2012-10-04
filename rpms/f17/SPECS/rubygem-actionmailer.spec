@@ -1,11 +1,11 @@
-# Generated from actionmailer-3.0.15.gem by gem2rpm -*- rpm-spec -*-
+# Generated from actionmailer-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name actionmailer
 %global rubyabi 1.9.1
 
 Summary: Email composition, delivery, and receiving framework (part of Rails)
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.15
+Version: 3.0.17
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -15,7 +15,7 @@ Patch0: 0001-rubygem-actionmailer-fix-dep-versions.patch
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby >= 1.8.7
-Requires: rubygem(actionpack) = 3.0.15
+Requires: rubygem(actionpack) = 3.0.17
 Requires: rubygem(mail) => 2.2.19
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
@@ -63,10 +63,10 @@ rm ./0001-rubygem-actionmailer-fix-dep-versions.patch
 
 %files doc
 %doc %{gem_docdir}
-%doc /usr/share/gems/gems/actionmailer-3.0.15/CHANGELOG
-%doc /usr/share/gems/gems/actionmailer-3.0.15/MIT-LICENSE
-%doc /usr/share/gems/gems/actionmailer-3.0.15/README.rdoc
+%doc /usr/share/gems/gems/actionmailer-3.0.17/CHANGELOG
+%doc /usr/share/gems/gems/actionmailer-3.0.17/MIT-LICENSE
+%doc /usr/share/gems/gems/actionmailer-3.0.17/README.rdoc
 
 %changelog
-* Thu Jun 14 2012 jason - 3.0.15-1
+* Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package

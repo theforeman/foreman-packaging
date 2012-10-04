@@ -1,5 +1,23 @@
---- foreman.spec-old	2012-08-05 14:06:24.972065082 -0400
-+++ foreman.spec	2012-08-05 14:07:05.213569479 -0400
+--- foreman.spec.release	2012-10-04 15:41:09.564560942 -0400
++++ foreman.spec	2012-10-04 15:43:23.190208333 -0400
+@@ -3,7 +3,7 @@
+ 
+ Name:   foreman
+ Version:1.0.1
+-Release:1%{dist}
++Release:2%{dist}
+ Summary:Systems Management web application
+ 
+ Group:  Applications/System
+@@ -31,7 +31,7 @@
+ Requires(preun): initscripts
+ Requires(postun): initscripts
+ Requires: rubygem(json)
+-Requires: rubygem(rails) = 3.0.15
++Requires: rubygem(rails) = 3.0.17
+ Requires: rubygem(jquery-rails)
+ Requires: rubygem(rest-client)
+ Requires: rubygem(acts_as_audited) = 2.0.0
 @@ -45,6 +45,9 @@
  Requires: rubygem(rake) >= 0.9.2.2
  Requires: rubygem(ruby_parser) >= 2.3.1
@@ -10,3 +28,12 @@
  Provides: %{name}-%{version}-%{release}
  #Packager:   Ohad Levy <ohadlevy@gmail.com>
  
+@@ -127,7 +130,7 @@
+ %package ec2
+ Summary: Foreman ec2 support
+ Group:  Applications/System
+-Requires: rubygem-fog >= 1.4.0
++Requires: rubygem-fog >= 1.6.0
+ Requires: %{name}-%{version}-%{release}
+ Provides: foreman-ec2-%{version}-%{release}
+ Obsoletes: foreman-fog

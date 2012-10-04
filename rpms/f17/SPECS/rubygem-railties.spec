@@ -1,10 +1,10 @@
-# Generated from railties-3.0.15.gem by gem2rpm -*- rpm-spec -*-
+# Generated from railties-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name railties
 %global rubyabi 1.9.1
 
 Summary: Tools for creating, working with, and running Rails applications
 Name: rubygem-%{gem_name}
-Version: 3.0.15
+Version: 3.0.17
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -18,8 +18,8 @@ Requires: rubygem(thor) => 0.14.4
 Requires: rubygem(thor) < 0.15
 Requires: rubygem(rdoc) => 3.4
 Requires: rubygem(rdoc) < 4
-Requires: rubygem(activesupport) = 3.0.15
-Requires: rubygem(actionpack) = 3.0.15
+Requires: rubygem(activesupport) = 3.0.17
+Requires: rubygem(actionpack) = 3.0.17
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
 BuildRequires: ruby >= 1.8.7
@@ -61,10 +61,10 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/railties-3.0.15/
+/usr/share/gems/gems/railties-3.0.17/
 %files doc
 %doc %{gem_docdir}
 
 %changelog
-* Thu Jun 14 2012 jason - 3.0.15-1
+* Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package

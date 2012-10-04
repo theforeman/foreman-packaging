@@ -1,5 +1,5 @@
 %define rbname rails
-%define version 3.0.15
+%define version 3.0.17
 %define release 1
 
 Summary: Full-stack web application framework.
@@ -14,12 +14,12 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
-Requires: rubygem-activesupport = 3.0.15
-Requires: rubygem-actionpack = 3.0.15
-Requires: rubygem-activerecord = 3.0.15
-Requires: rubygem-activeresource = 3.0.15
-Requires: rubygem-actionmailer = 3.0.15
-Requires: rubygem-railties = 3.0.15
+Requires: rubygem-activesupport = 3.0.17
+Requires: rubygem-actionpack = 3.0.17
+Requires: rubygem-activerecord = 3.0.17
+Requires: rubygem-activeresource = 3.0.17
+Requires: rubygem-actionmailer = 3.0.17
+Requires: rubygem-railties = 3.0.17
 
 Requires: rubygem-bundler => 1.0
 Requires: rubygem-bundler < 2
@@ -56,10 +56,10 @@ rmdir %{gembuilddir}/bin
 %files
 %defattr(-, root, root)
 %{_bindir}/rails
-%{gemdir}/gems/rails-3.0.15/bin/rails
+%{gemdir}/gems/rails-3.0.17/bin/rails
 
 
-%{gemdir}/cache/rails-3.0.15.gem
-%{gemdir}/specifications/rails-3.0.15.gemspec
+%{gemdir}/cache/rails-3.0.17.gem
+%{gemdir}/specifications/rails-3.0.17.gemspec
 
 %changelog

@@ -1,11 +1,11 @@
-# Generated from rails-3.0.15.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rails-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name rails
 %global rubyabi 1.9.1
 
 Summary: Full-stack web application framework
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.15
+Version: 3.0.17
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -14,12 +14,12 @@ Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) >= 1.3.6
 Requires: ruby >= 1.8.7
-Requires: rubygem(activesupport) = 3.0.15
-Requires: rubygem(actionpack) = 3.0.15
-Requires: rubygem(activerecord) = 3.0.15
-Requires: rubygem(activeresource) = 3.0.15
-Requires: rubygem(actionmailer) = 3.0.15
-Requires: rubygem(railties) = 3.0.15
+Requires: rubygem(activesupport) = 3.0.17
+Requires: rubygem(actionpack) = 3.0.17
+Requires: rubygem(activerecord) = 3.0.17
+Requires: rubygem(activeresource) = 3.0.17
+Requires: rubygem(actionmailer) = 3.0.17
+Requires: rubygem(railties) = 3.0.17
 Requires: rubygem(bundler) => 1.0
 Requires: rubygem(bundler) < 2
 BuildRequires: ruby(abi) = %{rubyabi}
@@ -77,5 +77,5 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
-* Thu Jun 14 2012 jason - 3.0.15-1
+* Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package

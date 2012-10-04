@@ -1,11 +1,11 @@
-# Generated from activesupport-3.0.15.gem by gem2rpm -*- rpm-spec -*-
+# Generated from activesupport-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name activesupport
 %global rubyabi 1.9.1
 
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.15
+Version: 3.0.17
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -60,8 +60,8 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc /usr/share/gems/gems/activesupport-3.0.15/CHANGELOG
-%doc /usr/share/gems/gems/activesupport-3.0.15/README.rdoc
+%doc /usr/share/gems/gems/activesupport-3.0.17/CHANGELOG
+%doc /usr/share/gems/gems/activesupport-3.0.17/README.rdoc
 %changelog
-* Thu Jun 14 2012 jason - 3.0.15-1
+* Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package
