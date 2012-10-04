@@ -87,7 +87,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 /usr/share/gems/gems/fog-%{version}/changelog.txt
 /usr/share/gems/gems/fog-%{version}/docs/
 /usr/share/gems/gems/fog-%{version}/fog.gemspec
-/usr/share/gems/gems/fog-%{version}/spec/
 /usr/share/gems/gems/fog-%{version}/tests/
 
 %files doc

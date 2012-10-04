@@ -423,9 +423,6 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/gems/railties-3.0.17/lib/rails/generators/rails/app/templates/test/integration/.empty_directory
 %{gemdir}/gems/railties-3.0.17/lib/rails/generators/rails/app/templates/test/unit/.empty_directory
 %{gemdir}/gems/railties-3.0.17/lib/rails/generators/rails/generator/templates/templates/.empty_directory
-%{gemdir}/gems/railties-3.0.17/lib/rails/application/.bootstrap.rb.swp
-%{gemdir}/gems/railties-3.0.17/lib/rails/application/.configuration.rb.swp
-%{gemdir}/gems/railties-3.0.17/lib/rails/application/.finisher.rb.swp
 
 %doc %{gemdir}/doc/railties-3.0.17
 %{gemdir}/cache/railties-3.0.17.gem

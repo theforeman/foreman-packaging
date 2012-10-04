@@ -63,7 +63,6 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/.document
 %{gemdir}/gems/%{rbname}-%{version}/.gitignore
 %{gemdir}/gems/%{rbname}-%{version}/Gemfile
-%doc %{gemdir}/gems/%{rbname}-%{version}/README.rdoc
 %{gemdir}/gems/%{rbname}-%{version}/Rakefile
 %{gemdir}/gems/%{rbname}-%{version}/benchs/fog_vs.rb
 %{gemdir}/gems/%{rbname}-%{version}/benchs/params.rb
@@ -74,9 +73,10 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/fog.gemspec
 %{gemdir}/gems/%{rbname}-%{version}/lib/fog.rb
 %{gemdir}/gems/%{rbname}-%{version}/lib/fog/
-%{gemdir}/gems/%{rbname}-%{version}/spec/
 %{gemdir}/gems/%{rbname}-%{version}/tests/
 %{gemdir}/gems/%{rbname}-%{version}/.irbrc
+%{gemdir}/gems/%{rbname}-%{version}/.travis.yml
+%{gemdir}/gems/%{rbname}-%{version}/README.md
 
 #%doc %{gemdir}/doc/fog-%{version}
 %{gemdir}/cache/./fog-%{version}.gem
