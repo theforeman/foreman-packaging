@@ -6,7 +6,10 @@ Available Branches:
 el6
 f16
 f17
-debian_stable/foreman-proxy_nightly
-debian_stable/foreman-proxy_testing
-debian_stable/foreman_nightly
-debian_stable/foreman_testing
+
+debian
+======
+
+The Debian/Ubuntu packaging files are kept here too (despite the name). They reside in
+
+debian/<release>/<type>/<packagename>
