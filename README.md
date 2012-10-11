@@ -12,4 +12,4 @@ debian
 
 The Debian/Ubuntu packaging files are kept here too (despite the name). They reside in
 
-debian/<release>/<type>/<packagename>
+debian/[release]/[type]/[packagename]
