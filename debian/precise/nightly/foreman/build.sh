@@ -65,6 +65,9 @@ echo "$PACKAGE_NAME ($RELEASE) UNRELEASED; urgency=low
 cat debian/changelog.tmp >> debian/changelog
 rm -f debian/changelog.tmp
 
+# Add 'nightly' to VERSION
+echo "`cat VERSION`-${LAST_COMMIT}" > VERSION
+
 # Execute build using the pbuilder image in $1
 sudo pdebuild-$PBUILDER
 sudo chown -R jenkins:jenkins "${BUILD_DIR}"
