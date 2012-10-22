@@ -5,7 +5,7 @@
  Name:   foreman
  Version:1.0.1
 -Release:1%{dist}
-+Release:3%{dist}
++Release:4%{dist}
  Summary:Systems Management web application
  
  Group:  Applications/System
@@ -29,7 +29,7 @@
  Requires: rubygem(rake) >= 0.9.2.2
  Requires: rubygem(ruby_parser) >= 2.3.1
  Requires: rubygem(audited-activerecord) >= 3.0.0
-+Requires: rubygem(apipie-rails) >= 0.0.7
++Requires: rubygem(apipie-rails) >= 0.0.12
 +Requires: rubygem(oauth)
 +Requires: rubygem(rabl)
  Provides: %{name}-%{version}-%{release}
