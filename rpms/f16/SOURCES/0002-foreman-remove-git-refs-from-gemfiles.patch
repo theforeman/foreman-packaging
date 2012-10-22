@@ -9,4 +9,4 @@ diff -uNr foreman/Gemfile foreman-nogit/Gemfile
 +gem "has_many_polymorphs"
  gem "will_paginate", "~> 3.0.2"
  gem "ancestry", "~> 1.2.4"
- gem 'scoped_search', '>= 2.4.0'
+ gem 'scoped_search', '>= 2.4'
