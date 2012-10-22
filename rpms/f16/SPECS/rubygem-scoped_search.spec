@@ -63,37 +63,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %doc %{gemdir}/gems/scoped_search-%{version}/README.rdoc
 %{gemdir}/gems/scoped_search-%{version}/Rakefile
 %{gemdir}/gems/scoped_search-%{version}/init.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/auto_complete_builder.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/definition.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/query_builder.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/query_language.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/query_language/ast.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/query_language/parser.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/query_language/tokenizer.rb
-%{gemdir}/gems/scoped_search-%{version}/lib/scoped_search/rails_helper.rb
+%{gemdir}/gems/scoped_search-%{version}/lib/
 %{gemdir}/gems/scoped_search-%{version}/scoped_search.gemspec
-%{gemdir}/gems/scoped_search-%{version}/spec/database.yml
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/api_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/auto_complete_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/key_value_querying_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/ordinal_querying_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/profile_querying_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/relation_querying_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/set_query_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/integration/string_querying_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/lib/database.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/lib/matchers.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/lib/mocks.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/spec_helper.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/ast_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/auto_complete_builder_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/definition_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/parser_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/query_builder_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/spec/unit/tokenizer_spec.rb
-%{gemdir}/gems/scoped_search-%{version}/tasks/github-gem.rake
-
+%{gemdir}/gems/scoped_search-%{version}/spec/
+%{gemdir}/gems/scoped_search-%{version}/tasks/
 
 %doc %{gemdir}/doc/scoped_search-%{version}
 %{gemdir}/cache/scoped_search-%{version}.gem
