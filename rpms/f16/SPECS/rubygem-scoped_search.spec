@@ -67,6 +67,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/gems/scoped_search-%{version}/scoped_search.gemspec
 %{gemdir}/gems/scoped_search-%{version}/spec/
 %{gemdir}/gems/scoped_search-%{version}/tasks/
+%{gemdir}/gems/scoped_search-%{version}/.travis.yml
+%{gemdir}/gems/scoped_search-%{version}/Gemfile.activerecord2
+%{gemdir}/gems/scoped_search-%{version}/Gemfile.activerecord3
 
 %doc %{gemdir}/doc/scoped_search-%{version}
 %{gemdir}/cache/scoped_search-%{version}.gem
