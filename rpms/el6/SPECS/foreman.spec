@@ -394,8 +394,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
-%doc README
-%doc VERSION
 %exclude %{_datadir}/%{name}/bundler.d
 %{_datadir}/%{name}
 %{_initrddir}/%{name}
