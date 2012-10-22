@@ -1,5 +1,5 @@
 %define rbname scoped_search
-%define version 2.3.7
+%define version 2.4.0
 %define release 1
 
 Summary: Easily search you ActiveRecord models with a simple query language using a named scope.

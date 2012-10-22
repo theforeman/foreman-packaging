@@ -1,15 +1,15 @@
---- foreman.spec.release	2012-10-04 15:41:09.564560942 -0400
-+++ foreman.spec	2012-10-04 15:43:23.190208333 -0400
+--- foreman.spec.orig	2012-10-22 10:14:57.260817516 -0400
++++ foreman.spec	2012-10-22 10:15:25.812456516 -0400
 @@ -3,7 +3,7 @@
  
  Name:   foreman
  Version:1.0.1
 -Release:1%{dist}
-+Release:2%{dist}
++Release:3%{dist}
  Summary:Systems Management web application
  
  Group:  Applications/System
-@@ -31,7 +31,7 @@
+@@ -31,20 +31,23 @@
  Requires(preun): initscripts
  Requires(postun): initscripts
  Requires: rubygem(json)
@@ -18,7 +18,14 @@
  Requires: rubygem(jquery-rails)
  Requires: rubygem(rest-client)
  Requires: rubygem(acts_as_audited) = 2.0.0
-@@ -45,6 +45,9 @@
+ Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-3
+ Requires: rubygem(will_paginate) >= 3.0.2
+ Requires: rubygem(ancestry) >= 1.2.4
+-Requires: rubygem(scoped_search) >= 2.3.7
++Requires: rubygem(scoped_search) >= 2.4.0
+ Requires: rubygem(net-ldap)
+ Requires: rubygem(safemode) >= 1.0.1
+ Requires: rubygem(uuidtools)
  Requires: rubygem(rake) >= 0.9.2.2
  Requires: rubygem(ruby_parser) >= 2.3.1
  Requires: rubygem(audited-activerecord) >= 3.0.0
