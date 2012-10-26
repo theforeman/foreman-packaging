@@ -18,4 +18,4 @@ reprepro -b /root/foreman-reprepro -C $COMPONENT includedeb $DISTRO *deb
 
 # Push to shell.theforeman.org
 # Relies on ssh keys being set up
-rsync -av /root/foreman-reprepro/ greg@shell.theforeman.org:deb.theforeman.org/html/devel
+rsync -av /root/foreman-reprepro/ greg@shell.theforeman.org:deb.theforeman.org/html/
