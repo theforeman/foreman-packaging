@@ -10,7 +10,11 @@ DEB_PATH="$3"
 cd $3
 
 export GNUPGHOME=/root/foreman-reprepro/.gnupg
-dpkg-sig -k E775FF07 --sign builder *changes
+if [ -f *changes ] ; then
+  dpkg-sig -k E775FF07 --sign builder *changes
+else
+  dpkg-sig -k E775FF07 --sign builder *deb
+fi
 
 # TODO: fix this - can't rebuild packages at the moment (without manual intervention)
 # reprepro -b /root/foreman-reprepro -C stable remove squeeze foreman-proxy
