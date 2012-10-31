@@ -1,6 +1,8 @@
 #!/bin/bash
 
 export VERSION=$1
+export PLATFORM=$2
+
 export CHECKOUTDIR="/usr/share/foreman-installer"
 
 function clone_repo() {
@@ -22,18 +24,16 @@ function clean_repo() {
 
 function build_pkgs() {
   echo $VERSION > $CHECKOUTDIR/VERSION
-  for platform in "rpm" "deb"; do
-    fpm -s dir -t $platform -n "foreman-installer" -a all \
-      -v $VERSION $CHECKOUTDIR
-  done
+  fpm -s dir -t $PLATFORM -n "foreman-installer" -a all \
+    -v $VERSION $CHECKOUTDIR
 }
 
 function usage() {
-  echo "USAGE: ./build_installer_pkgs.sh <version>"
+  echo "USAGE: ./build_installer_pkgs.sh <version> <platform>"
   exit 1
 }
 
-if [ $# != 1 ]; then
+if [ $# != 2 ]; then
   usage
 fi
 
