@@ -123,13 +123,13 @@ case "$1" in
             echo
             RETVAL=1
         else
+            RETVAL=1
             for PID in $FOREMAN_PID
             do
-                RETVAL=${RETVAL:-0}
                 status -p $PID
+                RETURN=$? && [ "$RETVAL" != 0 ] && RETVAL=$RETURN
             done
         fi
-        RETVAL=${RETVAL:-1}
     ;;
     condrestart)
         if [ -f ${FOREMAN_HOME}/tmp/pids/server.pid ]; then
