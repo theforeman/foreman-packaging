@@ -1,15 +1,15 @@
---- foreman.spec.orig	2012-10-22 10:14:57.260817516 -0400
-+++ foreman.spec	2012-10-22 10:15:25.812456516 -0400
+--- foreman.spec.orig	2012-11-20 17:50:55.342169770 -0500
++++ foreman.spec	2012-11-20 17:55:35.664661183 -0500
 @@ -3,7 +3,7 @@
  
  Name:   foreman
  Version:1.0.1
 -Release:1%{dist}
-+Release:4%{dist}
++Release:5%{dist}
  Summary:Systems Management web application
  
  Group:  Applications/System
-@@ -31,20 +31,23 @@
+@@ -32,20 +32,23 @@
  Requires(preun): initscripts
  Requires(postun): initscripts
  Requires: rubygem(json)
@@ -35,12 +35,22 @@
  Provides: %{name}-%{version}-%{release}
  #Packager:   Ohad Levy <ohadlevy@gmail.com>
  
-@@ -127,7 +130,7 @@
+@@ -105,7 +108,7 @@
+ %package ovirt
+ Summary: Foreman ovirt support
+ Group:  Applications/System
+-Requires: rubygem(rbovirt) >= 0.0.12
++Requires: rubygem(rbovirt) >= 0.0.15
+ Requires: foreman-ec2-%{version}-%{release}
+ Requires: %{name}-%{version}-%{release}
+ 
+@@ -128,7 +131,7 @@
  %package ec2
  Summary: Foreman ec2 support
  Group:  Applications/System
 -Requires: rubygem-fog >= 1.4.0
-+Requires: rubygem-fog >= 1.6.0
++Requires: rubygem-fog >= 1.6.0-2
  Requires: %{name}-%{version}-%{release}
  Provides: foreman-ec2-%{version}-%{release}
  Obsoletes: foreman-fog
+
