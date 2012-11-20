@@ -13,6 +13,7 @@ Source0: http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
 Source1: foreman.repo
 Source2: foreman.init
 Source3: foreman.sysconfig
+Source4: foreman.logrotate
 Patch2: 0002-foreman-remove-git-refs-from-gemfiles.patch
 Patch3: 0003-foreman-mv-settings-into-place.patch
 
@@ -353,7 +354,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
-install -Dp -m0644 %{confdir}/logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
