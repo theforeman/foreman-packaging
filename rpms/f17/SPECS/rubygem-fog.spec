@@ -5,7 +5,7 @@
 Summary: brings clouds to you
 Name: rubygem-%{gem_name}
 Version: 1.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/fog/fog

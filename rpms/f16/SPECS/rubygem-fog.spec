@@ -1,6 +1,6 @@
 %define rbname fog
 %define version 1.6.0
-%define release 1
+%define release 2
 
 Summary: brings clouds to you
 Name: rubygem-%{rbname}
