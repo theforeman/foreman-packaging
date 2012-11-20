@@ -11,6 +11,7 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        http://theforeman.org/files/todo/%{name}-%{version}.tar.bz2
+Patch0:         proxy-rhel-extras.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -35,7 +36,7 @@ Mainly used by the foreman project (http://theforeman.org)
 
 %prep
 %setup -q -n %{name}
-
+%patch0 -p0
 %build
 
 %install
