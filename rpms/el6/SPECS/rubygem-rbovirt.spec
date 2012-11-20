@@ -68,10 +68,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/gems/%{rbname}-%{version}/lib/ovirt/volume.rb
 %{gemdir}/gems/%{rbname}-%{version}/lib/rbovirt.rb
 %{gemdir}/gems/%{rbname}-%{version}/rbovirt.gemspec
-%{gemdir}/gems/%{rbname}-%{version}/spec/integration/api_spec.rb
-%{gemdir}/gems/%{rbname}-%{version}/spec/integration/vm_crud_spec.rb
-%{gemdir}/gems/%{rbname}-%{version}/spec/spec_helper.rb
-%{gemdir}/gems/%{rbname}-%{version}/spec/unit/vm_spec.rb
+%{gemdir}/gems/%{rbname}-%{version}/spec/
 
 
 %doc %{gemdir}/doc/rbovirt-%{version}
