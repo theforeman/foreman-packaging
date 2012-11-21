@@ -16,7 +16,7 @@ Source3: foreman.sysconfig
 Source4: foreman.logrotate
 Patch2: 0002-foreman-remove-git-refs-from-gemfiles.patch
 Patch3: 0003-foreman-mv-settings-into-place.patch
-
+Patch4: remove-fog-git-ref.patch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:  noarch
@@ -341,7 +341,7 @@ plugins required for Foreman to work.
 %setup -q -n %{name}
 %patch2 -p1
 %patch3 -p1 
-
+%patch4 -p0
 %build
 
 %install
