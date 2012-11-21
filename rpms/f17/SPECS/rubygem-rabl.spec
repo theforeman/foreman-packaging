@@ -1,10 +1,10 @@
-# Generated from rabl-0.7.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rabl-0.7.5.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name rabl
 %global rubyabi 1.9.1
 
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.7.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -55,7 +55,7 @@ cp -a .%{gem_dir}/* \
 %files
 #%dir %{gem_instdir}
 #%{gem_libdir}
-/usr/share/gems/gems/rabl-0.7.0/
+/usr/share/gems/gems/rabl-0.7.5/
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -63,5 +63,5 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
-* Sun Aug 05 2012 jason - 0.7.0-1
+* Sun Aug 05 2012 jason - 0.7.5-1
 - Initial package
