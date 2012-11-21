@@ -5,7 +5,7 @@
  Name:   foreman
  Version:1.0.1
 -Release:1%{dist}
-+Release:6%{dist}
++Release:7%{dist}
  Summary:Systems Management web application
  
  Group:  Applications/System
@@ -31,7 +31,7 @@
  Requires: rubygem(audited-activerecord) >= 3.0.0
 +Requires: rubygem(apipie-rails) >= 0.0.12
 +Requires: rubygem(oauth)
-+Requires: rubygem(rabl)
++Requires: rubygem(rabl >= 0.7.5)
  Provides: %{name}-%{version}-%{release}
  #Packager:   Ohad Levy <ohadlevy@gmail.com>
  
