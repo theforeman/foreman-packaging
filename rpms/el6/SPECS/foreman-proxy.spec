@@ -3,14 +3,14 @@
 %global specdir extra/spec
 
 Name:           foreman-proxy
-Version:        1.0.0
+Version:        1.0
 Release:        3%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
-Source0:        http://theforeman.org/files/todo/%{name}-%{version}.tar.bz2
+Source0:        https://github.com/theforeman/smart-proxy/archive/%{version}.tar.gz
 Patch0:         proxy-rhel-extras.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -35,7 +35,7 @@ Manages DNS, DHCP, TFTP and puppet settinsg though HTTP Restful API
 Mainly used by the foreman project (http://theforeman.org)
 
 %prep
-%setup -q -n %{name}
+%setup -q -n smart-proxy-%{version}
 %patch0 -p0
 %build
 
