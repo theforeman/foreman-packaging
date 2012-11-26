@@ -9,7 +9,7 @@ Summary:Systems Management web application
 Group:  Applications/System
 License:GPLv3+
 URL: http://theforeman.org
-Source0: http://github.com/ohadlevy/%{name}/tarball/%{name}-%{version}.tar.bz2
+Source0: https://github.com/theforeman/foreman/archive/%{version}.tar.gz
 Source1: foreman.repo
 Source2: foreman.init
 Source3: foreman.sysconfig
@@ -338,7 +338,7 @@ Foreman is based on Ruby on Rails, and this package bundles Rails and all
 plugins required for Foreman to work.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{version}
 %patch2 -p1
 %patch3 -p1 
 %patch4 -p0
