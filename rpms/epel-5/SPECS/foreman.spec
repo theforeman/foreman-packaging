@@ -338,7 +338,7 @@ Foreman is based on Ruby on Rails, and this package bundles Rails and all
 plugins required for Foreman to work.
 
 %prep
-%setup -q -n %{version}
+%setup -q -n foreman-%{version}
 %patch2 -p1
 %patch3 -p1 
 %patch4 -p0
