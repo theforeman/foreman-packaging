@@ -1,17 +1,18 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
-%global specdir extra/spec
 
 Name:           foreman-proxy
-Version:        1.0
-Release:        3%{dist}
+Version:        1.0.0
+Release:        4%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        https://github.com/theforeman/smart-proxy/archive/%{version}.tar.gz
-Patch0:         proxy-rhel-extras.patch
+Source1:        foreman-proxy.service
+Source2:        foreman-proxy.tmpfiles
+Source3:        foreman-proxy.logrotate
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -23,10 +24,10 @@ Requires:       rubygem(sinatra)
 Requires:       rubygem(json)
 Requires:       rubygem(net-ping)
 Requires(pre):  shadow-utils
-Requires(post): chkconfig
-Requires(preun): chkconfig
-Requires(preun): initscripts
-Requires(postun): initscripts
+Requires(post): systemd-sysv
+Requires(post): systemd-units
+Requires(preun): systemd-units
+Requires(postun): systemd-units
 
 Packager:       Lukas Zapletal <lzap+git@redhat.com>
 
@@ -36,7 +37,6 @@ Mainly used by the foreman project (http://theforeman.org)
 
 %prep
 %setup -q -n smart-proxy-%{version}
-%patch0 -p0
 %build
 
 %install
@@ -48,9 +48,9 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
-install -Dp -m0644 %{specdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-install -Dp -m0755 %{specdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
-install -Dp -m0644 %{specdir}/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
+install -Dp -m0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
+install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 cp -p -r bin lib Rakefile %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb
@@ -81,10 +81,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,0755)
 %doc README
 %{_datadir}/%{name}
-%{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%{_unitdir}/%{name}.service
+%{_prefix}/lib/tmpfiles.d/%{name}.conf
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
@@ -99,21 +99,33 @@ getent passwd foreman-proxy >/dev/null || \
 exit 0
 
 %post
-/sbin/chkconfig --add %{name}
-exit 0
+if [ $1 -eq 1 ]; then
+  /bin/systemctl daemon-reload >/dev/null 2>&1 || :
+fi
 
 %preun
-if [ $1 -eq 0 ] ; then
-  /sbin/service %{name} stop >/dev/null 2>&1
-  /sbin/chkconfig --del %{name}
+if [ $1 -eq 0 ]; then
+  # Package removal, not upgrade
+  /bin/systemctl --no-reload disable foreman-proxy.service >/dev/null 2>&1 || :
+  /bin/systemctl stop foreman-proxy.service >/dev/null 2>&1 || :
 fi
 
 %postun
+/bin/systemctl daemon-reload >/dev/null 2>&1 || :
 if [ $1 -ge 1 ] ; then
-  /sbin/service %{name} restart >/dev/null 2>&1
+  # Package upgrade, not uninstall
+  /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
 fi
 
+%triggerun -- foreman-proxy < 1.0.0-4
+/usr/bin/systemd-sysv-convert --save foreman-proxy >/dev/null 2>&1 ||:
+/sbin/chkconfig --del foreman-proxy >/dev/null 2>&1 || :
+/bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
+
 %changelog
+* Wed Nov 28 2012 Dominic Cleal <dcleal@redhat.com> 1.0.0-4
+- Convert to systemd
+- Fix missing /var/run/foreman-proxy with tmpfiles.d
 * Thu Aug 30 2012 jmontleo@redhat.com 1.0.0-3
 - Update to include up to 330dbef353
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2
