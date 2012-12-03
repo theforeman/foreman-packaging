@@ -13,6 +13,9 @@ FOREMAN_HOME=/usr/share/foreman
 # Expire old reports
 30 7 * * *      foreman    cd ${FOREMAN_HOME} && /usr/bin/rake reports:expire
 
+# Collects trends data
+*/30 * * * *    foreman    cd ${FOREMAN_HOME} && /usr/bin/rake trends:counter
+
 
 # Only use the following cronjob if you're using stored configs!
 # Populate hosts
