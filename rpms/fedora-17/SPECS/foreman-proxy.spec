@@ -17,6 +17,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 
+BuildRequires:  systemd-units
 Requires:       ruby(abi) = 1.9.1
 Requires:       rubygems
 Requires:       rubygem(rake) >= 0.8.3
