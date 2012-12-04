@@ -13,13 +13,17 @@ set -e
 
 PACKAGE_NAME='foreman'
 
-# Name of the pbuilder env to use
-PBUILDER="$1"
+# Name of the pbuilder env to use, local for on-the-host
+if [ "$1" == "" ] ; then
+  PBUILDER="local"
+else
+  PBUILDER="$1"
+fi
 
 # We use readlink to get an absolute path to the Jenkins
 # checkout, but readlink expects the path to exist
-mkdir -p "../$1"
-BUILD_DIR=`readlink -f ../$1`
+mkdir -p "../$PBUILDER"
+BUILD_DIR=`readlink -f ../$PBUILDER`
 TARGET="${BUILD_DIR}/${PACKAGE_NAME}"
 
 REPO='git://github.com/theforeman/foreman.git'
@@ -68,6 +72,8 @@ rm -f debian/changelog.tmp
 # Add 'nightly' to VERSION
 echo "`cat VERSION`-${LAST_COMMIT}" > VERSION
 
-# Execute build using the pbuilder image in $1
-sudo pdebuild-$PBUILDER
-sudo chown -R jenkins:jenkins "${BUILD_DIR}"
+if [ "$PBUILDER" != "local" ] ; then
+  # Execute build using the pbuilder image in $1
+  sudo pdebuild-$PBUILDER
+  sudo chown -R jenkins:jenkins "${BUILD_DIR}"
+fi
