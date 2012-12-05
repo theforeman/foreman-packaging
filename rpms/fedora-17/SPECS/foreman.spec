@@ -14,6 +14,7 @@ Source1: foreman.repo
 Source2: foreman.init
 Source3: foreman.sysconfig
 Source4: foreman.logrotate
+Source5: foreman.cron.d
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:  noarch
@@ -23,6 +24,7 @@ Requires: rubygems
 Requires: facter
 Requires: puppet >= 0.24.4
 Requires: wget
+Requires: /etc/cron.d
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
@@ -353,6 +355,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
@@ -400,6 +403,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config %{_sysconfdir}/cron.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
