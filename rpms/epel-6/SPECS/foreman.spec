@@ -14,9 +14,6 @@ Source1: foreman.repo
 Source2: foreman.init
 Source3: foreman.sysconfig
 Source4: foreman.logrotate
-Patch2: 0002-foreman-remove-git-refs-from-gemfiles.patch
-Patch3: 0003-foreman-mv-settings-into-place.patch
-Patch4: remove-fog-git-ref.patch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:  noarch
@@ -339,9 +336,10 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n foreman-%{version}
-%patch2 -p1
-%patch3 -p1 
-%patch4 -p0
+# Remove the references to git data in the Gemfile. This regex removes
+# everything after the first comma, potentially including version
+# information if it's specified.
+sed -i 's/,.*//' Gemfile
 %build
 
 %install
@@ -368,6 +366,7 @@ find %{buildroot}%{_datadir}/%{name} -type d -name "test" |xargs rm -rf
 # Move config files to %{_sysconfdir}
 mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_datadir}/%{name}/config/database.yml
 mv %{buildroot}%{_datadir}/%{name}/config/email.yaml.example %{buildroot}%{_datadir}/%{name}/config/email.yaml
+mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_datadir}/%{name}/config/settings.yaml
 for i in database.yml email.yaml settings.yaml; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
