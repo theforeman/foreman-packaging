@@ -71,8 +71,7 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/changelog.txt
 %{gemdir}/gems/%{rbname}-%{version}/docs/
 %{gemdir}/gems/%{rbname}-%{version}/fog.gemspec
-%{gemdir}/gems/%{rbname}-%{version}/lib/fog.rb
-%{gemdir}/gems/%{rbname}-%{version}/lib/fog/
+%{gemdir}/gems/%{rbname}-%{version}/lib/
 %{gemdir}/gems/%{rbname}-%{version}/tests/
 %{gemdir}/gems/%{rbname}-%{version}/.irbrc
 %{gemdir}/gems/%{rbname}-%{version}/.travis.yml
