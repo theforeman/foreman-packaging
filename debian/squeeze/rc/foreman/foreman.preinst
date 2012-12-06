@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+if [ ! -z "${DEBUG}" ]; then set -x; fi
+
+#DEBHELPER#
+
+exit 0
