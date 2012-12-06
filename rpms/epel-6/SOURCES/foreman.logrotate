@@ -5,8 +5,8 @@
   sharedscripts
   rotate 5
   compress
-	daily
+  daily
   postrotate
-    [ -e /etc/init.d/foreman ] && /etc/init.d/foreman condrestart >/dev/null 2>&1 || true
+    /sbin/service foreman condrestart >/dev/null 2>&1 || true
   endscript
 }
