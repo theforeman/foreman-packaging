@@ -341,7 +341,9 @@ plugins required for Foreman to work.
 # Remove the references to git data in the Gemfile. This regex removes
 # everything after the first comma, potentially including version
 # information if it's specified.
+sed -i 1d Gemfile
 sed -i 's/,.*//' Gemfile
+sed -i "1i\require File.expand_path('../config/settings', __FILE__)" Gemfile
 %build
 
 %install
