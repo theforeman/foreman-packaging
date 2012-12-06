@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+# Uncomment this to turn on verbose mode.
+#DEB_VERBOSE_ALL=1
+#DH_VERBOSE=1
+
+binary-install/foreman::
+	# Cleanup unused files
+	find debian/foreman -name '.cvsignore' -type f | xargs rm -f
+	find debian/foreman -name '.gitignore' -type f | xargs rm -f
+	find debian/foreman -name '.git' -type d | xargs rm -rf
+	find debian/foreman -name '.svn' -type d | xargs rm -rf
+	# Mark scripts as executable
+	# Patch environments.rb - necessary since changing source format to 3.0 (native)
+	# patch -p0 debian/foreman/usr/share/foreman/config/environment.rb debian/patches/01_gem_dependencies.patch
