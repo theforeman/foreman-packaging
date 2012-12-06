@@ -3,16 +3,15 @@ Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
 Section: web
 Priority: extra
 Standards-Version: 3.9.1
-Build-Depends: debhelper (>= 7), cdbs
+Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby1.8-dev | ruby1.9.1-dev, git | git-core
 Homepage: http://www.theforeman.org/
 
 Package: foreman
-Architecture: all
+Architecture: any
 Section: web
 Priority: extra
-Depends: rubygems1.8 | ruby1.9.1, ruby-bundler, ruby1.8-dev | ruby1.9.1-dev,
-         git | git-core, puppet (>=0.24.4), rake (>=0.8.4), ${misc:Depends}
-#OLD Depends: ruby-dev, dbconfig-common, librestclient-ruby (>= 1.4.0), libjson-ruby # for reference
+Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2),
+         puppet (>=0.24.4), rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
