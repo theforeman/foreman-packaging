@@ -35,10 +35,12 @@ chmod 755 '/var/cache/foreman'
 # Install gems - run twice as the postinst makes no distinction between install or upgrade
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  bundle install --path ./vendor/
+  # rescue this as install will fail if a Gemfile.lock is present
+  bundle install --path ./vendor/ || true
   bundle update
 else
-  bundle install --path ./vendor/ 2>&1 >/dev/null
+  # rescue this as install will fail if a Gemfile.lock is present
+  bundle install --path ./vendor/ 2>&1 >/dev/null || true
   bundle update 2>&1 >/dev/null
 fi
 
