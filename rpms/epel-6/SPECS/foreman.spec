@@ -31,7 +31,7 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.15
+Requires: rubygem(rails) = 3.0.17
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
@@ -45,6 +45,7 @@ Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 2.3.1
 Requires: rubygem(audited-activerecord) >= 3.0.0
+Requires: rubygem(oauth)
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
