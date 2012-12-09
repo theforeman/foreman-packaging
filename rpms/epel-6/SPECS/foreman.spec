@@ -1,15 +1,25 @@
 %global homedir %{_datadir}/%{name}
 %global confdir extras/spec
+# RC version - set 0 to build stable release
+%global rc_version  RC1
 
 Name:   foreman
-Version: 1.0.1
+Version: 1.1
+%if %{rc_version}
+Release: 1.%{rc_version}%{dist}
+%else
 Release: 1%{dist}
+%endif
 Summary:Systems Management web application
 
 Group:  Applications/System
 License:GPLv3+
 URL: http://theforeman.org
+%if %{rc_version}
+Source0: %{name}-%{version}%{rc_version}.tar.gz
+%else
 Source0: https://github.com/theforeman/foreman/archive/%{version}.tar.gz
+%endif
 Source1: foreman.repo
 Source2: foreman.init
 Source3: foreman.sysconfig
@@ -31,20 +41,22 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.15
+Requires: rubygem(rails) = 3.0.17
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
-Requires: rubygem(acts_as_audited) = 2.0.0
+Requires: rubygem(audited-activerecord) >= 3.0.0.rc1
 Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-3
 Requires: rubygem(will_paginate) >= 3.0.2
-Requires: rubygem(ancestry) >= 1.2.4
-Requires: rubygem(scoped_search) >= 2.3.7
+Requires: rubygem(ancestry) >= 1.3
+Requires: rubygem(scoped_search) >= 2.4.0
 Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.0.1
 Requires: rubygem(uuidtools)
-Requires: rubygem(rake) >= 0.9.2.2
+Requires: rubygem(apipie-rails) >= 0.0.12
+Requires: rubygem(rabl) >= 0.7.5
 Requires: rubygem(ruby_parser) >= 2.3.1
-Requires: rubygem(audited-activerecord) >= 3.0.0
+Requires: rubygem(oauth)
+Requires: rubygem(rake) >= 0.9.2.2
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
@@ -75,7 +87,7 @@ Fedora. This package contains the repository configuration for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
-Requires: rubygem(virt) >= 0.2.1
+Requires: rubygem(ruby-libvirt)
 Requires: %{name}-%{version}-%{release}
 Requires: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-virt
@@ -104,7 +116,7 @@ fi
 %package ovirt
 Summary: Foreman ovirt support
 Group:  Applications/System
-Requires: rubygem(rbovirt) >= 0.0.12
+Requires: rubygem(rbovirt) >= 0.0.15
 Requires: foreman-ec2-%{version}-%{release}
 Requires: %{name}-%{version}-%{release}
 
@@ -127,7 +139,7 @@ fi
 %package ec2
 Summary: Foreman ec2 support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.4.0
+Requires: rubygem-fog >= 1.8
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-fog
@@ -220,7 +232,7 @@ fi
 %package mysql2
 Summary: Foreman mysql2 support
 Group:  Applications/System
-Requires: rubygem(mysql2)
+Requires: rubygem(mysql2) < 0.3
 Requires: %{name}-%{version}-%{release}
 
 %description mysql2
@@ -337,13 +349,19 @@ Foreman is based on Ruby on Rails, and this package bundles Rails and all
 plugins required for Foreman to work.
 
 %prep
-%setup -q -n foreman-%{version}
-# Remove the references to git data in the Gemfile. This regex removes
-# everything after the first comma, potentially including version
-# information if it's specified.
-sed -i 1d Gemfile
-sed -i 's/,.*//' Gemfile
-sed -i "1i\require File.expand_path('../config/settings', __FILE__)" Gemfile
+%if %{?rc_version}
+%setup -q -n %{name}-%{version}%{rc_version}
+%else
+%setup -q -n %{name}-%{version}
+%endif
+
+# Remove the references to git data in the Gemfile.
+# This handles gems with both double and single quotes around the name
+# replacing with single quotes
+sed -i \
+    -e "s|^gem [\"']\(.*\)[\"'], :git.*|gem '\1'|g" \
+    Gemfile
+
 %build
 
 %install
