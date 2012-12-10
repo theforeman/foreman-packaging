@@ -18,9 +18,9 @@ trap db_stop EXIT
 # Update gems
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  bundle update
+  bundle update --local
 else
-  bundle update 2>&1 >/dev/null
+  bundle update --local 2>&1 >/dev/null
 fi
 
 # Run a db:migrate if the user has created a dbfile
