@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.8-dev, git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
-               libvirt-dev
+               libvirt-dev, libsqlite3-dev
 Homepage: http://www.theforeman.org/
 
 Package: foreman
