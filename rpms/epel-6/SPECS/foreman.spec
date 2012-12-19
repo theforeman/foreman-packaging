@@ -475,6 +475,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Dec 19 2012 jmontleo@redhat.com 1.0.2-1
+- Fix Foreman SQL injection through search mechanism CVE-2012-5648
 * Thu Aug 09 2012 jmontleo@redhat.com 1.0.1-1
 - Version 1.0.1
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2
