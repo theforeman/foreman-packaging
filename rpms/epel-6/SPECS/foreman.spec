@@ -2,7 +2,7 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{dist}
 Summary:Systems Management web application
 
