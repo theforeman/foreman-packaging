@@ -2,7 +2,7 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.0.1
+Version: 1.1RC3
 Release: 1%{dist}
 Summary:Systems Management web application
 
@@ -31,20 +31,22 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.15
+Requires: rubygem(rails) = 3.0.17
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
-Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-3
 Requires: rubygem(will_paginate) >= 3.0.2
 Requires: rubygem(ancestry) >= 1.2.4
 Requires: rubygem(scoped_search) >= 2.3.7
 Requires: rubygem(net-ldap)
-Requires: rubygem(safemode) >= 1.0.1
+Requires: rubygem(safemode) >= 1.1.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
-Requires: rubygem(ruby_parser) >= 2.3.1
+Requires: rubygem(ruby_parser) >= 3.0.0
 Requires: rubygem(audited-activerecord) >= 3.0.0
+Requires: rubygem(rabl)
+Requires: rubygem(apipie-rails)
+Requires: rubygem(oauth)
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
@@ -104,7 +106,7 @@ fi
 %package ovirt
 Summary: Foreman ovirt support
 Group:  Applications/System
-Requires: rubygem(rbovirt) >= 0.0.12
+Requires: rubygem(rbovirt) >= 0.0.15
 Requires: foreman-ec2-%{version}-%{release}
 Requires: %{name}-%{version}-%{release}
 
@@ -127,7 +129,7 @@ fi
 %package ec2
 Summary: Foreman ec2 support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.4.0
+Requires: rubygem-fog >= 1.8.0
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-fog
@@ -475,6 +477,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Thu Dec 27 2012 shk@redhat.com 1.1RC3-1
+- Updated to 1.1RC3 and updated dependencies.
 * Thu Aug 09 2012 jmontleo@redhat.com 1.0.1-1
 - Version 1.0.1
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2

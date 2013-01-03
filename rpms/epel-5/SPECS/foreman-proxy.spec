@@ -3,8 +3,8 @@
 %global specdir extra/spec
 
 Name:           foreman-proxy
-Version:        1.0
-Release:        3%{dist}
+Version:        1.1RC1
+Release:        1%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
@@ -21,7 +21,6 @@ Requires:       rubygems
 Requires:       rubygem(rake) >= 0.8.3
 Requires:       rubygem(sinatra)
 Requires:       rubygem(json)
-Requires:       rubygem(net-ping)
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
@@ -114,6 +113,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
+- Update to 1.1RC1
 * Thu Aug 30 2012 jmontleo@redhat.com 1.0.0-3
 - Update to include up to 330dbef353
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2

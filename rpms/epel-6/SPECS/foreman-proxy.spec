@@ -3,8 +3,8 @@
 %global specdir extra/spec
 
 Name:           foreman-proxy
-Version:        1.0
-Release:        3%{dist}
+Version:        1.1RC1
+Release:        1%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System

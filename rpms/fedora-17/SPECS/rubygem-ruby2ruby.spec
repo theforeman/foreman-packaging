@@ -1,25 +1,23 @@
-# Generated from ruby2ruby-1.3.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from ruby2ruby-%{version}.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby2ruby
 %global rubyabi 1.9.1
 
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 Name: rubygem-%{gem_name}
-Version: 1.3.1
+Version: 2.0.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/seattlerb/ruby2ruby
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-Requires: ruby 
-Requires: rubygem(sexp_processor) => 3.0
-Requires: rubygem(sexp_processor) < 4
-Requires: rubygem(ruby_parser) => 2.0
-Requires: rubygem(ruby_parser) < 3
+Requires: ruby(rubygems)
+Requires: ruby
+Requires: rubygem(sexp_processor) => 4.1.2
+Requires: rubygem(ruby_parser) >= 3.0.1
 BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: rubygems-devel 
-BuildRequires: ruby 
+BuildRequires: rubygems-devel
+BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
@@ -67,7 +65,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/ruby2ruby-1.3.1/
+/usr/share/gems/gems/ruby2ruby-%{version}/
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/History.txt

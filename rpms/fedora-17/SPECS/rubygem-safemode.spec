@@ -1,10 +1,10 @@
-# Generated from safemode-1.0.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from safemode-%{version}.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name safemode
 %global rubyabi 1.9.1
 
 Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
 Name: rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.1.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -13,8 +13,9 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby 
-Requires: rubygem(ruby2ruby) 
-Requires: rubygem(ruby_parser) 
+Requires: rubygem(ruby2ruby) >= 2.0.1
+Requires: rubygem(sexp_processor) >= 4.1.2
+Requires: rubygem(ruby_parser)
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
@@ -57,11 +58,13 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/safemode-1.0.1/
+/usr/share/gems/gems/safemode-%{version}/
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.markdown
 
 %changelog
+* Thu Jan 3 2012 shk@redhat.com - 1.1.0-1
+* Updated to 1.1.0 and added sexp_processor dependency
 * Thu Jun 14 2012 jason - 1.0.1-1
 - Initial package
