@@ -1,3 +1,10 @@
+foreman (1.1+ubuntu0.1rc3) precise; urgency=low
+
+  * 1.1 rc3
+  * Use new packaging format that works offline
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Thu, 02 Jan 2013 12:52:00 +0100
+
 foreman (1.0.99+ubuntu2rc1) precise; urgency=low
 
   * Protect "bundle install" from failure
