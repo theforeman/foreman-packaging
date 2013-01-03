@@ -14,5 +14,3 @@ build/foreman::
 	/bin/cp config/settings.yaml.example config/settings.yaml
 	/usr/bin/bundle pack --all
 	/bin/rm config/settings.yaml
-	if [ -f patch.done ] ; then echo "skip patch" ; else \
-	/usr/bin/patch -p0 Gemfile debian/01_gem_dependencies.patch && touch patch.done ; fi
