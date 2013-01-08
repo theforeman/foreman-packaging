@@ -32,12 +32,18 @@ chmod 755 '/var/lib/foreman/public/javascripts'
 chmod 755 '/var/lib/foreman/public/stylesheets'
 chmod 755 '/var/cache/foreman'
 
-# Bundle install works even if we're already installed, so always use it
+# Test for Gemfile.lock to determine the right action.
 cd /usr/share/foreman
-if [ ! -z "${DEBUG}" ]; then
-  bundle install --path ./vendor/ --local --no-prune
+if [ -f Gemfile.lock ]; then
+  CMD="bundle update --local"
 else
-  bundle install --path ./vendor/ --local --no-prune 2>&1 >/dev/null
+  CMD="bundle install --path ./vendor/ --local --no-prune"
+fi
+
+if [ ! -z "${DEBUG}" ]; then
+  $CMD
+else
+  $CMD 2>&1 >/dev/null
 fi
 
 # Run a db:migrate if the user has created a dbfile
