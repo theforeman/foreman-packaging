@@ -9,4 +9,8 @@ if [ ! -z "${DEBUG}" ]; then set -x; fi
 
 #DEBHELPER#
 
+if [ -f /usr/share/foreman/config/initializers/local_secret_token.rb ]; then
+  rm -f /usr/share/foreman/config/initializers/local_secret_token.rb
+fi
+
 exit 0
