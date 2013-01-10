@@ -3,7 +3,7 @@
 %global specdir extra/spec
 
 Name:           foreman-proxy
-Version:        1.1RC1
+Version:        1.1RC2
 Release:        1%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -113,6 +113,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Jan 09 2012 shk@redhat.com 1.1-RC2-1
+- Updated to RC2
+- Removed net-ping dependency
 * Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
 - Update to 1.1RC1
 * Thu Aug 30 2012 jmontleo@redhat.com 1.0.0-3

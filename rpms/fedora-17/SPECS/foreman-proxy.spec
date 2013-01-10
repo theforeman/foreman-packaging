@@ -2,8 +2,8 @@
 %global confdir config
 
 Name:           foreman-proxy
-Version:        1.0.0
-Release:        4%{dist}
+Version:        1.1RC2
+Release:        1%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
@@ -23,7 +23,6 @@ Requires:       rubygems
 Requires:       rubygem(rake) >= 0.8.3
 Requires:       rubygem(sinatra)
 Requires:       rubygem(json)
-Requires:       rubygem(net-ping)
 Requires(pre):  shadow-utils
 Requires(post): systemd-sysv
 Requires(post): systemd-units
@@ -124,6 +123,11 @@ fi
 /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
 
 %changelog
+* Jan 09 2012 shk@redhat.com 1.1-RC2-1
+- Updated to RC2 
+- Removed net-ping dependency
+* Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
+- Update to 1.1RC
 * Wed Nov 28 2012 Dominic Cleal <dcleal@redhat.com> 1.0.0-4
 - Convert to systemd
 - Fix missing /var/run/foreman-proxy with tmpfiles.d
