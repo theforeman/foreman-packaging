@@ -123,8 +123,8 @@ fi
 /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
 
 %changelog
-* Jan 09 2012 shk@redhat.com 1.1-RC2-1
-- Updated to RC2 
+* Jan 09 2013 shk@redhat.com 1.1-RC2-1
+- Updated to RC2
 - Removed net-ping dependency
 * Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
 - Update to 1.1RC
