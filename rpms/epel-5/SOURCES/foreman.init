@@ -49,6 +49,7 @@ start() {
     if [ $RETVAL = 0 ]
     then
         echo_success
+        touch /var/lock/subsys/foreman
     else
         echo_failure
     fi
@@ -72,7 +73,20 @@ stop() {
         fi
     done
     echo
+    [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/foreman
     return $RETVAL
+}
+
+restart() {
+    if [ ${FOREMAN_USE_PASSENGER} = 1 ]
+    then
+        railsrestart
+        RETVAL=$?
+    else
+        stop
+        start
+        RETVAL=$?
+    fi
 }
 
 railsrestart() {
@@ -104,15 +118,7 @@ case "$1" in
         RETVAL=$?
     ;;
     restart)
-        if [ ${FOREMAN_USE_PASSENGER} = 1 ]
-        then
-            railsrestart
-            RETVAL=$?
-        else
-            stop
-            start
-            RETVAL=$?
-        fi
+        restart
     ;;
     status)
         echo -n "Foreman"
@@ -132,9 +138,11 @@ case "$1" in
         fi
     ;;
     condrestart)
-        if [ -f ${FOREMAN_HOME}/tmp/pids/server.pid ]; then
+        if [ -e /var/lock/subsys/foreman ]; then
             restart
             RETVAL=$?
+        else
+            RETVAL=0
         fi
         ;;
 

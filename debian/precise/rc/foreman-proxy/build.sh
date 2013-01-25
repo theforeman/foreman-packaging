@@ -1,8 +1,8 @@
 PACKAGE_NAME='foreman-proxy'
 
 REPO='git://github.com/theforeman/smart-proxy.git'
-BRANCH='9a38704839f089942683842e6ebc369cb8502181'
+BRANCH='22431e9072e3b2c60ed2c8c2ed28fd92cb2b49ca'
 
 function setup_build {
-  echo "stable: skipping setup for nightly"
+  echo "rc: skipping setup for nightly"
 }

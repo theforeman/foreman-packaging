@@ -32,20 +32,18 @@ chmod 755 '/var/lib/foreman/public/javascripts'
 chmod 755 '/var/lib/foreman/public/stylesheets'
 chmod 755 '/var/cache/foreman'
 
-# Gem setup. We can detect if this is an upgrade by the presence of a Gemfile.lock
+# Test for Gemfile.lock to determine the right action.
 cd /usr/share/foreman
-if [ ! -z "${DEBUG}" ]; then
-  if [ -f Gemfile.lock ]; then
-    bundle update
-  else
-    bundle install --path ./vendor/
-  fi
+if [ -f Gemfile.lock ]; then
+  CMD="bundle update --local"
 else
-  if [ -f Gemfile.lock ]; then
-    bundle update 2>&1 >/dev/null
-  else
-    bundle install --path ./vendor/ 2>&1 >/dev/null
-  fi
+  CMD="bundle install --path ./vendor/ --local --no-prune"
+fi
+
+if [ ! -z "${DEBUG}" ]; then
+  $CMD
+else
+  $CMD 2>&1 >/dev/null
 fi
 
 # Run a db:migrate if the user has created a dbfile

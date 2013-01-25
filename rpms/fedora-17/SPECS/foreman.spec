@@ -2,7 +2,7 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.1RC4
+Version: 1.1RC5
 Release: 1%{dist}
 Summary:Systems Management web application
 
@@ -31,7 +31,7 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.17
+Requires: rubygem(rails) = 3.0.19
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
@@ -477,8 +477,12 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Jan 25 2012 shk@redhat.com 1.1RC5-1
+- Updated Rails requirements and bumped to RC5.
 * Thu Dec 27 2012 shk@redhat.com 1.1RC3-1
 - Updated to 1.1RC3 and updated dependencies.
+* Wed Dec 19 2012 jmontleo@redhat.com 1.0.2-1
+- Fix Foreman SQL injection through search mechanism CVE-2012-5648
 * Thu Aug 09 2012 jmontleo@redhat.com 1.0.1-1
 - Version 1.0.1
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2
