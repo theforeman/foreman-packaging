@@ -96,6 +96,8 @@ Architecture: all
 Section: web
 Priority: extra
 Replaces: foreman-fog
+Provides: foreman-fog
+Conflicts: foreman-fog
 Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
 Description: metapackage providing fog dependencies for Foreman (for Amazon EC2 support)
  This package provides fog dependencies for Foreman, a
