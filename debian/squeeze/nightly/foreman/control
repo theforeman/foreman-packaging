@@ -91,10 +91,11 @@ Description: metapackage providing development dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
-Package: foreman-fog
+Package: foreman-compute
 Architecture: all
 Section: web
 Priority: extra
+Replaces: foreman-fog
 Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
 Description: metapackage providing fog dependencies for Foreman (for Amazon EC2 support)
  This package provides fog dependencies for Foreman, a
@@ -106,9 +107,9 @@ Package: foreman-libvirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-fog, pkg-config, libvirt-dev, ${misc:Depends}
+Depends: foreman, foreman-compute, pkg-config, libvirt-dev, ${misc:Depends}
 Description: metapackage providing libvirt dependencies for Foreman
- This package provides fog dependencies for Foreman, a
+ This package provides libvirt dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
@@ -128,7 +129,7 @@ Package: foreman-ovirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-fog, ${misc:Depends}
+Depends: foreman, foreman-compute, ${misc:Depends}
 Description: metapackage providing ovirt dependencies for Foreman
  This package provides ovirt dependencies for Foreman, a
  flexible systems management web application.
@@ -150,7 +151,7 @@ Package: foreman-vmware
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-fog, ${misc:Depends}
+Depends: foreman, foreman-compute, ${misc:Depends}
 Description: metapackage providing vmware dependencies for Foreman
  This package provides vmware dependencies for Foreman, a
  flexible systems management web application.
