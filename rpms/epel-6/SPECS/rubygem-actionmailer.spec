@@ -1,5 +1,5 @@
 %define rbname actionmailer
-%define version 3.0.17
+%define version 3.0.19
 %define release 1
 
 Summary: Email composition, delivery, and receiving framework (part of Rails).
@@ -16,7 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
 
-Requires: rubygem-actionpack = 3.0.17
+Requires: rubygem-actionpack = %{version}
 
 Requires: rubygem-mail => 2.2.19
 Requires: rubygem-mail > 2.3
@@ -53,30 +53,32 @@ rm ./0001-rubygem-actionmailer-fix-dep-versions.patch
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/actionmailer-3.0.17/CHANGELOG
-%{gemdir}/gems/actionmailer-3.0.17/README.rdoc
-%{gemdir}/gems/actionmailer-3.0.17/MIT-LICENSE
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/adv_attr_accessor.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/base.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/collector.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/delivery_methods.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/deprecated_api.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/log_subscriber.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/mail_helper.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/old_api.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/railtie.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/test_case.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/test_helper.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/tmail_compat.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer/version.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/action_mailer.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/rails/generators/mailer/mailer_generator.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/rails/generators/mailer/templates/mailer.rb
-%{gemdir}/gems/actionmailer-3.0.17/lib/rails/generators/mailer/USAGE
+%{gemdir}/gems/actionmailer-%{version}/CHANGELOG
+%{gemdir}/gems/actionmailer-%{version}/README.rdoc
+%{gemdir}/gems/actionmailer-%{version}/MIT-LICENSE
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/adv_attr_accessor.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/base.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/collector.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/delivery_methods.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/deprecated_api.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/log_subscriber.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/mail_helper.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/old_api.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/railtie.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/test_case.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/test_helper.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/tmail_compat.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer/version.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/action_mailer.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/rails/generators/mailer/mailer_generator.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/rails/generators/mailer/templates/mailer.rb
+%{gemdir}/gems/actionmailer-%{version}/lib/rails/generators/mailer/USAGE
 
 
-%doc %{gemdir}/doc/actionmailer-3.0.17
-%{gemdir}/cache/actionmailer-3.0.17.gem
-%{gemdir}/specifications/actionmailer-3.0.17.gemspec
+%doc %{gemdir}/doc/actionmailer-%{version}
+%{gemdir}/cache/actionmailer-%{version}.gem
+%{gemdir}/specifications/actionmailer-%{version}.gemspec
 
 %changelog
+* Fri Jan 25 2013 shk@redhat.com 3.0.19-1
+- Updated to 3.0.19
