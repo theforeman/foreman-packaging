@@ -478,7 +478,7 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
-* Fri Jan 25 2012 shk@redhat.com 1.1RC5-1
+* Fri Jan 25 2013 shk@redhat.com 1.1RC5-1
 - Updated Rails requirements and bumped to RC5.
 * Thu Dec 27 2012 shk@redhat.com 1.1RC3-1
 - Updated to 1.1RC3 and updated dependencies.
