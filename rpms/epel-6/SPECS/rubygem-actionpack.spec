@@ -237,3 +237,4 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %changelog
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
+- Updates to 3.0.19

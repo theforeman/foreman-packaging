@@ -1,5 +1,5 @@
 %define rbname fog
-%define version 1.8.0
+%define version 1.9.0
 %define release 1
 
 Summary: brings clouds to you
@@ -12,7 +12,7 @@ License: Distributable
 URL: http://github.com/fog/fog
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby 
+Requires: ruby
 Requires: rubygems >= 1.8.10
 Requires: rubygem-builder 
 Requires: rubygem-excon >= 0.14.0
@@ -76,9 +76,12 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/.irbrc
 %{gemdir}/gems/%{rbname}-%{version}/.travis.yml
 %{gemdir}/gems/%{rbname}-%{version}/README.md
+%{gemdir}/gems/%{rbname}-%{version}/RELEASE.md
 
 #%doc %{gemdir}/doc/fog-%{version}
 %{gemdir}/cache/./fog-%{version}.gem
 %{gemdir}/specifications/./fog-%{version}.gemspec
 
 %changelog
+* Fri Jan 25 2013 shk@redhat.com 1.9.0-1
+- Updated to 1.9.0

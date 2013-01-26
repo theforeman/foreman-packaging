@@ -242,3 +242,4 @@ rm ./0001-fix-actionpack-dependencies.patch
 
 %changelog
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
+- Updates to 3.0.19
