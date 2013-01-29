@@ -19,8 +19,8 @@ Requires: rubygem(rdoc) => 3.4
 Requires: rubygem(rdoc) < 4
 
 Requires: rubygem(activesupport) = %{version}
+Requires: rubygem(actionpack) = %{version}
 
-Requires: rubygem(actionpack) = 3.0.17
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
 BuildRequires: ruby >= 1.8.7

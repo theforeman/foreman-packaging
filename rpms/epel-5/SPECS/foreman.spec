@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version: 1.1RC5
-Release: 1%{dist}
+Release: 2%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -43,12 +43,12 @@ Requires: rubygem(safemode) >= 1.1.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 3.0.0
+Requires: rubygem(ruby_parser) < 3.1.0
 Requires: rubygem(audited-activerecord) >= 3.0.0
 Requires: rubygem(rabl)
-Requires: rubygem(apipie-rails)
+Requires: rubygem(apipie-rails) >= 0.0.12
 Requires: rubygem(oauth)
 Provides: %{name}-%{version}-%{release}
-#Packager:   Ohad Levy <ohadlevy@gmail.com>
 
 %package cli
 Summary: Foreman CLI
@@ -129,7 +129,7 @@ fi
 %package ec2
 Summary: Foreman ec2 support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.8.0
+Requires: rubygem-fog >= 1.9.0
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-fog
@@ -477,6 +477,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Mon Jan 28 2013 shk@redhat.com 1.1RC5-2
+- Bumped fog version dependency
 * Fri Jan 25 2013 shk@redhat.com 1.1RC5-1
 - Updated Rails requirements and bumped to RC5.
 * Thu Dec 27 2012 shk@redhat.com 1.1RC3-1
