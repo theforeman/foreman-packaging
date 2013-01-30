@@ -40,13 +40,14 @@ Requires: rubygem(ancestry) >= 1.2.4
 Requires: rubygem(scoped_search) >= 2.3.7
 Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.1.0
+Requires: rubygem(safemode) < 1.2.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 3.0.0
 Requires: rubygem(ruby_parser) < 3.1.0
 Requires: rubygem(audited-activerecord) >= 3.0.0
-Requires: rubygem(rabl)
-Requires: rubygem(apipie-rails) >= 0.0.12
+Requires: rubygem(rabl) >= 0.7.5
+Requires: rubygem(apipie-rails) >= 0.0.13
 Requires: rubygem(oauth)
 Provides: %{name}-%{version}-%{release}
 
