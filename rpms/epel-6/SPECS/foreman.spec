@@ -461,10 +461,14 @@ if [ ! -d $varlibdir/%{name} -a -d $datadir/tmp -a ! -L $datadir/tmp ]; then
 fi
 
 %post
+if [ ! -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ]; then
+  touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+  chmod 0640 %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+  chgrp foreman %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+  rake -f %{_datadir}/%{name}/Rakefile security:generate_token >/dev/null 2>&1 || :
+fi
 /sbin/chkconfig --add %{name} || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
-[ -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] || \
-  rake -f %{_datadir}/%{name}/Rakefile security:generate_token >/dev/null 2>&1 || :
 exit 0
 
 %posttrans
