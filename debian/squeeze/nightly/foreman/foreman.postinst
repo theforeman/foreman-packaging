@@ -57,6 +57,9 @@ fi
 
 # Generate a static session token for signing cookies
 if [ ! -f config/initializers/local_secret_token.rb ]; then
+  touch config/initializers/local_secret_token.rb
+  chmod 0640 config/initializers/local_secret_token.rb
+  chgrp foreman config/initializers/local_secret_token.rb
   if [ ! -z "${DEBUG}" ]; then
     rake -f /usr/share/foreman/Rakefile -t security:generate_token
   else
