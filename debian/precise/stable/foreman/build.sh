@@ -1,7 +1,7 @@
 PACKAGE_NAME='foreman'
 
 REPO='git://github.com/theforeman/foreman.git'
-BRANCH='89d3f79b13c8a12dac5d1c9b71f6b42176102f7b'
+BRANCH='caed6b1d442c74ddf38fab4add03d3830b35fe43'
 
 function setup_build {
   echo "stable: skipping setup for nightly"
