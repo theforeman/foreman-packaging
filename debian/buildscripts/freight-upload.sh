@@ -20,4 +20,4 @@ export GNUPGHOME="/var/lib/workspace/freight/.gnupg"
 
 # Push to shell.theforeman.org, preserving links
 # Relies on ssh keys being set up
-/usr/bin/rsync -aqHl --delete-after $FREIGHT_CACHE/ greg@shell.theforeman.org:deb.theforeman.org/html/freight/
+/usr/bin/rsync -aqHl --delete-after $FREIGHT_CACHE/ greg@shell.theforeman.org:deb.theforeman.org/html/
