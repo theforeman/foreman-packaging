@@ -379,6 +379,7 @@ for i in database.yml email.yaml settings.yaml; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
+touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 
 # Put db in %{_localstatedir}/lib/%{name}/db
 cp -pr db/migrate db/seeds.rb %{buildroot}%{_datadir}/%{name}
@@ -414,6 +415,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
+%ghost %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %pre
 # Add the "foreman" user and group
 getent group %{name} >/dev/null || groupadd -r %{name}
@@ -455,8 +457,10 @@ if [ ! -d $varlibdir/%{name} -a -d $datadir/tmp -a ! -L $datadir/tmp ]; then
 fi
 
 %post
-/sbin/chkconfig --add %{name} || ::
+/sbin/chkconfig --add %{name} || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+[ -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] || \
+  rake -f %{_datadir}/%{name}/Rakefile security:generate_token >/dev/null 2>&1 || :
 exit 0
 
 %posttrans
