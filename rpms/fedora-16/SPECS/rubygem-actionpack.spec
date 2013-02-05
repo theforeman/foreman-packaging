@@ -1,5 +1,5 @@
 %define rbname actionpack
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails).
@@ -241,5 +241,7 @@ rm ./0001-fix-actionpack-dependencies.patch
 %{gemdir}/specifications/actionpack-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updates to 3.0.19

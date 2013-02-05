@@ -1,10 +1,10 @@
-# Generated from ancestry-1.2.5.gem by gem2rpm -*- rpm-spec -*-
+# Generated from ancestry-%{version}.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ancestry
 %global rubyabi 1.9.1
 
 Summary: Ancestry allows the records of a ActiveRecord model to be organised in a tree structure, using a single, intuitively formatted database column. It exposes all the standard tree structure relations (ancestors, parent, root, children, siblings, descendants) and all of them can be fetched in a single sql query. Additional features are named_scopes, integrity checking, integrity restoration, arrangement of (sub)tree into hashes and different strategies for dealing with orphaned records
 Name: rubygem-%{gem_name}
-Version: 1.2.5
+Version: 1.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -55,15 +55,17 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/ancestry-1.2.5/MIT-LICENSE
-/usr/share/gems/gems/ancestry-1.2.5/README.rdoc
-/usr/share/gems/gems/ancestry-1.2.5/ancestry.gemspec
-/usr/share/gems/gems/ancestry-1.2.5/init.rb
-/usr/share/gems/gems/ancestry-1.2.5/install.rb
+/usr/share/gems/gems/ancestry-%{version}/MIT-LICENSE
+/usr/share/gems/gems/ancestry-%{version}/README.rdoc
+/usr/share/gems/gems/ancestry-%{version}/ancestry.gemspec
+/usr/share/gems/gems/ancestry-%{version}/init.rb
+/usr/share/gems/gems/ancestry-%{version}/install.rb
 
 %files doc
 %doc %{gem_docdir}
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 1.3.0-1
+- Updated to 1.3.0
 * Thu Jun 14 2012 jason - 1.2.5-1
 - Initial package

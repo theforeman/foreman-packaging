@@ -1,5 +1,5 @@
 %define rbname actionmailer
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: Email composition, delivery, and receiving framework (part of Rails).
@@ -80,5 +80,7 @@ rm ./0001-rubygem-actionmailer-fix-dep-versions.patch
 %{gemdir}/specifications/actionmailer-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updated to 3.0.19

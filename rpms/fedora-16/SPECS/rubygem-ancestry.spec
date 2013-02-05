@@ -1,5 +1,5 @@
 %define rbname ancestry
-%define version 1.2.5
+%define version 1.3.0
 %define release 1
 
 Summary: Ancestry allows the records of a ActiveRecord model to be organised in a tree structure, using a single, intuitively formatted database column. It exposes all the standard tree structure relations (ancestors, parent, root, children, siblings, descendants) and all of them can be fetched in a single sql query. Additional features are named_scopes, integrity checking, integrity restoration, arrangement of (sub)tree into hashes and different strategies for dealing with orphaned records.
@@ -43,20 +43,22 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/ancestry-1.2.5/ancestry.gemspec
-%{gemdir}/gems/ancestry-1.2.5/init.rb
-%{gemdir}/gems/ancestry-1.2.5/install.rb
-%{gemdir}/gems/ancestry-1.2.5/lib/ancestry.rb
-%{gemdir}/gems/ancestry-1.2.5/lib/ancestry/has_ancestry.rb
-%{gemdir}/gems/ancestry-1.2.5/lib/ancestry/exceptions.rb
-%{gemdir}/gems/ancestry-1.2.5/lib/ancestry/class_methods.rb
-%{gemdir}/gems/ancestry-1.2.5/lib/ancestry/instance_methods.rb
-%{gemdir}/gems/ancestry-1.2.5/MIT-LICENSE
-%{gemdir}/gems/ancestry-1.2.5/README.rdoc
+%{gemdir}/gems/ancestry-%{version}/ancestry.gemspec
+%{gemdir}/gems/ancestry-%{version}/init.rb
+%{gemdir}/gems/ancestry-%{version}/install.rb
+%{gemdir}/gems/ancestry-%{version}/lib/ancestry.rb
+%{gemdir}/gems/ancestry-%{version}/lib/ancestry/has_ancestry.rb
+%{gemdir}/gems/ancestry-%{version}/lib/ancestry/exceptions.rb
+%{gemdir}/gems/ancestry-%{version}/lib/ancestry/class_methods.rb
+%{gemdir}/gems/ancestry-%{version}/lib/ancestry/instance_methods.rb
+%{gemdir}/gems/ancestry-%{version}/MIT-LICENSE
+%{gemdir}/gems/ancestry-%{version}/README.rdoc
 
 
-%doc %{gemdir}/doc/ancestry-1.2.5
-%{gemdir}/cache/ancestry-1.2.5.gem
-%{gemdir}/specifications/ancestry-1.2.5.gemspec
+%doc %{gemdir}/doc/ancestry-%{version}
+%{gemdir}/cache/ancestry-%{version}.gem
+%{gemdir}/specifications/ancestry-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 1.3.0-1
+- Updated to 1.3.0

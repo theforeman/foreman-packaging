@@ -1,5 +1,5 @@
 %define rbname activesupport
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework.
@@ -201,6 +201,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/inflector/transliterate.rb
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/inflector.rb
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/json/backends/jsongem.rb
+%{gemdir}/gems/activesupport-%{version}/lib/active_support/json/backends/okjson.rb
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/json/backends/yajl.rb
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/json/backends/yaml.rb
 %{gemdir}/gems/activesupport-%{version}/lib/active_support/json/decoding.rb
@@ -261,5 +262,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/specifications/activesupport-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updated to 3.0.19

@@ -2,8 +2,8 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.1RC5
-Release: 2%{dist}
+Version: 1.1
+Release: 1%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -31,13 +31,15 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.19
+Requires: rubygem(rails) = 3.0.20
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
 Requires: rubygem(will_paginate) >= 3.0.2
-Requires: rubygem(ancestry) >= 1.2.4
-Requires: rubygem(scoped_search) >= 2.3.7
+Requires: rubygem(ancestry) >= 1.3.0
+Requires: rubygem(ancestry) < 1.4.0
+Requires: rubygem(scoped_search) >= 2.4.0
+Requires: rubygem(scoped_seearch) < 2.5.0
 Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.1.0
 Requires: rubygem(safemode) < 1.2.0
@@ -482,6 +484,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 1.1-1
+- 1.1 final.
 * Mon Jan 28 2013 shk@redhat.com 1.1RC5-2
 - Bumped fog version dependency
 * Fri Jan 25 2013 shk@redhat.com 1.1RC5-1

@@ -1,5 +1,5 @@
 %define rbname railties
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: Tools for creating, working with, and running Rails applications.
@@ -419,5 +419,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/specifications/railties-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updated to 3.0.19

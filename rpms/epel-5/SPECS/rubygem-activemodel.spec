@@ -1,5 +1,5 @@
 %define rbname activemodel
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: A toolkit for building modeling frameworks (part of Rails).
@@ -95,5 +95,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/specifications/activemodel-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updated to 3.0.19

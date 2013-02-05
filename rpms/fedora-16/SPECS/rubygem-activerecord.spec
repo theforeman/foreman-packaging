@@ -1,5 +1,5 @@
 %define rbname activerecord
-%define version 3.0.19
+%define version 3.0.20
 %define release 1
 
 Summary: Object-relational mapper framework (part of Rails).
@@ -154,5 +154,7 @@ cd %{gembuilddir}/gems/activerecord-%{version}/lib/active_record/
 %{gemdir}/specifications/activerecord-%{version}.gemspec
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
 - Updated to 3.0.19

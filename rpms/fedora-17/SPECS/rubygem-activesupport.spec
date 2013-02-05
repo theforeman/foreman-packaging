@@ -4,7 +4,7 @@
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.19
+Version: 3.0.20
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -62,6 +62,8 @@ cp -a .%{gem_dir}/* \
 %doc /usr/share/gems/gems/activesupport-%{version}/CHANGELOG
 %doc /usr/share/gems/gems/activesupport-%{version}/README.rdoc
 %changelog
+* Mon Feb 4 2013 shk@redhat.com - 3.0.20-1
+- Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com - 3.0.19-1
 - Updated to 3.0.19
 * Thu Jun 14 2012 jason - 3.0.17-1
