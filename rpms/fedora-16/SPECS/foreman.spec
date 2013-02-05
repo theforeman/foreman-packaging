@@ -419,7 +419,7 @@ rm -rf %{buildroot}
 getent group %{name} >/dev/null || groupadd -r %{name}
 getent passwd %{name} >/dev/null || \
 useradd -r -g %{name} -G puppet -d %{homedir} -s /sbin/nologin -c "Foreman" %{name}
-jxit 0
+exit 0
 
 %pretrans
 # Try to handle upgrades from earlier packages. Replacing a directory with a
