@@ -56,16 +56,16 @@ if [ -f /usr/share/foreman/config/database.yml ]; then
 fi
 
 # Generate a static session token for signing cookies
-if [ ! -f config/initializers/local_secret_token.rb ]; then
-  touch config/initializers/local_secret_token.rb
-  chmod 0640 config/initializers/local_secret_token.rb
-  chgrp foreman config/initializers/local_secret_token.rb
-  if [ ! -z "${DEBUG}" ]; then
-    rake -f /usr/share/foreman/Rakefile -t security:generate_token
-  else
-    rake -f /usr/share/foreman/Rakefile security:generate_token >/dev/null 2>&1
-  fi
-fi
+#if [ ! -f config/initializers/local_secret_token.rb ]; then
+  #touch config/initializers/local_secret_token.rb
+  #chmod 0640 config/initializers/local_secret_token.rb
+  #chgrp foreman config/initializers/local_secret_token.rb
+  #if [ ! -z "${DEBUG}" ]; then
+    #rake -f /usr/share/foreman/Rakefile -t security:generate_token
+  #else
+    #rake -f /usr/share/foreman/Rakefile security:generate_token >/dev/null 2>&1
+  #fi
+#fi
 
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'

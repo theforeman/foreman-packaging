@@ -1,21 +1,21 @@
-# Generated from apipie-rails-0.0.12.gem by gem2rpm -*- rpm-spec -*-
+# Generated from apipie-rails-%{version}.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name apipie-rails
 %global rubyabi 1.9.1
 
 Summary: Rails REST API documentation tool
 Name: rubygem-%{gem_name}
-Version: 0.0.12
+Version: 0.0.13
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/Pajk/apipie-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-Requires: ruby 
+Requires: ruby(rubygems)
+Requires: ruby
 BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: rubygems-devel 
-BuildRequires: ruby 
+BuildRequires: rubygems-devel
+BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
@@ -54,7 +54,7 @@ cp -a .%{gem_dir}/* \
 #%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/apipie-rails-0.0.12/
+/usr/share/gems/gems/apipie-rails-%{version}/
 
 %files doc
 %doc %{gem_docdir}

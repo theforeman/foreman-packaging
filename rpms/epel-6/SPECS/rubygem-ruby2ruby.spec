@@ -1,5 +1,5 @@
 %define rbname ruby2ruby
-%define version 1.3.1
+%define version 2.0.1
 %define release 1
 
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
@@ -15,12 +15,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 1.8.10
 
-Requires: rubygem-sexp_processor => 3.0
-Requires: rubygem-sexp_processor < 4
+Requires: rubygem-sexp_processor => 4.1.2
 
-Requires: rubygem-ruby_parser => 2.0
-Requires: rubygem-ruby_parser < 3
-BuildRequires: ruby 
+Requires: rubygem-ruby_parser => 3.0.1
+BuildRequires: ruby
 BuildRequires: rubygems >= 1.8.10
 BuildArch: noarch
 Provides: rubygem(ruby2ruby) = %{version}
@@ -53,19 +51,19 @@ rmdir %{gembuilddir}/bin
 %files
 %defattr(-, root, root)
 %{_bindir}/r2r_show
-%{gemdir}/gems/ruby2ruby-1.3.1/.autotest
-%doc %{gemdir}/gems/ruby2ruby-1.3.1/History.txt
-%doc %{gemdir}/gems/ruby2ruby-1.3.1/Manifest.txt
-%doc %{gemdir}/gems/ruby2ruby-1.3.1/README.txt
-%{gemdir}/gems/ruby2ruby-1.3.1/Rakefile
-%{gemdir}/gems/ruby2ruby-1.3.1/bin/r2r_show
-%{gemdir}/gems/ruby2ruby-1.3.1/lib/ruby2ruby.rb
-%{gemdir}/gems/ruby2ruby-1.3.1/test/test_ruby2ruby.rb
-%{gemdir}/gems/ruby2ruby-1.3.1/.gemtest
+%{gemdir}/gems/ruby2ruby-%{version}/.autotest
+%doc %{gemdir}/gems/ruby2ruby-%{version}/History.txt
+%doc %{gemdir}/gems/ruby2ruby-%{version}/Manifest.txt
+%doc %{gemdir}/gems/ruby2ruby-%{version}/README.txt
+%{gemdir}/gems/ruby2ruby-%{version}/Rakefile
+%{gemdir}/gems/ruby2ruby-%{version}/bin/r2r_show
+%{gemdir}/gems/ruby2ruby-%{version}/lib/ruby2ruby.rb
+%{gemdir}/gems/ruby2ruby-%{version}/test/test_ruby2ruby.rb
+%{gemdir}/gems/ruby2ruby-%{version}/.gemtest
 
 
-%doc %{gemdir}/doc/ruby2ruby-1.3.1
-%{gemdir}/cache/ruby2ruby-1.3.1.gem
-%{gemdir}/specifications/ruby2ruby-1.3.1.gemspec
+%doc %{gemdir}/doc/ruby2ruby-%{version}
+%{gemdir}/cache/ruby2ruby-%{version}.gem
+%{gemdir}/specifications/ruby2ruby-%{version}.gemspec
 
 %changelog

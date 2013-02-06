@@ -1,11 +1,10 @@
-# Generated from activemodel-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name activemodel
 %global rubyabi 1.9.1
 
 Summary: A toolkit for building modeling frameworks (part of Rails)
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.17
+Version: 3.0.20
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -14,7 +13,9 @@ Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby >= 1.8.7
-Requires: rubygem(activesupport) = 3.0.17
+
+Requires: rubygem(activesupport) = %{version}
+
 Requires: rubygem(builder) => 2.1.2
 Requires: rubygem(builder) < 2.2
 Requires: rubygem(i18n) => 0.5.0
@@ -65,10 +66,14 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc /usr/share/gems/gems/activemodel-3.0.17/CHANGELOG
-%doc /usr/share/gems/gems/activemodel-3.0.17/MIT-LICENSE
-%doc /usr/share/gems/gems/activemodel-3.0.17/README.rdoc
+%doc /usr/share/gems/gems/activemodel-%{version}/CHANGELOG
+%doc /usr/share/gems/gems/activemodel-%{version}/MIT-LICENSE
+%doc /usr/share/gems/gems/activemodel-%{version}/README.rdoc
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com - 3.0.20-1
+- Updated to 3.0.20
+* Fri Jan 25 2013 shk@redhat.com - 3.0.19-1
+- Updated to 3.0.19
 * Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package

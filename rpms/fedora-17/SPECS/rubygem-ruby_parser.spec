@@ -4,19 +4,18 @@
 
 Summary: ruby_parser (RP) is a ruby parser written in pure ruby (utilizing racc--which does by default use a C extension)
 Name: rubygem-%{gem_name}
-Version: 2.3.1
-Release: 1%{?dist}
+Version: 3.0.1
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/seattlerb/ruby_parser
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-Requires: rubygem(sexp_processor) => 3.0
-Requires: rubygem(sexp_processor) < 4
+Requires: ruby(rubygems)
+Requires: rubygem(sexp_processor) => 4.1.2
 BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: rubygems-devel 
-BuildRequires: ruby 
+BuildRequires: rubygems-devel
+BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 

@@ -1,11 +1,10 @@
-# Generated from activerecord-3.0.17.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name activerecord
 %global rubyabi 1.9.1
 
 Summary: Object-relational mapper framework (part of Rails)
 Name: rubygem-%{gem_name}
 Epoch: 1
-Version: 3.0.17
+Version: 3.0.20
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -14,8 +13,10 @@ Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby >= 1.8.7
-Requires: rubygem(activesupport) = 3.0.17
-Requires: rubygem(activemodel) = 3.0.17
+
+Requires: rubygem(activesupport) = %{version}
+Requires: rubygem(activemodel) = %{version}
+
 Requires: rubygem(arel) => 2.0.10
 Requires: rubygem(arel) < 2.1
 Requires: rubygem(tzinfo) => 0.3.23
@@ -63,11 +64,15 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.rdoc
-%doc /usr/share/gems/gems/activerecord-3.0.17/CHANGELOG
-%doc /usr/share/gems/gems/activerecord-3.0.17/examples/associations.png
-%doc /usr/share/gems/gems/activerecord-3.0.17/examples/performance.rb
-%doc /usr/share/gems/gems/activerecord-3.0.17/examples/simple.rb
+%doc /usr/share/gems/gems/activerecord-%{version}/CHANGELOG
+%doc /usr/share/gems/gems/activerecord-%{version}/examples/associations.png
+%doc /usr/share/gems/gems/activerecord-%{version}/examples/performance.rb
+%doc /usr/share/gems/gems/activerecord-%{version}/examples/simple.rb
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com - 3.0.20-1
+- Updated to 3.0.20
+* Fri Jan 25 2013 shk@redhat.com - 3.0.19-1
+- Updated to 3.0.19
 * Thu Jun 14 2012 jason - 3.0.17-1
 - Initial package

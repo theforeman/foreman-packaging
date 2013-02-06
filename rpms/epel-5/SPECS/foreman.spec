@@ -2,7 +2,7 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.0.2
+Version: 1.1stable
 Release: 1%{dist}
 Summary:Systems Management web application
 
@@ -31,22 +31,27 @@ Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 Requires: rubygem(json)
-Requires: rubygem(rails) = 3.0.15
+Requires: rubygem(rails) = 3.0.20
 Requires: rubygem(jquery-rails)
 Requires: rubygem(rest-client)
 Requires: rubygem(acts_as_audited) = 2.0.0
-Requires: rubygem-has_many_polymorphs >= 3.0.0.beta1-3
 Requires: rubygem(will_paginate) >= 3.0.2
-Requires: rubygem(ancestry) >= 1.2.4
-Requires: rubygem(scoped_search) >= 2.3.7
+Requires: rubygem(ancestry) >= 1.3.0
+Requires: rubygem(ancestry) < 1.4.0
+Requires: rubygem(scoped_search) >= 2.4.0
+Requires: rubygem(scoped_search) < 2.5.0
 Requires: rubygem(net-ldap)
-Requires: rubygem(safemode) >= 1.0.1
+Requires: rubygem(safemode) >= 1.1.0
+Requires: rubygem(safemode) < 1.2.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
-Requires: rubygem(ruby_parser) >= 2.3.1
+Requires: rubygem(ruby_parser) >= 3.0.0
+Requires: rubygem(ruby_parser) < 3.1.0
 Requires: rubygem(audited-activerecord) >= 3.0.0
+Requires: rubygem(rabl) >= 0.7.5
+Requires: rubygem(apipie-rails) >= 0.0.13
+Requires: rubygem(oauth)
 Provides: %{name}-%{version}-%{release}
-#Packager:   Ohad Levy <ohadlevy@gmail.com>
 
 %package cli
 Summary: Foreman CLI
@@ -104,7 +109,7 @@ fi
 %package ovirt
 Summary: Foreman ovirt support
 Group:  Applications/System
-Requires: rubygem(rbovirt) >= 0.0.12
+Requires: rubygem(rbovirt) >= 0.0.15
 Requires: foreman-ec2-%{version}-%{release}
 Requires: %{name}-%{version}-%{release}
 
@@ -127,7 +132,7 @@ fi
 %package ec2
 Summary: Foreman ec2 support
 Group:  Applications/System
-Requires: rubygem-fog >= 1.4.0
+Requires: rubygem-fog >= 1.9.0
 Requires: %{name}-%{version}-%{release}
 Provides: foreman-ec2-%{version}-%{release}
 Obsoletes: foreman-fog
@@ -376,7 +381,7 @@ for i in database.yml email.yaml settings.yaml; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
-touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+touch %{buildroot}%{_datadir}/%{name}/config/initializers/local_secret_token.rb
 
 # Put db in %{_localstatedir}/lib/%{name}/db
 cp -pr db/migrate db/seeds.rb %{buildroot}%{_datadir}/%{name}
@@ -454,10 +459,12 @@ if [ ! -d $varlibdir/%{name} -a -d $datadir/tmp -a ! -L $datadir/tmp ]; then
 fi
 
 %post
-/sbin/chkconfig --add %{name} || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
-[ -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] || \
+if [ ! -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ]; then
+  touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+  chmod 0640 %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+  chgrp foreman %{_datadir}/%{name}/config/initializers/local_secret_token.rb
   rake -f %{_datadir}/%{name}/Rakefile security:generate_token >/dev/null 2>&1 || :
+fi
 exit 0
 
 %posttrans
@@ -479,6 +486,14 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Mon Feb 4 2013 shk@redhat.com 1.1-1
+- 1.1 final.
+* Mon Jan 28 2013 shk@redhat.com 1.1RC5-2
+- Bumped fog version dependency
+* Fri Jan 25 2013 shk@redhat.com 1.1RC5-1
+- Updated Rails requirements and bumped to RC5.
+* Thu Dec 27 2012 shk@redhat.com 1.1RC3-1
+- Updated to 1.1RC3 and updated dependencies.
 * Wed Dec 19 2012 jmontleo@redhat.com 1.0.2-1
 - Fix Foreman SQL injection through search mechanism CVE-2012-5648
 * Thu Aug 09 2012 jmontleo@redhat.com 1.0.1-1

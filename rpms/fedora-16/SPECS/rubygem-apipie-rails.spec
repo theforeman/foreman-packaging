@@ -1,5 +1,5 @@
 %define rbname apipie-rails
-%define version 0.0.12
+%define version 0.0.13
 %define release 1
 
 Summary: Rails REST API documentation tool
@@ -12,9 +12,9 @@ License: Distributable
 URL: http://github.com/Pajk/apipie-rails
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby 
+Requires: ruby
 Requires: rubygems >= 1.8.10
-BuildRequires: ruby 
+BuildRequires: ruby
 BuildRequires: rubygems >= 1.8.10
 BuildArch: noarch
 Provides: rubygem(apipie-rails) = %{version}
@@ -41,27 +41,26 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/apipie-rails-0.0.12/.gitignore
-%{gemdir}/gems/apipie-rails-0.0.12/.rspec
-%{gemdir}/gems/apipie-rails-0.0.12/.rvmrc
-%{gemdir}/gems/apipie-rails-0.0.12/.travis.yml
-%{gemdir}/gems/apipie-rails-0.0.12/APACHE-LICENSE-2.0
-%{gemdir}/gems/apipie-rails-0.0.12/Gemfile
-%{gemdir}/gems/apipie-rails-0.0.12/Gemfile.lock
-%{gemdir}/gems/apipie-rails-0.0.12/MIT-LICENSE
-%{gemdir}/gems/apipie-rails-0.0.12/NOTICE
-%{gemdir}/gems/apipie-rails-0.0.12/README.rdoc
-%{gemdir}/gems/apipie-rails-0.0.12/Rakefile
-%{gemdir}/gems/apipie-rails-0.0.12/apipie-rails.gemspec
-%{gemdir}/gems/apipie-rails-0.0.12/app/
-%{gemdir}/gems/apipie-rails-0.0.12/lib/
-%{gemdir}/gems/apipie-rails-0.0.12/rel-eng/
-%{gemdir}/gems/apipie-rails-0.0.12/rubygem-apipie-rails.spec
-%{gemdir}/gems/apipie-rails-0.0.12/spec/
+%{gemdir}/gems/apipie-rails-%{version}/.gitignore
+%{gemdir}/gems/apipie-rails-%{version}/.rspec
+%{gemdir}/gems/apipie-rails-%{version}/.rvmrc
+%{gemdir}/gems/apipie-rails-%{version}/.travis.yml
+%{gemdir}/gems/apipie-rails-%{version}/APACHE-LICENSE-2.0
+%{gemdir}/gems/apipie-rails-%{version}/Gemfile
+%{gemdir}/gems/apipie-rails-%{version}/Gemfile.lock
+%{gemdir}/gems/apipie-rails-%{version}/MIT-LICENSE
+%{gemdir}/gems/apipie-rails-%{version}/NOTICE
+%{gemdir}/gems/apipie-rails-%{version}/README.rdoc
+%{gemdir}/gems/apipie-rails-%{version}/Rakefile
+%{gemdir}/gems/apipie-rails-%{version}/apipie-rails.gemspec
+%{gemdir}/gems/apipie-rails-%{version}/app/
+%{gemdir}/gems/apipie-rails-%{version}/lib/
+%{gemdir}/gems/apipie-rails-%{version}/rel-eng/
+%{gemdir}/gems/apipie-rails-%{version}/rubygem-apipie-rails.spec
+%{gemdir}/gems/apipie-rails-%{version}/spec/
 
-%doc %{gemdir}/doc/apipie-rails-0.0.12
-%{gemdir}/cache/apipie-rails-0.0.12.gem
-%{gemdir}/specifications/apipie-rails-0.0.12.gemspec
+%doc %{gemdir}/doc/apipie-rails-%{version}
+%{gemdir}/cache/apipie-rails-%{version}.gem
+%{gemdir}/specifications/apipie-rails-%{version}.gemspec
 
 %changelog
-
