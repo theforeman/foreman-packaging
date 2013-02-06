@@ -32,14 +32,18 @@ chmod 755 '/var/lib/foreman/public/javascripts'
 chmod 755 '/var/lib/foreman/public/stylesheets'
 chmod 755 '/var/cache/foreman'
 
-# Install gems - run twice as the postinst makes no distinction between install or upgrade
+# Test for Gemfile.lock to determine the right action.
 cd /usr/share/foreman
-if [ ! -z "${DEBUG}" ]; then
-  bundle install --path ./vendor/
-  bundle update
+if [ -f Gemfile.lock ]; then
+  CMD="bundle update --local"
 else
-  bundle install --path ./vendor/ 2>&1 >/dev/null
-  bundle update 2>&1 >/dev/null
+  CMD="bundle install --path ./vendor/ --local --no-prune"
+fi
+
+if [ ! -z "${DEBUG}" ]; then
+  $CMD
+else
+  $CMD 2>&1 >/dev/null
 fi
 
 # Run a db:migrate if the user has created a dbfile
@@ -50,6 +54,18 @@ if [ -f /usr/share/foreman/config/database.yml ]; then
     su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1 || true
   fi
 fi
+
+# Generate a static session token for signing cookies
+#if [ ! -f config/initializers/local_secret_token.rb ]; then
+#  touch config/initializers/local_secret_token.rb
+#  chmod 0640 config/initializers/local_secret_token.rb
+#  chgrp foreman config/initializers/local_secret_token.rb
+#  if [ ! -z "${DEBUG}" ]; then
+#    rake -f /usr/share/foreman/Rakefile -t security:generate_token
+#  else
+#    rake -f /usr/share/foreman/Rakefile security:generate_token >/dev/null 2>&1
+#  fi
+#fi
 
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'

@@ -64,7 +64,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.markdown
 
 %changelog
-* Thu Jan 3 2012 shk@redhat.com - 1.1.0-1
+* Thu Jan 3 2013 shk@redhat.com - 1.1.0-1
 * Updated to 1.1.0 and added sexp_processor dependency
 * Thu Jun 14 2012 jason - 1.0.1-1
 - Initial package

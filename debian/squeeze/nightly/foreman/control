@@ -45,10 +45,13 @@ Description: metapackage providing MySQL dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
-Package: foreman-pgsql
+Package: foreman-postgresql
 Architecture: all
 Section: web
 Priority: extra
+Replaces: foreman-pgsql
+Provides: foreman-pgsql
+Conflicts: foreman-pgsql
 Depends: foreman, libpq-dev, ${misc:Depends}
 Description: metapackage providing PostgreSQL dependencies for Foreman
  This package provides PostgreSQL dependencies for Foreman, a

@@ -1,6 +1,9 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
+%define ruby_sitelib %(ruby -rrbconfig -e "puts Config::CONFIG['sitelibdir']")
+%define gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+
 Name:           foreman-proxy
 Version:        1.1stable
 Release:        1%{dist}
