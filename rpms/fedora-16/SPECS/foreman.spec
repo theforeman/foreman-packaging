@@ -2,7 +2,7 @@
 %global confdir extras/spec
 
 Name:   foreman
-Version: 1.1
+Version: 1.1stable
 Release: 1%{dist}
 Summary:Systems Management web application
 
@@ -39,7 +39,7 @@ Requires: rubygem(will_paginate) >= 3.0.2
 Requires: rubygem(ancestry) >= 1.3.0
 Requires: rubygem(ancestry) < 1.4.0
 Requires: rubygem(scoped_search) >= 2.4.0
-Requires: rubygem(scoped_seearch) < 2.5.0
+Requires: rubygem(scoped_search) < 2.5.0
 Requires: rubygem(net-ldap)
 Requires: rubygem(safemode) >= 1.1.0
 Requires: rubygem(safemode) < 1.2.0
@@ -381,7 +381,7 @@ for i in database.yml email.yaml settings.yaml; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
-touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+touch %{buildroot}%{_datadir}/%{name}/config/initializers/local_secret_token.rb
 
 # Put db in %{_localstatedir}/lib/%{name}/db
 cp -pr db/migrate db/seeds.rb %{buildroot}%{_datadir}/%{name}

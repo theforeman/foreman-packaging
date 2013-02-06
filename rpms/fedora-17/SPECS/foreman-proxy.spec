@@ -2,7 +2,7 @@
 %global confdir config
 
 Name:           foreman-proxy
-Version:        1.1
+Version:        1.1stable
 Release:        1%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -127,7 +127,7 @@ fi
 - 1.1 final.
 * Fri Jan 25 2013 shk@redhat.com 1.1RC3-1
 - Updated to RC3
-* Jan 09 2013 shk@redhat.com 1.1RC2-1
+* Wed Jan 09 2013 shk@redhat.com 1.1RC2-1
 - Updated to RC2
 - Removed net-ping dependency
 * Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
