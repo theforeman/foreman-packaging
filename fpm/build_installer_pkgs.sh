@@ -24,8 +24,15 @@ function clean_repo() {
 
 function build_pkgs() {
   echo $VERSION > $CHECKOUTDIR/VERSION
-  fpm -s dir -t $PLATFORM -n "foreman-installer" -a all \
-    -v $VERSION $CHECKOUTDIR
+  if [ $PLATFORM = "deb" ]; then
+    fpm -d "puppet" -d "ruby-highline" -s dir -t $PLATFORM \
+      -n "foreman-installer" -a all \
+      -v $VERSION $CHECKOUTDIR
+  else
+    fpm -d "puppet" -d "rubygem-highline" -s dir -t $PLATFORM \
+      -n "foreman-installer" -a all \
+      -v $VERSION $CHECKOUTDIR
+  fi
 }
 
 function usage() {
