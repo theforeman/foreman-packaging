@@ -1,20 +1,26 @@
+foreman (1.1.1+ubuntu1) precise; urgency=low
+
+  * Release 1.1.1
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 13 Feb 2013 16:31:00 +0100
+
 foreman (1.1+ubuntu3) precise; urgency=low
 
   * Comment out the secret_token
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2012 17:40:00 +0100
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2013 17:40:00 +0100
 
 foreman (1.1+ubuntu2) precise; urgency=low
 
   * Chown/chgrp the secret_token
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2012 17:40:00 +0100
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2013 17:40:00 +0100
 
 foreman (1.1+ubuntu1) precise; urgency=low
 
   * 1.1 Released
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2012 16:59:00 +0100
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 05 Feb 2013 16:59:00 +0100
 
 foreman (1.0.2+ubuntu1) precise; urgency=low
 
