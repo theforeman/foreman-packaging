@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version: 1.1stable
-Release: 2%{dist}
+Release: 3%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -488,6 +488,8 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Feb 15 2013 shk@redhat.com 1.1-3
+- Bumped safemode dependency
 * Thu Feb 14 2013 shk@redhat.com 1.1-2
 - Fixed baseurl in the -release subpackage.
 - Updated to 1.1-1
