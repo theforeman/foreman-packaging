@@ -41,8 +41,8 @@ Requires: rubygem(ancestry) < 1.4.0
 Requires: rubygem(scoped_search) >= 2.4.0
 Requires: rubygem(scoped_search) < 2.5.0
 Requires: rubygem(net-ldap)
-Requires: rubygem(safemode) >= 1.1.0
-Requires: rubygem(safemode) < 1.2.0
+Requires: rubygem(safemode) >= 1.2.0
+Requires: rubygem(safemode) < 1.3.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 3.0.0

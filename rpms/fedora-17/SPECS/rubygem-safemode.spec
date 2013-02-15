@@ -4,7 +4,7 @@
 
 Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
 Name: rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
