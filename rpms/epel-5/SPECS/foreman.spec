@@ -486,8 +486,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
-* Mon Feb 11 2013 shk@redhat.com 1.1-2
+* Thu Feb 14 2013 shk@redhat.com 1.1-2
 - Fixed baseurl in the -release subpackage.
+- Updated to 1.1-1
 * Mon Feb 4 2013 shk@redhat.com 1.1-1
 - 1.1 final.
 * Mon Jan 28 2013 shk@redhat.com 1.1RC5-2
