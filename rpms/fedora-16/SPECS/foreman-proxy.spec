@@ -21,6 +21,8 @@ Requires:       rubygems
 Requires:       rubygem(rake) >= 0.8.3
 Requires:       rubygem(sinatra)
 Requires:       rubygem(json)
+Requires:       sudo
+Requires:       wget
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
