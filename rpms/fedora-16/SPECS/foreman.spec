@@ -3,7 +3,7 @@
 
 Name:   foreman
 Version: 1.1stable
-Release: 2%{dist}
+Release: 3%{dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -41,8 +41,8 @@ Requires: rubygem(ancestry) < 1.4.0
 Requires: rubygem(scoped_search) >= 2.4.0
 Requires: rubygem(scoped_search) < 2.5.0
 Requires: rubygem(net-ldap)
-Requires: rubygem(safemode) >= 1.1.0
-Requires: rubygem(safemode) < 1.2.0
+Requires: rubygem(safemode) >= 1.2.0
+Requires: rubygem(safemode) < 1.3.0
 Requires: rubygem(uuidtools)
 Requires: rubygem(rake) >= 0.9.2.2
 Requires: rubygem(ruby_parser) >= 3.0.0
@@ -488,8 +488,11 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
-* Mon Feb 11 2013 shk@redhat.com 1.1-2
+* Fri Feb 15 2013 shk@redhat.com 1.1-3
+- Bumped safemode dependency
+* Thu Feb 14 2013 shk@redhat.com 1.1-2
 - Fixed baseurl in the -release subpackage.
+- Updated to 1.1-1
 * Mon Feb 4 2013 shk@redhat.com 1.1-1
 - 1.1 final.
 * Mon Jan 28 2013 shk@redhat.com 1.1RC5-2

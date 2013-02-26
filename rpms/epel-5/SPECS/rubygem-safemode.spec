@@ -1,5 +1,5 @@
 %define rbname safemode
-%define version 1.1.0
+%define version 1.2.0
 %define release 1
 
 Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
