@@ -1,12 +1,10 @@
-/var/log/foreman/*log {
-  missingok
-  notifempty
-  create 0644 foreman foreman
-  sharedscripts
-  rotate 5
-  compress
+# Foreman logs:
+/var/log/foreman/*.log {
   daily
-  postrotate
-    /sbin/service foreman condrestart >/dev/null 2>&1 || true
-  endscript
+  missingok
+  rotate 14
+  compress
+  delaycompress
+  notifempty
+  copytruncate
 }
