@@ -11,7 +11,9 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        https://github.com/theforeman/smart-proxy/archive/%{version}.tar.gz
-Patch0:	 	proxy-rhel-extras.patch	
+Source1:        %{name}.sysconfig
+Source2:        %{name}.init
+Source3:        %{name}.logrotate
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -37,7 +39,6 @@ Mainly used by the foreman project (http://theforeman.org)
 
 %prep
 %setup -q -n smart-proxy-%{version}
-%patch0 -p0
 %build
 
 %install
@@ -49,9 +50,9 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
-install -Dp -m0644 %{specdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-install -Dp -m0755 %{specdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
-install -Dp -m0644 %{specdir}/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
+install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 cp -p -r bin lib Rakefile %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb

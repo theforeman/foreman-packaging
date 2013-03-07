@@ -20,6 +20,7 @@ DAEMON=/usr/share/$NAME/bin/smart-proxy
 DAEMON_ARGS=""
 PIDFILE=/var/run/$NAME/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
+SETTINGS=/etc/$NAME/settings.yml
 
 # Exit if the package is not installed
 [ -x $DAEMON ] || exit 0
@@ -48,6 +49,11 @@ do_start()
         if [ ! -x $TMP_DIR ]; then
             mkdir -p $TMP_DIR && chown $DAEMON_USER $TMP_DIR
         fi
+
+	if egrep -q ':daemon:\s*false' $SETTINGS; then
+		echo "$NAME: :daemon is false in $SETTINGS; not starting service" >&2
+		return 6
+	fi
 
 	# Return
 	#   0 if daemon has been started
