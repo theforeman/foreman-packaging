@@ -1,12 +1,10 @@
-/var/log/foreman/*log {
+# Foreman logs:
+/var/log/foreman/*.log {
+  daily
   missingok
-  notifempty
-  create 0644 foreman foreman
-  sharedscripts
-  rotate 5
+  rotate 14
   compress
-	daily
-  postrotate
-    [ -e /etc/init.d/foreman ] && /etc/init.d/foreman condrestart >/dev/null 2>&1 || true
-  endscript
+  delaycompress
+  notifempty
+  copytruncate
 }
