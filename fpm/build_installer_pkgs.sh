@@ -25,11 +25,11 @@ function clean_repo() {
 function build_pkgs() {
   echo $VERSION > $CHECKOUTDIR/VERSION
   if [ $PLATFORM = "deb" ]; then
-    fpm -d "puppet" -d "libhighline-ruby1.8" -d "rubygems" -s dir -t $PLATFORM \
+    fpm -d "puppet >= 2.6.5" -d "libhighline-ruby1.8" -d "rubygems" -s dir -t $PLATFORM \
       -n "foreman-installer" -a all \
       -v $VERSION $CHECKOUTDIR
   else
-    fpm -d "puppet" -d "rubygem-highline" -s dir -t $PLATFORM \
+    fpm -d "puppet >= 2.6.5" -d "rubygem-highline" -s dir -t $PLATFORM \
       -n "foreman-installer" -a all \
       -v $VERSION $CHECKOUTDIR
   fi
