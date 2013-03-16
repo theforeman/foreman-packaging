@@ -367,7 +367,7 @@ install -Dp -m0644 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
-cp -p -r app bundler.d config config.ru extras Gemfile lib Rakefile script %{buildroot}%{_datadir}/%{name}
+cp -p -r app bundler.d config config.ru extras Gemfile lib locale Rakefile script %{buildroot}%{_datadir}/%{name}
 #chmod a+x %{buildroot}%{_datadir}/%{name}/script/{console,dbconsole,runner}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 # remove all test units from productive release
