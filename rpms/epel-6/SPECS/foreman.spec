@@ -52,6 +52,9 @@ Requires: rubygem(audited-activerecord) >= 3.0.0
 Requires: rubygem(rabl) >= 0.7.5
 Requires: rubygem(apipie-rails) >= 0.0.13
 Requires: rubygem(oauth)
+
+Requires: %{name}-assets = %{version}-%{release}
+
 Provides: %{name}-%{version}-%{release}
 #Packager:   Ohad Levy <ohadlevy@gmail.com>
 
@@ -176,6 +179,27 @@ fi
 %postun vmware
 if [ $1 == 0 ]; then
 cd /usr/share/foreman; rm -f Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+
+%package assets
+Summary: Foreman asset pipeline support
+Group: Applications/system
+Requires: %{name}-%{version}-%{release}
+
+%description assets
+Meta package to install asset pipeline support.
+
+%files assets
+%{_datadir}/%{name}/bundler.d/assets.rb
+
+%post assets
+if [ $1 == 1]; then
+cd /usr/share/foreman; rm -rf Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
+fi
+
+%postun assets
+if [ $1 == 0 ]; then
+cd /usr/share/foreman; rm -rf Gemfile.lock; /usr/bin/bundle install --local 1>/dev/null 2>&1
 fi
 
 %package console
