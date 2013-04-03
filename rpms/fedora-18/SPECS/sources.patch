@@ -1,0 +1,286 @@
+diff --git a/rpms/fedora-17/SPECS/rubygem-actionmailer.spec b/rpms/fedora-17/SPECS/rubygem-actionmailer.spec
+index 760c710..c698938 100644
+--- a/rpms/fedora-17/SPECS/rubygem-actionmailer.spec
++++ b/rpms/fedora-17/SPECS/rubygem-actionmailer.spec
+@@ -10,7 +10,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Patch0: 0001-rubygem-actionmailer-fix-dep-versions.patch
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+diff --git a/rpms/fedora-17/SPECS/rubygem-actionpack.spec b/rpms/fedora-17/SPECS/rubygem-actionpack.spec
+index 5133b47..4180e9a 100644
+--- a/rpms/fedora-17/SPECS/rubygem-actionpack.spec
++++ b/rpms/fedora-17/SPECS/rubygem-actionpack.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Patch0: 0001-fix-actionpack-dependencies.patch
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+diff --git a/rpms/fedora-17/SPECS/rubygem-activemodel.spec b/rpms/fedora-17/SPECS/rubygem-activemodel.spec
+index 82cf162..a4f85f4 100644
+--- a/rpms/fedora-17/SPECS/rubygem-activemodel.spec
++++ b/rpms/fedora-17/SPECS/rubygem-activemodel.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-activerecord.spec b/rpms/fedora-17/SPECS/rubygem-activerecord.spec
+index 1cde19e..332c2be 100644
+--- a/rpms/fedora-17/SPECS/rubygem-activerecord.spec
++++ b/rpms/fedora-17/SPECS/rubygem-activerecord.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-activeresource.spec b/rpms/fedora-17/SPECS/rubygem-activeresource.spec
+index 15cb477..9b91fa3 100644
+--- a/rpms/fedora-17/SPECS/rubygem-activeresource.spec
++++ b/rpms/fedora-17/SPECS/rubygem-activeresource.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-activesupport.spec b/rpms/fedora-17/SPECS/rubygem-activesupport.spec
+index aed0d4d..b079639 100644
+--- a/rpms/fedora-17/SPECS/rubygem-activesupport.spec
++++ b/rpms/fedora-17/SPECS/rubygem-activesupport.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-acts_as_audited.spec b/rpms/fedora-17/SPECS/rubygem-acts_as_audited.spec
+index d2e16f8..42664da 100644
+--- a/rpms/fedora-17/SPECS/rubygem-acts_as_audited.spec
++++ b/rpms/fedora-17/SPECS/rubygem-acts_as_audited.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/collectiveidea/acts_as_audited
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) >= 1.3.6
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-ancestry.spec b/rpms/fedora-17/SPECS/rubygem-ancestry.spec
+index 3bdae18..b0e53e2 100644
+--- a/rpms/fedora-17/SPECS/rubygem-ancestry.spec
++++ b/rpms/fedora-17/SPECS/rubygem-ancestry.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/stefankroes/ancestry
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-arel.spec b/rpms/fedora-17/SPECS/rubygem-arel.spec
+index 5f0b84d..d987f17 100644
+--- a/rpms/fedora-17/SPECS/rubygem-arel.spec
++++ b/rpms/fedora-17/SPECS/rubygem-arel.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/rails/arel
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-audited-activerecord.spec b/rpms/fedora-17/SPECS/rubygem-audited-activerecord.spec
+index 12427ba..50d7cba 100644
+--- a/rpms/fedora-17/SPECS/rubygem-audited-activerecord.spec
++++ b/rpms/fedora-17/SPECS/rubygem-audited-activerecord.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: https://github.com/collectiveidea/audited
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) > 1.3.1
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-audited.spec b/rpms/fedora-17/SPECS/rubygem-audited.spec
+index d9e1433..4de8c51 100644
+--- a/rpms/fedora-17/SPECS/rubygem-audited.spec
++++ b/rpms/fedora-17/SPECS/rubygem-audited.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: https://github.com/collectiveidea/audited
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) > 1.3.1
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-excon.spec b/rpms/fedora-17/SPECS/rubygem-excon.spec
+index b9c6d4e..101bf16 100644
+--- a/rpms/fedora-17/SPECS/rubygem-excon.spec
++++ b/rpms/fedora-17/SPECS/rubygem-excon.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: https://github.com/geemus/excon
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-has_many_polymorphs.spec b/rpms/fedora-17/SPECS/rubygem-has_many_polymorphs.spec
+index 199c3f1..395dfd8 100644
+--- a/rpms/fedora-17/SPECS/rubygem-has_many_polymorphs.spec
++++ b/rpms/fedora-17/SPECS/rubygem-has_many_polymorphs.spec
+@@ -9,7 +9,7 @@ Release: 3%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://blog.evanweaver.com/files/doc/fauna/has_many_polymorphs/
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) >= 1.3.6
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-jquery-rails.spec b/rpms/fedora-17/SPECS/rubygem-jquery-rails.spec
+index ae22be7..467c061 100644
+--- a/rpms/fedora-17/SPECS/rubygem-jquery-rails.spec
++++ b/rpms/fedora-17/SPECS/rubygem-jquery-rails.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://rubygems.org/gems/jquery-rails
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) >= 1.3.6
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-multi_json.spec b/rpms/fedora-17/SPECS/rubygem-multi_json.spec
+index 3fea963..453169d 100644
+--- a/rpms/fedora-17/SPECS/rubygem-multi_json.spec
++++ b/rpms/fedora-17/SPECS/rubygem-multi_json.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/intridea/multi_json
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) >= 1.3.6
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-net-ssh.spec b/rpms/fedora-17/SPECS/rubygem-net-ssh.spec
+index 454ce80..43b9874 100644
+--- a/rpms/fedora-17/SPECS/rubygem-net-ssh.spec
++++ b/rpms/fedora-17/SPECS/rubygem-net-ssh.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/net-ssh/net-ssh
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-rails.spec b/rpms/fedora-17/SPECS/rubygem-rails.spec
+index 9acd47c..22d22ab 100644
+--- a/rpms/fedora-17/SPECS/rubygem-rails.spec
++++ b/rpms/fedora-17/SPECS/rubygem-rails.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems) >= 1.3.6
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-railties.spec b/rpms/fedora-17/SPECS/rubygem-railties.spec
+index 9b6b1a6..4c2775a 100644
+--- a/rpms/fedora-17/SPECS/rubygem-railties.spec
++++ b/rpms/fedora-17/SPECS/rubygem-railties.spec
+@@ -8,7 +8,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://www.rubyonrails.org
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby >= 1.8.7
+diff --git a/rpms/fedora-17/SPECS/rubygem-rbovirt.spec b/rpms/fedora-17/SPECS/rubygem-rbovirt.spec
+index a7108ae..3c29672 100644
+--- a/rpms/fedora-17/SPECS/rubygem-rbovirt.spec
++++ b/rpms/fedora-17/SPECS/rubygem-rbovirt.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: MIT
+ URL: http://github.com/abenari/rbovirt
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-scoped_search.spec b/rpms/fedora-17/SPECS/rubygem-scoped_search.spec
+index 6e1557f..4fa0465 100644
+--- a/rpms/fedora-17/SPECS/rubygem-scoped_search.spec
++++ b/rpms/fedora-17/SPECS/rubygem-scoped_search.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://github.com/wvanbergen/scoped_search/wiki
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
+diff --git a/rpms/fedora-17/SPECS/rubygem-sexp_processor.spec b/rpms/fedora-17/SPECS/rubygem-sexp_processor.spec
+index a36b3e3..faaab8d 100644
+--- a/rpms/fedora-17/SPECS/rubygem-sexp_processor.spec
++++ b/rpms/fedora-17/SPECS/rubygem-sexp_processor.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: https://github.com/seattlerb/sexp_processor
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ BuildRequires: ruby(abi) = %{rubyabi}
+diff --git a/rpms/fedora-17/SPECS/rubygem-tzinfo.spec b/rpms/fedora-17/SPECS/rubygem-tzinfo.spec
+index 1323744..f4dae21 100644
+--- a/rpms/fedora-17/SPECS/rubygem-tzinfo.spec
++++ b/rpms/fedora-17/SPECS/rubygem-tzinfo.spec
+@@ -9,7 +9,7 @@ Release: 1%{?dist}
+ Group: Development/Languages
+ License: GPLv2+ or Ruby
+ URL: http://tzinfo.rubyforge.org/
+-Source0: %{gem_name}-%{version}.gem
++Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+ Requires: ruby(abi) = %{rubyabi}
+ Requires: ruby(rubygems)
+ Requires: ruby
