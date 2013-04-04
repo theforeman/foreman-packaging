@@ -1,11 +1,11 @@
-# Generated from pg-0.13.2.gem by gem2rpm -*- rpm-spec -*-
+# Generated from pg-%{version}.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name pg
 %global rubyabi 1.9.1
 
 Summary: Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/]
 Name: rubygem-%{gem_name}
 Version: 0.13.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: BSD and Ruby and GPL
 URL: https://bitbucket.org/ged/ruby-pg
@@ -13,9 +13,13 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby >= 1.8.7
+
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
 BuildRequires: ruby >= 1.8.7
+BuildRequires: ruby-devel
+BuildRequires: postgresql-devel
+
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
@@ -61,10 +65,6 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir}/lib
-# TODO: move the extensions
-##mv %{buildroot}%{gem_instdir}/lib/shared_object.so %{buildroot}%{gem_extdir}/lib/
-
-
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{geminstdir}/ext
@@ -75,7 +75,7 @@ rm -rf %{buildroot}%{geminstdir}/ext
 %{gem_extdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/pg-0.13.2/
+/usr/share/gems/gems/pg-%{version}/
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/Manifest.txt
@@ -92,5 +92,7 @@ rm -rf %{buildroot}%{geminstdir}/ext
 %doc %{gem_instdir}/ext/pg_result.c
 
 %changelog
+* Tue Apr 3 2013 shk@redhat.com 0.13.2-2
+- Added required packages for building.
 * Thu Jun 14 2012 jason - 0.13.2-1
 - Initial package
