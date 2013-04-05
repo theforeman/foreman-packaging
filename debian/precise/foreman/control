@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.8-dev, git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
-               libvirt-dev, libsqlite3-dev
+               libvirt-dev, libsqlite3-dev, puppet (>=0.24.4)
 Homepage: http://www.theforeman.org/
 
 Package: foreman
@@ -148,6 +148,17 @@ Priority: extra
 Depends: foreman, ${misc:Depends}
 Description: metapackage providing test dependencies for Foreman
  This package provides test dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-assets
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing Rails asset dependencies for Foreman
+ This package provides asset dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
