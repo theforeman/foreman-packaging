@@ -10,6 +10,11 @@ f17
 debian
 ======
 
-The Debian/Ubuntu packaging files are kept here too (despite the name). They reside in
+The Debian/Ubuntu packaging files are kept here too (despite the name). They use a branch
+structure, with only stable packaging files being kept in master. Others can be found in
 
-debian/[release]/[type]/[packagename]
+deb/[repo-type]
+
+and the files are in:
+
+debian/[os]/[packagename]
