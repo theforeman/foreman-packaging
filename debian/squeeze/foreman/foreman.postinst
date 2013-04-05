@@ -26,10 +26,7 @@ chown -Rf foreman:foreman '/var/lib/foreman'
 chmod 755 '/var/lib/foreman'
 chmod 755 '/var/lib/foreman/db'
 chmod 755 '/var/lib/foreman/public'
-chmod 755 '/var/lib/foreman/public/images'
-chmod 755 '/var/lib/foreman/public/images/hosts'
-chmod 755 '/var/lib/foreman/public/javascripts'
-chmod 755 '/var/lib/foreman/public/stylesheets'
+chmod 755 '/var/lib/foreman/public/assets'
 chmod 755 '/var/cache/foreman'
 
 # Test for Gemfile.lock to determine the right action.
