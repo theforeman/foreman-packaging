@@ -1,2 +1,0 @@
-bundler.d/mysql.rb                /usr/share/foreman/bundler.d
-debian/database.yml.mysql-example /etc/foreman

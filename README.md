@@ -10,6 +10,7 @@ f17
 debian
 ======
 
-The Debian/Ubuntu packaging files are kept here too (despite the name). They reside in
+The Debian/Ubuntu packaging files are kept here too (despite the name). They reside
+in the `deb/*` branches, with a dir format of
 
-debian/[release]/[type]/[packagename]
+debian/[release]/[packagename]
