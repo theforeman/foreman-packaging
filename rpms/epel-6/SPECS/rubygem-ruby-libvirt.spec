@@ -10,7 +10,7 @@ Release: %{release}%{dist}
 Group: Development/Ruby
 License: Distributable
 URL: http://libvirt.org/ruby/
-Source0: %{rbname}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby >= 1.8.1
 Requires: rubygems >= 1.8.10
