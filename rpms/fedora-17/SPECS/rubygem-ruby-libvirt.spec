@@ -13,9 +13,13 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby >= 1.8.1
+
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel 
 BuildRequires: ruby >= 1.8.1
+BuildRequires: ruby-devel
+BuildRequires: libvirt-devel
+
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description

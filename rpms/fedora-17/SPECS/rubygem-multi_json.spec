@@ -9,7 +9,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/intridea/multi_json
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) >= 1.3.6
 Requires: ruby 

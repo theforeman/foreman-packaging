@@ -1,4 +1,3 @@
-# Generated from ruby_parser-2.3.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby_parser
 %global rubyabi 1.9.1
 
@@ -13,9 +12,12 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems)
 Requires: rubygem(sexp_processor) => 4.1.2
+
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: rubygems-devel
 BuildRequires: ruby
+BuildRequires: ruby-devel
+
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
@@ -75,17 +77,18 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 # Drop the standalone mode for tests - won't run that way due to missing
 # rubygems require anyway. One instance in lib as well
-find %{buildroot}/usr/share/gems/gems/ruby_parser-2.3.1/{test,lib} -type f | \
+find %{buildroot}/usr/share/gems/gems/ruby_parser-%{version}/{test,lib} -type f | \
   xargs -n 1 sed -i -e '/^#!\/usr\/.*\/ruby.*/d'
 
 %files
 %dir %{gem_instdir}
 %{_bindir}/ruby_parse
+%{_bindir}/ruby_parse_extract_error
 %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-/usr/share/gems/gems/ruby_parser-2.3.1/
+/usr/share/gems/gems/ruby_parser-%{version}/
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/History.txt
