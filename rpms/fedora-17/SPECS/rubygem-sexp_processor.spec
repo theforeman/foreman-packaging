@@ -9,7 +9,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/seattlerb/sexp_processor
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems)
 BuildRequires: ruby(abi) = %{rubyabi}
@@ -69,7 +69,7 @@ find %{buildroot}/usr/share/gems/gems/sexp_processor-%{version}/ -type f | \
 %doc %{gem_instdir}/README.txt
 
 %changelog
-* Thu Jan 3 2012 shk@redhat.com - 4.1.2-1
+* Thu Jan 3 2013 shk@redhat.com - 4.1.2-1
 - Updated to 4.1.2
 * Thu Jun 14 2012 jason - 3.1.0-1
 - Initial package
