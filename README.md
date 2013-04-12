@@ -1,16 +1,33 @@
 foreman-rpms
 ============
-This git repo contains rpm and deb build files, patches, gen2rpm templates, and other stuff that might be useful for building packages foreman and its dependencies.
+This git repo contains rpm and deb build files, patches, gem2rpm templates, and
+other stuff that might be useful for building packages of Foreman and its
+dependencies.
 
-Available Branches:
-el6
-f16
-f17
+RPMs
+====
+Spec files and patches are stored under `rpms/` for EL and Fedora releases.
 
-debian
+PRs should be made to `master`.
+
+Debian
 ======
+The Debian and Ubuntu packaging files are kept here too (despite the name).
+They reside on the `deb/{nightly,rc,stable}` branches and changes are merged
+between them.
 
-The Debian/Ubuntu packaging files are kept here too (despite the name). They reside
-in the `deb/*` branches, with a dir format of
+PRs should be made to `deb/nightly`.
 
-debian/[release]/[packagename]
+Installer
+=========
+The build script for the Foreman installer RPM and deb packages is stored under
+`fpm/`.
+
+Packaging PRs should be made to `master`.  Installer changes should be made to
+the submodules via the foreman-installer repo.
+
+SELinux
+=======
+An SELinux module for the targeted policy is stored under `rpms/selinux`.
+
+PRs should be made to `master`.
