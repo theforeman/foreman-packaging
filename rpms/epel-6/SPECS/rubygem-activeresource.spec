@@ -1,5 +1,5 @@
 %define rbname activeresource
-%define version 3.0.20
+%define version 3.2.13
 %define release 1
 
 Summary: REST modeling framework (part of Rails).
@@ -12,15 +12,17 @@ License: Distributable
 URL: http://www.rubyonrails.org
 Source0: http://rubygems.org/downloads/%{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
+
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
-
 Requires: rubygem-activesupport = %{version}
 Requires: rubygem-activemodel = %{version}
 
 BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 1.8.10
+
 BuildArch: noarch
+
 Provides: rubygem(activeresource) = %{version}
 
 %define gemdir /usr/lib/ruby/gems/1.8
@@ -46,9 +48,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/activeresource-%{version}/CHANGELOG
+%{gemdir}/gems/activeresource-%{version}/CHANGELOG.md
+%{gemdir}/gems/activeresource-%{version}/MIT-LICENSE
 %doc %{gemdir}/gems/activeresource-%{version}/README.rdoc
-%{gemdir}/gems/activeresource-%{version}/examples/simple.rb
+%{gemdir}/gems/activeresource-%{version}/examples/performance.rb
 %{gemdir}/gems/activeresource-%{version}/lib/active_resource/base.rb
 %{gemdir}/gems/activeresource-%{version}/lib/active_resource/connection.rb
 %{gemdir}/gems/activeresource-%{version}/lib/active_resource/custom_methods.rb
@@ -71,6 +74,8 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/specifications/activeresource-%{version}.gemspec
 
 %changelog
+* Fri Apr 12 2013 shk@redhat.com 3.2.13-1
+- Updated to 3.2.13
 * Mon Feb 4 2013 shk@redhat.com 3.0.20-1
 - Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
