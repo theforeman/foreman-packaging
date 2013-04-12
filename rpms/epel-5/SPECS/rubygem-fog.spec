@@ -1,5 +1,5 @@
 %define rbname fog
-%define version 1.9.0
+%define version 1.10.1
 %define release 1
 
 Summary: brings clouds to you
@@ -67,9 +67,9 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/gems/%{rbname}-%{version}/benchs/fog_vs.rb
 %{gemdir}/gems/%{rbname}-%{version}/benchs/params.rb
 %{gemdir}/gems/%{rbname}-%{version}/benchs/parse_vs_push.rb
+%{gemdir}/gems/%{rbname}-%{version}/benchs/load_times.rb
 %{gemdir}/gems/%{rbname}-%{version}/bin/fog
 %{gemdir}/gems/%{rbname}-%{version}/changelog.txt
-%{gemdir}/gems/%{rbname}-%{version}/docs/
 %{gemdir}/gems/%{rbname}-%{version}/fog.gemspec
 %{gemdir}/gems/%{rbname}-%{version}/lib/
 %{gemdir}/gems/%{rbname}-%{version}/tests/
@@ -83,5 +83,7 @@ rmdir %{gembuilddir}/bin
 %{gemdir}/specifications/./fog-%{version}.gemspec
 
 %changelog
+* Thu Apr 11 2013 shk@redhat.com 1.10.1-1
+- Updated to 1.10.1
 * Fri Jan 25 2013 shk@redhat.com 1.9.0-1
 - Updated to 1.9.0
