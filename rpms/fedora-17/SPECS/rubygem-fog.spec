@@ -4,7 +4,7 @@
 
 Summary: brings clouds to you
 Name: rubygem-%{gem_name}
-Version: 1.9.0
+Version: 1.10.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -84,8 +84,8 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 /usr/share/gems/gems/fog-%{version}/benchs/fog_vs.rb
 /usr/share/gems/gems/fog-%{version}/benchs/params.rb
 /usr/share/gems/gems/fog-%{version}/benchs/parse_vs_push.rb
+/usr/share/gems/gems/fog-%{version}/benchs/load_times.rb
 /usr/share/gems/gems/fog-%{version}/changelog.txt
-/usr/share/gems/gems/fog-%{version}/docs/
 /usr/share/gems/gems/fog-%{version}/fog.gemspec
 /usr/share/gems/gems/fog-%{version}/tests/
 /usr/share/gems/gems/fog-%{version}/.travis.yml
@@ -96,6 +96,8 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Thu Apr 11 2013 shk@redhat.com 1.10.1-1
+- Updated to 1.10.1
 * Fri Jan 25 2013 shk@redhat.com 1.9.0-1
 - Updated to 1.9.0
 * Fri Jun 29 2012 jason - 1.4.0-1
