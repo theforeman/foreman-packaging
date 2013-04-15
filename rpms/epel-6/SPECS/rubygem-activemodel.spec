@@ -1,5 +1,5 @@
 %define rbname activemodel
-%define version 3.0.20
+%define version 3.2.13
 %define release 1
 
 Summary: A toolkit for building modeling frameworks (part of Rails).
@@ -12,19 +12,18 @@ License: Distributable
 URL: http://www.rubyonrails.org
 Source0: http://rubygems.org/downloads/%{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
+
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
-
 Requires: rubygem-activesupport = %{version}
+Requires: rubygem-builder => 3.0.0
+Requires: rubygem-builder < 3.1
 
-Requires: rubygem-builder => 2.1.2
-Requires: rubygem-builder < 2.2
-
-Requires: rubygem-i18n => 0.5.0
-Requires: rubygem-i18n < 0.6
 BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 1.8.10
+
 BuildArch: noarch
+
 Provides: rubygem(activemodel) = %{version}
 
 %define gemdir /usr/lib/ruby/gems/1.8
@@ -51,13 +50,12 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %files
 %defattr(-, root, root)
-%{gemdir}/gems/activemodel-%{version}/CHANGELOG
+%{gemdir}/gems/activemodel-%{version}/CHANGELOG.md
 %{gemdir}/gems/activemodel-%{version}/MIT-LICENSE
 %{gemdir}/gems/activemodel-%{version}/README.rdoc
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/attribute_methods.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/callbacks.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/conversion.rb
-%{gemdir}/gems/activemodel-%{version}/lib/active_model/deprecated_error_methods.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/dirty.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/errors.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/lint.rb
@@ -66,8 +64,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/mass_assignment_security/sanitizer.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/mass_assignment_security.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/naming.rb
+%{gemdir}/gems/activemodel-%{version}/lib/active_model/observer_array.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/observing.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/railtie.rb
+%{gemdir}/gems/activemodel-%{version}/lib/active_model/secure_password.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/serialization.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/serializers/json.rb
 %{gemdir}/gems/activemodel-%{version}/lib/active_model/serializers/xml.rb
@@ -95,6 +95,8 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %{gemdir}/specifications/activemodel-%{version}.gemspec
 
 %changelog
+* Fri Apr 12 2013 shk@redhat.com 3.2.13-1
+- Updated to 3.2.13
 * Mon Feb 4 2013 shk@redhat.com 3.0.20-1
 - Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1

@@ -1,5 +1,5 @@
 %define rbname rails
-%define version 3.0.20
+%define version 3.2.13
 %define release 1
 
 Summary: Full-stack web application framework.
@@ -12,21 +12,23 @@ License: Distributable
 URL: http://www.rubyonrails.org
 Source0: http://rubygems.org/downloads/%{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
+
 Requires: ruby >= 1.8.7
 Requires: rubygems >= 1.8.10
-
 Requires: rubygem-activesupport = %{version}
 Requires: rubygem-actionpack = %{version}
 Requires: rubygem-activerecord = %{version}
 Requires: rubygem-activeresource = %{version}
 Requires: rubygem-actionmailer = %{version}
 Requires: rubygem-railties = %{version}
-
 Requires: rubygem-bundler => 1.0
 Requires: rubygem-bundler < 2
+
 BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 1.8.10
+BuildRequireS: rubygem-rdoc
 BuildArch: noarch
+
 Provides: rubygem(rails) = %{version}
 
 %define gemdir /usr/lib/ruby/gems/1.8
@@ -46,24 +48,22 @@ convention over configuration.
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-ri --no-rdoc
-mkdir -p %{buildroot}/%{_bindir}
-mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{gembuilddir}/bin
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
 %clean
 %{__rm} -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
-%{_bindir}/rails
-%{gemdir}/gems/rails-%{version}/bin/rails
 
 
+%doc %{gemdir}/doc/rails-%{version}
 %{gemdir}/cache/rails-%{version}.gem
 %{gemdir}/specifications/rails-%{version}.gemspec
 
 %changelog
+* Fri Apr 12 2013 shk@redhat.com 3.2.13-1
+- Updated to 3.2.13
 * Mon Feb 4 2013 shk@redhat.com 3.0.20-1
 - Updated to 3.0.20
 * Fri Jan 25 2013 shk@redhat.com 3.0.19-1
