@@ -11,6 +11,8 @@ fi
 
 . /usr/share/debconf/confmodule
 
+LOGFILE='/var/log/foreman-install.log'
+
 # if this script aborts with an error dpkg can
 # hang if daemons have been started
 trap db_stop EXIT
@@ -20,7 +22,7 @@ cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
   bundle update --local
 else
-  bundle update --local 2>&1 >/dev/null
+  bundle update --local 2>&1 >> $LOGFILE
 fi
 
 # Run a db:migrate if the user has created a dbfile
@@ -28,7 +30,7 @@ if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
     su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate || true
   else
-    su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1 || true
+    su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate >> $LOGFILE 2>&1 || true
   fi
 fi
 
