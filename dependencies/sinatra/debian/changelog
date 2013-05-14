@@ -1,0 +1,94 @@
+ruby-sinatra (1.3.6-1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * Bump to 1.3.6 to avoid a bug in 1.3.2
+
+ -- root <root@vmbuild.elysium.emeraldreverie.org>  Mon, 13 May 2013 20:54:48 +0000
+
+ruby-sinatra (1.3.2-2) unstable; urgency=low
+
+  * Team upload
+  * Add a dependency on ruby-rack-protection (Closes: #683496)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Sun, 05 Aug 2012 15:12:53 -0500
+
+ruby-sinatra (1.3.2-1) unstable; urgency=low
+
+  * New upstream version:1.3.2
+  * Bump Standard Version: 3.9.3
+  * Change transitional package priority to extra
+  * Add lintian-overrides for transitional packages
+  * Add rack-test-protection into Build-Depends 
+
+ -- Youhei SASAKI <uwabami@gfd-dennou.org>  Fri, 29 Jun 2012 00:10:33 +0900
+
+ruby-sinatra (1.2.6-1) unstable; urgency=low
+
+  * New upstream version: 1.2.6
+  * Add me to Uploaders
+  * Add lintian-overrides
+
+ -- Youhei SASAKI <uwabami@gfd-dennou.org>  Tue, 26 Jul 2011 01:23:37 +0900
+
+ruby-sinatra (1.2.3-1) unstable; urgency=low
+
+  * Switch to gem2deb-based packaging. Rename source and binary packages.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Tue, 26 Apr 2011 15:41:55 +0200
+
+libsinatra-ruby (1.0.really1.0-1) unstable; urgency=low
+
+  [Laurent Vallar]
+  * New upstream release.
+
+  [Deepak Tripathi]
+  * Added debian/source
+  * Added debian/README.source
+  
+ -- Laurent Vallar <val@zbla.net>  Fri, 07 May 2010 15:21:21 +0200
+
+libsinatra-ruby (1.0.b-1) unstable; urgency=low
+
+  * New upstream release. No changes needed.
+
+ -- Laurent Vallar <val@zbla.net>  Sat, 27 Mar 2010 16:37:27 +0100
+
+libsinatra-ruby (1.0.a-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bumped Standards-Version to 3.8.4. No changes needed.
+  * Build ri documentation.
+  * Port the package to Ruby 1.9.1.
+
+ -- Laurent Vallar <val@zbla.net>  Mon, 22 Feb 2010 09:42:32 +0100
+
+libsinatra-ruby (0.9.4-1) unstable; urgency=low
+
+  * New uptstream release.
+  * Remove patches associated to sinatra's lighthouseapp tickets #249 and
+    #254, bugs are now fixed upstream.
+  * Bumped Standards-Version to 3.8.3. No changes needed.
+
+ -- Laurent Vallar <val@zbla.net>  Mon, 24 Aug 2009 16:46:00 +0200
+
+libsinatra-ruby (0.9.3-1) unstable; urgency=low
+
+  [ Laurent Vallar ]
+  * Initial release (Closes: #534557).
+  * Provide patch to fix :run default bad value on Sinatra applications,
+    see https://sinatra.lighthouseapp.com/projects/9779-sinatra/tickets/249.
+  * Provide patch to fix in file template support, see
+    https://sinatra.lighthouseapp.com/projects/9779-sinatra/tickets/254
+  * Move images from library path and provide patch to fix path in code.
+  * Build HTML API documentation using rdoc instead of mislav-hanna gem which
+    is not packaged for now.
+  * Add graphviz dependency for build process plus many lintian fixes
+    (thanks Ryan).
+
+  [ Ryan Niebur ]
+  * fix watch file
+
+  [ Lucas Nussbaum ]
+  * Fixed Vcs-* fields after pkg-ruby-extras SVN layout change.
+
+ -- Laurent Vallar <val@zbla.net>  Wed, 24 Jun 2009 14:13:24 +0200

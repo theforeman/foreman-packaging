@@ -1,0 +1,5 @@
+ruby-sinatra_1.3.6-1_all.deb ruby optional
+libsinatra-ruby1.8_1.3.6-1_all.deb oldlibs extra
+libsinatra-ruby1.9.1_1.3.6-1_all.deb oldlibs extra
+libsinatra-ruby_1.3.6-1_all.deb oldlibs extra
+libsinatra-ruby-doc_1.3.6-1_all.deb oldlibs extra

@@ -1,0 +1,2 @@
+ruby-sinatra: image-file-in-usr-lib usr/lib/ruby/vendor_ruby/sinatra/images/404.png
+ruby-sinatra: image-file-in-usr-lib usr/lib/ruby/vendor_ruby/sinatra/images/500.png

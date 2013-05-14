@@ -1,0 +1,68 @@
+Source: ruby-sinatra
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Lucas Nussbaum <lucas@lucas-nussbaum.net>, Youhei SASAKI <uwabami@gfd-dennou.org>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~), rake, 
+ ruby-tilt, ruby-rack-test, ruby-rack-protection
+# ruby-haml, ruby-redcarpet, ruby-rdiscount, ruby-bluecloth, ruby-kramdown
+# ruby-maruku, ruby-sass, ruby-redcloth, ruby-nokogiri, ruby-erubis, ruby-builder, ruby-liquid
+# ruby-less, ruby-radius, ruby-slim, ruby-markaby, ruby-coffee-script, ruby-creole
+Standards-Version: 3.9.3
+Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-sinatra.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-sinatra.git;a=summary
+Homepage: http://www.sinatrarb.com/
+XS-Ruby-Versions: all
+
+Package: ruby-sinatra
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby1.8 | ruby-interpreter, ruby-rack, ruby-tilt, ruby-rack-protection
+Replaces: libsinatra-ruby1.8 (<< 1.2.3-1~), libsinatra-ruby1.9.1 (<< 1.2.3-1~), libsinatra-ruby (<< 1.2.3-1~), libsinatra-ruby-doc (<< 1.2.3-1~)
+Conflicts: libsinatra-ruby1.8 (<< 1.2.3-1~), libsinatra-ruby1.9.1 (<< 1.2.3-1~), libsinatra-ruby (<< 1.2.3-1~), libsinatra-ruby-doc (<< 1.2.3-1~)
+Provides: libsinatra-ruby1.8, libsinatra-ruby1.9.1, libsinatra-ruby, libsinatra-ruby-doc
+Description: Ruby web-development dressed in a DSL
+ Sinatra is an open source web framework for Ruby programming language.
+ It provides simple Domain Specific Language (DSL) for defining RESTful
+ HTTP actions, and then defining how the application is going to respond
+ to them.
+ .
+ This framework is lighweight and uses Rack which is a web server
+ interface developed to run many Ruby frameworks using the same stack.
+
+Package: libsinatra-ruby1.8
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-sinatra
+Description: Transitional package for ruby-sinatra
+ This is a transitional package to ease upgrades to the ruby-sinatra
+ package. It can safely be removed.
+
+Package: libsinatra-ruby1.9.1
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-sinatra
+Description: Transitional package for ruby-sinatra
+ This is a transitional package to ease upgrades to the ruby-sinatra
+ package. It can safely be removed.
+
+Package: libsinatra-ruby
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-sinatra
+Description: Transitional package for ruby-sinatra
+ This is a transitional package to ease upgrades to the ruby-sinatra
+ package. It can safely be removed.
+
+Package: libsinatra-ruby-doc
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-sinatra
+Description: Transitional package for ruby-sinatra
+ This is a transitional package to ease upgrades to the ruby-sinatra
+ package. It can safely be removed.
