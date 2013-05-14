@@ -13,6 +13,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: ruby1.9.1, bundler (>= 1.1),
+         ruby-dev, gcc, make,
          puppet (>=0.24.4), rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
 Description: Systems management web interface
