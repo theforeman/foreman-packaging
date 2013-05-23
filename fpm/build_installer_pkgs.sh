@@ -2,6 +2,8 @@
 
 export VERSION=$1
 export PLATFORM=$2
+BRANCH=$3
+[ -z "$3" ] && BRANCH=master
 
 export CHECKOUTDIR="/usr/share/foreman-installer"
 
@@ -9,7 +11,7 @@ function clone_repo() {
   if [ -e $CHECKOUTDIR ]; then
     sudo rm -rf $CHECKOUTDIR
   fi
-  sudo git clone --recursive https://github.com/theforeman/foreman-installer $CHECKOUTDIR
+  sudo git clone --recursive -b $BRANCH https://github.com/theforeman/foreman-installer $CHECKOUTDIR
   sudo chown -R $USER:$USER $CHECKOUTDIR
   cd $CHECKOUTDIR
   git checkout $VERSION
@@ -36,11 +38,11 @@ function build_pkgs() {
 }
 
 function usage() {
-  echo "USAGE: ./build_installer_pkgs.sh <version> <platform>"
+  echo "USAGE: ./build_installer_pkgs.sh <version> <platform> <branch>"
   exit 1
 }
 
-if [ $# != 2 ]; then
+if [ $# != 3 ]; then
   usage
 fi
 
