@@ -1,9 +1,10 @@
 #!/bin/bash
 
 export VERSION=$1
-export PLATFORM=$2
-BRANCH=$3
-[ -z "$3" ] && BRANCH=master
+export RELEASE=$2
+export PLATFORM=$3
+BRANCH=$4
+[ -z "$BRANCH" ] && BRANCH=master
 
 export CHECKOUTDIR="/usr/share/foreman-installer"
 
@@ -29,20 +30,20 @@ function build_pkgs() {
   if [ $PLATFORM = "deb" ]; then
     fpm -d "facter >= 1.6.2" -d "puppet >= 2.6.5" -d "libhighline-ruby1.8" \
       -d "rubygems" -s dir -t $PLATFORM -n "foreman-installer" -a all \
-      -v $VERSION $CHECKOUTDIR
+      -v $VERSION --iteration $RELEASE $CHECKOUTDIR
   else
     fpm -d "facter >= 1.6.2" -d "puppet >= 2.6.5" -d "rubygem-highline" \
       -s dir -t $PLATFORM -n "foreman-installer" -a all \
-      -v $VERSION $CHECKOUTDIR
+      -v $VERSION --iteration $RELEASE $CHECKOUTDIR
   fi
 }
 
 function usage() {
-  echo "USAGE: ./build_installer_pkgs.sh <version> <platform> <branch>"
+  echo "USAGE: ./build_installer_pkgs.sh <version> <release> <platform> <branch>"
   exit 1
 }
 
-if [ $# != 3 ]; then
+if [ $# != 4 ]; then
   usage
 fi
 
