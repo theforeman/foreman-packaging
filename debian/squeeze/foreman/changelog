@@ -1,3 +1,9 @@
+foreman (1.2.0+debian0.1) squeeze; urgency=low
+
+  * 1.2.0 RC1 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Thu, 23 May 2013 14:29:00 +0100
+
 foreman (1.1.1+debian1) squeeze; urgency=low
 
   * Release 1.1.1
