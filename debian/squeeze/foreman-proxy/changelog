@@ -1,4 +1,10 @@
-foreman-proxy (1.2.0+debian0.1) precise; urgency=low
+foreman-proxy (1.2.0+debian0.2) squeeze; urgency=low
+
+   * 1.2.0 RC2 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Fri, 07 Jun 2013 15:12:00 +0100
+
+foreman-proxy (1.2.0+debian0.1) squeeze; urgency=low
 
   * 1.2.0 RC1 released
 
