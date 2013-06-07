@@ -10,8 +10,9 @@ Vcs-Browser: https://github.com/ohadlevy/smart-proxy
 
 Package: foreman-proxy
 Architecture: all
-Depends: ruby, rubygems, libopenssl-ruby, libsinatra-ruby, libjson-ruby, libnet-ping-ruby, rake, ${misc:Depends}
-Recommends: sudo, wget
+Depends: ruby, rubygems, libopenssl-ruby, libsinatra-ruby, libjson-ruby, libkrb5-ruby, rake, ${misc:Depends}
+Recommends: sudo, wget, ping
+
 Description: RESTful proxies for DNS, DHCP, TFTP, and Puppet
  Smart-Proxy is a project which provides a RESTful API to various sub-systems
  like DNS, DHCP, TFTP, and Puppet.
