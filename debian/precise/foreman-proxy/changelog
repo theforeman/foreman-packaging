@@ -1,3 +1,9 @@
+foreman-proxy (1.2.0+ubuntu0.21) precise; urgency=low
+
+  * Remove broken sinatra version requirement
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Sat, 08 Jun 2013 15:23:00 +0100
+
 foreman-proxy (1.2.0+ubuntu0.2) precise; urgency=low
 
   * 1.2.0 RC2 released
