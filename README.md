@@ -6,9 +6,7 @@ dependencies.
 
 RPMs
 ====
-Spec files and patches are stored under `rpms/` for EL and Fedora releases.
-
-PRs should be made to `master`.
+RPMs are built using the files in the foreman repo itself.
 
 Debian
 ======
@@ -20,8 +18,9 @@ PRs should be made to `deb/nightly`.
 
 Installer
 =========
-The build script for the Foreman installer RPM and deb packages is stored under
-`fpm/`.
+The build script for the Foreman installer deb packages is stored under `fpm/`.
+
+RPMs are built using the files in the foreman-installer repo itself.
 
 Packaging PRs should be made to `master`.  Installer changes should be made to
 the submodules via the foreman-installer repo.
