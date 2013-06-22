@@ -27,6 +27,4 @@ the submodules via the foreman-installer repo.
 
 SELinux
 =======
-An SELinux module for the targeted policy is stored under `rpms/selinux`.
-
-PRs should be made to `master`.
+The SELinux module has moved to [foreman-selinux](https://github.com/theforeman/foreman-selinux/).
