@@ -1,0 +1,188 @@
+From b0a875862d14244ca41cd1e1e9090f87757aaeb9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADt=20Ondruch?= <vondruch@redhat.com>
+Date: Mon, 5 Sep 2011 13:10:47 +0200
+Subject: [PATCH] Added configuration flags for site and vendor architecture
+ specific directories.
+
+---
+ Makefile.in      |    3 +++
+ configure.in     |   40 ++++++++++++++++++++++++++++++++++++++++
+ tool/mkconfig.rb |    8 ++++++--
+ version.c        |    4 ++++
+ 4 files changed, 53 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index bcdaf5f..f57e4c4 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -34,6 +34,9 @@ datadir = @datadir@
+ archdir = @archdir@
+ sitearch = @sitearch@
+ sitedir = @sitedir@
++sitearchdir= @sitearchdir@
++vendordir = @vendordir@
++vendorarchdir = @vendorarchdir@
+ ruby_version = @ruby_version@
+ 
+ TESTUI = console
+diff --git a/configure.in b/configure.in
+index 83e5d76..31532bd 100644
+--- a/configure.in
++++ b/configure.in
+@@ -2811,6 +2811,15 @@ until SITE_DIR=`eval echo \\"${dir}\\"`; test "x${dir}" = "x${SITE_DIR}"; do
+     dir="${SITE_DIR}"
+ done
+ 
++AC_ARG_WITH(sitearchdir,
++	    AS_HELP_STRING([--with-sitearchdir=DIR], [site libraries in DIR [[RUBY_LIB_PREFIX/site_ruby]]]),
++            [sitearchdir=$withval],
++            [sitearchdir='${rubylibprefix}/site_ruby/${arch}'])
++dir="${sitearchdir}"
++until SITEARCH_DIR=`eval echo \\"${dir}\\"`; test "x${dir}" = "x${SITEARCH_DIR}"; do
++    dir="${SITEARCH_DIR}"
++done
++
+ AC_ARG_WITH(vendordir,
+ 	    AS_HELP_STRING([--with-vendordir=DIR], [vendor libraries in DIR [[RUBY_LIB_PREFIX/vendor_ruby]]]),
+             [vendordir=$withval],
+@@ -2820,19 +2829,32 @@ until VENDOR_DIR=`eval echo \\"${dir}\\"`; test "x${dir}" = "x${VENDOR_DIR}"; do
+     dir="${VENDOR_DIR}"
+ done
+ 
++AC_ARG_WITH(vendorarchdir,
++	    AS_HELP_STRING([--with-vendorarchdir=DIR], [vendor libraries in DIR [[RUBY_LIB_PREFIX/vendor_ruby]]]),
++            [vendorarchdir=$withval],
++            [vendorarchdir='${rubylibprefix}/vendor_ruby/${arch}'])
++dir="${vendorarchdir}"
++until VENDORARCH_DIR=`eval echo \\"${dir}\\"`; test "x${dir}" = "x${VENDORARCH_DIR}"; do
++    dir="${VENDORARCH_DIR}"
++done
++
+ if test "${LOAD_RELATIVE+set}"; then
+     AC_DEFINE_UNQUOTED(LOAD_RELATIVE, $LOAD_RELATIVE)
+     RUBY_EXEC_PREFIX=""
+     RUBY_LIB_PREFIX="`eval echo "$RUBY_LIB_PREFIX" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
+     RUBY_ARCH_LIB_PATH="`eval echo "$ARCH_DIR" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
+     RUBY_SITE_LIB_PATH="`eval echo "$SITE_DIR" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
++    RUBY_SITE_ARCHLIB_PATH="`eval echo "$SITEARCH_DIR" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
+     RUBY_VENDOR_LIB_PATH="`eval echo "$VENDOR_DIR" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
++    RUBY_VENDOR_ARCHLIB_PATH="`eval echo "$VENDORARCH_DIR" | sed 's|^NONE/|/|;s|^'"$prefix"'/|/|'`"
+ else
+     RUBY_EXEC_PREFIX="`eval echo \\"$exec_prefix/\\" | sed 's|^NONE/|'"$prefix"'/|;s|/$||'`"
+     RUBY_LIB_PREFIX="`eval echo \\"$RUBY_LIB_PREFIX\\" | sed 's|^NONE/|'"$prefix"'/|'`"
+     RUBY_ARCH_LIB_PATH="`eval echo \\"$ARCH_DIR\\" | sed 's|^NONE/|'"$prefix"'/|'`"
+     RUBY_SITE_LIB_PATH="`eval echo \\"$SITE_DIR\\" | sed 's|^NONE/|'"$prefix"'/|'`"
++    RUBY_SITE_ARCHLIB_PATH="`eval echo \\"$SITEARCH_DIR\\" | sed 's|^NONE/|'"$prefix"'/|'`"
+     RUBY_VENDOR_LIB_PATH="`eval echo \\"$VENDOR_DIR\\" | sed 's|^NONE/|'"$prefix"'/|'`"
++    RUBY_VENDOR_ARCHLIB_PATH="`eval echo \\"$VENDORARCH_DIR\\" | sed 's|^NONE/|'"$prefix"'/|'`"
+ fi
+ 
+ pat=`echo "$RUBY_LIB_PREFIX/" | tr -c '\012' .`'\(.*\)'
+@@ -2850,6 +2872,13 @@ AS_CASE(["$RUBY_SITE_LIB_PATH"],
+   [
+     RUBY_SITE_LIB_PATH="\"${RUBY_SITE_LIB_PATH}\""
+     ])
++AS_CASE(["$RUBY_SITE_ARCHLIB_PATH"],
++  ["$RUBY_LIB_PREFIX/"*], [
++    RUBY_SITE_ARCHLIB_PATH='RUBY_LIB_PREFIX"/'"`expr \"$RUBY_SITE_ARCHLIB_PATH\" : \"$pat\"`"'"'
++    ],
++  [
++    RUBY_SITE_ARCHLIB_PATH="\"${RUBY_SITE_ARCHLIB_PATH}\""
++    ])
+ AS_CASE(["$RUBY_VENDOR_LIB_PATH"],
+   ["$RUBY_LIB_PREFIX/"*], [
+     RUBY_VENDOR_LIB_PATH='RUBY_LIB_PREFIX"/'"`expr \"$RUBY_VENDOR_LIB_PATH\" : \"$pat\"`"'"'
+@@ -2857,6 +2886,13 @@ AS_CASE(["$RUBY_VENDOR_LIB_PATH"],
+   [
+     RUBY_VENDOR_LIB_PATH="\"${RUBY_VENDOR_LIB_PATH}\""
+     ])
++AS_CASE(["$RUBY_VENDOR_ARCHLIB_PATH"],
++  ["$RUBY_LIB_PREFIX/"*], [
++    RUBY_VENDOR_ARCHLIB_PATH='RUBY_LIB_PREFIX"/'"`expr \"$RUBY_VENDOR_ARCHLIB_PATH\" : \"$pat\"`"'"'
++    ],
++  [
++    RUBY_VENDOR_ARCHLIB_PATH="\"${RUBY_VENDOR_ARCHLIB_PATH}\""
++    ])
+ pat=`echo "$RUBY_EXEC_PREFIX/" | tr -c '\012' .`'\(.*\)'
+ AS_CASE(["$RUBY_LIB_PREFIX"],
+   ["$RUBY_EXEC_PREFIX/"*], [
+@@ -2878,19 +2914,23 @@ if test "x$SITE_DIR" = xno; then
+     AC_DEFINE(NO_RUBY_SITE_LIB)
+ else
+     AC_DEFINE_UNQUOTED(RUBY_SITE_LIB, ${RUBY_SITE_LIB_PATH})
++    AC_DEFINE_UNQUOTED(RUBY_SITE_ARCHLIB, ${RUBY_SITE_ARCHLIB_PATH})
+ fi
+ if test "x$VENDOR_DIR" = xno; then
+     AC_DEFINE(NO_RUBY_VENDOR_LIB)
+ else
+     AC_DEFINE_UNQUOTED(RUBY_VENDOR_LIB, ${RUBY_VENDOR_LIB_PATH})
++    AC_DEFINE_UNQUOTED(RUBY_VENDOR_ARCHLIB, ${RUBY_VENDOR_ARCHLIB_PATH})
+ fi
+ 
+ AC_SUBST(arch)dnl
+ AC_SUBST(sitearch)dnl
+ AC_SUBST(ruby_version)dnl
+ AC_SUBST(archdir)dnl
+ AC_SUBST(sitedir)dnl
++AC_SUBST(sitearchdir)dnl
+ AC_SUBST(vendordir)dnl
++AC_SUBST(vendorarchdir)dnl
+ 
+ configure_args=$ac_configure_args
+ AC_SUBST(configure_args)dnl
+diff --git a/tool/mkconfig.rb b/tool/mkconfig.rb
+index b707c4b..6230720 100755
+--- a/tool/mkconfig.rb
++++ b/tool/mkconfig.rb
+@@ -44,6 +44,8 @@ v_others = []
+ continued_line = nil
+ path_version = "/$(ruby_version)"
+ archdir_override = "$(vendorlibdir)/$(sitearch)"
++sitearchdir_override = "$(sitelibdir)/$(sitearch)"
++vendorarchdir_override = "$(vendorlibdir)/$(sitearch)"
+ File.foreach "config.status" do |line|
+   next if /^#/ =~ line
+   name = nil
+@@ -79,6 +81,8 @@ File.foreach "config.status" do |line|
+     when /^RUBY_SO_NAME$/; next if $so_name
+     when /^arch$/; if val.empty? then val = arch else arch = val end
+     when /^archdir$/; archdir_override = val; next
++    when /^sitearchdir$/; sitearchdir_override = val; next
++    when /^vendorarchdir$/; vendorarchdir_override = val; next
+     when /^sitearch/; val = '$(arch)' if val.empty?
+     end
+     case val
+@@ -213,11 +217,11 @@ print <<EOS
+ EOS
+ print <<EOS unless v_disabled["sitedir"]
+   CONFIG["sitelibdir"] = "$(sitedir)#{path_version}"
+-  CONFIG["sitearchdir"] = "$(sitelibdir)/$(sitearch)"
++  CONFIG["sitearchdir"] = "#{sitearchdir_override}"
+ EOS
+ print <<EOS unless v_disabled["vendordir"]
+   CONFIG["vendorlibdir"] = "$(vendordir)#{path_version}"
+-  CONFIG["vendorarchdir"] = "$(vendorlibdir)/$(sitearch)"
++  CONFIG["vendorarchdir"] = "#{vendorarchdir_override}"
+ EOS
+ print <<EOS
+   CONFIG["topdir"] = File.dirname(__FILE__)
+diff --git a/version.c b/version.c
+index 59d4e5e..2558aa0 100644
+--- a/version.c
++++ b/version.c
+@@ -50,8 +50,12 @@
+ #ifndef RUBY_ARCHLIB
+ #define RUBY_ARCHLIB                RUBY_LIB         "/"RUBY_ARCH
+ #endif
++#ifndef RUBY_SITE_ARCHLIB
+ #define RUBY_SITE_ARCHLIB           RUBY_SITE_LIB2   "/"RUBY_SITEARCH
++#endif
++#ifndef RUBY_VENDOR_ARCHLIB
+ #define RUBY_VENDOR_ARCHLIB         RUBY_VENDOR_LIB2 "/"RUBY_SITEARCH
++#endif
+ #ifdef  RUBY_THINARCH
+ #define RUBY_THIN_ARCHLIB           RUBY_LIB         "/"RUBY_THINARCH
+ #define RUBY_SITE_THIN_ARCHLIB      RUBY_SITE_LIB2   "/"RUBY_THINARCH
+-- 
+1.7.6.1
+

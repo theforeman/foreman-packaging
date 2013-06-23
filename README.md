@@ -6,7 +6,11 @@ dependencies.
 
 RPMs
 ====
-RPMs are built using the files in the foreman repo itself.
+Foreman RPMs are built using the files in the foreman repo itself, same for
+related subprojects.
+
+Dependencies are built using the spec files found under rpms/ in this repo.
+Pull requests gladly accepted for these to the `master` branch.
 
 Debian
 ======

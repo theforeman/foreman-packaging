@@ -1,0 +1,67 @@
+--- test/abstract_unit.rb.orig	2011-02-02 12:38:56.766898240 -0500
++++ test/abstract_unit.rb	2011-02-02 12:38:55.397898289 -0500
+@@ -34,12 +34,16 @@ require 'active_support'
+ require 'active_support/ruby/shim' if RUBY_VERSION < '1.8.7'
+ 
+ def uses_memcached(test_name)
+-  require 'memcache'
+   begin
+-    MemCache.new('localhost:11211').stats
+-    yield
+-  rescue MemCache::MemCacheError
+-    $stderr.puts "Skipping #{test_name} tests. Start memcached and try again."
++    require 'memcache'
++    begin
++      MemCache.new('localhost:11211').stats
++      yield
++    rescue MemCache::MemCacheError
++      $stderr.puts "Skipping #{test_name} tests. Start memcached and try again."
++    end
++  rescue LoadError
++    $stderr.puts "Skipping #{test_name} tests. Install memcache-client and try again."
+   end
+ end
+ 
+--- test/caching_test.rb.orig	2011-02-02 12:39:05.979900964 -0500
++++ test/caching_test.rb	2011-02-02 12:41:10.089899015 -0500
+@@ -59,40 +59,6 @@ class CacheStoreSettingTest < ActiveSupp
+     assert_equal "/path/to/cache/directory", store.cache_path
+   end
+ 
+-  def test_mem_cache_fragment_cache_store
+-    MemCache.expects(:new).with(%w[localhost], {})
+-    store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost"
+-    assert_kind_of(ActiveSupport::Cache::MemCacheStore, store)
+-  end
+-
+-  def test_mem_cache_fragment_cache_store_with_given_mem_cache
+-    mem_cache = MemCache.new
+-    MemCache.expects(:new).never
+-    store = ActiveSupport::Cache.lookup_store :mem_cache_store, mem_cache
+-    assert_kind_of(ActiveSupport::Cache::MemCacheStore, store)
+-  end
+-
+-  def test_mem_cache_fragment_cache_store_with_given_mem_cache_like_object
+-    MemCache.expects(:new).never
+-    memcache = Object.new
+-    def memcache.get() true end
+-    store = ActiveSupport::Cache.lookup_store :mem_cache_store, memcache
+-    assert_kind_of(ActiveSupport::Cache::MemCacheStore, store)
+-  end
+-
+-  def test_mem_cache_fragment_cache_store_with_multiple_servers
+-    MemCache.expects(:new).with(%w[localhost 192.168.1.1], {})
+-    store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost", '192.168.1.1'
+-    assert_kind_of(ActiveSupport::Cache::MemCacheStore, store)
+-  end
+-
+-  def test_mem_cache_fragment_cache_store_with_options
+-    MemCache.expects(:new).with(%w[localhost 192.168.1.1], { :timeout => 10 })
+-    store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost", '192.168.1.1', :namespace => 'foo', :timeout => 10
+-    assert_kind_of(ActiveSupport::Cache::MemCacheStore, store)
+-    assert_equal 'foo', store.options[:namespace]
+-  end
+-
+   def test_object_assigned_fragment_cache_store
+     store = ActiveSupport::Cache.lookup_store ActiveSupport::Cache::FileStore.new("/path/to/cache/directory")
+     assert_kind_of(ActiveSupport::Cache::FileStore, store)

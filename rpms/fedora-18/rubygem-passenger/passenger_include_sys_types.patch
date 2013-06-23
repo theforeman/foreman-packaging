@@ -1,0 +1,48 @@
+diff -up ./ext/common/EventedMessageServer.h.types ./ext/common/EventedMessageServer.h
+--- ./ext/common/EventedMessageServer.h.types	2013-06-03 13:37:58.254800329 +0200
++++ ./ext/common/EventedMessageServer.h	2013-06-03 13:38:23.193089923 +0200
+@@ -27,6 +27,7 @@
+ 
+ #include <boost/shared_ptr.hpp>
+ #include <ev++.h>
++#include <sys/types.h>
+ #include <cstdarg>
+ #include <cstdlib>
+ #include <EventedServer.h>
+diff -up ./ext/common/FileDescriptor.h.types ./ext/common/FileDescriptor.h
+--- ./ext/common/FileDescriptor.h.types	2013-06-03 13:39:07.953609698 +0200
++++ ./ext/common/FileDescriptor.h	2013-06-03 13:39:37.223949595 +0200
+@@ -30,6 +30,7 @@
+ #include <oxt/system_calls.hpp>
+ 
+ #include <utility>
++#include <sys/types.h>
+ #include <unistd.h>
+ #include <cerrno>
+ 
+diff -up ./ext/common/Utils/BufferedIO.h.types ./ext/common/Utils/BufferedIO.h
+--- ./ext/common/Utils/BufferedIO.h.types	2013-06-03 13:40:39.636674347 +0200
++++ ./ext/common/Utils/BufferedIO.h	2013-06-03 13:40:58.231890279 +0200
+@@ -1,6 +1,7 @@
+ #ifndef _PASSENGER_BUFFERED_IO_H_
+ #define _PASSENGER_BUFFERED_IO_H_
+ 
++#include <sys/types.h>
+ #include <string>
+ #include <utility>
+ #include <algorithm>
+diff -up ./ext/common/Utils/StreamBoyerMooreHorspool.h.types ./ext/common/Utils/StreamBoyerMooreHorspool.h
+--- ./ext/common/Utils/StreamBoyerMooreHorspool.h.types	2013-06-03 13:42:43.866116917 +0200
++++ ./ext/common/Utils/StreamBoyerMooreHorspool.h	2013-06-03 13:43:14.619474026 +0200
+@@ -189,7 +189,7 @@
+ 	#endif
+ #endif
+ 
+-
++#include <sys/types.h>
+ #include <cstddef>
+ #include <cstring>
+ #include <cassert>
+diff -up ./resources/mime.types ./resources/mime
+diff -up ./test/stub/apache2/mime.types ./test/stub/apache2/mime
+diff -up ./test/stub/nginx/mime.types ./test/stub/nginx/mime

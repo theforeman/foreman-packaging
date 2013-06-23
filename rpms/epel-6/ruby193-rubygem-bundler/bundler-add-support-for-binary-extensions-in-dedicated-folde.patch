@@ -1,0 +1,34 @@
+From ce83a370930cde5ca2d6bc1c92f1d29603e44145 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADt=20Ondruch?= <vondruch@redhat.com>
+Date: Thu, 19 Jan 2012 10:31:15 +0100
+Subject: [PATCH] Add support for binary extensions in dedicated folder.
+
+---
+ lib/bundler/rubygems_ext.rb |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+diff --git a/lib/bundler/rubygems_ext.rb b/lib/bundler/rubygems_ext.rb
+index a68fb0a..89796d3 100644
+--- a/lib/bundler/rubygems_ext.rb
++++ b/lib/bundler/rubygems_ext.rb
+@@ -31,13 +31,16 @@ module Gem
+     end
+ 
+     def load_paths
+-      require_paths.map do |require_path|
++      paths = require_paths.map do |require_path|
+         if require_path.include?(full_gem_path)
+           require_path
+         else
+           File.join(full_gem_path, require_path)
+         end
+       end
++
++      paths << File.join(ext_dir, require_paths.first) unless extensions.empty?
++      paths
+     end
+ 
+     # RubyGems 1.8+ used only.
+-- 
+1.7.7.5
+

@@ -1,0 +1,97 @@
+From 279a693ce4ef3a887ce8d4fa59e0f2616a14d91a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?V=C3=ADt=20Ondruch?= <vondruch@redhat.com>
+Date: Fri, 11 Nov 2011 13:14:45 +0100
+Subject: [PATCH] Allow to install RubyGems into custom location, outside of
+ Ruby tree.
+
+---
+ configure.in      |    8 ++++++++
+ tool/mkconfig.rb  |    1 +
+ tool/rbinstall.rb |    9 +++++++++
+ version.c         |    4 ++++
+ 4 files changed, 22 insertions(+), 0 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index b1bc951..91c5d0d 100644
+--- a/configure.in
++++ b/configure.in
+@@ -2838,6 +2838,13 @@ until VENDOR_DIR=`eval echo \\"${dir}\\"`; test "x${dir}" = "x${VENDOR_DIR}"; do
+     dir="${VENDORARCH_DIR}"
+ done
+ 
++AC_ARG_WITH(rubygemsdir,
++           AS_HELP_STRING([--with-rubygemsdir=DIR], [custom rubygems directory]),
++            [rubygemsdir=$withval])
++if test "$rubygemsdir" != ""; then
++    AC_DEFINE_UNQUOTED(RUBYGEMS_DIR,"$rubygemsdir")
++fi
++
+ if test "${LOAD_RELATIVE+set}"; then
+     AC_DEFINE_UNQUOTED(LOAD_RELATIVE, $LOAD_RELATIVE)
+     RUBY_EXEC_PREFIX=""
+@@ -2931,6 +2938,7 @@ AC_SUBST(sitearch)dnl
+ AC_SUBST(sitearchdir)dnl
+ AC_SUBST(vendordir)dnl
+ AC_SUBST(vendorarchdir)dnl
++AC_SUBST(rubygemsdir)dnl
+ 
+ configure_args=$ac_configure_args
+ AC_SUBST(configure_args)dnl
+diff --git a/tool/mkconfig.rb b/tool/mkconfig.rb
+index b707c4b..9fecbfb 100755
+--- a/tool/mkconfig.rb
++++ b/tool/mkconfig.rb
+@@ -84,6 +84,7 @@ File.foreach "config.status" do |line|
+     when /^sitearchdir$/; sitearchdir_override = val; next
+     when /^vendorarchdir$/; vendorarchdir_override = val; next
+     when /^sitearch/; val = '$(arch)' if val.empty?
++    when /^rubygemsdir/; next if val.empty?
+     end
+     case val
+     when /^\$\(ac_\w+\)$/; next
+diff --git a/tool/rbinstall.rb b/tool/rbinstall.rb
+index 6bfc73e..31dc446 100755
+--- a/tool/rbinstall.rb
++++ b/tool/rbinstall.rb
+@@ -300,6 +300,7 @@ sitelibdir = CONFIG["sitelibdir"]
+ sitearchlibdir = CONFIG["sitearchdir"]
+ vendorlibdir = CONFIG["vendorlibdir"]
+ vendorarchlibdir = CONFIG["vendorarchdir"]
++rubygemsdir = CONFIG["rubygemsdir"]
+ mandir = CONFIG["mandir"]
+ capidir = CONFIG["docdir"]
+ configure_args = Shellwords.shellwords(CONFIG["configure_args"])
+@@ -487,7 +488,15 @@ end
+ install?(:local, :comm, :lib) do
+   prepare "library scripts", rubylibdir
+   noinst = %w[README* *.txt *.rdoc]
++  noinst += %w[*ubygems.rb rubygems/ datadir.rb] if rubygemsdir
+   install_recursive(File.join(srcdir, "lib"), rubylibdir, :no_install => noinst, :mode => $data_mode)
++  if rubygemsdir
++    noinst = %w[obsolete.rb]
++    install_recursive(File.join(srcdir, "lib", "rubygems"), File.join(rubygemsdir, "rubygems"), :mode => $data_mode)
++    install_recursive(File.join(srcdir, "lib", "rbconfig"), File.join(rubygemsdir, "rbconfig"), :no_install => noinst, :mode => $data_mode)
++    install(File.join(srcdir, "lib", "ubygems.rb"), File.join(rubygemsdir, "ubygems.rb"), :mode => $data_mode)
++    install(File.join(srcdir, "lib", "rubygems.rb"), File.join(rubygemsdir, "rubygems.rb"), :mode => $data_mode)
++  end
+ end
+ 
+ install?(:local, :arch, :lib) do
+diff --git a/version.c b/version.c
+index 59d4e5e..12ba7e9 100644
+--- a/version.c
++++ b/version.c
+@@ -103,6 +103,10 @@ const char ruby_initial_load_paths[] =
+ #endif
+ #endif
+ 
++#ifdef RUBYGEMS_DIR
++    RUBYGEMS_DIR "\0"
++#endif
++
+     RUBY_LIB "\0"
+ #ifdef RUBY_THIN_ARCHLIB
+     RUBY_THIN_ARCHLIB "\0"
+-- 
+1.7.7
+

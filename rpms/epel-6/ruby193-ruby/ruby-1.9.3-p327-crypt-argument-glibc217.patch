@@ -1,0 +1,14 @@
+--- ruby-1.9.3-p327/test/ruby/test_m17n_comb.rb.save	2011-02-15 16:08:15.000000000 +0900
++++ ruby-1.9.3-p327/test/ruby/test_m17n_comb.rb	2012-11-10 23:56:58.000000000 +0900
+@@ -777,6 +777,11 @@
+   end
+ 
+   def test_str_crypt
++    begin
++       a("").crypt(a("\xa1\xa1"))
++    rescue ArgumentError
++       skip 'http://bugs.ruby-lang.org/issues/show/7312'
++    end
+     combination(STRINGS, STRINGS) {|str, salt|
+       if a(salt).length < 2
+         assert_raise(ArgumentError) { str.crypt(salt) }
