@@ -1,0 +1,11 @@
+--- lib/rails/generators/app_base.rb.orig	2012-07-26 15:43:55.000000000 +0200
++++ lib/rails/generators/app_base.rb	2012-07-26 15:45:13.387730653 +0200
+@@ -255,7 +255,7 @@
+       end
+ 
+       def run_bundle
+-        bundle_command('install') unless options[:skip_gemfile] || options[:skip_bundle]
++        bundle_command('install --local') unless options[:skip_gemfile] || options[:skip_bundle]
+       end
+ 
+       def empty_directory_with_gitkeep(destination, config = {})

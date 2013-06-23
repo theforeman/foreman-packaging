@@ -1,0 +1,13 @@
+diff -up shadow-1.4.1/extconf.rb~ shadow-1.4.1/extconf.rb
+--- shadow-1.4.1/extconf.rb~	2012-04-20 10:48:06.724264584 -0400
++++ shadow-1.4.1/extconf.rb	2012-04-20 10:40:45.517013943 -0400
+@@ -6,7 +6,8 @@
+ 
+ require 'mkmf'
+ 
+-$CFLAGS = RUBY_VERSION =~ /1\.9/ ? '-DRUBY19' : ''
++$CFLAGS = "#{$CFLAGS}"
++$CFLAGS += RUBY_VERSION =~ /1\.9/ ? ' -DRUBY19' : ''
+ 
+ #$LDFLAGS = "-lshadow"
+ 

@@ -1,0 +1,20 @@
+--- specifications/arel-3.0.2.gemspec.orig	2012-04-02 12:45:26.000000000 +0200
++++ specifications/arel-3.0.2.gemspec	2012-04-02 12:47:51.008149007 +0200
+@@ -25,14 +25,17 @@
+       s.add_development_dependency(%q<minitest>, ["~> 2.11"])
+       s.add_development_dependency(%q<rdoc>, ["~> 3.10"])
+       s.add_development_dependency(%q<hoe>, ["~> 2.13"])
++      s.add_runtime_dependency(%q<bigdecimal>, [">= 0"])
+     else
+       s.add_dependency(%q<minitest>, ["~> 2.11"])
+       s.add_dependency(%q<rdoc>, ["~> 3.10"])
+       s.add_dependency(%q<hoe>, ["~> 2.13"])
++      s.add_dependency(%q<bigdecimal>, [">= 0"])
+     end
+   else
+     s.add_dependency(%q<minitest>, ["~> 2.11"])
+     s.add_dependency(%q<rdoc>, ["~> 3.10"])
+     s.add_dependency(%q<hoe>, ["~> 2.13"])
++    s.add_dependency(%q<bigdecimal>, [">= 0"])
+   end
+ end

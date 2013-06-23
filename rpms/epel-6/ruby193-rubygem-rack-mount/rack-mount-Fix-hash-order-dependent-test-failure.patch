@@ -1,0 +1,31 @@
+From de3c27e1e1bf7249e3af04710e26905e7c46e1cc Mon Sep 17 00:00:00 2001
+From: John Eckersberg <jeckersb@redhat.com>
+Date: Mon, 19 Mar 2012 13:34:07 -0400
+Subject: [PATCH] Fix hash-order dependent test failure
+
+On Ruby 1.8 >= 1.8.7-p357, hash ordering (e.g. calling 'each' or in
+this case 'map') cannot be predetermined.  The result is that this
+test fails 50% of the time depending on the order of iteration in
+build_nested_query.
+
+Accept either result as a valid test assertion.
+---
+ test/test_utils.rb |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/test/test_utils.rb b/test/test_utils.rb
+index b28fe1d..e47908d 100644
+--- a/test/test_utils.rb
++++ b/test/test_utils.rb
+@@ -22,7 +22,7 @@ class TestUtils < Test::Unit::TestCase
+     assert_equal 'foo', build_nested_query('foo' => nil)
+     assert_equal 'foo=', build_nested_query('foo' => '')
+     assert_equal 'foo=bar', build_nested_query('foo' => 'bar')
+-    assert_equal 'foo=1&bar=2', build_nested_query('foo' => '1', 'bar' => '2')
++    assert ['foo=1&bar=2','bar=2&foo=1'].include?(build_nested_query('foo' => '1', 'bar' => '2'))
+     assert_equal 'my+weird+field=q1%212%22%27w%245%267%2Fz8%29%3F',
+       build_nested_query('my weird field' => 'q1!2"\'w$5&7/z8)?')
+     assert_equal 'foo[]', build_nested_query('foo' => [nil])
+-- 
+1.7.7.6
+
