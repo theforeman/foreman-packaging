@@ -1,0 +1,59 @@
+diff -ru ../rubygem-formatador-0.2.1.orig/usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/basic_tests.rb ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/basic_tests.rb
+--- ../rubygem-formatador-0.2.1.orig/usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/basic_tests.rb	2011-10-17 08:23:00.000000000 +0200
++++ ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/basic_tests.rb	2011-10-20 12:57:31.810397680 +0200
+@@ -10,6 +10,7 @@
+     one
+     two
+ OUTPUT
++output = Formatador.parse(output)
+ 
+   tests("#display_lines(['one', 'two']").returns(output) do
+     capture_stdout do
+Only in ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests: basic_tests.rb~
+diff -ru ../rubygem-formatador-0.2.1.orig/usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/table_tests.rb ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/table_tests.rb
+--- ../rubygem-formatador-0.2.1.orig/usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/table_tests.rb	2011-10-17 08:23:00.000000000 +0200
++++ ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests/table_tests.rb	2011-10-20 12:58:33.930398612 +0200
+@@ -2,13 +2,14 @@
+ 
+ output = <<-OUTPUT
+     +---+
+-    | \e[1ma\e[0m |
++    | [bold]a[/] |
+     +---+
+     | 1 |
+     +---+
+     | 2 |
+     +---+
+ OUTPUT
++output = Formatador.parse(output)
+ 
+   tests("#display_table([{:a => 1}, {:a => 2}])").returns(output) do
+     capture_stdout do
+@@ -18,10 +19,11 @@
+ 
+ output = <<-OUTPUT
+     +--------+
+-    | \e[1mheader\e[0m |
++    | [bold]header[/] |
+     +--------+
+     +--------+
+ OUTPUT
++output = Formatador.parse(output)
+ 
+   tests("#display_table([], [:header])").returns(output) do
+     capture_stdout do
+@@ -31,11 +33,12 @@
+ 
+ output = <<-OUTPUT
+     +--------+
+-    | \e[1mheader\e[0m |
++    | [bold]header[/] |
+     +--------+
+     |        |
+     +--------+
+ OUTPUT
++output = Formatador.parse(output)
+ 
+   tests("#display_table([{:a => 1}], [:header])").returns(output) do
+     capture_stdout do
+Only in ./usr/lib/ruby/gems/1.8/gems/formatador-0.2.1/tests: table_tests.rb~

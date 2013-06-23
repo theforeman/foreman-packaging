@@ -1,9 +1,0 @@
---- bundler.d/fog.rb.orig	2012-11-20 19:53:39.981102215 -0500
-+++ bundler.d/fog.rb	2012-11-20 20:03:46.084587819 -0500
-@@ -1,5 +1,5 @@
- group :fog do
-   #  We should change it to official fog 1.8 once releases
-   #  gem 'fog', '>= 1.8'
--  gem 'fog', :git => "https://github.com/ohadlevy/fog.git", :branch => 'vmware'
-+  gem 'fog'
- end

@@ -1,0 +1,29 @@
+--- specifications/actionpack-3.2.8.gemspec.old	2012-07-20 12:06:27.000000000 +0200
++++ specifications/actionpack-3.2.8.gemspec	2012-07-20 12:44:09.491547387 +0200
+@@ -27,7 +27,7 @@
+       s.add_runtime_dependency(%q<rack>, ["~> 1.4.0"])
+       s.add_runtime_dependency(%q<rack-test>, ["~> 0.6.1"])
+       s.add_runtime_dependency(%q<journey>, ["~> 1.0.4"])
+-      s.add_runtime_dependency(%q<sprockets>, ["~> 2.1.3"])
++      s.add_runtime_dependency(%q<sprockets>, [">= 2.1.3"])
+       s.add_runtime_dependency(%q<erubis>, ["~> 2.7.0"])
+       s.add_development_dependency(%q<tzinfo>, ["~> 0.3.29"])
+     else
+@@ -38,7 +38,7 @@
+       s.add_dependency(%q<rack>, ["~> 1.4.0"])
+       s.add_dependency(%q<rack-test>, ["~> 0.6.1"])
+       s.add_dependency(%q<journey>, ["~> 1.0.4"])
+-      s.add_dependency(%q<sprockets>, ["~> 2.1.3"])
++      s.add_dependency(%q<sprockets>, [">= 2.1.3"])
+       s.add_dependency(%q<erubis>, ["~> 2.7.0"])
+       s.add_dependency(%q<tzinfo>, ["~> 0.3.29"])
+     end
+@@ -50,7 +50,7 @@
+     s.add_dependency(%q<rack>, ["~> 1.4.0"])
+     s.add_dependency(%q<rack-test>, ["~> 0.6.1"])
+     s.add_dependency(%q<journey>, ["~> 1.0.4"])
+-    s.add_dependency(%q<sprockets>, ["~> 2.1.3"])
++    s.add_dependency(%q<sprockets>, [">= 2.1.3"])
+     s.add_dependency(%q<erubis>, ["~> 2.7.0"])
+     s.add_dependency(%q<tzinfo>, ["~> 0.3.29"])
+   end

@@ -1,0 +1,11 @@
+--- lib/thin.rb.orig	2011-07-22 13:25:23.734862201 -0400
++++ lib/thin.rb	2011-07-22 13:25:48.477055427 -0400
+@@ -38,7 +38,7 @@
+ require "#{Thin::ROOT}/thin/version"
+ require "#{Thin::ROOT}/thin/statuses"
+ require "#{Thin::ROOT}/rack/adapter/loader"
+-require "#{Thin::ROOT}/thin_parser"
++require "thin_parser"
+ 
+ module Rack
+   module Adapter

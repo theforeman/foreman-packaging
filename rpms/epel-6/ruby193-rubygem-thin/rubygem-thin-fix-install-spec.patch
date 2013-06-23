@@ -1,0 +1,13 @@
+diff --git a/spec/controllers/service_spec.rb b/spec/controllers/service_spec.rb
+index 10abdaf..3cff608 100644
+--- a/spec/controllers/service_spec.rb
++++ b/spec/controllers/service_spec.rb
+@@ -28,7 +28,7 @@ describe Service do
+     
+     File.exist?(Service::INITD_PATH).should be_true
+     File.read(Service::INITD_PATH).should include('CONFIG_PATH=tmp/sandbox/etc/thin',
+-                                                  'SCRIPT_NAME=tmp/sandbox/etc/init.d/thin',
++                                                  'SCRIPT_NAME=tmp/sandbox' + (File.directory?('/etc/rc.d') ? '/etc/rc.d/thin' : '/etc/init.d/thin'),
+                                                   'DAEMON=' + Command.script)
+   end
+   

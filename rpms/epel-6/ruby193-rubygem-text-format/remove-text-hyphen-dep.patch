@@ -1,0 +1,14 @@
+--- specifications/text-format-1.0.0.gemspec.orig	2011-02-01 13:30:44.328899019 -0500
++++ specifications/text-format-1.0.0.gemspec	2011-02-01 13:30:59.923898747 -0500
+@@ -27,11 +27,8 @@ Gem::Specification.new do |s|
+     s.specification_version = 1
+ 
+     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+-      s.add_runtime_dependency(%q<text-hyphen>, ["~> 1.0.0"])
+     else
+-      s.add_dependency(%q<text-hyphen>, ["~> 1.0.0"])
+     end
+   else
+-    s.add_dependency(%q<text-hyphen>, ["~> 1.0.0"])
+   end
+ end

@@ -1,0 +1,50 @@
+commit 76f8f92916c9a96913fa5db5eb9e1e7cf7d704c8
+Author: Bohuslav Kabrda <bkabrda@redhat.com>
+Date:   Tue Jul 17 15:20:04 2012 +0200
+
+    Make the test suite work with coffee-script versions, that use multiple newlines instead of just one
+
+diff --git a/test/test_coffee_script.rb b/test/test_coffee_script.rb
+index 9d27279..b492b14 100644
+--- a/test/test_coffee_script.rb
++++ b/test/test_coffee_script.rb
+@@ -4,33 +4,33 @@ require 'stringio'
+ 
+ class TestCoffeeScript < Test::Unit::TestCase
+   def test_compile
+-    assert_equal "(function() {\n  puts('Hello, World!');\n}).call(this);\n",
++    assert_match /\(function\(\) {\n+  puts\('Hello, World!'\);\n+}\).call\(this\);\n/,
+       CoffeeScript.compile("puts 'Hello, World!'\n")
+   end
+ 
+   def test_compile_with_io
+     io = StringIO.new("puts 'Hello, World!'\n")
+-    assert_equal "(function() {\n  puts('Hello, World!');\n}).call(this);\n",
++    assert_match /\(function\(\) {\n+  puts\('Hello, World!'\);\n+}\).call\(this\);\n/,
+       CoffeeScript.compile(io)
+   end
+ 
+   def test_compile_with_bare_true
+-    assert_equal "puts('Hello, World!');",
++    assert_match /\n*puts\('Hello, World!'\);\n/,
+       CoffeeScript.compile("puts 'Hello, World!'\n", :bare => true)
+   end
+ 
+   def test_compile_with_bare_false
+-    assert_equal "(function() {\n  puts('Hello, World!');\n}).call(this);\n",
++    assert_match /\(function\(\) {\n+  puts\('Hello, World!'\);\n+}\).call\(this\);\n/,
+       CoffeeScript.compile("puts 'Hello, World!'\n", :bare => false)
+   end
+ 
+   def test_compile_with_no_wrap_true
+-    assert_equal "puts('Hello, World!');",
++    assert_match /\n*puts\('Hello, World!'\);\n/,
+       CoffeeScript.compile("puts 'Hello, World!'\n", :no_wrap => true)
+   end
+ 
+   def test_compile_with_no_wrap
+-    assert_equal "(function() {\n  puts('Hello, World!');\n}).call(this);\n",
++    assert_match /\(function\(\) {\n+  puts\('Hello, World!'\);\n+}\).call\(this\);\n/,
+       CoffeeScript.compile("puts 'Hello, World!'\n", :no_wrap => false)
+   end
+ 

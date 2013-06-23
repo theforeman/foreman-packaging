@@ -1,0 +1,11 @@
+--- test/abstract_unit.rb.orig	2011-01-10 16:57:45.486962914 -0500
++++ test/abstract_unit.rb	2011-01-10 16:57:52.306963241 -0500
+@@ -2,7 +2,7 @@ ORIG_ARGV = ARGV.dup
+ 
+ begin
+   old, $VERBOSE = $VERBOSE, nil
+-  require File.expand_path('../../../load_paths', __FILE__)
++  require 'rubygems'
+ ensure
+   $VERBOSE = old
+ end

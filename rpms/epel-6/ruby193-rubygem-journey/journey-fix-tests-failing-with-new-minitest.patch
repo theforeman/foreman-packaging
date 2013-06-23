@@ -1,0 +1,64 @@
+commit d4b6d52191d32fd94b4f1f5e299ae6b29b44da57
+Author: schneems <richard.schneeman@gmail.com>
+Date:   Sat Jun 9 22:20:44 2012 -0500
+
+    fix tests
+    
+    Pattern.new(strexp) now returns an object that does not 'match' correctly. Relying on the method Pattern#match instead to verify if a given pattern is valid.
+    
+    152 tests, 326 assertions, 0 failures, 0 errors, 0 skips
+
+diff --git a/test/path/test_pattern.rb b/test/path/test_pattern.rb
+index c684a0a..ae7d1d4 100644
+--- a/test/path/test_pattern.rb
++++ b/test/path/test_pattern.rb
+@@ -85,9 +85,9 @@ module Journey
+           ["/", ".", "?"]
+         )
+         path = Pattern.new strexp
+-        assert_match('/page/tender', path)
+-        assert_match('/page/love', path)
+-        refute_match('/page/loving', path)
++        assert path.match('/page/tender')
++        assert path.match('/page/love')
++        refute path.match('/page/loving')
+       end
+ 
+       def test_optional_names
+@@ -108,8 +108,8 @@ module Journey
+           ["/", ".", "?"]
+         )
+         path = Pattern.new strexp
+-        assert_match('/123', path)
+-        refute_match('/', path)
++        assert path.match('/123')
++        refute path.match('/')
+       end
+ 
+       def test_to_regexp_with_group
+@@ -119,9 +119,9 @@ module Journey
+           ["/", ".", "?"]
+         )
+         path = Pattern.new strexp
+-        assert_match('/page/tender', path)
+-        assert_match('/page/love', path)
+-        refute_match('/page/loving', path)
++        assert path.match('/page/tender')
++        assert path.match('/page/love')
++        refute path.match('/page/loving')
+       end
+ 
+       def test_ast_sets_regular_expressions
+@@ -186,9 +186,9 @@ module Journey
+           ["/", ".", "?"]
+         )
+         path = Pattern.new strexp
+-        assert_match('/page/TENDER/aaron', path)
+-        assert_match('/page/loVE/aaron', path)
+-        refute_match('/page/loVE/AAron', path)
++        assert path.match('/page/TENDER/aaron')
++        assert path.match('/page/loVE/aaron')
++        refute path.match('/page/loVE/AAron')
+       end
+ 
+       def test_to_regexp_with_strexp
