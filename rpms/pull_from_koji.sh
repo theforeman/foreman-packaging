@@ -7,6 +7,6 @@
 
 koji=http://koji.katello.org
 here=$(dirname $0)
-sfk -h $koji -t foreman-nightly-rhel6 -o $here/epel-6 -e ^foreman $*
+sfk -h $koji -t foreman-nightly-rhel6 -t foreman-nightly-nonscl-rhel6 -o $here/epel-6 -e ^foreman $*
 sfk -h $koji -t foreman-nightly-fedora18 -o $here/fedora-18 -e ^foreman $*
 sfk -h $koji -t foreman-nightly-fedora19 -o $here/fedora-19 -e ^foreman $*
