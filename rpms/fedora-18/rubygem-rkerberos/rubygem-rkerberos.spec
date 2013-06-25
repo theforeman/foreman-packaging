@@ -10,8 +10,8 @@
 %define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
 %endif
 
-%define version 0.1.1
-%define release 4
+%define version 0.1.2
+%define release 1
 
 Summary: A Ruby interface for the the Kerberos library
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -60,7 +60,7 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %{__rm} -rf %{buildroot}
 mkdir -p ./%{gem_dir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}' --with-%{gem_name}-include=/usr/include/et"
+export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 %{?scl:scl enable %{scl} "}
 gem install --local --install-dir ./%{gem_dir} -V --force %{SOURCE0}
 %{?scl:"}
@@ -71,6 +71,7 @@ cp -a ./%{gem_dir}/* %{buildroot}/%{gem_dir}
 # .so is copied into lib/
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{ext,tmp}
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
+rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/Gemfile*
 # rake-compiler isn't needed on the system itself
 sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
@@ -94,6 +95,9 @@ sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_dir}/specific
 
 
 %changelog
+* Tue Jun 25 2013 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
+- Rebase to rkerberos 0.1.2 (dcleal@redhat.com)
+
 * Thu May 23 2013 Dominic Cleal <dcleal@redhat.com> 0.1.1-4
 - Remove rubygems version requirement (dcleal@redhat.com)
 
