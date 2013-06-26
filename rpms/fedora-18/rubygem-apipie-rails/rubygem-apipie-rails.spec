@@ -6,9 +6,13 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.22
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Libraries
-License: MIT
+#This gem is released under MIT license. Copy is included in file MIT-LICENSE.
+#
+#Twitter Bootstrap and google-code-prettify are licensed under Apache License
+#2.0. Copy is included in file APACHE-LICENSE-2.0.
+License: MIT and ASL 2.0
 URL: http://github.com/Pajk/apipie-rails
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
@@ -80,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Jun 26 2013 Miroslav Suchý <msuchy@redhat.com> 0.0.22-3
+- add ASL to license (msuchy@redhat.com)
+
 * Wed Jun 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.0.22-2
 - bumping version of apipie-rails to 0.0.22
 
