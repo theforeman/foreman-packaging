@@ -3,23 +3,21 @@
 
 %global gem_name foreman_api
 
-%define rubyabi 1.9.1
-
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
-Release: 1%{?dist}
+Version: 0.1.4
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/theforeman/foreman_api
 Source0:  http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires: %{?scl_prefix}ruby(rubygems) 
-Requires: %{?scl_prefix}rubygem(json) 
+Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(json)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.1
-Requires: %{?scl_prefix}rubygem(oauth) 
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}ruby(rubygems) 
+Requires: %{?scl_prefix}rubygem(oauth)
+BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(rubygems)
 BuildRequires: %{?scl_prefix}rubygems-devel
 
 BuildArch: noarch
@@ -72,6 +70,16 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jun 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.1.4-2
+- removing hard Rubi ABI requirement (lzap+git@redhat.com)
+
+* Thu Jun 20 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.4-1
+- Updated to 0.1.4 (mbacovsk@redhat.com)
+- updated API (Foreman 1.2)
+- fixed docs (lzap@redhat.com)
+- fixed headers options handling (tstracho@redhat.com)
+
+
 * Tue Apr 09 2013 Ivan Necas <inecas@redhat.com> 0.1.3-1
 - Update to new version (inecas@redhat.com)
 - require ruby193-build for tagging (msuchy@redhat.com)
@@ -98,7 +106,7 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 
 * Fri Jan 11 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.9-1
 - Bump to 0.0.9 (mbacovsk@redhat.com) ( compute_resource domain environment host
-   common_parameter hostgroup image medium operating_system ptable 
+   common_parameter hostgroup image medium operating_system ptable
    puppetclass role template_kind )
 
 
