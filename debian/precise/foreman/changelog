@@ -1,8 +1,14 @@
+foreman (1.2.0+ubuntu2) precise; urgency=low
+
+  * Locale files created properly
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 2 Jul 2013 15:11:00 +0100
+
 foreman (1.2.0+ubuntu1) precise; urgency=low
 
   * 1.2.0 released
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Fri, 2 Jul 2013 10:32:00 +0100
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 2 Jul 2013 10:32:00 +0100
 
 foreman (1.2.0+ubuntu0.3) precise; urgency=low
 
