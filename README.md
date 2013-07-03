@@ -12,6 +12,9 @@ related subprojects.
 Dependencies are built using the spec files found under rpms/ in this repo.
 Pull requests gladly accepted for these to the `master` branch.
 
+Koji's repos are built using the files under comps/, new packages and
+dependencies must be added here.
+
 Debian
 ======
 The Debian and Ubuntu packaging files are kept here too (despite the name).
