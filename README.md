@@ -1,5 +1,5 @@
-foreman-rpms
-============
+foreman-packaging
+=================
 This git repo contains rpm and deb build files, patches, gem2rpm templates, and
 other stuff that might be useful for building packages of Foreman and its
 dependencies.
