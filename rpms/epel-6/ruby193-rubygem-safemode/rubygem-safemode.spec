@@ -7,12 +7,16 @@ Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.2.0
-Release: 3%{dist}
+Release: 5%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.1 
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.1 
@@ -21,9 +25,7 @@ Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1.2
 BuildRequires: %{?scl_prefix}rubygems-devel
 #BuildRequires: %{?scl_prefix}rubygem(jeweler) >= 1.8.3
 BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(rcov)
 BuildRequires: %{?scl_prefix}rubygem(rdoc)
-BuildRequires: %{?scl_prefix}rubygem(shoulda)
 BuildRequires: %{?scl_prefix}rubygems
 
 BuildArch: noarch
@@ -95,6 +97,12 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-5
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- remove unused BRs (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Wed Mar 13 2013 Miroslav Suchý <msuchy@redhat.com> 1.2.0-3
 - new package built with tito
 
