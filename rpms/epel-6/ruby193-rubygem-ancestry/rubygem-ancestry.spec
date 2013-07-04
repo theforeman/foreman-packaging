@@ -7,12 +7,16 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.3.0
-Release: 2%{dist}
+Release: 4%{dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-activerecord >= 2.2.2
@@ -89,6 +93,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 %{gem_docdir}
 
 %changelog
+* Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> 1.3.0-4
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
 * Tue Mar 12 2013 Miroslav Suchý <msuchy@redhat.com> 1.3.0-2
 - new package built with tito
 
