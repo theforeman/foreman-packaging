@@ -7,15 +7,23 @@
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(net-ssh)
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(mocha)
@@ -75,6 +83,11 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.1.0-3
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri May 03 2013 Ivan Necas <inecas@redhat.com> 1.1.0-2
 - Net scp requires newer mocha for running tests (inecas@redhat.com)
 
