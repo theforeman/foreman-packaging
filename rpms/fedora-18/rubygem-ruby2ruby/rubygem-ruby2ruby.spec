@@ -10,7 +10,7 @@
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
@@ -18,10 +18,18 @@ Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
 Requires: %{?scl_prefix}rubygem(ruby_parser)
 Requires: %{?scl_prefix}ruby(rubygems)
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor)
 BuildRequires: %{?scl_prefix}rubygem(ruby_parser)
@@ -97,6 +105,11 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %{gem_docdir}
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 2.0.1-7
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Wed Mar 20 2013 Miroslav Suchý <msuchy@redhat.com> 2.0.1-5
 - soften requires even in gemspec (msuchy@redhat.com)
 
