@@ -6,14 +6,18 @@
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0 
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/grosser/gettext_i18n_rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}rubygems
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.4.8
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
@@ -50,6 +54,9 @@ rm -rf %{buildroot}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.10.0-2
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
 * Mon Jun 10 2013 Dmitri Dolguikh <dmitri@redhat.com> 0.10.0-1
 - updated gettext_i18n_rails gem to version 0.10.0 (dmitri@redhat.com)
 
