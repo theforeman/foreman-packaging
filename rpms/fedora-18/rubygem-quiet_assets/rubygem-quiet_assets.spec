@@ -8,17 +8,25 @@
 Summary: Turn off rails assets log
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 4%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/evrone/quiet_assets
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems) 
 Requires: %{?scl_prefix}ruby 
 Requires: %{?scl_prefix}rubygem(railties) >= 3.1
 Requires: %{?scl_prefix}rubygem(railties) < 5.0
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel 
 BuildRequires: %{?scl_prefix}ruby 
 BuildArch: noarch
@@ -70,10 +78,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
-* Sat Apr 06 2013 Eric D Helms <ehelms@redhat.com> 1.0.2-4
-- new package built with tito
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.0.2-6
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
-* Sat Apr 06 2013 Eric D Helms <ehelms@redhat.com>
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.0.2-5
 - new package built with tito
 
 * Wed Apr 03 2013 Miroslav Suchý <msuchy@redhat.com> 1.0.2-3
