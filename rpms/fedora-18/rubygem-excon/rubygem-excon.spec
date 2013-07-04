@@ -6,12 +6,16 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.23.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: ca-certificates
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -86,6 +90,9 @@ ln -sf %{_sysconfdir}/pki/tls/cert.pem \
 %doc %{gem_instdir}/changelog.txt
 
 %changelog
+* Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> 0.23.0-2
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
 * Tue Jun 11 2013 Dominic Cleal <dcleal@redhat.com> 0.23.0-1
 - Rebase to excon 0.23.0 (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
