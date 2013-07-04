@@ -8,15 +8,23 @@
 Summary: Provide access to your Ruby and Operating System runtime via the commonjs API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.6
-Release: 4%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/cowboyd/commonjs.rb
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems) 
 Requires: %{?scl_prefix}ruby 
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel 
 BuildRequires: %{?scl_prefix}ruby 
 BuildArch: noarch
@@ -70,6 +78,11 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> 0.2.6-6
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri Mar 29 2013 Miroslav Suchý <msuchy@redhat.com> 0.2.6-4
 - new package built with tito
 
