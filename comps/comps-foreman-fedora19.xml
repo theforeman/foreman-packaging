@@ -31,10 +31,8 @@
 
       <packagereq type="default">rubygem-ancestry</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
-      <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
-      <packagereq type="default">rubygem-daemons</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
@@ -49,8 +47,6 @@
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-mysql</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
-      <packagereq type="default">rubygem-net-ssh</packagereq>
-      <packagereq type="default">rubygem-oauth</packagereq>
       <packagereq type="default">rubygem-po_to_json</packagereq>
       <packagereq type="default">rubygem-quiet_assets</packagereq>
       <packagereq type="default">rubygem-rabl</packagereq>
@@ -58,10 +54,7 @@
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-ruby2ruby</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
-      <packagereq type="default">rubygem-ruby_parser</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
-      <packagereq type="default">rubygem-scoped_search</packagereq>
-      <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-single_test</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-twitter-bootstrap-rails</packagereq>

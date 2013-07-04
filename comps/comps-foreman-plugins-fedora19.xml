@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+
+<comps>
+  <group>
+    <id>foreman-plugins</id>
+    <name>Foreman plugins</name>
+    <description>Plugin packages for the Foreman</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+      <packagereq type="default">foreman-plugin-discovery</packagereq>
+
+      <packagereq type="default">rubygem-ftools</packagereq>
+    </packagelist>
+  </group>
+</comps>
