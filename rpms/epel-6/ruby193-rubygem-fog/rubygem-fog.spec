@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.12.1
-Release: 1%{dist}
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -27,7 +27,11 @@ Requires: %{?scl_prefix}rubygem-net-ssh >= 2.1.3
 Requires: %{?scl_prefix}rubygem-nokogiri => 1.5.0
 Requires: %{?scl_prefix}rubygem-nokogiri < 1.6
 Requires: %{?scl_prefix}rubygem-ruby-hmac 
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
@@ -83,6 +87,9 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.12.1-2
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
 * Tue Jun 11 2013 Dominic Cleal <dcleal@redhat.com> 1.12.1-1
 - Rebase to fog 1.12.1 (dcleal@redhat.com)
 
