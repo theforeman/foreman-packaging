@@ -7,19 +7,27 @@
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/nubis/gettext_i18n_rails_js
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.7.1
 Requires: %{?scl_prefix}rubygem(rails) >= 3.2.0
 Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
 Requires: %{?scl_prefix}rubygem(po_to_json) >= 0.0.7
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
@@ -68,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.8-2
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
 * Tue May 14 2013 Dominic Cleal <dcleal@redhat.com> 0.0.8-1
 - new package built with tito
 
