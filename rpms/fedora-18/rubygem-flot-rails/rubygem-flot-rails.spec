@@ -7,18 +7,26 @@
 Summary: jQuery-flot javascript for Rails apps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/flot-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(railties) => 3.1
 Requires: %{?scl_prefix}rubygem(railties) < 4
 Requires: %{?scl_prefix}rubygem(jquery-rails)
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
@@ -69,6 +77,11 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.3-3
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Thu May 02 2013 Miroslav Suchý <msuchy@redhat.com> 0.0.3-2
 - new package built with tito
 
