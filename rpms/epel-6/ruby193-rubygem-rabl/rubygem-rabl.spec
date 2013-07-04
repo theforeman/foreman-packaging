@@ -6,7 +6,7 @@
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.6
-Release: 3%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -14,7 +14,11 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(activesupport) >= 2.3.14
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
@@ -94,6 +98,11 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,TODO,MIT-LICENSE,.gitignor
 # rake test
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.7.6-5
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Wed Mar 13 2013 Miroslav Suchý <msuchy@redhat.com> 0.7.6-3
 - new package built with tito
 
