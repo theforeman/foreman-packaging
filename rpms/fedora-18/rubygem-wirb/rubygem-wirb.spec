@@ -6,12 +6,16 @@ Summary: Wavy IRB: Colorizes irb results.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.4.2
-Release: 5%{dist}
+Release: 6%{dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
 Source0: %{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygems
@@ -64,6 +68,11 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.4.2-6
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Wed Mar 27 2013 Miroslav Suchý <msuchy@redhat.com> 0.4.2-4
 - put correct license in spec (msuchy@redhat.com)
 
