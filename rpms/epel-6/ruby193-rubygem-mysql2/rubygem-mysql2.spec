@@ -9,7 +9,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: Distributable
 URL: http://mysql-win.rubyforge.org
@@ -62,6 +62,11 @@ mkdir -p %{gem_builddir}
 cp -a ./%{gem_dir}/* %{buildroot}/%{gem_dir}
 rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/%{gem_name}.so
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
+
+# ruby 2.0.0 mkmf issue, fixed by r40280
+rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/.RUBYARCHDIR.time
+# rubygems 2.0.3 stray temp file issue, PR #587
+rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/siteconf*.rb
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -127,6 +132,9 @@ rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 
 
 %changelog
+* Mon Jul 08 2013 Dominic Cleal <dcleal@redhat.com> 0.3.11-2
+- Remove stray untracked files, ruby/rubygems bugs (dcleal@redhat.com)
+
 * Thu Jun 20 2013 Dominic Cleal <dcleal@redhat.com> 0.3.11-1
 - Rebase to mysql2 0.3.11 (dcleal@redhat.com)
 
