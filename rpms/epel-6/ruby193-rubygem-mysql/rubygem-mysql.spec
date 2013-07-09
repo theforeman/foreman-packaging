@@ -9,7 +9,7 @@ Summary: This is the MySQL API module for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Ruby
 License: Distributable
 URL: http://mysql-win.rubyforge.org
@@ -64,6 +64,11 @@ rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/mysql_api/mysql_api.so
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 rm -rf %{buildroot}%{gem_docdir}/rdoc/ext
 
+# ruby 2.0.0 mkmf issue, fixed by r40280
+rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/mysql_api/.RUBYARCHDIR.time
+# rubygems 2.0.3 stray temp file issue, PR #587
+rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/mysql_api/siteconf*.rb
+
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -97,6 +102,9 @@ rm -rf %{buildroot}%{gem_docdir}/rdoc/ext
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jul 08 2013 Dominic Cleal <dcleal@redhat.com> 2.8.1-5
+- Remove stray untracked files, ruby/rubygems bugs (dcleal@redhat.com)
+
 * Tue Jun 04 2013 Dominic Cleal <dcleal@redhat.com> 2.8.1-4
 - Add gem_spec to rubygem-mysql* to fix loading, exclude gem_cache
   (dcleal@redhat.com)
