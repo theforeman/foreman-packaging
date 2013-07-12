@@ -2,7 +2,6 @@
 config/email.yaml.example                etc/foreman
 debian/settings.yaml                     etc/foreman
 debian/database.yml                      etc/foreman
-debian/external_node.rb.example          etc/foreman
 script/foreman-debug                     usr/sbin
 app                                      usr/share/foreman
 config                                   usr/share/foreman
