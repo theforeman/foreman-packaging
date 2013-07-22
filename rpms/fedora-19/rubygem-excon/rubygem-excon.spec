@@ -5,8 +5,8 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.23.0
-Release: 2%{?dist}
+Version: 0.25.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -90,6 +90,9 @@ ln -sf %{_sysconfdir}/pki/tls/cert.pem \
 %doc %{gem_instdir}/changelog.txt
 
 %changelog
+* Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 0.25.3-1
+- Rebase to excon 0.25.3 (dcleal@redhat.com)
+
 * Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> 0.23.0-2
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
