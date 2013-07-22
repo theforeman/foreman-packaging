@@ -6,16 +6,16 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.12.1
-Release: 2%{dist}
+Version: 1.14.0
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: %{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-builder 
-Requires: %{?scl_prefix}rubygem-excon >= 0.23.0
-Requires: %{?scl_prefix}rubygem-excon < 1
+Requires: %{?scl_prefix}rubygem-excon >= 0.25.0
+Requires: %{?scl_prefix}rubygem-excon < 0.26.0
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
 Requires: %{?scl_prefix}rubygem-multi_json => 1.0
@@ -25,7 +25,7 @@ Requires: %{?scl_prefix}rubygem-net-scp => 1.1.0
 Requires: %{?scl_prefix}rubygem-net-scp < 2
 Requires: %{?scl_prefix}rubygem-net-ssh >= 2.1.3
 Requires: %{?scl_prefix}rubygem-nokogiri => 1.5.0
-Requires: %{?scl_prefix}rubygem-nokogiri < 1.6
+Requires: %{?scl_prefix}rubygem-nokogiri < 2
 Requires: %{?scl_prefix}rubygem-ruby-hmac 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -81,12 +81,16 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/README.md
 %{gem_instdir}/RELEASE.md
 %{gem_instdir}/tests
-%{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/changelog.txt
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 1.14.0-1
+- Rebase to fog 1.14.0 (dcleal@redhat.com)
+- Fix excon dependency version (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.12.1-2
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
