@@ -6,13 +6,17 @@
 Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.20
-Release: 1%{dist}
+Version: 0.0.21
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/abenari/rbovirt
 Source0: %{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 Requires: %{?scl_prefix}rubygem-nokogiri 
 
@@ -64,6 +68,12 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 0.0.21-2
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
+* Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 0.0.21-1
+- Rebase to rbovirt 0.0.21 (dcleal@redhat.com)
+
 * Thu May 23 2013 Dominic Cleal <dcleal@redhat.com> 0.0.20-1
 - rebase to rbovirt-0.0.20.gem (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
