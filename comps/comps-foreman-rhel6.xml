@@ -167,6 +167,7 @@
       <packagereq type="default">ruby193-rubygem-will_paginate</packagereq>
       <packagereq type="default">ruby193-rubygem-wirb</packagereq>
       <packagereq type="default">ruby193-rubygems</packagereq>
+      <packagereq type="default">ruby193-rubygems-devel</packagereq>
       <packagereq type="default">ruby193-v8</packagereq>
 
       <packagereq type="default">mod_passenger</packagereq>
