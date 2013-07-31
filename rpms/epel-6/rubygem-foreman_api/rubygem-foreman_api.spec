@@ -13,18 +13,26 @@
 
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
-Release: 3%{?dist}
+Version: 0.1.5
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/theforeman/foreman_api
 Source0:  http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi)
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(json)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.1
 Requires: %{?scl_prefix}rubygem(oauth)
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi)
+%endif
 BuildRequires: %{?scl_prefix}ruby(rubygems)
 %if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -80,6 +88,14 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Jul 30 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.5-2
+- Fixed deps for F19 (mbacovsk@redhat.com)
+
+* Tue Jul 30 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.5-1
+- Version bump to 0.1.5 (mbacovsk@redhat.com)
+- fixed issue 8: Remove escaped character from generated documentation in rb file 
+- updated to latest API
+
 * Thu Jun 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.1.4-3
 - adding non-SCL RHEL6 support (lzap+git@redhat.com)
 
