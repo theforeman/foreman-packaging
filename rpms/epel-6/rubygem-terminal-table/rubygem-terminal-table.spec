@@ -1,23 +1,21 @@
-# Generated from terminal-table-1.4.5.gem by gem2rpm -*- rpm-spec -*-
 %global gemname terminal-table
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global geminstdir %{gemdir}/gems/%{gemname}-%{version}
-%global rubyabi 1.8
 
 Summary: Simple, feature rich ascii table generation library
 Name: rubygem-%{gemname}
 Version: 1.4.5
-Release: 1%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/visionmedia/terminal-table
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: ruby(rubygems) 
-BuildRequires: ruby 
+Requires: ruby(abi)
+Requires: ruby(rubygems)
+BuildRequires: ruby(abi)
+BuildRequires: ruby(rubygems)
+BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gemname}) = %{version}
 
@@ -69,5 +67,14 @@ cp -pa .%{gemdir}/* \
 %doc %{geminstdir}/examples
 
 %changelog
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 1.4.5-4
+- Remove abi version requirement (shk@redhat.com)
+
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 1.4.5-3
+- Removed abi version for hammer_cli deps (shk@redhat.com)
+
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 1.4.5-2
+- Initial tito build
+
 * Wed Jul 31 2013  <shk@linux.com> - 1.4.5-1
 - Initial package
