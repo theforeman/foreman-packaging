@@ -2,24 +2,23 @@
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global geminstdir %{gemdir}/gems/%{gemname}-%{version}
-%global rubyabi 1.8
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.1
-Release: 1%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
 Source0: %{gemname}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-Requires: rubygem(clamp) 
-Requires: rubygem(terminal-table) 
-Requires: rubygem(rest-client) 
-BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: ruby(rubygems) 
-BuildRequires: ruby 
+Requires: ruby(abi)
+Requires: ruby(rubygems)
+Requires: rubygem(clamp)
+Requires: rubygem(terminal-table)
+Requires: rubygem(rest-client)
+BuildRequires: ruby(abi)
+BuildRequires: ruby(rubygems)
+BuildRequires: ruby
 BuildArch: noarch
 Provides: rubygem(%{gemname}) = %{version}
 
@@ -70,5 +69,13 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.0.1-4
+- Rebuild
+
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.0.1-3
+- Removed abi version for hammer_cli deps (shk@redhat.com)
+
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.0.1-2
+- Initial package with tito
 * Wed Jul 31 2013  <shk@redhat.com> - 0.0.1-1
 - Initial package
