@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: rubygem-%{gemname}
 Version: 0.6.1
-Release: 1%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
@@ -72,5 +72,11 @@ cp -pa .%{gemdir}/* \
 
 
 %changelog
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.6.1-3
+- Rebuild
+
+* Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.6.1-2
+- Import the package into tito
+
 * Wed Jul 31 2013  <shk@linux.com> - 0.6.1-1
 - Initial package
