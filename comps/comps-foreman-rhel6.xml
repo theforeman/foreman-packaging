@@ -171,13 +171,16 @@
       <packagereq type="default">ruby193-v8</packagereq>
 
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-daemon_controller</packagereq>
+      <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
+      <packagereq type="default">rubygem-terminal-table</packagereq>
     </packagelist>
   </group>
 </comps>
