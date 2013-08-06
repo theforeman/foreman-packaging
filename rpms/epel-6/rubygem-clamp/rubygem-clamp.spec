@@ -6,14 +6,18 @@
 Summary: a minimal framework for command-line utilities
 Name: rubygem-%{gemname}
 Version: 0.6.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
+%if 0%{?rhel} || 0%{?fedora} < 19
 Requires: ruby(abi)
+%endif
 Requires: ruby(rubygems)
+%if 0%{?rhel} || 0%{?fedora} < 19
 BuildRequires: ruby(abi)
+%endif
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
 BuildArch: noarch
@@ -72,6 +76,9 @@ cp -pa .%{gemdir}/* \
 
 
 %changelog
+* Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 0.6.1-5
+- Don't require ruby(abi) on F19+ (shk@redhat.com)
+
 * Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 0.6.1-4
 - Rebuild with the proper whitelist
 
