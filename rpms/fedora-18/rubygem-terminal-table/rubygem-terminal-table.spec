@@ -6,14 +6,18 @@
 Summary: Simple, feature rich ascii table generation library
 Name: rubygem-%{gemname}
 Version: 1.4.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/visionmedia/terminal-table
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
+%if 0%{?rhel} || 0%{?fedora} < 19
 Requires: ruby(abi)
+%endif
 Requires: ruby(rubygems)
+%if 0%{?rhel} || 0%{?fedora} < 19
 BuildRequires: ruby(abi)
+%endif
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
 BuildArch: noarch
@@ -67,6 +71,10 @@ cp -pa .%{gemdir}/* \
 %doc %{geminstdir}/examples
 
 %changelog
+* Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 1.4.5-5
+- Add more missing %% (shk@redhat.com)
+- Remove ruby(abi) for f19 (shk@redhat.com)
+
 * Thu Aug 01 2013 Sam Kottler <shk@redhat.com> 1.4.5-4
 - Remove abi version requirement (shk@redhat.com)
 
