@@ -4,7 +4,7 @@ REPO='git://github.com/theforeman/smart-proxy.git'
 if [[ "$2" == "nightly" ]] ; then
   BRANCH="develop"
 else
-  BRANCH='e599316efc251efa8b2cbd7edef2ffe859ef79a8'
+  BRANCH='e13d44a6e6fe58cc0bbf1e5010bdc8df9c301d9a'
 fi
 
 function setup_build {
