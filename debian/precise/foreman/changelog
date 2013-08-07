@@ -1,3 +1,10 @@
+foreman (1.2.1+ubuntu2) precise; urgency=low
+
+  * Move libxslt and libxml dependencies to main package to
+    cover nokogiri change in Gemfile
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 7 Jul 2013 15:51:00 +0100
+
 foreman (1.2.1+ubuntu1) precise; urgency=low
 
   * 1.2.1 released
