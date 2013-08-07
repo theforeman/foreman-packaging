@@ -1,3 +1,9 @@
+foreman-proxy (1.2.1+ubuntu1) precise; urgency=low
+
+  * 1.2.1 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 6 Jul 2013 15:35:00 +0100
+
 foreman-proxy (1.2.0+ubuntu1) precise; urgency=low
 
   * 1.2.0 released

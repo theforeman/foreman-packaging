@@ -1,0 +1,19 @@
+Source: ruby-foreman-api
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders:  <>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+#Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-foreman-api.git
+#Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-foreman-api.git;a=summary
+Homepage: http://github.com/mbacovsky/foreman_api
+XS-Ruby-Versions: all
+
+Package: ruby-foreman-api
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-rest-client (>= 1.6.1), ruby-json, ruby-oauth
+Description: Ruby bindings for Forman's rest API
+ Helps you to use Foreman's API calls from your app
