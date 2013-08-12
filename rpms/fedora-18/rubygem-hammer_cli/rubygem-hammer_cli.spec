@@ -5,8 +5,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.1
-Release: 7%{?dist}
+Version: 0.0.2
+Release: 9%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -75,6 +75,12 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Mon Aug 12 2013 Sam Kottler <shk@redhat.com> 0.0.2-9
+- Bump version
+
+* Mon Aug 12 2013 Sam Kottler <shk@redhat.com> 0.0.2-8
+- Bump hammer version (shk@redhat.com)
+
 * Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 0.0.1-7
 - Add a missing %% (shk@redhat.com)
 - Remove ruby(abi) for f19 (shk@redhat.com)
