@@ -1,12 +1,21 @@
 %global gemname clamp
 
-%global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global geminstdir %{gemdir}/gems/%{gemname}-%{version}
+# Koji is not cooperating and sets the gem_dir differently on each build
+# so this nasty, disgusting hack fixes that.
+# TODO: make this less horrid
+%if 0%{?rhel}
+%global gem_dir /usr/lib/ruby/gems/1.8
+%else
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%endif
+
+%global gem_instdir %{gem_dir}/gems/%{gemname}-%{version}
+
 
 Summary: a minimal framework for command-line utilities
 Name: rubygem-%{gemname}
 Version: 0.6.1
-Release: 5%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
@@ -40,42 +49,48 @@ Documentation for %{name}
 
 %prep
 %setup -q -c -T
-mkdir -p .%{gemdir}
-gem install --local --install-dir .%{gemdir} \
+mkdir -p .%{gem_dir}
+gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %build
 
 %install
-mkdir -p %{buildroot}%{gemdir}
-cp -pa .%{gemdir}/* \
-        %{buildroot}%{gemdir}/
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}/lib
-%{geminstdir}/spec
-%{geminstdir}/examples
-%{geminstdir}/.rspec
-%{geminstdir}/Gemfile
-%{geminstdir}/Rakefile
-%{geminstdir}/%{gemname}.gemspec
+%dir %{gem_instdir}
+%{gem_instdir}/lib
+%{gem_instdir}/spec
+%{gem_instdir}/examples
+%{gem_instdir}/.rspec
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Rakefile
+%{gem_instdir}/%{gemname}.gemspec
 
 
-%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
-%exclude %{geminstdir}/.travis.yml
-%exclude %{geminstdir}/.gitignore
-%exclude %{geminstdir}/.autotest
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.autotest
+%{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
-%doc %{gemdir}/doc/%{gemname}-%{version}
-%{geminstdir}/README.md
-%{geminstdir}/CHANGES.md
+%doc %{gem_dir}/doc/%{gemname}-%{version}
+%{gem_instdir}/README.md
+%{gem_instdir}/CHANGES.md
 
 
 %changelog
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.6.1-7
+- Use a horrible hack to fix koji's brokenness (shk@redhat.com)
+
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.6.1-6
+- Maybe this'll work (shk@redhat.com)
+
 * Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 0.6.1-5
 - Don't require ruby(abi) on F19+ (shk@redhat.com)
 
