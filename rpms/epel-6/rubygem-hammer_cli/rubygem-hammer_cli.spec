@@ -1,12 +1,17 @@
 %global gemname hammer_cli
 
+%if 0%{?rhel}
+%global gem_dir /usr/lib/ruby/gems/1.8
+%else
 %global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%endif
+
 %global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.2
-Release: 9%{?dist}
+Release: 12%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -75,6 +80,15 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.0.2-12
+- Properly set the globals (shk@redhat.com)
+
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.0.2-11
+- Manually set the gem_dir on RHEL6 (shk@redhat.com)
+
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com>
+- Manually set the gem_dir on RHEL6 (shk@redhat.com)
+
 * Mon Aug 12 2013 Sam Kottler <shk@redhat.com> 0.0.2-9
 - Bump version
 
