@@ -1,12 +1,17 @@
 %global gemname terminal-table
 
-%global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global geminstdir %{gemdir}/gems/%{gemname}-%{version}
+%if 0%{?rhel}
+%global gem_dir /usr/lib/ruby/gems/1.8
+%else
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%endif
+
+%global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
 
 Summary: Simple, feature rich ascii table generation library
 Name: rubygem-%{gemname}
 Version: 1.4.5
-Release: 5%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/visionmedia/terminal-table
@@ -39,23 +44,23 @@ Documentation for %{name}
 
 %prep
 %setup -q -c -T
-mkdir -p .%{gemdir}
-gem install --local --install-dir .%{gemdir} \
+mkdir -p .%{gem_dir}
+gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %build
 
 %install
-mkdir -p %{buildroot}%{gemdir}
-cp -pa .%{gemdir}/* \
-        %{buildroot}%{gemdir}/
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 
 %files
 %dir %{geminstdir}
 %{geminstdir}/lib
-%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
+%{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 %{geminstdir}/tasks
 %{geminstdir}/spec
 %{geminstdir}/Rakefile
@@ -64,13 +69,19 @@ cp -pa .%{gemdir}/* \
 
 
 %files doc
-%doc %{gemdir}/doc/%{gemname}-%{version}
+%doc %{gem_dir}/doc/%{gemname}-%{version}
 %doc %{geminstdir}/README.rdoc
 %doc %{geminstdir}/History.rdoc
 %doc %{geminstdir}/Todo.rdoc
 %doc %{geminstdir}/examples
 
 %changelog
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.4.5-7
+- Properly set the globals (shk@redhat.com)
+
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.4.5-6
+- Manually set the gem_dir on RHEL6 (shk@redhat.com)
+
 * Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 1.4.5-5
 - Add more missing %% (shk@redhat.com)
 - Remove ruby(abi) for f19 (shk@redhat.com)
