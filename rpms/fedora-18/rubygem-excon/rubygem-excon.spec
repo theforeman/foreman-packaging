@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.25.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -57,7 +57,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 # kill bundled cacert.pem
-ln -sf %{_sysconfdir}/pki/tls/cert.pem \
+ln -sf /etc/pki/tls/cert.pem \
 	%{buildroot}%{gem_instdir}/data/cacert.pem
 
 %check
@@ -90,6 +90,9 @@ ln -sf %{_sysconfdir}/pki/tls/cert.pem \
 %doc %{gem_instdir}/changelog.txt
 
 %changelog
+* Tue Aug 13 2013 Dominic Cleal <dcleal@redhat.com> 0.25.3-2
+- Don't use SCL prefixes on cacert.pem path (dcleal@redhat.com)
+
 * Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 0.25.3-1
 - Rebase to excon 0.25.3 (dcleal@redhat.com)
 
