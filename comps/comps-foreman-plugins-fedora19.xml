@@ -8,9 +8,11 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
-      <packagereq type="default">foreman-plugin-discovery</packagereq>
+      <packagereq type="default">rubygem-foreman_discovery</packagereq>
 
+      <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-ftools</packagereq>
+      <packagereq type="default">rubygem-open4</packagereq>
     </packagelist>
   </group>
 </comps>
