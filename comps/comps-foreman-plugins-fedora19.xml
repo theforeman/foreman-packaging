@@ -12,7 +12,7 @@
 
       <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-ftools</packagereq>
-      <packagereq type="default">rubygem-popen4</packagereq>
+      <packagereq type="default">rubygem-open4</packagereq>
     </packagelist>
   </group>
 </comps>
