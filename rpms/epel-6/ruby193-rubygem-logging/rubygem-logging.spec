@@ -9,7 +9,7 @@
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -85,6 +85,9 @@ popd
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.8.1-10
+- Final bump for release
+
 * Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.8.1-9
 - delete all zero sized tito.props (msuchy@redhat.com)
 - with recent tito you do not need SCL meta package (msuchy@redhat.com)
