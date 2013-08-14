@@ -1,22 +1,37 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from little-plugger-1.1.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name little-plugger
 
-%global rubyabi 1.9.1
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gemdocdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gemcachedir %{gem_dir}/cache
+%global gemspecdir %{gem_dir}/specifications
 
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 6%{?dist}
+Release: 13%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/little-plugger
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+
+%if 0%{?fedora} && 0%{?fedora} < 17
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%endif
+
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%endif
+
+%if 0%{?fedora}
 BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
 BuildRequires: %{?scl_prefix}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -53,28 +68,42 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %check
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-rspec spec/
-%{?scl:"}
-popd
 
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%{gem_libdir}
-%{gem_cache}
-%{gem_spec}
+%{gem_instdir}/lib
+%{gem_instdir}/spec
+%{gemcachedir}/%{gem_name}-%{version}.gem
+%{gemspecdir}/%{gem_name}-%{version}.gemspec
 # contains licensing information
 %doc %{gem_instdir}/README.rdoc
 
 %files doc
 %{gem_instdir}/spec
 %{gem_instdir}/Rakefile
-%doc %{gem_docdir}
+%doc %{gemdocdir}/ri
+%doc %{gemdocdir}/rdoc
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.1.3-13
+- Fix logic and add whitelist (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.1.3-12
+- Grumble grumble (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.1.3-11
+- Weird logic change (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.1.3-10
+- Fix some broken logic (shk@redhat.com)
+- Untwisted the little-plugger spec (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.1.3-9
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Mon Mar 11 2013 Lukas Zapletal <lzap+git@redhat.com> 1.1.3-6
 - fixing ruby193 scl package (lzap+git@redhat.com)
 
