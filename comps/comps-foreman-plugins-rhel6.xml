@@ -9,10 +9,14 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">ruby193-rubygem-foreman_discovery</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
 
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
+      <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
+      <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-open4</packagereq>
+      <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
     </packagelist>
   </group>
 </comps>
