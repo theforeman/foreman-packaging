@@ -1,21 +1,29 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from logging-1.4.3.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name logging
-
-%global rubyabi 1.9.1
 
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 10%{?dist}
+Release: 11%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}ruby(rubygems)
+
+%if 0%{?fedora} && 0%{?fedora} < 17
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%else
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
+%endif
+
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -85,6 +93,10 @@ popd
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-11
+- Fixed a minor syntax error (shk@redhat.com)
+- Ensure the correct ABI version or release is used (shk@redhat.com)
+
 * Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.8.1-10
 - Final bump for release
 
