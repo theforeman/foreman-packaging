@@ -14,7 +14,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.6
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
@@ -26,7 +26,11 @@ Requires: %{?scl_prefix}ruby(abi) = 1.8
 %if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
+%if 0%{?rhel}
 Requires: %{?scl_prefix}ruby(abi) = 1.8
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 %endif
 %endif
 
@@ -39,7 +43,11 @@ BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
 %if 0%{?fedora} && 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
+%if 0%{?rhel}
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
+%else
+BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 %endif
 %endif
 
@@ -108,6 +116,10 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.3.6-7
+- Corrected the abi logic (shk@redhat.com)
+- Ensure the right ruby(abi) is used on F18 (shk@redhat.com)
+
 * Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.3.6-6
 - Fix another conditional (shk@redhat.com)
 
