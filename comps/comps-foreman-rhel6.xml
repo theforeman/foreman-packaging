@@ -171,12 +171,14 @@
       <packagereq type="default">ruby193-v8</packagereq>
 
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-daemon_controller</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
+      <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
