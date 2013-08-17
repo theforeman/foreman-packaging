@@ -1,12 +1,18 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gemdocdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gemcachedir %{gem_dir}/cache
+%global gemspecdir %{gem_dir}/specifications
+
 %global gem_name logging
 
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 11%{?dist}
+Release: 22%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -20,16 +26,26 @@ Requires: %{?scl_prefix}ruby(abi) = 1.8
 %if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
+%if 0%{?fedora} == 18
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%else
+%if 0%{?rhel}
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
+%endif
 %endif
 %endif
 
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
+%if 0%{?fedora}
 BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
+
 BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
-BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
-BuildRequires: %{?scl_prefix}rubygem(minitest)
+# BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
+# BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -65,13 +81,6 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
-%check
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-testrb test || true
-%{?scl:"}
-popd
-
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/data
@@ -81,18 +90,52 @@ popd
 %{gem_instdir}/version.txt
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%{gem_libdir}
-%exclude %{gem_cache}
-%{gem_spec}
+%{gem_instdir}/lib
+%{gemspecdir}/%{gem_name}-%{version}.gemspec
+%{gemcachedir}/%{gem_name}-%{version}.gem
 
 %files doc
 %{gem_instdir}/examples
 %{gem_instdir}/test
 %{gem_instdir}/Rakefile
-%doc %{gem_docdir}
+%doc %{gemdocdir}/ri
+%doc %{gemdocdir}/rdoc
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.8.1-22
+- Remove SCL conditional
+
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.8.1-21
+- Fix SCL logic (shk@redhat.com)
+
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.8.1-20
+- Fix dep issues with ruby-abi (again) (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-19
+- Fix ruby-abi version on RHEL (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-18
+- Fix ruby-abi version on RHEL (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-17
+- gem_dir -> gem_instdir (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-16
+- Remove superfluous excludes (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-15
+- Add more rubygem-devel stuff (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-14
+- Fix gem_instdir (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-13
+- Remove test running (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-12
+- Remove excessive conditional (shk@redhat.com)
+
 * Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.8.1-11
 - Fixed a minor syntax error (shk@redhat.com)
 - Ensure the correct ABI version or release is used (shk@redhat.com)
