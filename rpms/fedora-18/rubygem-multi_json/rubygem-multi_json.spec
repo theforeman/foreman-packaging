@@ -14,7 +14,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.6
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
@@ -116,6 +116,9 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.3.6-9
+- Rebuild for proper version dependencies
+
 * Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.3.6-8
 - Removed rubygems version requirement (shk@redhat.com)
 
