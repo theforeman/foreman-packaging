@@ -6,8 +6,8 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.14.0
-Release: 1%{dist}
+Version: 1.15.0
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -87,6 +87,9 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.15.0-2
+- Bump fog version to 1.15.0 (shk@redhat.com)
+
 * Mon Jul 22 2013 Dominic Cleal <dcleal@redhat.com> 1.14.0-1
 - Rebase to fog 1.14.0 (dcleal@redhat.com)
 - Fix excon dependency version (dcleal@redhat.com)
