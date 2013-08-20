@@ -14,45 +14,37 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.6
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} && 0%{?fedora} < 17
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%else
 %if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
-%if 0%{?rhel}
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-%endif
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.8
 %endif
 %endif
 
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 
-%if 0%{?fedora} && 0%{?fedora} < 17
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
-%else
 %if 0%{?fedora} && 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
-%if 0%{?rhel}
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
-%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-%endif
+%else
+BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
 %endif
 %endif
 
-%if 0%{?fedora}
-BuildRequires: %{?scl_prefix}rubygems-devel >= 1.3.6
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
 
 BuildRequires: %{?scl_prefix}ruby
@@ -116,6 +108,9 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.3.6-10
+- fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
+
 * Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.3.6-9
 - Rebuild for proper version dependencies
 
