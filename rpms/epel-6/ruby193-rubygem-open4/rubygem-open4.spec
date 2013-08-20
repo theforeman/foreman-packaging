@@ -7,12 +7,16 @@
 Summary: Manage child processes and their IO handles easily
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.0
-Release: 6%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: BSD or Ruby
 URL: http://github.com/ahoward/open4/tree/master
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -73,6 +77,12 @@ rm -rf %{buildroot}
 %{gem_docdir}
 
 %changelog
+* Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.3.0-9
+- change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
+
+* Wed Aug 14 2013 Lukas Zapletal <lzap+git@redhat.com> 1.3.0-8
+- rebuild
+
 * Wed Feb 27 2013 Miroslav Suchý <msuchy@redhat.com> 1.3.0-6
 - new package built with tito
 
