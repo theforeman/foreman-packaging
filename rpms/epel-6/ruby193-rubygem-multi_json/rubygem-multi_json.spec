@@ -1,23 +1,52 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
-# Generated from multi_json-1.0.3.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name multi_json
 
-%global rubyabi 1.9.1
+%if 0%{?rhel}
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gem_libdir %{gem_instdir}/lib
+%global gem_cache %{gem_dir}/cache
+%global gem_spec %{gem_dir}/specifications
+%endif
 
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.6
-Release: 2%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires: %{?scl_prefix}ruby(rubygems) >= 1.3.6
+
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%endif
+%endif
+
+Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}rubygems-devel >= 1.3.6
+
+%if 0%{?fedora} && 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+%else
+BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
+%endif
+%endif
+
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
+
 BuildRequires: %{?scl_prefix}ruby
 BuildRequires: %{?scl_prefix}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(json_pure)
@@ -61,18 +90,6 @@ cp -a .%{gem_dir}/* \
 # Remove useless shebang.
 sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
-%check
-pushd ./%{gem_instdir}
-# simplecov gem is Ruby 1.9 only and not available in Fedora,
-# so remove its usage
-sed -i '9,14d' spec/helper.rb
-
-# 1 test case fails (missing oj) and 22 are pending (missing yajl-ruby)
-%{?scl:scl enable %scl - << \EOF}
-rspec spec/ | grep '63 examples, 1 failure, 22 pending'
-%{?scl:EOF}
-popd
-
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
@@ -91,6 +108,31 @@ popd
 
 
 %changelog
+* Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.3.6-10
+- fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
+
+* Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.3.6-9
+- Rebuild for proper version dependencies
+
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.3.6-8
+- Removed rubygems version requirement (shk@redhat.com)
+
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.3.6-7
+- Corrected the abi logic (shk@redhat.com)
+- Ensure the right ruby(abi) is used on F18 (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.3.6-6
+- Fix another conditional (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.3.6-5
+- Fix conditional (shk@redhat.com)
+
+* Wed Aug 14 2013 Sam Kottler <shk@redhat.com> 1.3.6-4
+- Modernize the gemspec for SCL and non-SCL (shk@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 1.3.6-2
 - new package built with tito
 
