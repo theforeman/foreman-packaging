@@ -14,8 +14,8 @@ shift; shift
 TEMPDIR=$(mktemp -d)
 trap "rm -rf $TEMPDIR" EXIT
 
-# repo names must be unique, or yum will get confused between different OSes
-reponame=undertest-$(basename $yumorig .conf)
+# repo names must be unique, or yum will get confused between different OSes and URLs
+reponame=undertest-$(basename $yumorig .conf)-$(echo $url | cksum | sed 's/ /-/g')
 
 yumconf=$TEMPDIR/yum.conf
 cat $yumorig > $yumconf
