@@ -11,11 +11,12 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.1
-Release: 3%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
 Source0: %{gemname}-%{version}.gem
+Source1: cli_config.yml
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 Requires: ruby(abi)
@@ -51,6 +52,8 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
+mkdir -p %{buildroot}/etc/foreman
+install -m 755 %{SOURCE1} %{buildroot}/etc/foreman/cli_config.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -58,6 +61,7 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{geminstdir}
 %{geminstdir}/lib
+/etc/foreman
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
@@ -66,6 +70,12 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 0.0.1-5
+- Add configuration to install (shk@redhat.com)
+
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 0.0.1-4
+- Version bump for rebuild
+
 * Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 0.0.1-3
 - Bump version
 
