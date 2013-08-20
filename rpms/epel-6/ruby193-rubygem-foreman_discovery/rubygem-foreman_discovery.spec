@@ -17,7 +17,7 @@
 Summary:    MaaS Discovery Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.2
-Release:    6%{?dist}
+Release:    7%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
@@ -27,6 +27,9 @@ Requires:   foreman >= 1.2.0
 Requires:   %{?scl_prefix}rubygem(deface)
 Requires:   %{?scl_prefix}rubygem(open4)
 Requires:   %{?scl_prefix}rubygem(ftools)
+Requires:   advancecomp
+Requires:   squashfs-tools
+Requires:   sudo
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -79,6 +82,14 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
+mkdir -p %{buildroot}/etc/sudoers.d
+cat <<SUDOERS > %{buildroot}/etc/sudoers.d/%{gem_name}.example
+# Required to run the discovery:build_image rake task as 'foreman'
+# Copy this file to remove '.example' to enable it
+foreman ALL = NOPASSWD : ALL
+Defaults:foreman !requiretty
+SUDOERS
+
 # workaround for http://projects.theforeman.org/issues/2876
 rm -rf %{buildroot}/usr/share/gems/gems/foreman_discovery-1.0.1/test/foreman_app
 
@@ -91,6 +102,8 @@ rm -rf %{buildroot}/usr/share/gems/gems/foreman_discovery-1.0.1/test/foreman_app
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
+%doc /etc/sudoers.d/%{gem_name}.example
+%ghost %attr(0440,root,root) /etc/sudoers.d/%{gem_name}
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
@@ -102,6 +115,9 @@ rm -rf %{buildroot}/usr/share/gems/gems/foreman_discovery-1.0.1/test/foreman_app
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.0.2-7
+- add dependencies and example sudoers file for image building
+
 * Tue Aug 13 2013 Lukas Zapletal <lzap+git@redhat.com> 1.0.2-6
 - adding SCL prefix to the provides statement (lzap+git@redhat.com)
 - fixing dependency name (lzap+git@redhat.com)
