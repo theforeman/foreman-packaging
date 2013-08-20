@@ -12,7 +12,7 @@
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 22%{?dist}
+Release: 23%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -20,26 +20,18 @@ Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}ruby(rubygems)
 
-%if 0%{?fedora} && 0%{?fedora} < 17
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%else
 %if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
-%if 0%{?fedora} == 18
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %else
-%if 0%{?rhel}
 Requires: %{?scl_prefix}ruby(abi) = 1.8
-%else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-%endif
-%endif
 %endif
 %endif
 
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
-%if 0%{?fedora}
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
 
@@ -103,6 +95,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.8.1-23
+- fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
+
 * Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.8.1-22
 - Remove SCL conditional
 
