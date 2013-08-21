@@ -2,7 +2,7 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %global gem_name multi_json
 
-%if 0%{?rhel}
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
 %global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
@@ -14,7 +14,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.6
-Release: 10%{?dist}
+Release: 11%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
@@ -108,6 +108,9 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.3.6-11
+- Don't override gem macros when building under SCL (dcleal@redhat.com)
+
 * Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.3.6-10
 - fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
 
