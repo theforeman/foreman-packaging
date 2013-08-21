@@ -12,7 +12,7 @@
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 15%{?dist}
+Release: 16%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/little-plugger
@@ -58,7 +58,6 @@ gem install --local --install-dir .%{gem_dir} \
             --force --rdoc %{SOURCE0}
 %{?scl:"}
 
-
 %build
 
 
@@ -66,6 +65,9 @@ gem install --local --install-dir .%{gem_dir} \
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+
+# Workaround for rubygems being able to parse a timestamp in a date
+sed -i 's/ 00:00:00.000000000Z//' %{buildroot}/%{gemspecdir}/%{gem_name}-%{version}.gemspec
 
 %check
 
@@ -87,6 +89,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.1.3-16
+- Remove timestamps from gemspec dates (dcleal@redhat.com)
+
 * Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.1.3-15
 - fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
 
