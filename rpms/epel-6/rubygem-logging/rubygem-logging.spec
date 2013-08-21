@@ -12,7 +12,7 @@
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 23%{?dist}
+Release: 24%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -30,12 +30,14 @@ Requires: %{?scl_prefix}ruby(abi) = 1.8
 %endif
 %endif
 
-Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
+Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.3.6
+
 %if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
 
-BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.2
+BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
 # BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
 # BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildArch: noarch
@@ -95,6 +97,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.8.1-24
+- Add multi_json dependency, update little-plugger version (dcleal@redhat.com)
+
 * Tue Aug 20 2013 Dominic Cleal <dcleal@redhat.com> 1.8.1-23
 - fix dependency on ruby(abi) for ruby193 SCL builds (dcleal@redhat.com)
 
