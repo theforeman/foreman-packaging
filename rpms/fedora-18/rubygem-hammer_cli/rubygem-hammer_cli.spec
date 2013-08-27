@@ -2,8 +2,6 @@
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
-%else
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %endif
 
 %global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
@@ -11,7 +9,7 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -26,6 +24,9 @@ Requires: rubygem(terminal-table)
 Requires: rubygem(rest-client)
 Requires: rubygem(logging)
 Requires: rubygem(multi_json)
+%if 0%{?fedora}
+BuildRequires: rubygems-devel
+%endif
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 BuildRequires: ruby(abi)
 %endif
@@ -87,6 +88,10 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 %doc %{geminstdir}/README.md
 
 %changelog
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-3
+- Fix typo in macro (shk@redhat.com)
+- Use macros provided by rubygems-devel on Fedora (shk@redhat.com)
+
 * Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-2
 - Add configuration example to packaged files (shk@redhat.com)
 - Fix readme path (shk@redhat.com)
