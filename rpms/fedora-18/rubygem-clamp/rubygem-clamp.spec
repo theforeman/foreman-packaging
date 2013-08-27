@@ -1,27 +1,22 @@
 %global gemname clamp
-
-# Koji is not cooperating and sets the gem_dir differently on each build
-# so this nasty, disgusting hack fixes that.
-# TODO: make this less horrid
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
-%else
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %endif
-
-%global gem_instdir %{gem_dir}/gems/%{gemname}-%{version}
-
+%global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
 
 Summary: a minimal framework for command-line utilities
 Name: rubygem-%{gemname}
 Version: 0.6.1
-Release: 7%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
 %if 0%{?rhel} || 0%{?fedora} < 19
 Requires: ruby(abi)
+%endif
+%if 0%{?fedora}
+BuildRequires: rubygems-devel
 %endif
 Requires: ruby(rubygems)
 %if 0%{?rhel} || 0%{?fedora} < 19
@@ -62,34 +57,44 @@ cp -pa .%{gem_dir}/* \
 
 
 %files
-%dir %{gem_instdir}
-%{gem_instdir}/lib
-%{gem_instdir}/spec
-%{gem_instdir}/examples
-%{gem_instdir}/.rspec
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Rakefile
-%{gem_instdir}/%{gemname}.gemspec
+%dir %{geminstdir}
+%{geminstdir}/lib
+%{geminstdir}/spec
+%{geminstdir}/examples
+%{geminstdir}/.rspec
+%{geminstdir}/Gemfile
+%{geminstdir}/Rakefile
+%{geminstdir}/%{gemname}.gemspec
 
 
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.autotest
+%exclude %{geminstdir}/.travis.yml
+%exclude %{geminstdir}/.gitignore
+%exclude %{geminstdir}/.autotest
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
 %doc %{gem_dir}/doc/%{gemname}-%{version}
-%{gem_instdir}/README.md
-%{gem_instdir}/CHANGES.md
+%{geminstdir}/README.md
+%{geminstdir}/CHANGES.md
 
 
 %changelog
-* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.6.1-7
-- Use a horrible hack to fix koji's brokenness (shk@redhat.com)
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.6.1-9
+- Final bump
 
-* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 0.6.1-6
-- Maybe this'll work (shk@redhat.com)
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.6.1-8
+- Bump one more time
+
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.6.1-7
+- Bump version to match up tags
+
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.6.1-6
+- Use macros provided by rubygems-devel on Fedora (shk@redhat.com)
+- gem_instdir (shk@redhat.com)
+- gem_instdir (shk@redhat.com)
+- Remove rubygems-devel (shk@redhat.com)
+- Use rubygems-devel (shk@redhat.com)
 
 * Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 0.6.1-5
 - Don't require ruby(abi) on F19+ (shk@redhat.com)
