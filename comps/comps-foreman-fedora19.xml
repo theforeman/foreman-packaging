@@ -62,6 +62,7 @@
       <packagereq type="default">rubygem-safemode</packagereq>
       <packagereq type="default">rubygem-single_test</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
+      <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-twitter-bootstrap-rails</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
