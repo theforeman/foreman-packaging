@@ -2,16 +2,14 @@
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
-%else
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %endif
 
 %global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.2
-Release: 15%{?dist}
+Version: 0.0.3
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -26,6 +24,9 @@ Requires: rubygem(terminal-table)
 Requires: rubygem(rest-client)
 Requires: rubygem(logging)
 Requires: rubygem(multi_json)
+%if 0%{?fedora}
+BuildRequires: rubygems-devel
+%endif
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 BuildRequires: ruby(abi)
 %endif
@@ -74,14 +75,30 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 %{_bindir}/hammer
 %{geminstdir}/bin
 %{geminstdir}/lib
+%{geminstdir}/hammer_cli_complete
+%{geminstdir}/config/cli_config.template.yml
+%{geminstdir}/LICENSE
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
 %doc %{gem_dir}/doc/%{gemname}-%{version}
-
+%doc %{geminstdir}/doc/design.png
+%doc %{geminstdir}/doc/design.uml
+%doc %{geminstdir}/README.md
 
 %changelog
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-3
+- Fix typo in macro (shk@redhat.com)
+- Use macros provided by rubygems-devel on Fedora (shk@redhat.com)
+
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-2
+- Add configuration example to packaged files (shk@redhat.com)
+- Fix readme path (shk@redhat.com)
+- Add docs and other files that are new in the 0.0.3 release (shk@redhat.com)
+- Add docs and other files that are new in the 0.0.3 release (shk@redhat.com)
+- Bump hammer_cli version to 0.0.3 (shk@redhat.com)
+
 * Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 0.0.2-15
 - Remove SCL conditional (shk@redhat.com)
 
