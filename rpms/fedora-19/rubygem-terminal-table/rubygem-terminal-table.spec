@@ -2,16 +2,13 @@
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
-%else
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %endif
-
 %global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
 
 Summary: Simple, feature rich ascii table generation library
 Name: rubygem-%{gemname}
 Version: 1.4.5
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/visionmedia/terminal-table
@@ -22,6 +19,9 @@ Requires: ruby(abi)
 Requires: ruby(rubygems)
 %if 0%{?rhel} || 0%{?fedora} < 19
 BuildRequires: ruby(abi)
+%endif
+%if 0%{?fedora}
+BuildRequires: rubygems-devel
 %endif
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
@@ -76,11 +76,14 @@ cp -pa .%{gem_dir}/* \
 %doc %{geminstdir}/examples
 
 %changelog
-* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.4.5-7
-- Properly set the globals (shk@redhat.com)
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 1.4.5-8
+- Final version bump
 
-* Tue Aug 13 2013 Sam Kottler <shk@redhat.com> 1.4.5-6
-- Manually set the gem_dir on RHEL6 (shk@redhat.com)
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 1.4.5-7
+- Bump version
+
+* Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 1.4.5-6
+- Use macros provided by rubygems-devel on Fedora (shk@redhat.com)
 
 * Tue Aug 06 2013 Sam Kottler <shk@redhat.com> 1.4.5-5
 - Add more missing %% (shk@redhat.com)
