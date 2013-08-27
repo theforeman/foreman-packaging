@@ -9,7 +9,7 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -70,12 +70,16 @@ cp -pa .%{_bindir}/* \
 
 find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 
+mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
+mv %{buildroot}%{geminstdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gemname}
+sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_sysconfdir}/bash_completion.d/%{gemname}
+
 %files
 %dir %{geminstdir}
 %{_bindir}/hammer
+%{_sysconfdir}/bash_completion.d/%{gemname}
 %{geminstdir}/bin
 %{geminstdir}/lib
-%{geminstdir}/hammer_cli_complete
 %{geminstdir}/config/cli_config.template.yml
 %{geminstdir}/LICENSE
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
@@ -88,6 +92,9 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Aug 27 2013 Dominic Cleal <dcleal@redhat.com> 0.0.3-4
+- Install bash completion extension (dcleal@redhat.com)
+
 * Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-3
 - Fix typo in macro (shk@redhat.com)
 - Use macros provided by rubygems-devel on Fedora (shk@redhat.com)
