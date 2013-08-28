@@ -3,16 +3,18 @@
 
 %global gem_name little-plugger
 
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
 %global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gemdocdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gemcachedir %{gem_dir}/cache
-%global gemspecdir %{gem_dir}/specifications
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gem_cache %{gem_dir}/cache
+%global gem_spec %{gem_dir}/specifications
+%endif
 
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 16%{?dist}
+Release: 17%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/little-plugger
@@ -67,7 +69,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 # Workaround for rubygems being able to parse a timestamp in a date
-sed -i 's/ 00:00:00.000000000Z//' %{buildroot}/%{gemspecdir}/%{gem_name}-%{version}.gemspec
+find %{buildroot}/%{gem_spec} -name %{gem_name}-%{version}.gemspec -exec sed -i 's/ 00:00:00.000000000Z//' {} +
 
 %check
 
@@ -76,19 +78,22 @@ sed -i 's/ 00:00:00.000000000Z//' %{buildroot}/%{gemspecdir}/%{gem_name}-%{versi
 %exclude %{gem_instdir}/.gitignore
 %{gem_instdir}/lib
 %{gem_instdir}/spec
-%{gemcachedir}/%{gem_name}-%{version}.gem
-%{gemspecdir}/%{gem_name}-%{version}.gemspec
+%exclude %{gem_cache}
+%{gem_spec}
 # contains licensing information
 %doc %{gem_instdir}/README.rdoc
 
 %files doc
 %{gem_instdir}/spec
 %{gem_instdir}/Rakefile
-%doc %{gemdocdir}/ri
-%doc %{gemdocdir}/rdoc
+%doc %{gem_docdir}/ri
+%doc %{gem_docdir}/rdoc
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 28 2013 Dominic Cleal <dcleal@redhat.com> 1.1.3-17
+- Don't override gem macros when building under SCL (dcleal@redhat.com)
+
 * Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.1.3-16
 - Remove timestamps from gemspec dates (dcleal@redhat.com)
 
