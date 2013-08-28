@@ -1,18 +1,20 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
 %global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gemdocdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gemcachedir %{gem_dir}/cache
-%global gemspecdir %{gem_dir}/specifications
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gem_cache %{gem_dir}/cache
+%global gem_spec %{gem_dir}/specifications
+%endif
 
 %global gem_name logging
 
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.1
-Release: 24%{?dist}
+Release: 25%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -85,18 +87,21 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
 %{gem_instdir}/lib
-%{gemspecdir}/%{gem_name}-%{version}.gemspec
-%{gemcachedir}/%{gem_name}-%{version}.gem
+%{gem_spec}
+%exclude %{gem_cache}
 
 %files doc
 %{gem_instdir}/examples
 %{gem_instdir}/test
 %{gem_instdir}/Rakefile
-%doc %{gemdocdir}/ri
-%doc %{gemdocdir}/rdoc
+%doc %{gem_docdir}/ri
+%doc %{gem_docdir}/rdoc
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Aug 28 2013 Dominic Cleal <dcleal@redhat.com> 1.8.1-25
+- Don't override gem macros when building under SCL (dcleal@redhat.com)
+
 * Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.8.1-24
 - Add multi_json dependency, update little-plugger version (dcleal@redhat.com)
 
