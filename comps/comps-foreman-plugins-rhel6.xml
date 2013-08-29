@@ -16,6 +16,8 @@
       <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
 
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
