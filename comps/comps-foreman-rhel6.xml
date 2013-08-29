@@ -177,6 +177,7 @@
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
