@@ -1,36 +1,54 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
 # Generated from rdoc-3.4.gem by gem2rpm -*- rpm-spec -*-
-%global gem_name rdoc
+%define debug_package %{nil}
 
-%global rubyabi 1.9.1
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
+%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gem_libdir %{gem_instdir}/lib
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gem_cache %{gem_dir}/cache
+%global gem_spec %{gem_dir}/specifications
+%endif
+
+%global gem_name rdoc
 
 Summary: RDoc produces HTML and command-line documentation for Ruby projects
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.12
-Release: 10%{?dist}
+Release: 12%{?dist}
 Group: Development/Languages
 License: GPLv2 and Ruby and MIT
 URL: http://docs.seattlerb.org/rdoc/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Patch0: rubygem-rdoc-3.12-CVE-2013-0256-fix.patch
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.8
+%endif
+%endif
 Requires: %{?scl_prefix}rubygem(json) => 1.4
 Requires: %{?scl_prefix}rubygem(json) < 2
-Requires: %{?scl_prefix}ruby(irb)
+Requires: %{?scl_prefix}ruby-irb
 BuildRequires: %{?scl_prefix}ruby-devel
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
 BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(json) => 1.4
 BuildRequires: %{?scl_prefix}rubygem(json) < 2
 BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{?scl_prefix}ruby(irb)
+BuildRequires: %{?scl_prefix}ruby-irb
 # RDoc files differ between architectures.
 # https://github.com/rdoc/rdoc/issues/71
 # BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Obsoletes:  %{?scl_prefix}ruby-rdoc < 1.8.7.357-2
 
 %description
 RDoc produces HTML and command-line documentation for Ruby projects.  RDoc
@@ -53,7 +71,9 @@ Documentation for %{pkg_name}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %scl "}
 gem install --local --install-dir .%{gem_dir} \
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
             --bindir .%{_bindir} \
+%endif
             --force %{SOURCE0}
 %{?scl:"}
 
@@ -69,17 +89,22 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
-
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+%endif
 
+%if 0%{?ruby_libdir:1}
 mkdir -p %{buildroot}%{ruby_libdir}
 ln -s %{gem_libdir}/%{gem_name}.rb %{buildroot}%{ruby_libdir}/%{gem_name}.rb
 ln -s %{gem_libdir}/%{gem_name} %{buildroot}%{ruby_libdir}/%{gem_name}
+%endif
 
 %check
+# Tests won't run with old EL6 rubygems version
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 pushd .%{gem_instdir}
 # 73 test fails due to bug in packagin of the gem.
 # https://github.com/rdoc/rdoc/issues/98
@@ -90,19 +115,27 @@ LANG=en_US.utf8 RUBYOPT="-Ilib" testrb test | \
 	grep "1485 tests, 3339 assertions, 0 failures, 73 errors, 16 skips"
 %{?scl:EOF}
 popd
+%endif
 
 %files
 %dir %{gem_instdir}
 %doc %{gem_instdir}/LICENSE.rdoc
 %doc %{gem_instdir}/LEGAL.rdoc
 %exclude %{gem_instdir}/.*
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 %{_bindir}/rdoc
 %{_bindir}/ri
+%else
+%{gem_dir}/bin/rdoc
+%{gem_dir}/bin/ri
+%endif
 %{gem_libdir}
 %{gem_instdir}/bin
 %exclude %{gem_cache}
 %{gem_spec}
+%if 0%{?ruby_libdir:1}
 %{ruby_libdir}/%{gem_name}*
+%endif
 
 %files doc
 %doc %{gem_docdir}
@@ -118,6 +151,13 @@ popd
 
 
 %changelog
+* Fri Aug 30 2013 Dominic Cleal <dcleal@redhat.com> 3.12-12
+- Support non-SCL EL6 builds, install alongside ruby-rdoc (dcleal@redhat.com)
+- rubygem-rdoc: remove debuginfo package (cduryee@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 3.12-10
 - new package built with tito
 
