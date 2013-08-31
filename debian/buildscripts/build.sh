@@ -44,7 +44,7 @@ $GIT submodule update
 mv "${BUILD_DIR}/debian" "${TARGET}/"
 
 # Cleanup source
-setup_build
+setup_build $*
 rm -rf $(/usr/bin/find "${TARGET}" -name '.git*')
 
 if [ "$PBUILDER" != "local" ] ; then
