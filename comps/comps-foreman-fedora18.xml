@@ -37,6 +37,7 @@
       <packagereq type="default">rubygem-commonjs</packagereq>
       <packagereq type="default">rubygem-daemons</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
+      <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
