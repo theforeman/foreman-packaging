@@ -5,8 +5,8 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.22
-Release: 3%{?dist}
+Version: 0.0.23
+Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Sep 04 2013 Ivan Necas <inecas@redhat.com> 0.0.23-1
+- bumping version of apipie-rails to 0.0.23 (inecas@redhat.com)
+
 * Wed Jun 26 2013 Miroslav Suchý <msuchy@redhat.com> 0.0.22-3
 - add ASL to license (msuchy@redhat.com)
 
