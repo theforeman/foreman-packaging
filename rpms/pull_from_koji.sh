@@ -12,17 +12,20 @@ sfk -h $koji \
   -t foreman-nightly-rhel6 \
   -t foreman-nightly-nonscl-rhel6 \
   -t foreman-plugins-1.2-rhel6 \
+  -t foreman-plugins-1.3-rhel6 \
   -t foreman-plugins-nightly-rhel6 \
   -o $here/epel-6 -e ^foreman $*
 
 sfk -h $koji \
   -t foreman-nightly-fedora18 \
   -t foreman-plugins-1.2-fedora18 \
+  -t foreman-plugins-1.3-fedora18 \
   -t foreman-plugins-nightly-fedora18 \
   -o $here/fedora-18 -e ^foreman $*
 
 sfk -h $koji \
   -t foreman-nightly-fedora19 \
   -t foreman-plugins-1.2-fedora19 \
+  -t foreman-plugins-1.3-fedora19 \
   -t foreman-plugins-nightly-fedora19 \
   -o $here/fedora-19 -e ^foreman $*
