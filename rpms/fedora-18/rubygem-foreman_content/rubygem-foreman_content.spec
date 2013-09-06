@@ -17,14 +17,14 @@
 
 Summary:    Add Foreman support for content management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3
-Release:    2%{?dist}
+Version:    0.4
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_content
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.1
+Requires:   foreman >= 1.2.9999
 Requires:   %{?scl_prefix}rubygem(deface)
 Requires:   %{?scl_prefix}rubygem(logging)
 Requires:   %{?scl_prefix}rubygem(runcible) = 0.4.10
@@ -105,6 +105,10 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Fri Sep 06 2013 Dominic Cleal <dcleal@redhat.com> 0.4-1
+- Require 1.2-develop or newer (dcleal@redhat.com)
+- Update to foreman_content 0.4 (dcleal@redhat.com)
+
 * Wed Aug 28 2013 Dominic Cleal <dcleal@redhat.com> 0.3-2
 - Relax rubygem-logging requirement for F18 until unused dep is removed
   (dcleal@redhat.com)
