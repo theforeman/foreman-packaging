@@ -1,0 +1,17 @@
+Source: ruby-little-plugger
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: http://gemcutter.org/gems/little-plugger
+XS-Ruby-Versions: all
+
+Package: ruby-little-plugger
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: LittlePlugger is a module that provides Gem based plugin management.
+ LittlePlugger is a module that provides Gem based plugin management.
+ By extending your own class or module with LittlePlugger you can easily
+ manage the loading and initializing of plugins provided by other gems.
