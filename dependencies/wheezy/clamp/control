@@ -1,13 +1,11 @@
 Source: ruby-clamp
 Section: ruby
 Priority: optional
-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
-Uploaders:  <>
-DM-Upload-Allowed: yes
-Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~), ruby-rspec, ruby-rr
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~),
+  ruby-rr,
+  ruby-rspec
 Standards-Version: 3.9.3
-#Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-clamp.git
-#Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-clamp.git;a=summary
 Homepage: http://github.com/mdub/clamp
 XS-Ruby-Versions: all
 
