@@ -1,0 +1,5 @@
+ruby-hashie (2.0.5-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #nnnn)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 05 Sep 2013 19:07:00 +0200

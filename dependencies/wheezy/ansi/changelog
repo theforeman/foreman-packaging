@@ -1,0 +1,5 @@
+ruby-ansi (1.4.3-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #nnnn)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 05 Sep 2013 19:07:13 +0200
