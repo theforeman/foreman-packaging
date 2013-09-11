@@ -1,0 +1,9 @@
+--- a/bin/foreman-install
++++ b/bin/foreman-install
+@@ -2,5 +2,5 @@
+ require 'rubygems'
+ require 'kafo'
+ 
+-CONFIG_FILE = "config/foreman-installer.yaml"
++CONFIG_FILE = "/usr/share/foreman-installer/config/foreman-installer.yaml"
+ KafoConfigure.run

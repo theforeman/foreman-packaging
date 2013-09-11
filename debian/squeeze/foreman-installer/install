@@ -1,0 +1,4 @@
+bin     usr/
+checks  usr/share/foreman-installer
+config  usr/share/foreman-installer
+modules usr/share/foreman-installer
