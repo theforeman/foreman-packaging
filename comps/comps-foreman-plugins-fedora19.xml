@@ -18,6 +18,7 @@
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_simplify</packagereq>
       <packagereq type="default">rubygem-foreman_simplify-doc</packagereq>
+      <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
 
       <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-deface-doc</packagereq>
