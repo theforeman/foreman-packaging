@@ -47,6 +47,7 @@
       <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
+      <packagereq type="default">rubygem-immigrant</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-less-rails</packagereq>
