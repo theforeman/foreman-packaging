@@ -1,0 +1,18 @@
+Source: ruby-ansi
+Section: ruby
+Priority: optional
+Maintainer: Marek Hulan <mhulan@redhat.com> 
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.4
+Homepage: http://rubyworks.github.com/ansi
+XS-Ruby-Versions: all
+
+Package: ruby-ansi
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: ANSI at your fingertips!
+ The ANSI project is a superlative collection of ANSI escape code related libraries
+ enabling ANSI colorization and stylization of console output. Byte for byte
+ ANSI is the best ANSI code library available for the Ruby programming
+ language.
