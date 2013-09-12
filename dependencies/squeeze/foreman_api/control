@@ -1,0 +1,18 @@
+Source: ruby-foreman-api
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Standards-Version: 3.9.3
+Homepage: http://github.com/mbacovsky/foreman_api
+XS-Ruby-Versions: all
+
+Package: ruby-foreman-api
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+  ruby-json,
+  ruby-oauth,
+  ruby-rest-client (>= 1.6.1)
+Description: Ruby bindings for Forman's rest API
+ Helps you to use Foreman's API calls from your app

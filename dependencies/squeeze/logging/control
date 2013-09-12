@@ -1,0 +1,23 @@
+Source: ruby-logging
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6),
+   ruby-flexmock,
+	 ruby-little-plugger (>= 1.1.3),
+   ruby-multi-json (>= 1.3.6)
+Standards-Version: 3.9.3
+Homepage: http://rubygems.org/gems/logging
+XS-Ruby-Versions: all
+
+Package: ruby-logging
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+	 ruby-little-plugger (>= 1.1.3),
+   ruby-multi-json (>= 1.3.6)
+Description: A flexible and extendable logging library for Ruby
+ Logging is a flexible logging library for use in Ruby programs based on the
+ design of Java's log4j library. It features a hierarchical logging system,
+ custom level names, multiple output destinations per log event, custom
+ formatting, and more.
