@@ -6,7 +6,7 @@
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0 
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/grosser/gettext_i18n_rails
@@ -54,6 +54,12 @@ rm -rf %{buildroot}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu Sep 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.10.0-3
+- Revert "update rubygems to include wrapper BuildRequires and Requires"
+  (jmontleo@redhat.com)
+- update rubygems to include wrapper BuildRequires and Requires
+  (jmontleo@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.10.0-2
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
