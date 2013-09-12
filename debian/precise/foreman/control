@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.8-dev, git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
-               libvirt-dev, libsqlite3-dev, puppet (>=0.24.4)
+               libvirt-dev, libsqlite3-dev, facter
 Homepage: http://www.theforeman.org/
 
 Package: foreman
@@ -13,8 +13,8 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2),
-         libxml2-dev, libxslt1-dev,
-         puppet (>=0.24.4), rake (>=0.8.4), ${misc:Depends}
+         libxml2-dev, libxslt1-dev, facter,
+         rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
