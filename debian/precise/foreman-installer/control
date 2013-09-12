@@ -11,7 +11,8 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-kafo
+         ruby-kafo,
+         rubygems
 Description: Automated puppet-based installer for The Foreman
  Foreman-installer is a set of puppet modules wrapped in ruby
  library to provide a nice frontend menu for configuring it.
