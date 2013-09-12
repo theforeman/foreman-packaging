@@ -1,5 +1,5 @@
---- a/bin/foreman-install
-+++ b/bin/foreman-install
+--- a/bin/foreman-installer
++++ b/bin/foreman-installer
 @@ -2,5 +2,5 @@
  require 'rubygems'
  require 'kafo'
