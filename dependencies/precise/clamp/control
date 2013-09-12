@@ -1,0 +1,18 @@
+Source: ruby-clamp
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6),
+  ruby-rr,
+  ruby-rspec
+Standards-Version: 3.9.3
+Homepage: http://github.com/mdub/clamp
+XS-Ruby-Versions: all
+
+Package: ruby-clamp
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: a minimal framework for command-line utilities
+ Clamp provides an object-model for command-line utilities.
+ It handles parsing of command-line options, and generation of usage help.

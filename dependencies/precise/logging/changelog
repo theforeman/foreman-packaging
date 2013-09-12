@@ -1,0 +1,5 @@
+ruby-logging (1.8.1-1) UNRELEASED; urgency=low
+
+  * Initial release
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 05 Sep 2013 15:35:44 +0000
