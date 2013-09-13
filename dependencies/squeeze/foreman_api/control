@@ -13,6 +13,6 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
   ruby-json,
   ruby-oauth,
-  ruby-rest-client (>= 1.6.1)
+  librestclient-ruby
 Description: Ruby bindings for Forman's rest API
  Helps you to use Foreman's API calls from your app
