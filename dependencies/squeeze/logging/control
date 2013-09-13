@@ -3,7 +3,7 @@ Section: ruby
 Priority: optional
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6),
-   ruby-flexmock,
+   libflexmock-ruby,
 	 ruby-little-plugger (>= 1.1.3),
    ruby-multi-json (>= 1.3.6)
 Standards-Version: 3.9.3

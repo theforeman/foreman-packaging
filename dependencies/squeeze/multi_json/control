@@ -1,0 +1,15 @@
+Source: ruby-multi-json
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Standards-Version: 3.9.2
+Homepage: http://github.com/intridea/multi_json
+XS-Ruby-Versions: all
+
+Package: ruby-multi-json
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: A gem to provide swappable JSON backends.
+ A gem to provide easy switching between different JSON backends, including Oj, Yajl, the JSON gem (with C-extensions), the pure-Ruby JSON gem, and OkJson.
