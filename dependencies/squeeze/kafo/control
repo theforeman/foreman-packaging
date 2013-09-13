@@ -13,7 +13,7 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          puppet,
          ruby-clamp,
-         ruby-highline,
+         libhighline-ruby,
          ruby-logging,
          ruby-rdoc (>= 3.12.0)
 Description: If you write puppet modules for installing your software, you can use kafo to create powerful installer
