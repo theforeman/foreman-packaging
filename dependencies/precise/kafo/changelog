@@ -1,3 +1,9 @@
+ruby-kafo (0.0.14-1) UNRELEASED; urgency=low
+
+  * New release
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Fri, 13 Sep 2013 09:24:16 +0000
+
 ruby-kafo (0.0.12-1) UNRELEASED; urgency=low
 
   * Initial release
