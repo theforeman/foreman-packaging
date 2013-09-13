@@ -1,3 +1,9 @@
+ruby-foreman-api (0.1.6-2) stable; urgency=low
+
+  * Fix rest-client dependency
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Fri, 13 Sep 2013 03:06:31 +0000
+
 ruby-foreman-api (0.1.6-1) stable; urgency=low
 
   * 0.1.6 release
