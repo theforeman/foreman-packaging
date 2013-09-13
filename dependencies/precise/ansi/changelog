@@ -1,4 +1,4 @@
-ruby-ansi (1.4.3-1) UNRELEASED; urgency=low
+ruby-ansi (1.4.3-1) stable; urgency=low
 
   * Initial release (Closes: #nnnn)
 

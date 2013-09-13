@@ -1,10 +1,10 @@
-ruby-foreman-api (0.1.6-1) UNRELEASED; urgency=low
+ruby-foreman-api (0.1.6-1) stable; urgency=low
 
   * 0.1.6 release
 
  -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Fri, 06 Sep 2013 15:50:31 +0000
 
-ruby-foreman-api (0.1.4-1) UNRELEASED; urgency=low
+ruby-foreman-api (0.1.4-1) stable; urgency=low
 
   * Initial release
 
