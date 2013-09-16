@@ -37,7 +37,7 @@ Requires: %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   0%{?dist}  
+Release:   2%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -107,17 +107,17 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %files 
 %exclude %{gem_instdir}/.gitignore
 %exclude %dir %{gem_instdir}/ass
-%exclude %dir %{gem_instdir}/ass/screenshot.png
+%exclude %{gem_instdir}/ass/screenshot.png
 %exclude %{gem_cache}
 
 %dir %{gem_instdir}
-%dir %{gem_instdir}/Gemfile
-%dir %{gem_instdir}/Rakefile
-%dir %{gem_instdir}/powerbar.gemspec
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Rakefile
+%{gem_instdir}/powerbar.gemspec
 %{gem_spec}
 %{gem_libdir}
 %{gem_instdir}/bin
-%{gem_dir}/bin/powerbar-demo
+%dir %{gem_dir}/bin/powerbar-demo
 
 %files doc
 %doc %{gem_instdir}/README.rdoc
@@ -125,6 +125,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-2
+- Another fix for F19 (mhulan@redhat.com)
+
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-1
+- Fixed spec for F19 (mhulan@redhat.com)
+
 * Fri Sep 06 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-0
 - new package built with tito
 
