@@ -8,6 +8,8 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
+      <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_column_view</packagereq>
       <packagereq type="default">rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">rubygem-foreman_content</packagereq>
