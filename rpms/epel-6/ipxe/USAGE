@@ -1,0 +1,16 @@
+To create a bootable floppy, type
+    cat /usr/share/gpxe/gpxe.dsk > /dev/fd0
+where /dev/fd0 is your floppy drive.  This will erase any
+data already on the disk.
+
+To create a bootable USB key, type
+    cat /usr/share/gpxe/gpxe.usb > /dev/sdX
+where /dev/sdX is your USB key, and is *not* a real hard
+disk on your system.  This will erase any data already on
+the USB key.
+
+To create a bootable CD-ROM, burn the ISO image
+/usr/share/gpxe/gpxe.iso to a blank CD-ROM.
+
+http://www.etherboot.org/wiki/pxechaining describes how to chain boot
+from PXE into gPXE using /usr/share/gpxe/undionly.kpxe.
