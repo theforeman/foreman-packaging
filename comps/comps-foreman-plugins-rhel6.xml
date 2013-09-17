@@ -8,6 +8,8 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">ruby193-rubygem-foreman_bootdisk</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_column_view</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_content</packagereq>
@@ -22,6 +24,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-puppetdb_foreman</packagereq>
 
+      <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
