@@ -26,10 +26,6 @@
       <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
 
-      <packagereq type="default">foreman-installer</packagereq>
-      <packagereq type="default">rubygem-foreman_api</packagereq>
-      <packagereq type="default">rubygem-oauth</packagereq>
-
       <packagereq type="default">ruby193-build</packagereq>
       <packagereq type="default">ruby193-facter</packagereq>
       <packagereq type="default">ruby193-libyaml</packagereq>
@@ -166,19 +162,30 @@
       <packagereq type="default">ruby193-rubygems-devel</packagereq>
       <packagereq type="default">ruby193-v8</packagereq>
 
+      <!--
+        The following list is for foreman-1.3-nonscl-rhel6 tag. Please only put packages
+        that should go to nonscl tag bellow. Do not delete the following line please:
+
+        <packagereq type="default">foreman-1.3-nonscl-rhel6</packagereq>
+      -->
+
+      <packagereq type="default">foreman-installer</packagereq>
+
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-daemon_controller</packagereq>
-      <packagereq type="default">rubygem-hammer_cli</packagereq>
+      <packagereq type="default">rubygem-foreman_api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
+      <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
+      <packagereq type="default">rubygem-oauth</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
