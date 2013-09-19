@@ -14,6 +14,8 @@
       <packagereq type="default">rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">rubygem-foreman_content</packagereq>
       <packagereq type="default">rubygem-foreman_content-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_custom_parameters</packagereq>
+      <packagereq type="default">rubygem-foreman_custom_parameters-doc</packagereq>
       <packagereq type="default">rubygem-foreman_discovery</packagereq>
       <packagereq type="default">rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
