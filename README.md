@@ -15,22 +15,19 @@ Pull requests gladly accepted for these to the `master` branch.
 Koji's repos are built using the files under comps/, new packages and
 dependencies must be added here.
 
-Debian
-======
-The Debian and Ubuntu packaging files are kept here too (despite the name).
-They reside on the `deb/{nightly,rc,stable}` branches and changes are merged
-between them.
+Debian Packaging Branches
+=========================
 
-PRs should be made to `deb/nightly`.
+The deb/\* branches contain the Debian packaging files for Foreman and it's
+dependencies. The repo mirrors [Foreman Core](https://github.com/theforeman/foreman),
+i.e. deb/develop is for packaging branch 'develop', deb/1.3 is for packaging release
+1.3.x and so on
 
-Installer
-=========
-The build script for the Foreman installer deb packages is stored under `fpm/`.
+Contributing to the debs
+========================
 
-RPMs are built using the files in the foreman-installer repo itself.
-
-Packaging PRs should be made to `master`.  Installer changes should be made to
-the submodules via the foreman-installer repo.
+It's generally best to contribute to 'deb/develop' unless something is specifically
+broken for an older release. Please fork and send a PR.
 
 SELinux
 =======
