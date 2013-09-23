@@ -11,7 +11,7 @@ Package: ruby-foreman-api
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-  ruby-json,
+  libjson-ruby,
   ruby-oauth,
   librestclient-ruby
 Description: Ruby bindings for Forman's rest API
