@@ -18,7 +18,7 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.2.0
+Version:    1.2.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -105,6 +105,9 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Tue Sep 24 2013 Dominic Cleal <dcleal@redhat.com> 1.2.1-1
+- Update to foreman_bootdisk 1.2.1 (dcleal@redhat.com)
+
 * Tue Sep 17 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-1
 - new package built with tito
 
