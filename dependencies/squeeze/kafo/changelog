@@ -1,3 +1,9 @@
+ruby-kafo (0.0.16-1) UNRELEASED; urgency=low
+
+  * New release
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 26 Sep 2013 19:14:16 +0000
+
 ruby-kafo (0.0.15-1) UNRELEASED; urgency=low
 
   * New release
