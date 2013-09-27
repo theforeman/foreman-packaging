@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.3
-Release: 4%{?dist}
+Version: 0.0.5
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -92,6 +92,9 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %doc %{geminstdir}/README.md
 
 %changelog
+* Thu Sep 26 2013 Sam Kottler <shk@redhat.com> 0.0.5-1
+- Cherry pick hammer_cli version bump (shk@redhat.com)
+
 * Tue Aug 27 2013 Dominic Cleal <dcleal@redhat.com> 0.0.3-4
 - Install bash completion extension (dcleal@redhat.com)
 
