@@ -8,8 +8,8 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name: rubygem-%{gemname}
-Version: 0.0.1
-Release: 2%{?dist}
+Version: 0.0.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-katello-bridge
@@ -66,6 +66,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Sep 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-1
+- Bump the version to 0.0.3 (shk@redhat.com)
+
 * Thu Aug 29 2013 Sam Kottler <shk@redhat.com> 0.0.1-2
 - new package built with tito
 
