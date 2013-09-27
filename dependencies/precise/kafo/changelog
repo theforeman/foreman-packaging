@@ -1,3 +1,9 @@
+ruby-kafo (0.0.17-1) stable; urgency=low
+
+  * New release
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 27 Sep 2013 16:11:16 +0000
+
 ruby-kafo (0.0.16-1) stable; urgency=low
 
   * New release
