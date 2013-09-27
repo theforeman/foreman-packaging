@@ -6,8 +6,8 @@
 Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.3.0
-Release: 4%{dist}
+Version: 2.0.0
+Release: 2%{dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
@@ -93,6 +93,12 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 %{gem_docdir}
 
 %changelog
+* Fri Sep 27 2013 Lukas Zapletal <lzap+git@redhat.com> 2.0.0-2
+- bumping ancestry (lzap+git@redhat.com)
+
+* Fri Sep 27 2013 Lukas Zapletal <lzap+rpm[@]redhat.com> - 2.0.0-1
+- bump to 2.0.0 because this is in Fedora 19 now
+
 * Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> 1.3.0-4
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
