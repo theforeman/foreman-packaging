@@ -37,7 +37,7 @@ Requires: %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   2%{?dist}  
+Release:   7%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -116,8 +116,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_instdir}/powerbar.gemspec
 %{gem_spec}
 %{gem_libdir}
-%{gem_instdir}/bin
-%dir %{gem_dir}/bin/powerbar-demo
+%dir %{gem_instdir}/bin
+%{gem_instdir}/bin/powerbar-demo
+
+%if 0%{?rhel} == 6 || 0%{?fedora} < 19
+%{gem_dir}/bin/powerbar-demo
+%endif
 
 %files doc
 %doc %{gem_instdir}/README.rdoc
@@ -125,6 +129,21 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Sep 27 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-7
+- Powerbar fixes (mhulan@redhat.com)
+
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-6
+- Different versions (mhulan@redhat.com)
+
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-5
+- Demo script (mhulan@redhat.com)
+
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-4
+- Make bin a dir (mhulan@redhat.com)
+
+* Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-3
+- Yet another F19 fix (mhulan@redhat.com)
+
 * Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-2
 - Another fix for F19 (mhulan@redhat.com)
 
