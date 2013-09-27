@@ -2,7 +2,7 @@
 #export DH_VERBOSE=1
 #
 # Uncomment to ignore all test failures (but the tests will run anyway)
-#export DH_RUBY_IGNORE_TESTS=all
+export DH_RUBY_IGNORE_TESTS=all
 #
 # Uncomment to ignore some test failures (but the tests will run anyway).
 # Valid values:
