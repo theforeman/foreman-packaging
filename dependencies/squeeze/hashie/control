@@ -3,7 +3,6 @@ Section: ruby
 Priority: optional
 Maintainer: Marek Hulan <mhulan@redhat.com>
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6),
-               ruby-rspec
 Standards-Version: 3.9.4
 Homepage: https://github.com/intridea/hashie
 XS-Ruby-Versions: all
