@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.3
-Release: 2%{?dist}
+Version: 0.0.5
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
@@ -71,6 +71,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Sep 26 2013 Sam Kottler <shk@redhat.com> 0.0.5-1
+- Bump the version in the spec (shk@redhat.com)
+- Update to the latest version (shk@redhat.com)
+
 * Mon Aug 26 2013 Sam Kottler <shk@redhat.com> 0.0.3-2
 - Use rubygems-devel on fedora instead of custom macros (shk@redhat.com)
 
