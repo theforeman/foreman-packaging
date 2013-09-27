@@ -37,7 +37,7 @@ Requires: %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   6%{?dist}  
+Release:   7%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -117,9 +117,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_spec}
 %{gem_libdir}
 %dir %{gem_instdir}/bin
-%if 0%{?fedora} > 18
 %{gem_instdir}/bin/powerbar-demo
-%else
+
+%if 0%{?rhel} == 6 || 0%{?fedora} < 19
 %{gem_dir}/bin/powerbar-demo
 %endif
 
@@ -129,6 +129,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Sep 27 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-7
+- Powerbar fixes (mhulan@redhat.com)
+
 * Mon Sep 16 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-6
 - Different versions (mhulan@redhat.com)
 
