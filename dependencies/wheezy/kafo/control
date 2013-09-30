@@ -15,6 +15,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-clamp,
          ruby-highline,
          ruby-logging,
-         ruby-rdoc (>= 3.12.0)
+         ruby-rdoc (>= 3.12.0),
+         ruby-powerbar
 Description: If you write puppet modules for installing your software, you can use kafo to create powerful installer
  A gem for making installations based on puppet user friendly
