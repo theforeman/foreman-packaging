@@ -1,3 +1,9 @@
+ruby-kafo (0.1.0-1) stable; urgency=low
+
+  * Progress bar support
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 30 Sep 2013 08:48:16 +0000
+
 ruby-kafo (0.0.17-1) stable; urgency=low
 
   * New release
