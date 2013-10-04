@@ -23,7 +23,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -248,7 +248,7 @@ export MANPATH=%{_mandir}:\$MANPATH
 gem install -V \
             --local \
             --install-dir %{buildroot}%{gem_dir} \
-            --bindir %{buildroot}%{gem_instdir}/bin \
+            --bindir %{buildroot}%{_bindir} \
             --force \
             --rdoc \
             pkg/%{gem_name}-%{version}.gem
@@ -311,12 +311,9 @@ find %{buildroot}%{gem_instdir} -type f -size 0c -delete
 
 %{__rm} -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 
-# Install binaries
-mkdir -p %{buildroot}%{_bindir}
 # Don't install the installation scripts. That's why we have packaging.
-%{__rm} %{buildroot}%{gem_instdir}/bin/%{gem_name}-install-apache2-module
-%{__rm} %{buildroot}%{gem_instdir}/bin/%{gem_name}-install-nginx-module
-cp -a %{buildroot}%{gem_instdir}/bin/* %{buildroot}%{_bindir}
+%{__rm} %{buildroot}{%{_bindir},%{gem_instdir}/bin}/%{gem_name}-install-apache2-module
+%{__rm} %{buildroot}{%{_bindir},%{gem_instdir}/bin}/%{gem_name}-install-nginx-module
 find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 
 %check
@@ -403,6 +400,9 @@ rake test --trace ||:
 %endif
 
 %changelog
+* Fri Oct 04 2013 Dominic Cleal <dcleal@redhat.com> 4.0.5-5
+- fixes #3197 - don't write binstubs to gem install's bin/ (dcleal@redhat.com)
+
 * Mon Jun 10 2013 Martin Bačovský <mbacovsk@redhat.com> 4.0.5-4
 - Fixed native-libs paths on F18 (mbacovsk@redhat.com)
 
