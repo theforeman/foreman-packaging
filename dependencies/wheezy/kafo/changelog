@@ -1,3 +1,21 @@
+ruby-kafo (0.2.0-1) stable; urgency=low
+
+  * Fixes #3062 - Add --no-colors support (mhulan@redhat.com)
+  * Fixes #3191 - custom verbose log level configuration (mhulan@redhat.com)
+  * Fixes #3188 - don't prefix symbols with !ruby/sym (mhulan@redhat.com)
+  * Fixes #3032 - ignore documentation inconsistency option
+    (mhulan@redhat.com)
+  * Share CLI args with app config (mhulan@redhat.com)
+  * Merge pull request #21 from domcleal/help-sort (dominic@computerkb.co.uk)
+  * Sort modules and parameters in --help output (dcleal@redhat.com)
+  * Fixes #3175 - process exiting is handled more carefully
+    (mhulan@redhat.com)
+  * Exit with 0 when calling kafo-configure --help (dcleal@redhat.com)
+  * Print validation errors to console when using progress bar
+    (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 7 Aug 2013 15:26:16 +0000
+
 ruby-kafo (0.1.0-1) stable; urgency=low
 
   * Progress bar support
