@@ -1,3 +1,9 @@
+foreman (1.2.3+debian1) precise; urgency=low
+
+  * 1.2.3 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Mon, 7 Oct 2013 11:10:00 +0100
+
 foreman (1.2.2+ubuntu1) precise; urgency=low
 
   * 1.2.2 released

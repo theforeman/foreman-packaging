@@ -4,7 +4,7 @@ REPO='git://github.com/theforeman/foreman.git'
 if [[ "$2" == "nightly" ]] ; then
   BRANCH="develop"
 else
-  BRANCH='e5bae29738715cfee275c1df21d6e58929597be7'
+  BRANCH='e4f4584251a977fa80502073525f139fe78263b8'
 fi
 
 function setup_build {
