@@ -1,3 +1,11 @@
+ruby-kafo (0.2.1-1) stable; urgency=low
+
+  * Fixes #3227 - restore app options names (mhulan@redhat.com)
+  * Fixes #3217 - Do not output messages to STDOUT (mhulan@redhat.com)
+  * Fixes #3216 - Print error on STDOUT (mhulan@redhat.com)
+ 
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 9 Aug 2013 13:17:16 +0000
+
 ruby-kafo (0.2.0-1) stable; urgency=low
 
   * Fixes #3062 - Add --no-colors support (mhulan@redhat.com)
