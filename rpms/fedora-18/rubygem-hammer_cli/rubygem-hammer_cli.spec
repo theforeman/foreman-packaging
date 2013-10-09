@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.6
-Release: 2%{?dist}
+Version: 0.0.7
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -100,6 +100,10 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %doc %{geminstdir}/README.md
 
 %changelog
+* Wed Oct 09 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.7-1
+- Bumped to 0.0.7 (mbacovsk@redhat.com)
+- fixed error handling while loading hammer modules
+
 * Tue Oct 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.6-2
 - Added depenedency on fastercsv on ruby 1.8 (mbacovsk@redhat.com)
 
