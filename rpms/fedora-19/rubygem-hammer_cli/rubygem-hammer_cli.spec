@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.5
-Release: 1%{?dist}
+Version: 0.0.6
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -18,9 +18,17 @@ Source0: %{gemname}-%{version}.gem
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 Requires: ruby(abi)
 %endif
+
+# on ruby 1.8.x
+%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+Requires: rubygem(fastercsv)
+%endif
+
 Requires: ruby(rubygems)
 Requires: rubygem(clamp)
-Requires: rubygem(terminal-table)
+Requires: rubygem(awesome_print)
+Requires: rubygem(table_print)
+Requires: rubygem(highline)
 Requires: rubygem(rest-client)
 Requires: rubygem(logging)
 Requires: rubygem(multi_json)
@@ -92,6 +100,12 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Oct 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.6-2
+- Added depenedency on fastercsv on ruby 1.8 (mbacovsk@redhat.com)
+
+* Tue Oct 08 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.6-1
+- fixes #3184 - update hammer dependencies
+
 * Thu Sep 26 2013 Sam Kottler <shk@redhat.com> 0.0.5-1
 - Cherry pick hammer_cli version bump (shk@redhat.com)
 
