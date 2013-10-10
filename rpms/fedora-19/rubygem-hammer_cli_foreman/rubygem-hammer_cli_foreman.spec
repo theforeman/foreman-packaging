@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.5
+Version: 0.0.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -22,7 +22,6 @@ Requires: ruby(abi)
 Requires: ruby(rubygems)
 Requires: rubygem(hammer_cli)
 Requires: rubygem(foreman_api)
-Requires: rubygem(awesome_print)
 Requires: rubygem(clamp)
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
@@ -71,6 +70,14 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Oct 10 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.7-1
+- Bumped to 0.0.7 (mbacovsk@redhat.com)
+- Fixed default config file
+- remove deps on awesome_print and terminal-table 
+
+* Tue Oct 08 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.6-1
+- Update to the latest version of Hammer CLI Foreman
+
 * Thu Sep 26 2013 Sam Kottler <shk@redhat.com> 0.0.5-1
 - Bump the version in the spec (shk@redhat.com)
 - Update to the latest version (shk@redhat.com)
