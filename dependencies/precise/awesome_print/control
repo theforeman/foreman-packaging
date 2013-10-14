@@ -1,0 +1,16 @@
+Source: ruby-awesome-print
+Section: ruby
+Priority: optional
+Maintainer: Tomas Strachota <tstrachota@redhat.com>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Standards-Version: 3.9.3
+Homepage: http://github.com/michaeldv/awesome_print
+XS-Ruby-Versions: all
+
+Package: ruby-awesome-print
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: Pretty print Ruby objects with proper indentation and colors
+ Great Ruby dubugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins
