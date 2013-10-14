@@ -1,0 +1,5 @@
+ruby-awesome-print (1.2.0-1) stable; urgency=low
+
+  * Initial release
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Fri, 11 Oct 2013 11:02:13 +0100
