@@ -1,0 +1,5 @@
+ruby-table-print (1.4.0-1) stable; urgency=low
+
+  * Initial release
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Fri, 11 Oct 2013 13:30:18 +0100
