@@ -12,7 +12,7 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-clamp,
-         ruby-rest-client,
+         librestclient-ruby,
          ruby-logging,
          ruby-table-print,
          ruby-awesome-print,
