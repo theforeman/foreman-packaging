@@ -17,3 +17,6 @@ build/foreman::
 	/usr/bin/bundle exec rake locale:pack assets:precompile
 	/bin/rm config/settings.yaml
 	/bin/rm config/database.yml
+	# Somehow blank db sqlite files get added
+	/bin/rm db/production.sqlite3
+	/bin/rm db/development.sqlite3
