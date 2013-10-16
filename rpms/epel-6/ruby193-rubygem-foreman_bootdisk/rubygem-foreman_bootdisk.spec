@@ -19,7 +19,7 @@
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.2.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_bootdisk
@@ -27,6 +27,8 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.2.0
 Requires:   ipxe-bootimgs
+Requires:   /usr/bin/isohybrid
+Requires:   /usr/bin/mkisofs
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -105,6 +107,9 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Tue Oct 15 2013 Dominic Cleal <dcleal@redhat.com> 1.2.2-2
+- Add isohybrid and mkisofs dependencies (dcleal@redhat.com)
+
 * Mon Oct 07 2013 Dominic Cleal <dcleal@redhat.com> 1.2.2-1
 - Update to foreman_bootdisk 1.2.2 (dcleal@redhat.com)
 
