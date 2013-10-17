@@ -13,8 +13,8 @@
 
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.0
-Release: 2%{?dist}
+Version: 0.7.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3+
 URL: http://github.com/logicminds/rubyipmi
@@ -84,13 +84,14 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/VERSION
-%{gem_instdir}/%{gem_name}.gemspec
 
-%exclude %{gem_instdir}/.document
-%exclude %{gem_instdir}/.rspec
+%exclude %{gem_instdir}/%{gem_name}.gemspec
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Thu Oct 17 2013 Dominic Cleal <dcleal@redhat.com> 0.7.0-1
+- Rebase to rubyipmi 0.7.0 (dcleal@redhat.com)
+
 * Mon Jul 08 2013 Dominic Cleal <dcleal@redhat.com> 0.6.0-2
 - Add ipmitool dependency (dcleal@redhat.com)
 
