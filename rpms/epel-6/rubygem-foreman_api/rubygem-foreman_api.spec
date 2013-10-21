@@ -13,7 +13,7 @@
 
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.6
+Version: 0.1.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Oct 21 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.7-1
+- Version bumped to 0.1.7 (mbacovsk@redhat.com)
+
 * Mon Aug 26 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.6-1
 - Version bump to 0.1.7 (mbacovsk@redhat.com)
 - updated api for hosts and media
