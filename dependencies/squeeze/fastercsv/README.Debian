@@ -1,0 +1,3 @@
+'fastercsv' is compatible only with ruby 1.8.
+Ruby 1.9 users must use 'csv' module instead.
+
