@@ -4,10 +4,9 @@
 %global gem_name therubyracer
 %global rubyabi 1.9.1
 
-%global majorver 0.11.0
-%global release 4
-%global preminorver beta5
-%global fullver %{majorver}%{?preminorver}
+%global majorver 0.12.0
+%global release 1
+%global fullver %{majorver}
 
 %{?preminorver:%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{fullver}}
 %{?preminorver:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{fullver}}
@@ -34,6 +33,7 @@ BuildRequires: %{?scl_prefix}rubygem(rspec)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby-devel
 BuildRequires: %{?scl_prefix}v8-devel
+BuildRequires: %{?scl_prefix}rubygem(libv8)
 # some specs run "ps aux"
 BuildRequires: procps
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -83,12 +83,6 @@ pushd .%{gem_instdir}
 # this spec doesn't test anything, only requires redjs, which is not in fedora
 mv spec/redjs_spec.rb spec/redjs_spec.rb.notest
 
-# fix the v8 version we're testing against
-%{?scl:scl enable %scl - << \EOF}
-V8_VERSION=`d8 -e "print(version())"`
-%{?scl:EOF}
-sed -i "s|V8::C::V8::GetVersion().*|V8::C::V8::GetVersion().should match /^${V8_VERSION}/|" spec/c/constants_spec.rb
-
 %{?scl:scl enable %{scl} "}
 rspec spec
 %{?scl:"}
@@ -114,6 +108,13 @@ popd
 %{gem_instdir}/therubyracer.gemspec
 
 %changelog
+* Thu Oct 24 2013 Sam Kottler <shk@redhat.com> 0.12.0-1
+- Remove version check which relies on d8 (shk@redhat.com)
+- Update to 0.12.0 (shk@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Sat Feb 23 2013 Miroslav Suchý <msuchy@redhat.com> 0.11.0-0.4.beta5
 - new package built with tito
 
