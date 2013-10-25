@@ -7,7 +7,7 @@
 
 Summary: Use jQuery with Rails 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.2
+Version: 2.0.3
 Release: 3%{?dist}
 Group: Development/Languages
 # jquery-rails itself is MIT, bundled JavaScripts are the rest
@@ -55,25 +55,16 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%check
-pushd .%{gem_instdir}
-# no tests :(
-# see https://github.com/rails/jquery-rails/pull/56
-%{?scl:scl enable %{scl} "}
-# rspec spec
-%{?scl:"}
-popd
-
 %files
 %dir %{gem_instdir}
 %doc %{gem_instdir}/LICENSE
 # bunch of bundled JS files here
 %{gem_instdir}/vendor
 %{gem_libdir}
+%{gem_spec}
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/Gemfile.lock
-%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
@@ -82,9 +73,18 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/spec
 
 %changelog
+* Fri Oct 25 2013 Sam Kottler <shk@redhat.com> 2.0.3-3
+- Add the gemspec back (shk@redhat.com)
+- Look ma, no tests (shk@redhat.com)
+
+* Fri Oct 25 2013 Sam Kottler <shk@redhat.com> 2.0.3-2
+- Bump the version to match what's in the Gemfile for foreman (shk@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri Mar 01 2013 Miroslav Suchý <msuchy@redhat.com> 2.0.2-3
 - new package built with tito
 
