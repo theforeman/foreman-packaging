@@ -8,14 +8,13 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 4%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: libvirt
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 BuildRequires: %{?scl_prefix}rubygems-devel 
 BuildRequires: %{?scl_prefix}ruby
@@ -90,6 +89,11 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Fri Oct 04 2013 Sam Kottler <shk@redhat.com> 0.4.0-9
+- Remove requires: libvirt (shk@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Wed Mar 13 2013 Miroslav Suchý <msuchy@redhat.com> 0.4.0-4
 - fix BR (msuchy@redhat.com)
 
