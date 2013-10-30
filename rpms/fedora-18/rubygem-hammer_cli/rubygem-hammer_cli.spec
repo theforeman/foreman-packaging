@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.7
+Version: 0.0.8
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -95,11 +95,15 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 
 %files doc
 %doc %{gem_dir}/doc/%{gemname}-%{version}
+%doc %{geminstdir}/doc/developer_docs.md
 %doc %{geminstdir}/doc/design.png
 %doc %{geminstdir}/doc/design.uml
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Oct 29 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.8-1
+- Update to Hammer CLI Foreman 0.0.8
+
 * Wed Oct 09 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.7-1
 - Bumped to 0.0.7 (mbacovsk@redhat.com)
 - fixed error handling while loading hammer modules
