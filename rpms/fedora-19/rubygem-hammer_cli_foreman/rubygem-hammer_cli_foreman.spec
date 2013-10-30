@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.8
+Version: 0.0.9
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -70,6 +70,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Oct 29 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.9-1
+- Update to Hammer CLI Foreman 0.0.9
+
 * Wed Oct 23 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.8-1
 - Rebase to 0.0.8 (mbacovsk@redhat.com)
 
