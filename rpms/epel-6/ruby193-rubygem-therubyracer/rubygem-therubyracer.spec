@@ -5,7 +5,7 @@
 %global rubyabi 1.9.1
 
 %global majorver 0.12.0
-%global release 1
+%global release 2
 %global fullver %{majorver}
 
 %{?preminorver:%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{fullver}}
@@ -16,7 +16,7 @@
 
 Summary: Embed the V8 Javascript interpreter into Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: %{majorver}
+Version: 0.12.0
 Release: %{?preminorver:0.}%{release}%{?preminorver:.%{preminorver}}%{?dist}
 Group: Development/Languages
 License: MIT
@@ -77,6 +77,7 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 
 # remove shebang in non-executable file
 sed -i '1d' %{buildroot}%{gem_instdir}/Rakefile
+sed -i "s/gem.add_dependency 'libv8', '~> 3.16.14.0'//" %{buildroot}%{gem_spec}
 
 %check
 pushd .%{gem_instdir}
@@ -108,6 +109,13 @@ popd
 %{gem_instdir}/therubyracer.gemspec
 
 %changelog
+* Thu Oct 31 2013 Sam Kottler <shk@redhat.com> 0.12.0-2
+- new package built with tito
+
+* Thu Oct 31 2013 Sam Kottler <shk@redhat.com>
+- Remove the libv8 gem after initial compilation so execjs will load it
+  properly (shk@redhat.com)
+
 * Thu Oct 24 2013 Sam Kottler <shk@redhat.com> 0.12.0-1
 - Remove version check which relies on d8 (shk@redhat.com)
 - Update to 0.12.0 (shk@redhat.com)
