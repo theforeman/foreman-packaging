@@ -17,7 +17,7 @@
 Summary: Distribution of the V8 JavaScript engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.16.14.3
-Release: 8%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/cowboyd/libv8
@@ -27,14 +27,16 @@ Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
-Requires: %{?scl_prefix}ruby(rubygems) 
-Requires: %{?scl_prefix}ruby 
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix}v8
 %if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
 BuildRequires: %{?scl_prefix}ruby-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix}v8-devel
 BuildRequires: python-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -67,6 +69,7 @@ export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 gem install --local --install-dir .%{gem_dir} \
             -V \
             --force %{SOURCE0} \
+            -- --with-system-v8 --with-v8-dir=%{_scl_root}%{_usr}
 %{?scl:"}
 
 
@@ -108,6 +111,12 @@ rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{.yardoc,.gitignore,.g
 %{gem_instdir}/spec
 
 %changelog
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 3.16.14.3-10
+- Adding with-v8-dir option to support SCL environment (lzap+git@redhat.com)
+
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 3.16.14.3-9
+- Adding with-system-v8 flag (lzap+git@redhat.com)
+
 * Thu Oct 24 2013 Sam Kottler <shk@redhat.com> 3.16.14.3-8
 - Use the real gem directory (shk@redhat.com)
 
