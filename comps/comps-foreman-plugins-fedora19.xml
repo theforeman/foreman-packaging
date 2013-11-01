@@ -24,6 +24,8 @@
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_memcache</packagereq>
       <packagereq type="default">rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_openstack_cluster</packagereq>
+      <packagereq type="default">rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">rubygem-foreman_setup</packagereq>
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_simplify</packagereq>
