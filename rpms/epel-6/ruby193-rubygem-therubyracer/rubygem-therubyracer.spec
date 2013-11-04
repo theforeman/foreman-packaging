@@ -5,7 +5,6 @@
 %global rubyabi 1.9.1
 
 %global majorver 0.12.0
-%global release 2
 %global fullver %{majorver}
 
 %{?preminorver:%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{fullver}}
@@ -17,23 +16,30 @@
 Summary: Embed the V8 Javascript interpreter into Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.12.0
-Release: %{?preminorver:0.}%{release}%{?preminorver:.%{preminorver}}%{?dist}
+Release: 13%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/cowboyd/therubyracer
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}%{?preminorver}.gem
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}rubygem(ref)
+Requires: %{?scl_prefix}rubygem(libv8)
+Requires: %{?scl_prefix}v8
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}v8
+%if 0%{?fedora}
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires: %{?scl_prefix}rubygem(ref)
-BuildRequires: %{?scl_prefix}rubygem(rspec)
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby-devel
-BuildRequires: %{?scl_prefix}v8-devel
 BuildRequires: %{?scl_prefix}rubygem(libv8)
+BuildRequires: %{?scl_prefix}v8-devel
+BuildRequires: %{?scl_prefix}rubygem(rspec)
+%if 0%{?fedora} || "%{?scl}" == "ruby193"
+BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
+BuildRequires: %{?scl_prefix}ruby-devel
 # some specs run "ps aux"
 BuildRequires: procps
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -59,7 +65,8 @@ export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 %{?scl:scl enable %{scl} "}
 gem install --local --install-dir .%{gem_dir} \
             -V \
-            --force %{SOURCE0}
+            --force %{SOURCE0} \
+            -- --with-system-v8 --with-v8-dir=%{_scl_root}%{_usr}
 %{?scl:"}
 
 %build
@@ -77,17 +84,6 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 
 # remove shebang in non-executable file
 sed -i '1d' %{buildroot}%{gem_instdir}/Rakefile
-sed -i "s/gem.add_dependency 'libv8', '~> 3.16.14.0'//" %{buildroot}%{gem_spec}
-
-%check
-pushd .%{gem_instdir}
-# this spec doesn't test anything, only requires redjs, which is not in fedora
-mv spec/redjs_spec.rb spec/redjs_spec.rb.notest
-
-%{?scl:scl enable %{scl} "}
-rspec spec
-%{?scl:"}
-popd
 
 %files
 %dir %{gem_instdir}
@@ -109,6 +105,38 @@ popd
 %{gem_instdir}/therubyracer.gemspec
 
 %changelog
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-13
+- Only use ruby-release on Fedora (shk@redhat.com)
+
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-12
+- Fix conditional logic (shk@redhat.com)
+
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-11
+- Fix the abi and release versions (shk@redhat.com)
+
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-10
+- Disable tests for now (shk@redhat.com)
+
+* Mon Nov 04 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-9
+- Adding system v8 library into requires (lzap+git@redhat.com)
+
+* Mon Nov 04 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-8
+- Adding --with-v8-dir option (lzap+git@redhat.com)
+
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-7
+- Removing libv8 removal patch, adding rubygem libv8 as a dep
+
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-6
+- Removing rubygem-libv8 dependency (lzap+git@redhat.com)
+
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com>
+- Removing rubygem-libv8 dependency (lzap+git@redhat.com)
+
+* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-4
+- Bumping because of existing tag (lzap+git@redhat.com)
+- Remove the libv8 gem after initial compilation so execjs - fix
+  (lzap+git@redhat.com)
+
 * Thu Oct 31 2013 Sam Kottler <shk@redhat.com> 0.12.0-2
 - new package built with tito
 
