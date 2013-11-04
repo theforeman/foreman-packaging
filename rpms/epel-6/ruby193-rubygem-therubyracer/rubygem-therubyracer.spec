@@ -13,10 +13,23 @@
 %{?preminorver:%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{fullver}.gemspec}
 %{?preminorver:%global gem_cache %{gem_dir}/cache/%{gem_name}-%{fullver}.gem}
 
+%if 0%{?fedora} >= 19
+%global gem_extdir %{gem_extdir_mri}
+%endif
+
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
+%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%define gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%define ruby_vendorarchdir %{_libdir}/ruby
+%endif
+
 Summary: Embed the V8 Javascript interpreter into Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.12.0
-Release: 13%{?dist}
+Release: 14%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/cowboyd/therubyracer
@@ -105,6 +118,9 @@ sed -i '1d' %{buildroot}%{gem_instdir}/Rakefile
 %{gem_instdir}/therubyracer.gemspec
 
 %changelog
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-14
+- Add macros for non-SCL builds and set gem_extdir (shk@redhat.com)
+
 * Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-13
 - Only use ruby-release on Fedora (shk@redhat.com)
 
