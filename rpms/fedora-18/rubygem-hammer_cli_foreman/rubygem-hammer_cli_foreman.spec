@@ -9,7 +9,7 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
@@ -52,8 +52,8 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
-mkdir -p %{buildroot}/etc/foreman
-install -m 755 %{SOURCE1} %{buildroot}/etc/foreman/cli_config.yml
+mkdir -p %{buildroot}%{_sysconfdir}/foreman
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/foreman/cli_config.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -61,7 +61,8 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{geminstdir}
 %{geminstdir}/lib
-/etc/foreman
+%{_sysconfdir}/foreman
+%config(noreplace) %{_sysconfdir}/foreman/cli_config.yml
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
@@ -70,6 +71,11 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Mon Nov 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.9-2
+- Mark cli_config.yml as a config file (dcleal@redhat.com)
+- Update default config for Foreman installation and non-root users
+  (dcleal@redhat.com)
+
 * Tue Oct 29 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.9-1
 - Update to Hammer CLI Foreman 0.0.9
 
