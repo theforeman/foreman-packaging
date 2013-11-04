@@ -3,6 +3,10 @@
 
 %global gem_name libv8
 
+%if 0%{?fedora} >= 19
+%global gem_extdir %{gem_extdir_mri}
+%endif
+
 %if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
 %global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
@@ -17,12 +21,12 @@
 Summary: Distribution of the V8 JavaScript engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.16.14.3
-Release: 10%{?dist}
+Release: 12%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/cowboyd/libv8
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} && 0%{?fedora} > 18
+%if (0%{?fedora} && 0%{?fedora} > 18)
 Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
@@ -89,6 +93,10 @@ mkdir -p %{buildroot}%{gem_extdir}/lib
 
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{.yardoc,.gitignore,.gitmodules,.travis.yml}
 
+%if 0%{?fedora} >= 19
+rm -rf %{buildroot}%{gem_dir}/build_info/*.info
+%endif
+
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
@@ -111,6 +119,12 @@ rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{.yardoc,.gitignore,.g
 %{gem_instdir}/spec
 
 %changelog
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 3.16.14.3-12
+- Remove the build_info directory on F19 (shk@redhat.com)
+
+* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 3.16.14.3-11
+- Add gem_extdir global for Fedora 19 (shk@redhat.com)
+
 * Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 3.16.14.3-10
 - Adding with-v8-dir option to support SCL environment (lzap+git@redhat.com)
 
