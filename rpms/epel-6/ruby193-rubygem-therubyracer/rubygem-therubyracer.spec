@@ -4,8 +4,9 @@
 %global gem_name therubyracer
 %global rubyabi 1.9.1
 
-%global majorver 0.12.0
-%global fullver %{majorver}
+%global majorver 0.11.0
+%global preminorver beta5
+%global fullver %{majorver}%{?preminorver}
 
 %{?preminorver:%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{fullver}}
 %{?preminorver:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{fullver}}
@@ -13,46 +14,33 @@
 %{?preminorver:%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{fullver}.gemspec}
 %{?preminorver:%global gem_cache %{gem_dir}/cache/%{gem_name}-%{fullver}.gem}
 
-%if 0%{?fedora} >= 19
-%global gem_extdir %{gem_extdir_mri}
-%endif
-
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%define gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%define ruby_vendorarchdir %{_libdir}/ruby
-%endif
-
 Summary: Embed the V8 Javascript interpreter into Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.0
-Release: 14%{?dist}
+Version: %{majorver}
+Release: %{?preminorver:0.}14%{?preminorver:.%{preminorver}}%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/cowboyd/therubyracer
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}%{?preminorver}.gem
+%if 0%{?fedora}
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}rubygem(ref)
-Requires: %{?scl_prefix}rubygem(libv8)
-Requires: %{?scl_prefix}v8
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix}v8
 %if 0%{?fedora}
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygem(ref)
-BuildRequires: %{?scl_prefix}rubygem(libv8)
-BuildRequires: %{?scl_prefix}v8-devel
 BuildRequires: %{?scl_prefix}rubygem(rspec)
-%if 0%{?fedora} || "%{?scl}" == "ruby193"
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
 BuildRequires: %{?scl_prefix}ruby-devel
+BuildRequires: %{?scl_prefix}v8-devel
 # some specs run "ps aux"
 BuildRequires: procps
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -78,8 +66,7 @@ export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 %{?scl:scl enable %{scl} "}
 gem install --local --install-dir .%{gem_dir} \
             -V \
-            --force %{SOURCE0} \
-            -- --with-system-v8 --with-v8-dir=%{_scl_root}%{_usr}
+            --force %{SOURCE0}
 %{?scl:"}
 
 %build
@@ -97,6 +84,22 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 
 # remove shebang in non-executable file
 sed -i '1d' %{buildroot}%{gem_instdir}/Rakefile
+
+%check
+pushd .%{gem_instdir}
+# this spec doesn't test anything, only requires redjs, which is not in fedora
+mv spec/redjs_spec.rb spec/redjs_spec.rb.notest
+
+# fix the v8 version we're testing against
+%{?scl:scl enable %scl - << \EOF}
+V8_VERSION=`d8 -e "print(version())"`
+%{?scl:EOF}
+sed -i "s|V8::C::V8::GetVersion().*|V8::C::V8::GetVersion().should match /^${V8_VERSION}/|" spec/c/constants_spec.rb
+
+%{?scl:scl enable %{scl} "}
+rspec spec
+%{?scl:"}
+popd
 
 %files
 %dir %{gem_instdir}
@@ -118,54 +121,17 @@ sed -i '1d' %{buildroot}%{gem_instdir}/Rakefile
 %{gem_instdir}/therubyracer.gemspec
 
 %changelog
-* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-14
-- Add macros for non-SCL builds and set gem_extdir (shk@redhat.com)
+* Tue Nov 05 2013 Sam Kottler <shk@redhat.com> 0.11.0-0.14.beta5
+- Bump the version manually again (shk@redhat.com)
+- Use ruby(release) if on fedora (shk@redhat.com)
 
-* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-13
-- Only use ruby-release on Fedora (shk@redhat.com)
+* Tue Nov 05 2013 Sam Kottler <shk@redhat.com>
+- Use ruby(release) if on fedora (shk@redhat.com)
 
-* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-12
-- Fix conditional logic (shk@redhat.com)
-
-* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-11
-- Fix the abi and release versions (shk@redhat.com)
-
-* Mon Nov 04 2013 Sam Kottler <shk@redhat.com> 0.12.0-10
-- Disable tests for now (shk@redhat.com)
-
-* Mon Nov 04 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-9
-- Adding system v8 library into requires (lzap+git@redhat.com)
-
-* Mon Nov 04 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-8
-- Adding --with-v8-dir option (lzap+git@redhat.com)
-
-* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-7
-- Removing libv8 removal patch, adding rubygem libv8 as a dep
-
-* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-6
-- Removing rubygem-libv8 dependency (lzap+git@redhat.com)
-
-* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com>
-- Removing rubygem-libv8 dependency (lzap+git@redhat.com)
-
-* Fri Nov 01 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.0-4
-- Bumping because of existing tag (lzap+git@redhat.com)
-- Remove the libv8 gem after initial compilation so execjs - fix
-  (lzap+git@redhat.com)
-
-* Thu Oct 31 2013 Sam Kottler <shk@redhat.com> 0.12.0-2
-- new package built with tito
-
-* Thu Oct 31 2013 Sam Kottler <shk@redhat.com>
-- Remove the libv8 gem after initial compilation so execjs will load it
-  properly (shk@redhat.com)
-
-* Thu Oct 24 2013 Sam Kottler <shk@redhat.com> 0.12.0-1
-- Remove version check which relies on d8 (shk@redhat.com)
-- Update to 0.12.0 (shk@redhat.com)
-- remove empty tito.props and definition which are duplicate with default from
-  rel-eng/tito.props (msuchy@redhat.com)
-- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+* Tue Nov 05 2013 Sam Kottler <shk@redhat.com> 0.11.0-0.13.beta5
+- Remove errant changelog entries (shk@redhat.com)
+- Manually bump the release to tagging will work (shk@redhat.com)
+- Revert therubyracer to the last known working state (shk@redhat.com)
 
 * Sat Feb 23 2013 Miroslav Suchý <msuchy@redhat.com> 0.11.0-0.4.beta5
 - new package built with tito
