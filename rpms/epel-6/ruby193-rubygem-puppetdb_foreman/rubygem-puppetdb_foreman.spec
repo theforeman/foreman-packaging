@@ -19,7 +19,7 @@
 Summary:    Foreman plugin to interact with PuppetDB through callbacks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/cernops/puppetdb_foreman
@@ -71,11 +71,16 @@ gem '%{gem_name}'
 GEMFILE
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
-cat <<CONFIG > %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-# Copy this file to %{gem_name}.yaml to enable, then restart Foreman
+cat <<CONFIG > %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
+# Disabled by default
 :puppetdb:
-  :enabled: true
-  :address: 'https://puppetdb:8081/v2/commands'
+  :enabled: false
+
+# Comment the above and uncomment this section to enable, then restart Foreman
+# Don't forget to update the hostname below for your PuppetDB server
+#:puppetdb:
+#  :enabled: true
+#  :address: 'https://puppetdb:8081/v2/commands'
 CONFIG
 
 %files
@@ -85,11 +90,14 @@ CONFIG
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+%config(noreplace) %{foreman_pluginconf_dir}/%{gem_name}.yaml
 
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Tue Nov 05 2013 Dominic Cleal <dcleal@redhat.com> 0.0.4-2
+- Install disabled config file by default (dcleal@redhat.com)
+
 * Tue Sep 10 2013 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
 - new package built with tito
 
