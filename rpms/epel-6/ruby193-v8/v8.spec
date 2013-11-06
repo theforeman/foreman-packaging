@@ -22,15 +22,15 @@
 # For the 1.2 branch, we use 0s here
 # For 1.3+, we use the three digit versions
 %global somajor 3
-%global sominor 16
-%global sobuild 14
+%global sominor 10
+%global sobuild 8
 %global sover %{somajor}.%{sominor}.%{sobuild}
 
 # %%global svnver 20110721svn8716
 
 Name:		%{?scl_prefix}v8
 Version:	%{somajor}.%{sominor}.%{sobuild}
-Release:	7%{?dist}
+Release:	9%{?dist}
 Epoch:		1
 Summary:	JavaScript Engine
 Group:		System Environment/Libraries
@@ -87,7 +87,6 @@ find . \( -name \*.cc -o -name \*.h -o -name \*.py \) -a -executable \
 mkdir -p obj/release/
 export GCC_VERSION="44"
 scons library=shared snapshots=on \
-I_know_I_should_build_with_GYP=yes \
 %ifarch x86_64
 arch=x64 \
 %endif
@@ -147,7 +146,6 @@ ln -sf libv8preparser.so.%{sover} libv8preparser.so
 
 # This will fail to link d8 because it doesn't use the icu libs.
 scons d8 \
-I_know_I_should_build_with_GYP=yes \
 %ifarch x86_64
 arch=x64 \
 %endif
@@ -162,6 +160,8 @@ library=shared snapshots=on console=readline visibility=default || :
 # Sigh. I f*****g hate scons.
 rm -rf d8
 
+g++ $RPM_OPT_FLAGS -o d8 obj/release/d8.os -lreadline -lpthread -L. -lv8 $ICU_LINK_FLAGS
+
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_includedir}
@@ -170,6 +170,7 @@ install -p include/*.h %{buildroot}%{_includedir}
 install -p libv8.so.%{sover} %{buildroot}%{_libdir}
 install -p libv8preparser.so.%{sover} %{buildroot}%{_libdir}
 mkdir -p %{buildroot}%{_bindir}
+install -p -m0755 d8 %{buildroot}%{_bindir}
 
 pushd %{buildroot}%{_libdir}
 ln -sf libv8.so.%{sover} libv8.so
@@ -196,7 +197,7 @@ rm -rf %{buildroot}
 
 %files
 %doc AUTHORS ChangeLog LICENSE
-# %{_bindir}/d8
+%{_bindir}/d8
 %{_libdir}/*.so.*
 
 %files devel
@@ -205,37 +206,11 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 
 %changelog
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.16.14-7
-- Remove d8 binaries so the packages will build (shk@redhat.com)
+* Tue Nov 05 2013 Sam Kottler <shk@redhat.com> 3.10.8-9
+- Remove unnecessary tarball (shk@redhat.com)
 
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.16.14-6
-- Fix scons because it's the worst thing ever invented
-
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.16.14-5
-- 
-
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.16.14-4
-- Fix everything (shk@redhat.com)
-
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.22.19-3
-- Removed patch on SConstruct (shk@redhat.com)
-
-* Wed Oct 23 2013 Sam Kottler <shk@redhat.com> 3.22.19-2
-- Bump the v8 version (shk@redhat.com)
-- remove empty tito.props and definition which are duplicate with default from
-  rel-eng/tito.props (msuchy@redhat.com)
-- with recent tito you do not need SCL meta package (msuchy@redhat.com)
-- Automatic commit of package [ruby193-v8] minor release [3.10.8-7].
-  (msuchy@redhat.com)
-- better re for __provides_exclude_from (msuchy@redhat.com)
-- Automatic commit of package [ruby193-v8] minor release [3.10.8-6].
-  (msuchy@redhat.com)
-- on ruby193-* package do not provide automatically generated provides and set
-  them manually. (msuchy@redhat.com)
-- require ruby193-build for tagging (msuchy@redhat.com)
-- Automatic commit of package [ruby193-v8] minor release [3.10.8-5].
-  (msuchy@redhat.com)
-- import ruby193-v8 from bkabrda repo (msuchy@redhat.com)
+* Tue Nov 05 2013 Sam Kottler <shk@redhat.com> 3.10.8-8
+- Revert ruby193-v8 to the last known working version (shk@redhat.com)
 
 * Mon Apr 22 2013 Miroslav Suchý <msuchy@redhat.com> 3.10.8-7
 - better re for __provides_exclude_from (msuchy@redhat.com)
