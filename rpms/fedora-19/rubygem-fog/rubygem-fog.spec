@@ -6,16 +6,16 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.15.0
-Release: 2%{dist}
+Version: 1.18.0
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-builder 
-Requires: %{?scl_prefix}rubygem-excon >= 0.25.0
-Requires: %{?scl_prefix}rubygem-excon < 0.26.0
+Requires: %{?scl_prefix}rubygem-excon >= 0.28.0
+Requires: %{?scl_prefix}rubygem-excon < 0.29.0
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
 Requires: %{?scl_prefix}rubygem-multi_json => 1.0
@@ -86,7 +86,14 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %doc %{gem_instdir}/changelog.txt
 %{gem_instdir}/fog.gemspec
 
+# Random private key that probably shouldn't be there
+# https://github.com/fog/fog/pull/2369
+%exclude %{gem_instdir}/fogkeytest1.pem
+
 %changelog
+* Wed Nov 06 2013 Dominic Cleal <dcleal@redhat.com> 1.18.0-1
+- Rebase to fog 1.18.0 (dcleal@redhat.com)
+
 * Fri Aug 16 2013 Sam Kottler <shk@redhat.com> 1.15.0-2
 - Bump fog version to 1.15.0 (shk@redhat.com)
 
