@@ -8,7 +8,7 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name: rubygem-%{gemname}
-Version: 0.0.6
+Version: 0.0.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -67,6 +67,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Nov 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.7-1
+- Bump to 0.0.7 (mbacovsk@redhat.com)
+
 * Wed Oct 09 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.6-1
 - Bumped to 0.0.6 (mbacovsk@redhat.com)
 - added missing CLI definition file
