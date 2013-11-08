@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.9
-Release: 2%{?dist}
+Version: 0.0.10
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
@@ -20,8 +20,8 @@ Source1: cli_config.yml
 Requires: ruby(abi)
 %endif
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli)
-Requires: rubygem(foreman_api) >= 0.1.7
+Requires: rubygem(hammer_cli) >= 0.0.9
+Requires: rubygem(foreman_api) >= 0.1.8
 Requires: rubygem(clamp)
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
@@ -71,6 +71,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Nov 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.10-1
+- bump to 0.0.10 (mbacovsk@redhat.com)
+- updated dependencies
+
 * Mon Nov 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.9-2
 - Mark cli_config.yml as a config file (dcleal@redhat.com)
 - Update default config for Foreman installation and non-root users
