@@ -14,7 +14,7 @@
  
  ## Kafo tuning, customization of core functionality
  # :no_prefix: false
-@@ -30,4 +30,4 @@
+@@ -32,4 +32,4 @@
  # :dont_save_answers:
  
  # If using the Debian ruby-kafo package, uncomment this
