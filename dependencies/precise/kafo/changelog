@@ -1,3 +1,19 @@
+ruby-kafo (0.3.0-1) stable; urgency=low
+
+  * Be more tolerant for manifests (mhulan@redhat.com)
+  * Fix tests caching (mhulan@redhat.com)
+  * Fix for Ruby 1.8 (mhulan@redhat.com)
+  * Namespace refactoring (mhulan@redhat.com)
+  * Conditions are evaluated and reflected in wizard refs #3337 (mhulan@redhat.com)
+  * Wizard respects parameter groups (mhulan@redhat.com)
+  * Add encoding to new files (mhulan@redhat.com)
+  * Support for brief and full help (mhulan@redhat.com)
+  * Store parsed groups and conditions to params (mhulan@redhat.com)
+  * New parser abilities (mhulan@redhat.com)
+  * Add hooking support (mhulan@redhat.com)
+  * Adding ascidoc formatter (lzap+git@redhat.com)
+  * Fixes #3240 - Respect color settings in wizard (mhulan@redhat.com)
+
 ruby-kafo (0.2.1-1) stable; urgency=low
 
   * Fixes #3227 - restore app options names (mhulan@redhat.com)
