@@ -3,9 +3,9 @@
 @@ -5,7 +5,7 @@ require 'yaml'
  require 'kafo'
  
- # Run the install
+ # where to find answer file
 -CONFIG_FILE = "config/foreman-installer.yaml"
 +CONFIG_FILE = "/usr/share/foreman-installer/config/foreman-installer.yaml"
- @result = Kafo::KafoConfigure.run
- exit 0 if @result.nil? # --help invocation
  
+ # helpers
+ def module_enabled?(name)
