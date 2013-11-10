@@ -8,8 +8,8 @@
 
 Summary: URI Implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.6
-Release: 4%{?dist}
+Version: 2.3.5
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://addressable.rubyforge.org/
@@ -67,6 +67,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 2.3.5-1
+- Rebase to addressable 2.3.5 (dcleal@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri Mar 29 2013 Marek Hulan <ares@igloonet.cz> 2.2.6-4
 - fix for SCL
 
