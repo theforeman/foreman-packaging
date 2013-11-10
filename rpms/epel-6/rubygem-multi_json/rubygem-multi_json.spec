@@ -13,8 +13,8 @@
 
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.6
-Release: 11%{?dist}
+Version: 1.8.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
@@ -102,12 +102,18 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec
 
 
 %changelog
+* Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
+- Rebase to multi_json 1.8.2 (dcleal@redhat.com)
+
 * Wed Aug 21 2013 Dominic Cleal <dcleal@redhat.com> 1.3.6-11
 - Don't override gem macros when building under SCL (dcleal@redhat.com)
 
