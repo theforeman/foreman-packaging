@@ -44,12 +44,14 @@
       <packagereq type="default">ruby193-rubygem-activerecord</packagereq>
       <packagereq type="default">ruby193-rubygem-activeresource</packagereq>
       <packagereq type="default">ruby193-rubygem-activesupport</packagereq>
+      <packagereq type="default">ruby193-rubygem-addressable</packagereq>
       <packagereq type="default">ruby193-rubygem-ancestry</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-arel</packagereq>
       <packagereq type="default">ruby193-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">ruby193-rubygem-audited</packagereq>
       <packagereq type="default">ruby193-rubygem-augeas</packagereq>
+      <packagereq type="default">ruby193-rubygem-autoparse</packagereq>
       <packagereq type="default">ruby193-rubygem-awesome_print</packagereq>
       <packagereq type="default">ruby193-rubygem-bigdecimal</packagereq>
       <packagereq type="default">ruby193-rubygem-builder</packagereq>
@@ -66,6 +68,8 @@
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
       <packagereq type="default">ruby193-rubygem-excon</packagereq>
       <packagereq type="default">ruby193-rubygem-execjs</packagereq>
+      <packagereq type="default">ruby193-rubygem-extlib</packagereq>
+      <packagereq type="default">ruby193-rubygem-faraday</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext</packagereq>
       <packagereq type="default">ruby193-rubygem-ffi</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails</packagereq>
@@ -76,6 +80,7 @@
       <packagereq type="default">ruby193-rubygem-gettext</packagereq>
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails</packagereq>
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js</packagereq>
+      <packagereq type="default">ruby193-rubygem-google-api-client</packagereq>
       <packagereq type="default">ruby193-rubygem-hike</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb</packagereq>
@@ -86,6 +91,8 @@
       <packagereq type="default">ruby193-rubygem-jquery-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-json</packagereq>
+      <packagereq type="default">ruby193-rubygem-jwt</packagereq>
+      <packagereq type="default">ruby193-rubygem-launchy</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-levenshtein</packagereq>
@@ -98,6 +105,7 @@
       <packagereq type="default">ruby193-rubygem-minitest</packagereq>
       <packagereq type="default">ruby193-rubygem-mocha</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json</packagereq>
+      <packagereq type="default">ruby193-rubygem-multipart-post</packagereq>
       <packagereq type="default">ruby193-rubygem-mysql2</packagereq>
       <packagereq type="default">ruby193-rubygem-mysql</packagereq>
       <packagereq type="default">ruby193-rubygem-net-http-persistent</packagereq>
@@ -141,6 +149,7 @@
       <packagereq type="default">ruby193-rubygem-sexp_processor</packagereq>
       <packagereq type="default">ruby193-rubygem-shadow</packagereq>
       <packagereq type="default">ruby193-rubygem-shoulda</packagereq>
+      <packagereq type="default">ruby193-rubygem-signet</packagereq>
       <packagereq type="default">ruby193-rubygem-single_test</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets</packagereq>

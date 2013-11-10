@@ -31,16 +31,20 @@
 
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
+      <packagereq type="default">rubygem-autoparse</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
+      <packagereq type="default">rubygem-extlib</packagereq>
+      <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js</packagereq>
+      <packagereq type="default">rubygem-google-api-client</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
@@ -49,7 +53,9 @@
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-immigrant</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
+      <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
+      <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-less-rails</packagereq>
       <packagereq type="default">rubygem-less</packagereq>
       <packagereq type="default">rubygem-libv8</packagereq>
@@ -66,6 +72,7 @@
       <packagereq type="default">rubygem-ruby2ruby</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
+      <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-single_test</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
