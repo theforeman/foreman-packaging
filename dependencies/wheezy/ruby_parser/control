@@ -1,0 +1,45 @@
+Source: ruby-parser
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders:  <>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+#Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-parser.git
+#Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-parser.git;a=summary
+Homepage: https://github.com/seattlerb/ruby_parser
+XS-Ruby-Versions: all
+
+Package: ruby-parser
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+# sexp_processor (~> 4.1), minitest (~> 5.0, development), rdoc (~> 4.0, development), racc (~> 1.4.6, development), rake (< 10, development), hoe (~> 3.6, development)
+Description: ruby_parser (RP) is a ruby parser written in pure ruby (utilizing racc--which does by default use a C extension)
+ ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
+ racc--which does by default use a C extension). RP's output is
+ the same as ParseTree's output: s-expressions using ruby's arrays and
+ base types.
+ .
+ As an example:
+ .
+ def conditional1 arg1
+ return 1 if arg1 == 0
+ return 0
+ end
+ .
+ becomes:
+ .
+ s(:defn, :conditional1, s(:args, :arg1),
+ s(:if,
+ s(:call, s(:lvar, :arg1), :==, s(:lit, 0)),
+ s(:return, s(:lit, 1)),
+ nil),
+ s(:return, s(:lit, 0)))
+ .
+ Tested against 801,039 files from the latest of all rubygems (as of 2013-05):
+ .
+ * 1.8 parser is at 99.9739% accuracy, 3.651 sigma
+ * 1.9 parser is at 99.9940% accuracy, 4.013 sigma
+ * 2.0 parser is at 99.9939% accuracy, 4.008 sigma

@@ -1,0 +1,6 @@
+ruby-parser (3.2.2-1) stable; urgency=low
+
+  * Initial release
+  * Gem2deb build with no tests
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Sun, 10 Nov 2013 18:39:22 +0000
