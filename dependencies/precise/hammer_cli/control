@@ -11,6 +11,7 @@ Package: ruby-hammer-cli
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         rubygems,
          ruby-clamp,
          ruby-rest-client,
          ruby-logging,
