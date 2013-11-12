@@ -1,5 +1,5 @@
 :modules:
-# - hammer_cli_foreman
+- hammer_cli_foreman
 # - hammer_cli_katello_bridge
 
 :foreman:
