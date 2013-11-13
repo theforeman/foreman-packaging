@@ -166,6 +166,8 @@
       <packagereq type="default">ruby193-rubygem-twitter-bootstrap-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-tzinfo</packagereq>
       <packagereq type="default">ruby193-rubygem-uglifier</packagereq>
+      <packagereq type="default">ruby193-rubygem-unf</packagereq>
+      <packagereq type="default">ruby193-rubygem-unf_ext</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools</packagereq>
       <packagereq type="default">ruby193-rubygem-will_paginate</packagereq>
