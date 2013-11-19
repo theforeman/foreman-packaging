@@ -1,3 +1,13 @@
+ruby-kafo (0.3.1) stable; urgency=low
+
+  * Fixes #3244 - Extend app options parsing (mhulan@redhat.com)
+  * Fixes #3670 - Ruby 1.8 compatible hooks (mhulan@redhat.com)
+  * Fixes #3619 - better parsing and escaping values (mhulan@redhat.com)
+  * Updating asciidoc exporter (lzap+git@redhat.com)
+  * Remove Fedora 18 koji target (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 19 Nov 2013 08:35:29 +0000
+
 ruby-kafo (0.3.0-1) stable; urgency=low
 
   * Be more tolerant for manifests (mhulan@redhat.com)
