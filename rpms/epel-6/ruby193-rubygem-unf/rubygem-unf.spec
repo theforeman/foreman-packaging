@@ -14,11 +14,11 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
-URL: https://github.com/knu/ruby-unf_ext
+URL: https://github.com/knu/ruby-unf
 Source0: %{gem_name}-%{version}.gem
 %if 0%{?fedora}
 Requires: %{?scl_prefix}ruby(release)
@@ -28,6 +28,8 @@ Requires: %{?scl_prefix}ruby(abi)
 Requires: %{?scl_prefix}rubygems
 %endif
 
+Requires: %{?scl_prefix}rubygem(unf_ext)
+
 %if (0%{?fedora} || "%{?scl}" == "ruby193")
 BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
@@ -35,7 +37,7 @@ BuildRequires: %{?scl_prefix}rubygems-devel
 %if 0%{?fedora}
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
-BuildRequireS: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
 BuildRequires: %{?scl_prefix}ruby-devel
 BuildRequires: %{?scl_prefix}rubygems
@@ -102,6 +104,10 @@ mkdir -p %{buildroot}%{gem_extdir}/lib
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Tue Nov 19 2013 Dominic Cleal <dcleal@redhat.com> 0.1.3-3
+- Add dependency on unf_ext (dcleal@redhat.com)
+- Fix project URL, typo (dcleal@redhat.com)
+
 * Tue Nov 12 2013 Sam Kottler <shk@redhat.com> 0.1.3-2
 - new package built with tito
 
