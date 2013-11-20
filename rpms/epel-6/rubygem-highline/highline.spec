@@ -1,22 +1,67 @@
-%define ruby_sitelib %(ruby -rrbconfig -e "puts Config::CONFIG['sitelibdir']")
-%define gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gemname highline
-%define geminstdir %{gemdir}/gems/%{gemname}-%{version}
+%{?scl:%scl_package rubygem-%{gemname}}
+%{!?scl:%global pkg_name %{name}}
 
-Summary: HighLine is a high-level command-line IO library
-Name: rubygem-%{gemname}
-Version: 1.6.20
-Release: 1%{?dist}
-Group: Development/Languages
-License: GPLv2+ or Ruby
-URL: http://highline.rubyforge.org
-Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: rubygems
-Requires: ruby(abi) = 1.8
-BuildRequires: rubygems
+# check files-sections at the end of this file and 
+# EDIT this section
+
+%global gem_name highline
+
+%define _version 1.6.20
+%define _summary "HighLine is a high-level command-line IO library" 
+%define _url "https://github.com/JEG2/highline"
+%define _license GPLv2+ or Ruby
+
+# add gem dependencies, e.g. "Requires: %{?scl_prefix}rubygem(rails) > 3.2"
+
+# end of EDIT
+
+%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if "%{?scl}" == "ruby193"
+%define rubyabi 1.9.1
+%else
+%define rubyabi 1.8
+%endif
+%else
+%define rubyabi 1.9.1
+%endif
+
+%if 0%{?rhel} == 6 &&  "%{?scl}" != "ruby193"
+%global gem_dir %(ruby -rubygems -e 'puts Gem.dir' 2>/dev/null)
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
+%endif
+
+Name:      %{?scl_prefix}rubygem-%{gem_name}
+Version:   %{_version}
+Release:   2%{?dist}  
+Summary:   %{_summary}
+Group:     Development/Languages
+License:   %{_license}
+URL:       %{_url}
+Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+
 BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+
+%if 0%{?fedora} > 18
+Requires:  %{?scl_prefix}ruby(release)
+%else 
+Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
+Requires:  %{?scl_prefix}rubygems
+
+%if 0%{?fedora} || "%{?scl}" == "ruby193"
+BuildRequires: %{?scl_prefix}rubygems-devel
+%endif
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
+BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
+BuildRequires: %{?scl_prefix}rubygems
 
 %description
 A high-level IO library that provides validation, type conversion, and more
@@ -27,42 +72,59 @@ crank out anything from simple list selection to complete shells with just
 minutes of work.
 
 %prep
+%{?scl:scl enable %{scl} "}
+gem unpack %{SOURCE0}
+%{?scl:"}
+%setup -q -D -T -n %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} "}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:"}
 
 %build
+%{?scl:scl enable %{scl} "}
+gem build %{gem_name}.gemspec
+%{?scl:"}
+
+%if 0%{?fedora} > 18
+%gem_install
+%else
+mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} "}
+gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
+    %{gem_name}-%{version}.gem
+%{?scl:"}
+%endif
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}%{gemdir}
-
-gem install --local --install-dir %{buildroot}%{gemdir} \
-            --force --rdoc %{SOURCE0}
-
-
-%clean
-rm -rf %{buildroot}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 %files
 %defattr(-, root, root, -)
 
-%{gemdir}/gems/%{gemname}-%{version}/
+%{gem_dir}/gems/%{gem_name}-%{version}/
 
-%doc %{gemdir}/doc/%{gemname}-%{version}
+%doc %{gem_dir}/doc/%{gem_name}-%{version}
 
 
-%doc %{geminstdir}/README.rdoc
+%doc %{gem_instdir}/README.rdoc
 
-%doc %{geminstdir}/INSTALL
+%doc %{gem_instdir}/INSTALL
 
-%doc %{geminstdir}/TODO
+%doc %{gem_instdir}/TODO
 
-%doc %{geminstdir}/CHANGELOG
+%doc %{gem_instdir}/CHANGELOG
 
-%doc %{geminstdir}/LICENSE
+%doc %{gem_instdir}/LICENSE
 
-%{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%{gem_dir}/cache/%{gem_name}-%{version}.gem
+%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Mon Nov 18 2013 Marek Hulan <mhulan@redhat.com> 1.6.20-2
+- SCLize highline (mhulan@redhat.com)
+
 * Mon Nov 18 2013 Marek Hulan <mhulan@redhat.com> 1.6.20-1
 - Bump Highline (mhulan@redhat.com)
 
