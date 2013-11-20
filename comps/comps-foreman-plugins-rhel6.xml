@@ -32,6 +32,8 @@
       <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_templates</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-puppetdb_foreman</packagereq>
 
       <packagereq type="default">ipxe-bootimgs</packagereq>
@@ -39,6 +41,8 @@
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-diffy</packagereq>
+      <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
