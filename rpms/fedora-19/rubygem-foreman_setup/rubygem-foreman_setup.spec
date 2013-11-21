@@ -18,7 +18,7 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.0.1
+Version:    1.0.2
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -104,6 +104,9 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Thu Nov 21 2013 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
+- Update to v1.0.2 (dcleal@redhat.com)
+
 * Tue Oct 29 2013 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
 - Update to v1.0.1 (dcleal@redhat.com)
 
