@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.9
+Version: 0.0.11
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -22,16 +22,16 @@ Requires: ruby(abi)
 # on ruby 1.8.x
 %if 0%{?rhel} == 6 || 0%{?fedora} < 17
 Requires: rubygem(fastercsv)
+Requires: rubygem(mime-types)
 %endif
 
 Requires: ruby(rubygems)
 Requires: rubygem(clamp)
+Requires: rubygem(rest-client)
+Requires: rubygem(logging)
 Requires: rubygem(awesome_print)
 Requires: rubygem(table_print)
 Requires: rubygem(highline)
-Requires: rubygem(rest-client)
-Requires: rubygem(logging)
-Requires: rubygem(multi_json)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
 %endif
@@ -94,13 +94,21 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
+%doc %{geminstdir}/test
 %doc %{gem_dir}/doc/%{gemname}-%{version}
 %doc %{geminstdir}/doc/developer_docs.md
+%doc %{geminstdir}/doc/creating_apipie_commands.md
+%doc %{geminstdir}/doc/creating_commands.md
+%doc %{geminstdir}/doc/development_tips.md
+%doc %{geminstdir}/doc/writing_a_plugin.md
 %doc %{geminstdir}/doc/design.png
 %doc %{geminstdir}/doc/design.uml
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Nov 26 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.11-1
+- Bump to 0.0.11 (mbacovsk@redhat.com)
+
 * Fri Nov 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.9-1
 - Bumped to 0.0.9 (mbacovsk@redhat.com)
 
