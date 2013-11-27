@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.10
+Version: 0.0.11
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -19,10 +19,15 @@ Source1: cli_config.yml
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 Requires: ruby(abi)
 %endif
+
+# on ruby 1.8.x
+%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+Requires: rubygem(mime-types)  < 2.0.0
+%endif
+
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.0.9
+Requires: rubygem(hammer_cli) >= 0.0.11
 Requires: rubygem(foreman_api) >= 0.1.8
-Requires: rubygem(clamp)
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
@@ -68,9 +73,15 @@ cp -pa .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_dir}/doc/%{gemname}-%{version}
+%doc %{geminstdir}/README.md
+%doc %{geminstdir}/doc/host_create.md
+%doc %{geminstdir}/test
 
 
 %changelog
+* Tue Nov 26 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.11-1
+- Bump to 0.0.11 (mbacovsk@redhat.com)
+
 * Fri Nov 08 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.10-1
 - bump to 0.0.10 (mbacovsk@redhat.com)
 - updated dependencies
@@ -89,7 +100,7 @@ cp -pa .%{gem_dir}/* \
 * Thu Oct 10 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.7-1
 - Bumped to 0.0.7 (mbacovsk@redhat.com)
 - Fixed default config file
-- remove deps on awesome_print and terminal-table 
+- remove deps on awesome_print and terminal-table
 
 * Tue Oct 08 2013 Tomas Strachota <tstrachota@redhat.com> 0.0.6-1
 - Update to the latest version of Hammer CLI Foreman
