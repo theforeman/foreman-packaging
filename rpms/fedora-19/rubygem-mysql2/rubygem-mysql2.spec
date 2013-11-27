@@ -9,7 +9,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 2%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: Distributable
 URL: http://mysql-win.rubyforge.org
@@ -68,6 +68,9 @@ rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/.RUBYARCHDIR.
 # rubygems 2.0.3 stray temp file issue, PR #587
 rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/siteconf*.rb
 
+# remove non-stripped object files
+find %{buildroot} -type f -name *.o -exec rm -f {} +
+
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -99,10 +102,7 @@ rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/siteconf*.rb
 %{gem_instdir}/ext/mysql2/result.h
 %{gem_instdir}/ext/mysql2/wait_for_single_fd.h
 %{gem_instdir}/ext/mysql2/Makefile
-%{gem_instdir}/ext/mysql2/client.o
 %{gem_instdir}/ext/mysql2/mkmf.log
-%{gem_instdir}/ext/mysql2/mysql2_ext.o
-%{gem_instdir}/ext/mysql2/result.o
 %{gem_instdir}/lib/mysql2.rb
 %{gem_instdir}/lib/mysql2/client.rb
 %{gem_instdir}/lib/mysql2/em.rb
@@ -132,6 +132,12 @@ rm -rf %{gem_builddir}/gems/%{gem_name}-%{version}/ext/%{gem_name}/siteconf*.rb
 
 
 %changelog
+* Wed Nov 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.3.11-4
+- Removing extra object files from rubygem-mysql2 - fix (lzap+git@redhat.com)
+
+* Wed Nov 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.3.11-3
+- Removing extra object files from rubygem-mysql2 (lzap+git@redhat.com)
+
 * Mon Jul 08 2013 Dominic Cleal <dcleal@redhat.com> 0.3.11-2
 - Remove stray untracked files, ruby/rubygems bugs (dcleal@redhat.com)
 
