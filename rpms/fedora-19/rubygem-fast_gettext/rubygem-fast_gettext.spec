@@ -6,7 +6,7 @@
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 2%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -61,6 +61,13 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# temp fix until https://github.com/grosser/fast_gettext/pull/62 is resolved
+find %{buildroot}%{gem_libdir} -type f -exec chmod -x {} +
+
+# SCL-enable shebang lines
+find %{buildroot}%{gem_libdir} -type f -exec \
+  sed -i -e 's"^#! /usr/bin/ruby"#!%{?scl:%_scl_root}/usr/bin/ruby"' {} +
+
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
@@ -82,6 +89,18 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 0.8.0-5
+- SCL-enable shebang lines (dcleal@redhat.com)
+
+* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com>
+- SCL-enable shebang lines (dcleal@redhat.com)
+
+* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 0.8.0-4
+- Fix path when chmodding -x (dcleal@redhat.com)
+
+* Wed Nov 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.8.0-3
+- Temporary file permission fix for string.rb (lzap+git@redhat.com)
+
 * Thu Sep 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.8.0-2
 - Revert "update rubygems to include wrapper BuildRequires and Requires"
   (jmontleo@redhat.com)
