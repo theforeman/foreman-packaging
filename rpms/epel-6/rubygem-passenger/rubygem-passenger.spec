@@ -23,7 +23,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.5
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -230,7 +230,9 @@ done
 %{?scl:scl enable %{scl} '}
 export USE_VENDORED_LIBEV=false
 CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS ;
+EXTRA_CFLAGS="${CFLAGS:-%optflags}" ; export EXTRA_CFLAGS ;
 CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS ;
+EXTRA_CXXFLAGS="${CXXFLAGS:-%optflags}" ; export EXTRA_CXXFLAGS ;
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS ;
 #CONFIGURE_ARGS='--with-cflags='%{optflags}'' ; export CONFIGURE_ARGS ;
 
@@ -400,6 +402,10 @@ rake test --trace ||:
 %endif
 
 %changelog
+* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 4.0.5-6
+- Define EXTRA_CFLAGS/CXXFLAGS so agents are compiled with RPM CFLAGS
+  (dcleal@redhat.com)
+
 * Fri Oct 04 2013 Dominic Cleal <dcleal@redhat.com> 4.0.5-5
 - fixes #3197 - don't write binstubs to gem install's bin/ (dcleal@redhat.com)
 
