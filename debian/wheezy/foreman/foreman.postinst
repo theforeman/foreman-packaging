@@ -45,12 +45,14 @@ else
   $CMD 2>&1 >> $LOGFILE
 fi
 
-# Run a db:migrate if the user has created a dbfile
+# Run a db:migrate and db:seed if the user has created a dbfile
 if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
-    su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate || true
+    /usr/sbin/foreman-rake db:migrate || true
+    /usr/sbin/foreman-rake db:seed || true
   else
-    su - foreman -s /bin/sh -c /usr/share/foreman/extras/dbmigrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
   fi
 fi
 
