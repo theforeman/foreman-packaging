@@ -3,10 +3,6 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-
-%global _missing_build_ids_terminate_build 0
-%define debug_package %{nil}
-
 %if 0%{?fedora} >= 19
 %global gem_extdir %{gem_extdir_mri}
 %endif
@@ -23,7 +19,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.5
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -318,6 +314,8 @@ find %{buildroot}%{gem_instdir} -type f -size 0c -delete
 %{__rm} %{buildroot}{%{_bindir},%{gem_instdir}/bin}/%{gem_name}-install-nginx-module
 find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 
+find %{buildroot} -name "*.o" -exec  rm -f {} \;
+
 %check
 export USE_VENDORED_LIBEV=false
 # Run the tests, capture the output, but don't fail the build if the tests fail
@@ -402,12 +400,26 @@ rake test --trace ||:
 %endif
 
 %changelog
+* Mon Dec 02 2013 Jason Montleon <jmontleo@redhat.com> 4.0.5-7
+- remove empty changelog entry and fix chronological order
+  (jmontleo@redhat.com)
+- comment out configure_args again (jmontleo@redhat.com)
+- don't remove debug package anymore (jmontleo@redhat.com)
+- move find command to delete o files (jmontleo@redhat.com)
+- try different find args for finding o files (jmontleo@redhat.com)
+- try different find args for finding o files (jmontleo@redhat.com)
+- remove post install macro to prevent stripping. This should be fixed
+  (jmontleo@redhat.com)
+
 * Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 4.0.5-6
 - Define EXTRA_CFLAGS/CXXFLAGS so agents are compiled with RPM CFLAGS
   (dcleal@redhat.com)
 
 * Fri Oct 04 2013 Dominic Cleal <dcleal@redhat.com> 4.0.5-5
 - fixes #3197 - don't write binstubs to gem install's bin/ (dcleal@redhat.com)
+
+* Thu Sep 12 2013 Sam Kottler <shk@redhat.com> 4.0.5-12
+- Remove object files so the debuginfo package doesn't explode (shk@redhat.com)
 
 * Mon Jun 10 2013 Martin Bačovský <mbacovsk@redhat.com> 4.0.5-4
 - Fixed native-libs paths on F18 (mbacovsk@redhat.com)
