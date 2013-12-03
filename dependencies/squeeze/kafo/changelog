@@ -1,3 +1,9 @@
+ruby-kafo (0.2.2-1) stable; urgency=low
+
+  * Fixes #3789 - remove relative parts of the modulepath (shk@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 03 Dec 2013 09:28:57 +0000
+
 ruby-kafo (0.2.1-1) stable; urgency=low
 
   * Fixes #3227 - restore app options names (mhulan@redhat.com)
