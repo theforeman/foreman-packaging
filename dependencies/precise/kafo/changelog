@@ -1,3 +1,9 @@
+ruby-kafo (0.3.3-1) stable; urgency=low
+
+  * Fixes #3789 - remove relative parts of the modulepath (shk@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 03 Dec 2013 11:17:03 +0000
+
 ruby-kafo (0.3.1) stable; urgency=low
 
   * Fixes #3244 - Extend app options parsing (mhulan@redhat.com)
