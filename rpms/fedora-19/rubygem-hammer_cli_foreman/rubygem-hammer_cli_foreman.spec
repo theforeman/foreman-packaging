@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.11
+Version: 0.0.12
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -26,7 +26,7 @@ Requires: rubygem(mime-types)  < 2.0.0
 %endif
 
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.0.11
+Requires: rubygem(hammer_cli) >= 0.0.12
 Requires: rubygem(foreman_api) >= 0.1.8
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
@@ -79,6 +79,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Dec 05 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.12-1
+- Bump to 0.0.12 (mbacovsk@redhat.com)
+
 * Tue Nov 26 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.11-1
 - Bump to 0.0.11 (mbacovsk@redhat.com)
 
