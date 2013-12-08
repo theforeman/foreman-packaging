@@ -1,5 +1,6 @@
 bin usr/share/foreman-proxy
 config usr/share/foreman-proxy
+config.ru usr/share/foreman-proxy
 lib usr/share/foreman-proxy
 public usr/share/foreman-proxy
 Rakefile usr/share/foreman-proxy
