@@ -1,0 +1,5 @@
+ruby-foreman-setup (1.0.2) stable; urgency=low
+
+  * Initial Release.
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Mon, 09 Dec 2013 11:18:49 +0000

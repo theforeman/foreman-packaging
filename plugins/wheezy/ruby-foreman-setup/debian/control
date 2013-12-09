@@ -1,0 +1,13 @@
+Source: ruby-foreman-setup
+Section: ruby
+Priority: extra
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_setup
+
+Package: ruby-foreman-setup
+Architecture: all
+Depends: ${misc:Depends}, bundler
+Description: Foreman Setup Plugin
+ Plugin for Foreman that helps set up provisioning.
