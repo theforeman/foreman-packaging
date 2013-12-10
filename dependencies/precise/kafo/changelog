@@ -1,3 +1,13 @@
+ruby-kafo (0.3.4-1) stable; urgency=low
+
+  * Fixes #3831 - Add support for hash type (mhulan@redhat.com)
+  * Add docs for new Hash type (mhulan@redhat.com)
+  * Add Puppet 3.4 to supported list for progress bars (dcleal@redhat.com)
+  * few help screen typos and improvements (lzap+git@redhat.com)
+  * A tiny grammar fix (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 10 Dec 2013 12:28:27 +0000
+
 ruby-kafo (0.3.3-1) stable; urgency=low
 
   * Fixes #3789 - remove relative parts of the modulepath (shk@redhat.com)
