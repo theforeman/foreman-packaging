@@ -16,6 +16,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-logging,
          ruby-table-print,
          ruby-awesome-print,
-         ruby-highline
+         ruby-highline,
+         ruby-fastercsv,
+         ruby-mime-types (< 2.0.0)
 Description: Universal command-line interface
  Hammer cli provides universal extendable CLI interface for ruby apps

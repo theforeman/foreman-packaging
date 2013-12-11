@@ -1,5 +1,5 @@
 :modules:
-- hammer_cli_foreman
+# - hammer_cli_foreman
 # - hammer_cli_katello_bridge
 
 :foreman:
@@ -13,3 +13,4 @@
 #:log_dir: '/var/log/foreman'
 :log_dir: '~/.foreman/log'
 :log_level: 'error'
+:log_api_calls: false
