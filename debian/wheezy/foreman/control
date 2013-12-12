@@ -165,3 +165,12 @@ Description: metapackage providing vmware dependencies for Foreman
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-cli
+Architecture: all
+Section: ruby
+Priority: optional
+Depends: ruby-hammer-cli, ruby-hammer-cli-foreman
+Description: metapackage providing hammer CLI for Foreman
+ This package provides Hammer CLI preconfigured with a module
+ containing foreman commands.
