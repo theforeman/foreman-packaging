@@ -34,18 +34,6 @@ Description: Systems management web interface
     In many cases, Foreman could help remote provisions where no experienced
     technicians are available.
 
-Package: foreman-mysql
-Architecture: all
-Section: web
-Priority: extra
-Depends: foreman, libmysqlclient-dev, ${misc:Depends}
-Description: metapackage providing MySQL dependencies for Foreman
- This package only provides MySQL dependencies for Foreman, a
- flexible systems management web application. Install this
- one if you want to use a MySQL database with Foreman.
- .
- The foreman package should be installed along with this package.
-
 Package: foreman-postgresql
 Architecture: all
 Section: web
@@ -124,6 +112,9 @@ Package: foreman-mysql2
 Architecture: all
 Section: web
 Priority: extra
+Replaces: foreman-mysql
+Provides: foreman-mysql
+Conflicts: foreman-mysql
 Depends: foreman, libmysqlclient-dev, ${misc:Depends}
 Description: metapackage providing mysql2 dependencies for Foreman
  This package provides mysql2 dependencies for Foreman, a
