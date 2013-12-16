@@ -7,8 +7,8 @@
 
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 9%{?dist}
+Version: 0.5.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -89,6 +89,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Mon Dec 16 2013 Dominic Cleal <dcleal@redhat.com> 0.5.1-1
+- Update to ruby-libvirt 0.5.1 (dcleal@redhat.com)
+
 * Fri Oct 04 2013 Sam Kottler <shk@redhat.com> 0.4.0-9
 - Remove requires: libvirt (shk@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
