@@ -1,0 +1,14 @@
+Source: ruby-foreman-column-view
+Section: ruby
+Priority: extra
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_column_view
+
+Package: ruby-foreman-templates
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Column View Plugin
+ Displays an additional column in the Foreman Hosts view and/or additional
+ entries in the Host show page.
