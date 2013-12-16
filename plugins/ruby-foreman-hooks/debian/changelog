@@ -1,0 +1,5 @@
+ruby-foreman-hooks (0.3.3) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Mon, 16 Dec 2013 18:43:49 +0000

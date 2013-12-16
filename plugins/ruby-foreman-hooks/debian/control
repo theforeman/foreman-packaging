@@ -1,0 +1,14 @@
+Source: ruby-foreman-hooks
+Section: ruby
+Priority: extra
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/domcleal/foreman_hooks
+
+Package: ruby-foreman-hooks
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Hooks Plugin
+ Plugin engine for Foreman that enables running custom hook scripts on Foreman
+ events.
