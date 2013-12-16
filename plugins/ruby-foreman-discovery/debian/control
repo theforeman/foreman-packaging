@@ -1,0 +1,13 @@
+Source: ruby-foreman-discovery
+Section: ruby
+Priority: extra
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_discovery
+
+Package: ruby-foreman-discovery
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Discovery Plugin
+ MaaS Discovery Plugin engine for Foreman.
