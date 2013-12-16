@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_column_view
 
-Package: ruby-foreman-templates
+Package: ruby-foreman-column-view
 Architecture: all
 Depends: ${misc:Depends}, bundler, foreman
 Description: Foreman Column View Plugin

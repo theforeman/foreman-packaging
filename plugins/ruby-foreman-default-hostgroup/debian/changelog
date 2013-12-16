@@ -1,0 +1,5 @@
+ruby-foreman-default-hostgroup (1.0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Mon, 16 Dec 2013 18:13:49 +0000
