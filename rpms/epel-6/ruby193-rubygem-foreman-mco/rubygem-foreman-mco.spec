@@ -10,7 +10,7 @@
 Summary:    Manage remote hosts with MCollective and Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.1
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/witlessbird/foreman_mco
@@ -37,11 +37,10 @@ BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-hooks
+Provides: foreman-plugin-mco
 
 %description
-Plugin engine for Foreman that enables running custom hook scripts on Foreman
-events.
+Manage remote hosts with MCollective and Foreman.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
@@ -63,8 +62,6 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
-mkdir -p %{buildroot}%{foreman_dir}/config/hooks
-
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
@@ -75,7 +72,6 @@ mkdir -p %{buildroot}%{foreman_dir}/config/hooks
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%{foreman_dir}/config/hooks
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
@@ -86,6 +82,9 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Tue Dec 17 2013 Dominic Cleal <dcleal@redhat.com> 0.0.1-3
+- Update some references to mco (dcleal@redhat.com)
+
 * Tue Dec 17 2013 Sam Kottler <shk@redhat.com> 0.0.1-2
 - Initial tag with tito
 
