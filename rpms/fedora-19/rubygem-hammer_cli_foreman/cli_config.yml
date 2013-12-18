@@ -9,3 +9,4 @@
 
 :log_dir: '~/.foreman/log'
 :log_level: 'error'
+:log_api_calls: false
