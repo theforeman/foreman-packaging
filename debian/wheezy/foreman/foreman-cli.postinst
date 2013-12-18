@@ -12,7 +12,7 @@ fi
 # Enable (uncomment) hammer-cli-foreman module in hammer's config
 config='/etc/foreman/cli_config.yml'
 if [ -f $config ]; then
-  sed -e 's/\([ \t]*\)#\([ \t]*-[ \t]*hammer_cli_foreman\)/\1\2/' -i $config
+  sed -e 's/\(\s*\)#\s*\(-\s*hammer_cli_foreman\)/\1\2/' -i $config
 fi
 
 #DEBHELPER#
