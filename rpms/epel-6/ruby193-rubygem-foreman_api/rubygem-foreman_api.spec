@@ -13,7 +13,7 @@
 
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.8
+Version: 0.1.9
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -70,7 +70,6 @@ cp -a .%{gem_dir}/* \
 mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 mkdir -p %{buildroot}%{gem_docdir}
 mv %{buildroot}%{gem_instdir}/doc %{buildroot}%{gem_docdir}
-rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 rm -f %{buildroot}%{gem_instdir}/.yardopts
 rm -f %{buildroot}%{gem_instdir}/.gitignore
 
@@ -84,14 +83,15 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Rakefile
 
 %changelog
+* Thu Dec 19 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.9-1
+- Bump to 0.1.9 (mbacovsk@redhat.com)
+
 * Thu Oct 31 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.8-1
 - Version bumped to 0.1.8 (mbacovsk@redhat.com)
 - fixed methods in puppet class imports
-- updated hosts create parameters 
+- updated hosts create parameters
 
 * Mon Oct 21 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.7-1
 - Version bumped to 0.1.7 (mbacovsk@redhat.com)
@@ -105,7 +105,7 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 
 * Tue Jul 30 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.5-1
 - Version bump to 0.1.5 (mbacovsk@redhat.com)
-- fixed issue 8: Remove escaped character from generated documentation in rb file 
+- fixed issue 8: Remove escaped character from generated documentation in rb file
 - updated to latest API
 
 * Thu Jun 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.1.4-3
