@@ -8,8 +8,8 @@
 
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.20
-Release: 3%{?dist}
+Version: 3.2.13
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sass-lang.com/
@@ -86,6 +86,7 @@ popd
 %{gem_instdir}/rails/init.rb
 %{gem_instdir}/extra/update_watch.rb
 %{gem_instdir}/VERSION
+%{gem_instdir}/VERSION_DATE
 %{gem_instdir}/VERSION_NAME
 %doc %{gem_instdir}/MIT-LICENSE
 %doc %{gem_instdir}/CONTRIBUTING
@@ -100,6 +101,12 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Sun Dec 29 2013 Dominic Cleal <dcleal@redhat.com> 3.2.13-1
+- Update to sass 3.2.13 (dcleal@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 3.1.20-3
 - new package built with tito
 
