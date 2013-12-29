@@ -55,6 +55,7 @@
       <packagereq type="default">ruby193-rubygem-autoparse</packagereq>
       <packagereq type="default">ruby193-rubygem-awesome_print</packagereq>
       <packagereq type="default">ruby193-rubygem-bigdecimal</packagereq>
+      <packagereq type="default">ruby193-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-builder</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext</packagereq>
@@ -164,7 +165,6 @@
       <packagereq type="default">ruby193-rubygem-tilt</packagereq>
       <packagereq type="default">ruby193-rubygem-treetop</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
-      <packagereq type="default">ruby193-rubygem-twitter-bootstrap-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-tzinfo</packagereq>
       <packagereq type="default">ruby193-rubygem-uglifier</packagereq>
       <packagereq type="default">ruby193-rubygem-unf</packagereq>

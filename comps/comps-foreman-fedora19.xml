@@ -33,6 +33,7 @@
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
       <packagereq type="default">rubygem-autoparse</packagereq>
+      <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
@@ -80,7 +81,6 @@
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
-      <packagereq type="default">rubygem-twitter-bootstrap-rails</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-wirb</packagereq>
     </packagelist>
