@@ -41,6 +41,7 @@
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
+      <packagereq type="default">rubygem-fastercsv</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
