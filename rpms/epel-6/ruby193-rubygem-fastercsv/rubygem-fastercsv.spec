@@ -6,12 +6,18 @@
 Summary:	Faster, smaller and cleaner replacement to standard CSV library
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.5.4
-Release:	4%{?dist}
+Release:	6%{?dist}
 License:	GPLv2 or Ruby
 Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
 Source:		http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires:	%{?scl_prefix}ruby(abi) = 1.9.1, %{?scl_prefix}rubygems
+
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires:	%{?scl_prefix}ruby(release)
+%else
+Requires:	%{?scl_prefix}ruby(abi)
+%endif
+Requires:	%{?scl_prefix}rubygems
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
 BuildRequires:	%{?scl_prefix}rubygems
 BuildRequires:  %{?scl_prefix}rubygems-devel
@@ -64,6 +70,12 @@ done
 %{gem_instdir}/test/
 
 %changelog
+* Tue Jan 07 2014 Dominic Cleal <dcleal@redhat.com> 1.5.4-6
+- Update spec for Fedora 19 with ruby(release) (dcleal@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri Mar 01 2013 Miroslav Suchý <msuchy@redhat.com> 1.5.4-4
 - new package built with tito
 
