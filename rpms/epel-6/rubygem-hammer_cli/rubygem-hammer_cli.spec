@@ -9,7 +9,7 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.14
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -20,11 +20,6 @@ Requires: ruby(abi)
 %endif
 
 # on ruby 1.8.x
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-Requires: rubygem(fastercsv)
-Requires: rubygem(mime-types)
-%endif
-
 Requires: ruby(rubygems)
 Requires: rubygem(clamp)
 Requires: rubygem(rest-client)
@@ -32,6 +27,8 @@ Requires: rubygem(logging)
 Requires: rubygem(awesome_print)
 Requires: rubygem(table_print)
 Requires: rubygem(highline)
+Requires: rubygem(fastercsv)
+Requires: rubygem(mime-types)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
 %endif
@@ -106,6 +103,10 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Jan 07 2014 Dominic Cleal <dcleal@redhat.com> 0.0.14-2
+- Require fastercsv and mime-types on Fedora to avoid gemspec conflict
+  (dcleal@redhat.com)
+
 * Thu Dec 19 2013 Martin Bačovský <mbacovsk@redhat.com> 0.0.14-1
 - Bump to 0.0.14 (mbacovsk@redhat.com)
 
