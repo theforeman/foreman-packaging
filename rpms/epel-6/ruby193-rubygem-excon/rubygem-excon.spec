@@ -5,7 +5,7 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.28.0
+Version: 0.31.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/changelog.txt
 
 %changelog
+* Tue Jan 07 2014 Dominic Cleal <dcleal@redhat.com> 0.31.0-1
+- Rebase to excon 0.31.0 (dcleal@redhat.com)
+
 * Wed Nov 06 2013 Dominic Cleal <dcleal@redhat.com> 0.28.0-1
 - Rebase to excon 0.28.0 (dcleal@redhat.com)
 
