@@ -97,6 +97,7 @@
       <packagereq type="default">ruby193-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby_parser</packagereq>
       <packagereq type="default">ruby193-rubygem-safemode</packagereq>
+      <packagereq type="default">ruby193-rubygem-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-scoped_search</packagereq>
       <packagereq type="default">ruby193-rubygem-sequel</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor</packagereq>
