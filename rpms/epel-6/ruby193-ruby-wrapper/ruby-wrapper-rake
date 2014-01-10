@@ -1,0 +1,6 @@
+#!/bin/bash
+
+COMMAND="rake $@"
+
+scl enable FIXMESCL "$COMMAND"
+

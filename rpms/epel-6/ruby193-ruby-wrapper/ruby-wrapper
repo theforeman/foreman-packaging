@@ -1,0 +1,6 @@
+#!/bin/bash
+
+COMMAND="ruby $@"
+
+scl enable FIXMESCL "$COMMAND"
+
