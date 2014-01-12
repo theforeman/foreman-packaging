@@ -1,3 +1,14 @@
+ruby-kafo (0.3.6-1) stable; urgency=low
+
+  * Fixes ignoring of custom modules_dir path (mhulan@redhat.com)
+  * Mention the --ignore-undocumented option in README (inecas@redhat.com)
+  * Fix modules_dir config override (dcleal@redhat.com)
+  * Fix logger require conflict (mhulan@redhat.com)
+  * Keep exit status on non-PTY.check path (dcleal@redhat.com)
+  * fixes #3394 - added --trace puppet option as default (lzap+git@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Sun, 12 Jan 2014 20:28:03 +0000
+
 ruby-kafo (0.3.4-1) stable; urgency=low
 
   * Fixes #3831 - Add support for hash type (mhulan@redhat.com)
