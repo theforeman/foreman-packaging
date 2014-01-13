@@ -174,3 +174,14 @@ Depends: ruby-hammer-cli, ruby-hammer-cli-foreman
 Description: metapackage providing hammer CLI for Foreman
  This package provides Hammer CLI preconfigured with a module
  containing foreman commands.
+
+Package: foreman-gce
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, foreman-compute, ${misc:Depends}
+Description: metapackage providing GCE dependencies for Foreman
+ This package provides Google Compute Engine dependencies for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
