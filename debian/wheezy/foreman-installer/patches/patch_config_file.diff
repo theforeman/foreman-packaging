@@ -9,7 +9,7 @@
 +:answer_file: /usr/share/foreman-installer/config/answers.yaml
 +:installer_dir: /usr/share/foreman-installer
  # Uncomment if you want to load puppet modules from a specific path, $pwd/modules is used by default
--:modules_dir: .
+-:modules_dir: ./modules
 +:modules_dir: /usr/share/foreman-installer/modules
  
  ## Kafo tuning, customization of core functionality
