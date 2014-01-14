@@ -16,18 +16,18 @@ Summary: Permitted and required parameters for Action Pack
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.2.1
-Release: 9%{dist}
+Release: 10%{dist}
 Group: Development/Ruby
 License: Distributable
 URL: https://github.com/rails/strong_parameters
 Source0: %{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: rubygem-actionpack => 3.0
-Requires: rubygem-actionpack < 4
-Requires: rubygem-activemodel => 3.0
-Requires: rubygem-activemodel < 4
-Requires: rubygem-railties => 3.0
-Requires: rubygem-railties < 4
+Requires: %{?scl_prefix}rubygem(actionpack) >= 3.0
+Requires: %{?scl_prefix}rubygem(actionpack) < 4.0
+Requires: %{?scl_prefix}rubygem(activemodel) >= 3.0
+Requires: %{?scl_prefix}rubygem(activemodel) < 4.0
+Requires: %{?scl_prefix}rubygem(railties) >= 3.0
+Requires: %{?scl_prefix}rubygem(railties) < 4.0
 
 %if 0%{?fedora} > 18
 Requires: ruby(release) = 2.0.0
@@ -97,6 +97,10 @@ cp -va ./%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_instdir}/test/
 
 %changelog
+* Tue Jan 14 2014 Eric D Helms <ehelms@redhat.com> 0.2.1-10
+- Changing the requires to be less than '4.0' for strong parameters.
+  (ehelms@redhat.com)
+
 * Thu Dec 19 2013 Jason Montleon <jmontleo@redhat.com> 0.2.1-9
 - fix fedora version for ruby abi/release version (jmontleo@redhat.com)
 
