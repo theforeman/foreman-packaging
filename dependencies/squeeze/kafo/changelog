@@ -1,3 +1,11 @@
+ruby-kafo (0.3.7-1) stable; urgency=low
+
+  * Howto release a new version (mhulan@redhat.com)
+  * Fix error with nil modules_dir running kafo-export-params
+    (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 14 Jan 2014 18:25:03 +0000
+
 ruby-kafo (0.3.6-1) stable; urgency=low
 
   * Fixes ignoring of custom modules_dir path (mhulan@redhat.com)
