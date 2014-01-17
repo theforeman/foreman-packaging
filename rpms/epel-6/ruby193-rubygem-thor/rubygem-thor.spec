@@ -4,27 +4,40 @@
 # Generated from thor-0.12.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name thor
 
-%global rubyabi 1.9.1
+# we are using this gem also as non-SCL in RHEL6
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
+%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
+%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%define gem_libdir %{gem_instdir}/lib
+%define gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%endif
 
 Summary: Scripting framework that replaces rake, sake and rubigen
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.15.4
-Release: 4%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wycats/thor
 Source0: http://rubygems.org/download/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix}ruby(abi)
 Requires: %{?scl_prefix}rubygem(rake)
 Requires: %{?scl_prefix}rubygem(diff-lcs)
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
+BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}ruby(abi)
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygem(rspec)
 BuildRequires: %{?scl_prefix}rubygem(rake)
 BuildRequires: %{?scl_prefix}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(fakeweb)
 BuildRequires: %{?scl_prefix}rubygem(bundler)
+%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -71,6 +84,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | \
 rm -rf %{buildroot}
 
 %check
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 pushd %{buildroot}%{gem_instdir}
 # kill simplecov dependency
 sed -i '3,7d' spec/spec_helper.rb
@@ -78,6 +92,7 @@ sed -i '3,7d' spec/spec_helper.rb
 LANG=en_US.utf8 rspec spec
 %{?scl:EOF}
 popd
+%endif
 
 %files
 %{_bindir}/thor
@@ -100,6 +115,12 @@ popd
 %{gem_instdir}/thor.gemspec
 
 %changelog
+* Fri Jan 17 2014 Dominic Cleal <dcleal@redhat.com> 0.15.4-6
+- Add build support for EL6 non-SCL (dcleal@redhat.com)
+- remove empty tito.props and definition which are duplicate with default from
+  rel-eng/tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 0.15.4-4
 - Revert "bootstrap thor" (msuchy@redhat.com)
 
