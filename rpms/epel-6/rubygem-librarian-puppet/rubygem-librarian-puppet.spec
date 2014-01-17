@@ -14,16 +14,17 @@
 Summary: Bundler for your Puppet modules
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.10
-Release: 1%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rodjek/librarian-puppet
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Requires: git
 Requires: %{?scl_prefix}puppet
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}ruby(abi)
 Requires: %{?scl_prefix}rubygem-thor >= 0.15
-Requires: %{?scl_prefix}rubygem-thor < 0.16
+Requires: %{?scl_prefix}rubygem-thor < 1
 BuildRequires: %{?scl_prefix}rubygems
 %if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -78,6 +79,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2014 Dominic Cleal <dcleal@redhat.com> 0.9.10-3
+- Correct rubygem-thor dependency (dcleal@redhat.com)
+
+* Fri Jan 17 2014 Dominic Cleal <dcleal@redhat.com> 0.9.10-2
+- Add git dependency (dcleal@redhat.com)
+
 * Fri Jan 17 2014 Dominic Cleal <dcleal@redhat.com> 0.9.10-1
 - new package built with tito
 
