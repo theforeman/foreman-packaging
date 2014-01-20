@@ -10,6 +10,7 @@
     <packagelist>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_chef</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_column_view</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_content</packagereq>
