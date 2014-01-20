@@ -1,0 +1,13 @@
+Source: ruby-foreman-chef
+Section: ruby
+Priority: extra
+Maintainer: Marek Hulan <mhulan@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_chef
+
+Package: ruby-foreman-chef
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Chef Plugin
+ Plugin for Chef integration with Foreman.
