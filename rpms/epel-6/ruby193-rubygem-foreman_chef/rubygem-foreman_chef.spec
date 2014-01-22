@@ -17,10 +17,10 @@
 
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
+Version:    0.0.4
 Release:    1%{?dist}
 Group:      Applications/System
-License:    MIT
+License:    GPLv3
 URL:        http://github.com/theforeman/foreman_chef
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
@@ -85,17 +85,20 @@ GEMFILE
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 22 2014 Marek Hulan <mhulan@redhat.com> 0.0.4-1
+- Update foreman_chef (mhulan@redhat.com)
+
 * Mon Jan 20 2014 Marek Hulan <mhulan@redhat.com> 0.0.3-1
 - new package built with tito
 
