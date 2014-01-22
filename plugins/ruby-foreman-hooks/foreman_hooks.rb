@@ -1,1 +1,1 @@
-gem 'foreman_hooks', '0.3.3'
+gem 'foreman_hooks', '0.3.4'
