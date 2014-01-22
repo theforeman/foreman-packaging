@@ -1,0 +1,5 @@
+ruby-foreman-chef (0.0.4) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 22 Jan 2014 07:49:49 +0000
