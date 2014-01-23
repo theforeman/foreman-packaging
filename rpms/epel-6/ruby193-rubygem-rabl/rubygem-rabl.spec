@@ -5,8 +5,8 @@
 
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.6
-Release: 5%{?dist}
+Version: 0.9.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -71,7 +71,7 @@ rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,TODO,MIT-LICENSE,.gitignore,\
+rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,TODO,MIT-LICENSE,.gitignore,\
 .travis.yml,rabl.gemspec,test.watchr}
 
 %files
@@ -85,7 +85,7 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,TODO,MIT-LICENSE,.gitignor
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%doc README.md CHANGELOG.md TODO
+%doc README.md CHANGELOG.md CONTRIBUTING.md TODO
 %{gem_instdir}/test
 %{gem_instdir}/fixtures
 %{gem_instdir}/examples
@@ -98,6 +98,9 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,TODO,MIT-LICENSE,.gitignor
 # rake test
 
 %changelog
+* Wed Jan 22 2014 Justin Sherrill <jsherril@redhat.com> 0.9.0-1
+- upgrading to new rabl version 0.9.0 (jsherril@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.7.6-5
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
