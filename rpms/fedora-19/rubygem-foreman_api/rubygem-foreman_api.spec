@@ -13,7 +13,7 @@
 
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.9
+Version: 0.1.10
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jan 23 2014 Martin Bačovský <mbacovsk@redhat.com> 0.1.10-1
+- Bump to 0.1.10 (mbacovsk@redhat.com)
+
 * Thu Dec 19 2013 Martin Bačovský <mbacovsk@redhat.com> 0.1.9-1
 - Bump to 0.1.9 (mbacovsk@redhat.com)
 
