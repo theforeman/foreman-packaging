@@ -1,3 +1,9 @@
+foreman-installer (1.4.0~rc2-1) stable; urgency=low
+
+  * 1.4.0 RC2 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Thu, 23 Jan 2014 13:37:00 +0100
+
 foreman-installer (1.4.0~rc1-1) stable; urgency=low
 
   * 1.4.0 RC1 release
