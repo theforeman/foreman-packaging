@@ -3,12 +3,10 @@
 
 %global gem_name rbvmomi
 
-%global rubyabi 1.9.1
-
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rlane/rbvmomi
@@ -17,13 +15,21 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Patch0: 0001-Fix-missing-runtime-info-properties.patch
 # Fix test failure: https://github.com/vmware/rbvmomi/pull/18
 Patch1: 0001-Fix-assumption-that-the-time-test-is-always-in-0800.patch
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi)
+%endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby >= 1.8.7
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
 Requires: %{?scl_prefix}rubygem(builder)
 Requires: %{?scl_prefix}rubygem(trollop)
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%if 0%{?fedora} && 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
+BuildRequires: %{?scl_prefix}ruby(abi)
+%endif
 BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
 BuildRequires: %{?scl_prefix}rubygem(builder)
 BuildRequires: %{?scl_prefix}rubygem(minitest)
@@ -101,6 +107,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jan 23 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-2
+- Update spec for Fedora 19 with ruby(release) (dcleal@redhat.com)
+
 * Tue Jun 11 2013 Dominic Cleal <dcleal@redhat.com> 1.6.0-1
 - Rebase to rbvmomi 1.6.0 (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
