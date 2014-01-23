@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.15
+Version: 0.0.16
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -104,6 +104,9 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %doc %{geminstdir}/README.md
 
 %changelog
+* Thu Jan 23 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.16-1
+- Bump to 0.0.16 (mbacovsk@redhat.com)
+
 * Tue Jan 21 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.15-1
 - Bump to 0.0.15 (mbacovsk@redhat.com)
 
