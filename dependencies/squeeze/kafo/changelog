@@ -1,3 +1,11 @@
+ruby-kafo (0.3.8-1) stable; urgency=low
+
+  * Fixes #3990 - Load is_* functions in validator (mhulan@redhat.com)
+  * Fixes #3887 - Support for deeply nested modules (mhulan@redhat.com)
+  * Fix issue when manifests can't be parsed (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 24 Jan 2014 14:44:07 +0000
+
 ruby-kafo (0.3.7-1) stable; urgency=low
 
   * Howto release a new version (mhulan@redhat.com)
