@@ -1,3 +1,12 @@
+ruby-kafo (0.3.12-1) stable; urgency=low
+
+  * Fix few smaller issues (mhulan@redhat.com)
+  * Fix dumping 'false' default values (mhulan@redhat.com)
+  * Display fatal errors on STDOUT (mhulan@redhat.com)
+  * Fix --no-colors issues with older highline (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 30 Jan 2014 13:01:40 +0000
+
 ruby-kafo (0.3.8-1) stable; urgency=low
 
   * Fixes #3990 - Load is_* functions in validator (mhulan@redhat.com)
