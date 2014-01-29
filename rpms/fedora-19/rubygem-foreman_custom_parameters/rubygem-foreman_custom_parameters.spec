@@ -18,7 +18,7 @@
 
 Summary:    Plugin to improve storage of custom information in parameters
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.1
+Version:    0.0.2
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -78,33 +78,32 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
-#mkdir -p %{buildroot}%{foreman_pluginconf_dir}
-#mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pluginconf_dir}/
-
-mkdir -p %{buildroot}%{foreman_dir}/config/
-mv %{buildroot}/%{gem_instdir}/config/custom_parameters.yml.example %{buildroot}%{foreman_dir}/config/
+mkdir -p %{buildroot}%{foreman_pluginconf_dir}
+mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
+  %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
-%{gem_instdir}/config
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-#%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-%doc %{foreman_dir}/config/custom_parameters.yml.example
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+%doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
+- Update to v0.0.2 (dcleal@redhat.com)
+
 * Thu Sep 19 2013 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
 - new package built with tito
 
