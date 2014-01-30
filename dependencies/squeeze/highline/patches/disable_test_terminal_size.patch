@@ -1,0 +1,18 @@
+Description: disable test_terminal_size
+ In pbuilder/sbuild, stty size returns an empty string and thus :terminal_size
+ returns nil values. This test is thus failing.
+Origin: vendor
+Author: Cédric Boutillier <boutil@debian.org>
+Bug: https://github.com/JEG2/highline/issues/85
+Last-Update: 2013-06-28
+--- a/test/tc_highline.rb
++++ b/test/tc_highline.rb
+@@ -929,7 +929,7 @@
+     assert_equal("\e[32mThis will have a newline.\e[0m\n", @output.string)
+   end
+ 
+-  def test_terminal_size
++  def _test_terminal_size
+     assert_instance_of(Fixnum, @terminal.terminal_size[0])
+     assert_instance_of(Fixnum, @terminal.terminal_size[1])
+   end

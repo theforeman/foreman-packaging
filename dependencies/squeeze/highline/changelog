@@ -1,0 +1,125 @@
+libhighline-ruby (1.6.19-1) unstable; urgency=low
+
+  [ Prach Pongpanich ]
+  * Imported Upstream version 1.6.19
+  * Bump Standards-Version to 3.9.4 (no changes needed)
+  * Drop transitional binary packages
+
+  [ Cédric Boutillier ]
+  * debian/control:
+    + remove obsolete DM-Upload-Allowed flag
+    + use canonical URI in Vcs-* fields
+    + improve description
+    + update my email address
+  * set external encoding when needed for tests
+  * update my email address and years in debian/copyright
+  * remove lintian-overrides, about transitional packages
+  * add disable_test_terminal_size.patch: disable a failing test with
+    pbuilder/sbuild.
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 28 Jun 2013 08:20:32 +0200
+
+libhighline-ruby (1.6.13-2) unstable; urgency=low
+
+  * Added myself to uploaders.
+  * Build depend on gem2deb >= 0.3.0.
+  * debian/copyright: change reference from common-licenses symlink LPGL to
+    LGPL-2.1.
+    - Fix lintian warning.
+
+ -- Per Andersson <avtobiff@gmail.com>  Tue, 26 Jun 2012 00:18:32 +0200
+
+libhighline-ruby (1.6.13-1) unstable; urgency=low
+
+  * New upstream version
+  * Drop patches (merged upstream)
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Thu, 21 Jun 2012 00:05:09 +0200
+
+libhighline-ruby (1.6.12-1) unstable; urgency=low
+
+  * New upstream version
+  * Add myself to Uploaders:
+  * Bump Standards-Version: to 3.9.3 (no changes needed)
+  * Use Breaks instead of Conflicts for transitional packages
+  * Set Priority of transitional packages to extra
+  * Convert copyright file to DEP-5
+  * Override lintian warning about duplicate description for transitional
+    packages
+  * debian/patches:
+    + update remove-shebangs.patch to include new files
+    + add change-shebangs-in-examples.patch fixing shebangs in examples
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Wed, 16 May 2012 15:09:24 +0200
+
+libhighline-ruby (1.6.2-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch to gem2deb-based packaging.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Sun, 05 Jun 2011 09:27:01 +0200
+
+libhighline-ruby (1.5.2-1) unstable; urgency=low
+
+  [ Ryan Niebur ]
+  * set myself as Maintainer
+
+  [ Paul van Tilburg ]
+  * New upstream release. 
+  * Added support for Ruby 1.9.1.
+  * debian/control:
+    - Bumped standards version to 3.8.4.
+    - Bumped debhelper build-depend to >= 5.
+    - Added a libhighline-ruby1.9.1 package entry.
+    - Added a build depend on ruby1.9.1.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Sun, 14 Feb 2010 17:51:37 +0100
+
+libhighline-ruby (1.5.1-1) unstable; urgency=low
+
+  * New upstream release
+  * add myself to uploaders
+  * refresh patches
+  * add Homepage field
+  * add README.source
+
+ -- Ryan Niebur <ryanryan52@gmail.com>  Sun, 10 May 2009 12:11:54 -0700
+
+libhighline-ruby (1.5.0-1) unstable; urgency=low
+
+  [ Gunnar Wolf ]
+  * Changed section to Ruby as per ftp-masters' request
+
+  [ Paul van Tilburg ]
+  * New upstream release.
+  * debian/control:
+    - Bumped the standards version to 3.8.1. 
+    - Added a depend on ${misc:Depends} to libhighline-ruby{,-doc,.1.8}.
+  * debian/compat: bumped compatibility to version 5.
+  * debian/copyright: converted to the UTF-8 charset. 
+  * debian/patches: updated 01_fix-shebang.patch. 
+
+ -- Paul van Tilburg <paulvt@debian.org>  Tue, 05 May 2009 19:47:17 +0200
+
+libhighline-ruby (1.4.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Adapted debian/control, debian/rules, and remove debian/control.in to
+    drop the Uploaders rule.
+  * Added myself to the Uploaders field.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Tue, 19 Jun 2007 11:05:20 +0100
+
+libhighline-ruby (1.2.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Patch yet another file (new in this release) to have the correct ruby path
+  * Add "ruby1.8" to libhighline-ruby1.8 Depends:
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sat, 21 Oct 2006 20:37:12 +0100
+
+libhighline-ruby (1.2.0-1) unstable; urgency=low
+
+  * First upload (Closes: #372530).
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sat, 10 Jun 2006 15:23:13 +0100
