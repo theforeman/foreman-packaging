@@ -1,4 +1,5 @@
 etc/foreman
+etc/foreman/plugins
 var/cache/foreman
 var/lib/foreman
 var/log/foreman
