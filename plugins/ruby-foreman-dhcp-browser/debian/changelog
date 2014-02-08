@@ -1,0 +1,5 @@
+ruby-foreman-dhcp-browser (0.0.4) stable; urgency=low
+
+  * Initial Release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 08 Feb 2014 20:18:49 +0100
