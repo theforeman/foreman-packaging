@@ -6,8 +6,8 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.5.1
-Release: 3%{?dist}
+Version: 2.6.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
@@ -125,6 +125,12 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Feb 10 2014 Dominic Cleal <dcleal@redhat.com> 2.6.2-1
+- rebase to 2.6.2 release (dcleal@redhat.com)
+
+* Thu Jun 20 2013 Miroslav Suchý <msuchy@redhat.com> 2.6.0-1
+- rebase to 2.6.0 release (msuchy@redhat.com)
+
 * Wed Apr 03 2013 Miroslav Suchý <msuchy@redhat.com> 2.5.1-3
 - fix files section (msuchy@redhat.com)
 
