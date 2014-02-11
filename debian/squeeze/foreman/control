@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.8-dev, git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
-               libvirt-dev, libsqlite3-dev, facter
+               libvirt-dev, libsqlite3-dev, facter, build-essential
 Homepage: http://www.theforeman.org/
 
 Package: foreman
@@ -13,7 +13,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2),
-         libxml2-dev, libxslt1-dev, facter,
+         libxml2-dev, libxslt1-dev, facter, build-essential
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
 Description: Systems management web interface
