@@ -1,3 +1,9 @@
+foreman-installer (1.4.0-2) stable; urgency=low
+
+  * Use librarian-puppet in rules file
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 11 Feb 2014 11:54:00 +0100
+
 foreman-installer (1.4.0-1) stable; urgency=low
 
   * 1.4.0 released
