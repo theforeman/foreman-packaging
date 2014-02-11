@@ -7,8 +7,8 @@
 
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Release: 6%{?dist}
+Version: 0.1.4
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Feb 11 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
+- Update to v0.1.4 (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.1-6
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
