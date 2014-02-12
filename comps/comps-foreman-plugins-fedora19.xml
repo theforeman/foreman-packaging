@@ -30,6 +30,7 @@
       <packagereq type="default">rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">rubygem-foreman_param_lookup-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_reserve</packagereq>
       <packagereq type="default">rubygem-foreman_setup</packagereq>
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_simplify</packagereq>
