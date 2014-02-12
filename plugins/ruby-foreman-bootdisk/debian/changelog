@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (2.0.0-1) stable; urgency=low
+
+  * Add iPXE dep
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Wed, 12 Feb 2014 20:29:00 +0000
+
 ruby-foreman-bootdisk (2.0.0) stable; urgency=low
 
   * Release 2.0.0
