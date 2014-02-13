@@ -1,3 +1,10 @@
+ruby-foreman-bootdisk (2.0.1) stable; urgency=low
+
+  * Release 2.0.1
+  * Add db:seed to postinst
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 13 Feb 2014 11:06:00 +0000
+
 ruby-foreman-bootdisk (2.0.0-1) stable; urgency=low
 
   * Add iPXE dep
