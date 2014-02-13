@@ -6,7 +6,7 @@
 Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.22
+Version: 0.0.23
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -64,11 +64,13 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %{gem_instdir}/Gemfile
 %{gem_instdir}/spec
 %{gem_instdir}/Rakefile
-%{gem_instdir}/VERSION
 %{gem_instdir}/rbovirt.gemspec
 %doc %{gem_docdir}
 
 %changelog
+* Thu Feb 13 2014 Dominic Cleal <dcleal@redhat.com> 0.0.23-1
+- Rebase to rbovirt 0.0.23 (dcleal@redhat.com)
+
 * Wed Feb 12 2014 Dominic Cleal <dcleal@redhat.com> 0.0.22-1
 - Rebase to rbovirt 0.0.22 (dcleal@redhat.com)
 
