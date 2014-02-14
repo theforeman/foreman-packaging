@@ -1,3 +1,10 @@
+ruby-kafo (0.3.14-1) stable; urgency=low
+
+  * Fix #4347 - validations adapted to latest puppet (mhulan@redhat.com)
+  * adds compatibility with latest puppet version (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 17 Feb 2014 16:17:55 +0000
+
 ruby-kafo (0.3.12-1) stable; urgency=low
 
   * Fix few smaller issues (mhulan@redhat.com)
