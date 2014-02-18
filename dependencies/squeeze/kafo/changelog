@@ -1,3 +1,10 @@
+ruby-kafo (0.3.15-1) stable; urgency=low
+
+  * Fix #4367 - current environment compatible with all puppet versions
+  (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 18 Feb 2014 16:51:49 +0000
+
 ruby-kafo (0.3.14-1) stable; urgency=low
 
   * Fix #4347 - validations adapted to latest puppet (mhulan@redhat.com)
