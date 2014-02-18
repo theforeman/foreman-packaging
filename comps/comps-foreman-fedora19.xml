@@ -62,6 +62,7 @@
       <packagereq type="default">rubygem-less-rails</packagereq>
       <packagereq type="default">rubygem-less</packagereq>
       <packagereq type="default">rubygem-libv8</packagereq>
+      <packagereq type="default">rubygem-multi-select-rails</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
       <packagereq type="default">rubygem-po_to_json</packagereq>
