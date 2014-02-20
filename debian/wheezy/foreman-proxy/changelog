@@ -1,3 +1,9 @@
+foreman-proxy (1.4.1-1) stable; urgency=low
+
+  * 1.4.1 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Thu, 20 Feb 2014 11:05:00 +0100
+
 foreman-proxy (1.4.0-1) stable; urgency=low
 
   * 1.4.0 released
