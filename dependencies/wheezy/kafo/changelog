@@ -1,3 +1,9 @@
+ruby-kafo (0.3.16-1) precise; urgency=low
+
+  * Fix #4402 - remove definition support (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 20 Feb 2014 14:02:14 +0000
+
 ruby-kafo (0.3.15-1) stable; urgency=low
 
   * Fix #4367 - current environment compatible with all puppet versions
