@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.2.0) unstable; urgency=low
+
+  * Release 0.2.0
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Wed, 26 Feb 2014 12:25:00 +0000
+
 ruby-foreman-column-view (0.1.2) unstable; urgency=low
 
   * Initial Release.
