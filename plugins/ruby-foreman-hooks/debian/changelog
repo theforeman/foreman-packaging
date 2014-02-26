@@ -1,5 +1,11 @@
 ruby-foreman-hooks (0.3.4) unstable; urgency=low
 
+  * 0.3.7 released
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Wed, 26 Feb 2014 15:12:00 +0000
+
+ruby-foreman-hooks (0.3.4) unstable; urgency=low
+
   * 0.3.4 released
 
  -- Greg Sutcliffe <gsutclif@redhat.com>  Wed, 22 Jan 2014 15:58:12 +0000
