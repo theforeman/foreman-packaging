@@ -43,6 +43,7 @@
       <packagereq type="default">ruby193-rubygem-commonjs</packagereq>
       <packagereq type="default">ruby193-rubygem-daemon_controller</packagereq>
       <packagereq type="default">ruby193-rubygem-daemons</packagereq>
+      <packagereq type="default">ruby193-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
       <packagereq type="default">ruby193-rubygem-excon</packagereq>
       <packagereq type="default">ruby193-rubygem-extlib</packagereq>

@@ -36,6 +36,7 @@
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
+      <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-faraday</packagereq>
