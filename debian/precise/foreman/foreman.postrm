@@ -30,6 +30,8 @@ case "$1" in
 		rm -rf /var/cache/foreman
 		rm -rf /etc/foreman
     rm -rf /usr/share/foreman/vendor
+    rm -rf /usr/share/foreman/config/initializers/encryption_key.rb
+    rm -rf /usr/share/foreman/config/initializers/local_secret_token.rb
 	;;
 	*)
 		echo "postrm called with unknown argument \`$1'" >&2
