@@ -1,3 +1,13 @@
+libhighline-ruby (1.6.21-1) precise; urgency=low
+
+  * Improved Windows integration (by Ronie Henrich).
+  * Clarified menu choice error messages (by Keith Bennett).
+  * Fixed a bug with FFI::NCurses integration (by agentdave).
+  * Improved StringExtensions performance (by John Leach).
+  * Various JRuby fixes (by presidentbeef).
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 10 Mar 2014 09:49:42 +0000
+
 libhighline-ruby (1.6.19-1) unstable; urgency=low
 
   [ Prach Pongpanich ]
