@@ -59,6 +59,7 @@
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
+      <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-less-rails</packagereq>
       <packagereq type="default">rubygem-less</packagereq>
