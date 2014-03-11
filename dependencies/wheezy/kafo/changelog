@@ -1,4 +1,18 @@
-ruby-kafo (0.3.16-1) precise; urgency=low
+ruby-kafo (0.4.0-1) stable; urgency=low
+
+  * Version bump to 0.4.0 (mhulan@redhat.com)
+  * Fix #3053 - Extracted parsers to extra gem (mhulan@redhat.com)
+  * Refs #4281 - use utf only if supported (mhulan@redhat.com)
+  * add dynamic path for the default config file (kvedulv@kvedulv.de)
+  * Refs #4281 - Bright and dark background colors (mhulan@redhat.com)
+  * Fix #4281 - improve kafo output in interactive mode (mhulan@redhat.com)
+  * Fix #4177 - Help output is sorted correctly on 1.8 (mhulan@redhat.com)
+  * Make kafofy more consistent and user friendly (mhulan@redhat.com)
+  * Improved kafofy usability and out of the box experience (nils@domrose.net)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 11 Mar 2014 09:03:01 +0000
+
+ruby-kafo (0.3.16-1) stable; urgency=low
 
   * Fix #4402 - remove definition support (mhulan@redhat.com)
 
