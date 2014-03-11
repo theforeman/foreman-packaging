@@ -94,7 +94,6 @@
       <packagereq type="default">ruby193-rubygem-rdoc4</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
       <packagereq type="default">ruby193-rubygem-rr</packagereq>
-      <packagereq type="default">ruby193-rubygem-ruby-hmac</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby_parser</packagereq>
