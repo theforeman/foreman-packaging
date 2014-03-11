@@ -1,0 +1,17 @@
+Source: ruby-kafo-parsers
+Section: ruby
+Priority: optional
+Maintainer: Marek Hulan <mhulan@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/kafo_parsers
+XS-Ruby-Versions: all
+
+Package: ruby-kafo-parsers
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         puppet,
+         ruby-rdoc (>= 3.12.0)
+Description: Puppet module parsers
+ This gem can parse values, validations, documentation, types, groups and conditions of parameters from your puppet modules
