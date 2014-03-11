@@ -14,7 +14,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          puppet,
          ruby-clamp,
          ruby-highline,
-         ruby-kafo_parsers,
+         ruby-kafo-parsers,
          ruby-logging,
          ruby-powerbar
 Description: If you write puppet modules for installing your software, you can use kafo to create powerful installer
