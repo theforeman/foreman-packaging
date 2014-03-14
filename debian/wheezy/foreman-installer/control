@@ -12,7 +12,7 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-kafo,
+         ruby-kafo (>= 0.4.0),
          puppet (>= 2.7.0)
 Description: Automated puppet-based installer for The Foreman
  Foreman-installer is a set of puppet modules wrapped in ruby
