@@ -75,6 +75,13 @@ if [ -f /usr/share/foreman/config/database.yml ]; then
   fi
 fi
 
+# Generate apipie cache
+if [ ! -z "${DEBUG}" ]; then
+  /usr/sbin/foreman-rake apipie:cache || true
+else
+  /usr/sbin/foreman-rake apipie:cache >> $LOGFILE 2>&1 || true
+fi
+
 # Generate a static session token for signing cookies
 if [ ! -f config/initializers/local_secret_token.rb ]; then
   touch config/initializers/local_secret_token.rb
