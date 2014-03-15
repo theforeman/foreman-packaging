@@ -5,7 +5,7 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.23
+Version: 0.1.1
 Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
@@ -72,18 +72,25 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rspec
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/Gemfile.*
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/MIT-LICENSE
 %doc %{gem_instdir}/README.rst
-%doc %{gem_instdir}/CHANGELOG
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/NOTICE
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Gemfile
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Mar 13 2014 Ivan Nečas <inecas@redhat.com> 0.1.1-1
+- Bump version of apipie-rails to 0.1.1 (inecas@redhat.com)
+
+* Mon Mar 03 2014 Ivan Nečas <inecas@redhat.com> 0.1.0-1
+- Bump version of apipie-rails to 0.1.0 (inecas@redhat.com)
+
 * Wed Sep 04 2013 Ivan Necas <inecas@redhat.com> 0.0.23-1
 - bumping version of apipie-rails to 0.0.23 (inecas@redhat.com)
 
