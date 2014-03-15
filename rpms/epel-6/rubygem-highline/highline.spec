@@ -6,7 +6,7 @@
 
 %global gem_name highline
 
-%define _version 1.6.20
+%define _version 1.6.21
 %define _summary "HighLine is a high-level command-line IO library" 
 %define _url "https://github.com/JEG2/highline"
 %define _license GPLv2+ or Ruby
@@ -36,7 +36,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   2%{?dist}  
+Release:   1%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -122,6 +122,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Mon Mar 10 2014 Marek Hulan <mhulan@redhat.com> 1.6.21-1
+- Update highline to 1.6.21 (mhulan@redhat.com)
+
 * Mon Nov 18 2013 Marek Hulan <mhulan@redhat.com> 1.6.20-2
 - SCLize highline (mhulan@redhat.com)
 
