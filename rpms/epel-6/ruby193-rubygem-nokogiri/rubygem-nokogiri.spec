@@ -1,7 +1,7 @@
 %{?scl:%scl_package rubygem-%{gemname}}
 %{!?scl:%global pkg_name %{name}}
 
-%global	mainver		1.5.6
+%global	mainver		1.5.11
 #%%global	prever			.beta.4
 
 %global	mainrel		1
@@ -26,7 +26,7 @@
 Summary:	An HTML, XML, SAX, and Reader parser
 Name:		%{?scl_prefix}rubygem-%{gemname}
 Version:	%{mainver}
-Release:  7%{?dist}
+Release:  1%{?dist}
 Group:		Development/Languages
 License:	MIT
 URL:		http://nokogiri.rubyforge.org/nokogiri/
@@ -92,7 +92,6 @@ This package provides non-Gem support for %{gemname}.
 %setup -n %{pkg_name}-%{version} -q -T -c
 
 # Gem repack
-TOPDIR=$(pwd)
 mkdir tmpunpackdir
 pushd tmpunpackdir
 
@@ -108,6 +107,11 @@ cd %{gem_name}-%{version}
 gem specification -l --ruby %{SOURCE0} > %{gem_name}.gemspec
 %{?scl:"}
 
+popd
+
+%build
+TOPDIR=$(pwd)
+pushd tmpunpackdir/%{gem_name}-%{version}
 # Ummm...
 %{?scl:scl enable %{scl} "}
 env LANG=ja_JP.UTF-8 gem build %{gem_name}.gemspec
@@ -117,7 +121,6 @@ mv %{gem_name}-%{version}.gem $TOPDIR
 popd
 rm -rf tmpunpackdir
 
-%build
 mkdir -p ./%{gemdir}
 export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 %{?scl:scl enable %{scl} "}
@@ -309,6 +312,15 @@ popd
 %endif
 
 %changelog
+* Tue Mar 11 2014 Dominic Cleal <dcleal@redhat.com> 1.5.11-1
+- Update to v1.5.11 (dcleal@redhat.com)
+
+* Fri Feb 21 2014 Jason Montleon <jmontleo@redhat.com> 1.5.6-9
+- additional work for moving gem build to %%build (jmontleo@redhat.com)
+- gem build to %%build to adhere to packaging guidelines (jmontleo@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Fri Mar 08 2013 Lukas Zapletal <lzap+git@redhat.com> 1.5.6-7
 - fixing ruby193 scl package (lzap+git@redhat.com)
 
