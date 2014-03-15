@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.19.0
+Version: 1.20.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -24,9 +24,7 @@ Requires: %{?scl_prefix}rubygem-mime-types
 Requires: %{?scl_prefix}rubygem-net-scp => 1.1.0
 Requires: %{?scl_prefix}rubygem-net-scp < 2
 Requires: %{?scl_prefix}rubygem-net-ssh >= 2.1.3
-Requires: %{?scl_prefix}rubygem-nokogiri => 1.5.0
-Requires: %{?scl_prefix}rubygem-nokogiri < 2
-Requires: %{?scl_prefix}rubygem-ruby-hmac 
+Requires: %{?scl_prefix}rubygem-nokogiri => 1.5.11
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -80,6 +78,7 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 
 %files doc
 %{gem_instdir}/CONTRIBUTING.md
+%{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/LICENSE.md
 %{gem_instdir}/README.md
 %{gem_instdir}/RELEASE.md
@@ -90,6 +89,9 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Mar 11 2014 Dominic Cleal <dcleal@redhat.com> 1.20.0-1
+- Rebase to fog 1.20.0 (dcleal@redhat.com)
+
 * Tue Jan 07 2014 Dominic Cleal <dcleal@redhat.com> 1.19.0-1
 - Rebase to fog 1.19.0 (dcleal@redhat.com)
 
