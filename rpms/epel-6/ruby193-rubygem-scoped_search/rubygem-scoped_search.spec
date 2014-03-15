@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.6.3
+Version: 2.6.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -125,6 +125,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 10 2014 Dominic Cleal <dcleal@redhat.com> 2.6.5-1
+- rebase to 2.6.5 release (dcleal@redhat.com)
+
 * Wed Feb 12 2014 Dominic Cleal <dcleal@redhat.com> 2.6.3-1
 - rebase to 2.6.3 release (dcleal@redhat.com)
 
