@@ -15,7 +15,7 @@
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 13%{?dist}
+Release: 14%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -31,13 +31,11 @@ BuildRequires: %{?scl_prefix}ruby-wrapper
 %if 0%{?fedora} > 18
 Requires: ruby(release) = 2.0.0
 BuildRequires: ruby(release) = 2.0.0
-Requires: rubygems-devel
 BuildRequires: rubygems-devel
 %else
 %if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-Requires:  %{?scl_prefix}rubygems-devel
 BuildRequires:  %{?scl_prefix}rubygems-devel
 %else
 Requires: ruby(abi) = 1.8
@@ -104,6 +102,10 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-14
+- remove unnecessary Require for rubygems-devel. Only needed as a BuildRequire
+  (jmontleo@redhat.com)
+
 * Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-13
 - fix fedora 19 builds, add rubygems-devel dependency (jmontleo@redhat.com)
 
