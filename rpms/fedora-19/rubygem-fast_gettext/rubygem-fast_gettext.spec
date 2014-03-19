@@ -1,12 +1,21 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
+%global gem_dir /usr/lib/ruby/gems/1.8
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gem_libdir %{gem_instdir}/lib
+%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%endif
+
 %global gem_name fast_gettext
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 5%{?dist}
+Release: 13%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -14,23 +23,29 @@ Group: Development/Languages
 License: MIT and (GPLv2+ or Ruby)
 URL: http://github.com/grosser/fast_gettext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if "%{?scl}" == "ruby193"
+Requires: %{?scl_prefix}ruby-wrapper
+BuildRequires: %{?scl_prefix}ruby-wrapper
+%endif
+
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: ruby(release) = 2.0.0
+BuildRequires: ruby(release) = 2.0.0
+Requires: rubygems-devel
+BuildRequires: rubygems-devel
 %else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-%endif
-Requires: %{?scl_prefix}ruby(rubygems)
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires:  %{?scl_prefix}rubygems-devel
+BuildRequires:  %{?scl_prefix}rubygems-devel
+%else
+Requires: ruby(abi) = 1.8
+BuildRequires: ruby(abi) = 1.8
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}rubygem(rspec)
-BuildRequires: %{?scl_prefix}rubygem(activerecord)
-#BuildRequires: %{?scl_prefix}rubygem(protected_attributes)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+%endif
+Requires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -89,17 +104,27 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
-* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 0.8.0-5
-- SCL-enable shebang lines (dcleal@redhat.com)
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-13
+- fix fedora 19 builds, add rubygems-devel dependency (jmontleo@redhat.com)
 
-* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com>
-- SCL-enable shebang lines (dcleal@redhat.com)
+* Mon Mar 17 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-7
+- update build dependencies (jmontleo@redhat.com)
 
-* Wed Nov 27 2013 Dominic Cleal <dcleal@redhat.com> 0.8.0-4
-- Fix path when chmodding -x (dcleal@redhat.com)
+* Mon Mar 17 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-6
+- update build dependencies (jmontleo@redhat.com)
 
-* Wed Nov 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.8.0-3
+* Mon Mar 17 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-5
+- update build dependencies (jmontleo@redhat.com)
+
+* Mon Mar 17 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-4
+- 
+
+* Mon Dec 02 2013 Jason Montleon <jmontleo@redhat.com> 0.8.0-3
 - Temporary file permission fix for string.rb (lzap+git@redhat.com)
+- SCL-enable shebang lines (dcleal@redhat.com)
+
+* Tue Sep 17 2013 Jason Montleon <jmontleo@redhat.com> 0.8.0-2
+- update rubygem-fast_gettext to 0.8.0 for Foreman 1.3 (jmontleo@redhat.com)
 
 * Thu Sep 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.8.0-2
 - Revert "update rubygems to include wrapper BuildRequires and Requires"
