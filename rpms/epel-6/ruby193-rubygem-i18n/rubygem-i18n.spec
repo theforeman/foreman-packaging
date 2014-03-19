@@ -1,30 +1,53 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
 
+%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
+%global gem_dir /usr/lib/ruby/gems/1.8
+%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
+%global gem_libdir %{gem_instdir}/lib
+%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
+%endif
+
 %global gem_name i18n
 
 Summary: New wave Internationalization support for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.0
-Release: 4%{?dist}
+Version: 0.6.9
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT and (GPLv2 or Ruby)
 URL: http://github.com/svenfuchs/i18n
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(rubygems)
+%if "%{?scl}" == "ruby193"
+Requires: %{?scl_prefix}ruby-wrapper
+BuildRequires: %{?scl_prefix}ruby-wrapper
+%endif
+
+%if 0%{?fedora} > 18
+Requires: ruby(release) = 2.0.0
+BuildRequires: ruby(release) = 2.0.0
+BuildRequires: rubygems-devel
+%else
+%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(mocha)
-BuildRequires: %{?scl_prefix}rubygem(test_declarative)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+BuildRequires:  %{?scl_prefix}rubygems-devel
+%else
+Requires: ruby(abi) = 1.8
+BuildRequires: ruby(abi) = 1.8
+%endif
+%endif
+Requires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
+
+
 %description
 Ruby Internationalization and localization solution.
-
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -52,28 +75,12 @@ chmod -x %{buildroot}%{gem_instdir}/MIT-LICENSE
 chmod -x %{buildroot}%{gem_libdir}/i18n.rb
 
 %check
-pushd .%{gem_instdir}
-
-# Bundler just complicates everything in our case, remove it.
-sed -i -e "s|require 'bundler/setup'||" test/test_helper.rb
-
-# Tests are failing without LANG environment is set.
-# https://github.com/svenfuchs/i18n/issues/115
-# The test failure is due to change of default YAML engine in Ruby 1.9.3.
-# https://github.com/svenfuchs/i18n/issues/114
-%{?scl:scl enable %scl - << \EOF}
-LANG=en_US.utf8 testrb -Ilib test/all.rb | \
-	grep "1026 tests, 1505 assertions, 1 failures, 0 errors, 0 skips"
-%{?scl:EOF}
-
-popd
 
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
 %doc %{gem_instdir}/README.textile
 %doc %{gem_instdir}/MIT-LICENSE
-%doc %{gem_instdir}/CHANGELOG.textile
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -84,6 +91,12 @@ popd
 
 
 %changelog
+* Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.6.9-2
+- update to 0.6.9
+  (jmontleo@redhat.com)
+* Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.6.9-1
+- enable scl and non-scl builds (jmontleo@redhat.com)
+
 * Wed Feb 27 2013 Miroslav Suchý <msuchy@redhat.com> 0.6.0-4
 - new package built with tito
 
