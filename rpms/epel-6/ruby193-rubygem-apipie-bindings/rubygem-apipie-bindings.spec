@@ -16,8 +16,8 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.4
-Release: 3%{?dist}
+Version: 0.0.5
+Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/Apipie/apipie-bindings
@@ -29,7 +29,6 @@ Requires: rubygem(awesome_print)
 Requires: rubygem(fastercsv)
 Requires: rubygem(oauth)
 Requires: rubygem(json)
-Requires: rubygem(i18n)
 Requires: rubygem(mime-types) < 2.0.0
 
 %if "%{?scl}" == "ruby193"
@@ -103,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Mar 20 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.5-1
+- Bump to 0.0.5 (mbacovsk@redhat.com)
+
 * Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.0.4-3
 - fix scl package name and provides for apipie-bindings (jmontleo@redhat.com)
 
