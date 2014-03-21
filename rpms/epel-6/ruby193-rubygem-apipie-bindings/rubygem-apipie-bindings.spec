@@ -16,7 +16,7 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.5
+Version: 0.0.6
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Mar 21 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.6-1
+- Bump to 0.0.6 (mbacovsk@redhat.com)
+
 * Thu Mar 20 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.5-1
 - Bump to 0.0.5 (mbacovsk@redhat.com)
 
