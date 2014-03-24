@@ -52,6 +52,8 @@
       <packagereq type="default">ruby193-rubygem-ffi</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-fog</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador</packagereq>
