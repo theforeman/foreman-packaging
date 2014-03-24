@@ -1,3 +1,9 @@
+foreman (1.4.2-1) stable; urgency=low
+
+  * 1.4.2 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Mon, 24 Mar 2014 11:02:00 +0100
+
 foreman (1.4.1-1) stable; urgency=low
 
   * 1.4.1 released
