@@ -7,7 +7,7 @@ Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.0
-Release: 1%{dist}
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-json
@@ -23,7 +23,7 @@ Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(fog) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -67,6 +67,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-json.gemspec
 
 %changelog
+* Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
+- Fix Provides for correct gem name (dcleal@redhat.com)
+
 * Wed Mar 19 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-1
 - new package built with tito
 
