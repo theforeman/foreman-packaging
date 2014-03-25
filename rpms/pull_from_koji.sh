@@ -15,14 +15,10 @@ sfk -h $koji \
   -t foreman-plugins-1.3-rhel6 \
   -t foreman-plugins-1.4-rhel6 \
   -t foreman-plugins-nightly-rhel6 \
-  -o $here/epel-6 -e ^foreman $*
-
-sfk -h $koji \
-  -t foreman-nightly-fedora18 \
-  -t foreman-plugins-1.2-fedora18 \
-  -t foreman-plugins-1.3-fedora18 \
-  -t foreman-plugins-nightly-fedora18 \
-  -o $here/fedora-18 -e ^foreman $*
+  -o $here/epel-6 \
+  -e ^foreman \
+  -e ^rubygem-hammer_cli \
+  $*
 
 sfk -h $koji \
   -t foreman-nightly-fedora19 \
@@ -30,4 +26,7 @@ sfk -h $koji \
   -t foreman-plugins-1.3-fedora19 \
   -t foreman-plugins-1.4-fedora19 \
   -t foreman-plugins-nightly-fedora19 \
-  -o $here/fedora-19 -e ^foreman $*
+  -o $here/fedora-19 \
+  -e ^foreman \
+  -e ^rubygem-hammer_cli \
+  $*
