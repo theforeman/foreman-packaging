@@ -1,0 +1,5 @@
+ruby-foreman-snapshot (0.1.0) stable; urgency=low
+
+  * Initial Release.
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Tue, 25 Mar 2014 15:12:00 +0000
