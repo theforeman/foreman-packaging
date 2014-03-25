@@ -7,12 +7,13 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.21.0
-Release: 1%{dist}
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix}rubygem-fog-brightbox
 Requires: %{?scl_prefix}rubygem-fog-core >= 1.21.1
 Requires: %{?scl_prefix}rubygem-fog-core < 2.0.0
 Requires: %{?scl_prefix}rubygem-fog-json
@@ -59,12 +60,6 @@ rmdir %{gembuilddir}/bin
 rm -rf %{buildroot}%{gem_instdir}/.yardoc
 rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 
-# Fog providers are being split into new gems, with 'fog' depending on all of
-# these.  Until the limited set of providers that Foreman requires are
-# available as separate gems (permitting dependencies on specific fog-*
-# packages rather than fog), patch away these unused dependencies.
-sed -ri '/add_(runtime_)?dependency.*fog-brightbox/d' %{buildroot}%{gem_spec}
-
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/bin
@@ -90,6 +85,9 @@ sed -ri '/add_(runtime_)?dependency.*fog-brightbox/d' %{buildroot}%{gem_spec}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.21.0-2
+- Add dependency on fog-brightbox (dcleal@redhat.com)
+
 * Wed Mar 19 2014 Dominic Cleal <dcleal@redhat.com> 1.21.0-1
 - Rebase to fog 1.21.0 (dcleal@redhat.com)
 
