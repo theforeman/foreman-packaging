@@ -35,6 +35,8 @@
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_simplify</packagereq>
       <packagereq type="default">rubygem-foreman_simplify-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_snapshot</packagereq>
+      <packagereq type="default">rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">rubygem-foreman_templates</packagereq>
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
