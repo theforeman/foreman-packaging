@@ -1,3 +1,5 @@
+%global gem_name apipie-bindings
+
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -10,14 +12,12 @@
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
 %endif
 
-%global gem_name apipie-bindings
-
 %global geminstdir %{gem_dir}/gems/%{gem_name}-%{version}
 
 Summary: The Ruby bindings for Apipie documented APIs
-Name: rubygem-%{gem_name}
-Version: 0.0.4
-Release: 2%{?dist}
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 0.0.6
+Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/Apipie/apipie-bindings
@@ -29,7 +29,6 @@ Requires: rubygem(awesome_print)
 Requires: rubygem(fastercsv)
 Requires: rubygem(oauth)
 Requires: rubygem(json)
-Requires: rubygem(i18n)
 Requires: rubygem(mime-types) < 2.0.0
 
 %if "%{?scl}" == "ruby193"
@@ -56,7 +55,7 @@ BuildRequires: %{?scl_prefix}rubygems
 
 BuildArch: noarch
 
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
@@ -103,6 +102,15 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Mar 21 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.6-1
+- Bump to 0.0.6 (mbacovsk@redhat.com)
+
+* Thu Mar 20 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.5-1
+- Bump to 0.0.5 (mbacovsk@redhat.com)
+
+* Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.0.4-3
+- fix scl package name and provides for apipie-bindings (jmontleo@redhat.com)
+
 * Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.0.4-2
 - fix scl builds (jmontleo@redhat.com)
 
