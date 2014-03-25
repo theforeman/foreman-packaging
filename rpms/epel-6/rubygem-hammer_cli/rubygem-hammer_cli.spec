@@ -1,4 +1,5 @@
 %global gemname hammer_cli
+%global confdir foreman
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
@@ -9,11 +10,12 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
 Version: 0.0.18
-Release: 1%{?dist}
+Release: 1.201403250939git80860db.git.0.8b37d0a%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
 Source0: %{gemname}-%{version}.gem
+Source1: cli_config.yml
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 Requires: ruby(abi)
@@ -25,10 +27,14 @@ Requires: rubygem(clamp)
 Requires: rubygem(rest-client)
 Requires: rubygem(logging)
 Requires: rubygem(awesome_print)
-Requires: rubygem(table_print)
+Requires: rubygem(table_print) >= 1.5.0
 Requires: rubygem(highline)
+Requires: rubygem(fast_gettext)
+Requires: rubygem(locale) <= 2.0.9
+Requires: rubygem(json)
 Requires: rubygem(fastercsv)
 Requires: rubygem(mime-types) < 2.0.0
+Requires: rubygem(apipie-bindings) >= 0.0.4
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
 %endif
@@ -77,15 +83,21 @@ find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 mv %{buildroot}%{geminstdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gemname}
-sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_sysconfdir}/bash_completion.d/%{gemname}
+
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/hammer.modules.d
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli_config.yml
+rm -r %{buildroot}%{geminstdir}/config
+
 
 %files
 %dir %{geminstdir}
 %{_bindir}/hammer
 %{_sysconfdir}/bash_completion.d/%{gemname}
+%{_sysconfdir}/%{confdir}/hammer.modules.d
+%{_sysconfdir}/%{confdir}/cli_config.yml
 %{geminstdir}/bin
 %{geminstdir}/lib
-%{geminstdir}/config/cli_config.template.yml
+%{geminstdir}/locale
 %{geminstdir}/LICENSE
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
@@ -93,17 +105,13 @@ sed -i 's/^_HAMMER_BUNDLER_CMD=.*/_HAMMER_BUNDLER_CMD=""/' %{buildroot}%{_syscon
 %files doc
 %doc %{geminstdir}/test
 %doc %{gem_dir}/doc/%{gemname}-%{version}
-%doc %{geminstdir}/doc/developer_docs.md
-%doc %{geminstdir}/doc/creating_apipie_commands.md
-%doc %{geminstdir}/doc/creating_commands.md
-%doc %{geminstdir}/doc/development_tips.md
-%doc %{geminstdir}/doc/writing_a_plugin.md
-%doc %{geminstdir}/doc/option_normalizers.md
-%doc %{geminstdir}/doc/design.png
-%doc %{geminstdir}/doc/design.uml
+%doc %{geminstdir}/doc
 %doc %{geminstdir}/README.md
 
 %changelog
+* Tue Mar 25 2014 Jenkins <packaging@theforeman.org> 0.0.18-1.201403250939git80860db
+- Automatic nightly build of 80860db
+
 * Wed Jan 29 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.18-1
 - Bump to 0.0.18 (mbacovsk@redhat.com)
 
