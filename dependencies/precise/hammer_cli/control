@@ -12,13 +12,17 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          rubygems,
-         ruby-clamp,
+         ruby-clamp (>= 0.6.2),
          ruby-rest-client,
          ruby-logging,
-         ruby-table-print,
+         ruby-table-print (>= 1.5.1),
          ruby-awesome-print,
          ruby-highline,
          ruby-fastercsv,
-         ruby-mime-types (< 2.0.0)
+         ruby-mime-types (< 2.0.0),
+         ruby-fast-gettext (>= 0.8.0),
+         liblocale-ruby1.8 (<= 2.0.9) | liblocale-ruby1.9.1 (<= 2.0.9),
+         ruby-json (>= 1.6.1),
+         ruby-apipie-bindings (>= 0.0.6)
 Description: Universal command-line interface
  Hammer cli provides universal extendable CLI interface for ruby apps
