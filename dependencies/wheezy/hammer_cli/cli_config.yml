@@ -1,16 +1,15 @@
-:modules:
-# - hammer_cli_foreman
-# - hammer_cli_katello_bridge
+:ui:
+  :interactive: true
+  :per_page: 20
+  :history_file: '~/.hammer/history'
 
-:foreman:
-  :host: 'https://localhost/'
-  :username: 'admin'
-  :password: 'changeme'
 
-# :watch_plain: true disables color output of logger.watch in Clamp commands
+# enable/disable color output of logger in Clamp commands
 :watch_plain: false
 
-#:log_dir: '/var/log/foreman'
-:log_dir: '~/.foreman/log'
+:log_dir: '~/.hammer/log'
 :log_level: 'error'
 :log_api_calls: false
+#:log_owner: 'foreman'
+#:log_group: 'foreman'
+#:log_size: 5 #MB

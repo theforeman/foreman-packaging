@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.1.0-1) stable; urgency=low
+
+  * 0.1.0 release
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Thu, 27 Mar 2014 05:21:24 -0500
+
 ruby-hammer-cli (0.0.18-1) stable; urgency=low
 
   * 0.0.18 release
