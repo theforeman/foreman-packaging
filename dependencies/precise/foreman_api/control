@@ -14,5 +14,5 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
   ruby-json,
   ruby-oauth,
   ruby-rest-client (>= 1.6.1)
-Description: Ruby bindings for Forman's rest API
+Description: Ruby bindings for Foreman's rest API
  Helps you to use Foreman's API calls from your app
