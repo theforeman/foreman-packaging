@@ -1,0 +1,58 @@
+ruby-oauth (0.4.6-2) unstable; urgency=low
+
+  * Team upload.
+  * Bump build dependency on gem2deb to >= 0.3.0~.
+  * Build against newer gem2deb
+  * Override lintian warning about duplicate description of transitional
+    packages
+  * Update debian/copyright to DEP-5 copyright-format/1.0
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Sat, 30 Jun 2012 15:44:00 +0200
+
+ruby-oauth (0.4.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump debhelper compat version to 8.
+
+ -- Taku YASUI <tach@debian.org>  Sun, 06 May 2012 16:07:26 +0900
+
+ruby-oauth (0.4.5-2) unstable; urgency=low
+
+  * Ruby package transition
+    - Change package name from liboauth-ruby to ruby-oauth
+  * Move repository to git.debian.org
+    - git://git.debian.org/pkg-ruby-extras/ruby-oauth.git
+
+ -- Taku YASUI <tach@debian.org>  Wed, 11 Apr 2012 06:49:18 +0900
+
+liboauth-ruby (0.4.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump Standards-version to 3.9.2
+
+ -- Taku YASUI <tach@debian.org>  Sun, 11 Sep 2011 20:08:35 +0900
+
+liboauth-ruby (0.4.4-2) unstable; urgency=low
+
+  * Remove digest/hmac.rb from liboauth-ruby1.9.1
+    (closes: #602596)
+
+ -- Taku YASUI <tach@debian.org>  Sun, 07 Nov 2010 11:08:56 +0900
+
+liboauth-ruby (0.4.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Taku YASUI <tach@debian.org>  Sat, 06 Nov 2010 10:37:57 +0900
+
+liboauth-ruby (0.4.3-2) unstable; urgency=low
+
+  * Add debian/watch file
+
+ -- Taku YASUI <tach@debian.org>  Sat, 06 Nov 2010 10:16:42 +0900
+
+liboauth-ruby (0.4.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #572016)
+
+ -- Taku YASUI <tach@debian.org>  Sat, 04 Sep 2010 22:28:15 +0900
