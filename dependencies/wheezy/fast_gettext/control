@@ -1,0 +1,24 @@
+Source: ruby-fast-gettext
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Dmitry Borodaenko <angdraug@debian.org>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-fast-gettext.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-fast-gettext.git;a=summary
+Homepage: https://github.com/grosser/fast_gettext
+XS-Ruby-Versions: all
+
+Package: ruby-fast-gettext
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Suggests: ruby-activerecord
+Description: Fast GetText implementation for Ruby
+ FastGettext provides fast, memory-efficient, and thread-safe
+ internationalization API similar to GNU GetText. In addition to performance
+ improvements over original Ruby GetText, its capabilities include support for
+ multiple backends and advanced extensibility. Translations can be loaded from
+ po, mo, yaml files or, if ActiveRecord is available, from databases.
