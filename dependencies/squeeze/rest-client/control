@@ -1,0 +1,41 @@
+Source: ruby-rest-client
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Lucas Nussbaum <lucas@debian.org>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Standards-Version: 3.9.3
+Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-rest-client.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-rest-client.git;a=summary
+Homepage: http://github.com/archiloque/rest-client
+XS-Ruby-Versions: all
+
+Package: ruby-rest-client
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, libmime-types-ruby
+Replaces: librestclient-ruby1.8 (<< 1.6.1-2~), librestclient-ruby (<< 1.6.1-2~)
+Breaks: librestclient-ruby1.8 (<< 1.6.1-2~), librestclient-ruby (<< 1.6.1-2~)
+Provides: librestclient-ruby1.8, librestclient-ruby
+Description: simple REST client for Ruby
+ A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework
+ style of specifying actions: get, put, post, delete.
+
+Package: librestclient-ruby1.8
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rest-client
+Description: Transitional package for ruby-rest-client
+ This is a transitional package to ease upgrades to the ruby-rest-client
+ package. It can safely be removed.
+
+Package: librestclient-ruby
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rest-client
+Description: Transitional package for ruby-rest-client
+ This is a transitional package to ease upgrades to the ruby-rest-client
+ package. It can safely be removed.
