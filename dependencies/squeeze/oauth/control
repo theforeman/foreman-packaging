@@ -1,0 +1,41 @@
+Source: ruby-oauth
+Section: ruby
+Priority: extra
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Taku YASUI <tach@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Standards-Version: 3.9.3
+Vcs-Git: git://git.debian.org/pkg-ruby-extras/ruby-oauth.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/ruby-oauth.git;a=summary
+Homepage: https://github.com/oauth/oauth-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-oauth
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends}, ruby | ruby-interpreter
+Provides: liboauth-ruby1.8, liboauth-ruby1.9.1
+Breaks: liboauth-ruby1.8 (<< 0.4.5-2~), liboauth-ruby1.9.1 (<< 0.4.5-2~)
+Replaces: liboauth-ruby1.8 (<< 0.4.5-2~), liboauth-ruby1.9.1 (<< 0.4.5-2~)
+Description: Ruby library for OAuth core
+ This package is a ruby library providing OAuth consumer and provider.
+ .
+ OAuth is an open standard that allows users to share their private
+ resources (e.g. photos, videos, contact lists) stored on one site with
+ another site without having to hand out their username and password.
+
+Package: liboauth-ruby1.8
+Section: oldlibs
+Architecture: all
+Depends: ${misc:Depends}, ruby-oauth
+Description: Ruby library for OAuth core (transitional package)
+ This is a dummy transition package that can be safely removed once no
+ package depend on it.
+
+Package: liboauth-ruby1.9.1
+Section: oldlibs
+Architecture: all
+Depends: ${misc:Depends}, ruby-oauth
+Description: Ruby library for OAuth core (transitional package)
+ This is a dummy transition package that can be safely removed once no
+ package depend on it.
