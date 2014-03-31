@@ -1,3 +1,11 @@
+ruby-kafo-parsers (0.0.2-1) stable; urgency=low
+
+  * Fix validation parsing of classes without code (mhulan@redhat.com)
+  * Correct example in README (jcmcken@gmail.com)
+  * Update readme (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 31 Mar 2014 09:27:26 +0000
+
 ruby-kafo-parsers (0.0.1-1) stable; urgency=low
 
   * Initial release
