@@ -8,7 +8,7 @@
 
 Summary: Puppet module parsers
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
@@ -85,4 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
 
+%changelog
+* Mon Mar 31 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-1
+- Fix validation parsing of classes without code (mhulan@redhat.com)
+- Correct example in README (jcmcken@gmail.com)
+- Update readme (mhulan@redhat.com)
 
