@@ -1,3 +1,9 @@
+ruby-table-print (1.5.1-1) stable; urgency=low
+
+  * Update to 1.5.1
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 02 Apr 2014 13:41:46 +0100
+
 ruby-table-print (1.4.0-1) stable; urgency=low
 
   * Initial release
