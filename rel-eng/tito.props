@@ -1,0 +1,188 @@
+# vim: ts=2:sw=2:et
+#
+# Please keep blacklist/whitelist sorted
+#
+
+[buildconfig]
+builder = tito.builder.GitAnnexBuilder
+tagger = tito.tagger.ReleaseTagger
+
+# Blacklist any non-SCL packages that are missing SCL macros or they get built
+# in the SCL tag rather than -nonscl
+[foreman-nightly-rhel6]
+disttag = .el6
+blacklist = rubygem-clamp
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-powerbar
+  rubygem-table_print
+  rubygem-terminal-table
+scl = ruby193
+
+# Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
+#
+# Is your package *only* non-SCL?  If so, add it to the blacklist above or it
+# will get built in the wrong tag.
+[foreman-nightly-nonscl-rhel6]
+disttag = .el6
+whitelist = rubygem-awesome_print
+  rubygem-ansi
+  rubygem-apipie-bindings
+  rubygem-clamp
+  rubygem-daemon_controller
+  rubygem-fast_gettext
+  rubygem-foreman_api
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-hashie
+  rubygem-highline
+  rubygem-librarian-puppet
+  rubygem-little-plugger
+  rubygem-logging
+  rubygem-multi_json
+  rubygem-oauth
+  rubygem-passenger
+  rubygem-powerbar
+  rubygem-rdoc
+  rubygem-rkerberos
+  rubygem-rubyipmi
+  rubygem-sinatra
+  rubygem-table_print
+  rubygem-terminal-table
+  rubygem-thor
+
+[foreman-nightly-fedora19]
+disttag = .fc19
+whitelist = rubygem-apipie-rails
+  rubygem-ansi
+  rubygem-apipie-bindings
+  rubygem-autoparse
+  rubygem-awesome_print
+  rubygem-bootstrap-sass
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-commonjs
+  rubygem-deep_cloneable
+  rubygem-excon
+  rubygem-extlib
+  rubygem-faraday
+  rubygem-flot-rails
+  rubygem-fog
+  rubygem-fog-brightbox
+  rubygem-fog-core
+  rubygem-fog-json
+  rubygem-foremancli
+  rubygem-foreman_api
+  rubygem-ftools
+  rubygem-fast_gettext
+  rubygem-fastercsv
+  rubygem-gettext_i18n_rails
+  rubygem-gettext_i18n_rails_js
+  rubygem-google-api-client
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-hashie
+  rubygem-highline
+  rubygem-hirb
+  rubygem-hirb-unicode
+  rubygem-immigrant
+  rubygem-jquery-ui-rails
+  rubygem-jwt
+  rubygem-launchy
+  rubygem-less
+  rubygem-less-rails
+  rubygem-librarian-puppet
+  rubygem-libv8
+  rubygem-multi-select-rails
+  rubygem-mysql
+  rubygem-mysql2
+  rubygem-net-scp
+  rubygem-po_to_json
+  rubygem-powerbar
+  rubygem-quiet_assets
+  rubygem-rabl
+  rubygem-rack-mini-profiler
+  rubygem-rails3_before_render
+  rubygem-rbvmomi
+  rubygem-rbovirt
+  rubygem-rkerberos
+  rubygem-ruby2ruby
+  rubygem-rubyipmi
+  rubygem-safemode
+  rubygem-signet
+  rubygem-single_test
+  rubygem-spice-html5-rails
+  rubygem-strong_parameters
+  rubygem-table_print
+  rubygem-terminal-table
+  rubygem-therubyracer
+  rubygem-unf
+  rubygem-unf_ext
+  rubygem-unicode-display_width
+  rubygem-wirb
+
+[foreman-plugins-nightly-rhel6]
+disttag = .el6
+scl = ruby193
+whitelist = ipxe
+  rubygem-archive-tar-minitar
+  rubygem-ftools
+  rubygem-dalli
+  rubygem-deface
+  rubygem-diffy
+  rubygem-docker-api
+  rubygem-open4
+  rubygem-foreman_bootdisk
+  rubygem-foreman_chef
+  rubygem-foreman_column_view
+  rubygem-foreman_content
+  rubygem-foreman_custom_parameters
+  rubygem-foreman_default_hostgroup
+  rubygem-foreman_dhcp_browser
+  rubygem-foreman_discovery
+  rubygem-foreman_docker
+  rubygem-foreman_hooks
+  rubygem-foreman-mco
+  rubygem-foreman_memcache
+  rubygem-foreman_openstack_cluster
+  rubygem-foreman_param_lookup
+  rubygem-foreman_reserve
+  rubygem-foreman_setup
+  rubygem-foreman_simplify
+  rubygem-foreman_snapshot
+  rubygem-staypuft
+  rubygem-foreman_templates
+  rubygem-puppetdb_foreman
+  rubygem-wicked
+
+[foreman-plugins-nightly-fedora19]
+disttag = .fc19
+whitelist = rubygem-ftools
+  rubygem-dalli
+  rubygem-deface
+  rubygem-diffy
+  rubygem-docker-api
+  rubygem-open4
+  rubygem-foreman_bootdisk
+  rubygem-foreman_chef
+  rubygem-foreman_column_view
+  rubygem-foreman_content
+  rubygem-foreman_custom_parameters
+  rubygem-foreman_default_hostgroup
+  rubygem-foreman_dhcp_browser
+  rubygem-foreman_discovery
+  rubygem-foreman_docker
+  rubygem-foreman_hooks
+  rubygem-foreman-mco
+  rubygem-foreman_memcache
+  rubygem-foreman_openstack_cluster
+  rubygem-foreman_param_lookup
+  rubygem-foreman_reserve
+  rubygem-foreman_setup
+  rubygem-foreman_simplify
+  rubygem-foreman_snapshot
+  rubygem-foreman_templates
+  rubygem-puppetdb_foreman
+
+[requirements]
+tito=0.5.4
