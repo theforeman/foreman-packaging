@@ -36,7 +36,7 @@ Requires: %{?scl_prefix}rubygem(wicked)
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   2%{?dist}  
+Release:   4%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -127,6 +127,12 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-4
+- Hopefully last hack staypuft 0.0.2 version (mhulan@redhat.com)
+
+* Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-3
+- Another hacked version of staypuft (mhulan@redhat.com)
+
 * Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-2
 - Hacked staypuft version without oj dependency (mhulan@redhat.com)
 
