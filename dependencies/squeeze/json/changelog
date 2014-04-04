@@ -1,0 +1,199 @@
+ruby-json (1.6.1-1~bpo60+1) squeeze-backports; urgency=low
+
+  * Backport to squeeze-backports.
+  * Add myself to Uploaders.
+
+ -- Micah Anderson <micah@debian.org>  Wed, 07 Dec 2011 11:34:59 -0500
+
+ruby-json (1.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * executables have been moved to a separate gem.
+    + drop edit-json package.
+  * Relicense debian changes as GPLv2 to match upstream.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Sun, 25 Sep 2011 11:24:54 +0200
+
+ruby-json (1.5.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/04-fix-tests-path.patch: Fix load path during tests.
+    Closes: #634438
+  * ruby-json.docs: update name of README
+  * Update standards-version
+  * Update to modern gem2deb standards (breaks, etc)
+  * Update ruby dependency for edit-json.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Sat, 30 Jul 2011 08:19:54 +0200
+
+ruby-json (1.5.1-2) unstable; urgency=low
+
+  * Fix build system so that it also works with arch-only builds.
+    Closes: #621772, #621766
+  * Fix Vcs-Browser.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sat, 09 Apr 2011 11:40:30 +0200
+
+ruby-json (1.5.1-1) unstable; urgency=low
+
+  * New upstream release. Closes: #617721
+  * Switch to gem2deb-based packaging. Source and binary package renamed to
+    ruby-json. Transitional packages added.
+  * Merge with the old ruby-pkg-tools packaging.
+    + Add patch for prettify_json.rb (Closes: #561839)
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sun, 03 Apr 2011 15:54:42 +0200
+
+libjson-ruby (1.4.6-1) unstable; urgency=low
+
+  [Laurent Arnoud]
+  * Team upload.
+  * New upstream release
+  * Switch to dpkg-source 3.0 (quilt) format
+  * Debian policy 3.9.1
+  * Add patch for prettify_json.rb (Closes: #561839)
+  [Joshua Timberman]
+  * Fixes bugs between 1.1.9 and 1.4.6, including bug affecting ohai
+    (Closes: #596351)
+  * Update watchfile for githubredir and upstream version tagging.
+
+ -- Laurent Arnoud <laurent@spkdev.net>  Fri, 22 Oct 2010 22:14:17 +0200
+
+libjson-ruby (1.1.9-1) unstable; urgency=low
+
+  * New upstream release
+  * Debian Policy 3.8.3
+
+ -- Ryan Niebur <ryanryan52@gmail.com>  Wed, 02 Sep 2009 17:36:43 -0700
+
+libjson-ruby (1.1.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Debian Policy 3.8.2
+
+ -- Ryan Niebur <ryanryan52@gmail.com>  Thu, 09 Jul 2009 03:35:48 -0700
+
+libjson-ruby (1.1.6-1) unstable; urgency=low
+
+  * move myself to Maintainer
+  * new upstream release
+  * refresh patches
+  * add README.source
+  * delete empty directories
+
+ -- Ryan Niebur <ryanryan52@gmail.com>  Sun, 10 May 2009 23:25:50 -0700
+
+libjson-ruby (1.1.4-1) unstable; urgency=low
+
+  [ Ryan Niebur ]
+  * New upstream release
+  * add myself to Uploaders
+  * refresh patches
+  * debhelper 5
+  * change section to ruby
+  * debian policy 3.8.1
+  * add dependency on ${misc:Depends}
+  * stop setup.rb from changing the shebang in the source
+  * always change the shebang in the installed version of edit-json to
+    ruby1.8
+  * instead of installing the included prototype in the examples,
+    symlink to the one from the libjs-prototype package, and depend on
+    it
+
+  [ Antonio Terceiro ]
+  * Added DM-Upload-Allowed flag to debian/control.
+
+ -- Antonio Terceiro <terceiro@softwarelivre.org>  Fri, 01 May 2009 20:52:44 -0300
+
+libjson-ruby (1.1.2-1) unstable; urgency=low
+
+  [ Paul van Tilburg ]
+  * New upstream release.
+  * Added Homepage and Vcs-* headers to debian/control.
+  * Bumped standards version to 3.7.3; performed minor fixes to
+    debian/copyright.
+  * Added build-depend on ruby1.8-dev for mkmf.rb. (Closes: #465673)
+  * Bumped ruby-pkg-tools version depend to >= 0.13, since it will be
+    using Debian's setup.rb.
+  * Modified debian/libjson-ruby-doc.examples to install data/* instead
+    of examples/* so that we do not have to have a modified tarball.
+  * Remove cruft installed by setup.rb to /usr/share in the hook in
+    debian/rules.
+  * Changed architecture of libjson-ruby1.8 to 'any'!  Added ${shlib:Depends}
+    and ${misc:Depends} to the dependencies.
+
+  [ Antonio Terceiro ]
+  * debian/copyight: recoded as UTF-8.
+  * debian/edit-json.install: added.
+  * debian/rules:
+    - fixed typo in custom install target for libjson-ruby1.8.
+    - removing stuff instead of moving them to edit-json package. These are
+      now installed by the newly added debian/edit-json.install.
+    - renaming binaries to remove .rb suffix in edit-json packag.e
+  * debian/control: added myself to Uploaders field.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Fri, 04 Apr 2008 22:55:06 +0200
+
+libjson-ruby (1.1.1-1) unstable; urgency=low
+
+  [ Esteban Manchado Velázquez ]
+  * Changed edit-json section to "devel" (again???).
+
+  [ Paul van Tilburg ]
+  * New upstream release.
+  * Adapted debian/control, debian/rules, and remove debian/control.in to
+    drop the Uploaders rule.
+  * Moved the build-depend-indep on ruby-pkg-tools to the build-depends
+    for it is used in the clean target.
+  * Updated setup.rb so that it supports the distclean target.
+  * Added myself to the Uploaders field.
+  * Added a man-page for prettify_json(1).
+  * Changed ruby1.8 dependency of the edit-json package to ruby.
+  * Changed the depend of edit-json on libgtk2-ruby to libgtk2-ruby1.8 to
+    follow convention.
+  * Use a modified source tarball which renames data/ -> docs/ since
+    it uses setup.rb with a non-setup.rb-compliant dir layout. Also
+    all files have been processed by dos2unix.
+  * Added some example files to libjson-ruby-doc.
+  * Added 02-fix-fuzz.rb-shebang.patch to add a missing shebang to the
+    executable fuzz.rb tool.
+  * Removed unnecessary 01-fix-edit_json-shebang.patch.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Sun, 07 Oct 2007 15:04:24 +0200
+
+libjson-ruby (0.4.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Changed edit-json section to "devel"
+  * Bump Standards-Version to 3.7.2 (no changes required)
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sat, 21 Oct 2006 21:27:43 +0100
+
+libjson-ruby (0.4.1-1) unstable; urgency=low
+
+  * New upstream version
+  * Add watch file
+  * Changed Section to "libs" for every package except libjson-ruby-doc
+  * Adapted to ruby-pkg-tools 0.8
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sun, 16 Apr 2006 16:35:26 +0100
+
+libjson-ruby (0.4.0-3) unstable; urgency=low
+
+  * Changed libjson-ruby-doc package Section to "doc".
+  * Set the Maintainer field to myself
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sat, 25 Mar 2006 00:27:42 +0000
+
+libjson-ruby (0.4.0-2) unstable; urgency=low
+
+  * Fixed the errors (missing commas) in the Depend field (closes: #350866).
+  * Added missing build-depend-indep on graphviz.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Wed, 15 Feb 2006 22:22:31 +0000
+
+libjson-ruby (0.4.0-1) unstable; urgency=low
+
+  * Initial upload (Closes: #341904).
+
+ -- Esteban Manchado Velázquez <zoso@debian.org>  Sat,  3 Dec 2005 23:24:14 +0000

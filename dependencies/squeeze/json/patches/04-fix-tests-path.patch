@@ -1,0 +1,19 @@
+Description: Let debian/ruby-tests.rb handle the test suite loading
+ Was causing FTBFS because ext was loaded.
+Origin: vendor
+Author: Lucas Nussbaum <lucas@debian.org>
+Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=634438
+--- a/tests/setup_variant.rb
++++ b/tests/setup_variant.rb
+@@ -1,11 +1,8 @@
+ case ENV['JSON']
+ when 'pure'
+-  $:.unshift 'lib'
+   require 'json/pure'
+ when 'ext'
+-  $:.unshift 'ext', 'lib'
+   require 'json/ext'
+ else
+-  $:.unshift 'ext', 'lib'
+   require 'json'
+ end
