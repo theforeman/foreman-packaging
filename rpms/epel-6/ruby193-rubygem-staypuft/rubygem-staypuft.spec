@@ -3,7 +3,7 @@
 
 %global gem_name staypuft
 
-%define _version 0.0.1
+%define _version 0.0.2
 %define _summary "OpenStack Foreman Installer" 
 %define _url "https://github.com/theforeman/staypuft"
 %define _license GPLv3
@@ -127,6 +127,12 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-2
+- Hacked staypuft version without oj dependency (mhulan@redhat.com)
+
+* Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-1
+- Update staypuft to 0.0.2 (mhulan@redhat.com)
+
 * Wed Apr 02 2014 Marek Hulan <mhulan@redhat.com> 0.0.1-2
 - Integrate staypuft into foreman (mhulan@redhat.com)
 
