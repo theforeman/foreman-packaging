@@ -3,15 +3,17 @@
 
 %global gem_name staypuft
 
-%define _version 0.0.2
+%define _version 0.0.3
 %define _summary "OpenStack Foreman Installer" 
 %define _url "https://github.com/theforeman/staypuft"
 %define _license GPLv3
 
 %define desc OpenStack Foreman Installer
 
+Requires: %{?scl_prefix}rubygem(foreman-discovery)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
 Requires: %{?scl_prefix}rubygem(wicked)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.6.1
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 17
 %if "%{?scl}" == "ruby193"
@@ -36,7 +38,7 @@ Requires: %{?scl_prefix}rubygem(wicked)
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   4%{?dist}  
+Release:   1%{?dist}  
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -127,6 +129,9 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Mon Apr 07 2014 Marek Hulan <mhulan@redhat.com> 0.0.3-1
+- Update staypuft to 0.0.3 (mhulan@redhat.com)
+
 * Fri Apr 04 2014 Marek Hulan <mhulan@redhat.com> 0.0.2-4
 - Hopefully last hack staypuft 0.0.2 version (mhulan@redhat.com)
 
