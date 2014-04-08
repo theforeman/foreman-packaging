@@ -1,3 +1,9 @@
+ruby-kafo (0.3.17-1) stable; urgency=low
+
+  * Fixes #4648 - make sure default password are not exposed (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 08 Apr 2014 16:03:04 +0000
+
 ruby-kafo (0.3.16-1) precise; urgency=low
 
   * Fix #4402 - remove definition support (mhulan@redhat.com)
