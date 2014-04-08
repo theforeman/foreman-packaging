@@ -37,17 +37,27 @@
       <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-staypuft</packagereq>
+      <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-puppetdb_foreman</packagereq>
 
       <packagereq type="default">ipxe-bootimgs</packagereq>
+      <packagereq type="default">ruby193-rubygem-algebrick</packagereq>
+      <packagereq type="default">ruby193-rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-params</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
+      <packagereq type="default">ruby193-rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
@@ -56,6 +66,8 @@
       <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-open4</packagereq>
       <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-wicked</packagereq>
+      <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
     </packagelist>
   </group>
 </comps>
