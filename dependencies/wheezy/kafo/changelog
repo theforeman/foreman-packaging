@@ -1,3 +1,11 @@
+ruby-kafo (0.5.3-1) stable; urgency=low
+
+  * Include custom params classes (mhulan@redhat.com)
+  * Allow custom params_path configuration using mapping (mhulan@redhat.com)
+  * Load default values of all modules (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 15 Apr 2014 13:28:58 +0000
+
 ruby-kafo (0.5.2-1) stable; urgency=low
 
   * Fixes #4648 - make sure default password are not exposed (mhulan@redhat.com)
