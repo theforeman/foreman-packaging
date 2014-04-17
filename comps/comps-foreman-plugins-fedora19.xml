@@ -43,12 +43,18 @@
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
 
+      <packagereq type="default">rubygem-algebrick</packagereq>
+      <packagereq type="default">rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-dalli</packagereq>
       <packagereq type="default">rubygem-dalli-doc</packagereq>
       <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-diffy</packagereq>
       <packagereq type="default">rubygem-diffy-doc</packagereq>
+      <packagereq type="default">rubygem-dynflow</packagereq>
+      <packagereq type="default">rubygem-dynflow-doc</packagereq>
       <packagereq type="default">rubygem-ftools</packagereq>
       <packagereq type="default">rubygem-ftools-doc</packagereq>
       <packagereq type="default">rubygem-open4</packagereq>
