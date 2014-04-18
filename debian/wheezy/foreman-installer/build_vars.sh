@@ -1,1 +1,1 @@
-UPSTREAM=develop
+UPSTREAM=1.5.0-RC1
