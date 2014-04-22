@@ -1,0 +1,102 @@
+From 34b1087870c2bf85ebfd72c30b78577e10ab9744 Mon Sep 17 00:00:00 2001
+From: "Hongli Lai (Phusion)" <hongli@phusion.nl>
+Date: Tue, 28 Jan 2014 19:17:39 +0100
+Subject: [PATCH] Fix low-urgency security vulnerability: writing files to
+ arbitrary directory by hijacking temp directories.
+
+---
+ NEWS                           | 30 ++++++++++++++++++++++++++++++
+ ext/common/ServerInstanceDir.h |  2 +-
+ ext/common/Utils.cpp           | 29 +++++++++++++++++++++++++++++
+ ext/common/Utils.h             |  8 +++++++-
+ 4 files changed, 67 insertions(+), 2 deletions(-)
+
+diff --git a/ext/common/ServerInstanceDir.h b/ext/common/ServerInstanceDir.h
+index 136437a..8da3cf3 100644
+--- a/ext/common/ServerInstanceDir.h
++++ b/ext/common/ServerInstanceDir.h
+@@ -213,7 +213,7 @@ class ServerInstanceDir: public noncopyable {
+ 		 * generations no matter what user they're running as.
+ 		 */
+ 		if (owner) {
+-			switch (getFileType(path)) {
++			switch (getFileTypeNoFollowSymlinks(path)) {
+ 			case FT_NONEXISTANT:
+ 				createDirectory(path);
+ 				break;
+diff --git a/ext/common/Utils.cpp b/ext/common/Utils.cpp
+index 1f3dec5..d1db8d6 100644
+--- a/ext/common/Utils.cpp
++++ b/ext/common/Utils.cpp
+@@ -143,6 +143,35 @@
+ 	}
+ }
+ 
++FileType
++getFileTypeNoFollowSymlinks(const StaticString &filename) {
++	struct stat buf;
++	int ret;
++	
++	ret = lstat(filename.c_str(), &buf);
++	if (ret == 0) {
++		if (S_ISREG(buf.st_mode)) {
++			return FT_REGULAR;
++		} else if (S_ISDIR(buf.st_mode)) {
++			return FT_DIRECTORY;
++		} else if (S_ISLNK(buf.st_mode)) {
++			return FT_SYMLINK;
++		} else {
++			return FT_OTHER;
++		}
++	} else {
++		if (errno == ENOENT) {
++			return FT_NONEXISTANT;
++		} else {
++			int e = errno;
++			string message("Cannot lstat '");
++			message.append(filename);
++			message.append("'");
++			throw FileSystemException(message, e, filename);
++		}
++	}
++}
++
+ void
+ createFile(const string &filename, const StaticString &contents, mode_t permissions, uid_t owner,
+ 	gid_t group, bool overwrite)
+diff --git a/ext/common/Utils.h b/ext/common/Utils.h
+index 41e6214..5cfaf92 100644
+--- a/ext/common/Utils.h
++++ b/ext/common/Utils.h
+@@ -65,6 +65,8 @@
+ 	FT_REGULAR,
+ 	/** A directory. */
+ 	FT_DIRECTORY,
++	/** A symlink. Only returned by getFileTypeNoFollowSymlinks(), not by getFileType(). */
++	FT_SYMLINK,
+ 	/** Something else, e.g. a pipe or a socket. */
+ 	FT_OTHER
+ } FileType;
+@@ -110,7 +112,7 @@ bool fileExists(const StaticString &filename, CachedFileStat *cstat = 0,
+ /**
+  * Check whether 'filename' exists and what kind of file it is.
+  *
+- * @param filename The filename to check.
++ * @param filename The filename to check. It MUST be NULL-terminated.
+  * @param mstat A CachedFileStat object, if you want to use cached statting.
+  * @param throttleRate A throttle rate for cstat. Only applicable if cstat is not NULL.
+  * @return The file type.
+@@ -121,6 +123,10 @@ bool fileExists(const StaticString &filename, CachedFileStat *cstat = 0,
+  */
+ FileType getFileType(const StaticString &filename, CachedFileStat *cstat = 0,
+                      unsigned int throttleRate = 0);
++/**
++ * Like getFileType(), but does not follow symlinks.
++ */
++FileType getFileTypeNoFollowSymlinks(const StaticString &filename);
+ 
+ /**
+  * Create the given file with the given contents, permissions and ownership.
+-- 
+1.8.5.1
+

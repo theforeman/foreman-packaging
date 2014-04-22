@@ -1,7 +1,7 @@
 LoadModule passenger_module modules/mod_passenger.so
 <IfModule mod_passenger.c>
    PassengerRoot @PASSENGERROOT@
-   PassengerRuby /usr/bin/ruby
+   PassengerRuby @BINDIR@/ruby
 </IfModule>
 
 # Deploying a Ruby on Rails application: an example
