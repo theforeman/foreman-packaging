@@ -12,7 +12,7 @@
 %endif
 
 %{!?_httpd_apxs:       %{expand: %%global _httpd_apxs       %%{_sbindir}/apxs}}
-%{!?_httpd_mmn:        %{expand: %%global _httpd_mmn        %%(cat %{_includedir}/httpd/.mmn 2>/dev/null || echo missing-httpd-devel)}}
+%{!?_httpd_mmn:        %{expand: %%global _httpd_mmn        %%(cat %{_root_includedir}/httpd/.mmn 2>/dev/null || echo missing-httpd-devel)}}
 %{!?_httpd_confdir:    %{expand: %%global _httpd_confdir    %%{_sysconfdir}/httpd/conf.d}}
 # /etc/httpd/conf.d with httpd < 2.4 and defined as /etc/httpd/conf.modules.d with httpd >= 2.4
 %{!?_httpd_modconfdir: %{expand: %%global _httpd_modconfdir %%{_sysconfdir}/httpd/conf.d}}
@@ -21,7 +21,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9%{?dist}
+Release: 9.1%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -404,6 +404,9 @@ rake test --trace ||:
 %{gem_extdir}/lib
 
 %changelog
+* Tue Apr 22 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.1
+- Fix expansion of httpd_mmn in SCL build (dcleal@redhat.com)
+
 * Wed Mar 05 2014 Jan Kaluza <jkaluza@redhat.com> - 4.0.18-9
 - fix the dependency on daemon-controller (#1072927)
 
