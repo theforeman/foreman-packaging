@@ -1,3 +1,9 @@
+foreman-installer (1.4.3-1) stable; urgency=low
+
+  * 1.4.3 released
+
+ -- Daniel Lobato Garcia <elobatocs@gmail.com>  Tue, 22 Apr 2014 13:45:00 +0100
+
 foreman-installer (1.4.2-1) stable; urgency=low
 
   * 1.4.2 released
