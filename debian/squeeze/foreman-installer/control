@@ -13,9 +13,10 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-foreman-api,
-         ruby-kafo (>= 0.4.0),
+         ruby-kafo (>= 0.5.3),
          puppet (>= 2.7.0),
-         rubygems
+         rubygems,
+         curl
 Description: Automated puppet-based installer for The Foreman
  Foreman-installer is a set of puppet modules wrapped in ruby
  library to provide a nice frontend menu for configuring it.
