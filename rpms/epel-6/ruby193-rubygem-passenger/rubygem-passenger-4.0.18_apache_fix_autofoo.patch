@@ -1,0 +1,12 @@
+diff -urp passenger-release-4.0.18.orig/build/basics.rb passenger-release-4.0.18/build/basics.rb
+--- passenger-release-4.0.18.orig/build/basics.rb	2013-09-17 13:47:54.000000000 -0500
++++ passenger-release-4.0.18/build/basics.rb	2013-09-23 16:11:12.926455965 -0500
+@@ -138,7 +138,7 @@ LIBEXT   = PlatformInfo.library_extensio
+ USE_DMALLOC = boolean_option('USE_DMALLOC')
+ USE_EFENCE  = boolean_option('USE_EFENCE')
+ USE_ASAN    = boolean_option('USE_ASAN')
+-OPTIMIZATION_FLAGS = "#{PlatformInfo.debugging_cflags} -DPASSENGER_DEBUG -DBOOST_DISABLE_ASSERTS -fcommon".strip
++OPTIMIZATION_FLAGS = "#{ENV['CXXFLAGS']} #{PlatformInfo.debugging_cflags} -DPASSENGER_DEBUG -DBOOST_DISABLE_ASSERTS -fcommon".strip
+ OPTIMIZATION_FLAGS << " -O" if OPTIMIZE
+ OPTIMIZATION_FLAGS << " -feliminate-unused-debug-symbols -feliminate-unused-debug-types" if PlatformInfo.compiler_supports_feliminate_unused_debug?
+ OPTIMIZATION_FLAGS << " -fvisibility=hidden -DVISIBILITY_ATTRIBUTE_SUPPORTED" if PlatformInfo.compiler_supports_visibility_flag?
