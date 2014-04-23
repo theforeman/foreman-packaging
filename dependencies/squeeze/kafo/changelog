@@ -1,3 +1,9 @@
+ruby-kafo (0.5.4-1) stable; urgency=low
+
+  * Allow adding custom modules in hooks (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 23 Apr 2014 08:53:13 +0000
+
 ruby-kafo (0.5.3-1) stable; urgency=low
 
   * Include custom params classes (mhulan@redhat.com)
