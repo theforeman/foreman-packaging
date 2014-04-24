@@ -1,0 +1,23 @@
+Source: foreman-installer
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), asciidoc, rake, libxml2-utils,
+               xsltproc, git, ca-certificates, ruby-dev
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman-installer
+XS-Ruby-Versions: all
+
+Package: foreman-installer
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-foreman-api,
+         ruby-kafo (>= 0.4.0),
+         puppet (>= 2.7.0)
+Description: Automated puppet-based installer for The Foreman
+ Foreman-installer is a set of puppet modules wrapped in ruby
+ library to provide a nice frontend menu for configuring it.
+ .
+ The installer can configure Foreman, Foreman Proxy, Puppet,
+ TFTP, DNS, and DHCP. All sections are optional and configurable.
