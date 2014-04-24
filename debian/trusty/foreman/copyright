@@ -1,0 +1,23 @@
+This package was debianized by Greg Sutcliffe <greg.sutcliffe@gmail.com>
+on Sun, 18 Jul 2010 10:09:29 +0302
+
+It was downloaded from: http://www.theforeman.org/
+
+Upstream Author(s):
+
+	Ohad Levy
+	Paul Kelly
+
+Copyright:
+
+       Copyright (C) 2009-2013 by Ohad Levy and Paul Kelly
+
+License: GPL-3
+
+	On any Debian system, you can find the complete text of the GNU GPL
+	(GNU General Public License) in the file '/usr/share/common-licenses/GPL-3'.
+
+Packaging:
+
+	Copyright (C) 2013 by Greg Sutcliffe <greg.sutcliffe@gmail.com>
+	released under the GPL-3, see '/usr/share/common-licenses/GPL-3'.

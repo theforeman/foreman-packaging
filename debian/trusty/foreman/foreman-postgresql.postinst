@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for foreman-*
+# postinst script for foreman-pqsql
 #
 # see: dh_installdeb(1)
 
@@ -20,25 +20,19 @@ trap db_stop EXIT
 # Update gems
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  if bundle show foreman_setup >/dev/null 2>&1; then
-    bundle update foreman_setup
-  else
-    bundle install
-  fi
+  bundle update --local
 else
-  if bundle show foreman_setup >/dev/null 2>&1; then
-    bundle update foreman_setup 2>&1 >> $LOGFILE
-  else
-    bundle install 2>&1 >> $LOGFILE
-  fi
+  bundle update --local 2>&1 >> $LOGFILE
 fi
 
-# DB migrate after install
+# Run a db:migrate and db:seed if the user has created a dbfile
 if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
     /usr/sbin/foreman-rake db:migrate || true
+    /usr/sbin/foreman-rake db:seed || true
   else
     /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
   fi
 fi
 
