@@ -1,0 +1,59 @@
+Source: ruby-rkerberos
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Uploaders: Greg Sutcliffe <gsutclif@redhat.com>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.0~), libkrb5-dev, rake
+Standards-Version: 3.9.3
+XS-Ruby-Versions: all
+
+Package: ruby-rkerberos
+Architecture: any
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Suggests: doc-base
+Replaces: libkrb5-ruby (<< 0.7-3~), libkrb5-ruby1.8 (<< 0.7-3~), libkrb5-ruby1.9.1 (<< 0.7-3~), libkrb5-ruby-doc (<< 0.7-3~), ruby-krb5-auth
+Breaks: libkrb5-ruby (<< 0.7-3~), libkrb5-ruby1.8 (<< 0.7-3~), libkrb5-ruby1.9.1 (<< 0.7-3~), libkrb5-ruby-doc (<< 0.7-3~), ruby-krb5-auth
+Provides: libkrb5-ruby, libkrb5-ruby1.8, libkrb5-ruby1.9.1, libkrb5-ruby-doc, ruby-krb5-auth
+Description: Kerberos binding for Ruby
+ Ruby kerberos provides basic Kerberos bindings for ruby which allow
+ authentication, password changes, adding principals, and deleting
+ principals.
+
+Package: libkrb5-ruby
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rkerberos
+Description: Transitional package for ruby-rkerberos
+ This is a transitional package to ease upgrades to the ruby-rkerberos
+ package. It can safely be removed.
+
+Package: libkrb5-ruby1.8
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rkerberos
+Description: Transitional package for ruby-rkerberos
+ This is a transitional package to ease upgrades to the ruby-rkerberos
+ package. It can safely be removed.
+
+Package: libkrb5-ruby1.9.1
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rkerberos
+Description: Transitional package for ruby-rkerberos
+ This is a transitional package to ease upgrades to the ruby-rkerberos
+ package. It can safely be removed.
+
+Package: libkrb5-ruby-doc
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-rkerberos
+Description: Transitional package for ruby-rkerberos
+ This is a transitional package to ease upgrades to the ruby-rkerberos
+ package. It can safely be removed.
+
