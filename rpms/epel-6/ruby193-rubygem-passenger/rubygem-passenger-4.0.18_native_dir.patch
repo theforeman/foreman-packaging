@@ -7,7 +7,7 @@ index 994c379..d2b84fc 100644
  	
  	def load_from_load_path
 -		require 'passenger_native_support'
-+		require "%%NATIVE_SUPPORT_DIR%%/native/#{library_name}"
++		require 'native/passenger_native_support'
  		return true
  	rescue LoadError
  		return false
