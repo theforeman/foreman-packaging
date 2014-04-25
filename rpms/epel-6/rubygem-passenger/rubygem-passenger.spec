@@ -8,7 +8,13 @@
 %endif
 
 %if 0%{?rhel} <= 6
+%if 0%{?scl:1}
 %{!?gem_extdir:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{version}}
+%global gem_extdir_lib %{gem_extdir}/lib
+%else
+%{!?gem_extdir:%global gem_extdir %(ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")}
+%global gem_extdir_lib %{gem_extdir}
+%endif
 %endif
 
 %{!?_root_includedir:%global _root_includedir %{_includedir}}
@@ -22,7 +28,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.2%{?dist}
+Release: 9.4%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -211,7 +217,7 @@ rebuilding this package.
     -e 's|%%%%GEM_INSTALL_DIR%%%%|%{gem_instdir}|g' \
     -e 's|%%%%APACHE_INSTALLED_MOD%%%%|%{_httpd_moddir}|g' \
     -e 's|%%%%AGENTS_DIR%%%%|%{gem_extdir}/agents|g' \
-    -e 's|%%%%NATIVE_SUPPORT_DIR%%%%|%{gem_extdir}/lib|g' \
+    -e 's|%%%%NATIVE_SUPPORT_DIR%%%%|%{gem_extdir_lib}|g' \
     lib/phusion_passenger.rb \
     lib/phusion_passenger/native_support.rb \
     ext/common/ResourceLocator.h
@@ -317,8 +323,8 @@ sed -i 's|\$localstatedir|%{_localstatedir}|' \
 # %endif
 
 # Bring over just the native binaries
-%{__mkdir_p} %{buildroot}%{gem_extdir}/lib/native
-install -m 0755 buildout/ruby/ruby*linux/passenger_native_support.so %{buildroot}%{gem_extdir}/lib/native
+%{__mkdir_p} %{buildroot}%{gem_extdir_lib}/native
+install -m 0755 buildout/ruby/ruby*linux/passenger_native_support.so %{buildroot}%{gem_extdir_lib}/native
 
 # Remove zero-length and non-needed files
 find %{buildroot}%{gem_instdir} -type f -size 0c -delete
@@ -333,6 +339,11 @@ find %{buildroot}%{gem_instdir} -type f -size 0c -delete
 %{__rm} %{buildroot}%{_bindir}/%{gem_name}-install-apache2-module
 %{__rm} %{buildroot}%{_bindir}/%{gem_name}-install-nginx-module
 %{__rm} %{buildroot}%{gem_instdir}/Rakefile
+
+# Patch gemspec to indicate we have extensions, so Fedora's patched rubygems
+# will add the 'exts' load path
+sed -i '/Gem::Specification.new/ a s.extensions = ["workaround"]' \
+    %{buildroot}%{gem_spec}
 
 %check
 %if 0%{?scl:1}
@@ -402,9 +413,18 @@ rake test --trace ||:
 
 %files native-libs
 %dir %{gem_extdir}
-%{gem_extdir}/lib
+%{gem_extdir_lib}
 
 %changelog
+* Fri Apr 25 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.4
+- Keep passenger_native_support in native/ dir for RHSCL compatibility
+- Fix extdir on Ruby 1.8 (dcleal@redhat.com)
+
+* Thu Apr 24 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.3
+- Replace native library loading patch, force rubygems to add 'exts' to load
+  path instead (dcleal@redhat.com)
+- Fix ruby_libdir for Ruby 1.8 builds (dcleal@redhat.com)
+
 * Tue Apr 22 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.2
 - Fix expansion of _root_includedir in non-SCL build (dcleal@redhat.com)
 
