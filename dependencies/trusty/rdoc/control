@@ -1,0 +1,23 @@
+Source: ruby-rdoc
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~),
+  rake,
+  ruby-json (>= 1.4),
+  ruby-minitest
+Standards-Version: 3.9.3
+Homepage: http://docs.seattlerb.org/rdoc
+XS-Ruby-Versions: all
+
+Package: ruby-rdoc
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-json (>= 1.4)
+Description: RDoc produces HTML and command-line documentation for Ruby projects
+ RDoc produces HTML and command-line documentation for Ruby projects.  RDoc
+ includes the +rdoc+ and +ri+ tools for generating and displaying online
+ documentation.
+ .
+ See RDoc for a description of RDoc's markup and basic use.
