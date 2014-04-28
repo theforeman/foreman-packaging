@@ -41,7 +41,6 @@
       <packagereq type="default">ruby193-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext</packagereq>
       <packagereq type="default">ruby193-rubygem-commonjs</packagereq>
-      <packagereq type="default">ruby193-rubygem-daemon_controller</packagereq>
       <packagereq type="default">ruby193-rubygem-daemons</packagereq>
       <packagereq type="default">ruby193-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
@@ -135,7 +134,6 @@
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-daemon_controller</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-foreman_api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
