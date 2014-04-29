@@ -21,6 +21,8 @@
       <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_docker</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
@@ -48,12 +50,16 @@
       <packagereq type="default">ruby193-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-params</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-archive-tar-minitar</packagereq>
+      <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
+      <packagereq type="default">ruby193-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
