@@ -1,0 +1,21 @@
+# Example default_hostgroup settings
+#
+# Must be placed in ~foreman/config/settings.plugins.d/
+#
+# :map:
+#   <hostgroup>:    <regex>
+#
+# The regex can be written either with or without the enclosing slashes:
+#   ^test$      - valid
+#   /^test$/    - also valid
+#
+#
+---
+:default_hostgroup:
+    :map:
+        "Internal":         \.local$
+        "Core Services":    \.core.my-company.net$
+        "Customers/Foobar"  \.foobar.customers.my-company.net$
+        "Webserver":        ^www\d*\.
+        "Mailserver":       ^mx\d*\.
+        "Default":          .*
