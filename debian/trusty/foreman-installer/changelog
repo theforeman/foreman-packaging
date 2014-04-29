@@ -1,3 +1,9 @@
+foreman-installer (1.5.0~rc2-2) stable; urgency=low
+
+  * Version bump for patched apache installer
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 29 Apr 2014 16:20:00 +0100
+
 foreman-installer (1.5.0~rc2-1) stable; urgency=low
 
   * 1.5.0 RC2 released
