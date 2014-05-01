@@ -1,5 +1,5 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkgname %{name}}
+%{!?scl:%global pkg_name %{name}}
 
 %define gem_name docker-api
 %global rubyabi 1.9.1
@@ -7,7 +7,7 @@
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api
@@ -42,7 +42,7 @@ interface with Docker version 0.9.*.
 %package doc
 Summary: Documentation for %{name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkgname} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 30 2014 Dominic Cleal <dcleal@redhat.com> 1.8.4-2
+- Fix pkg_name macro for -doc require (dcleal@redhat.com)
+
 * Tue Apr 29 2014 Dominic Cleal <dcleal@redhat.com> 1.8.4-1
 - new package built with tito
 
