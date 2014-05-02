@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (2.0.5) stable; urgency=low
+
+  * Release 2.0.5
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 02 May 2014 17:27:00 +0000
+
 ruby-foreman-bootdisk (2.0.4-1) stable; urgency=low
 
   * Use bundle install when required (for 14.04)
