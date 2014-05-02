@@ -3,12 +3,12 @@
 
 %global gem_name sinatra
 
-%global bootstrap 1
+%global bootstrap 0
 
 Summary:        Ruby-based web application framework
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.2
-Release:        13%{?dist}
+Release:        15%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://sinatra.rubyforge.org
@@ -96,6 +96,9 @@ rm %{buildroot}/%gem_instdir/.yardopts # Remove YARD configuration
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 1.3.2-14
+- remove bootstrap (msuchy@redhat.com)
+
 * Thu Feb 28 2013 Miroslav Suchý <msuchy@redhat.com> 1.3.2-13
 - allow bootstrap (msuchy@redhat.com)
 
