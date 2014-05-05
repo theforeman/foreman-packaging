@@ -12,8 +12,8 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-foreman-api,
          ruby-kafo (>= 0.5.3),
+         ruby-apipie-bindings (>= 0.0.6),
          puppet (>= 2.7.0),
          rubygems,
          curl
