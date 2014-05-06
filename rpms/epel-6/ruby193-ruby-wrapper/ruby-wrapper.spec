@@ -8,7 +8,7 @@
 Summary: Wrapper for %{scl_prefix} ruby.
 Name: %{?scl:%scl_prefix}ruby-wrapper
 Version: 0.0.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License:  ASL 2.0
 URL: https://github.com/maxamillion/ruby-wrapper
@@ -37,9 +37,15 @@ install -p -m0755 %{SOURCE1} %{buildroot}%{_root_bindir}/%{scl_prefix}rake
 install -p -m0755 %{SOURCE2} %{buildroot}%{_root_bindir}/%{scl_prefix}rails
 
 # Modify the shim/wrapper to include the correct scl
+%if "%{?scl}" == "ruby193"
+sed -i 's/FIXMESCL/%{scl}\nif scl -l | grep -qw ^v8314$; then\nSCL="ruby193 v8314"\nfi/' %{buildroot}%{_root_bindir}/%{scl_prefix}ruby
+sed -i 's/FIXMESCL/%{scl}\nif scl -l | grep -qw ^v8314$; then\nSCL="ruby193 v8314"\nfi/' %{buildroot}%{_root_bindir}/%{scl_prefix}rake
+sed -i 's/FIXMESCL/%{scl}\nif scl -l | grep -qw ^v8314$; then\nSCL="ruby193 v8314"\nfi/' %{buildroot}%{_root_bindir}/%{scl_prefix}rails
+%else
 sed -i s/FIXMESCL/%{scl}/ %{buildroot}%{_root_bindir}/%{scl_prefix}ruby
 sed -i s/FIXMESCL/%{scl}/ %{buildroot}%{_root_bindir}/%{scl_prefix}rake
 sed -i s/FIXMESCL/%{scl}/ %{buildroot}%{_root_bindir}/%{scl_prefix}rails
+%endif
 
 mkdir -p %{buildroot}%{wrapper_doc_dir}
 
@@ -62,6 +68,9 @@ exit 1
 
 
 %changelog
+* Tue May 06 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-5
+- Enable v8 collection too for SCL 1.1 (jmontleo@redhat.com)
+
 * Tue Dec 03 2013 Eric D Helms <ehelms@redhat.com> 0.0.2-4
 - new package built with tito
 
