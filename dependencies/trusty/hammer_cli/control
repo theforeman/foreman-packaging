@@ -1,0 +1,26 @@
+Source: ruby-hammer-cli
+Section: ruby
+Priority: optional
+Maintainer: Tomas Strachota <tstrachota@redhat.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: http://github.com/theforeman/hammer-cli
+XS-Ruby-Versions: all
+
+Package: ruby-hammer-cli
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-clamp (>= 0.6.2),
+         ruby-rest-client,
+         ruby-logging,
+         ruby-table-print (>= 1.5.1),
+         ruby-awesome-print,
+         ruby-highline,
+         ruby-mime-types (< 2.0.0),
+         ruby-fast-gettext (>= 0.8.0),
+         ruby-locale,
+         ruby-json (>= 1.6.1),
+         ruby-apipie-bindings (>= 0.0.6)
+Description: Universal command-line interface
+ Hammer cli provides universal extendable CLI interface for ruby apps

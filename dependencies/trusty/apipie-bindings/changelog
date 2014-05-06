@@ -1,0 +1,11 @@
+ruby-apipie-bindings (0.0.8-1) stable; urgency=low
+
+  * Update to 0.0.8
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Thu, 7 May 2014 14:50:32 -0500
+
+ruby-apipie-bindings (0.0.6-1) stable; urgency=low
+
+  * First Trusty release
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Tues, 6 May 2014 16:10:00 +0000
