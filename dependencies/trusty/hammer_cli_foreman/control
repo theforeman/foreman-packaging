@@ -1,0 +1,17 @@
+Source: ruby-hammer-cli-foreman
+Section: ruby
+Priority: optional
+Maintainer: Tomas Strachota <tstrachota@redhat.com>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: http://github.com/theforeman/hammer-cli-foreman
+XS-Ruby-Versions: all
+
+Package: ruby-hammer-cli-foreman
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-hammer-cli (>= 0.1.0)
+Description: Foreman commands for Hammer
+ Foreman commands for Hammer CLI
