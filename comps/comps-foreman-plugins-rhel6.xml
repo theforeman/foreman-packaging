@@ -74,6 +74,8 @@
       <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
+
+      <packagereq type="default">foreman-installer-staypuft</packagereq>
     </packagelist>
   </group>
 </comps>

@@ -63,6 +63,8 @@
       <packagereq type="default">rubygem-ftools-doc</packagereq>
       <packagereq type="default">rubygem-open4</packagereq>
       <packagereq type="default">rubygem-open4-doc</packagereq>
+
+      <packagereq type="default">foreman-installer-staypuft</packagereq>
     </packagelist>
   </group>
 </comps>
