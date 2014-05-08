@@ -6,6 +6,10 @@
 [buildconfig]
 builder = tito.builder.GitAnnexBuilder
 tagger = tito.tagger.ReleaseTagger
+lib_dir = rel-eng/custom/
+
+[builder]
+fetch_strategy = custom.JenkinsSourceStrategy
 
 # Blacklist any non-SCL packages that are missing SCL macros or they get built
 # in the SCL tag rather than -nonscl
