@@ -1,3 +1,13 @@
+ruby-kafo (0.5.5-1) stable; urgency=low
+
+  * Fixes #5582 - make the Kafo.exit_code set properly in post hooks
+    (inecas@redhat.com)
+  * s/hooks_dir/hook_dirs/ (inecas@redhat.com)
+  * Fixes #5452 - Make sure nil is not part of the keys in Puppet resource
+    (inecas@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 13 May 2014 12:42:40 +0000
+
 ruby-kafo (0.5.4-1) stable; urgency=low
 
   * Allow adding custom modules in hooks (mhulan@redhat.com)
