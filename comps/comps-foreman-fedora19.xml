@@ -79,7 +79,6 @@
       <packagereq type="default">rubygem-rails3_before_render</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
       <packagereq type="default">rubygem-rbvmomi</packagereq>
-      <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-ruby2ruby</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
