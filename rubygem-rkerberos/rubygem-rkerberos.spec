@@ -8,6 +8,17 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
 
+%{!?_pkgdocdir:%global _pkgdocdir %{_docdir}/%{name}}
+
+%if 0%{?rhel} == 6 && 0%{!?scl:1}
+%{!?gem_extdir_mri:%global gem_extdir_mri %(ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")}
+%global gem_extdir_mri_lib %{gem_extdir_mri}
+%else
+%{!?gem_extdir_mri:%global gem_extdir_mri %{gem_extdir}}
+%global gem_extdir_mri_lib %{gem_extdir_mri}/lib
+%endif
+
+
 %global gem_name rkerberos
 
 Summary: A Ruby interface for the the Kerberos library
@@ -28,7 +39,7 @@ BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby-devel
 BuildRequires: krb5-devel
-BuildRequires: %{?scl_prefix}rubygem-rake-compiler
+#BuildRequires: %{?scl_prefix}rubygem-rake-compiler
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -75,8 +86,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/lib
-mv %{buildroot}%{gem_instdir}/lib/rkerberos.so %{buildroot}%{gem_extdir_mri}/lib/
+mkdir -p %{buildroot}%{gem_extdir_mri_lib}
+mv %{buildroot}%{gem_instdir}/lib/rkerberos.so %{buildroot}%{gem_extdir_mri_lib}
 
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{ext,tmp}
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc

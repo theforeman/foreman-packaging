@@ -19,6 +19,7 @@ blacklist = rubygem-clamp
   rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
+  rubygem-rkerberos
   rubygem-sinatra
   rubygem-table_print
   rubygem-terminal-table
