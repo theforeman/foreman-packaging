@@ -185,4 +185,4 @@ whitelist = rubygem-ftools
   rubygem-puppetdb_foreman
 
 [requirements]
-tito=0.5.4
+tito=0.5.5
