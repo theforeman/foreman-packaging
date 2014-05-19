@@ -135,6 +135,7 @@
       <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
+      <packagereq type="default">rubygem-ffi</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
@@ -145,17 +146,22 @@
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
+      <packagereq type="default">rubygem-mime-types</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-oauth</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
+      <packagereq type="default">rubygem-rack</packagereq>
+      <packagereq type="default">rubygem-rack-protection</packagereq>
       <packagereq type="default">rubygem-rdoc</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
+      <packagereq type="default">rubygem-sinatra</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
+      <packagereq type="default">rubygem-tilt</packagereq>
     </packagelist>
   </group>
 </comps>
