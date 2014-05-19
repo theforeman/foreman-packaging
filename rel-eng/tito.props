@@ -15,6 +15,7 @@ blacklist = rubygem-clamp
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-mime-types
   rubygem-powerbar
   rubygem-table_print
   rubygem-terminal-table
@@ -55,6 +56,7 @@ whitelist = rubygem-awesome_print
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = rubygem-ffi
+  rubygem-mime-types
 
 [foreman-nightly-fedora19]
 disttag = .fc19
