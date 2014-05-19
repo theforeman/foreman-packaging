@@ -64,6 +64,7 @@ whitelist = rubygem-ffi
   rubygem-rack
   rubygem-rack-protection
   rubygem-rkerberos
+  rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
 
