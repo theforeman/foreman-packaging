@@ -1,0 +1,26 @@
+commit 11f90fd2957cf5a2b3d5c3421f28b910e58b3fd9
+Author: Bohuslav Kabrda <bkabrda@redhat.com>
+Date:   Thu Mar 7 15:36:38 2013 +0100
+
+    Fix test failures with RDoc 4 broken by commit rdoc/rdoc@7f0033d
+
+diff --git a/test/rdoc_test.rb b/test/rdoc_test.rb
+index 7d22a1c..3fa7872 100644
+--- a/test/rdoc_test.rb
++++ b/test/rdoc_test.rb
+@@ -16,13 +16,13 @@ class RdocTest < Test::Unit::TestCase
+   it 'renders inline rdoc strings' do
+     rdoc_app { rdoc '= Hiya' }
+     assert ok?
+-    assert_body /<h1[^>]*>Hiya<\/h1>/
++    assert_body /<h1[^>]*>Hiya(<span><a href=\"#label-Hiya\">&para;<\/a> <a href=\"#documentation\">&uarr;<\/a><\/span>)?<\/h1>/
+   end
+ 
+   it 'renders .rdoc files in views path' do
+     rdoc_app { rdoc :hello }
+     assert ok?
+-    assert_body /<h1[^>]*>Hello From RDoc<\/h1>/
++    assert_body /<h1[^>]*>Hello From RDoc(<span><a href=\"#label-Hello\+From\+RDoc\">&para;<\/a> <a href=\"#documentation\">&uarr;<\/a><\/span>)?<\/h1>/
+   end
+ 
+   it "raises error if template not found" do

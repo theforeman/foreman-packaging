@@ -19,6 +19,7 @@ blacklist = rubygem-clamp
   rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
+  rubygem-sinatra
   rubygem-table_print
   rubygem-terminal-table
   rubygem-tilt
@@ -62,6 +63,7 @@ whitelist = rubygem-ffi
   rubygem-mime-types
   rubygem-rack
   rubygem-rack-protection
+  rubygem-sinatra
   rubygem-tilt
 
 [foreman-nightly-fedora19]
