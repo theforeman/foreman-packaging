@@ -52,7 +52,6 @@ whitelist = rubygem-awesome_print
   rubygem-rdoc
   rubygem-rkerberos
   rubygem-rubyipmi
-  rubygem-sinatra
   rubygem-table_print
   rubygem-terminal-table
   rubygem-thor
