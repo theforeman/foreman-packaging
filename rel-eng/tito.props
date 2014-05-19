@@ -18,6 +18,7 @@ blacklist = rubygem-clamp
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
+  rubygem-rack-protection
   rubygem-table_print
   rubygem-terminal-table
 scl = ruby193
@@ -59,6 +60,7 @@ disttag = .el7
 whitelist = rubygem-ffi
   rubygem-mime-types
   rubygem-rack
+  rubygem-rack-protection
 
 [foreman-nightly-fedora19]
 disttag = .fc19
