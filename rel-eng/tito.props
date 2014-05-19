@@ -21,6 +21,7 @@ blacklist = rubygem-clamp
   rubygem-rack-protection
   rubygem-table_print
   rubygem-terminal-table
+  rubygem-tilt
 scl = ruby193
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
@@ -61,6 +62,7 @@ whitelist = rubygem-ffi
   rubygem-mime-types
   rubygem-rack
   rubygem-rack-protection
+  rubygem-tilt
 
 [foreman-nightly-fedora19]
 disttag = .fc19
