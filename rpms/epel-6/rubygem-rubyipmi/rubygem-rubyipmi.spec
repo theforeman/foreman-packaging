@@ -3,41 +3,27 @@
 
 %global gem_name rubyipmi
 
-# we are using this gem also as non-SCL in RHEL6
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3+
 URL: http://github.com/logicminds/rubyipmi
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
+%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
 Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi)
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
 Requires: ipmitool
-%if 0%{?fedora} > 18
+%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
-BuildRequires: %{?scl_prefix}ruby
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
-%else
-BuildRequires: %{?scl_prefix}rubygems
-%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -89,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Mon May 19 2014 Dominic Cleal <dcleal@redhat.com> 0.7.0-2
+- Modernise and update for EL7
+
 * Thu Oct 17 2013 Dominic Cleal <dcleal@redhat.com> 0.7.0-1
 - Rebase to rubyipmi 0.7.0 (dcleal@redhat.com)
 
