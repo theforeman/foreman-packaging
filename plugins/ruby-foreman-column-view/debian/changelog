@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.2.0-1) stable; urgency=low
+
+  * Update nokogiri on install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Tue, 20 May 2014 21:23:00 +0000
+
 ruby-foreman-column-view (0.2.0) unstable; urgency=low
 
   * Release 0.2.0
