@@ -19,9 +19,14 @@ trap db_stop EXIT
 
 # Update gems
 cd /usr/share/foreman
+# Nokogiri causes us pain due to tight dependencies within deface
+# so update it first. We rescue it as trusty will return non-zero if
+# nokogiri isn't in the Gemfile.
 if [ ! -z "${DEBUG}" ]; then
+  bundle update nokogiri || true
   bundle update foreman_dhcp_browser
 else
+  bundle update nokogiri 2>&1 >> $LOGFILE || true
   bundle update foreman_dhcp_browser 2>&1 >> $LOGFILE
 fi
 
