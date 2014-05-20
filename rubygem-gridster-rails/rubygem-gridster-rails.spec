@@ -78,3 +78,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 20 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
+- new package built with tito
+
