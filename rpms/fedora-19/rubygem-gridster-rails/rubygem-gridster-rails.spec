@@ -7,13 +7,13 @@
 Summary: This gem provides jquery.gridster.js and jquery.gridster.css for your Rails 3 application
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+%if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
 Requires: %{?scl_prefix}rubygem(railties) < 4.0.0
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-2
+- Remove RHEL 7 from ruby(release) conditional (dcleal@redhat.com)
+
 * Tue May 20 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
 - new package built with tito
 
