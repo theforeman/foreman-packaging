@@ -1,6 +1,9 @@
 #!/bin/bash
 
-for spec in */*.spec; do
+dir='*'
+[ -n "$1" ] && dir=$1
+
+for spec in $dir/*.spec; do
   d=$(dirname $spec)
   source0=$(spectool --list-files $spec | awk '{print $2}' | head -n1)
   sourcebase=$(basename "$source0")
