@@ -126,6 +126,9 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed May 21 2014 Dominic Cleal <dcleal@redhat.com> 1.3.0-0.1.rc3
+- Update foreman_discovery to 1.3.0.rc3 (dcleal@redhat.com)
+
 * Fri Apr 18 2014 Lukas Zapletal <lzap+git@redhat.com> 1.3.0-0.1.rc2
 - foreman_discovery-1.3.0.rc2 bump (lzap+git@redhat.com)
 - Set minimum Foreman version of 1.5 (dcleal@redhat.com)
