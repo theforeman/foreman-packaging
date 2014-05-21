@@ -13,7 +13,7 @@ License: MIT
 URL: https://github.com/vanetten/gridster-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+%if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
 Requires: %{?scl_prefix}rubygem(railties) < 4.0.0
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
