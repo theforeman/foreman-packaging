@@ -30,6 +30,12 @@ blacklist = rubygem-clamp
   rubygem-tilt
 scl = ruby193
 
+# Temporarily using a whitelist until parity with RHEL 6 is reached
+[foreman-nightly-rhel7]
+disttag = .el7
+whitelist = rubygem-gridster-rails
+scl = ruby193
+
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
 #
 # Is your package *only* non-SCL?  If so, add it to the blacklist above or it
