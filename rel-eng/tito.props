@@ -177,6 +177,7 @@ whitelist = ipxe
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
+  rubygem-foreman_xen
   rubygem-staypuft
   rubygem-foreman_templates
   rubygem-puppetdb_foreman
@@ -186,6 +187,7 @@ whitelist = ipxe
 disttag = .el7
 scl = ruby193
 whitelist = rubygem-foreman_discovery
+  rubygem-foreman_xen
 
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
@@ -214,6 +216,7 @@ whitelist = rubygem-ftools
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman_templates
+  rubygem-foreman_xen
   rubygem-puppetdb_foreman
 
 [requirements]
