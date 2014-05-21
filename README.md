@@ -4,31 +4,28 @@ This git repo contains rpm and deb build files, patches, gem2rpm templates, and
 other stuff that might be useful for building packages of Foreman and its
 dependencies.
 
-RPMs
-====
-Foreman RPMs are built using the files in the foreman repo itself, same for
-related subprojects.
+RPM packaging branches
+======================
+We're in the process of migrating RPMs from being built using the files in the
+foreman/subproject repos to foreman-packaging branches.
 
-Dependencies are built using the spec files found under rpms/ in this repo.
-Pull requests gladly accepted for these to the `master` branch.
+The rpm/\* branches contain the spec files for Foreman, related projects and its
+dependencies.  Pull requests gladly accepted for these.  rpm/develop is the first
+and best place to make changes, as it's branched for each release.
 
 Koji's repos are built using the files under comps/, new packages and
 dependencies must be added here.
 
-Debian Packaging Branches
+Debian packaging branches
 =========================
 
-The deb/\* branches contain the Debian packaging files for Foreman and it's
+The deb/\* branches contain the Debian packaging files for Foreman and its
 dependencies. The repo mirrors [Foreman Core](https://github.com/theforeman/foreman),
 i.e. deb/develop is for packaging branch 'develop', deb/1.3 is for packaging release
 1.3.x and so on
 
-Contributing to the debs
-========================
+Contributing
+============
 
-It's generally best to contribute to 'deb/develop' unless something is specifically
-broken for an older release. Please fork and send a PR.
-
-SELinux
-=======
-The SELinux module has moved to [foreman-selinux](https://github.com/theforeman/foreman-selinux/).
+It's generally best to contribute to `rpm/develop` or 'deb/develop' unless something
+is specifically broken for an older release. Please fork and send a PR.
