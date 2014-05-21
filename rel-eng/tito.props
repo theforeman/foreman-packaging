@@ -182,6 +182,11 @@ whitelist = ipxe
   rubygem-puppetdb_foreman
   rubygem-wicked
 
+[foreman-plugins-nightly-rhel7]
+disttag = .el7
+scl = ruby193
+whitelist = rubygem-foreman_discovery
+
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
 whitelist = rubygem-ftools
