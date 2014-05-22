@@ -186,7 +186,8 @@ whitelist = ipxe
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = ruby193
-whitelist = rubygem-foreman_discovery
+whitelist = rubygem-foreman_bootdisk
+  rubygem-foreman_discovery
   rubygem-foreman_xen
 
 [foreman-plugins-nightly-fedora19]
