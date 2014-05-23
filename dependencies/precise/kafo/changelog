@@ -1,3 +1,13 @@
+ruby-kafo (0.6.0-1) stable; urgency=low
+
+  * Enable progress bar with Puppet 3.6 (mhulan@redhat.com)
+  * Add custom configuration storage (mhulan@redhat.com)
+  * Fix #4959 and fix #3224 (mhulan@redhat.com)
+  * Fix #5732 - Refactoring of exit code (mhulan@redhat.com)
+  * Add new type of hooks (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 23 May 2014 11:29:17 +0000
+
 ruby-kafo (0.5.5-1) stable; urgency=low
 
   * Fixes #5582 - make the Kafo.exit_code set properly in post hooks
