@@ -14,7 +14,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
-Source0: %{gemname}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
 Source1: cli_config.yml
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
