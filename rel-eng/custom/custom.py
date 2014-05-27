@@ -79,8 +79,10 @@ class JenkinsSourceStrategy(SourceStrategy):
                 self.builder.project_name),
             self.spec_file)
         for s in os.listdir(self.builder.start_dir):
-            shutil.copyfile(s, os.path.join(self.builder.rpmbuild_sourcedir,
-                os.path.basename(s)))
+            if os.path.exists(os.path.join(self.builder.start_dir, s)):
+                shutil.copyfile(
+                    os.path.join(self.builder.start_dir, s),
+                    os.path.join(self.builder.rpmbuild_sourcedir, os.path.basename(s)))
         print("  %s.spec" % self.builder.project_name)
 
         i = 0
