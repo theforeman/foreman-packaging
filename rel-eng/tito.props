@@ -35,6 +35,7 @@ scl = ruby193
 disttag = .el7
 whitelist = rubygem-gridster-rails
   rubygem-netrc
+  rubygem-rest-client
 scl = ruby193
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
@@ -63,6 +64,7 @@ whitelist = rubygem-awesome_print
   rubygem-passenger
   rubygem-powerbar
   rubygem-rdoc
+  rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-table_print
@@ -76,6 +78,7 @@ whitelist = rubygem-ffi
   rubygem-netrc
   rubygem-rack
   rubygem-rack-protection
+  rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-sinatra
