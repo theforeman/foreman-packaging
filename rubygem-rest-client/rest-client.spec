@@ -5,16 +5,21 @@
 
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.1
-Release: 5%{?dist}
+Version: 1.6.7
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/archiloque/rest-client
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}rubygems
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires: %{?scl_prefix}rubygem(mime-types) >= 1.16
+Requires: %{?scl_prefix}rubygem(netrc)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
