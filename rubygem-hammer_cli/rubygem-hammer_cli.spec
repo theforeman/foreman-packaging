@@ -1,24 +1,20 @@
-%global gemname hammer_cli
+%global gem_name hammer_cli
 %global confdir hammer
 
-%if 0%{?rhel}
-%global gem_dir /usr/lib/ruby/gems/1.8
-%endif
-
-%global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
-
 Summary: Universal command-line interface for Foreman
-Name: rubygem-%{gemname}
+Name: rubygem-%{gem_name}
 Version: 0.1.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
-Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: cli_config.yml
 
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
+%if 0%{?rhel} == 6
 Requires: ruby(abi)
+%else
+Requires: ruby(release)
 %endif
 
 # on ruby 1.8.x
@@ -35,16 +31,16 @@ Requires: rubygem(json)
 Requires: rubygem(fastercsv)
 Requires: rubygem(mime-types) < 2.0.0
 Requires: rubygem(apipie-bindings) >= 0.0.8
-%if 0%{?fedora}
 BuildRequires: rubygems-devel
-%endif
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
+%if 0%{?rhel} == 6
 BuildRequires: ruby(abi)
+%else
+BuildRequires: ruby(release)
 %endif
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
 BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Provides: rubygem(%{gem_name}) = %{version}
 
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps
@@ -79,34 +75,34 @@ mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 
-find %{buildroot}%{geminstdir}/bin -type f | xargs chmod a+x
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
-mv %{buildroot}%{geminstdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gemname}
+mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gem_name}
 
 mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli_config.yml
-rm -r %{buildroot}%{geminstdir}/config
+rm -r %{buildroot}%{gem_instdir}/config
 
 
 %files
-%dir %{geminstdir}
+%dir %{gem_instdir}
 %{_bindir}/hammer
-%{_sysconfdir}/bash_completion.d/%{gemname}
+%{_sysconfdir}/bash_completion.d/%{gem_name}
 %{_sysconfdir}/%{confdir}/cli.modules.d
 %{_sysconfdir}/%{confdir}/cli_config.yml
-%{geminstdir}/bin
-%{geminstdir}/lib
-%{geminstdir}/locale
-%{geminstdir}/LICENSE
-%exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
-%{gem_dir}/specifications/%{gemname}-%{version}.gemspec
+%{gem_instdir}/bin
+%{gem_instdir}/lib
+%{gem_instdir}/locale
+%{gem_instdir}/LICENSE
+%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %files doc
-%doc %{geminstdir}/test
-%doc %{gem_dir}/doc/%{gemname}-%{version}
-%doc %{geminstdir}/doc
-%doc %{geminstdir}/README.md
+%doc %{gem_instdir}/test
+%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_instdir}/doc
+%doc %{gem_instdir}/README.md
 
 %changelog
 * Tue May 20 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.1.1-1

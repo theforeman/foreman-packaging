@@ -12,10 +12,10 @@ Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
 Source:		http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} && 0%{?fedora} > 18
-Requires:	%{?scl_prefix}ruby(release)
-%else
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires:	%{?scl_prefix}ruby(abi)
+%else
+Requires:	%{?scl_prefix}ruby(release)
 %endif
 Requires:	%{?scl_prefix}rubygems
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}

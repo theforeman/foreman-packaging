@@ -2,15 +2,6 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %global gem_name multi_json
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_cache %{gem_dir}/cache
-%global gem_spec %{gem_dir}/specifications
-%endif
-
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
@@ -20,37 +11,23 @@ License: MIT
 URL: http://github.com/intridea/multi_json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} && 0%{?fedora} > 18
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires: %{?scl_prefix}ruby(release)
-%else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-%else
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%endif
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 
-%if 0%{?fedora} && 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.8
-%endif
-%endif
-
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-
 BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}rubygem(json)
-BuildRequires: %{?scl_prefix}rubygem(json_pure)
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+BuildRequires: %{?scl_prefix}ruby(rubygems)
+# BuildRequires: %{?scl_prefix}rubygem(json)
+# BuildRequires: %{?scl_prefix}rubygem(json_pure)
+# BuildRequires: %{?scl_prefix}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # OkJson is allowed to be bundled:

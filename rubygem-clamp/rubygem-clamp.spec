@@ -1,31 +1,27 @@
-%global gemname clamp
-%if 0%{?rhel}
-%global gem_dir /usr/lib/ruby/gems/1.8
-%endif
-%global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
+%global gem_name clamp
 
 Summary: a minimal framework for command-line utilities
-Name: rubygem-%{gemname}
+Name: rubygem-%{gem_name}
 Version: 0.6.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
-Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
-%if 0%{?rhel} || 0%{?fedora} < 19
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+%if 0%{?rhel} == 6
 Requires: ruby(abi)
-%endif
-%if 0%{?fedora}
-BuildRequires: rubygems-devel
+BuildRequires: ruby(abi)
+%else
+Requires: ruby(release)
+BuildRequires: ruby(release)
 %endif
 Requires: ruby(rubygems)
-%if 0%{?rhel} || 0%{?fedora} < 19
-BuildRequires: ruby(abi)
-%endif
+BuildRequires: rubygems-devel
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
 BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Provides: rubygem(%{gem_name}) = %{version}
 
 %description
 Clamp provides an object-model for command-line utilities.
@@ -57,26 +53,26 @@ cp -pa .%{gem_dir}/* \
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}/lib
-%{geminstdir}/spec
-%{geminstdir}/examples
-%{geminstdir}/.rspec
-%{geminstdir}/Gemfile
-%{geminstdir}/Rakefile
-%{geminstdir}/%{gemname}.gemspec
+%dir %{gem_instdir}
+%{gem_instdir}/lib
+%{gem_instdir}/spec
+%{gem_instdir}/examples
+%{gem_instdir}/.rspec
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Rakefile
+%{gem_instdir}/%{gem_name}.gemspec
 
 
-%exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
-%exclude %{geminstdir}/.travis.yml
-%exclude %{geminstdir}/.gitignore
-%exclude %{geminstdir}/.autotest
-%{gem_dir}/specifications/%{gemname}-%{version}.gemspec
+%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.autotest
+%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %files doc
-%doc %{gem_dir}/doc/%{gemname}-%{version}
-%{geminstdir}/README.md
-%{geminstdir}/CHANGES.md
+%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%{gem_instdir}/README.md
+%{gem_instdir}/CHANGES.md
 
 
 %changelog

@@ -3,14 +3,6 @@
 
 %define gem_name oauth
 
-# we are using this gem also as non-SCL in RHEL6
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.7
@@ -20,11 +12,13 @@ License: MIT
 URL: http://rubydoc.info/gems/oauth
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}rubygems
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-BuildRequires: %{?scl_prefix}rubygems-devel
+%else
+Requires: %{?scl_prefix}ruby(release)
 %endif
+BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems-devel
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

@@ -54,8 +54,6 @@
       <packagereq type="default">rubygem-google-api-client</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>

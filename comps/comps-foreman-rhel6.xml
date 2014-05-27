@@ -138,8 +138,6 @@
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-foreman_api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_katello_bridge</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>

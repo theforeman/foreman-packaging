@@ -1,15 +1,6 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir /usr/lib/ruby/gems/1.8
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
 %global gem_name fast_gettext
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
@@ -23,27 +14,17 @@ Group: Development/Languages
 License: MIT and (GPLv2+ or Ruby)
 URL: http://github.com/grosser/fast_gettext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if "%{?scl}" == "ruby193"
-Requires: %{?scl_prefix}ruby-wrapper
-BuildRequires: %{?scl_prefix}ruby-wrapper
-%endif
 
-%if 0%{?fedora} > 18
-Requires: ruby(release) = 2.0.0
-BuildRequires: ruby(release) = 2.0.0
-BuildRequires: rubygems-devel
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
 %else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires:  %{?scl_prefix}rubygems-devel
-%else
-Requires: ruby(abi) = 1.8
-BuildRequires: ruby(abi) = 1.8
-%endif
+Requires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 Requires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 

@@ -1,32 +1,26 @@
-%global gemname table_print
-
-%if 0%{?rhel}
-%global gem_dir /usr/lib/ruby/gems/1.8
-%endif
-%global geminstdir %{gem_dir}/gems/%{gemname}-%{version}
+%global gem_name table_print
 
 Summary: TablePrint turns objects into nicely formatted columns for easy reading
-Name: rubygem-%{gemname}
+Name: rubygem-%{gem_name}
 Version: 1.5.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/arches/table_print
-Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
-%if 0%{?rhel} || 0%{?fedora} < 19
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?rhel} == 6
 Requires: ruby(abi)
+BuildRequires: ruby(abi)
+%else
+Requires: ruby(release)
+BuildRequires: ruby(release)
 %endif
 Requires: ruby(rubygems)
-%if 0%{?rhel} || 0%{?fedora} < 19
-BuildRequires: ruby(abi)
-%endif
-%if 0%{?fedora}
 BuildRequires: rubygems-devel
-%endif
 BuildRequires: ruby(rubygems)
 BuildRequires: ruby
 BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Provides: rubygem(%{gem_name}) = %{version}
 
 %description
 TablePrint turns objects into nicely formatted columns for easy reading.
@@ -59,24 +53,24 @@ cp -pa .%{gem_dir}/* \
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}/lib
-%exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
-%{gem_dir}/specifications/%{gemname}-%{version}.gemspec
-%{geminstdir}/features
-%{geminstdir}/spec
-%{geminstdir}/Rakefile
-%{geminstdir}/.rspec
-%{geminstdir}/Gemfile
-%exclude %{geminstdir}/%{gemname}.gemspec
-%exclude %{geminstdir}/.document
-%exclude %{geminstdir}/.gitignore
-%exclude %{geminstdir}/.travis.yml
+%dir %{gem_instdir}
+%{gem_instdir}/lib
+%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_instdir}/features
+%{gem_instdir}/spec
+%{gem_instdir}/Rakefile
+%{gem_instdir}/.rspec
+%{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/.document
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
 
 %files doc
-%doc %{gem_dir}/doc/%{gemname}-%{version}
-%doc %{geminstdir}/README.rdoc
-%doc %{geminstdir}/LICENSE.txt
+%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/LICENSE.txt
 
 %changelog
 * Fri Mar 21 2014 Martin Bačovský <mbacovsk@redhat.com> 1.5.1-1

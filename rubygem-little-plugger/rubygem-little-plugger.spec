@@ -3,14 +3,6 @@
 
 %global gem_name little-plugger
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache
-%global gem_spec %{gem_dir}/specifications
-%endif
-
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
@@ -21,20 +13,15 @@ URL: http://rubygems.org/gems/little-plugger
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
 
-%if 0%{?fedora} && 0%{?fedora} > 18
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+%else
 Requires: %{?scl_prefix}ruby(release)
-%else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-%else
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%endif
 %endif
 
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
+BuildRequires: %{?scl_prefix}ruby(rubygems)
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+#BuildRequires: %{?scl_prefix}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
