@@ -93,7 +93,7 @@ install -Dp -m0644 %{specdir}/%{name}.tmpfiles %{buildroot}%{_prefix}/lib/tmpfil
 install -Dp -m0644 %{specdir}/logrotate.systemd %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %endif
 
-cp -p -r bin lib Rakefile config.ru %{buildroot}%{_datadir}/%{name}
+cp -p -r bin lib Rakefile config.ru VERSION %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb
 
@@ -120,7 +120,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 rm -rf %{buildroot}
 
 %files
-%doc README LICENSE
+%doc README LICENSE VERSION
 %{_datadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
