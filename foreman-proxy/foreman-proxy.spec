@@ -1,6 +1,5 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
-%global specdir extra/spec
 
 %if "%{?scl}" == "ruby193"
     %global scl_prefix %{scl}-
@@ -18,6 +17,12 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}.tar.bz2
+Source1:        %{name}.sysconfig
+Source2:        %{name}.init
+Source3:        logrotate
+Source4:        %{name}.service
+Source5:        %{name}.tmpfiles
+Source6:        logrotate.systemd
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -84,13 +89,13 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 17
-install -Dp -m0644 %{specdir}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-install -Dp -m0755 %{specdir}/%{name}.init %{buildroot}%{_initrddir}/%{name}
-install -Dp -m0644 %{specdir}/logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
+install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %else
-install -Dp -m0644 %{specdir}/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
-install -Dp -m0644 %{specdir}/%{name}.tmpfiles %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
-install -Dp -m0644 %{specdir}/logrotate.systemd %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}.service
+install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
+install -Dp -m0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %endif
 
 cp -p -r bin lib Rakefile config.ru VERSION %{buildroot}%{_datadir}/%{name}
