@@ -192,57 +192,83 @@ fi
 
 * Thu Sep 05 2013 Lukas Zapletal <lzap+rpm[@]redhat.com> - 1.3.9999-1
 - bump to version 1.3-develop
+
 * Wed Jul 03 2013 Dominic Cleal <dcleal@redhat.com> - 1.2.9999-3
 - add rubyipmi dependency for BMC support
-* Wed Jun 13 2013 Lukas Zapletal <lzap+rpm[@]redhat.com> - 1.2.9999-2
+
+* Tue Jun 11 2013 Lukas Zapletal <lzap+rpm[@]redhat.com> - 1.2.9999-2
 - fixed service file for systemd
 - /etc/sysconfig configuration is no longer in use for systemd
+
 * Thu May 16 2013 Martin Bačovský <mbacovsk@redhat.com> 1.2.9999-1
 - added support for building with tito
+
 * Mon Feb 4 2013 shk@redhat.com 1.1-1
 - 1.1 final.
+
 * Fri Jan 25 2013 shk@redhat.com 1.1RC3-1
 - Updated to RC3
+
 * Wed Jan 09 2013 shk@redhat.com 1.1RC2-1
 - Updated to RC2
 - Removed net-ping dependency
+
 * Tue Jan 1 2013 shk@redhat.com 1.1RC1-1
 - Update to 1.1RC1
+
 * Thu Aug 30 2012 jmontleo@redhat.com 1.0.0-3
 - Update to include up to 330dbef353
+
 * Sun Aug 05 2012 jmontleo@redhat.com 1.0.0-2
 - Update to pull in fixes
+
 * Mon Jul 23 2012 jmontleo@redhat.com 1.0.0-1
 - Update packages for Foreman 1.0 Release.
+
 * Wed Jul 18 2012 jmontleo@redhat.com 1.0.0-0.7
 - Updated pacakages for Foreman 1.0 RC5 and Proxy RC2
+
 * Thu Jul 05 2012 jmontleo@redhat.com 1.0.0-0.6
 - Fix foreman-release to account for different archs. Pull todays source.
+
 * Wed Jul 04 2012 jmontleo@redhat.com 1.0.0-0.5
 - Bump version number for foreman RC3 and build with todays develop branch
+
 * Sun Jul 01 2012 jmontleo@redhat.com 1.0.0-0.4
 - Pull todays develop branch
+
 * Fri Jun 29 2012 jmontleo@redhat.com 1.0.0-0.2
 - Rebuild with develop branch from today. Hopefully we're really 1.0.0 RC2 this time
+
 * Tue Jun 19 2012 jmontleo@redhat.com 0.5.1-9
 - Rebuild with todays develop branch.
+
 * Thu Jun 14 2012 jmontleo@redhat.com 0.5.1-8
 - Rebuild with todays develop branch.
+
 * Tue May 08 2012 Jason Montleon <jmontleo@redhat.com> - 0.5.1-1
 - update version to match foreman package version
+
 * Wed Dec 28 2011 Ohad Levy <ohadlevy@gmail.com> - 0.3.1
 - rebuilt
-* Wed Nov 08 2011 Ohad Levy <ohadlevy@gmail.com> - 0.3
+
+* Tue Nov 08 2011 Ohad Levy <ohadlevy@gmail.com> - 0.3
 - rebuilt
+
 * Wed Sep 28 2011 Ohad Levy <ohadlevy@gmail.com> - 0.3rc2
 - rebuilt
+
 * Sat Sep 10 2011 Ohad Levy <ohadlevy@gmail.com> - 0.3rc1
 - rebuilt
+
 * Mon Jun 6 2011 Ohad Levy <ohadlevy@gmail.com> - 0.2
 - rebuilt
+
 * Thu May 26 2011 ohadlevy@gmail.com - 0.2rc2-2
 - rebuilt
+
 * Thu Feb 24 2011 Ohad Levy <ohadlevy@gmail.com> - 0.1.0rc
 - new package built with tito
+
 * Wed Jan 26 2011 Lukas Zapletal <lzap+git@redhat.com> - 0.1.0
 - new package built with tito
