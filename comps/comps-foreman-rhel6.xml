@@ -78,6 +78,7 @@
       <packagereq type="default">ruby193-rubygem-multipart-post</packagereq>
       <packagereq type="default">ruby193-rubygem-multi-select-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-mysql2</packagereq>
+      <packagereq type="default">ruby193-rubygem-netrc</packagereq>
       <packagereq type="default">ruby193-rubygem-net-ldap</packagereq>
       <packagereq type="default">ruby193-rubygem-net-scp</packagereq>
       <packagereq type="default">ruby193-rubygem-net-ssh</packagereq>
@@ -149,12 +150,14 @@
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
+      <packagereq type="default">rubygem-netrc</packagereq>
       <packagereq type="default">rubygem-oauth</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-rdoc</packagereq>
+      <packagereq type="default">rubygem-rest-client</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
