@@ -1,40 +1,50 @@
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 # Generated from netrc-0.7.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name netrc
 
 Summary: Library to read and write netrc files
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
 Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/netrc
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(release)
-Requires: ruby(rubygems)
-BuildRequires: ruby(release)
-BuildRequires: rubygems-devel
-BuildRequires: ruby
-BuildRequires: rubygem(minitest)
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
+Requires: %{?scl_prefix}ruby(rubygems)
+BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 This library can read and update netrc files, preserving formatting including
 comments and whitespace.
 
-
 %package doc
-Summary: Documentation for %{name}
+Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
+Documentation for %{pkg_name}
 
 %prep
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - << \EOF}
+gem install --local --install-dir .%{gem_dir} \
+            --force --rdoc %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -45,9 +55,10 @@ cp -a .%{gem_dir}/* \
 
 %check
 pushd .%{gem_instdir}
+%{?scl:scl enable %{scl} - << \EOF}
 testrb -Ilib test
+%{?scl:EOF}
 popd
-
 
 %files
 %dir %{gem_instdir}

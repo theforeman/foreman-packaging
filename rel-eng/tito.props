@@ -34,6 +34,7 @@ scl = ruby193
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = rubygem-gridster-rails
+  rubygem-netrc
 scl = ruby193
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
@@ -57,6 +58,7 @@ whitelist = rubygem-awesome_print
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
+  rubygem-netrc
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
@@ -71,6 +73,7 @@ whitelist = rubygem-awesome_print
 disttag = .el7
 whitelist = rubygem-ffi
   rubygem-mime-types
+  rubygem-netrc
   rubygem-rack
   rubygem-rack-protection
   rubygem-rkerberos
