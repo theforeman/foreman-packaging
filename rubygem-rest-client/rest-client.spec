@@ -66,6 +66,9 @@ rm -rf %{buildroot}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Tue May 27 2014 Dominic Cleal <dcleal@redhat.com> 1.6.7-1
+- Update to 1.6.7, support RHEL 7
+
 * Wed Feb 27 2013 Miroslav Suchý <msuchy@redhat.com> 1.6.1-4
 - BR rubygems-devel (msuchy@redhat.com)
 
