@@ -75,7 +75,8 @@ whitelist = foreman-proxy
 
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = rubygem-ffi
+whitelist = foreman-proxy
+  rubygem-ffi
   rubygem-mime-types
   rubygem-netrc
   rubygem-rack

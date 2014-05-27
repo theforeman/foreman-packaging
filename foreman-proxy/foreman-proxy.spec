@@ -27,14 +27,10 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || (0%{?fedora} > 16 && 0%{?fedora} < 19)
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
 %else
-%if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
-%else
-Requires: %{?scl_prefix}ruby(abi) = 1.8
-%endif
 %endif
 
 Requires:       %{?scl_prefix}rubygems
@@ -47,7 +43,7 @@ Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if 0%{?rhel} == 6
 Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
@@ -88,7 +84,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if 0%{?rhel} == 6
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -133,7 +129,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if 0%{?rhel} == 6
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %else
@@ -150,7 +146,7 @@ getent passwd foreman-proxy >/dev/null || \
 exit 0
 
 %post
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if 0%{?rhel} == 6
   /sbin/chkconfig --add %{name}
   exit 0
 %else
@@ -162,7 +158,7 @@ exit 0
 %preun
 if [ $1 -eq 0 ] ; then
   # Package removal, not upgrade
-  %if 0%{?rhel} == 6 || 0%{?fedora} < 17
+  %if 0%{?rhel} == 6
     /sbin/service %{name} stop >/dev/null 2>&1
     /sbin/chkconfig --del %{name}
   %else
@@ -172,7 +168,7 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %postun
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
+%if 0%{?rhel} == 6
   if [ $1 -ge 1 ] ; then
     /sbin/service %{name} restart >/dev/null 2>&1
   fi
