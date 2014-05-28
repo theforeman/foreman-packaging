@@ -1,1 +1,1 @@
-etc/foreman-proxy/settings.yml usr/share/foreman-proxy/config/settings.yml
+etc/foreman-proxy usr/share/foreman-proxy/config

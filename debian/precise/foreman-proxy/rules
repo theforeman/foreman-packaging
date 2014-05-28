@@ -9,5 +9,11 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+build:
+	rename 's/.example//' config/settings.d/*
+	mv config foreman-proxy # dh_install doesn't rename things
+	mv Gemfile Gemfile.in
+	dh $@
+
 %:
-	dh $@ 
+	dh $@
