@@ -34,7 +34,8 @@ scl = ruby193
 # Temporarily using a whitelist until parity with RHEL 6 is reached
 [foreman-nightly-rhel7]
 disttag = .el7
-whitelist = rubygem-gridster-rails
+whitelist = rubygem-bundler_ext
+  rubygem-gridster-rails
   rubygem-netrc
   rubygem-rest-client
 scl = ruby193
@@ -49,6 +50,7 @@ whitelist = foreman-proxy
   rubygem-awesome_print
   rubygem-ansi
   rubygem-apipie-bindings
+  rubygem-bundler_ext
   rubygem-clamp
   rubygem-daemon_controller
   rubygem-fast_gettext
@@ -76,6 +78,7 @@ whitelist = foreman-proxy
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-proxy
+  rubygem-bundler_ext
   rubygem-ffi
   rubygem-mime-types
   rubygem-netrc
