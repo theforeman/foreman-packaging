@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/aeolus-incubator/bundler_ext
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Wed May 28 2014 Dominic Cleal <dcleal@redhat.com> 0.3.0-6
+- Update for EL7
+
 * Thu Jun 06 2013 Miroslav Suchý <msuchy@redhat.com> 0.3.0-5
 - change ruby(abi) to ruby(release) for F19+ (msuchy@redhat.com)
 
