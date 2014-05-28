@@ -26,6 +26,7 @@ Source6:        logrotate.systemd
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
+BuildRequires:  /usr/bin/rename
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires: %{?scl_prefix}ruby(abi)
@@ -40,6 +41,7 @@ Requires:       %{?scl_prefix}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos)
 Requires:       %{?scl_prefix}rubygem(rubyipmi)
 Requires:       %{?scl_prefix}rubygem(gssapi)
+Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
@@ -68,20 +70,28 @@ Mainly used by the foreman project (http://theforeman.org)
 
 #replace shebangs for SCL
 %if %{?scl:1}%{!?scl:0}
-  for f in bin/smart-proxy extra/query.rb extra/changelog; do
+  for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' extra/spec/foreman-proxy.init
 %endif
 
+#replace default location of 'settings.d'
+sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
+  %{confdir}/settings.yml.example
+
+# switches to bundler_ext instead of bundler
+mv Gemfile Gemfile.in
 
 %install
 rm -rf %{buildroot}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/config
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
+install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
+install -d -m0750 %{buildroot}%{_localstatedir}/lib/rpm-state/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
 %if 0%{?rhel} == 6
@@ -94,7 +104,7 @@ install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
 install -Dp -m0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %endif
 
-cp -p -r bin lib Rakefile config.ru VERSION %{buildroot}%{_datadir}/%{name}
+cp -p -r bin extra lib modules Rakefile Gemfile.in bundler.d config.ru VERSION %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb
 
@@ -104,6 +114,8 @@ find %{buildroot}%{_datadir}/%{name} -type d -name "test" |xargs rm -rf
 # Move config files to %{_sysconfdir}
 install -Dp -m0644 %{confdir}/settings.yml.example %{buildroot}%{_sysconfdir}/%{name}/settings.yml
 ln -sv %{_sysconfdir}/%{name}/settings.yml %{buildroot}%{_datadir}/%{name}/config/settings.yml
+install -Dp -m0644 %{confdir}/settings.d/*.example %{buildroot}%{_sysconfdir}/%{name}/settings.d/
+rename .example '' %{buildroot}%{_sysconfdir}/%{name}/settings.d/*
 
 # Put HTML %{_localstatedir}/lib/%{name}/public
 for x in public views; do
@@ -126,6 +138,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
+%dir %attr(-,%{name},%{name}) %{_localstatedir}/lib/rpm-state/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
@@ -143,9 +156,31 @@ getent group foreman-proxy >/dev/null || \
   groupadd -r foreman-proxy
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy deamon user" foreman-proxy
+
+# Keep monolithic config in case it's replaced with the new default
+if [ $1 == 2 ]; then
+  test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir %{_localstatedir}/lib/rpm-state/%{name}
+  cp %{_sysconfdir}/%{name}/settings.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig
+fi
+
 exit 0
 
 %post
+# Migrate legacy monolithic proxy config
+if [ $1 == 2 ]; then
+  pushd %{_localstatedir}/lib/rpm-state/%{name} >/dev/null
+  if %{homedir}/extra/migrate_settings.rb settings.yml.orig; then
+    mv settings.yml %{_sysconfdir}/%{name}
+    sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
+      %{_sysconfdir}/%{name}/settings.yml
+    rm -f settings.yml.orig
+    ls *.yml >/dev/null 2>&1 && mv *.yml %{_sysconfdir}/%{name}/settings.d/
+  else
+    rm -f settings.yml.orig
+  fi
+  popd >/dev/null
+fi
+
 %if 0%{?rhel} == 6
   /sbin/chkconfig --add %{name}
   exit 0
