@@ -15,7 +15,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   7%{?dist}
+Release:   8%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -107,6 +107,10 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.0.11-8
+- Modernise and update for EL7 (dcleal@redhat.com)
+- Fix location of binary (dcleal@redhat.com)
+
 * Fri Sep 27 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-7
 - Powerbar fixes (mhulan@redhat.com)
 
