@@ -1,21 +1,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir /usr/lib/ruby/gems/1.8
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
 %global gem_name fast_gettext
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 14%{?dist}
+Release: 15%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -23,27 +14,17 @@ Group: Development/Languages
 License: MIT and (GPLv2+ or Ruby)
 URL: http://github.com/grosser/fast_gettext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if "%{?scl}" == "ruby193"
-Requires: %{?scl_prefix}ruby-wrapper
-BuildRequires: %{?scl_prefix}ruby-wrapper
-%endif
 
-%if 0%{?fedora} > 18
-Requires: ruby(release) = 2.0.0
-BuildRequires: ruby(release) = 2.0.0
-BuildRequires: rubygems-devel
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
 %else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires:  %{?scl_prefix}rubygems-devel
-%else
-Requires: ruby(abi) = 1.8
-BuildRequires: ruby(abi) = 1.8
-%endif
+Requires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 Requires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -102,6 +83,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.8.0-15
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-14
 - remove unnecessary Require for rubygems-devel. Only needed as a BuildRequire
   (jmontleo@redhat.com)
@@ -119,7 +103,7 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 - update build dependencies (jmontleo@redhat.com)
 
 * Mon Mar 17 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-4
-- 
+-
 
 * Mon Dec 02 2013 Jason Montleon <jmontleo@redhat.com> 0.8.0-3
 - Temporary file permission fix for string.rb (lzap+git@redhat.com)
