@@ -6,7 +6,7 @@
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/Apipie/apipie-bindings
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.8-2
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Wed May 07 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.0.8-1
 - Update apipie-bindings to 0.0.8 (martin.bacovsky@gmail.com)
 
