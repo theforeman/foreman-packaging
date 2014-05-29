@@ -6,7 +6,7 @@
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/michaeldv/awesome_print
@@ -97,6 +97,9 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.0.2-10
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.0.2-9
 - Make the spec work on fedora + RHEL + scl (shk@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
