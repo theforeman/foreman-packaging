@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	7%{?dist}
+Release:	8%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -163,6 +163,9 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.9-8
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-7
 - new package built with tito
 
