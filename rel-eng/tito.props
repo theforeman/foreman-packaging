@@ -20,6 +20,7 @@ blacklist = foreman-proxy
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-locale
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
@@ -34,9 +35,18 @@ scl = ruby193
 # Temporarily using a whitelist until parity with RHEL 6 is reached
 [foreman-nightly-rhel7]
 disttag = .el7
-whitelist = rubygem-bundler_ext
+whitelist = rubygem-apipie-bindings
+  rubygem-awesome_print
+  rubygem-bundler_ext
+  rubygem-fast_gettext
+  rubygem-fastercsv
   rubygem-gridster-rails
+  rubygem-highline
+  rubygem-little-plugger
+  rubygem-logging
+  rubygem-multi_json
   rubygem-netrc
+  rubygem-oauth
   rubygem-rest-client
 scl = ruby193
 
@@ -47,9 +57,9 @@ scl = ruby193
 [foreman-nightly-nonscl-rhel6]
 disttag = .el6
 whitelist = foreman-proxy
-  rubygem-awesome_print
   rubygem-ansi
   rubygem-apipie-bindings
+  rubygem-awesome_print
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-daemon_controller
@@ -78,16 +88,30 @@ whitelist = foreman-proxy
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-proxy
+  rubygem-apipie-bindings
+  rubygem-awesome_print
   rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-fast_gettext
+  rubygem-fastercsv
   rubygem-ffi
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-highline
+  rubygem-little-plugger
+  rubygem-locale
+  rubygem-logging
   rubygem-mime-types
+  rubygem-multi_json
   rubygem-netrc
+  rubygem-oauth
   rubygem-rack
   rubygem-rack-protection
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-sinatra
+  rubygem-table_print
   rubygem-tilt
 
 [foreman-nightly-fedora19]
@@ -97,7 +121,6 @@ whitelist = foreman-proxy
   rubygem-ansi
   rubygem-apipie-bindings
   rubygem-autoparse
-  rubygem-awesome_print
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
