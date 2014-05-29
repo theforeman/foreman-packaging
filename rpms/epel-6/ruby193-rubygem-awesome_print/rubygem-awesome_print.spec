@@ -1,25 +1,31 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from awesome_print-1.0.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name awesome_print
-%global rubyabi 1.9.1
 
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 7%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/michaeldv/awesome_print
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires:      %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+Requires:      %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
+
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}rubygem-rspec
+#BuildRequires: %{?scl_prefix}rubygem-rspec
+
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -91,6 +97,14 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.0.2-10
+- Modernise and update for EL7 (dcleal@redhat.com)
+
+* Thu Aug 15 2013 Sam Kottler <shk@redhat.com> 1.0.2-9
+- Make the spec work on fedora + RHEL + scl (shk@redhat.com)
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Tue Mar 12 2013 Miroslav Suchý <msuchy@redhat.com> 1.0.2-7
 - new package built with tito
 
