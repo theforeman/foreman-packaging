@@ -152,7 +152,6 @@ whitelist = foreman-installer
   rubygem-gridster-rails
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
-  rubygem-hashie
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode
