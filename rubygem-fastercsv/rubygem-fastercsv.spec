@@ -6,7 +6,7 @@
 Summary:	Faster, smaller and cleaner replacement to standard CSV library
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.5.4
-Release:	6%{?dist}
+Release:	7%{?dist}
 License:	GPLv2 or Ruby
 Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
@@ -70,6 +70,9 @@ done
 %{gem_instdir}/test/
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.5.4-7
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Tue Jan 07 2014 Dominic Cleal <dcleal@redhat.com> 1.5.4-6
 - Update spec for Fedora 19 with ruby(release) (dcleal@redhat.com)
 - remove empty tito.props and definition which are duplicate with default from
