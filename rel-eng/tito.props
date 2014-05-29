@@ -93,6 +93,7 @@ whitelist = foreman-installer
 disttag = .el7
 whitelist = foreman-proxy
   foreman-selinux
+  rubygem-ansi
   rubygem-apipie-bindings
   rubygem-awesome_print
   rubygem-bundler_ext
@@ -102,6 +103,7 @@ whitelist = foreman-proxy
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-hashie
   rubygem-highline
   rubygem-little-plugger
   rubygem-locale
@@ -110,6 +112,7 @@ whitelist = foreman-proxy
   rubygem-multi_json
   rubygem-netrc
   rubygem-oauth
+  rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
   rubygem-rest-client
