@@ -124,7 +124,8 @@ whitelist = foreman-proxy
 
 [foreman-nightly-fedora19]
 disttag = .fc19
-whitelist = foreman-installer
+whitelist = foreman
+  foreman-installer
   foreman-proxy
   foreman-selinux
   rubygem-apipie-rails
