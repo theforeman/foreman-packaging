@@ -1,0 +1,7 @@
+#!/bin/bash
+
+COMMAND="rails $@"
+SCL=FIXMESCL
+
+scl enable $SCL "$COMMAND"
+

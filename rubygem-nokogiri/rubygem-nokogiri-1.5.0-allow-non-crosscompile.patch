@@ -1,0 +1,26 @@
+--- nokogiri-1.5.0/Rakefile.debug	2012-01-18 16:23:02.472224272 +0900
++++ nokogiri-1.5.0/Rakefile	2012-01-18 16:23:29.935430496 +0900
+@@ -83,14 +83,21 @@
+     HOE.spec.files += ['lib/nokogiri/nokogiri.jar']
+   end
+ else
+-  require 'tasks/cross_compile'
++  do_cross_compile = true
++  begin
++    require 'tasks/cross_compile'
++  rescue RuntimeError => e
++    warn "WARNING: Could not perform some cross-compiling: #{e}"
++    do_cross_compile = false
++  end
+   require "rake/extensiontask"
+ 
+-  HOE.spec.files.reject! { |f| f =~ %r{^ext/java|\.jar$} }
++  HOE.spec.files.reject! { |f| f =~ %r{^ext/java|\.jar$} } if do_cross_compile
+ 
+   Rake::ExtensionTask.new("nokogiri", HOE.spec) do |ext|
+     ext.lib_dir = File.join(*['lib', 'nokogiri', ENV['FAT_DIR']].compact)
+     ext.config_options << ENV['EXTOPTS']
++    next unless do_cross_compile
+     ext.cross_compile  = true
+     ext.cross_platform = ["x86-mswin32-60", "x86-mingw32"]
+     ext.cross_config_options << "--with-xml2-include=#{File.join($recipes[:libxml2].path, 'include', 'libxml2')}"
