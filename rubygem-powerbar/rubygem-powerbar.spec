@@ -67,19 +67,23 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%if 0%{?fedora} > 18
-%gem_install
-%else
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+mkdir -p .%{_bindir}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
-    %{gem_name}-%{version}.gem
+    --bindir .%{_bindir} %{gem_name}-%{version}.gem
 %{?scl:"}
+%else
+%gem_install
 %endif
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
+
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 
 %files
 %exclude %{gem_instdir}/.gitignore
@@ -95,10 +99,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_libdir}
 %dir %{gem_instdir}/bin
 %{gem_instdir}/bin/powerbar-demo
-
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
-%{gem_dir}/bin/powerbar-demo
-%endif
+%{_bindir}/powerbar-demo
 
 %files doc
 %doc %{gem_instdir}/README.rdoc
