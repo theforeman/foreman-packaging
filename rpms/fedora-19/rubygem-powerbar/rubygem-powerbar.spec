@@ -2,42 +2,20 @@
 %{?scl:%scl_package rubygems-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# check files-sections at the end of this file and 
+# check files-sections at the end of this file and
 
 %global gem_name powerbar
 
 %define _version 1.0.11
-%define _summary "The last progressbar-library you'll ever need" 
-%define _url "https://github.com/busyloop/powerbar"
+%define _summary The last progressbar-library you'll ever need
+%define _url https://github.com/busyloop/powerbar
 %define _license MIT
 
 %define desc The last progressbar-library you'll ever need
 
-Requires: %{?scl_prefix}rubygem(ansi) >= 1.4.0
-Requires: %{?scl_prefix}rubygem(hashie) >= 1.1.0
-
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%if "%{?scl}" == "ruby193"
-%define rubyabi 1.9.1
-%else
-%define rubyabi 1.8
-%endif
-%else
-%define rubyabi 1.9.1
-%endif
-
-%if 0%{?rhel} == 6 &&  "%{?scl}" != "ruby193"
-%global gem_dir %(ruby -rubygems -e 'puts Gem.dir' 2>/dev/null)
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
-%endif
-
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   7%{?dist}  
+Release:   8%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -47,21 +25,20 @@ Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-%if 0%{?fedora} > 18
+Requires:  %{?scl_prefix}rubygem(ansi) >= 1.4.0
+Requires:  %{?scl_prefix}rubygem(ansi) <  1.5.0
+Requires:  %{?scl_prefix}rubygem(hashie) >= 1.1.0
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+Requires:  %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires:  %{?scl_prefix}ruby(release)
-%else 
-Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 Requires:  %{?scl_prefix}rubygems
 
-%if 0%{?fedora} || "%{?scl}" == "ruby193"
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix}rubygems
 
 %description
@@ -90,21 +67,25 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%if 0%{?fedora} > 18
-%gem_install
-%else
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+mkdir -p .%{_bindir}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
-    %{gem_name}-%{version}.gem
+    --bindir .%{_bindir} %{gem_name}-%{version}.gem
 %{?scl:"}
+%else
+%gem_install
 %endif
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
-%files 
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
+
+%files
 %exclude %{gem_instdir}/.gitignore
 %exclude %dir %{gem_instdir}/ass
 %exclude %{gem_instdir}/ass/screenshot.png
@@ -118,10 +99,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_libdir}
 %dir %{gem_instdir}/bin
 %{gem_instdir}/bin/powerbar-demo
-
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
-%{gem_dir}/bin/powerbar-demo
-%endif
+%{_bindir}/powerbar-demo
 
 %files doc
 %doc %{gem_instdir}/README.rdoc
@@ -129,6 +107,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.0.11-8
+- Modernise and update for EL7 (dcleal@redhat.com)
+- Fix location of binary (dcleal@redhat.com)
+
 * Fri Sep 27 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-7
 - Powerbar fixes (mhulan@redhat.com)
 
