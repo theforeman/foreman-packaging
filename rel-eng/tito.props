@@ -15,7 +15,8 @@ fetch_strategy = custom.JenkinsSourceStrategy
 # in the SCL tag rather than -nonscl
 [foreman-nightly-rhel6]
 disttag = .el6
-blacklist = foreman-proxy
+blacklist = foreman-installer
+  foreman-proxy
   rubygem-clamp
   rubygem-ffi
   rubygem-hammer_cli
@@ -56,7 +57,8 @@ scl = ruby193
 # will get built in the wrong tag.
 [foreman-nightly-nonscl-rhel6]
 disttag = .el6
-whitelist = foreman-proxy
+whitelist = foreman-installer
+  foreman-proxy
   rubygem-ansi
   rubygem-apipie-bindings
   rubygem-awesome_print
@@ -116,7 +118,8 @@ whitelist = foreman-proxy
 
 [foreman-nightly-fedora19]
 disttag = .fc19
-whitelist = foreman-proxy
+whitelist = foreman-installer
+  foreman-proxy
   rubygem-apipie-rails
   rubygem-ansi
   rubygem-apipie-bindings
