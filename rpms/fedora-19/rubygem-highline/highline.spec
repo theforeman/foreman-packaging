@@ -1,42 +1,23 @@
 %{?scl:%scl_package rubygem-%{gemname}}
 %{!?scl:%global pkg_name %{name}}
 
-# check files-sections at the end of this file and 
+# check files-sections at the end of this file and
 # EDIT this section
 
 %global gem_name highline
 
 %define _version 1.6.21
-%define _summary "HighLine is a high-level command-line IO library" 
-%define _url "https://github.com/JEG2/highline"
+%define _summary HighLine is a high-level command-line IO library
+%define _url https://github.com/JEG2/highline
 %define _license GPLv2+ or Ruby
 
 # add gem dependencies, e.g. "Requires: %{?scl_prefix}rubygem(rails) > 3.2"
 
 # end of EDIT
 
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%if "%{?scl}" == "ruby193"
-%define rubyabi 1.9.1
-%else
-%define rubyabi 1.8
-%endif
-%else
-%define rubyabi 1.9.1
-%endif
-
-%if 0%{?rhel} == 6 &&  "%{?scl}" != "ruby193"
-%global gem_dir %(ruby -rubygems -e 'puts Gem.dir' 2>/dev/null)
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
-%endif
-
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}  
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -46,28 +27,21 @@ Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-%if 0%{?fedora} > 18
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires:  %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires:  %{?scl_prefix}ruby(release)
-%else 
-Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 Requires:  %{?scl_prefix}rubygems
 
-%if 0%{?fedora} || "%{?scl}" == "ruby193"
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix}rubygems
 
 %description
-A high-level IO library that provides validation, type conversion, and more
-for
-command-line interfaces. HighLine also includes a complete menu system that
-can
+A high-level IO library that provides validation, type conversion, and more for
+command-line interfaces. HighLine also includes a complete menu system that can
 crank out anything from simple list selection to complete shells with just
 minutes of work.
 
@@ -122,6 +96,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.6.21-2
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Mon Mar 10 2014 Marek Hulan <mhulan@redhat.com> 1.6.21-1
 - Update highline to 1.6.21 (mhulan@redhat.com)
 
