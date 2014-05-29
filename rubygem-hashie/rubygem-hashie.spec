@@ -14,7 +14,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   0%{?dist}
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.5-1
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Fri Sep 06 2013 Marek Hulan <mhulan@redhat.com> 2.0.5-0
 - new package built with tito
 
