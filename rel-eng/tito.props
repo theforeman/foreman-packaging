@@ -115,6 +115,7 @@ whitelist = foreman-proxy
   rubygem-multi_json
   rubygem-netrc
   rubygem-oauth
+  rubygem-passenger
   rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection

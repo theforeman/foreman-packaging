@@ -2,9 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name net-ldap
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%global gem_libdir %{gem_instdir}/lib
-%endif
 
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
