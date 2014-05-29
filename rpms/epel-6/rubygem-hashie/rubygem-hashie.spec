@@ -1,39 +1,20 @@
 %{?scl:%scl_package rubygems-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# check files-sections at the end of this file and 
+# check files-sections at the end of this file and
 
 %global gem_name hashie
 
 %define _version 2.0.5
-%define _summary "Your friendly neighborhood hash toolkit." 
-%define _url "https://github.com/intridea/hashie"
+%define _summary Your friendly neighborhood hash toolkit.
+%define _url https://github.com/intridea/hashie
 %define _license MIT
 
 %define desc Hashie is a small collection of tools that make hashes more powerful. Currently includes Mash (Mocking Hash) and Dash (Discrete Hash)
 
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%if "%{?scl}" == "ruby193"
-%define rubyabi 1.9.1
-%else
-%define rubyabi 1.8
-%endif
-%else
-%define rubyabi 1.9.1
-%endif
-
-%if 0%{?rhel} == 6 &&  "%{?scl}" != "ruby193"
-%global gem_dir %(ruby -rubygems -e 'puts Gem.dir' 2>/dev/null)
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
-%endif
-
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   0%{?dist}  
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -43,21 +24,16 @@ Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-%if 0%{?fedora} > 18
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+Requires:  %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires:  %{?scl_prefix}ruby(release)
-%else 
-Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 Requires:  %{?scl_prefix}rubygems
 
-%if 0%{?fedora} || "%{?scl}" == "ruby193"
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix}rubygems
 
 %description
@@ -100,7 +76,7 @@ gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
-%files 
+%files
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.document
 %exclude %{gem_instdir}/.rspec
@@ -125,6 +101,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.5-1
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Fri Sep 06 2013 Marek Hulan <mhulan@redhat.com> 2.0.5-0
 - new package built with tito
 
