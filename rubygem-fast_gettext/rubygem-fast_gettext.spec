@@ -6,7 +6,7 @@
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 14%{?dist}
+Release: 15%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -83,6 +83,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.8.0-15
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Wed Mar 19 2014 Jason Montleon <jmontleo@redhat.com> 0.8.0-14
 - remove unnecessary Require for rubygems-devel. Only needed as a BuildRequire
   (jmontleo@redhat.com)
