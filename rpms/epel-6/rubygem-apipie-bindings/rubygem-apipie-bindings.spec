@@ -3,56 +3,34 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir /usr/lib/ruby/gems/1.8
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
-%global geminstdir %{gem_dir}/gems/%{gem_name}-%{version}
-
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/Apipie/apipie-bindings
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires: ruby(rubygems)
-Requires: rubygem(rest-client)
-Requires: rubygem(awesome_print)
-Requires: rubygem(fastercsv)
-Requires: rubygem(oauth)
-Requires: rubygem(json) >= 1.2.1
-Requires: rubygem(mime-types) < 2.0.0
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(rest-client)
+Requires: %{?scl_prefix}rubygem(awesome_print)
+Requires: %{?scl_prefix}rubygem(fastercsv)
+Requires: %{?scl_prefix}rubygem(oauth)
+Requires: %{?scl_prefix}rubygem(json) >= 1.2.1
+Requires: %{?scl_prefix}rubygem(mime-types) < 2.0.0
 
-%if "%{?scl}" == "ruby193"
-Requires: %{?scl_prefix}ruby-wrapper
-BuildRequires: %{?scl_prefix}ruby-wrapper
-%endif
-
-%if 0%{?fedora} > 18
-Requires: ruby(release) = 2.0.0
-BuildRequires: ruby(release) = 2.0.0
-BuildRequires: rubygems-devel
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires:      %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}rubygems-devel
 %else
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires:  %{?scl_prefix}rubygems-devel
-%else
-Requires: ruby(abi) = 1.8
-BuildRequires: ruby(abi) = 1.8
+Requires:      %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}rubygems-devel
 %endif
-%endif
-Requires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems
 
+BuildRequires: %{?scl_prefix}ruby(rubygems)
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -86,10 +64,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}/lib
-%doc %{geminstdir}/LICENSE
-%{geminstdir}/test
+%dir %{gem_instdir}
+%{gem_instdir}/lib
+%doc %{gem_instdir}/LICENSE
+%{gem_instdir}/test
 
 
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
@@ -97,11 +75,14 @@ cp -pa .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
-%doc %{geminstdir}/README.md
-%doc %{geminstdir}/LICENSE
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/LICENSE
 
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.8-2
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Wed May 07 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.0.8-1
 - Update apipie-bindings to 0.0.8 (martin.bacovsky@gmail.com)
 
