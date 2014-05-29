@@ -6,7 +6,7 @@
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.7
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
@@ -55,6 +55,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.4.7-6
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Wed Jul 03 2013 Lukas Zapletal <lzap+git@redhat.com> 0.4.7-5
 - rubygem-oauth works for non-SCL as well (lzap+git@redhat.com)
 - remove empty tito.props and definition which are duplicate with default from
