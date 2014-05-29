@@ -17,7 +17,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -96,6 +96,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.6.21-2
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Mon Mar 10 2014 Marek Hulan <mhulan@redhat.com> 1.6.21-1
 - Update highline to 1.6.21 (mhulan@redhat.com)
 
