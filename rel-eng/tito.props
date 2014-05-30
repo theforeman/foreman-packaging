@@ -12,7 +12,7 @@ lib_dir = rel-eng/custom/
 fetch_strategy = custom.JenkinsSourceStrategy
 
 # Blacklist any non-SCL packages that are missing SCL macros or they get built
-# in the SCL tag rather than -nonscl
+# in the SCL tag rather than -nonscl.  Don't forget -rhel7 below too!
 [foreman-nightly-rhel6]
 disttag = .el6
 blacklist = foreman-installer
@@ -34,22 +34,25 @@ blacklist = foreman-installer
   rubygem-tilt
 scl = ruby193
 
-# Temporarily using a whitelist until parity with RHEL 6 is reached
 [foreman-nightly-rhel7]
 disttag = .el7
-whitelist = rubygem-apipie-bindings
-  rubygem-awesome_print
-  rubygem-bundler_ext
-  rubygem-fast_gettext
-  rubygem-fastercsv
-  rubygem-gridster-rails
-  rubygem-highline
-  rubygem-little-plugger
-  rubygem-logging
-  rubygem-multi_json
-  rubygem-netrc
-  rubygem-oauth
-  rubygem-rest-client
+blacklist = foreman-installer
+  foreman-proxy
+  foreman-selinux
+  rubygem-clamp
+  rubygem-ffi
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-locale
+  rubygem-mime-types
+  rubygem-powerbar
+  rubygem-rack
+  rubygem-rack-protection
+  rubygem-rkerberos
+  rubygem-sinatra
+  rubygem-table_print
+  rubygem-terminal-table
+  rubygem-tilt
 scl = ruby193
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
