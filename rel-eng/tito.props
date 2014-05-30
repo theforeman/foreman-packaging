@@ -22,7 +22,6 @@ blacklist = foreman-installer
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
-  rubygem-locale
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
@@ -43,7 +42,6 @@ blacklist = foreman-installer
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
-  rubygem-locale
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
