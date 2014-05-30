@@ -3,18 +3,16 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
 
-%if 0%{?fedora} >= 19
+%if 0%{?fedora} >= 19 || 0%{?rhel} >= 7
 %global gem_extdir %{gem_extdir_mri}
 %endif
 
-%if 0%{?rhel} <= 6
 %if 0%{?scl:1}
 %{!?gem_extdir:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{version}}
 %global gem_extdir_lib %{gem_extdir}/lib
 %else
 %{!?gem_extdir:%global gem_extdir %(ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")}
 %global gem_extdir_lib %{gem_extdir}
-%endif
 %endif
 
 %{!?_root_includedir:%global _root_includedir %{_includedir}}
@@ -25,10 +23,16 @@
 %{!?_httpd_modconfdir: %{expand: %%global _httpd_modconfdir %%{_sysconfdir}/httpd/conf.d}}
 %{!?_httpd_moddir:    %{expand: %%global _httpd_moddir    %%{_libdir}/httpd/modules}}
 
+%if 0%{?rhel} == 7 && 0%{!?scl:1}
+%global enable_check 0
+%else
+%global enable_check 1
+%endif
+
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.4%{?dist}
+Release: 9.5%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -83,7 +87,11 @@ Requires: %{?scl_prefix}rubygems
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(rack)
 Requires: %{?scl_prefix}rubygem(rake)
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
 Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 
 %if 0%{?rhel} >= 6 || 0%{?fedora} >= 15
 BuildRequires:  libcurl-devel
@@ -108,7 +116,9 @@ BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.1
 BuildRequires: %{?scl_prefix}rubygem(rack)
+%if %{enable_check}
 BuildRequires: %{?scl_prefix}rubygem(rspec)
+%endif
 BuildRequires: %{?scl_prefix}rubygem(mime-types)
 # BuildRequires: source-highlight
 
@@ -365,7 +375,9 @@ sed -i \
 
 %{__cp} test/config.json.example test/config.json
 
+%if %{enable_check}
 rake test --trace ||:
+%endif
 
 %files
 %doc %{gem_instdir}/README.md
@@ -402,6 +414,9 @@ rake test --trace ||:
 %{gem_instdir}/ext
 
 %files -n %{?scl_prefix}mod_passenger
+%if 0%{?rhel} >= 7
+%config(noreplace) %{_httpd_confdir}/*.conf
+%endif
 %config(noreplace) %{_httpd_modconfdir}/*.conf
 %{_httpd_moddir}/mod_passenger.so
 %doc doc/Users?guide?Apache.txt
@@ -416,6 +431,9 @@ rake test --trace ||:
 %{gem_extdir_lib}
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.5
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Fri Apr 25 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.4
 - Keep passenger_native_support in native/ dir for RHSCL compatibility
 - Fix extdir on Ruby 1.8 (dcleal@redhat.com)
