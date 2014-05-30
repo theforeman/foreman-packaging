@@ -12,12 +12,7 @@ if [ -f /etc/sysconfig/foreman ]; then
     . /etc/sysconfig/foreman
 fi
 
-function run_in_scl() {
-   scl enable ruby193 "thin $*"
-}
-
 prog=foreman
-THIN=/usr/bin/thin
 RETVAL=0
 FOREMAN_PORT=${FOREMAN_PORT:-3000}
 FOREMAN_USER=${FOREMAN_USER:-foreman}
@@ -25,31 +20,16 @@ FOREMAN_HOME=${FOREMAN_HOME:-/usr/share/foreman}
 export HOME=$FOREMAN_HOME
 FOREMAN_ENV=${FOREMAN_ENV:-production}
 FOREMAN_USE_PASSENGER=${FOREMAN_USE_PASSENGER:-0}
-FOREMAN_USE_THIN=${FOREMAN_USE_THIN:-0}
 
 if [[ -z $FOREMAN_PID ]]
 then
-    if [[ $FOREMAN_USE_THIN = 1 ]]
-    then
-        FOREMAN_PID=${FOREMAN_HOME}/tmp/pids/thin.*.pid
-    else
-        FOREMAN_PID=${FOREMAN_HOME}/tmp/pids/server.pid
-    fi
+    FOREMAN_PID=${FOREMAN_HOME}/tmp/pids/server.pid
 fi
 
 start() {
     echo -n $"Starting $prog: "
-    if [[ $FOREMAN_USE_THIN = 1 ]]
-    then
-        $THIN start --user ${FOREMAN_USER} \
-            --environment $FOREMAN_ENV \
-            --group ${FOREMAN_USER} \
-            --config /etc/foreman/thin.yml \
-            --rackup "${FOREMAN_HOME}/config.ru"
-    else
-        cd ${FOREMAN_HOME}
-        daemon --user ${FOREMAN_USER} /usr/bin/ruby ${FOREMAN_HOME}/script/rails s -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d ${FOREMAN_EXTRA_ARGS} > /dev/null
-    fi
+    cd ${FOREMAN_HOME}
+    daemon --user ${FOREMAN_USER} /usr/bin/ruby ${FOREMAN_HOME}/script/rails s -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d ${FOREMAN_EXTRA_ARGS} > /dev/null
     RETVAL=$?
     if [ $RETVAL = 0 ]
     then

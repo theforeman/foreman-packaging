@@ -74,7 +74,6 @@ Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 3.0.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.2.0
 Requires: %{?scl_prefix}rubygem(bundler_ext)
-Requires: %{?scl_prefix}rubygem(thin)
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.10.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 1.0.0
@@ -390,7 +389,6 @@ plugins required for Foreman to work.
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' %{SOURCE1}
-  sed -ri '1,$s|THIN=/usr/bin/thin|THIN="run_in_scl"|' %{SOURCE1}
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
 %endif
