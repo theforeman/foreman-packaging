@@ -192,8 +192,6 @@ whitelist = foreman
   rubygem-table_print
   rubygem-terminal-table
   rubygem-therubyracer
-  rubygem-unf
-  rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-wirb
 
