@@ -3,18 +3,9 @@
 
 %global gem_name unf_ext
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache
-%global gem_spec %{gem_dir}/specifications
-%endif
-
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -28,10 +19,7 @@ Requires: %{?scl_prefix}ruby(abi)
 Requires: %{?scl_prefix}rubygems
 %endif
 
-%if (0%{?fedora} || "%{?scl}" == "ruby193")
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-
 %if 0%{?fedora}
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
@@ -100,6 +88,9 @@ mkdir -p %{buildroot}%{gem_extdir_mri}/lib
 %doc %{gem_instdir}/.document
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 0.0.6-5
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Tue Nov 12 2013 Sam Kottler <shk@redhat.com> 0.0.6-4
 - Actually fix the rubygems-devel issue (shk@redhat.com)
 
