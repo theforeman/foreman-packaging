@@ -2,14 +2,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name net-ldap
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%global gem_libdir %{gem_instdir}/lib
-%endif
 
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ldap.rubyforge.org/
@@ -102,6 +99,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 0.3.1-2
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Wed May 29 2013 Marek Hulan <mhulan@redhat.com> 0.3.1-1
 - Net-ldap gem updated to 0.3.1 (mhulan@redhat.com)
 
