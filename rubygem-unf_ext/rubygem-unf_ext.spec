@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ mkdir -p %{buildroot}%{gem_extdir_mri}/lib
 %doc %{gem_instdir}/.document
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 0.0.6-5
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Tue Nov 12 2013 Sam Kottler <shk@redhat.com> 0.0.6-4
 - Actually fix the rubygems-devel issue (shk@redhat.com)
 
