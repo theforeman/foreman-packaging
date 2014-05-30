@@ -92,7 +92,8 @@ whitelist = foreman-installer
 
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = foreman-proxy
+whitelist = foreman-installer
+  foreman-proxy
   foreman-selinux
   rubygem-ansi
   rubygem-apipie-bindings
