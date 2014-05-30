@@ -3,19 +3,18 @@
 
 %global gem_name kafo
 
-
-%define rubyabi 1.8
-
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
 %endif
 Requires: %{?scl_prefix}puppet
 Requires: %{?scl_prefix}rubygem(logging)
@@ -25,19 +24,11 @@ Requires: %{?scl_prefix}rubygem(kafo_parsers)
 Requires: %{?scl_prefix}rubygem(powerbar)
 Requires: %{?scl_prefix}rubygems
 
-%if 0%{?rhel} == 6 && 0%{?scl_prefix:0} || 0%{?fedora} > 17
 BuildRequires: %{?scl_prefix}rubygems-devel
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+BuildRequires: %{?scl_prefix}ruby(abi)
 %else
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
-%endif
-
-%if 0%{?rhel} == 6 || 0%{?fedora} < 19
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
@@ -96,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri May 30 2014 Marek Hulan <mhulan@redhat.com> 0.6.0-2
+- Modernise and update spec file for EL7 (dcleal@redhat.com)
+
 * Fri May 23 2014 Marek Hulan <mhulan@redhat.com> 0.6.0-1
 - Enable progress bar with Puppet 3.6 (mhulan@redhat.com)
 - Add custom configuration storage (mhulan@redhat.com)
