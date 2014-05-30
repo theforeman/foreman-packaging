@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
@@ -92,6 +92,9 @@ mkdir -p %{buildroot}%{gem_extdir}/lib
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-4
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Tue Nov 19 2013 Dominic Cleal <dcleal@redhat.com> 0.1.3-3
 - Add dependency on unf_ext (dcleal@redhat.com)
 - Fix project URL, typo (dcleal@redhat.com)
