@@ -2,17 +2,15 @@
 %{!?scl:%global pkg_name %{name}}
 
 # Generated from locale-2.0.0.gem by gem2rpm -*- rpm-spec -*-
-%global	rubyabi	1.9.1
-%global	ruby19	1
 
-%global	gem_name	locale
+%global	gem_name   locale
 
 %global	repoid		67114
 
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	2.0.8
-Release:	2%{?dist}
+Version:	2.0.9
+Release:	8%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -20,27 +18,24 @@ URL:		http://locale.rubyforge.org/
 Source0:	http://rubyforge.org/frs/download.php/%{repoid}/%{gem_name}-%{version}.gem
 
 BuildArch:	noarch
-BuildRequires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix}ruby
-BuildRequires:	%{?scl_prefix}rubygems-devel
-BuildRequires:	%{?scl_prefix}rubygem(rake)
-BuildRequires:	%{?scl_prefix}rubygem(minitest)
-Requires:	%{?scl_prefix}ruby
-Requires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires:	%{?scl_prefix}ruby(rubygems)
-Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-Conflicts:	%{?scl_prefix}rubygem-gettext < 2.0.0
-%if 0%{?ruby19} < 1
-Obsoletes:	%{?scl_prefix}ruby-%{gem_name} = %{version}-%{release}
-Provides:	%{?scl_prefix}ruby-%{gem_name} = %{version}-%{release}
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
 %endif
+Requires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems-devel
+
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 Ruby-Locale is the pure ruby library which provides basic and general purpose
 APIs for localization.
 It aims to support all environments which ruby works and all kind of programs
-(GUI, WWW, library, etc), and becomes the hub of other i18n/l10n libs/apps to 
-handle major locale ID standards. 
+(GUI, WWW, library, etc), and becomes the hub of other i18n/l10n libs/apps to
+handle major locale ID standards.
 
 %package	doc
 Summary:	Documentation for %{pkg_name}
@@ -95,7 +90,7 @@ create_symlink_rec(){
 ORIGBASEDIR=$1
 TARGETBASEDIR=$2
 
-## First calculate relative path of ORIGBASEDIR 
+## First calculate relative path of ORIGBASEDIR
 ## from TARGETBASEDIR
 TMPDIR=$TARGETBASEDIR
 BACKDIR=
@@ -145,13 +140,6 @@ popd
 rm -f %{buildroot}%{gem_instdir}/.yardopts
 
 %check
-pushd .%{gem_instdir}
-#rake test
-# test/test_detect_cgi.rb needs test-unit-rr
-for f in test/test_*.rb
-do
-	ruby -Ilib $f || echo "Need investigating"
-done
 
 %clean
 rm -rf %{buildroot}
@@ -164,7 +152,6 @@ rm -rf %{buildroot}
 %exclude %{gem_instdir}/Rakefile
 %{gem_instdir}/lib/
 #%%{gem_instdir}/*.rb
-
 %{gem_cache}
 %{gem_spec}
 
@@ -175,14 +162,38 @@ rm -rf %{buildroot}
 %{gem_instdir}/test/
 %{gem_instdir}/*.gemspec
 
-%if 0%{?ruby19} < 1
-%files -n %{?scl_prefix}ruby-%{gem_name}
-%defattr(-,root,root,-)
-%{ruby_sitelib}/%{gem_name}.rb
-%{ruby_sitelib}/%{gem_name}/
-%endif
-
 %changelog
+* Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.9-8
+- Modernise and update for EL7 (dcleal@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-7
+- new package built with tito
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-6
+- further rpm spec file fixes (jmontleo@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-5
+- fix provides in rpm spec (jmontleo@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-4
+- more rpm spec file fixes (jmontleo@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-3
+- disable checks for now (jmontleo@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-2
+- fix (build)requires (jmontleo@redhat.com)
+
+* Tue Mar 18 2014 Jason Montleon <jmontleo@redhat.com> 2.0.9-1
+- make corrections to rpm spec file (jmontleo@redhat.com)
+
+* Thu Sep 12 2013 Jason Montleon <jmontleo@redhat.com> 2.0.8-4
+- new package built with tito
+
+* Wed May 08 2013 Dominic Cleal <dcleal@redhat.com> 2.0.8-3
+- delete all zero sized tito.props (msuchy@redhat.com)
+- with recent tito you do not need SCL meta package (msuchy@redhat.com)
+
 * Tue Mar 12 2013 Lukas Zapletal <lzap+git@redhat.com> 2.0.8-2
 - new package built with tito
 
