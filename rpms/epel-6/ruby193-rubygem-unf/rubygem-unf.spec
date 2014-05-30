@@ -3,18 +3,9 @@
 
 %global gem_name unf
 
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%global gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_instdir}/lib
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache
-%global gem_spec %{gem_dir}/specifications
-%endif
-
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
@@ -30,10 +21,7 @@ Requires: %{?scl_prefix}rubygems
 
 Requires: %{?scl_prefix}rubygem(unf_ext)
 
-%if (0%{?fedora} || "%{?scl}" == "ruby193")
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-
 %if 0%{?fedora}
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
@@ -104,6 +92,9 @@ mkdir -p %{buildroot}%{gem_extdir}/lib
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-4
+- Modernise spec for EL7 (dcleal@redhat.com)
+
 * Tue Nov 19 2013 Dominic Cleal <dcleal@redhat.com> 0.1.3-3
 - Add dependency on unf_ext (dcleal@redhat.com)
 - Fix project URL, typo (dcleal@redhat.com)
