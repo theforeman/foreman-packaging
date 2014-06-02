@@ -6,9 +6,6 @@ dependencies.
 
 RPM packaging branches
 ======================
-We're in the process of migrating RPMs from being built using the files in the
-foreman/subproject repos to foreman-packaging branches.
-
 The rpm/\* branches contain the spec files for Foreman, related projects and its
 dependencies.  Pull requests gladly accepted for these.  rpm/develop is the first
 and best place to make changes, as it's branched for each release.
