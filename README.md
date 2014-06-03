@@ -37,6 +37,18 @@ good for this:
 
 Most packages should build for EL6 with SCL and Fedora 19.
 
+To be able to build foreman core packages with sbu, one needs to create script
+for each project name. It's purpose is to generate and copy source tarball to
+SOURCES/ directory. Typical script looks like:
+
+    $ cat .git/sbu-sources/foreman-selinux
+    #!/bin/bash
+    DIR=$HOME/work/$(basename $0)
+    pushd $DIR
+    rake pkg:generate_source
+    popd
+    mv -v $DIR/pkg/*.tar.{bz2,gz} $HOME/rpmbuild/SOURCES/ 2>/dev/null
+
 ## HOWTO: create a new core package or dependency
 
 1. Check if it's available in Fedora:
