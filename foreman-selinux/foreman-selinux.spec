@@ -111,7 +111,7 @@ install -m 0644 foreman-selinux-relabel.man8 %{buildroot}%{_mandir}/man8/foreman
 
 %post
 if /usr/sbin/selinuxenabled ; then
-    %{_sbindir}/%{name}-enable
+    %{_sbindir}/%{name}-enable || true
 fi
 
 %posttrans
