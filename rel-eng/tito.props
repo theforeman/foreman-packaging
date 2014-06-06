@@ -199,6 +199,8 @@ whitelist = foreman
 disttag = .el6
 scl = ruby193
 whitelist = ipxe
+  rubygem-algebrick
+  rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-ftools
   rubygem-dalli
@@ -233,17 +235,48 @@ whitelist = ipxe
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = ruby193
-whitelist = rubygem-foreman_bootdisk
-  rubygem-foreman_discovery
-  rubygem-foreman_xen
-
-[foreman-plugins-nightly-fedora19]
-disttag = .fc19
-whitelist = rubygem-ftools
+whitelist = rubygem-algebrick
+  rubygem-apipie-params
+  rubygem-archive-tar-minitar
+  rubygem-ftools
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
+  rubygem-open4
+  rubygem-foreman_bootdisk
+  rubygem-foreman_chef
+  rubygem-foreman_column_view
+  rubygem-foreman_content
+  rubygem-foreman_custom_parameters
+  rubygem-foreman_default_hostgroup
+  rubygem-foreman_dhcp_browser
+  rubygem-foreman_discovery
+  rubygem-foreman_docker
+  rubygem-foreman_hooks
+  rubygem-foreman-mco
+  rubygem-foreman_memcache
+  rubygem-foreman_openstack_cluster
+  rubygem-foreman_param_lookup
+  rubygem-foreman_reserve
+  rubygem-foreman_setup
+  rubygem-foreman_simplify
+  rubygem-foreman_snapshot
+  rubygem-foreman_xen
+  rubygem-staypuft
+  rubygem-foreman_templates
+  rubygem-puppetdb_foreman
+  rubygem-wicked
+
+[foreman-plugins-nightly-fedora19]
+disttag = .fc19
+whitelist = rubygem-algebrick
+  rubygem-apipie-params
+  rubygem-dalli
+  rubygem-deface
+  rubygem-diffy
+  rubygem-docker-api
+  rubygem-ftools
   rubygem-open4
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
