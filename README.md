@@ -121,6 +121,17 @@ This repository is intended to be branched like Foreman releases, but until
 core project packages are built from here too, it will follow a linear history
 on the `rpm/develop` branch.
 
+To find tito build targets do this:
+
+    $ tito release -l
+    [koji-foreman]
+    [koji-foreman-nightly]
+    [koji-foreman-plugins]
+
+To build a new release package for foreman project for example, do this:
+
+    $ tito release koji-foreman
+
 ## License
 
 Spec files are generally based on Fedora spec files, which means that unless a
