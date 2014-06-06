@@ -167,6 +167,7 @@ whitelist = foreman
   rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-launchy
+  rubygem-ldap_fluff
   rubygem-less
   rubygem-less-rails
   rubygem-librarian-puppet
