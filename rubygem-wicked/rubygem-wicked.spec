@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Jun 06 2014 Dominic Cleal <dcleal@redhat.com> 1.0.2-3
+- Modernise and update for EL7 (dcleal@redhat.com)
+
 * Tue Apr 08 2014 Marek Hulan <mhulan@redhat.com> 1.0.2-2
 - Fixing wicked-doc dependency (mhulan@redhat.com)
 
