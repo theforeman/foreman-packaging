@@ -68,7 +68,7 @@ Mainly used by the foreman project (http://theforeman.org)
 
 #replace shebangs for SCL
 %if %{?scl:1}%{!?scl:0}
-  for f in bin/smart-proxy extra/query.rb extra/changelog; do
+  for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' extra/spec/foreman-proxy.init
@@ -146,6 +146,15 @@ getent passwd foreman-proxy >/dev/null || \
 exit 0
 
 %post
+# Migrate legacy monolithic proxy config
+dir=`mktemp -d` && cd $dir
+%{homedir}/extra/monolithic-migration.rb %{_sysconfdir}/settings.yml
+result=`ruby -ryaml -e "puts YAML.load_file('%{_sysconfdir}/settings.yml') == YAML.load_file('$dir/settings.yml')"`
+if [ $result == 'false' ] ; then
+  mv $dir/settings.yml $CONFIGDIR/
+  mv $dir/*.yml %{_sysconfdir}/settings.d/
+fi
+cd /tmp && rm -rf $dir
 %if 0%{?rhel} == 6
   /sbin/chkconfig --add %{name}
   exit 0
