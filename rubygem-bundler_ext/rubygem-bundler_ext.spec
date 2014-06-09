@@ -6,8 +6,8 @@
 
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 6%{?dist}
+Version: 0.4.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/aeolus-incubator/bundler_ext
