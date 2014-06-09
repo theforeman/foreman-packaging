@@ -1,3 +1,11 @@
+ruby-kafo (0.6.1-1) stable; urgency=low
+
+  * Add contribute information to README (mhulan@redhat.com)
+  * Fixes Markdown typo in README.md (owenspencer@gmail.com)
+  * Improve default values support for puppet 2.7 (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 09 Jun 2014 11:02:46 +0000
+
 ruby-kafo (0.6.0-1) stable; urgency=low
 
   * Enable progress bar with Puppet 3.6 (mhulan@redhat.com)
