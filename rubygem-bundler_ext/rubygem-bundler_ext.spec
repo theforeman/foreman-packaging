@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Mon Jun 09 2014 Lukas Zapletal <lzap+git@redhat.com> 0.4.0-1
+- Updating bundler_ext to 0.4.0 (lzap+git@redhat.com)
+
 * Wed May 28 2014 Dominic Cleal <dcleal@redhat.com> 0.3.0-6
 - Update for EL7
 
