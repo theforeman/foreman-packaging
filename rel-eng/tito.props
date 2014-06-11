@@ -178,6 +178,7 @@ whitelist = foreman
   rubygem-powerbar
   rubygem-quiet_assets
   rubygem-rabl
+  rubygem-rack-jsonp
   rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt

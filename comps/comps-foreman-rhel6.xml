@@ -91,6 +91,7 @@
       <packagereq type="default">ruby193-rubygem-po_to_json</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
+      <packagereq type="default">ruby193-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
@@ -220,6 +221,7 @@
       <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable-doc</packagereq>
