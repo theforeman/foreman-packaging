@@ -125,6 +125,7 @@ BuildRequires: %{?scl_prefix}rubygem(foreigner) >= 1.4.2
 BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9.10
 BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) < 0.10.0
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable)
+BuildRequires: %{?scl_prefix}rubygem(gridster-rails)
 BuildRequires: %{?scl_prefix}facter
 BuildRequires: gettext
 BuildRequires: asciidoc
@@ -252,6 +253,7 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 Requires: %{?scl_prefix}rubygem(gettext) >= 1.9.3
 Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9.10
 Requires: %{?scl_prefix}rubygem(multi-select-rails) < 0.10.0
+Requires: %{?scl_prefix}rubygem(gridster-rails)
 
 %description assets
 Meta package to install asset pipeline support.
