@@ -99,6 +99,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 16 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
+- Update to 0.0.2 (dcleal@redhat.com)
+
 * Wed May 21 2014 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
 - new package built with tito
 
