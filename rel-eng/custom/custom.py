@@ -110,7 +110,7 @@ class JenkinsSourceStrategy(SourceStrategy):
         replacements.append((version_regex, "Version: %s\n" % self.version))
         self.replace_in_spec(replacements)
 
-        rel_date = datetime.fromtimestamp(job_info["timestamp"] / 1000).strftime("%Y%m%d%H%M")
+        rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
         gitrev = ""
         for action in job_info["actions"]:
             if "lastBuiltRevision" in action:
