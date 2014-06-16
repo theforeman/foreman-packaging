@@ -6,7 +6,7 @@
 Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.26
+Version: 0.0.27
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -18,9 +18,9 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
-Requires: %{?scl_prefix}rubygem-nokogiri 
+Requires: %{?scl_prefix}rubygem-nokogiri
 
-Requires: %{?scl_prefix}rubygem-rest-client 
+Requires: %{?scl_prefix}rubygem-rest-client
 BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(rbovirt) = %{version}
