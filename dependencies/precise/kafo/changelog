@@ -1,3 +1,9 @@
+ruby-kafo (0.6.3-1) stable; urgency=low
+
+  * Fix default values issues
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 16 Jun 2014 08:11:13 +0000
+
 ruby-kafo (0.6.1-1) stable; urgency=low
 
   * Add contribute information to README (mhulan@redhat.com)
