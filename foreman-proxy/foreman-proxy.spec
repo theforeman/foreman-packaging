@@ -158,7 +158,7 @@ getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy deamon user" foreman-proxy
 
 # Keep monolithic config in case it's replaced with the new default
-if [ $1 == 2 ]; then
+if [ $1 == 2 -a ! -e %{_sysconfdir}/%{name}/settings.d ]; then
   test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir %{_localstatedir}/lib/rpm-state/%{name}
   cp %{_sysconfdir}/%{name}/settings.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig
 fi
@@ -167,7 +167,7 @@ exit 0
 
 %post
 # Migrate legacy monolithic proxy config
-if [ $1 == 2 ]; then
+if [ $1 == 2 -a -e %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig ]; then
   pushd %{_localstatedir}/lib/rpm-state/%{name} >/dev/null
   if %{homedir}/extra/migrate_settings.rb settings.yml.orig; then
     mv settings.yml %{_sysconfdir}/%{name}
