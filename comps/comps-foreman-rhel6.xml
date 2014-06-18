@@ -134,6 +134,7 @@
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-awesome_print</packagereq>
+      <packagereq type="default">rubygem-bundler</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
@@ -159,6 +160,7 @@
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
+      <packagereq type="default">rubygem-thor</packagereq>
     </packagelist>
   </group>
 </comps>
