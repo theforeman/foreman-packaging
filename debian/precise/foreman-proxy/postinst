@@ -48,7 +48,7 @@ case "$1" in
       fi
       cd /tmp && rm -rf /var/lib/foreman-proxy
       # If we migrated, we also need to fix the settings.d dir
-      if grep -q ^:settings_directory: $CONFIGDIR/settings.yml
+      if grep -q ^:settings_directory: $CONFIGDIR/settings.yml; then
         sed -i "s|:settings_directory:.*|:settings_directory: $CONFIGDIR/settings.d|" $CONFIGDIR/settings.yml
       else
         echo ":settings_directory: $CONFIGDIR/settings.d" >> $CONFIGDIR/settings.yml
