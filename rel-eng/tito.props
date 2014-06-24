@@ -229,6 +229,7 @@ whitelist = ipxe
   rubygem-foreman_xen
   rubygem-staypuft
   rubygem-foreman_templates
+  rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-wicked
 
@@ -263,9 +264,10 @@ whitelist = rubygem-algebrick
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman_xen
-  rubygem-staypuft
   rubygem-foreman_templates
+  rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-staypuft
   rubygem-wicked
 
 [foreman-plugins-nightly-fedora19]
@@ -298,6 +300,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_snapshot
   rubygem-foreman_templates
   rubygem-foreman_xen
+  rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
 
 [requirements]
