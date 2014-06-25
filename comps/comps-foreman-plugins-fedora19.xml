@@ -45,6 +45,8 @@
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-foreman_xen</packagereq>
       <packagereq type="default">rubygem-foreman_xen-doc</packagereq>
+      <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
+      <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
 
       <packagereq type="default">rubygem-algebrick</packagereq>
