@@ -6,8 +6,8 @@
 
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.0
-Release: 2%{?dist}
+Version: 2.0.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/moiristo/deep_cloneable
@@ -21,6 +21,7 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem-activerecord >= 3.1.0
+Requires: %{?scl_prefix}rubygem-activerecord < 5.0.0
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
