@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
+- Update to deep_cloneable 2.0 (dcleal@redhat.com)
+
 * Mon Mar 03 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-2
 - Add rubygems-devel BR so SCL paths are used, tidy up (dcleal@redhat.com)
 
