@@ -7,7 +7,7 @@
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/moiristo/deep_cloneable
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
+- Fix rubygem-activerecord dep to use epochs (dcleal@redhat.com)
+
 * Tue Jul 01 2014 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
 - Update to deep_cloneable 2.0 (dcleal@redhat.com)
 
