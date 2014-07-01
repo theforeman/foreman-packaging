@@ -20,8 +20,8 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem-activerecord >= 3.1.0
-Requires: %{?scl_prefix}rubygem-activerecord < 5.0.0
+Requires: %{?scl_prefix}rubygem-activerecord >= 1:3.1.0
+Requires: %{?scl_prefix}rubygem-activerecord < 1:5.0.0
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
