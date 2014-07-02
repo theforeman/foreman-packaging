@@ -1,3 +1,9 @@
+ruby-kafo (0.6.4-1) stable; urgency=low
+
+  * Fix default values dump for passwords without default values (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 02 Jul 2014 10:46:51 +0000
+
 ruby-kafo (0.6.3-1) stable; urgency=low
 
   * Fix default values issues
