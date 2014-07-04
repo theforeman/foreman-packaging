@@ -1,3 +1,9 @@
+ruby-foreman-dhcp-browser (0.0.5) stable; urgency=low
+
+  * Update to 0.0.5.
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 14 Jul 2014 18:18:49 +0200
+
 ruby-foreman-dhcp-browser (0.0.4-1) stable; urgency=low
 
   * Update nokogiri on install
