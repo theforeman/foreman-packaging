@@ -492,6 +492,11 @@ ln -sv %{_sysconfdir}/%{name}/plugins %{buildroot}%{_datadir}/%{name}/config/set
 # Create VERSION file
 install -pm0644 VERSION %{buildroot}%{_datadir}/%{name}/VERSION
 
+# Install Foreman Ruby wrapper (needed for selinux support)
+mkdir -p %{buildroot}%{_libexecdir}
+echo -e "#!/bin/bash\n%{scl_ruby} $*" > %{buildroot}%{_libexecdir}/%{name}-ruby
+chmod 755 %{_libexecdir}/%{name}-ruby
+
 %clean
 rm -rf %{buildroot}
 
