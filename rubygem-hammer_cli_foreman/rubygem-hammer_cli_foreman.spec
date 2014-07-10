@@ -20,6 +20,7 @@ Requires: ruby(release)
 Requires: ruby(rubygems)
 Requires: rubygem(hammer_cli) >= 0.1.1
 Requires: rubygem(apipie-bindings) >= 0.0.8
+Requires: rubygem(rest-client) < 1.7.0
 Requires: rubygem(rest-client) >= 1.6.5
 BuildRequires: ruby(rubygems)
 BuildRequires: rubygems-devel
