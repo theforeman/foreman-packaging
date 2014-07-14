@@ -9,77 +9,82 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_chef</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_column_view</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_custom_parameters</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_custom_parameters-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_default_hostgroup</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_docker</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_reserve</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_setup</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin</packagereq>
-      <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft</packagereq>
-      <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
 
       <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">ruby193-rubygem-algebrick</packagereq>
-      <packagereq type="default">ruby193-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-params</packagereq>
-      <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar</packagereq>
-      <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
-      <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
-      <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
-      <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
-      <packagereq type="default">ruby193-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
-      <packagereq type="default">ruby193-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
-      <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
-      <packagereq type="default">ruby193-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-logging</packagereq>
-      <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-open4</packagereq>
-      <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
-      <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
 
       <packagereq type="default">foreman-installer-staypuft</packagereq>
+
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <packagereq type="default">ruby193-rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-docker-api-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_bootdisk-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_chef-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_column_view-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_custom_parameters-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_default_hostgroup-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_docker-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_param_lookup-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_reserve-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-little-plugger-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
+      <!--RGD-END-->
+
     </packagelist>
   </group>
 </comps>

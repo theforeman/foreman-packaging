@@ -88,6 +88,62 @@
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-wirb</packagereq>
+
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
+      <packagereq type="default">rubygem-autoparse-doc</packagereq>
+      <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
+      <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">rubygem-clamp-doc</packagereq>
+      <packagereq type="default">rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
+      <packagereq type="default">rubygem-excon-doc</packagereq>
+      <packagereq type="default">rubygem-extlib-doc</packagereq>
+      <packagereq type="default">rubygem-faraday-doc</packagereq>
+      <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
+      <packagereq type="default">rubygem-flot-rails-doc</packagereq>
+      <packagereq type="default">rubygem-fog-brightbox-doc</packagereq>
+      <packagereq type="default">rubygem-fog-core-doc</packagereq>
+      <packagereq type="default">rubygem-fog-doc</packagereq>
+      <packagereq type="default">rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">rubygem-foremancli-doc</packagereq>
+      <packagereq type="default">rubygem-gettext_i18n_rails_js-doc</packagereq>
+      <packagereq type="default">rubygem-google-api-client-doc</packagereq>
+      <packagereq type="default">rubygem-gridster-rails-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-hirb-doc</packagereq>
+      <packagereq type="default">rubygem-hirb-unicode-doc</packagereq>
+      <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>
+      <packagereq type="default">rubygem-jwt-doc</packagereq>
+      <packagereq type="default">rubygem-launchy-doc</packagereq>
+      <packagereq type="default">rubygem-less-doc</packagereq>
+      <packagereq type="default">rubygem-less-rails-doc</packagereq>
+      <packagereq type="default">rubygem-multi-select-rails-doc</packagereq>
+      <packagereq type="default">rubygem-mysql2-doc</packagereq>
+      <packagereq type="default">rubygem-net-scp-doc</packagereq>
+      <packagereq type="default">rubygem-po_to_json-doc</packagereq>
+      <packagereq type="default">rubygem-quiet_assets-doc</packagereq>
+      <packagereq type="default">rubygem-rabl-doc</packagereq>
+      <packagereq type="default">rubygem-rack-mini-profiler-doc</packagereq>
+      <packagereq type="default">rubygem-rails3_before_render-doc</packagereq>
+      <packagereq type="default">rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">rubygem-ruby2ruby-doc</packagereq>
+      <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">rubygem-safemode-doc</packagereq>
+      <packagereq type="default">rubygem-signet-doc</packagereq>
+      <packagereq type="default">rubygem-single_test-doc</packagereq>
+      <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
+      <packagereq type="default">rubygem-table_print-doc</packagereq>
+      <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
+      <packagereq type="default">rubygem-wirb-doc</packagereq>
+      <!--RGD-END-->
+
     </packagelist>
   </group>
 </comps>

@@ -161,6 +161,98 @@
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-thor</packagereq>
+
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <packagereq type="default">ruby193-rubygem-addressable-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ancestry-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-audited-activerecord-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-audited-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-autoparse-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-awesome_print-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-bootstrap-sass-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-deep_cloneable-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-eventmachine-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-excon-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-extlib-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-faraday-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fast_gettext-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-flot-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-brightbox-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-core-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreigner-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foremancli-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-formatador-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-google-api-client-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-gridster-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-hirb-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-hirb-unicode-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-jquery-ui-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-multi_json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-multipart-post-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-multi-select-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-mysql2-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-net-ldap-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-netrc-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-net-scp-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-net-ssh-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-passenger-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-pg-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rack-mini-profiler-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rails3_before_render-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rr-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ruby2ruby-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ruby-libvirt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ruby_parser-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-safemode-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sass-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-scoped_search-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sequel-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sexp_processor-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-shoulda-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-signet-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-single_test-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-unf-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-uuidtools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-wirb-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">rubygem-awesome_print-doc</packagereq>
+      <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">rubygem-clamp-doc</packagereq>
+      <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-little-plugger-doc</packagereq>
+      <packagereq type="default">rubygem-logging-doc</packagereq>
+      <packagereq type="default">rubygem-multi_json-doc</packagereq>
+      <packagereq type="default">rubygem-netrc-doc</packagereq>
+      <packagereq type="default">rubygem-passenger-doc</packagereq>
+      <packagereq type="default">rubygem-rkerberos-doc</packagereq>
+      <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">rubygem-table_print-doc</packagereq>
+      <!--RGD-END-->
+
     </packagelist>
   </group>
 </comps>
