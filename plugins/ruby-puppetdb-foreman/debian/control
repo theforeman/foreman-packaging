@@ -1,0 +1,13 @@
+Source: ruby-puppetdb-foreman
+Section: ruby
+Priority: extra
+Maintainer: Daniel Lobato <dlobatog@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/puppetdb_foreman
+
+Package: ruby-puppetdb-foreman
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Puppetdb Plugin
+ Puppetdb plugin for Foreman.
