@@ -40,11 +40,11 @@ Bindings for API calls that are documented with Apipie. Bindings are generated o
 
 %package doc
 BuildArch:  noarch
-Requires:   %{gem_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Requires:   %{name} = %{version}-%{release}
+Summary:    Documentation for %{name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+This package contains documentation for %{name}.
 
 %prep
 
