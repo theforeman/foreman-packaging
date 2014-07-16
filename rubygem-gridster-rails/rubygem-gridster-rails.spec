@@ -40,7 +40,7 @@ remove elements from the grid.
 %package doc
 Summary: Documentation for %{name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkgname} = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
