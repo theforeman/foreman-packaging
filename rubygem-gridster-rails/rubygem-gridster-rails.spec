@@ -7,7 +7,7 @@
 Summary: This gem provides jquery.gridster.js and jquery.gridster.css for your Rails 3 application
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 17 2014 Lukas Zapletal <lzap+rpm@redhat.com> 0.1.5-3
+- Fixed dependency in the -doc subpackage
+
 * Wed May 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-2
 - Remove RHEL 7 from ruby(release) conditional (dcleal@redhat.com)
 
