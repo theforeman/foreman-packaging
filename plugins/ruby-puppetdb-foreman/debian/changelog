@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (0.0.6) stable; urgency=low
+
+  * Move settings from yaml to UI, register plugin in Foreman.
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Mon, 20 July 2014 21:33:00 +0000
+
 ruby-puppetdb-foreman (0.0.5) stable; urgency=low
 
   * Initial release
