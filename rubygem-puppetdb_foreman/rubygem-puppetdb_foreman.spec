@@ -80,6 +80,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Mon Jul 21 2014 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
+- Update to v0.0.7 (dcleal@redhat.com)
+
 * Mon Jul 21 2014 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
 - Update to v0.0.6
 - Config file removed and replaced with in-app settings
