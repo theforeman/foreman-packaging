@@ -232,6 +232,7 @@ whitelist = ipxe
   rubygem-foreman_templates
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-smart_proxy_pulp
   rubygem-wicked
 
 [foreman-plugins-nightly-rhel7]
@@ -268,6 +269,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_templates
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-smart_proxy_pulp
   rubygem-staypuft
   rubygem-wicked
 
@@ -303,6 +305,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_xen
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-smart_proxy_pulp
 
 [requirements]
 tito=0.5.5
