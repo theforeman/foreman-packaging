@@ -73,3 +73,6 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-softlayer.gemspec
 
 %changelog
+* Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 0.3.9-1
+- new package built with tito
+
