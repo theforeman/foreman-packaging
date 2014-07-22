@@ -89,6 +89,9 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 1.23.0-1
+- Rebase to fog 1.23.0 (dcleal@redhat.com)
+
 * Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.21.0-2
 - Add dependency on fog-brightbox (dcleal@redhat.com)
 
