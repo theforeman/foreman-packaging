@@ -80,6 +80,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 1.23.0-1
+- Update to v1.23.0 (dcleal@redhat.com)
+
 * Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.21.1-2
 - Fix Provides for correct gem name (dcleal@redhat.com)
 
