@@ -148,6 +148,7 @@ whitelist = foreman
   rubygem-fog-brightbox
   rubygem-fog-core
   rubygem-fog-json
+  rubygem-fog-softlayer
   rubygem-foremancli
   rubygem-foreman_api
   rubygem-ftools
