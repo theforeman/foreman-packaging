@@ -6,19 +6,22 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.21.0
-Release: 2%{dist}
+Version: 1.23.0
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-fog-brightbox
-Requires: %{?scl_prefix}rubygem-fog-core >= 1.21.1
+Requires: %{?scl_prefix}rubygem-fog-core >= 1.23.0
 Requires: %{?scl_prefix}rubygem-fog-core < 2.0.0
 Requires: %{?scl_prefix}rubygem-fog-json
-Requires: %{?scl_prefix}rubygem-nokogiri => 1.5.11
-Requires: %{?scl_prefix}rubygem-nokogiri < 2.0.0
+Requires: %{?scl_prefix}rubygem-fog-softlayer
+Requires: %{?scl_prefix}rubygem-ipaddress >= 0.5
+Requires: %{?scl_prefix}rubygem-ipaddress < 1.0
+Requires: %{?scl_prefix}rubygem-nokogiri >= 1.5.11
+Requires: %{?scl_prefix}rubygem-nokogiri < 1.6.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -52,7 +55,7 @@ This package contains documentation for rubygem-%{gem_name}.
 %install
 mkdir -p %{gembuilddir}
 %{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri 
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
 %{?scl:"}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
@@ -69,19 +72,20 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_spec}
 %{_bindir}/fog
 %{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/providers
+%exclude %{gem_instdir}/.*
 
 %files doc
+%doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/LICENSE.md
 %{gem_instdir}/README.md
 %{gem_instdir}/RELEASE.md
-%{gem_instdir}/test
+%{gem_instdir}/gemfiles
+%{gem_instdir}/spec
 %{gem_instdir}/tests
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/changelog.txt
 %{gem_instdir}/fog.gemspec
 
 %changelog

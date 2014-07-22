@@ -54,6 +54,7 @@
       <packagereq type="default">ruby193-rubygem-fog-brightbox</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-softlayer</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador</packagereq>
@@ -65,6 +66,7 @@
       <packagereq type="default">ruby193-rubygem-hirb-unicode</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb</packagereq>
       <packagereq type="default">ruby193-rubygem-i18n_data</packagereq>
+      <packagereq type="default">ruby193-rubygem-ipaddress</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-jwt</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy</packagereq>
@@ -187,6 +189,7 @@
       <packagereq type="default">ruby193-rubygem-fog-core-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-softlayer-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador-doc</packagereq>
@@ -195,6 +198,7 @@
       <packagereq type="default">ruby193-rubygem-gridster-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>
