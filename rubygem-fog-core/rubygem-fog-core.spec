@@ -6,16 +6,16 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.21.1
-Release: 2%{dist}
+Version: 1.23.0
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-core
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-builder
-Requires: %{?scl_prefix}rubygem-excon >= 0.32.0
-Requires: %{?scl_prefix}rubygem-excon < 0.33.0
+Requires: %{?scl_prefix}rubygem-excon >= 0.38.0
+Requires: %{?scl_prefix}rubygem-excon < 1
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
 Requires: %{?scl_prefix}rubygem-mime-types
@@ -41,15 +41,13 @@ The Ruby cloud services library. Supports all major cloud providers including
 AWS, Rackspace, Linode, Blue Box, StormOnDemand, and many others. Full support
 for most AWS services including EC2, S3, CloudWatch, SimpleDB, ELB, and RDS.
 
-# Disabled until https://github.com/fog/fog-core/pull/26 is fixed and there is
-# documentation available to package.
-#%package doc
-#BuildArch:  noarch
-#Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-#Summary:    Documentation for rubygem-%{gem_name}
-#
-#%description doc
-#This package contains documentation for rubygem-%{gem_name}.
+%package doc
+BuildArch:  noarch
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Documentation for rubygem-%{gem_name}
+
+%description doc
+This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
@@ -59,7 +57,7 @@ for most AWS services including EC2, S3, CloudWatch, SimpleDB, ELB, and RDS.
 %install
 mkdir -p %{gembuilddir}
 %{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri 
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
 %{?scl:"}
 
 %files
@@ -67,16 +65,19 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %{gem_spec}
-#%{gem_instdir}/LICENSE.md
+%{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/.*
 
-#%files doc
-#%{gem_instdir}/LICENSE.md
-#%{gem_instdir}/README.md
-#%{gem_instdir}/tests
-#%{gem_instdir}/Gemfile*
-#%{gem_instdir}/Rakefile
-#%exclude %{gem_instdir}/fog-core.gemspec
+%files doc
+%{gem_instdir}/changelog.md
+%{gem_instdir}/CONTRIBUTING.md
+%{gem_instdir}/CONTRIBUTORS.md
+%{gem_instdir}/README.md
+%{gem_instdir}/spec
+%{gem_instdir}/tests
+%{gem_instdir}/Gemfile*
+%{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
 * Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.21.1-2
