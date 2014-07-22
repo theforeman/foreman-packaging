@@ -94,6 +94,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 0.38.0-1
+- Rebase to excon 0.38.0 (dcleal@redhat.com)
+
 * Wed Mar 19 2014 Dominic Cleal <dcleal@redhat.com> 0.32.1-1
 - Rebase to excon 0.32.1 (dcleal@redhat.com)
 
