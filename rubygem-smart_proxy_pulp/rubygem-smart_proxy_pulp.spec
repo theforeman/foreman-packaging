@@ -77,3 +77,6 @@ cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_s
 
 
 %changelog
+* Wed Jul 23 2014 Dmitri Dolguikh <dmitri@appliedlogic.ca>
+- new package built with tito
+
