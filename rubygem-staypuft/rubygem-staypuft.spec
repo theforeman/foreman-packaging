@@ -10,23 +10,6 @@
 
 %define desc OpenStack Foreman Installer
 
-Requires: %{?scl_prefix}rubygem(foreman_discovery)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
-Requires: %{?scl_prefix}rubygem(wicked)
-Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
-Requires: %{?scl_prefix}rubygem(ipaddress)
-
-%if 0%{?rhel} == 6 || 0%{?fedora} < 17
-%if "%{?scl}" == "ruby193"
-%define rubyabi 1.9.1
-%else
-%define rubyabi 1.8
-%endif
-%else
-%define rubyabi 1.9.1
-%endif
-
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
 Release:   1%{?dist}
@@ -43,23 +26,37 @@ Provides:  foreman-plugin-staypuft
 %if 0%{?fedora} > 18
 Requires:  %{?scl_prefix}ruby(release)
 %else
-Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires:  %{?scl_prefix}ruby(abi)
 %endif
 Requires:  %{?scl_prefix}rubygems
+
+Requires: %{?scl_prefix}rubygem(deface)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(dynflow) < 0.8.0
+Requires: %{?scl_prefix}rubygem(foreman_discovery) >= 1.4.0
+Requires: %{?scl_prefix}rubygem(foreman_discovery) < 1.5.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
+Requires: %{?scl_prefix}rubygem(ipaddress)
+Requires: %{?scl_prefix}rubygem(wicked)
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
-BuildRequires: %{?scl_prefix}rubygem(foreman_discovery)
-BuildRequires: %{?scl_prefix}rubygem(wicked)
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_discovery) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_discovery) < 1.5.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress)
+BuildRequires: %{?scl_prefix}rubygem(wicked)
 
 %description
 %{desc}
