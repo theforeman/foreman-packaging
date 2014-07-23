@@ -36,7 +36,7 @@ Basic Pulp support for Foreman Smart-Proxy.
 
 %package doc
 BuildArch:  noarch
-Requires:   %{gem_name} = %{version}-%{release}
+Requires:   %{name} = %{version}-%{release}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
