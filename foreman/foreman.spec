@@ -71,8 +71,8 @@ Requires: %{?scl_prefix}rubygem(rabl) >= 0.7.5
 Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.0
 Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.1.1
-Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.2.0
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.0
+Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.3.0
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.10.0
@@ -88,8 +88,8 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.1.1
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix}rubygem(gettext) >= 1.9.3
