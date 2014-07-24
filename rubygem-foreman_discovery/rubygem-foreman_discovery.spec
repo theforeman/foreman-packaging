@@ -35,8 +35,6 @@ URL:        http://github.com/theforeman/foreman_discovery
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
 Requires:   foreman >= 1.6.0
-Requires:   %{?scl_prefix}rubygem(open4)
-Requires:   %{?scl_prefix}rubygem(ftools)
 Requires:   advancecomp
 Requires:   squashfs-tools
 Requires:   sudo
@@ -92,28 +90,16 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
-mkdir -p %{buildroot}/etc/sudoers.d
-cat <<SUDOERS > %{buildroot}/etc/sudoers.d/%{gem_name}
-# Required to run the discovery:build_image rake task as 'foreman'
-foreman ALL = NOPASSWD : %{gem_instdir}/extra/build_iso.sh *, /bin/true
-Defaults:foreman !requiretty
-SUDOERS
-
-# Output directory of the imgae build task
-mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
-
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
 %{gem_instdir}/lib
 %{gem_instdir}/config
-%{gem_instdir}/extra
+%exclude %{gem_instdir}/extra
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%attr(0755,foreman,foreman) %{foreman_dir}/discovery_image
-%config %attr(0440,root,root) /etc/sudoers.d/%{gem_name}
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
