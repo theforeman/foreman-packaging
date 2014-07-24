@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jul 24 2014 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
+- Bump version to 0.2.2 (dcleal@redhat.com)
+
 * Tue May 13 2014 Ivan Nečas <inecas@redhat.com> 0.2.0-1
 - Bump version to 0.2.0 (inecas@redhat.com)
 
