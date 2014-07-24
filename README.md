@@ -22,7 +22,7 @@ Run:
 
 * `git clone https://github.com/theforeman/foreman-packaging -b rpm/develop`
 * `git annex init` to set up this repo for using git annex
-* `./setup_sources` to register git-annex file URLs
+* `./setup_sources.sh` to register git-annex file URLs
 
 ## HOWTO: test a package
 
