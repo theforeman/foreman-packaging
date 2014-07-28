@@ -54,6 +54,8 @@ Requires(postun): initscripts
 Requires: %{?scl_prefix}rubygem(json)
 Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
 Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
+# minitest - workaround as rubygem-activesupport is missing dep
+Requires: %{?scl_prefix}rubygem(minitest)
 Requires: %{?scl_prefix}rubygem(jquery-rails)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0.0
@@ -119,6 +121,8 @@ BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(uuidtools)
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0.2
 BuildRequires: %{?scl_prefix}rubygem(rails)
+# minitest - workaround as rubygem-activesupport is missing dep
+BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(quiet_assets)
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails)
 BuildRequires: %{?scl_prefix}rubygem(flot-rails) = 0.0.3
@@ -271,8 +275,6 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(awesome_print)
 Requires: %{?scl_prefix}rubygem(hirb-unicode)
 Requires: %{?scl_prefix}rubygem(wirb)
-# minitest - workaround until Rails 4.0 (#2650)
-Requires: %{?scl_prefix}rubygem(minitest)
 Requires: %{name} = %{version}-%{release}
 
 %description console
