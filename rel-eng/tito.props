@@ -194,6 +194,7 @@ whitelist = foreman
   rubygem-terminal-table
   rubygem-therubyracer
   rubygem-unicode-display_width
+  rubygem-validates_lengths_from_database
   rubygem-wirb
 
 [foreman-plugins-nightly-rhel6]

@@ -120,6 +120,7 @@
       <packagereq type="default">ruby193-rubygem-unf_ext</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools</packagereq>
+      <packagereq type="default">ruby193-rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">ruby193-rubygem-will_paginate</packagereq>
       <packagereq type="default">ruby193-rubygem-wirb</packagereq>
 
@@ -239,6 +240,7 @@
       <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wirb-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-awesome_print-doc</packagereq>

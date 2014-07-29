@@ -88,6 +88,7 @@
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
+      <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">rubygem-wirb</packagereq>
 
       <!--
@@ -143,6 +144,7 @@
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
+      <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">rubygem-wirb-doc</packagereq>
       <!--RGD-END-->
 
