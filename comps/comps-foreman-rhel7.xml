@@ -96,7 +96,6 @@
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-mini-profiler</packagereq>
-      <packagereq type="default">ruby193-rubygem-rails3_before_render</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
       <packagereq type="default">ruby193-rubygem-rdoc4</packagereq>
@@ -228,7 +227,6 @@
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-mini-profiler-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-rails3_before_render-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rr-doc</packagereq>
