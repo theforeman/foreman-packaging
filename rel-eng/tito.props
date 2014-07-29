@@ -194,7 +194,6 @@ whitelist = foreman
   rubygem-quiet_assets
   rubygem-rabl
   rubygem-rack-mini-profiler
-  rubygem-rails3_before_render
   rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt
