@@ -6,8 +6,8 @@
 Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.2.0
-Release: 5%{dist}
+Version: 1.2.1
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/svenfuchs/safemode
@@ -18,8 +18,8 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.1 
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.1 
+Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.1
+Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.1
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1.2
 
 BuildRequires: %{?scl_prefix}rubygems-devel
