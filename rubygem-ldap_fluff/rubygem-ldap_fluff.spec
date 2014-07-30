@@ -5,14 +5,15 @@
 
 Summary: LDAP integration for Active Directory, Free IPA and posix
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.5
+Version: 0.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/jsomara/ldap_fluff
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(net-ldap)
+Requires: %{?scl_prefix}rubygem(activesupport)
+Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.3.1
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(rake)
 BuildArch: noarch
