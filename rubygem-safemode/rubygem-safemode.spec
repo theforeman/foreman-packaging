@@ -97,6 +97,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Wed Jul 30 2014 Dominic Cleal <dcleal@redhat.com> 1.2.1-1
+- Update to v1.2.1 (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-5
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - remove unused BRs (dcleal@redhat.com)
