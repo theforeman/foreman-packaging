@@ -110,6 +110,8 @@ install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
 install -Dp -m0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %endif
 
+mkdir -p %{buildroot}%{_sbindir}
+install -m 0755 sbin/foreman-prepare-realm %{buildroot}%{_sbindir}/foreman-prepare-realm
 cp -p -r bin extra lib modules Rakefile Gemfile.in bundler.d config.ru VERSION %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb
@@ -148,6 +150,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
+%{_sbindir}/foreman-prepare-realm
 %if 0%{?rhel} == 6
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
