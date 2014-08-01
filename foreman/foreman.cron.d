@@ -19,6 +19,9 @@ FOREMAN_HOME=/usr/share/foreman
 # Remove duplicate trends data
 0 8 * * *       foreman    /usr/sbin/foreman-rake trends:clean >>/var/log/foreman/cron.log 2>&1
 
+# Refreshes ldap usergroups. Can be disabled if you're not using LDAP authentication.
+*/30 * * * *    foreman    /usr/sbin/foreman-rake ldap:refresh_usergroups >>/var/log/foreman/cron.log 2>&1
+
 # Only use the following cronjob if you're not using the ENC or ActiveRecord-based storeconfigs
 # Get the node.rb / ENC script and store at /etc/puppet/node.rb:
 #   https://github.com/theforeman/puppet-foreman/blob/master/templates/external_node.rb.erb
