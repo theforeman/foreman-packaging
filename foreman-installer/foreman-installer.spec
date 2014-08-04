@@ -26,6 +26,7 @@ Requires:   curl
 Requires:   %{?scl_prefix}puppet >= 2.7.0
 Requires:   %{?scl_prefix}rubygem-kafo >= 0.5.3
 Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
+Requires:   foreman-selinux
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires:   %{?scl_prefix}ruby(abi)
