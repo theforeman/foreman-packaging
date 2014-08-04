@@ -159,7 +159,7 @@ getent passwd foreman-proxy >/dev/null || \
 
 # Keep monolithic config in case it's replaced with the new default
 if [ $1 == 2 -a ! -e %{_sysconfdir}/%{name}/settings.d ]; then
-  test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir %{_localstatedir}/lib/rpm-state/%{name}
+  test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir -p %{_localstatedir}/lib/rpm-state/%{name}
   cp %{_sysconfdir}/%{name}/settings.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig
 fi
 
