@@ -66,7 +66,6 @@ disttag = .el6
 whitelist = foreman-installer
   foreman-proxy
   foreman-selinux
-  rubygem-ansi
   rubygem-apipie-bindings
   rubygem-awesome_print
   rubygem-bundler_ext
@@ -100,7 +99,6 @@ disttag = .el7
 whitelist = foreman-installer
   foreman-proxy
   foreman-selinux
-  rubygem-ansi
   rubygem-apipie-bindings
   rubygem-awesome_print
   rubygem-bundler_ext
