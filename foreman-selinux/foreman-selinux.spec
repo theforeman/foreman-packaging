@@ -110,20 +110,24 @@ install -m 0644 foreman-selinux-disable.man8 %{buildroot}%{_mandir}/man8/foreman
 install -m 0644 foreman-selinux-relabel.man8 %{buildroot}%{_mandir}/man8/foreman-selinux-relabel.8
 
 %post
-if /usr/sbin/selinuxenabled ; then
-    %{_sbindir}/%{name}-enable || true
+if /usr/sbin/selinuxenabled; then
+    # install only
+    [ $1 -eq 1 ] && %{_sbindir}/%{name}-enable || true
 fi
 
 %posttrans
-if /usr/sbin/selinuxenabled ; then
-    %{_sbindir}/%{name}-relabel >/dev/null
+if /usr/sbin/selinuxenabled; then
+    # install and upgrade
+    %{_sbindir}/%{name}-relabel >/dev/null || true
 fi
 
 %preun
-# clean up before package removal
-/usr/sbin/selinuxenabled && [ $1 -eq 0 ] && %{_sbindir}/%{name}-disable
-# relabel before removal/upgrade
-%{_sbindir}/%{name}-relabel >/dev/null
+if /usr/sbin/selinuxenabled; then
+    # uninstall only
+    [ $1 -eq 0 ] && %{_sbindir}/%{name}-disable || true
+    # upgrade and uninstall
+    %{_sbindir}/%{name}-relabel >/dev/null || true
+fi
 
 %files
 %doc Contributors CHANGELOG LICENSE %{modulename}.fc %{modulename}.if %{modulename}.te %{modulename}.sh
