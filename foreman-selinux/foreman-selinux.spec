@@ -55,7 +55,6 @@ Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /
 Requires(post):     policycoreutils-python
 Requires(post):     selinux-policy-targeted
 Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
-Requires(pre):      %{modulename}
 
 %description
 SELinux policy module for Foreman
