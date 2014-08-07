@@ -79,6 +79,11 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 
 
 %changelog
+* Thu Aug 07 2014 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
+- Add pulpnode.yml config file (dcleal@redhat.com)
+- Updated smart_proxy_pulp gem to version 1.0.1 (dmitri@appliedlogic.ca)
+- bumping smart_proxy_pulp version to 1.0.1 (jsherril@redhat.com)
+
 * Wed Jul 23 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
 - Fix -doc requirement on main package (dcleal@redhat.com)
 
