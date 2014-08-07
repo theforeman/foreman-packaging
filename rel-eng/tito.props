@@ -22,6 +22,7 @@ blacklist = foreman-installer
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
@@ -42,6 +43,7 @@ blacklist = foreman-installer
   rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
@@ -230,6 +232,7 @@ whitelist = ipxe
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman_xen
+  rubygem-little-plugger
   rubygem-staypuft
   rubygem-foreman_templates
   rubygem-ovirt_provision_plugin
@@ -269,6 +272,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_snapshot
   rubygem-foreman_xen
   rubygem-foreman_templates
+  rubygem-little-plugger
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-smart_proxy_pulp
