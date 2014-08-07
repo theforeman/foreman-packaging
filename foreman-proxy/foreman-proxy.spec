@@ -37,6 +37,7 @@ Requires: %{?scl_prefix}ruby(release)
 Requires:       %{?scl_prefix}rubygems
 Requires:       %{?scl_prefix}rubygem(rake) >= 0.8.3
 Requires:       %{?scl_prefix}rubygem(sinatra)
+Requires:       %{?scl_prefix}rubygem(rack) >= 1.1.0
 Requires:       %{?scl_prefix}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos)
 Requires:       %{?scl_prefix}rubygem(rubyipmi)
