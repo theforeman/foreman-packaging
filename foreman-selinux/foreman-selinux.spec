@@ -111,21 +111,25 @@ install -m 0644 foreman-selinux-relabel.man8 %{buildroot}%{_mandir}/man8/foreman
 %post
 if /usr/sbin/selinuxenabled; then
     # install only
-    [ $1 -eq 1 ] && %{_sbindir}/%{name}-enable || true
+    if [ $1 -eq 1 ]; then
+        %{_sbindir}/%{name}-enable
+    fi
 fi
 
 %posttrans
 if /usr/sbin/selinuxenabled; then
     # install and upgrade
-    %{_sbindir}/%{name}-relabel >/dev/null || true
+    %{_sbindir}/%{name}-relabel
 fi
 
 %preun
 if /usr/sbin/selinuxenabled; then
     # uninstall only
-    [ $1 -eq 0 ] && %{_sbindir}/%{name}-disable || true
+    if [ $1 -eq 0 ]; then
+        %{_sbindir}/%{name}-disable
+    fi
     # upgrade and uninstall
-    %{_sbindir}/%{name}-relabel >/dev/null || true
+    %{_sbindir}/%{name}-relabel
 fi
 
 %files
