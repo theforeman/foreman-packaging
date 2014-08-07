@@ -7,7 +7,7 @@
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 1.0.1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart-proxy-pulp
@@ -58,6 +58,7 @@ mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
 cp -pa .%{gem_instdir}/bundler.d/pulp.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
 mkdir -p  %{buildroot}%{_sysconfdir}/foreman-proxy/settings.d/
 cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
+cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
 %files
 %dir %{gem_instdir}
@@ -66,6 +67,7 @@ cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_s
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/pulp.rb
 %{_sysconfdir}/foreman-proxy/settings.d/pulp.yml
+%{_sysconfdir}/foreman-proxy/settings.d/pulpnode.yml
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_cache}
