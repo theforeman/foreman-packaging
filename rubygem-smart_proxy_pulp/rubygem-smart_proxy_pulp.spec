@@ -6,7 +6,7 @@
 
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.0.1
 Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
