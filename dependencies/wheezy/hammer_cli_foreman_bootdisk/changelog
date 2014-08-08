@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-bootdisk (0.1.2-1) stable; urgency=low
+
+  * Initial release
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 08 Aug 2014 16:38:00 +0100
