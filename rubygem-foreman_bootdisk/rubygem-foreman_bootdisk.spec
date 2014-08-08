@@ -111,6 +111,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Fri Aug 08 2014 Dominic Cleal <dcleal@redhat.com> 3.1.0-1
+- Update to foreman_bootdisk 3.1.0 (dcleal@redhat.com)
+
 * Tue Aug 05 2014 Dominic Cleal <dcleal@redhat.com> 3.0.0-1
 - Update to foreman_bootdisk 3.0.0 (dcleal@redhat.com)
 
