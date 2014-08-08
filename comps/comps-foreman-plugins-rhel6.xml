@@ -35,6 +35,7 @@
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">ruby193-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
@@ -110,6 +111,7 @@
       <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
