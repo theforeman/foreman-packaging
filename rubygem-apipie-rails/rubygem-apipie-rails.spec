@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Aug 11 2014 Dominic Cleal <dcleal@redhat.com> 0.2.4-1
+- Bump version to 0.2.4 (dcleal@redhat.com)
+
 * Sat Aug 09 2014 Dominic Cleal <dcleal@redhat.com> 0.2.3-1
 - Bump version to 0.2.3 (dcleal@redhat.com)
 
