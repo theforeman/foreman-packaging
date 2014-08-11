@@ -8,6 +8,9 @@ Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+# Support for localization of clamp's messages.
+# Patching temporarily until https://github.com/mdub/clamp/pull/43 is merged.
+Patch0: rubygem-clamp-0.6.2-i18n-support.patch
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -43,6 +46,10 @@ Documentation for %{name}
 mkdir -p .%{gem_dir}
 gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
+
+pushd .%{gem_instdir}
+%patch0 -p1
+popd
 
 %build
 
