@@ -117,7 +117,7 @@ rebuild a package from any point in the repository's history, and since the
 git-annex metadata is part of the tagged commit, even the binary content is
 effectively under source control.
 
-This repository is branched like Foreman itself, with 1.x-stable branches
+This repository is branched like Foreman itself, with rpm/1.x branches
 for major releases.
 
 To find tito build targets do this:
