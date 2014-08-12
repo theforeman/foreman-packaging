@@ -14,8 +14,7 @@ Release:	8%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
-#Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Source0:	http://rubyforge.org/frs/download.php/%{repoid}/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 BuildArch:	noarch
 

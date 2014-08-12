@@ -11,7 +11,7 @@ Release: 6%{dist}
 Group: Development/Ruby
 License: GPLv2+
 URL: https://github.com/ohadlevy/foreman/blob/master/extras/cli/foremancli
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 
 Requires: %{?scl_prefix}rubygem-rest-client => 1.4

@@ -10,7 +10,7 @@ Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
 URL: https://github.com/knu/ruby-unf_ext
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora}
 Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(rubygems)

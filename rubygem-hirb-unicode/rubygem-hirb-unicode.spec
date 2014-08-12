@@ -10,7 +10,7 @@ Version: 0.0.5
 Release: 5%{dist}
 Group: Development/Ruby
 License: MIT
-Source0: %{gem_name}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
