@@ -29,7 +29,7 @@ start() {
         return 6
     fi
 
-    daemon --user ${FOREMAN_PROXY_USER} /usr/bin/ruby ${FOREMAN_PROXY_HOME}/bin/smart-proxy > /dev/null
+    daemon --user ${FOREMAN_PROXY_USER} ${FOREMAN_PROXY_HOME}/bin/smart-proxy > /dev/null
     RETVAL=$?
     if [ $RETVAL = 0 ]
     then
