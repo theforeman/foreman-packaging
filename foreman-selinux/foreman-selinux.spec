@@ -66,13 +66,21 @@ SELinux policy module for Foreman
 # create selinux-friendly version from VR and replace it inplace
 perl -i -pe 'BEGIN { $VER = join ".", grep /^\d+$/, split /\./, "%{version}.%{release}"; } s!\@\@VERSION\@\@!$VER!g;' %{modulename}.te
 
+# determine distribution name and version
+%if 0%{?rhel} >= 6
+    distver=rhel%{rhel}
+%endif
+%if 0%{?fedora} >= 18
+    distver=fedora%{fedora}
+%endif
+
 # build policy
 for selinuxvariant in %{selinux_variants}
 do
-    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile
+    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile DISTRO=${distver}
     bzip2 -9 %{modulename}.pp
     mv %{modulename}.pp.bz2 %{modulename}.ppbz2.${selinuxvariant}
-    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile clean
+    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile clean DISTRO=${distver}
 done
 
 # build man pages
