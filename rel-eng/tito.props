@@ -213,6 +213,7 @@ whitelist = ipxe
   rubygem-diffy
   rubygem-docker-api
   rubygem-open4
+  rubygem-opennebula
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
@@ -252,6 +253,7 @@ whitelist = rubygem-algebrick
   rubygem-diffy
   rubygem-docker-api
   rubygem-open4
+  rubygem-opennebula
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
@@ -289,6 +291,7 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-ftools
   rubygem-open4
+  rubygem-opennebula
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
