@@ -3,7 +3,7 @@
 Summary: a minimal framework for command-line utilities
 Name: rubygem-%{gem_name}
 Version: 0.6.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 0.6.2-3
+- refs #5787 - i18n support for clamp (tstrachota@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.6.2-2
 - Modernise and update for EL7 (dcleal@redhat.com)
 
