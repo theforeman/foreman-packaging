@@ -73,3 +73,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/NOTICE
 
 %changelog
+* Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 4.8.0-1
+- new package built with tito
+
