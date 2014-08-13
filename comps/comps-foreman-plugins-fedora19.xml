@@ -20,6 +20,7 @@
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
       <packagereq type="default">rubygem-foreman-mco</packagereq>
       <packagereq type="default">rubygem-foreman_memcache</packagereq>
+      <packagereq type="default">rubygem-foreman_one</packagereq>
       <packagereq type="default">rubygem-foreman_openstack_cluster</packagereq>
       <packagereq type="default">rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">rubygem-foreman_reserve</packagereq>
@@ -41,6 +42,7 @@
       <packagereq type="default">rubygem-dynflow</packagereq>
       <packagereq type="default">rubygem-ftools</packagereq>
       <packagereq type="default">rubygem-open4</packagereq>
+      <packagereq type="default">rubygem-opennebula</packagereq>
 
       <packagereq type="default">foreman-installer-staypuft</packagereq>
 
@@ -64,6 +66,7 @@
       <packagereq type="default">rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_reserve-doc</packagereq>
@@ -74,6 +77,7 @@
       <packagereq type="default">rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">rubygem-ftools-doc</packagereq>
       <packagereq type="default">rubygem-open4-doc</packagereq>
+      <packagereq type="default">rubygem-opennebula-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <!--RGD-END-->
