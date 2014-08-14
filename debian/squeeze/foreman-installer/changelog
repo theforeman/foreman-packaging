@@ -10,6 +10,12 @@ foreman-installer (1.6.0-1) stable; urgency=low
 
  -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 30 Jul 2014 11:39:00 +0100
 
+foreman-installer (1.5.1-1) stable; urgency=low
+
+  * 1.5.1 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 18 Jun 2014 10:52:00 +0100
+
 foreman-installer (1.5.0-1) stable; urgency=low
 
   * 1.5.0 released
