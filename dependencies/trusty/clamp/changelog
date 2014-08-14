@@ -1,3 +1,9 @@
+ruby-clamp (0.6.2-2) stable; urgency=low
+
+  * Patch for i18n support
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Thu, 14 Aug 2014 10:26:00 +0100
+
 ruby-clamp (0.6.2-1) stable; urgency=low
 
   * First Trusty release
