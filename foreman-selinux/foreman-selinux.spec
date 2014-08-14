@@ -146,6 +146,9 @@ fi
 %attr(0755,root,root) %{_sbindir}/%{name}-relabel
 
 %changelog
+* Thu Aug 14 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-0.1.RC1
+- Release 1.6.0-RC1
+
 * Wed Apr 16 2014 Dominic Cleal <dcleal@redhat.com> - 1.6.0-0.develop
 - Bump to version 1.6-develop
 
