@@ -8,15 +8,20 @@
     %global scl_ruby /usr/bin/ruby
 %endif
 
+# set and uncomment all three to set alpha tag
+#global alphatag RC1
+#global dotalphatag .%{alphatag}
+#global dashalphatag -%{alphatag}
+
 Name:           foreman-proxy
 Version:        1.6.0
-Release:        0.develop%{dist}
+Release:        0.develop%{?dotalphatag}%{dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
-Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}.tar.bz2
+Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 Source1:        %{name}.sysconfig
 Source2:        %{name}.init
 Source3:        logrotate
@@ -65,7 +70,7 @@ Manages DNS, DHCP, TFTP and puppet settings though HTTP Restful API
 Mainly used by the foreman project (http://theforeman.org)
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
 

@@ -13,15 +13,20 @@
     %global scl_rake /usr/bin/rake
 %endif
 
+# set and uncomment all three to set alpha tag
+#global alphatag RC1
+#global dotalphatag .%{alphatag}
+#global dashalphatag -%{alphatag}
+
 Name:   foreman
 Version: 1.6.0
-Release: 0.develop%{?dist}
+Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: http://theforeman.org
-Source0: http://downloads.theforeman.org/%{name}/%{name}-%{version}.tar.bz2
+Source0: http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 Source1: %{name}.init
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
@@ -387,7 +392,7 @@ Foreman is based on Ruby on Rails, and this package bundles Rails and all
 plugins required for Foreman to work.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
 #build man pages
