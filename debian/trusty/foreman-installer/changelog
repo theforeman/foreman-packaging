@@ -1,14 +1,8 @@
-foreman-installer (1.7.0-1) stable; urgency=low
+foreman-installer (1.6.0~rc1-1) stable; urgency=low
 
-  * Bump changelog to 1.7.0 to match VERSION
+  * 1.6.0 RC1 released
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Mon, 11 Aug 2014 10:48:00 +0100
-
-foreman-installer (1.6.0-1) stable; urgency=low
-
-  * 1.6.0 nightlies begun
-
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 30 Jul 2014 11:39:00 +0100
+ -- Dominic Cleal <dcleal@redhat.com>  Thu, 14 Aug 2014 16:43:00 +0100
 
 foreman-installer (1.5.1-1) stable; urgency=low
 
