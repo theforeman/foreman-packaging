@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (3.1.0-1) stable; urgency=low
+
+  * Fix minimum Foreman version to permit 1.6.0~rc1
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 15 Aug 2014 09:11:00 +0000
+
 ruby-foreman-bootdisk (3.1.0) stable; urgency=low
 
   * Release 3.1.0
