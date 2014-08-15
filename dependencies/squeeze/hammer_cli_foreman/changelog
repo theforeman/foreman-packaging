@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.1.2-2) stable; urgency=low
+
+  * Installing locale files
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Thu, 15 Aug 2014 16:15:20 +0100
+
 ruby-hammer-cli-foreman (0.1.2-1) stable; urgency=low
 
   * 0.1.2 release

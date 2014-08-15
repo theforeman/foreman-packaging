@@ -1,1 +1,2 @@
-debian/foreman.yml   etc/hammer/cli.modules.d
+debian/foreman.yml      etc/hammer/cli.modules.d
+locale                  usr/share
