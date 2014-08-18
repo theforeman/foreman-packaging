@@ -11,6 +11,7 @@ build/foreman::
 	#
 	# Build the gem cache
 	#
+	/bin/cp debian/debian.rb bundler.d/
 	/bin/cp config/settings.yaml.example config/settings.yaml
 	/bin/cp config/database.yml.example config/database.yml
 	/usr/bin/bundle pack --all
