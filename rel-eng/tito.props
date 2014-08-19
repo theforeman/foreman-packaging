@@ -214,6 +214,7 @@ whitelist = ipxe
   rubygem-docker-api
   rubygem-open4
   rubygem-opennebula
+  rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
@@ -239,6 +240,8 @@ whitelist = ipxe
   rubygem-foreman_templates
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-satyr
+  rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
   rubygem-wicked
 
@@ -255,6 +258,7 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-open4
   rubygem-opennebula
+  rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
@@ -279,6 +283,8 @@ whitelist = rubygem-algebrick
   rubygem-little-plugger
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-satyr
+  rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
   rubygem-staypuft
   rubygem-wicked
@@ -294,6 +300,7 @@ whitelist = rubygem-algebrick
   rubygem-ftools
   rubygem-open4
   rubygem-opennebula
+  rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
@@ -317,6 +324,8 @@ whitelist = rubygem-algebrick
   rubygem-foreman_xen
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-satyr
+  rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
 
 [requirements]
