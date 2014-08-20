@@ -12,7 +12,7 @@ Package: foreman
 Architecture: any
 Section: web
 Priority: extra
-Depends: ruby1.9.1, bundler (>= 1.1),
+Depends: ruby1.9.1, bundler (>= 1.1), libxslt1-dev,
          ruby1.9.1-dev, facter, build-essential,
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
