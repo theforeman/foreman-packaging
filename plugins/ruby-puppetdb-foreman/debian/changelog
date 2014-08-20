@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (0.0.7-1) stable; urgency=low
+
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-puppetdb-foreman (0.0.7) stable; urgency=low
 
   * Release 0.0.7, settings moved to UI, error messages when unconfigured.

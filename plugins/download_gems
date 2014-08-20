@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Script to be run by jenkins in the root of
+# the plugin being built, which will fetch the
+# gems and dump them in cache/ for packaging
+
+. debian/gem.list
+echo $GEMS
+
+rm -rf cache
+wget $GEMS
+mkdir cache
+mv *gem cache/
