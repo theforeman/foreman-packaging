@@ -105,6 +105,9 @@ rm -r %{buildroot}%{gem_instdir}/config
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
+- Update rubygem-hammer_cli to 0.1.3 (martin.bacovsky@gmail.com)
+
 * Thu Aug 14 2014 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
 - Update rubygem-hammer_cli to 0.1.2 (martin.bacovsky@gmail.com)
 
