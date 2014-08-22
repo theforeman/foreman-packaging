@@ -8,6 +8,7 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">rubygem-foreman_abrt</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_chef</packagereq>
       <packagereq type="default">rubygem-foreman_column_view</packagereq>
@@ -31,6 +32,7 @@
       <packagereq type="default">rubygem-foreman_xen</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
 
@@ -44,6 +46,7 @@
       <packagereq type="default">rubygem-ftools</packagereq>
       <packagereq type="default">rubygem-open4</packagereq>
       <packagereq type="default">rubygem-opennebula</packagereq>
+      <packagereq type="default">rubygem-satyr</packagereq>
 
       <packagereq type="default">foreman-installer-staypuft</packagereq>
 
@@ -57,6 +60,7 @@
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-diffy-doc</packagereq>
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">rubygem-foreman_column_view-doc</packagereq>
@@ -80,6 +84,8 @@
       <packagereq type="default">rubygem-open4-doc</packagereq>
       <packagereq type="default">rubygem-opennebula-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
+      <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <!--RGD-END-->
