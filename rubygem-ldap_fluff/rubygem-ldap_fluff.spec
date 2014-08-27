@@ -3,13 +3,13 @@
 
 %global gem_name ldap_fluff
 
-Summary: LDAP integration for Active Directory, Free IPA and posix
+Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.3.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
-URL: https://github.com/jsomara/ldap_fluff
+URL: https://github.com/theforeman/ldap_fluff
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(activesupport)
