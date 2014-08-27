@@ -22,6 +22,7 @@
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
+      <packagereq type="default">foreman-selinux-proxy</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>

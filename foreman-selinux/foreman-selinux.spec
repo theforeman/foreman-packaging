@@ -17,6 +17,7 @@
 #
 
 %define selinux_variants targeted
+%define selinux_modules foreman foreman-proxy
 
 %if 0%{?rhel} == 5
 # absolute minimum versions for RHEL 5
@@ -28,14 +29,13 @@
 %define selinux_policycoreutils_ver 1.33.12-1
 
 %define moduletype apps
-%define modulename foreman
 
 # set and uncomment all three to set alpha tag
 #global alphatag RC1
 #global dotalphatag .%{alphatag}
 #global dashalphatag -%{alphatag}
 
-Name:           %{modulename}-selinux
+Name:           foreman-selinux
 Version:        1.8.0
 Release:        0.develop%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
@@ -63,58 +63,34 @@ SELinux policy module for Foreman
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
-# create selinux-friendly version from VR and replace it inplace
-perl -i -pe 'BEGIN { $VER = join ".", grep /^\d+$/, split /\./, "%{version}.%{release}"; } s!\@\@VERSION\@\@!$VER!g;' %{modulename}.te
-
 # determine distribution name and version
 %if 0%{?rhel} >= 6
-    distver=rhel%{rhel}
+%define distver rhel%{rhel}
 %endif
 %if 0%{?fedora} >= 18
-    distver=fedora%{fedora}
+%define distver fedora%{fedora}
 %endif
 
 # build policy
-for selinuxvariant in %{selinux_variants}
-do
-    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile DISTRO=${distver}
-    bzip2 -9 %{modulename}.pp
-    mv %{modulename}.pp.bz2 %{modulename}.ppbz2.${selinuxvariant}
-    make NAME=${selinuxvariant} -f /usr/share/selinux/devel/Makefile clean DISTRO=${distver}
+for selinuxvariant in %{selinux_variants}; do
+    make clean all NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
+    for selinuxmodule in %{selinux_modules}; do
+        mv ${selinuxmodule}.pp.bz2 ${selinuxmodule}-${selinuxvariant}.pp.bz2
+    done
 done
 
-# build man pages
-/usr/bin/pod2man --name=foreman-selinux-enable -c "Foreman Reference" --section=8 --release=%{version} foreman-selinux-enable.pod foreman-selinux-enable.man8
-/usr/bin/pod2man --name=foreman-selinux-disable -c "Foreman Reference" --section=8 --release=%{version} foreman-selinux-disable.pod foreman-selinux-disable.man8
-/usr/bin/pod2man --name=foreman-selinux-relabel -c "Foreman Reference" --section=8 --release=%{version} foreman-selinux-relabel.pod foreman-selinux-relabel.man8
-
 %install
-# install policy modules
-for selinuxvariant in %{selinux_variants}
-  do
+# install policy modules manually
+for selinuxvariant in %{selinux_variants}; do
     install -d %{buildroot}%{_datadir}/selinux/${selinuxvariant}
-    install -p -m 644 %{modulename}.ppbz2.${selinuxvariant} \
-        %{buildroot}%{_datadir}/selinux/${selinuxvariant}/%{modulename}.pp.bz2
-  done
+    for selinuxmodule in %{selinux_modules}; do
+        install -p -m 644 ${selinuxmodule}-${selinuxvariant}.pp.bz2 \
+            %{buildroot}%{_datadir}/selinux/${selinuxvariant}/${selinuxmodule}.pp.bz2
+    done
+done
 
-# install interfaces
-install -d %{buildroot}%{_datadir}/selinux/devel/include/%{moduletype}
-install -p -m 644 %{modulename}.if %{buildroot}%{_datadir}/selinux/devel/include/%{moduletype}/%{modulename}.if
-
-# hardlink identical policy module packages together
-/usr/sbin/hardlink -cv %{buildroot}%{_datadir}/selinux
-
-# install enable/relabel scripts which will be called in %posttrans
-install -d %{buildroot}%{_sbindir}
-install -p -m 755 %{name}-enable %{buildroot}%{_sbindir}/%{name}-enable
-install -p -m 755 %{name}-disable %{buildroot}%{_sbindir}/%{name}-disable
-install -p -m 755 %{name}-relabel %{buildroot}%{_sbindir}/%{name}-relabel
-
-# install man pages
-install -d -m 0755 %{buildroot}%{_mandir}/man8
-install -m 0644 foreman-selinux-enable.man8 %{buildroot}%{_mandir}/man8/foreman-selinux-enable.8
-install -m 0644 foreman-selinux-disable.man8 %{buildroot}%{_mandir}/man8/foreman-selinux-disable.8
-install -m 0644 foreman-selinux-relabel.man8 %{buildroot}%{_mandir}/man8/foreman-selinux-relabel.8
+# install the rest
+make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
 if /usr/sbin/selinuxenabled; then
@@ -139,13 +115,62 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %files
-%doc Contributors CHANGELOG LICENSE %{modulename}.fc %{modulename}.if %{modulename}.te %{modulename}.sh
-%attr(0600,root,root) %{_datadir}/selinux/*/%{modulename}.pp.bz2
-%{_datadir}/selinux/devel/include/%{moduletype}/%{modulename}.if
-%{_mandir}/man8/*
+%doc Contributors CHANGELOG LICENSE foreman.fc foreman.if foreman.te foreman.sh
+%attr(0600,root,root) %{_datadir}/selinux/*/foreman.pp.bz2
+%{_datadir}/selinux/devel/include/%{moduletype}/foreman.if
 %attr(0755,root,root) %{_sbindir}/%{name}-enable
 %attr(0755,root,root) %{_sbindir}/%{name}-disable
 %attr(0755,root,root) %{_sbindir}/%{name}-relabel
+%{_mandir}/man8/%{name}-enable.8.gz
+%{_mandir}/man8/%{name}-disable.8.gz
+%{_mandir}/man8/%{name}-relabel.8.gz
+
+%package -n foreman-proxy-selinux
+Summary: SELinux policy module for Foreman Proxy
+Group:   System Environment/Base
+
+Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
+Requires(post):     policycoreutils-python
+Requires(post):     selinux-policy-targeted
+Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
+
+%description -n foreman-proxy-selinux
+SELinux policy module for Foreman Proxy
+
+%post -n foreman-proxy-selinux
+if /usr/sbin/selinuxenabled; then
+    # install and upgrade
+    %{_sbindir}/foreman-proxy-selinux-enable
+fi
+
+%posttrans -n foreman-proxy-selinux
+if /usr/sbin/selinuxenabled; then
+    # install and upgrade
+    %{_sbindir}/foreman-proxy-selinux-relabel
+fi
+
+%preun -n foreman-proxy-selinux
+if /usr/sbin/selinuxenabled; then
+    # uninstall only
+    if [ $1 -eq 0 ]; then
+        %{_sbindir}/foreman-proxy-selinux-disable
+    fi
+    # upgrade and uninstall
+    %{_sbindir}/foreman-proxy-selinux-relabel
+fi
+
+%files -n foreman-proxy-selinux
+%doc Contributors CHANGELOG LICENSE
+%doc foreman-proxy.fc foreman-proxy.if foreman-proxy.te
+%attr(0600,root,root) %{_datadir}/selinux/*/foreman-proxy.pp.bz2
+%{_datadir}/selinux/devel/include/%{moduletype}/foreman-proxy.if
+%attr(0755,root,root) %{_sbindir}/foreman-proxy-selinux-enable
+%attr(0755,root,root) %{_sbindir}/foreman-proxy-selinux-disable
+%attr(0755,root,root) %{_sbindir}/foreman-proxy-selinux-relabel
+%{_mandir}/man8/foreman-proxy-selinux-enable.8.gz
+%{_mandir}/man8/foreman-proxy-selinux-disable.8.gz
+%{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
 * Tue Oct 28 2014 Dominic Cleal <dcleal@redhat.com> - 1.8.0-0.develop
