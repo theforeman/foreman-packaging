@@ -1,0 +1,13 @@
+Source: ruby-foreman-deface
+Section: ruby
+Priority: extra
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/spree/deface
+
+Package: ruby-foreman-deface
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Foreman Deface Plugin Dependency
+ Dependency of several Foreman Plugins, providing the Deface view modification engine
