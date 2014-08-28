@@ -1,3 +1,9 @@
+ruby-foreman-dhcp-browser (0.0.5-1) stable; urgency=low
+
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-foreman-dhcp-browser (0.0.5) stable; urgency=low
 
   * Update to 0.0.5.
