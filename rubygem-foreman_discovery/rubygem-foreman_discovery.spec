@@ -11,8 +11,8 @@
 
 %global gem_name foreman_discovery
 
-%global mainver 1.3.0
-#global prever .rc3
+%global mainver 1.4.0
+%global prever .rc1
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -34,8 +34,7 @@ License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
-Requires:   foreman >= 1.5.0
-Requires:   %{?scl_prefix}rubygem(deface)
+Requires:   foreman >= 1.6.0
 Requires:   %{?scl_prefix}rubygem(open4)
 Requires:   %{?scl_prefix}rubygem(ftools)
 Requires:   advancecomp
