@@ -22,15 +22,15 @@ trap db_stop EXIT
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
   if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN
+    bundle update $PLUGIN --local
   else
-    bundle install
+    bundle install --local --no-prune
   fi
 else
   if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN 2>&1 >> $LOGFILE
+    bundle update $PLUGIN --local 2>&1 >> $LOGFILE
   else
-    bundle install 2>&1 >> $LOGFILE
+    bundle install --local --no-prune 2>&1 >> $LOGFILE
   fi
 fi
 
