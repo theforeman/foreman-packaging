@@ -1,2 +1,3 @@
-foreman_default_hostgroup.rb usr/share/foreman/bundler.d
+foreman_default_hostgroup.rb   usr/share/foreman/bundler.d
+cache                          usr/share/foreman/vendor
 default_hostgroup.yaml.example etc/foreman/plugins
