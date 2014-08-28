@@ -12,7 +12,7 @@ fi
 . /usr/share/debconf/confmodule
 
 LOGFILE='/var/log/foreman-install.log'
-PLUGIN='foreman_bootdisk'
+PLUGIN='foreman_setup'
 
 # if this script aborts with an error dpkg can
 # hang if daemons have been started
@@ -20,31 +20,30 @@ trap db_stop EXIT
 
 # Update gems
 cd /usr/share/foreman
-# Nokogiri causes us pain due to tight dependencies within deface
-# so update it first. We rescue it as trusty will return non-zero if
-# nokogiri isn't in the Gemfile.
 if [ ! -z "${DEBUG}" ]; then
-  bundle update nokogiri || true
   if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN
+    bundle update $PLUGIN --local
   else
-    bundle install
+    bundle install --local --no-prune
   fi
 else
-  bundle update nokogiri 2>&1 >> $LOGFILE || true
   if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN 2>&1 >> $LOGFILE
+    bundle update $PLUGIN --local 2>&1 >> $LOGFILE
   else
-    bundle install 2>&1 >> $LOGFILE
+    bundle install --local --no-prune 2>&1 >> $LOGFILE
   fi
 fi
 
-# DB migrate after install
+# DB migrate/seed after install
 if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
     /usr/sbin/foreman-rake db:migrate || true
+    /usr/sbin/foreman-rake db:seed || true
+    /usr/sbin/foreman-rake apipie:cache || true
   else
     /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake apipie:cache >> $LOGFILE 2>&1 || true
   fi
 fi
 

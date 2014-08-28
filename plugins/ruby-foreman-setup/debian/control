@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_setup
 
 Package: ruby-foreman-setup
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman, libxml2-dev, libxslt1-dev
+Depends: ${misc:Depends}, bundler, foreman, libxml2-dev, libxslt1-dev, ruby-foreman-deface
 Description: Foreman Setup Plugin
  Plugin for Foreman that helps set up provisioning.
