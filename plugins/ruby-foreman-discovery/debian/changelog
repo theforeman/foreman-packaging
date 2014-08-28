@@ -1,3 +1,10 @@
+ruby-foreman-discovery (1.4.0~rc1) unstable; urgency=low
+
+  * Package RC1 for testing
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-foreman-discovery (1.3.0-1) stable; urgency=low
 
   * Release 1.3.0
