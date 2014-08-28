@@ -1,0 +1,6 @@
+ruby-foreman-deface (0.9.1) unstable; urgency=low
+
+  * Initial Release.
+  * Splitting deface to a separate package so multiple plugins can use it
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
