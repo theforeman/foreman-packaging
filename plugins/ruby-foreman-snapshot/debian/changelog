@@ -1,3 +1,9 @@
+ruby-foreman-snapshot (0.1.0-1) stable; urgency=low
+
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-foreman-snapshot (0.1.0) stable; urgency=low
 
   * Initial Release.
