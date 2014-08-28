@@ -8,7 +8,7 @@ Homepage: https://github.com/theforeman/foreman_column_view
 
 Package: ruby-foreman-column-view
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, bundler, foreman, ruby-foreman-deface
 Description: Foreman Column View Plugin
  Displays an additional column in the Foreman Hosts view and/or additional
  entries in the Host show page.

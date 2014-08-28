@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.2.0-2) stable; urgency=low
+
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-foreman-column-view (0.2.0-1) stable; urgency=low
 
   * Update nokogiri on install
