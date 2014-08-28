@@ -12,6 +12,4 @@
 #export DH_RUBY_GEMSPEC=gem.gemspec
 
 %:
-	/bin/mv locale/Makefile .
 	dh $@ --buildsystem=ruby --with ruby
-	/bin/mv Makefile locale/.
