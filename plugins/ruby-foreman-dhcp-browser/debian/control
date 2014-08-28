@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_dhcp_browser
 
 Package: ruby-foreman-dhcp-browser
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, bundler, foreman, ruby-foreman-deface
 Description: Foreman DHCP browser Plugin
  Plugin for Foreman to browse and edit DHCP leases in the Foreman web UI.
