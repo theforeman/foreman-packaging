@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.4-1) unstable; urgency=low
+
+  * Package gems into Foreman's cache dir for local install
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 28 Aug 2014 09:35:00 +0000
+
 ruby-foreman-hooks (0.3.4) unstable; urgency=low
 
   * 0.3.7 released

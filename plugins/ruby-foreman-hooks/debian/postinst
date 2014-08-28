@@ -12,6 +12,7 @@ fi
 . /usr/share/debconf/confmodule
 
 LOGFILE='/var/log/foreman-install.log'
+PLUGIN='foreman_hooks'
 
 # if this script aborts with an error dpkg can
 # hang if daemons have been started
@@ -20,9 +21,17 @@ trap db_stop EXIT
 # Update gems
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  bundle update foreman_hooks
+  if bundle show $PLUGIN >/dev/null 2>&1; then
+    bundle update $PLUGIN --local
+  else
+    bundle install --local --no-prune
+  fi
 else
-  bundle update foreman_hooks 2>&1 >> $LOGFILE
+  if bundle show $PLUGIN >/dev/null 2>&1; then
+    bundle update $PLUGIN --local 2>&1 >> $LOGFILE
+  else
+    bundle install --local --no-prune 2>&1 >> $LOGFILE
+  fi
 fi
 
 # Own all the core files
