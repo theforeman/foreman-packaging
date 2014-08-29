@@ -78,6 +78,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/doc
 
 
 %changelog
