@@ -146,6 +146,9 @@ fi
 %attr(0755,root,root) %{_sbindir}/%{name}-relabel
 
 %changelog
+* Fri Aug 29 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-0.2.RC2
+- Release 1.6.0-RC2
+
 * Thu Aug 14 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-0.1.RC1
 - Release 1.6.0-RC1
 
