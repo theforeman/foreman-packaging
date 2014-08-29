@@ -82,6 +82,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Aug 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.9-1
+- Packaged /doc (martin.bacovsky@gmail.com)
+- Update rubygem-apipie-bindings to 0.0.9 (martin.bacovsky@gmail.com)
+
 * Thu Jul 17 2014 Lukas Zapletal <lzap+git@redhat.com> 0.0.8-4
 - Fixed dependency in the -doc subpackage (lzap+git@redhat.com)
 - Fixed doc subpackages (lzap+git@redhat.com)
