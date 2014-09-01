@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-salt
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_salt
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-salt
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.6.0~rc1), salt-master
+Description: SaltStack Plug-In for Foreman's Smart Proxy
+ SaltStack Plug-In for Foreman's Smart Proxy
