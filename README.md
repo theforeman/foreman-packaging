@@ -49,6 +49,10 @@ SOURCES/ directory. Typical script looks like:
     popd
     mv -v $DIR/pkg/*.tar.{bz2,gz} $HOME/rpmbuild/SOURCES/ 2>/dev/null
 
+You'll also need an alias `kojikat` to point to:
+
+    koji -c ~/.koji/katello-config build
+    
 ## HOWTO: create a new core package or dependency
 
 1. Check if it's available in Fedora:
@@ -64,11 +68,12 @@ SOURCES/ directory. Typical script looks like:
    targeted platforms and required SCL + non-SCL modes.
 1. Download the source file (e.g. the .gem) into the spec directory and run
    `git annex add foo.gem`
-1. Update rel-eng/releasers.conf
+1. Update rel-eng/tito.props
   * If building for Fedora, add to the "foreman-nightly-fedora19" whitelist
   * If building non-SCL *only*, add to the "foreman-nightly-rhel6" blacklist
   * If building SCL EL6 only, no action required
 1. Update comps/comps-foreman-\*.xml
+2. Run ./comps_doc.sh to automatically add docs
 1. Commit the changes
   1. `git add -A`
   1. `git commit -m "Add NAME package"`
