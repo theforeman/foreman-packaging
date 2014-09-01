@@ -1,0 +1,3 @@
+salt.rb usr/share/foreman-proxy/bundler.d
+etc/foreman.yaml etc/salt
+settings.d/salt.yml etc/foreman-proxy/settings.d
