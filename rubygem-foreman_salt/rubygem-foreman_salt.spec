@@ -18,7 +18,7 @@
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    2%{?dist}
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_salt
@@ -103,5 +103,5 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
-* Mon Aug 24 2014 Stephen Benjamin <stephen@redhat.com> 0.0.2-2
+* Mon Aug 24 2014 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
 - Initial version
