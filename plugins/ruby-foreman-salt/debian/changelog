@@ -1,0 +1,5 @@
+ruby-foreman-salt (0.0.2) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Stephen Benjamin <stephen@redhat.com>  Mon, 01 Sep 2014 00:34:49 +0000
