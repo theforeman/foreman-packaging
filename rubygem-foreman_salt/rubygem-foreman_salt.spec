@@ -103,5 +103,5 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
-* Mon Aug 24 2014 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
+* Thu Aug 28 2014 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
 - Initial version
