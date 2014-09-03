@@ -158,6 +158,7 @@
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
+      <packagereq type="default">rubygem-rb-readline</packagereq>
       <packagereq type="default">rubygem-rdoc</packagereq>
       <packagereq type="default">rubygem-rest-client</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
@@ -256,6 +257,7 @@
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
+      <packagereq type="default">rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
