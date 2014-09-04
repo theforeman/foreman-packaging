@@ -3,7 +3,7 @@
 
 %global gem_name staypuft
 
-%define _version 0.3.0
+%define _version 0.3.1
 %define _summary OpenStack Foreman Installer
 %define _url https://github.com/theforeman/staypuft
 %define _license GPLv3
@@ -22,6 +22,7 @@
 Requires: %{?scl_prefix}rubygem(foreman_discovery)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
 Requires: %{?scl_prefix}rubygem(wicked)
+Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 17
@@ -136,6 +137,7 @@ group :%{gem_name} do
   gem '%{gem_name}'
   gem 'sass-rails'
   gem 'bootstrap-sass'
+  gem 'jquery-ui-rails'
 end
 GEMFILE
 cat ./bundler.d/%{gem_name}.rb
