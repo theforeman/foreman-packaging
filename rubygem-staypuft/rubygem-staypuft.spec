@@ -179,6 +179,9 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu Sep 04 2014 Marek Hulan <mhulan@redhat.com> 0.3.1-1
+- Update staypuft to 0.3.1 (mhulan@redhat.com)
+
 * Mon Aug 25 2014 Marek Hulan <mhulan@redhat.com> 0.3.0-1
 - new package built with tito
 
