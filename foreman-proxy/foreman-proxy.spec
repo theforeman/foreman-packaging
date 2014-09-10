@@ -225,6 +225,9 @@ fi
 
 
 %changelog
+* Wed Sep 10 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-1
+- Release 1.6.0
+
 * Fri Aug 29 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-0.2.RC2
 - Release 1.6.0-RC2
 - refs #6542 - ship freeipa script for creating users (stbenjam@redhat.com)
