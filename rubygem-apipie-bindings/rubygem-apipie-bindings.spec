@@ -16,7 +16,6 @@ Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 Requires: %{?scl_prefix}rubygem(awesome_print)
-Requires: %{?scl_prefix}rubygem(fastercsv)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(json) >= 1.2.1
 Requires: %{?scl_prefix}rubygem(mime-types) < 2.0.0
