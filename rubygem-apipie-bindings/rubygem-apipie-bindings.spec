@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Sep 18 2014 Dominic Cleal <dcleal@redhat.com> 0.0.10-1
+- Update rubygem-apipie-bindings to 0.0.10 (dcleal@redhat.com)
+
 * Fri Aug 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.9-1
 - Packaged /doc (martin.bacovsky@gmail.com)
 - Update rubygem-apipie-bindings to 0.0.9 (martin.bacovsky@gmail.com)
