@@ -1,3 +1,10 @@
+ruby-puppetdb-foreman (0.0.8) stable; urgency=low
+
+  * Release 0.0.8, fixed bug where puppetdb_enabled was a string, not a
+  boolean.
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Fri, 19 Aug 2014 18:38:00 +0000
+
 ruby-puppetdb-foreman (0.0.7-1) stable; urgency=low
 
   * Package gems into Foreman's cache dir for local install
