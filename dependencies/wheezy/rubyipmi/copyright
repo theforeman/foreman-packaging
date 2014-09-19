@@ -1,0 +1,15 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: rubyipmi
+Source: https://github.com/logicminds/rubyipmi
+
+Files: *
+Copyright: 2013, Corey Osman <corey@logicminds.biz>
+License: GPL-3+
+
+Files: debian/*
+Copyright: 2013, Michael Moll <mmoll@mmoll.at>
+License: GPL-3+
+Comment: the Debian packaging is licensed under the same terms as the original package.
+
+On Debian systems, you can find the full text of the GNU General Public
+License v3 in `/usr/share/common-licenses/GPL-3'.

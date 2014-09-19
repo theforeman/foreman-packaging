@@ -1,3 +1,9 @@
+ruby-rubyipmi (0.7.0-1) unstable; urgency=low
+
+  * Update to 0.7.0
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 19 Sep 2014 23:26:25 +0200
+
 ruby-rubyipmi (0.6.0-1) UNRELEASED; urgency=low
 
   * Initial release (Closes: #nnnn)
