@@ -1,12 +1,9 @@
 Source: ruby-rubyipmi
 Section: ruby
 Priority: optional
-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
-Uploaders:  <>
+Maintainer: Michael Moll <mmoll@moll.at>
 Build-Depends: debhelper, gem2deb
 Standards-Version: 3.9.4
-#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-rubyipmi.git
-#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-rubyipmi.git;a=summary
 Homepage: http://github.com/logicminds/rubyipmi
 XS-Ruby-Versions: all
 
@@ -14,6 +11,5 @@ Package: ruby-rubyipmi
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
-# rspec (~> 2.8.0, development), rdoc (~> 3.12, development), bundler (~> 1.1.5, development), jeweler (~> 1.8.4, development), rcov (>= 0, development)
 Description: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
  A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
