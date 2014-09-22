@@ -118,6 +118,9 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Mon Sep 22 2014 Dominic Cleal <dcleal@redhat.com> 2.1.0-1
+- Update to v2.1.0 (dcleal@redhat.com)
+
 * Thu May 08 2014 Dominic Cleal <dcleal@redhat.com> 2.0.4-1
 - Update to v2.0.4 (dcleal@redhat.com)
 
