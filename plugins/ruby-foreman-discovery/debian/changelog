@@ -1,3 +1,9 @@
+ruby-foreman-discovery (1.4.0~rc2-1) unstable; urgency=low
+
+  * Package RC2 for testing
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Mon, 22 Sep 2014 15:33:00 +0000
+
 ruby-foreman-discovery (1.4.0~rc1) unstable; urgency=low
 
   * Package RC1 for testing
