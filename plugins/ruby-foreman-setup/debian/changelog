@@ -1,3 +1,9 @@
+ruby-foreman-setup (2.1.0) stable; urgency=low
+
+  * 2.1.0 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Mon, 22 Sep 2014 12:02:22 +0100
+
 ruby-foreman-setup (2.0.4-2) stable; urgency=low
 
   * Package gems into Foreman's cache dir for local install
