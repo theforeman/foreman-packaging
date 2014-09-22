@@ -1,0 +1,13 @@
+Source: ruby-foreman-xen
+Section: ruby
+Priority: extra
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman-xen
+
+Package: ruby-foreman-xen
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.6.0~rc1),
+Description: Foreman XenServer compute resource
+ XenServer compute resource plugin for Foreman

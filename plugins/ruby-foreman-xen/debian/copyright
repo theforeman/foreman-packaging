@@ -1,0 +1,11 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-xen
+Source: https://github.com/theforeman/foreman-xen
+
+Files: *
+Copyright: 2014 ooVoo LLC <info@oovoo.com>
+License: GPL-3.0+
+
+Files: debian/*
+Copyright: 2014 Michael Moll <mmoll@mmoll.at>
+License: GPL-3.0+
