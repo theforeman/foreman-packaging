@@ -17,10 +17,10 @@
 
 Summary:    Foreman plugin to interact with PuppetDB through callbacks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.7
+Version:    0.0.8
 Release:    1%{?dist}
 Group:      Applications/System
-License:    GPLv3
+License:    ASL 2.0
 URL:        https://github.com/cernops/puppetdb_foreman
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
@@ -80,6 +80,10 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Fri Sep 19 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.8-1
+- Update to v0.0.8 (dlobatog@redhat.com)
+- Setting puppetdb_enabled is now a boolean
+
 * Mon Jul 21 2014 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
 - Update to v0.0.7 (dcleal@redhat.com)
 
