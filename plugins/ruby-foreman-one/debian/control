@@ -1,0 +1,13 @@
+Source: ruby-foreman-one
+Section: ruby
+Priority: extra
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman-one
+
+Package: ruby-foreman-one
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.6.0~rc1)
+Description: Foreman OpenNebula compute resource
+ OpenNebula compute resource plugin for Foreman
