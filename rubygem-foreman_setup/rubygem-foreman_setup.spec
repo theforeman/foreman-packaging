@@ -27,7 +27,7 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.4
+Version:    2.1.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -97,6 +97,8 @@ GEMFILE
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/lib
+%{gem_instdir}/locale
+%exclude %{gem_instdir}/.tx
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
