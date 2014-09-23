@@ -125,6 +125,9 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Sep 23 2014 Dominic Cleal <dcleal@redhat.com> 1.4.0-0.1.rc3
+- Update foreman_discovery to 1.4.0.rc3 (dcleal@redhat.com)
+
 * Mon Sep 22 2014 Dominic Cleal <dcleal@redhat.com> 1.4.0-0.1.rc2
 - Update foreman_discovery to 1.4.0.rc2 (dcleal@redhat.com)
 
