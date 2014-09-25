@@ -179,6 +179,9 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu Sep 25 2014 Marek Hulan <mhulan@redhat.com> 0.3.9-1
+- Update staypuft to 0.3.9 (mhulan@redhat.com)
+
 * Wed Sep 10 2014 Marek Hulan <mhulan@redhat.com> 0.3.4-1
 - Update staypuft to 0.3.4 (mhulan@redhat.com)
 
