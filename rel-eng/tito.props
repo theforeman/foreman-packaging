@@ -158,6 +158,7 @@ whitelist = foreman
   rubygem-ftools
   rubygem-fast_gettext
   rubygem-fastercsv
+  rubygem-friendly_id
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
