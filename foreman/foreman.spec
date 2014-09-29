@@ -97,6 +97,8 @@ Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 0.3.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0.0
+Requires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
+Requires: %{?scl_prefix}rubygem(friendly_id) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
@@ -145,6 +147,8 @@ BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.0
 BuildRequires: %{?scl_prefix}facter
 BuildRequires: gettext
 BuildRequires: asciidoc
