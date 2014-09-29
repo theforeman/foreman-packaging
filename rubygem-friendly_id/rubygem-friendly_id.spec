@@ -86,3 +86,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Sep 29 2014 Dominic Cleal <dcleal@redhat.com> 4.0.10.1-1
+- new package built with tito
+
