@@ -1,0 +1,3 @@
+foreman_memcache.yaml.example  etc/foreman/plugins
+foreman_memcache.rb            usr/share/foreman/bundler.d
+cache                          usr/share/foreman/vendor
