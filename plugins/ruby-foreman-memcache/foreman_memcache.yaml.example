@@ -1,0 +1,10 @@
+# Example foreman_memcache config file
+# Copy to config/settings.plugins.d/foreman_memcache.yaml
+:memcache:
+  :hosts:
+    - cache-1.example.com
+    - cache-2.example.com
+  :options:
+    :namespace: foreman
+    :expires_in: 86400
+    :compress: true
