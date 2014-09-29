@@ -1,0 +1,5 @@
+ruby-foreman-memcache (0.0.3) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 29 Sep 2014 21:54:49 +0200
