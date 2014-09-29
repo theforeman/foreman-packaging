@@ -231,6 +231,7 @@ whitelist = ipxe
   rubygem-foreman_discovery
   rubygem-foreman_docker
   rubygem-foreman_hooks
+  rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
@@ -286,6 +287,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_discovery
   rubygem-foreman_docker
   rubygem-foreman_hooks
+  rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
@@ -342,6 +344,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_discovery
   rubygem-foreman_docker
   rubygem-foreman_hooks
+  rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
