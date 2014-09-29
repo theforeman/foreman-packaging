@@ -1,0 +1,13 @@
+Source: ruby-foreman-host-rundeck
+Section: ruby
+Priority: extra
+Maintainer: Foreman <foreman-dev@googlegroups.com>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_host_rundeck
+
+Package: ruby-foreman-host-rundeck
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0~rc1),
+Description: API for Rundeck to pull host data from Foreman
+ Plugin to create rundeck output for hosts.
