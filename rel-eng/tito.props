@@ -209,6 +209,7 @@ disttag = .el6
 scl = ruby193
 whitelist = ipxe
   rubygem-algebrick
+  rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-ftools
@@ -255,6 +256,7 @@ whitelist = ipxe
 disttag = .el7
 scl = ruby193
 whitelist = rubygem-algebrick
+  rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-ftools
@@ -300,6 +302,7 @@ whitelist = rubygem-algebrick
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
 whitelist = rubygem-algebrick
+  rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-dalli
   rubygem-deface
