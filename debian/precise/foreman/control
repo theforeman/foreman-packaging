@@ -3,7 +3,8 @@ Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
 Section: web
 Priority: extra
 Standards-Version: 3.9.1
-Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.8-dev, git | git-core,
+Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby1.9.3 (>= 1:1.9.3.545),
+               ruby1.9.1-dev (>= 1:1.9.3.545), git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
                libvirt-dev, libsqlite3-dev, facter, build-essential
 Homepage: http://www.theforeman.org/
@@ -12,7 +13,7 @@ Package: foreman
 Architecture: any
 Section: web
 Priority: extra
-Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2), ruby-dev,
+Depends: ruby1.9.3 (>= 1:1.9.3.545), bundler (>= 1.2), ruby1.9.1-dev (>= 1:1.9.3.545),
          libxml2-dev, libxslt1-dev, facter, build-essential,
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
