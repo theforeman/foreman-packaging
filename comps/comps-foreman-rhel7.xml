@@ -21,10 +21,14 @@
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-release</packagereq>
+      <packagereq type="default">foreman-release-scl</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+
+      <packagereq type="default">rhscl-ruby193-epel-7-x86_64</packagereq>
+      <packagereq type="default">rhscl-v8314-epel-7-x86_64</packagereq>
 
       <packagereq type="default">ruby193-facter</packagereq>
       <packagereq type="default">ruby193-mod_passenger</packagereq>

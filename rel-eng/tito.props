@@ -17,6 +17,7 @@ fetch_strategy = custom.JenkinsSourceStrategy
 disttag = .el6
 blacklist = foreman-installer
   foreman-proxy
+  foreman-release-scl
   foreman-selinux
   rubygem-clamp
   rubygem-ffi
@@ -38,6 +39,7 @@ scl = ruby193
 disttag = .el7
 blacklist = foreman-installer
   foreman-proxy
+  foreman-release-scl
   foreman-selinux
   rubygem-clamp
   rubygem-ffi
@@ -63,6 +65,7 @@ scl = ruby193
 disttag = .el6
 whitelist = foreman-installer
   foreman-proxy
+  foreman-release-scl
   foreman-selinux
   rubygem-ansi
   rubygem-apipie-bindings
@@ -96,6 +99,7 @@ whitelist = foreman-installer
 disttag = .el7
 whitelist = foreman-installer
   foreman-proxy
+  foreman-release-scl
   foreman-selinux
   rubygem-ansi
   rubygem-apipie-bindings
