@@ -8,6 +8,8 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">ruby193-rubygem-bastion</packagereq>
+      <packagereq type="default">ruby193-rubygem-bastion-devel</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_chef</packagereq>
@@ -67,6 +69,7 @@
       <packagereq type="default">ruby193-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-bastion-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>

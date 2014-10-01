@@ -220,6 +220,7 @@ whitelist = ipxe
   rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-archive-tar-minitar
+  rubygem-bastion
   rubygem-ftools
   rubygem-dalli
   rubygem-deface
@@ -268,6 +269,7 @@ whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-archive-tar-minitar
+  rubygem-bastion
   rubygem-ftools
   rubygem-dalli
   rubygem-deface
@@ -314,6 +316,7 @@ disttag = .fc19
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
+  rubygem-bastion
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
