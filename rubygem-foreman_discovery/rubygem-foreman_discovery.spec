@@ -12,7 +12,7 @@
 %global gem_name foreman_discovery
 
 %global mainver 1.4.0
-%global prever .rc3
+%global prever .rc4
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -125,6 +125,9 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Oct 01 2014 Lukas Zapletal <lzap+rpm@redhat.com> - 1.4.0-0.1.rc4
+- Update foreman_discovery to 1.4.0.rc4
+
 * Tue Sep 23 2014 Dominic Cleal <dcleal@redhat.com> 1.4.0-0.1.rc3
 - Update foreman_discovery to 1.4.0.rc3 (dcleal@redhat.com)
 
