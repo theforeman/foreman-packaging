@@ -409,7 +409,7 @@ plugins required for Foreman to work.
 #replace shebangs and binaries in scripts for SCL
 %if %{?scl:1}%{!?scl:0}
   # shebangs
-  for f in extras/query/ssh_using_foreman extras/rdoc/rdoc_prepare_script.rb \
+  for f in extras/rdoc/rdoc_prepare_script.rb \
   script/rails script/performance/profiler script/performance/benchmarker script/foreman-config ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
