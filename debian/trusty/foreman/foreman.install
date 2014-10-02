@@ -19,7 +19,6 @@ vendor/cache                             usr/share/foreman/vendor
 extras/dbmigrate                         usr/share/foreman/extras
 extras/ignored_environments.yml.sample   usr/share/foreman/extras
 extras/noVNC                             usr/share/foreman/extras
-extras/query                             usr/share/foreman/extras
 extras/rdoc                              usr/share/foreman/extras
 bundler.d/i18n.rb                        usr/share/foreman/bundler.d
 debian/debian.rb                         usr/share/foreman/bundler.d
