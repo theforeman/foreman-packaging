@@ -1,9 +1,15 @@
+ruby-puppetdb-foreman (0.0.9) stable; urgency=low
+
+  * Release 0.0.9, deactivate host on after_build
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Fri, 03 Oct 2014 00:08:00 +0000
+
 ruby-puppetdb-foreman (0.0.8) stable; urgency=low
 
   * Release 0.0.8, fixed bug where puppetdb_enabled was a string, not a
   boolean.
 
- -- Daniel Lobato <dlobatog@redhat.com>  Fri, 19 Aug 2014 18:38:00 +0000
+ -- Daniel Lobato <dlobatog@redhat.com>  Fri, 19 Sept 2014 18:38:00 +0000
 
 ruby-puppetdb-foreman (0.0.7-1) stable; urgency=low
 
