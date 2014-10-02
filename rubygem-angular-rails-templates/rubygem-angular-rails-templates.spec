@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   0.0.4
-Release:   6%{?dist}
+Release:   7%{?dist}
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
 License:   MIT
@@ -73,3 +73,6 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Oct 02 2014 Dominic Cleal <dcleal@redhat.com> 0.0.4-7
+- new package built with tito (ehelms@redhat.com)
+
