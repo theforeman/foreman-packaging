@@ -17,7 +17,7 @@
 
 Summary:    Foreman plugin to interact with PuppetDB through callbacks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.8
+Version:    0.0.9
 Release:    1%{?dist}
 Group:      Applications/System
 License:    ASL 2.0
@@ -80,6 +80,10 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Fri Oct 03 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.9-1
+- Update to v0.0.9 (dlobatog@redhat.com)
+- Deactivate host after build
+
 * Fri Sep 19 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.8-1
 - Update to v0.0.8 (dlobatog@redhat.com)
 - Setting puppetdb_enabled is now a boolean
