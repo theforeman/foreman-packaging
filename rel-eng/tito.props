@@ -250,6 +250,7 @@ whitelist = ipxe
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
+  rubygem-sprockets-rails
   rubygem-wicked
 
 [foreman-plugins-nightly-rhel7]
@@ -296,6 +297,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
+  rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
 
@@ -340,6 +342,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
+  rubygem-sprockets-rails
 
 [requirements]
 tito=0.5.5
