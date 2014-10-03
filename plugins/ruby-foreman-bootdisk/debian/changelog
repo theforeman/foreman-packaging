@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (3.2.0) stable; urgency=low
+
+  * 3.2.0 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 03 Oct 2014 07:52:28 +0100
+
 ruby-foreman-bootdisk (3.1.2) stable; urgency=low
 
   * Release 3.1.2
