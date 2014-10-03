@@ -7,8 +7,10 @@ FOREMAN_HOME=/usr/share/foreman
 # Clean up the session entries in the database
 15 23 * * *     foreman    /usr/sbin/foreman-rake db:sessions:clear >>/var/log/foreman/cron.log 2>&1
 
-# Send out daily summary
-0 7 * * *       foreman    /usr/sbin/foreman-rake reports:summarize >>/var/log/foreman/cron.log 2>&1
+# Send out recurring notifications
+0 7 * * *       foreman    /usr/sbin/foreman-rake reports:daily >>/var/log/foreman/cron.log 2>&1
+0 5 * * 0       foreman    /usr/sbin/foreman-rake reports:weekly >>/var/log/foreman/cron.log 2>&1
+0 3 1 * *       foreman    /usr/sbin/foreman-rake reports:monthly >>/var/log/foreman/cron.log 2>&1
 
 # Expire old reports
 30 7 * * *      foreman    /usr/sbin/foreman-rake reports:expire >>/var/log/foreman/cron.log 2>&1
