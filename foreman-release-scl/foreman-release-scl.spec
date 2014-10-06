@@ -21,3 +21,6 @@ Enterprise Linux rebuilds, such as CentOS.
 %files
 
 %changelog
+* Mon Oct 06 2014 Dominic Cleal <dcleal@redhat.com> 1-1
+- new package built with tito
+
