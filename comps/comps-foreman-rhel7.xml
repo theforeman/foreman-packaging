@@ -115,6 +115,7 @@
       <packagereq type="default">ruby193-rubygem-signet</packagereq>
       <packagereq type="default">ruby193-rubygem-single_test</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails</packagereq>
+      <packagereq type="default">ruby193-rubygem-sprockets</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey</packagereq>
       <packagereq type="default">ruby193-rubygem-syntax</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
@@ -244,6 +245,7 @@
       <packagereq type="default">ruby193-rubygem-signet-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-single_test-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sprockets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unf-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
