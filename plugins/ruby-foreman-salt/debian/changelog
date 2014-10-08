@@ -1,3 +1,9 @@
+ruby-foreman-salt (0.0.4) unstable; urgency=low
+
+  * Update to 0.0.4
+
+ -- Stephen Benjamin <stephen@redhat.com>  Wed, 08 Oct 2014 13:50:00 -0400
+
 ruby-foreman-salt (0.0.3) unstable; urgency=low
 
   * Update to 0.0.3

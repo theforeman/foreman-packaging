@@ -1,2 +1,2 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_salt-0.0.3.gem"
+GEMS="https://rubygems.org/downloads/foreman_salt-0.0.4.gem"
