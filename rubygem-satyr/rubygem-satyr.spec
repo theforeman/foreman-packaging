@@ -1,7 +1,7 @@
 %global gem_name satyr
 
 Name: rubygem-%{gem_name}
-Version: 0.1
+Version: 0.2
 Release: 1%{?dist}
 Summary: Parse uReport bug report format
 Group: Development/Languages
@@ -61,5 +61,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Oct 08 2014 Martin Milata <mmilata@redhat.com> - 0.2-1
+- New upstream release
+  - Ruby 1.8 compatibility
+
 * Mon Aug 18 2014 Martin Milata <mmilata@redhat.com> - 0.1-1
 - Initial package
