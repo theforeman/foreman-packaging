@@ -6,7 +6,7 @@
 %global spool_dir %{_var}/spool/foreman-proxy-abrt
 
 Name: rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?dist}
 Summary: Automatic Bug Reporting Tool plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -64,8 +64,6 @@ Documentation for %{name}
 %build
 
 %install
-rm -f .%{gem_instdir}/extra/*.spec
-
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
        %{buildroot}%{gem_dir}/
@@ -125,6 +123,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Wed Oct 08 2014 Martin Milata <mmilata@redhat.com> - 0.0.5-1
+- New upstream version
+
 * Mon Oct 06 2014 Martin Milata <mmilata@redhat.com> - 0.0.4-1
 - New upstream version
 
