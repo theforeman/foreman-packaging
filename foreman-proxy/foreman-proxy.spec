@@ -225,6 +225,9 @@ fi
 
 
 %changelog
+* Thu Oct 09 2014 Dominic Cleal <dcleal@redhat.com> 1.6.2-1
+- Release 1.6.2
+
 * Tue Oct 07 2014 Dominic Cleal <dcleal@redhat.com> 1.6.1-1
 - Release 1.6.1
 
