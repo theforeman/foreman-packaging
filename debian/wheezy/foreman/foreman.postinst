@@ -25,6 +25,8 @@ getent passwd foreman >/dev/null || \
 chown -Rf foreman:foreman '/var/log/foreman'
 chown -Rf foreman:foreman '/var/cache/foreman'
 chown -Rf foreman:foreman '/var/lib/foreman'
+chown -f foreman:foreman '/usr/share/foreman/.ssh'
+chmod 700 '/usr/share/foreman/.ssh'
 chmod 755 '/var/lib/foreman'
 chmod 755 '/var/lib/foreman/db'
 chmod 755 '/var/lib/foreman/public'
