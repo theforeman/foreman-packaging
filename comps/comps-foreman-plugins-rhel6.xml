@@ -53,6 +53,7 @@
       <packagereq type="default">ruby193-rubygem-logging</packagereq>
       <packagereq type="default">ruby193-rubygem-open4</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
+      <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
 
@@ -97,6 +98,7 @@
       <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
