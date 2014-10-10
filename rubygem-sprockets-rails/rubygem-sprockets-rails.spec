@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   2.0.1
-Release:   5%{?dist}  
+Release:   6%{?dist}  
 Summary:   Sprockets Rails integration
 License:   MIT
 Group:     Development/Languages
@@ -73,3 +73,6 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Oct 10 2014 Dominic Cleal <dcleal@redhat.com> 2.0.1-6
+- new package built with tito (ehelms@redhat.com)
+
