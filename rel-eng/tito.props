@@ -158,6 +158,7 @@ whitelist = foreman
   rubygem-fog-json
   rubygem-fog-sakuracloud
   rubygem-fog-softlayer
+  rubygem-fog-xml
   rubygem-foremancli
   rubygem-foreman_api
   rubygem-ftools

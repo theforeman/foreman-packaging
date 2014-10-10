@@ -60,6 +60,7 @@
       <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-sakuracloud</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-softlayer</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-xml</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador</packagereq>
@@ -205,6 +206,7 @@
       <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-sakuracloud-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-softlayer-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador-doc</packagereq>
