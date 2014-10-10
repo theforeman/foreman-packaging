@@ -58,6 +58,7 @@
       <packagereq type="default">ruby193-rubygem-fog-brightbox</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-radosgw</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-sakuracloud</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-softlayer</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-xml</packagereq>
@@ -199,6 +200,7 @@
       <packagereq type="default">ruby193-rubygem-fog-core-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-radosgw-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-sakuracloud-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-softlayer-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-xml-doc</packagereq>
