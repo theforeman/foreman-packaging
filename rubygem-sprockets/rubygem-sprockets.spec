@@ -9,7 +9,7 @@
 Summary:  Rack-based asset packaging system
 Name:     %{?scl_prefix}rubygem-%{gem_name}
 Version:  2.8.2
-Release:  1%{?dist}
+Release:  2%{?dist}
 Group:    Development/Languages
 License:  MIT
 URL:      http://getsprockets.org/
@@ -129,6 +129,9 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Fri Oct 10 2014 Dominic Cleal <dcleal@redhat.com> 2.8.2-2
+- Rebuild under SCL for Foreman (ehelms@redhat.com)
+
 * Tue Dec 11 2012 Josef Stribny <jstribny@redhat.com> - 2.8.2-1
 - Upgraded to version 2.8.2
 - Added rubygem-uglifier build dependency
