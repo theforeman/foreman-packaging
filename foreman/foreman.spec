@@ -523,6 +523,7 @@ rm -rf %{buildroot}
 %doc LICENSE
 %exclude %{_datadir}/%{name}/bundler.d/*
 %{_datadir}/%{name}
+%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
 %{_datadir}/%{name}/plugins
 %exclude %{_datadir}/%{name}/app/assets
 %{_initrddir}/%{name}
