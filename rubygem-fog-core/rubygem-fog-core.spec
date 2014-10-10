@@ -6,7 +6,7 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.23.0
+Version: 1.24.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
