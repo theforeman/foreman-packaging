@@ -61,6 +61,7 @@
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-immigrant</packagereq>
+      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
@@ -125,6 +126,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-doc</packagereq>
+      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap-doc</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-launchy-doc</packagereq>

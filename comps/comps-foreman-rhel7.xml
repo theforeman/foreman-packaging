@@ -72,6 +72,7 @@
       <packagereq type="default">ruby193-rubygem-hirb</packagereq>
       <packagereq type="default">ruby193-rubygem-i18n_data</packagereq>
       <packagereq type="default">ruby193-rubygem-ipaddress</packagereq>
+      <packagereq type="default">ruby193-rubygem-jquery_pwstrength_bootstrap</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-jwt</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy</packagereq>
@@ -213,6 +214,7 @@
       <packagereq type="default">ruby193-rubygem-hirb-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ipaddress-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-jquery_pwstrength_bootstrap-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>

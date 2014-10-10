@@ -149,6 +149,7 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.0
+BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap)
 BuildRequires: %{?scl_prefix}facter
 BuildRequires: gettext
 BuildRequires: asciidoc
@@ -279,6 +280,7 @@ Requires: %{?scl_prefix}rubygem(gettext) >= 1.9.3
 Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9.10
 Requires: %{?scl_prefix}rubygem(multi-select-rails) < 0.10.0
 Requires: %{?scl_prefix}rubygem(gridster-rails)
+Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap)
 
 %description assets
 Meta package to install asset pipeline support.
