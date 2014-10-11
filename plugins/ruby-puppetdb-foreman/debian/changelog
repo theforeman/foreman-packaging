@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (0.1.1) stable; urgency=low
+
+  * Release 0.1.1, proxy PuppetDB performance dashboard
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Sat, 11 Oct 2014 22:28:00 +0000
+
 ruby-puppetdb-foreman (0.0.9) stable; urgency=low
 
   * Release 0.0.9, deactivate host on after_build
