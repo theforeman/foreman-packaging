@@ -1,27 +1,21 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name fog-core
+%global gem_name fog-xml
 
-Summary: Shared classes and tests for fog providers and services
+Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.24.0
+Version: 0.1.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-core
+URL: http://github.com/fog/fog-xml
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-builder
-Requires: %{?scl_prefix}rubygem-excon >= 0.38.0
-Requires: %{?scl_prefix}rubygem-excon < 1
-Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
-Requires: %{?scl_prefix}rubygem-formatador < 0.3
-Requires: %{?scl_prefix}rubygem-mime-types
-Requires: %{?scl_prefix}rubygem-net-scp => 1.1.0
-Requires: %{?scl_prefix}rubygem-net-scp < 2
-Requires: %{?scl_prefix}rubygem-net-ssh >= 2.1.3
+Requires: %{?scl_prefix}rubygem(fog-core)
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
+Requires: %{?scl_prefix}rubygem(nokogiri) < 1.6
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -35,11 +29,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %define gembuilddir %{buildroot}%{gem_dir}
 
 %description
-Shared classes and tests for fog providers and services.
-
-The Ruby cloud services library. Supports all major cloud providers including
-AWS, Rackspace, Linode, Blue Box, StormOnDemand, and many others. Full support
-for most AWS services including EC2, S3, CloudWatch, SimpleDB, ELB, and RDS.
+Extraction of the XML parsing tools shared between a number of providers in the
+'fog' gem.
 
 %package doc
 BuildArch:  noarch
@@ -69,23 +60,13 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/.*
 
 %files doc
-%{gem_instdir}/changelog.md
 %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md
 %{gem_instdir}/spec
-%{gem_instdir}/tests
+%{gem_instdir}/gemfiles
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/fog-core.gemspec
+%exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
-* Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 1.23.0-1
-- Update to v1.23.0 (dcleal@redhat.com)
-
-* Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.21.1-2
-- Fix Provides for correct gem name (dcleal@redhat.com)
-
-* Wed Mar 19 2014 Dominic Cleal <dcleal@redhat.com> 1.21.1-1
-- new package built with tito
-

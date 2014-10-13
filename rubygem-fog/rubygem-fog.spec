@@ -6,22 +6,24 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.23.0
+Version: 1.24.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-fog-brightbox
-Requires: %{?scl_prefix}rubygem-fog-core >= 1.23.0
-Requires: %{?scl_prefix}rubygem-fog-core < 2.0.0
-Requires: %{?scl_prefix}rubygem-fog-json
-Requires: %{?scl_prefix}rubygem-fog-softlayer
-Requires: %{?scl_prefix}rubygem-ipaddress >= 0.5
-Requires: %{?scl_prefix}rubygem-ipaddress < 1.0
-Requires: %{?scl_prefix}rubygem-nokogiri >= 1.5.11
-Requires: %{?scl_prefix}rubygem-nokogiri < 1.6.0
+Requires: %{?scl_prefix}rubygem(fog-brightbox)
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1.23.0
+Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
+Requires: %{?scl_prefix}rubygem(fog-json)
+Requires: %{?scl_prefix}rubygem(fog-radosgw) >= 0.0.2
+Requires: %{?scl_prefix}rubygem(fog-sakuracloud) >= 0.0.4
+Requires: %{?scl_prefix}rubygem(fog-softlayer)
+Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
+Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
+Requires: %{?scl_prefix}rubygem(nokogiri) < 1.6.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
