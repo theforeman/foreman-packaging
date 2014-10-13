@@ -15,9 +15,9 @@
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
-Summary:    Foreman plugin to interact with PuppetDB through callbacks
+Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.9
+Version:    0.1.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    ASL 2.0
@@ -47,7 +47,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-puppetdb
 
 %description
-This is a foreman plugin to interact with PuppetDB through callbacks.
+This is a foreman plugin to interact with PuppetDB through callbacks
+and proxy the performance dashboard to Foreman.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
@@ -72,6 +73,7 @@ GEMFILE
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
+%{gem_instdir}/config
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %{gem_spec}
@@ -80,6 +82,10 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Fri Oct 11 2014 Daniel Lobato <dlobatog@redhat.com> 0.1.1-1
+- Update to v0.1.1 (dlobatog@redhat.com)
+- Proxy PuppetDB dashboard
+
 * Fri Oct 03 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.9-1
 - Update to v0.0.9 (dlobatog@redhat.com)
 - Deactivate host after build
