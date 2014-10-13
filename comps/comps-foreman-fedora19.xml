@@ -89,6 +89,7 @@
       <packagereq type="default">rubygem-ruby2ruby</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
+      <packagereq type="default">rubygem-secure_headers</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-single_test</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
@@ -153,6 +154,7 @@
       <packagereq type="default">rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
+      <packagereq type="default">rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-single_test-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
