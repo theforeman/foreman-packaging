@@ -3,7 +3,7 @@
 
 %global gem_name staypuft
 
-%define _version 0.3.9
+%define _version 0.4.4
 %define _summary OpenStack Foreman Installer
 %define _url https://github.com/theforeman/staypuft
 %define _license GPLv3
@@ -24,6 +24,7 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
 Requires: %{?scl_prefix}rubygem(wicked)
 Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(ipaddress)
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 17
 %if "%{?scl}" == "ruby193"
@@ -84,6 +85,7 @@ BuildRequires: %{?scl_prefix}rubygem(uglifier)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix}rubygem(foreman_discovery)
 BuildRequires: %{?scl_prefix}rubygem(wicked)
+BuildRequires: %{?scl_prefix}rubygem(ipaddress)
 
 %description
 %{desc}
