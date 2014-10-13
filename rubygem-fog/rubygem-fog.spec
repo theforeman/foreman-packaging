@@ -91,6 +91,9 @@ rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 1.24.0-1
+- refs #7879 - update fog to v1.24.0 (dcleal@redhat.com)
+
 * Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 1.23.0-1
 - Rebase to fog 1.23.0 (dcleal@redhat.com)
 
