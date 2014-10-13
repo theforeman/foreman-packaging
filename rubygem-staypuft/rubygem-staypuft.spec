@@ -181,6 +181,10 @@ GEMFILE
 %doc %{gem_docdir}/ri
 
 %changelog
+* Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 0.4.4-1
+- Update staypuft to 0.4.4 (brad@redhat.com)
+- Add ipaddress gem dependency (brad@redhat.com)
+
 * Thu Sep 25 2014 Marek Hulan <mhulan@redhat.com> 0.3.9-1
 - Update staypuft to 0.3.9 (mhulan@redhat.com)
 
