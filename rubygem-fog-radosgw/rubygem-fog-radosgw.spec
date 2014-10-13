@@ -68,3 +68,6 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-radosgw.gemspec
 
 %changelog
+* Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 0.0.3-1
+- new package built with tito
+
