@@ -198,6 +198,7 @@ whitelist = foreman
   rubygem-ruby2ruby
   rubygem-rubyipmi
   rubygem-safemode
+  rubygem-secure_headers
   rubygem-signet
   rubygem-single_test
   rubygem-spice-html5-rails
