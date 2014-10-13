@@ -82,3 +82,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/travis.sh
 
 %changelog
+* Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 1.3.3-1
+- new package built with tito
+
