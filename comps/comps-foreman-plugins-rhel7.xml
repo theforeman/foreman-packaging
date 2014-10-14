@@ -44,6 +44,7 @@
       <packagereq type="default">ruby193-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-params</packagereq>
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar</packagereq>
+      <packagereq type="default">ruby193-rubygem-commonjs</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
@@ -51,6 +52,8 @@
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
+      <packagereq type="default">ruby193-rubygem-less</packagereq>
+      <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
       <packagereq type="default">ruby193-rubygem-logging</packagereq>
       <packagereq type="default">ruby193-rubygem-open4</packagereq>
@@ -70,6 +73,7 @@
       <packagereq type="default">ruby193-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bastion-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-commonjs-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
@@ -96,6 +100,8 @@
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-open4-doc</packagereq>

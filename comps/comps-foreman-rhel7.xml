@@ -44,7 +44,6 @@
       <packagereq type="default">ruby193-rubygem-awesome_print</packagereq>
       <packagereq type="default">ruby193-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext</packagereq>
-      <packagereq type="default">ruby193-rubygem-commonjs</packagereq>
       <packagereq type="default">ruby193-rubygem-daemons</packagereq>
       <packagereq type="default">ruby193-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
@@ -80,8 +79,6 @@
       <packagereq type="default">ruby193-rubygem-jwt</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff</packagereq>
-      <packagereq type="default">ruby193-rubygem-less</packagereq>
-      <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-levenshtein</packagereq>
       <packagereq type="default">ruby193-rubygem-libv8</packagereq>
       <packagereq type="default">ruby193-rubygem-locale</packagereq>
@@ -193,7 +190,6 @@
       <packagereq type="default">ruby193-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-commonjs-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-excon-doc</packagereq>
@@ -224,8 +220,6 @@
       <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multi-select-rails-doc</packagereq>

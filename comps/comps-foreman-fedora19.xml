@@ -36,7 +36,6 @@
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-commonjs</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
@@ -71,8 +70,6 @@
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-ldap_fluff</packagereq>
-      <packagereq type="default">rubygem-less-rails</packagereq>
-      <packagereq type="default">rubygem-less</packagereq>
       <packagereq type="default">rubygem-libv8</packagereq>
       <packagereq type="default">rubygem-multi-select-rails</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
@@ -108,7 +105,6 @@
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
-      <packagereq type="default">rubygem-commonjs-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
@@ -137,8 +133,6 @@
       <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-launchy-doc</packagereq>
       <packagereq type="default">rubygem-ldap_fluff-doc</packagereq>
-      <packagereq type="default">rubygem-less-doc</packagereq>
-      <packagereq type="default">rubygem-less-rails-doc</packagereq>
       <packagereq type="default">rubygem-multi-select-rails-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-net-scp-doc</packagereq>

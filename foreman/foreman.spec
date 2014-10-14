@@ -115,7 +115,6 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 BuildRequires: %{?scl_prefix}rubygem(i18n_data) >= 0.2.6
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails)
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(less-rails)
 BuildRequires: %{?scl_prefix}rubygem(net-ldap)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.7.5

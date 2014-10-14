@@ -143,7 +143,6 @@ whitelist = foreman
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
-  rubygem-commonjs
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
@@ -178,8 +177,6 @@ whitelist = foreman
   rubygem-jwt
   rubygem-launchy
   rubygem-ldap_fluff
-  rubygem-less
-  rubygem-less-rails
   rubygem-librarian-puppet
   rubygem-libv8
   rubygem-multi-select-rails
@@ -218,7 +215,7 @@ whitelist = ipxe
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
-  rubygem-ftools
+  rubygem-commonjs
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
@@ -247,8 +244,10 @@ whitelist = ipxe
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman_xen
+  rubygem-ftools
+  rubygem-less
+  rubygem-less-rails
   rubygem-little-plugger
-  rubygem-staypuft
   rubygem-foreman_templates
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
@@ -257,6 +256,7 @@ whitelist = ipxe
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
+  rubygem-staypuft
   rubygem-wicked
 
 [foreman-plugins-nightly-rhel7]
@@ -267,7 +267,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
-  rubygem-ftools
+  rubygem-commonjs
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
@@ -297,6 +297,9 @@ whitelist = rubygem-algebrick
   rubygem-foreman_snapshot
   rubygem-foreman_xen
   rubygem-foreman_templates
+  rubygem-ftools
+  rubygem-less
+  rubygem-less-rails
   rubygem-little-plugger
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
@@ -314,11 +317,11 @@ whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-bastion
+  rubygem-commonjs
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-ftools
   rubygem-open4
   rubygem-opennebula
   rubygem-foreman_abrt
@@ -344,6 +347,9 @@ whitelist = rubygem-algebrick
   rubygem-foreman_snapshot
   rubygem-foreman_templates
   rubygem-foreman_xen
+  rubygem-ftools
+  rubygem-less
+  rubygem-less-rails
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
