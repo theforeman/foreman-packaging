@@ -406,4 +406,4 @@ whitelist = rubygem-algebrick
   rubygem-zscheduler
 
 [requirements]
-tito=0.5.5
+tito=0.5.6
