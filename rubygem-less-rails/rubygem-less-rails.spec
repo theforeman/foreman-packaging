@@ -7,7 +7,7 @@
 
 Summary: The dynamic stylesheet language for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.2
+Version: 2.5.0
 Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -20,8 +20,8 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems) 
 Requires: %{?scl_prefix}ruby 
-Requires: %{?scl_prefix}rubygem(less) => 2.3.1
-Requires: %{?scl_prefix}rubygem(less) < 2.4
+Requires: %{?scl_prefix}rubygem(less) => 2.5.0
+Requires: %{?scl_prefix}rubygem(less) < 2.6
 Requires: %{?scl_prefix}rubygem(actionpack) >= 3.1
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
