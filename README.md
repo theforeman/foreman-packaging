@@ -26,7 +26,24 @@ Run:
 
 ## HOWTO: test a package
 
-Before committing and tagging a build, please test it.
+Before tagging a build, please test it.  Using tito's --test flag, you can
+generate test (S)RPMs by first committing your changes locally, then it will
+use the SHA in the RPM version.
+
+## With mock
+
+Configuration for mock is supplied in mock/ and can be used to build any of
+the packages locally and quickly.
+
+1. Copy mock/site-defaults.cfg.basic to site-defaults.cfg, or look at other
+   example configs for more options.
+1. `tito build --rpm --test --builder builder.MockBuilder --arg mock_config_dir=mock/ --arg mock=el6-scl`
+1. `git annex lock --force` (due to https://github.com/dgoodwin/tito/pull/153)
+
+The last argument is the name of the mock config in mock/, which includes SCL
+and non-SCL variants.
+
+## With koji access
 
 lzap's [sbu utility](https://github.com/lzap/bin-public/blob/master/sbu) is
 good for this:
