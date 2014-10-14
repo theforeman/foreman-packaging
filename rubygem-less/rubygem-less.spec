@@ -7,7 +7,7 @@
 
 Summary: Leaner CSS, in your browser or Ruby (via less.js)
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.1
+Version: 2.5.1
 Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -78,6 +78,7 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %{gem_spec}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/Changelog.md
 
 %files doc
 %doc %{gem_docdir}
