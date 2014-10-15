@@ -8,7 +8,7 @@
 Summary: Leaner CSS, in your browser or Ruby (via less.js)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://lesscss.org
@@ -88,6 +88,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 15 2014 Dominic Cleal <dcleal@redhat.com> 2.5.1-2
+- Fix minimum commonjs version (dcleal@redhat.com)
+
 * Tue Oct 14 2014 Dominic Cleal <dcleal@redhat.com> 2.5.1-1
 - Updating 'rubygem-less' and 'rubygem-less-rails' (ericdhelms@gmail.com)
 
