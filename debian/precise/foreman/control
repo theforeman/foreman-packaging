@@ -14,7 +14,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: ruby1.9.3 (>= 1:1.9.3.545), bundler (>= 1.2), ruby1.9.1-dev (>= 1:1.9.3.545),
-         libxml2-dev, libxslt1-dev, facter, build-essential,
+         libxml2-dev, libxslt1-dev, facter (>= 1.6.12-1puppetlabs2), build-essential,
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy
 Description: Systems management web interface
