@@ -20,7 +20,7 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems) 
 Requires: %{?scl_prefix}ruby 
-Requires: %{?scl_prefix}rubygem(commonjs) => 0.2.6
+Requires: %{?scl_prefix}rubygem(commonjs) => 0.2.7
 Requires: %{?scl_prefix}rubygem(commonjs) < 0.3
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
