@@ -7,7 +7,7 @@
 
 Summary: Provide access to your Ruby and Operating System runtime via the commonjs API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.6
+Version: 0.2.7
 Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -69,6 +69,7 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_spec}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/LICENSE.txt
 
 %files doc
 %doc %{gem_docdir}
