@@ -5,7 +5,7 @@
 
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.1
+Version: 0.3.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -71,11 +71,13 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
+%doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/test
 
 %changelog
