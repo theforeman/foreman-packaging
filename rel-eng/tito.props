@@ -293,6 +293,7 @@ whitelist = rubygem-algebrick
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_chef
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-staypuft
@@ -336,6 +337,7 @@ whitelist = rubygem-algebrick
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_chef
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
 
