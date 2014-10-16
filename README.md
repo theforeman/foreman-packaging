@@ -70,7 +70,7 @@ You'll also need an alias `kojikat` to point to:
    `git annex add foo.gem`
 1. Update rel-eng/tito.props
   * If building for Fedora, add to the "foreman-nightly-fedora19" whitelist
-  * If building non-SCL *only*, add to the "foreman-nightly-rhel6" blacklist
+  * If building non-SCL *only*, add to the "foreman-nightly-rhel+" blacklist
   * If building SCL EL6 only, no action required
 1. Update comps/comps-foreman-\*.xml
 2. Run ./comps_doc.sh to automatically add docs
