@@ -1,3 +1,9 @@
+ruby-foreman-deface (0.9.1-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 16:59:42 +0100
+
 ruby-foreman-deface (0.9.1) unstable; urgency=low
 
   * Initial Release.

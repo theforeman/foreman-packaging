@@ -1,3 +1,9 @@
+ruby-foreman-host-rundeck (0.0.2-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 16:59:59 +0100
+
 ruby-foreman-host-rundeck (0.0.2) stable; urgency=low
 
   * 0.0.2 released

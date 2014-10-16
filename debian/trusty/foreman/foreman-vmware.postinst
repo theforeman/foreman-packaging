@@ -17,12 +17,15 @@ LOGFILE='/var/log/foreman-install.log'
 # hang if daemons have been started
 trap db_stop EXIT
 
+BUNDLE=bundle
+[ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+
 # Update gems
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  bundle update --local
+  $BUNDLE update --local
 else
-  bundle update --local 2>&1 >> $LOGFILE
+  $BUNDLE update --local 2>&1 >> $LOGFILE
 fi
 
 # Own all the core files

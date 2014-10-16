@@ -18,19 +18,22 @@ PLUGIN='foreman_hooks'
 # hang if daemons have been started
 trap db_stop EXIT
 
+BUNDLE=bundle
+[ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+
 # Update gems
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN --local
+  if $BUNDLE show $PLUGIN >/dev/null 2>&1; then
+    $BUNDLE update $PLUGIN --local
   else
-    bundle install --local --no-prune
+    $BUNDLE install --local --no-prune
   fi
 else
-  if bundle show $PLUGIN >/dev/null 2>&1; then
-    bundle update $PLUGIN --local 2>&1 >> $LOGFILE
+  if $BUNDLE show $PLUGIN >/dev/null 2>&1; then
+    $BUNDLE update $PLUGIN --local 2>&1 >> $LOGFILE
   else
-    bundle install --local --no-prune 2>&1 >> $LOGFILE
+    $BUNDLE install --local --no-prune 2>&1 >> $LOGFILE
   fi
 fi
 
