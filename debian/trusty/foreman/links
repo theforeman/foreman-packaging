@@ -6,3 +6,4 @@ var/cache/foreman		usr/share/foreman/tmp
 var/lib/foreman/db		usr/share/foreman/db
 var/log/foreman			usr/share/foreman/log
 var/lib/foreman/public		usr/share/foreman/public
+usr/bin/ruby		usr/bin/foreman-ruby

@@ -21,3 +21,5 @@ build/foreman::
 	# Somehow blank db sqlite files get added
 	/bin/rm db/production.sqlite3
 	/bin/rm db/development.sqlite3
+	# Use rake1.9.1 explicitly
+	sed -ri 'sX/usr/bin/rake$$X/usr/bin/rake1.9.1X' extras/dbmigrate script/foreman-rake

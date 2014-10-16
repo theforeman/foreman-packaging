@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (0.1.1-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 17:00:22 +0100
+
 ruby-puppetdb-foreman (0.1.1) stable; urgency=low
 
   * Release 0.1.1, proxy PuppetDB performance dashboard

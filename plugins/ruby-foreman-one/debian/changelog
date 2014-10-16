@@ -1,3 +1,9 @@
+ruby-foreman-one (0.2-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 17:00:04 +0100
+
 ruby-foreman-one (0.2) unstable; urgency=low
 
   * Initial Release.

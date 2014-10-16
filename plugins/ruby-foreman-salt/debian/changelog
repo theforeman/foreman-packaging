@@ -1,3 +1,9 @@
+ruby-foreman-salt (0.0.4-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 17:00:07 +0100
+
 ruby-foreman-salt (0.0.4) unstable; urgency=low
 
   * Update to 0.0.4

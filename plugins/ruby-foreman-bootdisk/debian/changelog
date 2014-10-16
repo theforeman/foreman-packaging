@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (4.0.0-1) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 16:59:28 +0100
+
 ruby-foreman-bootdisk (4.0.0) stable; urgency=low
 
   * 4.0.0 released

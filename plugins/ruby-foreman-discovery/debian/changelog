@@ -1,3 +1,9 @@
+ruby-foreman-discovery (1.4.0~rc4-2) stable; urgency=low
+
+  * Prefer foreman-ruby symlink to run bundler if it exists
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 17 Oct 2014 16:59:53 +0100
+
 ruby-foreman-discovery (1.4.0~rc4-1) unstable; urgency=medium
 
   * Package RC4 for testing
