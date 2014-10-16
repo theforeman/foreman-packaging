@@ -24,7 +24,7 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   %{?scl_prefix}puppet >= 2.7.0
-Requires:   %{?scl_prefix}rubygem-kafo >= 0.5.3
+Requires:   %{?scl_prefix}rubygem-kafo >= 0.6.5
 Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
 Requires:   foreman-selinux
 
