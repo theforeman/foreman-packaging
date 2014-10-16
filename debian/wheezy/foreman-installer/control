@@ -12,7 +12,7 @@ Package: foreman-installer
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-kafo (>= 0.5.3),
+         ruby-kafo (>= 0.6.5),
          puppet (>= 2.7.0),
          curl
 Description: Automated puppet-based installer for The Foreman
