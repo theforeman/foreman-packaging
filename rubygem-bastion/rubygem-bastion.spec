@@ -149,4 +149,7 @@ ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/ass
 %files devel
 
 %changelog
+* Fri Oct 17 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
+- new package built with tito (ericdhelms@gmail.com)
+
 
