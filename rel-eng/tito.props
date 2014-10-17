@@ -24,7 +24,6 @@ blacklist = foreman-installer
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
-  rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
@@ -47,7 +46,6 @@ blacklist = foreman-installer
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
-  rubygem-mime-types
   rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
@@ -117,7 +115,6 @@ whitelist = foreman-installer
   rubygem-little-plugger
   rubygem-locale
   rubygem-logging
-  rubygem-mime-types
   rubygem-multi_json
   rubygem-netrc
   rubygem-oauth
