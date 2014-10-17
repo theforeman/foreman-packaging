@@ -1,8 +1,0 @@
---- a/modules/kafo_configure/lib/puppet/parser/functions/add_progress.rb
-+++ b/modules/kafo_configure/lib/puppet/parser/functions/add_progress.rb
-@@ -1,4 +1,4 @@
--require 'kafo_configure/lib/kafo/puppet/report_wrapper'
-+require 'kafo/modules/kafo_configure/lib/kafo/puppet/report_wrapper'
- 
- module Puppet::Parser::Functions
-   newfunction(:add_progress) do |args|

@@ -1,5 +1,0 @@
-debian/foreman.yml      etc/hammer/cli.modules.d
-locale/es               usr/share/locale
-locale/en               usr/share/locale
-locale/en_GB            usr/share/locale
-locale/fr               usr/share/locale
