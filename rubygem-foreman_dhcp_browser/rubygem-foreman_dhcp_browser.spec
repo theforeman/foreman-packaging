@@ -17,7 +17,7 @@
 
 Summary:    DHCP browser plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.5
+Version:    0.0.6
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -92,7 +92,6 @@ GEMFILE
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 
 %exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/test
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
