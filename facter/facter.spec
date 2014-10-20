@@ -18,7 +18,7 @@
 
 Name:           %{?scl_prefix}facter
 Version:        2.2.0
-Release:        1%{?dist}
+Release:        1.1%{?dist}
 Summary:        Command and ruby library for gathering system information
 
 Group:          System Environment/Base
@@ -113,6 +113,9 @@ rspec spec
 %{_mandir}/man8/%{pkg_name}*
 
 %changelog
+* Mon Oct 20 2014 Dominic Cleal <dcleal@redhat.com> 2.2.0-1.1
+- fixes #7974 - rebase and SCLise facter 2.2.0 (dcleal@redhat.com)
+
 * Fri Oct 10 2014 Michael Stahnke <stahnma@fedoraproject.org> - 2.2.0-1
 - Update to 2.2.0 as per bz#1108041
 
