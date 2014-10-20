@@ -1,18 +1,14 @@
 %{?scl:%scl_package facter}
 %{!?scl:%global pkg_name %{name}}
 
-# F-17 and above have ruby-1.9.x, and place libs in a different location
-# The checks also fail on older releases, due to an older mocha gem, it appears
-%if 0%{?fedora} >= 17
-%global enable_check    1
-%global facter_libdir   %(ruby -rrbconfig -e 'puts RbConfig::CONFIG["vendorlibdir"]')
+%global facter_libdir   %{ruby_vendorlibdir}
+
+# Only enable checks on F-19, other releases fail for various reasons
+%if (0%{?fedora} >= 17 && 0%{?fedora} <= 19)
+%global enable_check 1
 %else
-%global enable_check    0
-%global facter_libdir   %(ruby -rrbconfig -e 'puts RbConfig::CONFIG["sitelibdir"]')
-%endif
-%global facter_libdir %{ruby_vendorlibdir}
-#disable for Katello
 %global enable_check 0
+%endif
 
 %global ruby_version    %(ruby -rrbconfig -e 'puts RbConfig::CONFIG["ruby_version"]')
 
@@ -21,18 +17,19 @@
 %global debug_package %{nil}
 
 Name:           %{?scl_prefix}facter
-Version:        1.6.18
-Release:        5%{?dist}
+Version:        2.2.0
+Release:        1%{?dist}
 Summary:        Command and ruby library for gathering system information
 
 Group:          System Environment/Base
 License:        ASL 2.0
-URL:            http://www.puppetlabs.com/puppet/related-projects/%{pkg_name}/
-Source0:        http://downloads.puppetlabs.com/%{pkg_name}/%{pkg_name}-%{version}.tar.gz
-Source1:        http://downloads.puppetlabs.com/%{pkg_name}/%{pkg_name}-%{version}.tar.gz.asc
+URL:            https://puppetlabs.com/%{pkg_name}
+Source0:        https://downloads.puppetlabs.com/%{pkg_name}/%{pkg_name}-%{version}.tar.gz
+Source1:        https://downloads.puppetlabs.com/%{pkg_name}/%{pkg_name}-%{version}.tar.gz.asc
 BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  %{?scl_prefix}ruby >= 1.8.1
+# Upstream claims to only support 1.8.7 and higher
+BuildRequires:  %{?scl_prefix}ruby >= 1.8.7
 BuildRequires:  %{?scl_prefix}ruby-devel
 %if %{enable_check}
 BuildRequires:  net-tools
@@ -50,7 +47,7 @@ Requires:       virt-what
 Requires:       net-tools
 # Work around the lack of ruby in the default mock buildroot
 %if "%{ruby_version}"
-%if 0%{?fedora} >= 19
+%if 0%{?fedora} >= 19 || 0%{?rhel} >= 7
 Requires:       %{?scl_prefix}ruby(release)
 %else
 Requires:       %{?scl_prefix}ruby(abi) = %{ruby_version}
@@ -72,21 +69,22 @@ key off the values returned by facts.
 %prep
 %setup -n %{pkg_name}-%{version} -q
 
-
 %build
 # Nothing to build
 
-
 %install
 rm -rf %{buildroot}
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 ruby install.rb --destdir=%{buildroot} --quick --no-rdoc --sitelibdir=%{facter_libdir}
-%{?scl:"}
+%{?scl:EOF}
 
-#%if ! (0%{?fedora} || 0%{?rhel} >= 7)
-## Install man page, rubygem-rdoc is not available on older EL releases)
-#install -D -pv -m 644 man/man8/%{pkg_name}.8 %{buildroot}/%{_mandir}/man8/%{pkg_name}.8
-#%endif
+# Create directory for external facts
+mkdir -p %{buildroot}/%{_sysconfdir}/%{pkg_name}/facts.d
+
+%if ! (0%{?fedora} || 0%{?rhel} >= 7)
+# Install man page, rubygem-rdoc is not available on older EL releases)
+install -D -pv -m 644 man/man8/%{pkg_name}.8 %{buildroot}/%{_mandir}/man8/%{pkg_name}.8
+%endif
 
 %postun
 # Work around issues where puppet fails to run after a facter update
@@ -96,38 +94,59 @@ if [ "$1" -ge 1 ]; then
   /sbin/service puppet condrestart >/dev/null 2>&1 || :
 fi
 
-
 %clean
 rm -rf %{buildroot}
 
-
 %check
 %if %{enable_check}
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 rspec spec
-%{?scl:"}
+%{?scl:EOF}
 %endif
-
 
 %files
 %defattr(-,root,root,-)
 %doc LICENSE README.md
 %{_bindir}/%{pkg_name}
+%{_sysconfdir}/%{pkg_name}
 %{facter_libdir}/%{pkg_name}*
 %{_mandir}/man8/%{pkg_name}*
 
 %changelog
-* Wed May 22 2013 Mike McCune <mmccune@redhat.com> 1.6.18-5
-- rebuild to support SCL
+* Fri Oct 10 2014 Michael Stahnke <stahnma@fedoraproject.org> - 2.2.0-1
+- Update to 2.2.0 as per bz#1108041
 
-* Thu Mar 21 2013 Miroslav Suchý <msuchy@redhat.com> 1.6.18-4
-- put ruby libs into ruby_vendorlibdir (msuchy@redhat.com)
+* Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.0.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
-* Thu Mar 21 2013 Miroslav Suchý <msuchy@redhat.com> 1.6.18-3
-- remove scl deps on non-ruby packages (msuchy@redhat.com)
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.0.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
-* Thu Mar 21 2013 Miroslav Suchý <msuchy@redhat.com> 1.6.18-2
-- new package built with tito
+* Mon May 05 2014 Lubomir Rintel <lkundrak@v3.sk> - 2.0.1-2
+- Fix el7 conditionals as suggested by Orion Poplawski (BZ #1087946)
+
+* Tue Apr 29 2014 Sam Kottler <skottler@fedoraproject.org> - 2.0.1-1
+- Update to to 2.0.1
+
+* Tue Jan 28 2014 Todd Zullinger <tmz@pobox.com> - 1.7.4-1
+- Update to 1.7.4
+- Create /etc/facter/facts.d for external facts
+- Send dmiddecode errors to /dev/null in the virtual fact (FACT-86)
+
+* Tue Oct 8 2013 Sam Kottler <skottler@fedoraproject.org> - 1.7.3-1
+- Update to 1.7.3 (BZ #1016817)
+
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.6.18-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Fri Jun 21 2013 Sam Kottler <skottler@fedoraproject.org> 1.6.18-4
+- Apply upstream patch to ensure the first non-127.0.0.1 interface
+
+* Wed Apr 03 2013 Todd Zullinger <tmz@pobox.com> - 1.6.18-3
+- Avoid warnings when virt-what produces no output
+
+* Tue Apr 02 2013 Todd Zullinger <tmz@pobox.com> - 1.6.18-2
+- Apply upstream patch to filter virt-what warnings from virtual fact
 
 * Mon Mar 18 2013 Todd Zullinger <tmz@pobox.com> - 1.6.18-1
 - Update to 1.6.18
