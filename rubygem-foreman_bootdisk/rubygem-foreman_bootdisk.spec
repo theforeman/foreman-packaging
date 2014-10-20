@@ -18,7 +18,7 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.2.0
+Version:    3.2.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
