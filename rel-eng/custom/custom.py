@@ -53,12 +53,17 @@ class JenkinsSourceStrategy(SourceStrategy):
 
         job_info = json.loads(urllib.urlopen(json_url).read())
         if "number" in job_info:
-          job_id = job_info["number"]
+            job_id = job_info["number"]
 
         if "runs" in job_info:
-          job_url_base = job_info["runs"][0]["url"]
+            run_idx = 0
+            for idx, run in enumerate(job_info["runs"]):
+                if run["number"] == job_id:
+                    run_idx = idx
+                    break
+            job_url_base = job_info["runs"][run_idx]["url"]
         elif "url" in job_info:
-          job_url_base = job_info["url"]
+            job_url_base = job_info["url"]
 
         url = "%s/artifact/*zip*/archive.zip" % job_url_base
         debug("Fetching from %s" % url)
