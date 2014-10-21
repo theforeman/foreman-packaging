@@ -18,17 +18,18 @@
 
 Summary:    A simple REST client for the Docker Remote API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
+Version:    0.1.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.5.0
-Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.8.0
-Requires:   %{?scl_prefix}rubygem(docker-api) <  1.9.0
+Requires:   foreman >= 1.7.0
+Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.13.6
+Requires:   %{?scl_prefix}rubygem(docker-api) <  1.14.0
 Requires:   %{?scl_prefix}rubygem(fog)
+Requires:   %{?scl_prefix}rubygem(wicked)
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -88,6 +89,8 @@ GEMFILE
 %{gem_instdir}/app
 %{gem_instdir}/lib
 %{gem_instdir}/locale
+%{gem_instdir}/db
+%{gem_instdir}/config
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/Rakefile
@@ -102,7 +105,18 @@ GEMFILE
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
+%posttrans
+# We need to run the db:migrate after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
+
 %changelog
+* Tue Oct 21 2014 David Davis <daviddavis@redhat.com> 0.1.0-1
+- Updating the version of foreman_docker to 0.1.0
+
 * Tue Apr 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.3-1
 - new package built with tito
 

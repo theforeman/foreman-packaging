@@ -6,8 +6,8 @@
 
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.4
-Release: 2%{?dist}
+Version: 1.13.6
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api
@@ -21,7 +21,7 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(archive-tar-minitar)
-Requires: %{?scl_prefix}rubygem(excon) >= 0.28
+Requires: %{?scl_prefix}rubygem(excon) >= 0.38
 Requires: %{?scl_prefix}rubygem(json)
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 22 2014 David Davis <daviddavis@redhat.com> 1.13.6-1
+- Updating to docker-api 1.13.6 for foreman_docker 0.1.0
+
 * Wed Apr 30 2014 Dominic Cleal <dcleal@redhat.com> 1.8.4-2
 - Fix pkg_name macro for -doc require (dcleal@redhat.com)
 
