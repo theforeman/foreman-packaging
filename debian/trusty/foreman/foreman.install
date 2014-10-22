@@ -13,6 +13,7 @@ lib                                      usr/share/foreman
 locale                                   usr/share/foreman
 Rakefile                                 usr/share/foreman
 script                                   usr/share/foreman
+.ssh                                     usr/share/foreman
 VERSION                                  usr/share/foreman
 vendor/assets                            usr/share/foreman/vendor
 vendor/cache                             usr/share/foreman/vendor

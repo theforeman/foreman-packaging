@@ -21,3 +21,4 @@ build/foreman::
 	# Somehow blank db sqlite files get added
 	/bin/rm db/production.sqlite3
 	/bin/rm db/development.sqlite3
+	/bin/mkdir -p .ssh
