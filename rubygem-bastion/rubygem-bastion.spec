@@ -25,7 +25,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.4
+Version:    0.1.5
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv2+
