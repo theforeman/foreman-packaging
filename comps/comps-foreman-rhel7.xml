@@ -158,7 +158,6 @@
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-locale</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
-      <packagereq type="default">rubygem-mime-types</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-netrc</packagereq>
       <packagereq type="default">rubygem-oauth</packagereq>
@@ -267,7 +266,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
-      <packagereq type="default">rubygem-mime-types-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
