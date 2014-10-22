@@ -25,7 +25,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.5
+Version:    0.1.7
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv2+
@@ -71,6 +71,7 @@ BuildArch: noarch
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires:  %{?scl_prefix}rubygem(less-rails) >= 2.5.0
 Requires:  %{?scl_prefix}rubygem(less-rails) < 2.6
+Requires:  %{?scl_prefix}rubygem(uglifier)
 
 %description devel
 This package contains assets compilation dependencies for %{scl_prefix}rubygem-%{gem_name}.
@@ -106,7 +107,7 @@ unlink tmp
 
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets bastion"
-%{scl_rake} plugin:assets:precompile['bastion'] RAILS_ENV=production --trace
+%{scl_rake} bastion:assets:precompile RAILS_ENV=production --trace
 
 popd
 rm -rf ./usr
@@ -132,6 +133,7 @@ ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/ass
 %{foreman_dir}/public/assets/bastion
 %{gem_instdir}/public/assets/bastion
 %{gem_instdir}/LICENSE
+%{gem_instdir}/Rakefile
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_instdir}/.jshintrc
@@ -144,7 +146,6 @@ ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/ass
 
 %files doc
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 
 %files devel
 
