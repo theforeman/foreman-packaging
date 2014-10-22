@@ -149,6 +149,9 @@ ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/ass
 %files devel
 
 %changelog
+* Wed Oct 22 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
+- Update bastion to 0.1.5 (dcleal@redhat.com)
+
 * Tue Oct 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
 - Update 'rubygem-bastion' 0.1.4 (ericdhelms@gmail.com)
 
