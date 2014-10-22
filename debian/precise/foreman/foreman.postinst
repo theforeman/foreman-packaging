@@ -3,11 +3,8 @@
 #
 # see: dh_installdeb(1)
 
-if [ ! -z "${DEBUG}" ]; then
-  set -x
-else
-  set -e
-fi
+[ -n "${DEBUG}" ] && set -x
+set -e
 
 . /usr/share/debconf/confmodule
 
