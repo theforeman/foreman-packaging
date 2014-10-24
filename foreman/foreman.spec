@@ -61,7 +61,6 @@ Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
 Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
 # minitest - workaround as rubygem-activesupport is missing dep
 Requires: %{?scl_prefix}rubygem(minitest)
-Requires: %{?scl_prefix}rubygem(jquery-rails)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0.0
 Requires: %{?scl_prefix}rubygem(will_paginate) < 3.1.0
@@ -87,9 +86,6 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 1.0.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 Requires: %{?scl_prefix}rubygem(i18n_data) >= 0.2.6
 Requires: %{?scl_prefix}rubygem(therubyracer)
-Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.0.3.0
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.0.4
 Requires: %{?scl_prefix}rubygem(foreigner) >= 1.4.2
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0.0
@@ -113,7 +109,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.10.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 BuildRequires: %{?scl_prefix}rubygem(i18n_data) >= 0.2.6
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails)
+BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
+BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(net-ldap)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
@@ -123,6 +120,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2.1
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) => 3.2.3
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 3.3
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 2.7.0
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(sqlite3)
