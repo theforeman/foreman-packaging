@@ -208,6 +208,7 @@
       <packagereq type="default">ruby193-rubygem-foremancli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-formatador-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-friendly_id-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-gettext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gridster-rails-doc</packagereq>
@@ -219,6 +220,8 @@
       <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-levenshtein-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-locale-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multi-select-rails-doc</packagereq>
@@ -227,6 +230,7 @@
       <packagereq type="default">ruby193-rubygem-netrc-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-net-ssh-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-nokogiri-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-passenger-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-pg-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
@@ -264,14 +268,19 @@
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
+      <packagereq type="default">rubygem-locale-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
+      <packagereq type="default">rubygem-powerbar-doc</packagereq>
+      <packagereq type="default">rubygem-rack-protection-doc</packagereq>
       <packagereq type="default">rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">rubygem-sinatra-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-tilt-doc</packagereq>
       <!--RGD-END-->

@@ -108,6 +108,8 @@
       <packagereq type="default">ruby193-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
