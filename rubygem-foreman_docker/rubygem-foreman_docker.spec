@@ -25,7 +25,7 @@ License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.7.0
+Requires:   foreman-compute >= 1.7.0
 Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.13.6
 Requires:   %{?scl_prefix}rubygem(docker-api) <  1.14.0
 Requires:   %{?scl_prefix}rubygem(fog)
