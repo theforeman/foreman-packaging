@@ -288,6 +288,7 @@ Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
+%{_sysconfdir}/rpm/macros.%{name}-assets
 
 %package console
 Summary: Foreman console support
@@ -516,6 +517,55 @@ ln -sv %{_sysconfdir}/%{name}/plugins %{buildroot}%{_datadir}/%{name}/config/set
 # Create VERSION file
 install -pm0644 VERSION %{buildroot}%{_datadir}/%{name}/VERSION
 
+# Create RPM macros for plugin packages to use at build time
+mkdir -p %{buildroot}%{_sysconfdir}/rpm
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
+# Common locations
+%%%{name}_dir %{_datadir}/%{name}
+%%%{name}_bundlerd_dir %%{%{name}_dir}/bundler.d
+%%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
+%%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
+%%%{name}_log_dir %{_localstatedir}/log/%{name}
+
+# Common commands
+%%%{name}_rake         %{foreman_rake}
+%%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
+%%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
+%%%{name}_apipie_cache %%{%{name}_rake} apipie:cache >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
+%%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
+
+# Generate bundler.d file for a plugin
+# -n<plugin_name>   Overrides default of gem_name
+%%%{name}_bundlerd_file(n:) \\
+mkdir -p %%{buildroot}%%{%{name}_bundlerd_dir} \\
+cat <<GEMFILE > %%{buildroot}%%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}}.rb \\
+gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
+GEMFILE
+EOF
+
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-assets << EOF
+# Common locations
+%%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+
+# Generate precompiled assets at gem_instdir/public/assets/gem_name/
+# -r<rake_task>     Overrides rake task of plugin:assets:precompile[plugin_name]
+# -n<plugin_name>   Overrides default of gem_name for precompile step
+%%%{name}_precompile_plugin(r:n:) \\
+mkdir -p ./usr/share \\
+cp -r %%{%{name}_dir} ./usr/share || echo 0 \\
+pushd ./usr/share/%{name} \\
+\\
+export GEM_PATH=%%{gem_dir}:%%{buildroot}%%{gem_dir} \\
+cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
+unlink tmp \\
+\\
+export BUNDLER_EXT_NOSTRICT=1 \\
+/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace \\
+\\
+popd \\
+rm -rf ./usr
+EOF
+
 %clean
 rm -rf %{buildroot}
 
@@ -539,6 +589,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config %{_sysconfdir}/cron.d/%{name}
+%{_sysconfdir}/rpm/macros.%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
