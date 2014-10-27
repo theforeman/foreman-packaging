@@ -66,6 +66,7 @@
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
+      <packagereq type="default">ruby193-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
@@ -125,6 +126,7 @@
       <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-zscheduler-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
