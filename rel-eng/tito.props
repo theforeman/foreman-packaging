@@ -254,6 +254,7 @@ whitelist = ipxe
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
@@ -316,6 +317,7 @@ whitelist = rubygem-algebrick
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
@@ -375,6 +377,7 @@ whitelist = rubygem-algebrick
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [requirements]
 tito=0.5.5
