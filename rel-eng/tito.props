@@ -240,6 +240,7 @@ whitelist = ipxe
   rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-less
   rubygem-less-rails
@@ -301,6 +302,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
   rubygem-less
@@ -362,6 +364,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
   rubygem-less
