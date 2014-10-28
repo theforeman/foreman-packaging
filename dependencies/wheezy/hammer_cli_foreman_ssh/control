@@ -1,0 +1,18 @@
+Source: ruby-hammer-cli-foreman-ssh
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: http://github.com/theforeman/hammer-cli-foreman-ssh
+XS-Ruby-Versions: all
+
+Package: ruby-hammer-cli-foreman-ssh
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-hammer-cli-foreman (>= 0.1.2),
+         ruby-net-ssh-multi
+Description: Remote SSH commands for Hammer CLI
+ This Hammer CLI plugin contains set of commands to connect to other servers via SSH.
