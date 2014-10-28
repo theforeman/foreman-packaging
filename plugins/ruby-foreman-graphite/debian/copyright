@@ -1,0 +1,11 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-graphite
+Source: https://github.com/theforeman/foreman_graphite
+
+Files: *
+Copyright: 2014 Ohad Levy <ohadlevy@gmail.com>
+License: GPL-3.0+
+
+Files: debian/*
+Copyright: 2014 Michael Moll <mmoll@mmoll.at>
+License: GPL-3.0+

@@ -1,0 +1,5 @@
+ruby-foreman-graphite (0.0.2) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 28 Oct 2014 19:58:49 +0200
