@@ -4,7 +4,7 @@ Source: https://github.com/theforeman/foreman-docker
 
 
 Files: *
-Copyright: 2014 Pujan Shah <pujan14@gmail.com>
+Copyright: 2014 Amos Benari <abenari@redhat.com>
 License: GPL-3.0+
 
 Files: debian/*
