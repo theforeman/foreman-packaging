@@ -297,6 +297,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_templates
   rubygem-ftools
   rubygem-hammer_cli_foreman_bootdisk
+  rubygem-hammer_cli_foreman_ssh
   rubygem-less
   rubygem-less-rails
   rubygem-little-plugger
@@ -348,6 +349,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_xen
   rubygem-ftools
   rubygem-hammer_cli_foreman_bootdisk
+  rubygem-hammer_cli_foreman_ssh
   rubygem-less
   rubygem-less-rails
   rubygem-ovirt_provision_plugin
