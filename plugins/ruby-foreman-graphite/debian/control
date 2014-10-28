@@ -1,0 +1,13 @@
+Source: ruby-foreman-graphite
+Section: ruby
+Priority: extra
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_graphite
+
+Package: ruby-foreman-graphite
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.5.0~rc1)
+Description: Foreman Graphite Plugin
+ Graphite plugin for Foreman
