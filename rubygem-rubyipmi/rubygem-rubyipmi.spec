@@ -5,10 +5,10 @@
 
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.8.1
 Release: 2%{?dist}
 Group: Development/Languages
-License: GPLv3+
+License: LGPLv2.1
 URL: http://github.com/logicminds/rubyipmi
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18 || 0%{?rhel} >= 7
@@ -68,6 +68,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/README.md
 %{gem_instdir}/README.rdoc
+%{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/VERSION
 
@@ -75,6 +76,10 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Tue Oct 28 2014 Michael Moll <mmoll@mmoll.at> 0.8.1-1
+- Update to rubyipmi 0.8.1
+- Reflect license change
+
 * Mon May 19 2014 Dominic Cleal <dcleal@redhat.com> 0.7.0-2
 - Modernise and update for EL7
 
