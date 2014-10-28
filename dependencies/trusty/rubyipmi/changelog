@@ -1,3 +1,10 @@
+ruby-rubyipmi (0.8.1-1) unstable; urgency=low
+
+  * Update to 0.8.1
+  * License was changed to LGPLv2.1
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 28 Oct 2014 23:56:25 +0100
+
 ruby-rubyipmi (0.7.0-1) unstable; urgency=low
 
   * Update to 0.7.0
