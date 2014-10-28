@@ -36,7 +36,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:           %{modulename}-selinux
-Version:        1.7.0
+Version:        1.8.0
 Release:        0.develop%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -148,6 +148,9 @@ fi
 %attr(0755,root,root) %{_sbindir}/%{name}-relabel
 
 %changelog
+* Tue Oct 28 2014 Dominic Cleal <dcleal@redhat.com> - 1.8.0-0.develop
+- Bump version to 1.8-develop
+
 * Mon Aug 11 2014 Dominic Cleal <dcleal@redhat.com> - 1.7.0-0.develop
 - Bump version to 1.7-develop
 
