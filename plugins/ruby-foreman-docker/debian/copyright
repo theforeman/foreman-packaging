@@ -4,11 +4,11 @@ Source: https://github.com/theforeman/foreman-docker
 
 
 Files: *
-Copyright: 2012-2013 Red Hat Inc. <foreman-dev@googlegroups.com>
+Copyright: 2014 Pujan Shah <pujan14@gmail.com>
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2013 Red Hat Inc. <foreman-dev@googlegroups.com>
+Copyright: 2014 Pujan Shah <pujan14@gmail.com>
 License: GPL-3.0+
 
 License: GPL-3.0+
