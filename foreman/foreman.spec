@@ -354,7 +354,19 @@ Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
-%{_sysconfdir}/rpm/macros.%{name}-assets
+
+%package plugin
+Summary: Foreman plugin support
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+Requires: %{name}-sqlite = %{version}-%{release}
+
+%description plugin
+Meta package with support for plugins.
+
+%files plugin
+%{_sysconfdir}/rpm/macros.%{name}-plugin
+
 
 %package console
 Summary: Foreman console support
@@ -449,6 +461,8 @@ cp config/settings.yaml.example config/settings.yaml
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
 %{scl_rake} assets:precompile:all RAILS_ENV=production --trace
+%{scl_rake} db:migrate RAILS_ENV=production --trace
+%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
 
 %install
@@ -536,17 +550,16 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 # Common locations
 %%%{name}_dir %{_datadir}/%{name}
 %%%{name}_bundlerd_dir %%{%{name}_dir}/bundler.d
-%%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
-%%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
 %%%{name}_log_dir %{_localstatedir}/log/%{name}
 
 # Common commands
 %%%{name}_rake         %{foreman_rake}
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_apipie_cache %%{%{name}_rake} apipie:cache >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
 %%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
+EOF
 
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # Generate bundler.d file for a plugin
 # -n<plugin_name>   Overrides default of gem_name
 %%%{name}_bundlerd_file(n:) \\
@@ -554,29 +567,47 @@ mkdir -p %%{buildroot}%%{%{name}_bundlerd_dir} \\
 cat <<GEMFILE > %%{buildroot}%%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}}.rb \\
 gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
 GEMFILE
-EOF
 
-cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-assets << EOF
 # Common locations
+%%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
+%%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
+# Common assets locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+# Common apipie locations
+%%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
+%%%{name}_apipie_cache_foreman %%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}
+# build apipie cache index
+%%%{name}_apipie_cache %%{%{name}_rake} apipie:cache:index >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
 
 # Generate precompiled assets at gem_instdir/public/assets/gem_name/
 # -r<rake_task>     Overrides rake task of plugin:assets:precompile[plugin_name]
 # -n<plugin_name>   Overrides default of gem_name for precompile step
-%%%{name}_precompile_plugin(r:n:) \\
-mkdir -p ./usr/share \\
-cp -r %%{%{name}_dir} ./usr/share || echo 0 \\
-pushd ./usr/share/%{name} \\
+# -a                Prebuild apipie cache
+# -s                Precompile assets
+%%%{name}_precompile_plugin(r:n:as) \\
+mkdir -p ./%{_datadir} \\
+cp -r %%{%{name}_dir} ./%{_datadir} || echo 0 \\
+mkdir -p ./%{_localstatedir}/lib/%{name} \\
+cp -r %{_localstatedir}/lib/%{name}/db ./%{_localstatedir}/lib/%{name} || echo 0 \\
+unlink ./%{_datadir}/%{name}/db \\
+ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
+pushd ./%%{%{name}_dir} \\
 \\
 export GEM_PATH=%%{gem_dir}:%%{buildroot}%%{gem_dir} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\
+rm \`pwd\`/config/initializers/encryption_key.rb \\
+/usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
-/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace \\
+%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} --trace} \\
 \\
 popd \\
-rm -rf ./usr
+rm -rf ./usr \\
+%%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
+%%{?-a:ln -s %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}}
 EOF
 
 %clean
@@ -681,7 +712,7 @@ exit 0
 # always attempt to reencrypt after update in case new fields can be encrypted
 %{foreman_rake} db:migrate db:compute_resources:encrypt >> %{_localstatedir}/log/%{name}/db_migrate.log 2>&1 || :
 %{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
-%{foreman_rake} apipie:cache >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
+%{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 
