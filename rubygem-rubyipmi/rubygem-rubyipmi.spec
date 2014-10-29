@@ -6,7 +6,7 @@
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Group: Development/Languages
 License: LGPLv2.1
 URL: http://github.com/logicminds/rubyipmi
