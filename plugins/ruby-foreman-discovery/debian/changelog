@@ -1,3 +1,9 @@
+ruby-foreman-discovery (1.4.0-1) stable; urgency=low
+
+  * Actually download 1.4.0 gem into cache
+
+ -- Michael Moll <moll@mmoll.at>  Fri, 17 Oct 2014 17:02:13 +0100
+
 ruby-foreman-discovery (1.4.0) stable; urgency=low
 
   * Release Discovery 1.4.0
