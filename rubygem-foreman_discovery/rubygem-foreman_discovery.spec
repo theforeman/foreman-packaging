@@ -128,9 +128,6 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 * Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-2
 - Update to foreman_discovery 1.4.0-2
 
-* Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com>
-- Update to foreman_discovery 1.4.0 - new release
-
 * Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-1
 - Updated foreman_discovery to 1.4.0 (lzap+git@redhat.com)
 
