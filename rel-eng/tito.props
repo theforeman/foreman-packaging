@@ -354,6 +354,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
+  rubygem-staypuft
   rubygem-wicked
 
 [requirements]
