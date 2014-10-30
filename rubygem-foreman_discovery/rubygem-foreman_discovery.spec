@@ -125,6 +125,9 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-1
+- Updated foreman_discovery to 1.4.0 (lzap+git@redhat.com)
+
 * Wed Oct 01 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-0.1.rc4
 - Update rubygem-foreman_discovery to 1.4.0.rc4 (lzap+git@redhat.com)
 
