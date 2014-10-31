@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman-docker
 
 Package: ruby-foreman-docker
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.6.0),
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.7.0), foreman-assets (>= 1.7.0)
 Description: Foreman Docker compute resource
  Docker compute resource plugin for Foreman
