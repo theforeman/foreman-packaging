@@ -1,3 +1,9 @@
+ruby-foreman-snapshot (0.1.0-3) stable; urgency=low
+
+  * Remove db:migrate from postinst.
+
+ -- Daniel Lobato Garcia <elobatocs@gmail.com>  Fri, 31 Oct 2014 10:26:00 +0100
+
 ruby-foreman-snapshot (0.1.0-2) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists
