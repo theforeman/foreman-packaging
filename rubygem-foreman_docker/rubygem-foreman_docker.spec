@@ -18,18 +18,18 @@
 
 Summary:    A simple REST client for the Docker Remote API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.0
+Version:    0.2.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman-compute >= 1.7.0
-Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.13.6
-Requires:   %{?scl_prefix}rubygem(docker-api) <  1.14.0
-Requires:   %{?scl_prefix}rubygem(fog)
-Requires:   %{?scl_prefix}rubygem(wicked)
+Requires:   foreman-compute >= 1.6.0
+Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.13.0
+Requires:   %{?scl_prefix}rubygem(docker-api) <  2.0.0
+Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
+Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -114,6 +114,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Mon Nov 3 2014 Daniel Lobato Garcia <dlobatog@redhat.com> 0.2.0-1
+- Updating the version of foreman_docker to 0.2.0
+
 * Tue Oct 21 2014 David Davis <daviddavis@redhat.com> 0.1.0-1
 - Updating the version of foreman_docker to 0.1.0
 
