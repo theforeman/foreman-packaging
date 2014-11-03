@@ -3,7 +3,7 @@
 
 %global gem_name wicked
 
-%define _version 1.0.2
+%define _version 1.1.0
 %define _summary Wicked is a Rails engine for producing easy wizard controllers
 %define _url https://github.com/schneems/wicked
 %define _license MIT
@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   3%{?dist}
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -78,10 +78,11 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %files
 %dir %{gem_instdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/.rvmrc
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/wicked.gemspec
+%exclude %{gem_instdir}/Appraisals
+%exclude %{gem_instdir}/gemfiles
 %{gem_spec}
 %{gem_libdir}
 %{gem_instdir}/app
@@ -92,11 +93,15 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 %files doc
 %doc %{gem_instdir}/test
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_docdir}/rdoc
 %doc %{gem_docdir}/ri
 
 %changelog
+* Mon Nov 03 2014 Daniel Lobato Garcia <dlobatog@redhat.com> 1.1.0-1
+- Update release to 1.1.0 (dlobatog@redhat.com)
+
 * Fri Jun 06 2014 Dominic Cleal <dcleal@redhat.com> 1.0.2-3
 - Modernise and update for EL7 (dcleal@redhat.com)
 
