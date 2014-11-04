@@ -4,8 +4,10 @@
 %if "%{?scl}" == "ruby193"
     %global scl_prefix %{scl}-
     %global scl_ruby /usr/bin/ruby193-ruby
+    %global scl_rake /usr/bin/ruby193-rake
 %else
     %global scl_ruby /usr/bin/ruby
+    %global scl_rake /usr/bin/rake
 %endif
 
 # set and uncomment all three to set alpha tag
@@ -32,11 +34,15 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
+BuildRequires:  asciidoc
+BuildRequires:  %{?scl_prefix}rubygem(rake) >= 0.8.3
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+Requires:      %{?scl_prefix}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
+Requires:      %{?scl_prefix}ruby(release)
 %endif
 
 Requires:       %{?scl_prefix}rubygems
@@ -73,6 +79,12 @@ Mainly used by the foreman project (http://theforeman.org)
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
+#build man pages
+%{scl_rake} -f Rakefile.dist build \
+PREFIX=%{_prefix} \
+SBINDIR=%{_sbindir} \
+SYSCONFDIR=%{_sysconfdir} \
+--trace
 
 #replace shebangs for SCL
 %if %{?scl:1}%{!?scl:0}
@@ -91,6 +103,14 @@ mv Gemfile Gemfile.in
 
 %install
 rm -rf %{buildroot}
+#install man pages
+%{scl_rake} -f Rakefile.dist install \
+PREFIX=%{buildroot}%{_prefix} \
+SBINDIR=%{buildroot}%{_sbindir} \
+SYSCONFDIR=%{buildroot}%{_sysconfdir} \
+--trace
+%{scl_rake} -f Rakefile.dist clean
+
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/config
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
@@ -151,6 +171,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %{_sbindir}/foreman-prepare-realm
+%{_mandir}/man8
 %if 0%{?rhel} == 6
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
