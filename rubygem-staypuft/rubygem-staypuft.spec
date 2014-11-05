@@ -29,7 +29,7 @@ Requires: %{?scl_prefix}rubygem(ipaddress)
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -124,6 +124,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.4.12-2
+- Convert staypuft to use asset precompilation RPM macros (dcleal@redhat.com)
+
 * Thu Oct 30 2014 Dominic Cleal <dcleal@redhat.com> 0.4.12-1
 - Update staypuft to 0.4.12 (brad@redhat.com)
 
