@@ -16,7 +16,7 @@
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.7
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        http://github.com/katello/bastion
@@ -114,6 +114,9 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.1.7-2
+- Convert bastion to use asset precompilation RPM macros (dcleal@redhat.com)
+
 * Tue Oct 28 2014 Dominic Cleal <dcleal@redhat.com> 0.1.7-1
 - Update rubygem-bastion to 0.1.7 (ericdhelms@gmail.com)
 
