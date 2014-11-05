@@ -64,4 +64,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- new package built with tito
+
 
