@@ -19,7 +19,7 @@
 Summary:    A simple REST client for the Docker Remote API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
@@ -117,6 +117,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
+- Precompile foreman_docker assets (dcleal@redhat.com)
+
 * Mon Nov 3 2014 Daniel Lobato Garcia <dlobatog@redhat.com> 0.2.0-1
 - Updating the version of foreman_docker to 0.2.0
 
