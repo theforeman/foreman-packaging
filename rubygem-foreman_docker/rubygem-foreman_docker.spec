@@ -31,6 +31,12 @@ Requires:   %{?scl_prefix}rubygem(docker-api) <  2.0.0
 Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
 
+BuildRequires: foreman-compute >= 1.7.0
+BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.13.0
+BuildRequires: %{?scl_prefix}rubygem(docker-api) <  2.0.0
+BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
+BuildRequires: %{?scl_prefix}rubygem(wicked) < 2.0
+
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -45,6 +51,7 @@ BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 
@@ -79,38 +86,35 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin
 
 %files
 %dir %{gem_instdir}
+%{gem_libdir}
 %{gem_instdir}/app
-%{gem_instdir}/lib
-%{gem_instdir}/locale
-%{gem_instdir}/db
 %{gem_instdir}/config
-%exclude %{gem_cache}
+%{gem_instdir}/db
+%{gem_instdir}/locale
+%{gem_spec}
+%{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
+# issue #8100
+%{gem_instdir}/public/assets/%{gem_name}_engine
+%doc %{gem_instdir}/LICENSE
+
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/test
-%{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 
 %files doc
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
 %posttrans
 # We need to run the db:migrate after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%foreman_db_migrate
+%foreman_restart
 exit 0
 
 %changelog

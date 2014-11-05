@@ -10,15 +10,6 @@
 
 %define desc OpenStack Foreman Installer
 
-%if "%{?scl}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
-
 Requires: %{?scl_prefix}rubygem(foreman_discovery)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
 Requires: %{?scl_prefix}rubygem(wicked)
@@ -36,22 +27,9 @@ Requires: %{?scl_prefix}rubygem(ipaddress)
 %define rubyabi 1.9.1
 %endif
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-
-
-%if 0%{?rhel} == 6 &&  "%{?scl}" != "ruby193"
-%global gem_dir %(ruby -rubygems -e 'puts Gem.dir' 2>/dev/null)
-%global gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%global gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%global gem_spec %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%global gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%global gem_libdir %{gem_dir}/gems/%{gem_name}-%{version}/lib
-%endif
-
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}  
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -62,26 +40,22 @@ BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides:  foreman-plugin-staypuft
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
+%if 0%{?fedora} > 18
 Requires:  %{?scl_prefix}ruby(release)
-%else 
+%else
 Requires:  %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires:  %{?scl_prefix}rubygems
 
-%if 0%{?fedora} || "%{?scl}" == "ruby193"
-BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
+%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: foreman
+BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(sass-rails)
-BuildRequires: %{?scl_prefix}rubygem(uglifier)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix}rubygem(foreman_discovery)
 BuildRequires: %{?scl_prefix}rubygem(wicked)
@@ -127,41 +101,10 @@ gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
+%foreman_bundlerd_file
+%foreman_precompile_plugin
 
-# compile <assets>
-mkdir -p ./usr/share
-cp -r %{foreman_dir} ./usr/share || echo 0
-
-pushd ./usr/share/foreman
-export GEM_PATH=%{gem_dir}:%{buildroot}%{gem_dir}
-cat <<GEMFILE > ./bundler.d/%{gem_name}.rb
-group :%{gem_name} do
-  gem '%{gem_name}'
-  gem 'sass-rails'
-  gem 'bootstrap-sass'
-  gem 'jquery-ui-rails'
-end
-GEMFILE
-cat ./bundler.d/%{gem_name}.rb
-
-unlink tmp
-
-export BUNDLER_EXT_NOSTRICT=1
-export BUNDLER_EXT_GROUPS="default assets %{gem_name}"
-%{scl_rake} plugin:assets:precompile[%{gem_name}] RAILS_ENV=production --trace
-
-popd
-rm -rf ./usr
-# </assets>
-
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-group :%{gem_name} do
-  gem '%{gem_name}'
-end
-GEMFILE
-
-%files 
+%files
 %dir %{gem_instdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -169,9 +112,9 @@ GEMFILE
 %{gem_instdir}/app
 %{gem_instdir}/db
 %{gem_instdir}/config
-%{gem_instdir}/public
 %{gem_instdir}/Rakefile
-%{foreman_bundlerd_dir}/staypuft.rb
+%{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
 %doc %{gem_instdir}/LICENSE
 
 %files doc
