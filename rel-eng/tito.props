@@ -265,6 +265,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
+  rubygem-chef-api
   rubygem-commonjs
   rubygem-dalli
   rubygem-deface
@@ -301,6 +302,7 @@ whitelist = rubygem-algebrick
   rubygem-less
   rubygem-less-rails
   rubygem-little-plugger
+  rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
@@ -316,6 +318,7 @@ disttag = .fc19
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
+  rubygem-chef-api
   rubygem-bastion
   rubygem-commonjs
   rubygem-dalli
@@ -352,6 +355,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_ssh
   rubygem-less
   rubygem-less-rails
+  rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
