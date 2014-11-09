@@ -5,10 +5,10 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.10
+Version: 0.0.11
 Release: 1%{?dist}
 Group: Development/Libraries
-License: GPLv3
+License: MIT
 URL: http://github.com/Apipie/apipie-bindings
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
