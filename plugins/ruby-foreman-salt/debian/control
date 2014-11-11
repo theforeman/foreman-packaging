@@ -1,13 +1,13 @@
 Source: ruby-foreman-salt
 Section: ruby
 Priority: extra
-Maintainer: Stephen Benjamin <stephen@redhat.com> 
+Maintainer: Stephen Benjamin <stephen@redhat.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_salt
 
 Package: ruby-foreman-salt
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0~rc2),
+Depends: ${misc:Depends}, bundler, foreman (>= 1.7.0~rc1),
 Description: Foreman Salt Plugin
  Plugin for Foreman for Salt integration
