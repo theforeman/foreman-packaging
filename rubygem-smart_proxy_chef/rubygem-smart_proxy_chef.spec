@@ -71,3 +71,8 @@ cp -pa .%{gem_instdir}/settings.d/chef.yml.example %{buildroot}%{foreman_proxy_s
 
 %files doc
 %doc %{gem_docdir}
+
+%changelog
+* Tue Nov 11 2014 Dominic Cleal <dcleal@redhat.com> 0.1.1-1
+- new package built with tito (mhulan@redhat.com)
+
