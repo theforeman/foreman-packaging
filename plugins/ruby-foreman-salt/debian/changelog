@@ -1,3 +1,9 @@
+ruby-foreman-salt (1.0.0) stable; urgency=low
+
+  * Update to 1.0.0
+
+ -- Stephen Benjamin <stephen@redhat.com>  Tue, 11 Nov 2014 18:20:00 +0200
+
 ruby-foreman-salt (0.0.4-1) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists
