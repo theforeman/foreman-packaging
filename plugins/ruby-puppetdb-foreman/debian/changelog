@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (0.1.2-1) stable; urgency=low
+
+  * Release 0.1.2, GPL v3, and better error handling
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Tue, 11 Nov 2014 08:38:00 +0000
+
 ruby-puppetdb-foreman (0.1.1-1) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists
