@@ -75,6 +75,9 @@ rake install \
 %{_mandir}/man8
 
 %changelog
+* Tue Nov 11 2014 Dominic Cleal <dcleal@redhat.com> 1.7.0-0.1.RC1
+- Release 1.7.0-RC1
+
 * Mon Aug 11 2014 Dominic Cleal <dcleal@redhat.com> - 1.7.0-0.develop
 - Bump version to 1.7-develop
 
