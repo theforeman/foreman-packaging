@@ -114,6 +114,9 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Wed Nov 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.8-1
+- Update 'rubygem-bastion' to 0.1.8 (ericdhelms@gmail.com)
+
 * Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.1.7-2
 - Convert bastion to use asset precompilation RPM macros (dcleal@redhat.com)
 
