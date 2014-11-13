@@ -7,7 +7,7 @@
 %global gem_extdir %{gem_extdir_mri}
 %endif
 
-%if 0%{?scl:1}
+%if 0%{?scl:1} || 0%{?fedora} >= 19 || 0%{?rhel} >= 7
 %{!?gem_extdir:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{version}}
 %global gem_extdir_lib %{gem_extdir}/lib
 %else
