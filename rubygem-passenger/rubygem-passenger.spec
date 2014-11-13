@@ -32,7 +32,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.5%{?dist}
+Release: 9.6%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -431,6 +431,9 @@ rake test --trace ||:
 %{gem_extdir_lib}
 
 %changelog
+* Thu Nov 13 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.6
+- Fix location of native non-SCL lib on EL7 (dcleal@redhat.com)
+
 * Fri May 30 2014 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.5
 - Modernise spec for EL7 (dcleal@redhat.com)
 
