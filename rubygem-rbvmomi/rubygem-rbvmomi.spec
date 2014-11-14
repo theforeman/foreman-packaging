@@ -98,6 +98,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Nov 14 2014 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
+- Rebase to rbvmomi 1.8.0 (dcleal@redhat.com)
+
 * Thu Jan 23 2014 Dominic Cleal <dcleal@redhat.com> 1.6.0-2
 - Update spec for Fedora 19 with ruby(release) (dcleal@redhat.com)
 
