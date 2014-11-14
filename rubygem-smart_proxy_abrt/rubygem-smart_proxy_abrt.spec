@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Automatic Bug Reporting Tool plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -15,7 +15,7 @@ URL: http://github.com/theforeman/smart_proxy_abrt
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.6.0
+Requires: foreman-proxy >= 1.7.0
 Requires: crontabs
 Requires: rubygem-satyr >= 0.1
 Requires: rubygem-satyr < 1.0
@@ -36,7 +36,7 @@ BuildRequires: rubygem(minitest)
 BuildRequires: rubygem(mocha)
 BuildRequires: rubygem(rack-test)
 BuildRequires: rubygem(json)
-BuildRequires: foreman-proxy >= 1.6.0
+BuildRequires: foreman-proxy >= 1.7.0
 %endif
 
 BuildArch: noarch
@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Fri Nov 14 2014 Martin Milata <mmilata@redhat.com> - 0.0.6-2
+- Require smart-proxy 1.7 due to API changes
+
 * Fri Nov 14 2014 Martin Milata <mmilata@redhat.com> - 0.0.6-1
 - New upstream version
 
