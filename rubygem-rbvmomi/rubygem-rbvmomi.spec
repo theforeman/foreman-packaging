@@ -5,16 +5,12 @@
 
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.0
-Release: 2%{?dist}
+Version: 1.8.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rlane/rbvmomi
+URL: https://github.com/vmware/rbvmomi
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-# Fix test failure: https://github.com/vmware/rbvmomi/pull/19
-Patch0: 0001-Fix-missing-runtime-info-properties.patch
-# Fix test failure: https://github.com/vmware/rbvmomi/pull/18
-Patch1: 0001-Fix-assumption-that-the-time-test-is-always-in-0800.patch
 %if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -60,11 +56,6 @@ gem install --local --install-dir .%{gem_dir} \
             --bindir .%{_bindir} \
             --force %{SOURCE0}
 %{?scl:"}
-
-pushd .%{gem_instdir}
-patch -p1 < %{PATCH0}
-patch -p1 < %{PATCH1}
-popd
 
 %build
 
