@@ -8,7 +8,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.2
+Version: 1.0.0
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -16,8 +16,10 @@ URL: https://github.com/theforeman/smart_proxy_salt
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.6.0
+Requires: foreman-proxy >= 1.7.0
 Requires: salt-master
+Requires: python
+Requires: /etc/cron.d
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -54,6 +56,9 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
+mkdir -p %{buildroot}%{_sbindir}
+mkdir -p %{buildroot}%{_sysconfdir}/cron.d
+
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
@@ -65,17 +70,23 @@ mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
 mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
+cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
+cp -pa .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/bin
+%{gem_instdir}/sbin
+%{gem_instdir}/cron
 %{gem_instdir}/lib
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/salt.rb
 %config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/salt.yml
 %config(noreplace) %{salt_config_dir}/foreman.yaml
+%config %{_sysconfdir}/cron.d/%{gem_name}
 %{_bindir}/foreman-node
+%{_sbindir}/upload-salt-reports
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_cache}
@@ -87,6 +98,9 @@ cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 19 2014 Stephen Benjamin <stephen@bitbin.de> - 1.0.0-1
+- Update to 1.0.0
+
 * Sun Aug 31 2014 Michael Moll <mmoll@mmoll.at> - 0.0.2-1
 - update to 0.0.2
 
