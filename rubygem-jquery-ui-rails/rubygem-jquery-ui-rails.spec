@@ -79,6 +79,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Tue Nov 18 2014 Dominic Cleal <dcleal@redhat.com> 4.1.2-1
+- Update jquery-ui-rails to 4.1.2 (dcleal@redhat.com)
+
 * Thu Jun 27 2013 Miroslav Suchý <msuchy@redhat.com> 4.0.2-7
 - change ruby(abi) to ruby(release) for F19+ (msuchy@redhat.com)
 
