@@ -114,6 +114,9 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Tue Nov 18 2014 Dominic Cleal <dcleal@redhat.com> 0.1.9-1
+- Update 'rubygem-bastion' to 0.1.9 (ericdhelms@gmail.com)
+
 * Wed Nov 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.8-1
 - Update 'rubygem-bastion' to 0.1.8 (ericdhelms@gmail.com)
 
