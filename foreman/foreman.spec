@@ -608,6 +608,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Nov 18 2014 Dominic Cleal <dcleal@redhat.com> 1.6.3-1
+- Release 1.6.3
+
 * Tue Oct 07 2014 Dominic Cleal <dcleal@redhat.com> 1.6.1-1
 - Release 1.6.1
 
