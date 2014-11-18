@@ -18,7 +18,7 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.0.1
+Version:    4.0.2
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -87,20 +87,18 @@ GEMFILE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/locale
-%exclude %{gem_cache}
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/Rakefile
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
 
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/test
 
 %files doc
 %doc %{gem_instdir}/CHANGES.md
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
 %posttrans
