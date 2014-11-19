@@ -9,7 +9,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -71,7 +71,7 @@ cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/f
 mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
 cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
-cp -pa .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
+install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 
 %files
 %dir %{gem_instdir}
