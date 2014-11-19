@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.24.0
-Release: 1%{dist}
+Release: 2%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -133,6 +133,10 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Wed Nov 19 2014 Dominic Cleal <dcleal@redhat.com> 1.24.0-2
+- Remove fog-brightbox, radosgw, sakuracloud, softlayer dependencies
+  (dcleal@redhat.com)
+
 * Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 1.24.0-1
 - refs #7879 - update fog to v1.24.0 (dcleal@redhat.com)
 
