@@ -146,12 +146,8 @@ whitelist = foreman
   rubygem-faraday
   rubygem-flot-rails
   rubygem-fog
-  rubygem-fog-brightbox
   rubygem-fog-core
   rubygem-fog-json
-  rubygem-fog-radosgw
-  rubygem-fog-sakuracloud
-  rubygem-fog-softlayer
   rubygem-fog-xml
   rubygem-foremancli
   rubygem-foreman_api
