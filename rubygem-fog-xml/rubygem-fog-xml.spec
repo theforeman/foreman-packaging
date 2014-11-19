@@ -6,7 +6,7 @@
 Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -15,7 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
-Requires: %{?scl_prefix}rubygem(nokogiri) < 1.6
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
