@@ -1,3 +1,9 @@
+ruby-foreman-salt (1.1.0) stable; urgency=low
+
+  * Update to 1.1.0
+
+ -- Stephen Benjamin <stephen@redhat.com>  Wed, 19 Nov 2014 15:58:00 +0200
+
 ruby-foreman-salt (1.0.0) stable; urgency=low
 
   * Update to 1.0.0
