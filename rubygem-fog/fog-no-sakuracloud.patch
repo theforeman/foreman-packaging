@@ -1,0 +1,37 @@
+From 0b04c95b2fe13d61177e09c66333f1fd87f18b9b Mon Sep 17 00:00:00 2001
+From: Dominic Cleal <dcleal@redhat.com>
+Date: Wed, 19 Nov 2014 10:35:24 +0000
+Subject: [PATCH 2/3] Remove fog-sakuracloud dependency
+
+---
+ lib/fog.rb     | 1 -
+ lib/fog/bin.rb | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/lib/fog.rb b/lib/fog.rb
+index 60c9dd7..81dd6b0 100644
+--- a/lib/fog.rb
++++ b/lib/fog.rb
+@@ -47,7 +47,6 @@ require 'fog/rage4'
+ require 'fog/riakcs'
+ require 'fog/openstack'
+ require 'fog/ovirt'
+-require 'fog/sakuracloud'
+ require 'fog/serverlove'
+ require 'fog/softlayer'
+ require 'fog/storm_on_demand'
+diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
+index 51b0f97..c8580d8 100644
+--- a/lib/fog/bin.rb
++++ b/lib/fog/bin.rb
+@@ -80,7 +80,6 @@ require 'fog/bin/rage4'
+ require 'fog/bin/riakcs'
+ require 'fog/bin/openstack'
+ require 'fog/bin/ovirt'
+-require 'fog/bin/sakuracloud'
+ require 'fog/bin/serverlove'
+ require 'fog/bin/softlayer'
+ require 'fog/bin/stormondemand'
+-- 
+1.9.3
+

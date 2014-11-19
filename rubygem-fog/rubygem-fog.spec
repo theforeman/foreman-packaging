@@ -12,29 +12,41 @@ Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch1: fog-no-brightbox.patch
+Patch2: fog-no-sakuracloud.patch
+Patch3: fog-no-softlayer.patch
+
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(fog-brightbox)
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.23.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-json)
-Requires: %{?scl_prefix}rubygem(fog-radosgw) >= 0.0.2
-Requires: %{?scl_prefix}rubygem(fog-sakuracloud) >= 0.0.4
-Requires: %{?scl_prefix}rubygem(fog-softlayer)
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
-Requires: %{?scl_prefix}rubygem(nokogiri) < 1.6.0
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
+
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.23.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(fog-json)
+BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
+BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
+BuildRequires: %{?scl_prefix}rubygem(nokogiri) < 2.0
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
+BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
+
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(fog) = %{version}
-
-%define gembuilddir %{buildroot}%{gem_dir}
 
 %description
 The Ruby cloud services library. Supports all major cloud providers including
@@ -50,39 +62,69 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} "}
+gem unpack %{SOURCE0}
+%{?scl:"}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} "}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:"}
+
+# Patch out providers we don't need
+%patch1 -p1
+sed -i '/add_dependency.*brightbox/d' %{gem_name}.gemspec
+sed -i '/add_dependency.*radosgw/d' %{gem_name}.gemspec
+%patch2 -p1
+sed -i '/add_dependency.*sakuracloud/d' %{gem_name}.gemspec
+%patch3 -p1
+sed -i '/add_dependency.*softlayer/d' %{gem_name}.gemspec
 
 %build
+%{?scl:scl enable %{scl} "}
+gem build %{gem_name}.gemspec
+%{?scl:"}
+
+mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} "}
+gem install --local --install-dir .%{gem_dir} \
+            --bindir .%{_bindir} \
+            --no-rdoc --no-ri \
+            --force %{gem_name}-%{version}.gem
+%{?scl:"}
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
-mkdir -p %{buildroot}/%{_bindir}
-mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{gembuilddir}/bin
-rm -rf %{buildroot}%{gem_instdir}/.yardoc
-rm -f %{buildroot}%{gem_instdir}/{.document,.gitignore,.irbrc,.travis.yml}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* %{buildroot}%{_bindir}/
+
+%check
+# Verify that patching resulted in a valid gemspec and the library still loads
+%{?scl:scl enable %{scl} - << \EOF}
+export RUBYLIB=$RUBYLIB:$(pwd)/lib
+ruby -rfog -e 'puts Fog::VERSION; puts Fog.providers.keys.join(",")'
+bin/fog -v
+%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/bin
-%{gem_instdir}/lib
 %{gem_instdir}/benchs
-%exclude %{gem_cache}
+%{gem_instdir}/bin
+%{gem_libdir}
+%doc %{gem_instdir}/LICENSE.md
 %{gem_spec}
 %{_bindir}/fog
-%{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/.*
+%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/CONTRIBUTING.md
-%{gem_instdir}/CONTRIBUTORS.md
-%{gem_instdir}/LICENSE.md
-%{gem_instdir}/README.md
-%{gem_instdir}/RELEASE.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/RELEASE.md
 %{gem_instdir}/gemfiles
 %{gem_instdir}/spec
 %{gem_instdir}/tests
