@@ -9,14 +9,14 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.7.0
+Requires: foreman-proxy >= 1.6.0
 Requires: salt-master
 Requires: python
 Requires: /etc/cron.d
