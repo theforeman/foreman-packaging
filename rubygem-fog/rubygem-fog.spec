@@ -73,12 +73,12 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 # Patch out providers we don't need
 %patch1 -p1
-sed -i '/add_dependency.*brightbox/d' %{gem_name}.gemspec
-sed -i '/add_dependency.*radosgw/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*brightbox/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*radosgw/d' %{gem_name}.gemspec
 %patch2 -p1
-sed -i '/add_dependency.*sakuracloud/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*sakuracloud/d' %{gem_name}.gemspec
 %patch3 -p1
-sed -i '/add_dependency.*softlayer/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*softlayer/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}
