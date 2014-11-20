@@ -70,6 +70,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
+* Thu Nov 20 2014 Dominic Cleal <dcleal@redhat.com> 0.1.1-1
+- Update fog-xml to 0.1.1 (dcleal@redhat.com)
+
 * Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
 - new package built with tito
 
