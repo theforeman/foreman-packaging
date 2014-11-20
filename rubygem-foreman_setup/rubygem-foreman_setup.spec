@@ -27,7 +27,7 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.1.0
+Version:    2.1.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
