@@ -98,6 +98,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 20 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
+- Fix cron.d file permissions (stbenjam@redhat.com)
+
 * Wed Nov 19 2014 Stephen Benjamin <stephen@bitbin.de> - 1.0.0-1
 - Update to 1.0.0
 
