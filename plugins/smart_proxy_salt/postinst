@@ -1,0 +1,6 @@
+#!/bin/sh
+# postinst script for smart_proxy_salt
+#
+# see: dh_installdeb(1)
+
+chmod 644 '/etc/cron.d/smart_proxy_salt'
