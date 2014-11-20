@@ -1,3 +1,5 @@
 debian/salt.rb usr/share/foreman-proxy/bundler.d
 etc/foreman.yaml etc/salt
 settings.d/salt.yml etc/foreman-proxy/settings.d
+sbin/upload-salt-reports usr/sbin
+cron/smart_proxy_salt etc/cron.d

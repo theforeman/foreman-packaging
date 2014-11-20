@@ -1,4 +1,10 @@
-ruby-smart-proxy-salt (0.0.2-1) unstable; urgency=low
+ruby-smart-proxy-salt (1.0.0-1) unstable; urgency=low
+
+  * Updated to 1.0.0
+
+ -- Stephen Benjamin <stephen@redhat.com>  Thu, 20 Nov 2014 09:20:00 +0200
+
+ ruby-smart-proxy-salt (0.0.2-1) unstable; urgency=low
 
   * Initial release
 
