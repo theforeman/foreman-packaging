@@ -5,8 +5,8 @@
 Summary: Wavy IRB: Colorizes irb results.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.4.2
-Release: 6%{dist}
+Version: 1.0.3
+Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
@@ -16,6 +16,8 @@ Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
+Requires: %{?scl_prefix}rubygem(paint) >= 0.8
+Requires: %{?scl_prefix}rubygem(paint) < 1.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygems
@@ -61,7 +63,7 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 
 %files doc
 %{gem_instdir}/spec
-%doc %{gem_dir}/doc/wirb-0.4.2
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.rdoc
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
