@@ -240,6 +240,7 @@ whitelist = ipxe
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
+  rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-ftools
   rubygem-hammer_cli_foreman_bootdisk
@@ -294,6 +295,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
+  rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-ftools
