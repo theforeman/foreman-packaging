@@ -99,6 +99,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Nov 21 2014 Dominic Cleal <dcleal@redhat.com> 0.0.4.1-1
+- Update to 0.0.4.1 (dcleal@redhat.com)
+
 * Wed Jul 02 2014 Dominic Cleal <dcleal@redhat.com> 0.0.3-1
 - Update to 0.0.3 (dcleal@redhat.com)
 
