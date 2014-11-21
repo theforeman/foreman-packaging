@@ -89,7 +89,6 @@
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
-      <packagereq type="default">rubygem-wirb</packagereq>
 
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
@@ -147,7 +146,6 @@
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
-      <packagereq type="default">rubygem-wirb-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>
