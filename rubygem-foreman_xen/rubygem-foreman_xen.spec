@@ -18,7 +18,7 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
+Version:    0.0.4.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
