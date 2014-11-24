@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/website
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.5.1-1
+- Update signet to 0.5.1 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.4.5-1
 - new package built with tito
 
