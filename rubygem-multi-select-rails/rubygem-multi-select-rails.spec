@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/*.md
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.9.12-1
+- Update multi-select-rails to 0.9.12 (dcleal@redhat.com)
+
 * Tue Feb 18 2014 Dominic Cleal <dcleal@redhat.com> 0.9.10-1
 - new package built with tito
 
