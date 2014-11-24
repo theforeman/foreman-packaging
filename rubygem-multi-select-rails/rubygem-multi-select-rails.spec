@@ -6,7 +6,7 @@
 
 Summary: Multiselect jQuery plugin for Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.10
+Version: 0.9.12
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
