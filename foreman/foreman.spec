@@ -49,6 +49,9 @@ Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 Requires: %{scl_ruby}
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}facter
+Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
+Requires: %{?scl_prefix}rubygem(bundler_ext)
+
 Requires: wget rsync
 Requires: /etc/cron.d
 Requires(pre):  shadow-utils
@@ -56,105 +59,132 @@ Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
-Requires: %{?scl_prefix}rubygem(json)
+
+# Gemfile
 Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
 Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
 # minitest - workaround as rubygem-activesupport is missing dep
 Requires: %{?scl_prefix}rubygem(minitest)
-Requires: %{?scl_prefix}rubygem(rest-client)
-Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(will_paginate) < 3.1.0
-Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0.0
-Requires: %{?scl_prefix}rubygem(ancestry) < 3.0.0
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 2.7.0
-Requires: %{?scl_prefix}rubygem(scoped_search) < 3.0.0
-Requires: %{?scl_prefix}rubygem(net-ldap)
-Requires: %{?scl_prefix}rubygem(safemode) >= 1.2.1
-Requires: %{?scl_prefix}rubygem(safemode) < 1.3.0
-Requires: %{?scl_prefix}rubygem(uuidtools)
-Requires: %{?scl_prefix}rubygem(oauth)
-Requires: %{?scl_prefix}rubygem(rabl) >= 0.7.5
-Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 3.0.0
+Requires: %{?scl_prefix}rubygem(json) >= 1.5
+Requires: %{?scl_prefix}rubygem(json) < 2.0
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
+Requires: %{?scl_prefix}rubygem(rest-client) < 2.0
+Requires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
+Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
+Requires: %{?scl_prefix}rubygem(will_paginate) < 3.1
+Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
+Requires: %{?scl_prefix}rubygem(scoped_search) >= 2.7
+Requires: %{?scl_prefix}rubygem(scoped_search) < 3.0
+Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3
+Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
-Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.3.0
-Requires: %{?scl_prefix}rubygem(bundler_ext)
-Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.10.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 1.0.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
-Requires: %{?scl_prefix}rubygem(i18n_data) >= 0.2.6
-Requires: %{?scl_prefix}rubygem(foreigner) >= 1.4.2
-Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0.0
-Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0.0
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2.0
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 0.3.0
-Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0.0
+Requires: %{?scl_prefix}rubygem(apipie-rails) < 1.0
+Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
+Requires: %{?scl_prefix}rubygem(rabl) < 1.0
+Requires: %{?scl_prefix}rubygem(oauth) >= 0.4
+Requires: %{?scl_prefix}rubygem(oauth) < 1.0
+Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
+Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
+Requires: %{?scl_prefix}rubygem(foreigner) >= 1.4
+Requires: %{?scl_prefix}rubygem(foreigner) < 2.0
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 5.0
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 1.3.3
-Requires: %{?scl_prefix}rubygem(secure_headers) < 1.4.0
-BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 3.0.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
+Requires: %{?scl_prefix}rubygem(secure_headers) < 2.0
+Requires: %{?scl_prefix}rubygem(safemode) >= 1.2
+Requires: %{?scl_prefix}rubygem(safemode) < 2.0
+Requires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
+# i18n
+Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
+Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
+
+# Build dependencies
+BuildRequires: gettext
+BuildRequires: asciidoc
+BuildRequires: %{scl_ruby}
+BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}facter
+BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
-BuildRequires: %{?scl_prefix}rubygem(gettext) >= 1.9.3
-BuildRequires: %{?scl_prefix}rubygem(fast_gettext)
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.10.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+# Gemfile
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 3.2.8
+BuildRequires: %{?scl_prefix}rubygem(rails) < 3.3.0
+# minitest - workaround as rubygem-activesupport is missing dep
+BuildRequires: %{?scl_prefix}rubygem(minitest)
+BuildRequires: %{?scl_prefix}rubygem(json) >= 1.5
+BuildRequires: %{?scl_prefix}rubygem(json) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
+BuildRequires: %{?scl_prefix}rubygem(rest-client) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 3.1
+BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 2.7
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3
+BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
+BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.4
+BuildRequires: %{?scl_prefix}rubygem(oauth) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(foreigner) >= 1.4
+BuildRequires: %{?scl_prefix}rubygem(foreigner) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2
+BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2
+BuildRequires: %{?scl_prefix}rubygem(safemode) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
+# i18n
+BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
+BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
-BuildRequires: %{?scl_prefix}rubygem(i18n_data) >= 0.2.6
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
+# assets
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
+BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(net-ldap)
-BuildRequires: %{?scl_prefix}rubygem(oauth)
-BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.7.5
-BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(rest-client)
-BuildRequires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2.1
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) => 3.2.3
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 3.3
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 2.7.0
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
 BuildRequires: %{?scl_prefix}rubygem(therubyracer)
-BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.0.3.0
-BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.0.4
-BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(uuidtools)
-BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0.2
-BuildRequires: %{?scl_prefix}rubygem(rails)
-# minitest - workaround as rubygem-activesupport is missing dep
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(quiet_assets)
-BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails)
+BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
+BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
+BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(flot-rails) = 0.0.3
-BuildRequires: %{?scl_prefix}rubygem(foreigner) >= 1.4.2
-BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9.10
-BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) < 0.10.0
-BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(gridster-rails)
-BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 4.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.0
-BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap)
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 1.3.3
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 1.4.0
-BuildRequires: %{?scl_prefix}facter
-BuildRequires: gettext
-BuildRequires: asciidoc
-BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{scl_ruby}
+BuildRequires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(gettext) >= 3.1
+BuildRequires: %{?scl_prefix}rubygem(gettext) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(locale) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(locale) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
+BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
+BuildRequires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
+BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
 
 %package cli
 Summary: Foreman CLI
@@ -185,7 +215,8 @@ for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(ruby-libvirt)
+Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
+Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 Requires: %{name} = %{version}-%{release}
 Requires: foreman-compute = %{version}-%{release}
 Obsoletes: foreman-virt < 1.0.0
@@ -213,11 +244,11 @@ Meta Package to install requirements for ovirt support
 %package compute
 Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem-fog >= 1.24.0
-Requires: %{?scl_prefix}rubygem-fog < 1.25.0
-Requires: %{?scl_prefix}rubygem-fog-core >= 1.24.0
-Requires: %{?scl_prefix}rubygem-fog-core < 1.25.0
-Requires: %{?scl_prefix}rubygem-unf
+Requires: %{?scl_prefix}rubygem(fog) >= 1.24.0
+Requires: %{?scl_prefix}rubygem(fog) < 1.25.0
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1.24.0
+Requires: %{?scl_prefix}rubygem(fog-core) < 1.25.0
+Requires: %{?scl_prefix}rubygem(unf) >= 0.1.3
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-fog < 1.0.0
 Provides: foreman-fog = 1.0.0
@@ -248,8 +279,10 @@ Meta Package to install requirements for vmware support
 %package gce
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(google-api-client)
-Requires: %{?scl_prefix}rubygem(sshkey)
+Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.7
+Requires: %{?scl_prefix}rubygem(google-api-client) < 1.0
+Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
+Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{name} = %{version}-%{release}
 Requires: foreman-compute = %{version}-%{release}
 
@@ -263,24 +296,32 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/system
 Requires: %{name} = %{version}-%{release}
+Requires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
+Requires: %{?scl_prefix}rubygem(sass-rails) < 4.0
+Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
+Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
 Requires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(quiet_assets)
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 3.2.3
-Requires: %{?scl_prefix}rubygem(sass-rails) < 3.3
-Requires: %{?scl_prefix}rubygem(spice-html5-rails)
 Requires: %{?scl_prefix}rubygem(therubyracer)
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.0.3.0
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.0.4
-Requires: %{?scl_prefix}rubygem(uglifier)
+Requires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
+Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
+Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
 Requires: %{?scl_prefix}rubygem(flot-rails) = 0.0.3
+Requires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
+Requires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
-Requires: %{?scl_prefix}rubygem(gettext) >= 1.9.3
-Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9.10
-Requires: %{?scl_prefix}rubygem(multi-select-rails) < 0.10.0
-Requires: %{?scl_prefix}rubygem(gridster-rails)
-Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap)
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
+Requires: %{?scl_prefix}rubygem(gettext) >= 3.1
+Requires: %{?scl_prefix}rubygem(gettext) < 4.0
+Requires: %{?scl_prefix}rubygem(locale) >= 2.0
+Requires: %{?scl_prefix}rubygem(locale) < 3.0
+Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
+Requires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
+Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
+Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
+Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
+Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
 
 %description assets
 Meta package to install asset pipeline support.
@@ -292,9 +333,12 @@ Meta package to install asset pipeline support.
 %package console
 Summary: Foreman console support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(awesome_print)
-Requires: %{?scl_prefix}rubygem(hirb-unicode)
-Requires: %{?scl_prefix}rubygem(wirb)
+Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
+Requires: %{?scl_prefix}rubygem(wirb) < 2.0
+Requires: %{?scl_prefix}rubygem(hirb-unicode) >= 0.0.5
+Requires: %{?scl_prefix}rubygem(hirb-unicode) < 0.1
+Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
+Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
 Requires: %{name} = %{version}-%{release}
 
 %description console
