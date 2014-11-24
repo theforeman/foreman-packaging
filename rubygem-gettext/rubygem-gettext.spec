@@ -10,34 +10,32 @@
 %global		repoid			67096
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	2.3.7
-Release:	4%{?dist}
+Version:	3.1.4
+Release:	1%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
 License:	Ruby
 URL:		http://www.yotabanana.com/hiki/ruby-gettext.html?ruby-gettext
 Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-#Source0:	http://rubyforge.org/frs/download.php/%{repoid}/%{gem_name}-%{version}.gem
-# For test-unit 2.4.5 (latest test-unit is 2.5.3:
-# please remove Patch0 after updating test-unit)
-Patch0:	rubygem-gettext-2.3.6-old-test-unit.patch
 
+Requires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
 BuildRequires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
 BuildRequires:	%{?scl_prefix}rubygems-devel
-BuildRequires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
 # Disable tests
 ## For %%check
+#BuildRequires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit)
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit-notify)
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit-rr)
-#BuildRequires:	%{?scl_prefix}rubygem(levenshtein)
+#BuildRequires:	%{?scl_prefix}rubygem(text)
+# test/tools/test_task.rb -> lib/gettext/tools/task.rb
+#BuildRequires:	%{?scl_prefix}rubygem(rake)
 BuildRequires:	gettext
 
-Requires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires:	%{?scl_prefix}ruby(rubygems)
 Requires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
-Requires:	%{?scl_prefix}rubygem(levenshtein)
+Requires:	%{?scl_prefix}rubygem(text)
 Requires:	%{?scl_prefix}irb
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 
@@ -75,7 +73,6 @@ gem unpack %{SOURCE0}
 cd %{gem_name}-%{version}
 
 #Patches, etc
-%patch0 -p0
 
 %{?scl:scl enable %{scl} "}
 gem specification -l --ruby %{SOURCE0}
@@ -90,11 +87,12 @@ popd
 rm -rf tmpunpackdir
 
 %build
-mkdir -p .%{gem_dir}
+%{__mkdir_p} .{%{gem_dir},%{_bindir}}
 %{?scl:scl enable %{scl} "}
 gem install \
 	--local \
 	--install-dir .%{gem_dir} \
+	--bindir .%{_bindir} \
 	--force \
 	--rdoc \
 	-V \
@@ -103,9 +101,7 @@ gem install \
 
 #%%{__rm} -f .%{gem_instdir}/Rakefile
 %{__rm} -f .%{gem_instdir}/%{gem_name}.gemspec
-%{__rm} -f .%{gem_instdir}/replace.rb
 %{__rm} -rf .%{gem_instdir}/po/
-%{__rm} -rf .%{gem_dir}/bin/
 %{__chmod} 0755 .%{gem_instdir}/bin/*
 %{__chmod} 0644 .%{gem_dir}/cache/*.gem
 find .%{gem_instdir}/ -name \*.po | xargs %{__chmod} 0644
@@ -120,72 +116,12 @@ done
 find . -type f -print0 | xargs -0 touch -r %{SOURCE0}
 
 %install
-%{__mkdir_p} %{buildroot}%{gem_dir}
+%{__mkdir_p} %{buildroot}{%{gem_dir},%{_bindir}}
 
+%{__cp} -a .%{_bindir}/* %{buildroot}/%{_bindir}/
 %{__cp} -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 find %{buildroot}%{gem_dir} -name \*.rb.patch\* -delete
 
-# Create symlinks
-##
-## Note that before switching to gem %%{ruby_sitelib}/%%{gem_name}
-## already existed as a directory, so this cannot be replaced
-## by symlink (cpio fails)
-## Similarly, all directories under %%{ruby_sitelib} cannot be
-## replaced by symlink
-#
-
-create_symlink_rec(){
-
-ORIGBASEDIR=$1
-TARGETBASEDIR=$2
-
-## First calculate relative path of ORIGBASEDIR 
-## from TARGETBASEDIR
-TMPDIR=$TARGETBASEDIR
-BACKDIR=
-DOWNDIR=
-num=0
-nnum=0
-while true
-do
-	num=$((num+1))
-	TMPDIR=$(echo $TMPDIR | %{__sed} -e 's|/[^/][^/]*$||')
-	DOWNDIR=$(echo $ORIGBASEDIR | %{__sed} -e "s|^$TMPDIR||")
-	if [ x$DOWNDIR != x$ORIGBASEDIR ]
-	then
-		nnum=0
-		while [ $nnum -lt $num ]
-		do
-			BACKDIR="../$BACKDIR"
-			nnum=$((nnum+1))
-		done
-		break
-	fi
-done
-
-RELBASEDIR=$( echo $BACKDIR/$DOWNDIR | %{__sed} -e 's|//*|/|g' )
-
-## Next actually create symlink
-pushd %{buildroot}/$ORIGBASEDIR
-find . -type f | while read f
-do
-	DIRNAME=$(dirname $f)
-	BACK2DIR=$(echo $DIRNAME | %{__sed} -e 's|/[^/][^/]*|/..|g')
-	%{__mkdir_p} %{buildroot}${TARGETBASEDIR}/$DIRNAME
-	LNNAME=$(echo $BACK2DIR/$RELBASEDIR/$f | \
-		%{__sed} -e 's|^\./||' | %{__sed} -e 's|//|/|g' | \
-		%{__sed} -e 's|/\./|/|' )
-	%{__ln_s} -f $LNNAME %{buildroot}${TARGETBASEDIR}/$f
-done
-popd
-
-}
-
-create_symlink_rec %{gem_instdir}/bin %{_bindir}
-
-#%if 0%{?ruby19} < 1
-#create_symlink_rec %{gem_instdir}/data/locale %{_datadir}/locale
-#%endif
 
 # For --short-circult
 %{__rm} -f *.lang
@@ -226,6 +162,7 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %defattr(-,root,root,-)
 %{_bindir}/rxgettext
 %{_bindir}/rmsginit
+%{_bindir}/rmsgcat
 %{_bindir}/rmsgfmt
 %{_bindir}/rmsgmerge
 
@@ -247,14 +184,58 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
-* Sun May 19 2013 Dominic Cleal <dcleal@redhat.com> 2.3.7-4
-- Disable tests, fix find-lang.sh and _bindir on EL6, fix SCL redirection
-  (dcleal@redhat.com)
+* Sun Aug 31 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.1.4-1
+- 3.1.4
 
-* Tue Mar 12 2013 Lukas Zapletal <lzap+git@redhat.com> 2.3.7-3
-- new package built with tito
+* Fri Aug  1 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.1.3-1
+- 3.1.3
 
-* Sun Feb 10 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2/3/7-2
+* Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.1.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Sun May  4 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.1.2-1
+- 3.1.2
+
+* Thu Feb 27 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.1.1-1
+- 3.1.1
+
+* Mon Feb 10 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.1.0-1
+- 3.1.0
+
+* Mon Feb  3 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.6-1
+- 3.0.6
+
+* Tue Dec 24 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.3-1
+- 3.0.3
+
+* Tue Oct 15 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.2-6
+- Patch from upstream git to remove memoization with
+  coordination with rubygem-locale side change
+- Patch from upstream git to fix test failure on arm
+
+* Fri Oct 11 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.2-4
+- Make test failure conditional
+
+* Thu Oct 10 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.2-2
+- F-21: rescue test failure for now
+
+* Thu Oct 10 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 3.0.2-1
+- 3.0.2
+
+* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.8-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Thu Apr 11 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2.3.8-1
+- 2.3.8
+
+* Wed Feb 27 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2.3.7-4
+- Kill unneeded iconv call
+
+* Wed Feb 27 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2.3.7-3
+- F-19: Rebuild for ruby 2.0.0
+- F-19: Use GLib's iconv instead of iconv removed from ruby core
+
+* Sun Feb 10 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2.3.7-2
 - Require levenshtein for fuzzy merging
 
 * Thu Jan 24 2013 Mamoru TASAKA <mtasaka@fedoraproject.org> - 2.3.7-1
