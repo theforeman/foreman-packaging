@@ -5,8 +5,8 @@
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.0
-Release: 15%{?dist}
+Version: 0.8.1
+Release: 1%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -54,9 +54,6 @@ gem install --local --install-dir .%{gem_dir} \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-# temp fix until https://github.com/grosser/fast_gettext/pull/62 is resolved
-find %{buildroot}%{gem_libdir} -type f -exec chmod -x {} +
 
 # SCL-enable shebang lines
 find %{buildroot}%{gem_libdir} -type f -exec \
