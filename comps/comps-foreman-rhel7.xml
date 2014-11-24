@@ -121,6 +121,7 @@
       <packagereq type="default">ruby193-rubygem-sprockets</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey</packagereq>
       <packagereq type="default">ruby193-rubygem-syntax</packagereq>
+      <packagereq type="default">ruby193-rubygem-text</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
       <packagereq type="default">ruby193-rubygem-unf</packagereq>
       <packagereq type="default">ruby193-rubygem-unf_ext</packagereq>
@@ -251,6 +252,7 @@
       <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-text-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unf-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
