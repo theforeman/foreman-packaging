@@ -5,13 +5,12 @@
 
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.0 
-Release: 3%{?dist}
+Version: 1.0.5
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/grosser/gettext_i18n_rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}rubygems
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -24,34 +23,41 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
-Simple FastGettext Rails integration.
+Translate via FastGettext, use any other I18n backend as extension/fallback.
+
+%package doc
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{name}
 
 %prep
+%setup -n %{pkg_name}-%{version} -q -c -T
+mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} "}
+gem install --local --install-dir .%{gem_dir} \
+            --force %{SOURCE0}
+%{?scl:"}
 
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
-%{?scl:"}
-
-%clean
-rm -rf %{buildroot}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%defattr(-, root, root, -)
+%doc %{gem_instdir}/MIT-LICENSE.txt
+%dir %{gem_instdir}
+%{gem_libdir}
+%exclude %{gem_cache}
+%{gem_spec}
 
-%{gem_dir}/gems/%{gem_name}-%{version}/
-
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
-
-
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%files doc
+%doc %{gem_docdir}
 
 %changelog
 * Thu Sep 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.10.0-3

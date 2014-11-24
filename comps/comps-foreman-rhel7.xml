@@ -204,6 +204,7 @@
       <packagereq type="default">ruby193-rubygem-formatador-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-friendly_id-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gettext-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-gettext_i18n_rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gridster-rails-doc</packagereq>

@@ -114,6 +114,7 @@
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">rubygem-foremancli-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>
+      <packagereq type="default">rubygem-gettext_i18n_rails-doc</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">rubygem-gridster-rails-doc</packagereq>
