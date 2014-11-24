@@ -184,6 +184,7 @@ whitelist = foreman
   rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt
+  rubygem-retriable
   rubygem-ruby2ruby
   rubygem-rubyipmi
   rubygem-safemode

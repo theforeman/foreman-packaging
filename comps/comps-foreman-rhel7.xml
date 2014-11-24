@@ -102,6 +102,7 @@
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
       <packagereq type="default">ruby193-rubygem-rdoc4</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
+      <packagereq type="default">ruby193-rubygem-retriable</packagereq>
       <packagereq type="default">ruby193-rubygem-rr</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby2ruby</packagereq>
@@ -233,6 +234,7 @@
       <packagereq type="default">ruby193-rubygem-rack-mini-profiler-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-retriable-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rr-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ruby-libvirt-doc</packagereq>
