@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.9.0-1
+- Update faraday to 0.9.0 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.8.8-1
 - new package built with tito
 
