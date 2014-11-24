@@ -6,7 +6,7 @@
 
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.8
+Version: 0.9.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -21,7 +21,7 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(multipart-post) >= 1.2.0
-Requires: %{?scl_prefix}rubygem(multipart-post) < 1.3.0
+Requires: %{?scl_prefix}rubygem(multipart-post) < 3
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -70,12 +70,16 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %doc %{gem_instdir}/LICENSE.md
 
+%exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/*.gemspec
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
 
