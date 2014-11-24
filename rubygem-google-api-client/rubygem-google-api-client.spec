@@ -6,11 +6,11 @@
 
 Summary: Google API Ruby Client makes it trivial to access supported APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.4
+Version: 0.7.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
-URL: http://code.google.com/p/google-api-ruby-client/
+URL: https://github.com/google/google-api-ruby-client
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?fedora} > 18
@@ -23,13 +23,12 @@ Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3.2
 Requires: %{?scl_prefix}rubygem(autoparse) >= 0.3.3
 Requires: %{?scl_prefix}rubygem(extlib) >= 0.9.15
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.8.4
-Requires: %{?scl_prefix}rubygem(faraday) < 0.9.0
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.9.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(launchy) >= 2.1.1
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(signet) >= 0.4.5
-Requires: %{?scl_prefix}rubygem(signet) < 0.5.0
+Requires: %{?scl_prefix}rubygem(retriable) >= 1.4
+Requires: %{?scl_prefix}rubygem(signet) >= 0.5.0
 Requires: %{?scl_prefix}rubygem(uuidtools) >= 2.1.0
 
 %if 0%{?fedora} > 18
@@ -60,7 +59,6 @@ Documentation for %{pkg_name}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
             --force %{SOURCE0}
 %{?scl:"}
 
@@ -71,16 +69,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_bindir}
-cp -a .%{_bindir}/* \
-        %{buildroot}%{_bindir}/
-
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
-
 %files
 %dir %{gem_instdir}
-%{_bindir}/google-api
-%{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -94,7 +84,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIB.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
