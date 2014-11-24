@@ -70,6 +70,10 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 1.0.3-1
+- Update wirb to 1.0.3 (dcleal@redhat.com)
+- Add full rubygems.org source URL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.4.2-6
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
