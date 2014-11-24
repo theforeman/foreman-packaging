@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.7.1-1
+- Update google-api-client to 0.7.1 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.6.4-1
 - new package built with tito
 
