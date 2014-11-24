@@ -6,7 +6,7 @@
 
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.5
+Version: 0.5.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
@@ -21,8 +21,7 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.2.3
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.8.1
-Requires: %{?scl_prefix}rubygem(faraday) < 0.9.0
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.9.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0.0
 
