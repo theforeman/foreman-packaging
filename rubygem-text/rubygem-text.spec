@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.3.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT
@@ -102,6 +102,9 @@ popd
 %exclude	%{gem_instdir}/test/
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 1.3.0-2
+- Convert to SCL
+
 * Fri Jun 27 2014 Mamoru TASAKA <mtasaka@fedoraproject.org> - 1.3.0-1
 - 1.3.0
 
