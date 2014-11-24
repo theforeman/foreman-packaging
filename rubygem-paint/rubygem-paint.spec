@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -77,6 +77,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.8.7-3
+- Convert to SCL
+
 * Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.7-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
