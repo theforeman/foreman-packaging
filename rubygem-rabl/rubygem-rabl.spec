@@ -5,7 +5,7 @@
 
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
+Version: 0.11.4
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -13,7 +13,6 @@ URL: https://github.com/nesquena/rabl
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(activesupport) >= 2.3.14
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -71,7 +70,7 @@ rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,TODO,MIT-LICENSE,.gitignore,\
+rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENSE,.gitignore,\
 .travis.yml,rabl.gemspec,test.watchr}
 
 %files
@@ -85,7 +84,7 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,TODO,MIT-L
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%doc README.md CHANGELOG.md CONTRIBUTING.md TODO
+%doc README.md CHANGELOG.md CONTRIBUTING.md
 %{gem_instdir}/test
 %{gem_instdir}/fixtures
 %{gem_instdir}/examples
