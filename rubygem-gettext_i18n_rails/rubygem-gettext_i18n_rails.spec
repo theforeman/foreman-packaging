@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.0.5-1
+- Modernise and update gettext_i18n_rails to 1.0.5 (dcleal@redhat.com)
+
 * Thu Sep 12 2013 Lukas Zapletal <lzap+git@redhat.com> 0.10.0-3
 - Revert "update rubygems to include wrapper BuildRequires and Requires"
   (jmontleo@redhat.com)
