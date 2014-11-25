@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.15.0-1
+- Update docker-api to 1.15.0 (dcleal@redhat.com)
+
 * Wed Oct 22 2014 David Davis <daviddavis@redhat.com> 1.13.6-1
 - Updating to docker-api 1.13.6 for foreman_docker 0.1.0
 
