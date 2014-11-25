@@ -97,6 +97,9 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 0.11.4-1
+- Update rabl to 0.11.4 (dcleal@redhat.com)
+
 * Wed Jan 22 2014 Justin Sherrill <jsherril@redhat.com> 0.9.0-1
 - upgrading to new rabl version 0.9.0 (jsherril@redhat.com)
 
