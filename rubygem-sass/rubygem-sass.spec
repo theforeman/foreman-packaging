@@ -8,7 +8,7 @@
 
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.13
+Version: 3.4.9
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
