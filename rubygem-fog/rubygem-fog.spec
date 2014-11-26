@@ -152,6 +152,9 @@ ruby -rfog -rfog/version -e 'puts Fog::VERSION; puts Fog.providers.keys.join(","
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Wed Nov 26 2014 Dominic Cleal <dcleal@redhat.com> 1.25.0-1
+- Update fog to 1.25.0 (dcleal@redhat.com)
+
 * Thu Nov 20 2014 Dominic Cleal <dcleal@redhat.com> 1.24.0-3
 - Fix removal of add_runtime_dependency lines in gemspec (dcleal@redhat.com)
 
