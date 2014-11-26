@@ -97,13 +97,10 @@ Requires: %{?scl_prefix}rubygem(secure_headers) < 2.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.2
 Requires: %{?scl_prefix}rubygem(safemode) < 2.0
 Requires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
-# i18n
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
 
 # Build dependencies
 BuildRequires: gettext
@@ -151,13 +148,10 @@ BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
-# i18n
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
 # assets
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
@@ -177,8 +171,6 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext) >= 3.1
 BuildRequires: %{?scl_prefix}rubygem(gettext) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(locale) >= 2.0
-BuildRequires: %{?scl_prefix}rubygem(locale) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
 BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
@@ -312,8 +304,6 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 0.0.8
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext) >= 3.1
 Requires: %{?scl_prefix}rubygem(gettext) < 4.0
-Requires: %{?scl_prefix}rubygem(locale) >= 2.0
-Requires: %{?scl_prefix}rubygem(locale) < 3.0
 Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
 Requires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
 Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
