@@ -1,19 +1,19 @@
-From bfcb134edce8325b60f98bd3938ff650e562632e Mon Sep 17 00:00:00 2001
+From de8d6e4ccdba2fe99d4f82b8f5ba5fb28cc839fd Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 19 Nov 2014 10:33:34 +0000
-Subject: [PATCH 1/3] Remove fog-brightbox dependency
+Subject: [PATCH 1/7] Remove fog-brightbox dependency
 
 ---
  lib/fog.rb               |  1 -
  lib/fog/bin.rb           |  1 -
- lib/fog/bin/brightbox.rb | 33 ---------------------------------
- 3 files changed, 35 deletions(-)
+ lib/fog/bin/brightbox.rb | 35 -----------------------------------
+ 3 files changed, 37 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 47db4b8..60c9dd7 100644
+index 335c795..708b8ec 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -21,7 +21,6 @@ require 'fog/core/deprecated_connection_accessors'
+@@ -20,7 +20,6 @@ require 'fog/core/deprecated_connection_accessors'
  require 'fog/atmos'
  require 'fog/aws'
  require 'fog/bluebox'
@@ -22,7 +22,7 @@ index 47db4b8..60c9dd7 100644
  require 'fog/clodo'
  require 'fog/digitalocean'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 4da4cf4..51b0f97 100644
+index 915771d..98cfd7c 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -54,7 +54,6 @@ end
@@ -34,18 +34,20 @@ index 4da4cf4..51b0f97 100644
  require 'fog/bin/clodo'
  require 'fog/bin/digitalocean'
 diff --git a/lib/fog/bin/brightbox.rb b/lib/fog/bin/brightbox.rb
-index c3c087e..e69de29 100644
+index 72b7f2f..e69de29 100644
 --- a/lib/fog/bin/brightbox.rb
 +++ b/lib/fog/bin/brightbox.rb
-@@ -1,33 +0,0 @@
+@@ -1,35 +0,0 @@
 -class Brightbox < Fog::Bin
 -  class << self
 -    def class_for(key)
 -      case key
 -      when :compute
 -        Fog::Compute::Brightbox
+-      when :storage
+-        Fog::Storage::Brightbox
 -      else
--        raise ArgumentError, "Unrecognized service: #{key}"
+-        raise ArgumentError, "Unsupported #{self} service: #{key}"
 -      end
 -    end
 -

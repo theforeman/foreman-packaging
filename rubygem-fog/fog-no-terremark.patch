@@ -1,0 +1,37 @@
+From f06f709433d7908301c00606d514303e0064221d Mon Sep 17 00:00:00 2001
+From: Dominic Cleal <dcleal@redhat.com>
+Date: Wed, 26 Nov 2014 10:02:12 +0000
+Subject: [PATCH 7/7] Remove fog-terremark dependency
+
+---
+ lib/fog.rb     | 1 -
+ lib/fog/bin.rb | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/lib/fog.rb b/lib/fog.rb
+index 21b5832..839da04 100644
+--- a/lib/fog.rb
++++ b/lib/fog.rb
+@@ -48,7 +48,6 @@ require 'fog/openstack'
+ require 'fog/ovirt'
+ require 'fog/serverlove'
+ require 'fog/storm_on_demand'
+-require 'fog/terremark'
+ require 'fog/vcloud'
+ require 'fog/vcloud_director'
+ require 'fog/vsphere'
+diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
+index 44a3e6e..7daa4dd 100644
+--- a/lib/fog/bin.rb
++++ b/lib/fog/bin.rb
+@@ -82,7 +82,6 @@ require 'fog/bin/openstack'
+ require 'fog/bin/ovirt'
+ require 'fog/bin/serverlove'
+ require 'fog/bin/stormondemand'
+-require 'fog/bin/terremark'
+ require 'fog/bin/vcloud'
+ require 'fog/bin/vcloud_director'
+ require 'fog/bin/vsphere'
+-- 
+1.9.3
+

@@ -1,7 +1,7 @@
-From ad9d41a7cfae4ddab460d6608af77c2f370c7dc6 Mon Sep 17 00:00:00 2001
+From ecabd12beff10d8b6652a7ebcd9211ab98ac8d35 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
-Date: Wed, 19 Nov 2014 10:35:24 +0000
-Subject: [PATCH 2/7] Remove fog-sakuracloud dependency
+Date: Wed, 26 Nov 2014 10:00:53 +0000
+Subject: [PATCH 4/7] Remove fog-profitbricks dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,29 +9,29 @@ Subject: [PATCH 2/7] Remove fog-sakuracloud dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 708b8ec..abfe798 100644
+index b88b02a..e361a1c 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -47,7 +47,6 @@ require 'fog/riakcs'
+@@ -46,7 +46,6 @@ require 'fog/rage4'
+ require 'fog/riakcs'
  require 'fog/openstack'
  require 'fog/ovirt'
- require 'fog/profitbricks'
--require 'fog/sakuracloud'
+-require 'fog/profitbricks'
  require 'fog/serverlove'
- require 'fog/softlayer'
  require 'fog/storm_on_demand'
+ require 'fog/terremark'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 98cfd7c..7a26c94 100644
+index 9f939f0..bdb309c 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -81,7 +81,6 @@ require 'fog/bin/riakcs'
+@@ -80,7 +80,6 @@ require 'fog/bin/rage4'
+ require 'fog/bin/riakcs'
  require 'fog/bin/openstack'
  require 'fog/bin/ovirt'
- require 'fog/bin/profitbricks'
--require 'fog/bin/sakuracloud'
+-require 'fog/bin/profitbricks'
  require 'fog/bin/serverlove'
- require 'fog/bin/softlayer'
  require 'fog/bin/stormondemand'
+ require 'fog/bin/terremark'
 -- 
 1.9.3
 
