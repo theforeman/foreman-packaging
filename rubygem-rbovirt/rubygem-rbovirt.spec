@@ -6,7 +6,7 @@
 Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.29
+Version: 0.0.30
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -60,6 +60,7 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %{gem_spec}
 
 %files doc
+%doc %{gem_instdir}/CHANGES.rdoc
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Gemfile
 %{gem_instdir}/spec
