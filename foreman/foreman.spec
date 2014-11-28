@@ -503,7 +503,7 @@ install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
 
 install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
-sed "s/\$DIST/$(echo %{?dist} | sed 's/^\.//')/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
+sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
 install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
