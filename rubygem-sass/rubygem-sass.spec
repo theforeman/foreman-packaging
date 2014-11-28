@@ -101,6 +101,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 28 2014 Dominic Cleal <dcleal@redhat.com> 3.4.9-1
+- Update sass to 3.4.9 (dcleal@redhat.com)
+
 * Sun Dec 29 2013 Dominic Cleal <dcleal@redhat.com> 3.2.13-1
 - Update to sass 3.2.13 (dcleal@redhat.com)
 - remove empty tito.props and definition which are duplicate with default from
