@@ -18,7 +18,7 @@
 
 Summary:    Foreman plugin to provision new hosts and integrate to oVirt Engine
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.0.0
+Version:    1.0.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
