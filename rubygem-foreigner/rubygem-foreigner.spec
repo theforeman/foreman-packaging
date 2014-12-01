@@ -7,7 +7,7 @@
 
 Summary:       Foreign Keys for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       1.4.2
+Version:       1.7.0
 Release:       1%{?dist}
 License:       MIT
 
@@ -94,7 +94,7 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README.md
 
 %changelog
 * Tue Sep 10 2013 Dominic Cleal <dcleal@redhat.com> 1.4.2-1
