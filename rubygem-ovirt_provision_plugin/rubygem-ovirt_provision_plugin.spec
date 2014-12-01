@@ -101,6 +101,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Dec 01 2014 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
+- Update ovirt_provision_plugin to 1.0.1 (ybronhei@redhat.com)
+
 * Thu Nov 06 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-1
 - Update ovirt_provision_plugin to 1.0.0 (ybronhei@redhat.com)
 
