@@ -68,7 +68,7 @@ Requires: %{?scl_prefix}rubygem(minitest)
 Requires: %{?scl_prefix}rubygem(json) >= 1.5
 Requires: %{?scl_prefix}rubygem(json) < 2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
-Requires: %{?scl_prefix}rubygem(rest-client) < 2.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 Requires: %{?scl_prefix}rubygem(will_paginate) < 3.1
@@ -119,7 +119,7 @@ BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(json) >= 1.5
 BuildRequires: %{?scl_prefix}rubygem(json) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
-BuildRequires: %{?scl_prefix}rubygem(rest-client) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 3.1
@@ -224,6 +224,7 @@ Meta Package to install requirements for virt support
 Summary: Foreman ovirt support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.0.24
+Requires: %{?scl_prefix}rubygem(rbovirt) < 0.1.0
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
