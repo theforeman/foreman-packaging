@@ -15,6 +15,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_custom_parameters</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_default_hostgroup</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_docker</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks</packagereq>
@@ -75,6 +76,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_custom_parameters-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_dhcp_browser-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
