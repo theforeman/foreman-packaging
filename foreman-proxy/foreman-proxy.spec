@@ -246,6 +246,9 @@ fi
 
 
 %changelog
+* Tue Dec 02 2014 Dominic Cleal <dcleal@redhat.com> 1.7.0-1
+- Release 1.7.0
+
 * Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.7.0-0.2.RC2
 - Release 1.7.0-RC2
 - refs #7197 - add foreman-prepare-realm man page (stbenjam@redhat.com)
