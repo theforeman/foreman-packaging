@@ -1,0 +1,2 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_digitalocean-0.0.2.gem"

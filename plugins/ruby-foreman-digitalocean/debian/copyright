@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-digitalocean
+Source: https://github.com/theforeman/foreman-digitalocean
+
+Files: *
+Copyright: 2014 Daniel Lobato Garcia <dlobatog@redhat.com>
+License: GPL-3.0+
