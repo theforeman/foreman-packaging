@@ -97,6 +97,9 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 02 2014 Dominic Cleal <dcleal@redhat.com> 1.7.1-1
+- Update foreigner to 1.7.1 (dcleal@redhat.com)
+
 * Mon Dec 01 2014 Dominic Cleal <dcleal@redhat.com> 1.7.0-1
 - Update foreigner to 1.7.0 (dcleal@redhat.com)
 
