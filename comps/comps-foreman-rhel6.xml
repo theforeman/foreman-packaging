@@ -72,7 +72,6 @@
       <packagereq type="default">ruby193-rubygem-launchy</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff</packagereq>
       <packagereq type="default">ruby193-rubygem-locale</packagereq>
-      <packagereq type="default">ruby193-rubygem-maruku</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json</packagereq>
       <packagereq type="default">ruby193-rubygem-multipart-post</packagereq>
       <packagereq type="default">ruby193-rubygem-multi-select-rails</packagereq>
@@ -91,7 +90,6 @@
       <packagereq type="default">ruby193-rubygem-po_to_json</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
-      <packagereq type="default">ruby193-rubygem-rack-mini-profiler</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
@@ -107,7 +105,6 @@
       <packagereq type="default">ruby193-rubygem-sequel</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor</packagereq>
       <packagereq type="default">ruby193-rubygem-signet</packagereq>
-      <packagereq type="default">ruby193-rubygem-single_test</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey</packagereq>
@@ -220,7 +217,6 @@
       <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-rack-mini-profiler-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable-doc</packagereq>
@@ -235,7 +231,6 @@
       <packagereq type="default">ruby193-rubygem-sequel-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-signet-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-single_test-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>

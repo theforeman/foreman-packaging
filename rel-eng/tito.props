@@ -161,7 +161,6 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode
-  rubygem-immigrant
   rubygem-jquery_pwstrength_bootstrap
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -176,7 +175,6 @@ whitelist = foreman
   rubygem-powerbar
   rubygem-quiet_assets
   rubygem-rabl
-  rubygem-rack-mini-profiler
   rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt
@@ -186,7 +184,6 @@ whitelist = foreman
   rubygem-safemode
   rubygem-secure_headers
   rubygem-signet
-  rubygem-single_test
   rubygem-spice-html5-rails
   rubygem-strong_parameters
   rubygem-table_print
