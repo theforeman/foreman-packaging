@@ -53,7 +53,6 @@
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>

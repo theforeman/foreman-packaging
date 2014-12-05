@@ -3,8 +3,12 @@
 
 %if "%{?scl}" == "ruby193"
     %global scl_ruby /usr/bin/ruby193-ruby
+    %global sysconfig_dir %{_root_sysconfdir}/sysconfig
+    %global bin_dir %{_root_bindir}
 %else
     %global scl_ruby /usr/bin/ruby
+    %global sysconfig_dir %{_sysconfdir}/sysconfig
+    %global bin_dir %{_bindir}
 %endif
 
 %global gem_name foreman-tasks
@@ -25,9 +29,9 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman
 
 %if 0%{?fedora} > 18
-Requires:       %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix}ruby(abi)
 %endif
 
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.2
@@ -43,14 +47,14 @@ Requires(preun): initscripts
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): systemd-units
-BuildRequires: systemd-units
+BuildRequires: systemd
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 
 %if 0%{?fedora} > 18
-BuildRequires:       %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
 BuildRequires: %{?scl_prefix}rubygems
 BuildArch: noarch
@@ -89,26 +93,19 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/foreman-tasks.rb
-gem 'foreman-tasks'
+cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
+gem '%{gem_name}'
 GEMFILE
 
 #copy init scripts and sysconfigs
-%if 0%{?fedora} > 18
-install -Dp -m0644 %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{service_name}
-install -Dp -m0755 %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/%{confdir}/%{service_name}.service %{buildroot}%{_libdir}/systemd/system/%{service_name}.service
-mkdir -p %{buildroot}%{_bindir}
-ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{_bindir}/%{service_name}
-%else
-install -Dp -m0644 %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{_root_sysconfdir}/sysconfig/%{service_name}
-mkdir -p %{buildroot}%{_root_bindir}
-ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{_root_bindir}/%{service_name}
 %if 0%{?rhel} == 6
-install -Dp -m0755 %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/%{confdir}/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
+install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
 %else
-install -Dp -m0755 %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/%{confdir}/%{service_name}.service %{buildroot}%{_root_libdir}/systemd/system/%{service_name}.service
+install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{sysconfig_dir}/%{service_name}
+install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
 %endif
-%endif
+mkdir -p %{buildroot}%{bin_dir}
+ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
 
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
@@ -116,52 +113,53 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
   /sbin/chkconfig --add %{service_name}
   exit 0
 %else
-  if [ $1 -eq 1 ]; then
-    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
-  fi
+  %systemd_post %{service_name}.service
 %endif
 
 %preun
-if [ $1 -eq 0 ] ; then
-  %if 0%{?rhel} == 6
+%if 0%{?rhel} == 6
+  if [ $1 -eq 0 ] ; then
     /sbin/service %{service_name} stop >/dev/null 2>&1
     /sbin/chkconfig --del %{service_name}
-  %else
-    /bin/systemctl --no-reload disable %{service_name}.service >/dev/null 2>&1 || :
-    /bin/systemctl stop %{service_name}.service >/dev/null 2>&1 || :
-  %endif
-fi
+  fi
+%else
+  %systemd_preun %{service_name}.service
+%endif
+
+%postun
+%if 0%{?rhel} != 6
+  %systemd_postun_with_restart %{service_name}.service
+%endif
+
+%posttrans
+# We need to run the db:migrate after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
 %{gem_instdir}/bin
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/config
 %{gem_instdir}/db
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/foreman-tasks.rb
 %doc %{gem_instdir}/LICENSE
-
-%if 0%{?fedora} > 18
-%{_libdir}/systemd/system/%{service_name}.service
-%{_sysconfdir}/sysconfig/%{service_name}
-%{_bindir}/%{service_name}
-%else
-%{_root_bindir}/%{service_name}
+%{bin_dir}/%{service_name}
 %if 0%{?rhel} == 6
-%{_root_sysconfdir}/rc.d/init.d/%{service_name}
+%{_root_initddir}/%{service_name}
 %else
-%{_root_libdir}/systemd/system/%{service_name}.service
-%endif
-%{_root_sysconfdir}/sysconfig/%{service_name}
+%{_unitdir}/%{service_name}.service
+%{sysconfig_dir}/%{service_name}
 %endif
 
 
 %exclude %{gem_instdir}/deploy
 %exclude %{gem_instdir}/test
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/LICENSE
