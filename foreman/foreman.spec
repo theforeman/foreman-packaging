@@ -374,58 +374,6 @@ Meta Package to install requirements for sqlite support
 %files sqlite
 %{_datadir}/%{name}/bundler.d/sqlite.rb
 
-# <devel packages are not SCL enabled yet - not avaiable on SCL platforms>
-%if %{?scl:0}%{!?scl:1}
-
-%package devel
-Summary: Foreman devel support
-Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(ruby-debug19)
-Requires: %{name} = %{version}-%{release}
-Requires: %{name}-cli = %{version}-%{release}
-Requires: %{name}-libvirt = %{version}-%{release}
-Requires: %{name}-ovirt = %{version}-%{release}
-Requires: %{name}-compute = %{version}-%{release}
-Requires: %{name}-vmware = %{version}-%{release}
-Requires: %{name}-gce = %{version}-%{release}
-Requires: %{name}-console = %{version}-%{release}
-Requires: %{name}-mysql2 = %{version}-%{release}
-Requires: %{name}-postgresql = %{version}-%{release}
-Requires: %{name}-sqlite = %{version}-%{release}
-Requires: %{name}-test = %{version}-%{release}
-Requires: %{?scl_prefix}rubygem(ci_reporter)
-Requires: %{?scl_prefix}rubygem(gettext)
-Requires: %{?scl_prefix}rubygem(maruku)
-Requires: %{?scl_prefix}rubygem(single_test)
-Requires: %{?scl_prefix}rubygem(pry)
-Requires: %{?scl_prefix}rubygem(term-ansicolor)
-Requires: %{?scl_prefix}rubygem(rack-mini-profiler)
-Requires: %{?scl_prefix}rubygem(immigrant)
-Requires: %{name}-assets = %{version}-%{release}
-
-%description devel
-Meta Package to install requirements for devel support
-
-%files devel
-%{_datadir}/%{name}/bundler.d/development.rb
-
-%package test
-Summary: Foreman test support
-Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(mocha)
-Requires: %{?scl_prefix}rubygem(rake)
-Requires: %{?scl_prefix}rubygem(maruku)
-Requires: %{?scl_prefix}rubygem(single_test)
-Requires: %{name} = %{version}-%{release}
-
-%description test
-Meta Package to install requirements for test
-
-%files test
-%{_datadir}/%{name}/bundler.d/test.rb
-
-%endif
-
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
 Foreman is based on Ruby on Rails, and this package bundles Rails and all

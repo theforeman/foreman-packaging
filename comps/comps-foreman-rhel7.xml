@@ -13,7 +13,6 @@
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
-      <packagereq type="default">foreman-devel</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
@@ -25,7 +24,6 @@
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-selinux-proxy</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
-      <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
 
       <packagereq type="default">rhscl-ruby193-epel-7-x86_64</packagereq>
