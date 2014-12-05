@@ -6,28 +6,29 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.3
+Version: 0.7.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: https://rubygems.org/gems/apipie-params
+URL: https://github.com/Dynflow/dynflow
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires:       %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix}ruby(release)
 %else
-Requires:       %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(activesupport)
-Requires: %{?scl_prefix}rubygem(algebrick)
+Requires: %{?scl_prefix}rubygem(algebrick) >= 0.4.0
+Requires: %{?scl_prefix}rubygem(algebrick) < 0.5.0
 Requires: %{?scl_prefix}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem(uuidtools)
 %if 0%{?fedora} > 18
-BuildRequires:       %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
 %else
-BuildRequires:       %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
@@ -71,9 +72,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/test
+%doc %{gem_instdir}/MIT-LICENSE
 
 %files doc
-%doc %{gem_instdir}/MIT-LICENSE
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/Rakefile
