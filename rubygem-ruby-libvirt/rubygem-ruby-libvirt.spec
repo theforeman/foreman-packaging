@@ -89,6 +89,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Fri Dec 05 2014 Dominic Cleal <dcleal@redhat.com> 0.5.2-1
+- Update ruby-libvirt to 0.5.2 (dcleal@redhat.com)
+
 * Mon Dec 16 2013 Dominic Cleal <dcleal@redhat.com> 0.5.1-1
 - Update to ruby-libvirt 0.5.1 (dcleal@redhat.com)
 
