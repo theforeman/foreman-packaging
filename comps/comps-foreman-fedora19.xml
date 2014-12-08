@@ -67,7 +67,6 @@
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-ldap_fluff</packagereq>
-      <packagereq type="default">rubygem-libv8</packagereq>
       <packagereq type="default">rubygem-multi-select-rails</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
