@@ -31,6 +31,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_setup</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin</packagereq>
@@ -52,7 +53,6 @@
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
@@ -101,6 +101,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>

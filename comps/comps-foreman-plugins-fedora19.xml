@@ -100,6 +100,7 @@
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">rubygem-ftools-doc</packagereq>
