@@ -9,23 +9,13 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if "%{?scl}" == "ruby193"
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
-
 %global gem_name bastion
 
 %define rubyabi 1.9.1
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.7
+Version:    0.1.12
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv2+
@@ -39,19 +29,18 @@ Requires: foreman >= 1.6.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 0.1.0
 
-BuildRequires: foreman >= 1.6.0
+BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygem(less-rails) >= 2.5.0
 BuildRequires: %{?scl_prefix}rubygem(less-rails) < 2.6
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 0.1.0
-BuildRequires: %{?scl_prefix}rubygem(uglifier)
 
 
 %description
 Bastion serves as a plugin to Foreman that provides common
-elements for an AngularJS based UI component for a feature. 
+elements for an AngularJS based UI component for a feature.
 The structure, common elements, and development tasks serve as
 a basis for any plugin to quickly scaffold and create a UI that
 takes advantage of the Foreman (or Foreman plugin) API to create
@@ -91,47 +80,29 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p ./usr/share
-cp -r %{foreman_dir} ./usr/share || echo 0
-
-pushd ./usr/share/foreman
-export GEM_PATH=%{gem_dir}:%{buildroot}%{gem_dir}
-
-cat <<GEMFILE > ./bundler.d/%{gem_name}.rb
-group :bastion do
-  gem '%{gem_name}'
-end
-GEMFILE
-
-unlink tmp
-
-export BUNDLER_EXT_NOSTRICT=1
-export BUNDLER_EXT_GROUPS="default assets bastion"
-%{scl_rake} bastion:assets:precompile RAILS_ENV=production --trace
-
-popd
-rm -rf ./usr
-
 mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-group :bastion do
-  gem '%{gem_name}'
-end
+
+cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/bastion.rb
+gem 'bastion'
+gem 'less-rails'
 GEMFILE
+
+%foreman_precompile_plugin -r bastion:assets:precompile
+%foreman_bundlerd_file
 
 mkdir -p %{buildroot}%{foreman_dir}/public/assets
-ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/assets/bastion
+ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 
 %files
 %dir %{gem_instdir}
+%{gem_libdir}
 %{gem_instdir}/app
-%{gem_instdir}/lib
 %{gem_instdir}/config
 %{gem_instdir}/vendor
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
 %{foreman_dir}/public/assets/bastion
-%{gem_instdir}/public/assets/bastion
+%{foreman_assets_plugin}
 %{gem_instdir}/LICENSE
 %{gem_instdir}/Rakefile
 
@@ -150,6 +121,21 @@ ln -s %{gem_instdir}/public/assets/bastion %{buildroot}%{foreman_dir}/public/ass
 %files devel
 
 %changelog
+* Tue Dec 09 2014 Eric D. Helms <ericdhelms@gmail.com> 0.1.12-1
+- Update rubygem-bastion to 0.1.12 (ericdhelms@gmail.com)
+
+* Mon Dec 01 2014 Eric D. Helms <ericdhelms@gmail.com> 0.1.10-1
+- Update rubygem-bastion to 0.1.10 (ericdhelms@gmail.com)
+
+* Tue Nov 18 2014 Dominic Cleal <dcleal@redhat.com> 0.1.9-1
+- Update 'rubygem-bastion' to 0.1.9 (ericdhelms@gmail.com)
+
+* Wed Nov 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.8-1
+- Update 'rubygem-bastion' to 0.1.8 (ericdhelms@gmail.com)
+
+* Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.1.7-2
+- Convert bastion to use asset precompilation RPM macros (dcleal@redhat.com)
+
 * Tue Oct 28 2014 Dominic Cleal <dcleal@redhat.com> 0.1.7-1
 - Update rubygem-bastion to 0.1.7 (ericdhelms@gmail.com)
 
