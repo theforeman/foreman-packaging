@@ -18,7 +18,7 @@
 
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.2
+Version:    0.0.3
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -94,5 +94,7 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 10 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.3-1
+- Version 0.0.3 (dlobatog@redhat.com)
 * Tue Dec 02 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.2-1
 - Initial version 0.0.2-1 (dlobatog@redhat.com)
