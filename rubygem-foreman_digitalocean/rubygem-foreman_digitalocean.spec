@@ -96,5 +96,6 @@ GEMFILE
 %changelog
 * Wed Dec 10 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.3-1
 - Version 0.0.3 (dlobatog@redhat.com)
+
 * Tue Dec 02 2014 Daniel Lobato <dlobatog@redhat.com> 0.0.2-1
 - Initial version 0.0.2-1 (dlobatog@redhat.com)
