@@ -5,11 +5,11 @@
 
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.1
-Release: 2%{?dist}
+Version: 0.10.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://net-ldap.rubyforge.org/
+URL: http://github.com/ruby-ldap/ruby-net-ldap
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -77,24 +77,22 @@ popd
 %files
 %dir %{gem_instdir}
 %doc %{gem_instdir}/License.rdoc
-%exclude %{gem_instdir}/.autotest
-%exclude %{gem_instdir}/.gemtest
-%exclude %{gem_instdir}/.rspec
 %{gem_libdir}
+%exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/Manifest.txt
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/Contributors.rdoc
+%doc %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/Hacking.rdoc
 %doc %{gem_instdir}/History.rdoc
 %doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/autotest
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/Rakefile
-%{gem_instdir}/spec
+%{gem_instdir}/script
 %{gem_instdir}/test
 %{gem_instdir}/testserver
 
