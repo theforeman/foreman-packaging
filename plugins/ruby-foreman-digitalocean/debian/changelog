@@ -1,3 +1,9 @@
+ruby-foreman-digitalocean (0.0.3) stable; urgency=low
+
+  * Version 0.0.3.
+
+ -- Daniel Lobato Garcia <dlobatog@redhat.com>  Wed, 10 Dec 2014 11:00:00 +0200
+
 ruby-foreman-digitalocean (0.0.2) stable; urgency=low
 
   * Initial Release.
