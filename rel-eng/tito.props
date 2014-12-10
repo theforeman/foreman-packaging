@@ -20,7 +20,6 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-clamp
-  rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
@@ -41,7 +40,6 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-clamp
-  rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
@@ -105,7 +103,6 @@ whitelist = foreman-installer
   rubygem-clamp
   rubygem-fast_gettext
   rubygem-fastercsv
-  rubygem-ffi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-hashie
@@ -164,14 +161,12 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode
-  rubygem-immigrant
   rubygem-jquery_pwstrength_bootstrap
   rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-launchy
   rubygem-ldap_fluff
   rubygem-librarian-puppet
-  rubygem-libv8
   rubygem-multi-select-rails
   rubygem-mysql
   rubygem-mysql2
@@ -180,7 +175,6 @@ whitelist = foreman
   rubygem-powerbar
   rubygem-quiet_assets
   rubygem-rabl
-  rubygem-rack-mini-profiler
   rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt
@@ -190,7 +184,6 @@ whitelist = foreman
   rubygem-safemode
   rubygem-secure_headers
   rubygem-signet
-  rubygem-single_test
   rubygem-spice-html5-rails
   rubygem-strong_parameters
   rubygem-table_print

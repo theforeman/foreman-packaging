@@ -13,7 +13,6 @@
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
-      <packagereq type="default">foreman-devel</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
@@ -24,7 +23,6 @@
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
-      <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
 
       <packagereq type="default">foreman-installer</packagereq>
@@ -59,7 +57,6 @@
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
-      <packagereq type="default">rubygem-immigrant</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
@@ -67,7 +64,6 @@
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-ldap_fluff</packagereq>
-      <packagereq type="default">rubygem-libv8</packagereq>
       <packagereq type="default">rubygem-multi-select-rails</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
@@ -75,7 +71,6 @@
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-quiet_assets</packagereq>
       <packagereq type="default">rubygem-rabl</packagereq>
-      <packagereq type="default">rubygem-rack-mini-profiler</packagereq>
       <packagereq type="default">rubygem-rb-readline</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
       <packagereq type="default">rubygem-rbvmomi</packagereq>
@@ -85,7 +80,6 @@
       <packagereq type="default">rubygem-safemode</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
-      <packagereq type="default">rubygem-single_test</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
@@ -135,7 +129,6 @@
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">rubygem-rabl-doc</packagereq>
-      <packagereq type="default">rubygem-rack-mini-profiler-doc</packagereq>
       <packagereq type="default">rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">rubygem-rbvmomi-doc</packagereq>
@@ -145,7 +138,6 @@
       <packagereq type="default">rubygem-safemode-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
-      <packagereq type="default">rubygem-single_test-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>

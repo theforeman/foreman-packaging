@@ -13,7 +13,6 @@
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
-      <packagereq type="default">foreman-devel</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
@@ -25,7 +24,6 @@
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
-      <packagereq type="default">foreman-test</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
 
       <packagereq type="default">rhscl-ruby193-epel-6-x86_64</packagereq>
@@ -40,7 +38,6 @@
       <packagereq type="default">ruby193-rubygem-apipie-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">ruby193-rubygem-audited</packagereq>
-      <packagereq type="default">ruby193-rubygem-augeas</packagereq>
       <packagereq type="default">ruby193-rubygem-autoparse</packagereq>
       <packagereq type="default">ruby193-rubygem-awesome_print</packagereq>
       <packagereq type="default">ruby193-rubygem-bootstrap-sass</packagereq>
@@ -52,7 +49,6 @@
       <packagereq type="default">ruby193-rubygem-extlib</packagereq>
       <packagereq type="default">ruby193-rubygem-faraday</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext</packagereq>
-      <packagereq type="default">ruby193-rubygem-ffi</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-fog</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
@@ -69,17 +65,13 @@
       <packagereq type="default">ruby193-rubygem-gridster-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb</packagereq>
-      <packagereq type="default">ruby193-rubygem-i18n_data</packagereq>
       <packagereq type="default">ruby193-rubygem-ipaddress</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery_pwstrength_bootstrap</packagereq>
       <packagereq type="default">ruby193-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-jwt</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff</packagereq>
-      <packagereq type="default">ruby193-rubygem-levenshtein</packagereq>
-      <packagereq type="default">ruby193-rubygem-libv8</packagereq>
       <packagereq type="default">ruby193-rubygem-locale</packagereq>
-      <packagereq type="default">ruby193-rubygem-maruku</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json</packagereq>
       <packagereq type="default">ruby193-rubygem-multipart-post</packagereq>
       <packagereq type="default">ruby193-rubygem-multi-select-rails</packagereq>
@@ -98,10 +90,8 @@
       <packagereq type="default">ruby193-rubygem-po_to_json</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
-      <packagereq type="default">ruby193-rubygem-rack-mini-profiler</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
-      <packagereq type="default">ruby193-rubygem-rdoc4</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable</packagereq>
       <packagereq type="default">ruby193-rubygem-rr</packagereq>
@@ -114,10 +104,7 @@
       <packagereq type="default">ruby193-rubygem-secure_headers</packagereq>
       <packagereq type="default">ruby193-rubygem-sequel</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor</packagereq>
-      <packagereq type="default">ruby193-rubygem-shadow</packagereq>
-      <packagereq type="default">ruby193-rubygem-shoulda</packagereq>
       <packagereq type="default">ruby193-rubygem-signet</packagereq>
-      <packagereq type="default">ruby193-rubygem-single_test</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey</packagereq>
@@ -214,7 +201,6 @@
       <packagereq type="default">ruby193-rubygem-jwt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-launchy-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ldap_fluff-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-levenshtein-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-locale-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-multipart-post-doc</packagereq>
@@ -231,7 +217,6 @@
       <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-rack-mini-profiler-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable-doc</packagereq>
@@ -245,9 +230,7 @@
       <packagereq type="default">ruby193-rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sequel-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-shoulda-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-signet-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-single_test-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
