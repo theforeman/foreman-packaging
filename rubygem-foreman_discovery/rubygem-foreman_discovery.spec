@@ -34,7 +34,7 @@ License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
-Requires:   foreman >= 1.7.0
+Requires:   foreman >= 1.8.0
 Requires:   %{?scl_prefix}rubygem(deface) < 1.0
 
 %if 0%{?fedora} > 18
@@ -49,6 +49,8 @@ BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
+BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 1.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
@@ -83,10 +85,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -96,10 +96,12 @@ GEMFILE
 %{gem_instdir}/db
 %exclude %{gem_instdir}/extra
 %{gem_instdir}/locale
+%{gem_instdir}/public
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
+%foreman_apipie_cache_foreman
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}%{?prever}.gem
@@ -112,7 +114,7 @@ GEMFILE
 # We need to run the db:migrate after the install transaction
 /usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
 /usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+%{foreman_apipie_cache}
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 
