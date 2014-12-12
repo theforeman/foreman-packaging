@@ -107,6 +107,12 @@ rm -r %{buildroot}%{gem_instdir}/config
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Dec 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
+- Update hammer_cli to 0.1.4 (martin.bacovsky@gmail.com)
+- Added rb-readline dependency to rubygem-hammer_cli
+  (martin.bacovsky@gmail.com)
+- Refresh Hammer cli_config file (dcleal@redhat.com)
+
 * Thu Aug 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
 - Update rubygem-hammer_cli to 0.1.3 (martin.bacovsky@gmail.com)
 
