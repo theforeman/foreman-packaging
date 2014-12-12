@@ -3,14 +3,6 @@
 
 %global gem_name foreman_api
 
-# we are using this gem also as non-SCL in RHEL6
-%if !("%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16)
-%define gem_dir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gem_instdir %{gem_dir}/gems/%{gem_name}-%{version}
-%define gem_cache %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%define gem_docdir %{gem_dir}/doc/%{gem_name}-%{version}
-%endif
-
 Summary: Ruby bindings for Forman's rest API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.11
@@ -19,24 +11,22 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/theforeman/foreman_api
 Source0:  http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
-%else
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(json)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.1
 Requires: %{?scl_prefix}rubygem(oauth)
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
 BuildRequires: %{?scl_prefix}ruby(rubygems)
-%if "%{?scl}" == "ruby193" || 0%{?rhel} > 6 || 0%{?fedora} > 16
 BuildRequires: %{?scl_prefix}rubygems-devel
-%endif
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -75,9 +65,9 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
 %exclude %{gem_cache}
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_spec}
 
 %doc MIT-LICENSE README.rdoc
 
