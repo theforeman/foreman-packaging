@@ -103,6 +103,7 @@ whitelist = foreman-installer
   rubygem-clamp
   rubygem-fast_gettext
   rubygem-fastercsv
+  rubygem-foreman_api
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-hashie
