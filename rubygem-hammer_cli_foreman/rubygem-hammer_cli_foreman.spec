@@ -72,6 +72,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Dec 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
+- Update hammer-cli-foreman to 0.1.4 (martin.bacovsky@gmail.com)
+
 * Thu Aug 21 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
 - Update rubygem-hammer_cli_foreman to 0.1.3 (martin.bacovsky@gmail.com)
 
