@@ -21,7 +21,7 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
@@ -166,6 +166,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 0.6.10-3
+- Replace rubygem(sequel) due to Fedora BZ#1174138 (dcleal@redhat.com)
+
 * Mon Dec 08 2014 Dominic Cleal <dcleal@redhat.com> 0.6.10-2
 - Cleanup of spec file (brad@redhat.com)
 
