@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/travis.sh
 
 %changelog
+* Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 1.4.1-1
+- Update secure_headers to 1.4.1 (dcleal@redhat.com)
+
 * Mon Oct 13 2014 Dominic Cleal <dcleal@redhat.com> 1.3.3-1
 - new package built with tito
 
