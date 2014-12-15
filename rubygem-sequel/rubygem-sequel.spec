@@ -5,11 +5,11 @@
 
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.45.0
-Release: 4%{?dist}
+Version: 4.17.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://sequel.rubyforge.org
+URL: http://sequel.jeremyevans.net
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
