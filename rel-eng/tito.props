@@ -252,6 +252,7 @@ whitelist = ipxe
   rubygem-hammer_cli_foreman_discovery
   rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_salt
+  rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
   rubygem-little-plugger
@@ -324,6 +325,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
+  rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
   rubygem-little-plugger
@@ -393,6 +395,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
+  rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
   rubygem-logify

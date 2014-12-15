@@ -45,6 +45,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_docker</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
@@ -144,6 +145,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_docker-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
