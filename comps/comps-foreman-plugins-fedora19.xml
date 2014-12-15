@@ -35,6 +35,7 @@
       <packagereq type="default">rubygem-foreman_templates</packagereq>
       <packagereq type="default">rubygem-foreman_xen</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
@@ -80,6 +81,7 @@
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-diffy-doc</packagereq>
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
+      <packagereq type="default">rubygem-dynflow-doc</packagereq>
       <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_chef-doc</packagereq>
@@ -106,6 +108,7 @@
       <packagereq type="default">rubygem-ftools-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-less-doc</packagereq>
       <packagereq type="default">rubygem-less-rails-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>

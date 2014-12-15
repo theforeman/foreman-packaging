@@ -249,6 +249,7 @@
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
