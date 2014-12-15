@@ -2,20 +2,26 @@
 #
 # Must be placed in ~foreman/config/settings.plugins.d/
 #
-# :map:
-#   <hostgroup>:    <regex>
+# :facts_map:
+#   <hostgroup>:
+#     <fact_name>: <regex>
+#
+# The Hostgroup is the full label, include any Parent Hostgroups, eg Base/Redhat
 #
 # The regex can be written either with or without the enclosing slashes:
 #   ^test$      - valid
 #   /^test$/    - also valid
 #
-#
+# List the regexes in the order of prority, you can have as many as you like. The
+# first one to match will be used. Debug statements are written to the log if you
+# are getting the wrong group applied.
 ---
 :default_hostgroup:
-    :map:
-        "Internal":         \.local$
-        "Core Services":    \.core.my-company.net$
-        "Customers/Foobar"  \.foobar.customers.my-company.net$
-        "Webserver":        ^www\d*\.
-        "Mailserver":       ^mx\d*\.
-        "Default":          .*
+  :facts_map:
+    "Redhat":
+      "osfamily": "RedHat"
+      "lsbdistcodename": "Santiago"
+    "Osx/Common":
+      "osfamily": "Darwin"
+    "Base":
+      "hostname": ".*"
