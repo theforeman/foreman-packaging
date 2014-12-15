@@ -101,6 +101,9 @@ mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 3.0.0-1
+- Update foreman_default_hostgroup to 3.0.0 (dcleal@redhat.com)
+
 * Wed Apr 30 2014 Dominic Cleal <dcleal@redhat.com> 2.0.1-1
 - Update to v2.0.1, add example config file (dcleal@redhat.com)
 
