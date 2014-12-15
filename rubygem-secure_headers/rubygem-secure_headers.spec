@@ -6,7 +6,7 @@
 
 Summary: Add easily configured browser headers to responses
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.3
+Version: 1.4.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
@@ -76,7 +76,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/fixtures
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec
 %{gem_instdir}/travis.sh
