@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (2.1.0-1) stable; urgency=low
+
+  * Release 2.1.0
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Mon, 15 Dec 2014 14:27:00 +0000
+
 ruby-foreman-default-hostgroup (2.0.1-2) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists
