@@ -18,7 +18,7 @@
 
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.1
+Version:    3.0.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -80,35 +80,12 @@ gem '%{gem_name}'
 GEMFILE
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
-cat <<CONFIG > %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-# Copy this file to %{gem_name}.yaml to enable, then restart Foreman
-#
-# See %{name}-doc and %{gem_instdir}/README.md for more information
-# Example default_hostgroup settings
-#
-# :map:
-#   <hostgroup>:    <regex>
-#
-# The regex can be written either with or without the enclosing slashes:
-#   ^test$      - valid
-#   /^test$/    - also valid
-#
-#
----
-:default_hostgroup:
-    :map:
-        "Internal":         \.local$
-        "Core Services":    \.core.my-company.net$
-        "Customers/Foobar"  \.foobar.customers.my-company.net$
-        "Webserver":        ^www\d*\.
-        "Mailserver":       ^mx\d*\.
-        "Default":          .*
-CONFIG
+mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
+   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
-%{gem_instdir}/config
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/test
