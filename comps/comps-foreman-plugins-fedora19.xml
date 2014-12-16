@@ -80,6 +80,7 @@
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-diffy-doc</packagereq>
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
+      <packagereq type="default">rubygem-dynflow-doc</packagereq>
       <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_chef-doc</packagereq>

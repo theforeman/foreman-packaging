@@ -107,6 +107,7 @@
       <packagereq type="default">rubygem-fog-doc</packagereq>
       <packagereq type="default">rubygem-fog-json-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foremancli-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails-doc</packagereq>
