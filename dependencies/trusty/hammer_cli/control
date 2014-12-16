@@ -21,6 +21,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-fast-gettext (>= 0.8.0),
          ruby-locale,
          ruby-json (>= 1.6.1),
-         ruby-apipie-bindings (>= 0.0.8)
+         ruby-apipie-bindings (>= 0.0.10), ruby-apipie-bindings (<< 0.1.0),
+         ruby-rb-readline
 Description: Universal command-line interface
  Hammer cli provides universal extendable CLI interface for ruby apps
