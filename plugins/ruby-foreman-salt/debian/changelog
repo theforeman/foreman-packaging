@@ -1,3 +1,9 @@
+ruby-foreman-salt (1.1.0-1) stable; urgency=low
+
+  * Set HOME to ~foreman as rb-readline requires it
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 17 Dec 2014 14:50:42 +0000
+
 ruby-foreman-salt (1.1.0) stable; urgency=low
 
   * Update to 1.1.0

@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.2.0-4) stable; urgency=low
+
+  * Set HOME to ~foreman as rb-readline requires it
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 17 Dec 2014 14:50:06 +0000
+
 ruby-foreman-column-view (0.2.0-3) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists

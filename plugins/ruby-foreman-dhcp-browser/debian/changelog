@@ -1,3 +1,9 @@
+ruby-foreman-dhcp-browser (0.0.6-2) stable; urgency=low
+
+  * Set HOME to ~foreman as rb-readline requires it
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 17 Dec 2014 14:50:14 +0000
+
 ruby-foreman-dhcp-browser (0.0.6-1) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists

@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (4.0.2-1) stable; urgency=low
+
+  * Set HOME to ~foreman as rb-readline requires it
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 17 Dec 2014 14:50:00 +0000
+
 ruby-foreman-bootdisk (4.0.2) stable; urgency=low
 
   * 4.0.2 released
