@@ -15,6 +15,7 @@ LOGFILE='/var/log/foreman-install.log'
 trap db_stop EXIT
 
 # Update gems
+export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
   bundle update --local

@@ -34,6 +34,7 @@ BUNDLE=bundle
 [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
 
 # Test for Gemfile.lock to determine the right action.
+export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ -f Gemfile.lock ]; then
   CMD="$BUNDLE update --local"

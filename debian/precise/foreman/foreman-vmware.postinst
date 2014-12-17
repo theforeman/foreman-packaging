@@ -18,6 +18,7 @@ BUNDLE=bundle
 [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
 
 # Update gems
+export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
   $BUNDLE update --local

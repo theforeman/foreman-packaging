@@ -1,3 +1,9 @@
+ruby-foreman-discovery (1.4.1-2) stable; urgency=low
+
+  * Set HOME to ~foreman as rb-readline requires it
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 17 Dec 2014 14:50:20 +0000
+
 ruby-foreman-discovery (1.4.1-1) stable; urgency=low
 
   * Release Discovery 1.4.1
