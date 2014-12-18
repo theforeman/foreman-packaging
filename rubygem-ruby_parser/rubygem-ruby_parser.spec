@@ -7,8 +7,8 @@
 
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.1
-Release: 6%{?dist}
+Version: 3.6.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -17,7 +17,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 # rather than attempting to install ParseTree-doc in check and introducing a circular
 # dependency
 Source1: pt_testcase.rb
-Requires: %{?scl_prefix}rubygem(sexp_processor)
+Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
+Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 Requires: %{?scl_prefix}ruby(rubygems)
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -31,7 +32,8 @@ BuildRequires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
 BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor)
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
