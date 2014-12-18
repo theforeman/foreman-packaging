@@ -6,7 +6,7 @@
 Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.2.1
+Version: 1.2.2
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -18,9 +18,9 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.1
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.0.1
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1.2
+Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.6
+Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.2.0
+Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.3.0
 
 BuildRequires: %{?scl_prefix}rubygems-devel
 #BuildRequires: %{?scl_prefix}rubygem(jeweler) >= 1.8.3
@@ -48,9 +48,6 @@ This package contains documentation for rubygem-%{gem_name}.
 gem unpack %{SOURCE0}
 %{?scl:"}
 %setup -q -D -T -n  %{gem_name}-%{version}
-sed -i '1,$s/rdoc.*3.12)/rdoc/' Gemfile.lock
-sed -i '1,$s/~> 3.12/> 0/g' Gemfile
-sed -i '1,$s/~> 3.12/> 0/g' safemode.gemspec
 
 %{?scl:scl enable %{scl} "}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
