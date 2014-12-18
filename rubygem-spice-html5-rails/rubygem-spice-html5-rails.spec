@@ -7,7 +7,7 @@
 
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
+Version: 0.1.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
@@ -18,17 +18,16 @@ Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}ruby(rubygems) 
-Requires: %{?scl_prefix}ruby 
-Requires: %{?scl_prefix}rubygem(railties) => 3.1
-Requires: %{?scl_prefix}rubygem(railties) < 4
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel 
-BuildRequires: %{?scl_prefix}ruby 
+BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -59,10 +58,6 @@ gem install --local --install-dir .%{gem_dir} \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-
-
-
 
 %files
 %dir %{gem_instdir}
