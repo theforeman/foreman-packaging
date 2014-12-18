@@ -9,14 +9,16 @@
 
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.1
-Release: 7%{?dist}
+Version: 2.1.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
-Requires: %{?scl_prefix}rubygem(ruby_parser)
+Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
+Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
+Requires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
 Requires: %{?scl_prefix}ruby(rubygems)
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -31,8 +33,10 @@ BuildRequires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor)
-BuildRequires: %{?scl_prefix}rubygem(ruby_parser)
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
+BuildRequires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
+BuildRequires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
