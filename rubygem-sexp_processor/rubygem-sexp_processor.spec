@@ -12,11 +12,19 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/sexp_processor
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi} 
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 Requires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 

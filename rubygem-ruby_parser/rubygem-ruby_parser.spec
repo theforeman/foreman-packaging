@@ -19,9 +19,17 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: pt_testcase.rb
 Requires: %{?scl_prefix}rubygem(sexp_processor)
 Requires: %{?scl_prefix}ruby(rubygems)
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
 BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor)
 BuildArch: noarch

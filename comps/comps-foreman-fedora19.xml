@@ -76,9 +76,11 @@
       <packagereq type="default">rubygem-rbvmomi</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
       <packagereq type="default">rubygem-ruby2ruby</packagereq>
+      <packagereq type="default">rubygem-ruby_parser</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
+      <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
@@ -136,8 +138,10 @@
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">rubygem-ruby_parser-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
+      <packagereq type="default">rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>

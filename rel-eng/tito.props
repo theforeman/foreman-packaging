@@ -181,9 +181,11 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-retriable
   rubygem-ruby2ruby
+  rubygem-ruby_parser
   rubygem-rubyipmi
   rubygem-safemode
   rubygem-secure_headers
+  rubygem-sexp_processor
   rubygem-signet
   rubygem-spice-html5-rails
   rubygem-strong_parameters
