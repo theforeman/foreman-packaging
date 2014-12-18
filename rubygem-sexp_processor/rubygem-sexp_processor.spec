@@ -2,12 +2,12 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name sexp_processor
-%global rubyabi 1.9.1 
+%global rubyabi 1.9.1
 
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.1.3
-Release: 5%{?dist}
+Version: 4.4.4
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/sexp_processor
