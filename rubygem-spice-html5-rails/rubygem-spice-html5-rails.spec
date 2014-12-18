@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Dec 18 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
+- Update spice-html5-rails to 0.1.5 (dcleal@redhat.com)
+
 * Tue Feb 11 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
 - Update to v0.1.4 (dcleal@redhat.com)
 
