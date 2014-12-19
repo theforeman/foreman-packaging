@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.1.4-2) stable; urgency=low
+
+ * Several minor improvements to Debian packaging
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 19 Dec 2014 12:28:03 +0100
+
 ruby-hammer-cli-foreman (0.1.4-1) stable; urgency=low
 
   * 0.1.4 release
