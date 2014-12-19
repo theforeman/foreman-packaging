@@ -11,5 +11,8 @@
 # If you need to specify the .gemspec (eg there is more than one)
 #export DH_RUBY_GEMSPEC=gem.gemspec
 
+build:
+	cp config/cli_config.template.yml config/cli_config.yml
+
 %:
 	dh $@ --buildsystem=ruby --with ruby
