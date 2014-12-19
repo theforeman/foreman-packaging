@@ -4,7 +4,8 @@ Source: https://github.com/theforeman/hammer-cli
 
 Files: *
 Copyright: 2012 Brian Gupta <brian.gupta@brandorr.com>
-           2013-2014 RedHat Inc. <foreman-dev@googlegroups.com>
+           2013-2014 Foreman developers <foreman-dev@googlegroups.com>
+           2013-2014 Red Hat Inc. <foreman-dev@googlegroups.com>
 License: GPL-3
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -20,6 +21,6 @@ License: GPL-3
  version 3 can be found in the file `/usr/share/common-licenses/GPL-3'.
 
 Files: debian/*
-Copyright: 2013 Tomáš Strachota <tstrachota@redhat.com>
+Copyright: 2013-2014 Foreman developers <foreman-dev@googlegroups.com>
 License: GPL-3
 Comment: The Debian packaging is licensed under the same terms as the original package.
