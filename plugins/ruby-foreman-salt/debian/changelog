@@ -1,3 +1,9 @@
+ruby-foreman-salt (1.1.0-1) stable; urgency=low
+
+  * Add dependency on ruby-foreman-deface
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 30 Dec 2014 01:22:38 +0100
+
 ruby-foreman-salt (1.1.0) stable; urgency=low
 
   * Update to 1.1.0
