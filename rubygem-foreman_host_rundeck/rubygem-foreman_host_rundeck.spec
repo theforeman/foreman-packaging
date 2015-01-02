@@ -101,3 +101,6 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 02 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
+- new package built with tito
+
