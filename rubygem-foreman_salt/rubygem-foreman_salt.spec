@@ -104,7 +104,7 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
-* Thu Dec 30 2014 Michael Moll <mmoll@mmoll.at> 1.1.0-2
+* Tue Dec 30 2014 Michael Moll <mmoll@mmoll.at> 1.1.0-2
 - Add dependency on rubygem-deface
 
 * Wed Nov 19 2014 Stephen Benjamin <stephen@redhat.com> 1.1.0-1
