@@ -9,7 +9,6 @@ Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Source1: foreman.yml
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -50,23 +49,26 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
+install -m 755 .%{gem_instdir}/config/foreman.yml \
+               %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
 %{gem_instdir}/locale
 %config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/config
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/test
 
