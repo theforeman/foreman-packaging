@@ -100,6 +100,8 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
+Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
+Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 
 # Build dependencies
 BuildRequires: gettext
@@ -150,6 +152,8 @@ BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
+BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 # assets
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
@@ -175,6 +179,8 @@ BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
 BuildRequires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
+BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 
 %package cli
 Summary: Foreman CLI
@@ -309,6 +315,8 @@ Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.1
 Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
 Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
 Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
+Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
+Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 
 %description assets
 Meta package to install asset pipeline support.
