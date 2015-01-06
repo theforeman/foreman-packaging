@@ -193,6 +193,7 @@ whitelist = foreman
   rubygem-table_print
   rubygem-terminal-table
   rubygem-therubyracer
+  rubygem-turbolinks
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
 
