@@ -6,7 +6,7 @@
 
 Summary: Introspects your database string field maximum lengths and validates
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.4.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -77,6 +77,7 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 
