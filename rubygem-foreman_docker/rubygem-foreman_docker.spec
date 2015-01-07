@@ -87,7 +87,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
