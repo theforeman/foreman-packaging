@@ -18,7 +18,7 @@
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.3.7
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_hooks
@@ -103,6 +103,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 0.3.7-3
+- Add jgrep dependency to -doc for example helper (dcleal@redhat.com)
+
 * Wed Apr 02 2014 Dominic Cleal <dcleal@redhat.com> 0.3.7-2
 - Add /usr/share/foreman/foreman_hooks symlink to gem dir (dcleal@redhat.com)
 
