@@ -85,7 +85,7 @@ gem 'bastion'
 gem 'less-rails'
 GEMFILE
 
-%foreman_precompile_plugin -r bastion:assets:precompile
+%foreman_precompile_plugin -r bastion:assets:precompile -s
 %foreman_bundlerd_file
 
 mkdir -p %{buildroot}%{foreman_dir}/public/assets
