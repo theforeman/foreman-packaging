@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
+- Update validates_lengths_from_database to 0.4.0 (dcleal@redhat.com)
+
 * Thu Jul 31 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - new package built with tito
 
