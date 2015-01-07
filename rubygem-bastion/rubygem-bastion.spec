@@ -25,10 +25,11 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-Requires: foreman >= 1.6.0
+Requires: foreman >= 1.8.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) = 0.1.2
 
-BuildRequires: foreman-assets >= 1.7.0
+BuildRequires: foreman-assets >= 1.8.0
+BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygem(less-rails) >= 2.5.0
@@ -85,7 +86,7 @@ gem 'bastion'
 gem 'less-rails'
 GEMFILE
 
-%foreman_precompile_plugin -r bastion:assets:precompile
+%foreman_precompile_plugin -r bastion:assets:precompile -s
 %foreman_bundlerd_file
 
 mkdir -p %{buildroot}%{foreman_dir}/public/assets
