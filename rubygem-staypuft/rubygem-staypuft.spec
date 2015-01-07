@@ -47,6 +47,7 @@ BuildRequires: %{?scl_prefix}ruby(abi)
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: foreman-assets >= 1.7.0
+BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.8.0
@@ -97,7 +98,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
