@@ -53,6 +53,7 @@ events.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires:   %{?scl_prefix}rubygem(jgrep)
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc

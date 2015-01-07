@@ -1,0 +1,48 @@
+From c390416f30d2295a54693f36ec708ba1933dbe6d Mon Sep 17 00:00:00 2001
+From: Lubomir Rintel <lkundrak@v3.sk>
+Date: Tue, 29 Apr 2014 15:18:52 +0200
+Subject: [PATCH] Fix test run
+
+Failures:
+
+  1) JGrep#has_complex? should return true if complex statement is present in an array
+     Failure/Error: result = JGrep::has_complex?({"foo" => ["bar" => 1]}, [["statement","foo.bar=1"]])
+     NoMethodError:
+       undefined method `first' for "foo.bar=1":String
+     # ./lib/jgrep.rb:306:in `has_complex?'
+     # ./spec/unit/jgrep_spec.rb:124:in `block (3 levels) in <module:JGrep>'
+
+  2) JGrep#has_complex? should return false if complex statement is not present in an array
+     Failure/Error: result = JGrep::has_complex?({"foo" => ["bar" => 1]}, [["statement","foo.bar=0"]])
+     NoMethodError:
+       undefined method `first' for "foo.bar=0":String
+     # ./lib/jgrep.rb:306:in `has_complex?'
+     # ./spec/unit/jgrep_spec.rb:129:in `block (3 levels) in <module:JGrep>'
+
+Finished in 0.04232 seconds
+70 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/unit/jgrep_spec.rb:123 # JGrep#has_complex? should return true if complex statement is present in an array
+rspec ./spec/unit/jgrep_spec.rb:128 # JGrep#has_complex? should return false if complex statement is not present in an array
+---
+ lib/jgrep.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/jgrep.rb b/lib/jgrep.rb
+index 9519758..c2d77f6 100644
+--- a/lib/jgrep.rb
++++ b/lib/jgrep.rb
+@@ -303,7 +303,7 @@ module JGrep
+                 break
+             end
+         end
+-        field = field[1].first.split(/=|<|>/).first
++        field = [field[1]].flatten.first.split(/=|<|>/).first
+ 
+         field.split(".").each_with_index do |item, i|
+             tmp = tmp[item]
+-- 
+1.9.0
+

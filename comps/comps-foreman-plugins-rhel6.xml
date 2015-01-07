@@ -55,6 +55,7 @@
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
+      <packagereq type="default">ruby193-rubygem-jgrep</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
@@ -108,6 +109,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger-doc</packagereq>
