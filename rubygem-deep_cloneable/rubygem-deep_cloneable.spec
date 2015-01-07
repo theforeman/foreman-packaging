@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 2.0.2-1
+- Update deep_cloneable to 2.0.2 (dcleal@redhat.com)
+
 * Thu Jul 17 2014 Lukas Zapletal <lzap+git@redhat.com> 2.0.0-4
 - Fixed dependency in the -doc subpackage (lzap+git@redhat.com)
 - Fixed doc subpackages (lzap+git@redhat.com)
