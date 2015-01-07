@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -88,6 +88,9 @@ rspec -Ilib spec
 
 
 %changelog
+* Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 1.3.3-5
+- Import from Fedora and SCLise (dcleal@redhat.com)
+
 * Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.3.3-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
