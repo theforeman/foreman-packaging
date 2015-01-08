@@ -2,3 +2,4 @@
 *.swp
 *.swo
 rel-eng/custom/*.pyc
+mock
