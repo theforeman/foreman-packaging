@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jan 08 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-1
+- Update gettext_i18n_rails to 1.2.0 (dcleal@redhat.com)
+
 * Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.0.5-1
 - Modernise and update gettext_i18n_rails to 1.0.5 (dcleal@redhat.com)
 
