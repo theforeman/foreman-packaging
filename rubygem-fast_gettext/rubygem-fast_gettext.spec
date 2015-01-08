@@ -5,7 +5,7 @@
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.1
+Version: 0.9.1
 Release: 1%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
@@ -61,22 +61,13 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.*
 %doc %{gem_instdir}/Readme.md
-%exclude %{gem_instdir}/fast_gettext.gemspec
 %{gem_libdir}
 %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_instdir}/CHANGELOG
-%{gem_instdir}/Gemfile*
-%{gem_instdir}/Appraisals
-%{gem_instdir}/Rakefile
-%{gem_instdir}/benchmark
-%doc %{gem_instdir}/examples
-%{gem_instdir}/gemfiles
-%{gem_instdir}/spec
 %doc %{gem_docdir}
 
 %changelog
