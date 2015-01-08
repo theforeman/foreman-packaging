@@ -246,6 +246,7 @@ whitelist = ipxe
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_discovery
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
@@ -307,6 +308,7 @@ whitelist = rubygem-algebrick
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_discovery
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
@@ -366,6 +368,7 @@ whitelist = rubygem-algebrick
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_discovery
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
