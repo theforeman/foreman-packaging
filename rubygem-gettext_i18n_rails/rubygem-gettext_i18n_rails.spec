@@ -5,7 +5,7 @@
 
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.5
+Version: 1.2.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -17,7 +17,7 @@ Requires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
-Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.4.8
+Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.9.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
