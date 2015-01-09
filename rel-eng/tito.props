@@ -168,6 +168,7 @@ whitelist = foreman
   rubygem-launchy
   rubygem-ldap_fluff
   rubygem-librarian-puppet
+  rubygem-multi_json
   rubygem-multi-select-rails
   rubygem-mysql
   rubygem-mysql2
