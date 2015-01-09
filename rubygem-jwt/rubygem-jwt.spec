@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-1
+- Update jwt to 1.2.0 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.1.8-1
 - new package built with tito
 
