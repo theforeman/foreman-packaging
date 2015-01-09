@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/website
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.6.0-1
+- Update signet to 0.6.0 (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.5.1-1
 - Update signet to 0.5.1 (dcleal@redhat.com)
 
