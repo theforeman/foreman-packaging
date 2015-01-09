@@ -93,3 +93,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.1.0-1
+- new package built with tito
+
