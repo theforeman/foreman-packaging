@@ -18,7 +18,7 @@
 
 Summary:    Display reports from Automatic Bug Reporting Tool in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.4
+Version:    0.0.5
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -108,6 +108,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Fri Jan 09 2015 Martin Milata <mmilata@redhat.com> 0.0.5-1
+- Update to foreman_abrt-0.0.5
+
 * Fri Nov 14 2014 Martin Milata <mmilata@redhat.com> 0.0.4-1
 - Update to foreman_abrt-0.0.4
 
