@@ -96,7 +96,6 @@ Requires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 2.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.2
 Requires: %{?scl_prefix}rubygem(safemode) < 2.0
-Requires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
@@ -147,7 +146,6 @@ BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(ruby_parser) = 3.1.1
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
