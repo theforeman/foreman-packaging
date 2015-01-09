@@ -95,6 +95,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.8.1.1-1
+- Update google-api-client to 0.8.1.1 (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.7.1-1
 - Update google-api-client to 0.7.1 (dcleal@redhat.com)
 
