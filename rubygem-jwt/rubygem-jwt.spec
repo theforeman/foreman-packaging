@@ -6,7 +6,7 @@
 
 Summary: JSON Web Token implementation in Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.8
+Version: 1.2.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -20,7 +20,6 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.5.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
