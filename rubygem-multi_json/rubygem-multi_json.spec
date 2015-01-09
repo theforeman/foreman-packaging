@@ -4,8 +4,8 @@
 
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
-Release: 2%{?dist}
+Version: 1.10.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
