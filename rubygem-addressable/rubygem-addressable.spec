@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.3.6-1
+- Update addressable to 2.3.6 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 2.3.5-1
 - Rebase to addressable 2.3.5 (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
