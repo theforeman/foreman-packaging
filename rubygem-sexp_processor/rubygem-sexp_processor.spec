@@ -83,6 +83,10 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 4.4.4-1
+- Update sexp_processor to 4.4.4 (dcleal@redhat.com)
+- Build for Fedora 19 (dcleal@redhat.com)
+
 * Tue Mar 19 2013 Miroslav Suchý <msuchy@redhat.com> 4.1.3-4
 - rebase to sexp_processor-4.1.3 (msuchy@redhat.com)
 
