@@ -94,6 +94,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 1.2.2-1
+- Update safemode to 1.2.2 (dcleal@redhat.com)
+
 * Wed Jul 30 2014 Dominic Cleal <dcleal@redhat.com> 1.2.1-1
 - Update to v1.2.1 (dcleal@redhat.com)
 
