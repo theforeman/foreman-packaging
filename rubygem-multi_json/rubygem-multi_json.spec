@@ -88,6 +88,9 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 1.10.1-1
+- Update multi_json to 1.10.1 (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.8.2-2
 - Modernise and update for EL7 (dcleal@redhat.com)
 
