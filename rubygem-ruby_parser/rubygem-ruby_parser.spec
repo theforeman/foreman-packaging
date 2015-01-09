@@ -115,6 +115,10 @@ popd
 %{gem_docdir}
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 3.6.3-1
+- Update ruby_parser to 3.6.3 (dcleal@redhat.com)
+- Build for Fedora 19 (dcleal@redhat.com)
+
 * Tue Mar 19 2013 Miroslav Suchý <msuchy@redhat.com> 3.1.1-5
 - fix files section (msuchy@redhat.com)
 
