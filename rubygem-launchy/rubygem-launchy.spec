@@ -93,6 +93,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.4.3-1
+- Update launchy to 2.4.3 (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 2.3.0-1
 - new package built with tito
 
