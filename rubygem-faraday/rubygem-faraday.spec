@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-1
+- Update faraday to 0.9.1 (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.9.0-1
 - Update faraday to 0.9.0 (dcleal@redhat.com)
 
