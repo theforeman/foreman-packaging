@@ -163,6 +163,7 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode
   rubygem-jquery_pwstrength_bootstrap
+  rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-launchy
@@ -193,6 +194,7 @@ whitelist = foreman
   rubygem-table_print
   rubygem-terminal-table
   rubygem-therubyracer
+  rubygem-turbolinks
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
 
