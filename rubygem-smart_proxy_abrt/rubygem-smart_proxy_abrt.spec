@@ -115,7 +115,7 @@ popd
 %dir %attr(0755, foreman-proxy, foreman-proxy) %{spool_dir}
 %{foreman_proxy_bundlerd_dir}/abrt.rb
 %{_bindir}/smart-proxy-abrt-send
-%{foreman_proxy_settingsd_dir}/abrt.yml
+%config(noreplace) %{foreman_proxy_settingsd_dir}/abrt.yml
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
 
 %files doc
