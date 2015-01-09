@@ -109,6 +109,9 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %{gem_docdir}
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-1
+- Update ruby2ruby to 2.1.3 (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 2.0.1-7
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
