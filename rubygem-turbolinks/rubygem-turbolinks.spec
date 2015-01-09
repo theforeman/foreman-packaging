@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.5.3-1
+- Import from Fedora, SCLise and update to 2.5.3 (dcleal@redhat.com)
+
 * Tue Oct 14 2014 Josef Stribny <jstribny@redhat.com> - 2.4.0-1
 - Update to 2.4.0
 
