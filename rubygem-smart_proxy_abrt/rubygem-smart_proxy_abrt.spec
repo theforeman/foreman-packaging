@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Automatic Bug Reporting Tool plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-3
+- Missing config option for yaml file (lzap+git@redhat.com)
+
 * Fri Nov 14 2014 Martin Milata <mmilata@redhat.com> - 0.0.6-2
 - Require smart-proxy 1.7 due to API changes
 
