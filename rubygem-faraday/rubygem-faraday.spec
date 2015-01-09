@@ -6,7 +6,7 @@
 
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
+Version: 0.9.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
