@@ -1,3 +1,10 @@
+ruby-clamp (0.6.3-2foreman1) stable; urgency=low
+
+  * Update to 0.6.3 (licensing only change)
+  * Prepare versioning for Debian/jessie
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 13 Jan 2014 00:31:24 +0100
+
 ruby-clamp (0.6.2-2) stable; urgency=low
 
   * Patch for i18n support
