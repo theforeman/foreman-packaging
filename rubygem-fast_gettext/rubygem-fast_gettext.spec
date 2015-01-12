@@ -5,7 +5,7 @@
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.1
+Version: 0.9.2
 Release: 1%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
