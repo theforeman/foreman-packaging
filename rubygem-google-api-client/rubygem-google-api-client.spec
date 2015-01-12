@@ -100,6 +100,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 12 2015 Dominic Cleal <dcleal@redhat.com> 0.8.2-1
+- Update google-api-client to 0.8.2 (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.8.1.1-1
 - Update google-api-client to 0.8.1.1 (dcleal@redhat.com)
 
