@@ -16,10 +16,10 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 %global foreman_pluginconf_dir %{foreman_dir}/config/settings.plugins.d
 
-Summary:    A simple REST client for the Docker Remote API
+Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2.0
-Release:    2%{?dist}
+Version:    1.0.0
+Release:    0%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
@@ -117,6 +117,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Jan 12 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.0.0-1
+- Updating the version of foreman_docker to 1.0.0
+
 * Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
 - Precompile foreman_docker assets (dcleal@redhat.com)
 
