@@ -71,6 +71,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jan 12 2015 Dominic Cleal <dcleal@redhat.com> 0.9.2-1
+- Update fast_gettext to 0.9.2 (dcleal@redhat.com)
+
 * Thu Jan 08 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-1
 - Update fast_gettext to 0.9.1 (dcleal@redhat.com)
 
