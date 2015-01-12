@@ -1,0 +1,17 @@
+Source: ruby-smart-proxy-discovery
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_discovery
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-discovery
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+ foreman-proxy (>= 1.7.0),
+ ruby-rest-client
+Description: Foreman Smart Proxy plugin to allow bi-directional communication between
+ the Foreman Discovery image and Foreman core.
