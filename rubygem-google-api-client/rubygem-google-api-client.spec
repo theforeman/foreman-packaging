@@ -6,7 +6,7 @@
 
 Summary: Google API Ruby Client makes it trivial to access supported APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.1.1
+Version: 0.8.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
@@ -37,6 +37,7 @@ Requires: %{?scl_prefix}rubygem(retriable) >= 1.4
 Requires: %{?scl_prefix}rubygem(retriable) < 2.0
 Requires: %{?scl_prefix}rubygem(signet) >= 0.6
 Requires: %{?scl_prefix}rubygem(signet) < 1.0
+Requires: ca-certificates
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -75,6 +76,10 @@ gem install --local --install-dir .%{gem_dir} \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+
+# kill bundled cacert.pem
+ln -sf /etc/pki/tls/cert.pem \
+  %{buildroot}%{gem_libdir}/cacert.pem
 
 %files
 %dir %{gem_instdir}
