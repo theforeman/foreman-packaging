@@ -9,5 +9,17 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+PLUGIN = foreman_docker
+
+build:
+	cp cache/* /usr/share/foreman/vendor/cache/
+	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
+	cd /usr/share/foreman && ( \
+		bundle install --local && \
+		bundle exec rake plugin:assets:precompile[$(PLUGIN)] RAILS_ENV=production \
+	)
+	GEM_PATH=$$(cd /usr/share/foreman && bundle show $(PLUGIN)) && \
+		cp -rp $${GEM_PATH}/public/assets/$(PLUGIN) ./
+
 %:
 	dh $@ 

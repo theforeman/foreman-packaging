@@ -2,12 +2,12 @@ Source: ruby-foreman-docker
 Section: ruby
 Priority: extra
 Maintainer: Pujan Shah <pujan14@gmail.com>
-Build-Depends: debhelper
+Build-Depends: debhelper, foreman-compute (>= 1.7.0), foreman-assets (>= 1.7.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman-docker
 
 Package: ruby-foreman-docker
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.7.0)
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.7.2)
 Description: Foreman Docker compute resource
  Docker compute resource plugin for Foreman
