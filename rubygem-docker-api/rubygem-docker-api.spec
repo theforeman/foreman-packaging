@@ -6,7 +6,7 @@
 
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.15.0
+Version: 1.17.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,7 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/TESTING.md
 
 %changelog
 * Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.15.0-1
