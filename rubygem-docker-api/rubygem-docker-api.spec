@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/TESTING.md
 
 %changelog
+* Tue Jan 13 2015 Dominic Cleal <dcleal@redhat.com> 1.17.0-1
+- Update docker-api to 1.17.0 (dcleal@redhat.com)
+
 * Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 1.15.0-1
 - Update docker-api to 1.15.0 (dcleal@redhat.com)
 
