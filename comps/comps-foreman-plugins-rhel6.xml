@@ -20,6 +20,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_docker</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_graphite</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
@@ -56,6 +57,7 @@
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools</packagereq>
+      <packagereq type="default">ruby193-rubygem-graphite-api</packagereq>
       <packagereq type="default">ruby193-rubygem-jgrep</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
@@ -65,6 +67,7 @@
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
+      <packagereq type="default">ruby193-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
 
       <packagereq type="default">foreman-installer-staypuft</packagereq>
@@ -95,6 +98,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_docker-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
@@ -110,6 +114,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ftools-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-graphite-api-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
@@ -121,6 +126,7 @@
       <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-zscheduler-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>

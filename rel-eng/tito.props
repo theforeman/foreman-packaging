@@ -227,6 +227,7 @@ whitelist = ipxe
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
@@ -242,6 +243,7 @@ whitelist = ipxe
   rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-less
   rubygem-less-rails
@@ -257,6 +259,7 @@ whitelist = ipxe
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
@@ -287,6 +290,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
@@ -303,6 +307,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
   rubygem-less
@@ -320,6 +325,7 @@ whitelist = rubygem-algebrick
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
@@ -348,6 +354,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
@@ -364,6 +371,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-ftools
+  rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
   rubygem-less
@@ -380,6 +388,7 @@ whitelist = rubygem-algebrick
   rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
+  rubygem-zscheduler
 
 [requirements]
 tito=0.5.5
