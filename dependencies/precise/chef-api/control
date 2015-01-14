@@ -1,0 +1,15 @@
+Source: ruby-chef-api
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.5
+Homepage: https://github.com/sethvargo/chef-api
+XS-Ruby-Versions: all
+
+Package: ruby-chef-api
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-logify, ruby-mime-types
+Description: A Chef API client in Ruby
+ A tiny Chef API client with minimal dependencies
