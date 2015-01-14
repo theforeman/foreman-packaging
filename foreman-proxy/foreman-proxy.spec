@@ -45,6 +45,7 @@ BuildRequires: %{?scl_prefix}ruby(release)
 Requires:      %{?scl_prefix}ruby(release)
 %endif
 
+Requires:       foreman-debug
 Requires:       %{?scl_prefix}rubygems
 Requires:       %{?scl_prefix}rubygem(rake) >= 0.8.3
 Requires:       %{?scl_prefix}rubygem(sinatra)
@@ -110,6 +111,9 @@ SBINDIR=%{buildroot}%{_sbindir} \
 SYSCONFDIR=%{buildroot}%{_sysconfdir} \
 --trace
 %{scl_rake} -f Rakefile.dist clean
+
+# install foreman-devel script
+install -Dp -m0755 extra/foreman-debug-proxy %{buildroot}%{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
 
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/config
@@ -184,6 +188,7 @@ rm -rf %{buildroot}
 %{_unitdir}/%{name}.service
 %{_prefix}/lib/tmpfiles.d/%{name}.conf
 %endif
+%{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
 
 %pre
 # Add the "foreman-proxy" user and group

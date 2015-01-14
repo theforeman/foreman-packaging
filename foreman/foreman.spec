@@ -52,13 +52,16 @@ Requires: %{?scl_prefix}facter
 Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 
-Requires: wget rsync
+Requires: wget
 Requires: /etc/cron.d
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
+
+# Subpackages
+Requires: %{name}-debug
 
 # Gemfile
 Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
@@ -195,6 +198,18 @@ Requires: rubygem(hammer_cli_foreman)
 Meta Package to install hammer rubygems and its dependencies
 
 %files cli
+
+%package debug
+Summary: Foreman debug utilities
+Group: Applications/System
+Requires: rsync
+
+%description debug
+Useful utilities for debug info collection
+
+%files debug
+%{_sbindir}/%{name}-debug
+%{_datadir}/%{name}/script/%{name}-debug.d
 
 %package release
 Summary:        Foreman repository files
@@ -559,6 +574,7 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/app
 %exclude %{_datadir}/%{name}/app/assets
+%exclude %{_datadir}/%{name}/script/%{name}-debug.d
 %dir %{_datadir}/%{name}/bundler.d
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %{_datadir}/%{name}/bundler.d/facter.rb
@@ -582,7 +598,6 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/tmp
 %{_datadir}/%{name}/VERSION
 %{_initrddir}/%{name}
-%{_sbindir}/%{name}-debug
 %{_sbindir}/%{name}-rake
 %{_sbindir}/%{name}-tail
 %{_mandir}/man8
