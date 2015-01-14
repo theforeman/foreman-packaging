@@ -85,3 +85,6 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 14 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
+- new package built with tito
+
