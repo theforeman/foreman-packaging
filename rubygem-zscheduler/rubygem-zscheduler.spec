@@ -72,3 +72,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Wed Jan 14 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
+- new package built with tito
+
