@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-chef
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_chef
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-chef
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.7.0~rc1), ruby-chef-api (>= 0.5.0)
+Description: Chef Plug-In for Foreman's Smart Proxy
+ Chef Plug-In for Foreman's Smart Proxy
