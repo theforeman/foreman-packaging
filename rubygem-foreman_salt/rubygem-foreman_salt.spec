@@ -17,8 +17,8 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.1.0
-Release:    2%{?dist}
+Version:    1.1.1
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_salt
@@ -104,6 +104,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 14 2015 Stephen Benjamin <stephen@redhat.com> 1.1.1-1
+- Update to 1.1.1
+
 * Tue Dec 30 2014 Michael Moll <mmoll@mmoll.at> 1.1.0-2
 - Add dependency on rubygem-deface
 
