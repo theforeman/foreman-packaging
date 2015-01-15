@@ -5,8 +5,8 @@
 
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.1
-Release: 26%{?dist}
+Version: 1.8.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -20,7 +20,7 @@ Requires: %{?scl_prefix}ruby(abi)
 Requires: %{?scl_prefix}ruby(release)
 %endif
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.3.6
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.8.4
 
 BuildRequires: %{?scl_prefix}rubygems-devel
 # BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
@@ -70,6 +70,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{gem_instdir}/version.txt
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/script
 %{gem_instdir}/lib
 %{gem_spec}
 %exclude %{gem_cache}
