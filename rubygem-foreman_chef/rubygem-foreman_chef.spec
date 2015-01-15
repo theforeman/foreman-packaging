@@ -33,7 +33,8 @@ Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(foreman-tasks)
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.9
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
