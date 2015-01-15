@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Thu Jan 15 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
+- Update logging to 1.8.2 (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.8.1-26
 - Modernise and update for EL7 (dcleal@redhat.com)
 
