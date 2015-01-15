@@ -38,6 +38,21 @@ else
   fi
 fi
 
+# DB migrate/seed and precompile assets after install
+if [ -f /usr/share/foreman/config/database.yml ]; then
+  if [ ! -z "${DEBUG}" ]; then
+    /usr/sbin/foreman-rake db:migrate || true
+    /usr/sbin/foreman-rake db:seed || true
+    /usr/sbin/foreman-rake apipie:cache || true
+    /usr/sbin/foreman-rake assets:precompile || true
+  else
+    /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake apipie:cache >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake assets:precompile >> $LOGFILE 2>&1 || true
+  fi
+fi
+
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 

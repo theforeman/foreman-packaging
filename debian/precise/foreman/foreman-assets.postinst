@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for foreman-*
+# postinst script for foreman-assets
 #
 # see: dh_installdeb(1)
 
@@ -22,8 +22,10 @@ export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
   $BUNDLE update --local
+  /usr/sbin/foreman-rake assets:precompile >> $LOGFILE 2>&1 || true
 else
   $BUNDLE update --local 2>&1 >> $LOGFILE
+  /usr/sbin/foreman-rake assets:precompile >> $LOGFILE 2>&1 || true
 fi
 
 # Own all the core files
