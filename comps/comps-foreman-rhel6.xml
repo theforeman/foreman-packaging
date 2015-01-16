@@ -47,6 +47,7 @@
       <packagereq type="default">ruby193-rubygem-awesome_print</packagereq>
       <packagereq type="default">ruby193-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext</packagereq>
+      <packagereq type="default">ruby193-rubygem-clamp</packagereq>
       <packagereq type="default">ruby193-rubygem-daemons</packagereq>
       <packagereq type="default">ruby193-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
@@ -192,6 +193,7 @@
       <packagereq type="default">ruby193-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-clamp-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-daemons-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-eventmachine-doc</packagereq>

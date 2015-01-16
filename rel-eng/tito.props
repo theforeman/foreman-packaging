@@ -20,7 +20,6 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-bundler
-  rubygem-clamp
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
@@ -41,7 +40,6 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-bundler
-  rubygem-clamp
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
