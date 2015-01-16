@@ -128,6 +128,7 @@
       <packagereq type="default">ruby193-rubygem-sprockets</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey</packagereq>
       <packagereq type="default">ruby193-rubygem-syntax</packagereq>
+      <packagereq type="default">ruby193-rubygem-table_print</packagereq>
       <packagereq type="default">ruby193-rubygem-text</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks</packagereq>
@@ -175,7 +176,6 @@
       <packagereq type="default">rubygem-rest-client</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
-      <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-thor</packagereq>
 
@@ -268,6 +268,7 @@
       <packagereq type="default">ruby193-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-table_print-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-text-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
@@ -294,7 +295,6 @@
       <packagereq type="default">rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
-      <packagereq type="default">rubygem-table_print-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>
