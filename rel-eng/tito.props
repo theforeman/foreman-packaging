@@ -25,7 +25,6 @@ blacklist = foreman-installer
   rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rkerberos
   rubygem-sinatra
   rubygem-table_print
@@ -45,7 +44,6 @@ blacklist = foreman-installer
   rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rkerberos
   rubygem-sinatra
   rubygem-table_print
@@ -84,7 +82,6 @@ whitelist = foreman-installer
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
-  rubygem-rb-readline
   rubygem-rdoc
   rubygem-rest-client
   rubygem-rkerberos
@@ -118,7 +115,6 @@ whitelist = foreman-installer
   rubygem-passenger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi

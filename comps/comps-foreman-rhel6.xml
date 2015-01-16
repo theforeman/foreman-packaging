@@ -108,6 +108,7 @@
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
+      <packagereq type="default">ruby193-rubygem-rb-readline</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
       <packagereq type="default">ruby193-rubygem-rest-client</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable</packagereq>
@@ -249,6 +250,7 @@
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-retriable-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rr-doc</packagereq>
