@@ -23,6 +23,7 @@ blacklist = foreman-installer
   rubygem-clamp
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
   rubygem-rb-readline
@@ -43,6 +44,7 @@ blacklist = foreman-installer
   rubygem-clamp
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
   rubygem-rb-readline
@@ -104,7 +106,6 @@ whitelist = foreman-installer
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-fast_gettext
-  rubygem-fastercsv
   rubygem-foreman_api
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman

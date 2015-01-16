@@ -38,6 +38,8 @@
 
       <packagereq type="default">ruby193-rubygem-addressable</packagereq>
       <packagereq type="default">ruby193-rubygem-ancestry</packagereq>
+      <packagereq type="default">ruby193-rubygem-ansi</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-bindings</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">ruby193-rubygem-audited</packagereq>
@@ -51,6 +53,7 @@
       <packagereq type="default">ruby193-rubygem-excon</packagereq>
       <packagereq type="default">ruby193-rubygem-extlib</packagereq>
       <packagereq type="default">ruby193-rubygem-faraday</packagereq>
+      <packagereq type="default">ruby193-rubygem-fastercsv</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-fog</packagereq>
@@ -69,6 +72,8 @@
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js</packagereq>
       <packagereq type="default">ruby193-rubygem-google-api-client</packagereq>
       <packagereq type="default">ruby193-rubygem-gridster-rails</packagereq>
+      <packagereq type="default">ruby193-rubygem-hashie</packagereq>
+      <packagereq type="default">ruby193-rubygem-highline</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb</packagereq>
       <packagereq type="default">ruby193-rubygem-ipaddress</packagereq>
@@ -97,6 +102,7 @@
       <packagereq type="default">ruby193-rubygem-passenger</packagereq>
       <packagereq type="default">ruby193-rubygem-pg</packagereq>
       <packagereq type="default">ruby193-rubygem-po_to_json</packagereq>
+      <packagereq type="default">ruby193-rubygem-powerbar</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp</packagereq>
@@ -143,7 +149,6 @@
       <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-fastercsv</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-foreman_api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
@@ -179,6 +184,8 @@
       <!--RGD-START-->
       <packagereq type="default">ruby193-rubygem-addressable-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ancestry-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-ansi-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-audited-activerecord-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-audited-doc</packagereq>
@@ -210,6 +217,7 @@
       <packagereq type="default">ruby193-rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-gridster-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-hashie-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-hirb-unicode-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ipaddress-doc</packagereq>
@@ -235,6 +243,7 @@
       <packagereq type="default">ruby193-rubygem-passenger-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-pg-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-po_to_json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-powerbar-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp-doc</packagereq>
