@@ -1,8 +1,14 @@
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name hammer_cli
 %global confdir hammer
 
+%{!?_root_bindir:%global _root_bindir %{_bindir}}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+
 Summary: Universal command-line interface for Foreman
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
 Release: 1%{?dist}
 Group: Development/Languages
@@ -10,60 +16,65 @@ License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
 %else
-Requires: ruby(release)
+Requires: %{?scl_prefix}ruby(abi)
 %endif
 
-# on ruby 1.8.x
-Requires: ruby(rubygems)
-Requires: rubygem(clamp) >= 1.0.0
-Requires: rubygem(rb-readline)
-Requires: rubygem(rest-client) < 1.7.0
-Requires: rubygem(logging) < 2.0.0
-Requires: rubygem(awesome_print)
-Requires: rubygem(table_print) >= 1.5.0
-Requires: rubygem(highline) < 1.7.0
-Requires: rubygem(fast_gettext)
-Requires: rubygem(locale) >= 2.0.6
-Requires: rubygem(json)
-Requires: rubygem(fastercsv)
-Requires: rubygem(mime-types) < 2.0.0
-Requires: rubygem(apipie-bindings) >= 0.0.10
-Requires: rubygem(apipie-bindings) < 0.1.0
-BuildRequires: rubygems-devel
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(clamp) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(rb-readline)
+Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
+Requires: %{?scl_prefix}rubygem(logging) < 2.0.0
+Requires: %{?scl_prefix}rubygem(awesome_print)
+Requires: %{?scl_prefix}rubygem(table_print) >= 1.5.0
+Requires: %{?scl_prefix}rubygem(highline) < 1.7.0
+Requires: %{?scl_prefix}rubygem(fast_gettext)
+Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
+Requires: %{?scl_prefix}rubygem(json)
+Requires: %{?scl_prefix}rubygem(fastercsv)
+Requires: %{?scl_prefix}rubygem(mime-types) < 2.0.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.10
+Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
+BuildRequires: %{?scl_prefix}rubygems-devel
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
 %else
-BuildRequires: ruby(release)
+BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
-BuildRequires: ruby(rubygems)
-BuildRequires: ruby
+BuildRequires: %{?scl_prefix}ruby(rubygems)
+BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%if 0%{?scl:1}
+Obsoletes: rubygem-%{gem_name} < 0.2.0-2
+%endif
 
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps
 
-
 %package doc
-Summary: Documentation for %{name}
+Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
+%if 0%{?scl:1}
+Obsoletes: rubygem-%{gem_name}-doc < 0.2.0-2
+%endif
 
 %description doc
-Documentation for %{name}
-
+Documentation for %{pkg_name}
 
 %prep
-%setup -q -c -T
-mkdir -p .%{_bindir}
+%setup -n %{pkg_name}-%{version} -q -c -T
+mkdir -p .%{_root_bindir}
 mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} - << \EOF}
 gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
+            --bindir .%{_root_bindir} \
             --force %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -72,26 +83,26 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
-        %{buildroot}%{_bindir}/
+sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_root_bindir}/*
+mkdir -p %{buildroot}%{_root_bindir}
+cp -pa .%{_root_bindir}/* \
+        %{buildroot}%{_root_bindir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
-mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gem_name}
+mkdir -p %{buildroot}%{_root_sysconfdir}/bash_completion.d
+mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_root_sysconfdir}/bash_completion.d/%{gem_name}
 
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
+mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
-               %{buildroot}%{_sysconfdir}/%{confdir}/cli_config.yml
-
+               %{buildroot}%{_root_sysconfdir}/%{confdir}/cli_config.yml
 
 %files
 %dir %{gem_instdir}
-%{_bindir}/hammer
-%{_sysconfdir}/bash_completion.d/%{gem_name}
-%{_sysconfdir}/%{confdir}/cli.modules.d
-%config(noreplace) %{_sysconfdir}/%{confdir}/cli_config.yml
+%{_root_bindir}/hammer
+%{_root_sysconfdir}/bash_completion.d/%{gem_name}
+%{_root_sysconfdir}/%{confdir}/cli.modules.d
+%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli_config.yml
 %{gem_instdir}/bin
 %{gem_instdir}/lib
 %{gem_instdir}/locale

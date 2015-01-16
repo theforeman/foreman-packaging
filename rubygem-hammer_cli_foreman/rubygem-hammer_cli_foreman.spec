@@ -1,8 +1,13 @@
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name hammer_cli_foreman
 %global confdir hammer
 
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+
 Summary: Universal command-line interface for Foreman
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
 Release: 1%{?dist}
 Group: Development/Languages
@@ -10,58 +15,69 @@ License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
 %else
-Requires: ruby(release)
+Requires: %{?scl_prefix}ruby(abi)
 %endif
+Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.2.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.11
+Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 
-Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.2.0
-Requires: rubygem(apipie-bindings) >= 0.0.11
-Requires: rubygem(apipie-bindings) < 0.1.0
-Requires: rubygem(rest-client) < 1.7.0
-Requires: rubygem(rest-client) >= 1.6.5
-BuildRequires: ruby(rubygems)
-BuildRequires: rubygems-devel
-BuildRequires: ruby
+%if 0%{?fedora} > 18
+BuildRequires: %{?scl_prefix}ruby(release)
+%else
+BuildRequires: %{?scl_prefix}ruby(abi)
+%endif
+BuildRequires: %{?scl_prefix}ruby(rubygems)
+BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%if 0%{?scl:1}
+Obsoletes: rubygem-%{gem_name} < 0.2.0-2
+%endif
 
 %description
 Hammer cli provides universal extendable CLI interface for ruby apps
 
-
 %package doc
-Summary: Documentation for %{name}
+Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
+%if 0%{?scl:1}
+Obsoletes: rubygem-%{gem_name}-doc < 0.2.0-2
+%endif
 
 %description doc
-Documentation for %{name}
-
+Documentation for %{pkg_name}
 
 %prep
-%setup -q -c -T
+%setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} - << \EOF}
 gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
+mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 .%{gem_instdir}/config/foreman.yml \
-               %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
+               %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
 %{gem_instdir}/locale
-%config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
+%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -71,7 +87,6 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %doc %{gem_instdir}/config
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/test
-
 
 %changelog
 * Mon Apr 27 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
