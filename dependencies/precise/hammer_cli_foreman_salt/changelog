@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-salt (0.0.2-1) stable; urgency=low
+
+  * Initial release
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 16 Jan 2014 22:50:09 +0100
