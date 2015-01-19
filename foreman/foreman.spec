@@ -102,6 +102,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
+# jsonp
+Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
 # Build dependencies
 BuildRequires: gettext
@@ -557,14 +559,32 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
-%doc README.md
-%doc VERSION
-%doc LICENSE
-%exclude %{_datadir}/%{name}/bundler.d/*
-%{_datadir}/%{name}
-%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
-%{_datadir}/%{name}/plugins
+%doc CHANGELOG Contributors LICENSE README.md VERSION
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/app
 %exclude %{_datadir}/%{name}/app/assets
+%dir %{_datadir}/%{name}/bundler.d
+%exclude %{_datadir}/%{name}/bundler.d/development.rb
+%{_datadir}/%{name}/bundler.d/facter.rb
+%{_datadir}/%{name}/bundler.d/jsonp.rb
+%exclude %{_datadir}/%{name}/bundler.d/openid.rb
+%exclude %{_datadir}/%{name}/bundler.d/test.rb
+%{_datadir}/%{name}/config*
+%{_datadir}/%{name}/db
+%{_datadir}/%{name}/extras
+%{_datadir}/%{name}/Gemfile.in
+%{_datadir}/%{name}/lib
+%{_datadir}/%{name}/locale
+%{_datadir}/%{name}/log
+%{_datadir}/%{name}/migrate
+%{_datadir}/%{name}/plugins
+%{_datadir}/%{name}/public
+%{_datadir}/%{name}/Rakefile
+%{_datadir}/%{name}/script
+%{_datadir}/%{name}/seeds.*
+%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
+%{_datadir}/%{name}/tmp
+%{_datadir}/%{name}/VERSION
 %{_initrddir}/%{name}
 %{_sbindir}/%{name}-debug
 %{_sbindir}/%{name}-rake
