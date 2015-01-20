@@ -214,6 +214,7 @@ whitelist = ipxe
   rubygem-docker-api
   rubygem-dynflow
   rubygem-jgrep
+  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -275,6 +276,7 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-dynflow
   rubygem-jgrep
+  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -338,6 +340,7 @@ whitelist = rubygem-algebrick
   rubygem-dynflow
   rubygem-jgrep
   rubygem-opennebula
+  rubygem-openscap
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
