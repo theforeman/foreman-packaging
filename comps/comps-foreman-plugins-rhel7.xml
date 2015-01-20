@@ -64,6 +64,7 @@
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
       <packagereq type="default">ruby193-rubygem-logging</packagereq>
+      <packagereq type="default">ruby193-rubygem-openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
