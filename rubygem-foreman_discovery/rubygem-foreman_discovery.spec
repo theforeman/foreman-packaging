@@ -11,8 +11,8 @@
 
 %global gem_name foreman_discovery
 
-%global mainver 1.4.1
-#global prever .rc4
+%global mainver 2.0.0
+%global prever .rc1
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -34,10 +34,8 @@ License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
-Requires:   foreman >= 1.6.0
-Requires:   advancecomp
-Requires:   squashfs-tools
-Requires:   sudo
+Requires:   foreman >= 1.7.0
+Requires:   %{?scl_prefix}rubygem(deface) < 1.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -95,6 +93,7 @@ GEMFILE
 %{gem_instdir}/app
 %{gem_instdir}/lib
 %{gem_instdir}/config
+%{gem_instdir}/db
 %exclude %{gem_instdir}/extra
 %{gem_instdir}/locale
 %exclude %{gem_cache}
@@ -108,9 +107,20 @@ GEMFILE
 %files doc
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
+
+%posttrans
+# We need to run the db:migrate after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
 
 %changelog
+* Tue Jan 20 2015 Lukas Zapletal <lzap+rpm@redhat.com> - 2.0.0-0.1.rc1
+- Dropped extra/ directory and TCL building dependencies
+- Update to foreman_discovery 2.0.0.rc1
+
 * Tue Nov 25 2014 Lukas Zapletal <lzap+rpm@redhat.com> - 1.4.1-1
 - Update to foreman_discovery 1.4.1
 

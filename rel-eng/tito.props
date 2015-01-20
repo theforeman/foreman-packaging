@@ -149,7 +149,6 @@ whitelist = foreman
   rubygem-fog-xml
   rubygem-foremancli
   rubygem-foreman_api
-  rubygem-ftools
   rubygem-fast_gettext
   rubygem-fastercsv
   rubygem-friendly_id
@@ -215,7 +214,6 @@ whitelist = ipxe
   rubygem-docker-api
   rubygem-dynflow
   rubygem-jgrep
-  rubygem-open4
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -243,7 +241,6 @@ whitelist = ipxe
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
   rubygem-foreman_xen
-  rubygem-ftools
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-less
@@ -278,7 +275,6 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-dynflow
   rubygem-jgrep
-  rubygem-open4
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -307,7 +303,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman-tasks
   rubygem-foreman_xen
   rubygem-foreman_templates
-  rubygem-ftools
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
@@ -342,7 +337,6 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-dynflow
   rubygem-jgrep
-  rubygem-open4
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -371,7 +365,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_templates
   rubygem-foreman-tasks
   rubygem-foreman_xen
-  rubygem-ftools
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_ssh
