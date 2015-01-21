@@ -213,6 +213,7 @@ whitelist = ipxe
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
+  rubygem-ffi
   rubygem-jgrep
   rubygem-opennebula
   rubygem-foreman_abrt
@@ -274,6 +275,7 @@ whitelist = rubygem-algebrick
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
+  rubygem-ffi
   rubygem-jgrep
   rubygem-opennebula
   rubygem-foreman_abrt

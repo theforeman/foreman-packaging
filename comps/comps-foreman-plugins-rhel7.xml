@@ -57,6 +57,7 @@
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
       <packagereq type="default">ruby193-rubygem-docker-api</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow</packagereq>
+      <packagereq type="default">ruby193-rubygem-ffi</packagereq>
       <packagereq type="default">ruby193-rubygem-graphite-api</packagereq>
       <packagereq type="default">ruby193-rubygem-jgrep</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>

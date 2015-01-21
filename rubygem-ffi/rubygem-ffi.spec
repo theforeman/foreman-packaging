@@ -1,7 +1,18 @@
+# This package contains macros that provide functionality relating to
+# Software Collections. These macros are not used in default
+# Fedora builds, and should not be blindly copied or enabled.
+# Specifically, the "scl" macro must not be defined in official Fedora
+# builds. For more information, see:
+# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
+# /1/html/Software_Collections_Guide/index.html
+
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name ffi
 %{!?enable_test: %global enable_test 0}
 
-Name:           rubygem-%{gem_name}
+Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.4.0
 Release:        2%{?dist}
 Summary:        FFI Extensions for Ruby
@@ -9,17 +20,23 @@ Group:          Development/Languages
 
 License:        LGPLv3
 URL:            http://wiki.github.com/ffi/ffi
-Source0:	http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:        http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-BuildRequires:  ruby-devel
-BuildRequires:  rubygems-devel
+BuildRequires:  %{?scl_prefix}ruby-devel
+BuildRequires:  %{?scl_prefix}rubygems-devel
 BuildRequires:	libffi-devel
 %if 0%{enable_test} > 0
-BuildRequires:	rubygem(rspec)
+BuildRequires:	%{?scl_prefix}rubygem(rspec)
 %endif
-Requires:       ruby(rubygems)
-Requires:       ruby(release)
-Provides:       rubygem(%{gem_name}) = %{version}
+
+Requires: %{?scl_prefix}rubygems
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+%endif
+
+Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 Ruby-FFI is a ruby extension for programmatically loading dynamic
@@ -29,17 +46,14 @@ on Ruby and JRuby. Discover why should you write your next extension
 using Ruby-FFI here[http://wiki.github.com/ffi/ffi/why-use-ffi].
 
 %prep
-gem unpack %{SOURCE0}
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%setup -n %{pkg_name}-%{version} -q -c -T
+mkdir -p .%{gem_dir}
+%{?scl:scl enable %{scl} "}
+gem install --local --install-dir .%{gem_dir} \
+            --force %{SOURCE0} --no-rdoc --no-ri
+%{?scl:"}
 
 %build
-
-# Create the gem as gem install only works on a gem file
-gem build %{gem_name}.gemspec
-
-%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -63,7 +77,7 @@ popd
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/History.txt
 %doc %{gem_instdir}/LICENSE
-%doc %{gem_docdir}
+
 %dir %{gem_instdir}
 %{gem_instdir}/Rakefile
 %{gem_instdir}/gen
