@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_discovery
 
 Package: ruby-foreman-discovery
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0), ruby-foreman-deface
 Description: Foreman Discovery Plugin
  MaaS Discovery Plugin engine for Foreman.
