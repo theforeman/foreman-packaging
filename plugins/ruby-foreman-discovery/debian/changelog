@@ -1,3 +1,9 @@
+ruby-foreman-discovery (2.0.0~rc1-1) stable; urgency=low
+
+  * Release 2.0.0 RC1
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Wed, 21 Jan 2015 09:11:00 +0000
+
 ruby-foreman-discovery (1.4.1-2) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it
