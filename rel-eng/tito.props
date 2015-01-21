@@ -234,6 +234,7 @@ whitelist = ipxe
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
@@ -300,6 +301,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
@@ -366,6 +368,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve

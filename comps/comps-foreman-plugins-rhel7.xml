@@ -26,6 +26,7 @@
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_reserve</packagereq>
@@ -110,6 +111,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_openscap-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_reserve-doc</packagereq>
