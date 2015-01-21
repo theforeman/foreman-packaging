@@ -64,6 +64,7 @@
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-opennebula</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
+      <packagereq type="default">rubygem-scaptimony</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-wicked</packagereq>
       <packagereq type="default">rubygem-zscheduler</packagereq>
@@ -121,6 +122,7 @@
       <packagereq type="default">rubygem-opennebula-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-scaptimony-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
