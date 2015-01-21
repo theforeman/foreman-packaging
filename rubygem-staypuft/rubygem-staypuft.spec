@@ -3,7 +3,7 @@
 
 %global gem_name staypuft
 
-%define _version 0.5.12
+%define _version 0.5.13
 %define _summary OpenStack Foreman Installer
 %define _url https://github.com/theforeman/staypuft
 %define _license GPLv3
@@ -34,7 +34,6 @@ Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.8.0
 Requires: %{?scl_prefix}rubygem(foreman_discovery) >= 1.4.0
-Requires: %{?scl_prefix}rubygem(foreman_discovery) < 1.5.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
 Requires: %{?scl_prefix}rubygem(ipaddress)
@@ -51,8 +50,7 @@ BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.8.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_discovery) >= 1.4.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_discovery) < 1.5.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_discovery)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.4
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress)
@@ -121,6 +119,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Wed Jan 21 2015 Lukas Zapletal <lzap+rpm@redhat.com> 0.5.13-1
+- Removed discovery version hard dependency
+- Updated package to 0.5.13
+
 * Fri Jan 16 2015 Dominic Cleal <dcleal@redhat.com> 0.5.12-1
 - Update staypuft to 0.5.12 (sseago@redhat.com)
 
