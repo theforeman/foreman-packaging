@@ -239,6 +239,7 @@ whitelist = ipxe
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -305,6 +306,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -371,6 +373,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
