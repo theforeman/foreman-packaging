@@ -119,6 +119,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Thu Jan 22 2015 Dominic Cleal <dcleal@redhat.com> 0.5.14-1
+- Update staypuft to 0.5.14 (dcleal@redhat.com)
+
 * Wed Jan 21 2015 Lukas Zapletal <lzap+rpm@redhat.com> 0.5.13-1
 - Removed discovery version hard dependency
 - Updated package to 0.5.13
