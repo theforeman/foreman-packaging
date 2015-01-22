@@ -354,7 +354,19 @@ Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
-%{_sysconfdir}/rpm/macros.%{name}-assets
+
+%package plugin
+Summary: Foreman plugin support
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+Requires: %{name}-sqlite = %{version}-%{release}
+
+%description plugin
+Meta package with support for plugins.
+
+%files plugin
+%{_sysconfdir}/rpm/macros.%{name}-plugin
+
 
 %package console
 Summary: Foreman console support
@@ -450,7 +462,7 @@ export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
 %{scl_rake} assets:precompile:all RAILS_ENV=production --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
-%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources OUT=public/apipie-cache/plugin/%{name} --trace
+%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
 
 %install
@@ -546,7 +558,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_rake         %{foreman_rake}
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_apipie_cache %%{%{name}_rake} apipie:cache >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
 %%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
 
 # Generate bundler.d file for a plugin
@@ -558,9 +569,14 @@ gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
 GEMFILE
 EOF
 
-cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-assets << EOF
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # Common locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+# Common apipie locations
+%%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
+%%%{name}_apipie_cache_foreman %%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}
+# build apipie cache index
+%%%{name}_apipie_cache %%{%{name}_rake} apipie:cache:index >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
 
 # Generate precompiled assets at gem_instdir/public/assets/gem_name/
 # -r<rake_task>     Overrides rake task of plugin:assets:precompile[plugin_name]
@@ -584,17 +600,6 @@ popd \\
 rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
 %%{?-a:ln -s %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}}
-EOF
-
-cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-apipie << EOF
-# Common locations
-%%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
-%%%{name}_apipie_cache_foreman %%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}
-
-%%%{name}_apipie_cache_plugin_post \\
-cp -r %%{foreman_apipie_cache_foreman}/* %%{foreman_dir}/public/apipie-cache/ \\
-chown -R %{name}.%{name} %%{foreman_dir}/public/apipie-cache
-
 EOF
 
 %clean
@@ -639,8 +644,6 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config %{_sysconfdir}/cron.d/%{name}
 %{_sysconfdir}/rpm/macros.%{name}
-%{_sysconfdir}/rpm/macros.%{name}-apipie
-%{_sysconfdir}/rpm/macros.%{name}-assets
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
@@ -692,10 +695,6 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
 
-# copy pregenerated apipie cache files
-cp -r %{_datadir}/%{name}/public/apipie-cache/plugin/%{name}/* %{_datadir}/%{name}/public/apipie-cache/
-chown -R %{name}.%{name} %{_datadir}/%{name}/public/apipie-cache/
-
 /sbin/chkconfig --add %{name} || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
@@ -705,7 +704,7 @@ exit 0
 # always attempt to reencrypt after update in case new fields can be encrypted
 %{foreman_rake} db:migrate db:compute_resources:encrypt >> %{_localstatedir}/log/%{name}/db_migrate.log 2>&1 || :
 %{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
-%{foreman_rake} apipie:cache cache_part=index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
+%{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 

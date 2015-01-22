@@ -19,6 +19,7 @@
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
+      <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-release</packagereq>
