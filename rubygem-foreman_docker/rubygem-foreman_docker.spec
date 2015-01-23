@@ -32,6 +32,7 @@ Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
 
 BuildRequires: foreman-compute >= 1.7.0
+BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.13.0
 BuildRequires: %{?scl_prefix}rubygem(docker-api) <  2.0.0
 BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
