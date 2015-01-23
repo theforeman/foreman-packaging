@@ -49,7 +49,8 @@ BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: foreman >= 1.8.0
+BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 1.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
@@ -117,6 +118,7 @@ GEMFILE
 # We need to run the db:migrate after the install transaction
 /usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
 /usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+%{foreman_apipie_cache}
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 
