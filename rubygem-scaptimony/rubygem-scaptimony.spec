@@ -12,7 +12,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
 License: GPLv3
@@ -99,6 +99,9 @@ popd
 
 
 %changelog
+* Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.2.0-2
+- new package built based on upstream spec
+
 * Thu Dec 04 2014 Šimon Lukašík <slukasik@redhat.com> - 0.2.0-1
 - new upstream release
 
