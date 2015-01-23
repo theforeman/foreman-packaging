@@ -117,8 +117,6 @@
       <packagereq type="default">ruby193-rubygem-text</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf_ext</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools</packagereq>
       <packagereq type="default">ruby193-rubygem-validates_lengths_from_database</packagereq>
@@ -248,8 +246,6 @@
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-text-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-validates_lengths_from_database-doc</packagereq>
