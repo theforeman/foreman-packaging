@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy.
 Group: Applications/Internet
 License: GPLv3+
@@ -104,6 +104,9 @@ mkdir -p %{buildroot}%{spool_dir}
 
 
 %changelog
+* Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.3.0-2
+- new package built based on upstream spec
+
 * Tue Jan 20 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.0-1
 - new upstream release
 
