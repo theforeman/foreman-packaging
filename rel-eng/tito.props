@@ -144,6 +144,7 @@ whitelist = foreman
   rubygem-faraday
   rubygem-flot-rails
   rubygem-fog
+  rubygem-fog-aws
   rubygem-fog-core
   rubygem-fog-json
   rubygem-fog-xml

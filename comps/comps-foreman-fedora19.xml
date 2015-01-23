@@ -44,6 +44,7 @@
       <packagereq type="default">rubygem-fastercsv</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
+      <packagereq type="default">rubygem-fog-aws</packagereq>
       <packagereq type="default">rubygem-fog-core</packagereq>
       <packagereq type="default">rubygem-fog-json</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
@@ -110,6 +111,7 @@
       <packagereq type="default">rubygem-faraday-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-flot-rails-doc</packagereq>
+      <packagereq type="default">rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">rubygem-fog-core-doc</packagereq>
       <packagereq type="default">rubygem-fog-doc</packagereq>
       <packagereq type="default">rubygem-fog-json-doc</packagereq>
