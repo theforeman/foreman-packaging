@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -83,6 +83,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.0.1-3
+- new package built with tito
+
 * Tue Jan 13 2015 Šimon Lukašík <slukasik@redhat.com> - 0.0.1-2
 - allow build for rhel6
 
