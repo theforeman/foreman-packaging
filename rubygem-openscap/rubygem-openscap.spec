@@ -12,7 +12,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.4.2-2
+- new package built based on upstream spec
+
 * Mon Jan 12 2015 Šimon Lukašík <slukasik@redhat.com> - 0.4.2-1
 - upgrade to the new upstream version
 
