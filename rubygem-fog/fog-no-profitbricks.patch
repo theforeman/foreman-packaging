@@ -1,7 +1,7 @@
-From ecabd12beff10d8b6652a7ebcd9211ab98ac8d35 Mon Sep 17 00:00:00 2001
+From 5a1d91c89fc0ad4268f1e917e6f3bf2cbaeae84d Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 26 Nov 2014 10:00:53 +0000
-Subject: [PATCH 4/7] Remove fog-profitbricks dependency
+Subject: [PATCH 05/12] Remove fog-profitbricks dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,10 +9,10 @@ Subject: [PATCH 4/7] Remove fog-profitbricks dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index b88b02a..e361a1c 100644
+index d719bc3..493feeb 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -46,7 +46,6 @@ require 'fog/rage4'
+@@ -48,7 +48,6 @@ require 'fog/rage4'
  require 'fog/riakcs'
  require 'fog/openstack'
  require 'fog/ovirt'
@@ -21,7 +21,7 @@ index b88b02a..e361a1c 100644
  require 'fog/storm_on_demand'
  require 'fog/terremark'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 9f939f0..bdb309c 100644
+index 0b4758d..b80d72d 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -80,7 +80,6 @@ require 'fog/bin/rage4'
@@ -30,8 +30,8 @@ index 9f939f0..bdb309c 100644
  require 'fog/bin/ovirt'
 -require 'fog/bin/profitbricks'
  require 'fog/bin/serverlove'
- require 'fog/bin/stormondemand'
+ require 'fog/bin/storm_on_demand'
  require 'fog/bin/terremark'
 -- 
-1.9.3
+2.1.0
 

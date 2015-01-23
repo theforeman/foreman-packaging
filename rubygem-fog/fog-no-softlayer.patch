@@ -1,7 +1,7 @@
-From a90880e47407ebc441ee1ba49e351998886ae9d4 Mon Sep 17 00:00:00 2001
+From d5e2b3bf0b437537e70ec3652223d73c80de8c48 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 19 Nov 2014 10:35:43 +0000
-Subject: [PATCH 3/7] Remove fog-softlayer dependency
+Subject: [PATCH 04/12] Remove fog-softlayer dependency
 
 ---
  lib/fog.rb               |  1 -
@@ -10,10 +10,10 @@ Subject: [PATCH 3/7] Remove fog-softlayer dependency
  3 files changed, 55 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index abfe798..b88b02a 100644
+index 3ffe05a..d719bc3 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -48,7 +48,6 @@ require 'fog/openstack'
+@@ -50,7 +50,6 @@ require 'fog/openstack'
  require 'fog/ovirt'
  require 'fog/profitbricks'
  require 'fog/serverlove'
@@ -22,7 +22,7 @@ index abfe798..b88b02a 100644
  require 'fog/terremark'
  require 'fog/vcloud'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 7a26c94..9f939f0 100644
+index 300b8f8..0b4758d 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -82,7 +82,6 @@ require 'fog/bin/openstack'
@@ -30,7 +30,7 @@ index 7a26c94..9f939f0 100644
  require 'fog/bin/profitbricks'
  require 'fog/bin/serverlove'
 -require 'fog/bin/softlayer'
- require 'fog/bin/stormondemand'
+ require 'fog/bin/storm_on_demand'
  require 'fog/bin/terremark'
  require 'fog/bin/vcloud'
 diff --git a/lib/fog/bin/softlayer.rb b/lib/fog/bin/softlayer.rb
@@ -92,5 +92,5 @@ index 7195394..e69de29 100644
 -end
 -
 -- 
-1.9.3
+2.1.0
 

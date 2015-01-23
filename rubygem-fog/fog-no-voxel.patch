@@ -1,7 +1,7 @@
-From f6abb8c65118857d38a0dca22bf860597a9ddb9a Mon Sep 17 00:00:00 2001
+From 1c0766f0f86c07470710b99d58b119e1b1f12314 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 26 Nov 2014 10:01:16 +0000
-Subject: [PATCH 5/7] Remove fog-voxel dependency
+Subject: [PATCH 06/12] Remove fog-voxel dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,10 +9,10 @@ Subject: [PATCH 5/7] Remove fog-voxel dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index e361a1c..2bc13ca 100644
+index 493feeb..6d0638a 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -53,7 +53,6 @@ require 'fog/vcloud'
+@@ -55,7 +55,6 @@ require 'fog/vcloud'
  require 'fog/vcloud_director'
  require 'fog/vmfusion'
  require 'fog/vsphere'
@@ -21,7 +21,7 @@ index e361a1c..2bc13ca 100644
  require 'fog/zerigo'
  require 'fog/cloudsigma'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index bdb309c..9b419ec 100644
+index b80d72d..610e65c 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -87,7 +87,6 @@ require 'fog/bin/vcloud'
@@ -33,5 +33,5 @@ index bdb309c..9b419ec 100644
  require 'fog/bin/zerigo'
  require 'fog/bin/cloudsigma'
 -- 
-1.9.3
+2.1.0
 

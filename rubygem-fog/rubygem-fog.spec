@@ -6,22 +6,28 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.25.0
+Version: 1.27.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch1: fog-no-brightbox.patch
-Patch2: fog-no-sakuracloud.patch
-Patch3: fog-no-softlayer.patch
-Patch4: fog-no-profitbricks.patch
-Patch5: fog-no-voxel.patch
-Patch6: fog-no-vmfusion.patch
-Patch7: fog-no-terremark.patch
+Patch1:  fog-no-brightbox.patch
+Patch2:  fog-no-sakuracloud.patch
+Patch3:  fog-no-softlayer.patch
+Patch4:  fog-no-profitbricks.patch
+Patch5:  fog-no-voxel.patch
+Patch6:  fog-no-vmfusion.patch
+Patch7:  fog-no-terremark.patch
+Patch8:  fog-no-ecloud.patch
+Patch9:  fog-no-storm_on_demand.patch
+Patch10: fog-no-atmos.patch
+Patch11: fog-no-serverlove.patch
 
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.25.0
+Requires: %{?scl_prefix}rubygem(fog-aws) >= 0
+Requires: %{?scl_prefix}rubygem(fog-aws) < 1
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1.27.3
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -38,7 +44,9 @@ Requires: %{?scl_prefix}ruby(abi) = 1.9.1
 
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.25.0
+BuildRequires: %{?scl_prefix}rubygem(fog-aws) >= 0
+BuildRequires: %{?scl_prefix}rubygem(fog-aws) < 1
+BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.27.3
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -95,8 +103,14 @@ sed -i '/add_.*dependency.*voxel/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*vmfusion/d' %{gem_name}.gemspec
 %patch7 -p1
 sed -i '/add_.*dependency.*terremark/d' %{gem_name}.gemspec
-# https://github.com/fog/fog/issues/3295
-sed -i '/add_.*dependency.*opennebula/d' %{gem_name}.gemspec
+%patch8 -p1
+sed -i '/add_.*dependency.*ecloud/d' %{gem_name}.gemspec
+%patch9 -p1
+sed -i '/add_.*dependency.*storm_on_demand/d' %{gem_name}.gemspec
+%patch10 -p1
+sed -i '/add_.*dependency.*atmos/d' %{gem_name}.gemspec
+%patch11 -p1
+sed -i '/add_.*dependency.*serverlove/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}
@@ -123,8 +137,7 @@ cp -a .%{_bindir}/* %{buildroot}%{_bindir}/
 %{?scl:scl enable %{scl} - << \EOF}
 export RUBYLIB=$RUBYLIB:$(pwd)/lib
 ruby -rfog -rfog/version -e 'puts Fog::VERSION; puts Fog.providers.keys.join(",")'
-# https://github.com/fog/fog/issues/3281
-#bin/fog -v
+bin/fog -v
 %{?scl:EOF}
 
 %files

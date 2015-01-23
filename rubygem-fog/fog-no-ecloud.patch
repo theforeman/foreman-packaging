@@ -1,0 +1,36 @@
+From 5ff943dfc95211ae71f5ed6fe9b4be5958e300f7 Mon Sep 17 00:00:00 2001
+From: Dominic Cleal <dcleal@redhat.com>
+Date: Fri, 23 Jan 2015 10:54:04 +0000
+Subject: [PATCH 09/12] Remove fog-ecloud dependency
+
+---
+ lib/fog.rb     | 1 -
+ lib/fog/bin.rb | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/lib/fog.rb b/lib/fog.rb
+index db211cf..8a6f7d7 100644
+--- a/lib/fog.rb
++++ b/lib/fog.rb
+@@ -30,7 +30,6 @@ require 'fog/dnsmadeeasy'
+ require 'fog/fogdocker'
+ require 'fog/dreamhost'
+ require 'fog/dynect'
+-require 'fog/ecloud'
+ require 'fog/glesys'
+ require 'fog/go_grid'
+ require 'fog/google'
+diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
+index 2c9e420..7800c76 100644
+--- a/lib/fog/bin.rb
++++ b/lib/fog/bin.rb
+@@ -62,7 +62,6 @@ require 'fog/bin/dnsmadeeasy'
+ require 'fog/bin/fogdocker'
+ require 'fog/bin/dreamhost'
+ require 'fog/bin/dynect'
+-require 'fog/bin/ecloud'
+ require 'fog/bin/glesys'
+ require 'fog/bin/go_grid'
+ require 'fog/bin/google'
+--
+2.1.0
