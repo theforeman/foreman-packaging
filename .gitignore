@@ -3,3 +3,4 @@
 *.swo
 rel-eng/custom/*.pyc
 mock
+.idea

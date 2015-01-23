@@ -26,10 +26,12 @@
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_reserve</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_salt</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_setup</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot</packagereq>
@@ -42,6 +44,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
 
@@ -63,7 +66,9 @@
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
       <packagereq type="default">ruby193-rubygem-logging</packagereq>
+      <packagereq type="default">ruby193-rubygem-openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
+      <packagereq type="default">ruby193-rubygem-scaptimony</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
       <packagereq type="default">ruby193-rubygem-zscheduler</packagereq>
@@ -102,10 +107,12 @@
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_openscap-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openstack_cluster-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_reserve-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_salt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
@@ -120,6 +127,7 @@
       <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-scaptimony-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
@@ -128,6 +136,7 @@
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <!--RGD-END-->

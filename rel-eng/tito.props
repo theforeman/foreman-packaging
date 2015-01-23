@@ -215,6 +215,7 @@ whitelist = ipxe
   rubygem-dynflow
   rubygem-ffi
   rubygem-jgrep
+  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -233,10 +234,12 @@ whitelist = ipxe
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -251,8 +254,10 @@ whitelist = ipxe
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
+  rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
@@ -277,6 +282,7 @@ whitelist = rubygem-algebrick
   rubygem-dynflow
   rubygem-ffi
   rubygem-jgrep
+  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -295,10 +301,12 @@ whitelist = rubygem-algebrick
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -315,9 +323,11 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
+  rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
@@ -340,6 +350,7 @@ whitelist = rubygem-algebrick
   rubygem-dynflow
   rubygem-jgrep
   rubygem-opennebula
+  rubygem-openscap
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
@@ -357,10 +368,12 @@ whitelist = rubygem-algebrick
   rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_one
+  rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
+  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -376,9 +389,11 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
+  rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
   rubygem-sprockets-rails
