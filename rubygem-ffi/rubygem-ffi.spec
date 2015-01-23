@@ -14,7 +14,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.4.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        FFI Extensions for Ruby
 Group:          Development/Languages
 
@@ -92,6 +92,9 @@ popd
 
 
 %changelog
+* Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 1.4.0-3
+- SCL support for rubygem-ffi (mhulan@redhat.com)
+
 * Tue Mar 26 2013 Vít Ondruch <vondruch@redhat.com> - 1.4.0-2
 - Use %%{gem_extdir_mri} instead of %%{gem_extdir}.
 
