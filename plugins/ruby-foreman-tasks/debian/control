@@ -1,0 +1,13 @@
+Source: ruby-foreman-tasks
+Section: ruby
+Priority: extra
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/Dynflow/dynflow
+
+Package: ruby-foreman-tasks
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.7), ruby-foreman-dynflow (>= 0.7.2)
+Description: Tasks management engine for Foreman.
+  Tasks management engine for Foreman. Gives you and overview of what's happening/happened in your Foreman instance. 

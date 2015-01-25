@@ -1,0 +1,3 @@
+foreman-tasks.rb                  usr/share/foreman/bundler.d
+cache                             usr/share/foreman/vendor
+bin/foreman-tasks                 usr/bin

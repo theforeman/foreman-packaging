@@ -1,0 +1,5 @@
+ruby-foreman-tasks (0.6.10-1) stable; urgency=low
+
+  * Initial Release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 21 Nov 2014 12:48:27 +0100
