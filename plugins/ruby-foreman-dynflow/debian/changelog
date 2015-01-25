@@ -1,0 +1,5 @@
+ruby-foreman-dynflow (0.7.5-1) stable; urgency=low
+
+  * Initial Release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 21 Nov 2014 11:59:42 +0100

@@ -1,0 +1,13 @@
+Source: ruby-foreman-dynflow
+Section: ruby
+Priority: extra
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/Dynflow/dynflow
+
+Package: ruby-foreman-dynflow
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman
+Description: Dynflow workflow engine for Foreman
+  Dynflow [DYN(amic work)FLOW] is a workflow engine written in Ruby.
