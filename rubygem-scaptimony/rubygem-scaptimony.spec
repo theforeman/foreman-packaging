@@ -11,8 +11,8 @@
 %global gem_name scaptimony
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?dist}
+Version: 0.3.0
+Release: 1%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
 License: GPLv3
@@ -22,13 +22,13 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(openscap) >= 0.4.0
+Requires: %{?scl_prefix}rubygem(openscap) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-openscap >= 0.4.0
+Requires: %{?scl_prefix}rubygem-openscap >= 0.4.1
 Requires: %{?scl_prefix}rubygem-rails >= 3.2.8
 Requires: %{?scl_prefix}rubygem-rails < 1:3.3.0
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
