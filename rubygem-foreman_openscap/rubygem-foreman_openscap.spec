@@ -112,9 +112,6 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
-* Sat Jan 24 2015 Marek Hulan <mhulan@redhat.com> 0.2.1-1
-- new package built with tito
-
 * Fri Jan 23 2015 Marek Hulán <mhulan@redhat.com> - 0.2.1-1
 - new upstream release
 
