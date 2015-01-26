@@ -97,6 +97,10 @@ class JenkinsSourceStrategy(SourceStrategy):
         for s in src_files:
             base_name = os.path.basename(s)
             debug("Downloaded file %s" % base_name)
+            if ".tar" not in base_name and ".gem" not in base_name:
+                debug("Skipping %s as it isn't a source archive" % base_name)
+                continue
+
             dest_filepath = os.path.join(self.builder.rpmbuild_sourcedir,
                     base_name)
             shutil.move(s, dest_filepath)
