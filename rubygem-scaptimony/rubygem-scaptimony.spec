@@ -99,6 +99,9 @@ popd
 
 
 %changelog
+* Mon Jan 26 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-1
+- Update scaptimony to 0.3.0 (dcleal@redhat.com)
+
 * Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.2.0-2
 - new package built based on upstream spec
 
