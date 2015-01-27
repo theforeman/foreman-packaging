@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.7-1) stable; urgency=low
+
+  * Fix version number to reflect packaged gem
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 27 Jan 2015 12:21:29 +0000
+
 ruby-foreman-hooks (0.3.4-2) stable; urgency=low
 
   * Prefer foreman-ruby symlink to run bundler if it exists
