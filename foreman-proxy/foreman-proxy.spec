@@ -16,7 +16,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-proxy
-Version:        1.7.1
+Version:        1.7.2
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
