@@ -166,6 +166,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 28 2015 Ivan Nečas <inecas@redhat.com> 0.6.11-1
+- Update foreman tasks to 0.6.11 (inecas@redhat.com)
+
 * Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 0.6.10-3
 - Replace rubygem(sequel) due to Fedora BZ#1174138 (dcleal@redhat.com)
 
