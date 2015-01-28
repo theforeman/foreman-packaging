@@ -6,7 +6,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.5
+Version: 0.7.6
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -24,7 +24,6 @@ Requires: %{?scl_prefix}rubygem(algebrick) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.5.0
 Requires: %{?scl_prefix}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
-Requires: %{?scl_prefix}rubygem(uuidtools)
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
