@@ -15,7 +15,7 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
+Version: 0.3.0
 Release: 1%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
@@ -26,7 +26,8 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.5.0
 
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.2.0
+Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
+Requires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(rubygems)
@@ -39,9 +40,9 @@ BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: foreman-assets >= 1.7.0
-# TODO could be removed later when dependencies are fixed https://github.com/OpenSCAP/foreman_openscap/issues/67
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(scaptimony) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
+BuildRequires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -105,13 +106,16 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 
 %posttrans
 # We need to run the db:migrate (because of SCAPtimony) after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+%foreman_db_migrate
 /usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
 /usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%foreman_restart
 exit 0
 
 %changelog
+* Wed Jan 28 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.0-1
+- new upstream release
+
 * Fri Jan 23 2015 Marek Hulán <mhulan@redhat.com> - 0.2.1-1
 - new upstream release
 
