@@ -1,5 +1,4 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/dynflow-0.7.5.gem"
+GEMS="https://rubygems.org/downloads/dynflow-0.7.6.gem"
 GEMS="$GEMS https://rubygems.org/downloads/algebrick-0.4.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/apipie-params-0.0.3.gem"
-GEMS="$GEMS https://rubygems.org/downloads/uuidtools-2.1.5.gem"
