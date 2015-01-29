@@ -100,6 +100,10 @@ GEMFILE
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jan 29 2015 Marek Hulan <mhulan@redhat.com> 0.1.1-1
+- Update foreman_chef to 0.1.1 (mhulan@redhat.com)
+- Fix RPM deps to match gemspec (dcleal@redhat.com)
+
 * Wed Jan 14 2015 Marek Hulan <mhulan@redhat.com> 0.1.0-1
 - Update foreman_chef to 0.1.0 (mhulan@redhat.com)
 
