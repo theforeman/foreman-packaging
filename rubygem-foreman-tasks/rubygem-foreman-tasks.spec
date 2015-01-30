@@ -166,6 +166,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 30 2015 Ivan Nečas <inecas@redhat.com> 0.6.12-1
+- Update foreman-tasks to 0.6.12 (inecas@redhat.com)
+
 * Wed Jan 28 2015 Ivan Nečas <inecas@redhat.com> 0.6.11-1
 - Update foreman tasks to 0.6.11 (inecas@redhat.com)
 
