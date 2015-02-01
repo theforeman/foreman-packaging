@@ -117,6 +117,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Sun Feb 01 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-0.1.rc2
+- Update foreman_discovery to 2.0.0.rc2 (lzap+git@redhat.com)
+
 * Tue Jan 20 2015 Lukas Zapletal <lzap+rpm@redhat.com> - 2.0.0-0.1.rc1
 - Dropped extra/ directory and TCL building dependencies
 - Update to foreman_discovery 2.0.0.rc1
