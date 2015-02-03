@@ -23,7 +23,7 @@ BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires:  %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else

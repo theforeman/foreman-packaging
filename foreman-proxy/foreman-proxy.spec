@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%if "%{?scl}" == "ruby193"
+%if "%{?scl_ruby}" == "ruby193"
     %global scl_prefix %{scl}-
     %global scl_ruby /usr/bin/ruby193-ruby
     %global scl_rake /usr/bin/ruby193-rake
@@ -37,7 +37,7 @@ BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 Requires:      %{?scl_prefix_ruby}ruby(abi)
 %else
@@ -58,7 +58,7 @@ Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
-%if 0%{?rhel} == 6
+%if 0%{?el6}
 Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
@@ -123,7 +123,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
-%if 0%{?rhel} == 6
+%if 0%{?el6}
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -176,7 +176,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %{_sbindir}/foreman-prepare-realm
 %{_mandir}/man8
-%if 0%{?rhel} == 6
+%if 0%{?el6}
 %{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %else
@@ -216,7 +216,7 @@ if [ $1 == 2 ]; then
   popd >/dev/null
 fi
 
-%if 0%{?rhel} == 6
+%if 0%{?el6}
   /sbin/chkconfig --add %{name}
   exit 0
 %else
@@ -228,7 +228,7 @@ fi
 %preun
 if [ $1 -eq 0 ] ; then
   # Package removal, not upgrade
-  %if 0%{?rhel} == 6
+  %if 0%{?el6}
     /sbin/service %{name} stop >/dev/null 2>&1
     /sbin/chkconfig --del %{name}
   %else
@@ -238,7 +238,7 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %postun
-%if 0%{?rhel} == 6
+%if 0%{?el6}
   if [ $1 -ge 1 ] ; then
     /sbin/service %{name} restart >/dev/null 2>&1
   fi

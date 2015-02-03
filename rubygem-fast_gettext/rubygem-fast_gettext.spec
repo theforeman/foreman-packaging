@@ -15,7 +15,7 @@ License: MIT and (GPLv2+ or Ruby)
 URL: http://github.com/grosser/fast_gettext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires: %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else

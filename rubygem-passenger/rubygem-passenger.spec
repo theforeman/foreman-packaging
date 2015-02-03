@@ -90,7 +90,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
 Requires: %{?scl_prefix_ruby}rubygem(rack)
 Requires: %{?scl_prefix_ruby}rubygem(rake)
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -257,22 +257,19 @@ CFLAGS="${CFLAGS:-%optflags} -fno-strict-aliasing" ; export CFLAGS ;
 CXXFLAGS="${CXXFLAGS:-%optflags} -fno-strict-aliasing" ; export CXXFLAGS ;
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS ;
 
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
+%{?scl:scl enable %{scl} - << \EOF}
 rake package:gem SKIP_SIGNING=1
+%{?scl:EOF}
+%{?scl:scl enable %{scl} - << \EOF}
 rake apache2
+%{?scl:EOF}
 #rake nginx
 
 %install
 # export USE_VENDORED_LIBEV=false
 
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
 # Install the gem.
+%{?scl:scl enable %{scl} - << \EOF}
 gem install -V \
             --local \
             --install-dir %{buildroot}%{gem_dir} \
@@ -280,6 +277,7 @@ gem install -V \
             --force \
             --rdoc \
             pkg/%{gem_name}-%{version}.gem
+%{?scl:EOF}
 
 # Install locations.ini
 install -pm 0644 %{SOURCE11} %{buildroot}%{gem_instdir}/lib/phusion_passenger/
@@ -361,10 +359,6 @@ sed -i '/Gem::Specification.new/ a s.extensions = ["workaround"]' \
     %{buildroot}%{gem_spec}
 
 %check
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
 # export USE_VENDORED_LIBEV=false
 # Run the tests, capture the output, but don't fail the build if the tests fail
 #
@@ -381,7 +375,9 @@ sed -i \
 %{__cp} test/config.json.example test/config.json
 
 %if %{enable_check}
+%{?scl:scl enable %{scl} - << \EOF}
 rake test --trace ||:
+%{?scl:EOF}
 %endif
 
 %files

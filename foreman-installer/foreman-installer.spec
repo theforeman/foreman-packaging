@@ -1,4 +1,4 @@
-%if "%{?scl}" == "ruby193"
+%if "%{?scl_ruby}" == "ruby193"
     %global scl_prefix %{scl}-
     %global scl_ruby /usr/bin/ruby193-ruby
 %else
@@ -28,7 +28,7 @@ Requires:   %{?scl_prefix}rubygem-kafo >= 0.6.5
 Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
 Requires:   foreman-selinux
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires:   %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires:   %{?scl_prefix_ruby}ruby(release)

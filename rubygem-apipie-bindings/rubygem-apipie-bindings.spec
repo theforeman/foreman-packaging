@@ -19,7 +19,7 @@ Requires: %{?scl_prefix}rubygem(awesome_print)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires:      %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

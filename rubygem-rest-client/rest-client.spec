@@ -13,7 +13,7 @@ URL: http://github.com/archiloque/rest-client
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix_ruby}rubygems
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires: %{?scl_prefix_ruby}ruby(release)

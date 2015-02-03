@@ -12,7 +12,7 @@ Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
 Source:		http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires:	%{?scl_prefix_ruby}ruby(abi)
 %else
 Requires:	%{?scl_prefix_ruby}ruby(release)
