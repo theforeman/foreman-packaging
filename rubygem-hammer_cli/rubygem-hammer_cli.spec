@@ -85,7 +85,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-sed -i '1s@/.*@/usr/bin/%{?scl_prefix_ruby}ruby@' .%{_root_bindir}/*
+sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_root_bindir}/*
 mkdir -p %{buildroot}%{_root_bindir}
 cp -pa .%{_root_bindir}/* \
         %{buildroot}%{_root_bindir}/

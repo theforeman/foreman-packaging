@@ -43,7 +43,7 @@ gem install --local --install-dir $RPM_BUILD_ROOT%{gem_dir} --force --rdoc %{SOU
 # Find files with a shebang that do not have executable permissions
 for file in $(find $RPM_BUILD_ROOT%{gem_instdir} -type f ! -perm /a+x -name "*.rb"); do
   if [ ! -z "`head -n 1 $file | grep \"^#!/\"`" ]; then
-    sed -e 's@/usr/local/bin/ruby@%{_bindir}/ruby@g' -i $file
+    sed -e 's@/usr/local/bin/ruby@/usr/bin/%{?scl:%{scl_prefix}}ruby@g' -i $file
     chmod -v 755 $file
   fi
 done

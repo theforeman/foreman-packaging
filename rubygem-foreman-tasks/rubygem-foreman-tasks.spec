@@ -1,12 +1,10 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if "%{?scl}" == "ruby193"
-    %global scl_ruby /usr/bin/ruby193-ruby
+%if 0%{?scl:1}
     %global sysconfig_dir %{_root_sysconfdir}/sysconfig
     %global bin_dir %{_root_bindir}
 %else
-    %global scl_ruby /usr/bin/ruby
     %global sysconfig_dir %{_sysconfdir}/sysconfig
     %global bin_dir %{_bindir}
 %endif
@@ -95,7 +93,7 @@ gem install --local --install-dir .%{gem_dir} \
 %{?scl:"}
 
 %build
-sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' %{_builddir}/%{pkg_name}-%{version}/%{gem_instdir}/bin/%{service_name}
+sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' %{_builddir}/%{pkg_name}-%{version}/%{gem_instdir}/bin/%{service_name}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

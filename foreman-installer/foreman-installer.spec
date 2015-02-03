@@ -1,10 +1,3 @@
-%if "%{?scl_ruby}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-%else
-    %global scl_ruby /usr/bin/ruby
-%endif
-
 # set and uncomment all three to set alpha tag
 #global alphatag RC1
 #global dotalphatag .%{alphatag}
@@ -49,7 +42,7 @@ Complete installer for The Foreman life-cycle management system based on Puppet.
 %build
 #replace shebangs for SCL
 %if %{?scl:1}%{!?scl:0}
-  sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' bin/foreman-installer
+  sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' bin/foreman-installer
 %endif
 rake build \
   VERSION=%{version} \

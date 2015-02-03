@@ -80,7 +80,7 @@ find %{buildroot}%{gem_instdir}/{lib,tests} -type f | \
   xargs -n 1 sed -i -e '/^#!\/usr\/bin\/env ruby/d'
 
 find %{buildroot}%{gem_instdir}/bin -type f | \
-  xargs -n 1 sed -i -e 's"^#!/usr/bin/env ruby"#!/usr/bin/%{?scl:%{scl_prefix_ruby}}ruby"'
+  xargs -n 1 sed -i -e 's"^#!/usr/bin/env ruby"#!/usr/bin/%{?scl:%{scl_prefix}}ruby"'
 
 # require_gem is deprecated
 # http://rubyforge.org/tracker/?func=detail&aid=22034&group_id=84&atid=409

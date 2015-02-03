@@ -2,16 +2,10 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 
-%if "%{?scl}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-    ### TODO temp disabled for SCL
-    %global nodoc 1
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
+# explicitly define, as we build on top of an scl, not inside with scl_package
+%{?scl:%global scl_prefix %{scl}-}
+%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
+%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
 #global alphatag RC1
@@ -46,7 +40,6 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 %endif
-Requires: %{scl_ruby}
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
@@ -117,7 +110,7 @@ Requires: %{?scl_prefix}rubygem(rack-jsonp)
 # Build dependencies
 BuildRequires: gettext
 BuildRequires: asciidoc
-BuildRequires: %{scl_ruby}
+BuildRequires: %{scl_ruby_bin}
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
@@ -472,9 +465,9 @@ plugins required for Foreman to work.
   # shebangs
   for f in extras/rdoc/rdoc_prepare_script.rb \
   script/rails script/performance/profiler script/performance/benchmarker script/foreman-config ; do
-    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
+    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' %{SOURCE1}
+  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
 %endif

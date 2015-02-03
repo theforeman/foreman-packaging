@@ -1,14 +1,8 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
-%if "%{?scl_ruby}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
+%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
+%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
 #global alphatag RC1
@@ -88,11 +82,11 @@ SYSCONFDIR=%{_sysconfdir} \
 --trace
 
 #replace shebangs for SCL
-%if %{?scl:1}%{!?scl:0}
+%if 0%{?scl:1}
   for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
-    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
+    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' extra/spec/foreman-proxy.init
+  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' extra/spec/foreman-proxy.init
 %endif
 
 #replace default location of 'settings.d'
