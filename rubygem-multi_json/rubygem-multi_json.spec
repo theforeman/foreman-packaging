@@ -30,10 +30,10 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 # BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+
 # OkJson is allowed to be bundled:
 # https://fedorahosted.org/fpc/ticket/113
 Provides: bundled(%{?scl_prefix}okjson) = 20110719
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A gem to provide swappable JSON backends utilizing Yajl::Ruby, the JSON gem,
@@ -44,7 +44,6 @@ JSON pure, or a vendored version of okjson.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl:%scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

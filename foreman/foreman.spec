@@ -58,6 +58,8 @@ Requires: %{name}-debug
 # Gemfile
 Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
 Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+# replace ruby SCL's sprockets build with our own
+Requires: %{?scl_prefix}rubygem(sprockets)
 # minitest - workaround as rubygem-activesupport is missing dep
 Requires: %{?scl_prefix_ruby}rubygem(minitest)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
@@ -118,6 +120,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 # Gemfile
 BuildRequires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
 BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+# replace ruby SCL's sprockets build with our own
+BuildRequires: %{?scl_prefix}rubygem(sprockets)
 # minitest - workaround as rubygem-activesupport is missing dep
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.5

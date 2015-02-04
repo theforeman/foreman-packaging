@@ -23,7 +23,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Sass makes CSS fun again. Sass is an extension of CSS3, adding
@@ -36,7 +35,6 @@ command line tool or a web-framework plugin.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

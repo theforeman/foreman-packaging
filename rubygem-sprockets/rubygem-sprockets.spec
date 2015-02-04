@@ -73,7 +73,6 @@ BuildRequires: %{?scl_v8}-scldevel
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Sprockets is a Rack-based asset packaging system that concatenates and serves
@@ -83,7 +82,6 @@ JavaScript, CoffeeScript, CSS, LESS, Sass, and SCSS.
 Summary:   Documentation for %{name}
 Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

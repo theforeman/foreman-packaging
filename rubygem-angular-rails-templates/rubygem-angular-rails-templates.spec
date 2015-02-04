@@ -22,7 +22,7 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
 Requires:  %{?scl_prefix_ruby}rubygem(railties) >= 3.1
-Requires:  %{?scl_prefix_ruby}rubygem(sprockets)
+Requires:  %{?scl_prefix}rubygem(sprockets)
 Requires:  %{?scl_prefix_ruby}rubygem(tilt)
 %if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires:      %{?scl_prefix_ruby}ruby(abi)
