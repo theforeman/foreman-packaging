@@ -2,13 +2,14 @@
 %global config_dir %{_sysconfdir}/%{gem_name}
 
 Name: rubygem-%{gem_name}
-Version: 0.0.1
-Release: 3%{?dist}
+Version: 0.1.0
+Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/openscap/foreman_scap_client
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Requires: bzip2
 Requires: ruby(rubygems)
 %if 0%{?rhel} >= 5 && 0%{?rhel} <= 6
 BuildRequires: ruby(abi) >= %{rubyabi}
@@ -83,6 +84,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 30 2015 Šimon Lukašík <slukasik@redhat.com> - 0.1.0-1
+- new upstream release
+
 * Fri Jan 23 2015 Marek Hulan <mhulan@redhat.com> 0.0.1-3
 - new package built with tito
 
