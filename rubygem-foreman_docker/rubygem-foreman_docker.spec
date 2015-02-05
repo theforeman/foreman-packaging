@@ -118,6 +118,7 @@ exit 0
 %changelog
 * Thu Feb 5 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.0.1-1
 - Fixes for 1.7 compatibility
+- Do not list the assets directory twice. (slukasik@redhat.com)
 
 * Mon Jan 12 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.0.0-1
 - Updating the version of foreman_docker to 1.0.0
