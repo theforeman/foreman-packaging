@@ -145,6 +145,9 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Fri Feb 06 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-1
+- Update sprockets to 2.12.3 (dcleal@redhat.com)
+
 * Fri Oct 10 2014 Dominic Cleal <dcleal@redhat.com> 2.8.2-2
 - Rebuild under SCL for Foreman (ehelms@redhat.com)
 
