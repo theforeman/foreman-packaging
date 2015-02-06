@@ -48,7 +48,6 @@ Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 Requires: %{scl_ruby}
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}facter
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 
@@ -110,6 +109,8 @@ Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
+# facter
+Requires: %{?scl_prefix}rubygem(facter)
 # jsonp
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
@@ -118,7 +119,6 @@ BuildRequires: gettext
 BuildRequires: asciidoc
 BuildRequires: %{scl_ruby}
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix}facter
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
@@ -201,6 +201,8 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+# facter
+BuildRequires: %{?scl_prefix}rubygem(facter)
 
 %package cli
 Summary: Foreman CLI

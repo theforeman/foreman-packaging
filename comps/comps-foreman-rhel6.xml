@@ -32,7 +32,6 @@
       <packagereq type="default">rhscl-ruby193-epel-6-x86_64</packagereq>
       <packagereq type="default">rhscl-v8314-epel-6-x86_64</packagereq>
 
-      <packagereq type="default">ruby193-facter</packagereq>
       <packagereq type="default">ruby193-mod_passenger</packagereq>
 
       <packagereq type="default">ruby193-rubygem-addressable</packagereq>
@@ -52,6 +51,7 @@
       <packagereq type="default">ruby193-rubygem-eventmachine</packagereq>
       <packagereq type="default">ruby193-rubygem-excon</packagereq>
       <packagereq type="default">ruby193-rubygem-extlib</packagereq>
+      <packagereq type="default">tfm-rubygem-facter</packagereq>
       <packagereq type="default">ruby193-rubygem-faraday</packagereq>
       <packagereq type="default">ruby193-rubygem-fastercsv</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext</packagereq>
@@ -199,6 +199,7 @@
       <packagereq type="default">ruby193-rubygem-eventmachine-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-excon-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-extlib-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-facter-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-faraday-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails-doc</packagereq>
