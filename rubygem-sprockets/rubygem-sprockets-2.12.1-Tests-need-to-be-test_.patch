@@ -1,0 +1,32 @@
+From e840d7fedd180929d089f17d6d6e322e672780f0 Mon Sep 17 00:00:00 2001
+From: Joshua Peek <josh@joshpeek.com>
+Date: Tue, 20 Aug 2013 18:22:05 -0500
+Subject: [PATCH] Tests need to be test_
+
+---
+ test/sprockets_test.rb | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/test/sprockets_test.rb b/test/sprockets_test.rb
+index a889d16..17442bb 100644
+--- a/test/sprockets_test.rb
++++ b/test/sprockets_test.rb
+@@ -10,13 +10,11 @@
+   $VERBOSE = old_verbose
+ end
+ 
+-class Sprockets::TestCase < MiniTest::Unit::TestCase
++class Sprockets::TestCase < MiniTest::Test
+   FIXTURE_ROOT = File.expand_path(File.join(File.dirname(__FILE__), "fixtures"))
+ 
+-  undef_method :default_test if method_defined? :default_test
+-
+   def self.test(name, &block)
+-    define_method("test #{name.inspect}", &block)
++    define_method("test_#{name.inspect}", &block)
+   end
+ 
+   def fixture(path)
+-- 
+1.9.3
+

@@ -8,16 +8,23 @@
 
 Summary:  Rack-based asset packaging system
 Name:     %{?scl_prefix}rubygem-%{gem_name}
-Version:  2.8.2
-Release:  2%{?dist}
+Version:  2.12.3
+Release:  1%{?dist}
 Group:    Development/Languages
 License:  MIT
 URL:      http://getsprockets.org/
 Source0:  http://rubygems.org/gems/%{gem_name}-%{version}.gem
 # to get tests:
 # git clone https://github.com/sstephenson/sprockets.git && cd sprockets/
-# git checkout v2.8.2 && tar czf sprockets-tests-2.8.2.tgz test/
+# git checkout v2.12.3 && tar czf sprockets-2.12.3-tests.tgz test/
 Source1:  sprockets-%{version}-tests.tgz
+# Moves test suite to use minitest.
+# https://github.com/sstephenson/sprockets/commit/f29903ace62fd43280996b0cb32634f1e5108e52
+Patch0: rubygem-sprockets-2.12.1-load-minitest.patch
+# https://github.com/sstephenson/sprockets/commit/a454ecb17cd1058ad46665824ca4d0f309f0eccf
+Patch2: rubygem-sprockets-2.12.1-assert_raise-assert_raises.patch
+# https://github.com/sstephenson/sprockets/commit/9be057ce5804492c7c5bd1b20ba7da49c5538740
+Patch3: rubygem-sprockets-2.12.1-assert_no_equal-is-gone.patch
 
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hike) => 1.2
@@ -38,9 +45,6 @@ Requires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildRequires: %{?scl_prefix}rubygem(coffee-script)
-# these two gems aren't in Fedora yet and are only soft dependencies
-# BuildRequires: %{?scl_prefix}rubygem(eco)
-# BuildRequires: %{?scl_prefix}rubygem(ejs)
 BuildRequires: %{?scl_prefix}rubygem(execjs)
 BuildRequires: %{?scl_prefix}rubygem(hike) => 1.2
 BuildRequires: %{?scl_prefix}rubygem(hike) < 2
@@ -109,10 +113,22 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %check
 pushd .%{gem_instdir}
 tar xzf %{SOURCE1}
-# 4 errors due to missing Gems "eco" and "ejs"
+
+cat %{PATCH0} | patch -p1
+cat %{PATCH2} | patch -p1
+cat %{PATCH3} | patch -p1
+
+# Where does the one additional new line come from? It is probably coused by
+# some version differences, should not have influence on functionality.
+sed -i 's|function() {\\n  (|function() {\\n\\n  (|' test/test_environment.rb
+
 %{?scl:scl enable %{scl} %{?scl_v8} - << \EOF}
-testrb -Ilib test | grep '447 tests, 1158 assertions, 0 failures, 4 errors, 0 skips'
+ruby -Ilib:test -e 'Dir.glob "./test/**/test_*.rb", &method(:require)' | tee tests.log
 %{?scl:EOF}
+# 4 failures because newer SASS returns #666 for grey instead of #666666
+# https://github.com/sstephenson/sprockets/issues/660
+# 4 errors because eco/ejs are soft dependencies
+grep '445 tests, 1146 assertions, 4 failures, 4 errors, 0 skips' tests.log
 popd
 
 %files

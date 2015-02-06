@@ -1,0 +1,52 @@
+From 9be057ce5804492c7c5bd1b20ba7da49c5538740 Mon Sep 17 00:00:00 2001
+From: Joshua Peek <josh@joshpeek.com>
+Date: Tue, 20 Aug 2013 18:23:52 -0500
+Subject: [PATCH] assert_not_equal is gone
+
+---
+ test/test_environment.rb | 8 ++++----
+ test/test_server.rb      | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/test/test_environment.rb b/test/test_environment.rb
+index a4d9ccb..c26798d 100644
+--- a/test/test_environment.rb
++++ b/test/test_environment.rb
+@@ -477,8 +477,8 @@ def setup
+     require 'digest/sha1'
+     @env.digest_class = Digest::SHA1
+ 
+-    assert_not_equal old_digest, @env.digest
+-    assert_not_equal old_asset_digest, @env["gallery.js"].digest
++    assert old_digest != @env.digest
++    assert old_asset_digest != @env["gallery.js"].digest
+   end
+ 
+   test "changing digest version" do
+@@ -487,8 +487,8 @@ def setup
+ 
+     @env.version = 'v2'
+ 
+-    assert_not_equal old_digest, @env.digest
+-    assert_not_equal old_asset_digest, @env["gallery.js"].digest
++    assert old_digest != @env.digest
++    assert old_asset_digest != @env["gallery.js"].digest
+   end
+ 
+   test "bundled asset is stale if its mtime is updated or deleted" do
+diff --git a/test/test_server.rb b/test/test_server.rb
+index 41e263d..9fdffb5 100644
+--- a/test/test_server.rb
++++ b/test/test_server.rb
+@@ -98,7 +98,7 @@ def app
+       get "/assets/application.js"
+       time_after_modifying = last_response.headers['Last-Modified']
+ 
+-      assert_not_equal time_before_modifying, time_after_modifying
++      assert time_before_modifying != time_after_modifying
+     end
+   end
+ 
+-- 
+1.9.3
+

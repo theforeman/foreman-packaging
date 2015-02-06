@@ -1,0 +1,31 @@
+From f29903ace62fd43280996b0cb32634f1e5108e52 Mon Sep 17 00:00:00 2001
+From: Joshua Peek <josh@joshpeek.com>
+Date: Tue, 20 Aug 2013 18:12:32 -0500
+Subject: [PATCH] Load minitest
+
+---
+ test/sprockets_test.rb | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/test/sprockets_test.rb b/test/sprockets_test.rb
+index 1b7f87f..a889d16 100644
+--- a/test/sprockets_test.rb
++++ b/test/sprockets_test.rb
+@@ -1,4 +1,4 @@
+-require "test/unit"
++require "minitest/autorun"
+ require "sprockets"
+ require "tilt"
+ require "fileutils"
+@@ -10,7 +10,7 @@
+   $VERBOSE = old_verbose
+ end
+ 
+-class Sprockets::TestCase < Test::Unit::TestCase
++class Sprockets::TestCase < MiniTest::Unit::TestCase
+   FIXTURE_ROOT = File.expand_path(File.join(File.dirname(__FILE__), "fixtures"))
+ 
+   undef_method :default_test if method_defined? :default_test
+-- 
+1.9.3
+
