@@ -1,0 +1,14 @@
+Source: ruby-gssapi
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.5
+Homepage: http://github.com/zenchild/gssapi
+XS-Ruby-Versions: all
+
+Package: ruby-gssapi
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: libgssapi-krb5-2, ruby | ruby-interpreter, ruby-ffi (>= 1.0.1)
+Description: A Ruby FFI wrapper around the system GSSAPI library
