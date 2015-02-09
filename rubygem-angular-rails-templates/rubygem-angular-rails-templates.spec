@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Feb 09 2015 Eric D. Helms <ericdhelms@gmail.com> 0.1.3-1
+- Update 'rubygem-angular-rails-templates' to 0.1.3 (ericdhelms@gmail.com)
+
 * Thu Oct 02 2014 Dominic Cleal <dcleal@redhat.com> 0.0.4-7
 - new package built with tito (ehelms@redhat.com)
 
