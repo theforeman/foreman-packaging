@@ -121,6 +121,10 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Mon Feb 09 2015 Eric D. Helms <ericdhelms@gmail.com> 0.2.2-1
+- Remove angular-rails-templates version dependency on rubygem-bastion
+  (ericdhelms@gmail.com)
+
 * Tue Feb 03 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - Update bastion to 0.2.0 (ericdhelms@gmail.com)
 
