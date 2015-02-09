@@ -7,8 +7,8 @@
 %global gem_name angular-rails-templates
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   0.0.4
-Release:   7%{?dist}
+Version:   0.1.3
+Release:   1%{?dist}
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
 License:   MIT
@@ -20,7 +20,8 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix}ruby(rubygems)
 Requires:  %{?scl_prefix}rubygem(railties) >= 3.1
-Requires:  %{?scl_prefix}rubygem(sprockets-rails)
+Requires:  %{?scl_prefix}rubygem(sprockets)
+Requires:  %{?scl_prefix}rubygem(tilt)
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires:      %{?scl_prefix}ruby(abi)
 %else
@@ -63,7 +64,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/app/assets/javascripts/angular-rails-templates.js.erb
+%{gem_instdir}/vendor/assets/javascripts/angular-rails-templates.js.erb
 %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
