@@ -9,7 +9,6 @@ Group: Applications/System
 License: GPLv3
 URL: http://github.com/theforeman/hammer_cli_foreman_bootdisk
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Source1: foreman_bootdisk.yml
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -46,7 +45,7 @@ mkdir -p .%{gem_dir}
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman_bootdisk.yml
+install -m 755 .%{gem_dir}/config/foreman_bootdisk %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman_bootdisk.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -56,6 +55,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/lib
 %{gem_instdir}/locale
 %config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/foreman_bootdisk.yml
+%{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
