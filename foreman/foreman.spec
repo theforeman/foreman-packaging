@@ -550,8 +550,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 # Common locations
 %%%{name}_dir %{_datadir}/%{name}
 %%%{name}_bundlerd_dir %%{%{name}_dir}/bundler.d
-%%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
-%%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
 %%%{name}_log_dir %{_localstatedir}/log/%{name}
 
 # Common commands
@@ -559,7 +557,9 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
 %%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
+EOF
 
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # Generate bundler.d file for a plugin
 # -n<plugin_name>   Overrides default of gem_name
 %%%{name}_bundlerd_file(n:) \\
@@ -567,10 +567,11 @@ mkdir -p %%{buildroot}%%{%{name}_bundlerd_dir} \\
 cat <<GEMFILE > %%{buildroot}%%{%{name}_bundlerd_dir}/%%{-n*}%%{!?-n:%%{gem_name}}.rb \\
 gem '%%{-n*}%%{!?-n:%%{gem_name}}' \\
 GEMFILE
-EOF
 
-cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # Common locations
+%%%{name}_bundlerd_plugin %%{%{name}_bundlerd_dir}/%%{gem_name}.rb
+%%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
+# Common assets locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
 # Common apipie locations
 %%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
@@ -584,14 +585,20 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
 # -a                Prebuild apipie cache
 # -s                Precompile assets
 %%%{name}_precompile_plugin(r:n:as) \\
-mkdir -p ./usr/share \\
-cp -r %%{%{name}_dir} ./usr/share || echo 0 \\
-pushd ./usr/share/%{name} \\
+mkdir -p ./%{_datadir} \\
+cp -r %%{%{name}_dir} ./%{_datadir} || echo 0 \\
+mkdir -p ./%{_localstatedir}/lib/%{name} \\
+cp -r %{_localstatedir}/lib/%{name}/db ./%{_localstatedir}/lib/%{name} || echo 0 \\
+unlink ./%{_datadir}/%{name}/db \\
+ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
+pushd ./%%{%{name}_dir} \\
 \\
 export GEM_PATH=%%{gem_dir}:%%{buildroot}%%{gem_dir} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\
+rm \`pwd\`/config/initializers/encryption_key.rb \\
+/usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
