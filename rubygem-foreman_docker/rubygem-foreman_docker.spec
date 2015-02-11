@@ -26,7 +26,7 @@ URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman-compute >= 1.6.0
-Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.13.0
+Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.17.0
 Requires:   %{?scl_prefix}rubygem(docker-api) <  2.0.0
 Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
