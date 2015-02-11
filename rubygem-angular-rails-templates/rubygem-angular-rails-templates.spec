@@ -7,8 +7,9 @@
 %global gem_name angular-rails-templates
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   0.1.3
+Version:   0.1.2
 Release:   1%{?dist}
+Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
 License:   MIT
