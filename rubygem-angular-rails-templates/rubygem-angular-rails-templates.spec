@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 12 2015 Eric D. Helms <ericdhelms@gmail.com> 0.1.2-1
+- Update rubygem-angular-rails-templates to 0.1.2 (ericdhelms@gmail.com)
+
 * Mon Feb 09 2015 Eric D. Helms <ericdhelms@gmail.com> 0.1.3-1
 - Update 'rubygem-angular-rails-templates' to 0.1.3 (ericdhelms@gmail.com)
 
