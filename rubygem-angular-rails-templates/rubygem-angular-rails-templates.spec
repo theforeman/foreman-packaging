@@ -43,7 +43,7 @@ It removes the need for AJAX calls to retrieve the templates (or for you to manu
 
 %package doc
 BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
+Requires:   %{name} = %{epoch}:%{version}-%{release}
 Summary:    Documentation for %{name}
 
 %description doc
