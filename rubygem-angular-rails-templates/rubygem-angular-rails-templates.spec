@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   0.1.2
-Release:   1%{?dist}
+Release:   2%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 12 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-2
+- Fix dep to include epoch between -doc and main package (dcleal@redhat.com)
+
 * Thu Feb 12 2015 Eric D. Helms <ericdhelms@gmail.com> 0.1.2-1
 - Update rubygem-angular-rails-templates to 0.1.2 (ericdhelms@gmail.com)
 
