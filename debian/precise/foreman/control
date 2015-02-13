@@ -186,3 +186,13 @@ Description: metapackage providing GCE dependencies for Foreman
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-debug
+Architecture: all
+Section: ruby
+Priority: extra
+Depends: rsync
+Description: provides support utility foreman-debug.
+ .
+ The foreman package should be installed along with this package.
+
