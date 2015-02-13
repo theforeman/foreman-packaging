@@ -1,3 +1,10 @@
+ruby-foreman-digitalocean (0.1.0-1) stable; urgency=low
+  * Version 0.1.0
+  * #8617 - add SSH key pair integration
+  * #8650 - show region name in VM details
+
+ -- Tommy McNeely <tommy@lark-it.com>  Fri, 13 Feb 2015 07:57:17 +0000
+
 ruby-foreman-digitalocean (0.0.3-1) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it
