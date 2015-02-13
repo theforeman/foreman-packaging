@@ -13,3 +13,4 @@ tasks                     usr/share/foreman-proxy
 VERSION                   usr/share/foreman-proxy
 views                     usr/share/foreman-proxy
 foreman-proxy             var/cache
+extra/foreman-debug-proxy usr/share/foreman/script/foreman-debug.d

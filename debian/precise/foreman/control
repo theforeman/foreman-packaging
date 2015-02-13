@@ -16,7 +16,7 @@ Priority: extra
 Depends: ruby1.9.3 (>= 1:1.9.3.545), bundler (>= 1.2), ruby1.9.1-dev (>= 1:1.9.3.545),
          libxml2-dev, libxslt1-dev, facter (>= 1.6.12-1puppetlabs2), build-essential,
          rake (>=0.8.4), ${misc:Depends}
-Recommends: foreman-proxy
+Recommends: foreman-proxy, foreman-debug
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
  .
@@ -186,3 +186,13 @@ Description: metapackage providing GCE dependencies for Foreman
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-debug
+Architecture: all
+Section: ruby
+Priority: extra
+Depends: rsync
+Description: provides support utility foreman-debug.
+ .
+ The foreman package should be installed along with this package.
+
