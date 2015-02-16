@@ -71,7 +71,6 @@
       <packagereq type="default">ruby193-rubygem-openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-scaptimony</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
-      <packagereq type="default">ruby193-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked</packagereq>
       <packagereq type="default">ruby193-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
@@ -133,7 +132,6 @@
       <packagereq type="default">ruby193-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-scaptimony-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-staypuft-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-wicked-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-zscheduler-doc</packagereq>

@@ -261,7 +261,6 @@ whitelist = ipxe
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
-  rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
   rubygem-zscheduler
@@ -332,7 +331,6 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
-  rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
   rubygem-zscheduler
@@ -399,7 +397,6 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
-  rubygem-sprockets-rails
   rubygem-staypuft
   rubygem-wicked
   rubygem-zscheduler
