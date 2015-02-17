@@ -14,6 +14,7 @@
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
       <packagereq type="default">foreman-debug</packagereq>
+      <packagereq type="default">foreman-ec2</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
@@ -52,6 +53,7 @@
       <packagereq type="default">ruby193-rubygem-fast_gettext</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-fog</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-aws</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-xml</packagereq>
@@ -115,8 +117,6 @@
       <packagereq type="default">ruby193-rubygem-text</packagereq>
       <packagereq type="default">ruby193-rubygem-trollop</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf_ext</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools</packagereq>
       <packagereq type="default">ruby193-rubygem-validates_lengths_from_database</packagereq>
@@ -187,6 +187,7 @@
       <packagereq type="default">ruby193-rubygem-faraday-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-flot-rails-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-core-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
@@ -245,8 +246,6 @@
       <packagereq type="default">ruby193-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-text-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-turbolinks-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-uuidtools-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-validates_lengths_from_database-doc</packagereq>
