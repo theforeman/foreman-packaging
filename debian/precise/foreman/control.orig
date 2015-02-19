@@ -3,7 +3,8 @@ Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
 Section: web
 Priority: extra
 Standards-Version: 3.9.1
-Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.9.1-dev, git | git-core,
+Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby1.9.3 (>= 1:1.9.3.545),
+               ruby1.9.1-dev (>= 1:1.9.3.545), git | git-core,
                libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
                libvirt-dev, libsqlite3-dev, facter, build-essential
 Homepage: http://www.theforeman.org/
@@ -12,10 +13,10 @@ Package: foreman
 Architecture: any
 Section: web
 Priority: extra
-Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2), ruby-dev,
-         libxml2-dev, libxslt1-dev, facter, build-essential,
+Depends: ruby1.9.3 (>= 1:1.9.3.545), bundler (>= 1.2), ruby1.9.1-dev (>= 1:1.9.3.545),
+         libxml2-dev, libxslt1-dev, facter (>= 1.6.12-1puppetlabs2), build-essential,
          rake (>=0.8.4), ${misc:Depends}
-Recommends: foreman-proxy, foreman-debug
+Recommends: foreman-proxy
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
  .
@@ -87,21 +88,12 @@ Package: foreman-compute
 Architecture: all
 Section: web
 Priority: extra
-Recommends: foreman-ec2
+Replaces: foreman-fog
+Provides: foreman-fog
+Conflicts: foreman-fog
 Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
-Description: metapackage providing fog dependencies for Foreman
+Description: metapackage providing fog dependencies for Foreman (for Amazon EC2 support)
  This package provides fog dependencies for Foreman, a
- flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
-Package: foreman-ec2
-Architecture: all
-Section: web
-Priority: extra
-Depends: foreman, ${misc:Depends}
-Description: metapackage providing EC2 dependencies for Foreman
- This package provides Amazon EC2 dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
@@ -192,14 +184,5 @@ Depends: foreman, foreman-compute, ${misc:Depends}
 Description: metapackage providing GCE dependencies for Foreman
  This package provides Google Compute Engine dependencies for Foreman,
  a flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
-Package: foreman-debug
-Architecture: all
-Section: ruby
-Priority: extra
-Depends: rsync
-Description: provides support utility foreman-debug.
  .
  The foreman package should be installed along with this package.

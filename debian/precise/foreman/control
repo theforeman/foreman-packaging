@@ -88,12 +88,21 @@ Package: foreman-compute
 Architecture: all
 Section: web
 Priority: extra
-Replaces: foreman-fog
-Provides: foreman-fog
-Conflicts: foreman-fog
+Recommends: foreman-ec2
 Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
-Description: metapackage providing fog dependencies for Foreman (for Amazon EC2 support)
+Description: metapackage providing fog dependencies for Foreman
  This package provides fog dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-ec2
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing EC2 dependencies for Foreman
+ This package provides Amazon EC2 dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
