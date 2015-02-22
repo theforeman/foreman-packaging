@@ -6,7 +6,7 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.27.4
+Version: 1.29.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -80,6 +80,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Sun Feb 22 2015 Daniel Lobato <dlobatog@redhat.com> 1.29.0-1
+- Update fog-core to 1.29.0 (dlobatog@redhat.com)
+
 * Tue Feb 17 2015 Dominic Cleal <dcleal@redhat.com> 1.27.4-1
 - Update fog-core to 1.27.4 (dcleal@redhat.com)
 
