@@ -1,0 +1,37 @@
+From 4d6e5d2c6d6fb6a6ab60cb9ccb9b55e8e5631912 Mon Sep 17 00:00:00 2001
+From: Daniel Lobato <elobatocs@gmail.com>
+Date: Mon, 23 Feb 2015 11:33:48 +0200
+Subject: [PATCH] Remove fog-riakcs dependency
+
+---
+ lib/fog.rb     | 1 -
+ lib/fog/bin.rb | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/lib/fog.rb b/lib/fog.rb
+index 7daf113..f3bfb92 100644
+--- a/lib/fog.rb
++++ b/lib/fog.rb
+@@ -43,7 +43,6 @@ require 'fog/bare_metal_cloud'
+ require 'fog/ninefold'
+ require 'fog/rackspace'
+ require 'fog/rage4'
+-require 'fog/riakcs'
+ require 'fog/openstack'
+ require 'fog/ovirt'
+ require 'fog/vcloud'
+diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
+index f18f12f..9a6e6ff 100644
+--- a/lib/fog/bin.rb
++++ b/lib/fog/bin.rb
+@@ -75,7 +75,6 @@ require 'fog/bin/bare_metal_cloud'
+ require 'fog/bin/ninefold'
+ require 'fog/bin/rackspace'
+ require 'fog/bin/rage4'
+-require 'fog/bin/riakcs'
+ require 'fog/bin/openstack'
+ require 'fog/bin/ovirt'
+ require 'fog/bin/vcloud'
+-- 
+2.1.0
+

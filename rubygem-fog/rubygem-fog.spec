@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.27.0
+Version: 1.28.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -23,6 +23,7 @@ Patch8:  fog-no-ecloud.patch
 Patch9:  fog-no-storm_on_demand.patch
 Patch10: fog-no-atmos.patch
 Patch11: fog-no-serverlove.patch
+Patch12: fog-no-riakcs.patch
 
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0
@@ -111,6 +112,8 @@ sed -i '/add_.*dependency.*storm_on_demand/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*atmos/d' %{gem_name}.gemspec
 %patch11 -p1
 sed -i '/add_.*dependency.*serverlove/d' %{gem_name}.gemspec
+%patch12 -p1
+sed -i '/add_.*dependency.*riakcs/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}
@@ -165,6 +168,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Sun Feb 22 2015 Daniel Lobato <dlobatog@redhat.com> 1.28.0-1
+- Update fog to 1.28.0 (dlobatog@redhat.com)
+
 * Tue Feb 17 2015 Dominic Cleal <dcleal@redhat.com> 1.27.0-1
 - Update fog to 1.27.0 (dcleal@redhat.com)
 
