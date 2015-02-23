@@ -1,6 +1,8 @@
 %global gem_name foreman_scap_client
 %global config_dir %{_sysconfdir}/%{gem_name}
 
+%define rubyabi 1.8
+
 Name: rubygem-%{gem_name}
 Version: 0.1.0
 Release: 1%{?dist}

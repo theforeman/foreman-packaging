@@ -10,6 +10,8 @@
 
 %global gem_name scaptimony
 
+%define rubyabi 1.9.1
+
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
 Release: 1%{?dist}
