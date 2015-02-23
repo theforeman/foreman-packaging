@@ -10,6 +10,7 @@ If you're just submitting a fix, you don't need anything special.
 If you're just submitting a patch which changes a source file, you will need:
 
 * [git-annex](http://git-annex.branchable.com/)
+* [gem-compare](https://rubygems.org/gems/gem-compare)
 
 However to release RPMs from this repo, you also require:
 
@@ -64,6 +65,7 @@ You'll also need an alias `kojikat` to point to:
   1. rename the spec file, don't use an SCL prefix
   1. update gem\_name, version, ensure "Release" is 1
   1. empty the %changelog section
+  1. express all gem dependencies as identical `Requires` in the spec file
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
 1. Download the source file (e.g. the .gem) into the spec directory and run
@@ -84,6 +86,9 @@ You'll also need an alias `kojikat` to point to:
 
 1. `git rm foo-old.gem`
 1. Change the version in the spec, set "Release" to 1
+1. Run `gem compare -b foo 0.1 0.2` (needs [gem-compare](https://rubygems.org/gems/gem-compare))
+  1. update `Requires` to match changes in runtime dependencies
+  1. add/remove entries in %files if required for new root files
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
 1. Download the source file (e.g. the .gem) into the spec directory and run
