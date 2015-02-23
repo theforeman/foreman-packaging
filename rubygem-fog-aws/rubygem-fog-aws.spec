@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.8
+Version: 0.1.0
 Release: 1%{dist}
 Group: Development/Ruby
 License: MIT
@@ -75,6 +75,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Sun Feb 22 2015 Daniel Lobato <dlobatog@redhat.com> 0.1.0-1
+- Update fog-aws to version 0.1.0
+
 * Tue Feb 17 2015 Dominic Cleal <dcleal@redhat.com> 0.0.8-1
 - new package built with tito
 
