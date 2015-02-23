@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -120,6 +120,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Mon Feb 23 2015 Dominic Cleal <dcleal@redhat.com> 0.5.19-2
+- Default options in foreman_precompile_plugin changed (rubygem-staypuft)
+  (martin.bacovsky@gmail.com)
+
 * Thu Feb 12 2015 Brad P. Crochet <brad@redhat.com> 0.5.19-1
 - Update staypuft to 0.5.19 (brad@redhat.com)
 
