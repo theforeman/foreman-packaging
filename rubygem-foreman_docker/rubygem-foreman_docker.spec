@@ -19,7 +19,7 @@
 Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.1.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
@@ -117,6 +117,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Feb 23 2015 Dominic Cleal <dcleal@redhat.com> 1.1.0-2
+- Default options in foreman_precompile_plugin changed (rubygem-foreman_docker)
+  (martin.bacovsky@gmail.com)
+
 * Tue Feb 10 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.1.0-1
 - Support katello content views to create containers
 
