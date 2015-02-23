@@ -258,8 +258,8 @@ Meta Package to install requirements for ovirt support
 %package compute
 Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.27.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.27.4
+Requires: %{?scl_prefix}rubygem(fog) = 1.28.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.29.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
@@ -276,8 +276,8 @@ particular, OpenStack and Rackspace.
 %package ec2
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
-Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.0.8
-Requires:  %{?scl_prefix}rubygem(fog-aws) < 0.1.0
+Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
+Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
 Requires:  %{name} = %{version}-%{release}
 Provides:  foreman-ec2 = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
