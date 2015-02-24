@@ -84,6 +84,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
+- Bumped smart_proxy_discovery to 1.0.2 (lzap+git@redhat.com)
+
 * Fri Jan 09 2015 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.1-1
 - Bumped to version 1.0.1
 
