@@ -121,6 +121,9 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Tue Feb 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.7-1
+- Update package rubygem-bastion to 0.2.7 (ericdhelms@gmail.com)
+
 * Mon Feb 23 2015 Dominic Cleal <dcleal@redhat.com> 0.2.6-2
 - Default options in foreman_precompile_plugin changed (rubygem-bastion)
   (martin.bacovsky@gmail.com)
