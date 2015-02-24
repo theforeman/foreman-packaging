@@ -1,3 +1,9 @@
+ruby-foreman-docker (1.2.0-1) stable; urgency=low
+
+  * Update release to 1.2.0
+
+ -- Daniel Lobato Garcia <elobatocs@gmail.com>  Tue, 24 Feb 2015 10:09:00 -0100
+
 ruby-foreman-docker (1.1.0-1) stable; urgency=low
 
   * Support for katello content views as image source
