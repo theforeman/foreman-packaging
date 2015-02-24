@@ -1,5 +1,5 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_docker-1.1.0.gem"
-GEMS="$GEMS https://rubygems.org/downloads/docker-api-1.13.6.gem"
+GEMS="https://rubygems.org/downloads/foreman_docker-1.2.0.gem"
+GEMS="$GEMS https://rubygems.org/downloads/docker-api-1.17.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/wicked-1.1.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/archive-tar-minitar-0.5.2.gem"
