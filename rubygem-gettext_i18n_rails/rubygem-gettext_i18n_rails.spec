@@ -5,7 +5,7 @@
 
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
+Version: 1.2.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
