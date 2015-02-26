@@ -4,7 +4,7 @@
 %global puppet_modules_dir %{_datadir}/puppet/modules
 
 Name:		puppet-%{puppet_module}
-Version:	0.3.3
+Version:	0.3.4
 Release:	1%{?dist}
 Summary:	Puppet module to configure foreman_scap_client
 License:	GPLv2
@@ -35,6 +35,9 @@ cp -rp templates/ %{buildroot}/%{puppet_modules_dir}/%{puppet_module}/templates
 %{puppet_modules_dir}/%{puppet_module}
 
 %changelog
+* Thu Feb 26 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.4-1
+- new upstream release
+
 * Mon Feb 09 2015 slukasik - 0.3.3-1
 - new upstream release
 
