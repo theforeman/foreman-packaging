@@ -18,7 +18,7 @@
 
 Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.2.0
+Version:    1.2.1
 Release:    1.fm1_7%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -26,14 +26,12 @@ URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman-compute >= 1.6.0
-Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.17.0
-Requires:   %{?scl_prefix}rubygem(docker-api) <  2.0.0
+Requires:   %{?scl_prefix}rubygem(docker-api) = 1.17.0
 Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
 
 BuildRequires: foreman-compute >= 1.7.0
-BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.17.0
-BuildRequires: %{?scl_prefix}rubygem(docker-api) <  2.0.0
+BuildRequires: %{?scl_prefix}rubygem(docker-api) = 1.17.0
 BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(wicked) < 2.0
 
@@ -116,6 +114,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Mar 03 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.2.1-1
+- Updating the version of foreman_docker to 1.2.1
+
 * Tue Feb 24 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.2.0-1
 - Updating the version of foreman_docker to 1.2.0
 - docker-api dependency listed to 1.17 minimum
