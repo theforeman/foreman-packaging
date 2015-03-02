@@ -98,6 +98,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
+- Update smart_proxy_salt to 2.0.0 (dcleal@redhat.com)
+
 * Thu Nov 20 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-3
 - Only require foreman-proxy 1.6.0 or higher (stbenjam@redhat.com)
 
