@@ -13,7 +13,7 @@
 %define rubyabi 1.9.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.3.1
 Release: 1%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
@@ -101,6 +101,9 @@ popd
 
 
 %changelog
+* Mon Mar 02 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.1-1
+- new upstream release
+
 * Mon Jan 26 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-1
 - Update scaptimony to 0.3.0 (dcleal@redhat.com)
 
