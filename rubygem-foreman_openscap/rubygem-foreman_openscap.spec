@@ -40,6 +40,7 @@ BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: foreman-assets >= 1.7.0
+BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
@@ -83,7 +84,7 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
