@@ -116,6 +116,7 @@ exit 0
 %changelog
 * Mon Mar 02 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.2-1
 - new upstream release
+- fix FTBFS, missing foreman-plugins dep for build macros (dcleal@redhat.com)
 
 * Thu Feb 12 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.1-1
 - new upstream release
