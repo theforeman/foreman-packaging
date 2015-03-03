@@ -80,9 +80,9 @@ fi
 
 # Generate apipie cache
 if [ ! -z "${DEBUG}" ]; then
-  /usr/sbin/foreman-rake apipie:cache || true
+  /usr/sbin/foreman-rake apipie:cache:index || true
 else
-  /usr/sbin/foreman-rake apipie:cache >> $LOGFILE 2>&1 || true
+  /usr/sbin/foreman-rake apipie:cache:index >> $LOGFILE 2>&1 || true
 fi
 
 # Generate a static session token for signing cookies

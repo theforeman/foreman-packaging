@@ -16,9 +16,10 @@ build/foreman::
 	/bin/cp config/database.yml.example config/database.yml
 	/usr/bin/bundle pack --all
 	/usr/bin/bundle exec rake locale:pack assets:precompile
+	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
+	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
 	/bin/rm config/settings.yaml
 	/bin/rm config/database.yml
-	# Somehow blank db sqlite files get added
 	/bin/rm db/production.sqlite3
 	/bin/rm db/development.sqlite3
 	/bin/mkdir -p .ssh
