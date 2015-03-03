@@ -19,7 +19,7 @@
 Summary:    Plugin to improve storage of custom information in parameters
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_custom_parameters
@@ -101,6 +101,9 @@ mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Mar 03 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
+- install default custom parameters config file (#9624)
+
 * Wed Jan 29 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
 - Update to v0.0.2 (dcleal@redhat.com)
 
