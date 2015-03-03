@@ -13,7 +13,7 @@ fetch_strategy = custom.JenkinsSourceStrategy
 
 # Blacklist any non-SCL packages that are missing SCL macros or they get built
 # in the SCL tag rather than -nonscl.  Don't forget -rhel7 below too!
-[foreman-nightly-rhel6]
+[foreman-1.8-rhel6]
 disttag = .el6
 blacklist = foreman-installer
   foreman-proxy
@@ -33,7 +33,7 @@ blacklist = foreman-installer
   rubygem-tilt
 scl = ruby193
 
-[foreman-nightly-rhel7]
+[foreman-1.8-rhel7]
 disttag = .el7
 blacklist = foreman-installer
   foreman-proxy
@@ -57,7 +57,7 @@ scl = ruby193
 #
 # Is your package *only* non-SCL?  If so, add it to the blacklist above or it
 # will get built in the wrong tag.
-[foreman-nightly-nonscl-rhel6]
+[foreman-1.8-nonscl-rhel6]
 disttag = .el6
 whitelist = foreman-installer
   foreman-proxy
@@ -91,7 +91,7 @@ whitelist = foreman-installer
   rubygem-terminal-table
   rubygem-thor
 
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.8-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-installer
   foreman-proxy
@@ -125,7 +125,7 @@ whitelist = foreman-installer
   rubygem-table_print
   rubygem-tilt
 
-[foreman-nightly-fedora19]
+[foreman-1.8-fedora19]
 disttag = .fc19
 whitelist = foreman
   foreman-installer
@@ -199,7 +199,7 @@ whitelist = foreman
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
 
-[foreman-plugins-nightly-rhel6]
+[foreman-plugins-1.8-rhel6]
 disttag = .el6
 scl = ruby193
 whitelist = ipxe
@@ -266,7 +266,7 @@ whitelist = ipxe
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.8-rhel7]
 disttag = .el7
 scl = ruby193
 whitelist = rubygem-algebrick
@@ -336,7 +336,7 @@ whitelist = rubygem-algebrick
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-fedora19]
+[foreman-plugins-1.8-fedora19]
 disttag = .fc19
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
