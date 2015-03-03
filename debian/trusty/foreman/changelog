@@ -1,3 +1,9 @@
+foreman (1.9.0-1) stable; urgency=low
+
+  * Bump changelog to 1.9.0 to match VERSION
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 03 Mar 2015 10:32:35 +0000
+
 foreman (1.8.0-1) stable; urgency=low
 
   * Bump changelog to 1.8.0 to match VERSION
