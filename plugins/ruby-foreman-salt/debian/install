@@ -1,2 +1,3 @@
-foreman_salt.rb     usr/share/foreman/bundler.d
-cache               usr/share/foreman/vendor
+foreman_salt.rb              usr/share/foreman/bundler.d
+cache                        usr/share/foreman/vendor
+apipie-cache/foreman_salt    var/lib/foreman/public/apipie-cache/plugin

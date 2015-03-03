@@ -43,11 +43,11 @@ if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
     /usr/sbin/foreman-rake db:migrate || true
     /usr/sbin/foreman-rake db:seed || true
-    /usr/sbin/foreman-rake apipie:cache || true
+    /usr/sbin/foreman-rake apipie:cache:index || true
   else
     /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
     /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
-    /usr/sbin/foreman-rake apipie:cache >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake apipie:cache:index >> $LOGFILE 2>&1 || true
   fi
 fi
 
