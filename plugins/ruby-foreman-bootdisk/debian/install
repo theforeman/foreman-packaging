@@ -1,2 +1,3 @@
 foreman_bootdisk.rb usr/share/foreman/bundler.d
 cache               usr/share/foreman/vendor
+apipie-cache/foreman_bootdisk    var/lib/foreman/public/apipie-cache/plugin

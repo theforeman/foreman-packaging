@@ -2,7 +2,7 @@ Source: ruby-foreman-docker
 Section: ruby
 Priority: extra
 Maintainer: Pujan Shah <pujan14@gmail.com>
-Build-Depends: debhelper, foreman-compute (>= 1.7.0), foreman-assets (>= 1.7.0)
+Build-Depends: debhelper, foreman-compute (>= 1.8.0~rc1), foreman-assets (>= 1.7.0), foreman-sqlite3 (>= 1.8.0~rc1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman-docker
 
