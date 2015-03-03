@@ -1,3 +1,4 @@
-foreman_docker.rb      usr/share/foreman/bundler.d
-cache               usr/share/foreman/vendor
-foreman_docker      var/lib/foreman/public/assets
+foreman_docker.rb              usr/share/foreman/bundler.d
+cache                          usr/share/foreman/vendor
+foreman_docker                 var/lib/foreman/public/assets
+apipie-cache/foreman_docker    var/lib/foreman/public/apipie-cache/plugin
