@@ -4,11 +4,35 @@ foreman-installer (1.8.0-1) stable; urgency=low
 
  -- Dominic Cleal <dcleal@redhat.com>  Tue, 28 Oct 2014 09:10:24 +0000
 
+foreman-installer (1.7.2-1) stable; urgency=low
+
+  * 1.7.2 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 27 Jan 2015 13:08:12 +0000
+
+foreman-installer (1.7.1-1) stable; urgency=low
+
+  * 1.7.1 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 16 Dec 2014 09:38:32 +0000
+
 foreman-installer (1.7.0-1) stable; urgency=low
 
-  * Bump changelog to 1.7.0 to match VERSION
+  * 1.7.0 released
 
- -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Mon, 11 Aug 2014 10:48:00 +0100
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 02 Dec 2014 10:33:01 +0000
+
+foreman-installer (1.7.0~rc2-1) stable; urgency=low
+
+  * 1.7.0 RC2 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 25 Nov 2014 09:05:25 +0000
+
+foreman-installer (1.7.0~rc1-1) stable; urgency=low
+
+  * 1.7.0 RC1 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 11 Nov 2014 12:19:26 +0000
 
 foreman-installer (1.6.2-1) stable; urgency=low
 
