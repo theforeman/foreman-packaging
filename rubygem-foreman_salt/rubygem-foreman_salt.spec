@@ -17,7 +17,7 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.0
+Version:    2.0.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -39,6 +39,8 @@ BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
+BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
@@ -78,10 +80,13 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
+%foreman_precompile_plugin -a
+
 %posttrans
 # We need to run the db:migrate after the install transaction
 /usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
 /usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+%{foreman_apipie_cache}
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 
@@ -91,10 +96,12 @@ exit 0
 %{gem_instdir}/db
 %{gem_instdir}/lib
 %{gem_instdir}/config
+%{gem_instdir}/public
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
+%foreman_apipie_cache_foreman
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_cache}
@@ -104,6 +111,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Mar 03 2015 Stephen Benjamin <stephen@redhat.com> 2.0.1-1
+- Update to 2.0.1
+
 * Wed Jan 14 2015 Stephen Benjamin <stephen@redhat.com> 1.1.1-1
 - Update to 1.1.1
 
