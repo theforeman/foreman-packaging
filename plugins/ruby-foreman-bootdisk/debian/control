@@ -8,7 +8,7 @@ Homepage: https://github.com/theforeman/foreman_bootdisk
 
 Package: ruby-foreman-bootdisk
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0~rc1),
+Depends: ${misc:Depends}, bundler, foreman (>= 1.8.0~rc1),
   syslinux, genisoimage, ipxe
 Description: Foreman Bootdisk Plugin
  Plugin for Foreman that creates iPXE-based boot disks to provision hosts
