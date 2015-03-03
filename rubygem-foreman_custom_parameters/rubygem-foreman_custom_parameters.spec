@@ -80,7 +80,7 @@ GEMFILE
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
-  %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+  %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
 
 %files
 %dir %{gem_instdir}
@@ -89,11 +89,11 @@ mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+%config(noreplace) %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_instdir}/LICENSE
