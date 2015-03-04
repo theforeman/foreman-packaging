@@ -86,7 +86,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -97,6 +97,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/locale
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 %doc %{gem_instdir}/LICENSE
 
@@ -111,6 +113,7 @@ cp -a .%{gem_dir}/* \
 %posttrans
 # We need to run the db:migrate after the install transaction
 %foreman_db_migrate
+%foreman_apipie_cache
 %foreman_restart
 exit 0
 
