@@ -1,27 +1,8 @@
-From 50d721f35fbb59a10fd9e90f44b48fc95212e0b5 Mon Sep 17 00:00:00 2001
-From: Tomas Strachota <tstrachota@redhat.com>
-Date: Wed, 16 Apr 2014 13:02:43 +0000
-Subject: [PATCH]  I18n support
-
-- Translation table for overriding messages.
-- Heading in HelpBuilder extracted to a function to make overriding easier.
----
- lib/clamp/attribute/instance.rb   |  2 +-
- lib/clamp/command.rb              |  3 ++-
- lib/clamp/help.rb                 |  8 +++++++-
- lib/clamp/messages.rb             | 39 +++++++++++++++++++++++++++++++++++++++
- lib/clamp/option/parsing.rb       | 10 +++++-----
- lib/clamp/parameter/definition.rb |  2 +-
- lib/clamp/parameter/parsing.rb    |  2 +-
- lib/clamp/subcommand/execution.rb |  2 +-
- 8 files changed, 57 insertions(+), 11 deletions(-)
- create mode 100644 lib/clamp/messages.rb
-
 diff --git a/lib/clamp/attribute/instance.rb b/lib/clamp/attribute/instance.rb
-index 8f51cc3..acab485 100644
+index c3c1595..c595608 100644
 --- a/lib/clamp/attribute/instance.rb
 +++ b/lib/clamp/attribute/instance.rb
-@@ -72,7 +72,7 @@ def default_from_environment
+@@ -69,7 +69,7 @@ def default_from_environment
          begin
            take(value)
          rescue ArgumentError => e
@@ -31,7 +12,7 @@ index 8f51cc3..acab485 100644
        end
  
 diff --git a/lib/clamp/command.rb b/lib/clamp/command.rb
-index c6c50f4..52187ab 100644
+index 7a669bd..0cb4860 100644
 --- a/lib/clamp/command.rb
 +++ b/lib/clamp/command.rb
 @@ -1,3 +1,4 @@
@@ -49,10 +30,32 @@ index c6c50f4..52187ab 100644
      end
  
 diff --git a/lib/clamp/help.rb b/lib/clamp/help.rb
-index e09731a..1e57530 100644
+index e09731a..66a6da5 100644
 --- a/lib/clamp/help.rb
 +++ b/lib/clamp/help.rb
-@@ -61,7 +61,7 @@ def string
+@@ -1,4 +1,5 @@
+ require 'stringio'
++require 'clamp/messages'
+ 
+ module Clamp
+ 
+@@ -41,12 +42,12 @@ def help(invocation_path, builder = Builder.new)
+       help.add_usage(invocation_path, usage_descriptions)
+       help.add_description(description)
+       if has_parameters?
+-        help.add_list("Parameters", parameters)
++        help.add_list(Clamp.message(:parameters_heading), parameters)
+       end
+       if has_subcommands?
+-        help.add_list("Subcommands", recognised_subcommands)
++        help.add_list(Clamp.message(:subcommands_heading), recognised_subcommands)
+       end
+-      help.add_list("Options", recognised_options)
++      help.add_list(Clamp.message(:options_heading), recognised_options)
+       help.string
+     end
+ 
+@@ -61,7 +62,7 @@ def string
        end
  
        def add_usage(invocation_path, usage_descriptions)
@@ -61,14 +64,14 @@ index e09731a..1e57530 100644
          usage_descriptions.each do |usage|
            puts "    #{invocation_path} #{usage}".rstrip
          end
-@@ -87,6 +87,12 @@ def add_list(heading, items)
+@@ -87,6 +88,12 @@ def add_list(heading, items)
          end
        end
  
 +      protected
 +
 +      def usage_heading
-+        "Usage:"
++        Clamp.message(:usage_heading) + ":"
 +      end
 +
        private
@@ -76,10 +79,10 @@ index e09731a..1e57530 100644
        def puts(*args)
 diff --git a/lib/clamp/messages.rb b/lib/clamp/messages.rb
 new file mode 100644
-index 0000000..61cce94
+index 0000000..019fa89
 --- /dev/null
 +++ b/lib/clamp/messages.rb
-@@ -0,0 +1,39 @@
+@@ -0,0 +1,43 @@
 +module Clamp
 +
 +  def self.messages=(messages)
@@ -102,7 +105,11 @@ index 0000000..61cce94
 +      :env_argument_error => "$%<env>s: %<message>s",
 +      :unrecognised_option => "Unrecognised option '%<switch>s'",
 +      :no_such_subcommand => "No such sub-command '%<name>s'",
-+      :no_value_provided => "no value provided"
++      :no_value_provided => "no value provided",
++      :usage_heading => "Usage",
++      :parameters_heading => "Parameters",
++      :subcommands_heading => "Subcommands",
++      :options_heading => "Options"
 +    }
 +  end
 +
@@ -195,6 +202,3 @@ index d15c56b..c341df6 100644
          subcommand_def.subcommand_class
        end
  
--- 
-2.0.3
-
