@@ -3,7 +3,7 @@
 
 Summary: Foreman Salt-related commands for Hammer CLI
 Name: rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
