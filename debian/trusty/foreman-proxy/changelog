@@ -1,3 +1,9 @@
+foreman-proxy (1.7.3-1) stable; urgency=low
+
+  * 1.7.3 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 04 Mar 2015 15:53:29 +0000
+
 foreman-proxy (1.7.2-1) stable; urgency=low
 
   * 1.7.2 released
