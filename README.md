@@ -31,7 +31,7 @@ Before tagging a build, please test it.  Using tito's --test flag, you can
 generate test (S)RPMs by first committing your changes locally, then it will
 use the SHA in the RPM version.
 
-## With mock
+### With mock
 
 Configuration for mock is supplied in mock/ and can be used to build any of
 the packages locally and quickly.
@@ -43,10 +43,33 @@ the packages locally and quickly.
 The last argument is the name of the mock config in mock/, which includes SCL
 and non-SCL variants.
 
-## With koji access
+### With koji access
+
+If you have a certificate for our Koji server (regular packagers can get them),
+then you can use tito to build scratch packages on Koji, though it's slower
+than mock (above).
+
+Non-core packages in the main Foreman repo, with sources in git(-annex):
+
+    tito release koji-foreman --test --scratch
+
+Packages in the plugins repo:
+
+    tito release koji-foreman-plugins --test --scratch
+
+Core Foreman packages without nightly sources stored:
+
+* foreman: `tito release --scratch --arg jenkins_job=test_develop koji-foreman-nightly`
+* foreman-installer: `tito release --scratch --arg jenkins_job=packaging_trigger_installer_develop koji-foreman-nightly`
+* foreman-proxy: `tito release --scratch --arg jenkins_job=test_proxy_develop koji-foreman-nightly`
+* foreman-selinux: `tito release --scratch --arg jenkins_job=packaging_trigger_selinux_develop koji-foreman-nightly`
+* rubygem-hammer\_cli: `tito release --scratch --arg jenkins_job=test_hammer_cli koji-foreman-nightly`
+* rubygem-hammer\_cli\_foreman: `tito release --scratch --arg jenkins_job=test_hammer_cli_foreman koji-foreman-nightly`
+
+### Alternative method with koji access
 
 lzap's [sbu utility](https://github.com/lzap/bin-public/blob/master/sbu) is
-good for this:
+good for building test packages, especially with sources from elsewhere:
 
 1. sbu (defaults for EL6 with SCL)
 1. sbu katello fc19 foreman-nightly-fedora19
@@ -69,7 +92,7 @@ SOURCES/ directory. Typical script looks like:
 You'll also need an alias `kojikat` to point to:
 
     koji -c ~/.koji/katello-config build
-    
+
 ## HOWTO: create a new core package or dependency
 
 1. Check if it's available in Fedora:
@@ -82,8 +105,6 @@ You'll also need an alias `kojikat` to point to:
   1. update gem\_name, version, ensure "Release" is 1
   1. empty the %changelog section
   1. express all gem dependencies as identical `Requires` in the spec file
-1. Follow the "test a package" section above until it builds for all
-   targeted platforms and required SCL + non-SCL modes.
 1. Download the source file (e.g. the .gem) into the spec directory and run
    `git annex add foo.gem`
 1. Update rel-eng/tito.props
@@ -95,8 +116,9 @@ You'll also need an alias `kojikat` to point to:
 1. Commit the changes
   1. `git add -A`
   1. `git commit -m "Add NAME package"`
-1. Submit a pull request against `rpm/develop` and provide links to scratch
-   builds
+1. Follow the "test a package" section above until it builds for all
+   targeted platforms and required SCL + non-SCL modes.
+1. Submit a pull request against `rpm/develop`
 
 ## HOWTO: update a package
 
@@ -105,15 +127,14 @@ You'll also need an alias `kojikat` to point to:
 1. Run `gem compare -b foo 0.1 0.2` (needs [gem-compare](https://rubygems.org/gems/gem-compare))
   1. update `Requires` to match changes in runtime dependencies
   1. add/remove entries in %files if required for new root files
-1. Follow the "test a package" section above until it builds for all
-   targeted platforms and required SCL + non-SCL modes.
 1. Download the source file (e.g. the .gem) into the spec directory and run
    `git annex add foo.gem`
 1. Commit the changes
   1. `git add -A`
   1. `git commit -m "Update NAME to VERSION"`
-1. Submit a pull request against `rpm/develop` and provide links to scratch
-   builds
+1. Follow the "test a package" section above until it builds for all
+   targeted platforms and required SCL + non-SCL modes.
+1. Submit a pull request against `rpm/develop`
 
 ## How does this repo work?
 
