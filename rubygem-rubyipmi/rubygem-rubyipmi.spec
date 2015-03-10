@@ -5,7 +5,7 @@
 
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.1
+Version: 0.9.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: LGPLv2.1
@@ -60,14 +60,13 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %{gem_instdir}/lib
 %exclude %{gem_cache}
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_spec}
 %exclude %{gem_instdir}/spec
 
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/README.md
-%{gem_instdir}/README.rdoc
 %{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/VERSION
