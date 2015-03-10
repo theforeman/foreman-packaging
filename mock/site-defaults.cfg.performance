@@ -1,0 +1,22 @@
+# mock defaults
+# vim:tw=0:ts=4:sw=4:et:
+#
+# Optimised for performance!  Look through /etc/mock/site-defaults.cfg for more
+# interesting plugin configuration options.
+#
+# Requirements:
+#   dnf/yum install pigz
+
+# mock files can be moved
+#   mkdir -p ~/.mock/{cache,var}
+#   chgrp -R mock ~/.mock
+#   chmod g+s ~/.mock/var
+#config_opts['basedir'] = '/home/dcleal/.mock/var'
+#config_opts['cache_topdir'] = '/home/dcleal/.mock/cache'
+
+# Multi-threaded gzip for root cache storage
+config_opts['plugin_conf']['root_cache_opts']['compress_program'] = "pigz"
+
+# Build on tmpfs, not disk
+config_opts['plugin_conf']['tmpfs_enable'] = True
+config_opts['plugin_conf']['tmpfs_opts']['required_ram_mb'] = 2048
