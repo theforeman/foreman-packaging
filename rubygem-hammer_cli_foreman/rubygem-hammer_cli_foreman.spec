@@ -4,7 +4,7 @@
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gem_name}
 Version: 0.1.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
@@ -72,6 +72,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Mar 10 2015 Dominic Cleal <dcleal@redhat.com> 0.1.4-2
+- Rebuilt for Foreman 1.8
+
 * Fri Dec 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
 - Update hammer-cli-foreman to 0.1.4 (martin.bacovsky@gmail.com)
 
