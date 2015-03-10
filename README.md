@@ -7,15 +7,16 @@ related projects (mostly rubygems).
 
 If you're just submitting a fix, you don't need anything special.
 
-If you're just submitting a patch which changes a source file, you will need:
+If you're submitting a patch which adds/updates packages, you will need:
 
-* [git-annex](http://git-annex.branchable.com/)
+* [gem2rpm](https://rubygems.org/gems/gem2rpm) or rubygem-gem2rpm
 * [gem-compare](https://rubygems.org/gems/gem-compare)
+* [git-annex](http://git-annex.branchable.com/)
 
-However to release RPMs from this repo, you also require:
+To build locally or release RPMs from this repo, you also require:
 
-* koji client and an account (certificate) on koji.katello.org
 * [tito](https://github.com/dgoodwin/tito) 0.6.1 or higher
+* [mock](http://fedoraproject.org/wiki/Projects/Mock) or koji client and an account (certificate) on koji.katello.org
 
 ## HOWTO: checkout
 
@@ -105,12 +106,16 @@ You'll also need an alias `kojikat` to point to:
   * http://www.isitfedoraruby.com/fedorarpms/NAME
   * If only building non-SCL and it's in both Fedora and EPEL, stop now
 1. If available in Fedora, copy the spec from the SCM link on the left
-1. Copy the template/ directory
-  1. rename the spec file, don't use an SCL prefix
-  1. update gem\_name, version, ensure "Release" is 1
-  1. empty the %changelog section
-  1. express all gem dependencies as identical `Requires` in the spec file
-1. Download the source file (e.g. the .gem) into the spec directory and run
+1. Choose a template from gem2rpm that's suitable for the type of package and
+   run:
+  * `mkdir rubygem-example` (no SCL prefix)
+  * `cd rubygem-example`
+  * `gem2rpm -o rubygem-example.spec --fetch example -t ../gem2rpm/template.spec.erb`
+1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
+   weirdness.  In particular, look for:
+  * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
+  * Ensure summary is under 72 characters
+1. Ensure the source file (e.g. the .gem) is in the spec directory and run
    `git annex add foo.gem`
 1. Update rel-eng/tito.props and add to the appropriate whitelists
 1. Update comps/comps-foreman-\*.xml
