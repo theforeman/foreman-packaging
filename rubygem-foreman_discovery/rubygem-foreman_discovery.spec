@@ -119,6 +119,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Mar 10 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-1
+- Version 3.0.0 for Foreman 1.8 (lzap+git@redhat.com)
+- Refs #4478 - prebuild apipie cache for rubygem-foreman_discovery
+  (martin.bacovsky@gmail.com)
+
 * Mon Feb 09 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
 - Version bump to discovery 2.0.0 (lzap+git@redhat.com)
 
