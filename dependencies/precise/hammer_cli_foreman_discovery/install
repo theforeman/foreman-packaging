@@ -1,0 +1,13 @@
+debian/foreman_discovery.yml  etc/hammer/cli.modules.d
+locale/de                     usr/share/locale
+locale/en                     usr/share/locale
+locale/en_GB                  usr/share/locale
+locale/es                     usr/share/locale
+locale/fr                     usr/share/locale
+locale/it                     usr/share/locale
+locale/ja                     usr/share/locale
+locale/ko                     usr/share/locale
+locale/pt_BR                  usr/share/locale
+locale/ru                     usr/share/locale
+locale/zh_CN                  usr/share/locale
+locale/zh_TW                  usr/share/locale
