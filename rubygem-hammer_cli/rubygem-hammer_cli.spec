@@ -9,6 +9,7 @@ Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: cli_config.yml
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -82,8 +83,8 @@ mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_sysconfdir}/bash_completion.d/%{gem_name}
 
 mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
-               %{buildroot}%{_sysconfdir}/%{confdir}/cli_config.yml
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli_config.yml
+rm -r %{buildroot}%{gem_instdir}/config
 
 
 %files
@@ -91,18 +92,17 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{_bindir}/hammer
 %{_sysconfdir}/bash_completion.d/%{gem_name}
 %{_sysconfdir}/%{confdir}/cli.modules.d
-%config(noreplace) %{_sysconfdir}/%{confdir}/cli_config.yml
+%{_sysconfdir}/%{confdir}/cli_config.yml
 %{gem_instdir}/bin
 %{gem_instdir}/lib
 %{gem_instdir}/locale
 %{gem_instdir}/LICENSE
-%exclude %{gem_cache}
-%{gem_spec}
+%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %files doc
 %doc %{gem_instdir}/test
-%doc %{gem_docdir}
-%doc %{gem_instdir}/config
+%doc %{gem_dir}/doc/%{gem_name}-%{version}
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
 
