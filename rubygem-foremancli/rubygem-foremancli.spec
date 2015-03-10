@@ -7,7 +7,7 @@ Summary: This is the CLI for Foreman, which is a provisioning tool and node clas
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0
-Release: 6%{dist}
+Release: 6%{?dist}
 Group: Development/Ruby
 License: GPLv2+
 URL: https://github.com/ohadlevy/foreman/blob/master/extras/cli/foremancli

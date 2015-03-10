@@ -7,7 +7,7 @@ Summary: A mini view framework for console/irb that's easy to use, even while un
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.7.0
-Release: 6%{dist}
+Release: 6%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://tagaholic.me/hirb/
