@@ -18,7 +18,7 @@
 
 Summary:    Adds graphite integration to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.2
+Version:    0.0.3
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
