@@ -9,5 +9,19 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+PLUGIN = foreman_discovery
+
+build:
+	cp cache/* /usr/share/foreman/vendor/cache/
+	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
+	cd /usr/share/foreman && ( \
+		bundle install --local && \
+		bundle exec rake db:migrate RAILS_ENV=development && \
+		bundle exec rake plugin:apipie:cache[$(PLUGIN)] cache_part=resources \
+		OUT=/var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) RAILS_ENV=development \
+		)
+	[ -e apipie-cache ] || mkdir apipie-cache/
+	cp -rp /var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) ./apipie-cache/
+
 %:
 	dh $@ 

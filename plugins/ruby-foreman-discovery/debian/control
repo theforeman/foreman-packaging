@@ -2,12 +2,12 @@ Source: ruby-foreman-discovery
 Section: ruby
 Priority: extra
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: debhelper (>= 8.0.0), foreman (>= 1.8.0~rc1), foreman-sqlite3 (>= 1.8.0~rc1), ruby-foreman-deface
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_discovery
 
 Package: ruby-foreman-discovery
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0), ruby-foreman-deface
+Depends: ${misc:Depends}, bundler, foreman (>= 1.8.0~rc1), ruby-foreman-deface
 Description: Foreman Discovery Plugin
  MaaS Discovery Plugin engine for Foreman.
