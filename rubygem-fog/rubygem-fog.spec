@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.28.0
-Release: 1%{dist}
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog

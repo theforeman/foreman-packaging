@@ -7,7 +7,7 @@ Summary: Unicode support for hirb
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.5
-Release: 5%{dist}
+Release: 5%{?dist}
 Group: Development/Ruby
 License: MIT
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
