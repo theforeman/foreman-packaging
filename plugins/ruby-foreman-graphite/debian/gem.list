@@ -1,5 +1,5 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_graphite-0.0.2.gem"
+GEMS="https://rubygems.org/downloads/foreman_graphite-0.0.3.gem"
 GEMS="$GEMS https://rubygems.org/downloads/graphite-api-0.1.5.gem"
 GEMS="$GEMS https://rubygems.org/downloads/eventmachine-1.0.3.gem"
 GEMS="$GEMS https://rubygems.org/downloads/zscheduler-0.0.6.gem"
