@@ -3,7 +3,7 @@
 
 %global gem_name staypuft
 
-%define _version 0.5.19
+%define _version 0.5.20
 %define _summary OpenStack Foreman Installer
 %define _url https://github.com/theforeman/staypuft
 %define _license GPLv3
