@@ -107,6 +107,9 @@ mv %{buildroot}%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_plu
 exit 0
 
 %changelog
+* Wed Mar 11 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-1
+- Update foreman_graphite to 0.0.3 (dcleal@redhat.com)
+
 * Wed Jan 14 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
 - new package built with tito
 
