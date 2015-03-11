@@ -1,3 +1,9 @@
+ruby-foreman-discovery (3.0.0-1) stable; urgency=low
+
+  * Release 3.0.0
+
+ -- Lukas Zapletal <lzap+rpm@redhat.com>  Wed, 11 Mar 2015 13:40:33 +0000
+
 ruby-foreman-discovery (2.0.0-1) stable; urgency=low
 
   * Release 2.0.0 final version
