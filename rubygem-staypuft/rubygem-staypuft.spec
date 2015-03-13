@@ -120,6 +120,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Mar 13 2015 Brad P. Crochet <brad@redhat.com> 0.5.21-1
+- Update staypuft to 0.5.21 (brad@redhat.com)
+
 * Wed Mar 11 2015 Dominic Cleal <dcleal@redhat.com> 0.5.20-1
 - Update staypuft to 0.5.20 (brad@redhat.com)
 
