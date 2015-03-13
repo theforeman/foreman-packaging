@@ -40,6 +40,7 @@
       <packagereq type="default">rubygem-foreman_xen</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_docker</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
@@ -121,6 +122,7 @@
       <packagereq type="default">rubygem-graphite-api-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_docker-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">rubygem-jgrep-doc</packagereq>
