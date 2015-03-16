@@ -68,4 +68,6 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %doc %{gem_instdir}/doc
 
 
-%changelog
+%changelog* Mon Mar 16 2015 Martin Bačovský <martin.bacovsky@gmail.com>
+- new package built with tito
+
