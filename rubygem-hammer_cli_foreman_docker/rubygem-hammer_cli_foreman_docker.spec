@@ -4,7 +4,7 @@
 Summary: Foreman Docker-related commands for Hammer
 Name: rubygem-%{gem_name}
 Version: 0.0.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: http://github.com/theforeman/hammer_cli_foreman_docker
@@ -69,6 +69,9 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 
 
 %changelog
-* Mon Mar 16 2015 Martin Bačovský <martin.bacovsky@gmail.com>
+* Mon Mar 16 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-2
+- Fix changelog formatting (dcleal@redhat.com)
+
+* Mon Mar 16 2015 Martin Bačovský <martin.bacovsky@gmail.com> 0.0.3-1
 - new package built with tito
 
