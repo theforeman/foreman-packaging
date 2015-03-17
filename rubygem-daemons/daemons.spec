@@ -70,6 +70,10 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 17 2015 Dominic Cleal <dcleal@redhat.com> 1.2.1-1
+- Update daemons to 1.2.1 (dcleal@redhat.com)
+- Split docs into separate subpackage
+
 * Tue Feb 26 2013 Miroslav Suchý <msuchy@redhat.com> 1.1.4-7
 - BR rubygems-devel (msuchy@redhat.com)
 
