@@ -6,7 +6,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.6
+Version: 0.7.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -35,8 +35,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
-Generate and executed workflows dynamically based on input data and
-leave it open for others to jump into it as well
+Ruby workflow/orchestration engine
 
 %package doc
 Summary: Documentation for %{pkg_name}
