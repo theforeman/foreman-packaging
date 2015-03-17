@@ -5,8 +5,8 @@
 
 Summary: A toolkit to create and control daemons in different ways
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.4
-Release: 8%{?dist}
+Version: 1.2.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://daemons.rubyforge.org
@@ -28,6 +28,15 @@ basic functionality, daemons offers many advanced features like exception
 backtracing and logging (in case your ruby script crashes) and monitoring and
 automatic restarting of your processes if they crash.
 
+%package doc
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{name}
+
 %prep
 %setup -q -c -T -n  %{gem_name}-%{version}
 
@@ -48,13 +57,17 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %files
-%{gem_dir}/gems/%{gem_name}-%{version}/
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
-%doc %{gem_instdir}/README
+%dir %{gem_instdir}
+%{gem_libdir}
+%{gem_cache}
+%{gem_spec}
+%doc %{gem_instdir}/LICENSE
+
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/examples
 %doc %{gem_instdir}/Releases
-%doc %{gem_instdir}/TODO
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%doc %{gem_instdir}/README.md
 
 %changelog
 * Tue Feb 26 2013 Miroslav Suchý <msuchy@redhat.com> 1.1.4-7
