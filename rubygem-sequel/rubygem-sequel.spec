@@ -5,7 +5,7 @@
 
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.17.0
+Version: 4.20.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
