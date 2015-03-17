@@ -3,11 +3,11 @@ Upstream-Name: ruby-foreman-templates
 Source: https://github.com/theforeman/foreman_templates
 
 Files: *
-Copyright: 2012-2013 Red Hat Inc. <foreman-dev@googlegroups.com>
+Copyright: 2012-2015 Red Hat Inc. <foreman-dev@googlegroups.com>
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2013 Red Hat Inc. <foreman-dev@googlegroups.com>
+Copyright: 2013-2015 Red Hat Inc. <foreman-dev@googlegroups.com>
 License: GPL-3.0+
 
 License: GPL-3.0+
