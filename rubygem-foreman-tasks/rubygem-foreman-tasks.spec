@@ -167,6 +167,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 17 2015 Dominic Cleal <dcleal@redhat.com> 0.6.13-1
+- Update foreman-tasks to 0.6.13 (inecas@redhat.com)
+
 * Sun Feb 01 2015 Dominic Cleal <dcleal@redhat.com> 0.6.12-2
 - Add db:seed to post install (dcleal@redhat.com)
 
