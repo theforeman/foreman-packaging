@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_salt
 
 Package: ruby-foreman-salt
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.8.0~rc1), ruby-foreman-deface
+Depends: ${misc:Depends}, bundler, foreman (>= 1.8.0~rc1), ruby-foreman-deface, ruby-foreman-tasks
 Description: Foreman Salt Plugin
  Plugin for Foreman for Salt integration
