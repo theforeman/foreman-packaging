@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %doc %{gem_instdir}/doc
 
 %changelog
+* Tue Mar 17 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-1
+- Update sequel to 4.20.0 (dcleal@redhat.com)
+
 * Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 4.17.0-1
 - Update sequel to 4.17.0 (dcleal@redhat.com)
 
