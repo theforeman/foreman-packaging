@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 
 
 %changelog
+* Wed Mar 18 2015 Marek Hulan <mhulan@redhat.com> 1.0.1-2
+- Fixes the overriding of config file (mhulan@redhat.com)
+
 * Thu Aug 07 2014 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
 - Add pulpnode.yml config file (dcleal@redhat.com)
 - Updated smart_proxy_pulp gem to version 1.0.1 (dmitri@appliedlogic.ca)
