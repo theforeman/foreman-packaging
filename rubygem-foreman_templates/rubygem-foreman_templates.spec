@@ -17,8 +17,8 @@
 
 Summary:    Plugin to sychronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.4.0
-Release:    2%{?dist}
+Version:    1.5.0
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_templates
@@ -35,6 +35,7 @@ Requires: %{?scl_prefix}rubygems
 
 Requires: git
 Requires: %{?scl_prefix}rubygem(diffy)
+Requires: %{?scl_prefix}rubygem(git)
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
