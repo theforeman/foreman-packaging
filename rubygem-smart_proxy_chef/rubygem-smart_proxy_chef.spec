@@ -72,6 +72,9 @@ cp -pa .%{gem_instdir}/settings.d/chef.yml.example %{buildroot}%{foreman_proxy_s
 %doc %{gem_docdir}
 
 %changelog
+* Wed Mar 18 2015 Marek Hulan <mhulan@redhat.com> 0.1.3-2
+- Fixes the overriding of config file (mhulan@redhat.com)
+
 * Tue Mar 17 2015 Marek Hulan <mhulan@redhat.com> 0.1.3-1
 - Update smart_proxy_chef to 0.1.3 (mhulan@redhat.com)
 
