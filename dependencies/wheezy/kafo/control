@@ -13,7 +13,7 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          puppet,
          ruby-clamp,
-         ruby-highline,
+         ruby-highline (< 1.7),
          ruby-kafo-parsers,
          ruby-logging,
          ruby-powerbar
