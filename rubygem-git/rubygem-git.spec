@@ -6,7 +6,7 @@
 Summary:        A package for using Git in Ruby code
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.2.5
-Release:        4%{?dist}
+Release:        5%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://rubyforge.org/projects/git/
@@ -45,6 +45,9 @@ rm -rf %{buildroot}
 %{gem_spec}
 
 %changelog
+* Wed Mar 18 2015 Dominic Cleal <dcleal@redhat.com> 1.2.5-5
+- Import and convert for SCL
+
 * Thu Feb 02 2012 Vít Ondruch <vondruch@redhat.com> - 1.2.5-4
 - Rebuilt for Ruby 1.9.3.
 
