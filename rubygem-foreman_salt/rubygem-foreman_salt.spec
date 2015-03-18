@@ -17,7 +17,7 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.1
+Version:    2.0.2
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -33,6 +33,8 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.6.9
+Requires: %{?scl_prefix}rubygem-foreman-tasks < 0.7.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -43,6 +45,8 @@ BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygem-foreman-tasks >= 0.6.9
+BuildRequires: %{?scl_prefix}rubygem-foreman-tasks < 0.7.0
 
 BuildArch: noarch
 
@@ -111,6 +115,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Mar 17 2015 Stephen Benjamin <stephen@redhat.com> 2.0.2-1
+- Update to 2.0.2
+
 * Tue Mar 03 2015 Stephen Benjamin <stephen@redhat.com> 2.0.1-1
 - Update to 2.0.1
 
