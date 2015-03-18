@@ -98,6 +98,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 18 2015 Dominic Cleal <dcleal@redhat.com> 1.5.0-1
+- Update foreman_templates to 1.5.0 (dcleal@redhat.com)
+
 * Wed Feb 26 2014 Dominic Cleal <dcleal@redhat.com> 1.4.0-2
 - Add git dependency (dcleal@redhat.com)
 
