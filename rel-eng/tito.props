@@ -217,6 +217,7 @@ whitelist = ipxe
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
+  rubygem-git
   rubygem-open4
   rubygem-opennebula
   rubygem-foreman_abrt
@@ -274,7 +275,7 @@ whitelist = rubygem-algebrick
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-open4
+  rubygem-git
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
