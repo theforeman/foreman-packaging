@@ -215,6 +215,7 @@ whitelist = ipxe
   rubygem-docker-api
   rubygem-dynflow
   rubygem-ffi
+  rubygem-git
   rubygem-jgrep
   rubygem-openscap
   rubygem-opennebula
@@ -284,6 +285,7 @@ whitelist = rubygem-algebrick
   rubygem-docker-api
   rubygem-dynflow
   rubygem-ffi
+  rubygem-git
   rubygem-jgrep
   rubygem-openscap
   rubygem-opennebula
