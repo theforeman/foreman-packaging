@@ -82,6 +82,9 @@ Patch201:       rubygem-passenger-4.0.18-correct_docs.patch
 Patch202:       rubygem-passenger-4.0.18_native_dir.patch
 Patch203:       rubygem-passenger-4.0.18-daemon-controller.patch
 
+# Change temp directory from /tmp to /var/run/rubygem-passenger
+Patch205:       rubygem-passenger-4.0.18-tmpdir.patch
+
 Requires: %{?scl_prefix}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
@@ -216,6 +219,9 @@ rebuilding this package.
 %patch202 -p1 -b .nativedir
 %patch203 -p1 -b .daemoncontroller
 
+# Change temp dir to /var/run
+%patch205 -p1 -b .tmpdir
+
 # Don't use bundled libev
 # %{__rm} -rf ext/libev
 
@@ -323,14 +329,11 @@ sed -i 's|\$localstatedir|%{_localstatedir}|' \
     %{buildroot}/etc/logrotate.d/%{?scl_prefix}passenger
 
 # # tmpfiles.d
-# %if 0%{?fedora} > 15
-# %{__mkdir_p} %{buildroot}/run
-# %{__mkdir_p} %{buildroot}%{_prefix}/lib/tmpfiles.d
-# install -m 0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
-# install -d -m 0755 %{buildroot}/run/%{name}
-# %else
-%{__mkdir_p} %{buildroot}%{_localstatedir}/run/rubygem-passenger
-# %endif
+%if 0%{?rhel} > 6
+  %{__mkdir_p} %{buildroot}%{_prefix}/lib/tmpfiles.d
+  install -m 0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{pkg_name}.conf
+%endif
+%{__mkdir_p} %{buildroot}%{_localstatedir}/run/%{pkg_name}
 
 # Bring over just the native binaries
 %{__mkdir_p} %{buildroot}%{gem_extdir_lib}/native
@@ -397,7 +400,10 @@ rake test --trace ||:
 %{_bindir}/%{gem_name}*
 %{_mandir}/man1/%{gem_name}-*
 %{_mandir}/man8/%{gem_name}-*
-%dir %{_localstatedir}/run/rubygem-passenger
+%if 0%{?rhel} > 6
+%{_prefix}/lib/tmpfiles.d/%{pkg_name}.conf
+%endif
+%dir %{_localstatedir}/run/%{pkg_name}
 %exclude %{gem_instdir}/configure
 %exclude %{gem_instdir}/debian.template/
 %exclude %{gem_cache}

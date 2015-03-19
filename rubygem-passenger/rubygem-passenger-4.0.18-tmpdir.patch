@@ -1,0 +1,84 @@
+diff --git a/ext/common/Utils.cpp b/ext/common/Utils.cpp
+index 690249f..d53044d 100644
+--- a/ext/common/Utils.cpp
++++ b/ext/common/Utils.cpp
+@@ -601,7 +601,7 @@ getSystemTempDir() {
+ 	if (temp_dir == NULL || *temp_dir == '\0') {
+ 		temp_dir = getenv("PASSENGER_TMPDIR");
+ 		if (temp_dir == NULL || *temp_dir == '\0') {
+-			temp_dir = "/tmp";
++			temp_dir = "/var/run/rubygem-passenger";
+ 		}
+ 	}
+ 	return temp_dir;
+diff --git a/lib/phusion_passenger/admin_tools.rb b/lib/phusion_passenger/admin_tools.rb
+index f149241..f6a7c82 100644
+--- a/lib/phusion_passenger/admin_tools.rb
++++ b/lib/phusion_passenger/admin_tools.rb
+@@ -30,7 +30,7 @@ module AdminTools
+ 				return ENV[name]
+ 			end
+ 		end
+-		return "/tmp"
++		return "/var/run/rubygem-passenger"
+ 	end
+ 	
+ 	def self.process_is_alive?(pid)
+diff --git a/lib/phusion_passenger/utils/tmpdir.rb b/lib/phusion_passenger/utils/tmpdir.rb
+index 8b5034d..0954b4e 100644
+--- a/lib/phusion_passenger/utils/tmpdir.rb
++++ b/lib/phusion_passenger/utils/tmpdir.rb
+@@ -37,7 +37,7 @@ protected
+ 	def self.passenger_tmpdir(create = true)
+ 		dir = @@passenger_tmpdir
+ 		if dir.nil? || dir.empty?
+-			tmpdir = "/tmp"
++			tmpdir = "/var/run/rubygem-passenger"
+ 			["PASSENGER_TEMP_DIR", "PASSENGER_TMPDIR"].each do |name|
+ 				if ENV.has_key?(name) && !ENV[name].empty?
+ 					tmpdir = ENV[name]
+diff --git a/test/cxx/UtilsTest.cpp b/test/cxx/UtilsTest.cpp
+index 668d49d..528f4a1 100644
+--- a/test/cxx/UtilsTest.cpp
++++ b/test/cxx/UtilsTest.cpp
+@@ -136,14 +136,14 @@ namespace tut {
+ 	/***** Test getSystemTempDir() *****/
+ 	
+ 	TEST_METHOD(11) {
+-		// It returns "/tmp" if the PASSENGER_TEMP_DIR environment is NULL.
+-		ensure_equals(string(getSystemTempDir()), "/tmp");
++		// It returns "/var/run/rubygem-passenger" if the PASSENGER_TEMP_DIR environment is NULL.
++		ensure_equals(string(getSystemTempDir()), "/var/run/rubygem-passenger");
+ 	}
+ 	
+ 	TEST_METHOD(12) {
+-		// It returns "/tmp" if the PASSENGER_TEMP_DIR environment is an empty string.
++		// It returns "/var/run/rubygem-passenger" if the PASSENGER_TEMP_DIR environment is an empty string.
+ 		setenv("PASSENGER_TEMP_DIR", "", 1);
+-		ensure_equals(string(getSystemTempDir()), "/tmp");
++		ensure_equals(string(getSystemTempDir()), "/var/run/rubygem-passenger");
+ 	}
+ 	
+ 	TEST_METHOD(13) {
+diff --git a/test/ruby/utils_spec.rb b/test/ruby/utils_spec.rb
+index eb48ce4..1261abe 100644
+--- a/test/ruby/utils_spec.rb
++++ b/test/ruby/utils_spec.rb
+@@ -43,13 +43,13 @@ describe Utils do
+ 			Utils.passenger_tmpdir = @old_passenger_tmpdir
+ 		end
+ 		
+-		it "returns a directory under /tmp if Utils.passenger_tmpdir is nil" do
+-			File.dirname(passenger_tmpdir(false)).should == "/tmp"
++		it "returns a directory under /run/rubygem-passenger if Utils.passenger_tmpdir is nil" do
++			File.dirname(passenger_tmpdir(false)).should == "/run/rubygem-passenger"
+ 		end
+ 		
+-		it "returns a directory under /tmp if Utils.passenger_tmpdir is an empty string" do
++		it "returns a directory under /run/rubygem-passenger if Utils.passenger_tmpdir is an empty string" do
+ 			Utils.passenger_tmpdir = ''
+-			File.dirname(passenger_tmpdir(false)).should == "/tmp"
++			File.dirname(passenger_tmpdir(false)).should == "/run/rubygem-passenger"
+ 		end
+ 		
+ 		it "returns Utils.passenger_tmpdir if it's set" do
