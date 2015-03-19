@@ -3,13 +3,12 @@
 
 Summary: Foreman discovery commands for Hammer CLI
 Name: rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-discovery
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Source1: foreman_discovery.yml
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -45,7 +44,9 @@ mkdir -p .%{gem_dir}
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman_discovery.yml
+install -m 755 .%{gem_instdir}/config/foreman_discovery.yml \
+               %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman_discovery.yml
+
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -57,9 +58,11 @@ cp -pa .%{gem_dir}/* \
 %config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/foreman_discovery.yml
 %exclude %{gem_cache}
 %{gem_spec}
+%doc %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/config
 %doc %{gem_instdir}/README.md
 
 %changelog
