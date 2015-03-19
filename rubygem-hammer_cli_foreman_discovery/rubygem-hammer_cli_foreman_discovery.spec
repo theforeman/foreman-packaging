@@ -66,6 +66,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 19 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
+- Update hammer_cli_foreman_discovery to 0.0.2 (dcleal@redhat.com)
+
 * Tue Feb 10 2015 Lukas Zapletal <lzap+rpm@redhat.com>
 - new package built with tito
 
