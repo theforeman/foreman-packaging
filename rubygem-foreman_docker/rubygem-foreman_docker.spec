@@ -118,6 +118,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Mar 20 2015 Dominic Cleal <dcleal@redhat.com> 1.2.3-1.fm1_9
+- Update foreman_docker to 1.2.3 (dcleal@redhat.com)
+
 * Wed Mar 11 2015 Daniel Lobato Garcia <dlobatog@redhat.com> 1.2.2-1.fm1_8
 - Updating the version of foreman_docker to 1.2.2
 
