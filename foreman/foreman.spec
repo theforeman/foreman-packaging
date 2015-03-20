@@ -225,6 +225,7 @@ for Yum.
 %files release
 %config %{_sysconfdir}/yum.repos.d/*
 /etc/pki/rpm-gpg/*
+%{_sysconfdir}/rpm/macros.%{name}-dist
 
 %package libvirt
 Summary: Foreman libvirt support
@@ -360,6 +361,7 @@ Meta package to install asset pipeline support.
 Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
+Requires: %{name}-release = %{version}-%{release}
 Requires: %{name}-sqlite = %{version}-%{release}
 
 %description plugin
@@ -558,6 +560,11 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
 %%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
+EOF
+
+cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-dist << EOF
+# Version to use like a dist tag
+%%%{name}dist .fm$(echo %{version} | awk -F. '{print $1 "_" $2}')
 EOF
 
 cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-plugin << EOF
