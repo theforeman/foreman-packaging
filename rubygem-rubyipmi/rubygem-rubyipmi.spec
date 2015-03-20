@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Fri Mar 20 2015 Dominic Cleal <dcleal@redhat.com> 0.9.2-1
+- Update rubyipmi to 0.9.2 (dcleal@redhat.com)
+
 * Wed Mar 11 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-1
 - Update rubyipmi to 0.9.1 (dcleal@redhat.com)
 
