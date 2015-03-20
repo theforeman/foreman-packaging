@@ -52,7 +52,7 @@ Requires:       %{?scl_prefix}rubygem(sinatra)
 Requires:       %{?scl_prefix}rubygem(rack) >= 1.1.0
 Requires:       %{?scl_prefix}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos)
-Requires:       %{?scl_prefix}rubygem(rubyipmi)
+Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.9.2
 Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       sudo
