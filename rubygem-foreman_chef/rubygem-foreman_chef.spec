@@ -100,6 +100,9 @@ GEMFILE
 %{gem_instdir}/Rakefile
 
 %changelog
+* Sun Mar 22 2015 Marek Hulan <mhulan@redhat.com> 0.1.3-1
+- Update foreman_chef to 0.1.3 (mhulan@redhat.com)
+
 * Tue Feb 24 2015 Marek Hulan <mhulan@redhat.com> 0.1.2-1
 - Update foreman_chef to 0.1.2 (mhulan@redhat.com)
 
