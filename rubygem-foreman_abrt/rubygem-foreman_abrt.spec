@@ -103,7 +103,6 @@ GEMFILE
 # We need to run the db:migrate after the install transaction
 /usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
 /usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
 exit 0
 
