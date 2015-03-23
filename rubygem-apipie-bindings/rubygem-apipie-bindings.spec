@@ -5,7 +5,7 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.11
+Version: 0.0.12
 Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
@@ -13,12 +13,11 @@ URL: http://github.com/Apipie/apipie-bindings
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 Requires: %{?scl_prefix}rubygem(awesome_print)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(json) >= 1.2.1
-Requires: %{?scl_prefix}rubygem(mime-types) < 2.0.0
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
 Requires:      %{?scl_prefix}ruby(abi)
@@ -70,11 +69,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/doc
