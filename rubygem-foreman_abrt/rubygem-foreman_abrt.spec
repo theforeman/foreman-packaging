@@ -19,7 +19,7 @@
 Summary:    Display reports from Automatic Bug Reporting Tool in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.6
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_abrt
@@ -107,6 +107,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-2
+- Remove unused apipie:cache call (dcleal@redhat.com)
+
 * Thu Jan 15 2015 Martin Milata <mmilata@redhat.com> 0.0.6-1
 - Update to foreman_abrt-0.0.6
 
