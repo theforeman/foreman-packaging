@@ -21,7 +21,7 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.13
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
@@ -173,6 +173,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.6.13-2
+- Convert to build apipie resource docs (dcleal@redhat.com)
+
 * Tue Mar 17 2015 Dominic Cleal <dcleal@redhat.com> 0.6.13-1
 - Update foreman-tasks to 0.6.13 (inecas@redhat.com)
 
