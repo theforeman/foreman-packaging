@@ -1,3 +1,9 @@
+ruby-foreman-setup (2.1.0-3) stable; urgency=low
+
+  * Remove unused db:seed/apipie postinstall steps
+
+ -- Dominic Cleal <dcleal@redhat.com>  Mon, 23 Mar 2015 12:14:34 +0000
+
 ruby-foreman-setup (2.1.0-2) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it
