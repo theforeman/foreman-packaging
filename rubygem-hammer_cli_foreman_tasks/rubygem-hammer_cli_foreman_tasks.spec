@@ -68,3 +68,6 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
+- new package built with tito
+
