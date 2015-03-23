@@ -80,6 +80,13 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
+%posttrans
+# We need to run the db:migrate after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
+
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
@@ -92,7 +99,6 @@ GEMFILE
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/LICENSE
