@@ -26,7 +26,7 @@ Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman
+Requires: foreman >= 1.8.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -49,7 +49,6 @@ Requires(post): systemd-units
 Requires(preun): systemd-units
 BuildRequires: systemd
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -57,6 +56,13 @@ BuildRequires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(abi)
 %endif
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.7.7
+BuildRequires: %{?scl_prefix}rubygem-sequel
+BuildRequires: %{?scl_prefix}rubygem(sinatra)
+BuildRequires: %{?scl_prefix}rubygem(daemons)
+BuildRequires: foreman-plugin >= 1.8.0
+
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -92,10 +98,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 #copy init scripts and sysconfigs
 %if 0%{?rhel} == 6
@@ -133,10 +137,10 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 
 %posttrans
 # We need to run the db:migrate after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%foreman_db_migrate
+%foreman_db_seed
+%foreman_apipie_cache
+%foreman_restart
 exit 0
 
 %files
@@ -148,7 +152,9 @@ exit 0
 %{gem_instdir}/db
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/foreman-tasks.rb
+%{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %doc %{gem_instdir}/LICENSE
 %{bin_dir}/%{service_name}
 %if 0%{?rhel} == 6
