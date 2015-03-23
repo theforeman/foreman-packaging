@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.12-1
+- Update apipie-bindings to 0.0.12 (dcleal@redhat.com)
+
 * Mon Nov 10 2014 Dominic Cleal <dcleal@redhat.com> 0.0.11-1
 - Update rubygem-apipie-bindings to 0.0.11 (martin.bacovsky@gmail.com)
 - Remove unused fastercsv dependency (dcleal@redhat.com)
