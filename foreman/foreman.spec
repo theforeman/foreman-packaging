@@ -79,7 +79,7 @@ Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 2.7
 Requires: %{?scl_prefix}rubygem(scoped_search) < 3.0
-Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3
+Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.4
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 1.0
@@ -133,7 +133,7 @@ BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 2.7
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3
+BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.4
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.2.5
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 1.0
