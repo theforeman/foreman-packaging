@@ -89,7 +89,7 @@ SYSCONFDIR=%{_sysconfdir} \
 
 #replace shebangs for SCL
 %if %{?scl:1}%{!?scl:0}
-  for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
+  for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb extra/migrate_dns_settings.rb; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' extra/spec/foreman-proxy.init
@@ -201,13 +201,25 @@ getent passwd foreman-proxy >/dev/null || \
 if [ $1 == 2 -a ! -e %{_sysconfdir}/%{name}/settings.d ]; then
   test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir -p %{_localstatedir}/lib/rpm-state/%{name}
   cp %{_sysconfdir}/%{name}/settings.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig
+elif [ $1 == 2 -a -e %{_sysconfdir}/%{name}/settings.d/dns.yml]; then
+  test -e %{_localstatedir}/lib/rpm-state/%{name}/settings.d || mkdir -p %{_localstatedir}/lib/rpm-state/%{name}/settings.d
+  cp %{_sysconfdir}/%{name}/settings.d/dns.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.d/dns.yml.orig
 fi
 
 exit 0
 
 %post
-# Migrate legacy monolithic proxy config
-if [ $1 == 2 -a -e %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig ]; then
+# Migrate legacy proxy config
+if [ $1 == 2 -a -e %{_localstatedir}/lib/rpm-state/%{name}/settings.d/dns.yml.orig ]; then
+  pushd %{_localstatedir}/lib/rpm-state/%{name}/settings.d >/dev/null
+  if %{homedir}/extra/migrate_dns_settings.rb dns.yml.orig; then
+    rm -f dns.yml.orig
+    ls *.yml >/dev/null 2>&1 && mv *.yml %{_sysconfdir}/%{name}/settings.d/
+  else
+    rm -f dns.yml.orig
+  fi
+  popd >/dev/null
+elif [ $1 == 2 -a -e %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig ]; then
   pushd %{_localstatedir}/lib/rpm-state/%{name} >/dev/null
   if %{homedir}/extra/migrate_settings.rb settings.yml.orig; then
     mv settings.yml %{_sysconfdir}/%{name}
