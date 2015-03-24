@@ -11,7 +11,7 @@
 
 %global gem_name foreman_discovery
 
-%global mainver 2.0.0
+%global mainver 2.0.1
 #global prever .rc2
 %global release 1
 %{?prever:
