@@ -118,6 +118,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Mar 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.4-1.fm1_9
+- plugins:foreman_docker - Release 1.2.4 (elobatocs@gmail.com)
+- Min of foreman 1.8.0 due to post-install scriptlet (dcleal@redhat.com)
+
 * Fri Mar 20 2015 Dominic Cleal <dcleal@redhat.com> 1.2.3-1.fm1_9
 - Update foreman_docker to 1.2.3 (dcleal@redhat.com)
 
