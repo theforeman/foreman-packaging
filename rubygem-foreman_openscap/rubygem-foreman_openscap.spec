@@ -15,7 +15,7 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.3
+Version: 0.4.0
 Release: 1%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
@@ -103,7 +103,6 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 %files doc
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 
 %posttrans
 # We need to run the db:migrate (because of SCAPtimony) after the install transaction
@@ -114,6 +113,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Wed Mar 25 2015 Šimon Lukašík <slukasik@redhat.com> - 0.4.0-1
+- new upstream release
+
 * Thu Mar 19 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.3-1
 - new upstream release
 
