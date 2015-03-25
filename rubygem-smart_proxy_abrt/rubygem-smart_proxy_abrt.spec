@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Wed Mar 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
+- Update smart_proxy_abrt to 0.0.7 (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-3
 - Missing config option for yaml file (lzap+git@redhat.com)
 
