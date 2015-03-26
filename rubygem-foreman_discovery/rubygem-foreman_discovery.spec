@@ -11,8 +11,8 @@
 
 %global gem_name foreman_discovery
 
-%global mainver 1.4.0
-%global prever .rc4
+%global mainver 2.0.1
+#global prever .rc2
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -34,12 +34,8 @@ License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
-Requires:   foreman >= 1.6.0
-Requires:   %{?scl_prefix}rubygem(open4)
-Requires:   %{?scl_prefix}rubygem(ftools)
-Requires:   advancecomp
-Requires:   squashfs-tools
-Requires:   sudo
+Requires:   foreman >= 1.7.0
+Requires:   %{?scl_prefix}rubygem(deface) < 1.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -92,28 +88,17 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
-mkdir -p %{buildroot}/etc/sudoers.d
-cat <<SUDOERS > %{buildroot}/etc/sudoers.d/%{gem_name}
-# Required to run the discovery:build_image rake task as 'foreman'
-foreman ALL = NOPASSWD : %{gem_instdir}/extra/build_iso.sh *, /bin/true
-Defaults:foreman !requiretty
-SUDOERS
-
-# Output directory of the imgae build task
-mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
-
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
 %{gem_instdir}/lib
 %{gem_instdir}/config
-%{gem_instdir}/extra
+%{gem_instdir}/db
+%exclude %{gem_instdir}/extra
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%attr(0755,foreman,foreman) %{foreman_dir}/discovery_image
-%config %attr(0440,root,root) /etc/sudoers.d/%{gem_name}
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
@@ -122,9 +107,35 @@ mkdir -p %{buildroot}/%{foreman_dir}/discovery_image
 %files doc
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
+
+%posttrans
+# We need to run the db:migrate after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
 
 %changelog
+* Mon Feb 09 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
+- Version bump to discovery 2.0.0 (lzap+git@redhat.com)
+
+* Sun Feb 01 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-0.1.rc2
+- Update foreman_discovery to 2.0.0.rc2 (lzap+git@redhat.com)
+
+* Tue Jan 20 2015 Lukas Zapletal <lzap+rpm@redhat.com> - 2.0.0-0.1.rc1
+- Dropped extra/ directory and TCL building dependencies
+- Update to foreman_discovery 2.0.0.rc1
+
+* Tue Nov 25 2014 Lukas Zapletal <lzap+rpm@redhat.com> - 1.4.1-1
+- Update to foreman_discovery 1.4.1
+
+* Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-2
+- Update to foreman_discovery 1.4.0-2
+
+* Thu Oct 30 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-1
+- Updated foreman_discovery to 1.4.0 (lzap+git@redhat.com)
+
 * Wed Oct 01 2014 Lukas Zapletal <lzap+git@redhat.com> 1.4.0-0.1.rc4
 - Update rubygem-foreman_discovery to 1.4.0.rc4 (lzap+git@redhat.com)
 
