@@ -256,6 +256,9 @@ fi
 
 
 %changelog
+* Thu Mar 26 2015 Dominic Cleal <dcleal@redhat.com> 1.8.0-0.1.RC2
+- Release 1.8.0-RC2
+
 * Tue Mar 10 2015 Dominic Cleal <dcleal@redhat.com> 1.8.0-0.1.RC1
 - Release 1.8.0-RC1
 
