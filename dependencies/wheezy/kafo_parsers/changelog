@@ -1,3 +1,9 @@
+ruby-kafo-parsers (0.0.5-1) stable; urgency=low
+
+  * fixes #9916 - initialise Puppet using public APIs (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Sun, 29 Mar 2015 11:17:48 +0000
+
 ruby-kafo-parsers (0.0.3-1) stable; urgency=low
 
   * Fix annoying typo (dcleal@redhat.com)
