@@ -117,6 +117,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Mon Mar 30 2015 Dominic Cleal <dcleal@redhat.com> 2.0.2-1
+- Update foreman_discovery to 2.0.2 (lzap+git@redhat.com)
+
 * Thu Mar 26 2015 Dominic Cleal <dcleal@redhat.com> 2.0.1-1
 - Updated Foreman Discovery to 2.0.1 (lzap+git@redhat.com)
 
