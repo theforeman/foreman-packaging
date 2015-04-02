@@ -32,7 +32,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.7%{?dist}
+Release: 9.8%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -437,6 +437,9 @@ rake test --trace ||:
 %{gem_extdir_lib}
 
 %changelog
+* Thu Apr 02 2015 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.8
+- Create correct /var/run dir on boot (#10001) (dcleal@redhat.com)
+
 * Thu Mar 19 2015 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.7
 - Change temp dir to /run for cross-process status to work (#8392)
   (dcleal@redhat.com)
