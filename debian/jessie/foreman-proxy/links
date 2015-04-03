@@ -1,0 +1,2 @@
+etc/foreman-proxy       usr/share/foreman-proxy/config
+var/cache/foreman-proxy usr/share/foreman-proxy/cache

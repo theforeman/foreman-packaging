@@ -1,0 +1,207 @@
+Source: foreman
+Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
+Section: web
+Priority: extra
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.1), ruby2.1-dev, git | git-core,
+               libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
+               libvirt-dev, libsqlite3-dev, facter, build-essential, curl
+Homepage: http://www.theforeman.org/
+
+Package: foreman
+Architecture: any
+Section: web
+Priority: extra
+Depends: ruby2.1, bundler (>= 1.1), libxslt1-dev,
+         ruby2.1-dev, facter, build-essential,
+         rake (>=0.8.4), ${misc:Depends}
+Recommends: foreman-proxy, foreman-debug
+Conflicts: ruby-activerecord-deprecated-finders
+Description: Systems management web interface
+ Foreman is aimed to be a single address for all machines life cycle management.
+ .
+  - Foreman integrates with Puppet and acts as web front end to it.
+  - Foreman takes care of bare bone provisioning until the point puppet is
+    running, allowing Puppet to do what it does best.
+  - Foreman shows you Systems Inventory (based on Facter) and provides real time
+    information about hosts status based on Puppet reports.
+  - Foreman creates everything you need when adding a new machine to your
+    network. Its goal being automatically managing everything you would
+    normally manage manually - that would eventually include DNS, DHCP,
+    TFTP, PuppetCA, CMDB and everything else you might consider useful.
+  - With Foreman you can always rebuild your machines from scratch.
+  - Foreman is designed to work in a large enterprise, where multiple domains,
+    subnets and puppetmasters are required.
+    In many cases, Foreman could help remote provisions where no experienced
+    technicians are available.
+
+Package: foreman-postgresql
+Architecture: all
+Section: web
+Priority: extra
+Replaces: foreman-pgsql
+Provides: foreman-pgsql
+Conflicts: foreman-pgsql
+Depends: foreman, libpq-dev, ${misc:Depends}
+Description: metapackage providing PostgreSQL dependencies for Foreman
+ This package provides PostgreSQL dependencies for Foreman, a
+ flexible systems management web application. Install this
+ one if you want to use a PostgreSQL database with Foreman.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-sqlite3
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, libsqlite3-dev , ${misc:Depends}
+Description: metapackage providing sqlite dependencies for Foreman
+ This package provides sqlite dependencies for Foreman, a
+ flexible systems management web application. Install this
+ one if you want to use a SQLite database with Foreman.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-console
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing console dependencies for Foreman
+ This package provides console dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-devel
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing development dependencies for Foreman
+ This package provides development dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-compute
+Architecture: all
+Section: web
+Priority: extra
+Recommends: foreman-ec2
+Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
+Description: metapackage providing fog dependencies for Foreman,
+ adding OpenStack and Rackspace compute resource support.
+ This package provides fog dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-ec2
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing EC2 dependencies for Foreman
+ This package provides Amazon EC2 dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-libvirt
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, foreman-compute, pkg-config, libvirt-dev, ${misc:Depends}
+Description: metapackage providing libvirt dependencies for Foreman
+ This package provides libvirt dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-mysql2
+Architecture: all
+Section: web
+Priority: extra
+Replaces: foreman-mysql
+Provides: foreman-mysql
+Conflicts: foreman-mysql
+Depends: foreman, libmysqlclient-dev, ${misc:Depends}
+Description: metapackage providing mysql2 dependencies for Foreman
+ This package provides mysql2 dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-ovirt
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, foreman-compute, ${misc:Depends}
+Description: metapackage providing ovirt dependencies for Foreman
+ This package provides ovirt dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-test
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing test dependencies for Foreman
+ This package provides test dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-assets
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing Rails asset dependencies for Foreman
+ This package provides asset dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-vmware
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, foreman-compute, ${misc:Depends}
+Description: metapackage providing vmware dependencies for Foreman
+ This package provides vmware dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-cli
+Architecture: all
+Section: ruby
+Priority: optional
+Depends: ruby-hammer-cli, ruby-hammer-cli-foreman
+Description: metapackage providing hammer CLI for Foreman
+ This package provides Hammer CLI preconfigured with a module
+ containing foreman commands.
+
+Package: foreman-gce
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, foreman-compute, ${misc:Depends}
+Description: metapackage providing GCE dependencies for Foreman
+ This package provides Google Compute Engine dependencies for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-debug
+Architecture: all
+Section: ruby
+Priority: extra
+Depends: rsync
+Description: provides support utility foreman-debug.
+ .
+ The foreman package should be installed along with this package.
