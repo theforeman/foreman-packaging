@@ -13,6 +13,7 @@ URL: https://github.com/openscap/foreman_scap_client
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: bzip2
 Requires: ruby(rubygems)
+Requires: scap-security-guide
 %if 0%{?rhel} >= 5 && 0%{?rhel} <= 6
 BuildRequires: ruby(abi) >= %{rubyabi}
 Requires: ruby(abi) >= %{rubyabi}
@@ -84,6 +85,11 @@ mkdir -p %{buildroot}%{config_dir}
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+
+%post
+if [ $1 == 1 ] ; then
+  %{gem_instdir}/bin/sync_scap_content
+fi
 
 %changelog
 * Fri Jan 30 2015 Šimon Lukašík <slukasik@redhat.com> - 0.1.0-1
