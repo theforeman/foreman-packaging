@@ -1,3 +1,10 @@
+ruby-kafo (0.6.7-1) stable; urgency=low
+
+  * Fixes #9996: Exposes Puppet's --profile as an option for installers. (ericdhelms@gmail.com)
+  * Pin down logging for Ruby 1.8 support (mhulan@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 06 Apr 2015 12:42:42 +0000
+
 ruby-kafo (0.6.6-1) stable; urgency=low
 
   * Fixes 6279 - add skip system checks option (mhulan@redhat.com)
