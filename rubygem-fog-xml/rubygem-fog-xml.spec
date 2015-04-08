@@ -70,6 +70,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
+* Wed Apr 08 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
+- Update fog-xml to 0.1.2 (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+
 * Thu Nov 20 2014 Dominic Cleal <dcleal@redhat.com> 0.1.1-1
 - Update fog-xml to 0.1.1 (dcleal@redhat.com)
 
