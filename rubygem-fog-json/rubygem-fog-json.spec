@@ -6,15 +6,17 @@
 Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-multi_json => 1.0
-Requires: %{?scl_prefix}rubygem-multi_json < 2
+Requires: %{?scl_prefix}rubygem(multi_json) => 1.0
+Requires: %{?scl_prefix}rubygem(multi_json) < 2
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1
+Requires: %{?scl_prefix}rubygem(fog-core) < 2
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 %else
@@ -55,14 +57,18 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %{gem_spec}
+%{gem_instdir}/LICENSE.md
 %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/.*
 
 %files doc
-%{gem_instdir}/LICENSE.txt
+%{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/CONTRIBUTING.md
+%{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md
 %{gem_instdir}/test
 %{gem_instdir}/Gemfile*
+%{gem_instdir}/gemfiles
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-json.gemspec
 
