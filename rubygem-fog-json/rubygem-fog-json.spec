@@ -73,6 +73,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-json.gemspec
 
 %changelog
+* Wed Apr 08 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
+- Update fog-json to 1.0.1 (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+
 * Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
 - Fix Provides for correct gem name (dcleal@redhat.com)
 
