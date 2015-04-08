@@ -6,7 +6,7 @@
 Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.1
+Version: 0.1.2
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
