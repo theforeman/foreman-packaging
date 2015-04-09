@@ -164,6 +164,7 @@ BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(execjs) < 2.5.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
