@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+export DEST=$$(pwd)/debian/foreman-installer
+
+override_dh_auto_build:
+	rake build PREFIX=/usr SBINDIR=/usr/sbin SYSCONFDIR=/etc KAFO_MODULES_DIR=/usr/lib/ruby/vendor_ruby/kafo/modules --trace
+
+override_dh_auto_install:
+	rake install PREFIX=${DEST}/usr SBINDIR=${DEST}/usr/sbin SYSCONFDIR=${DEST}/etc --trace
+
+%:
+	dh $@

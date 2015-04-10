@@ -1,0 +1,106 @@
+#!/bin/sh
+# postinst script for foreman
+#
+# see: dh_installdeb(1)
+
+[ -n "${DEBUG}" ] && set -x
+set -e
+
+. /usr/share/debconf/confmodule
+
+LOGFILE='/var/log/foreman-install.log'
+
+# if this script aborts with an error dpkg can hang if a debconf can
+# hang if daemons have been started
+trap db_stop EXIT
+
+# Add the "foreman" user and group
+getent group foreman >/dev/null || groupadd -r foreman
+getent passwd foreman >/dev/null || \
+    useradd -r -g foreman -d /usr/share/foreman -s /usr/sbin/nologin -c "Foreman" foreman
+
+chown -Rf foreman:foreman '/var/log/foreman'
+chown -Rf foreman:foreman '/var/cache/foreman'
+chown -Rf foreman:foreman '/var/lib/foreman'
+chown -f foreman:foreman '/usr/share/foreman/.ssh'
+chmod 700 '/usr/share/foreman/.ssh'
+chmod 755 '/var/lib/foreman'
+chmod 755 '/var/lib/foreman/db'
+chmod 755 '/var/lib/foreman/public'
+chmod 755 '/var/lib/foreman/public/assets'
+chmod 755 '/var/cache/foreman'
+
+BUNDLE=bundle
+[ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+
+# Test for Gemfile.lock to determine the right action.
+export HOME=/usr/share/foreman
+cd /usr/share/foreman
+if [ -f Gemfile.lock ]; then
+  CMD="$BUNDLE update --local"
+else
+  CMD="$BUNDLE install --path ./vendor/ --local --no-prune"
+fi
+
+if [ ! -z "${DEBUG}" ]; then
+  $CMD
+else
+  $CMD 2>&1 >> $LOGFILE
+fi
+
+# encryption key used to encrypt DB contents
+# move the generated key file to /etc/foreman/ so users back it up, symlink to it from ~foreman
+if [ ! -e config/initializers/encryption_key.rb -a ! -e /etc/foreman/encryption_key.rb ]; then
+  touch config/initializers/encryption_key.rb
+  chmod 0660 config/initializers/encryption_key.rb
+  chgrp foreman config/initializers/encryption_key.rb
+  if [ ! -z "${DEBUG}" ]; then
+    /usr/sbin/foreman-rake security:generate_encryption_key || true
+  else
+    /usr/sbin/foreman-rake security:generate_encryption_key >> $LOGFILE 2>&1 || true
+  fi
+  chmod 0640 config/initializers/encryption_key.rb
+  mv config/initializers/encryption_key.rb /etc/foreman/
+fi
+if [ ! -e config/initializers/encryption_key.rb -a -e /etc/foreman/encryption_key.rb ]; then
+  ln -s /etc/foreman/encryption_key.rb config/initializers/
+fi
+
+# Run a db:migrate and db:seed if the user has created a dbfile
+# always attempt to reencrypt after update in case new fields can be encrypted
+if [ -f /usr/share/foreman/config/database.yml ]; then
+  if [ ! -z "${DEBUG}" ]; then
+    /usr/sbin/foreman-rake db:migrate db:compute_resources:encrypt || true
+    /usr/sbin/foreman-rake db:seed || true
+  else
+    /usr/sbin/foreman-rake db:migrate db:compute_resources:encrypt >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
+  fi
+fi
+
+# Generate apipie cache
+if [ ! -z "${DEBUG}" ]; then
+  /usr/sbin/foreman-rake apipie:cache:index || true
+else
+  /usr/sbin/foreman-rake apipie:cache:index >> $LOGFILE 2>&1 || true
+fi
+
+# Generate a static session token for signing cookies
+if [ ! -f config/initializers/local_secret_token.rb ]; then
+  touch config/initializers/local_secret_token.rb
+  chmod 0660 config/initializers/local_secret_token.rb
+  chgrp foreman config/initializers/local_secret_token.rb
+  if [ ! -z "${DEBUG}" ]; then
+    /usr/sbin/foreman-rake security:generate_token || true
+  else
+    /usr/sbin/foreman-rake security:generate_token >> $LOGFILE 2>&1 || true
+  fi
+  chmod 0640 config/initializers/local_secret_token.rb
+fi
+
+# Own all the core files
+chown -Rf foreman:foreman '/usr/share/foreman'
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-docker (0.0.3-1) unstable; urgency=medium
+
+  * Initial release for Debian/jessie
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 10 Apr 2015 18:18:53 +0200

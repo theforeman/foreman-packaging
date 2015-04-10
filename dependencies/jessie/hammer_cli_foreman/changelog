@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman (0.1.4-2) stable; urgency=low
+
+  * Initial release for Debian/jessie
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 10 Apr 2015 18:18:53 +0200
