@@ -5,7 +5,7 @@
 
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.2
+Version: 0.10.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: LGPLv2.1
