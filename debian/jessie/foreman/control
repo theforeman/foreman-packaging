@@ -101,7 +101,7 @@ Package: foreman-ec2
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman, foreman-compute, ${misc:Depends}
 Description: metapackage providing EC2 dependencies for Foreman
  This package provides Amazon EC2 dependencies for Foreman, a
  flexible systems management web application.
