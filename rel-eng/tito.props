@@ -76,6 +76,7 @@ whitelist = foreman-installer
   rubygem-highline
   rubygem-librarian-puppet
   rubygem-little-plugger
+  rubygem-locale
   rubygem-logging
   rubygem-multi_json
   rubygem-netrc
