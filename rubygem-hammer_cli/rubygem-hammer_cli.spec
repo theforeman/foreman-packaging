@@ -21,10 +21,10 @@ Requires: ruby(rubygems)
 Requires: rubygem(clamp)
 Requires: rubygem(rb-readline)
 Requires: rubygem(rest-client) < 1.7.0
-Requires: rubygem(logging)
+Requires: rubygem(logging) < 2.0.0
 Requires: rubygem(awesome_print)
 Requires: rubygem(table_print) >= 1.5.0
-Requires: rubygem(highline)
+Requires: rubygem(highline) < 1.7.0
 Requires: rubygem(fast_gettext)
 Requires: rubygem(locale) <= 2.0.9
 Requires: rubygem(json)
