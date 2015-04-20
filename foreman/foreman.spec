@@ -280,8 +280,8 @@ Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
 Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
 Requires:  %{name} = %{version}-%{release}
+Requires:  foreman-compute = %{version}-%{release}
 Provides:  foreman-ec2 = %{version}-%{release}
-Obsoletes: foreman-compute < 1.8.0
 
 %description ec2
 Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
