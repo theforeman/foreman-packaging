@@ -26,7 +26,7 @@ Requires: rubygem(awesome_print)
 Requires: rubygem(table_print) >= 1.5.0
 Requires: rubygem(highline) < 1.7.0
 Requires: rubygem(fast_gettext)
-Requires: rubygem(locale) <= 2.0.9
+Requires: rubygem(locale) >= 2.0.6
 Requires: rubygem(json)
 Requires: rubygem(fastercsv)
 Requires: rubygem(mime-types) < 2.0.0
