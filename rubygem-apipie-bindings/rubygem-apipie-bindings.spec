@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Apr 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.13-1
+- Update apipie-bindings to 0.0.13 (dcleal@redhat.com)
+
 * Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.12-1
 - Update apipie-bindings to 0.0.12 (dcleal@redhat.com)
 
