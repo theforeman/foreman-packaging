@@ -19,7 +19,7 @@
 Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.2.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
@@ -118,6 +118,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 23 2015 Dominic Cleal <dcleal@redhat.com> 1.2.4-2
+- Use foremandist macro in release (dcleal@redhat.com)
+
 * Wed Mar 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.4-1.fm1_9
 - plugins:foreman_docker - Release 1.2.4 (elobatocs@gmail.com)
 - Min of foreman 1.8.0 due to post-install scriptlet (dcleal@redhat.com)
