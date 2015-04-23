@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.0.13-1) stable; urgency=low
+
+  * Update to 0.0.13
+
+ -- Dominic Cleal <dcleal@redhat.com>  Thu, 23 Apr 2015 16:31:27 +0100
+
 ruby-apipie-bindings (0.0.12-1) stable; urgency=low
 
   * Initial release for Debian/jessie
