@@ -28,7 +28,7 @@
 Summary:    MaaS Discovery Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    %{mainver}
-Release:    %{?prever:0.}%{release}%{?prever}%{?foremandist}%{?dist}
+Release:    %{?prever:0.}%{release}%{?prever}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
