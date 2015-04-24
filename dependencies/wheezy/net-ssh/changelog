@@ -1,0 +1,5 @@
+ruby-net-ssh (1:2.9.1-1) unstable; urgency=medium
+
+  * Initial release for foreman repositories
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 18 Apr 2015 00:22:06 +0200

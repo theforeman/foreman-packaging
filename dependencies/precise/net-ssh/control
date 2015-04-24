@@ -1,0 +1,16 @@
+Source: ruby-net-ssh
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb
+Standards-Version: 3.9.5
+XS-Ruby-Versions: all
+
+Package: ruby-net-ssh
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter, ${misc:Depends}, ${shlibs:Depends}
+Description: Ruby implementation of the SSH protocol
+ Net::SSH is a pure-Ruby implementation of the SSH protocol. It allows
+ you to write programs that invoke and interact with processes on remote
+ servers, via SSH.
