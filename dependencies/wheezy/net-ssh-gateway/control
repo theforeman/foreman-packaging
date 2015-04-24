@@ -1,0 +1,18 @@
+Source: ruby-net-ssh-gateway
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb
+Standards-Version: 3.9.6
+XS-Ruby-Versions: all
+
+Package: ruby-net-ssh-gateway
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-net-ssh (>= 2.6.5)
+Description: Ruby library for tunneling connections to servers with ssh
+ Net::SSH::Gateway is a library for programmatically tunneling connections to
+ servers via a single "gateway" host.
+ It is useful for establishing Net::SSH connections to servers behind firewalls,
+ but can also be used to forward ports and establish connections of other types,
+ like HTTP, to servers with restricted access.
