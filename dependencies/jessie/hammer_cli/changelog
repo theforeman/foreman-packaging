@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.2.0-1) stable; urgency=low
+
+  * 0.2.0 release
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 24 Apr 2015 13:32:35 +0200
+
 ruby-hammer-cli (0.1.4-2) stable; urgency=low
 
   * Initial release for Debian/jessie
