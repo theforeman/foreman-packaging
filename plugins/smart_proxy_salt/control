@@ -10,6 +10,7 @@ XS-Ruby-Versions: all
 Package: ruby-smart-proxy-salt
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.8.0~rc1), salt-master, python
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.8.0~rc1), python
+Recommends: salt-master
 Description: SaltStack Plug-In for Foreman's Smart Proxy
  SaltStack Plug-In for Foreman's Smart Proxy
