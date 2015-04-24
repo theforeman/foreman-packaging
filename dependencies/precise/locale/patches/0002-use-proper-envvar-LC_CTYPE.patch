@@ -1,0 +1,126 @@
+From: Hleb Valoshka <375GNU@Gmail.COM>
+Date: Sun, 31 Mar 2013 18:45:43 +0300
+Subject: use proper envvar LC_CTYPE
+
+---
+ doc/text/news.md            |  2 +-
+ lib/locale/driver/env.rb    |  6 +++---
+ lib/locale/driver/posix.rb  |  2 +-
+ test/test_detect_general.rb | 10 +++++-----
+ test/test_driver_jruby.rb   |  2 +-
+ 5 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/doc/text/news.md b/doc/text/news.md
+index 263f7a6..0b15066 100644
+--- a/doc/text/news.md
++++ b/doc/text/news.md
+@@ -45,7 +45,7 @@ Ruby 1.9 on Windows support release.
+     Windows platform. [Patch by J. Pablo Fernández]
+   * [jruby] Fixed wrong variant format.
+     [GitHub#mutoh/locale#5] [Patch by Hleb Valoshka]
+-  * Fixed wrong environment variable check. `LC_CTYPES` is checked
++  * Fixed wrong environment variable check. `LC_CTYPE` is checked
+     instead of `LC_MESSAGES`.
+     [GitHub#mutoh/locale#5] [Debian#520181]
+     [Reported by Adeodato Simó] [Patch by Hleb Valoshka]
+diff --git a/lib/locale/driver/env.rb b/lib/locale/driver/env.rb
+index b4e96c6..a023383 100644
+--- a/lib/locale/driver/env.rb
++++ b/lib/locale/driver/env.rb
+@@ -34,11 +34,11 @@ module Locale
+     module Env
+       module_function
+ 
+-      # Gets the locale from environment variable. (LC_ALL > LC_CTYPES > LANG)
++      # Gets the locale from environment variable. (LC_ALL > LC_CTYPE > LANG)
+       # Returns: the locale as Locale::Tag::Posix.
+       def locale
+         # At least one environment valiables should be set on *nix system.
+-        [ENV["LC_ALL"], ENV["LC_CTYPES"], ENV["LANG"]].each do |loc|
++        [ENV["LC_ALL"], ENV["LC_CTYPE"], ENV["LANG"]].each do |loc|
+           if loc != nil and loc.size > 0
+             return Locale::Tag::Posix.parse(loc)
+           end
+@@ -46,7 +46,7 @@ module Locale
+         nil
+       end
+ 
+-      # Gets the locales from environment variables. (LANGUAGE > LC_ALL > LC_CTYPES > LANG)
++      # Gets the locales from environment variables. (LANGUAGE > LC_ALL > LC_CTYPE > LANG)
+       # * Returns: an Array of the locale as Locale::Tag::Posix or nil.
+       def locales
+         locales = ENV["LANGUAGE"]
+diff --git a/lib/locale/driver/posix.rb b/lib/locale/driver/posix.rb
+index 16d8efd..eaf03e4 100644
+--- a/lib/locale/driver/posix.rb
++++ b/lib/locale/driver/posix.rb
+@@ -30,7 +30,7 @@ module Locale
+       $stderr.puts self.name + " is loaded." if $DEBUG
+ 
+       module_function
+-      # Gets the locales from environment variables. (LANGUAGE > LC_ALL > LC_CTYPES > LANG)
++      # Gets the locales from environment variables. (LANGUAGE > LC_ALL > LC_CTYPE > LANG)
+       # Only LANGUAGE accept plural languages such as "nl_BE;
+       # * Returns: an Array of the locale as Locale::Tag::Posix or nil.
+       def locales
+diff --git a/test/test_detect_general.rb b/test/test_detect_general.rb
+index ca0af22..6d47192 100644
+--- a/test/test_detect_general.rb
++++ b/test/test_detect_general.rb
+@@ -28,14 +28,14 @@ class TestDetectGeneral < Test::Unit::TestCase
+     Locale.init
+     Locale.clear_all
+     ENV["LC_ALL"] = nil
+-    ENV["LC_CTYPES"] = nil
++    ENV["LC_CTYPE"] = nil
+     ENV["LANG"] = nil
+     ENV["LANGUAGE"] = nil
+   end
+ 
+   def test_lc_all
+     ENV["LC_ALL"] = "ja_JP.eucJP"
+-    ENV["LC_CTYPES"] = "zh_CN.UTF-8"  #Ignored.
++    ENV["LC_CTYPE"] = "zh_CN.UTF-8"  #Ignored.
+     ENV["LANG"] = "ko_KR.UTF-8"  #Ignored.
+     ENV["LANGUAGE"] = nil
+ 
+@@ -51,7 +51,7 @@ class TestDetectGeneral < Test::Unit::TestCase
+ 
+   def test_lc_messages
+     ENV["LC_ALL"] = nil
+-    ENV["LC_CTYPES"] = "ja_JP.eucJP"
++    ENV["LC_CTYPE"] = "ja_JP.eucJP"
+     ENV["LANG"] = "ko_KR.UTF-8"  #Ignored.
+     ENV["LANGUAGE"] = nil
+ 
+@@ -67,7 +67,7 @@ class TestDetectGeneral < Test::Unit::TestCase
+ 
+   def test_lang
+     ENV["LC_ALL"] = nil
+-    ENV["LC_CTYPES"] = nil
++    ENV["LC_CTYPE"] = nil
+     ENV["LANG"] = "ja_JP.eucJP"
+     ENV["LANGUAGE"] = nil
+ 
+@@ -83,7 +83,7 @@ class TestDetectGeneral < Test::Unit::TestCase
+ 
+   def test_lang_complex
+     ENV["LC_ALL"] = "zh_CN.UTF-8"  # Ignored.
+-    ENV["LC_CTYPES"] = "ko_KR.UTF-8" #Ingored.
++    ENV["LC_CTYPE"] = "ko_KR.UTF-8" #Ingored.
+     ENV["LANG"] = "en_US.UTF-8"  # Ignored.
+     ENV["LANGUAGE"] ="ja_JP.eucJP:zh_CN.UTF-8"
+ 
+diff --git a/test/test_driver_jruby.rb b/test/test_driver_jruby.rb
+index 27e8e14..3eb7b84 100644
+--- a/test/test_driver_jruby.rb
++++ b/test/test_driver_jruby.rb
+@@ -26,7 +26,7 @@ begin
+ 
+     def setup
+       ENV["LC_ALL"] = nil
+-      ENV["LC_CTYPES"] = nil
++      ENV["LC_CTYPE"] = nil
+       ENV["LANG"] = nil
+       ENV["LANGUAGE"] = nil
+     end

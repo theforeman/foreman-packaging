@@ -1,0 +1,26 @@
+From: Hleb Valoshka <375GNU@Gmail.COM>
+Date: Mon, 1 Apr 2013 21:39:49 +0300
+Subject: fix bugs with charset handling
+
+   Fixes #520181
+---
+ lib/locale/taglist.rb | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/lib/locale/taglist.rb b/lib/locale/taglist.rb
+index e5d879c..2b6c8e7 100644
+--- a/lib/locale/taglist.rb
++++ b/lib/locale/taglist.rb
+@@ -46,11 +46,7 @@ module Locale
+     end
+     # Returns the top priority charset. (posix)
+     def charset
+-      if self[0].respond_to? :charset
+-        self[0].charset
+-      else
+-        ::Locale.driver_module.charset
+-      end
++      self[0].respond_to?(:charset) and self[0].charset or ::Locale.driver_module.charset
+     end
+     memoize :charset
+ 

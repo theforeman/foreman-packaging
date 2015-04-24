@@ -1,0 +1,64 @@
+ruby-locale (2.0.8-2) unstable; urgency=low
+
+  * Rebuild for Foreman repositories.
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 24 Apr 2015 14:43:17 +0200
+
+ruby-locale (2.0.8-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Standards-Version to 3.9.4 (no changes).
+  * Remove obsoleted DM-Upload-Allowed.
+  * Update watch file.
+  * Drop transitional packages.
+  * Update Vcs-* fields to use anonscm.debian.org.
+  * Update homepage.
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Sat, 17 Aug 2013 17:55:22 +0300
+
+ruby-locale (2.0.5-6) unstable; urgency=low
+
+  * Fix various bugs with charset handling (Closes: #520181)
+  * Fix lintian complaints.
+  * Better package description (thanks to Justin B. Rye).
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Tue, 09 Oct 2012 22:33:28 +0300
+
+ruby-locale (2.0.5-5) unstable; urgency=low
+
+  * Team upload.
+  * Bump build dependency on gem2deb to >= 0.3.0~.
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Sat, 30 Jun 2012 16:21:58 +0200
+
+ruby-locale (2.0.5-4) unstable; urgency=low
+
+  * Bugfix release, fixes are for:
+    - environmental variable LANGUAGE exists, but
+      isn't set (Closes: #670320)
+    - Locale.current= can't accept value from previuos
+      call to Locale.current (Closes: #600713)
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Thu, 26 Apr 2012 21:27:28 +0300
+
+ruby-locale (2.0.5-3) unstable; urgency=low
+
+  * Switch to gem2deb-based packaging.
+    - source and binary packages renamed to ruby-locale
+    - transitional packages added
+    - source format changed to 3.0 (quilt)
+  * Fix SecurityError under ruby1.9.1 and $SAFE>=1
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Wed, 14 Mar 2012 20:57:38 +0300
+
+liblocale-ruby (2.0.5-2) unstable; urgency=low
+
+  * Fix build-depends; add ruby1.9.1 (Closes: #571370)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Thu, 18 Feb 2010 21:13:45 +0900
+
+liblocale-ruby (2.0.5-1) unstable; urgency=medium
+
+  * Initial release (Closes: #570367)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Thu, 18 Feb 2010 20:50:05 +0900
