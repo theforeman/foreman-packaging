@@ -13,6 +13,6 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-hammer-cli-foreman (>= 0.1.2),
-         ruby-net-ssh-multi
+         ruby-net-ssh-multi (>= 1.2.1)
 Description: Remote SSH commands for Hammer CLI
  This Hammer CLI plugin contains set of commands to connect to other servers via SSH.
