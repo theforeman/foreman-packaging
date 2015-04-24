@@ -1,7 +1,7 @@
-From 5a1d91c89fc0ad4268f1e917e6f3bf2cbaeae84d Mon Sep 17 00:00:00 2001
+From 842ed11915e33dac0c6728c6874d917882fb3c9a Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 26 Nov 2014 10:00:53 +0000
-Subject: [PATCH 05/12] Remove fog-profitbricks dependency
+Subject: [PATCH 04/14] Remove fog-profitbricks dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,25 +9,25 @@ Subject: [PATCH 05/12] Remove fog-profitbricks dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index d719bc3..493feeb 100644
+index dc5b0de..ef5f87d 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -48,7 +48,6 @@ require 'fog/rage4'
- require 'fog/riakcs'
+@@ -49,7 +49,6 @@ require 'fog/riakcs'
  require 'fog/openstack'
  require 'fog/ovirt'
+ require 'fog/powerdns'
 -require 'fog/profitbricks'
  require 'fog/serverlove'
  require 'fog/storm_on_demand'
  require 'fog/terremark'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 0b4758d..b80d72d 100644
+index 5c4524e..aba827a 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -80,7 +80,6 @@ require 'fog/bin/rage4'
- require 'fog/bin/riakcs'
+@@ -81,7 +81,6 @@ require 'fog/bin/riakcs'
  require 'fog/bin/openstack'
  require 'fog/bin/ovirt'
+ require 'fog/bin/powerdns'
 -require 'fog/bin/profitbricks'
  require 'fog/bin/serverlove'
  require 'fog/bin/storm_on_demand'

@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.28.0
+Version: 1.29.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -24,11 +24,13 @@ Patch9:  fog-no-storm_on_demand.patch
 Patch10: fog-no-atmos.patch
 Patch11: fog-no-serverlove.patch
 Patch12: fog-no-riakcs.patch
+Patch13: fog-no-local.patch
+Patch14: fog-no-powerdns.patch
 
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0
 Requires: %{?scl_prefix}rubygem(fog-aws) < 1
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.27.3
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1.27.4
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -47,7 +49,7 @@ BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: %{?scl_prefix}rubygem(fog-aws) >= 0
 BuildRequires: %{?scl_prefix}rubygem(fog-aws) < 1
-BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.27.3
+BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.27.4
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -114,6 +116,10 @@ sed -i '/add_.*dependency.*atmos/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*serverlove/d' %{gem_name}.gemspec
 %patch12 -p1
 sed -i '/add_.*dependency.*riakcs/d' %{gem_name}.gemspec
+%patch13 -p1
+sed -i '/add_.*dependency.*fog-local/d' %{gem_name}.gemspec
+%patch14 -p1
+sed -i '/add_.*dependency.*powerdns/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}

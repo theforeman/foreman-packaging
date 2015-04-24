@@ -1,7 +1,7 @@
-From bc14205e4c9d0f2bf4f60bf9dfc3e58248bf24bd Mon Sep 17 00:00:00 2001
+From 51fae8c9082aba4519fddc532c501cbf2e5d612b Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 19 Nov 2014 10:33:34 +0000
-Subject: [PATCH 02/12] Remove fog-brightbox dependency
+Subject: [PATCH 01/14] Remove fog-brightbox dependency
 
 ---
  lib/fog.rb               |  1 -
@@ -10,7 +10,7 @@ Subject: [PATCH 02/12] Remove fog-brightbox dependency
  3 files changed, 37 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 06ffeac..fc56228 100644
+index 8ccfa3e..bb2fdef 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
 @@ -22,7 +22,6 @@ require 'fog/core/deprecated_connection_accessors'
@@ -22,7 +22,7 @@ index 06ffeac..fc56228 100644
  require 'fog/clodo'
  require 'fog/digitalocean'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 156ffc3..11a2663 100644
+index 0abdda1..feac1f9 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -54,7 +54,6 @@ end

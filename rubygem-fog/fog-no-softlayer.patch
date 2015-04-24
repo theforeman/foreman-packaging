@@ -1,7 +1,7 @@
-From d5e2b3bf0b437537e70ec3652223d73c80de8c48 Mon Sep 17 00:00:00 2001
+From 77e17422bf2276f38a5c6bf8ec484c79d1bb00f1 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 19 Nov 2014 10:35:43 +0000
-Subject: [PATCH 04/12] Remove fog-softlayer dependency
+Subject: [PATCH 03/14] Remove fog-softlayer dependency
 
 ---
  lib/fog.rb               |  1 -
@@ -10,11 +10,11 @@ Subject: [PATCH 04/12] Remove fog-softlayer dependency
  3 files changed, 55 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 3ffe05a..d719bc3 100644
+index ce91293..dc5b0de 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -50,7 +50,6 @@ require 'fog/openstack'
- require 'fog/ovirt'
+@@ -51,7 +51,6 @@ require 'fog/ovirt'
+ require 'fog/powerdns'
  require 'fog/profitbricks'
  require 'fog/serverlove'
 -require 'fog/softlayer'
@@ -22,11 +22,11 @@ index 3ffe05a..d719bc3 100644
  require 'fog/terremark'
  require 'fog/vcloud'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 300b8f8..0b4758d 100644
+index 644a93a..5c4524e 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -82,7 +82,6 @@ require 'fog/bin/openstack'
- require 'fog/bin/ovirt'
+@@ -83,7 +83,6 @@ require 'fog/bin/ovirt'
+ require 'fog/bin/powerdns'
  require 'fog/bin/profitbricks'
  require 'fog/bin/serverlove'
 -require 'fog/bin/softlayer'

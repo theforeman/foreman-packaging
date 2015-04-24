@@ -1,7 +1,7 @@
-From d2efdc2a1cf1f6b2d4079cdd9d02d5e14ca4bbde Mon Sep 17 00:00:00 2001
+From 3a61ff0b75b1154583216c44b436c68c67ff2dc9 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
-Date: Fri, 23 Jan 2015 10:55:28 +0000
-Subject: [PATCH 11/14] Remove fog-serverlove dependency
+Date: Fri, 24 Apr 2015 09:23:28 +0100
+Subject: [PATCH 14/14] Remove fog-powerdns dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,26 +9,26 @@ Subject: [PATCH 11/14] Remove fog-serverlove dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 93c1aef..dba436a 100644
+index 5854f42..88e670c 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -47,7 +47,6 @@ require 'fog/riakcs'
+@@ -44,7 +44,6 @@ require 'fog/rackspace'
+ require 'fog/rage4'
  require 'fog/openstack'
  require 'fog/ovirt'
- require 'fog/powerdns'
--require 'fog/serverlove'
+-require 'fog/powerdns'
  require 'fog/vcloud'
  require 'fog/vcloud_director'
  require 'fog/vsphere'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 397c449..f8cd6be 100644
+index 298d559..9a6e6ff 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -79,7 +79,6 @@ require 'fog/bin/riakcs'
+@@ -77,7 +77,6 @@ require 'fog/bin/rackspace'
+ require 'fog/bin/rage4'
  require 'fog/bin/openstack'
  require 'fog/bin/ovirt'
- require 'fog/bin/powerdns'
--require 'fog/bin/serverlove'
+-require 'fog/bin/powerdns'
  require 'fog/bin/vcloud'
  require 'fog/bin/vcloud_director'
  require 'fog/bin/vsphere'
