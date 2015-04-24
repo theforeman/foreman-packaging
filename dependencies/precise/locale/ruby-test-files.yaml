@@ -1,0 +1,8 @@
+--- 
+- test/test_detect_general.rb
+#- test/test_detect_cgi.rb
+- test/test_info.rb
+- test/test_memoizable.rb
+- test/test_taglist.rb
+- test/test_tag.rb
+- test/test_thread.rb

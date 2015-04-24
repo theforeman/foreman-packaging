@@ -1,0 +1,47 @@
+Source: ruby-locale
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb
+Standards-Version: 3.9.4
+Homepage: https://github.com/ruby-gettext/locale
+XS-Ruby-Versions: all
+
+Package: ruby-locale
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: Locale library for Ruby
+ Ruby-Locale is a pure Ruby library which provides a basic API for
+ localization.
+ .
+ It aims to support programs of every kind, from GUI applications to web
+ libraries, on all the platforms that Ruby works on, and to provide a
+ central hub for other i18n/l10n software.
+
+Package: liblocale-ruby
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-locale
+Description: Transitional package for ruby-locale
+ This is a transitional package to ease upgrades to the ruby-locale
+ package. It can safely be removed.
+
+Package: liblocale-ruby1.8
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-locale
+Description: Transitional package for ruby-locale
+ This is a transitional package to ease upgrades to the ruby-locale
+ package. It can safely be removed.
+
+Package: liblocale-ruby1.9.1
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, ruby-locale
+Description: Transitional package for ruby-locale
+ This is a transitional package to ease upgrades to the ruby-locale
+ package. It can safely be removed.
