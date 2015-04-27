@@ -107,6 +107,12 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 27 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- Update hammer_cli to 0.2.0 (dcleal@redhat.com)
+- refs #10154 - require locale 2.0.6 (dcleal@redhat.com)
+- Refresh hammer-cli dep versions (dcleal@redhat.com)
+- refs #8829 - use config/ template from gem (dcleal@redhat.com)
+
 * Fri Dec 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
 - Update hammer_cli to 0.1.4 (martin.bacovsky@gmail.com)
 - Added rb-readline dependency to rubygem-hammer_cli
