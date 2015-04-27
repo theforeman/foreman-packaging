@@ -68,6 +68,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 27 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
+- Update hammer_cli_foreman_tasks to 0.0.6 (dcleal@redhat.com)
+
 * Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
 - new package built with tito
 
