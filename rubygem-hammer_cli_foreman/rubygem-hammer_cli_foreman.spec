@@ -74,6 +74,10 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 
 
 %changelog
+* Mon Apr 27 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- Update hammer_cli_foreman to 0.2.0 (dcleal@redhat.com)
+- refs #8829 - use config/ template from gem (dcleal@redhat.com)
+
 * Fri Dec 12 2014 Dominic Cleal <dcleal@redhat.com> 0.1.4-1
 - Update hammer-cli-foreman to 0.1.4 (martin.bacovsky@gmail.com)
 
