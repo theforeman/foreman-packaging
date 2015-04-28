@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 1.0
-Release: 2%{?dist}
+Version: 1.1
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -50,6 +50,7 @@ Requires: %{scl_prefix_ruby}runtime
 Requires: %{scl_prefix_v8}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
+Obsoletes: ruby193-ruby-wrapper
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -146,6 +147,35 @@ install -m 644 %{?scl_name}.7 %{buildroot}%{_mandir}/man7/%{?scl_name}.7
 mkdir -p %{buildroot}%{_rpmconfigdir}/fileattrs/
 cp %{SOURCE2} %{buildroot}%{_rpmconfigdir}/fileattrs/
 
+# Install wrappers into system root to activate the SCL
+%{__mkdir_p} %{buildroot}%{_root_bindir}
+cat >> %{buildroot}%{_root_bindir}/%{scl_name}-ruby << EOF
+#!/bin/bash
+# Execute a single script with no arguments with 'scl', else it fails to
+# pass spaces/quotes in arguments through correctly (RHBZ#1248418).
+TMP=\$(mktemp)
+trap "rm -f \$TMP" EXIT
+echo -n ruby > \$TMP
+for arg in "\$@"; do
+  printf " %q" "\$arg" >> \$TMP
+done
+scl enable %{scl_name} "bash \$TMP"
+EOF
+# compatibility symlink
+ln -s %{scl_name}-ruby %{buildroot}%{_root_bindir}/ruby193-ruby
+
+cat >> %{buildroot}%{_root_bindir}/%{scl_name}-rake << EOF
+#!/bin/bash
+# Execute a single script with no arguments with 'scl', else it fails to
+# pass spaces/quotes in arguments through correctly (RHBZ#1248418).
+TMP=\$(mktemp)
+trap "rm -f \$TMP" EXIT
+echo -n rake > \$TMP
+for arg in "\$@"; do
+  printf " %q" "\$arg" >> \$TMP
+done
+scl enable %{scl_name} "bash \$TMP"
+EOF
 
 scl enable %{scl_ruby} - << \EOF
 # Fake tfm SCL environment.
@@ -179,6 +209,9 @@ selinuxenabled && load_policy || :
 %dir %{_mandir}/man*
 %config(noreplace) %{?_scl_scripts}/service-environment
 %{_mandir}/man7/%{scl_name}.*
+%attr(755,-,-) %{_root_bindir}/%{scl_name}-rake
+%attr(755,-,-) %{_root_bindir}/%{scl_name}-ruby
+%{_root_bindir}/ruby193-ruby
 
 %files build
 %doc LICENSE
@@ -190,6 +223,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue Apr 28 2015 Dominic Cleal <dcleal@redhat.com> - 1.1-1
+- Add tfm-ruby/rake wrappers to bindir
+
 * Wed Feb 04 2015 Dominic Cleal <dcleal@redhat.com> - 1.0-2
 - Provide changed vendor/dir prefix macros in tfm-build
 
