@@ -18,7 +18,7 @@
 
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.0
+Version:    0.2.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -94,6 +94,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 28 2015 Tommy McNeely <tommy@lark-it.com> 0.2.0-1
+- Version 0.2.0 (tommy@lark-it.com)
+- #10242 - Changed template name to _base for Foreman 1.8
+
 * Fri Feb 13 2015 Tommy McNeely <tommy@lark-it.com> 0.1.0-1
 - Version 0.1.0 (tommy@lark-it.com)
 - #8617 - add SSH key pair integration
