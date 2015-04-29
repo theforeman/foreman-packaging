@@ -145,6 +145,7 @@ BuildRequires: httpd-devel
 Requires: httpd-mmn = %{_httpd_mmn}
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native%{?_isa} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-mod_passenger}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 
 %description -n %{?scl_prefix}mod_passenger
@@ -155,6 +156,7 @@ Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost-devel) =  1.44
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 License: Boost and BSD and BSD with advertising and GPL+ and MIT and zlib
 
 %description devel
@@ -177,6 +179,7 @@ Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native-libs%{?_isa} = %{version}-%{release}
 Requires: %{name}%{?_isa} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native
 This package contains the native code extensions for Apache & Nginx
@@ -187,6 +190,7 @@ Summary: Phusion Passenger native extensions
 Group: System Environment/Daemons
 Requires: %{name}%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix_ruby}ruby
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native-libs}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native-libs
 This package contains the native shared library for Apache & Nginx

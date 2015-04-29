@@ -86,6 +86,7 @@ Summary:	Non-Gem support package for %{gemname}
 Group:		Development/Languages
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Provides:	%{?scl_prefix}ruby(%{gemname}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-ruby-%{gemname}}
 
 %description	-n %{?scl_prefix}ruby-%{gemname}
 This package provides non-Gem support for %{gemname}.

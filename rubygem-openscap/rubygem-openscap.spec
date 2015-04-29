@@ -59,6 +59,7 @@ provides only a subset of openscap functionality.
 Summary: Development for %{name}
 Requires: %{name} = %{version}-%{release}
 Requires: rubygems
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 BuildArch: noarch
 
 %description devel
