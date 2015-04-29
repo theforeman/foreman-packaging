@@ -118,6 +118,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Apr 29 2015 Dominic Cleal <dcleal@redhat.com> 1.3.0-1.fm1_9
+- plugins:foreman_docker - Release 1.3.0 (elobatocs@gmail.com)
+- Partially revert "Better branched builds with Foreman version macro"
+  (dcleal@redhat.com)
+
 * Thu Apr 23 2015 Dominic Cleal <dcleal@redhat.com> 1.2.4-2
 - Use foremandist macro in release (dcleal@redhat.com)
 
