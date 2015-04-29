@@ -114,6 +114,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Apr 29 2015 Dominic Cleal <dcleal@redhat.com> 1.3.1-1.fm1_7
+- plugins:foreman_docker - Release 1.3.1 (elobatocs@gmail.com)
+
 * Wed Apr 29 2015 Dominic Cleal <dcleal@redhat.com> 1.3.0-1.fm1_7
 - plugins:foreman_docker - Release 1.3.0 (elobatocs@gmail.com)
 
