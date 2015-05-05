@@ -24,6 +24,7 @@ URL: https://github.com/OpenSCAP/foreman_openscap
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: foreman >= 1.5.0
+Requires: scap-security-guide >= 0.1.22
 
 Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
