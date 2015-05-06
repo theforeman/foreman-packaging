@@ -11,7 +11,7 @@ Package: ruby-kafo
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         puppet,
+         puppet (< 4.0.0),
          ruby-clamp,
          ruby-highline (< 1.7),
          ruby-kafo-parsers,

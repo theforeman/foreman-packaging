@@ -1,3 +1,11 @@
+ruby-kafo (0.6.8-1) stable; urgency=low
+
+  * Pin puppet to < 4.0.0 (martin.bacovsky@gmail.com)
+  * Fixes #10390 - Hooks within group are executed in right order (martin.bacovsky@gmail.com)
+  * fix spelling mistakes and grammar errors in readme (Manna@Atix.de)
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 06 May 2015 10:11:59 +0000
+
 ruby-kafo (0.6.7-1) stable; urgency=low
 
   * Initial release for Debian/jessie
