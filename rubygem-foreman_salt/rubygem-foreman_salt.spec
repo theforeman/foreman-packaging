@@ -12,12 +12,10 @@
 %global gem_name foreman_salt
 
 %define rubyabi 1.9.1
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.2
+Version:    2.1.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -42,6 +40,7 @@ BuildRequires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
@@ -79,12 +78,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
-
-%foreman_precompile_plugin -a
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a -s
 
 %posttrans
 # We need to run the db:migrate after the install transaction
@@ -103,9 +98,11 @@ exit 0
 %{gem_instdir}/public
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
+%{foreman_bundlerd_plugin}
 %foreman_apipie_cache_foreman
+%{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_cache}
@@ -115,6 +112,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Sat May 09 2015 Stephen Benjamin <stephen@redhat.com> 2.1.0-1
+- Update to 2.1.0
+
 * Tue Mar 17 2015 Stephen Benjamin <stephen@redhat.com> 2.0.2-1
 - Update to 2.0.2
 
