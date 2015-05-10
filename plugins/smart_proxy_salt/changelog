@@ -1,3 +1,9 @@
+ruby-smart-proxy-salt (2.1.2-1) unstable; urgency=low
+
+  * Update to 2.1.2
+
+ -- Stephen Benjamin <stephen@redhat.com>  Sun, 10 May 2015 15:48:00 +0200
+
 ruby-smart-proxy-salt (2.0.0-1) unstable; urgency=low
 
   * Update to 2.0.0
