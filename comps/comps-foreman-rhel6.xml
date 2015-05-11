@@ -252,6 +252,7 @@
       <packagereq type="default">ruby193-rubygem-wirb-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-awesome_print-doc</packagereq>
+      <packagereq type="default">rubygem-bundler-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>

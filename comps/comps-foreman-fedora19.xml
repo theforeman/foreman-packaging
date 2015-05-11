@@ -86,6 +86,7 @@
       <packagereq type="default">rubygem-ruby_parser</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
+      <packagereq type="default">rubygem-scoped_search</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
       <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
@@ -152,6 +153,7 @@
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-ruby_parser-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
+      <packagereq type="default">rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>

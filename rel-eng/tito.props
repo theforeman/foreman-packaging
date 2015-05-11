@@ -191,6 +191,7 @@ whitelist = foreman
   rubygem-ruby_parser
   rubygem-rubyipmi
   rubygem-safemode
+  rubygem-scoped_search
   rubygem-secure_headers
   rubygem-sexp_processor
   rubygem-signet
