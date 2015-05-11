@@ -6,14 +6,14 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.7.1
+Version: 3.2.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-activerecord >= 2.1.0
+Requires: %{?scl_prefix}rubygem-activerecord >= 3.2.0
 BuildRequires: %{?scl_prefix}ruby 
 BuildRequires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
@@ -22,8 +22,9 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
 
 # for check section
-%if 0%{?fedora} > 17
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+%if 0%{?fedora} > 21
+BuildRequires: %{?scl_prefix}rubygem(rspec) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(rspec) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord)
 BuildRequires: %{?scl_prefix}rubygem(sqlite3)
 %endif
@@ -82,11 +83,7 @@ gem install -V \
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{.yardoc,.gitignore,.infinity_test,.travis.yml}
-mv %{buildroot}%{gem_instdir}/{LICENSE,README.rdoc} ./
-
-# https://github.com/wvanbergen/scoped_search/issues/26
-chmod a-x %{buildroot}%{gem_instdir}/lib/scoped_search.rb
-
+mv %{buildroot}%{gem_instdir}/{LICENSE,*.rdoc} ./
 rm %{buildroot}%{gem_cache}
 
 %check
@@ -98,10 +95,8 @@ sed -i "/require 'bundler\/setup'/ d" spec/spec_helper.rb
 # reincarnations.
 # do not test on postgresql and ruby
 sed '5,15d' -i spec/database.ruby.yml
-#test does not work right now
-#https://github.com/wvanbergen/scoped_search/issues/34
-#or more precisly works only on F18+
-%if 0%{?fedora} > 17
+# tests require rspec 3, only on F22+
+%if 0%{?fedora} > 21
 %{?scl:scl enable %{scl} "}
 rspec spec
 %{?scl:"}
@@ -112,13 +107,12 @@ popd
 %doc LICENSE
 %dir %{gem_instdir}
 %{gem_instdir}/lib
-%{gem_instdir}/init.rb
 %{gem_instdir}/app
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc README.rdoc
+%doc CHANGELOG.rdoc CONTRIBUTING.rdoc README.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/spec
