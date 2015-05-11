@@ -70,10 +70,10 @@ fi
 # always attempt to reencrypt after update in case new fields can be encrypted
 if [ -f /usr/share/foreman/config/database.yml ]; then
   if [ ! -z "${DEBUG}" ]; then
-    /usr/sbin/foreman-rake db:migrate db:compute_resources:encrypt || true
+    /usr/sbin/foreman-rake db:migrate db:encrypt_all || true
     /usr/sbin/foreman-rake db:seed || true
   else
-    /usr/sbin/foreman-rake db:migrate db:compute_resources:encrypt >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake db:migrate db:encrypt_all >> $LOGFILE 2>&1 || true
     /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
   fi
 fi
