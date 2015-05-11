@@ -150,6 +150,7 @@ whitelist = foreman
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
+  rubygem-fog-google
   rubygem-fog-json
   rubygem-fog-xml
   rubygem-foremancli
