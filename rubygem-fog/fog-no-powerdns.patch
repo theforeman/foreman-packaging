@@ -1,4 +1,4 @@
-From 3a61ff0b75b1154583216c44b436c68c67ff2dc9 Mon Sep 17 00:00:00 2001
+From 280ff9db5373d18bf5a8c58fcbe21b55f3834e93 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Fri, 24 Apr 2015 09:23:28 +0100
 Subject: [PATCH 14/14] Remove fog-powerdns dependency
@@ -9,10 +9,10 @@ Subject: [PATCH 14/14] Remove fog-powerdns dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 5854f42..88e670c 100644
+index b68fcc7..c741b2e 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -44,7 +44,6 @@ require 'fog/rackspace'
+@@ -43,7 +43,6 @@ require 'fog/rackspace'
  require 'fog/rage4'
  require 'fog/openstack'
  require 'fog/ovirt'
@@ -21,10 +21,10 @@ index 5854f42..88e670c 100644
  require 'fog/vcloud_director'
  require 'fog/vsphere'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 298d559..9a6e6ff 100644
+index c20861b..e45f7ff 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -77,7 +77,6 @@ require 'fog/bin/rackspace'
+@@ -76,7 +76,6 @@ require 'fog/bin/rackspace'
  require 'fog/bin/rage4'
  require 'fog/bin/openstack'
  require 'fog/bin/ovirt'

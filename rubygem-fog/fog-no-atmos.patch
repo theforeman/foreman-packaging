@@ -1,4 +1,4 @@
-From d8f32ce91289a462cf53715fab6df838aaed3df7 Mon Sep 17 00:00:00 2001
+From 3c97222a5f0623264705bc94d1fe877e7981f88d Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Fri, 23 Jan 2015 10:55:08 +0000
 Subject: [PATCH 10/14] Remove fog-atmos dependency
@@ -9,7 +9,7 @@ Subject: [PATCH 10/14] Remove fog-atmos dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 74ed216..93c1aef 100644
+index e0b3945..07a1100 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
 @@ -19,7 +19,6 @@ require 'fog/core/deprecated_connection_accessors'
@@ -21,7 +21,7 @@ index 74ed216..93c1aef 100644
  require 'fog/bluebox'
  require 'fog/cloudstack'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 206e180..397c449 100644
+index e3cda96..fa10372 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
 @@ -51,7 +51,6 @@ module Fog

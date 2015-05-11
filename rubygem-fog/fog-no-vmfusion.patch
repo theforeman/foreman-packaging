@@ -1,4 +1,4 @@
-From c8f2b5d2b08da14fff20998a102f3cc92c973f34 Mon Sep 17 00:00:00 2001
+From 812941eb3ce8bd0632b55ecf1631b9fbe481f4f8 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 26 Nov 2014 10:01:36 +0000
 Subject: [PATCH 06/14] Remove fog-vmfusion dependency
@@ -9,10 +9,10 @@ Subject: [PATCH 06/14] Remove fog-vmfusion dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 72028de..b816802 100644
+index cc2b9dc..47e3087 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -54,7 +54,6 @@ require 'fog/storm_on_demand'
+@@ -53,7 +53,6 @@ require 'fog/storm_on_demand'
  require 'fog/terremark'
  require 'fog/vcloud'
  require 'fog/vcloud_director'
@@ -21,10 +21,10 @@ index 72028de..b816802 100644
  require 'fog/xenserver'
  require 'fog/zerigo'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 21b2900..5385ec5 100644
+index ede5750..b8c1349 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -86,7 +86,6 @@ require 'fog/bin/storm_on_demand'
+@@ -85,7 +85,6 @@ require 'fog/bin/storm_on_demand'
  require 'fog/bin/terremark'
  require 'fog/bin/vcloud'
  require 'fog/bin/vcloud_director'

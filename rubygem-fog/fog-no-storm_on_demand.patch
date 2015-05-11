@@ -1,4 +1,4 @@
-From 5f8fa57522a642a2b8cf601740347cc22e407e40 Mon Sep 17 00:00:00 2001
+From 4431fae87de42d75f6ddcd1042314acf59005738 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Fri, 23 Jan 2015 10:54:33 +0000
 Subject: [PATCH 09/14] Remove fog-storm_on_demand dependency
@@ -9,10 +9,10 @@ Subject: [PATCH 09/14] Remove fog-storm_on_demand dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 2e11ab3..74ed216 100644
+index cfa9394..e0b3945 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -49,7 +49,6 @@ require 'fog/openstack'
+@@ -48,7 +48,6 @@ require 'fog/openstack'
  require 'fog/ovirt'
  require 'fog/powerdns'
  require 'fog/serverlove'
@@ -21,10 +21,10 @@ index 2e11ab3..74ed216 100644
  require 'fog/vcloud_director'
  require 'fog/vsphere'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 6cb56c0..206e180 100644
+index 82ed2ee..e3cda96 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -81,7 +81,6 @@ require 'fog/bin/openstack'
+@@ -80,7 +80,6 @@ require 'fog/bin/openstack'
  require 'fog/bin/ovirt'
  require 'fog/bin/powerdns'
  require 'fog/bin/serverlove'

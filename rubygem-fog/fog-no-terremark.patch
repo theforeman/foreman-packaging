@@ -1,4 +1,4 @@
-From fd969a01f90be5403dc99f2bbd1dac5b52313a2d Mon Sep 17 00:00:00 2001
+From 7cf86b69a319202f89ea5715e1c958d024a9eb11 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Wed, 26 Nov 2014 10:02:12 +0000
 Subject: [PATCH 07/14] Remove fog-terremark dependency
@@ -9,10 +9,10 @@ Subject: [PATCH 07/14] Remove fog-terremark dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index b816802..82e8164 100644
+index 47e3087..3fc61d3 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -51,7 +51,6 @@ require 'fog/ovirt'
+@@ -50,7 +50,6 @@ require 'fog/ovirt'
  require 'fog/powerdns'
  require 'fog/serverlove'
  require 'fog/storm_on_demand'
@@ -21,10 +21,10 @@ index b816802..82e8164 100644
  require 'fog/vcloud_director'
  require 'fog/vsphere'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index 5385ec5..de7766c 100644
+index b8c1349..78f42a4 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -83,7 +83,6 @@ require 'fog/bin/ovirt'
+@@ -82,7 +82,6 @@ require 'fog/bin/ovirt'
  require 'fog/bin/powerdns'
  require 'fog/bin/serverlove'
  require 'fog/bin/storm_on_demand'
