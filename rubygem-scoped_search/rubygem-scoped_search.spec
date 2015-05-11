@@ -7,7 +7,7 @@ Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 3.2.0-2
+- Fix ruby(abi) requirement on F19 (dcleal@redhat.com)
+
 * Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 3.2.0-1
 - Update scoped_search to 3.2.0 (dcleal@redhat.com)
 
