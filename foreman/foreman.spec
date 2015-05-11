@@ -230,8 +230,15 @@ for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
+%if 0%{?fedora}
+Requires: %{?scl_prefix}ruby-libvirt >= 0.4
+Requires: %{?scl_prefix}ruby-libvirt < 1.0
+%else
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
+%endif
 Requires: %{name} = %{version}-%{release}
 Requires: foreman-compute = %{version}-%{release}
 Obsoletes: foreman-virt < 1.0.0
@@ -260,7 +267,7 @@ Meta Package to install requirements for ovirt support
 %package compute
 Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.29.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.30.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.29.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
@@ -307,6 +314,8 @@ Meta Package to install requirements for vmware support
 %package gce
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
+Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0
+Requires: %{?scl_prefix}rubygem(fog-google) < 1.0
 Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.7
 Requires: %{?scl_prefix}rubygem(google-api-client) < 1.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
