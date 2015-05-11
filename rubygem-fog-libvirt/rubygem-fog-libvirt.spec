@@ -83,3 +83,6 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
+- new package built with tito
+
