@@ -58,6 +58,7 @@
       <packagereq type="default">ruby193-rubygem-fog-core</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-google</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-libvirt</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-xml</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli</packagereq>
@@ -193,6 +194,7 @@
       <packagereq type="default">ruby193-rubygem-fog-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-google-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreigner-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foremancli-doc</packagereq>
