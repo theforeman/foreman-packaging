@@ -14,9 +14,13 @@ URL: http://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-activerecord >= 3.2.0
-BuildRequires: %{?scl_prefix}ruby 
+BuildRequires: %{?scl_prefix}ruby
 BuildRequires: %{?scl_prefix}rubygems
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
