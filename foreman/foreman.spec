@@ -718,7 +718,7 @@ exit 0
 %posttrans
 # We need to run the db:migrate after the install transaction
 # always attempt to reencrypt after update in case new fields can be encrypted
-%{foreman_rake} db:migrate db:compute_resources:encrypt >> %{_localstatedir}/log/%{name}/db_migrate.log 2>&1 || :
+%{foreman_rake} db:migrate db:encrypt_all >> %{_localstatedir}/log/%{name}/db_migrate.log 2>&1 || :
 %{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
 %{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
 (/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
