@@ -50,6 +50,7 @@
       <packagereq type="default">rubygem-fog-core</packagereq>
       <packagereq type="default">rubygem-fog-google</packagereq>
       <packagereq type="default">rubygem-fog-json</packagereq>
+      <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
@@ -120,6 +121,7 @@
       <packagereq type="default">rubygem-fog-doc</packagereq>
       <packagereq type="default">rubygem-fog-google-doc</packagereq>
       <packagereq type="default">rubygem-fog-json-doc</packagereq>
+      <packagereq type="default">rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foremancli-doc</packagereq>
