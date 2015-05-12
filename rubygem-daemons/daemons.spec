@@ -5,7 +5,7 @@
 
 Summary: A toolkit to create and control daemons in different ways
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.1
+Version: 1.2.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
