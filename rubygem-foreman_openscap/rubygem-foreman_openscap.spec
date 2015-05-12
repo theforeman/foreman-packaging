@@ -114,6 +114,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Tue May 12 2015 Dominic Cleal <dcleal@redhat.com> 0.4.1-1
+- foreman_openscap 0.4.1 (shlomi@ben-hanna.com)
+
 * Wed Mar 25 2015 Šimon Lukašík <slukasik@redhat.com> - 0.4.0-1
 - new upstream release
 
