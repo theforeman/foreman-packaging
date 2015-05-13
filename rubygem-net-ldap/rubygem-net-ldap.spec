@@ -17,7 +17,11 @@ BuildRequires: %{?scl_prefix}rubygems-devel
 #BuildRequires: %{?scl_prefix}rubygem(rspec-core)
 #BuildRequires: %{?scl_prefix}rubygem(flexmock)
 BuildRequires: %{?scl_prefix}rubygem(minitest)
+%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
 Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # this package obsoletes rubygem-ruby-net-ldap

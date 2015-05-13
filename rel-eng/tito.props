@@ -179,6 +179,7 @@ whitelist = foreman
   rubygem-multi-select-rails
   rubygem-mysql
   rubygem-mysql2
+  rubygem-net-ldap
   rubygem-net-scp
   rubygem-po_to_json
   rubygem-powerbar
