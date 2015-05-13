@@ -97,6 +97,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Wed May 13 2015 Dominic Cleal <dcleal@redhat.com> 0.11-1
+- Update net-ldap to 0.11 (dcleal@redhat.com)
+
 * Wed Dec 10 2014 Dominic Cleal <dcleal@redhat.com> 0.10.0-1
 - Update net-ldap to 0.10.0 (dcleal@redhat.com)
 
