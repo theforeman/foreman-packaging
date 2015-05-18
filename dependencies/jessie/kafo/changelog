@@ -1,3 +1,9 @@
+ruby-kafo (0.6.9-1) stable; urgency=low
+
+  * Fixes #10500 - sorting of hooks by name for symbols (jkim@jkimdt.usersys.redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 18 May 2015 07:57:18 +0000
+
 ruby-kafo (0.6.8-1) stable; urgency=low
 
   * Pin puppet to < 4.0.0 (martin.bacovsky@gmail.com)
