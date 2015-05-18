@@ -1,3 +1,9 @@
+ruby-foreman-dynflow (0.7.8) stable; urgency=low
+
+  * 0.7.8 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Mon, 18 May 2015 11:02:01 +0200
+
 ruby-foreman-dynflow (0.7.7-1) stable; urgency=low
 
   * Update to 0.7.7
