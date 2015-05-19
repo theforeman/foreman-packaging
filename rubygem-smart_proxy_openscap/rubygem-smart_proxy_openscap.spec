@@ -3,10 +3,11 @@
 %global foreman_proxy_bundlerd_dir %{_datadir}/foreman-proxy/bundler.d
 %global foreman_proxy_pluginconf_dir %{_sysconfdir}/foreman-proxy/settings.d
 %global spool_dir %{_var}/spool/foreman-proxy/openscap
+%global content_dir %{_sharedstatedir}/foreman-proxy/openscap
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.4.0
+Version: 0.4.1
 Release: 1%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy.
 Group: Applications/Internet
@@ -82,6 +83,10 @@ mv %{buildroot}%{gem_instdir}/extra/smart-proxy-openscap-send.cron \
 # create spool directory
 mkdir -p %{buildroot}%{spool_dir}
 
+# create content directory and symlink it to foreman-proxy directory
+mkdir -p %{buildroot}%{content_dir}/content
+ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
+
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
@@ -90,6 +95,8 @@ mkdir -p %{buildroot}%{spool_dir}
 %config(noreplace) %{foreman_proxy_pluginconf_dir}/openscap.yml
 
 %attr(-,%{proxy_user},%{proxy_user}) %{spool_dir}
+%attr(-,%{proxy_user},%{proxy_user}) %{content_dir}
+%{_datadir}/foreman-proxy/openscap
 %{foreman_proxy_bundlerd_dir}/openscap.rb
 %{_bindir}/smart-proxy-openscap-send
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
