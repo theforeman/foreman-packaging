@@ -111,6 +111,9 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 
 %changelog
+* Tue May 19 2015 Dominic Cleal <dcleal@redhat.com> 0.4.1-1
+- Version 0.4.1 + directory for SCAP content (shlomi@ben-hanna.com)
+
 * Wed Mar 25 2015 Šimon Lukašík <slukasik@redhat.com> - 0.4.0-1
 - new upstream release
 
