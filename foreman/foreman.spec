@@ -737,6 +737,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed May 20 2015 Dominic Cleal <dcleal@redhat.com> 1.8.1-1
+- Release 1.8.1
+
 * Tue Apr 28 2015 Dominic Cleal <dcleal@redhat.com> 1.8.0-1
 - Release 1.8.0
 
