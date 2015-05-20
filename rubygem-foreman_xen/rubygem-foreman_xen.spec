@@ -18,16 +18,15 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.6
+Version:    0.1.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-xen
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman-compute >= 1.5.0
-Requires:   foreman-compute < 1.8.0
-Requires:   %{?scl_prefix}rubygem(fog)
+Requires:   foreman-compute >= 1.8.1
+Requires:   %{?scl_prefix}rubygem(fog) >= 1.29.0
 Requires:   %{?scl_prefix}rubygem(deface)
 
 %if 0%{?fedora} > 18
