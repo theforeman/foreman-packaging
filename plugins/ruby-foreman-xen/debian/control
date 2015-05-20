@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman-xen
 
 Package: ruby-foreman-xen
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.6.0~rc1), foreman-compute (<<1.8.0~rc1)
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.8.1)
 Description: Foreman XenServer compute resource
  XenServer compute resource plugin for Foreman
