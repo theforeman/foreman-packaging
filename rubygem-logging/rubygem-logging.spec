@@ -3,31 +3,30 @@
 
 %global gem_name logging
 
-Summary: A flexible and extendable logging library for Ruby
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
-Release: 1%{?dist}
-Group: Development/Languages
-License: Ruby or BSD
-URL: http://rubygems.org/gems/logging
-Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix}ruby(rubygems)
+%define rubyabi 1.9.1
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
-%else
-Requires: %{?scl_prefix}ruby(release)
-%endif
-Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.8.4
+Summary:   A flexible and extendable logging library for Ruby
+Name: 	   %{?scl_prefix}rubygem-%{gem_name}
+Version:   2.0.0
+Release:   1%{?dist}
+Group:     Development/Languages
+License:   MIT
+URL:       http://rubygems.org/gems/logging
+Source0:   http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-# BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-# BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
-# BuildRequires: %{?scl_prefix}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+
+%if 0%{?fedora} && 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby(release)
+%else
+Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+%endif
+Requires:  %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10.0
+
+BuildRequires: %{?scl_prefix}rubygems-devel
 
 %description
 Logging is a flexible logging library for use in Ruby programs based on the
@@ -37,13 +36,12 @@ formatting, and more.
 
 %package doc
 Summary: Documentation for %{pkg_name}
-Group: Documentation
+Group:   Documentation
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 
 %description doc
 This package contains documentation for %{pkg_name}.
-
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
