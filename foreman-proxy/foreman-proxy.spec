@@ -121,7 +121,6 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
-install -d -m0750 %{buildroot}%{_localstatedir}/lib/rpm-state/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
 
 %if 0%{?rhel} == 6
@@ -148,6 +147,8 @@ install -Dp -m0644 %{confdir}/settings.yml.example %{buildroot}%{_sysconfdir}/%{
 ln -sv %{_sysconfdir}/%{name}/settings.yml %{buildroot}%{_datadir}/%{name}/config/settings.yml
 install -Dp -m0644 %{confdir}/settings.d/*.example %{buildroot}%{_sysconfdir}/%{name}/settings.d/
 rename .example '' %{buildroot}%{_sysconfdir}/%{name}/settings.d/*
+touch %{buildroot}%{_sysconfdir}/%{name}/migration_state
+ln -sv %{_sysconfdir}/%{name}/migration_state %{buildroot}%{_datadir}/%{name}/config/migration_state
 
 # Put HTML %{_localstatedir}/lib/%{name}/public
 for x in public views; do
@@ -175,7 +176,6 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/cache/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
-%dir %attr(-,%{name},%{name}) %{_localstatedir}/lib/rpm-state/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
@@ -197,26 +197,26 @@ getent group foreman-proxy >/dev/null || \
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy deamon user" foreman-proxy
 
-# Keep monolithic config in case it's replaced with the new default
-if [ $1 == 2 -a ! -e %{_sysconfdir}/%{name}/settings.d ]; then
-  test -e %{_localstatedir}/lib/rpm-state/%{name} || mkdir -p %{_localstatedir}/lib/rpm-state/%{name}
-  cp %{_sysconfdir}/%{name}/settings.yml %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig
-fi
-
 exit 0
 
 %post
-# Migrate legacy monolithic proxy config
-if [ $1 == 2 -a -e %{_localstatedir}/lib/rpm-state/%{name}/settings.yml.orig ]; then
-  pushd %{_localstatedir}/lib/rpm-state/%{name} >/dev/null
-  if %{homedir}/extra/migrate_settings.rb settings.yml.orig; then
-    mv settings.yml %{_sysconfdir}/%{name}
-    sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
-      %{_sysconfdir}/%{name}/settings.yml
-    rm -f settings.yml.orig
-    ls *.yml >/dev/null 2>&1 && mv *.yml %{_sysconfdir}/%{name}/settings.d/
-  else
-    rm -f settings.yml.orig
+# Migrate proxy config files
+if [ $1 == 2 ]; then
+  TEMP=$(mktemp -d)
+  trap "rm -rf $TEMP" EXIT
+  pushd $TEMP >/dev/null
+
+  if %{scl_ruby} %{homedir}/extra/migrate_settings.rb -t . > %{_localstatedir}/log/%{name}/migrate_settings.log 2>&1; then
+    (
+      cd result && for f in migration_state settings.yml settings.d/*.yml; do
+        [ -e "$f" ] && cat $f > %{_sysconfdir}/%{name}/$f
+      done
+    )
+
+    # from monolithic to split config files
+    egrep -q '^:settings_directory' %{_sysconfdir}/%{name}/settings.yml || \
+      sed -i '/^---/ a #replace default location of "settings.d"\n:settings_directory: %{_sysconfdir}/%{name}/settings.d\n' \
+        %{_sysconfdir}/%{name}/settings.yml
   fi
   popd >/dev/null
 fi
