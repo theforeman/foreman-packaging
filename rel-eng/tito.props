@@ -258,6 +258,7 @@ whitelist = ipxe
   rubygem-less
   rubygem-less-rails
   rubygem-net-ssh-gateway
+  rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
@@ -333,6 +334,7 @@ whitelist = rubygem-algebrick
   rubygem-less-rails
   rubygem-logify
   rubygem-net-ssh-gateway
+  rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
