@@ -1,1 +1,1 @@
-gem 'foreman_xen', '0.1.0'
+gem 'foreman_xen', '0.1.1'
