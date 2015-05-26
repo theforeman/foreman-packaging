@@ -1,3 +1,9 @@
+ruby-foreman-xen (0.1.1-1) stable; urgency=low
+
+  * update to 0.1.1
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 27 May 2015 00:02:29 +0200
+
 ruby-foreman-xen (0.1.0-1) stable; urgency=low
 
   * update to 0.1.0
