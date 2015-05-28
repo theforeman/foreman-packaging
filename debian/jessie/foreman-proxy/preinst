@@ -20,12 +20,6 @@ case "$1" in
         rm -rf  $FOREMAN_HOME/config
         ln -snf $CONFIGDIR $FOREMAN_HOME/config
       fi
-
-      # Backup config for migration, if required
-      rm -rf /var/lib/foreman-proxy
-      if [ ! -d $CONFIGDIR/settings.d ] ; then
-        cp -r $CONFIGDIR /var/lib/
-      fi
     ;;
     *)
         echo "preinst called with unknown argument \`$1'" >&2

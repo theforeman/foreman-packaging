@@ -11,6 +11,7 @@
 
 build:
 	rename 's/.example//' config/settings.d/*
+	touch config/migration_state
 	mv config foreman-proxy # dh_install doesn't rename things
 	mv Gemfile Gemfile.in
 	dh $@
