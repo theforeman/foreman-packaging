@@ -66,6 +66,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 01 2015 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
+- Update hammer_cli_foreman_bootdisk to 0.1.3 (dcleal@redhat.com)
+
 * Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
 - new package built with tito
 
