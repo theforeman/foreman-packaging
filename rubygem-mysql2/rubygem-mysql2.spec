@@ -89,6 +89,9 @@ find %{buildroot} -type f -name *.o -exec rm -f {} +
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jun 01 2015 Dominic Cleal <dcleal@redhat.com> 0.3.18-1
+- Update mysql2 to 0.3.18 (dcleal@redhat.com)
+
 * Wed Nov 27 2013 Lukas Zapletal <lzap+git@redhat.com> 0.3.11-4
 - Removing extra object files from rubygem-mysql2 - fix (lzap+git@redhat.com)
 
