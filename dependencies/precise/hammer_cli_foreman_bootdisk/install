@@ -1,1 +1,1 @@
-debian/foreman_bootdisk.yml   etc/hammer/cli.modules.d
+config/foreman_bootdisk.yml   etc/hammer/cli.modules.d

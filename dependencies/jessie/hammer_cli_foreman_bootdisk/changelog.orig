@@ -1,9 +1,3 @@
-ruby-hammer-cli-foreman-bootdisk (0.1.3) stable; urgency=low
-
-  * 0.1.3 released
-
- -- Dominic Cleal <dcleal@redhat.com>  Mon, 01 Jun 2015 13:01:20 +0100
-
 ruby-hammer-cli-foreman-bootdisk (0.1.2-1) stable; urgency=low
 
   * Initial release for Debian/jessie

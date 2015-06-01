@@ -5,7 +5,7 @@ Maintainer: Dominic Cleal <dcleal@redhat.com>
 DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
 Standards-Version: 3.9.3
-Homepage: http://github.com/theforeman/hammer_cli_foreman_bootdisk
+Homepage: http://github.com/theforeman/hammer-cli-foreman-bootdisk
 XS-Ruby-Versions: all
 
 Package: ruby-hammer-cli-foreman-bootdisk
