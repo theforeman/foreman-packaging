@@ -21,6 +21,7 @@ blacklist = foreman-installer
   foreman-selinux
   rubygem-bundler
   rubygem-clamp
+  rubygem-foreman_admin
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
@@ -42,6 +43,7 @@ blacklist = foreman-installer
   foreman-selinux
   rubygem-bundler
   rubygem-clamp
+  rubygem-foreman_admin
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-little-plugger
@@ -72,6 +74,7 @@ whitelist = foreman-installer
   rubygem-clamp
   rubygem-daemon_controller
   rubygem-fast_gettext
+  rubygem-foreman_admin
   rubygem-foreman_api
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
@@ -107,6 +110,7 @@ whitelist = foreman-installer
   rubygem-clamp
   rubygem-fast_gettext
   rubygem-fastercsv
+  rubygem-foreman_admin
   rubygem-foreman_api
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
@@ -155,6 +159,7 @@ whitelist = foreman
   rubygem-fog-libvirt
   rubygem-fog-xml
   rubygem-foremancli
+  rubygem-foreman_admin
   rubygem-foreman_api
   rubygem-fast_gettext
   rubygem-fastercsv
