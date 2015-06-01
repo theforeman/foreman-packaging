@@ -1,5 +1,0 @@
-ruby-hammer-cli-foreman-bootdisk (0.1.2-1) stable; urgency=low
-
-  * Initial release for Debian/jessie
-
- -- Michael Moll <mmoll@mmoll.at>  Wed, 07 Apr 2015 23:18:53 +0200
