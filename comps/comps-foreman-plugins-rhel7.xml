@@ -68,8 +68,6 @@
       <packagereq type="default">ruby193-rubygem-jgrep</packagereq>
       <packagereq type="default">ruby193-rubygem-less</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails</packagereq>
-      <packagereq type="default">ruby193-rubygem-little-plugger</packagereq>
-      <packagereq type="default">ruby193-rubygem-logging</packagereq>
       <packagereq type="default">ruby193-rubygem-openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-scaptimony</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula</packagereq>
@@ -125,8 +123,6 @@
       <packagereq type="default">ruby193-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-less-rails-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-little-plugger-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-logging-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-scaptimony-doc</packagereq>

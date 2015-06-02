@@ -106,6 +106,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
+Requires: %{?scl_prefix}rubygem(logging) >= 1.8
+Requires: %{?scl_prefix}rubygem(logging) < 3.0
 # jsonp
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
@@ -161,6 +163,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
+BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 # assets
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
@@ -528,7 +532,7 @@ mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_da
 mv %{buildroot}%{_datadir}/%{name}/config/email.yaml.example %{buildroot}%{_datadir}/%{name}/config/email.yaml
 mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_datadir}/%{name}/config/settings.yaml
 
-for i in database.yml email.yaml settings.yaml; do
+for i in database.yml email.yaml logging.yaml settings.yaml; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
