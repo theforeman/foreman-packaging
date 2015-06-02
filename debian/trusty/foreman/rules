@@ -14,12 +14,11 @@ build/foreman::
 	/bin/cp debian/debian.rb bundler.d/
 	/bin/cp config/settings.yaml.example config/settings.yaml
 	/bin/cp config/database.yml.example config/database.yml
+	/bin/cp config/email.yaml.example config/email.yaml
 	/usr/bin/bundle pack --all
 	/usr/bin/bundle exec rake locale:pack assets:precompile
 	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
 	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
-	/bin/rm config/settings.yaml
-	/bin/rm config/database.yml
 	/bin/rm db/production.sqlite3
 	/bin/rm db/development.sqlite3
 	/bin/mkdir -p .ssh
