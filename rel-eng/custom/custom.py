@@ -12,11 +12,13 @@
 # in this software or its documentation.
 
 from datetime import datetime
+import glob
 import json
 import os
 import os.path
 import re
 import shutil
+import subprocess
 import urllib
 from zipfile import ZipFile
 
@@ -24,56 +26,21 @@ from tito.builder.fetch import SourceStrategy
 from tito.common import error_out, debug, run_command
 
 
-class JenkinsSourceStrategy(SourceStrategy):
+class ForemanSourceStrategy(SourceStrategy):
     """
-    Downloads the source files from Jenkins, from a job that produces them as
-    artifacts.  Will follow the version number present in the filename and
-    adds a timestamp & SHA if available from the Jenkins job start reasons.
-
     Designed to be used for nightly or pull request builds only.
 
-    It first copies source files from git, then downloads the Jenkins
-    artifacts over the top, so they're merged (patches etc can then be stored
+    It first copies source files from git, then copies the source file(s)
+    over the top, so they're merged (patches etc can then be stored
     in git).
-
-    Takes the following arguments:
-      jenkins_url: base URL of Jenkins ("http://ci.theforeman.org")
-      jenkins_job: name of job ("test_develop")
-      jenkins_job_id: job number or alias ("123", "lastSuccessfulBuild")
     """
     def fetch(self):
-        url_base = self.builder.args['jenkins_url']
-        job_name = self.builder.args['jenkins_job']
-        if 'jenkins_job_id' in self.builder.args:
-            job_id = self.builder.args['jenkins_job_id']
+        if "jenkins_job" in self.builder.args:
+            gitrev = self._fetch_jenkins()
+        elif "source_dir" in self.builder.args:
+            gitrev = self._fetch_local()
         else:
-            job_id = "lastSuccessfulBuild"
-        job_url_base = "%s/job/%s/%s" % (url_base, job_name, job_id)
-        json_url = "%s/api/json" % job_url_base
-
-        job_info = json.loads(urllib.urlopen(json_url).read())
-        if "number" in job_info:
-            job_id = job_info["number"]
-
-        if "runs" in job_info:
-            run_idx = 0
-            for idx, run in enumerate(job_info["runs"]):
-                if run["number"] == job_id:
-                    run_idx = idx
-                    break
-            job_url_base = job_info["runs"][run_idx]["url"]
-        elif "url" in job_info:
-            job_url_base = job_info["url"]
-
-        url = "%s/artifact/*zip*/archive.zip" % job_url_base
-        debug("Fetching from %s" % url)
-
-        (zip_path, zip_headers) = urllib.urlretrieve(url)
-        zip_file = ZipFile(zip_path, 'r')
-        try:
-            zip_file.extractall(self.builder.rpmbuild_sourcedir)
-        finally:
-            zip_file.close()
+            raise Exception("Specify either '--arg jenkins_job=...' or '--arg source_dir=...'")
 
         # Copy the live spec from our starting location. Unlike most builders,
         # we are not using a copy from a past git commit.
@@ -120,13 +87,108 @@ class JenkinsSourceStrategy(SourceStrategy):
         self.replace_in_spec(replacements)
 
         rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
+        self.release = rel_date + gitrev
+        print("Building release: %s" % self.release)
+        run_command("sed -i '/^Release:/ s/%%/.%s%%/' %s" % (self.release, self.spec_file))
+
+    """
+    Downloads the source files from Jenkins, from a job that produces them as
+    artifacts.  Will follow the version number present in the filename and
+    adds a timestamp & SHA if available from the Jenkins job start reasons.
+
+    Designed to be used for nightly or pull request builds only.
+
+    It first copies source files from git, then downloads the Jenkins
+    artifacts over the top, so they're merged (patches etc can then be stored
+    in git).
+
+    Takes the following arguments:
+      jenkins_url: base URL of Jenkins ("http://ci.theforeman.org")
+      jenkins_job: name of job ("test_develop")
+      jenkins_job_id: job number or alias ("123", "lastSuccessfulBuild")
+    """
+    def _fetch_jenkins(self):
+        url_base = self.builder.args['jenkins_url']
+        job_name = self.builder.args['jenkins_job']
+        if 'jenkins_job_id' in self.builder.args:
+            job_id = self.builder.args['jenkins_job_id']
+        else:
+            job_id = "lastSuccessfulBuild"
+        job_url_base = "%s/job/%s/%s" % (url_base, job_name, job_id)
+        json_url = "%s/api/json" % job_url_base
+
+        job_info = json.loads(urllib.urlopen(json_url).read())
+        if "number" in job_info:
+            job_id = job_info["number"]
+
+        if "runs" in job_info:
+            run_idx = 0
+            for idx, run in enumerate(job_info["runs"]):
+                if run["number"] == job_id:
+                    run_idx = idx
+                    break
+            job_url_base = job_info["runs"][run_idx]["url"]
+        elif "url" in job_info:
+            job_url_base = job_info["url"]
+
+        url = "%s/artifact/*zip*/archive.zip" % job_url_base
+        debug("Fetching from %s" % url)
+
+        (zip_path, zip_headers) = urllib.urlretrieve(url)
+        zip_file = ZipFile(zip_path, 'r')
+        try:
+            zip_file.extractall(self.builder.rpmbuild_sourcedir)
+        finally:
+            zip_file.close()
+
         gitrev = ""
         for action in job_info["actions"]:
             if "lastBuiltRevision" in action:
                 gitrev = "git%s" % action["lastBuiltRevision"]["SHA1"][0:7]
-        self.release = rel_date + gitrev
-        print("Building release: %s" % self.release)
-        run_command("sed -i '/^Release:/ s/%%/.%s%%/' %s" % (self.release, self.spec_file))
+
+        return gitrev
+
+    """
+    Generates the source file from a local repo, useful for generating
+    packages of custom branches.
+
+    It first copies source files from git, then copies the source file
+    over the top, so they're merged (patches etc can then be stored
+    in git).
+
+    Takes the following arguments:
+      source_dir: path to repo ("~/foreman")
+    """
+    def _fetch_local(self):
+        source_dir = os.path.expanduser(self.builder.args['source_dir'])
+
+        old_dir = os.getcwd()
+        os.chdir(source_dir)
+
+        gemspecs = glob.glob("./*.gemspec")
+        if gemspecs and not gemspecs[0] == "./smart_proxy.gemspec":
+          subprocess.call(["gem", "build", gemspecs[0]])
+          sources = glob.glob("./*.gem")
+        else:
+          subprocess.call(["/bin/bash", "-l", "-c", "rake pkg:generate_source"])
+          sources = glob.glob("./pkg/*")
+
+        fetchdir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
+        if not os.path.exists(fetchdir):
+          os.mkdir(fetchdir)
+
+        for srcfile in sources:
+          debug("Copying %s from local source dir" % srcfile)
+          shutil.move(srcfile, os.path.join(fetchdir, os.path.basename(srcfile)))
+
+        gitrev = "local"
+        gitsha = subprocess.check_output(["git", "rev-parse", "HEAD"])
+        if gitsha:
+          gitrev = "git%s" % gitsha[0:7]
+
+        os.chdir(old_dir)
+
+        return gitrev
 
     def _get_version(self):
         """
