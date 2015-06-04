@@ -57,7 +57,7 @@ Packages in the plugins repo:
 
     tito release koji-foreman-plugins --test --scratch
 
-Core Foreman packages without nightly sources stored:
+Core nightly Foreman packages:
 
 * foreman: `tito release --scratch --arg jenkins_job=test_develop koji-foreman-nightly`
 * foreman-installer: `tito release --scratch --arg jenkins_job=packaging_trigger_installer_develop koji-foreman-nightly`
@@ -65,6 +65,11 @@ Core Foreman packages without nightly sources stored:
 * foreman-selinux: `tito release --scratch --arg jenkins_job=packaging_trigger_selinux_develop koji-foreman-nightly`
 * rubygem-hammer\_cli: `tito release --scratch --arg jenkins_job=test_hammer_cli koji-foreman-nightly`
 * rubygem-hammer\_cli\_foreman: `tito release --scratch --arg jenkins_job=test_hammer_cli_foreman koji-foreman-nightly`
+
+Using a local git checkout, change `source_dir` as appropriate:
+
+* Core packages: `tito release --scratch --arg source_dir=~/foreman koji-foreman-nightly`
+* Plugins: `tito release --scratch --arg source_dir=~/foreman_bootdisk koji-foreman-plugins-nightly`
 
 ### Alternative method with koji access
 
