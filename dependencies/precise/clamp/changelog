@@ -1,3 +1,9 @@
+ruby-clamp (1.0.0-1) stable; urgency=low
+
+  * update to 1.0.0, which merged i18n patch
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 09 Jun 2015 19:34:49 +0200
+
 ruby-clamp (0.6.4-1) stable; urgency=low
 
   * Update to 0.6.4
