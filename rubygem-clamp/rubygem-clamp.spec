@@ -77,6 +77,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Jun 10 2015 Dominic Cleal <dcleal@redhat.com> 1.0.0-1
+- update clamp to 1.0.0 (kvedulv@kvedulv.de)
+- Modernise spec file (dcleal@redhat.com)
+
 * Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 0.6.2-3
 - refs #5787 - i18n support for clamp (tstrachota@redhat.com)
 
