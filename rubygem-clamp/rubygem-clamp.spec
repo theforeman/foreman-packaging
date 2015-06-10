@@ -64,14 +64,14 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.autotest
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_spec}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 %{gem_instdir}/README.md
 %{gem_instdir}/CHANGES.md
 
