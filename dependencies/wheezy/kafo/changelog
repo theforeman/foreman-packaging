@@ -1,3 +1,13 @@
+ruby-kafo (0.6.11-1) stable; urgency=low
+
+  * Treat any return value from stdlib's validate_* functions as success
+  (dcleal@redhat.com)
+  * Add pre_commit hook between param wizard/validation and answer file writing
+  (dcleal@redhat.com)
+  * Document hash as valid parameter type (dcleal@redhat.com)
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 11 Jun 2015 08:54:04 +0000
+
 ruby-kafo (0.6.10-1) stable; urgency=low
 
   * Enable progress bar with Puppet 3.8 (kvedulv@kvedulv.de)
