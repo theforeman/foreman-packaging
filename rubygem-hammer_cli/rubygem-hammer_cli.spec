@@ -18,7 +18,7 @@ Requires: ruby(release)
 
 # on ruby 1.8.x
 Requires: ruby(rubygems)
-Requires: rubygem(clamp)
+Requires: rubygem(clamp) >= 1.0.0
 Requires: rubygem(rb-readline)
 Requires: rubygem(rest-client) < 1.7.0
 Requires: rubygem(logging) < 2.0.0
