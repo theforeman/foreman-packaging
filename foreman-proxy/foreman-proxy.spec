@@ -170,7 +170,7 @@ ln -sv %{_localstatedir}/cache/%{name} %{buildroot}%{_datadir}/%{name}/cache
 rm -rf %{buildroot}
 
 %files
-%doc README LICENSE VERSION
+%doc README.md LICENSE VERSION
 %{_datadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
