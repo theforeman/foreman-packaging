@@ -115,6 +115,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Mon Jun 15 2015 Dominic Cleal <dcleal@redhat.com> 6.0.0-1
+- Update foreman_bootdisk to 6.0.0 (dcleal@redhat.com)
+
 * Mon Feb 23 2015 Dominic Cleal <dcleal@redhat.com> 5.0.0-1
 - Update foreman_bootdisk to 5.0.0 (dcleal@redhat.com)
 - Refs #8921 - prebuild localized apipie cache in rubygem-foreman_bootdisk
