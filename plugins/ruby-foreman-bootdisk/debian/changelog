@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (6.0.0) stable; urgency=low
+
+  * 6.0.0 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Mon, 15 Jun 2015 12:45:46 +0100
+
 ruby-foreman-bootdisk (5.0.0) stable; urgency=low
 
   * 5.0.0 released
