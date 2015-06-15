@@ -17,7 +17,7 @@
 
 Name:           foreman-proxy
 Version:        1.8.2
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
@@ -256,6 +256,9 @@ fi
 
 
 %changelog
+* Mon Jun 15 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-2
+- Fix incorrect tarball sources
+
 * Mon Jun 15 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
 - Release 1.8.2
 
