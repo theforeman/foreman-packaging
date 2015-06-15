@@ -256,6 +256,9 @@ fi
 
 
 %changelog
+* Mon Jun 15 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
+- Release 1.8.2
+
 * Wed May 20 2015 Dominic Cleal <dcleal@redhat.com> 1.8.1-1
 - Release 1.8.1
 
