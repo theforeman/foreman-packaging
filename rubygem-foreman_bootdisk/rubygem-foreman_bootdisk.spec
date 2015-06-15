@@ -18,14 +18,14 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
+Version:    6.0.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_bootdisk
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.8.0
+Requires:   foreman >= 1.9.0
 Requires:   ipxe-bootimgs
 Requires:   /usr/bin/isohybrid
 Requires:   /usr/bin/genisoimage
@@ -42,7 +42,7 @@ BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: foreman-plugin >= 1.9.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
