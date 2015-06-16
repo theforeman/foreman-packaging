@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -78,6 +78,7 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md
 %{gem_instdir}/tests
+%{gem_instdir}/minitests
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/%{gem_name}.gemspec
