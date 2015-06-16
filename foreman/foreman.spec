@@ -246,7 +246,6 @@ Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 %endif
 Requires: %{name} = %{version}-%{release}
-Requires: foreman-compute = %{version}-%{release}
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
@@ -294,7 +293,6 @@ Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
 Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
 Requires:  %{name} = %{version}-%{release}
-Requires:  foreman-compute = %{version}-%{release}
 Provides:  foreman-ec2 = %{version}-%{release}
 
 %description ec2
@@ -327,7 +325,6 @@ Requires: %{?scl_prefix}rubygem(google-api-client) < 1.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{name} = %{version}-%{release}
-Requires: foreman-compute = %{version}-%{release}
 
 %description gce
 Meta package to install requirements for Google Compute Engine (GCE) support
