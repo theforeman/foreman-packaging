@@ -101,7 +101,7 @@ Package: foreman-ec2
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-compute, ${misc:Depends}
+Depends: foreman, ${misc:Depends}
 Description: metapackage providing EC2 dependencies for Foreman
  This package provides Amazon EC2 dependencies for Foreman, a
  flexible systems management web application.
@@ -112,7 +112,7 @@ Package: foreman-libvirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-compute, pkg-config, libvirt-dev, ${misc:Depends}
+Depends: foreman, pkg-config, libvirt-dev, ${misc:Depends}
 Description: metapackage providing libvirt dependencies for Foreman
  This package provides libvirt dependencies for Foreman, a
  flexible systems management web application.
@@ -190,7 +190,7 @@ Package: foreman-gce
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-compute, ${misc:Depends}
+Depends: foreman, ${misc:Depends}
 Description: metapackage providing GCE dependencies for Foreman
  This package provides Google Compute Engine dependencies for Foreman,
  a flexible systems management web application.
