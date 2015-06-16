@@ -84,6 +84,9 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jun 16 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
+- Update fog-libvirt to 0.0.2 (dcleal@redhat.com)
+
 * Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
 - new package built with tito
 
