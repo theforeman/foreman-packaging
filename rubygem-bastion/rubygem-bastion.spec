@@ -121,6 +121,9 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Wed Jun 17 2015 Eric D. Helms <ericdhelms@gmail.com> 2.0.0-1
+- Update rubygem-bastion to 2.0.0 (ericdhelms@gmail.com)
+
 * Fri May 29 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
 - Update 'rubygem-bastion' to 1.0.2 (ericdhelms@gmail.com)
 
