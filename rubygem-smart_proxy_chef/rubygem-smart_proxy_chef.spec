@@ -6,8 +6,8 @@
 
 Summary: Chef support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 0.1.3
-Release: 2%{?dist}
+Version: 0.1.4
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_chef
