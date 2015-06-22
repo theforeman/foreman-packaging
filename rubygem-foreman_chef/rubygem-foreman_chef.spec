@@ -106,6 +106,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jun 22 2015 Marek Hulan <mhulan@redhat.com> 0.1.4-1
+- Update foreman_chef to 0.1.4 (mhulan@redhat.com)
+
 * Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.1.3-2
 - Add db:migrate/seed postinstall steps (dcleal@redhat.com)
 
