@@ -17,8 +17,8 @@
 
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.3
-Release:    2%{?dist}
+Version:    0.1.4
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_chef
@@ -32,7 +32,7 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(deface)
+Requires: %{?scl_prefix}rubygem(deface) < 1.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.9
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
 
