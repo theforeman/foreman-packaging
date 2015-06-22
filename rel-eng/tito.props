@@ -216,6 +216,8 @@ whitelist = ipxe
   rubygem-archive-tar-minitar
   rubygem-bastion
   rubygem-commonjs
+  rubygem-concurrent-ruby
+  rubygem-concurrent-ruby-edge
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
@@ -286,6 +288,8 @@ whitelist = rubygem-algebrick
   rubygem-bastion
   rubygem-chef-api
   rubygem-commonjs
+  rubygem-concurrent-ruby
+  rubygem-concurrent-ruby-edge
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
@@ -357,6 +361,8 @@ whitelist = rubygem-algebrick
   rubygem-chef-api
   rubygem-bastion
   rubygem-commonjs
+  rubygem-concurrent-ruby
+  rubygem-concurrent-ruby-edge
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
