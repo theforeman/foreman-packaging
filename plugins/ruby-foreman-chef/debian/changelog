@@ -1,3 +1,9 @@
+ruby-foreman-chef (0.1.4-1) stable; urgency=medium
+
+  * Update foreman_chef to 0.1.4
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 22 Jun 2015 11:10:18 +0000
+
 ruby-foreman-chef (0.1.3-4) stable; urgency=low
 
   * Fix deface dependency name
