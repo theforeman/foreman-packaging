@@ -112,6 +112,7 @@
       <packagereq type="default">ruby193-rubygem-sass</packagereq>
       <packagereq type="default">ruby193-rubygem-scoped_search</packagereq>
       <packagereq type="default">ruby193-rubygem-secure_headers</packagereq>
+      <packagereq type="default">ruby193-rubygem-select2-rails</packagereq>
       <packagereq type="default">ruby193-rubygem-sequel</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor</packagereq>
       <packagereq type="default">ruby193-rubygem-signet</packagereq>
@@ -246,6 +247,7 @@
       <packagereq type="default">ruby193-rubygem-sass-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-secure_headers-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sequel-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-signet-doc</packagereq>

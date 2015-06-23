@@ -91,6 +91,7 @@
       <packagereq type="default">rubygem-safemode</packagereq>
       <packagereq type="default">rubygem-scoped_search</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
+      <packagereq type="default">rubygem-select2-rails</packagereq>
       <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
@@ -161,6 +162,7 @@
       <packagereq type="default">rubygem-safemode-doc</packagereq>
       <packagereq type="default">rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
+      <packagereq type="default">rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
