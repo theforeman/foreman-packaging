@@ -75,6 +75,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jun 23 2015 Dominic Cleal <dcleal@redhat.com> 0.5.0-1
+- Update fog-aws to 0.5.0 (dcleal@redhat.com)
+
 * Mon Jun 01 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
 - Update fog-aws to 0.4.0 (dcleal@redhat.com)
 - Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
