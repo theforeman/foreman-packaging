@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Jun 24 2015 Dominic Cleal <dcleal@redhat.com> 3.2.1-1
+- Update scoped_search to 3.2.1 (dcleal@redhat.com)
+
 * Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 3.2.0-2
 - Fix ruby(abi) requirement on F19 (dcleal@redhat.com)
 
