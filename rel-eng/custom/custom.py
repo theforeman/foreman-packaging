@@ -108,10 +108,10 @@ class ForemanSourceStrategy(SourceStrategy):
       jenkins_job_id: job number or alias ("123", "lastSuccessfulBuild")
     """
     def _fetch_jenkins(self):
-        url_base = self.builder.args['jenkins_url']
-        job_name = self.builder.args['jenkins_job']
+        url_base = self.builder.args['jenkins_url'][0]
+        job_name = self.builder.args['jenkins_job'][0]
         if 'jenkins_job_id' in self.builder.args:
-            job_id = self.builder.args['jenkins_job_id']
+            job_id = self.builder.args['jenkins_job_id'][0]
         else:
             job_id = "lastSuccessfulBuild"
         job_url_base = "%s/job/%s/%s" % (url_base, job_name, job_id)
@@ -160,7 +160,7 @@ class ForemanSourceStrategy(SourceStrategy):
       source_dir: path to repo ("~/foreman")
     """
     def _fetch_local(self):
-        source_dir = os.path.expanduser(self.builder.args['source_dir'])
+        source_dir = os.path.expanduser(self.builder.args['source_dir'][0])
 
         old_dir = os.getcwd()
         os.chdir(source_dir)
