@@ -16,7 +16,7 @@
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.0
-Release:    1%{?dist}
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        http://github.com/katello/bastion
