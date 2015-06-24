@@ -533,7 +533,7 @@ mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_da
 mv %{buildroot}%{_datadir}/%{name}/config/email.yaml.example %{buildroot}%{_datadir}/%{name}/config/email.yaml
 mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_datadir}/%{name}/config/settings.yaml
 
-for i in database.yml email.yaml logging.yaml settings.yaml; do
+for i in database.yml email.yaml logging.yaml settings.yaml foreman-debug.conf; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
