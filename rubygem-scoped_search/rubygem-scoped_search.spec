@@ -6,8 +6,8 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 3.2.0
-Release: 2%{?dist}
+Version: 3.2.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
