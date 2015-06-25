@@ -5,8 +5,8 @@
 
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 2%{?dist}
+Version: 0.7.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/pitr-ch/algebrick
@@ -66,6 +66,8 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/README_FULL.md
+%doc %{gem_instdir}/spec
+%doc %{gem_instdir}/doc
 
 %changelog
 * Mon Jan 20 2014 Ivan Nečas <inecas@redhat.com> 0.4.0-2
