@@ -89,6 +89,7 @@
       <packagereq type="default">ruby193-rubygem-net-ldap</packagereq>
       <packagereq type="default">ruby193-rubygem-net-scp</packagereq>
       <packagereq type="default">ruby193-rubygem-net-ssh</packagereq>
+      <packagereq type="default">ruby193-rubygem-newt</packagereq>
       <packagereq type="default">ruby193-rubygem-nokogiri</packagereq>
       <packagereq type="default">ruby193-rubygem-oauth</packagereq>
       <packagereq type="default">ruby193-rubygem-paint</packagereq>
@@ -230,6 +231,7 @@
       <packagereq type="default">ruby193-rubygem-netrc-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-net-ssh-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-newt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-nokogiri-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-paint-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-passenger-doc</packagereq>
