@@ -19,7 +19,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.9.0
+Version: 1.10.0
 Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -753,6 +753,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Jun 26 2015 Dominic Cleal <dcleal@redhat.com> - 1.10.0-0.develop
+- Bump version to 1.10-develop
+
 * Tue Mar 03 2015 Dominic Cleal <dcleal@redhat.com> - 1.9.0-0.develop
 - Bump version to 1.9-develop
 
