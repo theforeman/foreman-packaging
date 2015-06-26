@@ -1,3 +1,9 @@
+foreman (1.10.0-1) stable; urgency=low
+
+  * Bump changelog to 1.10.0 to match VERSION
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 26 Jun 2015 13:39:06 +0100
+
 foreman (1.8.2-1) stable; urgency=low
 
   * 1.8.2 released
