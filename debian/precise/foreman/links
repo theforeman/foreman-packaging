@@ -1,5 +1,6 @@
 etc/foreman/database.yml	usr/share/foreman/config/database.yml
 etc/foreman/email.yaml		usr/share/foreman/config/email.yaml
+etc/foreman/foreman-debug.conf		usr/share/foreman/config/foreman-debug.conf
 etc/foreman/logging.yaml	usr/share/foreman/config/logging.yaml
 etc/foreman/settings.yaml	usr/share/foreman/config/settings.yaml
 etc/foreman/plugins		usr/share/foreman/config/settings.plugins.d
