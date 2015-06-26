@@ -98,6 +98,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jun 26 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-1
+- update smart_proxy_salt to 2.1.3 (kvedulv@kvedulv.de)
+
 * Sat May 09 2015 Stephen Benjamin <stephen@redhat.com> 2.1.2-1
 - Update smart_proxy_salt to 2.1.2 (stephen@redhat.com)
 
