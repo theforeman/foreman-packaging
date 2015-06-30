@@ -71,3 +71,6 @@ rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Jun 30 2015 Dominic Cleal <dcleal@redhat.com> 0.9.4-1
+- new package built with tito
+
