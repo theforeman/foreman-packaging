@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.6.14-1) stable; urgency=low
+
+  * Update to 0.6.14
+
+ -- Ivan Nečas <inecas@redhat.com>  Tue, 30 Jun 2015 15:33:33 +0200
+
 ruby-foreman-tasks (0.6.13-3) stable; urgency=low
 
   * Update daemons to 1.2.2 (#10362)
