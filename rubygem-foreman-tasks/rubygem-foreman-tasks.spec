@@ -175,6 +175,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 30 2015 Dominic Cleal <dcleal@redhat.com> 0.6.14-1
+- Update foreman-tasks to 0.6.14 (inecas@redhat.com)
+
 * Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.6.13-2
 - Convert to build apipie resource docs (dcleal@redhat.com)
 
