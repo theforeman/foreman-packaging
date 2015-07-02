@@ -75,3 +75,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jul 02 2015 Ivan Nečas <inecas@redhat.com>
+- new package built with tito
+
