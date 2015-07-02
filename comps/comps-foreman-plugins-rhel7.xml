@@ -58,6 +58,8 @@
       <packagereq type="default">ruby193-rubygem-apipie-params</packagereq>
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar</packagereq>
       <packagereq type="default">ruby193-rubygem-commonjs</packagereq>
+      <packagereq type="default">ruby193-rubygem-concurrent-ruby</packagereq>
+      <packagereq type="default">ruby193-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli</packagereq>
       <packagereq type="default">ruby193-rubygem-deface</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy</packagereq>
@@ -90,6 +92,8 @@
       <packagereq type="default">ruby193-rubygem-archive-tar-minitar-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-bastion-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-concurrent-ruby-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dalli-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-deface-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-diffy-doc</packagereq>
