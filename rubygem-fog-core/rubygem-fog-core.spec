@@ -79,6 +79,10 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Fri Jul 03 2015 Dominic Cleal <dcleal@redhat.com> 1.32.0-1
+- Update fog-core to 1.32.0 (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+
 * Sun Feb 22 2015 Daniel Lobato <dlobatog@redhat.com> 1.29.0-1
 - Update fog-core to 1.29.0 (dlobatog@redhat.com)
 
