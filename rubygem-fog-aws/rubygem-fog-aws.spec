@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.5.0
+Version: 0.6.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
