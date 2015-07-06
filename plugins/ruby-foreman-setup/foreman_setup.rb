@@ -1,1 +1,1 @@
-gem 'foreman_setup', '2.1.0'
+gem 'foreman_setup', '3.0.0'
