@@ -15,16 +15,16 @@
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
-Summary:    Plugin to sychronise provisioning templates from GitHub
+Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.5.0
+Version:    2.0.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_templates
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.0
+Requires:   foreman >= 1.9.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -91,7 +91,6 @@ GEMFILE
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 
 %exclude %{gem_instdir}/Rakefile
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/LICENSE
