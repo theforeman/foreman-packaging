@@ -18,9 +18,6 @@ FOREMAN_HOME=/usr/share/foreman
 # Collects trends data
 */30 * * * *    foreman    cd ${FOREMAN_HOME} && /usr/sbin/foreman-rake trends:counter >>/var/log/foreman/cron.log 2>&1
 
-# Remove duplicate trends data
-0 8 * * *       foreman    cd ${FOREMAN_HOME} && /usr/sbin/foreman-rake trends:clean >>/var/log/foreman/cron.log 2>&1
-
 # Refreshes ldap usergroups. Can be disabled if you're not using LDAP authentication.
 */30 * * * *    foreman    cd ${FOREMAN_HOME} && /usr/sbin/foreman-rake ldap:refresh_usergroups >>/var/log/foreman/cron.log 2>&1
 
