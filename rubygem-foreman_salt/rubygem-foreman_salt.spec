@@ -15,14 +15,14 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.1.0
+Version:    3.0.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_salt
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.8.0
+Requires:   foreman >= 1.9.0
 Requires:   %{?scl_prefix}rubygem(deface)
 
 %if 0%{?fedora} > 18
@@ -31,8 +31,8 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.6.9
-Requires: %{?scl_prefix}rubygem-foreman-tasks < 0.7.0
+Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.7.1
+Requires: %{?scl_prefix}rubygem-foreman-tasks < 0.8.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -44,8 +44,8 @@ BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygem-foreman-tasks >= 0.6.9
-BuildRequires: %{?scl_prefix}rubygem-foreman-tasks < 0.7.0
+BuildRequires: %{?scl_prefix}rubygem-foreman-tasks >= 0.7.1
+BuildRequires: %{?scl_prefix}rubygem-foreman-tasks < 0.8.0
 
 BuildArch: noarch
 
@@ -112,6 +112,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jul 06 2015 Stephen Benjamin <stephen@redhat.com> 3.0.0-1
+- Update to 3.0.0
+
 * Sat May 09 2015 Stephen Benjamin <stephen@redhat.com> 2.1.0-1
 - Update to 2.1.0
 
