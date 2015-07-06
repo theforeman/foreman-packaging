@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Mon Jul 06 2015 Dominic Cleal <dcleal@redhat.com> 1.9.0-0.1.RC1
+- Release 1.9.0-RC1
+
 * Tue Mar 03 2015 Dominic Cleal <dcleal@redhat.com> - 1.9.0-0.develop
 - Bump version to 1.9-develop
 
