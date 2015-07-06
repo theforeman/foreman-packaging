@@ -6,14 +6,14 @@
 %endif
 
 # set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global alphatag RC1
+%global dotalphatag .%{alphatag}
+%global dashalphatag -%{alphatag}
 
 Name:       foreman-installer
 Epoch:      1
 Version:    1.9.0
-Release:    0.develop%{?dotalphatag}%{?dist}
+Release:    0.1%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
