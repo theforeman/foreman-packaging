@@ -6,15 +6,6 @@
 # http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
 # /1/html/Software_Collections_Guide/index.html
 
-%if "%{?scl}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
-
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -23,18 +14,17 @@
 %define rubyabi 1.9.1
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-%global foreman_pluginconf_dir %{foreman_dir}/config/settings.plugins.d
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.1.1
+Version:    3.0.0
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_setup
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.5.0
+Requires:   foreman >= 1.9.0
 Requires:   %{?scl_prefix}rubygem(deface)
 
 %if 0%{?fedora} > 18
@@ -104,7 +94,7 @@ GEMFILE
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
 
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_instdir}/CHANGES.md
