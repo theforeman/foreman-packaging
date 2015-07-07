@@ -70,6 +70,9 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 1.2.3-1
+- Update daemons to 1.2.3 (dcleal@redhat.com)
+
 * Tue May 12 2015 Dominic Cleal <dcleal@redhat.com> 1.2.2-1
 - Fixes #10362 - Update daemons to 1.2.2 (inecas@redhat.com)
 
