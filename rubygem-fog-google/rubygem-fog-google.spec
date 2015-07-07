@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support Google
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.5
+Version: 0.0.7
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -64,7 +64,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md
 %{gem_instdir}/examples
-%{gem_instdir}/spec
+%{gem_instdir}/test
 %{gem_instdir}/tests
 %{gem_instdir}/gemfiles
 %{gem_instdir}/Gemfile*
