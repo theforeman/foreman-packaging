@@ -68,6 +68,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-1
+- Update algebrick to 0.7.3 (dcleal@redhat.com)
+
 * Thu Jul 02 2015 Dominic Cleal <dcleal@redhat.com> 0.7.0-1
 - Update algebrick to 0.7.0 (inecas@redhat.com)
 - Add full rubygems.org source URL (dcleal@redhat.com)
