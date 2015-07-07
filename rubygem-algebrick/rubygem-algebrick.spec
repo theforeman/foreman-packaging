@@ -5,7 +5,7 @@
 
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.7.3
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -26,7 +26,6 @@ BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: rubygem(%{gem_name}) = %{version}
 
 %description
 It's a gem providing algebraic types and pattern matching seamlessly
@@ -57,16 +56,15 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/VERSION
 %{gem_instdir}/lib
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
-%doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/README_FULL.md
-%doc %{gem_instdir}/spec
 %doc %{gem_instdir}/doc
 
 %changelog
