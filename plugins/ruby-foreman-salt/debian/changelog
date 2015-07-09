@@ -1,3 +1,9 @@
+ruby-foreman-salt (3.0.0-1) stable; urgency=low
+
+  * Fix build-dep on foreman-assets to permit 1.9.0-RC1
+
+ -- Dominic Cleal <dcleal@redhat.com>  Thu, 09 Jul 2015 08:43:37 +0100
+
 ruby-foreman-salt (3.0.0) stable; urgency=low
 
   * Update to 3.0.0
