@@ -14,7 +14,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
 License: GPLv3
@@ -72,7 +72,7 @@ gem install --local --install-dir .%{gem_dir} \
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -dr --no-preserve=mode .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 
@@ -101,6 +101,9 @@ popd
 
 
 %changelog
+* Wed Mar 04 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.1-2
+- Fix file permissions
+
 * Mon Mar 02 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.1-1
 - new upstream release
 
