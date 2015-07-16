@@ -5,7 +5,7 @@
 
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.4
+Version: 0.11.6
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -97,6 +97,9 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Wed Jul 15 2015 Walden Raines <walden@redhat.com> 0.11.6-1
+- Update rabl to 0.11.6 (walden@redhat.com)
+
 * Tue Nov 25 2014 Dominic Cleal <dcleal@redhat.com> 0.11.4-1
 - Update rabl to 0.11.4 (dcleal@redhat.com)
 
