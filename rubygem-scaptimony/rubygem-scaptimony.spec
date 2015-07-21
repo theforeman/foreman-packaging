@@ -101,6 +101,9 @@ popd
 
 
 %changelog
+* Tue Jul 21 2015 Dominic Cleal <dcleal@redhat.com> 0.3.2-1
+- Update scaptimony to 0.3.2 (dcleal@redhat.com)
+
 * Mon Mar 02 2015 Šimon Lukašík <slukasik@redhat.com> - 0.3.1-1
 - new upstream release
 
