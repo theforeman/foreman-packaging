@@ -13,7 +13,7 @@
 %define rubyabi 1.9.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.1
+Version: 0.3.2
 Release: 1%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
