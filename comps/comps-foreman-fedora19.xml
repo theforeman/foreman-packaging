@@ -52,6 +52,7 @@
       <packagereq type="default">rubygem-fog-json</packagereq>
       <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
+      <packagereq type="default">rubygem-foreman_admin</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails</packagereq>
