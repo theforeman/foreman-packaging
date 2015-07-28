@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: http://github.com/mdub/clamp
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
+- Convert clamp to SCL (dcleal@redhat.com)
+
 * Wed Jun 10 2015 Dominic Cleal <dcleal@redhat.com> 1.0.0-1
 - update clamp to 1.0.0 (kvedulv@kvedulv.de)
 - Modernise spec file (dcleal@redhat.com)
