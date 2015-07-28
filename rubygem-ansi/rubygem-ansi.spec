@@ -1,4 +1,4 @@
-%{?scl:%scl_package rubygems-%{gem_name}}
+%{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name ansi
