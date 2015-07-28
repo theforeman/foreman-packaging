@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 3.2.2-1
+- Update scoped_search to 3.2.2 (dcleal@redhat.com)
+
 * Wed Jun 24 2015 Dominic Cleal <dcleal@redhat.com> 3.2.1-1
 - Update scoped_search to 3.2.1 (dcleal@redhat.com)
 
