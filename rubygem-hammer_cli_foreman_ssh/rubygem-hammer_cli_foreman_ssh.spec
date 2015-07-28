@@ -9,7 +9,7 @@
 Summary: Adds remote SSH support to Hammer Foreman CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: http://github.com/theforeman/hammer-cli-foreman-ssh
@@ -78,5 +78,8 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
+- fixes #8979 - convert hammer packages to SCL (dcleal@redhat.com)
+
 * Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
 - new package built with tito
