@@ -14,7 +14,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 2.0.5-2
+- Fix typo in -doc requires on main package (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.5-1
 - Modernise and update for EL7 (dcleal@redhat.com)
 
