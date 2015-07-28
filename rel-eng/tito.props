@@ -20,15 +20,11 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-bundler
-  rubygem-clamp
-  rubygem-hammer_cli
-  rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-table_print
   rubygem-terminal-table
   rubygem-tilt
 scl = ruby193
@@ -40,15 +36,11 @@ blacklist = foreman-installer
   foreman-release-scl
   foreman-selinux
   rubygem-bundler
-  rubygem-clamp
-  rubygem-hammer_cli
-  rubygem-hammer_cli_foreman
+  rubygem-little-plugger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-table_print
   rubygem-terminal-table
   rubygem-tilt
 scl = ruby193
@@ -71,8 +63,6 @@ whitelist = foreman-installer
   rubygem-daemon_controller
   rubygem-fast_gettext
   rubygem-foreman_api
-  rubygem-hammer_cli
-  rubygem-hammer_cli_foreman
   rubygem-hashie
   rubygem-highline
   rubygem-librarian-puppet
@@ -84,12 +74,10 @@ whitelist = foreman-installer
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
-  rubygem-rb-readline
   rubygem-rdoc
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
-  rubygem-table_print
   rubygem-terminal-table
   rubygem-thor
 
@@ -104,10 +92,7 @@ whitelist = foreman-installer
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-fast_gettext
-  rubygem-fastercsv
   rubygem-foreman_api
-  rubygem-hammer_cli
-  rubygem-hammer_cli_foreman
   rubygem-hashie
   rubygem-highline
   rubygem-little-plugger
@@ -119,12 +104,10 @@ whitelist = foreman-installer
   rubygem-passenger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rb-readline
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-sinatra
-  rubygem-table_print
   rubygem-tilt
 
 [foreman-nightly-fedora19]
@@ -256,6 +239,7 @@ whitelist = ipxe
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
+  rubygem-foreman_templates
   rubygem-foreman_xen
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_bootdisk
@@ -265,7 +249,8 @@ whitelist = ipxe
   rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
-  rubygem-foreman_templates
+  rubygem-net-ssh-gateway
+  rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
@@ -340,6 +325,8 @@ whitelist = rubygem-algebrick
   rubygem-less
   rubygem-less-rails
   rubygem-logify
+  rubygem-net-ssh-gateway
+  rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr

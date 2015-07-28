@@ -1,0 +1,178 @@
+diff -Nur net-ssh-multi-1.2.0/net-ssh-multi.gemspec net-ssh-multi-1.2.0-minitest/net-ssh-multi.gemspec
+--- net-ssh-multi-1.2.0/net-ssh-multi.gemspec	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/net-ssh-multi.gemspec	2014-06-13 00:23:18.000000000 -0400
+@@ -57,18 +57,15 @@
+     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+       s.add_runtime_dependency(%q<net-ssh>, [">= 2.6.5"])
+       s.add_runtime_dependency(%q<net-ssh-gateway>, [">= 1.2.0"])
+-      s.add_development_dependency(%q<test-unit>, [">= 0"])
+       s.add_development_dependency(%q<mocha>, [">= 0"])
+     else
+       s.add_dependency(%q<net-ssh>, [">= 2.6.5"])
+       s.add_dependency(%q<net-ssh-gateway>, [">= 1.2.0"])
+-      s.add_dependency(%q<test-unit>, [">= 0"])
+       s.add_dependency(%q<mocha>, [">= 0"])
+     end
+   else
+     s.add_dependency(%q<net-ssh>, [">= 2.6.5"])
+     s.add_dependency(%q<net-ssh-gateway>, [">= 1.2.0"])
+-    s.add_dependency(%q<test-unit>, [">= 0"])
+     s.add_dependency(%q<mocha>, [">= 0"])
+   end
+ end
+diff -Nur net-ssh-multi-1.2.0/test/channel_test.rb net-ssh-multi-1.2.0-minitest/test/channel_test.rb
+--- net-ssh-multi-1.2.0/test/channel_test.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/channel_test.rb	2014-06-13 00:24:28.000000000 -0400
+@@ -1,7 +1,7 @@
+ require 'common'
+ require 'net/ssh/multi/channel'
+
+-class ChannelTest < Test::Unit::TestCase
++class ChannelTest < Minitest::Test
+   def test_each_should_iterate_over_each_component_channel
+     channels = [c1 = mock('channel'), c2 = mock('channel'), c3 = mock('channel')]
+     channel = Net::SSH::Multi::Channel.new(mock('session'), channels)
+@@ -149,4 +149,4 @@
+         end
+       end
+     end
+-end
+\ No newline at end of file
++end
+diff -Nur net-ssh-multi-1.2.0/test/common.rb net-ssh-multi-1.2.0-minitest/test/common.rb
+--- net-ssh-multi-1.2.0/test/common.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/common.rb	2014-06-13 00:49:30.000000000 -0400
+@@ -1,2 +1,9 @@
+-require 'test/unit'
+-require 'mocha'
+\ No newline at end of file
++require 'minitest/autorun'
++require 'mocha/setup'
++
++if Minitest.const_defined?('Test')
++  # We're on Minitest 5+. Nothing to do here.
++else
++  # Minitest 4 doesn't have Minitest::Test yet.
++  Minitest::Test = MiniTest::Unit::TestCase
++end
+diff -Nur net-ssh-multi-1.2.0/test/multi_test.rb net-ssh-multi-1.2.0-minitest/test/multi_test.rb
+--- net-ssh-multi-1.2.0/test/multi_test.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/multi_test.rb	2014-06-13 00:24:57.000000000 -0400
+@@ -1,7 +1,7 @@
+ require 'common'
+ require 'net/ssh/multi'
+
+-class MultiTest < Test::Unit::TestCase
++class MultiTest < Minitest::Test
+   def test_start_with_block_should_yield_session_and_then_close
+     Net::SSH::Multi::Session.any_instance.expects(:loop)
+     Net::SSH::Multi::Session.any_instance.expects(:close)
+@@ -17,4 +17,4 @@
+     Net::SSH::Multi::Session.any_instance.expects(:close).never
+     assert_instance_of Net::SSH::Multi::Session, Net::SSH::Multi.start
+   end
+-end
+\ No newline at end of file
++end
+diff -Nur net-ssh-multi-1.2.0/test/server_test.rb net-ssh-multi-1.2.0-minitest/test/server_test.rb
+--- net-ssh-multi-1.2.0/test/server_test.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/server_test.rb	2014-06-13 00:52:27.000000000 -0400
+@@ -1,7 +1,7 @@
+ require 'common'
+ require 'net/ssh/multi/server'
+
+-class ServerTest < Test::Unit::TestCase
++class ServerTest < Minitest::Test
+   def setup
+     @master = stub('multi-session', :default_user => "bob")
+   end
+@@ -50,7 +50,7 @@
+     s1 = server('user@host1:1234')
+     s2 = server('user@host2:1234')
+     assert !s1.eql?(s2)
+-    assert_not_equal s1.hash, s2.hash
++    refute_equal s1.hash, s2.hash
+     assert s1 != s2
+   end
+
+@@ -58,7 +58,7 @@
+     s1 = server('user@host:1234')
+     s2 = server('user@host:1235')
+     assert !s1.eql?(s2)
+-    assert_not_equal s1.hash, s2.hash
++    refute_equal s1.hash, s2.hash
+     assert s1 != s2
+   end
+
+@@ -66,7 +66,7 @@
+     s1 = server('user1@host:1234')
+     s2 = server('user2@host:1234')
+     assert !s1.eql?(s2)
+-    assert_not_equal s1.hash, s2.hash
++    refute_equal s1.hash, s2.hash
+     assert s1 != s2
+   end
+
+@@ -112,7 +112,7 @@
+   end
+
+   def test_close_channels_when_session_is_not_open_should_not_do_anything
+-    assert_nothing_raised { server('host').close_channels }
++    server('host').close_channels
+   end
+
+   def test_close_channels_when_session_is_open_should_iterate_over_open_channels_and_close_them
+@@ -127,7 +127,7 @@
+   end
+
+   def test_close_when_session_is_not_open_should_not_do_anything
+-    assert_nothing_raised { server('host').close }
++    server('host').close
+   end
+
+   def test_close_when_session_is_open_should_close_session
+@@ -253,4 +253,4 @@
+       @master.expects(:next_session).with(server).returns(session)
+       return session
+     end
+-end
+\ No newline at end of file
++end
+diff -Nur net-ssh-multi-1.2.0/test/session_actions_test.rb net-ssh-multi-1.2.0-minitest/test/session_actions_test.rb
+--- net-ssh-multi-1.2.0/test/session_actions_test.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/session_actions_test.rb	2014-06-13 00:25:16.000000000 -0400
+@@ -2,7 +2,7 @@
+ require 'net/ssh/multi/server'
+ require 'net/ssh/multi/session_actions'
+
+-class SessionActionsTest < Test::Unit::TestCase
++class SessionActionsTest < Minitest::Test
+   class SessionActionsContainer
+     include Net::SSH::Multi::SessionActions
+
+@@ -125,4 +125,4 @@
+     assert_equal 127, c[:exit_status]
+   end
+
+-end
+\ No newline at end of file
++end
+diff -Nur net-ssh-multi-1.2.0/test/session_test.rb net-ssh-multi-1.2.0-minitest/test/session_test.rb
+--- net-ssh-multi-1.2.0/test/session_test.rb	2014-06-13 00:22:28.000000000 -0400
++++ net-ssh-multi-1.2.0-minitest/test/session_test.rb	2014-06-13 00:53:54.000000000 -0400
+@@ -1,7 +1,7 @@
+ require 'common'
+ require 'net/ssh/multi/session'
+
+-class SessionTest < Test::Unit::TestCase
++class SessionTest < Minitest::Test
+   def setup
+     @session = Net::SSH::Multi::Session.new
+   end
+@@ -198,4 +198,4 @@
+     IO.expects(:select).with([:a, :b, :c], [:a, :c], nil, 5).returns([[:b, :c], [:a, :c]])
+     @session.process(5)
+   end
+-end
+\ No newline at end of file
++end

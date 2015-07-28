@@ -200,8 +200,7 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 Summary: Foreman CLI
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
-Requires: rubygem(hammer_cli)
-Requires: rubygem(hammer_cli_foreman)
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
 
 %description cli
 Meta Package to install hammer rubygems and its dependencies
