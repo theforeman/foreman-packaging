@@ -109,6 +109,7 @@
       <packagereq type="default">ruby193-rubygem-quiet_assets</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp</packagereq>
+      <packagereq type="default">ruby193-rubygem-rails-i18n</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt</packagereq>
       <packagereq type="default">ruby193-rubygem-rb-readline</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi</packagereq>
@@ -251,6 +252,7 @@
       <packagereq type="default">ruby193-rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rabl-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rack-jsonp-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-rbvmomi-doc</packagereq>
