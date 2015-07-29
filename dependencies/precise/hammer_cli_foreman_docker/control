@@ -5,11 +5,11 @@ Maintainer: Michael Moll <mmoll@mmoll.at>
 Build-Depends: debhelper, gem2deb
 Standards-Version: 3.9.5
 Homepage: https://github.com/theforeman/hammer_cli_foreman_docker
-XS-Ruby-Versions: all
+XS-Ruby-Versions: ruby1.9.1
 
 Package: ruby-hammer-cli-foreman-docker
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-hammer-cli-foreman (>= 0.1.2)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby1.9.1, ruby-hammer-cli-foreman (>= 0.1.2)
 Description: Foreman Docker-related commands for Hammer
  This Hammer CLI plugin contains set of commands for foreman_docker, a plugin to Foreman for Docker.

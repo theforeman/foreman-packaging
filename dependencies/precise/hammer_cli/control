@@ -5,13 +5,12 @@ Maintainer: Tomas Strachota <tstrachota@redhat.com>
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
 Standards-Version: 3.9.3
 Homepage: http://github.com/theforeman/hammer-cli
-XS-Ruby-Versions: all
+XS-Ruby-Versions: ruby1.9.1
 
 Package: ruby-hammer-cli
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         rubygems,
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby1.9.1,
          ruby-clamp (>= 0.6.2),
          ruby-rest-client (< 1.7.0),
          ruby-logging,
@@ -21,7 +20,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-fastercsv,
          ruby-mime-types (< 2.0.0),
          ruby-fast-gettext (>= 0.8.0),
-         liblocale-ruby1.8 (>= 2.0.6) | liblocale-ruby1.9.1 (>= 2.0.6),
+         liblocale-ruby1.9.1 (>= 2.0.6),
          ruby-json (>= 1.6.1),
          ruby-apipie-bindings (>= 0.0.10), ruby-apipie-bindings (<< 0.1.0),
          ruby-rb-readline

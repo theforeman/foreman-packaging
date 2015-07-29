@@ -5,12 +5,12 @@ Maintainer: Michael Moll <mmoll@mmoll.at>
 Build-Depends: debhelper, gem2deb
 Standards-Version: 3.9.3
 Homepage: http://github.com/theforeman/hammer_cli_foreman_salt
-XS-Ruby-Versions: all
+XS-Ruby-Versions: ruby1.9.1
 
 Package: ruby-hammer-cli-foreman-salt
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby1.9.1,
          ruby-hammer-cli-foreman (>= 0.1.2)
 Description: foreman_salt commands for Hammer CLI
  This Hammer CLI plugin contains the commands for foreman_salt, a plugin

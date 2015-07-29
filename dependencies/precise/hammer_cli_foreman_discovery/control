@@ -5,11 +5,11 @@ Maintainer: Michael Moll <mmoll@mmoll.at>
 Build-Depends: debhelper, gem2deb
 Standards-Version: 3.9.5
 Homepage: https://github.com/theforeman/hammer-cli-foreman-discovery
-XS-Ruby-Versions: all
+XS-Ruby-Versions: ruby1.9.1
 
 Package: ruby-hammer-cli-foreman-discovery
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-hammer-cli-foreman (>= 0.1.2)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby1.9.1, ruby-hammer-cli-foreman (>= 0.1.2)
 Description: Foreman CLI plugin for managing discovery hosts in foreman
  Contains the code for managing host discovery in foreman (results and progress) in the Hammer CLI.

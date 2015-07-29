@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-docker (0.0.3-2) unstable; urgency=medium
+
+  * Use Ruby 1.9 explicitly on Ubuntu/precise
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 29 Jul 2015 17:32:35 +0200
+
 ruby-hammer-cli-foreman-docker (0.0.3-1) unstable; urgency=medium
 
   * Initial release
