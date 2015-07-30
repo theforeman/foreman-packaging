@@ -103,6 +103,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jul 30 2015 Dominic Cleal <dcleal@redhat.com> 0.3.8-1
+- Update to foreman_hooks 0.3.8 (dcleal@redhat.com)
+
 * Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 0.3.7-3
 - Add jgrep dependency to -doc for example helper (dcleal@redhat.com)
 
