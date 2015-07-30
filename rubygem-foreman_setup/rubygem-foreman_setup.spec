@@ -12,20 +12,17 @@
 %global gem_name foreman_setup
 
 %define rubyabi 1.9.1
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.0
-Release:    1%{?dist}
+Version:    3.0.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_setup
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.9.0
-Requires:   %{?scl_prefix}rubygem(deface)
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -41,6 +38,8 @@ BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: foreman-plugin >= 1.9.0
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 
@@ -73,13 +72,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-group :%{gem_name} do
-  gem '%{gem_name}'
-end
-GEMFILE
-
+%foreman_bundlerd_file
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -88,13 +82,12 @@ GEMFILE
 %{gem_instdir}/db
 %{gem_instdir}/lib
 %{gem_instdir}/locale
+%{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
 %exclude %{gem_instdir}/.tx
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_instdir}/CHANGES.md
@@ -102,9 +95,8 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %posttrans
-# We need to run the db:migrate after the install transaction
-su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%foreman_db_migrate
+%foreman_restart
 exit 0
 
 %changelog
