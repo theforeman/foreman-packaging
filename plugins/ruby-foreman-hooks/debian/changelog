@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.8) stable; urgency=low
+
+  * 0.3.8 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Thu, 30 Jul 2015 15:09:18 +0100
+
 ruby-foreman-hooks (0.3.7-1) stable; urgency=low
 
   * Fix version number to reflect packaged gem
