@@ -17,8 +17,8 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.7
-Release:    3%{?dist}
+Version:    0.3.8
+Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_hooks
