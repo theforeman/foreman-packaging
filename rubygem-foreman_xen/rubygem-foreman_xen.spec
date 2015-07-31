@@ -100,6 +100,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 31 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
+- update foreman_xen to 0.1.2 (kvedulv@kvedulv.de)
+
 * Wed May 27 2015 Dominic Cleal <dcleal@redhat.com> 0.1.1-1
 - update foreman_xen to 0.1.1 (kvedulv@kvedulv.de)
 
