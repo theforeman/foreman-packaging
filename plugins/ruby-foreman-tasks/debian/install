@@ -1,4 +1,5 @@
 foreman-tasks.rb                  usr/share/foreman/bundler.d
 cache                             usr/share/foreman/vendor
 bin/foreman-tasks                 usr/bin
+foreman-tasks.yaml                etc/foreman/plugins
 apipie-cache/foreman-tasks        var/lib/foreman/public/apipie-cache/plugin
