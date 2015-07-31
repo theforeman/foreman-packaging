@@ -6,7 +6,7 @@
 
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0.pre3
+Version: 0.9.0
 Release: 1%{?dist}
 Group: Development/Languages
 
