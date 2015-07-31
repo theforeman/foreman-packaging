@@ -20,7 +20,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.1
+Version: 0.7.2
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -103,6 +103,10 @@ cp -a .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a
 
+mkdir -p %{buildroot}%{foreman_pluginconf_dir}
+mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
+  %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
+
 #copy init scripts and sysconfigs
 %if 0%{?rhel} == 6
 install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
@@ -155,6 +159,7 @@ exit 0
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %doc %{gem_instdir}/LICENSE
