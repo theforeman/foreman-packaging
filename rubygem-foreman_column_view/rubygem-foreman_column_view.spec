@@ -114,6 +114,9 @@ CONFIG
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Aug 03 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
+- Update foreman_column_view to 0.2.1 (dcleal@redhat.com)
+
 * Wed Feb 26 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - Update to v0.2.0 (dcleal@redhat.com)
 - Remove SCL prefix from foreman-plugin-* provide (dcleal@redhat.com)
