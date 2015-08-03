@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.2.1) stable; urgency=low
+
+  * 0.2.1 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Mon, 03 Aug 2015 08:58:29 +0100
+
 ruby-foreman-column-view (0.2.0-4) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it
