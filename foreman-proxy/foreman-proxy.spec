@@ -162,10 +162,6 @@ ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/logs
 # Link temp directory to system wide temp
 ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 
-# Cache is under %{_localstatedir}/cache/%{name}
-mkdir -p -m0700 %{buildroot}%{_localstatedir}/cache/%{name}
-ln -sv %{_localstatedir}/cache/%{name} %{buildroot}%{_datadir}/%{name}/cache
-
 %clean
 rm -rf %{buildroot}
 
@@ -174,7 +170,6 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%attr(-,%{name},%{name}) %{_localstatedir}/cache/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
