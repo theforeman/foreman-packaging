@@ -85,6 +85,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Mon Aug 03 2015 Ivan Nečas <inecas@redhat.com> 0.8.2-1
+- Update dynflow to 0.8.2 (inecas@redhat.com)
+- Automatic commit of package [rubygem-dynflow] minor release [0.8.1-1].
+  (dcleal@redhat.com)
+- Update dynflow to 0.8.1 (inecas@redhat.com)
+
 * Thu Jul 02 2015 Dominic Cleal <dcleal@redhat.com> 0.8.1-1
 - Update dynflow to 0.8.1 (inecas@redhat.com)
 
