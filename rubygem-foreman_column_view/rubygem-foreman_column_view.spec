@@ -18,7 +18,7 @@
 
 Summary:    Column View Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2.0
+Version:    0.2.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -26,7 +26,7 @@ URL:        http://github.com/GregSutcliffe/foreman_column_view
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.2.0
-Requires:   %{?scl_prefix}rubygem(deface)
+Requires:   %{?scl_prefix}rubygem(deface) < 2.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
