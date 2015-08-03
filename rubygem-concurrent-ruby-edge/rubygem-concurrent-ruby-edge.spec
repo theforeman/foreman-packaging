@@ -75,6 +75,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Aug 03 2015 Ivan Nečas <inecas@redhat.com> 0.1.0-1
+- Update concurrent-ruby-edge to 0.1.0 (inecas@redhat.com)
+- Automatic commit of package [rubygem-concurrent-ruby-edge] minor release
+  [0.1.0.pre3-1]. (dcleal@redhat.com)
+- Initial build of concurrent-ruby library (inecas@redhat.com)
+
 * Thu Jul 02 2015 Ivan Nečas <inecas@redhat.com>
 - new package built with tito
 
