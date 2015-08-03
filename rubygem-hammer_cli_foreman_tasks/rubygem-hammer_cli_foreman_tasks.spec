@@ -3,7 +3,7 @@
 
 Summary: Foreman CLI plugin for showing task information for resources and users
 Name: rubygem-%{gem_name}
-Version: 0.0.6
+Version: 0.0.7
 Release: 1%{?dist}
 Group: Applications/Systems
 License: GPLv3+
@@ -18,7 +18,7 @@ Requires: ruby(release)
 
 Requires: ruby(rubygems)
 Requires: rubygem(hammer_cli_foreman) > 0.1.1
-Requires: rubygem(hammer_cli_foreman) < 0.3.0
+Requires: rubygem(hammer_cli_foreman) < 0.4.0
 Requires: rubygem(powerbar) >= 1.0.11
 Requires: rubygem(powerbar) < 1.1.0
 BuildRequires: ruby(rubygems)
