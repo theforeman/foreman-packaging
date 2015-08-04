@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.3.0-1) stable; urgency=low
+
+  * 0.3.0 release
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 04 Aug 2015 09:33:29 +0100
+
 ruby-hammer-cli-foreman (0.2.0-1) stable; urgency=low
 
   * 0.2.0 release
