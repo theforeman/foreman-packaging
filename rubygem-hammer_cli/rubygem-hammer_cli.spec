@@ -3,7 +3,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
