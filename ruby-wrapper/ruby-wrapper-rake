@@ -1,7 +1,14 @@
 #!/bin/bash
 
-COMMAND="rake $@"
+COMMAND="rake"
 SCL=FIXMESCL
 
-scl enable $SCL "$COMMAND"
-
+# Execute a single script with no arguments with 'scl', else it fails to
+# pass spaces/quotes in arguments through correctly (RHBZ#1248418).
+TMP=$(mktemp)
+trap "rm -f $TMP" EXIT
+echo -n $COMMAND > $TMP
+for arg in "$@"; do
+  printf " %q" "$arg" >> $TMP
+done
+scl enable $SCL "bash $TMP"
