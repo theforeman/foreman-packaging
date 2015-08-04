@@ -36,10 +36,7 @@ case "$1" in
     chown $USERNAME:$GROUPNAME "$FOREMAN_HOME/logs"
     chown $USERNAME:$GROUPNAME "/var/log/foreman-proxy"
     chown $USERNAME:$GROUPNAME "/var/run/foreman-proxy"
-    chown $USERNAME:$GROUPNAME "/var/cache/foreman-proxy"
     chown $USERNAME:root "$FOREMAN_HOME/config.ru"
-
-    chmod 0700 "/var/cache/foreman-proxy"
 
     TEMP=$(mktemp -d)
     trap "rm -rf $TEMP" EXIT
