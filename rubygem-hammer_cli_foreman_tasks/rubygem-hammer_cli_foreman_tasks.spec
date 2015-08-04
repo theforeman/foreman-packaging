@@ -68,6 +68,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 04 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
+- Update rubygem-hammer_cli_foreman_tasks to 0.0.7 (ericdhelms@gmail.com)
+
 * Mon Apr 27 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
 - Update hammer_cli_foreman_tasks to 0.0.6 (dcleal@redhat.com)
 
