@@ -13,6 +13,10 @@ broken for an older release. Please fork and send a PR.
 PRs will get automatically tested and test packages will be built into a per-user
 area on [stagingdeb.theforeman.org](http://stagingdeb.theforeman.org).
 
+Our PR test jobs are very picky about branch names, for which we apologise.  Please
+prefix *your* branch with the name of the target branch and a hyphen.  For example,
+a PR to `deb/develop` could be called `deb/develop-fix-foo`.
+
 ## HOWTO: update a package
 
 ### Core project (foreman, foreman-proxy, foreman-installer)
