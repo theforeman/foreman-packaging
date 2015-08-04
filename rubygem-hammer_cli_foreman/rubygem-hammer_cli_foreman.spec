@@ -3,7 +3,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -17,7 +17,7 @@ Requires: ruby(release)
 %endif
 
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.2.0
+Requires: rubygem(hammer_cli) >= 0.3.0
 Requires: rubygem(apipie-bindings) >= 0.0.11
 Requires: rubygem(apipie-bindings) < 0.1.0
 Requires: rubygem(rest-client) < 1.7.0
