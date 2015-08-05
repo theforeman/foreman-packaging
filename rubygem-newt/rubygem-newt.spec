@@ -10,7 +10,7 @@
 Summary: Ruby bindings for newt
 Name: rubygem-%{gem_name}
 
-Version: 0.9.4
+Version: 0.9.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -71,6 +71,9 @@ rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Aug 04 2015 Lukas Zapletal <lzap+rpm@redhat.com> 0.9.5-1
+- bumped version
+
 * Tue Jun 30 2015 Dominic Cleal <dcleal@redhat.com> 0.9.4-1
 - new package built with tito
 
