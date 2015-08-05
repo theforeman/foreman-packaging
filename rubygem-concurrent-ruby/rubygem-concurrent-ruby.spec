@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Aug 05 2015 Dominic Cleal <dcleal@redhat.com> 0.9.0-2
+- Increase the epoch number for the concurrent-ruby gems (inecas@redhat.com)
+
 * Mon Aug 03 2015 Ivan Nečas <inecas@redhat.com> 0.9.0-1
 - Update concurrent-ruby to 0.9.0 (inecas@redhat.com)
 - Automatic commit of package [rubygem-concurrent-ruby] minor release
