@@ -8,7 +8,7 @@
 Summary: Wrapper for %{scl_prefix} ruby.
 Name: %{?scl:%scl_prefix}ruby-wrapper
 Version: 0.0.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License:  ASL 2.0
 URL: https://github.com/maxamillion/ruby-wrapper
@@ -68,6 +68,11 @@ exit 1
 
 
 %changelog
+* Wed Aug 05 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-6
+- fixes #11275, #11170 - pass spaces/quotes in args through SCL wrappers
+  (dcleal@redhat.com)
+- Fix changelog formatting (dcleal@redhat.com)
+
 * Tue May 06 2014 Dominic Cleal <dcleal@redhat.com> 0.0.2-5
 - Enable v8 collection too for SCL 1.1 (jmontleo@redhat.com)
 
