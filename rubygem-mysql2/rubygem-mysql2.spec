@@ -88,6 +88,9 @@ find %{buildroot} -type f -name *.o -exec rm -f {} +
 %{gem_instdir}/spec
 
 %changelog
+* Wed Aug 05 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-1
+- Update mysql2 to 0.3.19 (dcleal@redhat.com)
+
 * Mon Jun 01 2015 Dominic Cleal <dcleal@redhat.com> 0.3.18-1
 - Update mysql2 to 0.3.18 (dcleal@redhat.com)
 
