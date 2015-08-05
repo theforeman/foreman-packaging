@@ -74,13 +74,17 @@ exit 1
 * Tue Dec 03 2013 Eric D Helms <ehelms@redhat.com> 0.0.2-4
 - new package built with tito
 
-* Wed Sep 18 2013 Sam Kottler <shk@redhat.com> -0.0.2-3
-* Add a rails wrapper
+* Wed Sep 18 2013 Sam Kottler <shk@redhat.com> - 0.0.2-3
+- Add a rails wrapper
+
 * Mon Sep 9 2013 Sam Kottler <shk@redhat.com> - 0.0.2-2
 - Move /usr/bin/ruby193-ruby-rake to /usr/bin/ruby193-rake
+
 * Mon Sep 9 2013 Sam Kottler <shk@redhat.com> - 0.0.2-1
 - Add prefixed rake wrapper
+
 * Wed Jun 26 2013 Adam Miller <maxamillion@fedoraproject.org> - 0.0.1-2
-- Fix rubyabi 
+- Fix rubyabi
+
 * Wed Jun 26 2013 Adam Miller <maxamillion@fedoraproject.org> - 0.0.1-1
 - First package of the ruby-wrapper
