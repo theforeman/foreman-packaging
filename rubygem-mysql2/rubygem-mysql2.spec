@@ -3,7 +3,7 @@
 
 %define gem_name mysql2
 
-%define version 0.3.18
+%define version 0.3.19
 
 Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -74,8 +74,7 @@ find %{buildroot} -type f -name *.o -exec rm -f {} +
 
 %files
 %defattr(-, root, root)
-# Missing in 0.3.18
-#%{gem_instdir}/LICENSE
+%doc %{gem_instdir}/LICENSE
 %{gem_instdir}/ext/mysql2
 %{gem_libdir}
 %{gem_instdir}/support
