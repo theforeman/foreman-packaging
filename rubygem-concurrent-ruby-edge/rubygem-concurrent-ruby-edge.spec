@@ -7,7 +7,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Aug 06 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-3
+- Fix dep to include epoch between -doc and main package (dcleal@redhat.com)
+
 * Wed Aug 05 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-2
 - Increase the epoch number for the concurrent-ruby gems (inecas@redhat.com)
 
