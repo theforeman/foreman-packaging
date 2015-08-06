@@ -40,7 +40,7 @@ patterns.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
