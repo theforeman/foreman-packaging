@@ -1,3 +1,9 @@
+foreman-proxy (1.9.0~rc3-1) stable; urgency=low
+
+  * 1.9.0-RC3 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 07 Aug 2015 10:48:14 +0100
+
 foreman-proxy (1.9.0~rc2-1) stable; urgency=low
 
   * 1.9.0-RC2 released
