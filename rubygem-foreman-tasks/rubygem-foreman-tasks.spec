@@ -180,6 +180,16 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Aug 07 2015 Ivan Nečas <inecas@redhat.com> 0.7.2-1
+- Update foreman-tasks to 0.7.2 (inecas@redhat.com)
+- Better branched builds with Foreman version macro (dcleal@redhat.com)
+- Automatic commit of package [rubygem-foreman-tasks] minor release [0.7.1-1].
+  (dcleal@redhat.com)
+- Update foreman-tasks to 0.7.1 (inecas@redhat.com)
+- Automatic commit of package [rubygem-foreman-tasks] minor release [0.6.14-1].
+  (dcleal@redhat.com)
+- Update foreman-tasks to 0.6.14 (inecas@redhat.com)
+
 * Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 0.7.1-1
 - Update foreman-tasks to 0.7.1 (inecas@redhat.com)
 
