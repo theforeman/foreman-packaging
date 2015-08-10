@@ -49,6 +49,7 @@
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
@@ -83,6 +84,7 @@
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
+      <packagereq type="default">rubygem-sequel</packagereq>
 
 
       <!--
@@ -150,9 +152,11 @@
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-sequel-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
