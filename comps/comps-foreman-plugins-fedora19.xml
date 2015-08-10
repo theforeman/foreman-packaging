@@ -50,6 +50,7 @@
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
 
       <packagereq type="default">rubygem-algebrick</packagereq>
@@ -144,6 +145,7 @@
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">rubygem-wicked-doc</packagereq>
       <packagereq type="default">rubygem-zscheduler-doc</packagereq>
