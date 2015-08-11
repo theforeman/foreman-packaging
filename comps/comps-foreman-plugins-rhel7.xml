@@ -25,6 +25,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-mco</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_noenv</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openscap</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup</packagereq>
@@ -113,6 +114,7 @@
       <packagereq type="default">ruby193-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_host_rundeck-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_noenv-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_openscap-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_param_lookup-doc</packagereq>
