@@ -223,6 +223,7 @@ whitelist = ipxe
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
+  rubygem-foreman_noenv
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
@@ -297,6 +298,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
+  rubygem-foreman_noenv
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
@@ -370,6 +372,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
+  rubygem-foreman_noenv
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
