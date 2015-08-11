@@ -18,7 +18,7 @@
 
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2
+Version:    0.0.2
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -103,5 +103,5 @@ mv %{buildroot}%{gem_instdir}/config/foreman_noenv.yaml \
 %{gem_instdir}/Rakefile
 
 %changelog
-* Tue Aug 11 2015 Josh Baird <jbaird@follett.com> 0.2.0-1
-- Initial build of foreman_noenv 0.2-1
+* Tue Aug 11 2015 Josh Baird <jbaird@follett.com> 0.0.2-1
+- Initial build of foreman_noenv 0.0.2-1
