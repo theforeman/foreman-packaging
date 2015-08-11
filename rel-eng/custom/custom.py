@@ -19,8 +19,12 @@ import os.path
 import re
 import shutil
 import subprocess
-import urllib
 from zipfile import ZipFile
+
+try:
+  from urllib import urlopen, urlretrieve
+except ImportError:
+  from urllib.request import urlopen, urlretrieve
 
 from tito.builder.fetch import SourceStrategy
 from tito.common import error_out, debug, run_command
@@ -117,7 +121,7 @@ class ForemanSourceStrategy(SourceStrategy):
         job_url_base = "%s/job/%s/%s" % (url_base, job_name, job_id)
         json_url = "%s/api/json" % job_url_base
 
-        job_info = json.loads(urllib.urlopen(json_url).read())
+        job_info = json.loads(urlopen(json_url).read().decode("utf-8"))
         if "number" in job_info:
             job_id = job_info["number"]
 
@@ -134,7 +138,7 @@ class ForemanSourceStrategy(SourceStrategy):
         url = "%s/artifact/*zip*/archive.zip" % job_url_base
         debug("Fetching from %s" % url)
 
-        (zip_path, zip_headers) = urllib.urlretrieve(url)
+        (zip_path, zip_headers) = urlretrieve(url)
         zip_file = ZipFile(zip_path, 'r')
         try:
             zip_file.extractall(self.builder.rpmbuild_sourcedir)
