@@ -8,5 +8,5 @@ Homepage: https://github.com/Dynflow/dynflow
 
 Package: ruby-foreman-dynflow
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, bundler
 Description: Ruby workflow/orchestration engine
