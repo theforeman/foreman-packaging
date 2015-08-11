@@ -180,6 +180,7 @@ whitelist = foreman
   rubygem-table_print
   rubygem-therubyracer
   rubygem-turbolinks
+  rubygem-underscore-rails
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
 

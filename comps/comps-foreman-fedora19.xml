@@ -98,6 +98,7 @@
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-turbolinks</packagereq>
+      <packagereq type="default">rubygem-underscore-rails</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
 
@@ -169,6 +170,7 @@
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-turbolinks-doc</packagereq>
+      <packagereq type="default">rubygem-underscore-rails-doc</packagereq>
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
       <!--RGD-END-->
