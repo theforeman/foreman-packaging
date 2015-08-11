@@ -15,7 +15,7 @@ If you're just submitting a patch which changes a source file, you will need:
 However to release RPMs from this repo, you also require:
 
 * koji client and an account (certificate) on koji.katello.org
-* [tito](https://github.com/dgoodwin/tito) 0.5.6 or higher
+* [tito](https://github.com/dgoodwin/tito) 0.6.1 or higher
 
 ## HOWTO: checkout
 
