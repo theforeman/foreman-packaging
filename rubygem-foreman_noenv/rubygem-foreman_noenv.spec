@@ -89,7 +89,10 @@ mv %{buildroot}%{gem_instdir}/config/foreman_noenv.yaml \
 %{gem_instdir}/app
 %{gem_instdir}/lib
 %{gem_instdir}/db/migrate
+%{gem_instdir}/locale
+
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/test
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
