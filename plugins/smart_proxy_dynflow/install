@@ -1,0 +1,2 @@
+debian/dynflow.rb usr/share/foreman-proxy/bundler.d
+settings.d/dynflow.yml etc/foreman-proxy/settings.d
