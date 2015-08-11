@@ -26,6 +26,7 @@
       <packagereq type="default">rubygem-foreman_host_rundeck</packagereq>
       <packagereq type="default">rubygem-foreman-mco</packagereq>
       <packagereq type="default">rubygem-foreman_memcache</packagereq>
+      <packagereq type="default">rubygem-foreman_noenv</packagereq>
       <packagereq type="default">rubygem-foreman_one</packagereq>
       <packagereq type="default">rubygem-foreman_openscap</packagereq>
       <packagereq type="default">rubygem-foreman_param_lookup</packagereq>
