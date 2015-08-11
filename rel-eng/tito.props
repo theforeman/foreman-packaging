@@ -25,7 +25,7 @@ blacklist = foreman-installer
   rubygem-rkerberos
   rubygem-sinatra
   rubygem-tilt
-scl = ruby193
+scl = tfm
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -38,7 +38,7 @@ blacklist = foreman-installer
   rubygem-rkerberos
   rubygem-sinatra
   rubygem-tilt
-scl = ruby193
+scl = tfm
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
 #
@@ -186,7 +186,7 @@ whitelist = foreman
 
 [foreman-plugins-nightly-rhel6]
 disttag = .el6
-scl = ruby193
+scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
@@ -264,7 +264,7 @@ whitelist = ipxe
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
-scl = ruby193
+scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
