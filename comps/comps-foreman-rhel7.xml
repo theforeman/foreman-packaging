@@ -177,7 +177,6 @@
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-sinatra</packagereq>
-      <packagereq type="default">rubygem-terminal-table</packagereq>
       <packagereq type="default">rubygem-tilt</packagereq>
 
       <!--

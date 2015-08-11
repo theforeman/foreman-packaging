@@ -24,7 +24,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-terminal-table
   rubygem-tilt
 scl = ruby193
 
@@ -38,7 +37,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-terminal-table
   rubygem-tilt
 scl = ruby193
 
@@ -75,7 +73,6 @@ whitelist = foreman-installer
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
-  rubygem-terminal-table
   rubygem-thor
 
 [foreman-nightly-nonscl-rhel7]
@@ -181,7 +178,6 @@ whitelist = foreman
   rubygem-spice-html5-rails
   rubygem-strong_parameters
   rubygem-table_print
-  rubygem-terminal-table
   rubygem-therubyracer
   rubygem-turbolinks
   rubygem-unicode-display_width
