@@ -2,4 +2,5 @@
 *.swp
 *.swo
 rel-eng/custom/*.pyc
+rel-eng/custom/__pycache__
 mock/site-defaults.cfg
