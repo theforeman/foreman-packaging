@@ -1,0 +1,5 @@
+ruby-dynflow (0.8.5-1) stable; urgency=low
+
+  * Initial packaging for Debian
+
+ -- Stephen Benjamin <stephen@redhat.com>  Wed, 12 Aug 2015 23:18:53 +0200
