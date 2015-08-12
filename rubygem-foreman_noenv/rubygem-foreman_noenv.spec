@@ -18,7 +18,7 @@
 
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.2
+Version:    0.0.3
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -81,8 +81,8 @@ gem '%{gem_name}'
 GEMFILE
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
-mv %{buildroot}%{gem_instdir}/config/foreman_noenv.yaml \
-   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
+   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
 
 %files
 %dir %{gem_instdir}
@@ -95,10 +95,8 @@ mv %{buildroot}%{gem_instdir}/config/foreman_noenv.yaml \
 %exclude %{gem_instdir}/test
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
+%config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/LICENSE
@@ -106,5 +104,8 @@ mv %{buildroot}%{gem_instdir}/config/foreman_noenv.yaml \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 12 2015 Josh Baird <jbaird@follett.com> 0.0.3-1
+- Fix typos and cleanup spec
+
 * Tue Aug 11 2015 Josh Baird <jbaird@follett.com> 0.0.2-1
 - Initial build of foreman_noenv 0.0.2-1
