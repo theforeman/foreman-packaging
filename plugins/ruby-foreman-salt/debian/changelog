@@ -2,7 +2,7 @@ ruby-foreman-salt (3.0.1-1) stable; urgency=low
 
   * Update to 3.0.1
 
- -- Stephen Benjamin <stephen@redhat.com>  Thu Aug 13 2015 07:21:39 -0500
+ -- Stephen Benjamin <stephen@redhat.com>  Thu, 13 Aug 2015 07:21:39 -0500
 
 ruby-foreman-salt (3.0.0-1) stable; urgency=low
 
