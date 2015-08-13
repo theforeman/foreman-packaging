@@ -18,7 +18,7 @@
 
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
+Version:    0.0.4
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -103,7 +103,15 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
+%posttrans
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
+
 %changelog
+* Thu Aug 13 2015 Josh Baird <jbaird@follett.com> 0.0.4-1
+- Run db:migrate in %posttrans
+
 * Wed Aug 12 2015 Josh Baird <jbaird@follett.com> 0.0.3-1
 - Fix typos and cleanup spec
 
