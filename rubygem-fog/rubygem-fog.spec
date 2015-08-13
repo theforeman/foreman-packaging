@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.32.0
+Version: 1.33.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -26,6 +26,7 @@ Patch11: fog-no-serverlove.patch
 Patch12: fog-no-riakcs.patch
 Patch13: fog-no-local.patch
 Patch14: fog-no-powerdns.patch
+Patch15: fog-no-dynect.patch
 
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.6.0
@@ -120,6 +121,8 @@ sed -i '/add_.*dependency.*riakcs/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*fog-local/d' %{gem_name}.gemspec
 %patch14 -p1
 sed -i '/add_.*dependency.*powerdns/d' %{gem_name}.gemspec
+%patch15 -p1
+sed -i '/add_.*dependency.*dynect/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}

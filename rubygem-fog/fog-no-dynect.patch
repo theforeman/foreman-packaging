@@ -1,0 +1,37 @@
+From fa0fb735694e6d88c3bd5772bd26fce2a4d10d15 Mon Sep 17 00:00:00 2001
+From: Dominic Cleal <dcleal@redhat.com>
+Date: Thu, 13 Aug 2015 15:42:25 +0100
+Subject: [PATCH] Remove fog-dynect depdnency
+
+---
+ lib/fog.rb     | 1 -
+ lib/fog/bin.rb | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/lib/fog.rb b/lib/fog.rb
+index c741b2e..42ed917 100644
+--- a/lib/fog.rb
++++ b/lib/fog.rb
+@@ -28,7 +28,6 @@ require 'fog/dnsimple'
+ require 'fog/dnsmadeeasy'
+ require 'fog/fogdocker'
+ require 'fog/dreamhost'
+-require 'fog/dynect'
+ require 'fog/glesys'
+ require 'fog/go_grid'
+ require 'fog/google'
+diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
+index e45f7ff..1209497 100644
+--- a/lib/fog/bin.rb
++++ b/lib/fog/bin.rb
+@@ -60,7 +60,6 @@ require 'fog/bin/dnsimple'
+ require 'fog/bin/dnsmadeeasy'
+ require 'fog/bin/fogdocker'
+ require 'fog/bin/dreamhost'
+-require 'fog/bin/dynect'
+ require 'fog/bin/glesys'
+ require 'fog/bin/go_grid'
+ require 'fog/bin/google'
+-- 
+2.4.3
+
