@@ -119,6 +119,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 13 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-1
+- Updated foreman_discovery to 4.0.0 (lzap+git@redhat.com)
+- Better branched builds with Foreman version macro (dcleal@redhat.com)
+
 * Tue Mar 10 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-1
 - Version 3.0.0 for Foreman 1.8 (lzap+git@redhat.com)
 - Refs #4478 - prebuild apipie cache for rubygem-foreman_discovery
