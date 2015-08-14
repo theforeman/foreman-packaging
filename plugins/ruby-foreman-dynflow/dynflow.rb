@@ -1,1 +1,1 @@
-gem 'dynflow', '0.8.4'
+gem 'dynflow', '0.8.5'
