@@ -114,6 +114,10 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Fri Aug 14 2015 Dominic Cleal <dcleal@redhat.com> 0.4.2-1
+- foreman_openscap 0.4.2 (shlomi@ben-hanna.com)
+- Better branched builds with Foreman version macro (dcleal@redhat.com)
+
 * Tue May 12 2015 Dominic Cleal <dcleal@redhat.com> 0.4.1-1
 - foreman_openscap 0.4.1 (shlomi@ben-hanna.com)
 
