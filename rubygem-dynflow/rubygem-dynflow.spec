@@ -6,7 +6,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.2
+Version: 0.8.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -19,7 +19,6 @@ Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(activesupport)
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 0.9.0
