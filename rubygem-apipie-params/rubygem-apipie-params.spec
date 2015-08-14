@@ -5,7 +5,7 @@
 
 Summary: DSL for describing data structures
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -13,7 +13,6 @@ URL: https://rubygems.org/gems/apipie-params
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(activesupport)
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(release)
