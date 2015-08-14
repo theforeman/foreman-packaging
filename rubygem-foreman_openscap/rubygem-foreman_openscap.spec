@@ -15,7 +15,7 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
+Version: 0.4.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
@@ -26,8 +26,8 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.8.0
 
 Requires: scap-security-guide
-Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.2
 Requires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
@@ -42,8 +42,8 @@ BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: foreman-plugin >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.2
 BuildRequires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 
 BuildArch: noarch
