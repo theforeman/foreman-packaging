@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
+- Release apipie-params 0.0.4 (stbenjam@redhat.com)
+
 * Mon Jan 20 2014 Ivan Nečas <inecas@redhat.com> 0.0.3-1
 - Bump version (inecas@redhat.com)
 
