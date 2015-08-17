@@ -106,6 +106,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.1.7-1
+- Update foreman_chef to 0.1.7 (mhulan@redhat.com)
+
 * Wed Jul 15 2015 Marek Hulan <mhulan@redhat.com> 0.1.6-1
 - Update foreman_chef to 0.1.6 (mhulan@redhat.com)
 
