@@ -1,0 +1,21 @@
+Source: ruby-concurrent-ruby-edge
+Section: ruby
+Priority: optional
+Maintainer: Stephen Benjamin <stephen@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-concurrent-ruby-edge.git
+#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-concurrent-ruby-edge.git;a=summary
+Homepage: http://www.concurrent-ruby.com
+XS-Ruby-Versions: all
+
+Package: ruby-concurrent-ruby-edge
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-concurrent-ruby (>= 0.9.0), ruby-concurrent-ruby (<< 1.0.0) 
+# concurrent-ruby (~> 0.9.1)
+Description: Edge features and additions to the concurrent-ruby gem.
+ These features are under active development and may change frequently. They are expected not to
+ keep backward compatibility (there may also lack tests and documentation). Semantic versions will
+ be obeyed though. Features developed in `concurrent-ruby-edge` are expected to move to `concurrent-ruby` when final.
+ Please see http://concurrent-ruby.com for more information.

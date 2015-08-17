@@ -1,0 +1,5 @@
+ruby-concurrent-ruby-edge (0.1.1-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Stephen Benjamin <stephen@redhat.com>  Mon, 17 Aug 2015 19:12:56 +0000
