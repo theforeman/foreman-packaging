@@ -5,8 +5,8 @@ Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.1
 Homepage: http://theforeman.org/projects/smart-proxy
-Vcs-Git: git://github.com/ohadlevy/smart-proxy.git
-Vcs-Browser: https://github.com/ohadlevy/smart-proxy
+Vcs-Git: git://github.com/theforeman/smart-proxy.git
+Vcs-Browser: https://github.com/theforeman/smart-proxy
 
 Package: foreman-proxy
 Architecture: all
