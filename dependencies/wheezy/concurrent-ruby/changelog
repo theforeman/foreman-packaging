@@ -1,0 +1,5 @@
+ruby-concurrent-ruby (0.9.1-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Stephen Benjamin <stephen@redhat.com>  Mon, 17 Aug 2015 18:31:28 +0000
