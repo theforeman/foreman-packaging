@@ -11,13 +11,13 @@
 %endif
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC3
-%global dotalphatag .%{alphatag}
-%global dashalphatag -%{alphatag}
+#global alphatag RC3
+#global dotalphatag .%{alphatag}
+#global dashalphatag -%{alphatag}
 
 Name:           foreman-proxy
 Version:        1.9.0
-Release:        0.1%{?dotalphatag}%{?dist}
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
