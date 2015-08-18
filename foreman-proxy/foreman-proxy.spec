@@ -256,6 +256,9 @@ fi
 
 
 %changelog
+* Tue Aug 18 2015 Dominic Cleal <dcleal@redhat.com> 1.9.0-1
+- Release 1.9.0
+
 * Fri Aug 07 2015 Dominic Cleal <dcleal@redhat.com> 1.9.0-0.1.RC3
 - Release 1.9.0-RC3
 
