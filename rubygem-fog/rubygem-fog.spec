@@ -177,6 +177,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Aug 18 2015 Dominic Cleal <dcleal@redhat.com> 1.33.0-1
+- Update fog to 1.33.0 (dcleal@redhat.com)
+
 * Fri Jul 03 2015 Dominic Cleal <dcleal@redhat.com> 1.32.0-1
 - Update fog to 1.32.0 (dcleal@redhat.com)
 
