@@ -6,7 +6,7 @@
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/pitr-ch/algebrick
@@ -15,13 +15,15 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(activesupport)
-%if 0%{?fedora} > 18
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires: %{?scl_prefix}ruby(release)
 BuildRequires: %{?scl_prefix}ruby(release)
-%else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
 %endif
+
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
