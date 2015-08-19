@@ -1,3 +1,9 @@
+foreman-installer (1.8.3-1) stable; urgency=low
+
+  * 1.8.3 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 19 Aug 2015 09:11:25 +0100
+
 foreman-installer (1.8.2-1) stable; urgency=low
 
   * 1.8.2 released
