@@ -2,12 +2,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name concurrent-ruby-edge
-%global rubyabi 1.9.1
 
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,16 +15,16 @@ URL: https://github.com/ruby-concurrency/concurrent-ruby
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix}ruby(rubygems)
-%if 0%{?fedora} > 18
+Requires: %{?scl_prefix}ruby
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
 Requires: %{?scl_prefix}ruby(release)
-%else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-%endif
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
 %endif
+
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildArch: noarch
 
