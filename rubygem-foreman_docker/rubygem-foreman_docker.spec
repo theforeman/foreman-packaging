@@ -118,6 +118,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Aug 19 2015 Dominic Cleal <dcleal@redhat.com> 1.4.1-1
+- plugins:foreman_docker - Release 1.4.1 (elobatocs@gmail.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 1.4.0-2
 - Use foremandist macro in release (dcleal@redhat.com)
 
