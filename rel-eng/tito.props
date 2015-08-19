@@ -187,8 +187,7 @@ whitelist = foreman
 [foreman-plugins-nightly-rhel6]
 disttag = .el6
 scl = ruby193
-whitelist = ipxe
-  rubygem-algebrick
+whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-archive-tar-minitar
@@ -204,7 +203,6 @@ whitelist = ipxe
   rubygem-ffi
   rubygem-git
   rubygem-jgrep
-  rubygem-newt
   rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
@@ -230,7 +228,6 @@ whitelist = ipxe
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
-  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -249,15 +246,21 @@ whitelist = ipxe
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
-  rubygem-satyr
   rubygem-scaptimony
+  rubygem-wicked
+  rubygem-zscheduler
+
+[foreman-plugins-nightly-nonscl-rhel6]
+disttag = .el6
+whitelist = ipxe
+  rubygem-foreman_scap_client
+  rubygem-newt
+  rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
-  rubygem-wicked
-  rubygem-zscheduler
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
@@ -267,7 +270,6 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
-  rubygem-chef-api
   rubygem-commonjs
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
@@ -279,7 +281,6 @@ whitelist = rubygem-algebrick
   rubygem-ffi
   rubygem-git
   rubygem-jgrep
-  rubygem-newt
   rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
@@ -305,7 +306,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_param_lookup
   rubygem-foreman_reserve
   rubygem-foreman_salt
-  rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_simplify
   rubygem-foreman_snapshot
@@ -326,16 +326,22 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
-  rubygem-satyr
   rubygem-scaptimony
+  rubygem-wicked
+  rubygem-zscheduler
+
+[foreman-plugins-nightly-nonscl-rhel7]
+disttag = .el7
+whitelist = rubygem-chef-api
+  rubygem-foreman_scap_client
+  rubygem-newt
+  rubygem-satyr
   rubygem-smart_proxy_abrt
-  rubygem-smart_proxy_discovery
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_discovery
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
-  rubygem-wicked
-  rubygem-zscheduler
 
 [foreman-plugins-nightly-fedora19]
 disttag = .fc19
