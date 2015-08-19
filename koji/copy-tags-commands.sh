@@ -57,6 +57,15 @@ for SYSTEM in $SCL_SYSTEMS; do
   echo kkoji add-tag-inheritance --priority=10 $PRODUCT-$VERSION-$SYSTEM-build $PRODUCT-$VERSION-nonscl-$SYSTEM
 done
 
+# create -dist tag for mash, built from SCL+nonscl tags (like a SQL view)
+for SYSTEM in $NONSCL_SYSTEMS $SCL_SYSTEMS; do
+  echo kkoji add-tag $PRODUCT-$VERSION-$SYSTEM-dist
+  echo kkoji add-tag-inheritance --priority=20 $PRODUCT-$VERSION-$SYSTEM-dist $PRODUCT-$VERSION-$SYSTEM
+done
+for SYSTEM in $SCL_SYSTEMS; do
+  echo kkoji add-tag-inheritance --priority=10 $PRODUCT-$VERSION-$SYSTEM-dist $PRODUCT-$VERSION-nonscl-$SYSTEM
+done
+
 ### Plugins
 PRODUCT=foreman-plugins
 # clone plugin tags for non-SCL OSes, nonscl tags for SCL OSes
@@ -74,4 +83,13 @@ done
 # inherit core Foreman tags into both non-SCL and SCL plugin build tags
 for SYSTEM in $NONSCL_SYSTEMS $SCL_SYSTEMS $(echo $SCL_SYSTEMS | sed 's/\(^\| \)/\1nonscl-/g'); do
   echo kkoji add-tag-inheritance --priority=10 $PRODUCT-$VERSION-$SYSTEM-build foreman-$VERSION-$SYSTEM
+done
+
+# create -dist tag for mash, built from SCL+nonscl tags (like a SQL view)
+for SYSTEM in $NONSCL_SYSTEMS $SCL_SYSTEMS; do
+  echo kkoji add-tag $PRODUCT-$VERSION-$SYSTEM-dist
+  echo kkoji add-tag-inheritance --priority=20 $PRODUCT-$VERSION-$SYSTEM-dist $PRODUCT-$VERSION-$SYSTEM
+done
+for SYSTEM in $SCL_SYSTEMS; do
+  echo kkoji add-tag-inheritance --priority=10 $PRODUCT-$VERSION-$SYSTEM-dist $PRODUCT-$VERSION-nonscl-$SYSTEM
 done
