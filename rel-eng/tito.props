@@ -331,7 +331,12 @@ whitelist = rubygem-algebrick
 
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = rubygem-chef-api
+whitelist = rubygem-algebrick
+  rubygem-apipie-params
+  rubygem-chef-api
+  rubygem-concurrent-ruby
+  rubygem-concurrent-ruby-edge
+  rubygem-dynflow
   rubygem-foreman_scap_client
   rubygem-logify
   rubygem-newt
