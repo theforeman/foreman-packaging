@@ -58,6 +58,7 @@
       <packagereq type="default">rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
+      <packagereq type="default">rubygem-colorize</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
@@ -90,6 +91,7 @@
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-bastion-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
+      <packagereq type="default">rubygem-colorize-doc</packagereq>
       <packagereq type="default">rubygem-commonjs-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
