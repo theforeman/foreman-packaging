@@ -69,6 +69,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-2
+- Package algebrick for non-SCL el7 (stbenjam@redhat.com)
+
 * Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-1
 - Update algebrick to 0.7.3 (dcleal@redhat.com)
 
