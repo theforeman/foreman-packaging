@@ -17,7 +17,7 @@
 
 Summary:    DHCP browser plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.6
+Version:    0.0.7
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -33,7 +33,7 @@ Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
 
-Requires: %{?scl_prefix}rubygem(deface)
+Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
