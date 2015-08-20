@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-2
+- Package apipie-params for non-SCL el7 (stbenjam@redhat.com)
+
 * Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
 - Release apipie-params 0.0.4 (stbenjam@redhat.com)
 
