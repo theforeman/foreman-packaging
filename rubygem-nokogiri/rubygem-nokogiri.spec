@@ -1,7 +1,7 @@
 %{?scl:%scl_package rubygem-%{gemname}}
 %{!?scl:%global pkg_name %{name}}
 
-%global	mainver		1.5.11
+%global	mainver		1.6.6.2
 #%%global	prever			.beta.4
 
 %global	mainrel		1
@@ -15,7 +15,11 @@
 %global	rubyabi		1.9.1
 %global	gemdir		%{gem_dir}
 %global	geminstdir	%{gem_instdir}
+%if 0%{?fedora}
+%global	gemsodir	%{gem_extdir_mri}/lib
+%else
 %global	gemsodir	%{gem_extdir}/lib
+%endif
 %global	gem_name	%{gemname}
 
 # Note for packager:
@@ -30,11 +34,17 @@ Release:  2%{?dist}
 Group:		Development/Languages
 License:	MIT
 URL:		http://nokogiri.rubyforge.org/nokogiri/
-Source0:	http://gems.rubyforge.org/gems/%{gemname}-%{mainver}%{?prever}.gem
+Source0:	http://rubygems.org/gems/%{gemname}-%{mainver}.gem
 # ./test/html/test_element_description.rb:62 fails, as usual......
 # Patch0:		rubygem-nokogiri-1.5.0.beta3-test-failure.patch
 #Patch0:		rubygem-nokogiri-1.5.0-allow-non-crosscompile.patch
+%if 0%{?fedora} >= 19
+Requires:	%{?scl_prefix_ruby}ruby(release)
+BuildRequires:	%{?scl_prefix_ruby}ruby(release)
+%else
+Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+%endif
 BuildRequires:	%{?scl_prefix_ruby}ruby(rubygems)
 ##
 ## For %%check
@@ -49,7 +59,6 @@ Obsoletes:		%{?scl_prefix}ruby-%{gemname} <= 1.5.2-2
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	%{?scl_prefix_ruby}ruby-devel
-Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Provides:	%{?scl_prefix}rubygem(%{gemname}) = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gemname}}
@@ -95,6 +104,7 @@ This package provides non-Gem support for %{gemname}.
 %setup -n %{pkg_name}-%{version} -q -T -c
 
 # Gem repack
+TOPDIR=$(pwd)
 mkdir tmpunpackdir
 pushd tmpunpackdir
 
@@ -110,11 +120,14 @@ cd %{gem_name}-%{version}
 gem specification -l --ruby %{SOURCE0} > %{gem_name}.gemspec
 %{?scl:"}
 
-popd
+# remove bundled external libraries
+sed -i \
+   -e 's|, "ports/archives/[^"][^"]*"||g' \
+   -e 's|, "ports/patches/[^"][^"]*"||g' \
+   %{gem_name}.gemspec
+# Actually not needed when using system libraries
+sed -i -e '\@mini_portile@d' %{gem_name}.gemspec
 
-%build
-TOPDIR=$(pwd)
-pushd tmpunpackdir/%{gem_name}-%{version}
 # Ummm...
 %{?scl:scl enable %{scl} "}
 env LANG=ja_JP.UTF-8 gem build %{gem_name}.gemspec
@@ -124,8 +137,11 @@ mv %{gem_name}-%{version}.gem $TOPDIR
 popd
 rm -rf tmpunpackdir
 
+%build
 mkdir -p ./%{gemdir}
 export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
+# 1.6.0 needs this
+export NOKOGIRI_USE_SYSTEM_LIBRARIES=yes
 %{?scl:scl enable %{scl} "}
 gem install \
 	--local \
@@ -170,72 +186,11 @@ done
 # cleanups
 rm -rf %{buildroot}%{geminstdir}/ext/%{gemname}/
 rm -rf %{buildroot}%{geminstdir}/tmp/
-rm -f %{buildroot}%{geminstdir}/{.autotest,.require_paths,.gemtest}
-rm -f %{buildroot}%{geminstdir}/{build_all,test_all}
-
-%if 0%{?ruby19} < 1
-# The following method is completely copied from rubygem-gettext
-# spec file
-#
-# Create symlinks
-##
-## Note that before switching to gem %%{ruby_sitelib}/%%{gemname}
-## already existed as a directory, so this cannot be replaced
-## by symlink (cpio fails)
-## Similarly, all directories under %%{ruby_sitelib} cannot be
-## replaced by symlink
-#
-
-create_symlink_rec(){
-
-ORIGBASEDIR=$1
-TARGETBASEDIR=$2
-
-## First calculate relative path of ORIGBASEDIR 
-## from TARGETBASEDIR
-TMPDIR=$TARGETBASEDIR
-BACKDIR=
-DOWNDIR=
-num=0
-nnum=0
-while true
-do
-	num=$((num+1))
-	TMPDIR=$(echo $TMPDIR | sed -e 's|/[^/][^/]*$||')
-	DOWNDIR=$(echo $ORIGBASEDIR | sed -e "s|^$TMPDIR||")
-	if [ x$DOWNDIR != x$ORIGBASEDIR ]
-	then
-		nnum=0
-		while [ $nnum -lt $num ]
-		do
-			BACKDIR="../$BACKDIR"
-			nnum=$((nnum+1))
-		done
-		break
-	fi
-done
-
-RELBASEDIR=$( echo $BACKDIR/$DOWNDIR | sed -e 's|//*|/|g' )
-
-## Next actually create symlink
-pushd %{buildroot}/$ORIGBASEDIR
-find . -type f | while read f
-do
-	DIRNAME=$(dirname $f)
-	BACK2DIR=$(echo $DIRNAME | sed -e 's|/[^/][^/]*|/..|g')
-	mkdir -p %{buildroot}${TARGETBASEDIR}/$DIRNAME
-	LNNAME=$(echo $BACK2DIR/$RELBASEDIR/$f | \
-		sed -e 's|^\./||' | sed -e 's|//|/|g' | \
-		sed -e 's|/\./|/|' )
-	ln -s -f $LNNAME %{buildroot}${TARGETBASEDIR}/$f
-done
-popd
-
-}
-
-create_symlink_rec %{geminstdir}/lib %{ruby_sitelib}
-%endif
-
+rm -f %{buildroot}%{geminstdir}/{.autotest,.require_paths,.gemtest,.travis.yml}
+rm -f %{buildroot}%{geminstdir}/.cross_rubies
+rm -f %{buildroot}%{geminstdir}/{build_all,dependencies.yml,test_all}
+rm -f %{buildroot}%{geminstdir}/.editorconfig
+rm -rf %{buildroot}%{geminstdir}/suppressions/
 
 %check
 # Ah....
@@ -248,24 +203,13 @@ LANG=ja_JP.UTF-8
 %endif
 
 pushd ./%{geminstdir}
-# Some files are missing and due to it some tests fail, skip
-SKIPTEST="test/xml/test_xinclude.rb"
-for f in $SKIPTEST
-do
-	mv $f $f.skip
-done
-
-# Observed fail on test_subclass_parse(Nokogiri::XML::TestDocument)
 # Need investigation. For now anyway build
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 ruby -I.:lib:test \
-%if ! 0%{?ruby19} < 1
-%{?scl:"}
-	-rubygems \
-%endif
 	-e \
 	"require 'minitest/autorun' ; Dir.glob('test/**/test_*.rb'){|f| require f}" || \
 	echo "Please investigate this"
+%{?scl:EOF}
 
 for f in $SKIPTEST
 do
@@ -280,12 +224,13 @@ popd
 %if 0%{?ruby19} < 1
 %{ruby_sitearch}/%{gemname}
 %else
-%{gem_extdir}/
+%{gemsodir}/
 %endif
 %dir	%{geminstdir}/
 %doc	%{geminstdir}/[A-Z]*
 #%%doc	%{geminstdir}/nokogiri_help_responses.md
 %exclude %{geminstdir}/Rakefile
+%exclude %{geminstdir}/Gemfile
 %{geminstdir}/bin/
 %{geminstdir}/lib/
 %{gemdir}/cache/%{gemname}-%{mainver}%{?prever}.gem
