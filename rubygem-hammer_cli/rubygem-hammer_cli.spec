@@ -48,7 +48,7 @@ BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name} < 0.2.0-2
+Obsoletes: rubygem-%{gem_name} < 0.3.0-2
 %endif
 
 %description
@@ -60,7 +60,7 @@ Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 %if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name}-doc < 0.2.0-2
+Obsoletes: rubygem-%{gem_name}-doc < 0.3.0-2
 %endif
 
 %description doc
