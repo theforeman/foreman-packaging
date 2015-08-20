@@ -99,6 +99,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
+- update foreman_dhcp_browser to 0.0.7 (kvedulv@kvedulv.de)
+
 * Mon Oct 20 2014 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
 - update foreman_dhcp_browser to 0.0.6 (kvedulv@kvedulv.de)
 
