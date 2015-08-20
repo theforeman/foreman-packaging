@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name dynflow
-%global rubyabi 1.9.1
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -12,11 +11,15 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+
+%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
+Requires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix}ruby(release)
 %endif
+
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}ruby
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
@@ -27,11 +30,6 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.2.0
 Requires: %{?scl_prefix}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
-%else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}ruby
 BuildArch: noarch
