@@ -32,7 +32,6 @@
       <packagereq type="default">ruby193-rubygem-foreman_reserve</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_salt</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_setup</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_simplify</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates</packagereq>
@@ -120,7 +119,6 @@
       <packagereq type="default">ruby193-rubygem-foreman_reserve-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_setup-doc</packagereq>
-      <packagereq type="default">ruby193-rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_templates-doc</packagereq>

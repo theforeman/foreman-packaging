@@ -34,7 +34,6 @@
       <packagereq type="default">rubygem-foreman_salt</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-foreman_setup</packagereq>
-      <packagereq type="default">rubygem-foreman_simplify</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">rubygem-foreman_templates</packagereq>
       <packagereq type="default">rubygem-foreman_xen</packagereq>
@@ -118,7 +117,6 @@
       <packagereq type="default">rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_simplify-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>

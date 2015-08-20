@@ -229,7 +229,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_reserve
   rubygem-foreman_salt
   rubygem-foreman_setup
-  rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
   rubygem-foreman_templates
@@ -307,7 +306,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_reserve
   rubygem-foreman_salt
   rubygem-foreman_setup
-  rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
   rubygem-foreman_xen
@@ -392,7 +390,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_salt
   rubygem-foreman_scap_client
   rubygem-foreman_setup
-  rubygem-foreman_simplify
   rubygem-foreman_snapshot
   rubygem-foreman_templates
   rubygem-foreman-tasks
