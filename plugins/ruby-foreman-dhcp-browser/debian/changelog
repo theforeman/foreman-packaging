@@ -1,3 +1,9 @@
+ruby-foreman-dhcp-browser (0.0.7-1) stable; urgency=low
+
+  * Update to 0.0.7.
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 20 Aug 2015 15:21:43 +0200
+
 ruby-foreman-dhcp-browser (0.0.6-2) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it

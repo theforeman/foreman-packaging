@@ -1,1 +1,1 @@
-gem 'foreman_dhcp_browser', '0.0.6'
+gem 'foreman_dhcp_browser', '0.0.7'
