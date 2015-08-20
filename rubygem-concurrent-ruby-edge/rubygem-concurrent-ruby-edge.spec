@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-4
+- Package concurrent-ruby for non-SCL el7 (stbenjam@redhat.com)
+
 * Thu Aug 06 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-3
 - Fix dep to include epoch between -doc and main package (dcleal@redhat.com)
 
