@@ -71,6 +71,9 @@ rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.9.6-1
+- Updated rubygem-newt to 0.9.6 (lzap+git@redhat.com)
+
 * Tue Aug 04 2015 Lukas Zapletal <lzap+rpm@redhat.com> 0.9.5-1
 - bumped version
 
