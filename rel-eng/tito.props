@@ -341,9 +341,11 @@ whitelist = rubygem-algebrick
   rubygem-logify
   rubygem-newt
   rubygem-satyr
+  rubygem-sequel
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
@@ -410,9 +412,11 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
+  rubygem-sequel
   rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
