@@ -49,8 +49,8 @@ BuildRequires: %{?scl_prefix}ruby(release)
 %else
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: foreman-plugin >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygem(deface) < 1.0
+BuildRequires: foreman-plugin >= 1.9.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
 
