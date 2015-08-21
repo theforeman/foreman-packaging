@@ -348,6 +348,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
+  rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
 
 [foreman-plugins-nightly-fedora19]
@@ -419,6 +420,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
+  rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
   rubygem-wicked
   rubygem-zscheduler
