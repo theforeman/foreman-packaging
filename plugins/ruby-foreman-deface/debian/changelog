@@ -1,3 +1,9 @@
+ruby-foreman-deface (1.0.1) stable; urgency=low
+
+  * Update to 1.0.1
+
+ -- Dominic Cleal <dcleal@redhat.com>  Fri, 21 Aug 2015 09:30:23 +0100
+
 ruby-foreman-deface (0.9.1-2) stable; urgency=low
 
   * Set HOME to ~foreman as rb-readline requires it
