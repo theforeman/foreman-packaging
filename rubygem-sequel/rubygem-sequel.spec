@@ -89,6 +89,9 @@ rm -rf %{buildroot}
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri Aug 21 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-2
+- Add smart_proxy_dynflow (RPM) (stbenjam@redhat.com)
+
 * Tue Mar 17 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-1
 - Update sequel to 4.20.0 (dcleal@redhat.com)
 
