@@ -13,24 +13,25 @@ License: ASL 2.0
 URL: https://github.com/aeolus-incubator/bundler_ext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(bundler)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(bundler)
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}ruby
-# BuildRequires: %{?scl_prefix}rubygem(rspec)
-# BuildRequires: %{?scl_prefix}rubygem(bundler)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}ruby
+# BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+# BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Simple library leveraging the Bundler Gemfile DSL to load gems already on the
@@ -41,6 +42,7 @@ system and managed by the systems package manager (like yum/apt)
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

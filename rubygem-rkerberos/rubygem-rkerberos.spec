@@ -31,17 +31,18 @@ License: Artistic 2.0
 URL: http://github.com/domcleal/rkerberos
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}rubygems
 
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: krb5-devel
 #BuildRequires: %{?scl_prefix}rubygem-rake-compiler
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 #test
 #BuildRequires: %{?scl_prefix}rubygem(test-unit)
@@ -56,6 +57,7 @@ authentication protocol. It wraps the Kerberos C API.
 Summary: Documentation for rubygem-%{gem_name}
 Group: Documentation
 BuildArch: noarch
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for rubygem-%{gem_name}.
@@ -171,4 +173,3 @@ popd
 * Wed May 08 2013 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
 - Initial 0.1.0 release
 - Add patch 103cea7d (Add credential cache argument to get_init_creds_keytab)
-

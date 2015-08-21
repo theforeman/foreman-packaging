@@ -12,17 +12,18 @@ License: MIT
 URL: https://github.com/janlelis/wirb
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 Requires: %{?scl_prefix}rubygem(paint) >= 0.8
 Requires: %{?scl_prefix}rubygem(paint) < 1.0
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(wirb) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -35,6 +36,7 @@ details.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -90,4 +92,3 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 
 * Thu Sep 06 2012 Miroslav Suchý <msuchy@redhat.com> 0.4.2-1
 - new package built with tito
-

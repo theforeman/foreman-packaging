@@ -14,22 +14,23 @@ License: MIT
 URL: https://github.com/joliss/jquery-ui-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}ruby(rubygems) >= 1.3.6
-Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.6
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}rubygem(railties) >= 3.1.0
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel >= 1.3.6
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.6
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 jQuery UI's JavaScript, CSS, and image files packaged for the Rails 3.1+ asset
@@ -40,6 +41,7 @@ pipeline
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

@@ -16,18 +16,19 @@ Source0:        https://github.com/ploubser/JSON-Grep/archive/%{commit}/JSON-Gre
 Patch0:         0001-Fix-test-run.patch
 BuildArch:      noarch
 
-BuildRequires:  %{?scl_prefix}rubygems-devel
-BuildRequires:  %{?scl_prefix}rubygem(rspec)
-BuildRequires:  %{?scl_prefix}rubygem(mocha)
-BuildRequires:  %{?scl_prefix}rubygem(json)
+BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
+BuildRequires:  %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(json)
 %if 0%{?fedora} > 18
-Requires:       %{?scl_prefix}ruby(release) >= 1.8
+Requires:       %{?scl_prefix_ruby}ruby(release) >= 1.8
 %else
-Requires:       %{?scl_prefix}ruby(abi) >= 1.8
+Requires:       %{?scl_prefix_ruby}ruby(abi) >= 1.8
 %endif
-Requires:       %{?scl_prefix}rubygems
-Requires:       %{?scl_prefix}rubygem(json)
+Requires:       %{?scl_prefix_ruby}rubygems
+Requires:       %{?scl_prefix_ruby}rubygem(json)
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 JGrep is  Ruby-based CLI tool and API for parsing and displaying JSON data
@@ -39,6 +40,7 @@ documents and return specific documents or values based on logical truths.
 Summary:        Documentation for %{pkg_name}
 Group:          Documentation
 Requires:       %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{pkg_name}

@@ -11,18 +11,19 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(activesupport) >= 2.3.14
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(activesupport) >= 2.3.14
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 RABL (Ruby API Builder Language) is a Rails and Padrino ruby
@@ -32,6 +33,7 @@ BSON.
 %package doc
 BuildArch: noarch
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary: Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -119,4 +121,3 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 
 * Mon Aug 20 2012 Ivan Necas <inecas@redhat.com> 0.7.1-1
 - initial package
-

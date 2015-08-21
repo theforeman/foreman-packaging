@@ -12,20 +12,21 @@ Group:         Development/Languages
 License:       MIT
 URL:           http://github.com/mislav/will_paginate
 Source0:       http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires:      %{?scl_prefix}ruby(abi) = 1.9.1
-Requires:      %{?scl_prefix}ruby(rubygems)
-Requires:      %{?scl_prefix}rubygem(activerecord)
-BuildRequires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(activesupport)
-BuildRequires: %{?scl_prefix}rubygem(actionpack)
-BuildRequires: %{?scl_prefix}rubygem(activerecord)
-BuildRequires: %{?scl_prefix}rubygem(mocha)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+Requires:      %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:      %{?scl_prefix_ruby}ruby(rubygems)
+Requires:      %{?scl_prefix_ruby}rubygem(activerecord)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(activesupport)
+BuildRequires: %{?scl_prefix_ruby}rubygem(actionpack)
+BuildRequires: %{?scl_prefix_ruby}rubygem(activerecord)
+BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 BuildRequires: %{?scl_prefix}rubygem(sequel)
 BuildArch:     noarch
 Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 The will_paginate library provides a simple, yet powerful and extensible API

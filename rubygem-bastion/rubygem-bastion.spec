@@ -24,14 +24,15 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 Requires: foreman >= 1.8.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) = 0.1.2
 
 BuildRequires: foreman-assets >= 1.8.0
 BuildRequires: foreman-plugin >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(less-rails) >= 2.5.0
 BuildRequires: %{?scl_prefix}rubygem(less-rails) < 2.6
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) = 0.1.2
@@ -49,6 +50,7 @@ a modern UI.
 Summary:    Documentation for rubygem-%{gem_name}
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for rubygem-%{gem_name}.
@@ -59,7 +61,7 @@ BuildArch: noarch
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires:  %{?scl_prefix}rubygem(less-rails) >= 2.5.0
 Requires:  %{?scl_prefix}rubygem(less-rails) < 2.6
-Requires:  %{?scl_prefix}rubygem(uglifier)
+Requires:  %{?scl_prefix_ruby}rubygem(uglifier)
 
 %description devel
 This package contains assets compilation dependencies for %{scl_prefix}rubygem-%{gem_name}.
@@ -194,5 +196,3 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 
 * Fri Oct 17 2014 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
 - new package built with tito (ericdhelms@gmail.com)
-
-

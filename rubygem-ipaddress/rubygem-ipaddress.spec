@@ -14,13 +14,14 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/bluemonk/ipaddress
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(minitest)
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 IPAddress is a Ruby library designed to make manipulation
@@ -32,6 +33,7 @@ addressing many of its issues.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

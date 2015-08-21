@@ -12,24 +12,25 @@ License: MIT
 URL: http://github.com/theforeman/foreman_api
 Source0:  http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(json)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.1
 Requires: %{?scl_prefix}rubygem(oauth)
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
-BuildRequires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Helps you to use Foreman's API calls from your app.
@@ -37,6 +38,7 @@ Helps you to use Foreman's API calls from your app.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc

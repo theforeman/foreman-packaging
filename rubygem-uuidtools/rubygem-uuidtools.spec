@@ -14,15 +14,16 @@ Group: Development/Languages
 License: MIT
 URL: http://uuidtools.rubyforge.org/
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}rubygem(rspec-core)
-BuildRequires: %{?scl_prefix}rubygem(rspec-mocks)
-BuildRequires: %{?scl_prefix}rubygem(rspec-expectations)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-mocks)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-expectations)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 UUIDTools was designed to be a simple library for generating any of the various
@@ -33,6 +34,7 @@ Summary: Documentation for %{pkg_name}
 Group: Documentation
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{pkg_name}.

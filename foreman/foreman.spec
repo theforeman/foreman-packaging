@@ -38,18 +38,18 @@ Source8: %{name}.gpg
 BuildArch:  noarch
 
 %if 0%{?fedora} && 0%{?fedora} < 17
-Requires: %{?scl_prefix}ruby(abi) = 1.8
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.8
 %else
 %if 0%{?fedora} && 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 %endif
 Requires: %{scl_ruby}
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}facter
-Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
+Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 
 Requires: wget
@@ -64,12 +64,12 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # Gemfile
-Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
+Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
 # minitest - workaround as rubygem-activesupport is missing dep
-Requires: %{?scl_prefix}rubygem(minitest)
-Requires: %{?scl_prefix}rubygem(json) >= 1.5
-Requires: %{?scl_prefix}rubygem(json) < 2.0
+Requires: %{?scl_prefix_ruby}rubygem(minitest)
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
+Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
@@ -117,18 +117,18 @@ Requires: %{?scl_prefix}rubygem(rack-jsonp)
 BuildRequires: gettext
 BuildRequires: asciidoc
 BuildRequires: %{scl_ruby}
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}facter
-BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.3
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 # Gemfile
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-BuildRequires: %{?scl_prefix}rubygem(rails) < 3.3.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
 # minitest - workaround as rubygem-activesupport is missing dep
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(json) >= 1.5
-BuildRequires: %{?scl_prefix}rubygem(json) < 2.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
@@ -170,15 +170,15 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 # assets
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
-BuildRequires: %{?scl_prefix}rubygem(execjs) < 2.5.0
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
+BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
+BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
+BuildRequires: %{?scl_prefix_ruby}rubygem(execjs) >= 1.4.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(execjs) < 2.5.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
+BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(therubyracer)
+BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
 BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -343,14 +343,14 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/system
 Requires: %{name} = %{version}-%{release}
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
-Requires: %{?scl_prefix}rubygem(sass-rails) < 4.0
-Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
-Requires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
-Requires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
+Requires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
+Requires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
+Requires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
+Requires: %{?scl_prefix_ruby}rubygem(execjs) >= 1.4.0
+Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
+Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(therubyracer)
+Requires: %{?scl_prefix_ruby}rubygem(therubyracer)
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -440,7 +440,7 @@ Meta Package to install requirements for postgresql support
 %package sqlite
 Summary: Foreman sqlite support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(sqlite3)
+Requires: %{?scl_prefix_ruby}rubygem(sqlite3)
 Requires: %{name} = %{version}-%{release}
 
 %description sqlite

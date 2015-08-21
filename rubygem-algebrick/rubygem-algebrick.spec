@@ -12,21 +12,22 @@ License: GPLv3
 URL: http://github.com/pitr-ch/algebrick
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 It's a gem providing algebraic types and pattern matching seamlessly
@@ -36,6 +37,7 @@ integrates with standard features Ruby.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -84,4 +86,3 @@ cp -pa .%{gem_dir}/* \
 
 * Mon Jan 20 2014 Ivan Nečas <inecas@redhat.com> 0.4.0-1
 - new package built with tito
-

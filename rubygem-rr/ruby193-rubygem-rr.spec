@@ -24,27 +24,28 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: http://s3.amazonaws.com/rubygem-rr/tests/v%{version}.tar.gz
 
 %if 0%{?fedora} >= 19
-Requires:       %{?scl_prefix}ruby(release)
+Requires:       %{?scl_prefix_ruby}ruby(release)
 %endif
 
 %if 0%{?fedora} >= 17 && 0%{?fedora} < 19
-Requires:      %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires:      %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
 
 %if 0%{?fedora} <= 17
-Requires: %{?scl_prefix}ruby(rubygems) 
+Requires: %{?scl_prefix_ruby}ruby(rubygems) 
 %endif
 
-BuildRequires: %{?scl_prefix}ruby-irb
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby-irb
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # The following are for running test suite
-#BuildRequires: %{?scl_prefix}rubygem(minitest)
+#BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 #BuildRequires: %{?scl_prefix}rubygem(session)
-#BuildRequires: %{?scl_prefix}rubygem(diff-lcs)
-#BuildRequires: %{?scl_prefix}rubygem(rspec)
+#BuildRequires: %{?scl_prefix_ruby}rubygem(diff-lcs)
+#BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 
 %description
 RR (Double Ruby) is a test double framework that features a rich selection of
@@ -57,6 +58,7 @@ make it easier to test another object. Its like a stunt double for tests.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

@@ -12,21 +12,22 @@ License: MIT
 URL: http://sequel.jeremyevans.net
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
-BuildRequires: %{?scl_prefix}ruby-devel
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 The Database Toolkit for Ruby
@@ -36,6 +37,7 @@ Summary: Documentation for %{pkg_name}
 Group: Documentation
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{pkg_name}.

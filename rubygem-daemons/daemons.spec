@@ -12,12 +12,13 @@ License: GPLv2+ or Ruby
 URL: http://daemons.rubyforge.org
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix}rubygems-devel
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
 %description
 Daemons provides an easy way to wrap existing ruby scripts (for example a
@@ -32,6 +33,7 @@ automatic restarting of your processes if they crash.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

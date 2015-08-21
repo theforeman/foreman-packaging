@@ -12,17 +12,18 @@ License: GPLv2+ or Ruby
 URL: http://github.com/archiloque/rest-client
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix}rubygem(mime-types) >= 1.16
+Requires: %{?scl_prefix_ruby}rubygem(mime-types) >= 1.16
 Requires: %{?scl_prefix}rubygem(netrc)
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A simple Simple HTTP and REST client for Ruby, inspired by the Sinatra

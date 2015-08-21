@@ -13,14 +13,15 @@ URL:		http://fastercsv.rubyforge.org/
 Source:		http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires:	%{?scl_prefix}ruby(abi)
+Requires:	%{?scl_prefix_ruby}ruby(abi)
 %else
-Requires:	%{?scl_prefix}ruby(release)
+Requires:	%{?scl_prefix_ruby}ruby(release)
 %endif
-Requires:	%{?scl_prefix}rubygems
+Requires:	%{?scl_prefix_ruby}rubygems
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
-BuildRequires:	%{?scl_prefix}rubygems
-BuildRequires:  %{?scl_prefix}rubygems-devel
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+BuildRequires:	%{?scl_prefix_ruby}rubygems
+BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:	noarch
 
 %description

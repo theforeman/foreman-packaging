@@ -15,27 +15,28 @@ URL:           http://github.com/matthuhiggins/foreigner
 Source0:       http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 BuildArch:     noarch
 
 %if 0%{?fedora} >= 19
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby
 %endif
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 %if 0%{?fedora} >= 19
-Requires:      %{?scl_prefix}ruby(release)
+Requires:      %{?scl_prefix_ruby}ruby(release)
 %else
-Requires:      %{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires:      %{?scl_prefix}ruby
+Requires:      %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires:      %{?scl_prefix_ruby}ruby
 %endif
-Requires:      %{?scl_prefix}rubygems
-Requires:      %{?scl_prefix}rubygem(activerecord) >= 3.0.0
+Requires:      %{?scl_prefix_ruby}rubygems
+Requires:      %{?scl_prefix_ruby}rubygem(activerecord) >= 3.0.0
 
 
 %description
@@ -45,6 +46,7 @@ Adds helpers to migrations and correctly dumps foreign keys to schema.rb.
 %package doc
 Summary:   Documentation for %{pkg_name}
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 

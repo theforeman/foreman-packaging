@@ -29,17 +29,17 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.8.0
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem-sequel
-Requires: %{?scl_prefix}rubygem(sinatra)
+Requires: %{?scl_prefix_ruby}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(daemons)
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 %if 0%{?rhel} == 6
 Requires(post): chkconfig
 Requires(preun): chkconfig
@@ -52,21 +52,22 @@ BuildRequires: systemd
 %endif
 
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %endif
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem-sequel
-BuildRequires: %{?scl_prefix}rubygem(sinatra)
+BuildRequires: %{?scl_prefix_ruby}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: foreman-plugin >= 1.8.0
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 The goal of this plugin is to unify the way of showing task statuses across
@@ -79,6 +80,7 @@ it for managing the tasks.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -406,4 +408,3 @@ exit 0
 
 * Thu Jan 23 2014 Ivan Nečas <inecas@redhat.com> 0.1.0-1
 - new package built with tito
-

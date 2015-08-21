@@ -85,15 +85,15 @@ Patch203:       rubygem-passenger-4.0.18-daemon-controller.patch
 # Change temp directory from /tmp to /var/run/rubygem-passenger
 Patch205:       rubygem-passenger-4.0.18-tmpdir.patch
 
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(rack)
-Requires: %{?scl_prefix}rubygem(rake)
+Requires: %{?scl_prefix_ruby}rubygem(rack)
+Requires: %{?scl_prefix_ruby}rubygem(rake)
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
 %if 0%{?rhel} >= 6 || 0%{?fedora} >= 15
@@ -113,16 +113,16 @@ BuildRequires: doxygen
 BuildRequires: graphviz
 BuildRequires: httpd-devel
 # BuildRequires: libev-devel
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}ruby-devel
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.1
-BuildRequires: %{?scl_prefix}rubygem(rack)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.1
+BuildRequires: %{?scl_prefix_ruby}rubygem(rack)
 %if %{enable_check}
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 %endif
-BuildRequires: %{?scl_prefix}rubygem(mime-types)
+BuildRequires: %{?scl_prefix_ruby}rubygem(mime-types)
 # BuildRequires: source-highlight
 
 # XXX
@@ -130,6 +130,7 @@ BuildRequires: zlib-devel
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost) =  1.44
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Phusion Passenger™ — a.k.a. mod_rails or mod_rack — makes deployment
@@ -163,6 +164,7 @@ This package contains development files for Phusion Passenger™.
 Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 License: CC-BY-SA and MIT and (MIT or GPL+)
 
@@ -184,7 +186,7 @@ Phusion Passenger™ bindings.
 Summary: Phusion Passenger native extensions
 Group: System Environment/Daemons
 Requires: %{name}%{?_isa} = %{version}-%{release}
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native-libs
 This package contains the native shared library for Apache & Nginx

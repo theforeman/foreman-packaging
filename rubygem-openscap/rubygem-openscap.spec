@@ -18,37 +18,38 @@ Group: Development/Languages
 License: GPLv2+
 URL: https://github.com/isimluk/ruby-openscap
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
 # require libopenscap.so.8 in an arch neutral way
 Requires: openscap >= 1.2.1
 Requires: openscap < 1.3.0
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 # For tests we need:
 BuildRequires: openscap >= 1.2.1
 BuildRequires: openscap < 1.3.0
 BuildRequires: bzip2
-BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(bundler)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
+BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
 BuildRequires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
 BuildRequires: openscap-devel
 # End (for the tests we needed)
 
 %if 0%{?fedora} > 18
-Requires:      %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires:      %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 # For the tests we need
 BuildRequires: %{?scl_prefix}rubygem(test-unit)
 %else
-Requires:      %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+Requires:      %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 # For the tests we need
-BuildRequires: %{?scl_prefix}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 %endif
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A FFI wrapper around the OpenSCAP library. The %{name}

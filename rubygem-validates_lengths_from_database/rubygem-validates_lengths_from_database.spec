@@ -14,23 +14,24 @@ URL: https://github.com/rubiety/validates_lengths_from_database
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(activerecord) >= 2.3.2
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) >= 2.3.2
 
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Few people add length validations to fields in their database, and when saving
@@ -42,6 +43,7 @@ automatically adds length validations to the model.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -87,4 +89,3 @@ cp -a .%{gem_dir}/* \
 
 * Thu Jul 31 2014 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - new package built with tito
-

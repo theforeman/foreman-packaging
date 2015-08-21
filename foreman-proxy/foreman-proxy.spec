@@ -35,22 +35,22 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
-BuildRequires:  %{?scl_prefix}rubygem(rake) >= 0.8.3
+BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-BuildRequires: %{?scl_prefix}ruby(abi)
-Requires:      %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
+Requires:      %{?scl_prefix_ruby}ruby(abi)
 %else
-BuildRequires: %{?scl_prefix}ruby(release)
-Requires:      %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+Requires:      %{?scl_prefix_ruby}ruby(release)
 %endif
 
 Requires:       foreman-debug
-Requires:       %{?scl_prefix}rubygems
-Requires:       %{?scl_prefix}rubygem(rake) >= 0.8.3
-Requires:       %{?scl_prefix}rubygem(sinatra)
-Requires:       %{?scl_prefix}rubygem(rack) >= 1.1.0
-Requires:       %{?scl_prefix}rubygem(json)
+Requires:       %{?scl_prefix_ruby}rubygems
+Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+Requires:       %{?scl_prefix_ruby}rubygem(sinatra)
+Requires:       %{?scl_prefix_ruby}rubygem(rack) >= 1.1.0
+Requires:       %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos)
 Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.9.2
 Requires:       %{?scl_prefix}rubygem(gssapi)

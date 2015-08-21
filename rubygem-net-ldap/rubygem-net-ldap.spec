@@ -11,22 +11,23 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/ruby-ldap/ruby-net-ldap
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 # specs need metaid gem that is not in Fedora yet
-#BuildRequires: %{?scl_prefix}rubygem(rspec-core)
+#BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
 #BuildRequires: %{?scl_prefix}rubygem(flexmock)
-BuildRequires: %{?scl_prefix}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # this package obsoletes rubygem-ruby-net-ldap
 Provides: %{?scl_prefix}rubygem(ruby-net-ldap) = %{version}-%{release}
 Provides: %{?scl_prefix}rubygem-ruby-net-ldap = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Obsoletes: %{?scl_prefix}rubygem-ruby-net-ldap < 0.0.4-7
 
 %description
@@ -47,6 +48,7 @@ the most recent LDAP RFCs (4510–4519, plus portions of 4520–4532).
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

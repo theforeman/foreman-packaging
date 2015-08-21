@@ -11,14 +11,15 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/janlelis/paint
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi)
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 #tests
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 
 %description
 Paint manages terminal colors and effects for you. It combines the strengths
@@ -30,6 +31,7 @@ default.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

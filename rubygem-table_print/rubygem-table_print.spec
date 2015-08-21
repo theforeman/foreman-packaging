@@ -12,18 +12,19 @@ License: MIT
 URL: https://github.com/arches/table_print
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?scl:1} || (0%{?el6} && 0%{!?scl:1})
-Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 TablePrint turns objects into nicely formatted columns for easy reading.
@@ -34,6 +35,7 @@ columns, lets you traverse ActiveRecord associations. Simple, powerful.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

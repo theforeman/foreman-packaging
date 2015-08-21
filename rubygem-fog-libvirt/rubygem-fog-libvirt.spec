@@ -12,7 +12,7 @@ Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-libvirt
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.27.4
 Requires: %{?scl_prefix}rubygem(fog-core) < 2
 Requires: %{?scl_prefix}rubygem(fog-json)
@@ -27,14 +27,15 @@ Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 0.6
 %endif
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -45,6 +46,7 @@ use the Amazon Web Services in applications.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -89,4 +91,3 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 
 * Mon May 11 2015 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
 - new package built with tito
-

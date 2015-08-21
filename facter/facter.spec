@@ -29,13 +29,13 @@ Source1:        https://downloads.puppetlabs.com/%{pkg_name}/%{pkg_name}-%{versi
 BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # Upstream claims to only support 1.8.7 and higher
-BuildRequires:  %{?scl_prefix}ruby >= 1.8.7
-BuildRequires:  %{?scl_prefix}ruby-devel
+BuildRequires:  %{?scl_prefix_ruby}ruby >= 1.8.7
+BuildRequires:  %{?scl_prefix_ruby}ruby-devel
 %if %{enable_check}
 BuildRequires:  net-tools
-BuildRequires:  %{?scl_prefix}rubygem(mocha)
-BuildRequires:  %{?scl_prefix}rubygem(rspec-core)
-BuildRequires:  %{?scl_prefix}rubygem(rspec)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(rspec-core)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(rspec)
 %endif
 
 # dmidecode and pciutils are not available on all arches
@@ -48,12 +48,13 @@ Requires:       net-tools
 # Work around the lack of ruby in the default mock buildroot
 %if "%{ruby_version}"
 %if 0%{?fedora} >= 19 || 0%{?rhel} >= 7
-Requires:       %{?scl_prefix}ruby(release)
+Requires:       %{?scl_prefix_ruby}ruby(release)
 %else
-Requires:       %{?scl_prefix}ruby(abi) = %{ruby_version}
+Requires:       %{?scl_prefix_ruby}ruby(abi) = %{ruby_version}
 %endif
 %endif
 Requires:       which
+%{?scl:Obsoletes: ruby193-facter}
 
 %description
 Facter is a lightweight program that gathers basic node information about the

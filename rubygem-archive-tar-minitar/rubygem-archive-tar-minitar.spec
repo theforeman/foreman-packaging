@@ -19,19 +19,20 @@ Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Patch0: rubygem-archive-tar-minitar-0.5.2-fix-tests.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Archive::Tar::Minitar is a pure-Ruby library and command-line utility that
@@ -44,6 +45,7 @@ Summary: Documentation for %{name}
 Group: Documentation
 
 Requires: %{name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{name}.
@@ -78,7 +80,7 @@ find %{buildroot}%{gem_instdir}/{lib,tests} -type f | \
   xargs -n 1 sed -i -e '/^#!\/usr\/bin\/env ruby/d'
 
 find %{buildroot}%{gem_instdir}/bin -type f | \
-  xargs -n 1 sed -i -e 's"^#!/usr/bin/env ruby"#!/usr/bin/%{?scl:%{scl_prefix}}ruby"'
+  xargs -n 1 sed -i -e 's"^#!/usr/bin/env ruby"#!/usr/bin/%{?scl:%{scl_prefix_ruby}}ruby"'
 
 # require_gem is deprecated
 # http://rubyforge.org/tracker/?func=detail&aid=22034&group_id=84&atid=409

@@ -14,21 +14,22 @@ License: MIT
 URL: https://github.com/ruby-concurrency/concurrent-ruby
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Edge concepts for modern concurrency tools including agents, futures,
@@ -41,6 +42,7 @@ patterns.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -92,5 +94,3 @@ cp -a .%{gem_dir}/* \
 
 * Thu Jul 02 2015 Ivan Nečas <inecas@redhat.com>
 - new package built with tito
-
-

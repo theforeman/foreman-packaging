@@ -19,15 +19,16 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 BuildArch:	noarch
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
+Requires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ruby-Locale is the pure ruby library which provides basic and general purpose
@@ -40,6 +41,7 @@ handle major locale ID standards.
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.

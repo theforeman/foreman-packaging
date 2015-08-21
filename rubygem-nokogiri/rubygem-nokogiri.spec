@@ -34,12 +34,12 @@ Source0:	http://gems.rubyforge.org/gems/%{gemname}-%{mainver}%{?prever}.gem
 # ./test/html/test_element_description.rb:62 fails, as usual......
 # Patch0:		rubygem-nokogiri-1.5.0.beta3-test-failure.patch
 #Patch0:		rubygem-nokogiri-1.5.0-allow-non-crosscompile.patch
-BuildRequires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix}ruby(rubygems)
+BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires:	%{?scl_prefix_ruby}ruby(rubygems)
 ##
 ## For %%check
-BuildRequires:	%{?scl_prefix}rubygem(minitest)
-BuildRequires:	%{?scl_prefix}rubygems-devel
+BuildRequires:	%{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 %if 0%{?ruby19} > 0
 Obsoletes:		%{?scl_prefix}ruby-%{gemname} <= 1.5.2-2
 %endif
@@ -48,10 +48,11 @@ Obsoletes:		%{?scl_prefix}ruby-%{gemname} <= 1.5.2-2
 ## Others
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
-BuildRequires:	%{?scl_prefix}ruby-devel
-Requires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires:	%{?scl_prefix}ruby(rubygems)
+BuildRequires:	%{?scl_prefix_ruby}ruby-devel
+Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Provides:	%{?scl_prefix}rubygem(%{gemname}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gemname}}
 
 %description
 Nokogiri parses and searches XML/HTML very quickly, and also has
@@ -75,6 +76,7 @@ This package contains JRuby support for %{pkg_name}.
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gemname}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.
@@ -438,4 +440,3 @@ popd
 
 * Thu Dec 25 2008 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 1.1.0-1
 - Initial packaging
-

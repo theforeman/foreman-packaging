@@ -29,9 +29,9 @@ Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
 Requires:   foreman-selinux
 
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires:   %{?scl_prefix}ruby(abi)
+Requires:   %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires:   %{?scl_prefix}ruby(release)
+Requires:   %{?scl_prefix_ruby}ruby(release)
 %endif
 Requires:   %{?scl_prefix}rubygem-highline
 

@@ -18,23 +18,24 @@ Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-Requires:  %{?scl_prefix}ruby(rubygems)
-Requires:  %{?scl_prefix}rubygem(railties) >= 3.1
-Requires:  %{?scl_prefix}rubygem(sprockets)
-Requires:  %{?scl_prefix}rubygem(tilt)
+Requires:  %{?scl_prefix_ruby}ruby(rubygems)
+Requires:  %{?scl_prefix_ruby}rubygem(railties) >= 3.1
+Requires:  %{?scl_prefix_ruby}rubygem(sprockets)
+Requires:  %{?scl_prefix_ruby}rubygem(tilt)
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires:      %{?scl_prefix}ruby(abi)
+Requires:      %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires:      %{?scl_prefix}ruby(release)
+Requires:      %{?scl_prefix_ruby}ruby(release)
 %endif
 
-BuildRequires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
 %description
@@ -44,6 +45,7 @@ It removes the need for AJAX calls to retrieve the templates (or for you to manu
 %package doc
 BuildArch:  noarch
 Requires:   %{name} = %{epoch}:%{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for %{name}
 
 %description doc
@@ -86,4 +88,3 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 * Thu Oct 02 2014 Dominic Cleal <dcleal@redhat.com> 0.0.4-7
 - new package built with tito (ehelms@redhat.com)
-

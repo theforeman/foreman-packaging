@@ -16,10 +16,10 @@ License:       MIT
 URL:           http://rubyforge.org/projects/codeforpeople
 Source0:       http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 BuildRoot:     %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:      %{?scl_prefix}ruby(abi) = 1.9.1
-Requires:      %{?scl_prefix}rubygems
-Requires:      %{?scl_prefix}rubygem(json) >= 1.1.7
-BuildRequires: %{?scl_prefix}rubygems-devel
+Requires:      %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:      %{?scl_prefix_ruby}rubygems
+Requires:      %{?scl_prefix_ruby}rubygem(json) >= 1.1.7
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if %{enable_test}
 BuildRequires(check): rubygem(rake)
 BuildRequires(check): rubygem(json)
@@ -28,6 +28,7 @@ BuildRequires(check): rubygem(hoe)
 %endif
 BuildArch:     noarch
 Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A script which automates a limited set of rubyforge operations.

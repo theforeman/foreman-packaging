@@ -27,27 +27,28 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires:   foreman >= 1.4.0
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.9
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
 
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-chef
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Foreman extensions that are required for better Chef integration.
@@ -55,6 +56,7 @@ Foreman extensions that are required for better Chef integration.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -139,5 +141,3 @@ exit 0
 
 * Mon Jan 20 2014 Marek Hulan <mhulan@redhat.com> 0.0.3-1
 - new package built with tito
-
-

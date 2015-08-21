@@ -18,15 +18,16 @@ License:	MIT
 URL:		http://github.com/threedaymonk/text
 Source0:	https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-BuildRequires:	%{?scl_prefix}ruby(abi)
-BuildRequires:	%{?scl_prefix}rubygems-devel
+BuildRequires:	%{?scl_prefix_ruby}ruby(abi)
+BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Check
-BuildRequires:	%{?scl_prefix}%gem_minitest
-Requires:	%{?scl_prefix}ruby(abi)
-Requires:	%{?scl_prefix}ruby(rubygems)
+BuildRequires:	%{?scl_prefix_ruby}%gem_minitest
+Requires:	%{?scl_prefix_ruby}ruby(abi)
+Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 
 BuildArch:	noarch
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A collection of text algorithms: Levenshtein, Soundex, Metaphone, Double
@@ -36,6 +37,7 @@ Metaphone, Figlet, Porter Stemming
 Summary:	Documentation for %{pkg_name}
 Group:	Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch:	noarch
 
 %description doc
