@@ -1,4 +1,4 @@
 foreman_remote_execution.rb           usr/share/foreman/bundler.d
 cache                                 usr/share/foreman/vendor
-foreman_remote_execution              var/lib/foreman/public/assets
+assets                                var/lib/foreman/public
 apipie-cache/foreman_remote_execution var/lib/foreman/public/apipie-cache/plugin
