@@ -4,7 +4,7 @@ Section: web
 Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.2), ruby, ruby1.9.1-dev, git | git-core,
-               libxml2-dev, libxslt1-dev, libmysqlclient-dev, libpq-dev, pkg-config,
+               zlib1g-dev, libmysqlclient-dev, libpq-dev, pkg-config,
                libvirt-dev, libsqlite3-dev, facter, build-essential
 Homepage: http://www.theforeman.org/
 
@@ -13,7 +13,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: rubygems1.8 | ruby1.9.1, bundler (>= 1.2), ruby-dev,
-         libxml2-dev, libxslt1-dev, facter, build-essential,
+         zlib1g-dev, facter, build-essential,
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug
 Description: Systems management web interface
@@ -88,7 +88,7 @@ Architecture: all
 Section: web
 Priority: extra
 Recommends: foreman-ec2
-Depends: foreman, libxml2-dev, libxslt1-dev, ${misc:Depends}
+Depends: foreman, ${misc:Depends}
 Description: metapackage providing fog dependencies for Foreman,
  adding OpenStack and Rackspace compute resource support.
  This package provides fog dependencies for Foreman, a
