@@ -8,7 +8,7 @@
 Summary: Turn off rails assets log
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/evrone/quiet_assets
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-7
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.0.2-6
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
