@@ -6,7 +6,7 @@
 Summary: Pure-Ruby Readline Implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: BSD
 URL: https://github.com/luislavena/rb-readline
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/CHANGES
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.5.1-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 0.5.1-2
 - Convert rb-readline to SCL (dcleal@redhat.com)
 
