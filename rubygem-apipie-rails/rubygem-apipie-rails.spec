@@ -6,7 +6,7 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.2.6-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Aug 29 2014 Dominic Cleal <dcleal@redhat.com> 0.2.6-1
 - Bump version to 0.2.6 (dcleal@redhat.com)
 
