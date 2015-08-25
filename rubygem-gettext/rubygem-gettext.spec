@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	3.1.4
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
@@ -186,6 +186,9 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.1.4-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 3.1.4-2
 - Disable tests, fix find-lang.sh and _bindir on EL6, fix SCL redirection
   (dcleal@redhat.com)
