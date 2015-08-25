@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -79,6 +79,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.8.7-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.8.7-3
 - Convert to SCL
 
