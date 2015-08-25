@@ -8,7 +8,7 @@
 Summary:       Foreign Keys for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       1.7.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 License:       MIT
 
 URL:           http://github.com/matthuhiggins/foreigner
@@ -99,6 +99,9 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.7.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Dec 02 2014 Dominic Cleal <dcleal@redhat.com> 1.7.1-1
 - Update foreigner to 1.7.1 (dcleal@redhat.com)
 
