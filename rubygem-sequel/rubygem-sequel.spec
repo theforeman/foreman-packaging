@@ -6,7 +6,7 @@
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.20.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
@@ -91,6 +91,11 @@ rm -rf %{buildroot}
 %doc %{gem_instdir}/doc
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-3
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Aug 21 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-2
 - Add smart_proxy_dynflow (RPM) (stbenjam@redhat.com)
 
