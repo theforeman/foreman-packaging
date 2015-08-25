@@ -14,7 +14,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   9%{?dist}
+Release:   10%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -108,6 +108,11 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_docdir}/ri
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.0.11-10
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 1.0.11-9
 - Fix typo in -doc requires on main package (dcleal@redhat.com)
 
