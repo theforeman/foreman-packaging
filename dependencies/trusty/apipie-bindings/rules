@@ -13,3 +13,6 @@
 
 %:
 	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_installchangelogs:
+	dh_installchangelogs doc/release_notes.md
