@@ -12,7 +12,7 @@ Version: 2.11.4
 # Circular dependency with rubygem-ammeter.
 %{!?enable_test: %global enable_test 0}
 
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/rspec/rspec-rails
@@ -104,6 +104,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.11.4-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Mar 12 2013 Miroslav Suchý <msuchy@redhat.com> 2.11.4-2
 - spec2scl -i rubygem-rspec-rails.spec (msuchy@redhat.com)
 - rebase to newer rubygem-rspec-rails (msuchy@redhat.com)
