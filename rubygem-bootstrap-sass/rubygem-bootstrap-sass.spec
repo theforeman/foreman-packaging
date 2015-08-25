@@ -7,7 +7,7 @@
 Summary: Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twbs/bootstrap-sass
@@ -85,5 +85,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.0.3.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Sun Dec 29 2013 Dominic Cleal <dcleal@redhat.com> 3.0.3.0-1
 - new package built with tito
