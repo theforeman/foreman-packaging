@@ -6,7 +6,7 @@
 Summary: A toolkit to create and control daemons in different ways
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://daemons.rubyforge.org
@@ -72,6 +72,9 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 1.2.3-1
 - Update daemons to 1.2.3 (dcleal@redhat.com)
 
