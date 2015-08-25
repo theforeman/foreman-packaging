@@ -6,7 +6,7 @@
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.7
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
@@ -56,6 +56,11 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.4.7-7
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 0.4.7-6
 - Modernise and update for EL7 (dcleal@redhat.com)
 
