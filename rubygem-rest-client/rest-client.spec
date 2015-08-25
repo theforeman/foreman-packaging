@@ -6,7 +6,7 @@
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/archiloque/rest-client
@@ -67,6 +67,11 @@ rm -rf %{buildroot}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.6.7-3
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue May 27 2014 Dominic Cleal <dcleal@redhat.com> 1.6.7-2
 - Remove specific ABI version (dcleal@redhat.com)
 
