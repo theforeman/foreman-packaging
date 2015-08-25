@@ -10,7 +10,7 @@
 Summary:       A script which automates a limited set of rubyforge operations
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       2.0.4
-Release:       4%{?dist}
+Release:       5%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://rubyforge.org/projects/codeforpeople
@@ -102,6 +102,9 @@ popd
 %doc %{gem_instdir}/test/
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.4-5
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Feb 26 2013 Miroslav Suchý <msuchy@redhat.com> 2.0.4-3
 - new package built with tito
 
