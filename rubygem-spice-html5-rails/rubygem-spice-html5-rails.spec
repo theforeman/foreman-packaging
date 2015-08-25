@@ -8,7 +8,7 @@
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Dec 18 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
 - Update spice-html5-rails to 0.1.5 (dcleal@redhat.com)
 
