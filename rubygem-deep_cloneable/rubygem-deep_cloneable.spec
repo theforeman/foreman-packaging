@@ -7,7 +7,7 @@
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/moiristo/deep_cloneable
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 2.0.2-1
 - Update deep_cloneable to 2.0.2 (dcleal@redhat.com)
 
