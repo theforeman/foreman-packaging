@@ -8,7 +8,7 @@
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
@@ -86,6 +86,9 @@ sed -i '/^#!\//d' %{buildroot}%{gem_instdir}/Rakefile
 %{gem_instdir}/gemfiles
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Mar 12 2013 Miroslav Suchý <msuchy@redhat.com> 3.0.0-2
 - new package built with tito
 
