@@ -7,7 +7,7 @@ Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
@@ -70,5 +70,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Jul 29 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-1
 - new package built with tito
