@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	8%{?dist}
+Release:	9%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -165,6 +165,12 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.9-9
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+- Add full rubygems.org source URL (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 2.0.9-8
 - Modernise and update for EL7 (dcleal@redhat.com)
 
