@@ -7,7 +7,7 @@ Summary: This is the CLI for Foreman, which is a provisioning tool and node clas
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Ruby
 License: GPLv2+
 URL: https://github.com/ohadlevy/foreman/blob/master/extras/cli/foremancli
@@ -74,6 +74,11 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.0-7
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+- Add full rubygems.org source URL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.0-6
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 
