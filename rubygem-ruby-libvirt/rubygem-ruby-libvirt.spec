@@ -8,7 +8,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -91,6 +91,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Dec 05 2014 Dominic Cleal <dcleal@redhat.com> 0.5.2-1
 - Update ruby-libvirt to 0.5.2 (dcleal@redhat.com)
 
