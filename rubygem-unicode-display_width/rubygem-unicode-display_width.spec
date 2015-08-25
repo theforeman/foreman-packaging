@@ -7,7 +7,7 @@ Summary: Support for east_asian_width string widths.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.1
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/janlelis/unicode-display_width
@@ -65,6 +65,11 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %{gem_instdir}/.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.1.1-7
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+- Add full rubygems.org source URL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.1.1-6
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
