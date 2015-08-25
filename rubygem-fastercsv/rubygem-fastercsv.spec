@@ -12,15 +12,16 @@ Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
 Source:		http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires:	%{?scl_prefix}ruby(abi)
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires:	%{?scl_prefix_ruby}ruby(abi)
 %else
-Requires:	%{?scl_prefix}ruby(release)
+Requires:	%{?scl_prefix_ruby}ruby(release)
 %endif
-Requires:	%{?scl_prefix}rubygems
+Requires:	%{?scl_prefix_ruby}rubygems
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
-BuildRequires:	%{?scl_prefix}rubygems
-BuildRequires:  %{?scl_prefix}rubygems-devel
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+BuildRequires:	%{?scl_prefix_ruby}rubygems
+BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:	noarch
 
 %description
@@ -42,7 +43,7 @@ gem install --local --install-dir $RPM_BUILD_ROOT%{gem_dir} --force --rdoc %{SOU
 # Find files with a shebang that do not have executable permissions
 for file in $(find $RPM_BUILD_ROOT%{gem_instdir} -type f ! -perm /a+x -name "*.rb"); do
   if [ ! -z "`head -n 1 $file | grep \"^#!/\"`" ]; then
-    sed -e 's@/usr/local/bin/ruby@%{_bindir}/ruby@g' -i $file
+    sed -e 's@/usr/local/bin/ruby@/usr/bin/%{?scl:%{scl_prefix}}ruby@g' -i $file
     chmod -v 755 $file
   fi
 done

@@ -22,22 +22,23 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 # tar czvf audited-activerecord-3.0.0-tests.tgz spec/audited/adapters/active_record \
 #   spec/rails_app spec/support/active_record spec/*.rb test
 Source1: %{gem_name}-%{version}-tests.tgz
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(audited) = 3.0.0
-Requires: %{?scl_prefix}rubygem(activerecord) => 3.0
-Requires: %{?scl_prefix}rubygem(activerecord) < 4
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) => 3.0
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) < 4
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(audited) = 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(rails) => 3.0
-BuildRequires: %{?scl_prefix}rubygem(rails) < 4
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) => 3.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 4
 BuildRequires: %{?scl_prefix}rubygem(rspec-rails)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Log all changes to your ActiveRecord models
@@ -47,6 +48,7 @@ Log all changes to your ActiveRecord models
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

@@ -13,23 +13,24 @@ License: MIT
 URL: http://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.6
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.2.0
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.3.0
 
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 #BuildRequires: %{?scl_prefix}rubygem(jeweler) >= 1.8.3
-BuildRequires: %{?scl_prefix}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(rdoc)
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(safemode) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A library for safe evaluation of Ruby code based on RubyParser and Ruby2Ruby.
@@ -38,6 +39,7 @@ Provides Rails ActionView template handlers for ERB and Haml.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -135,4 +137,3 @@ rm %{buildroot}%{gem_instdir}/VERSION
 
 * Thu Aug 09 2012 Miroslav Suchý <msuchy@redhat.com> 1.0.1-2
 - new package built with tito
-

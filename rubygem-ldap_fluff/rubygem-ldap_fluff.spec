@@ -11,17 +11,18 @@ Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(activesupport)
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(activesupport)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.3.1
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(rake)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 %if 0%{?fedora} > 18
-Requires:       %{?scl_prefix}ruby(release)
+Requires:       %{?scl_prefix_ruby}ruby(release)
 %else
-Requires:       %{?scl_prefix}ruby(abi) = 1.9.1
+Requires:       %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 
 %description
@@ -31,6 +32,7 @@ Provides multiple implementations of LDAP queries for various backends.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

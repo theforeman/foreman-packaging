@@ -12,23 +12,24 @@ Group: Development/Ruby
 License: GPLv2+
 URL: https://github.com/ohadlevy/foreman/blob/master/extras/cli/foremancli
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 
 Requires: %{?scl_prefix}rubygem-rest-client => 1.4
 Requires: %{?scl_prefix}rubygem-rest-client < 2
 
-Requires: %{?scl_prefix}rubygem-json => 1.4
-Requires: %{?scl_prefix}rubygem-json < 2
+Requires: %{?scl_prefix_ruby}rubygem-json => 1.4
+Requires: %{?scl_prefix_ruby}rubygem-json < 2
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(foremancli) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -39,6 +40,7 @@ for sysadmins.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -86,4 +88,3 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 
 * Thu Sep 06 2012 Miroslav Suchý <msuchy@redhat.com> 1.0-1
 - new package built with tito
-

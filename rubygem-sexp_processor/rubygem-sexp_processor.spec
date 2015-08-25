@@ -13,20 +13,21 @@ License: MIT
 URL: https://github.com/seattlerb/sexp_processor
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 sexp_processor branches from ParseTree bringing all the generic sexp
@@ -36,6 +37,7 @@ for your language processing pleasure.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %description doc
 This package contains documentation for %{pkg_name}.

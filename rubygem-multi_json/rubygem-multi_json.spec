@@ -11,25 +11,26 @@ License: MIT
 URL: http://github.com/intridea/multi_json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}ruby(rubygems)
-# BuildRequires: %{?scl_prefix}rubygem(json)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+# BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 # BuildRequires: %{?scl_prefix}rubygem(json_pure)
-# BuildRequires: %{?scl_prefix}rubygem(rspec)
+# BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+
 # OkJson is allowed to be bundled:
 # https://fedorahosted.org/fpc/ticket/113
 Provides: bundled(%{?scl_prefix}okjson) = 20110719

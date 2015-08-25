@@ -22,21 +22,22 @@ License:        LGPLv3
 URL:            http://wiki.github.com/ffi/ffi
 Source0:        http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-BuildRequires:  %{?scl_prefix}ruby-devel
-BuildRequires:  %{?scl_prefix}rubygems-devel
+BuildRequires:  %{?scl_prefix_ruby}ruby-devel
+BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildRequires:	libffi-devel
 %if 0%{enable_test} > 0
-BuildRequires:	%{?scl_prefix}rubygem(rspec)
+BuildRequires:	%{?scl_prefix_ruby}rubygem(rspec)
 %endif
 
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
 
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ruby-FFI is a ruby extension for programmatically loading dynamic

@@ -17,18 +17,19 @@ URL: http://github.com/Pajk/apipie-rails
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This gem adds new methods to Rails controllers that can be used to describe
@@ -38,6 +39,7 @@ to generate documentation, client or to validate incoming requests.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -189,4 +191,3 @@ cp -a .%{gem_dir}/* \
 
 * Wed Jul 25 2012 Pavel Pokorný <pajkycz@gmail.com> 0.0.7-1
 - new package built with tito
-

@@ -25,34 +25,35 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires:   foreman >= 1.9.0
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.3
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
-Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
+Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
 
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: foreman-plugin >= 1.9.0
 BuildRequires: foreman-assets
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.3
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-BuildRequires: %{?scl_prefix}rubygem(rails) < 3.3.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-remote_execution
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A plugin bringing remote execution to the Foreman, completing the config
@@ -61,6 +62,7 @@ management functionality with remote management functionality
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc

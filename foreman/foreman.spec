@@ -2,16 +2,10 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 
-%if "%{?scl}" == "ruby193"
-    %global scl_prefix %{scl}-
-    %global scl_ruby /usr/bin/ruby193-ruby
-    %global scl_rake /usr/bin/ruby193-rake
-    ### TODO temp disabled for SCL
-    %global nodoc 1
-%else
-    %global scl_ruby /usr/bin/ruby
-    %global scl_rake /usr/bin/rake
-%endif
+# explicitly define, as we build on top of an scl, not inside with scl_package
+%{?scl:%global scl_prefix %{scl}-}
+%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
+%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
 #global alphatag RC1
@@ -38,18 +32,16 @@ Source8: %{name}.gpg
 BuildArch:  noarch
 
 %if 0%{?fedora} && 0%{?fedora} < 17
-Requires: %{?scl_prefix}ruby(abi) = 1.8
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.8
 %else
 %if 0%{?fedora} && 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 %endif
-Requires: %{scl_ruby}
-Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}facter
-Requires: %{?scl_prefix}rubygem(rake) >= 0.8.3
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 
 Requires: wget
@@ -64,12 +56,14 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # Gemfile
-Requires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-Requires: %{?scl_prefix}rubygem(rails) < 3.3.0
+Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+# replace ruby SCL's sprockets build with our own
+Requires: %{?scl_prefix}rubygem(sprockets)
 # minitest - workaround as rubygem-activesupport is missing dep
-Requires: %{?scl_prefix}rubygem(minitest)
-Requires: %{?scl_prefix}rubygem(json) >= 1.5
-Requires: %{?scl_prefix}rubygem(json) < 2.0
+Requires: %{?scl_prefix_ruby}rubygem(minitest)
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
+Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
@@ -110,25 +104,28 @@ Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
+# facter
+Requires: %{?scl_prefix}rubygem(facter)
 # jsonp
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
 # Build dependencies
 BuildRequires: gettext
 BuildRequires: asciidoc
-BuildRequires: %{scl_ruby}
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}facter
-BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.3
+BuildRequires: %{scl_ruby_bin}
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 # Gemfile
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 3.2.8
-BuildRequires: %{?scl_prefix}rubygem(rails) < 3.3.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+# replace ruby SCL's sprockets build with our own
+BuildRequires: %{?scl_prefix}rubygem(sprockets)
 # minitest - workaround as rubygem-activesupport is missing dep
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(json) >= 1.5
-BuildRequires: %{?scl_prefix}rubygem(json) < 2.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) = 3.0.0
@@ -170,15 +167,15 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 # assets
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
-BuildRequires: %{?scl_prefix}rubygem(execjs) < 2.5.0
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
+BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
+BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
+BuildRequires: %{?scl_prefix_ruby}rubygem(execjs) >= 1.4.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(execjs) < 2.5.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
+BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(therubyracer)
+BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
 BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -201,6 +198,8 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+# facter
+BuildRequires: %{?scl_prefix}rubygem(facter)
 
 %package cli
 Summary: Foreman CLI
@@ -343,14 +342,14 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/system
 Requires: %{name} = %{version}-%{release}
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 3.2
-Requires: %{?scl_prefix}rubygem(sass-rails) < 4.0
-Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
-Requires: %{?scl_prefix}rubygem(jquery-rails) >= 2.0.2
-Requires: %{?scl_prefix}rubygem(jquery-rails) < 2.1
+Requires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
+Requires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
+Requires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
+Requires: %{?scl_prefix_ruby}rubygem(execjs) >= 1.4.0
+Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
+Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(therubyracer)
+Requires: %{?scl_prefix_ruby}rubygem(therubyracer)
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -440,7 +439,7 @@ Meta Package to install requirements for postgresql support
 %package sqlite
 Summary: Foreman sqlite support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(sqlite3)
+Requires: %{?scl_prefix_ruby}rubygem(sqlite3)
 Requires: %{name} = %{version}-%{release}
 
 %description sqlite
@@ -470,9 +469,9 @@ plugins required for Foreman to work.
   # shebangs
   for f in extras/rdoc/rdoc_prepare_script.rb \
   script/rails script/performance/profiler script/performance/benchmarker script/foreman-config ; do
-    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
+    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' %{SOURCE1}
+  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
 %endif
@@ -624,7 +623,7 @@ unlink ./%{_datadir}/%{name}/db \\
 ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
 pushd ./%%{%{name}_dir} \\
 \\
-export GEM_PATH=%%{gem_dir}:%%{buildroot}%%{gem_dir} \\
+export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %%{scl_ruby} -- ruby -e "print Gem.path.join(':')"\`} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\

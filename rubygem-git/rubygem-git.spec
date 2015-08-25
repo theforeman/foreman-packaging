@@ -11,11 +11,12 @@ Group:          Development/Languages
 License:        MIT
 URL:            http://rubyforge.org/projects/git/
 Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires:       %{?scl_prefix}ruby(rubygems)
-Requires:       %{?scl_prefix}ruby(abi) = 1.9.1
-BuildRequires:  %{?scl_prefix}rubygems-devel
+Requires:       %{?scl_prefix_ruby}ruby(rubygems)
+Requires:       %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A package for using Git in Ruby code.

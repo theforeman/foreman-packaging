@@ -12,18 +12,19 @@ Group: Development/Ruby
 License: MIT
 URL: https://github.com/argerim/select2-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(thor) >= 0.14
-Requires: %{?scl_prefix}rubygem(thor) < 1
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(thor) >= 0.14
+Requires: %{?scl_prefix_ruby}rubygem(thor) < 1
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Select2 is a jQuery based replacement for select boxes. It supports
@@ -33,6 +34,7 @@ integrates Select2 with Rails asset pipeline for ease of use.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -71,4 +73,3 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Tue Jun 23 2015 Dominic Cleal <dcleal@redhat.com> 3.5.9.3-1
 - new package built with tito
-

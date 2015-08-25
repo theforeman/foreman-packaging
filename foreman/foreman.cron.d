@@ -25,7 +25,7 @@ FOREMAN_HOME=/usr/share/foreman
 # Get the node.rb / ENC script and store at /etc/puppet/node.rb:
 #   https://github.com/theforeman/puppet-foreman/blob/master/templates/external_node.rb.erb
 # Send facts to Foreman, using the ENC script in a fact pushing only mode
-#*/2 * * * *     puppet    /usr/bin/ruby193-ruby /etc/puppet/node.rb --push-facts >>/var/log/foreman/cron.log 2>&1
+#*/2 * * * *     puppet    /usr/bin/tfm-ruby /etc/puppet/node.rb --push-facts >>/var/log/foreman/cron.log 2>&1
 
 # Warning: ActiveRecord-based storeconfigs is deprecated from Foreman 1.1 and Puppet 3.0
 #   see http://projects.theforeman.org/wiki/foreman/ReleaseNotes#11-stable

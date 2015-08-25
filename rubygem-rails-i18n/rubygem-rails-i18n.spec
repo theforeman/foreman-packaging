@@ -12,20 +12,21 @@ Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(i18n) >= 0.5
-Requires: %{?scl_prefix}rubygem(i18n) < 1
-Requires: %{?scl_prefix}rubygem(rails) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(rails) < 4.0.0
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(i18n) >= 0.5
+Requires: %{?scl_prefix_ruby}rubygem(i18n) < 1
+Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.0.0
+Requires: %{?scl_prefix_ruby}rubygem(rails) < 4.0.0
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A set of common locale data and translations to internationalize and/or
@@ -34,6 +35,7 @@ localize your Rails applications.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -70,4 +72,3 @@ cp -a .%{gem_dir}/* \
 %changelog
 * Wed Jul 29 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-1
 - new package built with tito
-

@@ -14,10 +14,11 @@ Source0:    http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 # Fixed upstream
 # https://github.com/eventmachine/eventmachine/commit/2c083af3d06d333db31dcc1bbe535b10285a8d1e
 Patch0:     rubygem-eventmachine-0.12.10-makes-HTTPS-client-tests-pass.patch
-Requires:   %{?scl_prefix}ruby(rubygems)
-Requires:   %{?scl_prefix}ruby(abi) = 1.9.1
+Requires:   %{?scl_prefix_ruby}ruby(rubygems)
+Requires:   %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-BuildRequires: %{?scl_prefix}rubygems-devel, %{?scl_prefix}ruby-devel, openssl-devel, %{?scl_prefix}rubygem(rake), net-tools
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel, %{?scl_prefix_ruby}ruby-devel, openssl-devel, %{?scl_prefix_ruby}rubygem(rake), net-tools
 
 %description
 EventMachine implements a fast, single-threaded engine for arbitrary network
@@ -37,6 +38,7 @@ Group: Documentation
 BuildArch: noarch
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{pkg_name}.

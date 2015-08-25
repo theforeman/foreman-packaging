@@ -17,12 +17,12 @@ URL: http://github.com/theforeman/hammer-cli
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 
-Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(rb-readline)
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
@@ -32,21 +32,22 @@ Requires: %{?scl_prefix}rubygem(table_print) >= 1.5.0
 Requires: %{?scl_prefix}rubygem(highline) < 1.7.0
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix}rubygem(json)
+Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(fastercsv)
-Requires: %{?scl_prefix}rubygem(mime-types) < 2.0.0
+Requires: %{?scl_prefix_ruby}rubygem(mime-types) < 2.0.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.10
 Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %endif
-BuildRequires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 %if 0%{?scl:1}
 Obsoletes: rubygem-%{gem_name} < 0.3.0-2
 %endif
@@ -58,6 +59,7 @@ Hammer cli provides universal extendable CLI interface for ruby apps
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 %if 0%{?scl:1}
 Obsoletes: rubygem-%{gem_name}-doc < 0.3.0-2

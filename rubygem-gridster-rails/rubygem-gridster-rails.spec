@@ -14,23 +14,24 @@ URL: https://github.com/vanetten/gridster-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}ruby
-Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
-Requires: %{?scl_prefix}rubygem(railties) < 4.0.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}rubygem(railties) >= 3.1.0
+Requires: %{?scl_prefix_ruby}rubygem(railties) < 4.0.0
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Gridster is a jQuery plugin that makes building intuitive draggable layouts
@@ -41,6 +42,7 @@ remove elements from the grid.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -90,4 +92,3 @@ cp -pa .%{gem_dir}/* \
 
 * Tue May 20 2014 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
 - new package built with tito
-

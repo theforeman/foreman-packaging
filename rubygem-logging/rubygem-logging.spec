@@ -12,22 +12,23 @@ License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.8.4
 
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 # BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
 # BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
-# BuildRequires: %{?scl_prefix}rubygem(minitest)
+# BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Logging is a flexible logging library for use in Ruby programs based on the
@@ -40,6 +41,7 @@ Summary: Documentation for %{pkg_name}
 Group: Documentation
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{pkg_name}.

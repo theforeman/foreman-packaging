@@ -11,13 +11,14 @@ Group:		Applications/Productivity
 License:	GPLv2
 URL:		http://trollop.rubyforge.org/
 BuildRoot:	%{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:	%{?scl_prefix}ruby(rubygems)
-Requires:	%{?scl_prefix}ruby(abi) = 1.9.1
+Requires:	%{?scl_prefix_ruby}ruby(rubygems)
+Requires:	%{?scl_prefix_ruby}ruby(abi) = 1.9.1
 BuildRequires:	%{?scl_prefix}rubygem(hoe)
-BuildRequires:	%{?scl_prefix}rubygems-devel
-BuildRequires:  %{?scl_prefix}rubygem(minitest)
+BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
+BuildRequires:  %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch:	noarch
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
 %description

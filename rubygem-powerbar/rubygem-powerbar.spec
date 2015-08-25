@@ -23,22 +23,23 @@ Source0:   http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 Requires:  %{?scl_prefix}rubygem(ansi) >= 1.4.0
 Requires:  %{?scl_prefix}rubygem(ansi) <  1.5.0
 Requires:  %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
-Requires:  %{?scl_prefix}ruby(abi)
-BuildRequires: %{?scl_prefix}ruby(abi)
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires:  %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires:  %{?scl_prefix}ruby(release)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires:  %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires:  %{?scl_prefix}rubygems
+Requires:  %{?scl_prefix_ruby}rubygems
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 %description
 %{desc}
@@ -46,6 +47,7 @@ BuildRequires: %{?scl_prefix}rubygems
 %package   doc
 BuildArch: noarch
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:   Documentation for %{pkg_name}
 
 %description doc
@@ -66,7 +68,7 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 mkdir -p .%{_bindir}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
@@ -136,4 +138,3 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 
 * Fri Sep 06 2013 Marek Hulan <mhulan@redhat.com> 1.0.11-0
 - new package built with tito
-

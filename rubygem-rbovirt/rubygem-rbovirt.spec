@@ -13,17 +13,18 @@ License: MIT
 URL: http://github.com/abenari/rbovirt
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) = 1.9.1
+Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Requires: %{?scl_prefix}rubygem-nokogiri
 
 Requires: %{?scl_prefix}rubygem-rest-client
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(rbovirt) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -33,6 +34,7 @@ A Ruby client for oVirt REST API
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -133,4 +135,3 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 
 * Thu Sep 06 2012 Miroslav Suchý <msuchy@redhat.com> 0.0.12-1
 - new package built with tito
-

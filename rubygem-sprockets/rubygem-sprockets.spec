@@ -26,45 +26,45 @@ Patch2: rubygem-sprockets-2.12.1-assert_raise-assert_raises.patch
 # https://github.com/sstephenson/sprockets/commit/9be057ce5804492c7c5bd1b20ba7da49c5538740
 Patch3: rubygem-sprockets-2.12.1-assert_no_equal-is-gone.patch
 
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hike) => 1.2
-Requires: %{?scl_prefix}rubygem(hike) < 2
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(hike) => 1.2
+Requires: %{?scl_prefix_ruby}rubygem(hike) < 2
 Requires: %{?scl_prefix}rubygem(multi_json) => 1.0
 Requires: %{?scl_prefix}rubygem(multi_json) < 2
-Requires: %{?scl_prefix}rubygem(rack) => 1.0
-Requires: %{?scl_prefix}rubygem(rack) < 2
-Requires: %{?scl_prefix}rubygem(tilt) => 1.1
-Requires: %{?scl_prefix}rubygem(tilt) < 2
-Conflicts: %{?scl_prefix}rubygem(tilt) = 1.3.0
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}rubygem(rack) => 1.0
+Requires: %{?scl_prefix_ruby}rubygem(rack) < 2
+Requires: %{?scl_prefix_ruby}rubygem(tilt) => 1.1
+Requires: %{?scl_prefix_ruby}rubygem(tilt) < 2
+Conflicts: %{?scl_prefix_ruby}rubygem(tilt) = 1.3.0
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}rubygem(coffee-script)
-BuildRequires: %{?scl_prefix}rubygem(execjs)
-BuildRequires: %{?scl_prefix}rubygem(hike) => 1.2
-BuildRequires: %{?scl_prefix}rubygem(hike) < 2
-BuildRequires: %{?scl_prefix}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(uglifier)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygem(coffee-script)
+BuildRequires: %{?scl_prefix_ruby}rubygem(execjs)
+BuildRequires: %{?scl_prefix_ruby}rubygem(hike) => 1.2
+BuildRequires: %{?scl_prefix_ruby}rubygem(hike) < 2
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(uglifier)
 BuildRequires: %{?scl_prefix}rubygem(multi_json)
-BuildRequires: %{?scl_prefix}rubygem(json)
-BuildRequires: %{?scl_prefix}rubygem(rack) => 1.0
-BuildRequires: %{?scl_prefix}rubygem(rack) < 2
-BuildRequires: %{?scl_prefix}rubygem(rack-test)
-BuildRequires: %{?scl_prefix}rubygem(rake)
+BuildRequires: %{?scl_prefix_ruby}rubygem(json)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rack) => 1.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rack) < 2
+BuildRequires: %{?scl_prefix_ruby}rubygem(rack-test)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildRequires: %{?scl_prefix}rubygem(sass)
-BuildRequires: %{?scl_prefix}rubygem(therubyracer)
-BuildRequires: %{?scl_prefix}rubygem(tilt) => 1.1
-BuildRequires: %{?scl_prefix}rubygem(tilt) < 2
-BuildConflicts: %{?scl_prefix}rubygem(tilt) = 1.3.0
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && "%{?scl}" == "")
-BuildRequires: %{?scl_prefix}ruby(abi)
+BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
+BuildRequires: %{?scl_prefix_ruby}rubygem(tilt) => 1.1
+BuildRequires: %{?scl_prefix_ruby}rubygem(tilt) < 2
+BuildConflicts: %{?scl_prefix_ruby}rubygem(tilt) = 1.3.0
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 %if "%{?scl_v8}" != ""
 BuildRequires: %{?scl_v8}

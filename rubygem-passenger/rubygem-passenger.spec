@@ -85,15 +85,15 @@ Patch203:       rubygem-passenger-4.0.18-daemon-controller.patch
 # Change temp directory from /tmp to /var/run/rubygem-passenger
 Patch205:       rubygem-passenger-4.0.18-tmpdir.patch
 
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(rack)
-Requires: %{?scl_prefix}rubygem(rake)
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
-Requires: %{?scl_prefix}ruby(abi)
+Requires: %{?scl_prefix_ruby}rubygem(rack)
+Requires: %{?scl_prefix_ruby}rubygem(rake)
+%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
 %if 0%{?rhel} >= 6 || 0%{?fedora} >= 15
@@ -113,16 +113,16 @@ BuildRequires: doxygen
 BuildRequires: graphviz
 BuildRequires: httpd-devel
 # BuildRequires: libev-devel
-BuildRequires: %{?scl_prefix}ruby
-BuildRequires: %{?scl_prefix}ruby-devel
-BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(rake) >= 0.8.1
-BuildRequires: %{?scl_prefix}rubygem(rack)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.1
+BuildRequires: %{?scl_prefix_ruby}rubygem(rack)
 %if %{enable_check}
-BuildRequires: %{?scl_prefix}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
 %endif
-BuildRequires: %{?scl_prefix}rubygem(mime-types)
+BuildRequires: %{?scl_prefix_ruby}rubygem(mime-types)
 # BuildRequires: source-highlight
 
 # XXX
@@ -130,6 +130,7 @@ BuildRequires: zlib-devel
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost) =  1.44
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Phusion Passenger™ — a.k.a. mod_rails or mod_rack — makes deployment
@@ -144,6 +145,7 @@ BuildRequires: httpd-devel
 Requires: httpd-mmn = %{_httpd_mmn}
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native%{?_isa} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-mod_passenger}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 
 %description -n %{?scl_prefix}mod_passenger
@@ -154,6 +156,7 @@ Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost-devel) =  1.44
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 License: Boost and BSD and BSD with advertising and GPL+ and MIT and zlib
 
 %description devel
@@ -163,6 +166,7 @@ This package contains development files for Phusion Passenger™.
 Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 License: CC-BY-SA and MIT and (MIT or GPL+)
 
@@ -175,6 +179,7 @@ Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native-libs%{?_isa} = %{version}-%{release}
 Requires: %{name}%{?_isa} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native
 This package contains the native code extensions for Apache & Nginx
@@ -184,7 +189,8 @@ Phusion Passenger™ bindings.
 Summary: Phusion Passenger native extensions
 Group: System Environment/Daemons
 Requires: %{name}%{?_isa} = %{version}-%{release}
-Requires: %{?scl_prefix}ruby
+Requires: %{?scl_prefix_ruby}ruby
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native-libs}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native-libs
 This package contains the native shared library for Apache & Nginx
@@ -255,22 +261,19 @@ CFLAGS="${CFLAGS:-%optflags} -fno-strict-aliasing" ; export CFLAGS ;
 CXXFLAGS="${CXXFLAGS:-%optflags} -fno-strict-aliasing" ; export CXXFLAGS ;
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS ;
 
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
+%{?scl:scl enable %{scl} - << \EOF}
 rake package:gem SKIP_SIGNING=1
+%{?scl:EOF}
+%{?scl:scl enable %{scl} - << \EOF}
 rake apache2
+%{?scl:EOF}
 #rake nginx
 
 %install
 # export USE_VENDORED_LIBEV=false
 
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
 # Install the gem.
+%{?scl:scl enable %{scl} - << \EOF}
 gem install -V \
             --local \
             --install-dir %{buildroot}%{gem_dir} \
@@ -278,6 +281,7 @@ gem install -V \
             --force \
             --rdoc \
             pkg/%{gem_name}-%{version}.gem
+%{?scl:EOF}
 
 # Install locations.ini
 install -pm 0644 %{SOURCE11} %{buildroot}%{gem_instdir}/lib/phusion_passenger/
@@ -359,10 +363,6 @@ sed -i '/Gem::Specification.new/ a s.extensions = ["workaround"]' \
     %{buildroot}%{gem_spec}
 
 %check
-%if 0%{?scl:1}
-. /opt/rh/%scl/enable
-%endif
-
 # export USE_VENDORED_LIBEV=false
 # Run the tests, capture the output, but don't fail the build if the tests fail
 #
@@ -379,7 +379,9 @@ sed -i \
 %{__cp} test/config.json.example test/config.json
 
 %if %{enable_check}
+%{?scl:scl enable %{scl} - << \EOF}
 rake test --trace ||:
+%{?scl:EOF}
 %endif
 
 %files

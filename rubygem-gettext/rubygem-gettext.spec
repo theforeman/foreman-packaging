@@ -19,9 +19,9 @@ License:	Ruby
 URL:		http://www.yotabanana.com/hiki/ruby-gettext.html?ruby-gettext
 Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-Requires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix}rubygems-devel
+Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Disable tests
 ## For %%check
 #BuildRequires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
@@ -30,17 +30,18 @@ BuildRequires:	%{?scl_prefix}rubygems-devel
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit-rr)
 #BuildRequires:	%{?scl_prefix}rubygem(text)
 # test/tools/test_task.rb -> lib/gettext/tools/task.rb
-#BuildRequires:	%{?scl_prefix}rubygem(rake)
+#BuildRequires:	%{?scl_prefix_ruby}rubygem(rake)
 BuildRequires:	gettext
 
-Requires:	%{?scl_prefix}ruby(rubygems)
+Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Requires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
 Requires:	%{?scl_prefix}rubygem(text)
-Requires:	%{?scl_prefix}irb
+Requires:	%{?scl_prefix_ruby}irb
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 
 Obsoletes:	%{?scl_prefix}ruby-gettext-package <= %{version}-%{release}
 Provides:	%{?scl_prefix}ruby-gettext-package = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 BuildArch:	noarch
 
@@ -55,6 +56,7 @@ This package provides gem for Ruby-Gettext-Package.
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.

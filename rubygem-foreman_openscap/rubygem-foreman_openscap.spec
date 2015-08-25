@@ -30,16 +30,16 @@ Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.3.2
 Requires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
-Requires: %{?scl_prefix}ruby(rubygems)
-BuildRequires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
-Requires: %{?scl_prefix}rubygems
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: foreman-assets >= 1.7.0
 BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
@@ -49,6 +49,7 @@ BuildRequires: %{?scl_prefix}rubygem(scaptimony) < 0.4.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-openscap
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Foreman plug-in for managing security compliance reports.
@@ -58,6 +59,7 @@ Foreman plug-in for managing security compliance reports.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc

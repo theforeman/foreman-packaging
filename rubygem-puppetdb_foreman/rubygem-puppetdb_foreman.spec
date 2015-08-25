@@ -27,24 +27,25 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires:   foreman >= 1.4.0
 
 %if 0%{?fedora} > 18
-Requires: %{?scl_prefix}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 %else
-Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix_ruby}rubygems
 
 %if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %else
-BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
 %endif
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-puppetdb
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This is a foreman plugin to interact with PuppetDB through callbacks
@@ -113,4 +114,3 @@ GEMFILE
 
 * Tue Sep 10 2013 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
 - new package built with tito
-

@@ -17,34 +17,35 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/rspec/rspec-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}ruby(abi) = %{rubyabi}
-Requires: %{?scl_prefix}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) => 3.0
-Requires: %{?scl_prefix}rubygem(activesupport) < 4
-Requires: %{?scl_prefix}rubygem(actionpack) => 3.0
-Requires: %{?scl_prefix}rubygem(actionpack) < 4
-Requires: %{?scl_prefix}rubygem(railties) => 3.0
-Requires: %{?scl_prefix}rubygem(railties) < 4
-Requires: %{?scl_prefix}rubygem(rspec) => 2.11.0
-Requires: %{?scl_prefix}rubygem(rspec) < 2.12
-BuildRequires: %{?scl_prefix}rubygems-devel
-BuildRequires: %{?scl_prefix}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(activesupport) => 3.0
+Requires: %{?scl_prefix_ruby}rubygem(activesupport) < 4
+Requires: %{?scl_prefix_ruby}rubygem(actionpack) => 3.0
+Requires: %{?scl_prefix_ruby}rubygem(actionpack) < 4
+Requires: %{?scl_prefix_ruby}rubygem(railties) => 3.0
+Requires: %{?scl_prefix_ruby}rubygem(railties) < 4
+Requires: %{?scl_prefix_ruby}rubygem(rspec) => 2.11.0
+Requires: %{?scl_prefix_ruby}rubygem(rspec) < 2.12
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 %if 0%{enable_test} > 0
-BuildRequires: %{?scl_prefix}rubygem(rspec) => 2.11.0
-BuildRequires: %{?scl_prefix}rubygem(rspec) < 2.12
-BuildRequires: %{?scl_prefix}rubygem(rails) => 3.0
-BuildRequires: %{?scl_prefix}rubygem(rails) < 4
-BuildRequires: %{?scl_prefix}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec) => 2.11.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rspec) < 2.12
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) => 3.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 4
+BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 # because ZenTest is optional for rspec-core, but required here
 # (have been pulled by other dependencies with Ruby 1.8.7)
-BuildRequires: %{?scl_prefix}rubygem(ZenTest)
-BuildRequires: %{?scl_prefix}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(ZenTest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(ammeter)
 #BuildRequires: %{?scl_prefix}rubygem(cucumber)
 #BuildRequires: %{?scl_prefix}rubygem(aruba)
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 RSpec-2 support for Rails-3
@@ -54,6 +55,7 @@ RSpec-2 support for Rails-3
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires:%{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{pkg_name}

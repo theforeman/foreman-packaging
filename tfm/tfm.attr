@@ -1,0 +1,2 @@
+%__tfm_requires	echo -n "%{?scl_runtime}"
+%__tfm_path			%{?scl:^%{_scl_prefix}/.*$}
