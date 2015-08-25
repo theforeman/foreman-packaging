@@ -6,7 +6,7 @@
 Summary:    Ruby/EventMachine library
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.12.10
-Release:    9%{?dist}
+Release:    10%{?dist}
 Group:      Development/Languages
 License:    GPLv2 or Ruby
 URL:        http://rubyeventmachine.com
@@ -100,6 +100,9 @@ rake test || :
 %{gem_instdir}/web
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.12.10-10
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Mar 11 2013 Miroslav Suchý <msuchy@redhat.com> 0.12.10-9
 - require ruby-devel from SC (msuchy@redhat.com)
 - fixing ruby193 scl package (lzap+git@redhat.com)
