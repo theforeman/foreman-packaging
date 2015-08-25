@@ -7,7 +7,7 @@ Summary: underscore.js asset pipeline provider/wrapper
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.8.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/rweng/underscore-rails
@@ -68,5 +68,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Readme.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.8.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 13 2015 Dominic Cleal <dcleal@redhat.com> 1.8.3-1
 - new package built with tito
