@@ -7,7 +7,7 @@ Summary: Unicode support for hirb
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.5
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Ruby
 License: MIT
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
@@ -72,6 +72,11 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-6
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+- Add full rubygems.org source URL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.5-5
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
