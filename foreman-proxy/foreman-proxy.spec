@@ -92,7 +92,7 @@ SYSCONFDIR=%{_sysconfdir} \
   for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' extra/spec/foreman-proxy.init
+  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby}X' %{SOURCE2}
 %endif
 
 #replace default location of 'settings.d'
