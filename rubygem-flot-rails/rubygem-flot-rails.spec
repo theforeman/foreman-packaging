@@ -7,7 +7,7 @@
 Summary: jQuery-flot javascript for Rails apps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/flot-rails
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 0.0.3-3
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
