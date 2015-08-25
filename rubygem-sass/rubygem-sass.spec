@@ -9,7 +9,7 @@
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sass-lang.com/
@@ -101,6 +101,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.4.9-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Nov 28 2014 Dominic Cleal <dcleal@redhat.com> 3.4.9-1
 - Update sass to 3.4.9 (dcleal@redhat.com)
 
