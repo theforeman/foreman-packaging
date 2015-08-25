@@ -16,7 +16,7 @@
 Summary: RR (Double Ruby) is a test double framework 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://pivotallabs.com
@@ -134,6 +134,9 @@ rm  %{buildroot}%{gem_instdir}/Rakefile
 #%%{gem_instdir}/benchmarks
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.0.5-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jun 14 2013 Lukas Zapletal <lzap+git@redhat.com> 1.0.5-2
 - rubygem-rr scl changes
 
