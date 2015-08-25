@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-libvirt
@@ -86,6 +86,9 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jun 16 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
 - Update fog-libvirt to 0.0.2 (dcleal@redhat.com)
 
