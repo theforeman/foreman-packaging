@@ -7,7 +7,7 @@
 Summary: Use with Net::HTTP to do multipart form posts
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nicksieger/multipart-post
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.txt
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 1.2.0-2
 - Fix missing .gem (dcleal@redhat.com)
 
