@@ -6,7 +6,7 @@
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
@@ -83,6 +83,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.6-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Jul 27 2015 Dominic Cleal <dcleal@redhat.com> 0.3.6-1
 - Update ldap_fluff to 0.3.6 (dcleal@redhat.com)
 
