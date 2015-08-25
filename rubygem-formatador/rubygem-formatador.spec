@@ -8,7 +8,7 @@
 Summary: Ruby STDOUT text formatting
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/geemus/%{gem_name}
@@ -82,6 +82,9 @@ popd
 %{gem_instdir}/formatador.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-8
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Mar 13 2013 Miroslav Suchý <msuchy@redhat.com> 0.2.1-6
 - new package built with tito
 
