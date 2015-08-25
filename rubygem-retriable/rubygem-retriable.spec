@@ -7,7 +7,7 @@
 Summary: Retriable is a DSL to retry failed code blocks with a backoff
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kamui/retriable
@@ -81,5 +81,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.4.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 1.4.1-1
 - new package built with tito
