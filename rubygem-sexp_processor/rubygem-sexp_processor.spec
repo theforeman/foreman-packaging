@@ -7,7 +7,7 @@
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.4.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/sexp_processor
@@ -85,6 +85,9 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.4.4-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 4.4.4-1
 - Update sexp_processor to 4.4.4 (dcleal@redhat.com)
 - Build for Fedora 19 (dcleal@redhat.com)
