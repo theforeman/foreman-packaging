@@ -9,7 +9,7 @@
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/bluemonk/ipaddress
@@ -82,6 +82,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.8.0-7
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 22 2014 Dominic Cleal <dcleal@redhat.com> 0.8.0-6
 - SCLize for EL6/7
 
