@@ -6,7 +6,7 @@
 Summary: TablePrint turns objects into nicely formatted columns for easy reading
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/arches/table_print
@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.5.1-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 1.5.1-3
 - Convert table_print to SCL (dcleal@redhat.com)
 
