@@ -6,7 +6,7 @@
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/ruby-ldap/ruby-net-ldap
@@ -103,6 +103,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.11-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed May 13 2015 Dominic Cleal <dcleal@redhat.com> 0.11-2
 - Build net-ldap for Fedora (dcleal@redhat.com)
 
