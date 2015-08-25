@@ -6,7 +6,7 @@
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/grosser/gettext_i18n_rails
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.2.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Feb 24 2015 Dominic Cleal <dcleal@redhat.com> 1.2.1-1
 - Update gettext_i18n_rails to 1.2.1 (dcleal@redhat.com)
 
