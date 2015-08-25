@@ -10,7 +10,7 @@
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
@@ -120,6 +120,11 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-2
+- Use tfm-ruby in shebang line (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+- Increase range of non-SCL obsoletes to cover 1.9 versions (dcleal@redhat.com)
+
 * Tue Aug 04 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-1
 - Update hammer_cli to 0.3.0 (dcleal@redhat.com)
 - fixes #8979 - convert hammer packages to SCL (dcleal@redhat.com)
