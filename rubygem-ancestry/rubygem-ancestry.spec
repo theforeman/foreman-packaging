@@ -7,7 +7,7 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 2.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
@@ -95,6 +95,10 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-3
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+
 * Fri Sep 27 2013 Lukas Zapletal <lzap+git@redhat.com> 2.0.0-2
 - bumping ancestry (lzap+git@redhat.com)
 
