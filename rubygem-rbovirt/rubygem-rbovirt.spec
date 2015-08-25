@@ -7,7 +7,7 @@ Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.35
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/abenari/rbovirt
@@ -71,6 +71,10 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.35-2
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
+
 * Tue Feb 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.35-1
 - Update rbovirt to 0.0.35 (dcleal@redhat.com)
 
