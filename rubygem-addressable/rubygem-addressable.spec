@@ -9,7 +9,7 @@
 Summary: URI Implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://addressable.rubyforge.org/
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.3.6-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.3.6-1
 - Update addressable to 2.3.6 (dcleal@redhat.com)
 
