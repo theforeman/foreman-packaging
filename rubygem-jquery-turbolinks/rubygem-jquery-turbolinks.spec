@@ -6,7 +6,7 @@
 Summary: jQuery plugin for binded events problem caused by Turbolinks
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kossnocorp/jquery.turbolinks
@@ -95,5 +95,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.1.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.1.0-1
 - new package built with tito
