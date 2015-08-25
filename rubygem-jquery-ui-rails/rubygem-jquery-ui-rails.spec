@@ -8,7 +8,7 @@
 Summary: jQuery UI packaged for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/joliss/jquery-ui-rails
@@ -81,6 +81,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.1.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Nov 18 2014 Dominic Cleal <dcleal@redhat.com> 4.1.2-1
 - Update jquery-ui-rails to 4.1.2 (dcleal@redhat.com)
 
