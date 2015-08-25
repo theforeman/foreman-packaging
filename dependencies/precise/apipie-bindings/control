@@ -12,9 +12,8 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-json (>= 1.6.1),
-         ruby-rest-client (>= 1.6.1),
+         ruby-rest-client (>= 1.6.5),
          ruby-oauth,
          ruby-awesome-print,
-         ruby-mime-types (< 2.0.0)
-Description: The Ruby bindings for Apipie documented APIs
+Description: Ruby bindings for Apipie documented APIs
  Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
