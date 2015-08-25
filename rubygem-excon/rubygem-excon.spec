@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.45.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -96,6 +96,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.45.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jul 03 2015 Dominic Cleal <dcleal@redhat.com> 0.45.3-1
 - Update excon to 0.45.3 (dcleal@redhat.com)
 
