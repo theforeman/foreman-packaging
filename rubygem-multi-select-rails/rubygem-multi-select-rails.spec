@@ -7,7 +7,7 @@
 Summary: Multiselect jQuery plugin for Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/klenis/multi-select-rails
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/*.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.9.12-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Nov 24 2014 Dominic Cleal <dcleal@redhat.com> 0.9.12-1
 - Update multi-select-rails to 0.9.12 (dcleal@redhat.com)
 
