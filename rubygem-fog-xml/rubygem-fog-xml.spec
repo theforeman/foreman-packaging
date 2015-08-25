@@ -7,7 +7,7 @@ Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-xml
@@ -72,6 +72,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Apr 08 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
 - Update fog-xml to 0.1.2 (dcleal@redhat.com)
 - Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
