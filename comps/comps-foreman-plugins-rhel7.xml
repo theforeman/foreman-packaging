@@ -97,6 +97,25 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">rubygem-chef-api-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
+      <packagereq type="default">rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <packagereq type="default">rubygem-logify-doc</packagereq>
+      <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-sequel-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
@@ -153,25 +172,6 @@
       <packagereq type="default">tfm-rubygem-scaptimony-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
-      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
-      <packagereq type="default">rubygem-algebrick-doc</packagereq>
-      <packagereq type="default">rubygem-chef-api-doc</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
-      <packagereq type="default">rubygem-dynflow-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
-      <packagereq type="default">rubygem-logify-doc</packagereq>
-      <packagereq type="default">rubygem-newt-doc</packagereq>
-      <packagereq type="default">rubygem-satyr-doc</packagereq>
-      <packagereq type="default">rubygem-sequel-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>

@@ -86,6 +86,14 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
@@ -142,14 +150,6 @@
       <packagereq type="default">tfm-rubygem-scaptimony-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
-      <packagereq type="default">rubygem-newt-doc</packagereq>
-      <packagereq type="default">rubygem-satyr-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>

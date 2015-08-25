@@ -187,6 +187,23 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">rubygem-awesome_print-doc</packagereq>
+      <packagereq type="default">rubygem-bundler-doc</packagereq>
+      <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">rubygem-clamp-doc</packagereq>
+      <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_api-doc</packagereq>
+      <packagereq type="default">rubygem-hashie-doc</packagereq>
+      <packagereq type="default">rubygem-little-plugger-doc</packagereq>
+      <packagereq type="default">rubygem-locale-doc</packagereq>
+      <packagereq type="default">rubygem-logging-doc</packagereq>
+      <packagereq type="default">rubygem-multi_json-doc</packagereq>
+      <packagereq type="default">rubygem-netrc-doc</packagereq>
+      <packagereq type="default">rubygem-passenger-doc</packagereq>
+      <packagereq type="default">rubygem-powerbar-doc</packagereq>
+      <packagereq type="default">rubygem-rkerberos-doc</packagereq>
+      <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ansi-doc</packagereq>
@@ -284,23 +301,6 @@
       <packagereq type="default">tfm-rubygem-uuidtools-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
-      <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
-      <packagereq type="default">rubygem-awesome_print-doc</packagereq>
-      <packagereq type="default">rubygem-bundler-doc</packagereq>
-      <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
-      <packagereq type="default">rubygem-clamp-doc</packagereq>
-      <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_api-doc</packagereq>
-      <packagereq type="default">rubygem-hashie-doc</packagereq>
-      <packagereq type="default">rubygem-little-plugger-doc</packagereq>
-      <packagereq type="default">rubygem-locale-doc</packagereq>
-      <packagereq type="default">rubygem-logging-doc</packagereq>
-      <packagereq type="default">rubygem-multi_json-doc</packagereq>
-      <packagereq type="default">rubygem-netrc-doc</packagereq>
-      <packagereq type="default">rubygem-passenger-doc</packagereq>
-      <packagereq type="default">rubygem-powerbar-doc</packagereq>
-      <packagereq type="default">rubygem-rkerberos-doc</packagereq>
-      <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>
