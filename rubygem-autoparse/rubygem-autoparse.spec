@@ -7,7 +7,7 @@
 Summary: An implementation of the JSON Schema specification
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://autoparse.rubyforge.org/
@@ -83,5 +83,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.3.3-1
 - new package built with tito
