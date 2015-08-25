@@ -7,7 +7,7 @@
 Summary: Launchy is helper class for launching cross-platform applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ISC
 URL: http://github.com/copiousfreetime/launchy
@@ -95,6 +95,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.4.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 2.4.3-1
 - Update launchy to 2.4.3 (dcleal@redhat.com)
 
