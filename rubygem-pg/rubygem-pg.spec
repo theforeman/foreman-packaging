@@ -8,7 +8,7 @@
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.12.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -117,6 +117,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.12.2-9
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Mar 06 2013 Lukas Zapletal <lzap+git@redhat.com> 0.12.2-8
 - disabling tests for ruby193-rubygem-pg
 
