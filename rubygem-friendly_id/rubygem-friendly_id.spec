@@ -7,7 +7,7 @@
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.10.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -88,5 +88,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.0.10.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Sep 29 2014 Dominic Cleal <dcleal@redhat.com> 4.0.10.1-1
 - new package built with tito
