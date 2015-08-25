@@ -9,7 +9,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://mysql-win.rubyforge.org
@@ -90,6 +90,9 @@ find %{buildroot} -type f -name *.o -exec rm -f {} +
 %{gem_instdir}/spec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Aug 05 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-1
 - Update mysql2 to 0.3.19 (dcleal@redhat.com)
 
