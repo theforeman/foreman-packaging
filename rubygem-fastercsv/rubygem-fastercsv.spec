@@ -6,7 +6,7 @@
 Summary:	Faster, smaller and cleaner replacement to standard CSV library
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.5.4
-Release:	7%{?dist}
+Release:	8%{?dist}
 License:	GPLv2 or Ruby
 Group:		Development/Languages
 URL:		http://fastercsv.rubyforge.org/
@@ -71,6 +71,12 @@ done
 %{gem_instdir}/test/
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.5.4-8
+- Use tfm-ruby for shebang line (dcleal@redhat.com)
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.5.4-7
 - Modernise and update for EL7 (dcleal@redhat.com)
 
