@@ -6,7 +6,7 @@
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 18%{?dist}
+Release: 19%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/little-plugger
@@ -80,6 +80,11 @@ find %{buildroot}/%{gem_spec} -name %{gem_name}-%{version}.gemspec -exec sed -i 
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.1.3-19
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu May 29 2014 Dominic Cleal <dcleal@redhat.com> 1.1.3-18
 - Modernise and update for EL7 (dcleal@redhat.com)
 
