@@ -7,7 +7,7 @@ Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.32.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-core
@@ -81,6 +81,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.32.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Aug 18 2015 Dominic Cleal <dcleal@redhat.com> 1.32.1-1
 - Update fog-core to 1.32.1 (dcleal@redhat.com)
 
