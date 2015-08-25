@@ -6,7 +6,7 @@
 Summary:        Ruby library for performing simple syntax highlighting
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.0.0
-Release:        9%{?dist}
+Release:        10%{?dist}
 Group:          Development/Languages
 License:        Public Domain
 URL:            http://syntax.rubyforge.org/
@@ -66,6 +66,9 @@ popd
 %doc LICENSE
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.0.0-10
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Mar 15 2013 Lukas Zapletal <lzap+git@redhat.com> 1.0.0-8
 - new package built with tito
 
