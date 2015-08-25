@@ -7,7 +7,7 @@
 Summary: Support library for Merb
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/datamapper/extlib
@@ -81,5 +81,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.9.16-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Sun Nov 10 2013 Dominic Cleal <dcleal@redhat.com> 0.9.16-1
 - new package built with tito
