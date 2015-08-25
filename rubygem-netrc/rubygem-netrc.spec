@@ -7,7 +7,7 @@
 Summary: Library to read and write netrc files
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/netrc
@@ -77,6 +77,11 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-6
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue May 27 2014 Dominic Cleal <dcleal@redhat.com> 0.7.7-5
 - SCL enable spec file
 
