@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support Google
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-google
@@ -74,6 +74,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 07 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
 - Update fog-google to 0.0.7 (dcleal@redhat.com)
 
