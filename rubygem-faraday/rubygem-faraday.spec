@@ -7,7 +7,7 @@
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lostisland/faraday
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-1
 - Update faraday to 0.9.1 (dcleal@redhat.com)
 
