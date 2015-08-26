@@ -105,7 +105,11 @@ Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
 # facter
+%if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
+%else
+Requires: facter
+%endif
 # jsonp
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
@@ -199,7 +203,11 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
 # facter
+%if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
+%else
+BuildRequires: facter
+%endif
 
 %package cli
 Summary: Foreman CLI
