@@ -19,7 +19,7 @@
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    3.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/GregSutcliffe/foreman_default_hostgroup
@@ -103,6 +103,9 @@ mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Dec 15 2014 Dominic Cleal <dcleal@redhat.com> 3.0.0-1
 - Update foreman_default_hostgroup to 3.0.0 (dcleal@redhat.com)
 
