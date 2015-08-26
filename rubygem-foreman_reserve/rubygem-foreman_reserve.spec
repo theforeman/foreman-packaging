@@ -18,7 +18,7 @@
 Summary:    Reserve hosts via Foreman API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.8.3
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_reserve
@@ -104,6 +104,9 @@ rm -f *gemspec
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.8.3-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Mar 07 2014 Lukas Zapletal <lzap+git@redhat.com> 0.1.8.3-2
 - Bump foreman_reserve (lzap+git@redhat.com)
 
