@@ -14,7 +14,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: SCAPtimony is SCAP database and storage server
 Group: Applications/System
 License: GPLv3
@@ -103,6 +103,9 @@ popd
 
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.3.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 21 2015 Dominic Cleal <dcleal@redhat.com> 0.3.2-1
 - Update scaptimony to 0.3.2 (dcleal@redhat.com)
 
