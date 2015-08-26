@@ -6,7 +6,7 @@
 Summary:	A command-line option parsing library for ruby
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0
-Release:	3%{?dist}
+Release:	4%{?dist}
 Group:		Applications/Productivity
 License:	GPLv2
 URL:		http://trollop.rubyforge.org/
@@ -58,6 +58,9 @@ rm -rf %{buildroot}
 %{gem_spec}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.0-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Mar 14 2013 Miroslav Suchý <msuchy@redhat.com> 2.0-2
 - new package built with tito
 
