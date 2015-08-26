@@ -15,8 +15,8 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.1
-Release:    2%{?foremandist}%{?dist}
+Version:    3.0.2
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_salt
