@@ -9,7 +9,7 @@
 Summary: Provides POSIX tar archive management from Ruby programs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://rubyforge.org/projects/ruwiki
@@ -121,6 +121,10 @@ popd
 %{gem_docdir}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-10
+- Use tfm-ruby for shebang line (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.2-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
