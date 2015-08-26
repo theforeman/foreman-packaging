@@ -19,7 +19,7 @@
 Summary:    Display reports from Automatic Bug Reporting Tool in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.6
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_abrt
@@ -109,6 +109,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Mar 23 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-2
 - Remove unused apipie:cache call (dcleal@redhat.com)
 
