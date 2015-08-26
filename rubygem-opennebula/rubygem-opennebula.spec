@@ -7,7 +7,7 @@
 Summary: OpenNebula Client API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://opennebula.org/
@@ -75,5 +75,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/NOTICE
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 4.8.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 4.8.0-1
 - new package built with tito
