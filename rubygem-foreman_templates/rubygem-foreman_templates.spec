@@ -18,7 +18,7 @@
 Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_templates
@@ -99,6 +99,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Jul 06 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
 - Update foreman_templates to 2.0.0 (dcleal@redhat.com)
 
