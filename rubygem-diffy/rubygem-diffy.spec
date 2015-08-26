@@ -7,7 +7,7 @@
 Summary: Convenient diffing in ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/samg/diffy
@@ -85,5 +85,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Nov 20 2013 Dominic Cleal <dcleal@redhat.com> 3.0.1-1
 - new package built with tito
