@@ -6,7 +6,7 @@
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/pitr-ch/algebrick
@@ -71,6 +71,11 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-3
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-2
 - Package algebrick for non-SCL el7 (stbenjam@redhat.com)
 
