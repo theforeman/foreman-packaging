@@ -9,7 +9,7 @@
 Summary: Foreman Docker-related commands for Hammer
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: http://github.com/theforeman/hammer_cli_foreman_docker
@@ -82,6 +82,9 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-3
 - fixes #8979 - convert hammer packages to SCL (dcleal@redhat.com)
 
