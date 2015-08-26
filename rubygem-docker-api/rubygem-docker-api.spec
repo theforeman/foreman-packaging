@@ -7,7 +7,7 @@
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.17.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/TESTING.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.17.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jan 13 2015 Dominic Cleal <dcleal@redhat.com> 1.17.0-1
 - Update docker-api to 1.17.0 (dcleal@redhat.com)
 
