@@ -9,7 +9,7 @@
 Summary:  Rack-based asset packaging system
 Name:     %{?scl_prefix}rubygem-%{gem_name}
 Version:  2.12.3
-Release:  1%{?dist}
+Release:  2%{?dist}
 Group:    Development/Languages
 License:  MIT
 URL:      http://getsprockets.org/
@@ -145,6 +145,11 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-2
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Feb 06 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-1
 - Update sprockets to 2.12.3 (dcleal@redhat.com)
 
