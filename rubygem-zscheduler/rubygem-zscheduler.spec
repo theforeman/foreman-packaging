@@ -7,7 +7,7 @@
 Summary: Minimalistic scheduler on top of eventmachine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: LGPLv3
 URL: http://github.com/eranb/zscheduler
@@ -74,5 +74,8 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Jan 14 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
 - new package built with tito
