@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -90,6 +90,9 @@ rspec -Ilib spec
 
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.3.3-6
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Jan 07 2015 Dominic Cleal <dcleal@redhat.com> 1.3.3-5
 - Import from Fedora and SCLise (dcleal@redhat.com)
 
