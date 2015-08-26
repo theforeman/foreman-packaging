@@ -7,7 +7,7 @@
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
@@ -85,6 +85,9 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.1.0-4
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Jul 04 2013 Dominic Cleal <dcleal@redhat.com> 1.1.0-3
 - change ruby(abi) to ruby(release) for F19+ (dcleal@redhat.com)
 - delete all zero sized tito.props (msuchy@redhat.com)
