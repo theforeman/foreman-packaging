@@ -19,7 +19,7 @@
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-xen
@@ -102,6 +102,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jul 31 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
 - update foreman_xen to 0.1.2 (kvedulv@kvedulv.de)
 
