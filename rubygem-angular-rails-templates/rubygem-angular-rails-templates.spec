@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   0.1.2
-Release:   2%{?dist}
+Release:   3%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -77,6 +77,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-3
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fix typo in -doc requires on main package (dcleal@redhat.com)
+
 * Thu Feb 12 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-2
 - Fix dep to include epoch between -doc and main package (dcleal@redhat.com)
 
