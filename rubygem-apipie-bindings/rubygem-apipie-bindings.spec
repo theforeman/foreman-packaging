@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.14-1
+- update apipie-bindings to 0.0.14 (kvedulv@kvedulv.de)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.13-2
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
