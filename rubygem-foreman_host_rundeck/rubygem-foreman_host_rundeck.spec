@@ -18,7 +18,7 @@
 Summary:    API for Rundeck to pull host data from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_host_rundeck
@@ -103,5 +103,8 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 02 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-1
 - new package built with tito
