@@ -9,7 +9,7 @@
 Summary: Foreman CLI plugin for showing task information for resources and users
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/Systems
 License: GPLv3+
 URL: http://github.com/theforeman/hammer-cli-foreman-tasks
@@ -83,6 +83,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-2
 - Increase range of non-SCL obsoletes to cover 1.9 versions (dcleal@redhat.com)
 
