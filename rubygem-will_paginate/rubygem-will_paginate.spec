@@ -7,7 +7,7 @@
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       3.0.2
-Release:       8%{?dist}
+Release:       9%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://github.com/mislav/will_paginate
@@ -68,6 +68,9 @@ popd
 %{gem_spec}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 3.0.2-9
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Mar 15 2013 Miroslav Suchý <msuchy@redhat.com> 3.0.2-7
 - disable tests temporary (msuchy@redhat.com)
 
