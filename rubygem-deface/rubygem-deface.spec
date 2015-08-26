@@ -7,7 +7,7 @@
 Summary: Rails 3 plugin that allows you to customize ERB views in a Rails application without editing the underlying view.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/spree/deface
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.7.2-7
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Aug 14 2013 Lukas Zapletal <lzap+git@redhat.com> 0.7.2-6
 - rebuild
 
