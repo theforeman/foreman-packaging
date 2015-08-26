@@ -19,7 +19,7 @@
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -111,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 13 2015 Josh Baird <jbaird@follett.com> 0.0.4-1
 - Run db:migrate in %posttrans
 
