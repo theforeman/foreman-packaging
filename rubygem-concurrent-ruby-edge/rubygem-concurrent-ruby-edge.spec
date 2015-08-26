@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -77,6 +77,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-5
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-4
 - Package concurrent-ruby for non-SCL el7 (stbenjam@redhat.com)
 
