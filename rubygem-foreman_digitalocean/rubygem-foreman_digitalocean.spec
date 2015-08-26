@@ -19,7 +19,7 @@
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-digitalocean
@@ -96,6 +96,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Apr 28 2015 Tommy McNeely <tommy@lark-it.com> 0.2.0-1
 - Version 0.2.0 (tommy@lark-it.com)
 - #10242 - Changed template name to _base for Foreman 1.8
