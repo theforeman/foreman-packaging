@@ -19,7 +19,7 @@
 Summary:    Snapshot plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_snapshot
@@ -98,5 +98,8 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Mar 25 2014 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
 - new package built with tito
