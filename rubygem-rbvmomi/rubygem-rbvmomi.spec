@@ -6,7 +6,7 @@
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi
@@ -100,6 +100,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Nov 14 2014 Dominic Cleal <dcleal@redhat.com> 1.8.2-1
 - Rebase to rbvmomi 1.8.0 (dcleal@redhat.com)
 
