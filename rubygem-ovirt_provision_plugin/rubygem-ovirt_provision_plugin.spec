@@ -19,7 +19,7 @@
 Summary:    Foreman plugin to provision new hosts and integrate to oVirt Engine
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/ovirt_provision_plugin
@@ -103,6 +103,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Dec 01 2014 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
 - Update ovirt_provision_plugin to 1.0.1 (ybronhei@redhat.com)
 
