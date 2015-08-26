@@ -18,7 +18,7 @@
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.3.8
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_hooks
@@ -105,6 +105,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.3.8-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Jul 30 2015 Dominic Cleal <dcleal@redhat.com> 0.3.8-1
 - Update to foreman_hooks 0.3.8 (dcleal@redhat.com)
 
