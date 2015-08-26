@@ -19,7 +19,7 @@
 Summary:    Provision and manage OpenNebula VMs from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-one
@@ -103,5 +103,8 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 0.2-1
 - new package built with tito
