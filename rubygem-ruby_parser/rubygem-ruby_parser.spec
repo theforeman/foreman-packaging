@@ -8,7 +8,7 @@
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.6.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -117,6 +117,9 @@ popd
 %{gem_docdir}
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 3.6.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Fri Jan 09 2015 Dominic Cleal <dcleal@redhat.com> 3.6.3-1
 - Update ruby_parser to 3.6.3 (dcleal@redhat.com)
 - Build for Fedora 19 (dcleal@redhat.com)
