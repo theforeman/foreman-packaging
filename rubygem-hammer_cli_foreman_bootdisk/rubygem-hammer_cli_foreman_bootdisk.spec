@@ -9,7 +9,7 @@
 Summary: Foreman boot disk commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: http://github.com/theforeman/hammer_cli_foreman_bootdisk
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.3-3
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Tue Jul 28 2015 Dominic Cleal <dcleal@redhat.com> 0.1.3-2
 - fixes #8979 - convert hammer packages to SCL (dcleal@redhat.com)
 
