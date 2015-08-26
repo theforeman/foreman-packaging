@@ -18,7 +18,7 @@
 Summary:    DHCP browser plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.7
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_dhcp_browser
@@ -101,6 +101,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-1
 - update foreman_dhcp_browser to 0.0.7 (kvedulv@kvedulv.de)
 
