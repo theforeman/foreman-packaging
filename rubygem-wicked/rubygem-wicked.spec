@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -101,6 +101,11 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.1.0-2
+- Fix checks against scl name, optimise rhel/empty SCL conditional
+  (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Nov 03 2014 Daniel Lobato Garcia <dlobatog@redhat.com> 1.1.0-1
 - Update release to 1.1.0 (dlobatog@redhat.com)
 
