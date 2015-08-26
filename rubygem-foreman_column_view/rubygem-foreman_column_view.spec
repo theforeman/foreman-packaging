@@ -19,7 +19,7 @@
 Summary:    Column View Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/GregSutcliffe/foreman_column_view
@@ -116,6 +116,9 @@ CONFIG
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Aug 03 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
 - Update foreman_column_view to 0.2.1 (dcleal@redhat.com)
 
