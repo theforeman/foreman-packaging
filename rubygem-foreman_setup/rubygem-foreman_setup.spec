@@ -16,7 +16,7 @@
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    3.0.1
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_setup
@@ -102,6 +102,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Jul 30 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-1
 - Update foreman_setup to 3.0.1 (dcleal@redhat.com)
 
