@@ -19,7 +19,7 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
@@ -180,6 +180,10 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-2
+- Rename scl_ruby variables to scl_ruby_bin, use tfm-ruby (dcleal@redhat.com)
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.7.3-1
 - Update foreman-tasks to 0.7.3 (stbenjam@redhat.com)
 
