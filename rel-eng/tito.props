@@ -156,6 +156,7 @@ whitelist = foreman
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-scp
+  rubygem-nokogiri
   rubygem-po_to_json
   rubygem-powerbar
   rubygem-quiet_assets
@@ -192,6 +193,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
+  rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
@@ -270,6 +272,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
+  rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
@@ -358,6 +361,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-chef-api
   rubygem-bastion
+  rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge

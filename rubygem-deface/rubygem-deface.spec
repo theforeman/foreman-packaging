@@ -3,11 +3,10 @@
 
 %global gem_name deface
 
-
-Summary: Rails 3 plugin that allows you to customize ERB views in a Rails application without editing the underlying view.
+Summary: Deface is a library that allows you to customize views in Rails
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.2
-Release: 7%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/spree/deface
@@ -20,8 +19,11 @@ Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
 %endif
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(nokogiri)
-Requires: %{?scl_prefix_ruby}rubygem(rails)
+Requires: %{?scl_prefix}rubygem(colorize) >= 0.5.8
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6.0
+Requires: %{?scl_prefix}rubygem(nokogiri) < 1.7.0
+Requires: %{?scl_prefix_ruby}rubygem(polyglot)
+Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
@@ -29,8 +31,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Rails 3 plugin that allows you to customize ERB views in a
-Rails application without editing the underlying view.
+Deface is a library that allows you to customize ERB, Haml and Slim
+views in a Rails application without editing the underlying view.
 
 %package doc
 BuildArch:  noarch
@@ -65,13 +67,13 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %doc %{gem_instdir}/MIT-LICENSE
 
-%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/gemfiles
 %exclude %{gem_instdir}/spec
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
 %doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/CHANGELOG.markdown
 %doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Gemfile
