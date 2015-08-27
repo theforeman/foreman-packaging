@@ -19,7 +19,7 @@
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    6.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_bootdisk
@@ -117,6 +117,10 @@ GEMFILE
 exit 0
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 6.0.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+- Better branched builds with Foreman version macro (dcleal@redhat.com)
+
 * Mon Jun 15 2015 Dominic Cleal <dcleal@redhat.com> 6.0.0-1
 - Update foreman_bootdisk to 6.0.0 (dcleal@redhat.com)
 
