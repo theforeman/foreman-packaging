@@ -13,7 +13,7 @@
 
 %global mainver 4.0.0
 #global prever .rc2
-%global release 1
+%global release 2
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{mainver}%{?prever}
@@ -121,6 +121,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+- Fix BRs to match runtime requirements (dcleal@redhat.com)
+
 * Thu Aug 13 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-1
 - Updated foreman_discovery to 4.0.0 (lzap+git@redhat.com)
 - Better branched builds with Foreman version macro (dcleal@redhat.com)
