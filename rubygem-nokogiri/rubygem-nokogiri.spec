@@ -30,7 +30,7 @@
 Summary:	An HTML, XML, SAX, and Reader parser
 Name:		%{?scl_prefix}rubygem-%{gemname}
 Version:	%{mainver}
-Release:  2%{?dist}
+Release:  1%{?dist}
 Group:		Development/Languages
 License:	MIT
 URL:		http://nokogiri.rubyforge.org/nokogiri/
@@ -260,6 +260,9 @@ popd
 %endif
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 1.6.6.2-1
+- Update nokogiri to 1.6.6.2 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.5.11-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
