@@ -16,7 +16,7 @@
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        http://github.com/katello/bastion
@@ -124,6 +124,10 @@ ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
 %files devel
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
+- Converted to tfm SCL (dcleal@redhat.com)
+- Better branched builds with Foreman version macro (dcleal@redhat.com)
+
 * Wed Jun 17 2015 Eric D. Helms <ericdhelms@gmail.com> 2.0.0-1
 - Update rubygem-bastion to 2.0.0 (ericdhelms@gmail.com)
 
