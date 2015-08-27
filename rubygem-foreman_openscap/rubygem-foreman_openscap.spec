@@ -16,7 +16,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
 License: GPLv3
@@ -116,6 +116,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 0.4.3-2
+- Converted to tfm SCL (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.4.3-1
 - Release foreman_openscap 0.4.3 (shlomi@ben-hanna.com)
 
