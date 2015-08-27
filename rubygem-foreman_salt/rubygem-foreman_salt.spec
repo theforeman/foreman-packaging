@@ -112,6 +112,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 3.0.2-1
+- Release foreman_salt 3.0.2 (stbenjam@redhat.com)
+
 * Thu Aug 13 2015 Stephen Benjamin <stephen@redhat.com> 3.0.1-1
 - Update to 3.0.1
 
