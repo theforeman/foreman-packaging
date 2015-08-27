@@ -102,6 +102,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 3.0.2-1
+- Update foreman_setup to 3.0.2 (dcleal@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
