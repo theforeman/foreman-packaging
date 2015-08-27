@@ -69,3 +69,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-1
+- new package built with tito
+
