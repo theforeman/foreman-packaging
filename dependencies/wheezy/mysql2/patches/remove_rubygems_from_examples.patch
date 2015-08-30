@@ -1,0 +1,27 @@
+Description: Remove rubygems from examples
+ This patch modifies the examples so that they
+ do not use rubygems, and don't modify the LOAD_PATH. The
+ library will be installed in a place where ruby can find it,
+ and the relative path ../lib is not valid anymore.
+Author: Michael Franzl <office@michaelfranzl.com>
+
+--- ruby-mysql2-0.3.11.orig/examples/eventmachine.rb
++++ ruby-mysql2-0.3.11/examples/eventmachine.rb
+@@ -1,8 +1,6 @@
+ # encoding: utf-8
+ 
+-$LOAD_PATH.unshift 'lib'
+ 
+-require 'rubygems'
+ require 'eventmachine'
+ require 'mysql2/em'
+ 
+--- ruby-mysql2-0.3.11.orig/examples/threaded.rb
++++ ruby-mysql2-0.3.11/examples/threaded.rb
+@@ -1,6 +1,5 @@
+ # encoding: utf-8
+ 
+-$LOAD_PATH.unshift 'lib'
+ require 'mysql2'
+ require 'timeout'
+ 

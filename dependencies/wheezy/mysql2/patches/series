@@ -1,0 +1,5 @@
+remove_rpath_compilation_flag.patch
+remove_rubygems_from_examples.patch
+#deactivate_failing_specs.patch
+avoid_openssl_loop.patch
+correct_mysql_init.patch

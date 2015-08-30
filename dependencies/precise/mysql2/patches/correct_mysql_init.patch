@@ -1,0 +1,38 @@
+Description: Added call to mysql_library_init during initialization of the gem
+      This call must be performed before trying to call mysql_init from
+      multiple threads
+      Reference: http://dev.mysql.com/doc/refman/5.1/en/mysql-init.html
+      Minimal reproduction of the problem if mysql_library_init is not called
+    
+        require 'mysql2'
+    
+        def connect
+          Mysql2::Client.new()
+        end
+    
+        threads = [0,1].map {
+          Thread.new { connect }
+        }
+        threads.map(&:join)
+        puts "OK!"
+Author: Michael Kruglos <michael@kruglos.com>
+Reviewed-by: Cédric Boutillier <boutil@debian.org>
+Origin: upstream,https://github.com/brianmario/mysql2/commit/de48627ee89b9dfd7d966f3ea747e95a48085792.patch
+Last-Update: 2014-07-30
+
+--- a/ext/mysql2/client.c
++++ b/ext/mysql2/client.c
+@@ -1237,6 +1237,13 @@
+     }
+   }
+ 
++  /* Initializing mysql library, so different threads could call Client.new */
++  /* without race condition in the library */
++  if (mysql_library_init(0, NULL, NULL) != 0) {
++    rb_raise(rb_eRuntimeError, "Could not initialize MySQL client library");
++    return;
++  }
++
+ #if 0
+   mMysql2      = rb_define_module("Mysql2"); Teach RDoc about Mysql2 constant.
+ #endif

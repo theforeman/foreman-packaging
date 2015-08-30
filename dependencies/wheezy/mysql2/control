@@ -1,0 +1,23 @@
+Source: ruby-mysql2
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Michael Franzl <office@michaelfranzl.com>, Cédric Boutillier <boutil@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb, libmysqld-dev, mysql-server, ruby-rspec, rake
+Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-mysql2.git
+Vcs-Browser: http://anonscm.debian.org/gitweb?p=pkg-ruby-extras/ruby-mysql2.git;a=summary
+Homepage: http://github.com/brianmario/mysql2
+XS-Ruby-Versions: all
+
+Package: ruby-mysql2
+Architecture: any
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-eventmachine
+Description: simple, fast MySQL library for Ruby
+ This is an API module that allows Ruby programs to interface with MySQL
+ databases. Usually, it will be pulled in automatically by packages providing
+ Ruby programs which need this capability, you only need to install it directly
+ if you intend to write such programs yourself. You may want to prefer the
+ ruby-mysql2 package over the ruby-mysql package, since benchmarks have shown
+ it to be faster, it is non-blocking and it supports UTF-8 database encoding.

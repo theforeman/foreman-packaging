@@ -1,0 +1,63 @@
+ruby-mysql2 (0.3.16-2) unstable; urgency=medium
+
+  * Add upstream patch avoid_openssl_loop.patch to use /dev/null in the
+    invalidate_fd function to avoid infinite loop in OpenSSL (Closes: #770891)
+    Before, a dummy socket was used instead of /dev/null, which may not absorb
+    all writes and lead to an infinite loop.
+  * Add upstream patch correct_mysql_init.patch to correctly initialize the
+    MySQL library, to avoid race condition when other threads try to create a
+    connection (Closes: #770896)
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 25 Nov 2014 17:52:01 +0100
+
+ruby-mysql2 (0.3.16-1) unstable; urgency=medium
+
+  [ Jérémy Bobbio ]
+  * Add git-buildpackage configuration
+
+  [ Cédric Boutillier ]
+  * Imported Upstream version 0.3.16
+  * remove deactivate_failing_specs.patch: test 'should run signal handlers
+    while waiting for a response' is now passing.
+
+ -- Cédric Boutillier <boutil@debian.org>  Sun, 15 Jun 2014 00:37:16 +0200
+
+ruby-mysql2 (0.3.15-1) unstable; urgency=low
+
+  [ Pirate Praveen ]
+  * New upstream release.
+  * Bump standards version to 3.9.5 (no changes)
+  * Bump gem2deb build dep to 0.7.4~
+    - drop ruby 1.9.1
+
+  [ Cédric Boutillier ]
+  * Create test MySQL table before the tests
+  * Add deactivate_failing_specs.patch, to deactivate a time sensitive test in
+    spec/mysql2/client_spec.rb, failing with Ruby 2.1
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 15 Apr 2014 13:22:13 +0200
+
+ruby-mysql2 (0.3.14-2) unstable; urgency=medium
+
+  * Add myself to Uploaders.
+  * Do not run eventmachine tests until it is fixed on freebsd.
+
+ -- Cédric Boutillier <boutil@debian.org>  Wed, 11 Dec 2013 10:36:13 +0100
+
+ruby-mysql2 (0.3.14-1) unstable; urgency=low
+
+  * Team upload
+  * Imported Upstream version 0.3.14
+    + add support for Ruby 2.0 (Closes: #720227)
+  * Use canonical URI in Vcs-* fields
+  * Copy example configuration in spec/ for use in tests
+  * Refresh remove_rpath_compilation_flag.patch
+  * Do not try to install inexistant CHANGELOG.md
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 26 Nov 2013 16:16:45 +0100
+
+ruby-mysql2 (0.3.11-1) unstable; urgency=low
+
+  * Initial release (Closes: #691150)
+
+ -- Michael Franzl <office@michaelfranzl.com>  Thu, 01 Nov 2012 12:05:27 +0100
