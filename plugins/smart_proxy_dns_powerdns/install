@@ -1,0 +1,2 @@
+debian/dns_powerdns.rb usr/share/foreman-proxy/bundler.d
+config/dns_powerdns.yml etc/foreman-proxy/settings.d

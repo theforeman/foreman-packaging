@@ -1,0 +1,18 @@
+Source: ruby-smart-proxy-dns-powerdns
+Section: ruby
+Priority: optional
+Maintainer: Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb
+Standards-Version: 3.9.5
+Vcs-Git: https://github.com/theforeman/smart_proxy_dns_powerdns
+Vcs-Browser: https://github.com/theforeman/smart_proxy_dns_powerdns
+Homepage: https://github.com/theforeman/smart_proxy_dns_powerdns
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-dns-powerdns
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.1.10~rc1), ruby-mysql2
+Recommends: pdns-server
+Description: PowerDNS DNS provider plugin for Foreman's smart proxy
+ PowerDNS DNS provider plugin for Foreman's smart proxy
