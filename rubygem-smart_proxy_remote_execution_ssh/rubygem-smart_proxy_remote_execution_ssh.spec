@@ -81,5 +81,8 @@ cp -pa .%{gem_instdir}/settings.d/remote_execution_ssh.yml.example %{buildroot}%
 %doc %{gem_docdir}
 
 %changelog
+* Wed Sep 02 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
+- Release Remote Execution Plugins 0.0.5 (stbenjam@redhat.com)
+
 * Mon Aug 10 2015 Stephen Benjamin <stephen@redhat.com> 0.0.3-1
 - Initial release of 0.0.3
