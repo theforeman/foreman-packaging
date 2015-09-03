@@ -179,7 +179,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(execjs) < 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
 BuildRequires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
 BuildRequires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -202,6 +201,8 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+# therubyracer
+BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
 # facter
 %if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
@@ -357,7 +358,6 @@ Requires: %{?scl_prefix_ruby}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) >= 2.0.2
 Requires: %{?scl_prefix_ruby}rubygem(jquery-rails) < 2.1
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix_ruby}rubygem(therubyracer)
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
@@ -380,6 +380,8 @@ Requires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
 Requires: %{?scl_prefix}rubygem(select2-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+# therubyracer
+Requires: %{?scl_prefix_ruby}rubygem(therubyracer)
 
 %description assets
 Meta package to install asset pipeline support.
@@ -662,6 +664,7 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %{_datadir}/%{name}/bundler.d/facter.rb
 %{_datadir}/%{name}/bundler.d/jsonp.rb
+%{_datadir}/%{name}/bundler.d/therubyracer.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
 %{_datadir}/%{name}/config*
