@@ -388,6 +388,7 @@ Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
+%{_datadir}/%{name}/bundler.d/therubyracer.rb
 
 %package plugin
 Summary: Foreman plugin support
@@ -664,7 +665,6 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %{_datadir}/%{name}/bundler.d/facter.rb
 %{_datadir}/%{name}/bundler.d/jsonp.rb
-%{_datadir}/%{name}/bundler.d/therubyracer.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
 %{_datadir}/%{name}/config*
