@@ -110,6 +110,7 @@ whitelist = foreman
   foreman-installer
   foreman-proxy
   foreman-selinux
+  rubygem-ace-rails-ap
   rubygem-apipie-rails
   rubygem-ansi
   rubygem-apipie-bindings

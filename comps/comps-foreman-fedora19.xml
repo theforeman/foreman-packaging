@@ -31,6 +31,7 @@
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">rubygem-foreman_api</packagereq>
 
+      <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
@@ -107,6 +108,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
