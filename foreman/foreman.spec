@@ -428,7 +428,8 @@ Meta Package to install requirements for console support
 %package mysql2
 Summary: Foreman mysql2 support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(mysql2)
+Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.10
+Requires: %{?scl_prefix}rubygem(mysql2) < 0.4.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
 Provides: %{name}-mysql = %{version}
@@ -442,7 +443,8 @@ Meta Package to install requirements for mysql2 support
 %package postgresql
 Summary: Foreman Postgresql support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(pg)
+Requires: %{?scl_prefix}rubygem(pg) >= 0.11
+Requires: %{?scl_prefix}rubygem(pg) < 1.0
 Requires: %{name} = %{version}-%{release}
 
 %description postgresql
@@ -454,7 +456,8 @@ Meta Package to install requirements for postgresql support
 %package sqlite
 Summary: Foreman sqlite support
 Group:  Applications/System
-Requires: %{?scl_prefix_ruby}rubygem(sqlite3)
+Requires: %{?scl_prefix_ruby}rubygem(sqlite3) >= 1.3.5
+Requires: %{?scl_prefix_ruby}rubygem(sqlite3) < 1.4.0
 Requires: %{name} = %{version}-%{release}
 
 %description sqlite
