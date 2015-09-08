@@ -133,7 +133,6 @@ whitelist = foreman
   rubygem-foremancli
   rubygem-foreman_api
   rubygem-fast_gettext
-  rubygem-fastercsv
   rubygem-friendly_id
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
@@ -164,7 +163,6 @@ whitelist = foreman
   rubygem-rabl
   rubygem-rack-jsonp
   rubygem-rails-i18n
-  rubygem-rb-readline
   rubygem-rbvmomi
   rubygem-rbovirt
   rubygem-retriable

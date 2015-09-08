@@ -44,7 +44,6 @@
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
-      <packagereq type="default">rubygem-fastercsv</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-fog-aws</packagereq>
@@ -84,7 +83,6 @@
       <packagereq type="default">rubygem-rabl</packagereq>
       <packagereq type="default">rubygem-rack-jsonp</packagereq>
       <packagereq type="default">rubygem-rails-i18n</packagereq>
-      <packagereq type="default">rubygem-rb-readline</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
       <packagereq type="default">rubygem-rbvmomi</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
@@ -159,7 +157,6 @@
       <packagereq type="default">rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">rubygem-rbovirt-doc</packagereq>
-      <packagereq type="default">rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-ruby2ruby-doc</packagereq>
