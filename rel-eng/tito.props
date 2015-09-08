@@ -261,6 +261,7 @@ whitelist = ipxe
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
@@ -349,6 +350,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
@@ -421,6 +423,7 @@ whitelist = rubygem-algebrick
   rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_openscap
