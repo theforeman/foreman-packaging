@@ -83,6 +83,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 09 2015 Dominic Cleal <dcleal@redhat.com> 0.3.7-1
+- Update ldap_fluff to 0.3.7 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.6-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
