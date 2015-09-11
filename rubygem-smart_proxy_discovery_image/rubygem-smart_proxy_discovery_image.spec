@@ -82,3 +82,6 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 11 2015 Lukas Zapletal <lzap+git@redhat.com>
+- new package built with tito
+
