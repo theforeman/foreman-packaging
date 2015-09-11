@@ -49,6 +49,7 @@
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
@@ -112,6 +113,7 @@
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery_image-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
