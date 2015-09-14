@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (0.0.6-1) stable; urgency=low
+
+  * Update to 0.0.6
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Mon, 14 Sep 2015 06:45:32 -0400
+
 ruby-foreman-remote-execution (0.0.5-1) stable; urgency=low
 
   * Update to 0.0.5
