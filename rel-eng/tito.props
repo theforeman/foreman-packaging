@@ -22,6 +22,7 @@ blacklist = foreman-installer
   foreman-selinux
   rubygem-kafo
   rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -37,6 +38,7 @@ blacklist = foreman-installer
   foreman-selinux
   rubygem-kafo
   rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -65,6 +67,7 @@ whitelist = foreman-installer
   rubygem-highline
   rubygem-kafo
   rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-librarian-puppet
   rubygem-little-plugger
   rubygem-locale
@@ -95,6 +98,7 @@ whitelist = foreman-installer
   rubygem-highline
   rubygem-kafo
   rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-little-plugger
   rubygem-locale
   rubygem-logging
@@ -156,6 +160,7 @@ whitelist = foreman
   rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-launchy
   rubygem-ldap_fluff
   rubygem-librarian-puppet
