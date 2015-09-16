@@ -105,6 +105,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Sep 16 2015 Dominic Cleal <dcleal@redhat.com> 0.3.9-1
+- Update foreman_hooks to 0.3.9 (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.3.8-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
