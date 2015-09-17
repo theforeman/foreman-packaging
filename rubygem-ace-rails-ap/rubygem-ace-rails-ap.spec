@@ -69,5 +69,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Sep 17 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-1
+- Update ace-rails-ap to 4.0.0 (dcleal@redhat.com)
+
 * Fri Sep 04 2015 Dominic Cleal <dcleal@redhat.com> 3.0.3-1
 - new package built with tito
