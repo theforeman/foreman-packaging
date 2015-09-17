@@ -171,8 +171,8 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 # assets
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 3.0.3
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 3.1.0
+BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
+BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
 BuildRequires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
@@ -353,8 +353,8 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/system
 Requires: %{name} = %{version}-%{release}
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 3.0.3
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 3.1.0
+Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
+Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
 Requires: %{?scl_prefix_ruby}rubygem(sass-rails) >= 3.2
 Requires: %{?scl_prefix_ruby}rubygem(sass-rails) < 4.0
 Requires: %{?scl_prefix_ruby}rubygem(uglifier) >= 1.0.3
