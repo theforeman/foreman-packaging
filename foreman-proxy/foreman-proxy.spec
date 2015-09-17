@@ -195,7 +195,7 @@ if [ $1 == 2 ]; then
   trap "rm -rf $TEMP" EXIT
   pushd $TEMP >/dev/null
 
-  if %{scl_ruby} %{homedir}/extra/migrate_settings.rb -t . > %{_localstatedir}/log/%{name}/migrate_settings.log 2>&1; then
+  if %{scl_ruby_bin} %{homedir}/extra/migrate_settings.rb -t . > %{_localstatedir}/log/%{name}/migrate_settings.log 2>&1; then
     (
       cd result && for f in migration_state settings.yml settings.d/*.yml; do
         [ -e "$f" ] && cat $f > %{_sysconfdir}/%{name}/$f
