@@ -256,6 +256,9 @@ fi
 
 
 %changelog
+* Tue Sep 22 2015 Dominic Cleal <dcleal@redhat.com> 1.9.2-1
+- Release 1.9.2
+
 * Fri Sep 11 2015 Dominic Cleal <dcleal@redhat.com> 1.9.1-1
 - Release 1.9.1
 
