@@ -59,7 +59,6 @@
       <packagereq type="default">tfm-rubygem-extlib</packagereq>
       <packagereq type="default">tfm-rubygem-facter</packagereq>
       <packagereq type="default">tfm-rubygem-faraday</packagereq>
-      <packagereq type="default">tfm-rubygem-fastercsv</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext</packagereq>
       <packagereq type="default">tfm-rubygem-flot-rails</packagereq>
       <packagereq type="default">tfm-rubygem-fog</packagereq>
@@ -117,7 +116,6 @@
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
-      <packagereq type="default">tfm-rubygem-rb-readline</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
@@ -281,7 +279,6 @@
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rb-readline-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rr-doc</packagereq>

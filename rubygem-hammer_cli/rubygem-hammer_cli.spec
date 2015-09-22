@@ -24,18 +24,13 @@ Requires: %{?scl_prefix_ruby}ruby(abi)
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(rb-readline)
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
-Requires: %{?scl_prefix}rubygem(logging) < 2.0.0
+Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(awesome_print)
 Requires: %{?scl_prefix}rubygem(table_print) >= 1.5.0
-Requires: %{?scl_prefix}rubygem(highline) < 1.7.0
+Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix}rubygem(fastercsv)
-Requires: %{?scl_prefix_ruby}rubygem(mime-types) < 2.0.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.10
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.14
 Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if 0%{?fedora} > 18

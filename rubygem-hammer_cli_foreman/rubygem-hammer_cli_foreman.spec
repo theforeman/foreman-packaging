@@ -22,10 +22,6 @@ Requires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.11
-Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.7.0
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
