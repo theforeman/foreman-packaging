@@ -121,6 +121,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Sep 22 2015 Dominic Cleal <dcleal@redhat.com> 4.1.0-1
+- Discovery 4.1.0 (lzap+git@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 - Fix BRs to match runtime requirements (dcleal@redhat.com)
