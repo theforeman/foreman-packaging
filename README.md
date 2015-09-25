@@ -19,6 +19,14 @@ a PR to `deb/develop` could be called `deb/develop-fix-foo`.
 
 ## HOWTO: update a package
 
+### Quick update
+
+Automatic update for any plugin or regular dependency.
+
+1. `scripts/update_package.rb -n my-package -v 1.2.3`
+1. Update any dependencies that may have changed
+1. `git commit -am "Updated my-package to 1.2.3"`
+
 ### Core project (foreman, foreman-proxy, foreman-installer)
 
 Update under `debian/*/foreman`, once per OS.
