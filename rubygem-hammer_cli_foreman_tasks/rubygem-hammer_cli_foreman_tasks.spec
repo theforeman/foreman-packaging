@@ -83,6 +83,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Sep 28 2015 Dominic Cleal <dcleal@redhat.com> 0.0.8-1
+- update hammer_cli_foreman_tasks to 0.0.8 (RPM) (jsherril@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
