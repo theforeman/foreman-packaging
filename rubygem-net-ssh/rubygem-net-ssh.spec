@@ -8,20 +8,20 @@
 
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.6.7
-Release: 2%{?dist}
+Version: 2.9.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ruby}ruby 
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}ruby 
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -99,7 +99,8 @@ popd
 %{gem_instdir}/test
 # Required to run tests
 %{gem_instdir}/net-ssh.gemspec
-%{gem_instdir}/gem-public_cert.pem
+%{gem_instdir}/net-ssh-public_cert.pem
+%exclude %{gem_instdir}/.*
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.6.7-2
