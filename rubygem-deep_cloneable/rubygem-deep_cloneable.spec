@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Sep 30 2015 Dominic Cleal <dcleal@redhat.com> 2.1.1-1
+- Update deep_cloneable to 2.1.1 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.2-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
