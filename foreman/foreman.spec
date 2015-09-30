@@ -291,6 +291,7 @@ Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog) = 1.34.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.32.1
+Requires: %{?scl_prefix}rubygem(net-ssh) < 3
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
