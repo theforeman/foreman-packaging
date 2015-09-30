@@ -103,6 +103,9 @@ popd
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Sep 30 2015 Dominic Cleal <dcleal@redhat.com> 2.9.2-1
+- Update net-ssh to 2.9.2 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.6.7-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
