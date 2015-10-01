@@ -10,6 +10,6 @@ XS-Ruby-Versions: all
 Package: ruby-smart-proxy-dynflow
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.9.0~rc3), ruby-dynflow (>= 0.8.4), ruby-dynflow (<< 0.9.0), ruby-sequel, ruby-sqlite3
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.9.0~rc3), ruby-dynflow (>= 0.8.6), ruby-dynflow (<< 0.9.0), ruby-sequel, ruby-sqlite3
 Description: Dynflow runtime for Foreman smart proxy
    Dynflow runtime for Foreman smart proxy
