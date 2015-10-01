@@ -1,3 +1,9 @@
+ruby-dynflow (0.8.6-1) stable; urgency=low
+
+  * Update to 0.8.6
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Thu, 01 Oct 2015 13:26:18 -0400
+
 ruby-dynflow (0.8.5-1) stable; urgency=low
 
   * Initial packaging for Debian
