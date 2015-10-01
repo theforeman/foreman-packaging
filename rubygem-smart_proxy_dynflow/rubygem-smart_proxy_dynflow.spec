@@ -6,7 +6,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -15,7 +15,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.9.0
-Requires: rubygem(dynflow) >= 0.8.4
+Requires: rubygem(dynflow) >= 0.8.6
 Requires: rubygem(dynflow) < 0.9.0
 Requires: rubygem(sqlite3)
 Requires: rubygem(sequel)
