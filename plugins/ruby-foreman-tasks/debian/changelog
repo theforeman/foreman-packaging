@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.7.6-1) stable; urgency=low
+
+  * Update to 0.7.6
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Thu, 01 Oct 2015 13:29:11 -0400
+
 ruby-foreman-tasks (0.7.3-1) stable; urgency=low
 
   * Update to 0.7.3
