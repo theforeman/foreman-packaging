@@ -1,3 +1,9 @@
+ruby-foreman-chef (0.2.0-1) stable; urgency=medium
+
+  * Update foreman_chef to 0.2.0
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 02 Oct 2015 12:44:44 +0000
+
 ruby-foreman-chef (0.1.7-1) stable; urgency=medium
 
   * Update foreman_chef to 0.1.7
