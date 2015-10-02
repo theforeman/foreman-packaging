@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_chef
 
 Package: ruby-foreman-chef
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman, ruby-foreman-tasks (>= 0.6.9), ruby-foreman-tasks (< 0.8.0), ruby-foreman-deface (< 1.0)
+Depends: ${misc:Depends}, bundler, foreman (>= 1.9.0~rc1), ruby-foreman-tasks (>= 0.6.9), ruby-foreman-tasks (< 0.8.0), ruby-foreman-deface
 Description: Foreman Chef Plugin
  Plugin for Chef integration with Foreman.
