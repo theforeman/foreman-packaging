@@ -84,6 +84,24 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.8.6-1
+- Release dynflow 0.8.6 (stbenjam@redhat.com)
+
+* Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.8.5-2
+- Package dynflow for non-SCL on el7 (stbenjam@redhat.com)
+
+* Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.8.5-1
+- Release dynflow 0.8.5 (stbenjam@redhat.com)
+
+* Mon Aug 03 2015 Ivan Nečas <inecas@redhat.com> 0.8.2-1
+- Update dynflow to 0.8.2 (inecas@redhat.com)
+- Automatic commit of package [rubygem-dynflow] minor release [0.8.1-1].
+  (dcleal@redhat.com)
+- Update dynflow to 0.8.1 (inecas@redhat.com)
+
+* Thu Jul 02 2015 Dominic Cleal <dcleal@redhat.com> 0.8.1-1
+- Update dynflow to 0.8.1 (inecas@redhat.com)
+
 * Fri Jun 19 2015 Ivan Nečas <inecas@redhat.com> 0.7.9-1
 - Update dynflow to 0.7.9 (inecas@redhat.com)
 
