@@ -337,7 +337,7 @@ Meta Package to install requirements for vmware support
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0
-Requires: %{?scl_prefix}rubygem(fog-google) < 1.0
+Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.7
 Requires: %{?scl_prefix}rubygem(google-api-client) < 1.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
