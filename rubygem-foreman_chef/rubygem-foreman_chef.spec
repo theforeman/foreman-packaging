@@ -32,9 +32,9 @@ Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 Requires: %{?scl_prefix}rubygems
-Requires: %{?scl_prefix}rubygem(deface) < 1.0
+Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.9
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.7.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -108,6 +108,15 @@ exit 0
 %changelog
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - Update foreman_chef to 0.2.0 (mhulan@redhat.com)
+
+* Mon Aug 17 2015 Dominic Cleal <dcleal@redhat.com> 0.1.7-1
+- Update foreman_chef to 0.1.7 (mhulan@redhat.com)
+
+* Wed Jul 15 2015 Marek Hulan <mhulan@redhat.com> 0.1.6-1
+- Update foreman_chef to 0.1.6 (mhulan@redhat.com)
+
+* Wed Jul 08 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
+- Update foreman_chef to 0.1.5 (mhulan@redhat.com)
 
 * Mon Jun 22 2015 Marek Hulan <mhulan@redhat.com> 0.1.4-1
 - Update foreman_chef to 0.1.4 (mhulan@redhat.com)
