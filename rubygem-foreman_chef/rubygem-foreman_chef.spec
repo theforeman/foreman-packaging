@@ -108,6 +108,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- Update foreman_chef to 0.2.0 (mhulan@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.7-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
