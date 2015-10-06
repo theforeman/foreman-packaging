@@ -18,7 +18,7 @@
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_chef
@@ -108,6 +108,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
+- Add foremandist for branched builds (dcleal@redhat.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - Update foreman_chef to 0.2.0 (mhulan@redhat.com)
 
