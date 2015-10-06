@@ -74,6 +74,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
+- Update fog-google to 0.1.0 (elobatocs@gmail.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
