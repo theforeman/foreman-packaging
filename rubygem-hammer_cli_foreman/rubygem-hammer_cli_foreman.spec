@@ -87,6 +87,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %doc %{gem_instdir}/test
 
 %changelog
+* Wed Oct 07 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
+- Update hammer_cli_foreman to 0.4.0 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 - Increase range of non-SCL obsoletes to cover 1.9 versions (dcleal@redhat.com)
