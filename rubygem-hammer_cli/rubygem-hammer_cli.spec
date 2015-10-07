@@ -115,6 +115,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 07 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
+- Update hammer_cli to 0.4.0 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-2
 - Use tfm-ruby in shebang line (dcleal@redhat.com)
 - Converted to tfm SCL (dcleal@redhat.com)
