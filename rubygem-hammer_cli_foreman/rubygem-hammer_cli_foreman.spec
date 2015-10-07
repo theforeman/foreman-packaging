@@ -8,8 +8,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 2%{?dist}
+Version: 0.4.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/hammer-cli-foreman
@@ -21,7 +21,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.3.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.4.0
 
 %if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
