@@ -49,11 +49,11 @@
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
@@ -83,8 +83,8 @@
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
-      <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
+      <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
