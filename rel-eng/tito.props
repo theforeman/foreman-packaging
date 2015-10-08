@@ -254,12 +254,14 @@ whitelist = rubygem-algebrick
 disttag = .el6
 whitelist = ipxe
   rubygem-foreman_scap_client
+  rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
@@ -341,6 +343,7 @@ whitelist = rubygem-algebrick
   rubygem-dynflow
   rubygem-foreman_scap_client
   rubygem-logify
+  rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-satyr
@@ -349,6 +352,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
@@ -422,6 +426,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_openscap

@@ -50,6 +50,7 @@
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
@@ -75,6 +76,7 @@
       <packagereq type="default">rubygem-less</packagereq>
       <packagereq type="default">rubygem-less-rails</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
+      <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-opennebula</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
@@ -140,6 +142,7 @@
       <packagereq type="default">rubygem-less-doc</packagereq>
       <packagereq type="default">rubygem-less-rails-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
+      <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-opennebula-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
@@ -148,6 +151,7 @@
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
