@@ -15,7 +15,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.7
+Version:    0.0.10
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -96,6 +96,9 @@ exit 0
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/Gemfile
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
