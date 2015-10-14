@@ -778,6 +778,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Oct 14 2015 Dominic Cleal <dcleal@redhat.com> 1.10.0-0.1.RC1
+- Release 1.10.0-RC1
+
 * Fri Jun 26 2015 Dominic Cleal <dcleal@redhat.com> - 1.10.0-0.develop
 - Bump version to 1.10-develop
 
