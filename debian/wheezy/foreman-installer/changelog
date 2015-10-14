@@ -1,3 +1,9 @@
+foreman-installer (1.10.0~rc1-1) stable; urgency=low
+
+  * 1.10.0-RC1 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 14 Oct 2015 11:06:15 +0200
+
 foreman-installer (1.9.2-1) stable; urgency=low
 
   * 1.9.2 released
