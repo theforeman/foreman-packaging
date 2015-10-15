@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.7.6-2) stable; urgency=low
+
+  * Remove sequel from gem.list
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 16 Oct 2015 00:09:23 +0200
+
 ruby-foreman-tasks (0.7.6-1) stable; urgency=low
 
   * Update to 0.7.6
