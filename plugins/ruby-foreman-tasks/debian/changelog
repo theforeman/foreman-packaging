@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.7.6-2) stable; urgency=low
+
+  * Roll dynflow and dependent gems into foreman-tasks
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 17 Oct 2015 19:09:23 +0200
+
 ruby-foreman-tasks (0.7.6-1) stable; urgency=low
 
   * Update to 0.7.6
