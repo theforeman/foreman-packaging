@@ -1,0 +1,2 @@
+debian/dns_route53.rb usr/share/foreman-proxy/bundler.d
+config/dns_route53.yml etc/foreman-proxy/settings.d
