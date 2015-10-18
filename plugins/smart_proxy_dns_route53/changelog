@@ -1,0 +1,5 @@
+ruby-smart-proxy-dns-route53 (1.0.0-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 18 Oct 2015 19:43:34 +0200

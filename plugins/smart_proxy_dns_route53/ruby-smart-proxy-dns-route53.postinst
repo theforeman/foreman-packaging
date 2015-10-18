@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chown -f root:foreman-proxy '/etc/foreman-proxy/settings.d/dns_route53.yml'
+chmod -f 0640 '/etc/foreman-proxy/settings.d/dns_route53.yml'
