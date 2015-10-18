@@ -1,0 +1,5 @@
+ruby-route53 (0.3.2-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 18 Oct 2015 19:12:12 +0200
