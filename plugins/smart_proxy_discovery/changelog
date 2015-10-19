@@ -1,3 +1,9 @@
+ruby-smart-proxy-discovery (1.0.3-1) stable; urgency=low
+
+  * 1.0.3 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Mon, 19 Oct 2015 15:42:31 +0200
+
 ruby-smart-proxy-discovery (1.0.2-1) unstable; urgency=low
 
   * Bump to 1.0.2
