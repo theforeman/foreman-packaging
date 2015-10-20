@@ -5,7 +5,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.2
+Version: 1.0.3
 Release: 1%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
