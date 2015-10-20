@@ -5,7 +5,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.4
+Version: 1.0.5
 Release: 1%{?dist}
 Summary: Discovery image (node) plugin for Foreman's smart proxy
 Group: Applications/Internet
