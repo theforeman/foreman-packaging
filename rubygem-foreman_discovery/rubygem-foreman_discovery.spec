@@ -121,6 +121,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 20 2015 Dominic Cleal <dcleal@redhat.com> 4.1.1-1
+- Updated foreman_discovery to 4.1.1 (RPM) (lzap+git@redhat.com)
+
 * Tue Sep 22 2015 Dominic Cleal <dcleal@redhat.com> 4.1.0-1
 - Discovery 4.1.0 (lzap+git@redhat.com)
 
