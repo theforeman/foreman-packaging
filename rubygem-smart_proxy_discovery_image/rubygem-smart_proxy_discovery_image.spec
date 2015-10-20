@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Tue Oct 20 2015 Dominic Cleal <dcleal@redhat.com> 1.0.5-1
+- Update smart_proxy_discovery_image to 1.0.5 (lzap+git@redhat.com)
+
 * Fri Sep 11 2015 Lukas Zapletal <lzap+git@redhat.com>
 - new package built with tito
 
