@@ -6,7 +6,7 @@
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.20.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
@@ -96,6 +96,9 @@ rm -rf %{buildroot}
 %doc %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Oct 23 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-4
+- Move docs to doc subpackage, remove big files (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-3
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
