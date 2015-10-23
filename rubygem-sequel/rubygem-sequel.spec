@@ -78,17 +78,22 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root, -)
+%dir %{gem_instdir}
 %{gem_dir}/bin/sequel
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/CHANGELOG
-%{gem_dir}/gems/%{gem_name}-%{version}/
-%{gem_cache}
+%{gem_instdir}/bin
+%{gem_libdir}
+%doc %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/spec
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %defattr(-, root, root, -)
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/doc
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/Rakefile
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-3
