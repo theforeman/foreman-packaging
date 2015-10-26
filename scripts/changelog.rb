@@ -31,6 +31,7 @@ raise "missing changelog file(s)" if ARGV.empty?
 ARGV.each { |f| raise "cannot find file #{f}" unless File.readable? f }
 
 options[:message] << "#{options[:version]} released" if options[:message].empty?
+options[:version] += '-1' unless options[:version].include?('-')
 
 ARGV.each do |path|
   control = File.read(File.join(File.dirname(path), 'control'))
