@@ -10,7 +10,7 @@
 Summary:    Manage remote hosts with MCollective and Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.1
-Release:    4%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/witlessbird/foreman_mco
