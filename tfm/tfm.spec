@@ -5,8 +5,10 @@
 %{!?scl_vendor_in_name: %global scl_vendor_in_name 0}
 %{?scl_package:%scl_package %scl}
 
-# Fallback to ruby193 and v8314 when scldevel's not in the buildroot
-%{!?scl_ruby:%global scl_ruby ruby193}
+# Fallback to rh-ror41 etc. when scldevel's not in the buildroot
+%{!?scl_ror:%global scl_ror rh-ror41}
+%{!?scl_prefix_ror:%global scl_prefix_ror %{scl_ror}-}
+%{!?scl_ruby:%global scl_ruby rh-ruby22}
 %{!?scl_prefix_ruby:%global scl_prefix_ruby %{scl_ruby}-}
 %{!?scl_v8:%global scl_v8 v8314}
 %{!?scl_prefix_v8:%global scl_prefix_v8 %{scl_v8}-}
@@ -18,7 +20,7 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 1.1
+Version: 2.0
 Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
@@ -29,10 +31,13 @@ Source2: tfm.attr
 # dependencies on scl -runtime (rhbz#1054711).
 Requires: %{scl_runtime}
 %if 0%{?install_scl}
+Requires: %{scl_ror}
 Requires: %{scl_ruby}
 Requires: %{scl_v8}
 %endif
 BuildRequires: scl-utils-build help2man
+BuildRequires: %{scl_prefix_ror}scldevel
+BuildRequires: %{scl_prefix_ror}runtime
 BuildRequires: %{scl_prefix_ruby}scldevel
 BuildRequires: %{scl_prefix_ruby}rubygems-devel
 BuildRequires: %{scl_prefix_v8}scldevel
@@ -46,6 +51,7 @@ Provides dependencies for Foreman (http://theforeman.org/).
 Summary: Package that handles %scl Software Collection.
 Group: Applications/File
 Requires: scl-utils
+Requires: %{scl_prefix_ror}runtime
 Requires: %{scl_prefix_ruby}runtime
 Requires: %{scl_prefix_v8}runtime
 Requires: %{_root_bindir}/scl_source
@@ -62,6 +68,7 @@ Summary: Package shipping basic build configuration
 Group: Applications/File
 Requires: scl-utils-build
 Requires: %{scl_runtime}
+Requires: %{scl_prefix_ror}scldevel
 Requires: %{scl_prefix_ruby}scldevel
 Requires: %{scl_prefix_v8}scldevel
 
@@ -106,7 +113,7 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 %scl_install
 
 cat >> %{buildroot}%{_scl_scripts}/enable << EOF
-. scl_source enable %{scl_ruby} %{scl_v8}
+. scl_source enable %{scl_ror} %{scl_v8}
 
 export PATH=%{_bindir}\${PATH:+:\${PATH}}
 export LIBRARY_PATH=%{_libdir}dd\${LIBRARY_PATH:+:\${LIBRARY_PATH}}
@@ -114,7 +121,7 @@ export LD_LIBRARY_PATH=%{_libdir}\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
 export MANPATH=%{_mandir}:\${MANPATH}
 export CPATH=%{_includedir}\${CPATH:+:\${CPATH}}
 export PKG_CONFIG_PATH=%{_libdir}/pkgconfig\${PKG_CONFIG_PATH:+:\${PKG_CONFIG_PATH}}
-export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ruby} -- ruby -e "print Gem.path.join(':')"\`}
+export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ror} -- ruby -e "print Gem.path.join(':')"\`}
 EOF
 
 # additional rpm macros for builds in the collection to set the vendor correctly
@@ -177,7 +184,7 @@ done
 scl enable %{scl_name} "bash \$TMP"
 EOF
 
-scl enable %{scl_ruby} - << \EOF
+scl enable %{scl_ror} - << \EOF
 # Fake tfm SCL environment.
 GEM_PATH=%{gem_dir}:${GEM_PATH:+${GEM_PATH}}${GEM_PATH:-`ruby -e "print Gem.path.join(':')"`} \
 X_SCLS=%{scl} \
