@@ -94,6 +94,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 28 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
+- plugins:foreman_digitalocean - Release 0.2.1 (elobatocs@gmail.com)
+
 * Tue Apr 28 2015 Tommy McNeely <tommy@lark-it.com> 0.2.0-1
 - Version 0.2.0 (tommy@lark-it.com)
 - #10242 - Changed template name to _base for Foreman 1.8
