@@ -1,3 +1,9 @@
+ruby-foreman-discovery (4.1.2) stable; urgency=low
+
+  * 4.1.2 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Mon, 26 Oct 2015 08:53:45 +0100
+
 ruby-foreman-discovery (4.1.1) stable; urgency=low
 
   * 4.1.1 released
