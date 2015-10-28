@@ -96,6 +96,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 28 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
+- plugins:foreman_digitalocean - Release 0.2.1 (elobatocs@gmail.com)
+- Add foremandist (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
