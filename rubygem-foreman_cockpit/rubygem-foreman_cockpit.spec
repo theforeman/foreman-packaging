@@ -47,6 +47,7 @@ BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-cockpit
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This plugin enables integration with Cockpit in Foreman.
@@ -54,6 +55,7 @@ This plugin enables integration with Cockpit in Foreman.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
