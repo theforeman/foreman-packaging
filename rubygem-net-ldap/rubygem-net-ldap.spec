@@ -103,6 +103,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Thu Oct 29 2015 Dominic Cleal <dcleal@redhat.com> 0.12.0-1
+- Update net-ldap to 0.12.0 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.11-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
