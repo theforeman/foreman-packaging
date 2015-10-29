@@ -99,3 +99,6 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Oct 29 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
+- new package built with tito
+
