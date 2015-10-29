@@ -16,7 +16,7 @@
 Summary:    Integration of Cockpit in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.2
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_cockpit
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Oct 29 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-2
+- Obsolete ruby193 package variant (dcleal@redhat.com)
+
 * Wed Oct 28 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
 - new package built with tito
 
