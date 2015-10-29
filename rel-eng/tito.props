@@ -223,6 +223,7 @@ whitelist = ipxe
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
+  rubygem-foreman_cockpit
   rubygem-foreman_column_view
   rubygem-foreman_content
   rubygem-foreman_custom_parameters
@@ -293,6 +294,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
+  rubygem-foreman_cockpit
   rubygem-foreman_column_view
   rubygem-foreman_content
   rubygem-foreman_custom_parameters
@@ -362,6 +364,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
+  rubygem-foreman_cockpit
   rubygem-foreman_column_view
   rubygem-foreman_content
   rubygem-foreman_custom_parameters
