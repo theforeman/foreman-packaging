@@ -1,55 +1,46 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation/1/html/Software_Collections_Guide/index.html
-
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global gem_name openscap
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.2
-Release: 3%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.4.3
+Release: 1%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
-URL: https://github.com/isimluk/ruby-openscap
+URL: https://github.com/OpenSCAP/ruby-openscap
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
+
+Requires: ruby(rubygems)
+Requires: rubygem(ffi) >= 1.0.9
 # require libopenscap.so.8 in an arch neutral way
 Requires: openscap >= 1.2.1
 Requires: openscap < 1.3.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: rubygems-devel
+
 # For tests we need:
 BuildRequires: openscap >= 1.2.1
 BuildRequires: openscap < 1.3.0
 BuildRequires: bzip2
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
-BuildRequires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
+
+BuildRequires: rubygem(rake)
+BuildRequires: rubygem(bundler)
+BuildRequires: rubygem(ffi) >= 1.0.9
 BuildRequires: openscap-devel
 # End (for the tests we needed)
 
-%if 0%{?fedora} > 18
-Requires:      %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-# For the tests we need
-BuildRequires: %{?scl_prefix}rubygem(test-unit)
+%if 0%{?rhel} == 6
+Requires: ruby(abi)
+BuildRequires: ruby(abi)
 %else
-Requires:      %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-# For the tests we need
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+Requires: ruby(release)
+BuildRequires: ruby(release)
 %endif
+# For the tests we need
+BuildRequires: rubygem(minitest)
 
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Provides: rubygem(%{gem_name}) = %{version}
+Obsoletes: ruby193-rubygem-%{gem_name}
+Obsoletes: tfm-rubygem-%{gem_name} < 0.4.3-1
 
 %description
 A FFI wrapper around the OpenSCAP library. The %{name}
@@ -59,39 +50,30 @@ provides only a subset of openscap functionality.
 Summary: Development for %{name}
 Requires: %{name} = %{version}-%{release}
 Requires: rubygems
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
+Obsoletes: ruby193-rubygem-%{gem_name}-devel
+Obsoletes: tfm-rubygem-%{gem_name}-devel < 0.4.3-1
 BuildArch: noarch
 
 %description devel
 Development files for %{name}
 
 %prep
-%{?scl:scl enable %{scl} "}
 gem unpack %{SOURCE0}
-%{?scl:"}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
 
 %build
 mkdir -p .%{gem_dir}
 
-%{?scl:scl enable %{scl} "}
 gem build %{gem_name}.gemspec
-%{?scl:"}
 
-%{?scl:scl enable %{scl} "}
 gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
 
 %check
-%{?scl:scl enable %{scl} "}
 rake test
-%{?scl:"}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

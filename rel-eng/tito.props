@@ -204,7 +204,6 @@ whitelist = rubygem-algebrick
   rubygem-ffi
   rubygem-git
   rubygem-jgrep
-  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -256,6 +255,7 @@ disttag = .el6
 whitelist = ipxe
   rubygem-foreman_scap_client
   rubygem-newt
+  rubygem-openscap
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
@@ -284,7 +284,6 @@ whitelist = rubygem-algebrick
   rubygem-ffi
   rubygem-git
   rubygem-jgrep
-  rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -343,6 +342,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_scap_client
   rubygem-logify
   rubygem-newt
+  rubygem-openscap
   rubygem-satyr
   rubygem-sequel
   rubygem-smart_proxy_abrt

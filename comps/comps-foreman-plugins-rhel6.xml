@@ -48,6 +48,7 @@
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
+      <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
@@ -77,7 +78,6 @@
       <packagereq type="default">tfm-rubygem-less-rails</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
-      <packagereq type="default">tfm-rubygem-openscap</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
