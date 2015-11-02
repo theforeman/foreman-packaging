@@ -6,35 +6,19 @@
 
 Summary: Log all changes to your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 4%{?dist}
+Version: 4.2.0
+Release: 1%{?dist}
 Group: Development/Languages
-# The license information is missing in the .gem file ATM.
-# https://github.com/collectiveidea/audited/pull/127
 License: MIT
 URL: https://github.com/collectiveidea/audited
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-# Hopefully the tests will be included in the gem in the future.
-# https://github.com/collectiveidea/audited/pull/125
-#
-# git clone https://github.com/collectiveidea/audited.git && cd audited && git checkout 224786f
-# tar czvf audited-activerecord-3.0.0-tests.tgz spec/audited/adapters/active_record \
-#   spec/rails_app spec/support/active_record spec/*.rb test
-Source1: %{gem_name}-%{version}-tests.tgz
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(audited) = 3.0.0
-Requires: %{?scl_prefix_ruby}rubygem(activerecord) => 3.0
-Requires: %{?scl_prefix_ruby}rubygem(activerecord) < 4
+Requires: %{?scl_prefix}rubygem(audited) = 4.2.0
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) => 4.0
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) < 5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix}rubygem(audited) = 3.0.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rails) => 3.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 4
-BuildRequires: %{?scl_prefix}rubygem(rspec-rails)
-BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -68,22 +52,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%check
-tar xzvf %{SOURCE1} -C .%{gem_instdir}
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-rspec spec
-%{?scl:"}
-# This is ugly. It should be probably reported to upstream ;)
-%{?scl:scl enable %{scl} - << \EOF}
-RUBYOPT='-Ilib -rrails/all -raudited-activerecord' testrb test/*_test.rb
-%{?scl:EOF}
-popd
-
-
-
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
