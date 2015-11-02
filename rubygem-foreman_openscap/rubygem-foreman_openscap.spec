@@ -27,7 +27,7 @@ Requires: foreman >= 1.11.0
 
 Requires: scap-security-guide
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Obsoletes: %{?scl_prefix}rubygem(scaptimony) >= 0.3.2
+Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

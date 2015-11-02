@@ -248,7 +248,6 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
-  rubygem-scaptimony
   rubygem-wicked
   rubygem-zscheduler
 
@@ -330,7 +329,6 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
-  rubygem-scaptimony
   rubygem-wicked
   rubygem-zscheduler
 
@@ -421,7 +419,6 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-satyr
-  rubygem-scaptimony
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
