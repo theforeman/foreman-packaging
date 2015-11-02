@@ -58,6 +58,10 @@ Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
 Obsoletes: ruby193-ruby-wrapper
 
+# Obsolete packages no longer carried within this SCL to both clean up
+# and to ensure smooth upgrades when old packages deps aren't satisified
+Obsoletes: %{scl_prefix}rubygem-sprockets < 2.12.3-3
+
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
 

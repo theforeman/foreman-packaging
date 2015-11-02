@@ -49,8 +49,6 @@ Requires: %{name}-debug
 
 # Gemfile
 Requires: %{?scl_prefix_ruby}rubygem(rails) = 4.1.5
-# replace ruby SCL's sprockets build with our own
-Requires: %{?scl_prefix}rubygem(sprockets)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
 Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
@@ -124,8 +122,6 @@ BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
 # Gemfile
 BuildRequires: %{?scl_prefix_ruby}rubygem(rails) = 4.1.5
-# replace ruby SCL's sprockets build with our own
-BuildRequires: %{?scl_prefix}rubygem(sprockets)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.5
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
