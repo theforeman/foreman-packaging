@@ -29,7 +29,7 @@ Requires:  %{?scl_prefix}rubygem(ansi) >= 1.4.0
 Requires:  %{?scl_prefix}rubygem(ansi) <  1.5.0
 Requires:  %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires:  %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
