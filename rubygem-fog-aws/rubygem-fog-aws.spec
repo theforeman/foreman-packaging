@@ -21,11 +21,7 @@ Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 1
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch

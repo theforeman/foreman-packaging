@@ -12,15 +12,11 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem-activerecord >= 3.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}

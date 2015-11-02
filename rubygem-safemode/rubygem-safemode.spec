@@ -12,11 +12,7 @@ Group: Development/Ruby
 License: MIT
 URL: http://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.6
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.2.0

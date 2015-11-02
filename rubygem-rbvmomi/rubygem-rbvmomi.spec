@@ -11,21 +11,13 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
 Requires: %{?scl_prefix_ruby}rubygem(builder)
 Requires: %{?scl_prefix}rubygem(trollop)
-%if 0%{?fedora} && 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
 BuildRequires: %{?scl_prefix_ruby}rubygem(builder)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)

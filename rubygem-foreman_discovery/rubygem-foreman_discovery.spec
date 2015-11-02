@@ -21,7 +21,6 @@
 %global gem_spec %{gem_dir}/specifications/%{gem_name}-%{mainver}%{?prever}.gemspec
 }
 
-%define rubyabi 1.9.1
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
@@ -37,18 +36,10 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 Requires:   foreman >= 1.9.0
 Requires:   %{?scl_prefix}rubygem(deface) < 2.0
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 BuildRequires: foreman-plugin >= 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

@@ -11,17 +11,13 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/ruby-ldap/ruby-net-ldap
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 # specs need metaid gem that is not in Fedora yet
 #BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
 #BuildRequires: %{?scl_prefix}rubygem(flexmock)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # this package obsoletes rubygem-ruby-net-ldap

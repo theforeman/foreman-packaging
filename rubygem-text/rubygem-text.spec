@@ -18,11 +18,11 @@ License:	MIT
 URL:		http://github.com/threedaymonk/text
 Source0:	https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-BuildRequires:	%{?scl_prefix_ruby}ruby(abi)
+BuildRequires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Check
 BuildRequires:	%{?scl_prefix_ruby}%gem_minitest
-Requires:	%{?scl_prefix_ruby}ruby(abi)
+Requires:	%{?scl_prefix_ruby}ruby(release)
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 
 BuildArch:	noarch

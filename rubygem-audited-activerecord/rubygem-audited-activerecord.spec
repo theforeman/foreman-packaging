@@ -3,7 +3,6 @@
 
 # Generated from audited-activerecord-3.0.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name audited-activerecord
-%global rubyabi 1.9.1
 
 Summary: Log all changes to your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -22,12 +21,12 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 # tar czvf audited-activerecord-3.0.0-tests.tgz spec/audited/adapters/active_record \
 #   spec/rails_app spec/support/active_record spec/*.rb test
 Source1: %{gem_name}-%{version}-tests.tgz
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(audited) = 3.0.0
 Requires: %{?scl_prefix_ruby}rubygem(activerecord) => 3.0
 Requires: %{?scl_prefix_ruby}rubygem(activerecord) < 4
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(audited) = 3.0.0

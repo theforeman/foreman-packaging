@@ -30,11 +30,7 @@ BuildRequires:	%{?scl_prefix_ruby}rubygem(rspec)
 %endif
 
 Requires: %{?scl_prefix_ruby}rubygems
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

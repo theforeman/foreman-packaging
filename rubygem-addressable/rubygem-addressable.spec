@@ -4,8 +4,6 @@
 # Generated from addressable-2.2.6.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name addressable
 
-%global rubyabi 1.9.1
-
 Summary: URI Implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.6
@@ -14,10 +12,10 @@ Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://addressable.rubyforge.org/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

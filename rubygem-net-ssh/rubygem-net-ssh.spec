@@ -4,8 +4,6 @@
 # Generated from net-ssh-2.2.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name net-ssh
 
-%global rubyabi 1.9.1
-
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.9.2
@@ -14,10 +12,10 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)

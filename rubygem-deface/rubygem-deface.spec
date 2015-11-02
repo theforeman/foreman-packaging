@@ -11,19 +11,14 @@ Group: Development/Libraries
 License: MIT
 URL: https://github.com/DefaceCommunity/deface
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(colorize) >= 0.5.8
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6.0
 Requires: %{?scl_prefix}rubygem(nokogiri) < 1.7.0
 Requires: %{?scl_prefix_ruby}rubygem(polyglot)
 Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.1
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch

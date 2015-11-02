@@ -3,8 +3,6 @@
 
 # Generated from archive-tar-minitar-0.5.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name archive-tar-minitar
-%global rubyabi 1.9.1
-
 
 Summary: Provides POSIX tar archive management from Ruby programs
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -18,18 +16,10 @@ Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 # https://github.com/halostatue/minitar/issues/9
 Patch0: rubygem-archive-tar-minitar-0.5.2-fix-tests.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

@@ -3,7 +3,6 @@
 
 # Generated from audited-3.0.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name audited
-%global rubyabi 1.9.1
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,9 +12,9 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

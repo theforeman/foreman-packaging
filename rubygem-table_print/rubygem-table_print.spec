@@ -11,14 +11,9 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/arches/table_print
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?scl:1} || (0%{?el6} && 0%{!?scl:1})
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby

@@ -15,7 +15,7 @@ Source0:    http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 # https://github.com/eventmachine/eventmachine/commit/2c083af3d06d333db31dcc1bbe535b10285a8d1e
 Patch0:     rubygem-eventmachine-0.12.10-makes-HTTPS-client-tests-pass.patch
 Requires:   %{?scl_prefix_ruby}ruby(rubygems)
-Requires:   %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:   %{?scl_prefix_ruby}ruby(release)
 Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel, %{?scl_prefix_ruby}ruby-devel, openssl-devel, %{?scl_prefix_ruby}rubygem(rake), net-tools

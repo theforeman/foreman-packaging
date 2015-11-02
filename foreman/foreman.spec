@@ -31,15 +31,7 @@ Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 BuildArch:  noarch
 
-%if 0%{?fedora} && 0%{?fedora} < 17
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.8
-%else
-%if 0%{?fedora} && 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)

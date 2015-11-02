@@ -3,7 +3,6 @@
 
 # Generated from ruby-libvirt-0.4.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby-libvirt
-%global rubyabi 1.9.1
 
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,10 +12,10 @@ Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: libvirt-devel

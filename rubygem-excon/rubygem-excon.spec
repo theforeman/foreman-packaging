@@ -11,11 +11,7 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: ca-certificates
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

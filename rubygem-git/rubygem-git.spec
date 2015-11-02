@@ -12,7 +12,7 @@ License:        MIT
 URL:            http://rubyforge.org/projects/git/
 Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
-Requires:       %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:       %{?scl_prefix_ruby}ruby(release)
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}

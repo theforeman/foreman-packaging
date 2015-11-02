@@ -4,8 +4,6 @@
 # Generated from ipaddress-0.8.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ipaddress
 
-%global rubyabi 1.9.1
-
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
@@ -14,9 +12,9 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/bluemonk/ipaddress
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch

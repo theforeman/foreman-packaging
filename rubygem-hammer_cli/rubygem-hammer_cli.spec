@@ -16,12 +16,7 @@ License: GPLv3
 URL: http://github.com/theforeman/hammer-cli
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
-
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(logging)
@@ -33,11 +28,7 @@ Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.14
 Requires: %{?scl_prefix}rubygem(apipie-bindings) < 0.1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

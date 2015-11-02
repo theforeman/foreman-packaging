@@ -11,8 +11,6 @@
 
 %global gem_name foreman_remote_execution
 
-%define rubyabi 1.9.1
-
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.1
@@ -24,11 +22,7 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.10.0
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.6
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
@@ -36,13 +30,9 @@ Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
 Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
 Requires: %{?scl_prefix}rubygem(deface)
 
-%if 0%{?fedora} > 18
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 BuildRequires: foreman-plugin >= 1.10.0
 BuildRequires: foreman-assets
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.6

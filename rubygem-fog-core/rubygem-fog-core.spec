@@ -19,11 +19,7 @@ Requires: %{?scl_prefix}rubygem-excon < 1
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
 Requires: %{?scl_prefix_ruby}rubygem-mime-types
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch

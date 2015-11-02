@@ -11,7 +11,6 @@
 
 %global gem_name foreman-tasks
 
-%define rubyabi 1.9.1
 %global foreman_bundlerd_dir /usr/share/foreman/bundler.d
 %global confdir deploy
 %global service_name foreman-tasks
@@ -26,17 +25,12 @@ URL: http://github.com/theforeman/foreman-tasks
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.8.0
 
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
-
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem-sequel
 Requires: %{?scl_prefix_ruby}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(daemons)
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 %if 0%{?rhel} == 6
 Requires(post): chkconfig
@@ -49,11 +43,7 @@ Requires(preun): systemd-units
 BuildRequires: systemd
 %endif
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6

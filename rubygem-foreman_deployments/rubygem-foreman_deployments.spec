@@ -10,8 +10,6 @@
 
 %global gem_name foreman_deployments
 
-%define rubyabi 1.9.1
-
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
 Release: 1%{?foremandist}%{?dist}
@@ -22,22 +20,16 @@ URL: https://github.com/theforeman/foreman_deployments
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: foreman >= 1.8.0
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.3
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
 Requires: %{?scl_prefix}rubygem(safe_yaml) >= 1.0.0
 
-%if 0%{?fedora} > 18
-Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
-
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: foreman-plugin >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.3
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(safe_yaml) >= 1.0.0

@@ -16,12 +16,7 @@ URL: http://github.com/theforeman/hammer-cli-foreman-ssh
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: foreman_ssh.yml
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
-
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.0.6
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)

@@ -12,7 +12,6 @@
 %global	geminstdir		%{gemdir}/gems/%{gemname}-%{mainver}%{?prever}
 
 %global	ruby19		1
-%global	rubyabi		1.9.1
 %global	gemdir		%{gem_dir}
 %global	geminstdir	%{gem_instdir}
 %if 0%{?fedora}
@@ -38,13 +37,7 @@ Source0:	http://rubygems.org/gems/%{gemname}-%{mainver}.gem
 # ./test/html/test_element_description.rb:62 fails, as usual......
 # Patch0:		rubygem-nokogiri-1.5.0.beta3-test-failure.patch
 #Patch0:		rubygem-nokogiri-1.5.0-allow-non-crosscompile.patch
-%if 0%{?fedora} >= 19
-Requires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix_ruby}ruby(release)
-%else
-Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires:	%{?scl_prefix_ruby}ruby(rubygems)
 ##
 ## For %%check
@@ -59,6 +52,7 @@ Obsoletes:		%{?scl_prefix}ruby-%{gemname} <= 1.5.2-2
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	%{?scl_prefix_ruby}ruby-devel
+Requires:	%{?scl_prefix_ruby}ruby(release)
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Provides:	%{?scl_prefix}rubygem(%{gemname}) = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gemname}}

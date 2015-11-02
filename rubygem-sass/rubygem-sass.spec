@@ -4,8 +4,6 @@
 # Generated from sass-3.1.4.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name sass
 
-%global rubyabi 1.9.1
-
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.9
@@ -14,10 +12,10 @@ Group: Development/Languages
 License: MIT
 URL: http://sass-lang.com/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)

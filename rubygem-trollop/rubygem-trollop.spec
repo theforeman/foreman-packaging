@@ -12,7 +12,7 @@ License:	GPLv2
 URL:		http://trollop.rubyforge.org/
 BuildRoot:	%{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
-Requires:	%{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix}rubygem(hoe)
 BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygem(minitest)

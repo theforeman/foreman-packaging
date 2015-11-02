@@ -16,7 +16,7 @@ Source0:    	http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Patch0:		rubygem-hoe-2.12.2-rescue-missing-Manifest.patch
 # Rescue RDoc::Task when rubygem(rdoc) is not installed
 Patch1:		rubygem-hoe-2.12.3-rdoctask-rescue.patch
-Requires:   	%{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:   	%{?scl_prefix_ruby}ruby(release)
 Requires:   	%{?scl_prefix_ruby}rubygems >= 1.3.6
 Requires:   	%{?scl_prefix}rubygem(rubyforge) >= 2.0.4
 Requires:   	%{?scl_prefix_ruby}rubygem(rake)      >= 0.8.7

@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name multi-select-rails
-%global rubyabi 1.9.1
 
 Summary: Multiselect jQuery plugin for Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,20 +12,12 @@ License: MIT
 URL: https://github.com/klenis/multi-select-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}rubygem(railties) >= 3.0
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

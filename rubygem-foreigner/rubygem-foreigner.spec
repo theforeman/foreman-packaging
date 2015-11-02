@@ -3,7 +3,6 @@
 
 # Generated from foreigner-0.9.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name foreigner
-%global rubyabi  1.9.1
 
 Summary:       Foreign Keys for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
@@ -19,22 +18,12 @@ Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 BuildArch:     noarch
 
-%if 0%{?fedora} >= 19
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
 BuildRequires: %{?scl_prefix_ruby}ruby
-%endif
-
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
-%if 0%{?fedora} >= 19
 Requires:      %{?scl_prefix_ruby}ruby(release)
-%else
-Requires:      %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-Requires:      %{?scl_prefix_ruby}ruby
-%endif
 Requires:      %{?scl_prefix_ruby}rubygems
 Requires:      %{?scl_prefix_ruby}rubygem(activerecord) >= 3.0.0
 

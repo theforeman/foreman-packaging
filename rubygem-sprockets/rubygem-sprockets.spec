@@ -36,11 +36,7 @@ Requires: %{?scl_prefix_ruby}rubygem(rack) < 2
 Requires: %{?scl_prefix_ruby}rubygem(tilt) => 1.1
 Requires: %{?scl_prefix_ruby}rubygem(tilt) < 2
 Conflicts: %{?scl_prefix_ruby}rubygem(tilt) = 1.3.0
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
-%endif
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -61,11 +57,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(therubyracer)
 BuildRequires: %{?scl_prefix_ruby}rubygem(tilt) => 1.1
 BuildRequires: %{?scl_prefix_ruby}rubygem(tilt) < 2
 BuildConflicts: %{?scl_prefix_ruby}rubygem(tilt) = 1.3.0
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
 %if "%{?scl_v8}" != ""
 BuildRequires: %{?scl_v8}
 BuildRequires: %{?scl_v8}-scldevel

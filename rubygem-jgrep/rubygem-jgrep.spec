@@ -20,11 +20,7 @@ BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rspec)
 BuildRequires:  %{?scl_prefix_ruby}rubygem(mocha)
 BuildRequires:  %{?scl_prefix_ruby}rubygem(json)
-%if 0%{?fedora} > 18
 Requires:       %{?scl_prefix_ruby}ruby(release) >= 1.8
-%else
-Requires:       %{?scl_prefix_ruby}ruby(abi) >= 1.8
-%endif
 Requires:       %{?scl_prefix_ruby}rubygems
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}

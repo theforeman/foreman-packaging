@@ -11,8 +11,6 @@
 
 %global gem_name bastion
 
-%define rubyabi 1.9.1
-
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.4

@@ -42,11 +42,7 @@ Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
 Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -62,11 +58,7 @@ BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
 BuildRequires: %{?scl_prefix}rubygem(nokogiri) < 2.0
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(fog) = %{version}

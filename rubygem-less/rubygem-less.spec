@@ -3,7 +3,6 @@
 
 # Generated from less-2.3.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name less
-%global rubyabi 1.9.1
 
 Summary: Leaner CSS, in your browser or Ruby (via less.js)
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,22 +12,14 @@ Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://lesscss.org
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ruby}ruby 
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(commonjs) => 0.2.7
 Requires: %{?scl_prefix}rubygem(commonjs) < 0.3
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
-BuildRequires: %{?scl_prefix_ruby}ruby 
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

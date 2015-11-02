@@ -1,9 +1,6 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global		rubyabi		1.9.1
-%global		ruby19          1
-
 %global		gem_name	gettext
 
 %global		locale_ver		2.0.5
@@ -19,8 +16,8 @@ License:	Ruby
 URL:		http://www.yotabanana.com/hiki/ruby-gettext.html?ruby-gettext
 Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
-Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires:	%{?scl_prefix_ruby}ruby(release)
+BuildRequires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Disable tests
 ## For %%check

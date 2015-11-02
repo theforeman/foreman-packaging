@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name autoparse
-%global rubyabi 1.9.1
 
 Summary: An implementation of the JSON Schema specification
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,22 +12,14 @@ License: MIT
 URL: http://autoparse.rubyforge.org/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3.1
 Requires: %{?scl_prefix}rubygem(extlib) >= 0.9.15
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0.0
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

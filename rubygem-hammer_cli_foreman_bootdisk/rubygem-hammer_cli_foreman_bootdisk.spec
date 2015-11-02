@@ -15,12 +15,7 @@ License: GPLv3
 URL: http://github.com/theforeman/hammer_cli_foreman_bootdisk
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
-
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.2
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)

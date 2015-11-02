@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name signet
-%global rubyabi 1.9.1
 
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,11 +12,7 @@ License: ASL 2.0
 URL: https://github.com/google/signet/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3
@@ -31,11 +26,7 @@ Requires: %{?scl_prefix}rubygem(jwt) < 2.0
 Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
 Requires: %{?scl_prefix}rubygem(multi_json) < 2.0
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

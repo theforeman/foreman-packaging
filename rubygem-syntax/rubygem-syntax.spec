@@ -14,7 +14,7 @@ Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Source1:        %{gem_name}-LICENSE
 Patch0:         rubygem-syntax-fix-yaml-parse-for-ruby-1.9.patch
 BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:       %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:       %{?scl_prefix_ruby}ruby(release)
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygem(minitest)

@@ -12,10 +12,10 @@ Group:         Development/Languages
 License:       MIT
 URL:           http://github.com/mislav/will_paginate
 Source0:       http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires:      %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:      %{?scl_prefix_ruby}ruby(release)
 Requires:      %{?scl_prefix_ruby}ruby(rubygems)
 Requires:      %{?scl_prefix_ruby}rubygem(activerecord)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(activesupport)
 BuildRequires: %{?scl_prefix_ruby}rubygem(actionpack)

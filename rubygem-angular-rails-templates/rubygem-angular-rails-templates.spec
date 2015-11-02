@@ -24,19 +24,11 @@ Requires:  %{?scl_prefix_ruby}ruby(rubygems)
 Requires:  %{?scl_prefix_ruby}rubygem(railties) >= 3.1
 Requires:  %{?scl_prefix}rubygem(sprockets)
 Requires:  %{?scl_prefix_ruby}rubygem(tilt)
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-Requires:      %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires:      %{?scl_prefix_ruby}ruby(release)
-%endif
+Requires:  %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
 
 %description
 Adds your HTML templates into Angular's $templateCache using Rails asset pipeline.
