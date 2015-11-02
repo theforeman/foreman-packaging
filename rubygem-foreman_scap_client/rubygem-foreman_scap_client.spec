@@ -86,6 +86,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Nov 02 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
+- foreman_scap_client 0.1.2 (shlomi@ben-hanna.com)
+
 * Fri May 15 2015 Šimon Lukašík <slukasik@redhat.com> - 0.1.1-1
 - new upstream release
 
