@@ -5,8 +5,8 @@
 
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.8
-Release: 3%{?dist}
+Version: 1.0.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/nubis/gettext_i18n_rails_js
@@ -14,10 +14,10 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix}rubygem(gettext) >= 3.0.2
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.7.1
 Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.0
-Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
-Requires: %{?scl_prefix}rubygem(po_to_json) >= 0.0.7
+Requires: %{?scl_prefix}rubygem(po_to_json) >= 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -59,14 +59,16 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
+%{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/MIT-LICENSE
+%{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/LICENSE
 %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/spec
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.8-3
