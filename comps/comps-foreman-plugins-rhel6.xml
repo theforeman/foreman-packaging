@@ -79,8 +79,11 @@
       <packagereq type="default">tfm-rubygem-less</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
+      <packagereq type="default">tfm-rubygem-mixlib-shellout</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
+      <packagereq type="default">tfm-rubygem-terminal-table</packagereq>
+      <packagereq type="default">tfm-rubygem-thor</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
@@ -155,11 +158,14 @@
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-less-doc</packagereq>
       <packagereq type="default">tfm-rubygem-less-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-mixlib-shellout-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-terminal-table-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->

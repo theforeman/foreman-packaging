@@ -244,11 +244,14 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
+  rubygem-mixlib-shellout
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
+  rubygem-terminal-table
+  rubygem-thor
   rubygem-wicked
   rubygem-zscheduler
 
@@ -329,11 +332,14 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
+  rubygem-mixlib-shellout
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
+  rubygem-terminal-table
+  rubygem-thor
   rubygem-wicked
   rubygem-zscheduler
 
@@ -424,6 +430,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_tasks
   rubygem-less
   rubygem-less-rails
+  rubygem-mixlib-shellout
   rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
@@ -439,6 +446,8 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
+  rubygem-terminal-table
+  rubygem-thor
   rubygem-wicked
   rubygem-zscheduler
 
