@@ -113,6 +113,10 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Mon Nov 02 2015 Dominic Cleal <dcleal@redhat.com> 0.5.0-1
+- foreman_openscap 0.5.0 (shlomi@ben-hanna.com)
+- Remove Scaptimony (shlomi@ben-hanna.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 0.4.3-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
