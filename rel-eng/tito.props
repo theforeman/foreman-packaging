@@ -107,6 +107,7 @@ whitelist = foreman
   foreman-proxy
   foreman-selinux
   rubygem-ace-rails-ap
+  rubygem-activerecord-session_store
   rubygem-apipie-rails
   rubygem-ansi
   rubygem-apipie-bindings
