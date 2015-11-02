@@ -5,8 +5,8 @@
 
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.10.1
-Release: 2%{?dist}
+Version: 5.1.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -16,8 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 
-Requires: %{?scl_prefix_ruby}rubygem-activerecord >= 1:3.0
-Requires: %{?scl_prefix_ruby}rubygem-activerecord < 1:4.0
+Requires: %{?scl_prefix_ruby}rubygem(activerecord) >= 4.0.0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -69,12 +68,12 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/Changelog.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/WhatsNew.md
 %{gem_instdir}/bench.rb
 %{gem_instdir}/Gemfile
 %{gem_instdir}/gemfiles
-%{gem_instdir}/Guide.rdoc
+%{gem_instdir}/guide.rb
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
