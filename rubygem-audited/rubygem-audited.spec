@@ -6,14 +6,16 @@
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 4%{?dist}
+Version: 4.2.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1.2
+Requires: %{?scl_prefix}rubygem(rails-observers) < 0.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -50,9 +52,6 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-# Remove shebang from Rakefile that do not have executable permission.
-sed -i '/^#!\//d' %{buildroot}%{gem_instdir}/Rakefile
-
 
 %check
 # Unfortunatelly, there doesn't seems to be any test coverage of auditable gem.
@@ -64,9 +63,6 @@ sed -i '/^#!\//d' %{buildroot}%{gem_instdir}/Rakefile
 %{gem_libdir}
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/.*
-# audited-*.gemspec seems to be included by mistake.
-# https://github.com/collectiveidea/audited/pull/124
-%exclude %{gem_instdir}/audited-*.gemspec
 # Seems that spec and test folders are included just by mistake.
 # https://github.com/collectiveidea/audited/pull/125
 %exclude %{gem_instdir}/spec
@@ -81,7 +77,6 @@ sed -i '/^#!\//d' %{buildroot}%{gem_instdir}/Rakefile
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/audited.gemspec
 %{gem_instdir}/gemfiles
 
 %changelog
