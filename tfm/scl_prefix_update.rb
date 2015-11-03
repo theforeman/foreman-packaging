@@ -23,7 +23,7 @@ def lookup(string)
 end
 
 def replace(file)
-  file.gsub(/(%{\??)scl_prefix}([\w%{}()-]+)/) { |m| "#{$1}#{lookup($2)}}#{$2}" }
+  file.gsub(/(%{\??)scl_prefix[\w_]*}([\w%{}()-]+)/) { |m| "#{$1}#{lookup($2)}}#{$2}" }
 end
 
 def add_obsoletes(file, filename)
@@ -57,7 +57,7 @@ raise 'Usage: scl_prefix_update.rb FILE..' if ARGV.empty?
 
 ARGV.each do |a|
   begin
-    File.write(a, add_obsoletes(replace(File.read(a)), a))
+    File.write(a, replace(File.read(a)))
   rescue => e
     puts "parsing #{a}"
     raise e
