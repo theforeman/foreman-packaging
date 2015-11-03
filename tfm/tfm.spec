@@ -60,6 +60,7 @@ Obsoletes: ruby193-ruby-wrapper
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
+Obsoletes: %{scl_prefix}rubygem-sass < 3.4.9-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 2.12.3-3
 
 %description runtime
