@@ -3,22 +3,28 @@
 
 %global gem_name eventmachine
 
+# This enables to run full test suite, where network connection is available.
+# However, it must be disabled for Koji build.
+%{!?network: %global network 0}
+
 Summary:    Ruby/EventMachine library
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.12.10
-Release:    10%{?dist}
+Version:    1.0.6
+Release:    1%{?dist}
 Group:      Development/Languages
 License:    GPLv2 or Ruby
 URL:        http://rubyeventmachine.com
 Source0:    http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-# Fixed upstream
-# https://github.com/eventmachine/eventmachine/commit/2c083af3d06d333db31dcc1bbe535b10285a8d1e
-Patch0:     rubygem-eventmachine-0.12.10-makes-HTTPS-client-tests-pass.patch
 Requires:   %{?scl_prefix_ruby}ruby(rubygems)
 Requires:   %{?scl_prefix_ruby}ruby(release)
 Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel, %{?scl_prefix_ruby}ruby-devel, openssl-devel, %{?scl_prefix_ruby}rubygem(rake), net-tools
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
+# Enables SSL support.
+BuildRequires: openssl-devel
 
 %description
 EventMachine implements a fast, single-threaded engine for arbitrary network
@@ -46,58 +52,83 @@ This package contains documentation for %{pkg_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -T -c
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install -V \
-    --local \
-    --install-dir $(pwd)/%{gem_dir} \
-    --force --rdoc \
-    %{SOURCE0}
-%{?scl:"}
-
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{ruby_vendorarchdir}
-cp -a ./%{gem_dir}/* %{buildroot}/%{gem_dir}/
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-rm -rf %{buildroot}%{gem_instdir}/{ext,java,.gitignore,setup.rb,%{gem_name}.gemspec}
-mv %{buildroot}%{gem_libdir}/*.so %{buildroot}%{ruby_vendorarchdir}
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/* %{buildroot}%{gem_extdir_mri}/
 
-%clean
-rm -rf %{buildroot}
+# Prevent dangling symlink in -debuginfo.
+rm -rf %{buildroot}%{gem_instdir}/ext
 
 %check
 pushd .%{gem_instdir}
-# no kqueue support on Linux
-rm -f tests/test_process_watch.rb
-rake test || :
+
+# test_localhost(TestResolver) fails.
+# https://github.com/eventmachine/eventmachine/issues/579
+sed -i '/test_localhost/,/^  end$/ s/^/#/' tests/test_resolver.rb
+# test_dispatch_completion(TestThreadedResource) fails randomly.
+# https://github.com/eventmachine/eventmachine/issues/580
+sed -i '/test_dispatch_completion/,/^  end$/ s/^/#/' tests/test_threaded_resource.rb
+
+%{?scl:scl enable %{scl} - <<EOF}
+# Unfortunatelly test_a exists in more test cases.
+ruby -Ilib:$(dirs +1)%{gem_extdir_mri}:.:tests -r test/unit -e "Dir.glob 'tests/test_*.rb', &method(:require)" -- \
+%if 0%{network} < 1
+  --ignore-name=/^test_bind_connect$/ \
+  --ignore-name=/^test_get_sock_opt$/ \
+  --ignore-name=/^test_cookie$/ \
+  --ignore-name=/^test_http_client$/ \
+  --ignore-name=/^test_http_client_1$/ \
+  --ignore-name=/^test_http_client_2$/ \
+  --ignore-name=/^test_version_1_0$/ \
+  --ignore-name=/^test_get$/ \
+  --ignore-name=/^test_get_pipeline$/ \
+  --ignore-name=/^test_https_get$/ \
+  --ignore-name=/^test_idle_time$/ \
+  --ignore-name=/^test_a$/ \
+  --ignore-name=/^test_a_pair$/ \
+  --ignore-name=/^test_bad_host$/ \
+  --ignore-name=/^test_failure_timer_cleanup$/ \
+  --ignore-name=/^test_timer_cleanup$/ \
+  --ignore-name=/^test_set_sock_opt$/ \
+  --ignore-name=/^test_connect_timeout$/ \
+%endif
+%{?scl:EOF}
+
+popd
 
 %files
-%defattr(-, root, root, -)
-%doc %{gem_instdir}/README
+%doc %{gem_instdir}/GNU
+%doc %{gem_instdir}/LICENSE
 %dir %{gem_instdir}/
+%exclude %{gem_instdir}/.*
 %{gem_libdir}
-%{gem_cache}
+%{gem_extdir_mri}
+%exclude %{gem_cache}
 %{gem_spec}
-%{ruby_vendorarchdir}/rubyeventmachine.so
-%{ruby_vendorarchdir}/fastfilereaderext.so
 
 %files doc
-%defattr(-, root, root, -)
-%{gem_docdir}
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/docs
+%doc %{gem_instdir}/docs
+%{gem_instdir}/eventmachine.gemspec
 %{gem_instdir}/examples
-%{gem_instdir}/tasks
+# TODO: Hmm, we can build also JRuby bindigs.
+%{gem_instdir}/java
+%{gem_instdir}/rakelib
 %{gem_instdir}/tests
-%{gem_instdir}/web
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.12.10-10
