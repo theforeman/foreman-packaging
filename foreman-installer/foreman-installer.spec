@@ -75,6 +75,9 @@ rake install \
 %{_mandir}/man8
 
 %changelog
+* Tue Nov 03 2015 Dominic Cleal <dcleal@redhat.com> 1.9.3-1
+- Release 1.9.3
+
 * Tue Sep 22 2015 Dominic Cleal <dcleal@redhat.com> 1.9.2-1
 - Release 1.9.2
 
