@@ -50,21 +50,19 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            -V --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{gem_extdir}/lib
+mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mv %{buildroot}%{gem_libdir}/pg_ext.so %{buildroot}%{gem_extdir}/lib
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
@@ -90,7 +88,7 @@ popd
 
 %files
 %exclude %{gem_instdir}/.gemtest
-%{gem_extdir}
+%{gem_extdir_mri}
 %dir %{gem_instdir}
 %doc %{gem_instdir}/BSD
 %doc %{gem_instdir}/GPL

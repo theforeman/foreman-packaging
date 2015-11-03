@@ -15,7 +15,7 @@ Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Requires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix}rubygem(hoe)
 BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch:	noarch
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -31,12 +31,13 @@ number of lines of code (for you, the programmer).
 %build
 
 %install
-rm -rf %{buildroot}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+
 mkdir -p %{buildroot}%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-	--force --rdoc %{SOURCE0}
-%{?scl:"}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %check
 cd %{buildroot}/%{gem_instdir}

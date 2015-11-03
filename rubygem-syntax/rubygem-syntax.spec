@@ -17,7 +17,7 @@ BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -
 Requires:       %{?scl_prefix_ruby}ruby(release)
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires:  %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

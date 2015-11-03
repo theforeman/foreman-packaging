@@ -57,9 +57,29 @@ cp -a .%{gem_dir}/* \
 
 %check
 pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
+%{?scl:scl enable %{scl} - << \EOS}
+%if 0%{?el6} && 0%{!?scl:1}
 testrb -Ilib test
-%{?scl:EOF}
+%else
+# To run the tests using minitest 5
+# https://github.com/heroku/netrc/pull/36
+ruby -rminitest/autorun - << \EOF
+  module Kernel
+    alias orig_require require
+    remove_method :require
+
+    def require path
+      orig_require path unless path == 'test/unit'
+    end
+
+  end
+
+  Test = Minitest
+
+  Dir.glob "./test/**/test_*.rb", &method(:require)
+EOF
+%endif
+%{?scl:EOS}
 popd
 
 %files

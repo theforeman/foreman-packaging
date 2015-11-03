@@ -14,11 +14,6 @@
 %global	ruby19		1
 %global	gemdir		%{gem_dir}
 %global	geminstdir	%{gem_instdir}
-%if 0%{?fedora}
-%global	gemsodir	%{gem_extdir_mri}/lib
-%else
-%global	gemsodir	%{gem_extdir}/lib
-%endif
 %global	gem_name	%{gemname}
 
 # Note for packager:
@@ -133,16 +128,11 @@ rm -rf tmpunpackdir
 
 %build
 mkdir -p ./%{gemdir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 # 1.6.0 needs this
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=yes
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	--install-dir ./%{gemdir} \
-	-V --force \
-	%{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 
 # Permission
@@ -162,13 +152,17 @@ cp -a ./%{gemdir}/* %{buildroot}%{gemdir}
 find %{buildroot} -name \*.orig_\* | xargs rm -vf
 
 # move arch dependent files to %%gem_extdir
-mkdir -p %{buildroot}%{gemsodir}/%{gemname}
-mv %{buildroot}%{geminstdir}/lib/%{gemname}/*.so \
-	%{buildroot}%{gemsodir}/%{gemname}/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a ./%{gem_extdir_mri}/* %{buildroot}%{gem_extdir_mri}/
+
+pushd %{buildroot}
+rm -f .%{gem_extdir_mri}/{gem_make.out,mkmf.log}
+popd
 
 # move bin/ files
-mkdir -p %{buildroot}%{_prefix}
-mv -f %{buildroot}%{gemdir}/bin %{buildroot}%{_prefix}
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 
 # remove all shebang
 for f in $(find %{buildroot}%{geminstdir} -name \*.rb)
@@ -215,11 +209,7 @@ popd
 %files
 %defattr(-,root, root,-)
 %{_bindir}/%{gemname}
-%if 0%{?ruby19} < 1
-%{ruby_sitearch}/%{gemname}
-%else
-%{gemsodir}/
-%endif
+%{gem_extdir_mri}/
 %dir	%{geminstdir}/
 %doc	%{geminstdir}/[A-Z]*
 #%%doc	%{geminstdir}/nokogiri_help_responses.md

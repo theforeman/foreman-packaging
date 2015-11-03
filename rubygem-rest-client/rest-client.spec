@@ -37,14 +37,25 @@ microframework style of specifying actions: get, put, post, delete.
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
 
+%if 0%{?el6} && 0%{!?scl:1}
 %{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
+gem install --local --install-dir .%{gem_dir} \
+            --force --rdoc --bindir .%{_bindir} %{SOURCE0}
 %{?scl:"}
+%else
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+%endif
 
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}%{gem_dir}/bin
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %clean

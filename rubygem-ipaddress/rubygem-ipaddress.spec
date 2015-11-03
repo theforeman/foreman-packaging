@@ -12,11 +12,12 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/bluemonk/ipaddress
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: rubygem-ipaddress-0.8.0-ruby2-conversion.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -49,6 +50,10 @@ gem install --local --install-dir .%{gem_dir} \
 # See https://github.com/bluemonk/ipaddress/issues/23
 rm .%{gem_instdir}/.document
 
+pushd .%{gem_instdir}
+%patch0 -p1
+popd
+
 %build
 
 %install
@@ -59,7 +64,7 @@ cp -a .%{gem_dir}/* \
 %check
 pushd .%{gem_instdir}
 %{?scl:scl enable %{scl} - << \EOF}
-testrb -Ilib test/ipaddress_test.rb
+ruby -Ilib:test -e 'Dir.glob "./test/**/*_test.rb", &method(:require)'
 %{?scl:EOF}
 popd
 

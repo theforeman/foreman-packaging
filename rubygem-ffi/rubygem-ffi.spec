@@ -44,11 +44,9 @@ using Ruby-FFI here[http://wiki.github.com/ffi/ffi/why-use-ffi].
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -57,8 +55,12 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/lib
-mv %{buildroot}%{gem_instdir}/lib/ffi_c.so %{buildroot}%{gem_extdir_mri}/lib/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a ./%{gem_extdir_mri}/* %{buildroot}%{gem_extdir_mri}/
+
+pushd %{buildroot}
+rm -f .%{gem_extdir_mri}/{gem_make.out,mkmf.log}
+popd
 
 %if 0%{enable_test} > 0
 %check
@@ -74,6 +76,7 @@ popd
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/History.txt
 %doc %{gem_instdir}/LICENSE
+%doc %{gem_docdir}
 
 %dir %{gem_instdir}
 %{gem_instdir}/Rakefile

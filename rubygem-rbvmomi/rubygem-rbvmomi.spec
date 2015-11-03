@@ -20,7 +20,7 @@ Requires: %{?scl_prefix}rubygem(trollop)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
 BuildRequires: %{?scl_prefix_ror}rubygem(builder)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
 BuildArch: noarch
@@ -66,9 +66,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %check
 pushd %{buildroot}%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-testrb -I lib test/test_*.rb
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+ruby -Ilib:test -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
+%{?scl:EOF}
 popd
 
 %files

@@ -20,7 +20,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5
 BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -53,8 +53,12 @@ cp -a .%{gem_dir}/* \
 
 %check
 pushd .%{gem_instdir}
+# Fix Mocha 1.x compatibility.
+# https://github.com/net-ssh/net-ssh-gateway/pull/5
+sed -i 's|mocha|mocha/setup|' test/gateway_test.rb
+
 %{?scl:scl enable %{scl} - << \EOF}
-RUBYOPT="-Ilib" testrb test/*_test.rb
+ruby -Ilib -e 'Dir.glob "./test/**/*_test.rb", &method(:require)'
 %{?scl:EOF}
 popd
 

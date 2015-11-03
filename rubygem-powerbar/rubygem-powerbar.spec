@@ -68,7 +68,7 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 mkdir -p .%{_bindir}
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
@@ -76,7 +76,9 @@ gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
     --bindir .%{_bindir} %{gem_name}-%{version}.gem
 %{?scl:"}
 %else
+%{?scl:scl enable %{scl} - <<EOF}
 %gem_install
+%{?scl:EOF}
 %endif
 
 %install

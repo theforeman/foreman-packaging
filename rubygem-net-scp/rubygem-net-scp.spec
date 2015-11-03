@@ -18,7 +18,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -42,16 +42,18 @@ Documentation for %{pkg_name}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %check
 pushd %{buildroot}%{gem_instdir}
 %{?scl:scl enable %{scl} "}
-# requires newer version of mocha (>= 0.13.3)
-# ruby -Ilib -Itest test/test_all.rb
+ruby -Ilib -Itest test/test_all.rb
 %{?scl:"}
 popd
 

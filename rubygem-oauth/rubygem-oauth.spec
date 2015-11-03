@@ -28,32 +28,31 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 OAuth Core Ruby implementation
 
 %prep
+%setup -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
-%{?scl:"}
-
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}%{gem_dir}/bin
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 
 %files
 %{_bindir}/oauth
-%{gem_dir}/gems/%{gem_name}-%{version}/
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%{gem_instdir}
+%doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/TODO
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_cache}
+%{gem_spec}
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.4.7-7

@@ -1,0 +1,31 @@
+diff -Nur ipaddress-0.8.0/test/ipaddress/ipv4_test.rb /var/lib/mock/fedora-rawhide-x86_64/root/builddir/build/BUILD/rubygem-ipaddress-0.8.0/usr/share/gems/gems/ipaddress-0.8.0/test/ipaddress/ipv4_test.rb
+--- ipaddress-0.8.0/test/ipaddress/ipv4_test.rb	2014-06-12 21:19:55.000000000 -0400
++++ /var/lib/mock/fedora-rawhide-x86_64/root/builddir/build/BUILD/rubygem-ipaddress-0.8.0/usr/share/gems/gems/ipaddress-0.8.0/test/ipaddress/ipv4_test.rb	2014-06-12 21:33:01.764789824 -0400
+@@ -103,7 +103,11 @@
+   end
+
+   def test_method_data
+-    assert_equal "\254\020\n\001", @ip.data
++    if RUBY_VERSION < "2.0"
++      assert_equal "\254\020\n\001", @ip.data
++    else
++      assert_equal "\xAC\x10\n\x01".b, @ip.data
++    end
+   end
+
+   def test_method_to_string
+diff -Nur ipaddress-0.8.0/test/ipaddress/ipv6_test.rb /var/lib/mock/fedora-rawhide-x86_64/root/builddir/build/BUILD/rubygem-ipaddress-0.8.0/usr/share/gems/gems/ipaddress-0.8.0/test/ipaddress/ipv6_test.rb
+--- ipaddress-0.8.0/test/ipaddress/ipv6_test.rb	2014-06-12 21:21:54.000000000 -0400
++++ /var/lib/mock/fedora-rawhide-x86_64/root/builddir/build/BUILD/rubygem-ipaddress-0.8.0/usr/share/gems/gems/ipaddress-0.8.0/test/ipaddress/ipv6_test.rb	2014-06-12 21:31:57.526921826 -0400
+@@ -177,7 +177,11 @@
+   end
+
+   def test_method_data
+-    str = " \001\r\270\000\000\000\000\000\b\b\000 \fAz"
++    if RUBY_VERSION < "2.0"
++      str = " \001\r\270\000\000\000\000\000\b\b\000 \fAz"
++    else
++      str = " \x01\r\xB8\x00\x00\x00\x00\x00\b\b\x00 \fAz".b
++    end
+     assert_equal str, @ip.data
+   end

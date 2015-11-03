@@ -39,12 +39,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            -V \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -58,8 +55,8 @@ pushd %{buildroot}%{gem_instdir}/tests
 find -type f -name '*.rb' -print | xargs sed -i '/#!\/usr\/bin\/ruby/d'
 popd
 
-mkdir -p %{buildroot}%{gem_extdir}/lib
-mv %{buildroot}%{gem_instdir}/lib/_libvirt.so %{buildroot}%{gem_extdir}/lib/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/*.so %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
@@ -77,7 +74,7 @@ popd
 %dir %{gem_instdir}
 %doc %{gem_instdir}/COPYING
 %{gem_libdir}
-%{gem_extdir}
+%{gem_extdir_mri}
 %exclude %{gem_cache}
 %{gem_spec}
 

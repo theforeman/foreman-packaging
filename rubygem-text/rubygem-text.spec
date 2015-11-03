@@ -22,6 +22,7 @@ BuildRequires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Check
 BuildRequires:	%{?scl_prefix_ruby}%gem_minitest
+BuildRequires:	%{?scl_prefix_ruby}rubygem(test-unit)
 Requires:	%{?scl_prefix_ruby}ruby(release)
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 
@@ -85,7 +86,7 @@ cp -pa .%{gem_dir}/* \
 %check
 pushd .%{gem_instdir}
 %{?scl:scl enable %{scl} - << \EOF}
-ruby -Ilib:test:. -e 'gem "minitest", "<5" ; Dir.glob("test/*_test.rb").each{|f| require f}'
+ruby -Ilib:test:. -e 'Dir.glob("test/*_test.rb").each{|f| require f}'
 %{?scl:EOF}
 popd
 
