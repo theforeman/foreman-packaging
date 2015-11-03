@@ -15,7 +15,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 # specs need metaid gem that is not in Fedora yet
-#BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
+#BuildRequires: %{?scl_prefix_ror}rubygem(rspec-core)
 #BuildRequires: %{?scl_prefix}rubygem(flexmock)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch

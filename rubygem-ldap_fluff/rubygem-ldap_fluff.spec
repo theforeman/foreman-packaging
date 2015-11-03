@@ -13,7 +13,7 @@ URL: https://github.com/theforeman/ldap_fluff
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ruby}rubygem(activesupport)
+Requires: %{?scl_prefix_ror}rubygem(activesupport)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.3.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)

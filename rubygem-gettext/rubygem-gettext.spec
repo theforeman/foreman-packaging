@@ -22,7 +22,7 @@ BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
 # Disable tests
 ## For %%check
 #BuildRequires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
-#BuildRequires:	%{?scl_prefix}rubygem(test-unit)
+#BuildRequires:	%{?scl_prefix_ruby}rubygem(test-unit)
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit-notify)
 #BuildRequires:	%{?scl_prefix}rubygem(test-unit-rr)
 #BuildRequires:	%{?scl_prefix}rubygem(text)

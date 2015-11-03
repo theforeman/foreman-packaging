@@ -15,7 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}rubygem(activesupport) >= 3.2
+Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 3.2
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3
 Requires: %{?scl_prefix}rubygem(addressable) < 3.0
 Requires: %{?scl_prefix}rubygem(autoparse) >= 0.3

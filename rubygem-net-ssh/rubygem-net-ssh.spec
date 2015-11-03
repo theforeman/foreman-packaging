@@ -18,7 +18,7 @@ Requires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -31,7 +31,7 @@ Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix_ruby}rubygem(mocha)
+Requires: %{?scl_prefix_ror}rubygem(mocha)
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch

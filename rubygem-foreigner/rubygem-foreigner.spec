@@ -25,7 +25,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 
 Requires:      %{?scl_prefix_ruby}ruby(release)
 Requires:      %{?scl_prefix_ruby}rubygems
-Requires:      %{?scl_prefix_ruby}rubygem(activerecord) >= 3.0.0
+Requires:      %{?scl_prefix_ror}rubygem(activerecord) >= 3.0.0
 
 
 %description

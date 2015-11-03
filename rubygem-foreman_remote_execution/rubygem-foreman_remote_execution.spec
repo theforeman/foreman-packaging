@@ -26,8 +26,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.6
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
-Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
-Requires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 3.2.8
+Requires: %{?scl_prefix_ror}rubygem(rails) < 3.3.0
 Requires: %{?scl_prefix}rubygem(deface)
 
 BuildRequires: foreman-plugin >= 1.10.0
@@ -37,8 +37,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.7.6
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.8
-BuildRequires: %{?scl_prefix_ruby}rubygem(rails) < 3.3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 3.2.8
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 3.3.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 
 BuildArch: noarch

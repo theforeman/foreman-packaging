@@ -59,7 +59,7 @@ BuildArch: noarch
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires:  %{?scl_prefix}rubygem(less-rails) >= 2.5.0
 Requires:  %{?scl_prefix}rubygem(less-rails) < 2.6
-Requires:  %{?scl_prefix_ruby}rubygem(uglifier)
+Requires:  %{?scl_prefix_ror}rubygem(uglifier)
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 
 %description devel

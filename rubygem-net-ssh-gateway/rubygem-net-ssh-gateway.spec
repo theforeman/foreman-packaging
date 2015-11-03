@@ -19,7 +19,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5
-BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

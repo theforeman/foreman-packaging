@@ -18,7 +18,7 @@ Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix_ruby}rubygem(mime-types) >= 1.16
+Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.16
 Requires: %{?scl_prefix}rubygem(netrc)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch

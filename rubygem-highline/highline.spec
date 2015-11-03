@@ -11,7 +11,7 @@
 %define _url https://github.com/JEG2/highline
 %define _license GPLv2+ or Ruby
 
-# add gem dependencies, e.g. "Requires: %{?scl_prefix_ruby}rubygem(rails) > 3.2"
+# add gem dependencies, e.g. "Requires: %{?scl_prefix_ror}rubygem(rails) > 3.2"
 
 # end of EDIT
 

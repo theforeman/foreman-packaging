@@ -14,7 +14,7 @@ URL:            http://github.com/rails/turbolinks
 Source0:        http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires:       %{?scl_prefix_ruby}ruby(release)
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
-Requires:       %{?scl_prefix_ruby}rubygem(coffee-rails)
+Requires:       %{?scl_prefix_ror}rubygem(coffee-rails)
 BuildRequires:  %{?scl_prefix_ruby}ruby(release)
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:      noarch

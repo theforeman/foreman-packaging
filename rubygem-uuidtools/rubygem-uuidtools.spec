@@ -16,9 +16,9 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-mocks)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-expectations)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-core)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-mocks)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-expectations)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

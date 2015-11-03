@@ -17,11 +17,11 @@ Requires: ca-certificates
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: ca-certificates
 # For the tests
-#BuildRequires: %{?scl_prefix_ruby}rubygem(activesupport)
+#BuildRequires: %{?scl_prefix_ror}rubygem(activesupport)
 #BuildRequires: %{?scl_prefix}rubygem(delorean)
 #BuildRequires: %{?scl_prefix}rubygem(open4)
 #BuildRequires: %{?scl_prefix}rubygem(shindo)
-#BuildRequires: %{?scl_prefix_ruby}rubygem(sinatra)
+#BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
 #BuildRequires: %{?scl_prefix}rubygem(eventmachine)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

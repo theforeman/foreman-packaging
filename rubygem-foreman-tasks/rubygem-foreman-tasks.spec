@@ -28,7 +28,7 @@ Requires: foreman >= 1.8.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem-sequel
-Requires: %{?scl_prefix_ruby}rubygem(sinatra)
+Requires: %{?scl_prefix_ror}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -49,7 +49,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem-sequel
-BuildRequires: %{?scl_prefix_ruby}rubygem(sinatra)
+BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: foreman-plugin >= 1.8.0
 

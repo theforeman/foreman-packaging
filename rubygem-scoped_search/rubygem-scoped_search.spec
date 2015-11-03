@@ -14,7 +14,7 @@ URL: http://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ruby}rubygem-activerecord >= 3.2.0
+Requires: %{?scl_prefix_ror}rubygem-activerecord >= 3.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -24,10 +24,10 @@ Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
 
 # for check section
 %if 0%{?fedora} > 21
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec) >= 3.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec) < 4.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(activerecord)
-BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec) >= 3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec) < 4.0
+BuildRequires: %{?scl_prefix_ror}rubygem(activerecord)
+BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 %endif
 
 %description

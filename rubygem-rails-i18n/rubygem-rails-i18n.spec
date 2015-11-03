@@ -15,8 +15,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
 Requires: %{?scl_prefix}rubygem(i18n) < 1
-Requires: %{?scl_prefix_ruby}rubygem(railties) >= 4.0
-Requires: %{?scl_prefix_ruby}rubygem(railties) < 5.0
+Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(railties) < 5.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems

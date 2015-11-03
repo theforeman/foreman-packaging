@@ -24,7 +24,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
-#BuildRequires: %{?scl_prefix_ruby}rubygem-rspec
+#BuildRequires: %{?scl_prefix_ror}rubygem-rspec
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

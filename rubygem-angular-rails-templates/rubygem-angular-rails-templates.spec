@@ -21,9 +21,9 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
-Requires:  %{?scl_prefix_ruby}rubygem(railties) >= 3.1
+Requires:  %{?scl_prefix_ror}rubygem(railties) >= 3.1
 Requires:  %{?scl_prefix_ror}rubygem(sprockets)
-Requires:  %{?scl_prefix_ruby}rubygem(tilt)
+Requires:  %{?scl_prefix_ror}rubygem(tilt)
 Requires:  %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)

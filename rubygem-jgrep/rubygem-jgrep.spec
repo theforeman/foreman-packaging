@@ -17,8 +17,8 @@ Patch0:         0001-Fix-test-run.patch
 BuildArch:      noarch
 
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygem(rspec)
-BuildRequires:  %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires:  %{?scl_prefix_ror}rubygem(rspec)
+BuildRequires:  %{?scl_prefix_ror}rubygem(mocha)
 BuildRequires:  %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix_ruby}ruby(release) >= 1.8
 Requires:       %{?scl_prefix_ruby}rubygems

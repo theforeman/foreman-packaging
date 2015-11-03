@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(gettext) >= 3.0.2
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.7.1
-Requires: %{?scl_prefix_ruby}rubygem(rails) >= 3.2.0
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 3.2.0
 Requires: %{?scl_prefix}rubygem(po_to_json) >= 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

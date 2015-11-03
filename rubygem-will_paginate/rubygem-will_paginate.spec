@@ -14,15 +14,15 @@ URL:           http://github.com/mislav/will_paginate
 Source0:       http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires:      %{?scl_prefix_ruby}ruby(release)
 Requires:      %{?scl_prefix_ruby}ruby(rubygems)
-Requires:      %{?scl_prefix_ruby}rubygem(activerecord)
+Requires:      %{?scl_prefix_ror}rubygem(activerecord)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(activesupport)
-BuildRequires: %{?scl_prefix_ruby}rubygem(actionpack)
-BuildRequires: %{?scl_prefix_ruby}rubygem(activerecord)
-BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(sqlite3)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ror}rubygem(activesupport)
+BuildRequires: %{?scl_prefix_ror}rubygem(actionpack)
+BuildRequires: %{?scl_prefix_ror}rubygem(activerecord)
+BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 BuildRequires: %{?scl_prefix}rubygem(sequel)
 BuildArch:     noarch
 Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}

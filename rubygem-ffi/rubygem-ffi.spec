@@ -26,7 +26,7 @@ BuildRequires:  %{?scl_prefix_ruby}ruby-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildRequires:	libffi-devel
 %if 0%{enable_test} > 0
-BuildRequires:	%{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires:	%{?scl_prefix_ror}rubygem(rspec)
 %endif
 
 Requires: %{?scl_prefix_ruby}rubygems

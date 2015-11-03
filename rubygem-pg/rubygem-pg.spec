@@ -25,7 +25,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: postgresql-server postgresql-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 # Introduced in F17.
 Obsoletes: %{?scl_prefix}ruby(postgres) <= 0.7.9-2010.01.28.2
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

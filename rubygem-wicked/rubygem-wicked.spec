@@ -25,7 +25,7 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix_ruby}ruby(release)
 Requires:  %{?scl_prefix_ruby}rubygems
-Requires:  %{?scl_prefix_ruby}rubygem(rails) >= 3.0.7
+Requires:  %{?scl_prefix_ror}rubygem(rails) >= 3.0.7
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

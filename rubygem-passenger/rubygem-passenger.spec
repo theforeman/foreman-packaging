@@ -88,7 +88,7 @@ Patch205:       rubygem-passenger-4.0.18-tmpdir.patch
 Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
-Requires: %{?scl_prefix_ruby}rubygem(rack)
+Requires: %{?scl_prefix_ror}rubygem(rack)
 Requires: %{?scl_prefix_ruby}rubygem(rake)
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -118,11 +118,11 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.1
-BuildRequires: %{?scl_prefix_ruby}rubygem(rack)
+BuildRequires: %{?scl_prefix_ror}rubygem(rack)
 %if %{enable_check}
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 %endif
-BuildRequires: %{?scl_prefix_ruby}rubygem(mime-types)
+BuildRequires: %{?scl_prefix_ror}rubygem(mime-types)
 # BuildRequires: source-highlight
 
 # XXX

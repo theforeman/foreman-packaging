@@ -17,7 +17,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(less) => 2.5.0
 Requires: %{?scl_prefix}rubygem(less) < 2.6
-Requires: %{?scl_prefix_ruby}rubygem(actionpack) >= 3.1
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 3.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby

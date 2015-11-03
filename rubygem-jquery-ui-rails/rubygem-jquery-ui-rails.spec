@@ -15,7 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.6
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}rubygem(railties) >= 3.1.0
+Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.6
 BuildRequires: %{?scl_prefix_ruby}ruby
