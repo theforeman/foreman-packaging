@@ -508,7 +508,7 @@ cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
-%{scl_rake} assets:precompile:all RAILS_ENV=production --trace
+%{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
