@@ -6,8 +6,8 @@
 
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       3.0.2
-Release:       9%{?dist}
+Version:       3.0.7
+Release:       1%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://github.com/mislav/will_paginate
@@ -59,7 +59,6 @@ popd
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
 %{gem_libdir}
-%doc %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/spec
