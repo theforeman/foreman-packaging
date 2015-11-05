@@ -86,6 +86,7 @@
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
