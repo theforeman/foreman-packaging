@@ -1,5 +1,4 @@
 foreman-proxy             etc
-debian/settings.yml       etc/foreman-proxy
 bin                       usr/share/foreman-proxy
 bundler.d                 usr/share/foreman-proxy
 config.ru                 usr/share/foreman-proxy
