@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Nov 05 2015 Dominic Cleal <dcleal@redhat.com> 1.0.3-1
+- plugins:foreman_cockpit - Release 1.0.3 (elobatocs@gmail.com)
+
 * Thu Oct 29 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
 - new package built with tito
 
