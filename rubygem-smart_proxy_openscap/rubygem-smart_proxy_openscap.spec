@@ -7,7 +7,7 @@
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.4.1
+Version: 0.5.0
 Release: 1%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy.
 Group: Applications/Internet
@@ -24,6 +24,7 @@ BuildRequires: ruby(release)
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.8.0
 Requires: crontabs
+Requires: rubygem(openscap) >= 0.4.3
 BuildRequires: rubygems-devel
 BuildRequires: ruby
 BuildArch: noarch
@@ -83,8 +84,10 @@ mv %{buildroot}%{gem_instdir}/extra/smart-proxy-openscap-send.cron \
 # create spool directory
 mkdir -p %{buildroot}%{spool_dir}
 
-# create content directory and symlink it to foreman-proxy directory
+# create content, reports and failed_reports directories and symlink it to foreman-proxy directory
 mkdir -p %{buildroot}%{content_dir}/content
+mkdir -p %{buildroot}%{content_dir}/reports
+mkdir -p %{buildroot}%{content_dir}/failed
 ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 %files
@@ -104,6 +107,10 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 %exclude %{gem_instdir}/extra/rubygem-%{gem_name}.spec
 %exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/test
 
 %files doc
 %{gem_docdir}
