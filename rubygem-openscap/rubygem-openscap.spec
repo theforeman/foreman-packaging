@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Nov 06 2015 Dominic Cleal <dcleal@redhat.com> 0.4.3-1
+- openscap version bump to 0.4.3, changed to non-SCL (shlomi@ben-hanna.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 0.4.2-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
