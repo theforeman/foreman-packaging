@@ -1,3 +1,10 @@
+ruby-foreman-xen (0.2.2-1) stable; urgency=low
+
+  * update to 0.2.2
+  * deface is not required anymore
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 09 Nov 2015 19:06:58 +0100
+
 ruby-foreman-xen (0.2.1-1) stable; urgency=low
 
   * update to 0.2.1
