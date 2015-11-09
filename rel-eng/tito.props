@@ -248,6 +248,7 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-safe_yaml
   rubygem-wicked
   rubygem-zscheduler
 
@@ -329,6 +330,7 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-safe_yaml
   rubygem-wicked
   rubygem-zscheduler
 
