@@ -16,10 +16,10 @@ URL: http://mysql-win.rubyforge.org
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.6
-Requires: %{?scl_prefix_ruby}rubygems >= 1.8.10
+Requires: %{?scl_prefix_ruby}rubygems
 
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.6
-BuildRequires: %{?scl_prefix_ruby}rubygems >= 1.8.10
+BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: mysql-devel
