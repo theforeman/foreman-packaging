@@ -101,6 +101,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 10 2015 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
+- update foreman_xen to 0.2.2 (kvedulv@kvedulv.de)
+- Add foremandist macro (dcleal@redhat.com)
+
 * Tue Oct 20 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
 - update foreman_xen to 0.2.1 (kvedulv@kvedulv.de)
 
