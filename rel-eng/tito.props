@@ -424,6 +424,7 @@ whitelist = rubygem-algebrick
   rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-safe_yaml
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
