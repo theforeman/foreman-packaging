@@ -78,5 +78,8 @@ cp -pa .%{gem_instdir}/config/dns_powerdns.yml %{buildroot}%{foreman_proxy_setti
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 10 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
+- new package built with tito
+
 * Thu Oct 08 2015 Ewoud Kohl van Wijngaarden 0.1.0-1
 - Initial packaging
