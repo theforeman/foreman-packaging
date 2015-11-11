@@ -20,7 +20,6 @@ blacklist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
-  rubygem-bundler
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -33,7 +32,6 @@ blacklist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
-  rubygem-bundler
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -52,7 +50,6 @@ whitelist = foreman-installer
   foreman-selinux
   rubygem-apipie-bindings
   rubygem-awesome_print
-  rubygem-bundler
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-daemon_controller
@@ -73,7 +70,6 @@ whitelist = foreman-installer
   rubygem-rest-client
   rubygem-rkerberos
   rubygem-rubyipmi
-  rubygem-thor
 
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7

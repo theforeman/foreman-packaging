@@ -158,7 +158,6 @@
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-awesome_print</packagereq>
-      <packagereq type="default">rubygem-bundler</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
@@ -181,7 +180,6 @@
       <packagereq type="default">rubygem-rest-client</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
-      <packagereq type="default">rubygem-thor</packagereq>
 
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
@@ -189,7 +187,6 @@
       <!--RGD-START-->
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-awesome_print-doc</packagereq>
-      <packagereq type="default">rubygem-bundler-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
