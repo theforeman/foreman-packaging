@@ -73,6 +73,7 @@
       <packagereq type="default">rubygem-dynflow</packagereq>
       <packagereq type="default">rubygem-graphite-api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
+      <packagereq type="default">rubygem-jenkins_api_client</packagereq>
       <packagereq type="default">rubygem-jgrep</packagereq>
       <packagereq type="default">rubygem-less</packagereq>
       <packagereq type="default">rubygem-less-rails</packagereq>
@@ -140,6 +141,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
+      <packagereq type="default">rubygem-jenkins_api_client-doc</packagereq>
       <packagereq type="default">rubygem-jgrep-doc</packagereq>
       <packagereq type="default">rubygem-less-doc</packagereq>
       <packagereq type="default">rubygem-less-rails-doc</packagereq>

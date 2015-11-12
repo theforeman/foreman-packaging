@@ -45,6 +45,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
+      <packagereq type="default">tfm-rubygem-jenkins_api_client</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
@@ -173,6 +174,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-jenkins_api_client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-less-doc</packagereq>
       <packagereq type="default">tfm-rubygem-less-rails-doc</packagereq>
