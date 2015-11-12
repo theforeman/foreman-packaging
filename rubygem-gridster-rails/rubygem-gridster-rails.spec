@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 12 2015 Dominic Cleal <dcleal@redhat.com> 0.5.6-1
+- Update gridster-rails to 0.5.6 (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-5
 - Converted to tfm SCL (dcleal@redhat.com)
 
