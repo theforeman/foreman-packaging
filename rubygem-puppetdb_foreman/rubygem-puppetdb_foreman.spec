@@ -82,6 +82,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Fri Nov 13 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- plugins:puppetdb_foreman - Release 0.2.0 (elobatocs@gmail.com)
+
 * Tue Nov 11 2014 Daniel Lobato <dlobatog@redhat.com> 0.1.2-1
 - Update to v0.1.2 (dlobatog@redhat.com)
 - Better error handling for dashboard
