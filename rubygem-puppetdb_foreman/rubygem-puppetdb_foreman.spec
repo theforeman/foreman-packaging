@@ -83,6 +83,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Fri Nov 13 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- plugins:puppetdb_foreman - Release 0.2.0 (elobatocs@gmail.com)
+
 * Mon Oct 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.3-1
 - plugins:puppetdb_foreman - Release 0.1.3 (elobatocs@gmail.com)
 - Add foremandist macro (dcleal@redhat.com)
