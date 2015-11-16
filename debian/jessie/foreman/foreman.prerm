@@ -9,7 +9,7 @@ set -e
 
 #DEBHELPER#
 
-if [ -f /usr/share/foreman/config/initializers/local_secret_token.rb ]; then
+if [ -f /usr/share/foreman/config/initializers/local_secret_token.rb -a "x$1" = xremove ]; then
   rm -f /usr/share/foreman/config/initializers/local_secret_token.rb
 fi
 
