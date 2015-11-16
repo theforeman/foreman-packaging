@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Nov 16 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-1
+- Update deface to 1.0.2 (dcleal@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-1
 - Update deface to 1.0.1 (dcleal@redhat.com)
 
