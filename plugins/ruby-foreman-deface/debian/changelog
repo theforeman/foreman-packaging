@@ -1,3 +1,10 @@
+ruby-foreman-deface (1.0.2-1) stable; urgency=low
+
+  * 1.0.2 released
+  * Fix Bundler update in postinst
+
+ -- Dominic Cleal <dcleal@redhat.com>  Mon, 16 Nov 2015 08:23:41 +0000
+
 ruby-foreman-deface (1.0.1) stable; urgency=low
 
   * Update to 1.0.1
