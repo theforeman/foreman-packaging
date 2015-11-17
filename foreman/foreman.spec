@@ -104,6 +104,9 @@ Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.34.0
+Requires: %{?scl_prefix}rubygem(net-scp)
+Requires: %{?scl_prefix}rubygem(net-ssh) < 3
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -170,6 +173,9 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.34.0
+BuildRequires: %{?scl_prefix}rubygem(net-scp)
+BuildRequires: %{?scl_prefix}rubygem(net-ssh) < 3
 # assets
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
@@ -289,9 +295,7 @@ Meta Package to install requirements for ovirt support
 %package compute
 Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.34.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.32.1
-Requires: %{?scl_prefix}rubygem(net-ssh) < 3
+Requires: %{?scl_prefix}rubygem(fog) = 1.36.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
