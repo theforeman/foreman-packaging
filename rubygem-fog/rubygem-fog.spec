@@ -6,8 +6,8 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.34.0
-Release: 2%{?dist}
+Version: 1.36.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -27,13 +27,15 @@ Patch12: fog-no-riakcs.patch
 Patch13: fog-no-local.patch
 Patch14: fog-no-powerdns.patch
 Patch15: fog-no-dynect.patch
+Patch16: fog-no-aliyun.patch
 
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.6.0
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
-Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0.2
+Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-json)
+Requires: %{?scl_prefix}rubygem(fog-xenserver)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
@@ -51,8 +53,9 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(fog-aws) >= 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(fog-google) >= 0.0.2
+BuildRequires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
+BuildRequires: %{?scl_prefix}rubygem(fog-xenserver)
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
@@ -130,6 +133,8 @@ sed -i '/add_.*dependency.*fog-local/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*powerdns/d' %{gem_name}.gemspec
 %patch15 -p1
 sed -i '/add_.*dependency.*dynect/d' %{gem_name}.gemspec
+%patch16 -p1
+sed -i '/add_.*dependency.*aliyun/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}
