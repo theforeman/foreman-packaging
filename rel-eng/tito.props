@@ -125,6 +125,7 @@ whitelist = foreman
   rubygem-fog-google
   rubygem-fog-json
   rubygem-fog-libvirt
+  rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-foremancli
   rubygem-foreman_api

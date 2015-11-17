@@ -67,6 +67,7 @@
       <packagereq type="default">tfm-rubygem-fog-google</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
       <packagereq type="default">tfm-rubygem-foreigner</packagereq>
       <packagereq type="default">tfm-rubygem-foremancli</packagereq>
