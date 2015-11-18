@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.7.6-3) stable; urgency=low
+
+  * Fix Bundler update in postinst
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 18 Nov 2015 11:55:57 +0000
+
 ruby-foreman-tasks (0.7.6-2) stable; urgency=low
 
   * Roll dynflow and dependent gems into foreman-tasks
