@@ -25,13 +25,13 @@ BUNDLE=bundle
 export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  if $BUNDLE show $PLUGIN >/dev/null 2>&1; then
+  if [ -n "$2" ] ; then
     $BUNDLE update $PLUGIN --local
   else
     $BUNDLE install --local --no-prune
   fi
 else
-  if $BUNDLE show $PLUGIN >/dev/null 2>&1; then
+  if [ -n "$2" ] ; then
     $BUNDLE update $PLUGIN --local 2>&1 >> $LOGFILE
   else
     $BUNDLE install --local --no-prune 2>&1 >> $LOGFILE
