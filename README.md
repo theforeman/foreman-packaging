@@ -77,7 +77,7 @@ lzap's [sbu utility](https://github.com/lzap/bin-public/blob/master/sbu) is
 good for building test packages, especially with sources from elsewhere:
 
 1. sbu (defaults for EL6 with SCL)
-1. sbu katello fc19 foreman-nightly-fedora19
+1. sbu katello fc21 foreman-nightly-fedora21
 1. sbu katello el6 foreman-nightly-nonscl-rhel6
 
 Most packages should build for EL6 with SCL and Fedora 19.
@@ -113,7 +113,7 @@ You'll also need an alias `kojikat` to point to:
 1. Download the source file (e.g. the .gem) into the spec directory and run
    `git annex add foo.gem`
 1. Update rel-eng/tito.props
-  * If building for Fedora, add to the "foreman-nightly-fedora19" whitelist
+  * If building for Fedora, add to the "foreman-nightly-fedora21" whitelist
   * If building non-SCL *only*, add to the "foreman-nightly-rhel+" blacklist
   * If building SCL EL6 only, no action required
 1. Update comps/comps-foreman-\*.xml

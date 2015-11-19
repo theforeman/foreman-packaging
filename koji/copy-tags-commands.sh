@@ -10,7 +10,7 @@ fi
 OLD=$1
 VERSION=$2
 
-NONSCL_SYSTEMS="fedora19"
+NONSCL_SYSTEMS="fedora21"
 SCL_SYSTEMS="rhel6 rhel7"
 
 clone() {
