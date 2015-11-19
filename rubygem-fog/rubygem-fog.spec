@@ -69,6 +69,11 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(fog) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
+Obsoletes: %{?scl:ruby193-}rubygem-fog-brightbox
+Obsoletes: %{?scl:ruby193-}rubygem-fog-radosgw
+Obsoletes: %{?scl:ruby193-}rubygem-fog-sakuracloud
+Obsoletes: %{?scl:ruby193-}rubygem-fog-softlayer
+
 %description
 The Ruby cloud services library. Supports all major cloud providers including
 AWS, Rackspace, Linode, Blue Box, StormOnDemand, and many others. Full support
