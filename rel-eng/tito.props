@@ -117,16 +117,14 @@ whitelist = foreman
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-apipie-rails
-  rubygem-ansi
   rubygem-apipie-bindings
   rubygem-autoparse
   rubygem-bootstrap-sass
-  rubygem-bundler_ext
   rubygem-clamp
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
-  rubygem-faraday
+  rubygem-fast_gettext
   rubygem-flot-rails
   rubygem-fog
   rubygem-fog-aws
@@ -138,15 +136,12 @@ whitelist = foreman
   rubygem-fog-xml
   rubygem-foremancli
   rubygem-foreman_api
-  rubygem-fast_gettext
   rubygem-friendly_id
-  rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
   rubygem-gridster-rails
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
-  rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode
   rubygem-i18n
@@ -161,28 +156,21 @@ whitelist = foreman
   rubygem-librarian-puppet
   rubygem-multi_json
   rubygem-multi-select-rails
-  rubygem-mysql
-  rubygem-mysql2
   rubygem-net-ldap
-  rubygem-net-scp
-  rubygem-nokogiri
   rubygem-po_to_json
   rubygem-powerbar
+  rubygem-protected_attributes
   rubygem-quiet_assets
   rubygem-rabl
   rubygem-rack-jsonp
   rubygem-rails-i18n
-  rubygem-rbvmomi
   rubygem-rbovirt
   rubygem-retriable
-  rubygem-ruby2ruby
-  rubygem-ruby_parser
   rubygem-rubyipmi
   rubygem-safemode
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-select2-rails
-  rubygem-sexp_processor
   rubygem-signet
   rubygem-spice-html5-rails
   rubygem-strong_parameters
@@ -190,7 +178,6 @@ whitelist = foreman
   rubygem-therubyracer
   rubygem-turbolinks
   rubygem-underscore-rails
-  rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
 
 [foreman-plugins-nightly-rhel6]
@@ -387,14 +374,11 @@ whitelist = rubygem-algebrick
   rubygem-commonjs
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
-  rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
-  rubygem-jgrep
   rubygem-newt
-  rubygem-opennebula
   rubygem-openscap
   rubygem-foreman_abrt
   rubygem-foreman_bootdisk
@@ -442,7 +426,6 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-puppetdb_foreman
-  rubygem-safe_yaml
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
