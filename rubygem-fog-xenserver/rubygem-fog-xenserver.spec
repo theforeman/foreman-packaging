@@ -70,3 +70,6 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Nov 20 2015 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
+- new package built with tito
+
