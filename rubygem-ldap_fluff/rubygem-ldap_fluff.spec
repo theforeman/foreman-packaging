@@ -83,6 +83,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 20 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
+- Update ldap_fluff to 0.4.0 (dcleal@redhat.com)
+
 * Wed Sep 09 2015 Dominic Cleal <dcleal@redhat.com> 0.3.7-1
 - Update ldap_fluff to 0.3.7 (dcleal@redhat.com)
 
