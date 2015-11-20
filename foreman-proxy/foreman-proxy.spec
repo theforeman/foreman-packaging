@@ -129,7 +129,7 @@ install -Dp -m0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 mkdir -p %{buildroot}%{_sbindir}
 install -m 0755 sbin/foreman-prepare-realm %{buildroot}%{_sbindir}/foreman-prepare-realm
-cp -p -r bin extra lib modules Rakefile Gemfile.in bundler.d config.ru VERSION %{buildroot}%{_datadir}/%{name}
+cp -p -r bin extra lib modules Rakefile Gemfile.in smart_proxy.gemspec bundler.d config.ru VERSION %{buildroot}%{_datadir}/%{name}
 chmod a+x %{buildroot}%{_datadir}/%{name}/bin/smart-proxy
 rm -rf %{buildroot}%{_datadir}/%{name}/*.rb
 
