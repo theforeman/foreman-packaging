@@ -189,6 +189,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Fri Nov 20 2015 Dominic Cleal <dcleal@redhat.com> 1.36.0-1
+- Update fog to 1.36.0 (dcleal@redhat.com)
+
 * Thu Nov 19 2015 Dominic Cleal <dcleal@redhat.com> 1.34.0-2
 - Obsolete old Fog packages, #12509 (dcleal@redhat.com)
 
