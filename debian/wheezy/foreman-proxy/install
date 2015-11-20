@@ -9,6 +9,7 @@ lib                       usr/share/foreman-proxy
 modules                   usr/share/foreman-proxy
 public                    usr/share/foreman-proxy
 Rakefile                  usr/share/foreman-proxy
+smart_proxy.gemspec       usr/share/foreman-proxy
 tasks                     usr/share/foreman-proxy
 VERSION                   usr/share/foreman-proxy
 views                     usr/share/foreman-proxy
