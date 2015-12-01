@@ -168,6 +168,9 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
+%exclude %{_datadir}/%{name}/bundler.d/development.rb
+%exclude %{_datadir}/%{name}/bundler.d/test.rb
+%exclude %{_datadir}/%{name}/bundler.d/windows.rb
 %{_sbindir}/foreman-prepare-realm
 %{_mandir}/man8
 %if 0%{?el6}
