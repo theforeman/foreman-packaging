@@ -1,3 +1,9 @@
+ruby-foreman-templates (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Wed, 02 Dec 2015 11:35:42 +0000
+
 ruby-foreman-templates (2.0.0) stable; urgency=low
 
   * 2.0.0 released
