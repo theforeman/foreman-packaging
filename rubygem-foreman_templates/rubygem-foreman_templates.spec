@@ -99,6 +99,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 02 2015 Dominic Cleal <dcleal@redhat.com> 2.0.1-1
+- Update foreman_templates to 2.0.1 (dcleal@redhat.com)
+- Add foremandist macro (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
