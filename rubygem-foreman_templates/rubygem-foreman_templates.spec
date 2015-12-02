@@ -17,7 +17,7 @@
 
 Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.0
+Version:    2.0.1
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
