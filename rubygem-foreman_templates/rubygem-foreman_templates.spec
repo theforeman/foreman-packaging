@@ -97,6 +97,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 02 2015 Dominic Cleal <dcleal@redhat.com> 2.0.1-1
+- Update foreman_templates to 2.0.1 (dcleal@redhat.com)
+
 * Mon Jul 06 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
 - Update foreman_templates to 2.0.0 (dcleal@redhat.com)
 
