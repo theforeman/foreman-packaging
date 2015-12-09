@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.0.8-2) stable; urgency=low
+
+  * corrected ruby-net-ssh version constraint
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 09 Dec 2015 21:36:27 +0100
+
 ruby-smart-proxy-remote-execution-ssh (0.0.8-1) stable; urgency=low
 
   * 0.0.8 released
