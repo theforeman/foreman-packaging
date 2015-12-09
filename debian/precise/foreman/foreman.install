@@ -22,6 +22,7 @@ extras/dbmigrate                         usr/share/foreman/extras
 extras/ignored_environments.yml.sample   usr/share/foreman/extras
 extras/noVNC                             usr/share/foreman/extras
 extras/rdoc                              usr/share/foreman/extras
+bundler.d/jsonp.rb                       usr/share/foreman/bundler.d
 debian/debian.rb                         usr/share/foreman/bundler.d
 public                                   var/lib/foreman
 db                                       var/lib/foreman
