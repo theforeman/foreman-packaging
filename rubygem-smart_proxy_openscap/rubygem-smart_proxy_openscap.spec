@@ -118,6 +118,9 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 
 %changelog
+* Thu Dec 10 2015 Dominic Cleal <dcleal@redhat.com> 0.5.1-1
+- smart_proxy_openscap version 0.5.1 (shlomi@ben-hanna.com)
+
 * Fri Nov 06 2015 Dominic Cleal <dcleal@redhat.com> 0.5.0-1
 - smart_proxy_openscap 0.5.0 (shlomi@ben-hanna.com)
 
