@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.5.1-1) stable; urgency=low
+
+  * 0.5.1 release
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 14 Dec 2015 19:59:23 +0100
+
 ruby-hammer-cli-foreman (0.4.0-1) stable; urgency=low
 
   * 0.4.0 release
