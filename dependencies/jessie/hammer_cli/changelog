@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.5.0-1) stable; urgency=low
+
+  * 0.5.0 release
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 14 Dev 2015 19:59:23 +0100
+
 ruby-hammer-cli (0.4.0-1) stable; urgency=low
 
   * 0.4.0 release
