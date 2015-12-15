@@ -9,7 +9,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
+Version: 0.5.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -115,6 +115,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 15 2015 Tomas Strachota <tstrachota@redhat.com> 0.5.1-1
+- Update hammer_cli to 0.5.1 (tstrachota@redhat.com)
+
 * Wed Oct 07 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-1
 - Update hammer_cli to 0.4.0 (dcleal@redhat.com)
 
