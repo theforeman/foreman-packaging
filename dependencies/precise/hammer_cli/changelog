@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.5.1-1) stable; urgency=low
+
+  * 0.5.1 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Tue, 15 Dec 2015 15:04:37 +0000
+
 ruby-hammer-cli (0.5.0-1) stable; urgency=low
 
   * 0.5.0 release
