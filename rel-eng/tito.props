@@ -142,7 +142,7 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode
   rubygem-i18n
-  rubygem-jquery_pwstrength_bootstrap
+  rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt

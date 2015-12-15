@@ -88,7 +88,7 @@
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
@@ -253,7 +253,7 @@
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
       <packagereq type="default">tfm-rubygem-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>

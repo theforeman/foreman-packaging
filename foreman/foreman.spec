@@ -193,8 +193,8 @@ BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
 BuildRequires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
-BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
+BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
@@ -373,8 +373,8 @@ Requires: %{?scl_prefix}rubygem(multi-select-rails) >= 0.9
 Requires: %{?scl_prefix}rubygem(multi-select-rails) < 1.0
 Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
 Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
-Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) >= 1.2
-Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap) < 2.0
+Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
+Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
