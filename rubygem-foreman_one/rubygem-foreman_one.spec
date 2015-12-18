@@ -101,6 +101,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Dec 18 2015 Dominic Cleal <dcleal@redhat.com> 0.4-1
+- update foreman_one to 0.4 (kvedulv@kvedulv.de)
+
 * Wed Aug 13 2014 Dominic Cleal <dcleal@redhat.com> 0.2-1
 - new package built with tito
 
