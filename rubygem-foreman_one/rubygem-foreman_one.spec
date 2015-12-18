@@ -18,15 +18,14 @@
 
 Summary:    Provision and manage OpenNebula VMs from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2
+Version:    0.4
 Release:    1%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-one
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman-compute >= 1.6.0
-Requires:   %{?scl_prefix}rubygem(fog) >= 1.23.0
+Requires:   foreman-compute >= 1.8.0
 Requires:   %{?scl_prefix}rubygem(opennebula) >= 4.4.0
 
 %if 0%{?fedora} > 18
@@ -98,6 +97,7 @@ GEMFILE
 %exclude %{gem_cache}
 
 %files doc
+%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
 %changelog
