@@ -72,6 +72,9 @@ cp -pa .%{gem_instdir}/settings.d/chef.yml.example %{buildroot}%{foreman_proxy_s
 %doc %{gem_docdir}
 
 %changelog
+* Fri Dec 18 2015 Dominic Cleal <dcleal@redhat.com> 0.1.6-1
+- Update smart_proxy_chef to 0.1.6 (mhulan@redhat.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-1
 - Update smart_proxy_chef to 0.1.5 (mhulan@redhat.com)
 
