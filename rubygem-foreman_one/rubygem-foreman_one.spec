@@ -103,6 +103,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Dec 18 2015 Dominic Cleal <dcleal@redhat.com> 0.4-1
+- update foreman_one to 0.4 (kvedulv@kvedulv.de)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
