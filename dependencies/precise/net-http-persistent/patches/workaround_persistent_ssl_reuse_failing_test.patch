@@ -1,0 +1,17 @@
+Description: Fix FTBFS with OpenSSL 1.0.1
+ Using a key stricly greater than 745.
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=665255
+Bug: https://github.com/drbrain/net-http-persistent/issues/25
+Origin: vendor
+
+--- a/test/test_net_http_persistent_ssl_reuse.rb
++++ b/test/test_net_http_persistent_ssl_reuse.rb
+@@ -21,7 +21,7 @@
+   def setup
+     @name = OpenSSL::X509::Name.parse 'CN=localhost'
+ 
+-    @key = OpenSSL::PKey::RSA.new 512
++    @key = OpenSSL::PKey::RSA.new 1024
+ 
+     @cert = OpenSSL::X509::Certificate.new
+     @cert.version = 2

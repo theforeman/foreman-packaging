@@ -1,0 +1,2 @@
+skip_tests_requiring_net_connectivity
+workaround_persistent_ssl_reuse_failing_test.patch
