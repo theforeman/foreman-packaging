@@ -112,7 +112,7 @@ mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
 install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
 %else
 install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{sysconfig_dir}/%{service_name}
-install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
+install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
 %endif
 mkdir -p %{buildroot}%{bin_dir}
 ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
