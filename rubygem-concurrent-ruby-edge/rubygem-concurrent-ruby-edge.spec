@@ -5,8 +5,8 @@
 
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 5%{?dist}
+Version: 0.2.0
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,6 +16,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.1.0
 
 %if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -37,7 +39,6 @@ promises, thread pools, actors, supervisors, and more. Inspired by
 Erlang, Clojure, Go, JavaScript, actors, and classic concurrency
 patterns.
 
-
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
@@ -47,7 +48,6 @@ BuildArch: noarch
 
 %description doc
 Documentation for %{pkg_name}
-
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
