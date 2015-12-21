@@ -235,6 +235,12 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Dec 21 2015 Dominic Cleal <dcleal@redhat.com> 2.0-1
+- Change to use rh-ror41, rh-ruby22 collections (dcleal@redhat.com)
+- Replace tfm-rubygem-sass with ror41-rubygem-sass (dcleal@redhat.com)
+- Replace tfm-rubygem-sprockets with ror41-rubygem-sprockets
+  (dcleal@redhat.com)
+
 * Tue Apr 28 2015 Dominic Cleal <dcleal@redhat.com> - 1.1-1
 - Add tfm-ruby/rake wrappers to bindir
 
