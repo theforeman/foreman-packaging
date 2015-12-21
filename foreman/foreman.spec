@@ -448,8 +448,8 @@ Meta Package to install requirements for mysql2 support
 %package postgresql
 Summary: Foreman Postgresql support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(pg) >= 0.11
-Requires: %{?scl_prefix}rubygem(pg) < 1.0
+Requires: %{?scl_prefix}rubygem(pg) >= 0.15.0
+Requires: %{?scl_prefix}rubygem(pg) < 0.16.0
 Requires: %{name} = %{version}-%{release}
 
 %description postgresql
