@@ -244,6 +244,7 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
+  rubygem-parse-cron
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
   rubygem-wicked
@@ -329,6 +330,7 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
+  rubygem-parse-cron
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
   rubygem-wicked
@@ -423,6 +425,7 @@ whitelist = rubygem-algebrick
   rubygem-less-rails
   rubygem-logify
   rubygem-ovirt_provision_plugin
+  rubygem-parse-cron
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
   rubygem-satyr
