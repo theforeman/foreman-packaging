@@ -12,7 +12,7 @@ License: Apache 2.0
 URL: http://github.com/mdub/clamp
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?scl:1} || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else

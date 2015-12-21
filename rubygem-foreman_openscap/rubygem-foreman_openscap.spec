@@ -10,7 +10,6 @@
 
 %global gem_name foreman_openscap
 
-%define rubyabi 1.9.1
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
@@ -26,17 +25,12 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.11.0
 
 Requires: scap-security-guide
-Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
+
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-Requires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: foreman-assets >= 1.7.0

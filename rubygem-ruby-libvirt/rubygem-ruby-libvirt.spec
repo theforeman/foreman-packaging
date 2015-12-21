@@ -3,7 +3,6 @@
 
 # Generated from ruby-libvirt-0.4.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby-libvirt
-%global rubyabi 1.9.1
 
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,10 +12,10 @@ Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: libvirt-devel
@@ -40,12 +39,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            -V \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -59,8 +55,8 @@ pushd %{buildroot}%{gem_instdir}/tests
 find -type f -name '*.rb' -print | xargs sed -i '/#!\/usr\/bin\/ruby/d'
 popd
 
-mkdir -p %{buildroot}%{gem_extdir}/lib
-mv %{buildroot}%{gem_instdir}/lib/_libvirt.so %{buildroot}%{gem_extdir}/lib/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/*.so %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
@@ -78,7 +74,7 @@ popd
 %dir %{gem_instdir}
 %doc %{gem_instdir}/COPYING
 %{gem_libdir}
-%{gem_extdir}
+%{gem_extdir_mri}
 %exclude %{gem_cache}
 %{gem_spec}
 

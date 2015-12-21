@@ -4,8 +4,6 @@
 # Generated from uuidtools-2.1.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name uuidtools
 
-%global rubyabi 1.9.1
-
 Summary: A simple universally unique ID generation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.3
@@ -15,12 +13,12 @@ License: MIT
 URL: http://uuidtools.rubyforge.org/
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-core)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-mocks)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec-expectations)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-core)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-mocks)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec-expectations)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}

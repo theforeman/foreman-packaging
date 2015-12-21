@@ -15,22 +15,17 @@ License: MIT
 URL: https://github.com/net-ssh/net-ssh-multi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Patch0: rubygem-net-ssh-multi-1.2.0-minitest.patch
-%if 0%{?fedora} >= 19
 Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5
 Requires: %{?scl_prefix}rubygem(net-ssh-gateway) >= 1.2.0
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 %if 0%{?enable_check}
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh-gateway)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
 %endif
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

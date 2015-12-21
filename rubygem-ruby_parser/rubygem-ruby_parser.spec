@@ -20,17 +20,9 @@ Source1: pt_testcase.rb
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
 Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0

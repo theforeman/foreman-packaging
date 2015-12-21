@@ -3,12 +3,9 @@
 %{!?scl:%global pkg_name %{name}}
 %{?scl:%scl_package rubygem-%{gem_name}}
 
-%if 0%{?fedora} >= 19 || 0%{?rhel} >= 7
-%global gem_extdir %{gem_extdir_mri}
-%endif
+%{?gem_extdir_mri:%{!?gem_extdir:%global gem_extdir %{gem_extdir_mri}}}
 
-%if 0%{?scl:1} || 0%{?fedora} >= 19 || 0%{?rhel} >= 7
-%{!?gem_extdir:%global gem_extdir %{_libdir}/gems/exts/%{gem_name}-%{version}}
+%if 0%{!?scl:1} && (0%{?fedora} >= 19 || 0%{?rhel} >= 7)
 %global gem_extdir_lib %{gem_extdir}/lib
 %else
 %{!?gem_extdir:%global gem_extdir %(ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")}
@@ -85,12 +82,15 @@ Patch203:       rubygem-passenger-4.0.18-daemon-controller.patch
 # Change temp directory from /tmp to /var/run/rubygem-passenger
 Patch205:       rubygem-passenger-4.0.18-tmpdir.patch
 
+# Remove SIGKILL trap, for Ruby 2.2 compatibility
+Patch206:       rubygem-passenger-4.0.18-sigkill-trap.patch
+
 Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
-Requires: %{?scl_prefix_ruby}rubygem(rack)
+Requires: %{?scl_prefix_ror}rubygem(rack)
 Requires: %{?scl_prefix_ruby}rubygem(rake)
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -118,11 +118,11 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.1
-BuildRequires: %{?scl_prefix_ruby}rubygem(rack)
+BuildRequires: %{?scl_prefix_ror}rubygem(rack)
 %if %{enable_check}
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 %endif
-BuildRequires: %{?scl_prefix_ruby}rubygem(mime-types)
+BuildRequires: %{?scl_prefix_ror}rubygem(mime-types)
 # BuildRequires: source-highlight
 
 # XXX
@@ -228,6 +228,9 @@ rebuilding this package.
 # Change temp dir to /var/run
 %patch205 -p1 -b .tmpdir
 
+# Fix trap setup on Ruby 2.2
+%patch206 -p1 -b .sigkill
+
 # Don't use bundled libev
 # %{__rm} -rf ext/libev
 
@@ -274,14 +277,26 @@ rake apache2
 
 # Install the gem.
 %{?scl:scl enable %{scl} - << \EOF}
+%if 0%{?el6} && 0%{!?scl:1}
 gem install -V \
             --local \
-            --install-dir %{buildroot}%{gem_dir} \
-            --bindir %{buildroot}%{_bindir} \
+            --install-dir ./%{gem_dir} \
+            --bindir ./%{_bindir} \
             --force \
             --rdoc \
             pkg/%{gem_name}-%{version}.gem
+%else
+%gem_install -n pkg/%{gem_name}-%{version}.gem
+%endif
 %{?scl:EOF}
+
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 
 # Install locations.ini
 install -pm 0644 %{SOURCE11} %{buildroot}%{gem_instdir}/lib/phusion_passenger/
@@ -341,7 +356,8 @@ sed -i 's|\$localstatedir|%{_localstatedir}|' \
 
 # Bring over just the native binaries
 %{__mkdir_p} %{buildroot}%{gem_extdir_lib}/native
-install -m 0755 buildout/ruby/ruby*linux/passenger_native_support.so %{buildroot}%{gem_extdir_lib}/native
+touch %{buildroot}%{gem_extdir}/gem.build_complete
+install -m 0755 buildout/ruby/ruby*linux*/passenger_native_support.so %{buildroot}%{gem_extdir_lib}/native
 
 # Remove zero-length and non-needed files
 find %{buildroot}%{gem_instdir} -type f -size 0c -delete
@@ -359,8 +375,9 @@ find %{buildroot}%{gem_instdir} -type f -size 0c -delete
 
 # Patch gemspec to indicate we have extensions, so Fedora's patched rubygems
 # will add the 'exts' load path
-sed -i '/Gem::Specification.new/ a s.extensions = ["workaround"]' \
-    %{buildroot}%{gem_spec}
+sed -i -e '/# stub:/ a # stub: ext/extconf.rb' \
+       -e '/Gem::Specification.new/ a s.extensions = ["workaround"]' \
+       %{buildroot}%{gem_spec}
 
 %check
 # export USE_VENDORED_LIBEV=false
@@ -436,7 +453,8 @@ rake test --trace ||:
 
 %files native-libs
 %dir %{gem_extdir}
-%{gem_extdir_lib}
+%{gem_extdir}/gem.build_complete
+%{gem_extdir_lib}/native
 
 %changelog
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.9

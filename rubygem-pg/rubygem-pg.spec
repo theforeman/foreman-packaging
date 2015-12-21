@@ -3,30 +3,29 @@
 
 # Generated from pg-0.11.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name pg
-%global rubyabi 1.9.1
 
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.2
-Release: 9%{?dist}
+Version: 0.15.1
+Release: 1%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
 # The portions of the code that are BSD-licensed are licensed under
 # the BSD 3-Clause license; the contents of the BSD file are incorrect.
 #
-License: (GPLv2 or Ruby) and BSD
+License: (GPLv2 or Ruby) and PostgreSQL
 URL: http://bitbucket.org/ged/ruby-pg/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: postgresql-server postgresql-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(rspec)
+BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 # Introduced in F17.
 Obsoletes: %{?scl_prefix}ruby(postgres) <= 0.7.9-2010.01.28.2
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -45,34 +44,44 @@ Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            -V --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{gem_extdir}/lib
+mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mv %{buildroot}%{gem_libdir}/pg_ext.so %{buildroot}%{gem_extdir}/lib
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
 
 # Remove useless shebangs.
-sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_libdir}/pg.rb
-sed -i -e '/^#!rake/d' %{buildroot}%{gem_instdir}/Rakefile
+sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
+sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile.cross
+
+# Files under %%{gem_libdir} are not executable.
+for file in `find %{buildroot}%{gem_libdir} -type f -name "*.rb"`; do
+    sed -i '/^#!\/usr\/bin\/env/ d' $file \
+    && chmod -v 644 $file
+done
+
+# Fix shebangs and executable bits of samples.
+for file in `find %{buildroot}%{gem_instdir}/sample -type f -name "*.rb"`; do
+    sed -i -e '/^#!\/usr\/bin\/env/ s/.*/#!\/usr\/bin\/ruby/' $file \
+    && chmod -v 755 $file
+done
 
 # Fix spec shebangs.
 # https://bitbucket.org/ged/ruby-pg/issue/74/
@@ -91,10 +100,10 @@ popd
 
 %files
 %exclude %{gem_instdir}/.gemtest
-%{gem_extdir}
+%{gem_extdir_mri}
 %dir %{gem_instdir}
-%doc %{gem_instdir}/BSD
-%doc %{gem_instdir}/GPL
+%doc %{gem_instdir}/BSDL
+%doc %{gem_instdir}/POSTGRES
 %doc %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -110,9 +119,8 @@ popd
 %{gem_instdir}/Rakefile.cross
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/README.ja.rdoc
-%doc %{gem_instdir}/README.OS_X.rdoc
-%doc %{gem_instdir}/README.windows.rdoc
-%{gem_instdir}/misc
+%doc %{gem_instdir}/README-OS_X.rdoc
+%doc %{gem_instdir}/README-Windows.rdoc
 %{gem_instdir}/sample
 %{gem_instdir}/spec
 

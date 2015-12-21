@@ -14,7 +14,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires:      %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else
@@ -24,7 +24,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
-#BuildRequires: %{?scl_prefix_ruby}rubygem-rspec
+#BuildRequires: %{?scl_prefix_ror}rubygem-rspec
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

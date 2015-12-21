@@ -4,9 +4,6 @@
 # Generated from ruby2ruby-1.2.4.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby2ruby
 
-%global rubyabi 1.9.1
-
-
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.3
@@ -20,18 +17,10 @@ Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
 Requires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0

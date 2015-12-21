@@ -11,7 +11,7 @@
 %define _url https://github.com/JEG2/highline
 %define _license GPLv2+ or Ruby
 
-# add gem dependencies, e.g. "Requires: %{?scl_prefix_ruby}rubygem(rails) > 3.2"
+# add gem dependencies, e.g. "Requires: %{?scl_prefix_ror}rubygem(rails) > 3.2"
 
 # end of EDIT
 
@@ -28,7 +28,7 @@ BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires:  %{?scl_prefix_ruby}ruby(abi)
 BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %else

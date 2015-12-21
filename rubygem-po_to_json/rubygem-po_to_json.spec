@@ -2,29 +2,20 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name po_to_json
-%global rubyabi 1.9.1
 
-Summary: Convert gettext PO files to json
+Summary: Convert gettext PO files to JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.7
-Release: 3%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/nubis/po_to_json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}rubygem(json)
-%if 0%{?fedora} > 18
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.6.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
@@ -32,9 +23,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Convert gettext PO files to json to use in your javascript app, based
-po2json.pl (by DuckDuckGo, Inc. http://duckduckgo.com/, Torsten
-Raudssus <torsten@raudss.us>.)
+Convert gettext PO files to JSON objects so that you can use it in your
+application.
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -69,8 +59,10 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/MIT-LICENSE
+%{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/LICENSE
 %{gem_instdir}/README.md
+%exclude %{gem_instdir}/spec
 
 %changelog
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.7-3

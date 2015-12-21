@@ -2,33 +2,23 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name friendly_id
-%global rubyabi 1.9.1
 
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.10.1
-Release: 2%{?dist}
+Version: 5.1.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 
-Requires: %{?scl_prefix_ruby}rubygem-activerecord >= 1:3.0
-Requires: %{?scl_prefix_ruby}rubygem-activerecord < 1:4.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0.0
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
@@ -78,12 +68,12 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/Changelog.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/WhatsNew.md
 %{gem_instdir}/bench.rb
 %{gem_instdir}/Gemfile
 %{gem_instdir}/gemfiles
-%{gem_instdir}/Guide.rdoc
+%{gem_instdir}/guide.rb
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 

@@ -12,11 +12,7 @@ Group: Development/Ruby
 License: MIT
 URL: http://tagaholic.me/hirb/
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygems

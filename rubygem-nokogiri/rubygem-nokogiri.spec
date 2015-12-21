@@ -12,14 +12,8 @@
 %global	geminstdir		%{gemdir}/gems/%{gemname}-%{mainver}%{?prever}
 
 %global	ruby19		1
-%global	rubyabi		1.9.1
 %global	gemdir		%{gem_dir}
 %global	geminstdir	%{gem_instdir}
-%if 0%{?fedora}
-%global	gemsodir	%{gem_extdir_mri}/lib
-%else
-%global	gemsodir	%{gem_extdir}/lib
-%endif
 %global	gem_name	%{gemname}
 
 # Note for packager:
@@ -38,13 +32,7 @@ Source0:	http://rubygems.org/gems/%{gemname}-%{mainver}.gem
 # ./test/html/test_element_description.rb:62 fails, as usual......
 # Patch0:		rubygem-nokogiri-1.5.0.beta3-test-failure.patch
 #Patch0:		rubygem-nokogiri-1.5.0-allow-non-crosscompile.patch
-%if 0%{?fedora} >= 19
-Requires:	%{?scl_prefix_ruby}ruby(release)
 BuildRequires:	%{?scl_prefix_ruby}ruby(release)
-%else
-Requires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-BuildRequires:	%{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires:	%{?scl_prefix_ruby}ruby(rubygems)
 ##
 ## For %%check
@@ -59,6 +47,7 @@ Obsoletes:		%{?scl_prefix}ruby-%{gemname} <= 1.5.2-2
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	%{?scl_prefix_ruby}ruby-devel
+Requires:	%{?scl_prefix_ruby}ruby(release)
 Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 Provides:	%{?scl_prefix}rubygem(%{gemname}) = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gemname}}
@@ -139,16 +128,11 @@ rm -rf tmpunpackdir
 
 %build
 mkdir -p ./%{gemdir}
-export CONFIGURE_ARGS="--with-cflags='%{optflags}'"
 # 1.6.0 needs this
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=yes
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	--install-dir ./%{gemdir} \
-	-V --force \
-	%{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 
 # Permission
@@ -168,13 +152,17 @@ cp -a ./%{gemdir}/* %{buildroot}%{gemdir}
 find %{buildroot} -name \*.orig_\* | xargs rm -vf
 
 # move arch dependent files to %%gem_extdir
-mkdir -p %{buildroot}%{gemsodir}/%{gemname}
-mv %{buildroot}%{geminstdir}/lib/%{gemname}/*.so \
-	%{buildroot}%{gemsodir}/%{gemname}/
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a ./%{gem_extdir_mri}/* %{buildroot}%{gem_extdir_mri}/
+
+pushd %{buildroot}
+rm -f .%{gem_extdir_mri}/{gem_make.out,mkmf.log}
+popd
 
 # move bin/ files
-mkdir -p %{buildroot}%{_prefix}
-mv -f %{buildroot}%{gemdir}/bin %{buildroot}%{_prefix}
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
 
 # remove all shebang
 for f in $(find %{buildroot}%{geminstdir} -name \*.rb)
@@ -221,11 +209,7 @@ popd
 %files
 %defattr(-,root, root,-)
 %{_bindir}/%{gemname}
-%if 0%{?ruby19} < 1
-%{ruby_sitearch}/%{gemname}
-%else
-%{gemsodir}/
-%endif
+%{gem_extdir_mri}/
 %dir	%{geminstdir}/
 %doc	%{geminstdir}/[A-Z]*
 #%%doc	%{geminstdir}/nokogiri_help_responses.md

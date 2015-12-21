@@ -32,6 +32,7 @@
       <packagereq type="default">rubygem-foreman_api</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
+      <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
@@ -64,7 +65,8 @@
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
-      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap</packagereq>
+      <packagereq type="default">rubygem-i18n</packagereq>
+      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
@@ -108,6 +110,7 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
+      <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
@@ -139,7 +142,8 @@
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-doc</packagereq>
-      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap-doc</packagereq>
+      <packagereq type="default">rubygem-i18n-doc</packagereq>
+      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">rubygem-jwt-doc</packagereq>

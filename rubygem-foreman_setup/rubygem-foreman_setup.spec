@@ -11,8 +11,6 @@
 
 %global gem_name foreman_setup
 
-%define rubyabi 1.9.1
-
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    3.0.2
@@ -24,18 +22,10 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.9.0
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) >= %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: foreman-plugin >= 1.9.0

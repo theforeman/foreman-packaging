@@ -1,5 +1,5 @@
 Name:     foreman-release-scl
-Version:  1
+Version:  2
 Release:  1%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
@@ -7,7 +7,8 @@ Group:    Applications/System
 License:  GPLv3+
 URL:      http://theforeman.org
 
-Requires: rhscl-ruby193-epel-%{rhel}-%{_arch}
+Requires: rhscl-rh-ruby22-epel-%{rhel}-%{_arch}
+Requires: rhscl-rh-ror41-epel-%{rhel}-%{_arch}
 Requires: rhscl-v8314-epel-%{rhel}-%{_arch}
 
 %description

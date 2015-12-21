@@ -13,12 +13,12 @@ URL: http://github.com/archiloque/rest-client
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix_ruby}rubygems
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else
 Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
-Requires: %{?scl_prefix_ruby}rubygem(mime-types) >= 1.16
+Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.16
 Requires: %{?scl_prefix}rubygem(netrc)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
@@ -37,14 +37,25 @@ microframework style of specifying actions: get, put, post, delete.
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
 
+%if 0%{?el6} && 0%{!?scl:1}
 %{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
+gem install --local --install-dir .%{gem_dir} \
+            --force --rdoc --bindir .%{_bindir} %{SOURCE0}
 %{?scl:"}
+%else
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+%endif
 
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}%{gem_dir}/bin
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %clean

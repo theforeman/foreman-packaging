@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %define gem_name graphite-api
-%global rubyabi 1.9.1
 
 Summary: Graphite API - A Simple ruby client, aggregator daemon and API tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -13,21 +12,13 @@ License: LGPLv3
 URL: https://github.com/kontera-technologies/graphite-api
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(eventmachine) >= 0.3.3
 Requires: %{?scl_prefix}rubygem(zscheduler) >= 0.0.3
 
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

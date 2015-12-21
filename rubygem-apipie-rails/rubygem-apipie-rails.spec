@@ -5,8 +5,8 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.6
-Release: 2%{?dist}
+Version: 0.3.5
+Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -18,11 +18,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 
 Requires: %{?scl_prefix_ruby}rubygems
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
@@ -83,6 +79,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rst
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/NOTICE
+%doc %{gem_instdir}/images
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Gemfile
 %{gem_instdir}/%{gem_name}.gemspec

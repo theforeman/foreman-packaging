@@ -2,7 +2,6 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name net-scp
-%global rubyabi 1.9.1
 
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -12,22 +11,14 @@ Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(net-ssh)
-%if 0%{?fedora} > 18
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi) = %{rubyabi}
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
-BuildRequires: %{?scl_prefix_ruby}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
+BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -51,16 +42,18 @@ Documentation for %{pkg_name}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %check
 pushd %{buildroot}%{gem_instdir}
 %{?scl:scl enable %{scl} "}
-# requires newer version of mocha (>= 0.13.3)
-# ruby -Ilib -Itest test/test_all.rb
+ruby -Ilib -Itest test/test_all.rb
 %{?scl:"}
 popd
 

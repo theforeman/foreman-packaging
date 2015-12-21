@@ -11,11 +11,7 @@ Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 Requires: %{?scl_prefix}rubygem(paint) >= 0.8
 Requires: %{?scl_prefix}rubygem(paint) < 1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

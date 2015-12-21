@@ -107,6 +107,7 @@ whitelist = foreman
   foreman-proxy
   foreman-selinux
   rubygem-ace-rails-ap
+  rubygem-activerecord-session_store
   rubygem-apipie-rails
   rubygem-ansi
   rubygem-apipie-bindings
@@ -140,7 +141,8 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode
-  rubygem-jquery_pwstrength_bootstrap
+  rubygem-i18n
+  rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt

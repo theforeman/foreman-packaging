@@ -12,7 +12,7 @@ License:        MIT
 URL:            http://rubyforge.org/projects/git/
 Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
-Requires:       %{?scl_prefix_ruby}ruby(abi) = 1.9.1
+Requires:       %{?scl_prefix_ruby}ruby(release)
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -22,19 +22,17 @@ Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 A package for using Git in Ruby code.
 
 %prep
+%setup -q -c -T
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-%{?scl:scl enable %{scl} - << \EOF}
-gem install --local --install-dir %{buildroot}%{gem_dir} \
-            --force --rdoc %{SOURCE0}
-%{?scl:EOF}
-
-%clean
-rm -rf %{buildroot}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %defattr(-, root, root, -)

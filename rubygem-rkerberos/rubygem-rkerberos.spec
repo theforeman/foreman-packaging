@@ -45,7 +45,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 #test
-#BuildRequires: %{?scl_prefix}rubygem(test-unit)
+#BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 #not yet in Fedora
 #BuildRequires: %{?scl_prefix}rubygem(dbi-dbrc)
 

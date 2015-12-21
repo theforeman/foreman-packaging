@@ -12,11 +12,7 @@ License: MIT
 URL: http://github.com/grosser/gettext_i18n_rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-%if 0%{?fedora} > 18
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi) = 1.9.1
-%endif
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.9.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
