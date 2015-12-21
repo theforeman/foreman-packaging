@@ -18,7 +18,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.6
+Version: 0.7.8
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -32,8 +32,10 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.8
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
+Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
 Requires: %{?scl_prefix}rubygem-sequel
 Requires: %{?scl_prefix_ruby}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(daemons)
@@ -56,8 +58,10 @@ BuildRequires: %{?scl_prefix_ruby}ruby(abi)
 %endif
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.6
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.8
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
+BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem-sequel
 BuildRequires: %{?scl_prefix_ruby}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(daemons)
