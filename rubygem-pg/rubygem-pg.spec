@@ -125,6 +125,12 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.15.1-1
+- Update pg to 0.15.1 (dcleal@redhat.com)
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Fix build errors and modernise spec (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.12.2-9
 - Converted to tfm SCL (dcleal@redhat.com)
 
