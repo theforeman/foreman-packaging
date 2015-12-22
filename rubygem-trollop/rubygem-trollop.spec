@@ -6,7 +6,7 @@
 Summary:	A command-line option parsing library for ruby
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0
-Release:	4%{?dist}
+Release:	5%{?dist}
 Group:		Applications/Productivity
 License:	GPLv2
 URL:		http://trollop.rubyforge.org/
@@ -59,6 +59,10 @@ rm -rf %{buildroot}
 %{gem_spec}
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0-5
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Fix build errors and modernise specs (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.0-4
 - Converted to tfm SCL (dcleal@redhat.com)
 
