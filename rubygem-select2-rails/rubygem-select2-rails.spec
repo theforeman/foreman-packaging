@@ -7,7 +7,7 @@ Summary: Integrate Select2 javascript library with Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.5.9.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/argerim/select2-rails
@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.5.9.3-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.5.9.3-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
