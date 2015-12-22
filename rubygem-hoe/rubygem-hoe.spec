@@ -6,7 +6,7 @@
 Summary:    	Hoe is a simple rake/rubygems helper for project Rakefiles
 Name:       	%{?scl_prefix}rubygem-%{gem_name}
 Version:    	2.12.3
-Release:    	7%{?dist}
+Release:    	8%{?dist}
 Group:      	Development/Languages
 License:    	MIT
 URL:        	http://rubyforge.org/projects/seattlerb/
@@ -140,6 +140,10 @@ popd
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-8
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Fix build errors and modernise specs (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-7
 - Converted to tfm SCL (dcleal@redhat.com)
 
