@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support XENSERVER
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-xenserver
@@ -66,6 +66,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.2.2-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Fri Nov 20 2015 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
 - new package built with tito
 
