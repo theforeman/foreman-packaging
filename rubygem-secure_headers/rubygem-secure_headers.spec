@@ -6,7 +6,7 @@
 Summary: Add easily configured browser headers to responses
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/travis.sh
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.4.1-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.4.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
