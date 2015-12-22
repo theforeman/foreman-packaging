@@ -6,7 +6,7 @@
 Summary: This gem provides jquery.gridster.js and jquery.gridster.css for your Rails 3 application
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails
@@ -71,6 +71,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.5.6-2
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Nov 12 2015 Dominic Cleal <dcleal@redhat.com> 0.5.6-1
 - Update gridster-rails to 0.5.6 (dcleal@redhat.com)
 
