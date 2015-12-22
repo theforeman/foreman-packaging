@@ -6,7 +6,7 @@
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -95,6 +95,10 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.11.6-3
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.11.6-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
