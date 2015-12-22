@@ -66,6 +66,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.0.7-1
+- Update rails-i18n to 4.0.7 (dcleal@redhat.com)
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
