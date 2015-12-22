@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Protect attributes from mass assignment in Active Record models
 Group: Development/Languages
 License: MIT
@@ -69,3 +69,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.1.3-2
+- new package built with tito
+
