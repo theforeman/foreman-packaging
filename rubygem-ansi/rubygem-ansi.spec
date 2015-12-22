@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   5%{?dist}
+Release:   6%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.4.3-6
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.4.3-5
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
