@@ -131,6 +131,10 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.0.6-1
+- Update eventmachine to 1.0.6 (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.12.10-10
 - Converted to tfm SCL (dcleal@redhat.com)
 
