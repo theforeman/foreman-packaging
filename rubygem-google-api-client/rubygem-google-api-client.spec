@@ -6,7 +6,7 @@
 Summary: Google API Ruby Client makes it trivial to access supported APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/google/google-api-ruby-client
@@ -93,6 +93,10 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.8.2-3
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.8.2-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
