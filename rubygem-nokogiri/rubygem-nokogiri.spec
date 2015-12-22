@@ -24,7 +24,7 @@
 Summary:	An HTML, XML, SAX, and Reader parser
 Name:		%{?scl_prefix}rubygem-%{gemname}
 Version:	%{mainver}
-Release:  1%{?dist}
+Release:  2%{?dist}
 Group:		Development/Languages
 License:	MIT
 URL:		http://nokogiri.rubyforge.org/nokogiri/
@@ -244,6 +244,10 @@ popd
 %endif
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.6.6.2-2
+- Fix build errors and modernise specs (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 1.6.6.2-1
 - Update nokogiri to 1.6.6.2 (dcleal@redhat.com)
 
