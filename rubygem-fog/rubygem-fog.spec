@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.36.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -181,6 +181,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.36.0-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Fri Nov 20 2015 Dominic Cleal <dcleal@redhat.com> 1.36.0-1
 - Update fog to 1.36.0 (dcleal@redhat.com)
 
