@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support Google
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-google
@@ -70,6 +70,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
 - Update fog-google to 0.1.0 (elobatocs@gmail.com)
 
