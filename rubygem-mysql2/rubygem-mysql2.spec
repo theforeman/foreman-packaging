@@ -9,7 +9,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://mysql-win.rubyforge.org
@@ -90,6 +90,9 @@ find %{buildroot} -type f -name *.o -exec rm -f {} +
 %{gem_instdir}/spec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-4
+- 
+
 * Tue Nov 10 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-3
 - Remove version dependency on rubygems (ewoud@kohlvanwijngaarden.nl)
 
