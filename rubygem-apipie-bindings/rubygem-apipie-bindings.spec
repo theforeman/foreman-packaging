@@ -6,7 +6,7 @@
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.14
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: http://github.com/Apipie/apipie-bindings
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.0.14-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.14-1
 - update apipie-bindings to 0.0.14 (kvedulv@kvedulv.de)
 
