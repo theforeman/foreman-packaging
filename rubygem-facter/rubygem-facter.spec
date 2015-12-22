@@ -6,7 +6,7 @@
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
 URL: https://puppetlabs.com/%{gem_name}
@@ -93,6 +93,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.4.0-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.4.0-2
 - new package built with tito
 
