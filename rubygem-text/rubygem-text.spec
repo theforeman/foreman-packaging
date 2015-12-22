@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.3.0
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT
@@ -105,6 +105,10 @@ popd
 %exclude	%{gem_instdir}/test/
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.3.0-4
+- Fix build errors and modernise specs (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.3.0-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
