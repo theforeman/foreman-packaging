@@ -7,7 +7,7 @@
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/bluemonk/ipaddress
@@ -85,6 +85,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.8.0-9
+- Refresh ruby2 conversion patch to apply (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.8.0-8
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
