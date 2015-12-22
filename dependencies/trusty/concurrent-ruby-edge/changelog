@@ -1,3 +1,9 @@
+ruby-concurrent-ruby-edge (0.2.0-1) stable; urgency=low
+
+  * 0.2.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Tue, 22 Dec 2015 00:46:59 +0100
+
 ruby-concurrent-ruby-edge (0.1.1-1) unstable; urgency=medium
 
   * Initial release
