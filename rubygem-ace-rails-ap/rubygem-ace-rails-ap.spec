@@ -6,7 +6,7 @@
 Summary: The Ajax.org Cloud9 Editor (Ace) for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/codykrieger/ace-rails-ap
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Sep 17 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-1
 - Update ace-rails-ap to 4.0.0 (dcleal@redhat.com)
 
