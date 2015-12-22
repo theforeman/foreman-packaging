@@ -80,6 +80,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/gemfiles
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.2.0-1
+- Update audited to 4.2.0 (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-4
 - Converted to tfm SCL (dcleal@redhat.com)
 
