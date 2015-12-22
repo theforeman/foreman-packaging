@@ -78,6 +78,11 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 5.1.0-1
+- Update friendly_id to 5.1.0 (dcleal@redhat.com)
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 4.0.10.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
