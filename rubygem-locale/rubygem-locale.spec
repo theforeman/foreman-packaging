@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	10%{?dist}
+Release:	11%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -162,6 +162,9 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.9-11
+- Remove touch from prep to not touch root-owned files (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.9-10
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
