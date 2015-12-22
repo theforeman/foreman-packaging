@@ -10,7 +10,7 @@
 Summary:       A script which automates a limited set of rubyforge operations
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       2.0.4
-Release:       5%{?dist}
+Release:       6%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://rubyforge.org/projects/codeforpeople
@@ -102,6 +102,9 @@ popd
 %doc %{gem_instdir}/test/
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.4-6
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.0.4-5
 - Converted to tfm SCL (dcleal@redhat.com)
 
