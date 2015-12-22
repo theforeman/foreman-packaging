@@ -71,9 +71,6 @@ gem install \
 # rm -f .%{gem_instdir}/Rakefile
 find . -name \*gem | xargs chmod 0644
 
-# fix timestamps
-find . -type f -print0 | xargs -0 touch -r %{SOURCE0}
-
 %build
 
 %install

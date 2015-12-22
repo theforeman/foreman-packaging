@@ -111,9 +111,6 @@ do
 	%{__sed} -i -e '/^#!/d' $f
 done
 
-# fix timestamps
-find . -type f -print0 | xargs -0 touch -r %{SOURCE0}
-
 %install
 %{__mkdir_p} %{buildroot}{%{gem_dir},%{_bindir}}
 
