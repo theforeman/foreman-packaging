@@ -1,1 +1,1 @@
-gem 'smart_proxy_remote_execution_ssh', '0.0.8'
+gem 'smart_proxy_remote_execution_ssh', '0.0.10'
