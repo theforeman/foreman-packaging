@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -79,6 +79,10 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.8.7-5
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.8.7-4
 - Converted to tfm SCL (dcleal@redhat.com)
 
