@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/aeolus-incubator/bundler_ext
@@ -80,6 +80,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-8
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.3.0-7
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
