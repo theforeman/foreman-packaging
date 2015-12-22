@@ -7,7 +7,7 @@
 Summary: A simple universally unique ID generation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://uuidtools.rubyforge.org/
@@ -83,6 +83,10 @@ popd
 %{gem_docdir}
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-5
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-4
 - Converted to tfm SCL (dcleal@redhat.com)
 
