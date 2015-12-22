@@ -6,7 +6,7 @@
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: http://rubygems.org/gems/logging
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.8.2-2
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
