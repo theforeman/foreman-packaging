@@ -7,7 +7,7 @@
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
@@ -100,6 +100,9 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %{gem_docdir}
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.1.3-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
