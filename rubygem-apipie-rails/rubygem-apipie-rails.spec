@@ -85,6 +85,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.3.5-1
+- Update apipie-rails to 0.3.5 (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.2.6-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
