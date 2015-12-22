@@ -491,7 +491,7 @@ plugins required for Foreman to work.
 %if %{?scl:1}%{!?scl:0}
   # shebangs
   for f in extras/rdoc/rdoc_prepare_script.rb \
-  script/rails script/performance/profiler script/performance/benchmarker script/foreman-config ; do
+  bin/* script/performance/profiler script/performance/benchmarker script/foreman-config ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
@@ -551,7 +551,7 @@ sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yu
 install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
-cp -p -r app bundler.d config config.ru extras lib locale Rakefile script %{buildroot}%{_datadir}/%{name}
+cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 
 # remove all test units from produciton release
@@ -679,6 +679,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/bundler.d/jsonp.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
+%{_datadir}/%{name}/bin
 %{_datadir}/%{name}/config*
 %{_datadir}/%{name}/db
 %{_datadir}/%{name}/extras
