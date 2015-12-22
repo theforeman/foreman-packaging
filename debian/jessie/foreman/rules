@@ -18,9 +18,8 @@ build/foreman::
 	/bin/cp config/email.yaml.example config/email.yaml
 	/usr/bin/gem install -f thor -v '0.19.1'
 	/usr/bin/bundle package
-	/usr/bin/bundle exec rake locale:pack assets:precompile
+	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
 	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
 	/bin/rm db/production.sqlite3
-	/bin/rm db/development.sqlite3
 	/bin/mkdir -p .ssh
