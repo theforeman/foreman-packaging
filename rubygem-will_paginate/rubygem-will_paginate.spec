@@ -67,6 +67,11 @@ popd
 %{gem_spec}
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.0.7-1
+- Update will_paginate to 3.0.7 (dcleal@redhat.com)
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 3.0.2-9
 - Converted to tfm SCL (dcleal@redhat.com)
 
