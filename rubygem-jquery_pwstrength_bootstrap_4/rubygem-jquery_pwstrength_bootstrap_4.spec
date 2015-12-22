@@ -23,7 +23,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem-jquery_pwstrength_bootstrap_4 < 1.2.2-3
+Obsoletes: %{?scl_prefix}rubygem-jquery_pwstrength_bootstrap < 1.2.2-3
 
 %description
 The jQuery Password Strength Meter is a plugin for Twitter Bootstrap that
