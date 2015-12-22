@@ -7,7 +7,7 @@ Summary: Unicode support for hirb
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.5
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Ruby
 License: MIT
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
@@ -68,6 +68,9 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-7
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 0.0.5-6
 - Converted to tfm SCL (dcleal@redhat.com)
 - Fixes #9703 - change %%{dist} to %%{?dist} (jmontleo@redhat.com)
