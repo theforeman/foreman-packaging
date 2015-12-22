@@ -5,7 +5,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.10.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/intridea/multi_json
@@ -89,6 +89,10 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.10.1-3
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.10.1-2
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
