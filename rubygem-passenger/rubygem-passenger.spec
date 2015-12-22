@@ -29,7 +29,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.9%{?dist}
+Release: 9.10%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -457,6 +457,11 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.10
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Fix build errors and modernise specs (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 4.0.18-9.9
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
