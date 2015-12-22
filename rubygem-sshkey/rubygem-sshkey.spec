@@ -6,7 +6,7 @@
 Summary: Generate private/public SSH keypairs using pure Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bensie/sshkey
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.6.0-4
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Aug 25 2015 Dominic Cleal <dcleal@redhat.com> 1.6.0-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
