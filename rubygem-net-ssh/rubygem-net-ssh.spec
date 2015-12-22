@@ -7,7 +7,7 @@
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.9.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
@@ -101,6 +101,10 @@ popd
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.9.2-2
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Sep 30 2015 Dominic Cleal <dcleal@redhat.com> 2.9.2-1
 - Update net-ssh to 2.9.2 (dcleal@redhat.com)
 
