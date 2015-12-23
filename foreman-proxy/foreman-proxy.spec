@@ -245,6 +245,9 @@ fi
 
 
 %changelog
+* Wed Dec 23 2015 Dominic Cleal <dcleal@redhat.com> 1.10.0-1
+- Release 1.10.0
+
 * Tue Nov 17 2015 Dominic Cleal <dcleal@redhat.com> 1.10.0-0.1.RC3
 - Release 1.10.0-RC3
 
