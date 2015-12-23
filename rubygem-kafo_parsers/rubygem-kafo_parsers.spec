@@ -11,7 +11,7 @@ Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_parsers
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix}ruby(abi)
 %else
 Requires: %{?scl_prefix}ruby(release)
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}rubygems
 
 BuildRequires: %{?scl_prefix}rubygems-devel
 
-%if "%{?scl}" == "ruby193" || (0%{?rhel} == 6 && 0%{!?scl:1})
+%if 0%{?el6} && 0%{!?scl:1}
 BuildRequires: %{?scl_prefix}ruby(abi)
 %else
 BuildRequires: %{?scl_prefix}ruby(release)
@@ -70,7 +70,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Rakefile
 # add once tests are added (maybe spec dir instead)
 #%exclude %{gem_instdir}/test
-%{gem_cache}
 %{gem_spec}
 
 %files doc
