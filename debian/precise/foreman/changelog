@@ -1,3 +1,9 @@
+foreman (1.10.0-1) stable; urgency=low
+
+  * 1.10.0 released
+
+ -- Dominic Cleal <dcleal@redhat.com>  Wed, 23 Dec 2015 08:06:53 +0000
+
 foreman (1.10.0~rc3-1) stable; urgency=low
 
   * 1.10.0-RC3 released
