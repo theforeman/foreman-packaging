@@ -6,7 +6,7 @@
 
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.8
+Version: 0.0.10
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -19,7 +19,7 @@ Requires: rubygem(smart_proxy_dynflow) < 0.1.0
 
 Requires: ruby(rubygems)
 Requires: ruby
-Requires: rubygem(net-ssh) <= 2.10.0
+Requires: rubygem(net-ssh)
 Requires: rubygem(net-scp)
 
 %if 0%{?rhel} == 6
