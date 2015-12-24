@@ -6,7 +6,7 @@
 Summary: Add color methods to String class
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/fazibear/colorize
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-3
+- 
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
