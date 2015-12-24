@@ -18,7 +18,7 @@
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.1
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-digitalocean
@@ -87,6 +87,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Oct 28 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
 - plugins:foreman_digitalocean - Release 0.2.1 (elobatocs@gmail.com)
 - Add foremandist (dcleal@redhat.com)
