@@ -18,7 +18,7 @@
 Summary:    Foreman plugin to provision new hosts and integrate to oVirt Engine
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.1
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/ovirt_provision_plugin
@@ -94,6 +94,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- More foremandist macros (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
