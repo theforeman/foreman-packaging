@@ -18,7 +18,7 @@
 Summary:    Plugin to improve storage of custom information in parameters
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_custom_parameters
@@ -94,6 +94,10 @@ mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-4
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
