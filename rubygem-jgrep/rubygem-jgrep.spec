@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -86,6 +86,10 @@ rspec -Ilib spec
 
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.3.3-7
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 1.3.3-6
 - Converted to tfm SCL (dcleal@redhat.com)
 
