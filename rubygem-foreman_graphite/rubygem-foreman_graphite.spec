@@ -18,7 +18,7 @@
 Summary:    Adds graphite integration to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.3
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_graphite
@@ -100,6 +100,10 @@ mv %{buildroot}%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_plu
 exit 0
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
