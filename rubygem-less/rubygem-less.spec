@@ -7,7 +7,7 @@
 Summary: Leaner CSS, in your browser or Ruby (via less.js)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://lesscss.org
@@ -81,6 +81,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 2.5.1-4
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.5.1-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
