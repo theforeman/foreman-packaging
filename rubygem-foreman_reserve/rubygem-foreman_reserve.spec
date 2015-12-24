@@ -17,7 +17,7 @@
 Summary:    Reserve hosts via Foreman API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.8.3
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_reserve
@@ -95,6 +95,10 @@ rm -f *gemspec
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.1.8.3-4
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.8.3-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
