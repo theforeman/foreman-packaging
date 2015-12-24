@@ -6,7 +6,7 @@
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.20.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
@@ -96,6 +96,9 @@ rm -rf %{buildroot}
 %doc %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-6
+- 
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-5
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
