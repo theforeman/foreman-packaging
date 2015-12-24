@@ -18,7 +18,7 @@
 Summary:    Exposes smart class parameters lookups as an API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/domcleal/rubygem-foreman_param_lookup
@@ -93,6 +93,10 @@ GEMFILE
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
