@@ -174,6 +174,13 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.7.8-1
+- Release foreman-tasks 0.7.8 (stbenjam@redhat.com)
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Fixes #12886 - Unnecessary executable bits on service unit file
+  (seanokeeffe797@gmail.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.7.6-1
 - Release foreman-tasks 0.7.6 (RPM) (stbenjam@redhat.com)
 
