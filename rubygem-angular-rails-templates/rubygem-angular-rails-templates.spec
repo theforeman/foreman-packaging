@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   0.1.2
-Release:   3%{?dist}
+Release:   4%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -69,6 +69,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-4
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace tfm-rubygem-sprockets with ror41-rubygem-sprockets
+  (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-3
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
