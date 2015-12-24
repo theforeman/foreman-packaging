@@ -18,7 +18,7 @@
 Summary:    Provision and manage OpenNebula VMs from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-one
@@ -94,6 +94,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.4-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Fri Dec 18 2015 Dominic Cleal <dcleal@redhat.com> 0.4-1
 - update foreman_one to 0.4 (kvedulv@kvedulv.de)
 - Add foremandist to more plugins (dcleal@redhat.com)
