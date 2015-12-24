@@ -65,5 +65,5 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Mon Dec 21 2015 Stephen Benjamin <stephen@redhat.com>
+* Mon Dec 21 2015 Stephen Benjamin <stephen@redhat.com> 0.1.4-1
 - Package parse-cron gem
