@@ -6,7 +6,7 @@
 Summary: Parse YAML safely
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/dtao/safe_yaml
@@ -76,5 +76,8 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/CHANGES.md
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.4-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Tue Nov 3 2015 Ondrej Prazak <oprazak@redhat.com> - 1.0.4-1
 - Initial package
