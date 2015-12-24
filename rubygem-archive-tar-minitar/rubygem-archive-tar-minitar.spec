@@ -7,7 +7,7 @@
 Summary: Provides POSIX tar archive management from Ruby programs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 10%{?dist}
+Release: 11%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://rubyforge.org/projects/ruwiki
@@ -111,6 +111,9 @@ popd
 %{gem_docdir}
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-11
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-10
 - Use tfm-ruby for shebang line (dcleal@redhat.com)
 - Converted to tfm SCL (dcleal@redhat.com)
