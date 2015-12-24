@@ -14,7 +14,7 @@
 Summary:    Integration of Cockpit in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.3
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_cockpit
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.3-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Nov 05 2015 Dominic Cleal <dcleal@redhat.com> 1.0.3-1
 - plugins:foreman_cockpit - Release 1.0.3 (elobatocs@gmail.com)
 
