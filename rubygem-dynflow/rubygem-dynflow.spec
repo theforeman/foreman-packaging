@@ -85,6 +85,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.8.9-1
+- Update dynflow to 0.8.9 (stbenjam@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Mon Oct 12 2015 Dominic Cleal <dcleal@redhat.com> 0.8.7-1
 - Update dynflow to 0.8.7 (inecas@redhat.com)
 
