@@ -77,6 +77,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- Update concurrent-ruby-edge to 0.2.0 (stbenjam@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-5
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
