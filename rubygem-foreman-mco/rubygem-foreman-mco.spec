@@ -9,7 +9,7 @@
 Summary:    Manage remote hosts with MCollective and Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.1
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/witlessbird/foreman_mco
@@ -74,6 +74,10 @@ su - foreman -s /bin/bash -c /usr/share/foreman/extras/dbmigrate >/dev/null 2>&1
 exit 0
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.1-5
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+- Add foremandist to more plugins (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.1-4
 - Converted to tfm SCL (dcleal@redhat.com)
 
