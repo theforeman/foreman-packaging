@@ -6,7 +6,7 @@
 Summary: High performance memcached client for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.6.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/mperham/dalli
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 2.6.4-3
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.6.4-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
