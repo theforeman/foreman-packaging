@@ -7,7 +7,7 @@
 Summary: The dynamic stylesheet language for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.5.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/metaskills/less-rails
@@ -80,6 +80,10 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/test
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 2.5.0-3
+- Update dependencies to ror SCL (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 2.5.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
