@@ -15,7 +15,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
 License: GPLv3
@@ -107,6 +107,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Dec 10 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-1
 - foreman_openscap version 0.5.2 (shlomi@ben-hanna.com)
 
