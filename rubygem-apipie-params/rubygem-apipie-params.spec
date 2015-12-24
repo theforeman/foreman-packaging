@@ -6,7 +6,7 @@
 Summary: DSL for describing data structures
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/apipie-params
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-4
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-3
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
