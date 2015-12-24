@@ -17,7 +17,7 @@
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.2.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/puppetdb_foreman
@@ -74,6 +74,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Fri Nov 13 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - plugins:puppetdb_foreman - Release 0.2.0 (elobatocs@gmail.com)
 
