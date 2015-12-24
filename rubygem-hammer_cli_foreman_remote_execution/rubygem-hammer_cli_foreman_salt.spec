@@ -72,5 +72,5 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Fri Dec 11 2015 Stephen Benjamin <stephen@redhat.com> 0.0.1-1
+* Fri Dec 11 2015 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
 - Initial release
