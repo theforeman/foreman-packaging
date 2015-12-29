@@ -1,3 +1,17 @@
+ruby-foreman-templates (2.0.3-1) stable; urgency=low
+
+  * 2.0.3 released
+  * Fix rake tasks to work with Rails 4
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Fri, 08 Jan 2016 01:55:03 +0000
+
+ruby-foreman-templates (2.0.2-1) stable; urgency=low
+
+  * 2.0.2 released
+  * Rails requirement relaxed to work with Rails 4
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 29 Dec 2015 20:17:15 +0000
+
 ruby-foreman-templates (2.0.1-1) stable; urgency=low
 
   * 2.0.1 released
