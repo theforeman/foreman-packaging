@@ -36,8 +36,10 @@
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-apipie-rails</packagereq>
       <packagereq type="default">rubygem-autoparse</packagereq>
+      <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
@@ -51,6 +53,7 @@
       <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
+      <packagereq type="default">rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js</packagereq>
@@ -72,6 +75,7 @@
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-multi-select-rails</packagereq>
       <packagereq type="default">rubygem-net-ldap</packagereq>
+      <packagereq type="default">rubygem-patternfly-sass</packagereq>
       <packagereq type="default">rubygem-po_to_json</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-protected_attributes</packagereq>
@@ -83,11 +87,13 @@
       <packagereq type="default">rubygem-retriable</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
+      <packagereq type="default">rubygem-sass-rails</packagereq>
       <packagereq type="default">rubygem-scoped_search</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
       <packagereq type="default">rubygem-select2-rails</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
+      <packagereq type="default">rubygem-sprockets</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-turbolinks</packagereq>
@@ -103,8 +109,10 @@
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">rubygem-autoparse-doc</packagereq>
+      <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
@@ -118,6 +126,7 @@
       <packagereq type="default">rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
+      <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foremancli-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>
@@ -140,6 +149,7 @@
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-multi-select-rails-doc</packagereq>
       <packagereq type="default">rubygem-net-ldap-doc</packagereq>
+      <packagereq type="default">rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">rubygem-protected_attributes-doc</packagereq>
@@ -151,11 +161,13 @@
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
+      <packagereq type="default">rubygem-sass-rails-doc</packagereq>
       <packagereq type="default">rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
+      <packagereq type="default">rubygem-sprockets-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-turbolinks-doc</packagereq>

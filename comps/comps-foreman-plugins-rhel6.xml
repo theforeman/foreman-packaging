@@ -61,7 +61,6 @@
       <packagereq type="default">tfm-rubygem-archive-tar-minitar</packagereq>
       <packagereq type="default">tfm-rubygem-colorize</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
-      <packagereq type="default">tfm-rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
@@ -107,7 +106,6 @@
       <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
       <packagereq type="default">tfm-rubygem-colorize-doc</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dalli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
