@@ -70,6 +70,7 @@
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
+      <packagereq type="default">tfm-rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">tfm-rubygem-foreigner</packagereq>
       <packagereq type="default">tfm-rubygem-foremancli</packagereq>
       <packagereq type="default">tfm-rubygem-formatador</packagereq>
@@ -195,6 +196,8 @@
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
+      <packagereq type="default">rubygem-kafo-doc</packagereq>
+      <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">rubygem-locale-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
@@ -235,6 +238,7 @@
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreigner-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foremancli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-formatador-doc</packagereq>

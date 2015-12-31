@@ -136,6 +136,7 @@ whitelist = foreman
   rubygem-fog-libvirt
   rubygem-fog-xenserver
   rubygem-fog-xml
+  rubygem-font-awesome-sass
   rubygem-foremancli
   rubygem-foreman_api
   rubygem-friendly_id
