@@ -1,0 +1,5 @@
+ruby-foreman-ansible (0.2.1-1) stable; urgency=low
+
+  * Initial release.
+
+ -- Daniel Lobato Garcia <elobatocs@gmail.com>  Sat, 02 Jan 2016 11:09:49 +0200
