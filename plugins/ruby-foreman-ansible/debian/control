@@ -1,0 +1,13 @@
+Source: ruby-foreman-ansible
+Section: ruby
+Priority: extra
+Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
+Build-Depends: debhelper, foreman (>= 1.6.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_ansible
+
+Package: ruby-foreman-ansible
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.6.0)
+Description: Foreman Ansible plugin
+ Integration with Ansible in Foreman.
