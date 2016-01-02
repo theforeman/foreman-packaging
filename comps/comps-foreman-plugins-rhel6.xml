@@ -11,6 +11,7 @@
       <packagereq type="default">ruby193-rubygem-bastion</packagereq>
       <packagereq type="default">ruby193-rubygem-bastion-devel</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_abrt</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_chef</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_cockpit</packagereq>
@@ -99,6 +100,7 @@
       <packagereq type="default">ruby193-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_abrt-doc</packagereq>
+      <packagereq type="default">ruby193-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">ruby193-rubygem-foreman_cockpit-doc</packagereq>

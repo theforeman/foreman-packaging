@@ -231,6 +231,7 @@ whitelist = ipxe
   rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
+  rubygem-foreman_ansible
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
@@ -306,6 +307,7 @@ whitelist = rubygem-algebrick
   rubygem-openscap
   rubygem-opennebula
   rubygem-foreman_abrt
+  rubygem-foreman_ansible
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
@@ -380,6 +382,7 @@ whitelist = rubygem-algebrick
   rubygem-opennebula
   rubygem-openscap
   rubygem-foreman_abrt
+  rubygem-foreman_ansible
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
