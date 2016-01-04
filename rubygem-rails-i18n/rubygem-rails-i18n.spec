@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 04 2016 Dominic Cleal <dcleal@redhat.com> 4.0.8-1
+- Update rails-i18n to 4.0.8 (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.0.7-1
 - Update rails-i18n to 4.0.7 (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
