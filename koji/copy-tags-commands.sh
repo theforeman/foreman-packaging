@@ -73,11 +73,12 @@ for SYSTEM in $NONSCL_SYSTEMS $(echo $SCL_SYSTEMS | sed 's/\(^\| \)/\1nonscl-/g'
   clone $PRODUCT-$OLD-$SYSTEM $PRODUCT-$VERSION-$SYSTEM
 done
 
-# clone SCL tags, inherit core + plugin nonscl into build tags
+# clone SCL tags, inherit core + plugin nonscl + core SCL into build tags
 for SYSTEM in $SCL_SYSTEMS; do
   clone $PRODUCT-$OLD-$SYSTEM $PRODUCT-$VERSION-$SYSTEM
   echo kkoji add-tag-inheritance --priority=5 $PRODUCT-$VERSION-$SYSTEM-build $PRODUCT-$VERSION-nonscl-$SYSTEM
   echo kkoji add-tag-inheritance --priority=15 $PRODUCT-$VERSION-$SYSTEM-build foreman-$VERSION-nonscl-$SYSTEM
+  echo kkoji add-tag-inheritance --priority=25 $PRODUCT-$VERSION-$SYSTEM-build foreman-$VERSION-$SYSTEM
 done
 
 # inherit core Foreman tags into both non-SCL and SCL plugin build tags
