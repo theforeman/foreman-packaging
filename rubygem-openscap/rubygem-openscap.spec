@@ -2,7 +2,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.4.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -106,6 +106,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jan 04 2016 Dominic Cleal <dcleal@redhat.com> 0.4.3-2
+- Fix dep to install correct test framework for F21 (dcleal@redhat.com)
+
 * Fri Nov 06 2015 Dominic Cleal <dcleal@redhat.com> 0.4.3-1
 - openscap version bump to 0.4.3, changed to non-SCL (shlomi@ben-hanna.com)
 
