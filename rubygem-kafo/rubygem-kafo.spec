@@ -6,7 +6,7 @@
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 04 2016 Dominic Cleal <dcleal@redhat.com> 0.6.12-2
+- Modernise specs for ruby193/tfm change (dcleal@redhat.com)
+
 * Fri Aug 28 2015 Marek Hulan <mhulan@redhat.com> 0.6.12-1
 - Fixes output test on Ruby 1.9 (mhulan@redhat.com)
 - bump logging and highline upper version limits (kvedulv@kvedulv.de)
