@@ -6,7 +6,7 @@
 Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.0.7
+Version: 4.0.8
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
