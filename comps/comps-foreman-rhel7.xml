@@ -34,7 +34,8 @@
       <packagereq type="default">tfm-runtime</packagereq>
       <packagereq type="default">tfm-scldevel</packagereq>
 
-      <packagereq type="default">rhscl-ruby193-epel-7-x86_64</packagereq>
+      <packagereq type="default">rhscl-rh-ror41-epel-7-x86_64</packagereq>
+      <packagereq type="default">rhscl-rh-ruby22-epel-7-x86_64</packagereq>
       <packagereq type="default">rhscl-v8314-epel-7-x86_64</packagereq>
 
       <packagereq type="default">tfm-mod_passenger</packagereq>
