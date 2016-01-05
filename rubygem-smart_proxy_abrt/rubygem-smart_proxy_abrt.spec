@@ -32,7 +32,7 @@ BuildRequires: ruby(rubygems)
 
 %if 0%{?rhel}
 %else
-BuildRequires: rubygem(minitest)
+BuildRequires: rubygem(test-unit)
 BuildRequires: rubygem(mocha)
 BuildRequires: rubygem(rack-test)
 BuildRequires: rubygem(json)
