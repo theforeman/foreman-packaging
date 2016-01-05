@@ -121,6 +121,7 @@ whitelist = foreman
   rubygem-apipie-rails
   rubygem-apipie-bindings
   rubygem-autoparse
+  rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
   rubygem-deep_cloneable
