@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
+- Add foremandist to plugin dependencies (dcleal@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
 - Update concurrent-ruby-edge to 0.2.0 (stbenjam@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
