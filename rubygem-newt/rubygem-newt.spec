@@ -56,7 +56,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri_lib}/ruby_newt
-mv %{buildroot}%{gem_instdir}/lib/ruby_newt/ruby_newt.so %{buildroot}%{gem_extdir_mri_lib}/ruby_newt/ruby_newt.so
+mv %{buildroot}%{gem_instdir}/ext/ruby_newt/ruby_newt.so %{buildroot}%{gem_extdir_mri_lib}/ruby_newt/ruby_newt.so
 rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 
 %files
