@@ -77,6 +77,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.2.0-1
+- Update concurrent-ruby-edge to 0.2.0 (stbenjam@redhat.com)
+- Add foremandist to plugin dependencies (dcleal@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-5
 - Fix checks against scl name, optimise rhel/empty SCL conditional
   (dcleal@redhat.com)
