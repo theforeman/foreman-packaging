@@ -107,6 +107,8 @@ Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 Requires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 Requires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
 Requires: %{?scl_prefix}rubygem(protected_attributes) < 1.2.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.2.2
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -180,6 +182,8 @@ BuildRequires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(protected_attributes) < 1.2.0
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.2.2
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
 # assets
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
