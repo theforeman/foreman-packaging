@@ -11,7 +11,7 @@ Summary: Ruby bindings for newt
 Name: rubygem-%{gem_name}
 
 Version: 0.9.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/theforeman/ruby-newt
@@ -71,6 +71,10 @@ rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.9.6-2
+- Retrieve .so from ext/ rather than lib/ for F21 compatibility
+  (dcleal@redhat.com)
+
 * Thu Aug 20 2015 Dominic Cleal <dcleal@redhat.com> 0.9.6-1
 - Updated rubygem-newt to 0.9.6 (lzap+git@redhat.com)
 
