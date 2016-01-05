@@ -6,7 +6,7 @@
 Summary: Cron expression parser
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Languages
 
 License: MIT
@@ -65,5 +65,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.1.4-2
+- Add foremandist to plugin dependencies (dcleal@redhat.com)
+
 * Mon Dec 21 2015 Stephen Benjamin <stephen@redhat.com> 0.1.4-1
 - Package parse-cron gem
