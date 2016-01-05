@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 1%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
