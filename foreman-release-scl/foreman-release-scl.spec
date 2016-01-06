@@ -22,6 +22,9 @@ Enterprise Linux rebuilds, such as CentOS.
 %files
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2-1
+- Depend on ror41 and ruby22 collections (dcleal@redhat.com)
+
 * Mon Oct 06 2014 Dominic Cleal <dcleal@redhat.com> 1-1
 - new package built with tito
 
