@@ -7,7 +7,7 @@
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.15.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -124,6 +124,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 0.15.1-2
+- Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.15.1-1
 - Update pg to 0.15.1 (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
