@@ -98,7 +98,7 @@ Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 Requires: %{?scl_prefix}rubygem(net-scp)
-Requires: %{?scl_prefix}rubygem(net-ssh) < 3
+Requires: %{?scl_prefix}rubygem(net-ssh)
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
 Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
@@ -173,7 +173,7 @@ BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
-BuildRequires: %{?scl_prefix}rubygem(net-ssh) < 3
+BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
