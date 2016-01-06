@@ -6,16 +6,16 @@
 
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.9.2
-Release: 3%{?dist}
+Version: 3.0.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release) >= 2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release) >= 2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
@@ -97,7 +97,6 @@ popd
 %{gem_docdir}
 %{gem_instdir}/Manifest
 %{gem_instdir}/Rakefile
-%{gem_instdir}/Rudyfile
 %{gem_instdir}/test
 # Required to run tests
 %{gem_instdir}/net-ssh.gemspec
