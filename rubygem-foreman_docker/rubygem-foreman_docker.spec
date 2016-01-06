@@ -111,6 +111,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
+- plugins:foreman_docker - Release 2.0.0 (elobatocs@gmail.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 1.4.1-2
 - Converted to tfm SCL (dcleal@redhat.com)
 
