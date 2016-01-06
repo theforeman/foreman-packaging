@@ -9,7 +9,7 @@
 Summary: Foreman Remote Execution commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: http://github.com/theforeman/hammer_cli_foreman_remote_execution
@@ -72,5 +72,9 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
+- Add foremandist to plugin (dcleal@redhat.com)
+- Fix spec filename to match RPM (dcleal@redhat.com)
+
 * Fri Dec 11 2015 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
 - Initial release
