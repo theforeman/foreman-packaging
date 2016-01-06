@@ -184,6 +184,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 0.7.8-1
+- Release foreman-tasks 0.7.8 (stbenjam@redhat.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.7.6-1
 - Release foreman-tasks 0.7.6 (RPM) (stbenjam@redhat.com)
 
