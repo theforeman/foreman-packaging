@@ -18,7 +18,7 @@
 Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-docker
@@ -115,6 +115,9 @@ sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
 exit 0
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
+- Fix docker-api dependency version number in gemspec (dcleal@redhat.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.0.0-1
 - plugins:foreman_docker - Release 2.0.0 (elobatocs@gmail.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
