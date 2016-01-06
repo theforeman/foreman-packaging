@@ -13,7 +13,7 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.2
+Version:    3.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -85,6 +85,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/test
 
 %posttrans
 %foreman_db_migrate
