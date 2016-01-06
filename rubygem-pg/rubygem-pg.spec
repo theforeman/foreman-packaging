@@ -77,10 +77,9 @@ for file in `find %{buildroot}%{gem_libdir} -type f -name "*.rb"`; do
     && chmod -v 644 $file
 done
 
-# Fix shebangs and executable bits of samples.
+# Fix executable bits of samples.
 for file in `find %{buildroot}%{gem_instdir}/sample -type f -name "*.rb"`; do
-    sed -i -e '/^#!\/usr\/bin\/env/ s/.*/#!\/usr\/bin\/ruby/' $file \
-    && chmod -v 755 $file
+    chmod -v 755 $file
 done
 
 # Fix spec shebangs.

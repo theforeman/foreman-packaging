@@ -140,6 +140,10 @@ do
 	echo "%%dir ${dir#%{buildroot}}" >> %{pkg_name}-gem.lang
 done
 
+# replace shebangs to prevent SCL packages depending on non-SCL Ruby
+find %{buildroot}%{gem_instdir}/samples/ -name *.rb -exec \
+  sed -ri '1sX/usr/bin/rubyX/usr/bin/env rubyX' {} +
+
 # clean up
 rm -f %{buildroot}%{gem_instdir}/.yardopts
 

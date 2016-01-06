@@ -65,6 +65,10 @@ popd
 # remove gem "test-unit" line
 sed -i -e '/test-unit/, 1d' %{buildroot}%{gem_instdir}/test/common.rb
 
+# replace shebangs to prevent SCL packages depending on non-SCL Ruby
+find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
+  sed -ri '1sX/usr/bin/rubyX/usr/bin/env rubyX' {} +
+
 %check
 
 pushd %{buildroot}%{gem_instdir}

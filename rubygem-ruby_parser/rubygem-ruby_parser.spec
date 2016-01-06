@@ -51,13 +51,9 @@ This package contains documentation for %{pkg_name}.
 
 %build
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install -V \
-  --local \
-  --install-dir $(pwd)/%{gem_dir} \
-  --force --rdoc \
-  %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 cp -p %{SOURCE1} $(pwd)/%{gem_instdir}/test/
 
@@ -67,10 +63,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* \
-        %{buildroot}%{_bindir}/
+mv ./%{_bindir}/* %{buildroot}%{_bindir}/
 
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 
 # Drop the standalone mode for tests - won't run that way due to missing 
 # rubygems require anyway. One instance in lib as well
@@ -79,8 +74,6 @@ find %{buildroot}%{gem_instdir}/{test,lib} -type f | \
 # Ships with extremely tight permissions, bring them inline with other gems
 find %{buildroot}%{gem_instdir} -type f | \
   xargs chmod 0644
-find %{buildroot}%{gem_instdir}/bin -type f | \
-  xargs chmod 0755
 
 %check
 pushd .%{gem_instdir}
