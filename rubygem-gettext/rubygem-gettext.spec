@@ -8,7 +8,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	3.1.4
-Release:	5%{?dist}
+Release:	6%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
@@ -184,6 +184,9 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 3.1.4-6
+- Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.1.4-5
 - Remove touch from prep to not touch root-owned files (dcleal@redhat.com)
 
