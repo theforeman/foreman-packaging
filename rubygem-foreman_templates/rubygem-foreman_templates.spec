@@ -90,6 +90,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.0.3-1
+- Update foreman_templates to 2.0.3 (dcleal@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 2.0.1-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
