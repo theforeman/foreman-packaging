@@ -78,6 +78,10 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# Fix version to match the full docker-api package version, as auto-requires
+# generates a dep of "= 1.17" that can't be resolved by yum
+sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
+
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
