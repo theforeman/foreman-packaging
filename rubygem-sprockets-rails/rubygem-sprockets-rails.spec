@@ -5,31 +5,31 @@
 %global gem_name sprockets-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.4
-Release: 2%{?dist}
+Version: 2.3.3
+Release: 1%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rails/sprockets-rails
-Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 # Get the tests
 # git clone https://github.com/rails/sprockets-rails.git && cd sprockets-rails/
-# git checkout v2.2.4
-# tar czvf sprockets-rails-2.2.4-tests.tgz test/
+# git checkout v2.3.3
+# tar czvf sprockets-rails-2.3.3-tests.tgz test/
 Source2: sprockets-rails-%{version}-tests.tgz
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) => 2.8
+Requires: %{?scl_prefix}rubygem(sprockets) >= 2.8
 Requires: %{?scl_prefix}rubygem(sprockets) < 4
-Requires: %{?scl_prefix}rubygem(actionpack) >= 3.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sprockets)
-BuildRequires: %{?scl_prefix}rubygem(railties)
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildRequires: %{?scl_prefix_ror}rubygem(railties)
+BuildRequires: %{?scl_prefix}rubygem(sprockets)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
