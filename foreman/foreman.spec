@@ -650,6 +650,8 @@ unlink ./%{_datadir}/%{name}/db \\
 ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
 pushd ./%%{%{name}_dir} \\
 \\
+sed -i 's/:locations_enabled: false/:locations_enabled: true/' \`pwd\`/config/settings.yaml \\
+sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/config/settings.yaml \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
