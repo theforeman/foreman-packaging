@@ -18,12 +18,12 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.10
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.8.0
+Requires: foreman >= 1.9.0
 
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.8
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
@@ -55,7 +55,8 @@ BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem-sequel
 BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(daemons)
-BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: foreman-plugin >= 1.9.0
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -95,7 +96,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s -r plugin:assets:precompile[foreman_tasks]
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
@@ -153,6 +154,7 @@ exit 0
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{gem_instdir}/public
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
