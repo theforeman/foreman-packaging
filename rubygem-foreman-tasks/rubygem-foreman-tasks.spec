@@ -174,6 +174,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 08 2016 Dominic Cleal <dcleal@redhat.com> 0.7.10-1
+- Release foreman-tasks 0.7.10 (RPM) (stbenjam@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.7.8-1
 - Release foreman-tasks 0.7.8 (stbenjam@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
