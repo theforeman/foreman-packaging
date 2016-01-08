@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.7.10-2) stable; urgency=low
+
+  * Fix assets precompilation
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Tue, 12 Jan 2016 08:26:00 -0500
+
 ruby-foreman-tasks (0.7.10-1) stable; urgency=low
 
   * 0.7.10 released
