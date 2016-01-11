@@ -176,6 +176,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 11 2016 Dominic Cleal <dcleal@redhat.com> 0.7.10-2
+- Handle assets, require foreman 1.9 (stbenjam@redhat.com)
+
 * Fri Jan 08 2016 Dominic Cleal <dcleal@redhat.com> 0.7.10-1
 - Release foreman-tasks 0.7.10 (RPM) (stbenjam@redhat.com)
 
