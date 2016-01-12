@@ -11,6 +11,7 @@
       <packagereq type="default">rubygem-bastion</packagereq>
       <packagereq type="default">rubygem-bastion-devel</packagereq>
       <packagereq type="default">rubygem-foreman_abrt</packagereq>
+      <packagereq type="default">rubygem-foreman_ansible</packagereq>
       <packagereq type="default">rubygem-foreman_cockpit</packagereq>
       <packagereq type="default">rubygem-foreman_column_view</packagereq>
       <packagereq type="default">rubygem-foreman_custom_parameters</packagereq>
@@ -96,6 +97,7 @@
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
       <packagereq type="default">rubygem-dynflow-doc</packagereq>
       <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-foreman_cockpit-doc</packagereq>
       <packagereq type="default">rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">rubygem-foreman_custom_parameters-doc</packagereq>
