@@ -13,8 +13,8 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.4
-Release:    2%{?foremandist}%{?dist}
+Version:    3.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        http://github.com/katello/bastion
@@ -24,15 +24,13 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-Requires: foreman >= 1.8.0
+Requires: foreman >= 1.11.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) = 0.1.2
 
-BuildRequires: foreman-assets >= 1.8.0
-BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: foreman-assets >= 1.11.0
+BuildRequires: foreman-plugin >= 1.11.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix}rubygem(less-rails) >= 2.5.0
-BuildRequires: %{?scl_prefix}rubygem(less-rails) < 2.6
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) = 0.1.2
 
 
@@ -57,8 +55,6 @@ This package contains documentation for rubygem-%{gem_name}.
 Summary:   Provides asset compilation dependencies for %{scl_prefix}rubygem-%{gem_name}
 BuildArch: noarch
 Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Requires:  %{?scl_prefix}rubygem(less-rails) >= 2.5.0
-Requires:  %{?scl_prefix}rubygem(less-rails) < 2.6
 Requires:  %{?scl_prefix_ror}rubygem(uglifier)
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 
@@ -80,18 +76,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/bastion.rb
-gem 'bastion'
-gem 'less-rails'
-GEMFILE
-
-%foreman_precompile_plugin -s
 %foreman_bundlerd_file
-
-mkdir -p %{buildroot}%{foreman_dir}/public/assets
-ln -s %{foreman_assets_plugin} %{buildroot}%{foreman_dir}/public/assets/bastion
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
