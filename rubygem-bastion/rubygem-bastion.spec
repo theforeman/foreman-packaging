@@ -109,6 +109,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Tue Jan 12 2016 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-1
+- Update rubygem-bastion to 3.0.0 (ericdhelms@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 2.0.4-2
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
