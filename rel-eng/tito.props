@@ -25,7 +25,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-sprockets-rails
   rubygem-tilt
 scl = tfm
 
@@ -40,7 +39,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-sprockets-rails
   rubygem-tilt
 scl = tfm
 
@@ -121,8 +119,10 @@ whitelist = foreman
   rubygem-apipie-rails
   rubygem-apipie-bindings
   rubygem-autoparse
+  rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
+  rubygem-concurrent-ruby
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
@@ -136,6 +136,7 @@ whitelist = foreman
   rubygem-fog-libvirt
   rubygem-fog-xenserver
   rubygem-fog-xml
+  rubygem-font-awesome-sass
   rubygem-foremancli
   rubygem-foreman_api
   rubygem-friendly_id
@@ -159,6 +160,7 @@ whitelist = foreman
   rubygem-multi_json
   rubygem-multi-select-rails
   rubygem-net-ldap
+  rubygem-patternfly-sass
   rubygem-po_to_json
   rubygem-powerbar
   rubygem-protected_attributes
@@ -170,11 +172,13 @@ whitelist = foreman
   rubygem-retriable
   rubygem-rubyipmi
   rubygem-safemode
+  rubygem-sass-rails
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-select2-rails
   rubygem-signet
   rubygem-spice-html5-rails
+  rubygem-sprockets
   rubygem-sprockets-rails
   rubygem-strong_parameters
   rubygem-table_print
@@ -193,7 +197,6 @@ whitelist = rubygem-algebrick
   rubygem-bastion
   rubygem-colorize
   rubygem-commonjs
-  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dalli
   rubygem-deface
@@ -280,7 +283,6 @@ whitelist = rubygem-algebrick
   rubygem-bastion
   rubygem-colorize
   rubygem-commonjs
-  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dalli
   rubygem-deface
@@ -347,7 +349,6 @@ disttag = .el7
 whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-chef-api
-  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
   rubygem-foreman_scap_client
@@ -377,7 +378,6 @@ whitelist = rubygem-algebrick
   rubygem-bastion
   rubygem-colorize
   rubygem-commonjs
-  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-deface
   rubygem-diffy
