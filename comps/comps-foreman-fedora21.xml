@@ -39,6 +39,7 @@
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
+      <packagereq type="default">rubygem-ejs</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
@@ -106,6 +107,7 @@
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
+      <packagereq type="default">rubygem-ejs-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>

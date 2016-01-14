@@ -124,6 +124,7 @@ whitelist = foreman
   rubygem-bootstrap-sass
   rubygem-clamp
   rubygem-deep_cloneable
+  rubygem-ejs
   rubygem-excon
   rubygem-extlib
   rubygem-fast_gettext
