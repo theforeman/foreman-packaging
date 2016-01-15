@@ -1,3 +1,9 @@
+ruby-foreman-docker (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Daniel Lobato <elobatocs@gmail.com>  Fri, 15 Jan 2016 15:18:35 +0100
+
 ruby-foreman-docker (2.0.0-1) stable; urgency=low
 
   * 2.0.0 released
