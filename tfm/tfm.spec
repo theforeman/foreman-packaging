@@ -62,6 +62,8 @@ Obsoletes: ruby193-ruby-wrapper
 # and to ensure smooth upgrades when old packages deps aren't satisified
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.9-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 2.12.3-3
+Obsoletes: %{scl_prefix}less < 2.5.1-5
+Obsoletes: %{scl_prefix}less-rails < 2.5.0-4
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
