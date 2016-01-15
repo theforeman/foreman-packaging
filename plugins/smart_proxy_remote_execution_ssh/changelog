@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.0.11-1) stable; urgency=low
+
+  * 0.0.11 released
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Fri, 15 Jan 2016 10:28:04 -0500
+
 ruby-smart-proxy-remote-execution-ssh (0.0.10-1) stable; urgency=low
 
   * 0.0.10 released
