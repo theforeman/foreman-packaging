@@ -374,9 +374,9 @@ Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix_ror}rubygem(jquery-rails) >= 3.1
 Requires: %{?scl_prefix_ror}rubygem(jquery-rails) < 4.0
+Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
-Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) = 3.0.3.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
