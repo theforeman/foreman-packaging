@@ -50,6 +50,7 @@
       <packagereq type="default">tfm-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">tfm-rubygem-audited</packagereq>
       <packagereq type="default">tfm-rubygem-autoparse</packagereq>
+      <packagereq type="default">tfm-rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
@@ -217,6 +218,7 @@
       <packagereq type="default">tfm-rubygem-audited-activerecord-doc</packagereq>
       <packagereq type="default">tfm-rubygem-audited-doc</packagereq>
       <packagereq type="default">tfm-rubygem-autoparse-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
