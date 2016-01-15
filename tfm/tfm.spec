@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -237,6 +237,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Jan 15 2016 Dominic Cleal <dcleal@redhat.com> 2.0-2
+- Remove rubygem-less and rubygem-less-rails (ericdhelms@gmail.com)
+
 * Mon Dec 21 2015 Dominic Cleal <dcleal@redhat.com> 2.0-1
 - Change to use rh-ror41, rh-ruby22 collections (dcleal@redhat.com)
 - Replace tfm-rubygem-sass with ror41-rubygem-sass (dcleal@redhat.com)
