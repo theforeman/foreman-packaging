@@ -1,3 +1,9 @@
+ruby-foreman-xen (0.2.4-1) stable; urgency=low
+
+  * 0.2.4 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 17 Jan 2016 00:18:55 +0100
+
 ruby-foreman-xen (0.2.3-1) stable; urgency=low
 
   * update to 0.2.3
