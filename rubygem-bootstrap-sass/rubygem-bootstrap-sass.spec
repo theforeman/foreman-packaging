@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jan 18 2016 Dominic Cleal <dcleal@redhat.com> 3.3.6-1
+- Update bootstrap-sass to 3.3.6 for Patternfly (elobatocs@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.0.3.0-3
 - Replace tfm-rubygem-sass with ror41-rubygem-sass (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
