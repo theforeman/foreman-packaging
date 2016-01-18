@@ -162,6 +162,7 @@ whitelist = foreman
   rubygem-multi_json
   rubygem-multi-select-rails
   rubygem-net-ldap
+  rubygem-patternfly-sass
   rubygem-po_to_json
   rubygem-powerbar
   rubygem-protected_attributes
