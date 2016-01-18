@@ -53,6 +53,7 @@
       <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
+      <packagereq type="default">rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">rubygem-foremancli</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js</packagereq>
@@ -122,6 +123,7 @@
       <packagereq type="default">rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
+      <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foremancli-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>
