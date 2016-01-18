@@ -96,7 +96,7 @@ Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.34.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh) < 3
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
@@ -171,7 +171,7 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.34.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) < 3
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
@@ -304,7 +304,7 @@ Meta Package to install requirements for ovirt support
 %package compute
 Summary: Foreman Compute Resource support via fog
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.36.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.37.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
@@ -335,8 +335,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 %package vmware
 Summary: Foreman vmware support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(rbvmomi) < 2.0.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 1.4.0
 Requires: %{name} = %{version}-%{release}
 Requires: foreman-compute = %{version}-%{release}
 
