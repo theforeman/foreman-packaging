@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.19
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Group: Development/Languages
 License: MIT
@@ -112,6 +112,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 18 2016 Dominic Cleal <dcleal@redhat.com> 3.4.19-3
+- Add sass 3.4.19 for Patternfly (elobatocs@gmail.com)
+
 * Thu Dec 17 2015 Dominic Cleal <dcleal@redhat.com> 3.4.19-2
 - Replace %%license for EL6 compatibility
 
