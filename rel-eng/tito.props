@@ -173,6 +173,7 @@ whitelist = foreman
   rubygem-retriable
   rubygem-rubyipmi
   rubygem-safemode
+  rubygem-sass
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-select2-rails
