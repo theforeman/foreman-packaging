@@ -135,6 +135,7 @@ whitelist = foreman
   rubygem-fog-google
   rubygem-fog-json
   rubygem-fog-libvirt
+  rubygem-fog-vsphere
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
