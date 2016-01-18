@@ -57,6 +57,7 @@
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
       <packagereq type="default">tfm-rubygem-daemons</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable</packagereq>
+      <packagereq type="default">tfm-rubygem-ejs</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine</packagereq>
       <packagereq type="default">tfm-rubygem-excon</packagereq>
       <packagereq type="default">tfm-rubygem-extlib</packagereq>
@@ -225,6 +226,7 @@
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-daemons-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ejs-doc</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine-doc</packagereq>
       <packagereq type="default">tfm-rubygem-excon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-extlib-doc</packagereq>
