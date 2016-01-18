@@ -6,8 +6,8 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.36.0
-Release: 2%{?dist}
+Version: 1.37.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -35,13 +35,12 @@ Requires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-json)
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(fog-xenserver)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
-Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -51,13 +50,12 @@ BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
+BuildRequires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 BuildRequires: %{?scl_prefix}rubygem(fog-xenserver)
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
-BuildRequires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
 BuildArch: noarch
