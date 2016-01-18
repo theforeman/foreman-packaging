@@ -115,6 +115,9 @@ sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
 exit 0
 
 %changelog
+* Mon Jan 18 2016 Dominic Cleal <dcleal@redhat.com> 2.0.1-1
+- plugins:foreman_docker - Release 2.0.1 (elobatocs@gmail.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.0.0-2
 - Fix docker-api dependency version number in gemspec (dcleal@redhat.com)
 
