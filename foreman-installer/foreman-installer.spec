@@ -17,7 +17,7 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   %{?scl_prefix}puppet >= 3.0.0
-Requires:   %{?scl_prefix}rubygem-kafo >= 0.6.5
+Requires:   %{?scl_prefix}rubygem-kafo >= 0.7.1
 Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
 Requires:   foreman-selinux
 
@@ -31,7 +31,7 @@ Requires:   %{?scl_prefix}rubygem-highline
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet >= 3.0.0
-BuildRequires: %{?scl_prefix}rubygem-kafo
+BuildRequires: %{?scl_prefix}rubygem-kafo >= 0.7.1
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
@@ -58,11 +58,16 @@ rake install \
   SYSCONFDIR=%{buildroot}%{_sysconfdir} \
   --trace
 
+%post
+foreman-installer --scenario foreman --migrations-only > /dev/null
+
 %files
 %defattr(-,root,root,-)
 %doc README.* LICENSE
-%config %attr(600, root, root) %{_sysconfdir}/foreman/%{name}.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/foreman/%{name}-answers.yaml
+%dir %{_sysconfdir}/foreman-installer
+%dir %{_sysconfdir}/foreman-installer/scenarios.d
+%config %attr(600, root, root) %{_sysconfdir}/foreman-installer/scenarios.d/foreman.yaml
+%config(noreplace) %attr(600, root, root) %{_sysconfdir}/foreman-installer/scenarios.d/foreman-answers.yaml
 %{_sbindir}/foreman-installer
 %{_datadir}/%{name}
 %{_mandir}/man8
