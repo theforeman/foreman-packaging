@@ -25,7 +25,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-sprockets-rails
   rubygem-tilt
 scl = tfm
 
@@ -40,7 +39,6 @@ blacklist = foreman-installer
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
-  rubygem-sprockets-rails
   rubygem-tilt
 scl = tfm
 
