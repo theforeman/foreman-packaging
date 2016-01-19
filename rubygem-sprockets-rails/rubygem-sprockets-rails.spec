@@ -89,6 +89,9 @@ popd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 2.3.3-1
+- Update sprockets-rails to 2.3.3 for Patternfly (elobatocs@gmail.com)
+
 * Thu Jan 29 2015 Vít Ondruch <vondruch@redhat.com> - 2.2.4-2
 - Drop the boostrap and depend on railties instead of rails.
 
