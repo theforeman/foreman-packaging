@@ -179,6 +179,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 1.37.0-1
+- Update fog to 1.37.0 (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.36.0-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
