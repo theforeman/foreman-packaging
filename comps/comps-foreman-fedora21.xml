@@ -39,6 +39,7 @@
       <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-ejs</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
@@ -94,6 +95,7 @@
       <packagereq type="default">rubygem-select2-rails</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
+      <packagereq type="default">rubygem-sprockets</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-turbolinks</packagereq>
@@ -112,6 +114,7 @@
       <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-ejs-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
@@ -168,6 +171,7 @@
       <packagereq type="default">rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
+      <packagereq type="default">rubygem-sprockets-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-turbolinks-doc</packagereq>
