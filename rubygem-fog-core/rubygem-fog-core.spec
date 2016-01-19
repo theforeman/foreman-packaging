@@ -73,6 +73,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 1.35.0-1
+- Update fog-core to 1.35.0 (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.34.0-2
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
