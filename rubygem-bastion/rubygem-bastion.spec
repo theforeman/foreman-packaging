@@ -13,7 +13,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.0
+Version:    3.0.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
@@ -87,7 +87,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/vendor
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_dir}/public/assets/bastion
 %{foreman_assets_plugin}
 %{gem_instdir}/LICENSE
 %{gem_instdir}/Rakefile
