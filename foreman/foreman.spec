@@ -90,8 +90,6 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
-Requires: %{?scl_prefix}rubygem(i18n) < 1.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
 Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
@@ -167,8 +165,6 @@ BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(i18n) >= 0.7
-BuildRequires: %{?scl_prefix}rubygem(i18n) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
