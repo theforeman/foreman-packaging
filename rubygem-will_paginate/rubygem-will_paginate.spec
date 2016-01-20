@@ -6,7 +6,7 @@
 
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       3.0.7
+Version:       3.1.0
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       MIT
