@@ -67,6 +67,9 @@ popd
 %{gem_spec}
 
 %changelog
+* Wed Jan 20 2016 Dominic Cleal <dcleal@redhat.com> 3.1.0-1
+- Update will_paginate to 3.1.0 (dcleal@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.0.7-1
 - Update will_paginate to 3.0.7 (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
