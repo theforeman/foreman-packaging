@@ -104,6 +104,9 @@ popd
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Jan 20 2016 Dominic Cleal <dcleal@redhat.com> 3.0.2-1
+- Update net-ssh to 3.0.2 (dcleal@redhat.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.9.2-3
 - Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
 
