@@ -60,7 +60,7 @@ Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
 Requires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
-Requires: %{?scl_prefix}rubygem(will_paginate) < 3.1
+Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
@@ -135,7 +135,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
-BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 3.1
+BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
