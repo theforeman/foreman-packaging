@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Wed Jan 20 2016 Dominic Cleal <dcleal@redhat.com> 3.0.1-1
+- Update rubygem-bastion to 3.0.1 (ericdhelms@gmail.com)
+
 * Tue Jan 12 2016 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-1
 - Update rubygem-bastion to 3.0.0 (ericdhelms@gmail.com)
 
