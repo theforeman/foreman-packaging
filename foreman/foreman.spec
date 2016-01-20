@@ -67,7 +67,6 @@ Requires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
 Requires: %{?scl_prefix}rubygem(scoped_search) < 4.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
@@ -99,6 +98,7 @@ Requires: %{?scl_prefix}rubygem(logging) < 3.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
 Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
@@ -142,7 +142,6 @@ BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
@@ -174,6 +173,7 @@ BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
+BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
