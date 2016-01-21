@@ -104,6 +104,10 @@ GEMFILE
 exit 0
 
 %changelog
+* Thu Jan 21 2016 Dominic Cleal <dcleal@redhat.com> 6.1.0-1
+- Update foreman_bootdisk to 6.1.0 (dcleal@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Thu Aug 27 2015 Dominic Cleal <dcleal@redhat.com> 6.0.0-2
 - Converted to tfm SCL (dcleal@redhat.com)
 - Better branched builds with Foreman version macro (dcleal@redhat.com)
