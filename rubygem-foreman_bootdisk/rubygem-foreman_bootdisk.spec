@@ -12,14 +12,11 @@
 %global gem_name foreman_bootdisk
 
 %define rubyabi 1.9.1
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-%global foreman_pluginconf_dir %{foreman_dir}/config/settings.plugins.d
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    6.1.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_bootdisk
