@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (0.2.1-1) stable; urgency=low
+
+  * 0.2.1 released
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Fri, 22 Jan 2016 10:14:12 +0100
+
 ruby-foreman-remote-execution (0.1.2-1) stable; urgency=low
 
   * 0.1.2 released
