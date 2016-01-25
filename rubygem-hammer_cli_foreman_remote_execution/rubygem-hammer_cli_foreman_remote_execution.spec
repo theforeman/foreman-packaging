@@ -72,6 +72,9 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
+- Release hammer_cli_foreman_remote_execution 0.0.4 (stbenjam@redhat.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 0.0.2-2
 - Add foremandist to plugin (dcleal@redhat.com)
 - Fix spec filename to match RPM (dcleal@redhat.com)
