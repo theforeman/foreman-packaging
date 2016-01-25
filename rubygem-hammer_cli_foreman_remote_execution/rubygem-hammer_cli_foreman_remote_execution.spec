@@ -8,7 +8,7 @@
 
 Summary: Foreman Remote Execution commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.4
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
