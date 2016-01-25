@@ -76,5 +76,8 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
+- Release hammer_cli_foreman_remote_execution 0.0.4 (stbenjam@redhat.com)
+
 * Fri Dec 11 2015 Stephen Benjamin <stephen@redhat.com> 0.0.2-1
 - Initial release
