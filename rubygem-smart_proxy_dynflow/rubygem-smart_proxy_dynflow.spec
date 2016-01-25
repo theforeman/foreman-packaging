@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
+- Release smart_proxy_dynflow 0.0.5 (stbenjam@redhat.com)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-1
 - Release smart_proxy_dynflow 0.0.4 (RPM) (stbenjam@redhat.com)
 
