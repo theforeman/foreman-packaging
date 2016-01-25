@@ -111,6 +111,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
+- Release foreman_remote_execution 0.2.2 (stbenjam@redhat.com)
+
 * Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.2.1-1
 - Release foreman_remote_execution 0.2.1 (stbenjam@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
