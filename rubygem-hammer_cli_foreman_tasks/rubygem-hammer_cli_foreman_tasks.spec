@@ -78,6 +78,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.9-1
+- Release hammer_cli_foreman_tasks 0.0.9 (stbenjam@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.8-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
