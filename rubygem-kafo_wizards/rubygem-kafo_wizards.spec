@@ -75,3 +75,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 
 %changelog
+* Tue Jan 26 2016 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
+- new package built with tito
+
