@@ -72,6 +72,7 @@
       <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
+      <packagereq type="default">rubygem-kafo_wizards</packagereq>
       <packagereq type="default">rubygem-launchy</packagereq>
       <packagereq type="default">rubygem-ldap_fluff</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
@@ -149,6 +150,7 @@
       <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-kafo-doc</packagereq>
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
+      <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">rubygem-launchy-doc</packagereq>
       <packagereq type="default">rubygem-ldap_fluff-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
