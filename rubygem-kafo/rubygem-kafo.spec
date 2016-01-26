@@ -5,8 +5,8 @@
 
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.12
-Release: 2%{?dist}
+Version: 0.7.0
+Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
@@ -21,6 +21,8 @@ Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline) < 2.0
 Requires: %{?scl_prefix}rubygem(kafo_parsers)
+Requires: %{?scl_prefix}rubygem(kafo_wizards)
+Requires: %{?scl_prefix}rubygem(ansi)
 Requires: %{?scl_prefix}rubygem(powerbar)
 Requires: %{?scl_prefix}rubygems
 
