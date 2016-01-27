@@ -6,8 +6,8 @@
 
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 1.0.1
-Release: 2%{?dist}
+Version: 1.2.0
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart-proxy-pulp
@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 
 
 %changelog
+* Wed Jan 27 2016 Dmitri Dolguikh <dmitri@appliedlogic.ca> 1.2.0-1
+- Updated smart_proxy_pulp gem to version 1.2.0
+
 * Wed Mar 18 2015 Marek Hulan <mhulan@redhat.com> 1.0.1-2
 - Fixes the overriding of config file (mhulan@redhat.com)
 
