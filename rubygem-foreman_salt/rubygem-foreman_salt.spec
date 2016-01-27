@@ -104,6 +104,10 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 27 2016 Dominic Cleal <dcleal@redhat.com> 5.0.0-1
+- Release foreman_salt 5.0.0 (stbenjam@redhat.com)
+- Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
+
 * Mon Oct 26 2015 Dominic Cleal <dcleal@redhat.com> 4.0.1-1
 - Small foreman_salt update (stbenjam@redhat.com)
 
