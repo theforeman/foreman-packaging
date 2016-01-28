@@ -107,6 +107,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Thu Jan 28 2016 Dominic Cleal <dcleal@redhat.com> 0.5.3-1
+- foreman_openscap 0.5.3 (shlomi@ben-hanna.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
