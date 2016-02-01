@@ -67,6 +67,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Feb 01 2016 Dominic Cleal <dcleal@redhat.com> 0.6.0-1
+- Update fog-vsphere to 0.6.0 (dcleal@redhat.com)
+
 * Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 0.5.0-1
 - new package built with tito
 
