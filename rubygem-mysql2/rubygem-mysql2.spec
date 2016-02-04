@@ -22,7 +22,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://mysql-win.rubyforge.org
@@ -116,6 +116,9 @@ rm -f %{buildroot}%{gem_libdir}/mysql2/*.so
 %{gem_instdir}/examples
 
 %changelog
+* Thu Feb 04 2016 Dominic Cleal <dcleal@redhat.com> 0.3.19-5
+- fix missing mysql2.so and gem.build_complete (#13296)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.3.19-4
 - Rebuild for rh-ruby22 (dcleal@redhat.com)
 
