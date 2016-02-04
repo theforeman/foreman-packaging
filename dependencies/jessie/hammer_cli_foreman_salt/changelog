@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-salt (0.0.5-1) stable; urgency=low
+
+  * 0.0.5 released
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Thu, 04 Feb 2016 14:49:37 +0100
+
 ruby-hammer-cli-foreman-salt (0.0.4-1) stable; urgency=low
 
   * Initial release for Debian/jessie
