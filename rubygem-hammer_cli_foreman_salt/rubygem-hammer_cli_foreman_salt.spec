@@ -77,6 +77,9 @@ cp -pa .%{gem_instdir}/config/foreman_salt.yml %{buildroot}%{_root_sysconfdir}/%
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 04 2016 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
+- Release hammer_cli_foreman_salt 0.0.5 (stbenjam@redhat.com)
+
 * Wed Aug 26 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-3
 - Converted to tfm SCL (dcleal@redhat.com)
 
