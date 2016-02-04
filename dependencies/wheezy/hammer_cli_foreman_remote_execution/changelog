@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-remote-execution (0.0.4-1) stable; urgency=low
+
+  * Initial packaging of hammer_cli_foreman_remote_execution for debian
+
+ -- Stephen Benjamin <stephen@redhat.com>  Thu, 04 Feb 2016 15:35:09 +0100
