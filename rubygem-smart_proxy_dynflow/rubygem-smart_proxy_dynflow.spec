@@ -6,7 +6,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.5
+Version: 0.0.6
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -54,6 +54,8 @@ This package contains documentation for rubygem-%{gem_name}.
 %install
 mkdir -p %{buildroot}%{gem_dir}
 
+mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-proxy/dynflow
+
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
@@ -64,6 +66,7 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 
 %files
 %dir %{gem_instdir}
+%dir %attr(750, foreman-proxy, foreman-proxy) %{_localstatedir}/lib/foreman-proxy/dynflow
 %{gem_instdir}/lib
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
