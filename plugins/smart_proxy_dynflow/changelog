@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow (0.0.6-1) stable; urgency=low
+
+  * 0.0.6 released
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Thu, 04 Feb 2016 14:08:27 +0100
+
 ruby-smart-proxy-dynflow (0.0.5-1) stable; urgency=low
 
   * 0.0.5 released
