@@ -1,3 +1,9 @@
+ruby-foreman-ansible (0.2.2-1) stable; urgency=low
+
+  * 0.2.2 released
+
+ -- Daniel Lobato <elobatocs@gmail.com>  Fri, 05 Feb 2016 11:44:28 +0100
+
 ruby-foreman-ansible (0.2.1-1) stable; urgency=low
 
   * Initial release.
