@@ -12,7 +12,7 @@ XS-Ruby-Versions: all
 Package: ruby-concurrent-ruby-edge
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-concurrent-ruby (>= 1.0.0), ruby-concurrent-ruby (<< 1.1.0)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-concurrent (>= 1.0.0), ruby-concurrent (<< 1.1.0)
 Description: Edge features and additions to the concurrent-ruby gem.
  These features are under active development and may change frequently. They are expected not to
  keep backward compatibility (there may also lack tests and documentation). Semantic versions will
