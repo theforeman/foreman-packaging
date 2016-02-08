@@ -35,6 +35,7 @@ BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-ansible
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ansible integration with Foreman.
@@ -44,6 +45,7 @@ Ansible integration with Foreman.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
