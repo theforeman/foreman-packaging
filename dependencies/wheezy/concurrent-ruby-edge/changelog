@@ -1,3 +1,9 @@
+ruby-concurrent-ruby-edge (0.2.0-2) stable; urgency=low
+
+  * update concurrent-ruby dependency
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 06 Feb 2016 01:11:43 +0100
+
 ruby-concurrent-ruby-edge (0.2.0-1) stable; urgency=low
 
   * 0.2.0 released
