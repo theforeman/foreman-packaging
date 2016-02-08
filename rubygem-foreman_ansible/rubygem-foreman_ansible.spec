@@ -6,7 +6,7 @@
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Feb 08 2016 Dominic Cleal <dcleal@redhat.com> 0.2.2-2
+- Obsolete ruby193 variant from 1.8/1.9 (dcleal@redhat.com)
+
 * Mon Feb 08 2016 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
 - Release 0.2.2 (elobatocs@gmail.com)
 
