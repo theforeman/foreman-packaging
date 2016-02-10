@@ -1,18 +1,26 @@
-Source: ruby-concurrent-ruby
+Source: ruby-concurrent
 Section: ruby
 Priority: optional
-Maintainer: Stephen Benjamin <stephen@redhat.com>
-Build-Depends: debhelper, gem2deb
-Standards-Version: 3.9.4
-#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-concurrent-ruby.git
-#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-concurrent-ruby.git;a=summary
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Balasankar C <balasankarc@autistici.org>
+Build-Depends: debhelper,
+               gem2deb,
+               rake,
+               rake-compiler,
+               ruby-rspec,
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-concurrent.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-concurrent.git
 Homepage: http://www.concurrent-ruby.com
 XS-Ruby-Versions: all
 
-Package: ruby-concurrent-ruby
+Package: ruby-concurrent
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
-Description: Modern concurrency tools for Ruby. Inspired by Erlang, Clojure, Scala, Haskell, F#, C#, Java, and classic concurrency patterns.
- Modern concurrency tools including agents, futures, promises, thread pools, actors, supervisors, and more.
- Inspired by Erlang, Clojure, Go, JavaScript, actors, and classic concurrency patterns.
+Depends: ruby | ruby-interpreter, ${misc:Depends}, ${shlibs:Depends}
+Replaces: ruby-concurrent-ruby
+Breaks: ruby-concurrent-ruby
+Description: modern concurrency tools for Ruby
+ This package provides modern concurrency tools including agents, futures,
+ promises, thread pools, actors, supervisors, and more. Inspired by Erlang,
+ Clojure, Go, JavaScript, actors, and classic concurrency patterns.
