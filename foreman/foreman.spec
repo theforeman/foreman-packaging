@@ -230,7 +230,6 @@ BuildRequires: facter
 %package cli
 Summary: Foreman CLI
 Group: Applications/System
-Requires: %{name} = %{version}-%{release}
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
 
 %description cli
