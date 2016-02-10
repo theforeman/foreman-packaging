@@ -1,0 +1,3 @@
+version=3
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/concurrent-ruby-$1\.tar\.gz/ \
+https://github.com/ruby-concurrency/concurrent-ruby/tags .*/v?(\d\S*)\.tar\.gz

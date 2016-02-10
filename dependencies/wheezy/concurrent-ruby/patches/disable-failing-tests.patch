@@ -1,0 +1,43 @@
+Description: Disable tests
+ As per upstream, some of the tests are not part of the core gem, but of the
+ additional gems that may be built from the same source directory. So disabling
+ them.
+Author: Balasankar C <balasankarc@autistici.org>
+Bug: https://github.com/ruby-concurrency/concurrent-ruby/issues/484
+Last-Update: 2015-12-29
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/spec/concurrent/channel_spec.rb
++++ b/spec/concurrent/channel_spec.rb
+@@ -598,19 +598,19 @@
+           }.to raise_error(ArgumentError)
+         end
+ 
+-        it 'loops until the block returns false' do
+-          actual = 0
+-          expected = 3
+-          latch = Concurrent::CountDownLatch.new(expected)
+-          Channel.go_loop do
+-            actual += 1
+-            latch.count_down
+-            actual < expected
+-          end
++        #it 'loops until the block returns false' do
++          #actual = 0
++          #expected = 3
++          #latch = Concurrent::CountDownLatch.new(expected)
++          #Channel.go_loop do
++            #actual += 1
++            #latch.count_down
++            #actual < expected
++          #end
+ 
+-          latch.wait(10)
+-          expect(actual).to eq expected
+-        end
++          #latch.wait(10)
++          #expect(actual).to eq expected
++        #end
+       end
+ 
+       context '.go_loop_via' do

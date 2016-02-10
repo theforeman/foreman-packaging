@@ -1,11 +1,5 @@
-ruby-concurrent-ruby (1.0.0-1) stable; urgency=low
+ruby-concurrent (1.0.0-1) unstable; urgency=medium
 
-  * 1.0.0 released
+  * Initial release (Closes: #809338)
 
- -- Michael Moll <kvedulv@kvedulv.de>  Tue, 22 Dec 2015 00:46:40 +0100
-
-ruby-concurrent-ruby (0.9.1-1) unstable; urgency=medium
-
-  * Initial release
-
- -- Stephen Benjamin <stephen@redhat.com>  Mon, 17 Aug 2015 18:31:28 +0000
+ -- Balasankar C <balasankarc@autistici.org>  Tue, 08 Dec 2015 16:27:18 +0530
