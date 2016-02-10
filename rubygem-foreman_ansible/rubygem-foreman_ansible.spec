@@ -5,19 +5,21 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.2
+Version: 0.3
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: foreman >= 1.6.0
+Requires: foreman >= 1.9.0
 Requires: %{?scl_prefix}rubygems
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
 
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
-BuildRequires: foreman-plugin >= 1.6.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: foreman-plugin >= 1.9.0
 
 %if 0%{?fedora} > 18
 Requires: %{?scl_prefix}ruby(release)
