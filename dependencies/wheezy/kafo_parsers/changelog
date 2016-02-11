@@ -1,3 +1,9 @@
+ruby-kafo-parsers (0.0.6-1) stable; urgency=medium
+
+  * Update to 0.0.6
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 11 Feb 2016 09:05:40 +0000
+
 ruby-kafo-parsers (0.0.5-1) stable; urgency=low
 
   * fixes #9916 - initialise Puppet using public APIs (dcleal@redhat.com)
