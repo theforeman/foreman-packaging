@@ -5,8 +5,8 @@
 
 Summary: Puppet module parsers
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.5
-Release: 2%{?dist}
+Version: 0.0.6
+Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_parsers
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix}ruby(abi)
 %else
 Requires: %{?scl_prefix}ruby(release)
 %endif
-Requires: %{?scl_prefix}puppet
+Requires: %{?scl_prefix}puppet < 4.0.0
 Requires: %{?scl_prefix}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygems
 
