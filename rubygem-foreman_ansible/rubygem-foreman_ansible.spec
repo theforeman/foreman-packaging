@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Feb 11 2016 Dominic Cleal <dcleal@redhat.com> 0.3-1
+- plugins:foreman_ansible - Release 0.3 (elobatocs@gmail.com)
+
 * Mon Feb 08 2016 Dominic Cleal <dcleal@redhat.com> 0.2.2-1
 - Release 0.2.2 (elobatocs@gmail.com)
 
