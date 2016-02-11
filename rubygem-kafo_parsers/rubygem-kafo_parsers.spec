@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 11 2016 Dominic Cleal <dcleal@redhat.com> 0.0.6-1
+- Update kafo_parsers to 0.0.6 (mhulan@redhat.com)
+
 * Mon Jan 04 2016 Dominic Cleal <dcleal@redhat.com> 0.0.5-2
 - Modernise specs for ruby193/tfm change (dcleal@redhat.com)
 
