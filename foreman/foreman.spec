@@ -77,7 +77,7 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 Requires: %{?scl_prefix}rubygem(foreigner) >= 1.4
 Requires: %{?scl_prefix}rubygem(foreigner) < 2.0
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
@@ -152,7 +152,7 @@ BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(foreigner) >= 1.4
 BuildRequires: %{?scl_prefix}rubygem(foreigner) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.2
+BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6.0
