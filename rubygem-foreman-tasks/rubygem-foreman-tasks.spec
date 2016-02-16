@@ -17,7 +17,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.11
+Version: 0.7.14
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -146,11 +146,16 @@ exit 0
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/script
+%exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/Gemfile
 %{gem_instdir}/app
 %{gem_instdir}/bin
 %{gem_libdir}
 %{gem_instdir}/config
 %{gem_instdir}/db
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
