@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Feb 16 2016 Dominic Cleal <dominic@cleal.org> 0.5.0-1
+- Update validates_lengths_from_database to 0.5.0 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-3
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
