@@ -5,8 +5,8 @@
 
 Summary: Introspects your database string field maximum lengths and validates
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 3%{?dist}
+Version: 0.5.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database
@@ -67,10 +67,12 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Appraisals
 %exclude %{gem_instdir}/Gemfile*
 %exclude %{gem_instdir}/spec
+%exclude %{gem_instdir}/*.gem
+%exclude %{gem_instdir}/*.gemspec
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG
+%doc %{gem_instdir}/CHANGELOG.rdoc
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 
