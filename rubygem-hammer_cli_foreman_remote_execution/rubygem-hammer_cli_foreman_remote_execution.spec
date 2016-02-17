@@ -8,7 +8,7 @@
 
 Summary: Foreman Remote Execution commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -61,6 +61,7 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %exclude %{gem_instdir}/test
 %{gem_instdir}/Rakefile
 %{gem_instdir}/lib
+%{gem_instdir}/locale
 %{gem_instdir}/config
 %config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_remote_execution.yml
 %doc %{gem_instdir}/LICENSE
