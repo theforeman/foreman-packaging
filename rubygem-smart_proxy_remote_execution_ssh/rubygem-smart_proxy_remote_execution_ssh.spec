@@ -81,6 +81,9 @@ cp -pa .%{gem_instdir}/settings.d/remote_execution_ssh.yml.example %{buildroot}%
 %doc %{gem_docdir}
 
 %changelog
+* Wed Feb 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.13-1
+- Release smart_proxy_remote_execution_ssh 0.0.13 (stbenjam@redhat.com)
+
 * Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.12-1
 - Release smart_proxy_remote_execution_ssh 0.0.12 (RPM) (stbenjam@redhat.com)
 
