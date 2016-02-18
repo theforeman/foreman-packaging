@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-tasks (0.0.10-1) stable; urgency=low
+
+  * 0.0.10 released
+
+ -- Stephen Benjamin <stbenjam@redhat.com>  Thu, 18 Feb 2016 12:16:36 -0500
+
 ruby-hammer-cli-foreman-tasks (0.0.9-1) stable; urgency=low
 
   * Initial packaging of CLI plugin for foreman_tasks
