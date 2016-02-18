@@ -64,11 +64,11 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %files
 %defattr(-,root,root,-)
 %doc README.* LICENSE
-%dir %{_sysconfdir}/foreman-installer
-%dir %{_sysconfdir}/foreman-installer/scenarios.d
-%config %attr(600, root, root) %{_sysconfdir}/foreman-installer/scenarios.d/foreman.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/foreman-installer/scenarios.d/foreman-answers.yaml
-%{_sbindir}/foreman-installer
+%dir %{_sysconfdir}/%{name}
+%dir %{_sysconfdir}/%{name}/scenarios.d
+%config %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman.yaml
+%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-answers.yaml
+%{_sbindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man8
 
