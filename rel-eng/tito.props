@@ -14,7 +14,7 @@ fetch_strategy = custom.ForemanSourceStrategy
 
 # Blacklist any non-SCL packages that are missing SCL macros or they get built
 # in the SCL tag rather than -nonscl.  Don't forget -rhel7 below too!
-[foreman-nightly-rhel6]
+[foreman-1.11-rhel6]
 disttag = .el6
 blacklist = foreman-installer
   foreman-proxy
@@ -29,7 +29,7 @@ blacklist = foreman-installer
   rubygem-tilt
 scl = tfm
 
-[foreman-nightly-rhel7]
+[foreman-1.11-rhel7]
 disttag = .el7
 blacklist = foreman-installer
   foreman-proxy
@@ -48,7 +48,7 @@ scl = tfm
 #
 # Is your package *only* non-SCL?  If so, add it to the blacklist above or it
 # will get built in the wrong tag.
-[foreman-nightly-nonscl-rhel6]
+[foreman-1.11-nonscl-rhel6]
 disttag = .el6
 whitelist = foreman-installer
   foreman-proxy
@@ -80,7 +80,7 @@ whitelist = foreman-installer
   rubygem-rkerberos
   rubygem-rubyipmi
 
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.11-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-installer
   foreman-proxy
@@ -112,7 +112,7 @@ whitelist = foreman-installer
   rubygem-sinatra
   rubygem-tilt
 
-[foreman-nightly-fedora21]
+[foreman-1.11-fedora21]
 disttag = .fc21
 whitelist = foreman
   foreman-installer
@@ -195,7 +195,7 @@ whitelist = foreman
   rubygem-underscore-rails
   rubygem-validates_lengths_from_database
 
-[foreman-plugins-nightly-rhel6]
+[foreman-plugins-1.11-rhel6]
 disttag = .el6
 scl = tfm
 whitelist = rubygem-algebrick
@@ -263,7 +263,7 @@ whitelist = rubygem-algebrick
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel6]
+[foreman-plugins-1.11-nonscl-rhel6]
 disttag = .el6
 whitelist = ipxe
   rubygem-foreman_scap_client
@@ -279,7 +279,7 @@ whitelist = ipxe
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.11-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-algebrick
@@ -348,7 +348,7 @@ whitelist = rubygem-algebrick
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.11-nonscl-rhel7]
 disttag = .el7
 whitelist = rubygem-algebrick
   rubygem-apipie-params
@@ -374,7 +374,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
 
-[foreman-plugins-nightly-fedora21]
+[foreman-plugins-1.11-fedora21]
 disttag = .fc21
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
