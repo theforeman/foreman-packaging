@@ -1,3 +1,9 @@
+ruby-kafo (0.7.2-1) stable; urgency=medium
+
+  * Update to 0.7.2
+
+ -- Marek Hulan <ares@igloonet.cz>  Tue, 23 Feb 2016 12:39:27 +0000
+
 ruby-kafo (0.7.1-1) stable; urgency=medium
 
   * Update to 0.7.1
