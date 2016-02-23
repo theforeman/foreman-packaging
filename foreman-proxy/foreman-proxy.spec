@@ -245,6 +245,9 @@ fi
 
 
 %changelog
+* Tue Feb 23 2016 Dominic Cleal <dominic@cleal.org> 1.10.2-1
+- Release 1.10.2
+
 * Wed Jan 20 2016 Dominic Cleal <dcleal@redhat.com> 1.10.1-1
 - Release 1.10.1
 
