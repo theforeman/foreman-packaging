@@ -4,7 +4,7 @@
 %global gem_name patternfly-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.8.0
+Version: 2.10.1
 Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
@@ -54,6 +54,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
 %doc %{gem_instdir}/LICENSE.txt
+%doc %{gem_instdir}/OPEN_SOURCE_LICENCES.txt
 %{gem_instdir}/assets
 %{gem_instdir}/bower.json
 %{gem_libdir}
