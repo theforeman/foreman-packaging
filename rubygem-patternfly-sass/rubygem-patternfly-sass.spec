@@ -72,5 +72,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Feb 24 2016 Dominic Cleal <dominic@cleal.org> 2.10.1-1
+- Update patternfly-sass to 2.10.1 (dominic@cleal.org)
+
 * Thu Dec 31 2015 Daniel Lobato <elobatocs@gmail.com> 2.8.0-1
 - Initial package
