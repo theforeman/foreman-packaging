@@ -79,6 +79,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Feb 25 2016 Dominic Cleal <dominic@cleal.org> 0.0.10-1
+- Release hammer_cli_foreman_tasks 0.0.10 (stbenjam@redhat.com)
+
 * Mon Jan 25 2016 Dominic Cleal <dcleal@redhat.com> 0.0.9-2
 - Add foremandist to hammer_cli_foreman_tasks (stbenjam@redhat.com)
 
