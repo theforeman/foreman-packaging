@@ -105,6 +105,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Feb 25 2016 Dominic Cleal <dominic@cleal.org> 0.2.2-1
+- Update to foreman_chef 0.2.2 (ares@igloonet.cz)
+
 * Tue Oct 06 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
 - Add foremandist for branched builds (dcleal@redhat.com)
 
