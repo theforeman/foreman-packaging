@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Feb 26 2016 Dominic Cleal <dominic@cleal.org> 4.0.2-1
+- Update ace-rails-ap to 4.0.2 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.0.0-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
