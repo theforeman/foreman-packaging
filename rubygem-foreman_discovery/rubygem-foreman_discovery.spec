@@ -112,6 +112,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Feb 26 2016 Dominic Cleal <dominic@cleal.org> 5.0.1-1
+- Updated foreman_discovery to 5.0.1 (lzap+git@redhat.com)
+
 * Tue Jan 26 2016 Dominic Cleal <dcleal@redhat.com> 5.0.0-1
 - Update foreman_discovery to 5.0.0 (RPM) (lzap+git@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
