@@ -129,7 +129,7 @@ You'll also need an alias `kojikat` to point to:
 
 1. `git rm foo-old.gem`
 1. Change the version in the spec, set "Release" to 1
-1. Run `gem compare -b foo 0.1 0.2` (needs [gem-compare](https://rubygems.org/gems/gem-compare))
+1. Run `gem compare -b foo 0.1 0.2 -k` (needs [gem-compare](https://rubygems.org/gems/gem-compare))
   1. update `Requires` to match changes in runtime dependencies
   1. add/remove entries in %files if required for new root files
 1. Download the source file (e.g. the .gem) into the spec directory and run
