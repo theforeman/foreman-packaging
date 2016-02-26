@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Feb 26 2016 Dominic Cleal <dominic@cleal.org> 0.3.6-1
+- Update apipie-rails to 0.3.6 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.3.5-1
 - Update apipie-rails to 0.3.5 (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
