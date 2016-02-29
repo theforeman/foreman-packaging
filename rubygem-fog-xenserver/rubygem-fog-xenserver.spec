@@ -66,6 +66,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Feb 29 2016 Dominic Cleal <dominic@cleal.org> 0.2.3-1
+- update fog-xenserver to 0.2.3 (kvedulv@kvedulv.de)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.2.2-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
