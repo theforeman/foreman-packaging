@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Feb 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
+- Update concurrent-ruby to 1.0.1 (dominic@cleal.org)
+
 * Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 1.0.0-2
 - Add foremandist to plugin dependencies (dcleal@redhat.com)
 
