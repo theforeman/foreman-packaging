@@ -144,12 +144,6 @@ rename .example '' %{buildroot}%{_sysconfdir}/%{name}/settings.d/*
 touch %{buildroot}%{_sysconfdir}/%{name}/migration_state
 ln -sv %{_sysconfdir}/%{name}/migration_state %{buildroot}%{_datadir}/%{name}/config/migration_state
 
-# Put HTML %{_localstatedir}/lib/%{name}/public
-for x in public views; do
-  cp -pr $x %{buildroot}%{_localstatedir}/lib/%{name}/
-  ln -sv %{_localstatedir}/lib/%{name}/$x %{buildroot}%{_datadir}/%{name}/$x
-done
-
 # Put logs in %{_localstatedir}/log/%{name}
 ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/logs
 
@@ -164,7 +158,6 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_var}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
