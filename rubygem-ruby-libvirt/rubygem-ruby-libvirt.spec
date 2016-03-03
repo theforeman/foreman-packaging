@@ -7,7 +7,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -87,6 +87,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 0.5.2-4
+- Fix missing gem.build_complete file (#13948, dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.5.2-3
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
