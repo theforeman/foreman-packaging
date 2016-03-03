@@ -79,6 +79,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-1
+- Update ldap_fluff to 0.4.1 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.4.0-2
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
