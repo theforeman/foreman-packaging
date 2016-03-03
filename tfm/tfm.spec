@@ -5,8 +5,8 @@
 %{!?scl_vendor_in_name: %global scl_vendor_in_name 0}
 %{?scl_package:%scl_package %scl}
 
-# Fallback to rh-ror41 etc. when scldevel's not in the buildroot
-%{!?scl_ror:%global scl_ror rh-ror41}
+# Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
+%{!?scl_ror:%global scl_ror sclo-ror42}
 %{!?scl_prefix_ror:%global scl_prefix_ror %{scl_ror}-}
 %{!?scl_ruby:%global scl_ruby rh-ruby22}
 %{!?scl_prefix_ruby:%global scl_prefix_ruby %{scl_ruby}-}
@@ -20,8 +20,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 2.0
-Release: 4%{?dist}
+Version: 3.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
