@@ -74,6 +74,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
+- plugins:puppetdb_foreman - Release 1.0.2 (elobatocs@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
