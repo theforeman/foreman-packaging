@@ -180,6 +180,7 @@ whitelist = foreman
   rubygem-rack-jsonp
   rubygem-rails-i18n
   rubygem-rbovirt
+  rubygem-responders
   rubygem-retriable
   rubygem-rubyipmi
   rubygem-safemode

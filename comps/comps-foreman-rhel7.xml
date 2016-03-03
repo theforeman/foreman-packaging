@@ -126,6 +126,7 @@
       <packagereq type="default">tfm-rubygem-rails-observers</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
+      <packagereq type="default">tfm-rubygem-responders</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
@@ -296,6 +297,7 @@
       <packagereq type="default">tfm-rubygem-rails-observers-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>

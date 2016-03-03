@@ -89,6 +89,7 @@
       <packagereq type="default">rubygem-rack-jsonp</packagereq>
       <packagereq type="default">rubygem-rails-i18n</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
+      <packagereq type="default">rubygem-responders</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
@@ -161,6 +162,7 @@
       <packagereq type="default">rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">rubygem-responders-doc</packagereq>
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
