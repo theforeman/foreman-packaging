@@ -56,7 +56,7 @@ find -type f -name '*.rb' -print | xargs sed -i '/#!\/usr\/bin\/ruby/d'
 popd
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_extdir_mri}/*.so %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
