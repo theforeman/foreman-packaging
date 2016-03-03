@@ -26,8 +26,8 @@ Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
 Requires: %{?scl_prefix}rubygem(faraday) < 1.0
 Requires: %{?scl_prefix}rubygem(launchy) >= 2.4
 Requires: %{?scl_prefix}rubygem(launchy) < 3.0
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2.0
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2.0
 Requires: %{?scl_prefix}rubygem(retriable) >= 1.4
 Requires: %{?scl_prefix}rubygem(retriable) < 2.0
 Requires: %{?scl_prefix}rubygem(signet) >= 0.6

@@ -17,7 +17,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3.1
 Requires: %{?scl_prefix}rubygem(extlib) >= 0.9.15
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.0.0
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.0.0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

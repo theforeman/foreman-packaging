@@ -14,8 +14,8 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(colorize) >= 0.5.8
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6.0
-Requires: %{?scl_prefix}rubygem(nokogiri) < 1.7.0
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6.0
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 1.7.0
 Requires: %{?scl_prefix_ror}rubygem(polyglot)
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 3.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)

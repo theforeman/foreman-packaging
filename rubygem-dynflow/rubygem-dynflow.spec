@@ -24,11 +24,11 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 2.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 1.0
-Requires: %{?scl_prefix}rubygem(multi_json)
+Requires: %{?scl_prefix_ror}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem-sequel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

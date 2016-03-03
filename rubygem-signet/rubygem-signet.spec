@@ -23,8 +23,8 @@ Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
 Requires: %{?scl_prefix}rubygem(faraday) < 1.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 1.0
 Requires: %{?scl_prefix}rubygem(jwt) < 2.0
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2.0
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2.0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

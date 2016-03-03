@@ -16,8 +16,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.1.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.1.0
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)

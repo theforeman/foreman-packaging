@@ -15,7 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(sass) >= 3.3.4
+Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.3.4
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2.1
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)

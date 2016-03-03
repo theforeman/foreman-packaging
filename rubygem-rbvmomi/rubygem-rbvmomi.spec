@@ -14,11 +14,11 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.4.1
 Requires: %{?scl_prefix_ror}rubygem(builder)
 Requires: %{?scl_prefix}rubygem(trollop)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix}rubygem(nokogiri) >= 1.4.1
+BuildRequires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.4.1
 BuildRequires: %{?scl_prefix_ror}rubygem(builder)
 BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

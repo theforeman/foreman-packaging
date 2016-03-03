@@ -20,7 +20,7 @@ Requires: %{?scl_prefix_ruby}ruby(abi)
 Requires: %{?scl_prefix_ruby}ruby(release)
 %endif
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.8.4
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.8.4
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 # BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
