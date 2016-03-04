@@ -97,6 +97,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Mar 04 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-1
+- Update foreman_chef to 0.3.0 (mhulan@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
