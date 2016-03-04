@@ -67,6 +67,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Mar 04 2016 Dominic Cleal <dominic@cleal.org> 0.6.1-1
+- Update fog-vsphere to 0.6.1 (dominic@cleal.org)
+
 * Mon Feb 01 2016 Dominic Cleal <dcleal@redhat.com> 0.6.0-1
 - Update fog-vsphere to 0.6.0 (dcleal@redhat.com)
 
