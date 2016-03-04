@@ -13,6 +13,7 @@
       <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_custom_parameters</packagereq>
@@ -117,6 +118,7 @@
       <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_custom_parameters-doc</packagereq>

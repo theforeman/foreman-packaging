@@ -2,6 +2,8 @@
 begin='<!--RGD-START-->'
 end='<!--RGD-END-->'
 
+original_locale=$LC_COLLATE
+export LC_COLLATE=en_GB
 TEMP=$(mktemp)
 trap "rm -f $TEMP" EXIT
 
@@ -13,3 +15,4 @@ do
   sed -i -e "/$begin/,/$end/{ /$begin/{p; r $TEMP
     }; /$end/p; d }" $FILE
 done
+export LC_COLLATE=$original_locale
