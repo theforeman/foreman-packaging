@@ -1,2 +1,3 @@
 foreman_chef.rb usr/share/foreman/bundler.d
 cache           usr/share/foreman/vendor
+foreman_chef    var/lib/foreman/public/assets
