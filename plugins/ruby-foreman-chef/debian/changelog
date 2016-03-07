@@ -1,3 +1,9 @@
+ruby-foreman-chef (0.3.1-1) stable; urgency=medium
+
+  * Update foreman_chef to 0.3.1
+
+ -- Marek Hulan <ares@igloonet.cz>  Mon, 07 Mar 2016 16:04:41 +0000
+
 ruby-foreman-chef (0.3.0-2) stable; urgency=medium
 
   * Update spec to precompile assets
