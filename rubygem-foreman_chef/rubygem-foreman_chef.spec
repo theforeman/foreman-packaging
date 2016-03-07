@@ -16,7 +16,7 @@
 
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.0
+Version:    0.3.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -34,6 +34,11 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix}rubygem(deface)
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.6.9
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.8.0
+BuildRequires: foreman-plugin >= 1.11.0
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 
@@ -68,17 +73,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
 
-%posttrans
-# We need to run the db:migrate after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
-exit 0
+%foreman_bundlerd_file
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -86,15 +83,22 @@ exit 0
 %{gem_instdir}/db
 %{gem_instdir}/lib
 %{gem_instdir}/config
+%{foreman_bundlerd_plugin}
 %exclude %{gem_cache}
+%{foreman_assets_plugin}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+
+%posttrans
+%foreman_db_migrate
+%foreman_db_seed
+%foreman_restart
+exit 0
 
 %changelog
 * Fri Mar 04 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-1
