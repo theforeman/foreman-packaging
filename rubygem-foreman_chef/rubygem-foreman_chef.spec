@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Mar 07 2016 Dominic Cleal <dominic@cleal.org> 0.3.1-1
+- Update foreman_chef to 0.3.1 (mhulan@redhat.com)
+
 * Fri Mar 04 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-1
 - Update foreman_chef to 0.3.0 (mhulan@redhat.com)
 
