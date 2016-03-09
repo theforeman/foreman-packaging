@@ -92,6 +92,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Wed Mar 09 2016 Dominic Cleal <dominic@cleal.org> 1.2.3-1
+- Update safemode to 1.2.3 (mhulan@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.2.2-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
