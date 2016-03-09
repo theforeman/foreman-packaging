@@ -5,8 +5,8 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.45.3
-Release: 3%{?dist}
+Version: 0.48.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
