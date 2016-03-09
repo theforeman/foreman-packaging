@@ -6,8 +6,8 @@
 Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.7.4
-Release: 3%{?dist}
+Version: 0.9.1
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-aws
@@ -63,6 +63,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/.*
 
 %files doc
+%{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md
