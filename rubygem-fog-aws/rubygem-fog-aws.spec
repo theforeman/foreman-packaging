@@ -74,6 +74,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Mar 09 2016 Dominic Cleal <dominic@cleal.org> 0.9.1-1
+- Update fog-aws to 0.9.1 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.7.4-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
