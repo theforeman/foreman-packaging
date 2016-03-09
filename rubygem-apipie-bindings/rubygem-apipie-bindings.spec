@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Mar 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.16-1
+- Update rubygem-apipie-bindings to 0.0.16 (martin.bacovsky@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.0.14-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
