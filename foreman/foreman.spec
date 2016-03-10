@@ -210,8 +210,7 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
-BuildRequires: %{?scl_prefix}rubygem(select2-rails) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
 # therubyracer
@@ -389,8 +388,7 @@ Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-Requires: %{?scl_prefix}rubygem(select2-rails) >= 3.5
-Requires: %{?scl_prefix}rubygem(select2-rails) < 4.0
+Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 Requires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
 # therubyracer
