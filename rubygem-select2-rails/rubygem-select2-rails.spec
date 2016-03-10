@@ -67,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 10 2016 Dominic Cleal <dominic@cleal.org> 3.5.10-1
+- Update select2-rails to 3.5.10 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 3.5.9.3-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
