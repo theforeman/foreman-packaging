@@ -787,6 +787,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Mar 11 2016 Dominic Cleal <dominic@cleal.org> 1.11.0-0.1.RC2
+- Release 1.11.0-RC2
+
 * Wed Feb 24 2016 Dominic Cleal <dominic@cleal.org> 1.11.0-0.1.RC1
 - Release 1.11.0-RC1
 
