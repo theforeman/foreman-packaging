@@ -58,6 +58,21 @@ stop() {
     return $RETVAL
 }
 
+logrotate() {
+    echo -n $"Rotating logs for $prog: "
+    if [ -f ${FOREMAN_PROXY_PID} ]; then
+        killproc -p ${FOREMAN_PROXY_PID} $prog -USR1
+        RETVAL=$?
+        echo 
+    else
+        echo -n $"$prog was not running.";
+        failure $"$prog was not running.";
+        echo
+        return 1
+    fi
+    return $RETVAL
+}
+
 # See how we were called.
 case "$1" in
     start)
@@ -79,8 +94,11 @@ case "$1" in
         stop
         [ $? -eq 0 ] && start
     ;;
+    logrotate)
+        logrotate
+    ;;
     *)
-        echo $"Usage: $prog {start|stop|restart|condrestart}"
+        echo $"Usage: $prog {start|stop|restart|condrestart|logrotate}"
         exit 1
 esac
 
