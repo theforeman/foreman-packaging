@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-docker (0.0.4-1) stable; urgency=low
+
+  * 0.0.4 released
+
+ -- David Davis <daviddavis@redhat.com>  Tue, 15 Mar 2016 16:20:04 -0400
+
 ruby-hammer-cli-foreman-docker (0.0.3-1) unstable; urgency=medium
 
   * Initial release for Debian/jessie
