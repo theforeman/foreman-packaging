@@ -181,6 +181,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 15 2016 Dominic Cleal <dominic@cleal.org> 0.7.15-1
+- Release foreman-tasks 0.7.15 (RPM) (stbenjam@redhat.com)
+
 * Wed Feb 17 2016 Dominic Cleal <dominic@cleal.org> 0.7.14-1
 - Release foreman-tasks 0.7.14 (stbenjam@redhat.com)
 
