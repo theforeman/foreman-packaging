@@ -8,8 +8,8 @@
 
 Summary: Foreman Docker-related commands for Hammer
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
-Release: 5%{?dist}
+Version: 0.0.4
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: http://github.com/theforeman/hammer_cli_foreman_docker
@@ -69,6 +69,7 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_docker.yml
 %exclude %{gem_cache}
 %{gem_spec}
+%{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
