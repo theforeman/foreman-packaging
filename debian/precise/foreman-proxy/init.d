@@ -106,6 +106,11 @@ do_reload() {
 	return 0
 }
 
+do_logrotate() {
+	start-stop-daemon --stop --signal USR1 --quiet --pidfile $PIDFILE
+	return $?
+}
+
 case "$1" in
   start)
     [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC " "$NAME"
@@ -135,6 +140,11 @@ case "$1" in
 	#do_reload
 	#log_end_msg $?
 	#;;
+  logrotate)
+	log_daemon_msg "Rotating logs $DESC" "$NAME"
+	do_logrotate
+	log_end_msg $?
+	;;        
   restart|force-reload)
 	#
 	# If the "reload" option is implemented then remove the
@@ -158,8 +168,7 @@ case "$1" in
 	esac
 	;;
   *)
-	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
-	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
+	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload|logrotate}" >&2
 	exit 3
 	;;
 esac
