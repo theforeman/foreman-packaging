@@ -78,6 +78,9 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Mar 16 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-1
+- Update hammer_cli_foreman_docker to 0.0.4 (daviddavis@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.3-5
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
