@@ -284,7 +284,7 @@ Meta Package to install requirements for virt support
 %package ovirt
 Summary: Foreman ovirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.0.32
+Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.0.36
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.1.0
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
