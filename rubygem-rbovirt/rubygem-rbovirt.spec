@@ -67,6 +67,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Fri Mar 18 2016 Dominic Cleal <dominic@cleal.org> 0.0.36-1
+- Updated rubygem-rbovirt to 0.0.36 (lzap+git@redhat.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.0.35-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
