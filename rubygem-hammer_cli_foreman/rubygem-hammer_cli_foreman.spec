@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.1
+Version: 0.6.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -18,6 +18,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.6.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.16
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -79,6 +80,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %doc %{gem_instdir}/test
 
 %changelog
+* Tue Mar 22 2016 Tomas Strachota <tstrachota@redhat.com> 0.6.2-1
+- Update hammer_cli_foreman to 0.6.2 (tstrachota@redhat.com)
+
 * Tue Mar 15 2016 Dominic Cleal <dominic@cleal.org> 0.6.1-1
 - Update hammer_cli_foreman to 0.6.1 (dominic@cleal.org)
 
