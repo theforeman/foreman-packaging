@@ -7,6 +7,6 @@
   compress
         daily
   postrotate
-    /bin/systemctl try-restart foreman-proxy >/dev/null 2>&1 || true
+    /bin/systemctl kill --signal=SIGUSR1 foreman-proxy >/dev/null 2>&1 || true
   endscript
 }
