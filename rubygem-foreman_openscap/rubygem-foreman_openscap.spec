@@ -28,6 +28,7 @@ Requires: scap-security-guide
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Requires: rubygem(smart_proxy_openscap)
 Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
