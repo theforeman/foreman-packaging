@@ -72,6 +72,7 @@
       <packagereq type="default">tfm-rubygem-fog-google</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-openstack</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
@@ -251,6 +252,7 @@
       <packagereq type="default">tfm-rubygem-fog-google-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-openstack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml-doc</packagereq>
