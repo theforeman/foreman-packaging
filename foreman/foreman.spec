@@ -93,7 +93,7 @@ Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.36.0
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -166,7 +166,7 @@ BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.35.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.36.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -276,13 +276,26 @@ Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
 %description libvirt
-Meta Package to install requirements for virt support
+Meta package to install requirements for libvirt compute resource support.
 
 %files libvirt
 %{_datadir}/%{name}/bundler.d/libvirt.rb
 
+%package openstack
+Summary: Foreman OpenStack support
+Group:  Applications/System
+Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1
+Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
+Requires: %{name} = %{version}-%{release}
+
+%description openstack
+Meta package to install requirements for OpenStack compute resource support.
+
+%files openstack
+%{_datadir}/%{name}/bundler.d/openstack.rb
+
 %package ovirt
-Summary: Foreman ovirt support
+Summary: Foreman oVirt support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.0.36
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.1.0
@@ -290,15 +303,15 @@ Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
 %description ovirt
-Meta Package to install requirements for ovirt support
+Meta package to install requirements for oVirt compute resource support.
 
 %files ovirt
 %{_datadir}/%{name}/bundler.d/ovirt.rb
 
 %package compute
-Summary: Foreman Compute Resource support via fog
+Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.37.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.38.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
@@ -306,8 +319,9 @@ Provides: foreman-fog = 1.0.0
 Obsoletes: foreman-ec2 < 1.3.0
 
 %description compute
-Meta Package to install requirements for compute resource support, in
-particular, OpenStack and Rackspace.
+Meta package to install dependencies to support some compute resources. Most
+compute resources have a more specific package which should be installed in
+preference to this package.
 
 %files compute
 %{_datadir}/%{name}/bundler.d/fog.rb
@@ -318,7 +332,6 @@ Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
 Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
 Requires:  %{name} = %{version}-%{release}
-Provides:  foreman-ec2 = %{version}-%{release}
 
 %description ec2
 Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
@@ -326,15 +339,27 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 %files ec2
 %{_datadir}/%{name}/bundler.d/ec2.rb
 
+%package rackspace
+Summary: Foreman Rackspace support
+Group:  Applications/System
+Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1
+Requires: %{?scl_prefix}rubygem(fog-rackspace) < 1.0
+Requires: %{name} = %{version}-%{release}
+
+%description rackspace
+Meta package to install requirements for Rackspace compute resource support.
+
+%files rackspace
+%{_datadir}/%{name}/bundler.d/rackspace.rb
+
 %package vmware
-Summary: Foreman vmware support
+Summary: Foreman VMware support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.6.2
 Requires: %{name} = %{version}-%{release}
-Requires: foreman-compute = %{version}-%{release}
 
 %description vmware
-Meta Package to install requirements for vmware support
+Meta package to install requirements for VMware compute resource support.
 
 %files vmware
 %{_datadir}/%{name}/bundler.d/vmware.rb
