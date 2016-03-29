@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.37.0
+Version: 1.38.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -35,6 +35,8 @@ Requires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-json)
+Requires: %{?scl_prefix}rubygem(fog-openstack)
+Requires: %{?scl_prefix}rubygem(fog-rackspace)
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(fog-xenserver)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -50,6 +52,8 @@ BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
+BuildRequires: %{?scl_prefix}rubygem(fog-openstack)
+BuildRequires: %{?scl_prefix}rubygem(fog-rackspace)
 BuildRequires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 BuildRequires: %{?scl_prefix}rubygem(fog-xenserver)
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
@@ -125,6 +129,7 @@ sed -i '/add_.*dependency.*powerdns/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*dynect/d' %{gem_name}.gemspec
 %patch16 -p1
 sed -i '/add_.*dependency.*aliyun/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*cloudatcost/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}
