@@ -53,6 +53,7 @@
       <packagereq type="default">rubygem-fog-json</packagereq>
       <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-openstack</packagereq>
+      <packagereq type="default">rubygem-fog-rackspace</packagereq>
       <packagereq type="default">rubygem-fog-vsphere</packagereq>
       <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
@@ -131,6 +132,7 @@
       <packagereq type="default">rubygem-fog-json-doc</packagereq>
       <packagereq type="default">rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-openstack-doc</packagereq>
+      <packagereq type="default">rubygem-fog-rackspace-doc</packagereq>
       <packagereq type="default">rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>

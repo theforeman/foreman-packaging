@@ -140,6 +140,7 @@ whitelist = foreman
   rubygem-fog-json
   rubygem-fog-libvirt
   rubygem-fog-openstack
+  rubygem-fog-rackspace
   rubygem-fog-vsphere
   rubygem-fog-xenserver
   rubygem-fog-xml
