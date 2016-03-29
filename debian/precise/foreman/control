@@ -133,6 +133,17 @@ Description: metapackage providing mysql2 dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
+Package: foreman-openstack
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing OpenStack dependencies for Foreman
+ This package provides OpenStack dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
 Package: foreman-ovirt
 Architecture: all
 Section: web
@@ -140,6 +151,17 @@ Priority: extra
 Depends: foreman, foreman-compute, ${misc:Depends}
 Description: metapackage providing ovirt dependencies for Foreman
  This package provides ovirt dependencies for Foreman, a
+ flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-rackspace
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: metapackage providing Rackspace dependencies for Foreman
+ This package provides Rackspace dependencies for Foreman, a
  flexible systems management web application.
  .
  The foreman package should be installed along with this package.
@@ -170,7 +192,7 @@ Package: foreman-vmware
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-compute, ${misc:Depends}
+Depends: foreman, ${misc:Depends}
 Description: metapackage providing vmware dependencies for Foreman
  This package provides vmware dependencies for Foreman, a
  flexible systems management web application.
