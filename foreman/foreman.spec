@@ -13,7 +13,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.10.2
+Version: 1.10.3
 Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
