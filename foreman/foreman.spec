@@ -329,7 +329,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 %package vmware
 Summary: Foreman vmware support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.5.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.6.2
 Requires: %{name} = %{version}-%{release}
 Requires: foreman-compute = %{version}-%{release}
 
