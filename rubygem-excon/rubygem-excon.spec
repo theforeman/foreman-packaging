@@ -5,7 +5,7 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.48.0
+Version: 0.49.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
