@@ -1,3 +1,9 @@
+foreman-installer (1.10.3-1) stable; urgency=low
+
+  * 1.10.3 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 30 Mar 2016 14:02:36 +0100
+
 foreman-installer (1.10.2-1) stable; urgency=low
 
   * 1.10.2 released
