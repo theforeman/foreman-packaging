@@ -52,6 +52,7 @@ This package contains documentation for rubygem-%{gem_name}.
 mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem install --local --install-dir .%{gem_dir} \
+            --bindir .%{_bindir} \
             --force %{SOURCE0} --no-rdoc --no-ri
 %{?scl:"}
 
@@ -64,15 +65,19 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/bin
 %{gem_instdir}/config
 %{gem_instdir}/lib
 %{gem_instdir}/modules
-%{gem_dir}/bin/kafo-configure
-%{gem_dir}/bin/kafofy
-%{gem_dir}/bin/kafo-export-params
+%{_bindir}/kafo-configure
+%{_bindir}/kafo-export-params
+%{_bindir}/kafofy
 
 %doc %{gem_instdir}/LICENSE.txt
 
