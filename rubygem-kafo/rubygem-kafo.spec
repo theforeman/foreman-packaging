@@ -6,7 +6,7 @@
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
@@ -93,6 +93,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 30 2016 Dominic Cleal <dominic@cleal.org> 0.7.2-2
+- Install Kafo gem binstubs to bindir (dominic@cleal.org)
+
 * Tue Feb 23 2016 Dominic Cleal <dominic@cleal.org> 0.7.2-1
 - Update kafo to 0.7.2 (ares@igloonet.cz)
 
