@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 1.11.0-1
+- Release 1.11.0
+
 * Tue Mar 22 2016 Dominic Cleal <dominic@cleal.org> 1.11.0-0.1.RC3
 - Release 1.11.0-RC3
 
