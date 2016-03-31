@@ -184,6 +184,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 1.38.0-1
+- Update fog to 1.38.0 (dominic@cleal.org)
+
 * Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 1.37.0-1
 - Update fog to 1.37.0 (dcleal@redhat.com)
 
