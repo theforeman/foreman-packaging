@@ -92,6 +92,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 0.49.0-1
+- Update excon to 0.49.0 (dominic@cleal.org)
+
 * Wed Mar 09 2016 Dominic Cleal <dominic@cleal.org> 0.48.0-1
 - Update excon to 0.48.0 (dominic@cleal.org)
 
