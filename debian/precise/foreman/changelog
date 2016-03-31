@@ -1,3 +1,9 @@
+foreman (1.11.0-1) stable; urgency=low
+
+  * 1.11.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Thu, 31 Mar 2016 14:18:39 +0100
+
 foreman (1.11.0~rc3-1) stable; urgency=low
 
   * 1.11.0-RC3 released
