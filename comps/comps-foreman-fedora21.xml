@@ -18,10 +18,12 @@
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
+      <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
+      <packagereq type="default">foreman-rackspace</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
