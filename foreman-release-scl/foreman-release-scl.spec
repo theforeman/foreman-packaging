@@ -7,9 +7,9 @@ Group:    Applications/System
 License:  GPLv3+
 URL:      http://theforeman.org
 
-Requires: rhscl-rh-ruby22-epel-%{rhel}-%{_arch}
-Requires: rhscl-rh-ror41-epel-%{rhel}-%{_arch}
-Requires: rhscl-v8314-epel-%{rhel}-%{_arch}
+BuildArch: noarch
+
+Requires: centos-release-scl
 
 %description
 Software Collection repositories provide additional sets of software packages,

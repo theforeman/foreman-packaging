@@ -1,3 +1,2 @@
-https://www.softwarecollections.org/repos/rhscl/rh-ror41/epel-6-x86_64/noarch/rhscl-rh-ror41-epel-6-x86_64-1-2.noarch.rpm
-https://www.softwarecollections.org/repos/rhscl/rh-ruby22/epel-6-x86_64/noarch/rhscl-rh-ruby22-epel-6-x86_64-1-2.noarch.rpm
-https://www.softwarecollections.org/en/scls/rhscl/v8314/epel-6-x86_64/download/rhscl-v8314-epel-6-x86_64-1-2.noarch.rpm
+http://mirror.centos.org/centos/6/extras/x86_64/Packages/centos-release-scl-6-6.el6.centos.noarch.rpm
+http://mirror.centos.org/centos/6/extras/x86_64/Packages/centos-release-scl-rh-1-1.el6.centos.noarch.rpm
