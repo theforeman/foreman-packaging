@@ -1,5 +1,5 @@
 Name:     foreman-release-scl
-Version:  2
+Version:  3
 Release:  1%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
@@ -22,6 +22,9 @@ Enterprise Linux rebuilds, such as CentOS.
 %files
 
 %changelog
+* Tue Apr 05 2016 Dominic Cleal <dominic@cleal.org> 3-1
+- Switch to CentOS SCLo SIG builds (#12912, dominic@cleal.org)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2-1
 - Depend on ror41 and ruby22 collections (dcleal@redhat.com)
 
