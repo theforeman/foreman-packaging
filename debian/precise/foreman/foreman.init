@@ -23,7 +23,7 @@ FOREMAN_ENV=${FOREMAN_ENV:-'production'}
 FOREMAN_PID=${FOREMAN_PID:-"${FOREMAN_HOME}/tmp/pids/server.pid"}
 
 DAEMON="/usr/bin/bundle"
-DAEMON_OPTS="exec rails server -b ${FOREMAN_IFACE} -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d"
+DAEMON_OPTS="exec bin/rails server -b ${FOREMAN_IFACE} -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d"
 
 . /lib/init/vars.sh
 . /lib/lsb/init-functions
