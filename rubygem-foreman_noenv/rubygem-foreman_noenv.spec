@@ -17,8 +17,8 @@
 
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.4
-Release:    3%{?foremandist}%{?dist}
+Version:    0.0.5
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -102,6 +102,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Tue Apr 05 2016 Josh Baird <jbaird@follett.com> 0.0.5-1
+- Support for Foreman 1.11.0/Ruby 2.2.4
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
