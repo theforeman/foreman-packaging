@@ -29,7 +29,7 @@ fi
 start() {
     echo -n $"Starting $prog: "
     cd ${FOREMAN_HOME}
-    daemon --user ${FOREMAN_USER} /usr/bin/ruby ${FOREMAN_HOME}/script/rails s -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d ${FOREMAN_EXTRA_ARGS} > /dev/null
+    daemon --user ${FOREMAN_USER} /usr/bin/ruby ${FOREMAN_HOME}/bin/rails s -p ${FOREMAN_PORT} -e ${FOREMAN_ENV} -d ${FOREMAN_EXTRA_ARGS} > /dev/null
     RETVAL=$?
     if [ $RETVAL = 0 ]
     then
