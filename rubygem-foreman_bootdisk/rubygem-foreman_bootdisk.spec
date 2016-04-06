@@ -104,6 +104,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Wed Apr 06 2016 Dominic Cleal <dominic@cleal.org> 7.0.0-1
+- Update foreman_bootdisk to 7.0.0 (dominic@cleal.org)
+
 * Thu Jan 21 2016 Dominic Cleal <dcleal@redhat.com> 6.1.0-1
 - Update foreman_bootdisk to 6.1.0 (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
