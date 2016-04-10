@@ -1,1 +1,1 @@
-gem 'foreman_cockpit', '1.0.3'
+gem 'foreman_cockpit', '2.0.1'
