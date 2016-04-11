@@ -5,7 +5,7 @@
 
 Summary: Puppet module parsers
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.6
+Version: 0.1.0
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
@@ -16,8 +16,8 @@ Requires: %{?scl_prefix}ruby(abi)
 %else
 Requires: %{?scl_prefix}ruby(release)
 %endif
-Requires: %{?scl_prefix}puppet < 4.0.0
 Requires: %{?scl_prefix}rubygem(rdoc)
+Requires: %{?scl_prefix}rubygem(json)
 Requires: %{?scl_prefix}rubygems
 
 BuildRequires: %{?scl_prefix}rubygems-devel
