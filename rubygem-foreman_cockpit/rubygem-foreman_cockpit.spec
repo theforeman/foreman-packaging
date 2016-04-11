@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Apr 11 2016 Dominic Cleal <dominic@cleal.org> 2.0.1-1
+- plugins:foreman_cockpit - Release 2.0.1 (elobatocs@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.3-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
