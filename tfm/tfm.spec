@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -238,6 +238,10 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Apr 11 2016 Dominic Cleal <dominic@cleal.org> 2.0-3
+- Add uuidtools to obsoleted packages (dominic@cleal.org)
+- Fix less, less-rails package names (dominic@cleal.org)
+
 * Fri Jan 15 2016 Dominic Cleal <dcleal@redhat.com> 2.0-2
 - Remove rubygem-less and rubygem-less-rails (ericdhelms@gmail.com)
 
