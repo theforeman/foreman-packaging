@@ -64,6 +64,7 @@ Obsoletes: %{scl_prefix}rubygem-sass < 3.4.9-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 2.12.3-3
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
+Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
