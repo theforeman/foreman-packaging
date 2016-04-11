@@ -17,7 +17,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.15
+Version: 0.7.16
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
