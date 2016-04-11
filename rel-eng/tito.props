@@ -59,7 +59,6 @@ whitelist = foreman-installer
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-daemon_controller
-  rubygem-fast_gettext
   rubygem-foreman_api
   rubygem-hashie
   rubygem-highline
@@ -90,7 +89,6 @@ whitelist = foreman-installer
   rubygem-awesome_print
   rubygem-bundler_ext
   rubygem-clamp
-  rubygem-fast_gettext
   rubygem-foreman_api
   rubygem-hashie
   rubygem-highline
