@@ -10,7 +10,6 @@ XS-Ruby-Versions: all
 Package: ruby-kafo-parsers
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         puppet (<< 4.0.0)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
 Description: Puppet module parsers
  This gem can parse values, validations, documentation, types, groups and conditions of parameters from your puppet modules
