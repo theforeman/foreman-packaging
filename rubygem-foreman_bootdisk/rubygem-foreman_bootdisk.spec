@@ -104,6 +104,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Tue Apr 12 2016 Dominic Cleal <dominic@cleal.org> 8.0.0-1
+- Update foreman_bootdisk to 8.0.0 (dominic@cleal.org)
+
 * Wed Apr 06 2016 Dominic Cleal <dominic@cleal.org> 7.0.0-1
 - Update foreman_bootdisk to 7.0.0 (dominic@cleal.org)
 
