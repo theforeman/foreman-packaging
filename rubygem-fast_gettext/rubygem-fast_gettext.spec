@@ -68,6 +68,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Apr 12 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
+- Update fast_gettext to 1.0.0 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.9.2-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
