@@ -67,6 +67,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 13 2016 Dominic Cleal <dominic@cleal.org> 0.0.37-1
+- Update rbovirt to 0.0.37 (dominic@cleal.org)
+
 * Fri Mar 18 2016 Dominic Cleal <dominic@cleal.org> 0.0.36-1
 - Updated rubygem-rbovirt to 0.0.36 (lzap+git@redhat.com)
 
