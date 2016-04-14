@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 14 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-1
+- Update hammer_cli_foreman_discovery to 0.0.3 (orabin@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
