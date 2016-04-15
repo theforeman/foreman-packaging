@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/TESTING.md
 
 %changelog
+* Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 1.28.0-1
+- Update docker-api to 1.28 (elobatocs@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.17.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
