@@ -1,0 +1,12 @@
+Source: puppet-agent-oauth
+Section: admin
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/oauth-xx/oauth-ruby
+
+Package: puppet-agent-oauth
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Description: OAuth Core Ruby implementation for Puppet Agent
