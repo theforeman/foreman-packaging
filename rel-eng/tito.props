@@ -201,7 +201,6 @@ scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
-  rubygem-archive-tar-minitar
   rubygem-bastion
   rubygem-colorize
   rubygem-commonjs
@@ -285,7 +284,6 @@ scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
-  rubygem-archive-tar-minitar
   rubygem-bastion
   rubygem-colorize
   rubygem-commonjs
