@@ -5,8 +5,8 @@
 
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.17.0
-Release: 3%{?dist}
+Version: 1.28.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api
@@ -15,7 +15,6 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(archive-tar-minitar)
 Requires: %{?scl_prefix}rubygem(excon) >= 0.38
 Requires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -65,7 +64,9 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Dockerfile
 %exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/script
 %exclude %{gem_instdir}/spec
 %exclude %{gem_instdir}/*.gemspec
 %{gem_spec}
