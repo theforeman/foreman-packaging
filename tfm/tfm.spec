@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -239,6 +239,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 2.0-4
+- Remove archive-tar-minitar package (elobatocs@gmail.com)
+
 * Mon Apr 11 2016 Dominic Cleal <dominic@cleal.org> 2.0-3
 - Add uuidtools to obsoleted packages (dominic@cleal.org)
 - Fix less, less-rails package names (dominic@cleal.org)
