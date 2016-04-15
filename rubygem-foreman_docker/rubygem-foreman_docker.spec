@@ -17,7 +17,7 @@
 
 Summary:    A Foreman plugin for Docker container management
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.1
+Version:    2.1.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -25,15 +25,19 @@ URL:        http://github.com/theforeman/foreman-docker
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman-compute >= 1.11.0
-Requires:   %{?scl_prefix}rubygem(docker-api) = 1.17.0
+Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.18.0
+Requires:   %{?scl_prefix}rubygem(docker-api) < 2.0
 Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
+Requires:   %{?scl_prefix}rubygem(deface) < 2.0
 
 BuildRequires: foreman-compute >= 1.11.0
 BuildRequires: foreman-plugin >= 1.11.0
-BuildRequires: %{?scl_prefix}rubygem(docker-api) = 1.17.0
+BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.18.0
+BuildRequires: %{?scl_prefix}rubygem(docker-api) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(wicked) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
