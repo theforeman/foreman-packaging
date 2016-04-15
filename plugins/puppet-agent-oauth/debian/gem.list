@@ -1,0 +1,2 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/oauth-0.5.1.gem"

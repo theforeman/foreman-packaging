@@ -1,0 +1,5 @@
+puppet-agent-oauth (0.5.1-1) stable; urgency=low
+
+  * Initial release
+
+ -- Dominic Cleal <dominic@cleal.org>  Fri, 15 Apr 2016 12:21:41 +0100
