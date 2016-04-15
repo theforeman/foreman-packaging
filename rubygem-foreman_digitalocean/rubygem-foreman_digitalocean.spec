@@ -17,14 +17,14 @@
 
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.2.1
-Release:    2%{?foremandist}%{?dist}
+Version:    1.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman-digitalocean
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman-compute >= 1.5.0
+Requires:   foreman-compute >= 1.11.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -78,6 +78,7 @@ GEMFILE
 %{gem_instdir}/app
 %{gem_instdir}/locale
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/test
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{gem_instdir}/LICENSE
