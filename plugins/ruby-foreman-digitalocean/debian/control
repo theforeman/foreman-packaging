@@ -8,5 +8,5 @@ Homepage: https://github.com/theforeman/foreman-digitalocean
 
 Package: ruby-foreman-digitalocean
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.5.0),
+Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.11.0),
 Description: Foreman DigitalOcean compute resource

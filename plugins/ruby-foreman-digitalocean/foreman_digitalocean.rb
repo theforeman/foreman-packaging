@@ -1,1 +1,1 @@
-gem 'foreman_digitalocean', '0.2.1'
+gem 'foreman_digitalocean', '1.0.0'
