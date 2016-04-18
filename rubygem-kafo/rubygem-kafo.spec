@@ -93,6 +93,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 18 2016 Dominic Cleal <dominic@cleal.org> 0.7.3-1
+- Update kafo to 0.7.3 (mhulan@redhat.com)
+
 * Wed Mar 30 2016 Dominic Cleal <dominic@cleal.org> 0.7.2-2
 - Install Kafo gem binstubs to bindir (dominic@cleal.org)
 
