@@ -88,6 +88,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 18 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
+- plugins:foreman_digitalocean - 1.0.0 (elobatocs@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.1-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
