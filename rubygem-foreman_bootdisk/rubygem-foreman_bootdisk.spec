@@ -30,6 +30,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: foreman-plugin >= 1.12.0
+BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
@@ -72,7 +73,7 @@ cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
 GEMFILE
 
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -84,6 +85,7 @@ GEMFILE
 %{gem_instdir}/locale
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_assets_plugin}
 %doc %{gem_instdir}/LICENSE
 %foreman_apipie_cache_foreman
 
