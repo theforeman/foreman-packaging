@@ -20,6 +20,7 @@ blacklist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  puppet-agent-oauth
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
@@ -35,6 +36,7 @@ blacklist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  puppet-agent-oauth
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
@@ -54,6 +56,7 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-awesome_print
   rubygem-bundler_ext
@@ -85,6 +88,7 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-awesome_print
   rubygem-bundler_ext
@@ -116,6 +120,7 @@ whitelist = foreman
   foreman-installer
   foreman-proxy
   foreman-selinux
+  puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-apipie-rails
