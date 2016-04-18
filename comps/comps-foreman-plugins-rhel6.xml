@@ -10,7 +10,6 @@
     <packagelist>
       <packagereq type="default">tfm-rubygem-bastion</packagereq>
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
@@ -46,7 +45,6 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
-      <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
@@ -113,7 +111,6 @@
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
@@ -153,7 +150,6 @@
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>

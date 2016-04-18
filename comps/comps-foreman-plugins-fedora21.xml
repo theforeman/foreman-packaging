@@ -10,7 +10,6 @@
     <packagelist>
       <packagereq type="default">rubygem-bastion</packagereq>
       <packagereq type="default">rubygem-bastion-devel</packagereq>
-      <packagereq type="default">rubygem-foreman_abrt</packagereq>
       <packagereq type="default">rubygem-foreman_ansible</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_chef</packagereq>
@@ -46,7 +45,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
-      <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-parse-cron</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
@@ -97,7 +95,6 @@
       <packagereq type="default">rubygem-diffy-doc</packagereq>
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
       <packagereq type="default">rubygem-dynflow-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_chef-doc</packagereq>
@@ -136,7 +133,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
-      <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
