@@ -35,3 +35,6 @@ cp -a ./%{gem_name}-%{version}.gem %{buildroot}%{gem_cache_dir}
 /opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
 
 %changelog
+* Mon Apr 18 2016 Dominic Cleal <dominic@cleal.org> 0.5.1-1
+- new package built with tito
+
