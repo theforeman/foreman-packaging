@@ -109,7 +109,6 @@ whitelist = foreman-installer
   rubygem-powerbar
   rubygem-rack-protection
   rubygem-rest-client
-  rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
