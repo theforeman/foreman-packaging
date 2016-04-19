@@ -74,6 +74,9 @@ GEMFILE
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %changelog
+* Tue Apr 19 2016 Dominic Cleal <dominic@cleal.org> 1.0.3-1
+- plugins:puppetdb_foreman - Release 1.0.3 (elobatocs@gmail.com)
+
 * Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
 - plugins:puppetdb_foreman - Release 1.0.2 (elobatocs@gmail.com)
 
