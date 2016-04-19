@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (1.0.3-1) stable; urgency=low
+
+  * 1.0.3 released
+
+ -- Daniel Lobato <elobatocs@gmail.com>  Tue, 19 Apr 2016 16:19:29 +0200
+
 ruby-puppetdb-foreman (1.0.2-1) stable; urgency=low
 
   * Update release to 1.0.2
