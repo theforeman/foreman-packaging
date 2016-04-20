@@ -249,6 +249,10 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Apr 20 2016 Dominic Cleal <dominic@cleal.org> 3.0-1
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+- Remove foreigner and packages now in sclo-ror42 (dominic@cleal.org)
+
 * Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 2.0-4
 - Remove archive-tar-minitar package (elobatocs@gmail.com)
 
