@@ -17,7 +17,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix}rubygem(nokogiri)
+Requires: %{?scl_prefix_ror}rubygem(nokogiri)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

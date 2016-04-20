@@ -15,8 +15,8 @@ Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.5
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.3.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.4.0
-Requires: %{?scl_prefix}rubygem(sass) >= 3.4.15
-Requires: %{?scl_prefix}rubygem(sass) < 3.5.0
+Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.4.15
+Requires: %{?scl_prefix_ror}rubygem(sass) < 3.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby

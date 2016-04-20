@@ -24,6 +24,7 @@ blacklist = foreman-installer
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
+  rubygem-multi_json
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -40,6 +41,7 @@ blacklist = foreman-installer
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
+  rubygem-multi_json
   rubygem-rack-protection
   rubygem-rkerberos
   rubygem-sinatra
@@ -128,9 +130,7 @@ whitelist = foreman
   rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
-  rubygem-concurrent-ruby
   rubygem-deep_cloneable
-  rubygem-ejs
   rubygem-excon
   rubygem-extlib
   rubygem-fast_gettext
@@ -157,7 +157,6 @@ whitelist = foreman
   rubygem-hammer_cli_foreman
   rubygem-hirb
   rubygem-hirb-unicode
-  rubygem-i18n
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
@@ -180,22 +179,18 @@ whitelist = foreman
   rubygem-rack-jsonp
   rubygem-rails-i18n
   rubygem-rbovirt
+  rubygem-responders
   rubygem-retriable
   rubygem-rubyipmi
   rubygem-safemode
-  rubygem-sass
-  rubygem-sass-rails
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-select2-rails
   rubygem-signet
   rubygem-spice-html5-rails
-  rubygem-sprockets
-  rubygem-sprockets-rails
   rubygem-strong_parameters
   rubygem-table_print
   rubygem-therubyracer
-  rubygem-turbolinks
   rubygem-underscore-rails
   rubygem-validates_lengths_from_database
 
@@ -209,7 +204,6 @@ whitelist = rubygem-algebrick
   rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
-  rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
@@ -292,7 +286,6 @@ whitelist = rubygem-algebrick
   rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
-  rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api

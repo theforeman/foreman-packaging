@@ -42,9 +42,7 @@
       <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
-      <packagereq type="default">rubygem-ejs</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
@@ -70,7 +68,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hirb-unicode</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
-      <packagereq type="default">rubygem-i18n</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
@@ -92,20 +89,16 @@
       <packagereq type="default">rubygem-rack-jsonp</packagereq>
       <packagereq type="default">rubygem-rails-i18n</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
+      <packagereq type="default">rubygem-responders</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-safemode</packagereq>
-      <packagereq type="default">rubygem-sass</packagereq>
-      <packagereq type="default">rubygem-sass-rails</packagereq>
       <packagereq type="default">rubygem-scoped_search</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
       <packagereq type="default">rubygem-select2-rails</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
-      <packagereq type="default">rubygem-sprockets</packagereq>
-      <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
-      <packagereq type="default">rubygem-turbolinks</packagereq>
       <packagereq type="default">rubygem-underscore-rails</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
 
@@ -121,9 +114,7 @@
       <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
-      <packagereq type="default">rubygem-ejs-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
@@ -150,7 +141,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-doc</packagereq>
-      <packagereq type="default">rubygem-i18n-doc</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>
@@ -172,20 +162,16 @@
       <packagereq type="default">rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">rubygem-responders-doc</packagereq>
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
-      <packagereq type="default">rubygem-sass-doc</packagereq>
-      <packagereq type="default">rubygem-sass-rails-doc</packagereq>
       <packagereq type="default">rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
-      <packagereq type="default">rubygem-sprockets-doc</packagereq>
-      <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
-      <packagereq type="default">rubygem-turbolinks-doc</packagereq>
       <packagereq type="default">rubygem-underscore-rails-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
       <!--RGD-END-->

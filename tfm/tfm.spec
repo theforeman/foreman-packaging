@@ -5,8 +5,8 @@
 %{!?scl_vendor_in_name: %global scl_vendor_in_name 0}
 %{?scl_package:%scl_package %scl}
 
-# Fallback to rh-ror41 etc. when scldevel's not in the buildroot
-%{!?scl_ror:%global scl_ror rh-ror41}
+# Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
+%{!?scl_ror:%global scl_ror sclo-ror42}
 %{!?scl_prefix_ror:%global scl_prefix_ror %{scl_ror}-}
 %{!?scl_ruby:%global scl_ruby rh-ruby22}
 %{!?scl_prefix_ruby:%global scl_prefix_ruby %{scl_ruby}-}
@@ -20,8 +20,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 2.0
-Release: 4%{?dist}
+Version: 3.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -61,10 +61,20 @@ Obsoletes: ruby193-ruby-wrapper
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
 Obsoletes: %{scl_prefix}rubygem-archive-tar-minitar < 0.5.2-12
+Obsoletes: %{scl_prefix}rubygem-concurrent-ruby < 1.0.1-2
+Obsoletes: %{scl_prefix}rubygem-dalli < 2.6.4-4
+Obsoletes: %{scl_prefix}rubygem-ejs < 1.1.1-4
+Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
+Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
-Obsoletes: %{scl_prefix}rubygem-sass < 3.4.9-3
-Obsoletes: %{scl_prefix}rubygem-sprockets < 2.12.3-3
+Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
+Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
+Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
+Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
+Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
+Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
+Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 
 %description runtime

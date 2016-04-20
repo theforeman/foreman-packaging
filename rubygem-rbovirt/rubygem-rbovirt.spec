@@ -14,7 +14,7 @@ URL: http://github.com/abenari/rbovirt
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-Requires: %{?scl_prefix}rubygem-nokogiri
+Requires: %{?scl_prefix_ror}rubygem-nokogiri
 
 Requires: %{?scl_prefix}rubygem-rest-client
 BuildRequires: %{?scl_prefix_ruby}rubygems

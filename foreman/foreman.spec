@@ -36,8 +36,8 @@ Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 2
-Requires: %{scl}-runtime < 3
+Requires: %{scl}-runtime >= 3
+Requires: %{scl}-runtime < 4
 %endif
 
 Requires: wget
@@ -52,7 +52,7 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # Gemfile
-Requires: %{?scl_prefix_ror}rubygem(rails) = 4.1.5
+Requires: %{?scl_prefix_ror}rubygem(rails) = 4.2.5.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
@@ -73,8 +73,6 @@ Requires: %{?scl_prefix}rubygem(oauth) >= 0.4
 Requires: %{?scl_prefix}rubygem(oauth) < 1.0
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
-Requires: %{?scl_prefix}rubygem(foreigner) >= 1.4
-Requires: %{?scl_prefix}rubygem(foreigner) < 2.0
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
@@ -89,8 +87,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
-Requires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
-Requires: %{?scl_prefix}rubygem(turbolinks) < 3.0
+Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
+Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.36.0
@@ -103,10 +101,12 @@ Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 Requires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 Requires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
 Requires: %{?scl_prefix}rubygem(protected_attributes) < 1.2.0
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3
-Requires: %{?scl_prefix}rubygem(sprockets) < 4
-Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.3.3
-Requires: %{?scl_prefix}rubygem(sprockets-rails) < 3
+Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
+Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
+Requires: %{?scl_prefix}rubygem(responders) >= 2.0
+Requires: %{?scl_prefix}rubygem(responders) < 3
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -125,7 +125,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 4.1.5
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 4.2.5.1
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
@@ -146,8 +146,6 @@ BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.4
 BuildRequires: %{?scl_prefix}rubygem(oauth) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(foreigner) >= 1.4
-BuildRequires: %{?scl_prefix}rubygem(foreigner) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
@@ -162,8 +160,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
-BuildRequires: %{?scl_prefix}rubygem(turbolinks) >= 2.5
-BuildRequires: %{?scl_prefix}rubygem(turbolinks) < 3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
+BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.36.0
@@ -176,20 +174,22 @@ BuildRequires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(protected_attributes) < 1.2.0
-BuildRequires: %{?scl_prefix}rubygem(sprockets) >= 3
-BuildRequires: %{?scl_prefix}rubygem(sprockets) < 4
-BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.3.3
-BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) < 3
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) < 4
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
+BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(responders) < 3
 # assets
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 6
+BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
+BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 2.5.0
-BuildRequires: %{?scl_prefix_ror}rubygem(jquery-rails) >= 3.1
-BuildRequires: %{?scl_prefix_ror}rubygem(jquery-rails) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
+BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
 BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
@@ -387,12 +387,12 @@ Group: Applications/system
 Requires: %{name} = %{version}-%{release}
 Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 5
-Requires: %{?scl_prefix}rubygem(sass-rails) < 6
+Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
+Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
-Requires: %{?scl_prefix_ror}rubygem(jquery-rails) >= 3.1
-Requires: %{?scl_prefix_ror}rubygem(jquery-rails) < 4.0
+Requires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
+Requires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0

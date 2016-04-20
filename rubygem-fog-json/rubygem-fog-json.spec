@@ -13,8 +13,8 @@ License: MIT
 URL: http://github.com/fog/fog-json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1
 Requires: %{?scl_prefix}rubygem(fog-core) < 2
 Requires: %{?scl_prefix_ruby}ruby(release)

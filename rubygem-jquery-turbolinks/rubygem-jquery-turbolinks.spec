@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.1.0
-Requires: %{?scl_prefix}rubygem(turbolinks)
+Requires: %{?scl_prefix_ror}rubygem(turbolinks)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
