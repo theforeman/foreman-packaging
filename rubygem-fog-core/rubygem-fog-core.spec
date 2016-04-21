@@ -7,7 +7,7 @@ Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.36.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-core
@@ -73,6 +73,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.36.0-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 1.36.0-1
 - Update fog-core to 1.36.0 (dominic@cleal.org)
 
