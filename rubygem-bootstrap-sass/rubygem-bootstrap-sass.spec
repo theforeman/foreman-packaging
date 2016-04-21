@@ -6,7 +6,7 @@
 Summary: bootstrap-sass is a Sass-powered version of Bootstrap 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/twbs/bootstrap-sass
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.3.6-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Mon Jan 18 2016 Dominic Cleal <dcleal@redhat.com> 3.3.6-1
 - Update bootstrap-sass to 3.3.6 for Patternfly (elobatocs@gmail.com)
 
