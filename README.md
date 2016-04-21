@@ -77,7 +77,7 @@ lzap's [sbu utility](https://github.com/lzap/bin-public/blob/master/sbu) is
 good for building test packages, especially with sources from elsewhere:
 
 1. sbu (defaults for EL6 with SCL)
-1. sbu katello fc21 foreman-nightly-fedora21
+1. sbu katello fc24 foreman-nightly-fedora24
 1. sbu katello el6 foreman-nightly-nonscl-rhel6
 
 Most packages should build for EL6 with SCL and Fedora 19.
