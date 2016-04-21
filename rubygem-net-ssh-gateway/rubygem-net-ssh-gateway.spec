@@ -7,7 +7,7 @@
 Summary: A simple library to assist in establishing tunneled Net::SSH connections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-scp
@@ -81,6 +81,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.2.0-4
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-3
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
