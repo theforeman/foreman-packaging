@@ -6,7 +6,7 @@
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.10
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.8.10-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Feb 16 2016 Dominic Cleal <dcleal@redhat.com> 0.8.10-1
 - Update dynflow to 0.8.10 (stbenjam@redhat.com)
 
