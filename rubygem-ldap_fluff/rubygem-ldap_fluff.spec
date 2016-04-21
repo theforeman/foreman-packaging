@@ -6,7 +6,7 @@
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
@@ -79,6 +79,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-1
 - Update ldap_fluff to 0.4.1 (dominic@cleal.org)
 
