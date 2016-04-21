@@ -6,7 +6,7 @@
 Summary: OpenNebula Client API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.8.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://opennebula.org/
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/NOTICE
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 4.8.0-4
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 4.8.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
