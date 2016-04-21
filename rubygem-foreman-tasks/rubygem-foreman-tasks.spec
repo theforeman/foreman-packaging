@@ -18,7 +18,7 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.16
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: http://github.com/theforeman/foreman-tasks
@@ -181,6 +181,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.7.16-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Mon Apr 11 2016 Dominic Cleal <dominic@cleal.org> 0.7.16-1
 - Update foreman-tasks to 0.7.16 (mhulan@redhat.com)
 
