@@ -6,7 +6,7 @@
 Summary: Deface is a library that allows you to customize views in Rails
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/DefaceCommunity/deface
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-3
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-2
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
