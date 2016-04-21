@@ -6,7 +6,7 @@
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/archiloque/rest-client
@@ -78,6 +78,9 @@ rm -rf %{buildroot}
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.6.7-5
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.6.7-4
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
