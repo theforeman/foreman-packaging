@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.49.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -92,6 +92,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.49.0-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 0.49.0-1
 - Update excon to 0.49.0 (dominic@cleal.org)
 
