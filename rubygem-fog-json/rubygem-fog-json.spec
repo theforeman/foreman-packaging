@@ -7,7 +7,7 @@ Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-json
@@ -71,6 +71,9 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/fog-json.gemspec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-4
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.0.2-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
