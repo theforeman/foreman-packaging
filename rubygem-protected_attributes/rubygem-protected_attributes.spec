@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Protect attributes from mass assignment in Active Record models
 Group: Development/Languages
 License: MIT
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.1.3-3
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.1.3-2
 - new package built with tito
 
