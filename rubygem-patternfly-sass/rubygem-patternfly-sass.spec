@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.10.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 2.10.1-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Wed Feb 24 2016 Dominic Cleal <dominic@cleal.org> 2.10.1-1
 - Update patternfly-sass to 2.10.1 (dominic@cleal.org)
 
