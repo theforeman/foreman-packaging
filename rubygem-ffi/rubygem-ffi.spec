@@ -14,7 +14,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.4.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        FFI Extensions for Ruby
 Group:          Development/Languages
 
@@ -92,6 +92,9 @@ popd
 
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.4.0-6
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.4.0-5
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
