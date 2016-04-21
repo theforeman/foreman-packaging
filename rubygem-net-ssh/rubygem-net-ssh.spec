@@ -7,7 +7,7 @@
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
@@ -104,6 +104,9 @@ popd
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.0.2-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Wed Jan 20 2016 Dominic Cleal <dcleal@redhat.com> 3.0.2-1
 - Update net-ssh to 3.0.2 (dcleal@redhat.com)
 
