@@ -6,7 +6,7 @@
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 5.1.0-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 5.1.0-1
 - Update friendly_id to 5.1.0 (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
