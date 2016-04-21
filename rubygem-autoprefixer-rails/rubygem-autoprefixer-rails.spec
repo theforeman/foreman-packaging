@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Add vendor prefixes to CSS rules using values from caniuse.com
 Group: Development/Languages
 License: MIT
@@ -75,5 +75,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 5.2.1.3-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Jan 05 2016 Daniel Lobato <elobatocs@gmail.com> 5.2.1.3-1
 - Initial package
