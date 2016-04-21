@@ -7,7 +7,7 @@
 Summary: Use jQuery with Rails 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/jquery-rails
@@ -77,6 +77,9 @@ popd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.1.0-3
+- Import and rebuild in tfm SCL
+
 * Mon Feb 02 2015 Vít Ondruch <vondruch@redhat.com> - 3.1.0-2
 - Fix thor dependency.
 
