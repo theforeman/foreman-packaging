@@ -7,7 +7,7 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 2.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
@@ -91,6 +91,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 %{gem_docdir}
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 2.0.0-5
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.0-4
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
