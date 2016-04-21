@@ -6,7 +6,7 @@
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
@@ -78,6 +78,9 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-6
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.1.0-5
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
