@@ -7,7 +7,7 @@
 Summary: Log all changes to your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
@@ -63,6 +63,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 4.2.0-2
+- Rebuild tfm against sclo-ror42 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.2.0-1
 - Update audited-activerecord to 4.2.0 (dcleal@redhat.com)
 - Update dependencies to ror SCL (dcleal@redhat.com)
