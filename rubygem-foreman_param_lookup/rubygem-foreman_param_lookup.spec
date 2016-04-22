@@ -93,6 +93,9 @@ GEMFILE
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Fri Apr 22 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-1
+- Update foreman_param_lookup to 0.3.0 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
