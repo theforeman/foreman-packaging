@@ -2,7 +2,7 @@ Source: ruby-hammer-cli
 Section: ruby
 Priority: optional
 Maintainer: Tomas Strachota <tstrachota@redhat.com>
-Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6)
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.6), bash-completion
 Standards-Version: 3.9.3
 Homepage: http://github.com/theforeman/hammer-cli
 XS-Ruby-Versions: ruby1.9.1
