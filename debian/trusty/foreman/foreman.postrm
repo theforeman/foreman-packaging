@@ -23,6 +23,7 @@ case "$1" in
 		fi
 		# package-generated or runtime files are removed
 		rm -f /usr/share/foreman/db/schema.db
+		rm -f /usr/share/foreman/Gemfile.lock
 		rm -rf /var/run/foreman
 		rm -rf /var/log/foreman
 		rm -rf /usr/share/foreman/tmp
