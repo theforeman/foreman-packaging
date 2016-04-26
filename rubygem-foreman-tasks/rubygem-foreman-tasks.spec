@@ -181,6 +181,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 26 2016 Dominic Cleal <dominic@cleal.org> 0.7.17-1
+- Update foreman-tasks to 0.7.17 (mhulan@redhat.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.7.16-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
