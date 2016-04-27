@@ -53,7 +53,8 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # Gemfile
-Requires: %{?scl_prefix_ror}rubygem(rails) = 4.2.5.1
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
+Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
 Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
@@ -127,7 +128,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 4.2.5.1
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
