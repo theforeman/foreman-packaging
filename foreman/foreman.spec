@@ -196,7 +196,9 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 2.5.0
+%if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
+%endif
 BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
@@ -403,7 +405,9 @@ Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
+%if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
+%endif
 Requires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
