@@ -349,6 +349,7 @@ whitelist = foreman
   rubygem-hirb-unicode-steakknife
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
+  rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
