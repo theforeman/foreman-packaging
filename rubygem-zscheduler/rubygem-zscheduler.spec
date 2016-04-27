@@ -39,12 +39,10 @@ Documentation for %{name}
 
 
 %prep
-%setup -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -62,7 +60,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 
 %changelog
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-3

@@ -56,12 +56,8 @@ Documentation for %{pkg_name}
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{_root_bindir}
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - << \EOF}
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_root_bindir} \
-            --force %{SOURCE0}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
 %build
@@ -71,9 +67,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_root_bindir}/*
+sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
 mkdir -p %{buildroot}%{_root_bindir}
-cp -pa .%{_root_bindir}/* \
+cp -pa .%{_bindir}/* \
         %{buildroot}%{_root_bindir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x

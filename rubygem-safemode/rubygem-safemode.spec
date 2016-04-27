@@ -59,15 +59,10 @@ mkdir -p .%{gem_dir}
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
-rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
+rm -rf ./%{gem_instdir}/.yardoc
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -82,7 +77,7 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_instdir}/demo.rb
 %{gem_instdir}/init.rb
 %{gem_instdir}/safemode.gemspec
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc

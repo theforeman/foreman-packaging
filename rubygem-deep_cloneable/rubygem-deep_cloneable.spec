@@ -42,11 +42,9 @@ Documentation for %{name}
 
 %prep
 %setup -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -60,13 +58,13 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %{gem_instdir}/*
 %{gem_instdir}/lib
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.document
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%{gem_spec}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.rdoc
 

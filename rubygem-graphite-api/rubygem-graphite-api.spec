@@ -45,12 +45,10 @@ Documentation for %{name}
 
 
 %prep
-%setup -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} --force %{SOURCE0}
-%{?scl:"}
+%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -73,7 +71,7 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %exclude %{gem_cache}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/README.md
 
