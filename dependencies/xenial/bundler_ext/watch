@@ -1,0 +1,2 @@
+version=3
+http://pkg-ruby-extras.alioth.debian.org/cgi-bin/gemwatch/bundler_ext .*/bundler_ext-(.*).tar.gz

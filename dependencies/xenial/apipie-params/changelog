@@ -1,0 +1,5 @@
+ruby-apipie-params (0.0.4-1) stable; urgency=medium
+
+  * Initial release for Ubuntu/xenial
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 26 Apr 2016 22:16:44 +0200
