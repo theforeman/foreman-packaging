@@ -46,6 +46,7 @@ Complete installer for The Foreman life-cycle management system based on Puppet.
 %endif
 rake build \
   VERSION=%{version} \
+  LOCALSTATEDIR=%{_localstatedir} \
   PREFIX=%{_prefix} \
   SBINDIR=%{_sbindir} \
   SYSCONFDIR=%{_sysconfdir} \
@@ -54,6 +55,7 @@ rake build \
 %install
 rake install \
   PREFIX=%{buildroot}%{_prefix} \
+  LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
   SBINDIR=%{buildroot}%{_sbindir} \
   SYSCONFDIR=%{buildroot}%{_sysconfdir} \
   --trace
