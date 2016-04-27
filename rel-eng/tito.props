@@ -320,7 +320,6 @@ whitelist = foreman
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
-  rubygem-apipie-rails
   rubygem-apipie-bindings
   rubygem-autoparse
   rubygem-autoprefixer-rails
@@ -329,22 +328,17 @@ whitelist = foreman
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
-  rubygem-fast_gettext
   rubygem-flot-rails
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
   rubygem-fog-google
-  rubygem-fog-json
-  rubygem-fog-libvirt
   rubygem-fog-openstack
   rubygem-fog-rackspace
   rubygem-fog-vsphere
   rubygem-fog-xenserver
-  rubygem-fog-xml
   rubygem-font-awesome-sass
   rubygem-foremancli
-  rubygem-foreman_api
   rubygem-friendly_id
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
@@ -355,31 +349,24 @@ whitelist = foreman
   rubygem-hirb-unicode-steakknife
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
-  rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
   rubygem-launchy
-  rubygem-ldap_fluff
   rubygem-librarian-puppet
-  rubygem-multi_json
   rubygem-multi-select-rails
-  rubygem-net-ldap
   rubygem-patternfly-sass
   rubygem-po_to_json
   rubygem-powerbar
   rubygem-protected_attributes
   rubygem-quiet_assets
-  rubygem-rabl
   rubygem-rack-jsonp
   rubygem-rails-i18n
   rubygem-rbovirt
-  rubygem-responders
   rubygem-retriable
   rubygem-rubyipmi
   rubygem-safemode
-  rubygem-scoped_search
   rubygem-secure_headers
   rubygem-select2-rails
   rubygem-signet
@@ -573,11 +560,9 @@ whitelist = rubygem-algebrick
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
   rubygem-deface
-  rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
   rubygem-newt
-  rubygem-openscap
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_bootdisk
@@ -619,7 +604,6 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-logify
-  rubygem-parse-cron
   rubygem-puppetdb_foreman
   rubygem-satyr
   rubygem-smart_proxy_abrt
