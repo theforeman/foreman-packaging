@@ -25,4 +25,5 @@ build/foreman::
 	/bin/rm db/production.sqlite3
 	# Use rake1.9.1 explicitly
 	/bin/sed -ri 'sX/usr/bin/rake$$X/usr/bin/rake1.9.1X' extras/dbmigrate script/foreman-rake
+	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/mkdir -p .ssh
