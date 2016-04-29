@@ -84,6 +84,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.4-1
+- Update smart_proxy_discovery to 1.0.4 (dominic@cleal.org)
+
 * Tue Oct 20 2015 Dominic Cleal <dcleal@redhat.com> 1.0.3-1
 - Updated rubygem-smart_proxy_discovery to 1.0.3 (RPM) (lzap+git@redhat.com)
 
