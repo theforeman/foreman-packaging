@@ -5,7 +5,7 @@
 
 %global gem_name powerbar
 
-%define _version 1.0.11
+%define _version 1.0.17
 %define _summary The last progressbar-library you'll ever need
 %define _url https://github.com/busyloop/powerbar
 %define _license MIT
@@ -14,7 +14,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   11%{?dist}
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -25,8 +25,6 @@ BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-Requires:  %{?scl_prefix}rubygem(ansi) >= 1.4.0
-Requires:  %{?scl_prefix}rubygem(ansi) <  1.5.0
 Requires:  %{?scl_prefix}rubygem(hashie) >= 1.1.0
 
 %if 0%{?el6} && 0%{!?scl:1}
@@ -90,8 +88,6 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 
 %files
 %exclude %{gem_instdir}/.gitignore
-%exclude %dir %{gem_instdir}/ass
-%exclude %{gem_instdir}/ass/screenshot.png
 %exclude %{gem_cache}
 
 %dir %{gem_instdir}
@@ -105,7 +101,7 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %{_bindir}/powerbar-demo
 
 %files doc
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README.MD
 %doc %{gem_docdir}/rdoc
 %doc %{gem_docdir}/ri
 
