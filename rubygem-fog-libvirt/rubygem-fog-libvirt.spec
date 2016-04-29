@@ -18,14 +18,8 @@ Requires: %{?scl_prefix}rubygem(fog-core) < 2
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
-# On Fedora use ruby-libvirt and not the gem as it's newer
-%if 0%{?fedora}
-Requires: %{?scl_prefix}ruby-libvirt >= 0.5
-Requires: %{?scl_prefix}ruby-libvirt < 0.7
-%else
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 0.7
-%endif
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -58,11 +52,6 @@ This package contains documentation for rubygem-%{gem_name}.
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-# Remove gem dep so its presence isn't checked at load time, use ruby-libvirt instead
-%if 0%{?fedora}
-sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
-%endif
 
 %files
 %dir %{gem_instdir}
