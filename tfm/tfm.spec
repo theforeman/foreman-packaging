@@ -20,8 +20,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 3.0
-Release: 2%{?dist}
+Version: 3.1
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -30,6 +30,7 @@ Source2: tfm.attr
 # This should be removed as soon as scl-utils automatically generate
 # dependencies on scl -runtime (rhbz#1054711).
 Requires: %{scl_runtime}
+Requires: %{scl_runtime}-assets
 %if 0%{?install_scl}
 Requires: %{scl_ror}
 Requires: %{scl_ruby}
@@ -53,7 +54,6 @@ Group: Applications/File
 Requires: scl-utils
 Requires: %{scl_prefix_ror}runtime
 Requires: %{scl_prefix_ruby}runtime
-Requires: %{scl_prefix_v8}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
 Obsoletes: ruby193-ruby-wrapper
@@ -83,11 +83,24 @@ Package shipping essential scripts to work with %scl Software Collection.
 
 Provides dependencies for Foreman (http://theforeman.org/).
 
+%package runtime-assets
+Summary: Package that adds asset compilation for %scl Software Collection.
+Group: Applications/File
+Requires: %{scl_prefix}runtime
+Requires: %{scl_prefix_v8}runtime
+
+%description runtime-assets
+Package shipping additional scripts to work with %scl Software Collection.
+
+Provides additional asset compilation dependencies for Foreman
+(http://theforeman.org/).
+
 %package build
 Summary: Package shipping basic build configuration
 Group: Applications/File
 Requires: scl-utils-build
 Requires: %{scl_runtime}
+Requires: %{scl_runtime}-assets
 Requires: %{scl_prefix_ror}scldevel
 Requires: %{scl_prefix_ruby}scldevel
 Requires: %{scl_prefix_v8}scldevel
@@ -133,7 +146,10 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 %scl_install
 
 cat >> %{buildroot}%{_scl_scripts}/enable << EOF
-. scl_source enable %{scl_ror} %{scl_v8}
+. scl_source enable %{scl_ror}
+if [ -e %{_scl_scripts}/enable_assets ]; then
+  . %{_scl_scripts}/enable_assets
+fi
 
 export PATH=%{_bindir}\${PATH:+:\${PATH}}
 export LIBRARY_PATH=%{_libdir}dd\${LIBRARY_PATH:+:\${LIBRARY_PATH}}
@@ -142,6 +158,12 @@ export MANPATH=%{_mandir}:\${MANPATH}
 export CPATH=%{_includedir}\${CPATH:+:\${CPATH}}
 export PKG_CONFIG_PATH=%{_libdir}/pkgconfig\${PKG_CONFIG_PATH:+:\${PKG_CONFIG_PATH}}
 export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ror} -- ruby -e "print Gem.path.join(':')"\`}
+EOF
+
+# enable asset compilation collections optionally, only if -runtime-assets is
+# installed, to reduce deps for -runtime
+cat >> %{buildroot}%{_scl_scripts}/enable_assets << EOF
+. scl_source enable %{scl_v8}
 EOF
 
 # additional rpm macros for builds in the collection to set the vendor correctly
@@ -239,6 +261,9 @@ selinuxenabled && load_policy || :
 %attr(755,-,-) %{_root_bindir}/%{scl_name}-rake
 %attr(755,-,-) %{_root_bindir}/%{scl_name}-ruby
 %{_root_bindir}/ruby193-ruby
+
+%files runtime-assets
+%{_scl_scripts}/enable_assets
 
 %files build
 %doc LICENSE

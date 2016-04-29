@@ -181,6 +181,10 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 3
 # assets
+%if 0%{?scl:1}
+BuildRequires: %{scl}-runtime-assets >= 3
+BuildRequires: %{scl}-runtime-assets < 4
+%endif
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
@@ -385,6 +389,10 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/system
 Requires: %{name} = %{version}-%{release}
+%if 0%{?scl:1}
+Requires: %{scl}-runtime-assets >= 3
+Requires: %{scl}-runtime-assets < 4
+%endif
 Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
 Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
