@@ -106,6 +106,9 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.17-1
+- Update powerbar to 1.0.17 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.0.11-11
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
