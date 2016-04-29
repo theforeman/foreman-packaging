@@ -60,6 +60,7 @@ Obsoletes: ruby193-ruby-wrapper
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
+Obsoletes: %{scl_prefix}rubygem-ansi < 1.4.3-7
 Obsoletes: %{scl_prefix}rubygem-archive-tar-minitar < 0.5.2-12
 Obsoletes: %{scl_prefix}rubygem-concurrent-ruby < 1.0.1-2
 Obsoletes: %{scl_prefix}rubygem-dalli < 2.6.4-4
