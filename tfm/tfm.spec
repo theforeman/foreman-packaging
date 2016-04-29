@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -250,6 +250,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 3.0-2
+- Remove unused tfm-rubygem-ansi (dominic@cleal.org)
+
 * Wed Apr 20 2016 Dominic Cleal <dominic@cleal.org> 3.0-1
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 - Remove foreigner and packages now in sclo-ror42 (dominic@cleal.org)
