@@ -1,0 +1,5 @@
+ruby-bundler-ext (0.4.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/xenial
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 26 Apr 2016 22:16:44 +0200
