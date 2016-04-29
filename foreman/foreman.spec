@@ -444,7 +444,7 @@ Meta package with support for plugins.
 Summary: Foreman console support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
-Requires: %{?scl_prefix}rubygem(wirb) < 2.0
+Requires: %{?scl_prefix}rubygem(wirb) < 3.0
 Requires: %{?scl_prefix}rubygem(hirb-unicode) >= 0.0.5
 Requires: %{?scl_prefix}rubygem(hirb-unicode) < 0.1
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
