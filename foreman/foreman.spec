@@ -2,6 +2,10 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 
+# Prefer nodejs on Fedora as v8 segfaults (BZ#1331458)
+# 0: use therubyracer (v8), 1: use nodejs
+%global precompile_nodejs 0%{?fedora}
+
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
@@ -223,8 +227,12 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+%if %precompile_nodejs
+BuildRequires: %{?scl_prefix_nodejs}nodejs
+%else
 # therubyracer
 BuildRequires: %{?scl_prefix_ror}rubygem(therubyracer)
+%endif
 # facter
 %if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
@@ -432,15 +440,23 @@ Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 Requires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+%if %precompile_nodejs
+Requires: %{?scl_prefix_nodejs}nodejs
+%else
 # therubyracer
 Requires: %{?scl_prefix_ror}rubygem(therubyracer)
+%endif
 
 %description assets
 Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
+%if %precompile_nodejs
+%exclude %{_datadir}/%{name}/bundler.d/therubyracer.rb
+%else
 %{_datadir}/%{name}/bundler.d/therubyracer.rb
+%endif
 
 %package plugin
 Summary: Foreman plugin support
