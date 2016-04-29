@@ -5,7 +5,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.3
+Version: 1.0.4
 Release: 1%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -16,7 +16,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.7.0
 Requires: rubygem(rest-client) > 1.6.2
-Requires: rubygem(rest-client) < 1.7
+Requires: rubygem(rest-client) < 2.0
 
 
 %if 0%{?rhel} == 6
