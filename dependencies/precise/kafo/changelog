@@ -1,3 +1,9 @@
+ruby-kafo (0.8.0-1) stable; urgency=low
+
+  * Update kafo to 0.8.0
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 03 May 2016 10:47:15 +0200
+
 ruby-kafo (0.7.3-1) stable; urgency=medium
 
   * Update to 0.7.3
