@@ -5,7 +5,7 @@
 
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.3
+Version: 0.8.0
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
@@ -16,11 +16,10 @@ Requires: %{?scl_prefix}ruby(abi)
 %else
 Requires: %{?scl_prefix}ruby(release)
 %endif
-Requires: %{?scl_prefix}puppet < 4.0.0
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline) < 2.0
-Requires: %{?scl_prefix}rubygem(kafo_parsers)
+Requires: %{?scl_prefix}rubygem(kafo_parsers) >= 0.1.0
 Requires: %{?scl_prefix}rubygem(kafo_wizards)
 Requires: %{?scl_prefix}rubygem(ansi)
 Requires: %{?scl_prefix}rubygem(powerbar)
