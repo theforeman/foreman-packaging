@@ -9,7 +9,7 @@
 Summary: Adds remote SSH support to Hammer Foreman CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: http://github.com/theforeman/hammer-cli-foreman-ssh
@@ -73,6 +73,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.2-5
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
