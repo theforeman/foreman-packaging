@@ -7,7 +7,7 @@ Summary: Integrate Select2 javascript library with Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.5.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/argerim/select2-rails
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 3.5.10-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Mar 10 2016 Dominic Cleal <dominic@cleal.org> 3.5.10-1
 - Update select2-rails to 3.5.10 (dominic@cleal.org)
 
