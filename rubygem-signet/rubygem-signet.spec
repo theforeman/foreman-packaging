@@ -6,7 +6,7 @@
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/google/signet/
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/website
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-5
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
