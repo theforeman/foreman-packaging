@@ -7,7 +7,7 @@
 Summary: Provide access to your Ruby and Operating System runtime via the commonjs API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://github.com/cowboyd/commonjs.rb
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.2.7-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.2.7-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
