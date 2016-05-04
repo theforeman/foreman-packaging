@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.3.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Font-Awesome SASS
 Group: Development/Languages
 License: MIT
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 4.3.2.1-3
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 4.3.2.1-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
