@@ -27,6 +27,7 @@ blacklist = foreman-installer
   rubygem-multi_json
   rubygem-rack-protection
   rubygem-rkerberos
+  rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
 scl = tfm
@@ -44,6 +45,7 @@ blacklist = foreman-installer
   rubygem-multi_json
   rubygem-rack-protection
   rubygem-rkerberos
+  rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
 scl = tfm
