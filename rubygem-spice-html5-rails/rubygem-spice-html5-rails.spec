@@ -7,7 +7,7 @@
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.1.5-5
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.1.5-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
