@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-3
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
