@@ -275,6 +275,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 3.1-1
+- Add tfm-runtime-assets subpackage (dominic@cleal.org)
+
 * Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 3.0-2
 - Remove unused tfm-rubygem-ansi (dominic@cleal.org)
 
