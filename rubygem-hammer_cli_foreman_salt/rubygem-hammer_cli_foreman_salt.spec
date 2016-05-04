@@ -9,7 +9,7 @@
 Summary: Foreman Salt-related commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: http://github.com/theforeman/hammer_cli_foreman_salt
@@ -70,6 +70,9 @@ cp -pa .%{gem_instdir}/config/foreman_salt.yml %{buildroot}%{_root_sysconfdir}/%
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.5-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Feb 04 2016 Dominic Cleal <dcleal@redhat.com> 0.0.5-1
 - Release hammer_cli_foreman_salt 0.0.5 (stbenjam@redhat.com)
 
