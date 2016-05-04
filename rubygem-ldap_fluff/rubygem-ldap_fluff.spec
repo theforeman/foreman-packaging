@@ -5,8 +5,8 @@
 
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
-Release: 2%{?dist}
+Version: 0.4.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
@@ -44,20 +44,13 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:"}
 
 %build
-mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem build %{gem_name}.gemspec
 %{?scl:"}
-#rake ldap_fluff:gem
 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 
 %install
