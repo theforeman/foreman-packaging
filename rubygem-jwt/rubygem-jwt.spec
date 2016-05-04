@@ -6,7 +6,7 @@
 Summary: JSON Web Token implementation in Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/progrium/ruby-jwt
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.2.0-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
