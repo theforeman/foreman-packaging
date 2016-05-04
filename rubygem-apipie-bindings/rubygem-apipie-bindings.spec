@@ -6,7 +6,7 @@
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: http://github.com/Apipie/apipie-bindings
@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.16-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Wed Mar 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.16-1
 - Update rubygem-apipie-bindings to 0.0.16 (martin.bacovsky@gmail.com)
 
