@@ -7,7 +7,7 @@ Summary: underscore.js asset pipeline provider/wrapper
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.8.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/rweng/underscore-rails
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Readme.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.8.3-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.8.3-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
