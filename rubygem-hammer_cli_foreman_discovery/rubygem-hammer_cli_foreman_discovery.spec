@@ -9,7 +9,7 @@
 Summary: Foreman discovery commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-discovery
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 14 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-1
 - Update hammer_cli_foreman_discovery to 0.0.3 (orabin@redhat.com)
 
