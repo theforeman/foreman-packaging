@@ -6,7 +6,7 @@
 Summary: An implementation of the JSON Schema specification
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://autoparse.rubyforge.org/
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.3.3-5
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.3.3-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
