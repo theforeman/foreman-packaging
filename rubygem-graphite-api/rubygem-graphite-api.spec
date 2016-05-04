@@ -6,7 +6,7 @@
 Summary: Graphite API - A Simple ruby client, aggregator daemon and API tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv3
 URL: https://github.com/kontera-technologies/graphite-api
@@ -76,6 +76,9 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.1.5-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.1.5-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
