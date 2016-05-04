@@ -6,7 +6,7 @@
 Summary: A small wrapper over jquery.pwstrength.bootstrap library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT or GPLv3+
 URL: https://github.com/unorthodoxgeek/jquery_pwstrength_bootstrap-gem
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.2.2-4
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.2.2-3
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
