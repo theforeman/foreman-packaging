@@ -72,6 +72,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.4.2-1
+- Update ldap_fluff to 0.4.2 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
