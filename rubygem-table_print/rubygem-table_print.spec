@@ -6,7 +6,7 @@
 Summary: TablePrint turns objects into nicely formatted columns for easy reading
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/arches/table_print
@@ -70,6 +70,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.5.1-6
+- Use gem_install macro (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.5.1-5
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
