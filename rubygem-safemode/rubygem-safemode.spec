@@ -7,7 +7,7 @@ Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/svenfuchs/safemode
@@ -87,6 +87,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.2.4-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 1.2.4-1
 - Update safemode to 1.2.4 (dominic@cleal.org)
 
