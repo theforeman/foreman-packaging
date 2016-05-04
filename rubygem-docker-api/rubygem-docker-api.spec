@@ -6,7 +6,7 @@
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.28.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/TESTING.md
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.28.0-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 1.28.0-1
 - Update docker-api to 1.28 (elobatocs@gmail.com)
 
