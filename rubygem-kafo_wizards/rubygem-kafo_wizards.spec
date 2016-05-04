@@ -6,7 +6,7 @@
 Summary: Define and render wizard-like user interfaces
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_wizards
@@ -72,6 +72,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE.txt
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-2
+- Use gem_install macro (dominic@cleal.org)
+
 * Tue Jan 26 2016 Dominic Cleal <dcleal@redhat.com> 0.0.1-1
 - new package built with tito
 
