@@ -6,7 +6,7 @@
 Summary: jQuery-flot javascript for Rails apps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/flot-rails
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-7
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-6
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
