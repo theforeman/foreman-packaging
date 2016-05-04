@@ -6,7 +6,7 @@
 Summary: A Rack middleware for providing JSON-P support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/crohr/rack-jsonp
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.3.1-5
+- Use gem_install macro (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.3.1-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
