@@ -5,7 +5,7 @@
 
 Summary: Puppet module parsers
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
@@ -49,10 +49,6 @@ mkdir -p .%{gem_dir}
 gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0} --no-rdoc --no-ri
 %{?scl:"}
-
-%build
-sed -i "/add_runtime_dependency.*puppet/d" ./%{gem_spec}
-sed -i "/add_dependency.*puppet/d" ./%{gem_spec}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
