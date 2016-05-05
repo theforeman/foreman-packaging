@@ -32,6 +32,7 @@
 
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
+      <packagereq type="default">rubygem-puppet-strings</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
@@ -139,6 +140,7 @@
       <packagereq type="default">rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">rubygem-protected_attributes-doc</packagereq>
+      <packagereq type="default">rubygem-puppet-strings-doc</packagereq>
       <packagereq type="default">rubygem-quiet_assets-doc</packagereq>
       <packagereq type="default">rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">rubygem-rails-i18n-doc</packagereq>

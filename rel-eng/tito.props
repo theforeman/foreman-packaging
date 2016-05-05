@@ -362,6 +362,7 @@ whitelist = foreman
   rubygem-po_to_json
   rubygem-powerbar
   rubygem-protected_attributes
+  rubygem-puppet-strings
   rubygem-quiet_assets
   rubygem-rack-jsonp
   rubygem-rails-i18n
