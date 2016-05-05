@@ -46,6 +46,7 @@ Source1: passenger.logrotate
 Source2: rubygem-passenger.tmpfiles
 Source10: apache-passenger.conf.in
 Source11: locations.ini
+Source12: zpassenger.load.in
 
 # Include sys/types.h for GCC 4.7
 Patch2:         rubygem-passenger-4.0.18-gcc47-include-sys_types.patch
@@ -315,15 +316,9 @@ install -pm 0755 buildout/apache2/mod_passenger.so %{buildroot}/%{_httpd_moddir}
 %{__sed} -e 's|@PASSENGERROOT@|%{gem_instdir}/lib/phusion_passenger/locations.ini|g' %{SOURCE10} > passenger.conf
 %{__sed} -i 's|@BINDIR@|%{_bindir}|' passenger.conf
 
-%if "%{_httpd_modconfdir}" != "%{_httpd_confdir}"
-%{__sed} -n /^LoadModule/p passenger.conf > 10-passenger.conf
-%{__sed} -i /^LoadModule/d passenger.conf
-touch -r %{SOURCE10} 10-passenger.conf
-install -pm 0644 10-passenger.conf %{buildroot}%{_httpd_modconfdir}/passenger.conf
-%endif
 touch -r %{SOURCE10} passenger.conf
 install -pm 0644 passenger.conf %{buildroot}%{_httpd_confdir}/passenger.conf
-
+install -pm 0644 %{SOURCE12} %{buildroot}%{_httpd_modconfdir}/zpassenger.load
 
 # Install man pages into the proper location.
 %{__mkdir_p} %{buildroot}%{_mandir}/man1
@@ -439,10 +434,8 @@ rake test --trace ||:
 %{gem_instdir}/ext
 
 %files -n %{?scl_prefix}mod_passenger
-%if 0%{?rhel} >= 7
 %config(noreplace) %{_httpd_confdir}/*.conf
-%endif
-%config(noreplace) %{_httpd_modconfdir}/*.conf
+%config(noreplace) %{_httpd_modconfdir}/*.load
 %{_httpd_moddir}/mod_passenger.so
 %doc doc/Users?guide?Apache.txt
 
