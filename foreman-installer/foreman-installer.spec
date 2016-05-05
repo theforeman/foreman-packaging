@@ -18,7 +18,6 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   %{?scl_prefix}puppet >= 3.0.0
 Requires:   %{?scl_prefix}rubygem-kafo >= 0.7.1
-Requires:   %{?scl_prefix}rubygem-apipie-bindings >= 0.0.6
 Requires:   foreman-selinux
 
 %if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
