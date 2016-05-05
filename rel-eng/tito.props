@@ -52,6 +52,7 @@ whitelist = foreman-installer
   nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
+  puppet-agent-puppet-strings
   puppet-agent-yard
   rubygem-apipie-bindings
   rubygem-bundler_ext
