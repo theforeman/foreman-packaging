@@ -31,6 +31,9 @@ BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet >= 3.0.0
 BuildRequires: %{?scl_prefix}rubygem-kafo >= 0.8.0
+%if 0%{?fedora} >= 22
+BuildRequires: %{?scl_prefix}rubygem-puppet-strings
+%endif
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
