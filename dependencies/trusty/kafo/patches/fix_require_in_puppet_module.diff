@@ -2,7 +2,7 @@
 +++ b/modules/kafo_configure/lib/puppet/parser/functions/decrypt.rb
 @@ -1,4 +1,4 @@
 -require File.join(File.dirname(__FILE__), '../../../../../../lib/kafo/password_manager')
-+require File.join('kafo/password_manager')
++require File.join(File.dirname(__FILE__), '../../../../../../password_manager')
  # Decrypts an encrypted password using $kafo_configure::password
  #
  # you can use this function in order to place passwords into your config files

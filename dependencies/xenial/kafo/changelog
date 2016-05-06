@@ -1,3 +1,9 @@
+ruby-kafo (0.8.1-2) stable; urgency=low
+
+  * Fix Puppet module patch to load Kafo from relative path
+
+ -- Dominic Cleal <dominic@cleal.org>  Fri, 06 May 2016 15:42:09 +0100
+
 ruby-kafo (0.8.1-1) stable; urgency=low
 
   * Update kafo to 0.8.1
