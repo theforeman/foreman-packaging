@@ -17,7 +17,7 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   %{?scl_prefix}puppet >= 3.0.0
-Requires:   %{?scl_prefix}rubygem-kafo >= 0.7.1
+Requires:   %{?scl_prefix}rubygem-kafo >= 0.8.0
 Requires:   foreman-selinux
 
 %if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
@@ -30,7 +30,7 @@ Requires:   %{?scl_prefix}rubygem-highline
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet >= 3.0.0
-BuildRequires: %{?scl_prefix}rubygem-kafo >= 0.7.1
+BuildRequires: %{?scl_prefix}rubygem-kafo >= 0.8.0
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
