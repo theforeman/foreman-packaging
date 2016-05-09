@@ -1,6 +1,0 @@
-#!/usr/bin/make -f
-
-export GEM2DEB_TEST_RUNNER = --check-dependencies
-export DH_RUBY_GEMSPEC=concurrent-ruby.gemspec
-%:
-	dh $@ --buildsystem=ruby --with ruby
