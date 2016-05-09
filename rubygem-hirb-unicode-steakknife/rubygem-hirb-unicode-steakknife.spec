@@ -67,3 +67,6 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/gem-public_cert.pem
 
 %changelog
+* Mon May 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.7-1
+- new package built with tito
+
