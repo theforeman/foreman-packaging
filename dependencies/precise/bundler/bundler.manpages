@@ -1,7 +1,0 @@
-man/bundle.1
-man/bundle-config.1
-man/bundle-exec.1
-man/bundle-install.1
-man/bundle-package.1
-man/bundle-update.1
-man/gemfile.5

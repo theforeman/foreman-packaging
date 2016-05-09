@@ -1,8 +1,0 @@
-# False positives: these files are used as template input for the
-# 'bundle gem' command.
-extra-license-file usr/lib/ruby/vendor_ruby/bundler/templates/newgem/LICENSE.txt.tt
-script-not-executable usr/lib/ruby/vendor_ruby/bundler/templates/Executable
-unusual-interpreter usr/lib/ruby/vendor_ruby/bundler/templates/Executable #!<%=
-script-not-executable usr/lib/ruby/vendor_ruby/bundler/templates/Executable.standalone
-unusual-interpreter usr/lib/ruby/vendor_ruby/bundler/templates/Executable.standalone #!<%=
-script-not-executable usr/lib/ruby/vendor_ruby/bundler/templates/newgem/bin/newgem.tt
