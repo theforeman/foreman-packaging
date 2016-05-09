@@ -457,8 +457,8 @@ Summary: Foreman console support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
 Requires: %{?scl_prefix}rubygem(wirb) < 3.0
-Requires: %{?scl_prefix}rubygem(hirb-unicode) >= 0.0.5
-Requires: %{?scl_prefix}rubygem(hirb-unicode) < 0.1
+Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
+Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
 Requires: %{name} = %{version}-%{release}
