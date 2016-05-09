@@ -3,14 +3,14 @@
 
 %global gem_name unicode-display_width
 
-Summary: Support for east_asian_width string widths.
+Summary: Determines the monospace display width of a string in Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.1
-Release: 8%{?dist}
+Version: 1.0.5
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/janlelis/unicode-display_width
+URL: https://github.com/janlelis/unicode-display_width
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -19,11 +19,9 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(unicode-display_width) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-%global gembuilddir %{buildroot}%{gem_dir}
-
 %description
-This gem adds String#display_size to get the display size of a string using
-EastAsianWidth.txt.
+Determines the monospace display width of a string using EastAsianWidth.txt,
+Unicode general category, and other data.
 
 %package doc
 BuildArch:  noarch
@@ -36,20 +34,23 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
-%{?scl:"}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
 rm -rf %{buildroot}%{gem_instdir}/.yardoc
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
-%doc %{gem_instdir}/LICENSE.txt
+%{gem_libdir}
+%doc %{gem_instdir}/MIT-LICENSE.txt
 %{gem_instdir}/data
 %exclude %{gem_cache}
 %{gem_spec}
@@ -57,8 +58,10 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/.gemspec
+%doc %{gem_instdir}/CHANGELOG.txt
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/spec
+%exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.1.1-8
