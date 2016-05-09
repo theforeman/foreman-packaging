@@ -64,6 +64,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon May 09 2016 Dominic Cleal <dominic@cleal.org> 1.0.5-1
+- Update unicode-display_width to 1.0.5 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.1.1-8
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
