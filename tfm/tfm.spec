@@ -66,6 +66,7 @@ Obsoletes: %{scl_prefix}rubygem-concurrent-ruby < 1.0.1-2
 Obsoletes: %{scl_prefix}rubygem-dalli < 2.6.4-4
 Obsoletes: %{scl_prefix}rubygem-ejs < 1.1.1-4
 Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
+Obsoletes: %{scl_prefix}rubygem-hirb-unicode < 0.0.5-9
 Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4

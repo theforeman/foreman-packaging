@@ -66,7 +66,7 @@
       <packagereq type="default">rubygem-gridster-rails</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
-      <packagereq type="default">rubygem-hirb-unicode</packagereq>
+      <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
@@ -140,7 +140,7 @@
       <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
-      <packagereq type="default">rubygem-hirb-unicode-doc</packagereq>
+      <packagereq type="default">rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>

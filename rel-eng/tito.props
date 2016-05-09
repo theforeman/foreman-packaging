@@ -158,7 +158,7 @@ whitelist = foreman
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-hirb
-  rubygem-hirb-unicode
+  rubygem-hirb-unicode-steakknife
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
