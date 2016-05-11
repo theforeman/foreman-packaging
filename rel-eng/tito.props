@@ -12,48 +12,7 @@ tag_suffix = .fm1_12
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
 
-# Blacklist any non-SCL packages that are missing SCL macros or they get built
-# in the SCL tag rather than -nonscl.  Don't forget -rhel7 below too!
-[foreman-nightly-rhel6]
-disttag = .el6
-blacklist = foreman-installer
-  foreman-proxy
-  foreman-release-scl
-  foreman-selinux
-  puppet-agent-oauth
-  rubygem-kafo
-  rubygem-kafo_parsers
-  rubygem-kafo_wizards
-  rubygem-multi_json
-  rubygem-rack-protection
-  rubygem-rkerberos
-  rubygem-rubyipmi
-  rubygem-sinatra
-  rubygem-tilt
-scl = tfm
-
-[foreman-nightly-rhel7]
-disttag = .el7
-blacklist = foreman-installer
-  foreman-proxy
-  foreman-release-scl
-  foreman-selinux
-  puppet-agent-oauth
-  rubygem-kafo
-  rubygem-kafo_parsers
-  rubygem-kafo_wizards
-  rubygem-multi_json
-  rubygem-rack-protection
-  rubygem-rkerberos
-  rubygem-rubyipmi
-  rubygem-sinatra
-  rubygem-tilt
-scl = tfm
-
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-#
-# Is your package *only* non-SCL?  If so, add it to the blacklist above or it
-# will get built in the wrong tag.
 [foreman-nightly-nonscl-rhel6]
 disttag = .el6
 whitelist = foreman-installer
@@ -116,6 +75,234 @@ whitelist = foreman-installer
   rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
+
+[foreman-nightly-rhel6]
+disttag = .el6
+whitelist = foreman
+  rubygem-ace-rails-ap
+  rubygem-activerecord-session_store
+  rubygem-addressable
+  rubygem-ancestry
+  rubygem-apipie-bindings
+  rubygem-apipie-rails
+  rubygem-audited
+  rubygem-audited-activerecord
+  rubygem-autoparse
+  rubygem-autoprefixer-rails
+  rubygem-awesome_print
+  rubygem-bootstrap-sass
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-daemons
+  rubygem-deep_cloneable
+  rubygem-eventmachine
+  rubygem-excon
+  rubygem-extlib
+  rubygem-facter
+  rubygem-faraday
+  rubygem-fast_gettext
+  rubygem-flot-rails
+  rubygem-fog
+  rubygem-fog-aws
+  rubygem-fog-core
+  rubygem-fog-google
+  rubygem-fog-json
+  rubygem-fog-libvirt
+  rubygem-fog-openstack
+  rubygem-fog-rackspace
+  rubygem-fog-vsphere
+  rubygem-fog-xenserver
+  rubygem-fog-xml
+  rubygem-font-awesome-sass
+  rubygem-foremancli
+  rubygem-formatador
+  rubygem-friendly_id
+  rubygem-gettext
+  rubygem-gettext_i18n_rails
+  rubygem-gettext_i18n_rails_js
+  rubygem-google-api-client
+  rubygem-gridster-rails
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-hashie
+  rubygem-highline
+  rubygem-hirb
+  rubygem-hirb-unicode-steakknife
+  rubygem-hoe
+  rubygem-ipaddress
+  rubygem-jquery_pwstrength_bootstrap_4
+  rubygem-jquery-rails
+  rubygem-jquery-turbolinks
+  rubygem-jquery-ui-rails
+  rubygem-jwt
+  rubygem-launchy
+  rubygem-ldap_fluff
+  rubygem-little-plugger
+  rubygem-locale
+  rubygem-logging
+  rubygem-multipart-post
+  rubygem-multi-select-rails
+  rubygem-mysql2
+  rubygem-net-ldap
+  rubygem-netrc
+  rubygem-net-scp
+  rubygem-net-ssh
+  rubygem-oauth
+  rubygem-paint
+  rubygem-passenger
+  rubygem-patternfly-sass
+  rubygem-pg
+  rubygem-po_to_json
+  rubygem-powerbar
+  rubygem-protected_attributes
+  rubygem-quiet_assets
+  rubygem-rabl
+  rubygem-rack-jsonp
+  rubygem-rails-i18n
+  rubygem-rails-observers
+  rubygem-rbovirt
+  rubygem-rbvmomi
+  rubygem-responders
+  rubygem-rest-client
+  rubygem-retriable
+  rubygem-ruby2ruby
+  rubygem-rubyforge
+  rubygem-ruby-libvirt
+  rubygem-ruby_parser
+  rubygem-safemode
+  rubygem-scoped_search
+  rubygem-secure_headers
+  rubygem-select2-rails
+  rubygem-sequel
+  rubygem-sexp_processor
+  rubygem-signet
+  rubygem-spice-html5-rails
+  rubygem-sshkey
+  rubygem-syntax
+  rubygem-table_print
+  rubygem-text
+  rubygem-trollop
+  rubygem-underscore-rails
+  rubygem-unicode-display_width
+  rubygem-validates_lengths_from_database
+  rubygem-will_paginate
+  rubygem-wirb
+  tfm
+scl = tfm
+
+[foreman-nightly-rhel7]
+disttag = .el7
+whitelist = foreman
+  rubygem-ace-rails-ap
+  rubygem-activerecord-session_store
+  rubygem-addressable
+  rubygem-ancestry
+  rubygem-apipie-bindings
+  rubygem-apipie-rails
+  rubygem-audited
+  rubygem-audited-activerecord
+  rubygem-autoparse
+  rubygem-autoprefixer-rails
+  rubygem-awesome_print
+  rubygem-bootstrap-sass
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-daemons
+  rubygem-deep_cloneable
+  rubygem-eventmachine
+  rubygem-excon
+  rubygem-extlib
+  rubygem-facter
+  rubygem-faraday
+  rubygem-fast_gettext
+  rubygem-flot-rails
+  rubygem-fog
+  rubygem-fog-aws
+  rubygem-fog-core
+  rubygem-fog-google
+  rubygem-fog-json
+  rubygem-fog-libvirt
+  rubygem-fog-openstack
+  rubygem-fog-rackspace
+  rubygem-fog-vsphere
+  rubygem-fog-xenserver
+  rubygem-fog-xml
+  rubygem-font-awesome-sass
+  rubygem-foremancli
+  rubygem-formatador
+  rubygem-friendly_id
+  rubygem-gettext
+  rubygem-gettext_i18n_rails
+  rubygem-gettext_i18n_rails_js
+  rubygem-google-api-client
+  rubygem-gridster-rails
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-hashie
+  rubygem-highline
+  rubygem-hirb
+  rubygem-hirb-unicode-steakknife
+  rubygem-hoe
+  rubygem-ipaddress
+  rubygem-jquery_pwstrength_bootstrap_4
+  rubygem-jquery-rails
+  rubygem-jquery-turbolinks
+  rubygem-jquery-ui-rails
+  rubygem-jwt
+  rubygem-launchy
+  rubygem-ldap_fluff
+  rubygem-little-plugger
+  rubygem-locale
+  rubygem-logging
+  rubygem-multipart-post
+  rubygem-multi-select-rails
+  rubygem-mysql2
+  rubygem-net-ldap
+  rubygem-netrc
+  rubygem-net-scp
+  rubygem-net-ssh
+  rubygem-oauth
+  rubygem-paint
+  rubygem-passenger
+  rubygem-patternfly-sass
+  rubygem-pg
+  rubygem-po_to_json
+  rubygem-powerbar
+  rubygem-protected_attributes
+  rubygem-quiet_assets
+  rubygem-rabl
+  rubygem-rack-jsonp
+  rubygem-rails-i18n
+  rubygem-rails-observers
+  rubygem-rbovirt
+  rubygem-rbvmomi
+  rubygem-responders
+  rubygem-rest-client
+  rubygem-retriable
+  rubygem-ruby2ruby
+  rubygem-rubyforge
+  rubygem-ruby-libvirt
+  rubygem-ruby_parser
+  rubygem-safemode
+  rubygem-scoped_search
+  rubygem-secure_headers
+  rubygem-select2-rails
+  rubygem-sequel
+  rubygem-sexp_processor
+  rubygem-signet
+  rubygem-spice-html5-rails
+  rubygem-sshkey
+  rubygem-syntax
+  rubygem-table_print
+  rubygem-text
+  rubygem-trollop
+  rubygem-underscore-rails
+  rubygem-unicode-display_width
+  rubygem-validates_lengths_from_database
+  rubygem-will_paginate
+  rubygem-wirb
+  tfm
+scl = tfm
 
 [foreman-nightly-fedora21]
 disttag = .fc21

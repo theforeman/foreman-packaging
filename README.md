@@ -112,10 +112,7 @@ You'll also need an alias `kojikat` to point to:
   1. express all gem dependencies as identical `Requires` in the spec file
 1. Download the source file (e.g. the .gem) into the spec directory and run
    `git annex add foo.gem`
-1. Update rel-eng/tito.props
-  * If building for Fedora, add to the "foreman-nightly-fedora21" whitelist
-  * If building non-SCL *only*, add to the "foreman-nightly-rhel+" blacklist
-  * If building SCL EL6 only, no action required
+1. Update rel-eng/tito.props and add to the appropriate whitelists
 1. Update comps/comps-foreman-\*.xml
 2. Run ./comps_doc.sh to automatically add docs
 1. Commit the changes
