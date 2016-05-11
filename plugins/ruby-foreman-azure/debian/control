@@ -1,0 +1,13 @@
+Source: ruby-foreman-azure
+Section: ruby
+Priority: extra
+Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
+Build-Depends: debhelper, foreman (>= 1.11.0), foreman-assets (>= 1.11.0), foreman-sqlite3 (>= 1.11.0), ruby-foreman-deface (<<2.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_azure
+
+Package: ruby-foreman-azure
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.11.0), ruby-foreman-deface (<<2.0.0)
+Description: Foreman Azure plugin
+ Integration with Azure in Foreman.
