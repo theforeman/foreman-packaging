@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -277,6 +277,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu May 12 2016 Dominic Cleal <dominic@cleal.org> 3.1-3
+- Prevent enable_assets being shipped in tfm-runtime (dominic@cleal.org)
+
 * Mon May 09 2016 Dominic Cleal <dominic@cleal.org> 3.1-2
 - Replace hirb-unicode with hirb-unicode-steakknife (dominic@cleal.org)
 
