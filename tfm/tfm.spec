@@ -255,6 +255,7 @@ selinuxenabled && load_policy || :
 
 %files runtime -f rubygems_filesystem.list
 %doc README LICENSE
+%exclude %{_scl_scripts}/enable_assets
 %scl_files
 %dir %{_mandir}/man*
 %config(noreplace) %{?_scl_scripts}/service-environment
