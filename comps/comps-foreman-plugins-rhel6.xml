@@ -62,6 +62,8 @@
 
       <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick</packagereq>
+      <packagereq type="default">tfm-rubygem-azure</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-core</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
       <packagereq type="default">tfm-rubygem-archive-tar-minitar</packagereq>
@@ -74,14 +76,19 @@
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
       <packagereq type="default">tfm-rubygem-dynflow</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
+      <packagereq type="default">tfm-rubygem-macaddr</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
+      <packagereq type="default">tfm-rubygem-systemu</packagereq>
+      <packagereq type="default">tfm-rubygem-uuid</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
@@ -108,6 +115,8 @@
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">tfm-rubygem-archive-tar-minitar-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-colorize-doc</packagereq>
@@ -118,6 +127,8 @@
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
@@ -156,12 +167,15 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-macaddr-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-uuid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->
