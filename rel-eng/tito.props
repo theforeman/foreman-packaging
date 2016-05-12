@@ -387,6 +387,8 @@ scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
+  rubygem-azure
+  rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-colorize
@@ -396,10 +398,15 @@ whitelist = rubygem-algebrick
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
+  rubygem-faraday_middleware
   rubygem-ffi
+  rubygem-fog-azure
   rubygem-git
   rubygem-jgrep
+  rubygem-macaddr
   rubygem-opennebula
+  rubygem-systemu
+  rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_azure
@@ -470,6 +477,8 @@ scl = tfm
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
+  rubygem-azure
+  rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-colorize
@@ -479,10 +488,15 @@ whitelist = rubygem-algebrick
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
+  rubygem-faraday_middleware
   rubygem-ffi
+  rubygem-fog-azure
   rubygem-git
   rubygem-jgrep
+  rubygem-macaddr
   rubygem-opennebula
+  rubygem-systemu
+  rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_azure
@@ -564,6 +578,8 @@ disttag = .fc24
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
+  rubygem-azure
+  rubygem-azure-core
   rubygem-chef-api
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
@@ -573,6 +589,8 @@ whitelist = rubygem-algebrick
   rubygem-deface
   rubygem-docker-api
   rubygem-dynflow
+  rubygem-faraday_middleware
+  rubygem-fog-azure
   rubygem-newt
   rubygem-foreman_abrt
   rubygem-foreman_ansible

@@ -63,6 +63,8 @@
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-azure</packagereq>
+      <packagereq type="default">rubygem-azure-core</packagereq>
       <packagereq type="default">rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-colorize</packagereq>
@@ -71,6 +73,8 @@
       <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-docker-api</packagereq>
       <packagereq type="default">rubygem-dynflow</packagereq>
+      <packagereq type="default">rubygem-faraday_middleware</packagereq>
+      <packagereq type="default">rubygem-fog-azure</packagereq>
       <packagereq type="default">rubygem-graphite-api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
@@ -87,8 +91,10 @@
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
-      <packagereq type="default">rubygem-bootstrap-datepicker-rails-doc</packagereq>
+      <packagereq type="default">rubygem-azure-core-doc</packagereq>
+      <packagereq type="default">rubygem-azure-doc</packagereq>
       <packagereq type="default">rubygem-bastion-doc</packagereq>
+      <packagereq type="default">rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
       <packagereq type="default">rubygem-colorize-doc</packagereq>
       <packagereq type="default">rubygem-commonjs-doc</packagereq>
@@ -96,6 +102,8 @@
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-docker-api-doc</packagereq>
       <packagereq type="default">rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
+      <packagereq type="default">rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-foreman_azure-doc</packagereq>
