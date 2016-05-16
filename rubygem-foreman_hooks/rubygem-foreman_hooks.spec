@@ -96,6 +96,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon May 16 2016 Dominic Cleal <dominic@cleal.org> 0.3.10-1
+- Update foreman_hooks to 0.3.10 (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.3.9-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
