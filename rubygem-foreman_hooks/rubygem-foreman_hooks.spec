@@ -16,14 +16,14 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.9
-Release:    2%{?foremandist}%{?dist}
+Version:    0.3.10
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_hooks
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.0
+Requires:   foreman >= 1.4.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -55,10 +55,9 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -86,9 +85,10 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{foreman_dir}/%{gem_name}
 
 %exclude %{gem_instdir}/test
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%exclude %{gem_cache}
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/examples
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
