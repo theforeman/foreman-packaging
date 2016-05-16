@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
-Homepage: https://github.com/domcleal/foreman_hooks
+Homepage: https://github.com/theforeman/foreman_hooks
 
 Package: ruby-foreman-hooks
 Architecture: all

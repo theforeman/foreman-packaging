@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.10-1) stable; urgency=low
+
+  * 0.3.10 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 16 May 2016 08:33:50 +0100
+
 ruby-foreman-hooks (0.3.9) stable; urgency=low
 
   * 0.3.9 released
