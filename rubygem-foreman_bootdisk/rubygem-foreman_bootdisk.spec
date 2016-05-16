@@ -102,6 +102,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 16 2016 Dominic Cleal <dominic@cleal.org> 7.0.1-1
+- Update foreman_bootdisk to 7.0.1 (dominic@cleal.org)
+
 * Mon Apr 18 2016 Dominic Cleal <dominic@cleal.org> 7.0.0-2
 - Include precompiled assets in rpm (timo.goebel@dm.de)
 
