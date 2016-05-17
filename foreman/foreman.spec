@@ -98,7 +98,7 @@ Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 Requires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 Requires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
@@ -173,7 +173,7 @@ BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
-BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
 BuildRequires: %{?scl_prefix}rubygem(rails-observers) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(protected_attributes) >= 1.1.1
