@@ -8,7 +8,7 @@ Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
 Release: 3%{?dist}
 Group: Development/Libraries
-License: MIT
+License: GPLv2+
 URL: https://github.com/fazibear/colorize
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
@@ -35,11 +35,9 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -58,6 +56,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/test
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
@@ -65,7 +64,7 @@ cp -a .%{gem_dir}/* \
 
 %changelog
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-3
-- 
+- Rebuild
 
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-2
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
