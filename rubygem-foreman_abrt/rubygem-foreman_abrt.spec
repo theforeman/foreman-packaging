@@ -17,8 +17,8 @@
 
 Summary:    Display reports from Automatic Bug Reporting Tool in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.6
-Release:    4%{?foremandist}%{?dist}
+Version:    0.0.7
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_abrt
