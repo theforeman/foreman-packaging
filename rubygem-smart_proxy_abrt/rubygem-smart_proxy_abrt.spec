@@ -123,6 +123,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Tue May 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.8-1
+- Updated smart_proxy_abrt to 0.0.8 (lzap+git@redhat.com)
+
 * Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.0.7-2
 - Fix dep to install correct test framework for F21 (dcleal@redhat.com)
 
