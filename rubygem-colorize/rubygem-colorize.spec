@@ -6,7 +6,7 @@
 Summary: Add color methods to String class
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Libraries
 License: GPLv2+
 URL: https://github.com/fazibear/colorize
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue May 17 2016 Dominic Cleal <dominic@cleal.org> 0.7.7-4
+- Correct licence field to GPLv2+, modernise spec (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-3
 - Rebuild
 
