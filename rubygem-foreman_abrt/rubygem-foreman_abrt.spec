@@ -100,6 +100,9 @@ GEMFILE
 exit 0
 
 %changelog
+* Tue May 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.7-1
+- Updated foreman_abrt to 0.0.7 (lzap+git@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.6-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
