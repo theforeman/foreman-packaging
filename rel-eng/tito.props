@@ -536,6 +536,7 @@ whitelist = rubygem-algebrick
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
+  rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-logify
   rubygem-mysql2
