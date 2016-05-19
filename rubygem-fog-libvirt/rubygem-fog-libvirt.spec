@@ -83,6 +83,9 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu May 19 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-1
+- Update fog-libvirt to 0.2.0 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
