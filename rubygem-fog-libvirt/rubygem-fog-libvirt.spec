@@ -6,8 +6,8 @@
 Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.0.2
-Release: 3%{?dist}
+Version: 0.2.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-libvirt
@@ -21,10 +21,10 @@ Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
 # On Fedora use ruby-libvirt and not the gem as it's newer
 %if 0%{?fedora}
 Requires: %{?scl_prefix}ruby-libvirt >= 0.5
-Requires: %{?scl_prefix}ruby-libvirt < 0.6
+Requires: %{?scl_prefix}ruby-libvirt < 0.7
 %else
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
-Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 0.6
+Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 0.7
 %endif
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -32,8 +32,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-%define gembuilddir %{buildroot}%{gem_dir}
 
 %description
 This library can be used as a module for `fog` or as standalone provider to
@@ -50,14 +48,16 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 # Remove gem dep so its presence isn't checked at load time, use ruby-libvirt instead
 %if 0%{?fedora}
@@ -66,15 +66,16 @@ sed -i '/add_.*dependency.*ruby-libvirt/d' %{buildroot}%{gem_spec}
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_instdir}/LICENSE.md
+%doc %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/.*
 
 %files doc
-%{gem_instdir}/CONTRIBUTORS.md
-%{gem_instdir}/README.md
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/tests
 %{gem_instdir}/minitests
 %{gem_instdir}/Gemfile*
