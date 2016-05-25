@@ -71,7 +71,6 @@ whitelist = foreman-installer
   rubygem-passenger
   rubygem-powerbar
   rubygem-rack-protection
-  rubygem-rest-client
   rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
