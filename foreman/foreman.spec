@@ -55,8 +55,8 @@ Requires: %{name}-debug
 # Gemfile
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.7
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
 Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
 Requires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
@@ -130,8 +130,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
-BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.6
-BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.7
+BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
@@ -305,8 +305,8 @@ Meta package to install requirements for OpenStack compute resource support.
 %package ovirt
 Summary: Foreman oVirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.0.37
-Requires: %{?scl_prefix}rubygem(rbovirt) < 0.1.0
+Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.1
+Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2.0
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
