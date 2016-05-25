@@ -81,3 +81,6 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/data/
 
 %changelog
+* Wed May 25 2016 Dominic Cleal <dominic@cleal.org> 0.5.20160310-1
+- new package built with tito
+
