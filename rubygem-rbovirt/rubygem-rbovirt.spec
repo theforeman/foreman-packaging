@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 25 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
+- Update rbovirt to 0.1.1 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.37-3
 - Use gem_install macro (dominic@cleal.org)
 
