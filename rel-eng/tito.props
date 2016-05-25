@@ -162,7 +162,6 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-responders
-  rubygem-rest-client
   rubygem-retriable
   rubygem-ruby2ruby
   rubygem-rubyforge
@@ -187,6 +186,7 @@ whitelist = foreman
   rubygem-will_paginate
   rubygem-wirb
   tfm
+  tfm-rubygem-rest-client
 scl = tfm
 
 [foreman-nightly-rhel7]
@@ -276,7 +276,6 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-responders
-  rubygem-rest-client
   rubygem-retriable
   rubygem-ruby2ruby
   rubygem-rubyforge
@@ -301,6 +300,7 @@ whitelist = foreman
   rubygem-will_paginate
   rubygem-wirb
   tfm
+  tfm-rubygem-rest-client
 scl = tfm
 
 [foreman-nightly-fedora21]
