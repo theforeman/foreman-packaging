@@ -93,6 +93,7 @@
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">tfm-rubygem-hirb</packagereq>
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
+      <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-rails</packagereq>
@@ -265,6 +266,7 @@
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-rails-doc</packagereq>
