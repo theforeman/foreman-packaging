@@ -148,6 +148,8 @@
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
       <packagereq type="default">tfm-rubygem-underscore-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-unf</packagereq>
+      <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
@@ -311,6 +313,8 @@
       <packagereq type="default">tfm-rubygem-table_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-underscore-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>

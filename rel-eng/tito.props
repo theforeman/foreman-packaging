@@ -181,6 +181,8 @@ whitelist = foreman
   rubygem-text
   rubygem-trollop
   rubygem-underscore-rails
+  rubygem-unf
+  rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
   rubygem-will_paginate
@@ -295,6 +297,8 @@ whitelist = foreman
   rubygem-text
   rubygem-trollop
   rubygem-underscore-rails
+  rubygem-unf
+  rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
   rubygem-will_paginate
