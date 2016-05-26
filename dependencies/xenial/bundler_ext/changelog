@@ -1,3 +1,9 @@
+ruby-bundler-ext (0.4.1-1) stable; urgency=low
+
+  * 0.4.1 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Thu, 26 May 2016 08:36:05 +0100
+
 ruby-bundler-ext (0.4.0-1) stable; urgency=low
 
   * Initial release for Ubuntu/xenial
