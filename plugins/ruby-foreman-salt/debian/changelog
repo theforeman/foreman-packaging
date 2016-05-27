@@ -1,3 +1,9 @@
+ruby-foreman-salt (5.0.1-1) stable; urgency=low
+
+  * 5.0.1 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 27 May 2016 19:53:10 +0200
+
 ruby-foreman-salt (5.0.0-1) stable; urgency=low
 
   * 5.0.0 released
