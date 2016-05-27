@@ -53,3 +53,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri May 27 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
+- new package built with tito
+
