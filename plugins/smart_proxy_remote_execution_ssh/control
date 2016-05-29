@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-remote-execution-ssh
+Section: ruby
+Priority: optional
+Maintainer: Stephen Benjamin <stephen@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_remote_execution_ssh
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-remote-execution-ssh
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.9.0~rc3), ruby-smart-proxy-dynflow (>= 0.0.3), ruby-smart-proxy-dynflow (<< 0.1.0), ruby-net-scp, ruby-net-ssh
+Description: SSH remote execution provider for Foreman smart proxy
+ SSH remote execution provider for Foreman smart proxy

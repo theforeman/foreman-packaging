@@ -1,0 +1,2 @@
+debian/remote_execution_ssh.rb usr/share/foreman-proxy/bundler.d
+settings.d/remote_execution_ssh.yml etc/foreman-proxy/settings.d

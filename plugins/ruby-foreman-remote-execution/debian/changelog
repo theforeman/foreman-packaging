@@ -1,0 +1,5 @@
+ruby-foreman-remote-execution (0.0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Stephen Benjamin <stephen@redhat.com>  Mon, 10 Aug 2015 17:29:00 +0000
