@@ -1,0 +1,5 @@
+ruby-multi-json (1.3.6-1) UNRELEASED; urgency=low
+
+  * Initial release
+
+ -- Greg Sutcliffe <gsutclif@redhat.com>  Thu, 12 Sep 2013 22:10:37 +0000
