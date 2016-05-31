@@ -44,9 +44,7 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -q -c -T
 mkdir -p .%{gem_dir}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-find .%{gem_dir}
+%gem_install -n %{SOURCE0}
 
 %build
 
