@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Tue May 31 2016 Eric D Helms <ericdhelms@gmail.com> 3.2.2-1
+- Update rubygem-bastion to 3.2.2 (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.2.1-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
