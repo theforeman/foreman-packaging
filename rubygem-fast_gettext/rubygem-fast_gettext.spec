@@ -67,6 +67,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Tue May 31 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-1
+- Update fast_gettext to 1.1.0 (dominic@cleal.org)
+
 * Tue Apr 12 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - Update fast_gettext to 1.0.0 (dominic@cleal.org)
 
