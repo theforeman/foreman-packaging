@@ -98,7 +98,7 @@ mkdir -p %{buildroot}%{spool_dir}
 %else
 pushd .%{gem_instdir}
 # Explicitly include smart-proxy path because it is not installed as a gem
-testrb -Ilib -I%{foreman_proxy_dir}/lib test/*_test.rb
+ruby -Ilib:test:%{foreman_proxy_dir}/lib -e 'Dir.glob "./test/*_test.rb", &method(:require)'
 popd
 %endif
 
