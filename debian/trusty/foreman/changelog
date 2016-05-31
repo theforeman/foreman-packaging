@@ -1,8 +1,38 @@
-foreman (1.12.0-1) stable; urgency=low
+foreman (1.11.2-1) stable; urgency=low
 
-  * Bump changelog to 1.12.0 to match VERSION
+  * 1.11.2 released
 
- -- Dominic Cleal <dominic@cleal.org>  Fri, 19 Feb 2016 10:44:48 +0000
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 18 May 2016 15:03:12 +0100
+
+foreman (1.11.1-1) stable; urgency=low
+
+  * 1.11.1 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Tue, 19 Apr 2016 12:36:45 +0100
+
+foreman (1.11.0-1) stable; urgency=low
+
+  * 1.11.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Thu, 31 Mar 2016 14:18:39 +0100
+
+foreman (1.11.0~rc3-1) stable; urgency=low
+
+  * 1.11.0-RC3 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Tue, 22 Mar 2016 14:45:49 +0000
+
+foreman (1.11.0~rc2-1) stable; urgency=low
+
+  * 1.11.0-RC2 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Fri, 11 Mar 2016 09:02:36 +0000
+
+foreman (1.11.0~rc1-1) stable; urgency=low
+
+  * 1.11.0-RC1 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 24 Feb 2016 15:33:17 +0000
 
 foreman (1.10.1-1) stable; urgency=low
 
