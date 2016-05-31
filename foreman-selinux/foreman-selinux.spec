@@ -36,7 +36,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-selinux
-Version:        1.12.0
+Version:        1.13.0
 Release:        0.develop%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue May 31 2016 Dominic Cleal <dominic@cleal.org> - 1.13.0-0.develop
+- Bump version to 1.13-develop
+
 * Fri Feb 19 2016 Dominic Cleal <dominic@cleal.org> - 1.12.0-0.develop
 - Bump version to 1.12-develop
 

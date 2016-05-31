@@ -7,7 +7,7 @@
 builder = tito.builder.GitAnnexBuilder
 tagger = tito.tagger.ReleaseTagger
 lib_dir = rel-eng/custom/
-tag_suffix = .fm1_12
+tag_suffix = .fm1_13
 
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
