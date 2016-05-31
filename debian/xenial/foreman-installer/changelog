@@ -1,0 +1,6 @@
+foreman-installer (1.13.0-1) stable; urgency=low
+
+  * Bump changelog to 1.13.0 to match VERSION
+
+ -- Dominic Cleal <dominic@cleal.org>  Tue, 31 May 2016 15:45:37 +0100
+
