@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Wed Jun 01 2016 Eric D Helms <ericdhelms@gmail.com> 3.2.2-1
+- Update rubygem-bastion to 3.2.2 (ericdhelms@gmail.com)
+
 * Fri Mar 18 2016 Dominic Cleal <dominic@cleal.org> 3.2.1-1
 - Bump rubygem-bastion to 3.2.1 (ericdhelms@gmail.com)
 
