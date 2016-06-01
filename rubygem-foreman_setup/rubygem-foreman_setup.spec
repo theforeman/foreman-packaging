@@ -13,7 +13,7 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.1.0
+Version:    3.1.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -52,10 +52,9 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -72,16 +71,17 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/locale
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
-%exclude %{gem_instdir}/.tx
+%exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
 %{gem_spec}
 %doc %{gem_instdir}/LICENSE
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
