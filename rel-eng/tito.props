@@ -92,6 +92,7 @@ whitelist = foreman
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
+  rubygem-css_parser
   rubygem-daemons
   rubygem-deep_cloneable
   rubygem-domain_name
@@ -210,6 +211,7 @@ whitelist = foreman
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
+  rubygem-css_parser
   rubygem-daemons
   rubygem-deep_cloneable
   rubygem-domain_name
@@ -325,6 +327,7 @@ whitelist = foreman
   rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
+  rubygem-css_parser
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
