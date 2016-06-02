@@ -113,6 +113,8 @@ Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
 Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
 Requires: %{?scl_prefix}rubygem(responders) >= 2.0
 Requires: %{?scl_prefix}rubygem(responders) < 3
+Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
+Requires: %{?scl_prefix}rubygem(roadie-rails) < 2
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -188,6 +190,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 3
+BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
+BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 2
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 3
