@@ -68,3 +68,6 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jun 02 2016 Dominic Cleal <dominic@cleal.org> 1.3.7-1
+- new package built with tito
+
