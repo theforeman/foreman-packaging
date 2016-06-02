@@ -166,6 +166,7 @@ whitelist = foreman
   rubygem-rbvmomi
   rubygem-responders
   rubygem-retriable
+  rubygem-roadie
   rubygem-ruby2ruby
   rubygem-rubyforge
   rubygem-ruby-libvirt
@@ -285,6 +286,7 @@ whitelist = foreman
   rubygem-rbvmomi
   rubygem-responders
   rubygem-retriable
+  rubygem-roadie
   rubygem-ruby2ruby
   rubygem-rubyforge
   rubygem-ruby-libvirt
@@ -371,6 +373,7 @@ whitelist = foreman
   rubygem-rails-i18n
   rubygem-rbovirt
   rubygem-retriable
+  rubygem-roadie
   rubygem-rubyipmi
   rubygem-safemode
   rubygem-secure_headers
