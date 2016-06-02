@@ -83,3 +83,6 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Thu Jun 02 2016 Dominic Cleal <dominic@cleal.org> 3.1.1-1
+- new package built with tito
+
