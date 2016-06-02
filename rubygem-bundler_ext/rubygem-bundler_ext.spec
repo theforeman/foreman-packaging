@@ -6,11 +6,11 @@
 
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 9%{?dist}
+Version: 0.4.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
-URL: https://github.com/aeolus-incubator/bundler_ext
+URL: https://github.com/bundlerext/bundler_ext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -51,10 +51,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -68,13 +67,13 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
 %doc %{gem_instdir}/MIT-LICENSE
-%doc %{gem_instdir}/CHANGELOG
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec/
