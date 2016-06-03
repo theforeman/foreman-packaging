@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Jun 03 2016 Dominic Cleal <dominic@cleal.org> 3.1.1-1
+- Update foreman_setup to 3.1.1 (dominic@cleal.org)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 3.1.0-1
 - Update foreman_setup to 3.1.0 (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
