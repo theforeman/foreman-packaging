@@ -79,6 +79,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Fri Jun 03 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-1
+- Update bundler_ext to 0.4.1 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-9
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
