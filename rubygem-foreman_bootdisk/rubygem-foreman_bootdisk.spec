@@ -13,8 +13,8 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    8.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    8.0.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_bootdisk
@@ -56,10 +56,9 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -68,11 +67,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
-
+%foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
 %files
@@ -84,7 +79,7 @@ GEMFILE
 %{gem_libdir}
 %{gem_instdir}/locale
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
 %doc %{gem_instdir}/LICENSE
 %foreman_apipie_cache_foreman
@@ -94,15 +89,15 @@ GEMFILE
 %exclude %{gem_instdir}/test
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
 
 %posttrans
-# We need to run the db:migrate after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-%{foreman_apipie_cache}
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%foreman_db_migrate
+%foreman_db_seed
+%foreman_apipie_cache
+%foreman_restart
 exit 0
 
 %changelog
