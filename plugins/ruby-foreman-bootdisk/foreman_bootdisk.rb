@@ -1,1 +1,1 @@
-gem 'foreman_bootdisk', '8.0.0'
+gem 'foreman_bootdisk', '8.0.1'
