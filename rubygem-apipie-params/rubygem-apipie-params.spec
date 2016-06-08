@@ -13,6 +13,7 @@ URL: https://rubygems.org/gems/apipie-params
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}rubygem(rake)
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
