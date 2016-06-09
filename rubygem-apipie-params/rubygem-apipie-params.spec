@@ -9,7 +9,7 @@ Version: 0.0.4
 Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
-URL: https://rubygems.org/gems/apipie-params
+URL: https://github.com/iNecas/apipie-params
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
@@ -46,10 +46,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-ri --no-rdoc
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -60,6 +59,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -67,7 +67,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/test
 
 %files doc
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/Gemfile
