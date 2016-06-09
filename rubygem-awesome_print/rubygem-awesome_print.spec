@@ -5,11 +5,11 @@
 
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
-Release: 13%{?dist}
+Version: 1.7.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/michaeldv/awesome_print
+URL: https://github.com/awesome-print/awesome_print
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
@@ -88,8 +88,10 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/LICENSE
-%{gem_instdir}/CHANGELOG
+%{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/README.md
+%{gem_instdir}/Appraisals
 %{gem_instdir}/spec/
 %{gem_instdir}/spec/colors_spec.rb
 %{gem_instdir}/spec/formats_spec.rb
