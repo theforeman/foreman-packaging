@@ -6,7 +6,7 @@
 Summary: DSL for describing data structures
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.4
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/iNecas/apipie-params
@@ -74,6 +74,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jun 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-5
+- Make apipie-params depend on rake (#15342, aruzicka@redhat.com)
+- Modernise spec file, correct license/URL (dominic@cleal.org)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.4-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
