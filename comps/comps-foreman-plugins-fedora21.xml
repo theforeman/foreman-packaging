@@ -63,6 +63,7 @@
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-colorize</packagereq>
       <packagereq type="default">rubygem-commonjs</packagereq>
@@ -88,6 +89,7 @@
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">rubygem-bastion-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
       <packagereq type="default">rubygem-colorize-doc</packagereq>

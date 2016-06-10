@@ -203,6 +203,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
+  rubygem-bootstrap-datepicker-rails
   rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
@@ -287,6 +288,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-archive-tar-minitar
   rubygem-bastion
+  rubygem-bootstrap-datepicker-rails
   rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
@@ -381,6 +383,7 @@ whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-chef-api
   rubygem-bastion
+  rubygem-bootstrap-datepicker-rails
   rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
