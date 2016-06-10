@@ -22,6 +22,7 @@
       <packagereq type="default">rubygem-foreman_dhcp_browser</packagereq>
       <packagereq type="default">rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">rubygem-foreman_docker</packagereq>
+      <packagereq type="default">rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
       <packagereq type="default">rubygem-foreman_graphite</packagereq>
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
@@ -111,6 +112,7 @@
       <packagereq type="default">rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">rubygem-foreman_docker-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_expire_hosts-doc</packagereq>
       <packagereq type="default">rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_rundeck-doc</packagereq>

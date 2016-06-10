@@ -230,6 +230,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
@@ -315,6 +316,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
@@ -407,6 +409,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_docker
+  rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_rundeck
