@@ -68,3 +68,6 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jun 10 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-1
+- new package built with tito
+
