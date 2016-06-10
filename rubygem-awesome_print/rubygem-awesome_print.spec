@@ -13,15 +13,8 @@ URL: http://github.com/michaeldv/awesome_print
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires:      %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires:      %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 #BuildRequires: %{?scl_prefix_ror}rubygem-rspec

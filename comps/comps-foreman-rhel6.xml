@@ -172,7 +172,6 @@
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
-      <packagereq type="default">rubygem-awesome_print</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_api</packagereq>
@@ -182,7 +181,6 @@
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-kafo_wizards</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
-      <packagereq type="default">rubygem-locale</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-netrc</packagereq>
@@ -201,7 +199,6 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
-      <packagereq type="default">rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
@@ -210,7 +207,6 @@
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
       <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
-      <packagereq type="default">rubygem-locale-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>

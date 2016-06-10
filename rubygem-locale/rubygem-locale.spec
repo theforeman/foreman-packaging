@@ -15,18 +15,11 @@ Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-
-BuildArch:	noarch
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
-%endif
 Requires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-
+BuildArch:	noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
