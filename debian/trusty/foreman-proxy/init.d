@@ -50,8 +50,8 @@ do_start()
             mkdir -p $TMP_DIR && chown $DAEMON_USER $TMP_DIR
         fi
 
-	if egrep -q ':daemon:\s*false' $SETTINGS; then
-		echo "$NAME: :daemon is false in $SETTINGS; not starting service" >&2
+	if ! egrep -q '^:daemon:\s*true' $SETTINGS; then
+		echo "$NAME: :daemon is not true in $SETTINGS; not starting service" >&2
 		return 6
 	fi
 
