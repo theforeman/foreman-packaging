@@ -94,6 +94,10 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Sun Jun 12 2016 Dominic Cleal <dominic@cleal.org> 1.7.0-1
+- Bump rubygem-awesome_print to 1.7.0 (akofink@redhat.com)
+- Remove unused non-SCL gem (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-13
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
