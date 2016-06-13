@@ -6,7 +6,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.7
+Version: 0.1.3
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -14,11 +14,13 @@ URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.9.0
-Requires: rubygem(dynflow) >= 0.8.6
-Requires: rubygem(dynflow) < 0.9.0
-Requires: rubygem(sqlite3)
-Requires: rubygem(sequel)
+Requires: foreman-proxy >= 1.11.0
+
+%if 0%{?fedora}
+Requires: rubygem(smart_proxy_dynflow_core) = %{version}
+%else
+Requires: tfm-rubygem(smart_proxy_dynflow_core) = %{version}
+%endif
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -60,7 +62,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.d/dynflow.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
+cp -pa .%{gem_instdir}/bundler.plugins.d/dynflow.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
 mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/dynflow.yml
 
@@ -68,12 +70,12 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 %dir %{gem_instdir}
 %dir %attr(750, foreman-proxy, foreman-proxy) %{_localstatedir}/lib/foreman-proxy/dynflow
 %{gem_instdir}/lib
-%{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/dynflow.rb
 %config %{foreman_proxy_settingsd_dir}/dynflow.yml
 %doc %{gem_instdir}/LICENSE
 
+%exclude %{gem_instdir}/bundler.plugins.d
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_cache}
 %{gem_spec}
