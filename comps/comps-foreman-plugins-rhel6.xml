@@ -52,6 +52,7 @@
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_remote_execution_ssh_core</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
@@ -62,6 +63,7 @@
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
 
       <packagereq type="default">ipxe-bootimgs</packagereq>
@@ -120,6 +122,7 @@
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
@@ -184,6 +187,7 @@
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_remote_execution_ssh_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
       <packagereq type="default">tfm-rubygem-uuid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
