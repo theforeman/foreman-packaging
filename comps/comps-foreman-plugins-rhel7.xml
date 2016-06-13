@@ -51,6 +51,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
@@ -201,6 +202,7 @@
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
       <packagereq type="default">tfm-rubygem-uuid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
