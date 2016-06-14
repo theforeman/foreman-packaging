@@ -12,6 +12,7 @@
       <packagereq type="default">rubygem-bastion-devel</packagereq>
       <packagereq type="default">rubygem-foreman_abrt</packagereq>
       <packagereq type="default">rubygem-foreman_ansible</packagereq>
+      <packagereq type="default">rubygem-foreman_azure</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-foreman_chef</packagereq>
       <packagereq type="default">rubygem-foreman_cockpit</packagereq>
