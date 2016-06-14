@@ -69,6 +69,8 @@ gem install --local --install-dir .%{gem_dir} \
 %{?scl:"}
 
 %build
+#build locale files
+make -C locale all-mo
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
