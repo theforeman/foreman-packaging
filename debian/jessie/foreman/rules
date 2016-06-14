@@ -17,8 +17,10 @@ build/foreman::
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/cp config/email.yaml.example config/email.yaml
 	/usr/bin/gem install -f thor -v '0.19.1'
+	/usr/bin/npm install
 	/usr/bin/bundle package
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
+	/usr/bin/bundle exec rake webpack:compile
 	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
 	# we need to allow taxonomies so apipie cache renders documentation with them
 	/bin/sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.yaml
