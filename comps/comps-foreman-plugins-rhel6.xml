@@ -92,6 +92,7 @@
       <packagereq type="default">tfm-rubygem-uuid</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
+      <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
@@ -101,6 +102,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-builder-doc</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>

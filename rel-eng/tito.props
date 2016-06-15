@@ -276,6 +276,7 @@ whitelist = rubygem-algebrick
 [foreman-plugins-1.11-nonscl-rhel6]
 disttag = .el6
 whitelist = ipxe
+  rubygem-builder
   rubygem-foreman_scap_client
   rubygem-mysql2
   rubygem-newt
