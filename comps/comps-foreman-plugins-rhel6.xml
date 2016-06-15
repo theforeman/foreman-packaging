@@ -95,6 +95,7 @@
       <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
+      <packagereq type="default">rubygem-ruby-hmac</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
 
 
@@ -106,6 +107,7 @@
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>

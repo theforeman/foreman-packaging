@@ -281,6 +281,7 @@ whitelist = ipxe
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
+  rubygem-ruby-hmac
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
@@ -382,6 +383,7 @@ whitelist = rubygem-algebrick
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
+  rubygem-ruby-hmac
   rubygem-satyr
   rubygem-sequel
   rubygem-smart_proxy_abrt
