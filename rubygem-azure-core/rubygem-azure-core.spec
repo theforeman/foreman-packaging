@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.1
-Release: 1%{?dist}
+Release: 0.9%{?dist}
 Summary: Core library to be consumed by Ruby SDK gems
 Group: Development/Languages
 License: ASL 2.0
@@ -19,8 +19,8 @@ Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
 Requires: %{?scl_prefix}rubygem(faraday) < 1.0
 Requires: %{?scl_prefix}rubygem(faraday_middleware) >= 0.10
 Requires: %{?scl_prefix}rubygem(faraday_middleware) < 1.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
@@ -84,5 +84,5 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
-* Fri Jun 10 2016 Daniel Lobato - 0.1.1-1
+* Fri Jun 10 2016 Daniel Lobato - 0.1.1-0.9
 - Initial package

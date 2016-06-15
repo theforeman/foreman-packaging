@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.5
-Release: 1%{?dist}
+Release: 0.9%{?dist}
 Summary: Official ruby client library to consume Microsoft Azure services
 Group: Development/Languages
 License: ASL 2.0
@@ -28,8 +28,8 @@ Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
 Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.0
 Requires: %{?scl_prefix_ror}rubygem(mime-types) < 3.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 Requires: %{?scl_prefix}rubygem(systemu) >= 2.6
 Requires: %{?scl_prefix}rubygem(systemu) < 3.0
 Requires: %{?scl_prefix_ruby}rubygem(thor) >= 0.19
@@ -101,5 +101,5 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/azure.gemspec
 
 %changelog
-* Fri May 13 2016 Daniel Lobato - 0.7.5-1
+* Fri May 13 2016 Daniel Lobato - 0.7.5-0.9
 - Initial package
