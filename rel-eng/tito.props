@@ -92,6 +92,7 @@ whitelist = foreman
   rubygem-daemons
   rubygem-deep_cloneable
   rubygem-domain_name
+  rubygem-email_validator
   rubygem-eventmachine
   rubygem-excon
   rubygem-extlib
@@ -213,6 +214,7 @@ whitelist = foreman
   rubygem-daemons
   rubygem-deep_cloneable
   rubygem-domain_name
+  rubygem-email_validator
   rubygem-eventmachine
   rubygem-excon
   rubygem-extlib
@@ -329,6 +331,7 @@ whitelist = foreman
   rubygem-clamp
   rubygem-css_parser
   rubygem-deep_cloneable
+  rubygem-email_validator
   rubygem-excon
   rubygem-extlib
   rubygem-flot-rails

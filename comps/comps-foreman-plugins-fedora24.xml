@@ -107,6 +107,7 @@
       <packagereq type="default">rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_azure-doc</packagereq>
       <packagereq type="default">rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">rubygem-foreman_cockpit-doc</packagereq>
