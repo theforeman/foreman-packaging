@@ -96,3 +96,6 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jun 15 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
+- new package built with tito
+
