@@ -399,8 +399,6 @@ disttag = .fc21
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
-  rubygem-azure
-  rubygem-azure-core
   rubygem-chef-api
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
@@ -411,13 +409,10 @@ whitelist = rubygem-algebrick
   rubygem-diffy
   rubygem-docker-api
   rubygem-dynflow
-  rubygem-faraday_middleware
-  rubygem-fog-azure
   rubygem-newt
   rubygem-openscap
   rubygem-foreman_abrt
   rubygem-foreman_ansible
-  rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
