@@ -281,6 +281,7 @@ whitelist = ipxe
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
+  rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
   rubygem-smart_proxy_abrt
@@ -383,6 +384,7 @@ whitelist = rubygem-algebrick
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
+  rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
   rubygem-sequel
@@ -460,6 +462,7 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-puppetdb_foreman
+  rubygem-route53
   rubygem-satyr
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_discovery
