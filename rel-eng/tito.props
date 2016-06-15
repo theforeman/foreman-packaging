@@ -288,6 +288,7 @@ whitelist = ipxe
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_powerdns
+  rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_salt
@@ -393,6 +394,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_powerdns
+  rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
@@ -468,6 +470,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_powerdns
+  rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_openscap
