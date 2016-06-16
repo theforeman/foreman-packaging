@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jun 16 2016 Dominic Cleal <dominic@cleal.org> 0.8.0-1
+- Update fog-vsphere to 0.8.0 (dominic@cleal.org)
+
 * Tue May 17 2016 Dominic Cleal <dominic@cleal.org> 0.7.0-1
 - Update fog-vsphere to 0.7.0 (dominic@cleal.org)
 
