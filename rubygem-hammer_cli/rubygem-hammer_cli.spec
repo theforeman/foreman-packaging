@@ -102,6 +102,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jun 17 2016 Dominic Cleal <dominic@cleal.org> 0.7.0-1
+- Update hammer_cli to 0.7.0 (dominic@cleal.org)
+
 * Fri May 27 2016 Dominic Cleal <dominic@cleal.org> 0.6.1-2
 - Use gem_install macro (dominic@cleal.org)
 
