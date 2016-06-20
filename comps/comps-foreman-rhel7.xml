@@ -79,7 +79,6 @@
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
       <packagereq type="default">tfm-rubygem-font-awesome-sass</packagereq>
-      <packagereq type="default">tfm-rubygem-foremancli</packagereq>
       <packagereq type="default">tfm-rubygem-formatador</packagereq>
       <packagereq type="default">tfm-rubygem-friendly_id</packagereq>
       <packagereq type="default">tfm-rubygem-gettext</packagereq>
@@ -254,7 +253,6 @@
       <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-font-awesome-sass-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foremancli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-formatador-doc</packagereq>
       <packagereq type="default">tfm-rubygem-friendly_id-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext-doc</packagereq>

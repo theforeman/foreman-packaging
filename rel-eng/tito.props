@@ -111,7 +111,6 @@ whitelist = foreman
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
-  rubygem-foremancli
   rubygem-formatador
   rubygem-friendly_id
   rubygem-gettext
@@ -232,7 +231,6 @@ whitelist = foreman
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
-  rubygem-foremancli
   rubygem-formatador
   rubygem-friendly_id
   rubygem-gettext
@@ -341,7 +339,6 @@ whitelist = foreman
   rubygem-fog-vsphere
   rubygem-fog-xenserver
   rubygem-font-awesome-sass
-  rubygem-foremancli
   rubygem-friendly_id
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
