@@ -278,6 +278,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Jun 20 2016 Dominic Cleal <dominic@cleal.org> 3.1-3
+- Remove foremancli, unmaintained (dominic@cleal.org)
+
 * Thu May 12 2016 Dominic Cleal <dominic@cleal.org> 3.1-3
 - Prevent enable_assets being shipped in tfm-runtime (dominic@cleal.org)
 
