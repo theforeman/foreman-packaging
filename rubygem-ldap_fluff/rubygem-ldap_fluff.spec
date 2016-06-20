@@ -72,6 +72,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 20 2016 Dominic Cleal <dominic@cleal.org> 0.4.3-1
+- Update ldap_fluff to 0.4.3 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.4.2-1
 - Update ldap_fluff to 0.4.2 (dominic@cleal.org)
 
