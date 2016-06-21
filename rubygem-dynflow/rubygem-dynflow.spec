@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Jun 21 2016 Dominic Cleal <dominic@cleal.org> 0.8.11-1
+- Update dynflow to 0.8.11 (inecas@redhat.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.8.10-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
