@@ -92,6 +92,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 21 2016 Dominic Cleal <dominic@cleal.org> 0.9.1-1
+- Update kafo to 0.9.1 (mhulan@redhat.com)
+
 * Thu Jun 09 2016 Dominic Cleal <dominic@cleal.org> 0.9.0-1
 - Update kafo to 0.9.0 (mhulan@redhat.com)
 
