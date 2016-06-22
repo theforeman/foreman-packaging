@@ -5,6 +5,7 @@
 %global confdir hammer
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
+%{!?_root_mandir:%global _root_mandir %{_mandir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 Summary: Universal command-line interface for Foreman
@@ -77,6 +78,10 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 mkdir -p %{buildroot}%{_root_sysconfdir}/bash_completion.d
 mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_root_sysconfdir}/bash_completion.d/%{gem_name}
 
+mkdir -p %{buildroot}%{_root_mandir}/man1
+mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_root_mandir}/man1/
+rm -f %{buildroot}%{gem_instdir}/man/*.asciidoc
+
 mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
                %{buildroot}%{_root_sysconfdir}/%{confdir}/cli_config.yml
@@ -84,6 +89,7 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/hammer
+%{_root_mandir}/man1/hammer.1.gz
 %{_root_sysconfdir}/bash_completion.d/%{gem_name}
 %{_root_sysconfdir}/%{confdir}/cli.modules.d
 %config(noreplace) %{_root_sysconfdir}/%{confdir}/cli_config.yml
