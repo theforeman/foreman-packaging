@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Wed Jun 22 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-1
+- Update chef-api to 0.6.0 (dominic@cleal.org)
+
 * Wed Nov 05 2014 Dominic Cleal <dcleal@redhat.com> 0.5.0-1
 - new package built with tito
 
