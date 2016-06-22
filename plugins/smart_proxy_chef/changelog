@@ -1,3 +1,9 @@
+ruby-smart-proxy-chef (0.1.8-1) stable; urgency=low
+
+  * Update smart_proxy_chef to 0.1.8
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 22 Jun 2016 15:41:34 +0200
+
 ruby-smart-proxy-chef (0.1.7-1) stable; urgency=medium
 
   * Update to 0.1.7
