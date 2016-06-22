@@ -2,7 +2,7 @@
 
 Name: rubygem-%{gem_name}
 Summary: A tiny Chef API client with minimal dependencies
-Version: 0.5.0
+Version: 0.6.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
