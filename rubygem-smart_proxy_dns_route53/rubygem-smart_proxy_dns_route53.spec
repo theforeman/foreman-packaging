@@ -94,3 +94,6 @@ mv %{buildroot}%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jun 23 2016 Dominic Cleal <dominic@cleal.org> 2.0.0-1
+- new package built with tito
+
