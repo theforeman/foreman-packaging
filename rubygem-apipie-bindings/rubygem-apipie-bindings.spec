@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Jun 24 2016 Dominic Cleal <dominic@cleal.org> 0.0.17-1
+- Update apipie-bindings to 0.0.17 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.16-2
 - Use gem_install macro (dominic@cleal.org)
 
