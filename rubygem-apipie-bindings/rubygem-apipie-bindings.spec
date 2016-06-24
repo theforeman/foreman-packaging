@@ -5,8 +5,8 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.16
-Release: 2%{?dist}
+Version: 0.0.17
+Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: http://github.com/Apipie/apipie-bindings
@@ -14,6 +14,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
+Requires: %{?scl_prefix}rubygem(rest-client) < 2.0.0
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
 
