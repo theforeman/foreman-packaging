@@ -17,14 +17,14 @@
 
 Summary:    Foreman plugin to provision new hosts and integrate to oVirt Engine
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.0.1
-Release:    3%{?foremandist}%{?dist}
+Version:    1.0.2
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/ovirt_provision_plugin
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.5.0
+Requires:   foreman >= 1.11.0
 Requires:   %{?scl_prefix}rubygem(deface)
 
 Requires:   %{?scl_prefix_ruby}ruby(release)
