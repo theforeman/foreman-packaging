@@ -6,21 +6,25 @@
 
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.0.13
+Version: 0.1.2
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires: foreman-proxy >= 1.9.0
-Requires: rubygem(smart_proxy_dynflow) >= 0.0.3
-Requires: rubygem(smart_proxy_dynflow) < 0.1.0
+%if 0%{?fedora}
+Requires: rubygem(smart_proxy_remote_execution_ssh_core) = %{version}
+%else
+Requires: tfm-rubygem(smart_proxy_remote_execution_ssh_core) = %{version}
+%endif
 
-Requires: ruby(rubygems)
+Requires: foreman-proxy >= 1.11.0
+Requires: rubygem(smart_proxy_dynflow) >= 0.1.0
+Requires: rubygem(smart_proxy_dynflow) < 0.2.0
+
 Requires: ruby
-Requires: rubygem(net-ssh)
-Requires: rubygem(net-scp)
+Requires: ruby(rubygems)
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -60,19 +64,20 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.d/remote_execution_ssh.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
+cp -pa .%{gem_instdir}/bundler.plugins.d/remote_execution_ssh.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
+
 mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/remote_execution_ssh.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
-%{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/remote_execution_ssh.rb
 %config %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 %doc %{gem_instdir}/LICENSE
 
+%exclude %{gem_instdir}/bundler.plugins.d
 %exclude %{gem_cache}
 %{gem_spec}
 
