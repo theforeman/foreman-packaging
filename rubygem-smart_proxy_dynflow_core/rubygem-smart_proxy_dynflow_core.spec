@@ -145,5 +145,8 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{b
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Jun 24 2016 Dominic Cleal <dominic@cleal.org> 0.1.3-1
+- new package built with tito
+
 * Thu May 26 2016 Stephen Benjamin <stephen@redhat.com> 0.1.3-1
 - Initial packaging of smart_proxy_dynflow_core
