@@ -94,6 +94,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 27 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
+- re-add ovirt_provision_plugin (kvedulv@kvedulv.de)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.0.1-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - More foremandist macros (dcleal@redhat.com)
