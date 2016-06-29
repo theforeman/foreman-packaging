@@ -181,6 +181,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 29 2016 Dominic Cleal <dominic@cleal.org> 0.7.19-1
+- Update foreman-tasks to 0.7.19 (inecas@redhat.com)
+
 * Fri Jun 03 2016 Dominic Cleal <dominic@cleal.org> 0.7.18-1
 - Build foreman-tasks 0.7.18 (jsherril@redhat.com)
 
