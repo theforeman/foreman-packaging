@@ -112,8 +112,13 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
-mv %{buildroot}%{gem_instdir}/settings.d/%{plugin_name}.yml.example \
-   %{buildroot}%{foreman_proxy_settingsd_dir}/%{plugin_name}.yml
+<% config_file_paths = spec.files.select { |f| f.start_with?('config/') } +
+                       spec.files.select { |f| f.start_with?('settings.d/') } -%>
+<% config_file_paths.each do |config_file_path| -%>
+<% config_file = config_file_path.split('/').last -%>
+mv %{buildroot}%{gem_instdir}/<%= config_file_path %> \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/<%= config_file.chomp('.example') %>
+<% end -%>
 
 %files
 %dir %{gem_instdir}
@@ -125,13 +130,16 @@ mv %{buildroot}%{gem_instdir}/settings.d/%{plugin_name}.yml.example \
 <% unless spec.extensions.empty? -%>
 %{gem_extdir_mri}
 <% end -%>
+<% config_file_paths = config_file_paths.map { |path| path.split('/').last.chomp('.example') } -%>
+<% config_file_paths.each do |config_file_path| -%>
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/<%= config_file_path %>
+<% end -%>
 <%= main_file_entries(spec).gsub(/^%license/, '%doc') %>
 <% unless doc_subpackage -%>
 %doc %{gem_docdir}
 <%= doc_file_entries(spec) -%>
 <% end -%>
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
-%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/%{plugin_name}.yml
 %exclude %{gem_cache}
 %{gem_spec}
 
