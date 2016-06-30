@@ -76,7 +76,6 @@
       <packagereq type="default">tfm-rubygem-fog-openstack</packagereq>
       <packagereq type="default">tfm-rubygem-fog-rackspace</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
       <packagereq type="default">tfm-rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">tfm-rubygem-formatador</packagereq>
@@ -175,6 +174,7 @@
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
+      <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
@@ -256,7 +256,6 @@
       <packagereq type="default">tfm-rubygem-fog-openstack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-rackspace-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-formatador-doc</packagereq>

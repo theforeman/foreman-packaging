@@ -37,6 +37,7 @@
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
+      <packagereq type="default">nodejs-jquery-ujs</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
