@@ -79,6 +79,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Jul 01 2016 Dominic Cleal <dominic@cleal.org> 1.12.0-0.1.RC3
+- Release 1.12.0-RC3
+
 * Mon Jun 20 2016 Dominic Cleal <dominic@cleal.org> 1.12.0-0.1.RC2
 - Release 1.12.0-RC2
 - refs #14789 - require kafo 0.9.0 (dominic@cleal.org)
