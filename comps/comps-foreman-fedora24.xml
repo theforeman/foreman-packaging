@@ -42,6 +42,7 @@
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-css_parser</packagereq>
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
+      <packagereq type="default">rubygem-email_validator</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
       <packagereq type="default">rubygem-flot-rails</packagereq>
@@ -107,6 +108,7 @@
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-css_parser-doc</packagereq>
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
+      <packagereq type="default">rubygem-email_validator-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
       <packagereq type="default">rubygem-flot-rails-doc</packagereq>
