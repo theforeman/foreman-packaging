@@ -13,14 +13,14 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.1.1
+Version:    4.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_setup
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.9.0
+Requires:   foreman >= 1.12.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -28,8 +28,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: foreman-plugin >= 1.9.0
-BuildRequires: foreman-assets
+BuildRequires: foreman-plugin >= 1.12.0
 
 BuildArch: noarch
 
@@ -64,7 +63,6 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -74,7 +72,6 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_instdir}/locale
 %{foreman_bundlerd_plugin}
-%{foreman_assets_plugin}
 %exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
 %{gem_spec}
