@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 05 2016 Dominic Cleal <dominic@cleal.org> 4.0.9-1
+- Update rails-i18n to 4.0.9 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 4.0.8-3
 - Use gem_install macro (dominic@cleal.org)
 
