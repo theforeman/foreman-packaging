@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 06 2016 Dominic Cleal <dominic@cleal.org> 4.0.0-1
+- Update foreman_default_hostgroup to 4.0.0 (gsutclif@redhat.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 3.0.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
