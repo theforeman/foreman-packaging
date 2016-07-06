@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-remote-execution (0.0.5-2) stable; urgency=low
+
+  * Use Ruby 2.0 explicitly on Ubuntu/trusty
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 06 Jul 2016 19:02:26 +0200
+
 ruby-hammer-cli-foreman-remote-execution (0.0.5-1) stable; urgency=low
 
   * 0.0.5 released

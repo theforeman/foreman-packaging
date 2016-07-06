@@ -6,12 +6,12 @@ DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
 Standards-Version: 3.9.3
 Homepage: http://github.com/theforeman/hammer-cli-foreman
-XS-Ruby-Versions: all
+XS-Ruby-Versions: ruby2.0
 
 Package: ruby-hammer-cli-foreman
 Architecture: all
-XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+XB-Ruby-Versions: ruby2.0
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby2.0,
          ruby-hammer-cli (>= 0.7.0),
          ruby-apipie-bindings (>= 0.0.16)
 Description: Foreman commands for Hammer
