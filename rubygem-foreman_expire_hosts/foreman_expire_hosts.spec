@@ -5,7 +5,7 @@
 
 Summary:    A Foreman plugin to allow hosts to expire.
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.1
+Version:    2.0.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -91,6 +91,9 @@ exit 0
 %{gem_docdir}
 
 %changelog
+* Wed Jul 07 2016 Timo Goebel <mail@timogoebel.name> 2.0.2-1
+- release v2.0.2
+
 * Fri Jun 17 2016 Timo Goebel <mail@timogoebel.name> 2.0.1-1
 - release v2.0.1
 
