@@ -173,6 +173,7 @@
       <packagereq type="default">foreman-installer</packagereq>
 
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>

@@ -33,6 +33,8 @@
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">rubygem-puppet-strings</packagereq>
 
+      <packagereq type="default">nodejs-select2</packagereq>
+
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
