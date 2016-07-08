@@ -21,6 +21,7 @@ whitelist = foreman-installer
   foreman-selinux
   nodejs-lodash
   nodejs-select2
+  nodejs-jstz
   puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-bundler_ext
@@ -173,6 +174,7 @@ whitelist = foreman
   foreman-selinux
   nodejs-lodash
   nodejs-select2
+  nodejs-jstz
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
