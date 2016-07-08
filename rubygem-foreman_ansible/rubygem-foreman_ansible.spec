@@ -81,6 +81,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jul 08 2016 Dominic Cleal <dominic@cleal.org> 1.0-1
+- plugins:foreman_ansible - 1.0.0 (elobatocs@gmail.com)
+
 * Thu Feb 11 2016 Dominic Cleal <dcleal@redhat.com> 0.3-1
 - plugins:foreman_ansible - Release 0.3 (elobatocs@gmail.com)
 
