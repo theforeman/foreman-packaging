@@ -5,14 +5,14 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3
+Version: 1.0
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: foreman >= 1.9.0
+Requires: foreman >= 1.12.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -21,7 +21,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: foreman-plugin >= 1.9.0
+BuildRequires: foreman-plugin >= 1.12.0
 
 BuildArch: noarch
 
@@ -56,10 +56,18 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %{foreman_bundlerd_file}
 
+%posttrans
+%{foreman_db_migrate}
+%{foreman_db_seed}
+%{foreman_restart}
+exit 0
+
 %files
 %dir %{gem_instdir}
 %doc %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
