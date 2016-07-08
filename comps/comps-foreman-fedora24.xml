@@ -34,6 +34,7 @@
       <packagereq type="default">rubygem-puppet-strings</packagereq>
 
       <packagereq type="default">nodejs-select2</packagereq>
+      <packagereq type="default">nodejs-lodash</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
