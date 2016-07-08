@@ -36,6 +36,7 @@
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
@@ -107,6 +108,7 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">nodejs-jstz-doc</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>

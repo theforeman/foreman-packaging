@@ -176,6 +176,7 @@
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
@@ -207,6 +208,7 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">nodejs-jstz-doc</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
