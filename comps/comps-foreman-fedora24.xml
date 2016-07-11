@@ -94,6 +94,7 @@
       <packagereq type="default">rubygem-table_print</packagereq>
       <packagereq type="default">rubygem-underscore-rails</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
+      <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-x-editable-rails</packagereq>
 
       <!--
@@ -162,6 +163,7 @@
       <packagereq type="default">rubygem-table_print-doc</packagereq>
       <packagereq type="default">rubygem-underscore-rails-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
+      <packagereq type="default">rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
 

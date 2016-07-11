@@ -156,6 +156,7 @@ whitelist = foreman
   rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
@@ -235,6 +236,7 @@ whitelist = foreman
   rubygem-therubyracer
   rubygem-underscore-rails
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-x-editable-rails
 
 [foreman-plugins-nightly-rhel7]

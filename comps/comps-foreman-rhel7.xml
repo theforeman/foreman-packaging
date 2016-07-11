@@ -157,6 +157,7 @@
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
+      <packagereq type="default">tfm-rubygem-webpack-rails</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
@@ -326,6 +327,7 @@
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
