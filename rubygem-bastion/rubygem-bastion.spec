@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Tue Jul 12 2016 Dominic Cleal <dominic@cleal.org> 3.3.0-1
+- Update rubygem-bastion to 3.3.0 (ericdhelms@gmail.com)
+
 * Fri Jun 03 2016 Dominic Cleal <dominic@cleal.org> 3.2.2-2
 - Bump to ensure EVR is higher than fm1_12
 
