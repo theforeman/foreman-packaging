@@ -78,3 +78,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/ipaddrjs-rails.gemspec
 
 %changelog
+* Thu Jul 14 2016 Dominic Cleal <dominic@cleal.org> 1.1.1-1
+- new package built with tito
+
