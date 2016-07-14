@@ -231,6 +231,8 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
+BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 %if %precompile_nodejs
 BuildRequires: %{?scl_prefix_nodejs}nodejs
 %else
@@ -439,6 +441,8 @@ Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 Requires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
+Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 %if %precompile_nodejs
 Requires: %{?scl_prefix_nodejs}nodejs
 %else
