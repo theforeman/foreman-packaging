@@ -6,15 +6,15 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.36.0
-Release: 2%{?dist}
+Version: 1.42.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog-core
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem-builder
-Requires: %{?scl_prefix}rubygem-excon >= 0.45.0
+Requires: %{?scl_prefix}rubygem-excon >= 0.49.0
 Requires: %{?scl_prefix}rubygem-excon < 1
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
@@ -45,14 +45,16 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
@@ -63,10 +65,11 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/.*
 
 %files doc
-%{gem_instdir}/changelog.md
-%{gem_instdir}/CONTRIBUTING.md
-%{gem_instdir}/CONTRIBUTORS.md
-%{gem_instdir}/README.md
+%doc %{gem_docdir}
+%doc %{gem_instdir}/changelog.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/spec
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
