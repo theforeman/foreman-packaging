@@ -90,6 +90,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 0.51.0-1
+- Update excon to 0.51.0 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.49.0-3
 - Use gem_install macro (dominic@cleal.org)
 
