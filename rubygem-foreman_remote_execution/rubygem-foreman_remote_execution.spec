@@ -109,6 +109,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
+- Release foreman_remote_execution 1.0 (stephen@redhat.com)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.3.2-2
 - Use gem_install macro (dominic@cleal.org)
 
