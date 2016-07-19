@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 1.42.0-1
+- Update fog-core to 1.42.0 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.36.0-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
