@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 0.1.8-1
+- Update fog-openstack to 0.1.8 (dominic@cleal.org)
+
 * Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-1
 - new package built with tito
 
