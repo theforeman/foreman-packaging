@@ -241,6 +241,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
+  rubygem-foreman_host_extra_validator
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
@@ -339,6 +340,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
+  rubygem-foreman_host_extra_validator
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
@@ -435,6 +437,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_expire_hosts
   rubygem-foreman_graphite
   rubygem-foreman_hooks
+  rubygem-foreman_host_extra_validator
   rubygem-foreman_host_rundeck
   rubygem-foreman-mco
   rubygem-foreman_memcache
