@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Jul 21 2016 Dominic Cleal <dominic@cleal.org> 0.0.5-1
+- Update apipie-params to 0.0.5 (inecas@redhat.com)
+
 * Thu Jun 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-5
 - Make apipie-params depend on rake (#15342, aruzicka@redhat.com)
 - Modernise spec file, correct license/URL (dominic@cleal.org)
