@@ -1,0 +1,18 @@
+#!/bin/bash
+
+exec 2>&1
+set -x
+
+mkdir tmp || exit 1
+pushd tmp
+
+bundle init
+echo 'gem "rails"' >> Gemfile
+bundle install --path gempath
+status=$?
+bundle exec rails --help
+
+popd
+rm -fr tmp
+
+exit $status
