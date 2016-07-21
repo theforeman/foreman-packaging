@@ -1,3 +1,9 @@
+ruby-apipie-params (0.0.5-1) stable; urgency=low
+
+  * 0.0.5 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 21 Jul 2016 10:05:37 +0200
+
 ruby-apipie-params (0.0.4-1) stable; urgency=medium
 
   * Initial release for Ubuntu/xenial
