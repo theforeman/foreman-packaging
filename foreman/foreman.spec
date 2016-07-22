@@ -136,6 +136,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 BuildRequires: foreman-node_modules
+BuildRequires: %{?scl_prefix_nodejs}nodejs
+BuildRequires: libuv-devel
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
@@ -235,7 +237,6 @@ BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 %if %precompile_nodejs
-BuildRequires: %{?scl_prefix_nodejs}nodejs
 %else
 # therubyracer
 BuildRequires: %{?scl_prefix_ror}rubygem(therubyracer)
@@ -569,6 +570,9 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/se
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
+# Copy assets from foreman-node_modules to Foreman
+mkdir node_modules
+cp -pfr /opt/foreman/node_modules/. node_modules/
 %{scl_rake} webpack:compile --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
