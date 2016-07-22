@@ -180,7 +180,6 @@ whitelist = foreman
   rubygem-table_print
   rubygem-text
   rubygem-trollop
-  rubygem-underscore-rails
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
@@ -301,7 +300,6 @@ whitelist = foreman
   rubygem-table_print
   rubygem-text
   rubygem-trollop
-  rubygem-underscore-rails
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
@@ -382,7 +380,6 @@ whitelist = foreman
   rubygem-strong_parameters
   rubygem-table_print
   rubygem-therubyracer
-  rubygem-underscore-rails
   rubygem-validates_lengths_from_database
   rubygem-x-editable-rails
 
