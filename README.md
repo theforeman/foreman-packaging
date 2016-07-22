@@ -143,6 +143,21 @@ You'll also need an alias `kojikat` to point to:
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
+## HOWTO: build multiple packages
+
+If you have multiple packages that you want to build together because they
+depend on each other, `mockchain` can be very helpful. To do this:
+
+1. Use tito to generate a SRPM for every package. Run  `tito build --srpm
+--test --builder` on every package directory
+1. Run `mockchain -r el7-scl --tmp_prefix tfm --recurse /tmp/tito/*.src.rpm`
+to build the SRPMs created in the previous step. This will attempt to build
+all your packages in alphabetical order and will retry.
+1. The results of mockchain will be put in '/var/tmp/mock-chain-tfm.../'.
+To benefit from that and avoid building packages that were already successfully
+built, run  `mockchain -l /var/tmp/mock-chain-tfm.../` adjusting the path for
+the location of your packages.
+
 ## How does this repo work?
 
 This repo contains a directory per source package and some tito configuration
