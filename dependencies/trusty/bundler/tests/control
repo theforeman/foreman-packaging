@@ -1,0 +1,3 @@
+Tests: testsuite
+Depends: @, build-essential, bash
+Restrictions: rw-build-tree allow-stderr
