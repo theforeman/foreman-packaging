@@ -382,8 +382,8 @@ Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
-Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.7
-Requires: %{?scl_prefix}rubygem(google-api-client) < 1.0
+Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
+Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{name} = %{version}-%{release}
