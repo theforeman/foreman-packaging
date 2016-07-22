@@ -159,6 +159,7 @@
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
+      <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
 
       <!--
         The following list is for foreman-1.3-nonscl-rhel6 tag. Please only put packages
@@ -324,6 +325,7 @@
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
 
     </packagelist>

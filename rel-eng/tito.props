@@ -188,6 +188,7 @@ whitelist = foreman
   rubygem-validates_lengths_from_database
   rubygem-will_paginate
   rubygem-wirb
+  rubygem-x-editable-rails
   tfm
   tfm-rubygem-rest-client
 scl = tfm
@@ -309,6 +310,7 @@ whitelist = foreman
   rubygem-validates_lengths_from_database
   rubygem-will_paginate
   rubygem-wirb
+  rubygem-x-editable-rails
   tfm
   tfm-rubygem-rest-client
 scl = tfm
@@ -385,6 +387,7 @@ whitelist = foreman
   rubygem-therubyracer
   rubygem-underscore-rails
   rubygem-validates_lengths_from_database
+  rubygem-x-editable-rails
 
 [foreman-plugins-nightly-rhel6]
 disttag = .el6
