@@ -135,6 +135,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
+BuildRequires: foreman-node_modules
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
@@ -194,6 +195,8 @@ BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 3
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 2
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 # assets
@@ -566,13 +569,12 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/se
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
+%{scl_rake} webpack:compile --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
 
 %install
-rm -rf %{buildroot}
-
 #install man pages
 %{scl_rake} -f Rakefile.dist install \
   PREFIX=%{buildroot}%{_prefix} \

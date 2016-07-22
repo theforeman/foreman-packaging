@@ -18,6 +18,7 @@
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
+      <packagereq type="default">foreman-node_modules</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
