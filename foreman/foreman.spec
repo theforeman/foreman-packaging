@@ -201,8 +201,8 @@ BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 BuildRequires: %{scl}-runtime-assets >= 3
 BuildRequires: %{scl}-runtime-assets < 4
 %endif
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
+BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.1.0
+BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
@@ -412,8 +412,8 @@ Requires: %{name} = %{version}-%{release}
 Requires: %{scl}-runtime-assets >= 3
 Requires: %{scl}-runtime-assets < 4
 %endif
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.1.0
+Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.1.0
+Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.2.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
