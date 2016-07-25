@@ -18,6 +18,7 @@
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
+      <packagereq type="default">foreman-node_modules</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
@@ -97,7 +98,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddrjs-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
@@ -152,11 +152,11 @@
       <packagereq type="default">tfm-rubygem-table_print</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
-      <packagereq type="default">tfm-rubygem-underscore-rails</packagereq>
       <packagereq type="default">tfm-rubygem-unf</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
+      <packagereq type="default">tfm-rubygem-webpack-rails</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
@@ -270,7 +270,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddrjs-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>
@@ -319,11 +318,11 @@
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-table_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-underscore-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->

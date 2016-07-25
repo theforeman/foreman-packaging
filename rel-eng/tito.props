@@ -16,6 +16,7 @@ fetch_strategy = custom.ForemanSourceStrategy
 [foreman-nightly-nonscl-rhel6]
 disttag = .el6
 whitelist = foreman-installer
+  foreman-node_modules
   foreman-proxy
   foreman-release-scl
   foreman-selinux
@@ -46,6 +47,7 @@ whitelist = foreman-installer
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-installer
+  foreman-node_modules
   foreman-proxy
   foreman-release-scl
   foreman-selinux
@@ -129,7 +131,6 @@ whitelist = foreman
   rubygem-ipaddress
   rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
-  rubygem-jquery-rails
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -181,11 +182,11 @@ whitelist = foreman
   rubygem-table_print
   rubygem-text
   rubygem-trollop
-  rubygem-underscore-rails
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
@@ -251,7 +252,6 @@ whitelist = foreman
   rubygem-ipaddress
   rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
-  rubygem-jquery-rails
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -303,11 +303,11 @@ whitelist = foreman
   rubygem-table_print
   rubygem-text
   rubygem-trollop
-  rubygem-underscore-rails
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
@@ -319,6 +319,7 @@ scl = tfm
 disttag = .fc24
 whitelist = foreman
   foreman-installer
+  foreman-node_modules
   foreman-proxy
   foreman-selinux
   puppet-agent-oauth
@@ -353,7 +354,6 @@ whitelist = foreman
   rubygem-hirb-unicode-steakknife
   rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
-  rubygem-jquery-rails
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -385,8 +385,8 @@ whitelist = foreman
   rubygem-strong_parameters
   rubygem-table_print
   rubygem-therubyracer
-  rubygem-underscore-rails
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-x-editable-rails
 
 [foreman-plugins-nightly-rhel6]

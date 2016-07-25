@@ -135,6 +135,9 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
+BuildRequires: foreman-node_modules
+BuildRequires: %{?scl_prefix_nodejs}nodejs
+BuildRequires: libuv-devel
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
@@ -194,6 +197,8 @@ BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 3
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 2
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 # assets
@@ -208,10 +213,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 2.5.0
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
-%endif
-BuildRequires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
 BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
@@ -233,12 +234,9 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
-BuildRequires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
-BuildRequires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 %if %precompile_nodejs
-BuildRequires: %{?scl_prefix_nodejs}nodejs
 %else
 # therubyracer
 BuildRequires: %{?scl_prefix_ror}rubygem(therubyracer)
@@ -418,10 +416,6 @@ Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
-%if 0%{?scl:1}
-Requires: %{?scl_prefix}rubygem(jquery-rails) >= 3.1
-%endif
-Requires: %{?scl_prefix}rubygem(jquery-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
@@ -443,8 +437,6 @@ Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
-Requires: %{?scl_prefix}rubygem(underscore-rails) >= 1.8
-Requires: %{?scl_prefix}rubygem(underscore-rails) < 2.0
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 %if %precompile_nodejs
@@ -578,13 +570,15 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/se
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
+# Copy assets from foreman-node_modules to Foreman
+mkdir node_modules
+cp -pfr /opt/foreman/node_modules/. node_modules/
+%{scl_rake} webpack:compile --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
 
 %install
-rm -rf %{buildroot}
-
 #install man pages
 %{scl_rake} -f Rakefile.dist install \
   PREFIX=%{buildroot}%{_prefix} \

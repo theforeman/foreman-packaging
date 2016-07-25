@@ -18,6 +18,7 @@
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
+      <packagereq type="default">foreman-node_modules</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
@@ -64,7 +65,6 @@
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-ipaddrjs-rails</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
-      <packagereq type="default">rubygem-jquery-rails</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
@@ -92,8 +92,8 @@
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
-      <packagereq type="default">rubygem-underscore-rails</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
+      <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-x-editable-rails</packagereq>
 
       <!--
@@ -131,7 +131,6 @@
       <packagereq type="default">rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">rubygem-ipaddrjs-rails-doc</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
-      <packagereq type="default">rubygem-jquery-rails-doc</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">rubygem-jwt-doc</packagereq>
@@ -160,8 +159,8 @@
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">rubygem-table_print-doc</packagereq>
-      <packagereq type="default">rubygem-underscore-rails-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
+      <packagereq type="default">rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
 
