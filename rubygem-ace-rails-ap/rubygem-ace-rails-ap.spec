@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Jul 25 2016 Dominic Cleal <dominic@cleal.org> 4.1.0-1
+- Update ace-rails-ap to 4.1.0 (dominic@cleal.org)
+
 * Fri Feb 26 2016 Dominic Cleal <dominic@cleal.org> 4.0.2-1
 - Update ace-rails-ap to 4.0.2 (dominic@cleal.org)
 
