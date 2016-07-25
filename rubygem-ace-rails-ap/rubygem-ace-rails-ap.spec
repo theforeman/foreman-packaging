@@ -5,7 +5,7 @@
 
 Summary: The Ajax.org Cloud9 Editor (Ace) for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.2
+Version: 4.1.0
 Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
@@ -33,11 +33,9 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -60,6 +58,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/update.sh
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
