@@ -27,6 +27,7 @@ whitelist = foreman-installer
   nodejs-jquery
   nodejs-webpack
   nodejs-stats-webpack-plugin
+  nodejs-expose-loader
   puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-bundler_ext
@@ -188,6 +189,7 @@ whitelist = foreman
   nodejs-jquery
   nodejs-webpack
   nodejs-stats-webpack-plugin
+  nodejs-expose-loader
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store

@@ -181,6 +181,7 @@
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
@@ -216,6 +217,7 @@
       <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
       <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
+      <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
