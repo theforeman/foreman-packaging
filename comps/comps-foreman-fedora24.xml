@@ -39,6 +39,7 @@
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
+      <packagereq type="default">nodejs-webpack</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
@@ -112,6 +113,7 @@
       <packagereq type="default">nodejs-jstz-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
+      <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
