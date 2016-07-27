@@ -40,6 +40,8 @@
       <packagereq type="default">centos-release-scl</packagereq>
       <packagereq type="default">centos-release-scl-rh</packagereq>
 
+      <packagereq type="default">nodejs-bundle-webpack</packagereq>
+
       <packagereq type="default">tfm-mod_passenger</packagereq>
 
       <packagereq type="default">tfm-rubygem-ace-rails-ap</packagereq>

@@ -19,6 +19,7 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  nodejs-bundle-webpack
   puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-bundler_ext
@@ -169,6 +170,7 @@ whitelist = foreman
   foreman-installer
   foreman-proxy
   foreman-selinux
+  nodejs-bundle-webpack
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
