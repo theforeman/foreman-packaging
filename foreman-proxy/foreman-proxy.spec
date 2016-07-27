@@ -49,6 +49,7 @@ Requires:       %{?scl_prefix}rubygem(rkerberos)
 Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.9.2
 Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       %{?scl_prefix}rubygem(bundler_ext)
+Requires:       %{?scl_prefix}rubygem(rb-inotify)
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
