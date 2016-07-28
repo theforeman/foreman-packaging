@@ -43,6 +43,7 @@
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
+      <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
@@ -120,6 +121,7 @@
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">nodejs-babel-core-doc</packagereq>
+      <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
