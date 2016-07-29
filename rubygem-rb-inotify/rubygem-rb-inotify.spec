@@ -68,3 +68,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/rb-inotify.gemspec
 
 %changelog
+* Fri Jul 29 2016 Dominic Cleal <dominic@cleal.org> 0.9.7-1
+- new package built with tito
+
