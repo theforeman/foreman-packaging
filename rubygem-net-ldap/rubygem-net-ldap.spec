@@ -5,7 +5,7 @@
 
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.14.0
+Version: 0.15.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -51,10 +51,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
