@@ -94,6 +94,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Fri Jul 29 2016 Dominic Cleal <dominic@cleal.org> 0.15.0-1
+- Update net-ldap to 0.15.0 (dominic@cleal.org)
+
 * Wed Feb 17 2016 Dominic Cleal <dominic@cleal.org> 0.14.0-1
 - Update net-ldap to 0.14.0 (dominic@cleal.org)
 
