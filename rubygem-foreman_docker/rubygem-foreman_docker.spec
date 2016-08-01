@@ -119,6 +119,9 @@ sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
 exit 0
 
 %changelog
+* Mon Aug 01 2016 Eric D Helms <ericdhelms@gmail.com> 3.0.0-1
+- plugins: foreman-docker 3.0.0 (elobatocs@gmail.com)
+
 * Fri Apr 15 2016 Dominic Cleal <dominic@cleal.org> 2.1.1-1
 - plugins:foreman_docker - 2.1.1 (elobatocs@gmail.com)
 
