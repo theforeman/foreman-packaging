@@ -13,7 +13,7 @@
 
 Summary:    Integration of Cockpit in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.1
+Version:    2.0.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
