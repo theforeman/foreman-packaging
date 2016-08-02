@@ -117,6 +117,8 @@ Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 Requires: %{?scl_prefix}rubygem(roadie-rails) < 2
 Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
+Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
+Requires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -196,11 +198,38 @@ BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 2
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
+BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 3
 BuildRequires: %{scl}-runtime-assets < 4
 %endif
+BuildRequires: npm(expose-loader) >= 0.6.0
+BuildRequires: npm(expose-loader) < 0.7.0
+BuildRequires: npm(babel-preset-es2015) >= 6.6.0
+BuildRequires: npm(babel-preset-es2015) < 6.7.0
+BuildRequires: npm(babel-core) >= 6.7.2
+BuildRequires: npm(babel-core) < 6.8.0
+BuildRequires: npm(babel-loader) >= 6.2.4
+BuildRequires: npm(babel-loader) < 6.3.0
+BuildRequires: npm(stats-webpack-plugin) >= 0.2.1
+BuildRequires: npm(stats-webpack-plugin) < 1.0.0
+BuildRequires: npm(webpack) >= 1.9.11
+BuildRequires: npm(webpack) < 2.0.0
+BuildRequires: npm(jquery) >= 1.11.0
+BuildRequires: npm(jquery) < 1.12.0
+BuildRequires: npm(jquery-ujs) >= 1.2.0
+BuildRequires: npm(jquery-ujs) < 1.3.0
+BuildRequires: npm(jquery.cookie) >= 1.4.1
+BuildRequires: npm(jquery.cookie) < 1.5.0
+BuildRequires: npm(jstz) >= 1.0.7
+BuildRequires: npm(jstz) < 1.1.0
+BuildRequires: npm(lodash) >= 2.4.1
+BuildRequires: npm(lodash) < 2.5.0
+BuildRequires: npm(select2) >= 3.5.2
+BuildRequires: npm(select2) < 3.6.0
+BuildRequires: libuv
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.1.0
 BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
@@ -577,6 +606,8 @@ sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.y
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
 export BUNDLER_EXT_NOSTRICT=1
 export BUNDLER_EXT_GROUPS="default assets"
+ln -s /usr/lib/node_modules/ .
+NODE_ENV=production webpack.js --bail --config config/webpack.config.js
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
