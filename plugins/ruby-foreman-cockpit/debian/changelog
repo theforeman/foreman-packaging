@@ -1,3 +1,9 @@
+ruby-foreman-cockpit (2.0.2-1) stable; urgency=low
+
+  * 2.0.2 released
+
+ -- Daniel Lobato <elobatocs@gmail.com>  Tue, 02 Aug 2016 13:51:00 +0200
+
 ruby-foreman-cockpit (2.0.1-1) stable; urgency=low
 
   * Update release to 2.0.1
