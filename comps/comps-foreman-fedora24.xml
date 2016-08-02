@@ -31,6 +31,9 @@
       <packagereq type="default">foreman-vmware</packagereq>
 
       <packagereq type="default">foreman-installer</packagereq>
+
+      <packagereq type="default">nodejs-jquery</packagereq>
+
       <packagereq type="default">rubygem-puppet-strings</packagereq>
 
       <packagereq type="default">nodejs-lodash</packagereq>
