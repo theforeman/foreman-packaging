@@ -1,16 +1,21 @@
 # rpm packaging branches
 
 The rpm/\* branches contain RPM spec files for Foreman's dependencies and
-related projects (mostly rubygems).
+related projects (mostly rubygems and npm modules).
 
 ## Requirements
 
 If you're just submitting a fix, you don't need anything special.
 
-If you're submitting a patch which adds/updates packages, you will need:
+If you're submitting a patch which adds/updates a gem package, you will need:
 
 * [gem2rpm](https://rubygems.org/gems/gem2rpm) or rubygem-gem2rpm
 * [gem-compare](https://rubygems.org/gems/gem-compare)
+* [git-annex](http://git-annex.branchable.com/)
+
+For npm modules (nodejs- packages) you will need:
+
+* [npm2rpm](https://www.npmjs.com/package/npm2rpm)
 * [git-annex](http://git-annex.branchable.com/)
 
 To build locally or release RPMs from this repo, you also require:
@@ -99,7 +104,7 @@ You'll also need an alias `kojikat` to point to:
 
     koji -c ~/.koji/katello-config build
 
-## HOWTO: create a new core package or dependency
+## HOWTO: create a new core package or dependency (gems)
 
 1. Check if it's available in Fedora:
   * https://apps.fedoraproject.org/packages/NAME
@@ -125,6 +130,42 @@ You'll also need an alias `kojikat` to point to:
   1. `git commit -m "Add NAME package"`
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
+1. Submit a pull request against `rpm/develop`
+
+## HOWTO: create a new core package or dependency (npm modules)
+
+First, you need to decide if your package will include bundled dependencies or not.
+If you can resolve all the npm modules dependencies tree using the packages available, then
+you'll build a package without bundled dependencies.
+
+Otherwise we will bundle the dependencies. You can read an explanation of how we do this in
+[npm2rpm](https://www.npmjs.com/package/npm2rpm#packaging-npm-modules-with-bundled-dependencies--s---stategy-bundle)
+
+In both cases:
+
+1. Install npm2rpm: `npm install -g npm2rpm`
+1. Checkout a branch 'rpm/example-version' or similar (the rpm/ part is important)
+  * `mkdir nodejs-example`
+  * `cd nodejs-example`
+1. Generate the spec and download the sources automatically with npm2rpm.
+  * For packages without dependencies - `npm2rpm -n example -v version -s single`
+  * For packages that bundle dependencies - `npm2rpm -n example -v version -s bundle`
+1. This should have created two directories npm2rpm/SPECS and npm2rpm/SOURCES.
+   Move the content of them both to your nodejs-example directory and remove the npm2rpm folder.
+  * mv npm2rpm/SPECS/\* .
+  * mv npm2rpm/SOURCES/\* .
+  * rm -r npm2rpm
+1. If building a package with bundled dependencies, add the binary with the npm cache directly to git.
+  * `git add example-version-registry.npmjs.org.tgz`
+1. `git-annex` the rest of the sources
+  * `git annex add *.tgz`
+1. Update rel-eng/tito.props and add to the whitelists (nonscl and Fedora)
+1. Update comps/comps-foreman-\*.xml
+1. Commit the changes
+  1. `git add -A`
+  1. `git commit -m "Add NAME package"`
+1. Follow the "test a package" section above until it builds for all
+   targeted platforms and required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
 ## HOWTO: update a package
