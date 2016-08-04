@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 04 2016 Dominic Cleal <dominic@cleal.org> 5.0.0-1
+- Update foreman_setup to 5.0.0 (dominic@cleal.org)
+
 * Fri Jul 01 2016 Dominic Cleal <dominic@cleal.org> 4.0.0-1
 - Update foreman_setup to 4.0.0 (dominic@cleal.org)
 
