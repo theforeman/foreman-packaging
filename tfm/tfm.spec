@@ -69,6 +69,7 @@ Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
 Obsoletes: %{scl_prefix}rubygem-foremancli < 1.0-10
 Obsoletes: %{scl_prefix}rubygem-hirb-unicode < 0.0.5-9
 Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
+Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
 Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
@@ -78,6 +79,7 @@ Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
 Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
+Obsoletes: %{scl_prefix}rubygem-underscore-rails < 1.8.3-5
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 
 %description runtime
