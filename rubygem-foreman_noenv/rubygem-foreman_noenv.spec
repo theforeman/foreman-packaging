@@ -102,6 +102,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Mon Aug 08 2016 Dominic Cleal <dominic@cleal.org> 0.0.6-1
+- update foreman_noenv to 0.0.6 (jbaird@follett.com)
+
 * Mon Aug 08 2016 Josh Baird <jbaird@follett.com> 0.0.6-1
 - Fix whitelisting problem for noenv attribute
 
