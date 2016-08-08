@@ -303,7 +303,7 @@ Meta package to install requirements for libvirt compute resource support.
 %package openstack
 Summary: Foreman OpenStack support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.7
+Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.10
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
 Requires: %{name} = %{version}-%{release}
 
