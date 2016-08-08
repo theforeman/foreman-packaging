@@ -115,6 +115,8 @@ Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 Requires: %{?scl_prefix}rubygem(roadie-rails) < 2
 Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
+Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
+Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -192,6 +194,8 @@ BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 2
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
+BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 3
