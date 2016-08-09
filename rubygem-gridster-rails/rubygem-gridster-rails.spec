@@ -69,6 +69,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 09 2016 Dominic Cleal <dominic@cleal.org> 0.5.6.1-1
+- Update gridster-rails to 0.5.6.1 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.5.6-4
 - Use gem_install macro (dominic@cleal.org)
 
