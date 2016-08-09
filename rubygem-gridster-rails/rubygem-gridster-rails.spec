@@ -3,10 +3,10 @@
 
 %define gem_name gridster-rails
 
-Summary: This gem provides jquery.gridster.js and jquery.gridster.css for your Rails 3 application
+Summary: Provides jquery.gridster for your Rails 3+ application
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.6
-Release: 4%{?dist}
+Version: 0.5.6.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.1.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.0.0
+Requires: %{?scl_prefix_ror}rubygem(railties) < 6.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
