@@ -116,6 +116,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Aug 10 2016 Dominic Cleal <dominic@cleal.org> 3.3.0-1
+- Update scoped_search to 3.3.0 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.2.2-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
