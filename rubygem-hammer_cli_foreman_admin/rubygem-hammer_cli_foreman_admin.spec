@@ -68,6 +68,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 10 2016 Dominic Cleal <dominic@cleal.org> 0.0.5-1
+- Update hammer_cli_foreman_admin to 0.0.5 (lzap+git@redhat.com)
+
 * Fri Jun 10 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-1
 - new package built with tito
 
