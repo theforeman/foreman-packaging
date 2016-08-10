@@ -6,8 +6,8 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 3.2.2
-Release: 4%{?dist}
+Version: 3.3.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/wvanbergen/scoped_search/wiki
@@ -72,14 +72,9 @@ mkdir -p .%{gem_dir}
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
