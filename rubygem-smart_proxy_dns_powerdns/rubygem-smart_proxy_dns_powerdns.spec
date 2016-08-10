@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/config/dns_powerdns.yml %{buildroot}%{foreman_proxy_setti
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 10 2016 Dominic Cleal <dominic@cleal.org> 0.2.1-1
+- Bump smart_proxy_dns_powerdns to 0.2.1 (ekohlvanwijngaarden@antagonist.nl)
+
 * Tue Nov 10 2015 Dominic Cleal <dcleal@redhat.com> 0.1.0-1
 - new package built with tito
 
