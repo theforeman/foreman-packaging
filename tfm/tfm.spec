@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -280,6 +280,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 3.1-4
+- Remove dependencies replaced with webpack (elobatocs@gmail.com)
+
 * Mon Jun 20 2016 Dominic Cleal <dominic@cleal.org> 3.1-3
 - Remove foremancli, unmaintained (dominic@cleal.org)
 
