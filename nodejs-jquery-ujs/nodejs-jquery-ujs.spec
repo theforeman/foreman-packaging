@@ -47,3 +47,6 @@ cp -pfr script src test MIT-LICENSE *.json *.md %{buildroot}%{nodejs_sitelib}/%{
 %doc %{nodejs_sitelib}/%{npm_name}/CONTRIBUTING.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.2.1-1
+- new package built with tito
+
