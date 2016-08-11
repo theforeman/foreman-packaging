@@ -54,3 +54,6 @@ cp -pfr test  *.json *.md *.js *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc %{nodejs_sitelib}/%{npm_name}/CHANGELOG.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.4.1-1
+- new package built with tito
+
