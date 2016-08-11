@@ -50,3 +50,6 @@ cp -pfr dist  *.json *.md *.js *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 2.4.2-1
+- new package built with tito
+
