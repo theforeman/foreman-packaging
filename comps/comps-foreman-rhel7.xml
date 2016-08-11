@@ -173,6 +173,7 @@
       <packagereq type="default">foreman-installer</packagereq>
 
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
@@ -203,6 +204,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">nodejs-babel-loader-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
