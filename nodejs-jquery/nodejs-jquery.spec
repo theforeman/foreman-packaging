@@ -49,3 +49,6 @@ cp -pfr dist src *.json *.md *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %exclude %{nodejs_sitelib}/%{npm_name}/bower.json
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.11.3-1
+- new package built with tito
+
