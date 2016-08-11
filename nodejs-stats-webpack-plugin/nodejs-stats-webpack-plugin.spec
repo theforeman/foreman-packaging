@@ -49,3 +49,6 @@ cp -pfr LICENSE index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files doc
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
+- new package built with tito
+
