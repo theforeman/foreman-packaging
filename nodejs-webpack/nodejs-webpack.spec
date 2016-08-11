@@ -534,3 +534,6 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack.js %{buildroot}%{_bindir}/webpa
 %doc README.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.13.1-1
+- new package built with tito
+
