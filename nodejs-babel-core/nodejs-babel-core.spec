@@ -179,3 +179,6 @@ cp -pfr index.js lib package.json register.js node_modules %{buildroot}%{nodejs_
 %doc README.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 6.7.7-1
+- new package built with tito
+
