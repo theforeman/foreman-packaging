@@ -54,3 +54,6 @@ mkdir -p %{buildroot}%{_bindir}
 %doc README.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.0.7-1
+- new package built with tito
+
