@@ -33,6 +33,8 @@
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">rubygem-puppet-strings</packagereq>
 
+      <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
+
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
@@ -102,6 +104,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
