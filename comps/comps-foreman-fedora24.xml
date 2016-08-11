@@ -33,18 +33,18 @@
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">rubygem-puppet-strings</packagereq>
 
-      <packagereq type="default">nodejs-select2</packagereq>
-      <packagereq type="default">nodejs-lodash</packagereq>
-      <packagereq type="default">nodejs-jstz</packagereq>
-      <packagereq type="default">nodejs-jquery</packagereq>
-      <packagereq type="default">nodejs-jquery.cookie</packagereq>
-      <packagereq type="default">nodejs-jquery-ujs</packagereq>
-      <packagereq type="default">nodejs-webpack</packagereq>
-      <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
-      <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
-      <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
+      <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
+      <packagereq type="default">nodejs-expose-loader</packagereq>
+      <packagereq type="default">nodejs-jquery-ujs</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie</packagereq>
+      <packagereq type="default">nodejs-jquery</packagereq>
+      <packagereq type="default">nodejs-jstz</packagereq>
+      <packagereq type="default">nodejs-lodash</packagereq>
+      <packagereq type="default">nodejs-select2</packagereq>
+      <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-webpack</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
@@ -115,15 +115,18 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">nodejs-jstz-doc</packagereq>
-      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
-      <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
-      <packagereq type="default">nodejs-webpack-doc</packagereq>
-      <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
-      <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">nodejs-babel-core-doc</packagereq>
-      <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
       <packagereq type="default">nodejs-babel-loader-doc</packagereq>
+      <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
+      <packagereq type="default">nodejs-expose-loader-doc</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
+      <packagereq type="default">nodejs-jquery-doc</packagereq>
+      <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
+      <packagereq type="default">nodejs-jstz-doc</packagereq>
+      <packagereq type="default">nodejs-lodash-doc</packagereq>
+      <packagereq type="default">nodejs-select2-doc</packagereq>
+      <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
+      <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>

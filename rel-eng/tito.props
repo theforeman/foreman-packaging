@@ -19,18 +19,18 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
-  nodejs-select2
-  nodejs-lodash
-  nodejs-jstz
-  nodejs-jquery.cookie
-  nodejs-jquery-ujs
-  nodejs-jquery
-  nodejs-webpack
-  nodejs-stats-webpack-plugin
-  nodejs-expose-loader
   nodejs-babel-core
-  nodejs-babel-preset-es2015
   nodejs-babel-loader
+  nodejs-babel-preset-es2015
+  nodejs-expose-loader
+  nodejs-jquery
+  nodejs-jquery-ujs
+  nodejs-jquery.cookie
+  nodejs-jstz
+  nodejs-lodash
+  nodejs-select2
+  nodejs-stats-webpack-plugin
+  nodejs-webpack
   puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-bundler_ext
@@ -184,18 +184,18 @@ whitelist = foreman
   foreman-installer
   foreman-proxy
   foreman-selinux
-  nodejs-select2
-  nodejs-lodash
-  nodejs-jstz
-  nodejs-jquery.cookie
-  nodejs-jquery-ujs
-  nodejs-jquery
-  nodejs-webpack
-  nodejs-stats-webpack-plugin
-  nodejs-expose-loader
   nodejs-babel-core
-  nodejs-babel-preset-es2015
   nodejs-babel-loader
+  nodejs-babel-preset-es2015
+  nodejs-expose-loader
+  nodejs-jquery
+  nodejs-jquery-ujs
+  nodejs-jquery.cookie
+  nodejs-jstz
+  nodejs-lodash
+  nodejs-select2
+  nodejs-stats-webpack-plugin
+  nodejs-webpack
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
