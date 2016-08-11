@@ -52,3 +52,6 @@ cp -pfr *.png *.css *.json *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc CONTRIBUTING.md
 
 %changelog
+* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 3.5.2-1
+- new package built with tito
+
