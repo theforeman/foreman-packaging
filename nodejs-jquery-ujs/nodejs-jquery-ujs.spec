@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
 License: MIT
 Group: Development/Libraries
@@ -47,6 +47,9 @@ cp -pfr script src test MIT-LICENSE *.json *.md %{buildroot}%{nodejs_sitelib}/%{
 %doc %{nodejs_sitelib}/%{npm_name}/CONTRIBUTING.md
 
 %changelog
+* Fri Aug 12 2016 Dominic Cleal <dominic@cleal.org> 1.2.1-2
+- Fix pkg/npm_name macro reference (dominic@cleal.org)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.2.1-1
 - new package built with tito
 
