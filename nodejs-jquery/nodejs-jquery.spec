@@ -19,9 +19,9 @@ Provides: npm(%{npm_name}) = %{version}
 JavaScript library for DOM operations
 
 %package doc
-Summary: Documentation for nodejs-%{pkg_name}
+Summary: Documentation for nodejs-%{npm_name}
 Group: Documentation
-Requires: nodejs-%{pkg_name} = %{version}-%{release}
+Requires: nodejs-%{npm_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc

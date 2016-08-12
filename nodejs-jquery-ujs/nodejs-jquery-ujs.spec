@@ -22,11 +22,11 @@ Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
 %package doc
 Summary: Documentation for nodejs-%{npm_name}
 Group: Documentation
-Requires: nodejs-%{pkg_name} = %{version}-%{release}
+Requires: nodejs-%{npm_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-This package contains documentation for nodejs-%{pkg_name}
+This package contains documentation for nodejs-%{npm_name}
 
 %prep
 %setup -q -n package
