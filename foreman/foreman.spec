@@ -222,6 +222,8 @@ BuildRequires: npm(webpack) >= 1.9.11
 BuildRequires: npm(webpack) < 2.0.0
 BuildRequires: npm(jquery) >= 1.11.0
 BuildRequires: npm(jquery) < 1.12.0
+BuildRequires: npm(jquery-flot) >= 0.8.3
+BuildRequires: npm(jquery-flot) < 0.9.0
 BuildRequires: npm(jquery-ujs) >= 1.2.0
 BuildRequires: npm(jquery-ujs) < 1.3.0
 BuildRequires: npm(jquery.cookie) >= 1.4.1
@@ -249,7 +251,6 @@ BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 2.7
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(flot-rails) = 0.0.3
 BuildRequires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
@@ -457,6 +458,8 @@ Requires: npm(webpack) >= 1.9.11
 Requires: npm(webpack) < 2.0.0
 Requires: npm(jquery) >= 1.11.0
 Requires: npm(jquery) < 1.12.0
+Requires: npm(jquery-flot) >= 0.8.3
+Requires: npm(jquery-flot) < 0.9.0
 Requires: npm(jquery-ujs) >= 1.2.0
 Requires: npm(jquery-ujs) < 1.3.0
 Requires: npm(jquery.cookie) >= 1.4.1
@@ -482,7 +485,6 @@ Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 2.7
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-Requires: %{?scl_prefix}rubygem(flot-rails) = 0.0.3
 Requires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
 Requires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
