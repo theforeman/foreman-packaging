@@ -57,3 +57,6 @@ cp -pfr *.md LICENSE.txt component.json examples *.js package.json %{buildroot}%
 %doc README.md
 
 %changelog
+* Mon Aug 15 2016 Dominic Cleal <dominic@cleal.org> 0.8.3-1
+- new package built with tito
+
