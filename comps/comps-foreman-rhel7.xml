@@ -67,7 +67,6 @@
       <packagereq type="default">tfm-rubygem-facter</packagereq>
       <packagereq type="default">tfm-rubygem-faraday</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext</packagereq>
-      <packagereq type="default">tfm-rubygem-flot-rails</packagereq>
       <packagereq type="default">tfm-rubygem-fog</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core</packagereq>
@@ -98,7 +97,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddrjs-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
@@ -153,7 +151,6 @@
       <packagereq type="default">tfm-rubygem-table_print</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
-      <packagereq type="default">tfm-rubygem-underscore-rails</packagereq>
       <packagereq type="default">tfm-rubygem-unf</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
@@ -273,7 +270,6 @@
       <packagereq type="default">tfm-rubygem-facter-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-flot-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-doc</packagereq>

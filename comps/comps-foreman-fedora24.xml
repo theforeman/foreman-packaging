@@ -59,7 +59,6 @@
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
-      <packagereq type="default">rubygem-flot-rails</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-fog-aws</packagereq>
       <packagereq type="default">rubygem-fog-core</packagereq>
@@ -79,7 +78,6 @@
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-ipaddrjs-rails</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
-      <packagereq type="default">rubygem-jquery-rails</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
@@ -107,7 +105,6 @@
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
       <packagereq type="default">rubygem-table_print</packagereq>
-      <packagereq type="default">rubygem-underscore-rails</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-x-editable-rails</packagereq>
@@ -141,7 +138,6 @@
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
-      <packagereq type="default">rubygem-flot-rails-doc</packagereq>
       <packagereq type="default">rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">rubygem-fog-core-doc</packagereq>
       <packagereq type="default">rubygem-fog-doc</packagereq>

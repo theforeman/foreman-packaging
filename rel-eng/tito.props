@@ -83,7 +83,6 @@ whitelist = foreman
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
-  rubygem-flot-rails
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
@@ -209,7 +208,6 @@ whitelist = foreman
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
-  rubygem-flot-rails
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
