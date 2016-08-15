@@ -3,10 +3,10 @@
 Name: nodejs-%{npm_name}
 Version: 0.8.3
 Release: 1%{?dist}
-Summary: undefined
-License: undefined
+Summary: Flot is a Javascript plotting library for jQuery
+License: MIT
 Group: Development/Libraries
-URL: undefined
+URL: https://www.npmjs.com/package/jquery-flot
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 Requires: nodejs(engine)
 BuildRequires: nodejs-devel
@@ -18,7 +18,9 @@ Provides: npm(%{npm_name}) = %{version}
 %{?nodejs_find_provides_and_requires}
 
 %description
-undefined
+Flot is a Javascript plotting library for jQuery.
+
+Read more at the website: http://www.flotcharts.org/
 
 %package doc
 Summary: Documentation for nodejs-%{npm_name}
