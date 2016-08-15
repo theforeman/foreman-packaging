@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -281,6 +281,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Aug 15 2016 Dominic Cleal <dominic@cleal.org> 3.1-5
+- Remove unused flot-rails gem (dominic@cleal.org)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 3.1-4
 - Remove dependencies replaced with webpack (elobatocs@gmail.com)
 
