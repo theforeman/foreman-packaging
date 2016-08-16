@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Aug 16 2016 Dominic Cleal <dominic@cleal.org> 0.8.13-1
+- Update dynflow to 0.8.13 (daviddavis@redhat.com)
+
 * Tue Jun 21 2016 Dominic Cleal <dominic@cleal.org> 0.8.11-1
 - Update dynflow to 0.8.11 (RPM) (inecas@redhat.com)
 
