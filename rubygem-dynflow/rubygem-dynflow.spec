@@ -5,7 +5,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.11
+Version: 0.8.13
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
