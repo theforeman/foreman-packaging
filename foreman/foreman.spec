@@ -2,10 +2,6 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 
-# Prefer nodejs on Fedora as v8 segfaults (BZ#1331458)
-# 0: use therubyracer (v8), 1: use nodejs
-%global precompile_nodejs 0%{?fedora}
-
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
@@ -205,6 +201,7 @@ BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
 BuildRequires: %{scl}-runtime-assets >= 3
 BuildRequires: %{scl}-runtime-assets < 4
 %endif
+BuildRequires: nodejs
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 BuildRequires: libuv
@@ -266,12 +263,6 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
-%if %precompile_nodejs
-BuildRequires: %{?scl_prefix_nodejs}nodejs
-%else
-# therubyracer
-BuildRequires: %{?scl_prefix_ror}rubygem(therubyracer)
-%endif
 # facter
 %if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
@@ -441,6 +432,7 @@ Requires: %{name} = %{version}-%{release}
 Requires: %{scl}-runtime-assets >= 3
 Requires: %{scl}-runtime-assets < 4
 %endif
+Requires: nodejs
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 Requires: libuv
@@ -500,23 +492,12 @@ Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
-%if %precompile_nodejs
-Requires: %{?scl_prefix_nodejs}nodejs
-%else
-# therubyracer
-Requires: %{?scl_prefix_ror}rubygem(therubyracer)
-%endif
 
 %description assets
 Meta package to install asset pipeline support.
 
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
-%if %precompile_nodejs
-%exclude %{_datadir}/%{name}/bundler.d/therubyracer.rb
-%else
-%{_datadir}/%{name}/bundler.d/therubyracer.rb
-%endif
 
 %package plugin
 Summary: Foreman plugin support
@@ -805,6 +786,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/bundler.d/jsonp.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
+%exclude %{_datadir}/%{name}/bundler.d/therubyracer.rb
 %{_datadir}/%{name}/bin
 %{_datadir}/%{name}/config*
 %{_datadir}/%{name}/db
