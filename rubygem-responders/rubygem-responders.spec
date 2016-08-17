@@ -60,6 +60,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 17 2016 Dominic Cleal <dominic@cleal.org> 2.3.0-1
+- Update responders to 2.3.0 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 2.1.1-1
 - new package built with tito
 
