@@ -1,1 +1,1 @@
-gem 'foreman-tasks', '0.7.19'
+gem 'foreman-tasks', '0.8.0'
