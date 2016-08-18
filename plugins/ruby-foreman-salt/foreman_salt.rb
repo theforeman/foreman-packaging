@@ -1,1 +1,1 @@
-gem 'foreman_salt', '6.0.0'
+gem 'foreman_salt', '7.0.0'

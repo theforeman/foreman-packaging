@@ -1,3 +1,9 @@
+ruby-foreman-salt (7.0.0-1) stable; urgency=low
+
+  * 7.0.0 released
+
+ -- Stephen Benjamin <stephen@redhat.com>  Thu, 18 Aug 2016 09:23:19 -0400
+
 ruby-foreman-salt (6.0.0-1) stable; urgency=low
 
   * 6.0.0 released
