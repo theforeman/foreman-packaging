@@ -5,7 +5,7 @@
 
 Summary: Smart Proxy Remote Execution SSH Core
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.1.3
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
