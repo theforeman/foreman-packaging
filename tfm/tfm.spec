@@ -275,6 +275,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Aug 18 2016 Dominic Cleal <dominic@cleal.org> 3.2-1
+- Remove unused v8314 dependency (dominic@cleal.org)
+
 * Mon Aug 15 2016 Dominic Cleal <dominic@cleal.org> 3.1-5
 - Remove unused flot-rails gem (dominic@cleal.org)
 
