@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Thu Aug 18 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-1
+- Updated rbovirt to 0.1.2 (lzap+git@redhat.com)
+
 * Wed May 25 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
 - Update rbovirt to 0.1.1 (dominic@cleal.org)
 
