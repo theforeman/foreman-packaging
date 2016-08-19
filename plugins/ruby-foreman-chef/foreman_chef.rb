@@ -1,1 +1,1 @@
-gem 'foreman_chef', '0.3.1'
+gem 'foreman_chef', '0.4.0'
