@@ -13,6 +13,36 @@ tag_suffix = .fm1_13
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
+[foreman-1.13-nonscl-rhel6]
+disttag = .el6
+whitelist = foreman-installer
+  foreman-proxy
+  foreman-release-scl
+  foreman-selinux
+  puppet-agent-oauth
+  rubygem-apipie-bindings
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-daemon_controller
+  rubygem-foreman_api
+  rubygem-hashie
+  rubygem-highline
+  rubygem-kafo
+  rubygem-kafo_parsers
+  rubygem-kafo_wizards
+  rubygem-librarian-puppet
+  rubygem-little-plugger
+  rubygem-logging
+  rubygem-multi_json
+  rubygem-netrc
+  rubygem-oauth
+  rubygem-passenger
+  rubygem-powerbar
+  rubygem-rdoc
+  rubygem-rest-client
+  rubygem-rkerberos
+  rubygem-rubyipmi
+
 [foreman-1.13-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-installer
@@ -62,6 +92,128 @@ whitelist = foreman-installer
   rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
+
+[foreman-1.13-rhel6]
+disttag = .el6
+whitelist = foreman
+  rubygem-ace-rails-ap
+  rubygem-activerecord-session_store
+  rubygem-addressable
+  rubygem-ancestry
+  rubygem-apipie-bindings
+  rubygem-apipie-rails
+  rubygem-audited
+  rubygem-audited-activerecord
+  rubygem-autoparse
+  rubygem-autoprefixer-rails
+  rubygem-awesome_print
+  rubygem-bootstrap-sass
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-css_parser
+  rubygem-daemons
+  rubygem-deep_cloneable
+  rubygem-domain_name
+  rubygem-eventmachine
+  rubygem-excon
+  rubygem-extlib
+  rubygem-facter
+  rubygem-faraday
+  rubygem-fast_gettext
+  rubygem-flot-rails
+  rubygem-fog
+  rubygem-fog-aws
+  rubygem-fog-core
+  rubygem-fog-google
+  rubygem-fog-json
+  rubygem-fog-libvirt
+  rubygem-fog-openstack
+  rubygem-fog-rackspace
+  rubygem-fog-vsphere
+  rubygem-fog-xenserver
+  rubygem-fog-xml
+  rubygem-font-awesome-sass
+  rubygem-formatador
+  rubygem-friendly_id
+  rubygem-gettext
+  rubygem-gettext_i18n_rails
+  rubygem-gettext_i18n_rails_js
+  rubygem-google-api-client
+  rubygem-gridster-rails
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
+  rubygem-hashie
+  rubygem-highline
+  rubygem-hirb
+  rubygem-hirb-unicode-steakknife
+  rubygem-hoe
+  rubygem-http-cookie
+  rubygem-ipaddress
+  rubygem-ipaddrjs-rails
+  rubygem-jquery_pwstrength_bootstrap_4
+  rubygem-jquery-rails
+  rubygem-jquery-turbolinks
+  rubygem-jquery-ui-rails
+  rubygem-jwt
+  rubygem-launchy
+  rubygem-ldap_fluff
+  rubygem-little-plugger
+  rubygem-locale
+  rubygem-logging
+  rubygem-multipart-post
+  rubygem-multi-select-rails
+  rubygem-mysql2
+  rubygem-net-ldap
+  rubygem-netrc
+  rubygem-net-scp
+  rubygem-net-ssh
+  rubygem-oauth
+  rubygem-paint
+  rubygem-passenger
+  rubygem-patternfly-sass
+  rubygem-pg
+  rubygem-po_to_json
+  rubygem-powerbar
+  rubygem-protected_attributes
+  rubygem-quiet_assets
+  rubygem-rabl
+  rubygem-rack-jsonp
+  rubygem-rails-i18n
+  rubygem-rails-observers
+  rubygem-rbovirt
+  rubygem-rbvmomi
+  rubygem-responders
+  rubygem-retriable
+  rubygem-roadie
+  rubygem-roadie-rails
+  rubygem-ruby2ruby
+  rubygem-rubyforge
+  rubygem-ruby-libvirt
+  rubygem-ruby_parser
+  rubygem-safemode
+  rubygem-scoped_search
+  rubygem-secure_headers
+  rubygem-select2-rails
+  rubygem-sequel
+  rubygem-sexp_processor
+  rubygem-signet
+  rubygem-spice-html5-rails
+  rubygem-sshkey
+  rubygem-syntax
+  rubygem-table_print
+  rubygem-text
+  rubygem-trollop
+  rubygem-underscore-rails
+  rubygem-unf
+  rubygem-unf_ext
+  rubygem-unicode-display_width
+  rubygem-validates_lengths_from_database
+  rubygem-will_paginate
+  rubygem-wirb
+  rubygem-x-editable-rails
+  tfm
+  tfm-rubygem-rest-client
+scl = tfm
 
 [foreman-1.13-rhel7]
 disttag = .el7
@@ -275,6 +427,107 @@ whitelist = foreman
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
   rubygem-x-editable-rails
+
+[foreman-plugins-1.13-rhel6]
+disttag = .el6
+scl = tfm
+whitelist = rubygem-algebrick
+  rubygem-angular-rails-templates
+  rubygem-apipie-params
+  rubygem-azure
+  rubygem-azure-core
+  rubygem-bastion
+  rubygem-bootstrap-datepicker-rails
+  rubygem-colorize
+  rubygem-commonjs
+  rubygem-concurrent-ruby-edge
+  rubygem-deface
+  rubygem-diffy
+  rubygem-docker-api
+  rubygem-dynflow
+  rubygem-faraday_middleware
+  rubygem-ffi
+  rubygem-fog-azure
+  rubygem-git
+  rubygem-jgrep
+  rubygem-macaddr
+  rubygem-opennebula
+  rubygem-systemu
+  rubygem-uuid
+  rubygem-foreman_abrt
+  rubygem-foreman_ansible
+  rubygem-foreman_azure
+  rubygem-foreman_bootdisk
+  rubygem-foreman_chef
+  rubygem-foreman_cockpit
+  rubygem-foreman_column_view
+  rubygem-foreman_content
+  rubygem-foreman_custom_parameters
+  rubygem-foreman_default_hostgroup
+  rubygem-foreman_dhcp_browser
+  rubygem-foreman_digitalocean
+  rubygem-foreman_discovery
+  rubygem-foreman_docker
+  rubygem-foreman_expire_hosts
+  rubygem-foreman_graphite
+  rubygem-foreman_hooks
+  rubygem-foreman_host_extra_validator
+  rubygem-foreman_host_rundeck
+  rubygem-foreman-mco
+  rubygem-foreman_memcache
+  rubygem-foreman_noenv
+  rubygem-foreman_one
+  rubygem-foreman_openscap
+  rubygem-foreman_openstack_cluster
+  rubygem-foreman_param_lookup
+  rubygem-foreman_remote_execution
+  rubygem-foreman_reserve
+  rubygem-foreman_salt
+  rubygem-foreman_setup
+  rubygem-foreman_snapshot
+  rubygem-foreman-tasks
+  rubygem-foreman_templates
+  rubygem-foreman_xen
+  rubygem-graphite-api
+  rubygem-hammer_cli_foreman_admin
+  rubygem-hammer_cli_foreman_bootdisk
+  rubygem-hammer_cli_foreman_discovery
+  rubygem-hammer_cli_foreman_docker
+  rubygem-hammer_cli_foreman_remote_execution
+  rubygem-hammer_cli_foreman_salt
+  rubygem-hammer_cli_foreman_tasks
+  rubygem-net-ssh-gateway
+  rubygem-net-ssh-multi
+  rubygem-ovirt_provision_plugin
+  rubygem-parse-cron
+  rubygem-puppetdb_foreman
+  rubygem-safe_yaml
+  rubygem-smart_proxy_dynflow_core
+  rubygem-smart_proxy_remote_execution_ssh_core
+  rubygem-wicked
+  rubygem-zscheduler
+
+[foreman-plugins-1.13-nonscl-rhel6]
+disttag = .el6
+whitelist = ipxe
+  rubygem-builder
+  rubygem-foreman_scap_client
+  rubygem-mysql2
+  rubygem-newt
+  rubygem-openscap
+  rubygem-route53
+  rubygem-ruby-hmac
+  rubygem-satyr
+  rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_discovery
+  rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_powerdns
+  rubygem-smart_proxy_dns_route53
+  rubygem-smart_proxy_dynflow
+  rubygem-smart_proxy_openscap
+  rubygem-smart_proxy_pulp
+  rubygem-smart_proxy_remote_execution_ssh
+  rubygem-smart_proxy_salt
 
 [foreman-plugins-1.13-rhel7]
 disttag = .el7
