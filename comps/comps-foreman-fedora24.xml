@@ -45,6 +45,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
 
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
@@ -125,6 +126,7 @@
       <packagereq type="default">nodejs-lodash-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
+      <packagereq type="default">nodejs-style-loader-doc</packagereq>
       <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
