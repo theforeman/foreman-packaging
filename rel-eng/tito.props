@@ -19,6 +19,19 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  nodejs-babel-core
+  nodejs-babel-loader
+  nodejs-babel-preset-es2015
+  nodejs-expose-loader
+  nodejs-jquery
+  nodejs-jquery-flot
+  nodejs-jquery-ujs
+  nodejs-jquery.cookie
+  nodejs-jstz
+  nodejs-lodash
+  nodejs-select2
+  nodejs-stats-webpack-plugin
+  nodejs-webpack
   puppet-agent-oauth
   rubygem-apipie-bindings
   rubygem-bundler_ext
@@ -30,7 +43,6 @@ whitelist = foreman-installer
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
-  rubygem-librarian-puppet
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
@@ -38,10 +50,11 @@ whitelist = foreman-installer
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
-  rubygem-rdoc
-  rubygem-rest-client
-  rubygem-rkerberos
+  rubygem-rack-protection
+  rubygem-rb-inotify
   rubygem-rubyipmi
+  rubygem-sinatra
+  rubygem-tilt
 
 [foreman-1.13-nonscl-rhel7]
 disttag = .el7
@@ -112,6 +125,7 @@ whitelist = foreman
   rubygem-clamp
   rubygem-css_parser
   rubygem-daemons
+  rubygem-deacon
   rubygem-deep_cloneable
   rubygem-domain_name
   rubygem-eventmachine
@@ -120,7 +134,6 @@ whitelist = foreman
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
-  rubygem-flot-rails
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
@@ -151,7 +164,6 @@ whitelist = foreman
   rubygem-ipaddress
   rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
-  rubygem-jquery-rails
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -203,11 +215,11 @@ whitelist = foreman
   rubygem-table_print
   rubygem-text
   rubygem-trollop
-  rubygem-underscore-rails
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
@@ -473,7 +485,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
   rubygem-foreman_host_rundeck
-  rubygem-foreman-mco
   rubygem-foreman_memcache
   rubygem-foreman_noenv
   rubygem-foreman_one
@@ -486,8 +497,8 @@ whitelist = rubygem-algebrick
   rubygem-foreman_setup
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
-  rubygem-foreman_templates
   rubygem-foreman_xen
+  rubygem-foreman_templates
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_bootdisk
@@ -495,6 +506,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
+  rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
@@ -510,15 +522,23 @@ whitelist = rubygem-algebrick
 [foreman-plugins-1.13-nonscl-rhel6]
 disttag = .el6
 whitelist = ipxe
-  rubygem-builder
+  rubygem-apipie-params
+  rubygem-chef-api
+  rubygem-concurrent-ruby
+  rubygem-concurrent-ruby-edge
+  rubygem-dynflow
+  rubygem-fast_gettext
   rubygem-foreman_scap_client
+  rubygem-logify
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
+  rubygem-sequel
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_chef
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_powerdns

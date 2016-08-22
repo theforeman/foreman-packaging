@@ -19,9 +19,9 @@
       <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_custom_parameters</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_default_hostgroup</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_dhcp_browser</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_digitalocean</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_docker</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
@@ -55,9 +55,11 @@
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_remote_execution_ssh_core</packagereq>
+      <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
@@ -97,26 +99,41 @@
       <packagereq type="default">tfm-rubygem-uuid</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
-      <packagereq type="default">rubygem-builder</packagereq>
+      <packagereq type="default">rubygem-algebrick</packagereq>
+      <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-chef-api</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
+      <packagereq type="default">rubygem-dynflow</packagereq>
+      <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
       <packagereq type="default">rubygem-ruby-hmac</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
-
+      <packagereq type="default">rubygem-sequel</packagereq>
 
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">rubygem-builder-doc</packagereq>
+      <packagereq type="default">rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">rubygem-chef-api-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
+      <packagereq type="default">rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-sequel-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
