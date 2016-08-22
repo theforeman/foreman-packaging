@@ -22,6 +22,7 @@ whitelist = foreman-installer
   nodejs-babel-core
   nodejs-babel-loader
   nodejs-babel-preset-es2015
+  nodejs-es6-promise
   nodejs-expose-loader
   nodejs-jquery
   nodejs-jquery-flot
@@ -185,6 +186,7 @@ whitelist = foreman
   nodejs-babel-core
   nodejs-babel-loader
   nodejs-babel-preset-es2015
+  nodejs-es6-promise
   nodejs-expose-loader
   nodejs-jquery
   nodejs-jquery-flot
