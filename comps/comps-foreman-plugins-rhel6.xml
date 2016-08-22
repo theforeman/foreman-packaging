@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+
+<comps>
+  <group>
+    <id>foreman-plugins</id>
+    <name>Foreman plugins</name>
+    <description>Plugin packages for the Foreman</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+      <packagereq type="default">tfm-rubygem-bastion</packagereq>
+      <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_cockpit</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_custom_parameters</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_default_hostgroup</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_discovery</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_dhcp_browser</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_digitalocean</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_docker</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_expire_hosts</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_rundeck</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-mco</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_memcache</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_one</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_param_lookup</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_remote_execution</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_reserve</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_salt</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_setup</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_snapshot</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_docker</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_remote_execution</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
+      <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
+      <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
+      <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_remote_execution_ssh_core</packagereq>
+      <packagereq type="default">rubygem-foreman_scap_client</packagereq>
+      <packagereq type="default">rubygem-newt</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_route53</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
+
+      <packagereq type="default">ipxe-bootimgs</packagereq>
+      <packagereq type="default">tfm-rubygem-algebrick</packagereq>
+      <packagereq type="default">tfm-rubygem-azure</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-core</packagereq>
+      <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
+      <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-colorize</packagereq>
+      <packagereq type="default">tfm-rubygem-commonjs</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
+      <packagereq type="default">tfm-rubygem-deface</packagereq>
+      <packagereq type="default">tfm-rubygem-diffy</packagereq>
+      <packagereq type="default">tfm-rubygem-docker-api</packagereq>
+      <packagereq type="default">tfm-rubygem-dynflow</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
+      <packagereq type="default">tfm-rubygem-ffi</packagereq>
+      <packagereq type="default">tfm-rubygem-git</packagereq>
+      <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
+      <packagereq type="default">tfm-rubygem-jgrep</packagereq>
+      <packagereq type="default">tfm-rubygem-macaddr</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
+      <packagereq type="default">tfm-rubygem-opennebula</packagereq>
+      <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
+      <packagereq type="default">tfm-rubygem-systemu</packagereq>
+      <packagereq type="default">tfm-rubygem-uuid</packagereq>
+      <packagereq type="default">tfm-rubygem-wicked</packagereq>
+      <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
+      <packagereq type="default">rubygem-builder</packagereq>
+      <packagereq type="default">rubygem-mysql2</packagereq>
+      <packagereq type="default">rubygem-openscap</packagereq>
+      <packagereq type="default">rubygem-route53</packagereq>
+      <packagereq type="default">rubygem-ruby-hmac</packagereq>
+      <packagereq type="default">rubygem-satyr</packagereq>
+
+
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <packagereq type="default">rubygem-builder-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <packagereq type="default">rubygem-mysql2-doc</packagereq>
+      <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-route53-doc</packagereq>
+      <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
+      <packagereq type="default">rubygem-satyr-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_discovery_image-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dns_route53-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-colorize-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_column_view-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_custom_parameters-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_default_hostgroup-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_dhcp_browser-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_digitalocean-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_discovery-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_docker-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_expire_hosts-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_hooks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_extra_validator-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_rundeck-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_noenv-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_one-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_param_lookup-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_remote_execution-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_reserve-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_salt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_docker-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_remote_execution-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-macaddr-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_remote_execution_ssh_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-uuid-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
+      <!--RGD-END-->
+
+    </packagelist>
+  </group>
+</comps>
