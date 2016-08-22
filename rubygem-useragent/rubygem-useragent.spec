@@ -12,10 +12,18 @@ Group: Development/Languages
 License: MIT
 URL: https://github.com/gshutler/useragent
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix_ruby}ruby(abi)
+%else
 Requires: %{?scl_prefix_ruby}ruby(release)
+%endif
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+%if 0%{?el6} && 0%{!?scl:1}
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
+%else
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%endif
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
