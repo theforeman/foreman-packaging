@@ -104,6 +104,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Aug 22 2016 Dominic Cleal <dominic@cleal.org> 7.0.0-1
+- Release foreman_salt 7.0.0 (stephen@redhat.com)
+
 * Thu Jul 28 2016 Dominic Cleal <dominic@cleal.org> 6.0.0-1
 - Release foreman_salt 6.0.0 (stephen@redhat.com)
 
