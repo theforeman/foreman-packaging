@@ -260,7 +260,6 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 # facter
@@ -489,7 +488,6 @@ Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-Requires: %{?scl_prefix}rubygem(select2-rails) = 3.5.10
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
 Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 
