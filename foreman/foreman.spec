@@ -786,7 +786,6 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/bundler.d/jsonp.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
-%exclude %{_datadir}/%{name}/bundler.d/therubyracer.rb
 %{_datadir}/%{name}/bin
 %{_datadir}/%{name}/config*
 %{_datadir}/%{name}/db
