@@ -31,6 +31,7 @@ whitelist = foreman-installer
   nodejs-lodash
   nodejs-select2
   nodejs-stats-webpack-plugin
+  nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
   rubygem-apipie-bindings
@@ -194,6 +195,7 @@ whitelist = foreman
   nodejs-lodash
   nodejs-select2
   nodejs-stats-webpack-plugin
+  nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
   rubygem-ace-rails-ap
