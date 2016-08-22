@@ -175,6 +175,7 @@
       <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
       <packagereq type="default">nodejs-es6-promise</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
+      <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
