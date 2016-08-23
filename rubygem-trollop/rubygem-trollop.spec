@@ -3,28 +3,45 @@
 
 %global	gem_name trollop
 
-Summary:	A command-line option parsing library for ruby
-Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	2.0
-Release:	5%{?dist}
-Group:		Applications/Productivity
-License:	GPLv2
-URL:		http://trollop.rubyforge.org/
-BuildRoot:	%{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:	%{?scl_prefix_ruby}ruby(rubygems)
-Requires:	%{?scl_prefix_ruby}ruby(release)
-BuildRequires:	%{?scl_prefix}rubygem(hoe)
-BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygem(test-unit)
-BuildArch:	noarch
-Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Summary: A command-line option parsing library for ruby
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 2.1.2
+Release: 1%{?dist}
+Group: Applications/Productivity
+License: MIT
+URL: http://trollop.rubyforge.org/
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix}rubygem(hoe)
+%if 0%{?fedora}
+BuildRequires: %{?scl_prefix}rubygem(chronic)
+%endif
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 
 %description
-A command-line option parsing library for ruby. Trollop is designed to
-provide the maximal amount of GNU-style argument processing in the minimum
-number of lines of code (for you, the programmer).
+Trollop is a commandline option parser for Ruby that just
+gets out of your way. One line of code per option is all you need to write.
+For that, you get a nice automatically-generated help page, robust option
+parsing, command subcompletion, and sensible defaults for everything you don't
+specify.
+
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
 
@@ -40,23 +57,32 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %check
-cd %{buildroot}/%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-ruby -Ilib/ test/test_trollop.rb
-%{?scl:"}
-
-%clean
-rm -rf %{buildroot}
+cd ./%{gem_instdir}
+%{?scl:scl enable %{scl} - <<EOF}
+%if 0%{?fedora}
+ruby -Ilib:test test/test_trollop.rb
+%else
+# Two failures as chronic gem isn't installed for advanced date parsing
+ruby -Ilib:test test/test_trollop.rb | grep "1 failures, 1 errors"
+%endif
+%{?scl:EOF}
 
 %files
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
 %{gem_libdir}
-%{gem_instdir}/test
-%doc %{gem_instdir}/*.txt
-%doc %{gem_docdir}
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/*.gemspec
+
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/*.txt
+%doc %{gem_instdir}/*.md
+%{gem_instdir}/Gemfile*
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %changelog
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0-5
