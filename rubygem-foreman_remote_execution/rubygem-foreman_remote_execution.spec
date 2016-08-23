@@ -109,6 +109,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 23 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-1
+- Update foreman_remote_execution to 1.1.0 (inecas@redhat.com)
+
 * Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - Release foreman_remote_execution 1.0 (stephen@redhat.com)
 
