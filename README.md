@@ -199,6 +199,19 @@ To benefit from that and avoid building packages that were already successfully
 built, run  `mockchain -l /var/tmp/mock-chain-tfm.../` adjusting the path for
 the location of your packages.
 
+## HOWTO: removing a package
+
+1. `git rm -r rubygem-example/`
+1. Remove all entries (both main package and doc) from `comps/` and
+   `rel-eng/tito.props`
+1. Add an `Obsoletes` entry to `tfm/tfm.spec` for `< Version-(Release+1)`
+   if the package is a dependency in either core or plugin repos
+1. On merge, untag all builds from nightly Koji tags (`untag-build --all`),
+   block the package (`block-pkg`) and rebuild `tfm` if applicable
+
+Leave the rel-eng/packages/ file in place so a permanent record of the last EVR
+is kept.
+
 ## How does this repo work?
 
 This repo contains a directory per source package and some tito configuration
