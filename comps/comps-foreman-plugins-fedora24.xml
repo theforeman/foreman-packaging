@@ -30,6 +30,7 @@
       <packagereq type="default">rubygem-foreman_host_extra_validator</packagereq>
       <packagereq type="default">rubygem-foreman_host_rundeck</packagereq>
       <packagereq type="default">rubygem-foreman_memcache</packagereq>
+      <packagereq type="default">rubygem-foreman_monitoring</packagereq>
       <packagereq type="default">rubygem-foreman_noenv</packagereq>
       <packagereq type="default">rubygem-foreman_one</packagereq>
       <packagereq type="default">rubygem-foreman_openscap</packagereq>
@@ -130,6 +131,7 @@
       <packagereq type="default">rubygem-foreman_host_extra_validator-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_rundeck-doc</packagereq>
       <packagereq type="default">rubygem-foreman_memcache-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-foreman_noenv-doc</packagereq>
       <packagereq type="default">rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">rubygem-foreman_openscap-doc</packagereq>
