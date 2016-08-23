@@ -67,6 +67,9 @@ cp -pa .%{gem_instdir}/bundler.plugins.d/remote_execution_ssh_core.rb %{buildroo
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 23 2016 Dominic Cleal <dominic@cleal.org> 0.1.3-1
+- Update smart_proxy_remote_execution_ssh_core to 0.1.3 (inecas@redhat.com)
+
 * Fri Jun 24 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-1
 - new package built with tito
 
