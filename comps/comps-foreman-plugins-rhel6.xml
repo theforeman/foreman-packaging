@@ -59,6 +59,7 @@
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
@@ -116,6 +117,7 @@
       <packagereq type="default">rubygem-smart_proxy_discovery_image-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
