@@ -84,6 +84,7 @@
       <packagereq type="default">rubygem-fog-azure</packagereq>
       <packagereq type="default">rubygem-graphite-api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
+      <packagereq type="default">rubygem-infoblox</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
@@ -154,6 +155,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
+      <packagereq type="default">rubygem-infoblox-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>

@@ -352,6 +352,7 @@ whitelist = rubygem-algebrick
   rubygem-dynflow
   rubygem-fast_gettext
   rubygem-foreman_scap_client
+  rubygem-infoblox
   rubygem-logify
   rubygem-mysql2
   rubygem-newt
@@ -436,6 +437,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
+  rubygem-infoblox
   rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
