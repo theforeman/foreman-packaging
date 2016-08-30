@@ -350,6 +350,8 @@ whitelist = rubygem-algebrick
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
+  rubygem-faraday
+  rubygem-faraday_middleware
   rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-infoblox
