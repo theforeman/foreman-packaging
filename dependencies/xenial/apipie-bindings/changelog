@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.0.18-1) stable; urgency=low
+
+  * 0.0.18 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 31 Aug 2016 18:18:33 +0200
+
 ruby-apipie-bindings (0.0.16-1) stable; urgency=low
 
   * Initial release for Ubuntu/xenial
