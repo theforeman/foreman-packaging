@@ -23,6 +23,7 @@ whitelist = foreman-installer
   nodejs-babel-loader
   nodejs-babel-preset-es2015
   nodejs-expose-loader
+  nodejs-extract-text-webpack-plugin
   nodejs-jquery
   nodejs-jquery-flot
   nodejs-jquery-ujs
@@ -186,6 +187,7 @@ whitelist = foreman
   nodejs-babel-loader
   nodejs-babel-preset-es2015
   nodejs-expose-loader
+  nodejs-extract-text-webpack-plugin
   nodejs-jquery
   nodejs-jquery-flot
   nodejs-jquery-ujs
