@@ -213,6 +213,8 @@ BuildRequires: npm(babel-core) >= 6.7.2
 BuildRequires: npm(babel-core) < 6.8.0
 BuildRequires: npm(babel-loader) >= 6.2.4
 BuildRequires: npm(babel-loader) < 6.3.0
+BuildRequires: npm(css-loader) >= 0.23.1
+BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(stats-webpack-plugin) >= 0.2.1
 BuildRequires: npm(stats-webpack-plugin) < 1.0.0
 BuildRequires: npm(webpack) >= 1.9.11
@@ -444,6 +446,8 @@ Requires: npm(babel-core) >= 6.7.2
 Requires: npm(babel-core) < 6.8.0
 Requires: npm(babel-loader) >= 6.2.4
 Requires: npm(babel-loader) < 6.3.0
+Requires: npm(css-loader) >= 0.23.1
+Requires: npm(css-loader) < 1.0.0
 Requires: npm(stats-webpack-plugin) >= 0.2.1
 Requires: npm(stats-webpack-plugin) < 1.0.0
 Requires: npm(webpack) >= 1.9.11

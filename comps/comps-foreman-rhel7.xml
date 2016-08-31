@@ -173,6 +173,7 @@
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
+      <packagereq type="default">nodejs-css-loader</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
@@ -216,6 +217,7 @@
       <packagereq type="default">nodejs-babel-core-doc</packagereq>
       <packagereq type="default">nodejs-babel-loader-doc</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
+      <packagereq type="default">nodejs-css-loader-doc</packagereq>
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-jquery-doc</packagereq>
