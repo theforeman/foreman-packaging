@@ -207,6 +207,8 @@ BuildRequires: nodejs
 BuildRequires: libuv
 BuildRequires: npm(expose-loader) >= 0.6.0
 BuildRequires: npm(expose-loader) < 0.7.0
+BuildRequires: npm(file-loader) >= 0.9.0
+BuildRequires: npm(file-loader) < 1.0.0
 BuildRequires: npm(babel-preset-es2015) >= 6.6.0
 BuildRequires: npm(babel-preset-es2015) < 6.7.0
 BuildRequires: npm(babel-core) >= 6.7.2
@@ -438,6 +440,8 @@ Requires: nodejs
 Requires: libuv
 Requires: npm(expose-loader) >= 0.6.0
 Requires: npm(expose-loader) < 0.7.0
+Requires: npm(file-loader) >= 0.9.0
+Requires: npm(file-loader) < 1.0.0
 Requires: npm(babel-preset-es2015) >= 6.6.0
 Requires: npm(babel-preset-es2015) < 6.7.0
 Requires: npm(babel-core) >= 6.7.2
