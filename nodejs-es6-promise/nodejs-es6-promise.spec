@@ -52,3 +52,6 @@ cp -pfr CHANGELOG.md LICENSE README.md dist lib package.json %{buildroot}%{nodej
 %doc README.md
 
 %changelog
+* Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 3.2.1-1
+- new package built with tito
+
