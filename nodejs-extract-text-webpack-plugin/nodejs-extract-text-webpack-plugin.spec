@@ -70,3 +70,6 @@ cp -pfr .editorconfig .eslintrc .npmignore .travis.yml ExtractedModule.js OrderU
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
+- new package built with tito
+
