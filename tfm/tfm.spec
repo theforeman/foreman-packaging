@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -276,6 +276,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 3.2-2
+- Remove select2-rails (elobatocs@gmail.com)
+
 * Thu Aug 18 2016 Dominic Cleal <dominic@cleal.org> 3.2-1
 - Remove unused v8314 dependency (dominic@cleal.org)
 
