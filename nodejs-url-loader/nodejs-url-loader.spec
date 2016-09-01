@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.5.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: url loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -74,6 +74,9 @@ cp -pf README.md ../../
 %doc README.md
 
 %changelog
+* Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 0.5.7-2
+- Only symlink peer deps from sitelib (dominic@cleal.org)
+
 * Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 0.5.7-1
 - new package built with tito
 
