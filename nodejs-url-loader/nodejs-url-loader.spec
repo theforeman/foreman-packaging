@@ -56,7 +56,7 @@ done
 
 %build
 mkdir node_modules
-ln -s %{nodejs_sitelib}/* node_modules/
+ln -s %{nodejs_sitelib}/file-loader node_modules/
 npm install --cache-min Infinity --cache . url-loader@0.5.7
 
 %install
