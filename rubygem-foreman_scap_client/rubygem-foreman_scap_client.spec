@@ -4,7 +4,7 @@
 %define rubyabi 1.8
 
 Name: rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.2.0
 Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
