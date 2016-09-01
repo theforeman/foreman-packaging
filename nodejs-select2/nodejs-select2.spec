@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Browserify-ed version of Select2.
 License: ASL 2.0 or GPLv2
 Group: Development/Libraries
@@ -52,6 +52,9 @@ cp -pfr *.gif *.png *.css *.json *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_n
 %doc CONTRIBUTING.md
 
 %changelog
+* Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 3.5.2-2
+- Include GIF files in package (dominic@cleal.org)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 3.5.2-1
 - new package built with tito
 
