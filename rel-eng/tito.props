@@ -160,7 +160,6 @@ whitelist = foreman
   rubygem-safemode
   rubygem-scoped_search
   rubygem-secure_headers
-  rubygem-select2-rails
   rubygem-sequel
   rubygem-sexp_processor
   rubygem-signet
@@ -263,7 +262,6 @@ whitelist = foreman
   rubygem-rubyipmi
   rubygem-safemode
   rubygem-secure_headers
-  rubygem-select2-rails
   rubygem-signet
   rubygem-spice-html5-rails
   rubygem-sprockets-rails

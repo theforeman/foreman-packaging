@@ -73,6 +73,7 @@ Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
 Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
 Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
+Obsoletes: %{scl_prefix}rubygem-select2-rails < 3.5.10-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
 Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
