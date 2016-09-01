@@ -37,7 +37,7 @@ rm -rf node_modules
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr *.png *.css *.json *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr *.gif *.png *.css *.json *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
