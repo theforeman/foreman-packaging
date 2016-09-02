@@ -231,10 +231,8 @@ BuildRequires: npm(jquery.cookie) < 1.5.0
 BuildRequires: npm(jquery.cookie) >= 1.4.1
 BuildRequires: npm(jstz) < 1.1.0
 BuildRequires: npm(jstz) >= 1.0.7
-%if 0%{?scl:1}
-BuildRequires: npm(lodash) >= 2.4.1
-%endif
-BuildRequires: npm(lodash) < 2.5.0
+BuildRequires: npm(lodash) >= 4.15.0
+BuildRequires: npm(lodash) < 4.16.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(stats-webpack-plugin) < 1.0.0
@@ -473,10 +471,8 @@ Requires: npm(jquery.cookie) < 1.5.0
 Requires: npm(jquery.cookie) >= 1.4.1
 Requires: npm(jstz) < 1.1.0
 Requires: npm(jstz) >= 1.0.7
-%if 0%{?scl:1}
-Requires: npm(lodash) >= 2.4.1
-%endif
-Requires: npm(lodash) < 2.5.0
+Requires: npm(lodash) >= 4.15.0
+Requires: npm(lodash) < 4.16.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(stats-webpack-plugin) < 1.0.0
