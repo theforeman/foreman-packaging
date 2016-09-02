@@ -47,6 +47,9 @@ cp -pfr *.json LICENSE fp *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 4.15.0-1
+- Update lodash to 4.15.0 (elobatocs@gmail.com)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 2.4.2-1
 - new package built with tito
 
