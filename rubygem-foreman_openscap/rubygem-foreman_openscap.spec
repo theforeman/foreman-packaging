@@ -10,9 +10,6 @@
 
 %global gem_name foreman_openscap
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
 Release: 1%{?foremandist}%{?dist}
@@ -63,10 +60,9 @@ gem unpack %{SOURCE0}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -96,14 +92,15 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 %exclude %{gem_instdir}/test
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 
 %posttrans
 # We need to run the db:migrate (because of SCAPtimony) after the install transaction
 %foreman_db_migrate
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+%foreman_db_seed
+%foreman_apipie_cache
 %foreman_restart
 exit 0
 
