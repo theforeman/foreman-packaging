@@ -14,7 +14,7 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.4
+Version: 0.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
@@ -86,6 +86,7 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 %{gem_instdir}/app
 %{gem_instdir}/db
 %{gem_instdir}/config
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
