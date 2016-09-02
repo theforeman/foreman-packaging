@@ -23,6 +23,7 @@ whitelist = foreman-installer
   nodejs-babel-loader
   nodejs-babel-preset-es2015
   nodejs-css-loader
+  nodejs-datatables.net
   nodejs-es6-promise
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
@@ -191,6 +192,7 @@ whitelist = foreman
   nodejs-babel-loader
   nodejs-babel-preset-es2015
   nodejs-css-loader
+  nodejs-datatables.net
   nodejs-es6-promise
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
