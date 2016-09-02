@@ -41,3 +41,6 @@ cp -pfr Readme.md js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc Readme.md
 
 %changelog
+* Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 1.10.12-1
+- new package built with tito
+
