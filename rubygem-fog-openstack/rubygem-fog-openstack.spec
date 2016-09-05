@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Sep 05 2016 Dominic Cleal <dominic@cleal.org> 0.1.12-1
+- Update fog-openstack to 0.1.12 (dominic@cleal.org)
+
 * Wed Aug 10 2016 Dominic Cleal <dominic@cleal.org> 0.1.11-1
 - Update fog-openstack to 0.1.11 (dominic@cleal.org)
 
