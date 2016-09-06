@@ -29,10 +29,11 @@ whitelist = foreman-installer
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-file-loader
+  nodejs-ipaddr.js
   nodejs-jquery
+  nodejs-jquery.cookie
   nodejs-jquery-flot
   nodejs-jquery-ujs
-  nodejs-jquery.cookie
   nodejs-jstz
   nodejs-lodash
   nodejs-select2
@@ -199,10 +200,11 @@ whitelist = foreman
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-file-loader
+  nodejs-ipaddr.js
   nodejs-jquery
+  nodejs-jquery.cookie
   nodejs-jquery-flot
   nodejs-jquery-ujs
-  nodejs-jquery.cookie
   nodejs-jstz
   nodejs-lodash
   nodejs-select2
