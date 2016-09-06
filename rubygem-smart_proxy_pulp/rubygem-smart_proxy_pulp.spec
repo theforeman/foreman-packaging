@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 
 
 %changelog
+* Tue Sep 06 2016 Dominic Cleal <dominic@cleal.org> 1.3.0-1
+- Updated smart_proxy_pulp to version 1.3.0 (dmitri@appliedlogic.ca)
+
 * Wed Jan 27 2016 Dmitri Dolguikh <dmitri@appliedlogic.ca> 1.2.0-1
 - Updated smart_proxy_pulp gem to version 1.2.0
 
