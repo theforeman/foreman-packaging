@@ -364,9 +364,13 @@ whitelist = rubygem-algebrick
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
+  rubygem-faraday
+  rubygem-faraday_middleware
   rubygem-fast_gettext
   rubygem-foreman_scap_client
+  rubygem-infoblox
   rubygem-logify
+  rubygem-multipart-post
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
@@ -450,6 +454,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
+  rubygem-infoblox
   rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
