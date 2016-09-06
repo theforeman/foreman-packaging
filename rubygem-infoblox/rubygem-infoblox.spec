@@ -79,3 +79,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Sep 06 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
+- new package built with tito
+
