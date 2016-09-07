@@ -13,7 +13,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.13.0
+Version: 1.14.0
 Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -916,6 +916,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> - 1.14.0-0.develop
+- Bump version to 1.14-develop
+
 * Tue May 31 2016 Dominic Cleal <dominic@cleal.org> - 1.13.0-0.develop
 - Bump version to 1.13-develop
 
