@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -277,6 +277,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 3.2-3
+- Remove ipaddrjs-rails (dominic@cleal.org)
+
 * Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 3.2-2
 - Remove select2-rails (elobatocs@gmail.com)
 
