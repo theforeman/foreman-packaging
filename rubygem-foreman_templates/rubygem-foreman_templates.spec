@@ -16,14 +16,14 @@
 
 Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.1.0
+Version:    3.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_templates
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.9.0
+Requires:   foreman >= 1.12.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -77,6 +77,7 @@ GEMFILE
 
 %files
 %dir %{gem_instdir}
+%{gem_instdir}/app
 %{gem_instdir}/lib
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
