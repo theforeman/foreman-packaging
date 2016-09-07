@@ -1,3 +1,9 @@
+foreman (1.14.0-1) stable; urgency=low
+
+  * Bump changelog to 1.14.0 to match VERSION
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 07 Sep 2016 09:57:54 +0100
+
 foreman (1.12.2-1) stable; urgency=low
 
   * 1.12.2 released
