@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.8.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -17,7 +17,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.16
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
