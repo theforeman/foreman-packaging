@@ -108,6 +108,10 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 0.8.0-1
+- Update hammer_cli to 0.8.0 (dominic@cleal.org)
+- Package man page from gem into mandir (#7453, dominic@cleal.org)
+
 * Fri Jun 17 2016 Dominic Cleal <dominic@cleal.org> 0.7.0-1
 - Update hammer_cli to 0.7.0 (dominic@cleal.org)
 
