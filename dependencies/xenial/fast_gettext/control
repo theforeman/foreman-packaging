@@ -3,13 +3,14 @@ Section: ruby
 Priority: optional
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
 Uploaders: Dmitry Borodaenko <angdraug@debian.org>
-Build-Depends: debhelper,
+Build-Depends: debhelper (>= 9~),
                gem2deb,
                ruby-activerecord,
                ruby-i18n,
-               ruby-rspec,
+               ruby-protected-attributes,
+               ruby-rspec (>= 3),
                ruby-sqlite3
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-fast-gettext.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-fast-gettext.git
 Homepage: https://github.com/grosser/fast_gettext
