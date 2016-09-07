@@ -120,7 +120,6 @@ whitelist = foreman
   rubygem-hoe
   rubygem-http-cookie
   rubygem-ipaddress
-  rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
@@ -242,7 +241,6 @@ whitelist = foreman
   rubygem-hammer_cli_foreman
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
-  rubygem-ipaddrjs-rails
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
