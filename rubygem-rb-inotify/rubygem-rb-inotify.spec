@@ -9,11 +9,19 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/nex3/rb-inotify
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(release)
+%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+Requires: %{?scl_prefix_ruby}ruby(release)
+%else
+Requires: %{?scl_prefix_ruby}ruby(abi)
+%endif
 Requires: ruby
 Requires: ruby(rubygems)
 Requires: rubygem(ffi) >= 0.5.0
-BuildRequires: ruby(release)
+%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%else
+BuildRequires: %{?scl_prefix_ruby}ruby(abi)
+%endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
