@@ -1,0 +1,68 @@
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+
+%global gem_name hammer_cli_foreman_openscap
+%global confdir hammer
+
+Summary: Foreman OpenSCAP commands for Hammer CLI
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 0.1.1
+Release: 1%{?foremandist}%{?dist}
+Group: Applications/System
+License: GPLv3
+URL: http://github.com/theforeman/hammer_cli_foreman_openscap
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.6.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+
+%description
+This Hammer CLI plugin contains set of commands for foreman_openscap
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}
+
+%prep
+%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
+
+%install
+mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_openscap.yml
+
+%files
+%dir %{gem_instdir}
+%exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/test
+%{gem_instdir}/config
+%{gem_instdir}/lib
+%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_openscap.yml
+%doc %{gem_instdir}/LICENSE
+%exclude %{gem_cache}
+%{gem_spec}
+
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
+
+%changelog
