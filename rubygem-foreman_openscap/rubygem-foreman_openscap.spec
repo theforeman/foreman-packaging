@@ -105,6 +105,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 0.6.1-1
+- Update foreman_openscap to 0.6.1 (mhulan@redhat.com)
+
 * Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-1
 - Update foreman_openscap to 0.6.0 (oprazak@redhat.com)
 - Modernise spec file (dominic@cleal.org)
