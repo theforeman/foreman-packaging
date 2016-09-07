@@ -225,6 +225,8 @@ BuildRequires: npm(extract-text-webpack-plugin) < 2.0.0
 BuildRequires: npm(extract-text-webpack-plugin) >= 1.0.1
 BuildRequires: npm(file-loader) < 1.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
+BuildRequires: npm(ipaddr.js) >= 1.2.0
+BuildRequires: npm(ipaddr.js) < 1.3.0
 BuildRequires: npm(jquery) < 1.12.0
 BuildRequires: npm(jquery) >= 1.11.0
 BuildRequires: npm(jquery-flot) < 0.9.0
@@ -274,8 +276,6 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
-BuildRequires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 # facter
 %if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
@@ -469,6 +469,8 @@ Requires: npm(extract-text-webpack-plugin) < 2.0.0
 Requires: npm(extract-text-webpack-plugin) >= 1.0.1
 Requires: npm(file-loader) < 1.0.0
 Requires: npm(file-loader) >= 0.9.0
+Requires: npm(ipaddr.js) >= 1.2.0
+Requires: npm(ipaddr.js) < 1.3.0
 Requires: npm(jquery) < 1.12.0
 Requires: npm(jquery) >= 1.11.0
 Requires: npm(jquery-flot) < 0.9.0
@@ -516,8 +518,6 @@ Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) >= 1.1.1
-Requires: %{?scl_prefix}rubygem(ipaddrjs-rails) < 1.2.0
 
 %description assets
 Meta package to install asset pipeline support.
