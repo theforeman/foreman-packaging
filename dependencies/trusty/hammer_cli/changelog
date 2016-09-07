@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.8.0-1) stable; urgency=low
+
+  * 0.8.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 05 Sep 2016 23:52:32 +0200
+
 ruby-hammer-cli (0.7.0-2) stable; urgency=low
 
   * Use Ruby 2.0 explicitly on Ubuntu/trusty
