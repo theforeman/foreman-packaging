@@ -57,3 +57,6 @@ cp -pfr .npmignore .travis.yml Cakefile LICENSE README.md bower.json ipaddr.min.
 %doc README.md
 
 %changelog
+* Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 1.2.0-1
+- new package built with tito
+
