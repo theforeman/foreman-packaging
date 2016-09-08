@@ -217,6 +217,8 @@ BuildRequires: npm(datatables.net) >= 1.10.12
 BuildRequires: npm(datatables.net) < 1.11.0
 BuildRequires: npm(datatables.net-bs) >= 1.10.12
 BuildRequires: npm(datatables.net-bs) < 1.11.0
+BuildRequires: npm(diff) >= 3.0.0
+BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(es6-promise) < 4.0.0
 BuildRequires: npm(es6-promise) >= 3.2.1
 BuildRequires: npm(expose-loader) < 0.7.0
@@ -461,6 +463,8 @@ Requires: npm(datatables.net) >= 1.10.12
 Requires: npm(datatables.net) < 1.11.0
 Requires: npm(datatables.net-bs) >= 1.10.12
 Requires: npm(datatables.net-bs) < 1.11.0
+Requires: npm(diff) >= 3.0.0
+Requires: npm(diff) < 3.1.0
 Requires: npm(es6-promise) < 4.0.0
 Requires: npm(es6-promise) >= 3.2.1
 Requires: npm(expose-loader) < 0.7.0
