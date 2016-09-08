@@ -3,22 +3,19 @@
 %global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
+%global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.1.3
+Version: 0.1.4
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora}
-Requires: rubygem(smart_proxy_remote_execution_ssh_core) = %{version}
-%else
-Requires: tfm-rubygem(smart_proxy_remote_execution_ssh_core) = %{version}
-%endif
-
+Requires: %{?rhel:tfm-}rubygem(smart_proxy_dynflow_core) >= 0.1.5
+Requires: %{?rhel:tfm-}rubygem(foreman_remote_execution_core)
 Requires: foreman-proxy >= 1.11.0
 Requires: rubygem(smart_proxy_dynflow) >= 0.1.0
 Requires: rubygem(smart_proxy_dynflow) < 0.2.0
@@ -35,6 +32,7 @@ BuildRequires: ruby(release)
 %endif
 BuildRequires: rubygems-devel
 BuildArch: noarch
+Obsoletes: %{?rhel:tfm-}rubygem-smart_proxy_remote_execution_ssh_core < 0.1.4
 
 Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-remote-execution-ssh
@@ -45,6 +43,7 @@ SSH remote execution provider for Foreman smart proxy
 %package doc
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
+Obsoletes: %{?rhel:tfm-}rubygem-smart_proxy_remote_execution_ssh_core-doc < 0.1.4
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -69,6 +68,11 @@ cp -pa .%{gem_instdir}/bundler.plugins.d/remote_execution_ssh.rb %{buildroot}%{f
 mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/remote_execution_ssh.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 
+mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
+cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
+gem 'foreman_remote_execution_core'
+EOF
+
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
@@ -76,6 +80,7 @@ cp -pa .%{gem_instdir}/settings.d/remote_execution_ssh.yml.example %{buildroot}%
 %{foreman_proxy_bundlerd_dir}/remote_execution_ssh.rb
 %config %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 %doc %{gem_instdir}/LICENSE
+%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
 
 %exclude %{gem_instdir}/bundler.plugins.d
 %exclude %{gem_cache}
