@@ -14,17 +14,19 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
+Version: 0.1.5
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
-URL: http://github.com/theforeman/smart_proxy_dynflow
+URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.11.0
 
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.4
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 0.2.0
 Requires: %{?scl_prefix}rubygem(sequel)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix_ror}rubygem(sinatra) >= 1.4
