@@ -58,3 +58,6 @@ cp -pfr CONTRIBUTING.md LICENSE README.md dist examples images lib package.json 
 %doc release-notes.md
 
 %changelog
+* Thu Sep 08 2016 Dominic Cleal <dominic@cleal.org> 3.0.0-1
+- new package built with tito
+
