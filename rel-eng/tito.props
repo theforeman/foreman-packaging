@@ -25,6 +25,7 @@ whitelist = foreman-installer
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
+  nodejs-diff
   nodejs-es6-promise
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
@@ -195,6 +196,7 @@ whitelist = foreman
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
+  nodejs-diff
   nodejs-es6-promise
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
