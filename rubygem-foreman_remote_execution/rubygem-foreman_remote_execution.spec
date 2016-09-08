@@ -13,11 +13,11 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.1.0
+Version:    1.2.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman_remote_execution
+URL:        https://github.com/theforeman/foreman_remote_execution
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.13.0
@@ -26,8 +26,9 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.10
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(deface)
 
 BuildRequires: foreman-plugin >= 1.13.0
@@ -37,8 +38,9 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.10
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(deface)
 
 BuildArch: noarch
