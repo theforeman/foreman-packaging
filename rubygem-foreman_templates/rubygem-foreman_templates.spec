@@ -91,6 +91,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 08 2016 Dominic Cleal <dominic@cleal.org> 3.0.0-1
+- templates: 3.0.0 release (greg.sutcliffe@gmail.com)
+
 * Thu May 12 2016 Dominic Cleal <dominic@cleal.org> 2.1.0-1
 - Update foreman_templates to 2.1.0 (gsutclif@redhat.com)
 
