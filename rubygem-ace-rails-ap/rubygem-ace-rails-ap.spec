@@ -5,7 +5,7 @@
 
 Summary: The Ajax.org Cloud9 Editor (Ace) for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.1.0
+Version: 4.1.1
 Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
