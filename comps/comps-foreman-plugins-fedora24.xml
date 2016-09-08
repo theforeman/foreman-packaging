@@ -25,6 +25,7 @@
       <packagereq type="default">rubygem-foreman_docker</packagereq>
       <packagereq type="default">rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">rubygem-foreman_graphite</packagereq>
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator</packagereq>
@@ -144,6 +145,7 @@
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_snapshot-doc</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-core-doc</packagereq>
       <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">rubygem-foreman_xen-doc</packagereq>
