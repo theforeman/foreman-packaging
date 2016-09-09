@@ -1,3 +1,9 @@
+ruby-kafo (0.9.6-1) stable; urgency=low
+
+  * Update kafo to 0.9.6
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 09 Sep 2016 16:50:34 +0200
+
 ruby-kafo (0.9.5-1) stable; urgency=low
 
   * Update kafo to 0.9.5
