@@ -79,8 +79,8 @@ Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
-Requires: %{?scl_prefix}rubygem(secure_headers) < 2.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
+Requires: %{?scl_prefix}rubygem(secure_headers) < 4.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.2.4
 Requires: %{?scl_prefix}rubygem(safemode) < 2.0
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
@@ -160,8 +160,8 @@ BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6.0
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 1.3
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.2.4
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
