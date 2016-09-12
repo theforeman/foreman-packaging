@@ -13,7 +13,7 @@ tag_suffix = .fm1_13
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.13-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-installer
   foreman-proxy
@@ -63,7 +63,7 @@ whitelist = foreman-installer
   rubygem-sinatra
   rubygem-tilt
 
-[foreman-nightly-rhel7]
+[foreman-1.13-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-ace-rails-ap
@@ -183,7 +183,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-nightly-fedora24]
+[foreman-1.13-fedora24]
 disttag = .fc24
 whitelist = foreman
   foreman-installer
@@ -276,7 +276,7 @@ whitelist = foreman
   rubygem-webpack-rails
   rubygem-x-editable-rails
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.13-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-algebrick
@@ -356,7 +356,7 @@ whitelist = rubygem-algebrick
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.13-nonscl-rhel7]
 disttag = .el7
 whitelist = rubygem-algebrick
   rubygem-apipie-params
@@ -391,7 +391,7 @@ whitelist = rubygem-algebrick
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
 
-[foreman-plugins-nightly-fedora24]
+[foreman-plugins-1.13-fedora24]
 disttag = .fc24
 whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
