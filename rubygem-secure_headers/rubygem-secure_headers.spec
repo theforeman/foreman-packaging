@@ -3,10 +3,10 @@
 
 %global gem_name secure_headers
 
-Summary: Add easily configured browser headers to responses
+Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.1
-Release: 4%{?dist}
+Version: 3.4.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -15,6 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix}rubygem(useragent)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -24,7 +25,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Add easily configured browser headers to responses including content security
+Add easily configured security headers to responses including content security
 policy, x-frame-options, strict-transport-security and more.
 
 %package doc
@@ -52,8 +53,6 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/app
-%{gem_instdir}/config
 %{gem_libdir}
 %exclude %{gem_instdir}/secure_headers.gemspec
 %exclude %{gem_instdir}/.*
@@ -63,13 +62,13 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/HISTORY.md
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/fixtures
+%doc %{gem_instdir}/upgrading-to-3-0.md
 %{gem_instdir}/Gemfile
+%{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec
-%{gem_instdir}/travis.sh
 
 %changelog
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.4.1-4
