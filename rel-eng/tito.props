@@ -175,6 +175,7 @@ whitelist = foreman
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode-display_width
+  rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
   rubygem-will_paginate
@@ -274,6 +275,7 @@ whitelist = foreman
   rubygem-strong_parameters
   rubygem-table_print
   rubygem-therubyracer
+  rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
   rubygem-x-editable-rails
