@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Michael Moll <mmoll@mmoll.at>
 Build-Depends: debhelper, foreman (>= 1.13.0~rc1), foreman-sqlite3 (>= 1.13.0~rc1), foreman-assets
 Standards-Version: 3.9.3
-Homepage: https://github.com/Dynflow/dynflow
+Homepage: https://github.com/theforeman/foreman-tasks
 
 Package: ruby-foreman-tasks
 Architecture: all
