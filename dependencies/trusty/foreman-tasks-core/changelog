@@ -1,0 +1,5 @@
+ruby-foreman-tasks-core (0.1.1-1) stable; urgency=low
+
+  * Initial release
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 12 Sep 2016 10:05:37 +0200
