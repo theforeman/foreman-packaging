@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Sep 12 2016 Dominic Cleal <dominic@cleal.org> 3.4.1-1
+- Update secure_headers to 3.4.1 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.4.1-4
 - Use gem_install macro (dominic@cleal.org)
 
