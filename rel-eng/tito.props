@@ -338,6 +338,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_setup
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-graphite-api
@@ -450,6 +451,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_snapshot
   rubygem-foreman_templates
   rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_xen
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin

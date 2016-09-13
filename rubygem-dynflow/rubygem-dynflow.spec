@@ -5,7 +5,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.13
+Version: 0.8.15
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
 %doc %{gem_instdir}/MIT-LICENSE
 
 %files doc
