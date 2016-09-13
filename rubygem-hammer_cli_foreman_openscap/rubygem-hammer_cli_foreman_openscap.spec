@@ -66,3 +66,6 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Sep 13 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
+- new package built with tito
+
