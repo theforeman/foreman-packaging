@@ -94,3 +94,6 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Sep 13 2016 Dominic Cleal <dominic@cleal.org> 0.0.5-1
+- new package built with tito
+
