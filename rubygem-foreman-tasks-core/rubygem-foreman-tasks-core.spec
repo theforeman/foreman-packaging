@@ -60,3 +60,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Tue Sep 13 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
+- new package built with tito
+
