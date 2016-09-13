@@ -386,6 +386,7 @@ whitelist = rubygem-algebrick
   rubygem-sequel
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_infoblox
@@ -470,6 +471,7 @@ whitelist = rubygem-algebrick
   rubygem-route53
   rubygem-satyr
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_infoblox
