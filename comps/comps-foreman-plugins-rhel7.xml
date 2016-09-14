@@ -12,6 +12,7 @@
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_azure</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
@@ -176,6 +177,7 @@
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
