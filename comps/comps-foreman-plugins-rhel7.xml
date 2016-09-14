@@ -29,7 +29,6 @@
       <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_rundeck</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-mco</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
