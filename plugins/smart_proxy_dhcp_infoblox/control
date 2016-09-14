@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-dhcp-infoblox
+Section: ruby
+Priority: optional
+Maintainer: Martin Bačovský <mbacovsk@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_dhcp_infoblox
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-dhcp-infoblox
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.13.0~rc1), ruby-infoblox
+Description: Infoblox DHCP provider plugin for Foreman's smart proxy
+ Infoblox DHCP provider plugin for Foreman's smart proxy
