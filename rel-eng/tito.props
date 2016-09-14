@@ -46,6 +46,7 @@ whitelist = foreman-installer
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
+  rubygem-multipart-post
   rubygem-netrc
   rubygem-oauth
   rubygem-passenger
@@ -527,6 +528,8 @@ whitelist = ipxe
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
+  rubygem-faraday
+  rubygem-faraday_middleware
   rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-logify
