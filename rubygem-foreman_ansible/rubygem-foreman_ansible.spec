@@ -2,10 +2,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_ansible
+%global plugin_name ansible
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0
+Version: 1.2.1
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
@@ -17,16 +18,26 @@ Requires: foreman >= 1.12.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.14
+Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+Requires: %{?scl_prefix}rubygem(foreman_ansible_core)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.14
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core)
 BuildRequires: foreman-plugin >= 1.12.0
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-ansible
+Provides: foreman-plugin-%{plugin_name}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
@@ -54,13 +65,8 @@ Documentation for %{name}.
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
-%{foreman_bundlerd_file}
-
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_restart}
-exit 0
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -72,13 +78,23 @@ exit 0
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %exclude %{gem_instdir}/test
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+
+%posttrans
+%foreman_db_migrate
+%foreman_db_seed
+%foreman_apipie_cache
+%foreman_restart
+exit 0
+
 
 %changelog
 * Fri Jul 08 2016 Dominic Cleal <dominic@cleal.org> 1.0-1
