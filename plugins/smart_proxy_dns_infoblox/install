@@ -1,0 +1,2 @@
+debian/dns_infoblox.rb usr/share/foreman-proxy/bundler.d
+config/dns_infoblox.yml etc/foreman-proxy/settings.d
