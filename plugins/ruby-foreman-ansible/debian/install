@@ -1,2 +1,3 @@
 foreman_ansible.rb  usr/share/foreman/bundler.d
 cache                usr/share/foreman/vendor
+apipie-cache/foreman_ansible var/lib/foreman/public/apipie-cache/plugin
