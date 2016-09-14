@@ -62,6 +62,7 @@
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_infoblox</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
@@ -147,6 +148,7 @@
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-sequel-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_infoblox-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery-doc</packagereq>
