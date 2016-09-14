@@ -1,0 +1,2 @@
+debian/dhcp_infoblox.rb usr/share/foreman-proxy/bundler.d
+config/dhcp_infoblox.yml etc/foreman-proxy/settings.d
