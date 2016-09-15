@@ -4,7 +4,7 @@
 Summary: OAuth Core Ruby implementation for Puppet Agent
 Name: puppet-agent-%{gem_name}
 Version: 0.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
@@ -35,6 +35,9 @@ cp -a ./%{gem_name}-%{version}.gem %{buildroot}%{gem_cache_dir}
 /opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
 
 %changelog
+* Thu Sep 15 2016 Dominic Cleal <dominic@cleal.org> 0.5.1-2
+- Use --local for gem install (#16553, dominic@cleal.org)
+
 * Mon Apr 18 2016 Dominic Cleal <dominic@cleal.org> 0.5.1-1
 - new package built with tito
 
