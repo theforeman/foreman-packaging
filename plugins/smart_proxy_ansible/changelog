@@ -1,0 +1,5 @@
+ruby-smart-proxy-ansible (1.0.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 15 Sep 2016 10:05:37 +0200

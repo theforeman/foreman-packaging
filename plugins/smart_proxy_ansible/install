@@ -1,0 +1,2 @@
+debian/ansible.rb usr/share/foreman-proxy/bundler.d
+settings.d/ansible.yml etc/foreman-proxy/settings.d
