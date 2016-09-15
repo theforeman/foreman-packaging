@@ -29,7 +29,7 @@ cp -a ./%{gem_name}-%{version}.gem %{buildroot}%{gem_cache_dir}
 %{gem_cache_dir}/%{gem_name}-%{version}.gem
 
 %post
-/opt/puppetlabs/puppet/bin/gem install %{gem_cache_dir}/%{gem_name}-%{version}.gem >/dev/null
+/opt/puppetlabs/puppet/bin/gem install --local %{gem_cache_dir}/%{gem_name}-%{version}.gem >/dev/null
 
 %preun
 /opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
