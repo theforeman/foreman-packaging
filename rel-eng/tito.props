@@ -22,7 +22,13 @@ whitelist = foreman-installer
   nodejs-babel-core
   nodejs-babel-loader
   nodejs-babel-preset-es2015
+  nodejs-css-loader
+  nodejs-datatables.net
+  nodejs-datatables.net-bs
+  nodejs-es6-promise
   nodejs-expose-loader
+  nodejs-extract-text-webpack-plugin
+  nodejs-file-loader
   nodejs-jquery
   nodejs-jquery-flot
   nodejs-jquery-ujs
@@ -31,6 +37,8 @@ whitelist = foreman-installer
   nodejs-lodash
   nodejs-select2
   nodejs-stats-webpack-plugin
+  nodejs-style-loader
+  nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
   rubygem-apipie-bindings
@@ -206,7 +214,6 @@ whitelist = foreman
   rubygem-safemode
   rubygem-scoped_search
   rubygem-secure_headers
-  rubygem-select2-rails
   rubygem-sequel
   rubygem-sexp_processor
   rubygem-signet
@@ -532,6 +539,7 @@ whitelist = ipxe
   rubygem-faraday_middleware
   rubygem-fast_gettext
   rubygem-foreman_scap_client
+  rubygem-infoblox
   rubygem-logify
   rubygem-mysql2
   rubygem-newt
@@ -542,11 +550,14 @@ whitelist = ipxe
   rubygem-sequel
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_infoblox
   rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
+  rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_remote_execution_ssh

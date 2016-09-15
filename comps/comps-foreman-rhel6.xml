@@ -141,7 +141,6 @@
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
-      <packagereq type="default">tfm-rubygem-select2-rails</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-signet</packagereq>
@@ -173,7 +172,13 @@
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
+      <packagereq type="default">nodejs-css-loader</packagereq>
+      <packagereq type="default">nodejs-datatables.net</packagereq>
+      <packagereq type="default">nodejs-datatables.net-bs</packagereq>
+      <packagereq type="default">nodejs-es6-promise</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
+      <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-file-loader</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
@@ -182,6 +187,8 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-style-loader</packagereq>
+      <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
@@ -216,7 +223,11 @@
       <packagereq type="default">nodejs-babel-core-doc</packagereq>
       <packagereq type="default">nodejs-babel-loader-doc</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
+      <packagereq type="default">nodejs-datatables.net-bs-doc</packagereq>
+      <packagereq type="default">nodejs-datatables.net-doc</packagereq>
+      <packagereq type="default">nodejs-es6-promise-doc</packagereq>
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
+      <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-jquery-doc</packagereq>
       <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
@@ -225,6 +236,7 @@
       <packagereq type="default">nodejs-lodash-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
+      <packagereq type="default">nodejs-url-loader-doc</packagereq>
       <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
@@ -339,7 +351,6 @@
       <packagereq type="default">tfm-rubygem-safemode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-select2-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-signet-doc</packagereq>
