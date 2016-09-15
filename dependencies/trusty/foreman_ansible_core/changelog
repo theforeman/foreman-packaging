@@ -1,0 +1,5 @@
+ruby-foreman-ansible-core (0.0.1-1) stable; urgency=low
+
+  * Initial release
+
+ -- Daniel Lobato <dlobatog@redhat.com>  Wed, 14 Sep 2016 10:05:37 +0200

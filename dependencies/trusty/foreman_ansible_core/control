@@ -1,0 +1,15 @@
+Source: ruby-foreman-ansible-core
+Section: ruby
+Priority: optional
+Maintainer: Daniel Lobato Garcia <dlobatog@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+Homepage: http://github.com/theforeman/foreman_ansible
+XS-Ruby-Versions: all
+
+Package: ruby-foreman-ansible-core
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+  ruby-foreman-tasks-core (>= 0.1.0), ruby-foreman-tasks-core (<< 0.2.0)
+Description: Foreman Ansible - core bits shared by proxy and plugin
