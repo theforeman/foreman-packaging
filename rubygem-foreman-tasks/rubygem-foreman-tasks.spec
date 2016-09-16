@@ -184,6 +184,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Fri Sep 16 2016 Dominic Cleal <dominic@cleal.org> 0.8.2-1
+- Update foreman-tasks to 0.8.2 (#1347) (inecas@redhat.com)
+
 * Mon Aug 22 2016 Dominic Cleal <dominic@cleal.org> 0.8.0-1
 - Update foreman-tasks to 0.8.0 (daviddavis@redhat.com)
 
