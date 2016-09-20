@@ -91,6 +91,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Tue Sep 20 2016 Dominic Cleal <dominic@cleal.org> 0.1.4-1
+- Update smart_proxy_remote_execution to 0.1.4 (inecas@redhat.com)
+
 * Tue Aug 23 2016 Dominic Cleal <dominic@cleal.org> 0.1.3-1
 - Update smart_proxy_remote_execution_ssh to 0.1.3 (inecas@redhat.com)
 
