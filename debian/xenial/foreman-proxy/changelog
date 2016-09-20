@@ -1,3 +1,9 @@
+foreman-proxy (1.12.3-1) stable; urgency=low
+
+  * 1.12.3 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Tue, 20 Sep 2016 09:43:28 +0100
+
 foreman-proxy (1.12.2-1) stable; urgency=low
 
   * 1.12.2 released
