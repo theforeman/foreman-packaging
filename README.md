@@ -123,8 +123,8 @@ You'll also need an alias `kojikat` to point to:
 1. Ensure the source file (e.g. the .gem) is in the spec directory and run
    `git annex add foo.gem`
 1. Update rel-eng/tito.props and add to the appropriate whitelists
-1. Update comps/comps-foreman-\*.xml
-2. Run ./comps_doc.sh to automatically add docs
+1. Update comps/comps-foreman-\*.xml by running `./add_to_comps.rb comps/compsfile.xml rubygem-example`
+2. Run `./comps_doc.sh` to automatically add doc packages
 1. Commit the changes
   1. `git add -A`
   1. `git commit -m "Add NAME package"`
@@ -143,29 +143,17 @@ Otherwise we will bundle the dependencies. You can read an explanation of how we
 
 In both cases:
 
-1. Install npm2rpm: `npm install -g npm2rpm`
-1. Checkout a branch 'rpm/example-version' or similar (the rpm/ part is important)
-  * `mkdir nodejs-example`
-  * `cd nodejs-example`
 1. Generate the spec and download the sources automatically with npm2rpm.
-  * For packages without dependencies - `npm2rpm -n example -v version -s single`
-  * For packages that bundle dependencies - `npm2rpm -n example -v version -s bundle`
-1. This should have created two directories npm2rpm/SPECS and npm2rpm/SOURCES.
-   Move the content of them both to your nodejs-example directory and remove the npm2rpm folder.
-  * mv npm2rpm/SPECS/\* .
-  * mv npm2rpm/SOURCES/\* .
-  * rm -r npm2rpm
-1. If building a package with bundled dependencies, add the binary with the npm cache directly to git.
-  * `git add example-version-registry.npmjs.org.tgz`
-1. `git-annex` the rest of the sources
-  * `git annex add *.tgz`
-1. Update rel-eng/tito.props and add to the whitelists (nonscl and Fedora)
-1. Update comps/comps-foreman-\*.xml
+  * For packages without dependencies - `./add_npm_package.sh example version single`
+  * For packages that bundle dependencies - `./add_npm_package.sh example version bundle`
+1. This should have created a nodejs-example directory with the packages needed, the spec,
+and the cache if it's a bundled package. It should have modified tito.props, comps and
+added everything to git.
+1. Update the spec if needed (e.g: for peer dependencies)
 1. Commit the changes
-  1. `git add -A`
   1. `git commit -m "Add NAME package"`
-1. Follow the "test a package" section above until it builds for all
-   targeted platforms and required non-SCL modes.
+1. Follow the "test a package" section above until it builds for all targeted platforms and
+required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
 ## HOWTO: update a package

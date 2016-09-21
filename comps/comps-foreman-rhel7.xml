@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <group>
     <id>foreman</id>
@@ -8,6 +7,8 @@
     <description>Packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">centos-release-scl</packagereq>
+      <packagereq type="default">centos-release-scl-rh</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-cli</packagereq>
@@ -23,33 +24,24 @@
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
+      <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-rackspace</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-release-scl</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
-      <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
-
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
-      <packagereq type="default">tfm-runtime</packagereq>
-      <packagereq type="default">tfm-runtime-assets</packagereq>
-      <packagereq type="default">tfm-scldevel</packagereq>
-
-      <packagereq type="default">centos-release-scl</packagereq>
-      <packagereq type="default">centos-release-scl-rh</packagereq>
-
       <packagereq type="default">tfm-mod_passenger</packagereq>
-
       <packagereq type="default">tfm-rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails</packagereq>
-      <packagereq type="default">tfm-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">tfm-rubygem-audited</packagereq>
+      <packagereq type="default">tfm-rubygem-audited-activerecord</packagereq>
       <packagereq type="default">tfm-rubygem-autoparse</packagereq>
       <packagereq type="default">tfm-rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
@@ -90,32 +82,32 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-hashie</packagereq>
       <packagereq type="default">tfm-rubygem-highline</packagereq>
-      <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">tfm-rubygem-hirb</packagereq>
+      <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
       <packagereq type="default">tfm-rubygem-launchy</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff</packagereq>
       <packagereq type="default">tfm-rubygem-little-plugger</packagereq>
       <packagereq type="default">tfm-rubygem-locale</packagereq>
       <packagereq type="default">tfm-rubygem-logging</packagereq>
-      <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-multi-select-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2</packagereq>
-      <packagereq type="default">tfm-rubygem-netrc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap</packagereq>
       <packagereq type="default">tfm-rubygem-net-scp</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh</packagereq>
+      <packagereq type="default">tfm-rubygem-netrc</packagereq>
       <packagereq type="default">tfm-rubygem-oauth</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
       <packagereq type="default">tfm-rubygem-passenger</packagereq>
+      <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
+      <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass</packagereq>
       <packagereq type="default">tfm-rubygem-pg</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
@@ -135,8 +127,8 @@
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
-      <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
+      <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
@@ -158,16 +150,16 @@
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
-
+      <packagereq type="default">tfm-runtime</packagereq>
+      <packagereq type="default">tfm-runtime-assets</packagereq>
+      <packagereq type="default">tfm-scldevel</packagereq>
       <!--
         The following list is for foreman-*-nonscl-rhel7 tag. Please only put packages
         that should go to nonscl tag bellow. Do not delete the following line please:
 
         <packagereq type="default">foreman-*-nonscl-rhel7</packagereq>
       -->
-
       <packagereq type="default">foreman-installer</packagereq>
-
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
@@ -181,10 +173,10 @@
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-file-loader</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
+      <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
-      <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
@@ -207,9 +199,9 @@
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-netrc</packagereq>
       <packagereq type="default">rubygem-oauth</packagereq>
-      <packagereq type="default">rubygem-passenger-native-libs</packagereq>
-      <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
+      <packagereq type="default">rubygem-passenger-native</packagereq>
+      <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-rack-protection</packagereq>
       <packagereq type="default">rubygem-rb-inotify</packagereq>
@@ -217,7 +209,6 @@
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <packagereq type="default">rubygem-sinatra</packagereq>
       <packagereq type="default">rubygem-tilt</packagereq>
-
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -370,7 +361,6 @@
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
-
     </packagelist>
   </group>
 </comps>

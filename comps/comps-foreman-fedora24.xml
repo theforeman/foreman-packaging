@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <group>
     <id>foreman</id>
@@ -16,6 +15,7 @@
       <packagereq type="default">foreman-debug</packagereq>
       <packagereq type="default">foreman-ec2</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
+      <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-mysql2</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
@@ -23,16 +23,12 @@
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
+      <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-rackspace</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
-      <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
-
-      <packagereq type="default">foreman-installer</packagereq>
-      <packagereq type="default">rubygem-puppet-strings</packagereq>
-
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
@@ -45,10 +41,10 @@
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-file-loader</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
+      <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
-      <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
@@ -56,7 +52,6 @@
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
-
       <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
@@ -84,11 +79,11 @@
       <packagereq type="default">rubygem-gridster-rails</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
-      <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
-      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
+      <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">rubygem-jquery-ui-rails</packagereq>
+      <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
@@ -99,6 +94,7 @@
       <packagereq type="default">rubygem-po_to_json</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-protected_attributes</packagereq>
+      <packagereq type="default">rubygem-puppet-strings</packagereq>
       <packagereq type="default">rubygem-quiet_assets</packagereq>
       <packagereq type="default">rubygem-rack-jsonp</packagereq>
       <packagereq type="default">rubygem-rails-i18n</packagereq>
@@ -117,7 +113,6 @@
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-x-editable-rails</packagereq>
-
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -204,7 +199,6 @@
       <packagereq type="default">rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->
-
     </packagelist>
   </group>
 </comps>
