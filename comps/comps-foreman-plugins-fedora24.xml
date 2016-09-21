@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <group>
     <id>foreman-plugins</id>
@@ -8,8 +7,25 @@
     <description>Plugin packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">rubygem-algebrick</packagereq>
+      <packagereq type="default">rubygem-angular-rails-templates</packagereq>
+      <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-azure</packagereq>
+      <packagereq type="default">rubygem-azure-core</packagereq>
       <packagereq type="default">rubygem-bastion</packagereq>
       <packagereq type="default">rubygem-bastion-devel</packagereq>
+      <packagereq type="default">rubygem-bootstrap-datepicker-rails</packagereq>
+      <packagereq type="default">rubygem-chef-api</packagereq>
+      <packagereq type="default">rubygem-colorize</packagereq>
+      <packagereq type="default">rubygem-commonjs</packagereq>
+      <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
+      <packagereq type="default">rubygem-deface</packagereq>
+      <packagereq type="default">rubygem-docker-api</packagereq>
+      <packagereq type="default">rubygem-dynflow</packagereq>
+      <packagereq type="default">rubygem-faraday_middleware</packagereq>
+      <packagereq type="default">rubygem-fog-azure</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">rubygem-foreman_abrt</packagereq>
       <packagereq type="default">rubygem-foreman_ansible</packagereq>
       <packagereq type="default">rubygem-foreman_azure</packagereq>
@@ -19,13 +35,11 @@
       <packagereq type="default">rubygem-foreman_column_view</packagereq>
       <packagereq type="default">rubygem-foreman_custom_parameters</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup</packagereq>
-      <packagereq type="default">rubygem-foreman_discovery</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser</packagereq>
       <packagereq type="default">rubygem-foreman_digitalocean</packagereq>
+      <packagereq type="default">rubygem-foreman_discovery</packagereq>
       <packagereq type="default">rubygem-foreman_docker</packagereq>
       <packagereq type="default">rubygem-foreman_expire_hosts</packagereq>
-      <packagereq type="default">rubygem-foreman-tasks</packagereq>
-      <packagereq type="default">rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">rubygem-foreman_graphite</packagereq>
       <packagereq type="default">rubygem-foreman_hooks</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator</packagereq>
@@ -45,6 +59,7 @@
       <packagereq type="default">rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">rubygem-foreman_templates</packagereq>
       <packagereq type="default">rubygem-foreman_xen</packagereq>
+      <packagereq type="default">rubygem-graphite-api</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_admin</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery</packagereq>
@@ -52,9 +67,15 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_openscap</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
+      <packagereq type="default">rubygem-infoblox</packagereq>
+      <packagereq type="default">rubygem-logify</packagereq>
+      <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">rubygem-route53</packagereq>
+      <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_infoblox</packagereq>
@@ -70,33 +91,8 @@
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
-
-      <packagereq type="default">rubygem-algebrick</packagereq>
-      <packagereq type="default">rubygem-angular-rails-templates</packagereq>
-      <packagereq type="default">rubygem-apipie-params</packagereq>
-      <packagereq type="default">rubygem-azure</packagereq>
-      <packagereq type="default">rubygem-azure-core</packagereq>
-      <packagereq type="default">rubygem-bootstrap-datepicker-rails</packagereq>
-      <packagereq type="default">rubygem-chef-api</packagereq>
-      <packagereq type="default">rubygem-colorize</packagereq>
-      <packagereq type="default">rubygem-commonjs</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
-      <packagereq type="default">rubygem-deface</packagereq>
-      <packagereq type="default">rubygem-docker-api</packagereq>
-      <packagereq type="default">rubygem-dynflow</packagereq>
-      <packagereq type="default">rubygem-faraday_middleware</packagereq>
-      <packagereq type="default">rubygem-fog-azure</packagereq>
-      <packagereq type="default">rubygem-graphite-api</packagereq>
-      <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
-      <packagereq type="default">rubygem-infoblox</packagereq>
-      <packagereq type="default">rubygem-logify</packagereq>
-      <packagereq type="default">rubygem-newt</packagereq>
-      <packagereq type="default">rubygem-route53</packagereq>
-      <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">rubygem-wicked</packagereq>
       <packagereq type="default">rubygem-zscheduler</packagereq>
-
-
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -186,7 +182,6 @@
       <packagereq type="default">rubygem-wicked-doc</packagereq>
       <packagereq type="default">rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->
-
     </packagelist>
   </group>
 </comps>
