@@ -306,6 +306,7 @@ whitelist = rubygem-algebrick
   rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
+  rubygem-foreman_ansible_core
   rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
@@ -418,6 +419,7 @@ whitelist = rubygem-algebrick
   rubygem-newt
   rubygem-foreman_abrt
   rubygem-foreman_ansible
+  rubygem-foreman_ansible_core
   rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
