@@ -179,6 +179,7 @@
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
+      <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
@@ -229,6 +230,7 @@
       <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
       <packagereq type="default">nodejs-jstz-doc</packagereq>
       <packagereq type="default">nodejs-lodash-doc</packagereq>
+      <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
       <packagereq type="default">nodejs-url-loader-doc</packagereq>
