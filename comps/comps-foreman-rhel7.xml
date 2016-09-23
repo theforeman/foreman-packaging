@@ -356,6 +356,7 @@
       <packagereq type="default">tfm-rubygem-useragent-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <!--RGD-END-->

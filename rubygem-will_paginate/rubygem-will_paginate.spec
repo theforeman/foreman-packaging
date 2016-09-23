@@ -6,8 +6,8 @@
 
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       3.1.0
-Release:       2%{?dist}
+Version:       3.1.3
+Release:       1%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://github.com/mislav/will_paginate
@@ -33,13 +33,20 @@ The will_paginate library provides a simple, yet powerful and extensible API
 for ActiveRecord pagination and rendering of pagination links in ActionView
 templates.
 
+%package doc
+BuildArch:  noarch
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Documentation for rubygem-%{gem_name}
+
+%description doc
+This package contains documentation for rubygem-%{gem_name}.
+
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force -V --rdoc %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -59,12 +66,14 @@ popd
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
 %{gem_libdir}
-%doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/spec
-%doc %{gem_docdir}
 %exclude %{gem_cache}
 %{gem_spec}
+
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/spec
 
 %changelog
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.1.0-2
