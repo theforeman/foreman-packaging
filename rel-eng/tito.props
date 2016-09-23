@@ -131,7 +131,6 @@ whitelist = foreman
   rubygem-locale
   rubygem-logging
   rubygem-multipart-post
-  rubygem-multi-select-rails
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-netrc
@@ -253,7 +252,6 @@ whitelist = foreman
   rubygem-kafo_wizards
   rubygem-launchy
   rubygem-librarian-puppet
-  rubygem-multi-select-rails
   rubygem-patternfly-sass
   rubygem-po_to_json
   rubygem-powerbar

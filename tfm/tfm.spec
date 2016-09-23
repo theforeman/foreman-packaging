@@ -71,6 +71,7 @@ Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
 Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
+Obsoletes: %{scl_prefix}rubygem-multi-select-rails < 0.9.12-6
 Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
 Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
