@@ -76,6 +76,9 @@ popd
 %doc %{gem_instdir}/spec
 
 %changelog
+* Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 3.1.3-1
+- Update will_paginate to 3.1.3 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.1.0-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
