@@ -76,3 +76,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
+- new package built with tito
+
