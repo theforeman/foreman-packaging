@@ -56,3 +56,6 @@ cp -pfr .npmignore LICENSE.txt README.markdown css img js multi-select.jquery.js
 %doc README.markdown
 
 %changelog
+* Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 0.9.12-1
+- new package built with tito
+
