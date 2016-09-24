@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.9.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A Ruby wrapper for Linux's inotify, using FFI
 Group: Development/Languages
 License: MIT
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/rb-inotify.gemspec
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.9.7-2
+- Add missing EL6 build information (ericdhelms@gmail.com)
+
 * Fri Jul 29 2016 Dominic Cleal <dominic@cleal.org> 0.9.7-1
 - new package built with tito
 
