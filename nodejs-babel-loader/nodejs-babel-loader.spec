@@ -25,7 +25,11 @@ BuildRequires: npm
 BuildRequires: npm(webpack)
 BuildRequires: npm(babel-core)
 BuildArch: noarch
+%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
+%else
+ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+%endif
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(babel-loader) = 6.2.4
 Provides: bundled-npm(mkdirp) = 0.5.1

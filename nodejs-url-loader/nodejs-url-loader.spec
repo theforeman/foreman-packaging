@@ -21,7 +21,11 @@ BuildRequires: nodejs-packaging
 BuildRequires: npm
 BuildRequires: npm(file-loader)
 BuildArch: noarch
+%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
+%else
+ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+%endif
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(url-loader) = 0.5.7
 Provides: bundled-npm(mime) = 1.2.11
