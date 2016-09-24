@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 6.7.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Babel compiler core
 License: MIT
 Group: Development/Libraries
@@ -179,6 +179,9 @@ cp -pfr index.js lib package.json register.js node_modules %{buildroot}%{nodejs_
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 6.7.7-2
+- 
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 6.7.7-1
 - new package built with tito
 
