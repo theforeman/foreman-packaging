@@ -1,26 +1,25 @@
-# Generated from rb-inotify-0.9.7.gem by gem2rpm -*- rpm-spec -*-
-%global gem_name rb-inotify
+# Generated from builder-3.2.2.gem by gem2rpm -*- rpm-spec -*-
+%global gem_name builder
 
 Name: rubygem-%{gem_name}
-Version: 0.9.7
+Version: 3.2.2
 Release: 1%{?dist}
-Summary: A Ruby wrapper for Linux's inotify, using FFI
+Summary: Builders for MarkUp
 Group: Development/Languages
 License: MIT
-URL: http://github.com/nex3/rb-inotify
+URL: http://onestepback.org
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
-Requires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?rhel} == 6
+Requires: ruby(abi)
 %else
-Requires: %{?scl_prefix_ruby}ruby(abi)
+Requires: ruby(release)
 %endif
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(ffi) >= 0.5.0
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?rhel} == 6
+BuildRequires: ruby(abi)
 %else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
+BuildRequires: ruby(release)
 %endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel
@@ -28,7 +27,10 @@ BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
-A Ruby wrapper for Linux's inotify, using FFI.
+Builder provides a number of builder objects that make creating structured
+data simple to do.  Currently the following builder objects are supported:
+* XML Markup
+* XML Events.
 
 
 %package doc
@@ -62,20 +64,21 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.yardopts
 %doc %{gem_instdir}/MIT-LICENSE
-%{gem_instdir}/VERSION
 %{gem_libdir}
+%{gem_instdir}/rakelib
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGES
 %{gem_instdir}/Rakefile
-%{gem_instdir}/rb-inotify.gemspec
+%doc %{gem_instdir}/doc
+%{gem_instdir}/test
 
 %changelog
-* Fri Jul 29 2016 Dominic Cleal <dominic@cleal.org> 0.9.7-1
+* Wed Jun 15 2016 Dominic Cleal <dominic@cleal.org> 3.2.2-1
 - new package built with tito
 
