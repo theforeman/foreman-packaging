@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.5.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: url loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -78,6 +78,9 @@ cp -pf README.md ../../
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.5.7-3
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 0.5.7-2
 - Only symlink peer deps from sitelib (dominic@cleal.org)
 
