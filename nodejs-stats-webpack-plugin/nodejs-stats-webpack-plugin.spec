@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Write the stats of a build to a file
 License: MIT
 Group: Development/Libraries
@@ -53,6 +53,9 @@ cp -pfr LICENSE index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files doc
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.4.0-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
 - new package built with tito
 
