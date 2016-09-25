@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Extract text from bundle into a file
 License: MIT
 Group: Development/Libraries
@@ -74,6 +74,9 @@ cp -pfr .editorconfig .eslintrc .npmignore .travis.yml ExtractedModule.js OrderU
 %{nodejs_sitelib}/%{npm_name}
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.0.1-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
 - new package built with tito
 
