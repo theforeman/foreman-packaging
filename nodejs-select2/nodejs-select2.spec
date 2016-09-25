@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.5.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Browserify-ed version of Select2.
 License: ASL 2.0 or GPLv2
 Group: Development/Libraries
@@ -56,6 +56,9 @@ cp -pfr *.gif *.png *.css *.json *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_n
 %doc CONTRIBUTING.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 3.5.2-3
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 3.5.2-2
 - Include GIF files in package (dominic@cleal.org)
 
