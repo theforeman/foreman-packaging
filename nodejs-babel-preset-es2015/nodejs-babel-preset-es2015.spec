@@ -106,7 +106,11 @@ BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
 BuildRequires: npm
 BuildArch: noarch
+%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
+%else
+ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+%endif
 Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(babel-preset-es2015) = 6.6.0
 Provides: bundled-npm(babel-plugin-transform-es2015-object-super) = 6.8.0

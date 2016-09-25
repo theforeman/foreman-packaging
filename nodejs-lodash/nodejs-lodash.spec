@@ -11,7 +11,11 @@ Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
 BuildArch: noarch
+%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
+%else
+ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+%endif
 Provides: npm(%{npm_name}) = %{version}
 
 %description

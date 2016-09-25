@@ -12,7 +12,11 @@ Source0: http://registry.npmjs.org/jstz/-/jstz-1.0.7.tgz
 BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
 BuildArch: noarch
+%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
+%else
+ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+%endif
 Provides: npm(%{npm_name}) = %{version}
 
 %description
