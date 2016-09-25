@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple, lightweight jQuery plugin for reading, writing and deleting cookies.
 License: MIT
 Group: Development/Libraries
@@ -58,6 +58,9 @@ cp -pfr test  *.json *.md *.js *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc %{nodejs_sitelib}/%{npm_name}/CHANGELOG.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.4.1-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.4.1-1
 - new package built with tito
 
