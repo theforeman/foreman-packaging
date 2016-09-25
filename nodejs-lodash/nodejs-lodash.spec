@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 4.15.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Lodash modular utilities
 License: MIT
 Group: Development/Libraries
@@ -51,6 +51,9 @@ cp -pfr *.json LICENSE fp *.md *.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 4.15.0-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 4.15.0-1
 - Update lodash to 4.15.0 (elobatocs@gmail.com)
 
