@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
 License: MIT
 Group: Development/Libraries
@@ -51,6 +51,9 @@ cp -pfr script src test MIT-LICENSE *.json *.md %{buildroot}%{nodejs_sitelib}/%{
 %doc %{nodejs_sitelib}/%{npm_name}/CONTRIBUTING.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.2.1-3
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Fri Aug 12 2016 Dominic Cleal <dominic@cleal.org> 1.2.1-2
 - Fix pkg/npm_name macro reference (dominic@cleal.org)
 
