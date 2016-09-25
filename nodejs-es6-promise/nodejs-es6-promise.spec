@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A lightweight library that provides tools for organizing asynchronous code
 License: MIT
 Group: Development/Libraries
@@ -56,6 +56,9 @@ cp -pfr CHANGELOG.md LICENSE README.md dist lib package.json %{buildroot}%{nodej
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 3.2.1-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 3.2.1-1
 - new package built with tito
 
