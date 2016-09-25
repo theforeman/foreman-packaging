@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.8.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Flot is a Javascript plotting library for jQuery
 License: MIT
 Group: Development/Libraries
@@ -63,6 +63,9 @@ cp -pfr *.md LICENSE.txt component.json examples *.js package.json %{buildroot}%
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.8.3-3
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Mon Aug 15 2016 Dominic Cleal <dominic@cleal.org> 0.8.3-2
 - Fix missing licence/summary information (dominic@cleal.org)
 
