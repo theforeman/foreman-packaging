@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 6.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: babel module loader for webpack
 License: MIT
 Group: Development/Libraries
@@ -87,6 +87,9 @@ mkdir -p %{buildroot}%{_bindir}/
 %doc README.md
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 6.2.4-2
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 6.2.4-1
 - new package built with tito
 
