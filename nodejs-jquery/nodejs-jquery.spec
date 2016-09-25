@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.11.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 Group: Development/Libraries
@@ -53,6 +53,9 @@ cp -pfr dist src *.json *.md *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %exclude %{nodejs_sitelib}/%{npm_name}/bower.json
 
 %changelog
+* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.11.3-3
+- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
+
 * Fri Aug 12 2016 Dominic Cleal <dominic@cleal.org> 1.11.3-2
 - Fix pkg/npm_name macro reference (dominic@cleal.org)
 
