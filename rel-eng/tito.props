@@ -102,6 +102,7 @@ whitelist = foreman-installer
   rubygem-apipie-bindings
   rubygem-bundler_ext
   rubygem-clamp
+  rubygem-concurrent-ruby
   rubygem-foreman_api
   rubygem-hashie
   rubygem-highline
@@ -663,7 +664,6 @@ disttag = .el7
 whitelist = rubygem-algebrick
   rubygem-apipie-params
   rubygem-chef-api
-  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-dynflow
   rubygem-faraday
