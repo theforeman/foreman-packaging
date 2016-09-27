@@ -17,7 +17,7 @@ build/foreman::
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/cp config/email.yaml.example config/email.yaml
 	/usr/bin/npm install npm
-	/usr/bin/nodejs node_modules/.bin/npm install
+	/usr/bin/nodejs node_modules/.bin/npm install --no-optional
 	/usr/bin/ruby2.0 /usr/bin/bundle pack --all
 	/usr/bin/ruby2.0 /usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/ruby2.0 /usr/bin/bundle exec rake webpack:compile

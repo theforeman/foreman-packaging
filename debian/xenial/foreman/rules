@@ -19,7 +19,7 @@ build/foreman::
 	/usr/bin/gem install -f thor -v '0.19.1'
 	/usr/bin/gem install -f rake -v '10.5.0'
 	/usr/bin/gem install -f power_assert -v '0.2.7'
-	/usr/bin/npm install
+	/usr/bin/npm install --no-optional
 	/usr/bin/bundle package
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
