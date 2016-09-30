@@ -16,7 +16,7 @@
 
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.0.3
+Version:    1.0.4
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
