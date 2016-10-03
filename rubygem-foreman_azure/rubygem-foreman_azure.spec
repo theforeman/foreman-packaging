@@ -5,9 +5,9 @@
 %global plugin_name azure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?foremandist}%{?dist}
-Summary: Azure as a Compute Resource of Foreman
+Summary: Azure as a Compute Resource of Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_azure
