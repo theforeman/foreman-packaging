@@ -1,3 +1,9 @@
+ruby-foreman-digitalocean (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Mon, 03 Oct 2016 12:10:16 +0200
+
 ruby-foreman-digitalocean (1.0.0-1) stable; urgency=low
 
   * 1.0.0 released
