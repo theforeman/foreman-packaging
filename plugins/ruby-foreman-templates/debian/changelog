@@ -1,3 +1,10 @@
+ruby-foreman-templates (3.1.0-1) stable; urgency=low
+
+  * 3.1.0 released
+  * Orgs & Locs metadata now supported, if enabled in Foreman
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Mon, 03 Oct 2016 16:35:05 +0100
+
 ruby-foreman-templates (3.0.0-1) stable; urgency=low
 
   * 3.0.0 released
