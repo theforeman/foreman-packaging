@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
 License: GPLv3
@@ -76,6 +76,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Mon Oct 03 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-2
+- Add foremandist to release field (dominic@cleal.org)
+
 * Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
 
