@@ -96,6 +96,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 04 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
+- Update foreman_azure to 1.0.2 (me@daniellobato.me)
+
 * Tue Jun 14 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
 - new package built with tito
 
