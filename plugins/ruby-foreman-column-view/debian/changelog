@@ -1,3 +1,9 @@
+ruby-foreman-column-view (0.3.0-1) stable; urgency=low
+
+  * 0.3.0 released
+
+ -- Greg Sutcliffe <greg.sutcliffe@gmail.com>  Tue, 04 Oct 2016 16:41:08 +0100
+
 ruby-foreman-column-view (0.2.1) stable; urgency=low
 
   * 0.2.1 released
