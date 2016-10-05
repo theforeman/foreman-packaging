@@ -242,6 +242,9 @@ fi
 
 
 %changelog
+* Wed Oct 05 2016 Dominic Cleal <dominic@cleal.org> 1.13.0-1
+- Release 1.13.0
+
 * Mon Sep 26 2016 Dominic Cleal <dominic@cleal.org> 1.13.0-0.1.RC2
 - Release 1.13.0-RC2
 
