@@ -1,3 +1,9 @@
+ruby-smart-proxy-salt (2.1.7-1) stable; urgency=low
+
+  * 2.1.7 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 07 Oct 2016 21:53:04 +0200
+
 ruby-smart-proxy-salt (2.1.6-1) stable; urgency=low
 
   * 2.1.6 released
