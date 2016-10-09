@@ -123,6 +123,7 @@
       <packagereq type="default">rubygem-ruby-hmac</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">rubygem-sequel</packagereq>
+      <packagereq type="default">puppet-foreman_scap_client</packagereq>
 
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
