@@ -5,8 +5,8 @@
 
 Summary: bootstrap-sass is a Sass-powered version of Bootstrap 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.3.6
-Release: 3%{?dist}
+Version: 3.3.7
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/twbs/bootstrap-sass
@@ -55,6 +55,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
+%{gem_instdir}/eyeglass-exports.js
 %{gem_instdir}/tasks
 %{gem_instdir}/templates
 %{gem_instdir}/assets
