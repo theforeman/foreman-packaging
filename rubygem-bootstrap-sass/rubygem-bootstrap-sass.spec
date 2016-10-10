@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Oct 10 2016 Dominic Cleal <dominic@cleal.org> 3.3.7-1
+- Update bootstrap-sass to 3.3.7 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 3.3.6-3
 - Use gem_install macro (dominic@cleal.org)
 
