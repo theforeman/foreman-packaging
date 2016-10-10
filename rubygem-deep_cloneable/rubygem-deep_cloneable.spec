@@ -70,6 +70,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Mon Oct 10 2016 Dominic Cleal <dominic@cleal.org> 2.2.2-1
+- Update deep_cloneable to 2.2.2 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 2.1.1-4
 - Use gem_install macro (dominic@cleal.org)
 
