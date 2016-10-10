@@ -5,8 +5,8 @@
 
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.1
-Release: 4%{?dist}
+Version: 2.2.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/moiristo/deep_cloneable
@@ -15,8 +15,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem-activerecord >= 1:3.1.0
-Requires: %{?scl_prefix_ror}rubygem-activerecord < 1:5.0.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 3.1.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -25,7 +25,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Extends the functionality of ActiveRecord::Base#clone to perform a deep clone
+Extends the functionality of ActiveRecord::Base#dup to perform a deep clone
 that includes user specified associations.
 
 
@@ -56,6 +56,7 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/LICENSE
 %{gem_instdir}/*
 %{gem_instdir}/lib
 %exclude %{gem_cache}
@@ -66,7 +67,7 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/readme.md
 
 %changelog
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 2.1.1-4
