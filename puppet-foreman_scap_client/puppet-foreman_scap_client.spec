@@ -44,3 +44,6 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/templates
 
 %changelog
+* Thu Oct 13 2016 Dominic Cleal <dominic@cleal.org> 0.3.11-1
+- new package built with tito
+
