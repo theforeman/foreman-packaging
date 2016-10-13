@@ -5,7 +5,7 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.6
+Version: 0.3.7
 Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
@@ -13,12 +13,12 @@ Group: Development/Libraries
 #Twitter Bootstrap and google-code-prettify are licensed under Apache License
 #2.0. Copy is included in file APACHE-LICENSE-2.0.
 License: MIT and ASL 2.0
-URL: http://github.com/Pajk/apipie-rails
+URL: http://github.com/Apipie/apipie-rails
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-
 
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
@@ -44,10 +44,9 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -72,9 +71,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rspec
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Gemfile.*
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/MIT-LICENSE
 %doc %{gem_instdir}/README.rst
 %doc %{gem_instdir}/CHANGELOG.md
