@@ -1,3 +1,9 @@
+ruby-dynflow (0.8.15-2) stable; urgency=low
+
+  * drop dependency onto ruby-concurrent-dynflow
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 13 Oct 2016 03:48:33 +0200
+
 ruby-dynflow (0.8.15-1) stable; urgency=low
 
   * 0.8.15 released
