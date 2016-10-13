@@ -482,8 +482,7 @@ whitelist = ipxe
 [foreman-plugins-1.12-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = puppet-foreman_scap_client
-  rubygem-algebrick
+whitelist = rubygem-algebrick
   rubygem-angular-rails-templates
   rubygem-apipie-params
   rubygem-azure
@@ -560,7 +559,8 @@ whitelist = puppet-foreman_scap_client
 
 [foreman-plugins-1.12-nonscl-rhel7]
 disttag = .el7
-whitelist = rubygem-algebrick
+whitelist = puppet-foreman_scap_client
+  rubygem-algebrick
   rubygem-apipie-params
   rubygem-chef-api
   rubygem-concurrent-ruby
