@@ -120,6 +120,8 @@
       <packagereq type="default">tfm-rubygem-uuid</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
+      <packagereq type="default">puppet-foreman_scap_client</packagereq>
+      
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
