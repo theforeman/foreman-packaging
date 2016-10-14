@@ -586,6 +586,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_monitoring
+  rubygem-smart_proxy_omaha
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_remote_execution_ssh
@@ -669,6 +670,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_monitoring
+  rubygem-smart_proxy_omaha
   rubygem-smart_proxy_openscap
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_remote_execution_ssh
