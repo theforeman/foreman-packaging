@@ -98,6 +98,7 @@ whitelist = foreman-installer
   nodejs-lodash
   nodejs-multiselect
   nodejs-react
+  nodejs-react-bootstrap
   nodejs-react-dom
   nodejs-select2
   nodejs-stats-webpack-plugin
@@ -398,6 +399,7 @@ whitelist = foreman
   nodejs-lodash
   nodejs-multiselect
   nodejs-react
+  nodejs-react-bootstrap
   nodejs-react-dom
   nodejs-select2
   nodejs-stats-webpack-plugin
