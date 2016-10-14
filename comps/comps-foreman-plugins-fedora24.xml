@@ -69,6 +69,7 @@
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_omaha</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
@@ -186,6 +187,7 @@
       <packagereq type="default">rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
