@@ -4,8 +4,8 @@
 %global gem_name font-awesome-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.2.1
-Release: 3%{?dist}
+Version: 4.6.2
+Release: 1%{?dist}
 Summary: Font-Awesome SASS
 Group: Development/Languages
 License: MIT
@@ -15,7 +15,6 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.2
-Requires: %{?scl_prefix_ror}rubygem(sass) < 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
