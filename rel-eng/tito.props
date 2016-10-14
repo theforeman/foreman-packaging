@@ -96,6 +96,7 @@ whitelist = foreman-installer
   nodejs-jstz
   nodejs-lodash
   nodejs-multiselect
+  nodejs-react
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
@@ -393,6 +394,7 @@ whitelist = foreman
   nodejs-jstz
   nodejs-lodash
   nodejs-multiselect
+  nodejs-react
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
