@@ -537,6 +537,7 @@ whitelist = rubygem-algebrick
 disttag = .el6
 whitelist = ipxe
   rubygem-apipie-params
+  rubygem-builder
   rubygem-chef-api
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge

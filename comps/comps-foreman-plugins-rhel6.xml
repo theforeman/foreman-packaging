@@ -12,6 +12,7 @@
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_azure</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
@@ -34,11 +35,13 @@
       <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_remote_execution_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_reserve</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_salt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_setup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
@@ -173,6 +176,7 @@
       <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
@@ -195,11 +199,13 @@
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_remote_execution_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_reserve-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
