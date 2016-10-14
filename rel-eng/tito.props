@@ -61,6 +61,7 @@ whitelist = foreman-installer
   rubygem-powerbar
   rubygem-rack-protection
   rubygem-rb-inotify
+  rubygem-rkerberos
   rubygem-rubyipmi
   rubygem-sinatra
   rubygem-tilt
