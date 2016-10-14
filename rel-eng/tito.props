@@ -495,6 +495,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_host_extra_validator
   rubygem-foreman_host_rundeck
   rubygem-foreman_memcache
+  rubygem-foreman_monitoring
   rubygem-foreman_noenv
   rubygem-foreman_one
   rubygem-foreman_openscap
@@ -515,6 +516,7 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
   rubygem-hammer_cli_foreman_docker
+  rubygem-hammer_cli_foreman_openscap
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
@@ -552,6 +554,7 @@ whitelist = ipxe
   rubygem-satyr
   rubygem-sequel
   rubygem-smart_proxy_abrt
+  rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_discovery
