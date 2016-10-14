@@ -183,6 +183,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
+      <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
