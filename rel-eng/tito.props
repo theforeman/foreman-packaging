@@ -476,6 +476,7 @@ whitelist = rubygem-algebrick
   rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
+  rubygem-foreman_ansible_core
   rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
@@ -505,6 +506,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_setup
   rubygem-foreman_snapshot
   rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-graphite-api
