@@ -26,6 +26,8 @@ Source14: react-bootstrap-0.30.5-registry.npmjs.org.tgz
 Requires: nodejs(engine)
 BuildRequires: npm
 BuildRequires: nodejs-packaging
+BuildRequires: npm(react) >= 0.14.0
+BuildRequires: npm(react-dom) >= 0.14.0
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -64,6 +66,8 @@ done
 %setup -T -q -a 14 -D -n npm_cache
 
 %build
+mkdir node_modules
+ln -s %{nodejs_sitelib}/{react,react-dom} node_modules/
 npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
 
 %install
