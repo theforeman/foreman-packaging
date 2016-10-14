@@ -42,7 +42,7 @@ case "$1" in
     trap "rm -rf $TEMP" EXIT
     (
       cd $TEMP
-      if ruby $FOREMAN_HOME/extra/migrate_settings.rb -t . > /var/log/foreman-proxy/migrate_settings.log 2>&1; then
+      if /usr/bin/ruby2.0 $FOREMAN_HOME/extra/migrate_settings.rb -t . > /var/log/foreman-proxy/migrate_settings.log 2>&1; then
         (
           cd result && for f in migration_state settings.yml settings.d/*.yml; do
             [ -e "$f" ] && cat $f > ${CONFIGDIR}/$f
