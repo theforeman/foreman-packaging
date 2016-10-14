@@ -79,6 +79,7 @@ whitelist = foreman-installer
   nodejs-babel-plugin-transform-object-assign
   nodejs-babel-plugin-transform-object-rest-spread
   nodejs-babel-preset-es2015
+  nodejs-babel-preset-react
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
@@ -375,6 +376,7 @@ whitelist = foreman
   nodejs-babel-plugin-transform-object-assign
   nodejs-babel-plugin-transform-object-rest-spread
   nodejs-babel-preset-es2015
+  nodejs-babel-preset-react
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
