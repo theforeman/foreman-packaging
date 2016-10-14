@@ -55,3 +55,6 @@ cp -pf CONTRIBUTING.md LICENSE README.md ../../
 %doc README.md
 
 %changelog
+* Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.4.11-1
+- new package built with tito
+
