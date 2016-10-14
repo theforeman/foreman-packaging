@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.30.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Bootstrap 3 components built with React
 License: MIT
 URL: https://react-bootstrap.github.io/
@@ -83,6 +83,9 @@ cp -pf CHANGELOG.md LICENSE README.md ../../
 %doc README.md
 
 %changelog
+* Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.30.5-2
+- Use existing react, react-dom peer dependencies (dominic@cleal.org)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.30.5-1
 - new package built with tito
 
