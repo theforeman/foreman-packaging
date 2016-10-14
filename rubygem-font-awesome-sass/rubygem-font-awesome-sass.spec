@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 4.6.2-1
+- Update font-awesome-sass to 4.6.2 (dominic@cleal.org)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 4.3.2.1-3
 - Use gem_install macro (dominic@cleal.org)
 
