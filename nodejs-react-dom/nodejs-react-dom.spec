@@ -47,3 +47,6 @@ cp -pfr LICENSE PATENTS README.md dist index.js package.json server.js %{buildro
 %doc README.md
 
 %changelog
+* Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 15.3.2-1
+- new package built with tito
+
