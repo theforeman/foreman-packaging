@@ -4,17 +4,17 @@
 %global gem_name patternfly-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.10.1
-Release: 3%{?dist}
+Version: 3.11.0
+Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/Patternfly/patternfly-sass
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.5
+Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.7
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
-Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.3.0
-Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.4.0
+Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2
+Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.7.0
 Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.4.15
 Requires: %{?scl_prefix_ror}rubygem(sass) < 3.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -56,7 +56,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/assets
 %{gem_instdir}/bower.json
 %{gem_libdir}
-%{gem_instdir}/package.json
 %{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
