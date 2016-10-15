@@ -6,19 +6,27 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Various middleware for Faraday
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lostisland/faraday_middleware
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(faraday) < 0.10
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.7.4
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
@@ -78,5 +86,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/faraday_middleware.gemspec
 
 %changelog
+* Fri Oct 14 2016 Eric D Helms <ericdhelms@gmail.com> 0.10.0-2
+- 
+
 * Tue May 17 2016 Daniel Lobato - 0.10.0-1
 - Initial package
