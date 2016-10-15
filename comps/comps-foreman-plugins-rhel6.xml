@@ -106,6 +106,7 @@
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-apipie-params</packagereq>
+      <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
@@ -128,6 +129,7 @@
       <!--RGD-START-->
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
+      <packagereq type="default">rubygem-builder-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
