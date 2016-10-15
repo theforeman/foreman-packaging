@@ -6,7 +6,7 @@
 Summary: Use with Net::HTTP to do multipart form posts
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nicksieger/multipart-post
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.txt
 
 %changelog
+* Sat Oct 15 2016 Eric D Helms <ericdhelms@gmail.com> 1.2.0-5
+- Add rubygem-multipart-post (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
