@@ -6,19 +6,27 @@
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lostisland/faraday
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(multipart-post) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(multipart-post) < 3
 
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
@@ -77,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Oct 14 2016 Eric D Helms <ericdhelms@gmail.com> 0.9.1-4
+- 
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
