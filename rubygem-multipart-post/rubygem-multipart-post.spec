@@ -12,11 +12,19 @@ License: MIT
 URL: https://github.com/nicksieger/multipart-post
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch

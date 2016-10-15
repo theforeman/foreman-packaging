@@ -549,6 +549,7 @@ whitelist = ipxe
   rubygem-infoblox
   rubygem-logify
   rubygem-mysql2
+  rubygem-multipart-post
   rubygem-newt
   rubygem-openscap
   rubygem-route53
