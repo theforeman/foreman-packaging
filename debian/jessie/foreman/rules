@@ -17,8 +17,8 @@ build/foreman::
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/cp config/email.yaml.example config/email.yaml
 	/usr/bin/gem install -f thor -v '0.19.1'
-	/usr/bin/npm install npm
-	/usr/bin/nodejs node_modules/.bin/npm install --no-optional
+	NODE_ENV=production /usr/bin/npm install npm --no-optional
+	NODE_ENV=production /usr/bin/nodejs node_modules/.bin/npm install --no-optional
 	/usr/bin/bundle package
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
