@@ -536,6 +536,7 @@ whitelist = rubygem-algebrick
 [foreman-plugins-1.13-nonscl-rhel6]
 disttag = .el6
 whitelist = ipxe
+  rubygem-algebrick
   rubygem-apipie-params
   rubygem-builder
   rubygem-chef-api

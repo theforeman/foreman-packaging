@@ -1,13 +1,13 @@
 [foreman-plugins]
 name=Foreman plugins 1.13
-baseurl=http://yum.theforeman.org/plugins/1.13/$DIST/$basearch
+baseurl=https://fedorapeople.org/groups/katello/releases/yum/foreman/plugins-1.13/$DIST/$basearch/
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 [foreman-plugins-source]
 name=Foreman plugins 1.13 - source
-baseurl=http://yum.theforeman.org/plugins/1.13/$DIST/source
+baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/foreman/plugins-1.13/$DIST/$basearch/
 enabled=0
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
