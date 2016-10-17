@@ -522,6 +522,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
+  rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
@@ -641,6 +642,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
+  rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
@@ -756,6 +758,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
+  rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
