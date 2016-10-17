@@ -113,3 +113,6 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Oct 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
+- new package built with tito
+
