@@ -916,10 +916,17 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+<<<<<<< 66abd2fece25f662de27a11d0504cd974b76ef1c
 <<<<<<< 1f043aeb837314aae673c9193c158ee32d0ffb19
 * Wed Oct 26 2016 Dominic Cleal <dominic@cleal.org> 1.13.1-1
 - Release 1.13.1
 =======
+=======
+* Mon Oct 17 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.0-3
+- Update foreman.repo to set gpgcheck and use Katello GPG key
+  (ericdhelms@gmail.com)
+
+>>>>>>> Automatic commit of package [foreman] minor release [1.13.0-3.fm1_13].
 * Sun Oct 16 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.0-2
 - Update foreman repos to point at Katello's EL6 location
   (ericdhelms@gmail.com)
