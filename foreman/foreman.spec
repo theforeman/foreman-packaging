@@ -29,6 +29,7 @@ Source5: %{name}.tmpfiles
 Source6: %{name}.repo
 Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
+Source9: katello.gpg
 BuildArch:  noarch
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -680,6 +681,7 @@ install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
 sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
 install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
+install -Dpm0644 %{SOURCE9} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script %{buildroot}%{_datadir}/%{name}
