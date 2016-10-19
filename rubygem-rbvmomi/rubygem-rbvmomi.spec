@@ -5,21 +5,32 @@
 
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
-Release: 4%{?dist}
+Version: 1.9.4
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+# git clone https://github.com/vmware/rbvmomi.git && cd rbvmomi/
+# git checkout v1.9.4
+# tar czvf rbvmomi-1.9.4-tests.tgz test/
+Source1: %{gem_name}-%{version}-tests.tgz
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.4.1
-Requires: %{?scl_prefix_ror}rubygem(builder)
-Requires: %{?scl_prefix}rubygem(trollop)
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
+Requires: %{?scl_prefix_ror}rubygem(builder) >= 3.2
+Requires: %{?scl_prefix_ror}rubygem(builder) < 4.0
+Requires: %{?scl_prefix}rubygem(trollop) >= 2.1
+Requires: %{?scl_prefix}rubygem(trollop) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.4.1
-BuildRequires: %{?scl_prefix_ror}rubygem(builder)
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
+BuildRequires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5
+BuildRequires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
+BuildRequires: %{?scl_prefix_ror}rubygem(builder) >= 3.2
+BuildRequires: %{?scl_prefix_ror}rubygem(builder) < 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
@@ -45,11 +56,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -62,10 +71,13 @@ mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 
 %check
 pushd %{buildroot}%{gem_instdir}
+tar xzvf %{SOURCE1}
+sed -i '/simplecov/I s/^\( *\)/\1#/' test/test_helper.rb
+
 %{?scl:scl enable %{scl} - <<EOF}
 ruby -Ilib:test -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
 %{?scl:EOF}
@@ -75,21 +87,23 @@ popd
 %dir %{gem_instdir}
 %doc %{gem_instdir}/LICENSE
 %{_bindir}/rbvmomish
-%{gem_instdir}/bin
+%{gem_instdir}/exe
 %{gem_libdir}
 %{gem_instdir}/vmodl.db
-%exclude %{gem_instdir}/.yardopts
+%exclude %{gem_instdir}/.*
 %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/VERSION
+%doc %{gem_instdir}/CONTRIBUTORS.md
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/devel
 %{gem_instdir}/test
 %doc %{gem_instdir}/examples
+%{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/*.gemspec
 
 %changelog
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.8.2-4
