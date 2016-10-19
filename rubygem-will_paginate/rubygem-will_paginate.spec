@@ -76,6 +76,9 @@ popd
 %doc %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 3.1.5-1
+- Update will_paginate to 3.1.5 (dominic@cleal.org)
+
 * Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 3.1.3-1
 - Update will_paginate to 3.1.3 (dominic@cleal.org)
 
