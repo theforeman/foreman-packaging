@@ -456,6 +456,7 @@ whitelist = foreman
   rubygem-rack-jsonp
   rubygem-rails-i18n
   rubygem-rbovirt
+  rubygem-rbvmomi
   rubygem-retriable
   rubygem-roadie
   rubygem-roadie-rails

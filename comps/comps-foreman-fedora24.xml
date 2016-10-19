@@ -107,6 +107,7 @@
       <packagereq type="default">rubygem-rack-jsonp</packagereq>
       <packagereq type="default">rubygem-rails-i18n</packagereq>
       <packagereq type="default">rubygem-rbovirt</packagereq>
+      <packagereq type="default">rubygem-rbvmomi</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
       <packagereq type="default">rubygem-roadie</packagereq>
       <packagereq type="default">rubygem-roadie-rails</packagereq>
@@ -193,6 +194,7 @@
       <packagereq type="default">rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">rubygem-rbovirt-doc</packagereq>
+      <packagereq type="default">rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">rubygem-retriable-doc</packagereq>
       <packagereq type="default">rubygem-roadie-doc</packagereq>
       <packagereq type="default">rubygem-roadie-rails-doc</packagereq>
