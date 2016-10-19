@@ -468,6 +468,7 @@ whitelist = foreman
   rubygem-strong_parameters
   rubygem-table_print
   rubygem-therubyracer
+  rubygem-trollop
   rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
