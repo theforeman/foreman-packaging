@@ -66,6 +66,9 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-1
+- Update hammer_cli_foreman_openscap to 0.1.2 (oprazak@redhat.com)
+
 * Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
 - new package built with tito
 
