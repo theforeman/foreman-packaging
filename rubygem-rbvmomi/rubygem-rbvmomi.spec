@@ -106,6 +106,9 @@ popd
 %exclude %{gem_instdir}/*.gemspec
 
 %changelog
+* Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 1.9.4-1
+- Update rbvmomi to 1.9.4 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.8.2-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
