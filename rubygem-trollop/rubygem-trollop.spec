@@ -85,6 +85,9 @@ ruby -Ilib:test test/test_trollop.rb | grep "1 failures, 1 errors"
 %{gem_instdir}/test
 
 %changelog
+* Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 2.1.2-1
+- Update trollop to 2.1, modernise (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0-5
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Fix build errors and modernise specs (dcleal@redhat.com)
