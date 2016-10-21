@@ -5,7 +5,7 @@
 %global plugin_name omaha
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
