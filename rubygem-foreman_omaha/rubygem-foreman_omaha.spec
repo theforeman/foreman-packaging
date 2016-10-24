@@ -97,6 +97,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Oct 24 2016 Dominic Cleal <dominic@cleal.org> 0.0.2-1
+- Update foreman_omaha to 0.0.2 (timo.goebel@dm.de)
+
 * Mon Oct 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
 
