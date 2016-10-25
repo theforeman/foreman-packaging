@@ -117,6 +117,9 @@ rm -f %{buildroot}%{gem_libdir}/mysql2/*.so
 %{gem_instdir}/examples
 
 %changelog
+* Tue Oct 25 2016 Dominic Cleal <dominic@cleal.org> 0.4.5-1
+- Update mysql2 to 0.4.5 (dominic@cleal.org)
+
 * Thu Feb 04 2016 Dominic Cleal <dcleal@redhat.com> 0.3.19-5
 - fix missing mysql2.so and gem.build_complete (#13296)
 
