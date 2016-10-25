@@ -3,7 +3,7 @@
 
 %define gem_name mysql2
 
-%define version 0.3.19
+%define version 0.4.5
 
 %if 0%{?scl:1}
 %{!?gem_extdir_mri:%global gem_extdir_mri %{gem_extdir}}
@@ -22,10 +22,10 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 5%{?dist}
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://mysql-win.rubyforge.org
+URL: http://github.com/brianmario/mysql2
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.6
@@ -111,8 +111,9 @@ rm -f %{buildroot}%{gem_libdir}/mysql2/*.so
 %exclude %{gem_instdir}/support
 
 %files doc
-%{gem_docdir}
-%{gem_instdir}/README.md
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/examples
 
 %changelog
