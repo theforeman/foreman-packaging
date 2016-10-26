@@ -6,8 +6,8 @@
 Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.0.0
-Release: 5%{?dist}
+Version: 2.2.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
@@ -29,9 +29,6 @@ siblings, descendants) and all of them can be fetched in a single sql query.
 Additional features are named_scopes, integrity checking, integrity
 restoration, arrangement of (sub)tree into hashes and different strategies
 for dealing with orphaned records.
-
-%description
-TTFunk is a TrueType font parser written in pure ruby.
 
 %package doc
 BuildArch:  noarch
@@ -55,22 +52,14 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %build
 mkdir -p .%{gem_dir}
 
-%{?scl:scl enable %{scl} "}
 # Create the gem as gem install only works on a gem file
-%{?scl:"}
 %{?scl:scl enable %{scl} "}
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
-rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
+%{?scl:scl enable %{scl} - << EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -78,17 +67,19 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
 
 %files
-%doc MIT-LICENSE README.rdoc
+%doc MIT-LICENSE
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/init.rb
 %{gem_instdir}/install.rb
 %{gem_instdir}/ancestry.gemspec
-%{gem_cache}
+%exclude %{gem_instdir}/.*
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%{gem_docdir}
+%doc %{gem_docdir}
+%doc README.rdoc
 
 %changelog
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 2.0.0-5
