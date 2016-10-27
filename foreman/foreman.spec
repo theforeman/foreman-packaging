@@ -14,7 +14,7 @@
 
 Name:   foreman
 Version: 1.13.1
-Release: 1%{?dotalphatag}%{?dist}
+Release: 2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -918,6 +918,40 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.1-2
+- Fix foreman spec file from rebase (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-5.fm1_13].
+  (ericdhelms@gmail.com)
+- Properly name Katello GPG key (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-4.fm1_13].
+  (ericdhelms@gmail.com)
+- Add Katello GPG key as foreman.gpg (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-3.fm1_13].
+  (ericdhelms@gmail.com)
+- Update foreman.repo to set gpgcheck and use Katello GPG key
+  (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-2.fm1_13].
+  (ericdhelms@gmail.com)
+- Update foreman repos to point at Katello's EL6 location
+  (ericdhelms@gmail.com)
+
+* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com>
+- Fix foreman spec file from rebase (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-5.fm1_13].
+  (ericdhelms@gmail.com)
+- Properly name Katello GPG key (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-4.fm1_13].
+  (ericdhelms@gmail.com)
+- Add Katello GPG key as foreman.gpg (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-3.fm1_13].
+  (ericdhelms@gmail.com)
+- Update foreman.repo to set gpgcheck and use Katello GPG key
+  (ericdhelms@gmail.com)
+- Automatic commit of package [foreman] minor release [1.13.0-2.fm1_13].
+  (ericdhelms@gmail.com)
+- Update foreman repos to point at Katello's EL6 location
+  (ericdhelms@gmail.com)
+
 * Wed Oct 26 2016 Dominic Cleal <dominic@cleal.org> 1.13.1-1
 - Release 1.13.1
 
