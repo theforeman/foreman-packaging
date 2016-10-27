@@ -43,4 +43,6 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
 
-%changelog
+%changelog* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com>
+- new package built with tito
+
