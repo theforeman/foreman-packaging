@@ -485,6 +485,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_column_view
   rubygem-foreman_content
   rubygem-foreman_custom_parameters
+  rubygem-foreman_expire_hosts
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
   rubygem-foreman_digitalocean
@@ -498,6 +499,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
+  rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_openstack_cluster
