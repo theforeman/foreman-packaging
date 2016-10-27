@@ -6,7 +6,7 @@
 
 Name:       puppet-%{puppet_module}
 Version:    0.3.11
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Puppet module to configure foreman_scap_client
 License:    GPLv2
 URL:        https://github.com/theforeman/%{name}
@@ -43,6 +43,9 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
 
-%changelog* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com>
-- new package built with tito
+%changelog
+* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com> 0.3.11-2
+- 
 
+* Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com>
+- new package built with tito
