@@ -32,7 +32,8 @@ BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet >= 3.6.0
 BuildRequires: %{?scl_prefix}rubygem-kafo >= 0.9.5
 %if 0%{?fedora} >= 22
-BuildRequires: %{?scl_prefix}rubygem-puppet-strings
+BuildRequires: %{?scl_prefix}rubygem(puppet-strings) >= 0.99
+BuildRequires: %{?scl_prefix}rubygem(puppet-strings) < 2
 %endif
 
 %description
