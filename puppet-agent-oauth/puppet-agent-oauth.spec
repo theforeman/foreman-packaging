@@ -32,7 +32,22 @@ cp -a ./%{gem_name}-%{version}.gem %{buildroot}%{gem_cache_dir}
 /opt/puppetlabs/puppet/bin/gem install --local %{gem_cache_dir}/%{gem_name}-%{version}.gem >/dev/null
 
 %preun
-/opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
+if [ $1 == 0 ]; then  # uninstall
+  /opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
+else  # upgrade
+  # Only uninstall on upgrade if there are multiple gem versions installed, as the package
+  # is probably changing version, not only undergoing a release bump
+  if ! /opt/puppetlabs/puppet/bin/gem list %{gem_name} | grep %{gem_name} | grep -q '(%{version})'; then
+    /opt/puppetlabs/puppet/bin/gem uninstall -x -v %{version} %{gem_name} >/dev/null
+  fi
+fi
+
+%posttrans
+# Workaround for older, broken preun scripts that remove the gem on release bump
+# Remove when this package is updated to a new version
+if ! /opt/puppetlabs/puppet/bin/gem list %{gem_name} | grep %{gem_name} | grep -q '(%{version})'; then
+  /opt/puppetlabs/puppet/bin/gem install --local %{gem_cache_dir}/%{gem_name}-%{version}.gem >/dev/null
+fi
 
 %changelog
 * Thu Sep 15 2016 Dominic Cleal <dominic@cleal.org> 0.5.1-2
