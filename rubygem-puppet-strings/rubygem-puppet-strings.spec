@@ -2,11 +2,11 @@
 
 Summary: Puppet documentation via YARD
 Name: rubygem-%{gem_name}
-Version: 0.4.0
+Version: 0.99.0
 Release: 1%{?dist}
 Group: System Environment/Base
 License: ASL-2.0
-URL: https://github.com/puppetlabs/puppetlabs-strings
+URL: https://github.com/puppetlabs/puppets-strings
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: puppet >= 3.7.0
 BuildRequires: ruby(release)
@@ -35,8 +35,11 @@ This package contains documentation for %{name}.
 %gem_install -n %{SOURCE0}
 
 %build
-# Puppet's shipped as a regular Ruby library, not a gem
-sed -i '/dependency.*puppet/d' .%{gem_spec}
+# Patch for compatibility with yard pre-0.9.2
+sed -i '/--no-progress/d' .%{gem_libdir}/puppet-strings.rb
+
+# Compatible with yard 0.8.x too now
+sed -i '/yard/ s/0\.9\.5/0.8/' .%{gem_spec}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -46,11 +49,16 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
+%license %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/*.md
+%{gem_instdir}/spec
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Rakefile
 
 %changelog
 * Fri May 27 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
