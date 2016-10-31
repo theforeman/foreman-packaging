@@ -70,6 +70,7 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %defattr(-,root,root,-)
 %doc README.* LICENSE
 %dir %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/custom-hiera.yaml
 %dir %{_sysconfdir}/%{name}/scenarios.d
 %{_sysconfdir}/%{name}/scenarios.d/foreman.migrations
 %config %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman.yaml
