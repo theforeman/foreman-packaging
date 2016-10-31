@@ -61,6 +61,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Oct 31 2016 Dominic Cleal <dominic@cleal.org> 0.99.0-1
+- Update puppet-strings to 0.99.0 (dominic@cleal.org)
+
 * Fri May 27 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
 - new package built with tito
 
