@@ -1,3 +1,9 @@
+ruby-kafo-parsers (0.1.4-1) stable; urgency=low
+
+  * Update kafo_parsers to 0.1.4
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 01 Nov 2016 09:17:49 +0100
+
 ruby-kafo-parsers (0.1.3-1) stable; urgency=low
 
   * Update kafo_parsers to 0.1.3
