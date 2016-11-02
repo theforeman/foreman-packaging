@@ -74,6 +74,11 @@ GEMFILE
 mkdir -p %{buildroot}%{foreman_dir}/config/hooks
 ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 
+# debug script
+chmod +x %{buildroot}%{gem_instdir}/extra/foreman-debug.sh
+%{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
+ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/50-foreman_hooks
+
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
@@ -84,6 +89,7 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %{foreman_dir}/config/hooks
 %{foreman_dir}/%{gem_name}
+%{foreman_dir}/script/foreman-debug.d/50-foreman_hooks
 
 %exclude %{gem_instdir}/test
 %exclude %{gem_cache}
