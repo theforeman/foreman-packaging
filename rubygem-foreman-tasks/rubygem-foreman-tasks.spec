@@ -114,6 +114,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service
 mkdir -p %{buildroot}%{bin_dir}
 ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
 
+#link dynflow-debug.sh to be called from foreman-debug
+ln -s %{gem_instdir}/extra/dynflow-debug.sh %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
+
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
 %if 0%{?rhel} == 6
