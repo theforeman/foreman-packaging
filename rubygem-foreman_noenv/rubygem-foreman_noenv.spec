@@ -17,7 +17,7 @@
 
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.6
+Version:    0.0.7
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -102,6 +102,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Mon Nov 07 2016 Josh Baird <jbaird@follett.com> 0.0.7-1
+- Support for Foreman 1.13.x
+
 * Mon Aug 08 2016 Josh Baird <jbaird@follett.com> 0.0.6-1
 - Fix whitelisting problem for noenv attribute
 
