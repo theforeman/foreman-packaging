@@ -1,4 +1,3 @@
-LoadModule passenger_module modules/mod_passenger.so
 <IfModule mod_passenger.c>
    PassengerRoot @PASSENGERROOT@
    PassengerRuby @BINDIR@/ruby
