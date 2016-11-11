@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -86,6 +86,10 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Nov 11 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-2
+- Make OpenSCAP scanner dependency more specific (#17280,
+  chrobert@redhat.com)
+
 * Mon Nov 02 2015 Dominic Cleal <dcleal@redhat.com> 0.1.2-1
 - foreman_scap_client 0.1.2 (shlomi@ben-hanna.com)
 
