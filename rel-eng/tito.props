@@ -497,10 +497,8 @@ whitelist = rubygem-algebrick
   rubygem-fog-azure
   rubygem-git
   rubygem-jgrep
-  rubygem-macaddr
   rubygem-opennebula
   rubygem-systemu
-  rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
@@ -618,10 +616,8 @@ whitelist = rubygem-algebrick
   rubygem-fog-azure
   rubygem-git
   rubygem-jgrep
-  rubygem-macaddr
   rubygem-opennebula
   rubygem-systemu
-  rubygem-uuid
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core

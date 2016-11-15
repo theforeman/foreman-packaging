@@ -70,6 +70,7 @@ Obsoletes: %{scl_prefix}rubygem-ipaddrjs-rails < 1.1.1-2
 Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
+Obsoletes: %{scl_prefix}rubygem-macaddr < 1.7.1-2
 Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
 Obsoletes: %{scl_prefix}rubygem-multi-select-rails < 0.9.12-6
 Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
@@ -80,6 +81,7 @@ Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
 Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
 Obsoletes: %{scl_prefix}rubygem-underscore-rails < 1.8.3-5
+Obsoletes: %{scl_prefix}rubygem-uuid < 2.3.8-2
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 
 %description runtime
