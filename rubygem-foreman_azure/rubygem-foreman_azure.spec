@@ -5,21 +5,21 @@
 %global plugin_name azure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure as a Compute Resource of Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_azure
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.9.0
+Requires: foreman >= 1.11.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-azure) = 0.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.9.0
+BuildRequires: foreman-plugin >= 1.11.0
 BuildRequires: %{?scl_prefix}rubygem(fog-azure) = 0.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
