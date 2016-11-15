@@ -97,7 +97,7 @@ exit 0
 
 %changelog
 * Tue Nov 15 2016 Dominic Cleal <dominic@cleal.org> 1.1.1-1
-- Update foreman_azure to 1.1.0 (me@daniellobato.me)
+- Update foreman_azure to 1.1.1 (me@daniellobato.me)
 
 * Tue Oct 04 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
 - Update foreman_azure to 1.0.2 (me@daniellobato.me)
