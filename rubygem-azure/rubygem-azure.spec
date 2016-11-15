@@ -5,7 +5,7 @@
 %global gem_name azure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.5
+Version: 0.7.7
 Release: 1%{?dist}
 Summary: Official ruby client library to consume Microsoft Azure services
 Group: Development/Languages
@@ -27,15 +27,13 @@ Requires: %{?scl_prefix}rubygem(faraday_middleware) < 1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
 Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.0
-Requires: %{?scl_prefix_ror}rubygem(mime-types) < 3.0
+Requires: %{?scl_prefix_ror}rubygem(mime-types) < 4.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
 Requires: %{?scl_prefix}rubygem(systemu) >= 2.6
 Requires: %{?scl_prefix}rubygem(systemu) < 3.0
 Requires: %{?scl_prefix_ruby}rubygem(thor) >= 0.19
 Requires: %{?scl_prefix_ruby}rubygem(thor) < 1.0
-Requires: %{?scl_prefix}rubygem(uuid) >= 2.0
-Requires: %{?scl_prefix}rubygem(uuid) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 buildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -93,9 +91,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_cache}
 %{gem_spec}
 
+%exclude %{gem_instdir}/.*
+
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/.env_sample
+%doc %{gem_instdir}/ChangeLog.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
 %{gem_instdir}/azure.gemspec
