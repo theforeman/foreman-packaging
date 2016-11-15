@@ -102,5 +102,8 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/azure.gemspec
 
 %changelog
+* Tue Nov 15 2016 Dominic Cleal <dominic@cleal.org> 0.7.7-1
+- Update azure to 0.7.7 (dominic@cleal.org)
+
 * Fri May 13 2016 Daniel Lobato - 0.7.5-1
 - Initial package
