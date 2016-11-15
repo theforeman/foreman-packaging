@@ -1,3 +1,9 @@
+ruby-foreman-azure (1.3.1-1) stable; urgency=low
+
+  * 1.3.1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 23 Mar 2017 16:34:31 +0100
+
 ruby-foreman-azure (1.3.0-1) stable; urgency=low
 
   * 1.3.0 released
