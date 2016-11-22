@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.8.6-1) stable; urgency=low
+
+  * 0.8.6 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Tue, 22 Nov 2016 18:04:56 +0100
+
 ruby-foreman-tasks (0.8.2-2) stable; urgency=low
 
   * Update embedded dynflow gem to 0.8.15
