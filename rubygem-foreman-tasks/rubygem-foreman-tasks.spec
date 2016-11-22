@@ -17,7 +17,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.2
+Version: 0.8.6
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -26,7 +26,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.9.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.13
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.17
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
@@ -50,7 +50,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.8
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.17
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
@@ -105,14 +105,19 @@ mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
 
 #copy init scripts and sysconfigs
+install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{sysconfig_dir}/%{service_name}
 %if 0%{?rhel} == 6
 install -Dp -m0755 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
 %else
-install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{sysconfig_dir}/%{service_name}
 install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
 %endif
 mkdir -p %{buildroot}%{bin_dir}
 ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
+
+#link dynflow-debug.sh to be called from foreman-debug
+chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
+%{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
+ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
@@ -158,6 +163,7 @@ exit 0
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/locale
+%{gem_instdir}/extra
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
@@ -165,13 +171,14 @@ exit 0
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %doc %{gem_instdir}/LICENSE
 %{bin_dir}/%{service_name}
+%config %{sysconfig_dir}/%{service_name}
 %if 0%{?rhel} == 6
 %{_root_initddir}/%{service_name}
 %else
 %{_unitdir}/%{service_name}.service
-%{sysconfig_dir}/%{service_name}
 %endif
 
 
