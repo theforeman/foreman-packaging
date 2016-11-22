@@ -7,7 +7,7 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 # DEB_VERBOSE_ALL=1
 # DH_VERBOSE=1
 
-build/foreman::
+build:
 	#
 	# Build the gem cache
 	#
