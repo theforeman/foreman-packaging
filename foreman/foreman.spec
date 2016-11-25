@@ -77,6 +77,7 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.5
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
@@ -665,6 +666,7 @@ make -C locale all-mo
 
 #use Bundler_ext instead of Bundler
 mv Gemfile Gemfile.in
+rm bundler.d/foreman_tasks.rb
 cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
 #we need to allow taxonomies so apipie cache renders documentation with them
