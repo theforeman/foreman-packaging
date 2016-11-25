@@ -13,7 +13,7 @@ Architecture: any
 Section: web
 Priority: extra
 Depends: ruby2.0, bundler (>= 1.3.5-2ubuntu2), ruby2.0-dev,
-         zlib1g-dev, build-essential,
+         zlib1g-dev, build-essential, ruby-foreman-tasks (>= 0.8.5),
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug, python-minimal
 Description: Systems management web interface

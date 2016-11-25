@@ -15,7 +15,7 @@ Section: web
 Priority: extra
 Depends: ruby2.3, bundler (>= 1.3), zlib1g-dev,
          ruby2.3-dev, build-essential,
-         rake (>=0.8.4), ${misc:Depends}
+         rake (>=0.8.4), ruby-foreman-tasks (>= 0.8.5), ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug, python-minimal
 Conflicts: ruby-activerecord-deprecated-finders
 Description: Systems management web interface
