@@ -31,6 +31,14 @@ Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 BuildArch:  noarch
 
+Requires: %{name}-core = %{version}-%{release}
+Requires: %{name}-debug
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.5
+
+%package core
+Summary: Foreman Core
+Group: Applications/System
+
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
@@ -48,9 +56,6 @@ Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
-
-# Subpackages
-Requires: %{name}-debug
 
 # Gemfile
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
@@ -77,7 +82,6 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.5
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
@@ -302,6 +306,67 @@ BuildRequires: %{?scl_prefix}rubygem(facter)
 BuildRequires: facter
 %endif
 
+%description core
+Meta Package to install foreman core source code with minimal dependencies
+
+%files core
+%defattr(-,root,root,0755)
+%doc CHANGELOG Contributors LICENSE README.md VERSION
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/app
+%exclude %{_datadir}/%{name}/app/assets
+%exclude %{_datadir}/%{name}/script/%{name}-debug.d
+%dir %{_datadir}/%{name}/bundler.d
+%exclude %{_datadir}/%{name}/bundler.d/development.rb
+%{_datadir}/%{name}/bundler.d/facter.rb
+%{_datadir}/%{name}/bundler.d/jsonp.rb
+%exclude %{_datadir}/%{name}/bundler.d/openid.rb
+%exclude %{_datadir}/%{name}/bundler.d/test.rb
+%{_datadir}/%{name}/bin
+%{_datadir}/%{name}/config*
+%{_datadir}/%{name}/db
+%{_datadir}/%{name}/extras
+%{_datadir}/%{name}/Gemfile.in
+%{_datadir}/%{name}/lib
+%{_datadir}/%{name}/locale
+%{_datadir}/%{name}/log
+%{_datadir}/%{name}/migrate
+%{_datadir}/%{name}/plugins
+%{_datadir}/%{name}/public
+%{_datadir}/%{name}/Rakefile
+%{_datadir}/%{name}/script
+%{_datadir}/%{name}/seeds.*
+%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
+%{_datadir}/%{name}/tmp
+%{_datadir}/%{name}/VERSION
+%{_initrddir}/%{name}
+%{_sbindir}/%{name}-rake
+%{_sbindir}/%{name}-tail
+%{_mandir}/man8
+%config(noreplace) %{_sysconfdir}/%{name}
+%ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config %{_sysconfdir}/cron.d/%{name}
+%{_sysconfdir}/rpm/macros.%{name}
+%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
+%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
+%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
+%attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
+%attr(-,%{name},root) %{_datadir}/%{name}/config.ru
+%attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
+# Symlink to /etc, EL6 needs attrs for ghost files, Fedora doesn't
+%if 0%{?rhel} == 6
+%ghost %attr(0777,root,root) %{_datadir}/%{name}/config/initializers/encryption_key.rb
+%else
+%ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
+%endif
+%ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+# Only need tmpfiles on systemd (F17 and up)
+%if 0%{?rhel} > 6 || 0%{?fedora} > 16
+%{_prefix}/lib/tmpfiles.d/%{name}.conf
+%endif
+
 %package cli
 Summary: Foreman CLI
 Group: Applications/System
@@ -346,7 +411,7 @@ Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.0.2
 Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
@@ -361,7 +426,7 @@ Summary: Foreman OpenStack support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.11
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description openstack
 Meta package to install requirements for OpenStack compute resource support.
@@ -375,7 +440,7 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2.0
 Requires: foreman-compute = %{version}-%{release}
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description ovirt
 Meta package to install requirements for oVirt compute resource support.
@@ -387,7 +452,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog) = 1.38.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
 Provides: foreman-fog = 1.0.0
@@ -406,7 +471,7 @@ Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
 Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
-Requires:  %{name} = %{version}-%{release}
+Requires:  %{name}-core = %{version}-%{release}
 
 %description ec2
 Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
@@ -419,7 +484,7 @@ Summary: Foreman Rackspace support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1
 Requires: %{?scl_prefix}rubygem(fog-rackspace) < 1.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description rackspace
 Meta package to install requirements for Rackspace compute resource support.
@@ -431,7 +496,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.6.2
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description vmware
 Meta package to install requirements for VMware compute resource support.
@@ -448,7 +513,7 @@ Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
 Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description gce
 Meta package to install requirements for Google Compute Engine (GCE) support
@@ -459,7 +524,7 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 %package assets
 Summary: Foreman asset pipeline support
 Group: Applications/system
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 %if 0%{?scl:1}
 Requires: %{scl}-runtime-assets >= 3
 Requires: %{scl}-runtime-assets < 4
@@ -565,7 +630,7 @@ Meta package to install asset pipeline support.
 %package plugin
 Summary: Foreman plugin support
 Group: Development/Libraries
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 Requires: %{name}-release = %{version}-%{release}
 Requires: %{name}-sqlite = %{version}-%{release}
 
@@ -574,7 +639,6 @@ Meta package with support for plugins.
 
 %files plugin
 %{_sysconfdir}/rpm/macros.%{name}-plugin
-
 
 %package console
 Summary: Foreman console support
@@ -585,7 +649,7 @@ Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
 Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description console
 Meta Package to install requirements for console support
@@ -598,7 +662,7 @@ Summary: Foreman mysql2 support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.13
 Requires: %{?scl_prefix}rubygem(mysql2) < 0.5.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
 Provides: %{name}-mysql = %{version}
 
@@ -613,7 +677,7 @@ Summary: Foreman Postgresql support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(pg) >= 0.15.0
 Requires: %{?scl_prefix}rubygem(pg) < 1.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description postgresql
 Meta Package to install requirements for postgresql support
@@ -626,7 +690,7 @@ Summary: Foreman sqlite support
 Group:  Applications/System
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 
 %description sqlite
 Meta Package to install requirements for sqlite support
@@ -820,7 +884,6 @@ export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\
-rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
@@ -837,62 +900,6 @@ EOF
 rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,0755)
-%doc CHANGELOG Contributors LICENSE README.md VERSION
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/app
-%exclude %{_datadir}/%{name}/app/assets
-%exclude %{_datadir}/%{name}/script/%{name}-debug.d
-%dir %{_datadir}/%{name}/bundler.d
-%exclude %{_datadir}/%{name}/bundler.d/development.rb
-%{_datadir}/%{name}/bundler.d/facter.rb
-%{_datadir}/%{name}/bundler.d/jsonp.rb
-%exclude %{_datadir}/%{name}/bundler.d/openid.rb
-%exclude %{_datadir}/%{name}/bundler.d/test.rb
-%{_datadir}/%{name}/bin
-%{_datadir}/%{name}/config*
-%{_datadir}/%{name}/db
-%{_datadir}/%{name}/extras
-%{_datadir}/%{name}/Gemfile.in
-%{_datadir}/%{name}/lib
-%{_datadir}/%{name}/locale
-%{_datadir}/%{name}/log
-%{_datadir}/%{name}/migrate
-%{_datadir}/%{name}/plugins
-%{_datadir}/%{name}/public
-%{_datadir}/%{name}/Rakefile
-%{_datadir}/%{name}/script
-%{_datadir}/%{name}/seeds.*
-%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
-%{_datadir}/%{name}/tmp
-%{_datadir}/%{name}/VERSION
-%{_initrddir}/%{name}
-%{_sbindir}/%{name}-rake
-%{_sbindir}/%{name}-tail
-%{_mandir}/man8
-%config(noreplace) %{_sysconfdir}/%{name}
-%ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%config %{_sysconfdir}/cron.d/%{name}
-%{_sysconfdir}/rpm/macros.%{name}
-%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
-%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
-%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
-%attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
-%attr(-,%{name},root) %{_datadir}/%{name}/config.ru
-%attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
-# Symlink to /etc, EL6 needs attrs for ghost files, Fedora doesn't
-%if 0%{?rhel} == 6
-%ghost %attr(0777,root,root) %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%else
-%ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%endif
-%ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
-# Only need tmpfiles on systemd (F17 and up)
-%if 0%{?rhel} > 6 || 0%{?fedora} > 16
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
-%endif
 
 %pre
 # Add the "foreman" user and group
