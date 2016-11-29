@@ -47,7 +47,9 @@ This package contains documentation for %{name}.
 %prep
 %setup -q -c -T
 %{__mkdir_p} .%{gem_dir}
-%gem_install -n %{SOURCE0}
+gem install --local --install-dir .%{gem_dir} \
+            --bindir .%{_bindir} \
+            --force %{SOURCE0} --no-ri --no-rdoc
 
 pushd .%{gem_instdir}
 %patch0 -p1
@@ -78,7 +80,6 @@ rm %{buildroot}/%gem_instdir/.yardopts # Remove YARD configuration
 %{gem_spec}
 
 %files doc
-%{gem_docdir}
 %{gem_instdir}/README.rdoc
 %{gem_instdir}/README.*.rdoc
 %{gem_instdir}/LICENSE
