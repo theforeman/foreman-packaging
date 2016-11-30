@@ -34,6 +34,7 @@ BuildArch:  noarch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
 Requires: %{scl}-runtime >= 3
@@ -129,6 +130,7 @@ BuildRequires: asciidoc
 BuildRequires: %{scl_ruby_bin}
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
