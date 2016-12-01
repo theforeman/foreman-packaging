@@ -14,7 +14,7 @@
 
 Name:   foreman
 Version: 1.13.2
-Release: 1%{?dotalphatag}%{?dist}
+Release: 2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -918,6 +918,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.2-2
+- Release 1.13.2 (dominic@cleal.org)
+
 * Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.1-2
 - Fix foreman spec file from rebase (ericdhelms@gmail.com)
 - Automatic commit of package [foreman] minor release [1.13.0-5.fm1_13].
