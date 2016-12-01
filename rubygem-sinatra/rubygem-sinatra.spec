@@ -5,7 +5,7 @@
 Summary:        Ruby-based web application framework
 Name:           rubygem-%{gem_name}
 Version:        1.3.5
-Release:        2%{?dist}
+Release:        3%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://sinatra.rubyforge.org
@@ -93,6 +93,9 @@ rm %{buildroot}/%gem_instdir/.yardopts # Remove YARD configuration
 %{gem_instdir}/Gemfile
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.3.5-3
+- Add check for EL6 to use rubygem(abi) (ericdhelms@gmail.com)
+
 * Wed Nov 30 2016 Eric D Helms <ericdhelms@gmail.com> 1.3.5-2
 - Build sinatra without gem_install macro (ericdhelms@gmail.com)
 
