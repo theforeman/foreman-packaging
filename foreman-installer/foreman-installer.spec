@@ -6,7 +6,7 @@
 Name:       foreman-installer
 Epoch:      1
 Version:    1.13.2
-Release:    1%{?dotalphatag}%{?dist}
+Release:    2%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
@@ -79,6 +79,12 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.2-2
+- Release 1.13.2 (dominic@cleal.org)
+
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com>
+- Release 1.13.2 (dominic@cleal.org)
+
 * Thu Oct 27 2016 Eric D Helms <ericdhelms@gmail.com> 1.13.1-2
 - 
 
