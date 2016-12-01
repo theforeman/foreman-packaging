@@ -18,7 +18,7 @@
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.7
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -102,6 +102,12 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 0.0.7-2
+- release foreman_noenv 0.0.7 (jbaird@follett.com)
+
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com>
+- release foreman_noenv 0.0.7 (jbaird@follett.com)
+
 * Mon Nov 07 2016 Josh Baird <jbaird@follett.com> 0.0.7-1
 - Support for Foreman 1.13.x
 
