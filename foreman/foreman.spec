@@ -318,6 +318,7 @@ Meta Package to install foreman core source code with minimal dependencies
 %exclude %{_datadir}/%{name}/script/%{name}-debug.d
 %dir %{_datadir}/%{name}/bundler.d
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
+%exclude %{_datadir}/%{name}/bundler.d/foreman_tasks.rb
 %{_datadir}/%{name}/bundler.d/facter.rb
 %{_datadir}/%{name}/bundler.d/jsonp.rb
 %exclude %{_datadir}/%{name}/bundler.d/openid.rb
@@ -730,7 +731,6 @@ make -C locale all-mo
 
 #use Bundler_ext instead of Bundler
 mv Gemfile Gemfile.in
-rm bundler.d/foreman_tasks.rb
 cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
 #we need to allow taxonomies so apipie cache renders documentation with them
