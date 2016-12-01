@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Azure as a Compute Resource of Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -96,6 +96,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.2.0-2
+- Update foreman_azure to 1.2.0 (me@daniellobato.me)
+- Update foreman_azure to 1.1.0 (me@daniellobato.me)
+
 * Tue Oct 04 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
 - Update foreman_azure to 1.0.2 (me@daniellobato.me)
 
