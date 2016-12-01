@@ -18,7 +18,11 @@ Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 # https://github.com/rack/rack/commit/0a74380d2e5157d94c7e9141242af33e5c0bf951
 Patch0:         rubygem-rack-1.5.0-Fix-Ruby-2.0-build.patch
 Requires:       ruby(rubygems)
-Requires:       ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 BuildRequires:  ruby
 BuildRequires:  rubygems-devel
 %if 0%{enable_test} > 0

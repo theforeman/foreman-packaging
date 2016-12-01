@@ -10,7 +10,11 @@ Group:          Development/Languages
 License:        MIT
 URL:            http://github.com/rkh/rack-protection
 Source0:        http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires:       ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires:       ruby(rubygems)
 Requires:       rubygem(rack)
 BuildRequires:  rubygems-devel

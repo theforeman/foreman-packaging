@@ -13,7 +13,11 @@ Source0:        http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 # https://github.com/sinatra/sinatra/pull/660
 Patch0:         %{name}-1.3.5-fix-tests-with-rdoc-4.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:       ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires:       ruby(rubygems)
 Requires:       rubygem(rack) >= 1.4.0
 Requires:       rubygem(rack-protection) >= 1.3.0
