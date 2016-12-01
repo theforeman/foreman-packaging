@@ -59,6 +59,7 @@ whitelist = foreman-installer
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
+  rubygem-rack
   rubygem-rack-protection
   rubygem-rb-inotify
   rubygem-rkerberos
@@ -110,6 +111,7 @@ whitelist = foreman-installer
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
+  rubygem-rack
   rubygem-rack-protection
   rubygem-rb-inotify
   rubygem-rubyipmi
