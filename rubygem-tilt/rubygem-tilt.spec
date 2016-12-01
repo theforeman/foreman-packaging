@@ -5,7 +5,7 @@
 Summary: Generic interface to multiple Ruby template engines
 Name: rubygem-%{gem_name}
 Version: 1.3.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/rtomayko/%{gem_name}
@@ -110,6 +110,9 @@ popd
 
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.3.7-3
+- Update rubygem-tilt for EL6 (ericdhelms@gmail.com)
+
 * Mon Apr 15 2013 Vít Ondruch <vondruch@redhat.com> - 1.3.7-2
 - Enable test suite.
 
