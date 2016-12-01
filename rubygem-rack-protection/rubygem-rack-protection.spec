@@ -5,7 +5,7 @@
 Summary:        Ruby gem that protects against typical web attacks
 Name:           rubygem-%{gem_name}
 Version:        1.3.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://github.com/rkh/rack-protection
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.3.2-5
+- Add check for EL6 to use rubygem(abi) (ericdhelms@gmail.com)
+
 * Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.3.2-4
 - Fix rubygem-rack-protection spec (ericdhelms@gmail.com)
 
