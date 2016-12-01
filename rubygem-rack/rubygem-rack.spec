@@ -9,7 +9,7 @@ Summary:        Common API for connecting web frameworks, web servers and layers
 # Introduce Epoch (related to bug 552972)
 Epoch:          1
 Version:        1.4.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://rubyforge.org/projects/%{gem_name}/
@@ -119,6 +119,10 @@ popd
 
 
 %changelog
+* Thu Dec 01 2016 Eric D Helms <ericdhelms@gmail.com> 1.4.5-4
+- Add rubygem-rack (ericdhelms@gmail.com)
+- Remove rubygem-rack, now in EPEL7 (dcleal@redhat.com)
+
 * Fri Mar 01 2013 Vít Ondruch <vondruch@redhat.com> - 1:1.4.5-3
 - Enable thin test suite.
 
