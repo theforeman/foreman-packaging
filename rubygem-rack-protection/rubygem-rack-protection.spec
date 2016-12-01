@@ -41,8 +41,6 @@ This package contains documentation for %{name}.
 %setup -q -c -T
 %{__mkdir_p} .%{gem_dir}
 %gem_install -n %{SOURCE0}
-rm .%{gem_instdir}/%{gem_name}.gemspec
-rm .%{gem_cache}
 
 %build
 
@@ -54,13 +52,16 @@ popd
 %endif
 
 %install
-%{__mkdir_p} %{buildroot}%{gem_dir}
-cp -rv .%{gem_dir}/* %{buildroot}%{gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/*.gemspec
 %{gem_libdir}
 %{gem_spec}
+%exclude %{gem_cache}
 %doc %{gem_instdir}/License
 
 %files doc
