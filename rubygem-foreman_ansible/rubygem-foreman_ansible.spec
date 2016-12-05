@@ -97,6 +97,9 @@ exit 0
 
 
 %changelog
+* Mon Dec 05 2016 Dominic Cleal <dominic@cleal.org> 1.3.0-1
+- Update foreman-ansible to 1.3.0 (me@daniellobato.me)
+
 * Mon Oct 03 2016 Dominic Cleal <dominic@cleal.org> 1.2.1-1
 - Update foreman-ansible to 1.2.1 (me@daniellobato.me)
 
