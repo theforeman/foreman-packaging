@@ -5,7 +5,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.14.0
+Version:    1.15.0
 Release:    0.develop%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -81,6 +81,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Tue Dec 06 2016 Dominic Cleal <dominic@cleal.org> - 1.15.0-0.develop
+- Bump version to 1.15-develop
+
 * Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> - 1.14.0-0.develop
 - Bump version to 1.14-develop
 
