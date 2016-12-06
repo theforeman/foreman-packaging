@@ -1,8 +1,32 @@
-foreman-installer (1.14.0-1) stable; urgency=low
+foreman-installer (1.13.2-1) stable; urgency=low
 
-  * Bump changelog to 1.14.0 to match VERSION
+  * 1.13.2 released
 
- -- Dominic Cleal <dominic@cleal.org>  Wed, 07 Sep 2016 09:57:54 +0100
+ -- Dominic Cleal <dominic@cleal.org>  Fri, 25 Nov 2016 12:22:38 +0000
+
+foreman-installer (1.13.1-1) stable; urgency=low
+
+  * 1.13.1 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 26 Oct 2016 09:44:00 +0100
+
+foreman-installer (1.13.0-1) stable; urgency=low
+
+  * 1.13.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 05 Oct 2016 09:32:13 +0100
+
+foreman-installer (1.13.0~rc2-1) stable; urgency=low
+
+  * 1.13.0-RC2 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 26 Sep 2016 12:22:06 +0100
+
+foreman-installer (1.13.0~rc1-1) stable; urgency=low
+
+  * 1.13.0-RC1 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 12 Sep 2016 15:56:10 +0100
 
 foreman-installer (1.12.2-1) stable; urgency=low
 
