@@ -61,8 +61,6 @@
       <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>

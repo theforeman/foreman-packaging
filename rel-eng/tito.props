@@ -115,6 +115,8 @@ whitelist = foreman
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
+  rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-formatador
   rubygem-friendly_id
   rubygem-gettext
@@ -124,6 +126,7 @@ whitelist = foreman
   rubygem-gridster-rails
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-hammer_cli_foreman_tasks
   rubygem-hashie
   rubygem-highline
   rubygem-hirb
@@ -254,12 +257,15 @@ whitelist = foreman
   rubygem-fog-vsphere
   rubygem-fog-xenserver
   rubygem-font-awesome-sass
+  rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-friendly_id
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
   rubygem-gridster-rails
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-hammer_cli_foreman_tasks
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-jquery_pwstrength_bootstrap_4
@@ -357,8 +363,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_salt
   rubygem-foreman_setup
   rubygem-foreman_snapshot
-  rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-graphite-api
@@ -476,8 +480,6 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_snapshot
   rubygem-foreman_templates
-  rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_xen
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
@@ -488,7 +490,6 @@ whitelist = puppet-foreman_scap_client
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
-  rubygem-hammer_cli_foreman_tasks
   rubygem-infoblox
   rubygem-logify
   rubygem-ovirt_provision_plugin

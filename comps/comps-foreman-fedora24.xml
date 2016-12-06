@@ -83,6 +83,8 @@
       <packagereq type="default">rubygem-fog-vsphere</packagereq>
       <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js</packagereq>
       <packagereq type="default">rubygem-google-api-client</packagereq>

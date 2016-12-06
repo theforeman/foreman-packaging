@@ -14,7 +14,6 @@
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
-      <packagereq type="default">foreman-core</packagereq>
       <packagereq type="default">foreman-debug</packagereq>
       <packagereq type="default">foreman-ec2</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
@@ -72,6 +71,8 @@
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
       <packagereq type="default">tfm-rubygem-font-awesome-sass</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-formatador</packagereq>
       <packagereq type="default">tfm-rubygem-friendly_id</packagereq>
       <packagereq type="default">tfm-rubygem-gettext</packagereq>
