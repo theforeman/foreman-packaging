@@ -1,0 +1,12 @@
+Source: puppet-agent-puppet-strings
+Section: admin
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/puppetlabs/puppet-strings
+
+Package: puppet-agent-puppet-strings
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent, puppet-agent-yard (>= 0.9.5), puppet-agent-yard (<< 1.0.0)
+Description: Puppet documentation via YARD
