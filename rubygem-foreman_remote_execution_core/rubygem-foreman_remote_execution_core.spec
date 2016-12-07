@@ -5,7 +5,7 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
