@@ -1,0 +1,5 @@
+puppet-agent-yard (0.9.5-1) stable; urgency=low
+
+  * Initial release
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 07 Dec 2016 09:04:39 +0000

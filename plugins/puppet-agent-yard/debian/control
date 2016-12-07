@@ -1,0 +1,12 @@
+Source: puppet-agent-yard
+Section: admin
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.3
+Homepage: http://yardoc.org/
+
+Package: puppet-agent-yard
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Description: YARD is a Ruby Documentation tool. The Y stands for "Yay!"
