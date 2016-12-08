@@ -78,11 +78,13 @@ whitelist = foreman-installer
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  rubygem-algebrick
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-ancestry
   rubygem-apipie-bindings
+  rubygem-apipie-params
   rubygem-apipie-rails
   rubygem-audited
   rubygem-audited-activerecord
@@ -93,10 +95,12 @@ whitelist = foreman
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-css_parser
+  rubygem-concurrent-ruby-edge
   rubygem-daemons
   rubygem-deacon
   rubygem-deep_cloneable
   rubygem-domain_name
+  rubygem-dynflow
   rubygem-eventmachine
   rubygem-excon
   rubygem-extlib
@@ -151,6 +155,7 @@ whitelist = foreman
   rubygem-net-ssh
   rubygem-oauth
   rubygem-paint
+  rubygem-parse-cron
   rubygem-passenger
   rubygem-patternfly-sass
   rubygem-pg
@@ -238,14 +243,18 @@ whitelist = foreman
   puppet-agent-oauth
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
+  rubygem-algebrick
   rubygem-apipie-bindings
+  rubygem-apipie-params
   rubygem-autoparse
   rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
   rubygem-css_parser
+  rubygem-concurrent-ruby-edge
   rubygem-deacon
   rubygem-deep_cloneable
+  rubygem-dynflow
   rubygem-excon
   rubygem-extlib
   rubygem-fog
@@ -308,20 +317,16 @@ whitelist = foreman
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = rubygem-algebrick
-  rubygem-angular-rails-templates
-  rubygem-apipie-params
+whitelist = rubygem-angular-rails-templates
   rubygem-azure
   rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-colorize
   rubygem-commonjs
-  rubygem-concurrent-ruby-edge
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-dynflow
   rubygem-faraday_middleware
   rubygem-ffi
   rubygem-fog-azure
@@ -377,7 +382,6 @@ whitelist = rubygem-algebrick
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
-  rubygem-parse-cron
   rubygem-puppetdb_foreman
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
@@ -426,9 +430,7 @@ whitelist = puppet-foreman_scap_client
 [foreman-plugins-nightly-fedora24]
 disttag = .fc24
 whitelist = puppet-foreman_scap_client
-  rubygem-algebrick
   rubygem-angular-rails-templates
-  rubygem-apipie-params
   rubygem-azure
   rubygem-azure-core
   rubygem-chef-api
@@ -436,10 +438,8 @@ whitelist = puppet-foreman_scap_client
   rubygem-bootstrap-datepicker-rails
   rubygem-colorize
   rubygem-commonjs
-  rubygem-concurrent-ruby-edge
   rubygem-deface
   rubygem-docker-api
-  rubygem-dynflow
   rubygem-faraday_middleware
   rubygem-fog-azure
   rubygem-newt

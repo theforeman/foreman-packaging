@@ -36,9 +36,11 @@
       <packagereq type="default">tfm-mod_passenger</packagereq>
       <packagereq type="default">tfm-rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
+      <packagereq type="default">tfm-rubygem-algebrick</packagereq>
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-audited</packagereq>
       <packagereq type="default">tfm-rubygem-audited-activerecord</packagereq>
@@ -49,10 +51,12 @@
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">tfm-rubygem-daemons</packagereq>
       <packagereq type="default">tfm-rubygem-deacon</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">tfm-rubygem-domain_name</packagereq>
+      <packagereq type="default">tfm-rubygem-dynflow</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine</packagereq>
       <packagereq type="default">tfm-rubygem-excon</packagereq>
       <packagereq type="default">tfm-rubygem-extlib</packagereq>
@@ -107,6 +111,7 @@
       <packagereq type="default">tfm-rubygem-netrc</packagereq>
       <packagereq type="default">tfm-rubygem-oauth</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
+      <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
       <packagereq type="default">tfm-rubygem-passenger</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
@@ -269,8 +274,10 @@
       <packagereq type="default">tfm-rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-audited-activerecord-doc</packagereq>
       <packagereq type="default">tfm-rubygem-audited-doc</packagereq>
@@ -280,11 +287,13 @@
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-daemons-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deacon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-domain_name-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine-doc</packagereq>
       <packagereq type="default">tfm-rubygem-excon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-extlib-doc</packagereq>
@@ -337,6 +346,7 @@
       <packagereq type="default">tfm-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
