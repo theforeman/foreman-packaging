@@ -1,0 +1,13 @@
+Source: ruby-foreman-openscap
+Section: ruby
+Priority: extra
+Maintainer: Foreman Openscap Team
+Build-Depends: debhelper, foreman (>= 1.12.0~rc1), ruby-foreman-deface (<<2.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_openscap
+
+Package: ruby-foreman-openscap
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.12.0~rc1), ruby-foreman-deface (<<2.0.0)
+Description: Foreman Openscap plugin
+ Integration with Openscap in Foreman.
