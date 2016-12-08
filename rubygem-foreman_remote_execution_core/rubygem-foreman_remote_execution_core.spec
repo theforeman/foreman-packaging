@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Thu Dec 08 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
+- Update foreman_remote_execution_core to 1.0.2 (inecas@redhat.com)
+
 * Mon Sep 19 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
 - new package built with tito
 
