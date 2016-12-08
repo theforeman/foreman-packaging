@@ -91,6 +91,7 @@
       <packagereq type="default">rubygem-gridster-rails</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-jquery-turbolinks</packagereq>
@@ -172,12 +173,15 @@
       <packagereq type="default">rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-core-doc</packagereq>
+      <packagereq type="default">rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>
       <packagereq type="default">rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">rubygem-gridster-rails-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>

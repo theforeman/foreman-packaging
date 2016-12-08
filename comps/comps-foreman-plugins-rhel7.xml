@@ -105,7 +105,6 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_remote_execution</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
-      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
@@ -206,8 +205,6 @@
       <packagereq type="default">tfm-rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
@@ -219,7 +216,6 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_remote_execution-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>

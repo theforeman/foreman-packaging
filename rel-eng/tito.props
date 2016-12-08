@@ -374,7 +374,6 @@ whitelist = rubygem-algebrick
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
-  rubygem-hammer_cli_foreman_tasks
   rubygem-net-ssh-gateway
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
