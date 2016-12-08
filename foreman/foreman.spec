@@ -413,7 +413,7 @@ Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.0.2
 Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
@@ -428,7 +428,7 @@ Summary: Foreman OpenStack support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.11
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description openstack
 Meta package to install requirements for OpenStack compute resource support.
@@ -442,7 +442,7 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2.0
 Requires: foreman-compute = %{version}-%{release}
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description ovirt
 Meta package to install requirements for oVirt compute resource support.
@@ -454,7 +454,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog) = 1.38.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
 Provides: foreman-fog = 1.0.0
@@ -473,7 +473,7 @@ Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
 Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
-Requires:  %{name}-core = %{version}-%{release}
+Requires:  %{name} = %{version}-%{release}
 
 %description ec2
 Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
@@ -486,7 +486,7 @@ Summary: Foreman Rackspace support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1
 Requires: %{?scl_prefix}rubygem(fog-rackspace) < 1.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description rackspace
 Meta package to install requirements for Rackspace compute resource support.
@@ -498,7 +498,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.6.2
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description vmware
 Meta package to install requirements for VMware compute resource support.
@@ -515,7 +515,7 @@ Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
 Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description gce
 Meta package to install requirements for Google Compute Engine (GCE) support
@@ -526,7 +526,7 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 %package assets
 Summary: Foreman asset pipeline support
 Group: Applications/system
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
 Requires: %{scl}-runtime-assets >= 3
 Requires: %{scl}-runtime-assets < 4
@@ -634,7 +634,8 @@ Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name}-core = %{version}-%{release}
 Requires: %{name}-release = %{version}-%{release}
-Requires: %{name}-sqlite = %{version}-%{release}
+Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
+Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 
 %description plugin
 Meta package with support for plugins.
@@ -651,7 +652,7 @@ Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
 Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description console
 Meta Package to install requirements for console support
@@ -664,7 +665,7 @@ Summary: Foreman mysql2 support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.13
 Requires: %{?scl_prefix}rubygem(mysql2) < 0.5.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
 Provides: %{name}-mysql = %{version}
 
@@ -679,7 +680,7 @@ Summary: Foreman Postgresql support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(pg) >= 0.15.0
 Requires: %{?scl_prefix}rubygem(pg) < 1.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description postgresql
 Meta Package to install requirements for postgresql support
@@ -692,7 +693,7 @@ Summary: Foreman sqlite support
 Group:  Applications/System
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
-Requires: %{name}-core = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description sqlite
 Meta Package to install requirements for sqlite support
@@ -884,6 +885,7 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/c
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
+echo "gem 'sqlite3'" > ./bundler.d/sqlite-build.rb \\
 \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
