@@ -6,10 +6,12 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%{!?scl_ror:%global scl_ror sclo-ror42}
+%{!?scl_ror:%global scl_ror rh-ror42}
 %{!?scl_prefix_ror:%global scl_prefix_ror %{scl_ror}-}
-%{!?scl_ruby:%global scl_ruby rh-ruby22}
+%{!?scl_ruby:%global scl_ruby rh-ruby23}
 %{!?scl_prefix_ruby:%global scl_prefix_ruby %{scl_ruby}-}
+%{!?scl_nodejs:%global scl_nodejs rh-nodejs4}
+%{!?scl_prefix_nodejs:%global scl_prefix_nodejs %{scl_nodejs}-}
 
 # Do not produce empty debuginfo package.
 %global debug_package %{nil}
@@ -38,6 +40,8 @@ BuildRequires: %{scl_prefix_ror}scldevel
 BuildRequires: %{scl_prefix_ror}runtime
 BuildRequires: %{scl_prefix_ruby}scldevel
 BuildRequires: %{scl_prefix_ruby}rubygems-devel
+BuildRequires: %{scl_prefix_nodejs}scldevel
+BuildRequires: %{scl_prefix_nodejs}runtime
 
 %description
 This is the main package for %scl Software Collection.
@@ -50,6 +54,7 @@ Group: Applications/File
 Requires: scl-utils
 Requires: %{scl_prefix_ror}runtime
 Requires: %{scl_prefix_ruby}runtime
+Requires: %{scl_prefix_nodejs}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
 Obsoletes: ruby193-ruby-wrapper
@@ -108,6 +113,8 @@ Requires: %{scl_runtime}
 Requires: %{scl_runtime}-assets
 Requires: %{scl_prefix_ror}scldevel
 Requires: %{scl_prefix_ruby}scldevel
+Requires: %{scl_prefix_nodejs}scldevel
+Requires: %{scl_prefix_nodejs}build
 
 %description build
 Package shipping essential configuration macros to build %scl Software Collection.
@@ -150,7 +157,7 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 %scl_install
 
 cat >> %{buildroot}%{_scl_scripts}/enable << EOF
-. scl_source enable %{scl_ror}
+. scl_source enable %{scl_nodejs} %{scl_ror}
 if [ -e %{_scl_scripts}/enable_assets ]; then
   . %{_scl_scripts}/enable_assets
 fi
@@ -230,7 +237,7 @@ done
 scl enable %{scl_name} "bash \$TMP"
 EOF
 
-scl enable %{scl_ror} - << \EOF
+scl enable %{scl_nodejs} %{scl_ror} - << \EOF
 # Fake tfm SCL environment.
 GEM_PATH=%{gem_dir}:${GEM_PATH:+${GEM_PATH}}${GEM_PATH:-`ruby -e "print Gem.path.join(':')"`} \
 X_SCLS=%{scl} \
