@@ -104,6 +104,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Dec 13 2016 Dominic Cleal <dominic@cleal.org> 7.0.3-1
+- update foreman_salt to 7.0.3 (kvedulv@kvedulv.de)
+
 * Wed Nov 23 2016 Dominic Cleal <dominic@cleal.org> 7.0.2-1
 - update foreman_salt to 7.0.2 (kvedulv@kvedulv.de)
 
