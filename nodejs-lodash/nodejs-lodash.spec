@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name lodash
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 4.15.0
 Release: 2%{?dist}
 Summary: Lodash modular utilities
@@ -8,15 +11,14 @@ License: MIT
 Group: Development/Libraries
 URL: https://lodash.com
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 A utility library delivering consistency, customization, performance, &

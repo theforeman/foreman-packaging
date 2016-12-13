@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name jstz
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.0.7
 Release: 2%{?dist}
 Summary: Timezone detection for JavaScript
@@ -9,15 +12,14 @@ Group: Development/Libraries
 URL: https://github.com/iansinnott/jstz
 Source0: http://registry.npmjs.org/jstz/-/jstz-1.0.7.tgz
 
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 Timezone detection for JavaScript

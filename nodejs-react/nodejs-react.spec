@@ -1,8 +1,11 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name react
 
 %{?nodejs_find_provides_and_requires}
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 15.3.2
 Release: 1%{?dist}
 Summary: React is a JavaScript library for building user interfaces
@@ -25,9 +28,8 @@ Source13: http://registry.npmjs.org/asap/-/asap-2.0.5.tgz
 Source14: http://registry.npmjs.org/immutable/-/immutable-3.8.1.tgz
 Source15: http://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz
 Source16: react-15.3.2-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: npm
-BuildRequires: nodejs-packaging
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -36,7 +38,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(react) = 15.3.2
 Provides: bundled-npm(loose-envify) = 1.2.0
 Provides: bundled-npm(object-assign) = 4.1.0
@@ -62,13 +64,19 @@ AutoProv: no
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 16 -D -n npm_cache
 
 %build
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

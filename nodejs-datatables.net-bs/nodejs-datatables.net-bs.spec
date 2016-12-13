@@ -1,15 +1,19 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name datatables.net-bs
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.10.12
 Release: 1%{?dist}
 Summary: DataTables for jQuery with styling for Bootstrap
 License: MIT
 URL: https://datatables.net
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-BuildRequires: nodejs-packaging
+
+Requires: %{?scl_prefix}npm(jquery) >= 1.7
 BuildArch:  noarch
-%{?nodejs_find_provides_and_requires}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}

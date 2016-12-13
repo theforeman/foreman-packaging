@@ -1,16 +1,19 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name react-dom
 %global enable_tests 1
 
 %{?nodejs_find_provides_and_requires}
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 15.3.2
 Release: 1%{?dist}
 Summary: React package for working with the DOM
 License: BSD
 URL: https://facebook.github.io/react/
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-BuildRequires: nodejs-packaging
+
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -18,6 +21,8 @@ ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
+
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %{?nodejs_find_provides_and_requires}
 
