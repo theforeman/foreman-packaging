@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Dec 14 2016 Dominic Cleal <dominic@cleal.org> 8.1.0-1
+- Update foreman_bootdisk to 8.1.0 (dominic@cleal.org)
+
 * Tue Sep 13 2016 Dominic Cleal <dominic@cleal.org> 8.0.2-1
 - Update foreman_bootdisk to 8.0.2 (dominic@cleal.org)
 
