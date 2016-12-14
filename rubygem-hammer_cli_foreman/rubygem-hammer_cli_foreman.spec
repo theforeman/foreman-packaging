@@ -18,7 +18,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.8.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.16
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.19
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
