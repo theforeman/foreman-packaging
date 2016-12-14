@@ -31,98 +31,15 @@ Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 BuildArch:  noarch
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires: %{?scl_prefix_ruby}rubygem(rdoc)
-Requires: %{?scl_prefix}rubygem(bundler_ext)
-%if 0%{?scl:1}
-Requires: %{scl}-runtime >= 3
-Requires: %{scl}-runtime < 4
-%endif
-
-Requires: wget
-Requires: /etc/cron.d
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(preun): chkconfig
 Requires(preun): initscripts
 Requires(postun): initscripts
 
-# Subpackages
+Requires: %{name}-core = %{version}-%{release}
 Requires: %{name}-debug
-
-# Gemfile
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
-Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
-Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
-Requires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
-Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
-Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
-Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
-Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
-Requires: %{?scl_prefix}rubygem(scoped_search) < 4.0
-Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
-Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
-Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
-Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
-Requires: %{?scl_prefix}rubygem(rabl) < 1.0
-Requires: %{?scl_prefix}rubygem(oauth) >= 0.4
-Requires: %{?scl_prefix}rubygem(oauth) < 1.0
-Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
-Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
-Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
-Requires: %{?scl_prefix}rubygem(secure_headers) < 4.0
-Requires: %{?scl_prefix}rubygem(safemode) >= 1.2.4
-Requires: %{?scl_prefix}rubygem(safemode) < 2.0
-Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
-Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.2.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
-Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
-Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
-Requires: %{?scl_prefix}rubygem(logging) >= 1.8
-Requires: %{?scl_prefix}rubygem(logging) < 3.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.42.0
-Requires: %{?scl_prefix}rubygem(net-scp)
-Requires: %{?scl_prefix}rubygem(net-ssh)
-Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
-Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
-Requires: %{?scl_prefix}rubygem(rails-observers) < 1.0
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
-Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
-Requires: %{?scl_prefix}rubygem(responders) >= 2.0
-Requires: %{?scl_prefix}rubygem(responders) < 3
-Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
-Requires: %{?scl_prefix}rubygem(roadie-rails) < 2
-Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
-Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
-Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
-Requires: %{?scl_prefix}rubygem(deacon) < 2.0
-Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
-Requires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
-# facter
-%if 0%{?scl:1}
-Requires: %{?scl_prefix}rubygem(facter)
-%else
-Requires: facter
-%endif
-# jsonp
-Requires: %{?scl_prefix}rubygem(rack-jsonp)
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.5
 
 # Build dependencies
 BuildRequires: gettext
@@ -299,6 +216,157 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(facter)
 %else
 BuildRequires: facter
+%endif
+
+%package core
+Summary: Foreman Core
+Group: Applications/System
+
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+Requires: %{?scl_prefix_ruby}rubygem(rdoc)
+Requires: %{?scl_prefix}rubygem(bundler_ext)
+%if 0%{?scl:1}
+Requires: %{scl}-runtime >= 3
+Requires: %{scl}-runtime < 4
+%endif
+
+Requires: wget
+Requires: /etc/cron.d
+
+# Gemfile
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
+Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
+Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
+Requires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
+Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
+Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
+Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
+Requires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
+Requires: %{?scl_prefix}rubygem(scoped_search) < 4.0
+Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
+Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
+Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
+Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
+Requires: %{?scl_prefix}rubygem(rabl) < 1.0
+Requires: %{?scl_prefix}rubygem(oauth) >= 0.4
+Requires: %{?scl_prefix}rubygem(oauth) < 1.0
+Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
+Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
+Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
+Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
+Requires: %{?scl_prefix}rubygem(secure_headers) < 4.0
+Requires: %{?scl_prefix}rubygem(safemode) >= 1.2.4
+Requires: %{?scl_prefix}rubygem(safemode) < 2.0
+Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.8
+Requires: %{?scl_prefix}rubygem(fast_gettext) < 1.2.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
+Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
+Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
+Requires: %{?scl_prefix}rubygem(logging) >= 1.8
+Requires: %{?scl_prefix}rubygem(logging) < 3.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.42.0
+Requires: %{?scl_prefix}rubygem(net-scp)
+Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
+Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1
+Requires: %{?scl_prefix}rubygem(rails-observers) < 1.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
+Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
+Requires: %{?scl_prefix}rubygem(responders) >= 2.0
+Requires: %{?scl_prefix}rubygem(responders) < 3
+Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
+Requires: %{?scl_prefix}rubygem(roadie-rails) < 2
+Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
+Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
+Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
+Requires: %{?scl_prefix}rubygem(deacon) < 2.0
+Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
+Requires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
+# facter
+%if 0%{?scl:1}
+Requires: %{?scl_prefix}rubygem(facter)
+%else
+Requires: facter
+%endif
+# jsonp
+Requires: %{?scl_prefix}rubygem(rack-jsonp)
+
+%description core
+Package to install Foreman core source code with minimal dependencies
+
+%files core
+%defattr(-,root,root,0755)
+%doc CHANGELOG Contributors LICENSE README.md VERSION
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/app
+%exclude %{_datadir}/%{name}/app/assets
+%exclude %{_datadir}/%{name}/script/%{name}-debug.d
+%dir %{_datadir}/%{name}/bundler.d
+%exclude %{_datadir}/%{name}/bundler.d/development.rb
+%exclude %{_datadir}/%{name}/bundler.d/foreman_tasks.rb
+%{_datadir}/%{name}/bundler.d/facter.rb
+%{_datadir}/%{name}/bundler.d/jsonp.rb
+%exclude %{_datadir}/%{name}/bundler.d/openid.rb
+%exclude %{_datadir}/%{name}/bundler.d/test.rb
+%{_datadir}/%{name}/bin
+%{_datadir}/%{name}/config*
+%{_datadir}/%{name}/db
+%{_datadir}/%{name}/extras
+%{_datadir}/%{name}/Gemfile.in
+%{_datadir}/%{name}/lib
+%{_datadir}/%{name}/locale
+%{_datadir}/%{name}/log
+%{_datadir}/%{name}/migrate
+%{_datadir}/%{name}/plugins
+%{_datadir}/%{name}/public
+%{_datadir}/%{name}/Rakefile
+%{_datadir}/%{name}/script
+%{_datadir}/%{name}/seeds.*
+%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
+%{_datadir}/%{name}/tmp
+%{_datadir}/%{name}/VERSION
+%{_initrddir}/%{name}
+%{_sbindir}/%{name}-rake
+%{_sbindir}/%{name}-tail
+%{_mandir}/man8
+%config(noreplace) %{_sysconfdir}/%{name}
+%ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config %{_sysconfdir}/cron.d/%{name}
+%{_sysconfdir}/rpm/macros.%{name}
+%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
+%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
+%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
+%attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
+%attr(-,%{name},root) %{_datadir}/%{name}/config.ru
+%attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
+# Symlink to /etc, EL6 needs attrs for ghost files, Fedora doesn't
+%if 0%{?rhel} == 6
+%ghost %attr(0777,root,root) %{_datadir}/%{name}/config/initializers/encryption_key.rb
+%else
+%ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
+%endif
+%ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+# Only need tmpfiles on systemd (F17 and up)
+%if 0%{?rhel} > 6 || 0%{?fedora} > 16
+%{_prefix}/lib/tmpfiles.d/%{name}.conf
 %endif
 
 %package cli
@@ -564,16 +632,16 @@ Meta package to install asset pipeline support.
 %package plugin
 Summary: Foreman plugin support
 Group: Development/Libraries
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}-core = %{version}-%{release}
 Requires: %{name}-release = %{version}-%{release}
-Requires: %{name}-sqlite = %{version}-%{release}
+Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
+Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 
 %description plugin
 Meta package with support for plugins.
 
 %files plugin
 %{_sysconfdir}/rpm/macros.%{name}-plugin
-
 
 %package console
 Summary: Foreman console support
@@ -817,8 +885,8 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/c
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
+echo "gem 'sqlite3'" > ./bundler.d/sqlite-build.rb \\
 \\
-rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
@@ -835,62 +903,6 @@ EOF
 rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,0755)
-%doc CHANGELOG Contributors LICENSE README.md VERSION
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/app
-%exclude %{_datadir}/%{name}/app/assets
-%exclude %{_datadir}/%{name}/script/%{name}-debug.d
-%dir %{_datadir}/%{name}/bundler.d
-%exclude %{_datadir}/%{name}/bundler.d/development.rb
-%{_datadir}/%{name}/bundler.d/facter.rb
-%{_datadir}/%{name}/bundler.d/jsonp.rb
-%exclude %{_datadir}/%{name}/bundler.d/openid.rb
-%exclude %{_datadir}/%{name}/bundler.d/test.rb
-%{_datadir}/%{name}/bin
-%{_datadir}/%{name}/config*
-%{_datadir}/%{name}/db
-%{_datadir}/%{name}/extras
-%{_datadir}/%{name}/Gemfile.in
-%{_datadir}/%{name}/lib
-%{_datadir}/%{name}/locale
-%{_datadir}/%{name}/log
-%{_datadir}/%{name}/migrate
-%{_datadir}/%{name}/plugins
-%{_datadir}/%{name}/public
-%{_datadir}/%{name}/Rakefile
-%{_datadir}/%{name}/script
-%{_datadir}/%{name}/seeds.*
-%attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
-%{_datadir}/%{name}/tmp
-%{_datadir}/%{name}/VERSION
-%{_initrddir}/%{name}
-%{_sbindir}/%{name}-rake
-%{_sbindir}/%{name}-tail
-%{_mandir}/man8
-%config(noreplace) %{_sysconfdir}/%{name}
-%ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%config %{_sysconfdir}/cron.d/%{name}
-%{_sysconfdir}/rpm/macros.%{name}
-%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
-%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}
-%attr(750,%{name},%{name}) %{_localstatedir}/log/%{name}/plugins
-%attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
-%attr(-,%{name},root) %{_datadir}/%{name}/config.ru
-%attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
-# Symlink to /etc, EL6 needs attrs for ghost files, Fedora doesn't
-%if 0%{?rhel} == 6
-%ghost %attr(0777,root,root) %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%else
-%ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%endif
-%ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
-# Only need tmpfiles on systemd (F17 and up)
-%if 0%{?rhel} > 6 || 0%{?fedora} > 16
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
-%endif
 
 %pre
 # Add the "foreman" user and group
