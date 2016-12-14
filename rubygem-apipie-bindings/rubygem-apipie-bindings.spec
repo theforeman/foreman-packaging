@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Dec 14 2016 Dominic Cleal <dominic@cleal.org> 0.0.19-1
+- Update apipie-bindings to 0.0.19 (dominic@cleal.org)
+
 * Thu Sep 01 2016 Dominic Cleal <dominic@cleal.org> 0.0.18-1
 - Update rubygem-apipie-bindings to 0.0.18 (martin.bacovsky@gmail.com)
 
