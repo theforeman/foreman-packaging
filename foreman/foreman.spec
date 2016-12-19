@@ -63,8 +63,8 @@ Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 3.0
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
-Requires: %{?scl_prefix}rubygem(scoped_search) < 4.0
+Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.0
+Requires: %{?scl_prefix}rubygem(scoped_search) < 5.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
@@ -144,8 +144,8 @@ BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 3.2.2
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
