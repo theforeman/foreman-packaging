@@ -109,6 +109,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Dec 19 2016 Dominic Cleal <dominic@cleal.org> 4.0.0-1
+- Update scoped_search to 4.0.0 (dominic@cleal.org)
+
 * Wed Aug 10 2016 Dominic Cleal <dominic@cleal.org> 3.3.0-1
 - Update scoped_search to 3.3.0 (dominic@cleal.org)
 
