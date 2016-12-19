@@ -78,6 +78,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %doc %{gem_instdir}/test
 
 %changelog
+* Mon Dec 19 2016 Dominic Cleal <dominic@cleal.org> 0.9.0-1
+- Update hammer_cli_foreman to 0.9.0 (dominic@cleal.org)
+
 * Wed Sep 07 2016 Dominic Cleal <dominic@cleal.org> 0.8.0-1
 - Update hammer_cli_foreman to 0.8.0 (dominic@cleal.org)
 
