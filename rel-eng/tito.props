@@ -286,6 +286,7 @@ whitelist = foreman
   rubygem-roadie-rails
   rubygem-rubyipmi
   rubygem-safemode
+  rubygem-scoped_search
   rubygem-secure_headers
   rubygem-signet
   rubygem-spice-html5-rails
