@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 3.3.0
+Version: 4.0.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -14,7 +14,7 @@ URL: http://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ror}rubygem-activerecord >= 3.2.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -26,7 +26,7 @@ Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
 %if 0%{?fedora} > 21
 BuildRequires: %{?scl_prefix_ror}rubygem(rspec) >= 3.0
 BuildRequires: %{?scl_prefix_ror}rubygem(rspec) < 4.0
-BuildRequires: %{?scl_prefix_ror}rubygem(activerecord)
+BuildRequires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 %endif
 
@@ -65,9 +65,7 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %build
 mkdir -p .%{gem_dir}
 
-%{?scl:scl enable %{scl} "}
 # Create the gem as gem install only works on a gem file
-%{?scl:"}
 %{?scl:scl enable %{scl} "}
 gem build %{gem_name}.gemspec
 %{?scl:"}
@@ -79,23 +77,16 @@ gem build %{gem_name}.gemspec
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-rm -rf %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/{.yardoc,.gitignore,.infinity_test,.travis.yml}
 mv %{buildroot}%{gem_instdir}/{LICENSE,*.rdoc} ./
-rm %{buildroot}%{gem_cache}
 
 %check
 pushd .%{gem_instdir}
 # Get rid of Bundler, not needed on Fedora.
 sed -i "/require 'bundler\/setup'/ d" spec/spec_helper.rb
-# sqlite3-ruby and sqlite3 are identical rubygems, where the former is
-# older name for the gem. Would be nice if upstream support both
-# reincarnations.
-# do not test on postgresql and ruby
-sed '5,15d' -i spec/database.ruby.yml
 # tests require rspec 3, only on F22+
 %if 0%{?fedora} > 21
 %{?scl:scl enable %{scl} "}
-rspec spec
+EXCLUDE_DATABASE=mysql,postgresql rspec spec
 %{?scl:"}
 %endif
 popd
@@ -106,6 +97,8 @@ popd
 %{gem_instdir}/lib
 %{gem_instdir}/app
 %{gem_spec}
+%exclude %{gem_cache}
+%exclude %{gem_instdir}/.*
 
 %files doc
 %doc %{gem_docdir}
