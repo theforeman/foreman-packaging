@@ -1,1 +1,1 @@
-gem 'foreman_azure', '1.2.0'
+gem 'foreman_azure', '1.3.0'
