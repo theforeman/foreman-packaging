@@ -5,7 +5,7 @@
 %global plugin_name azure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
+Version: 1.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure as a Compute Resource of Foreman (theforeman.org)
 Group: Applications/Systems
@@ -79,6 +79,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
@@ -92,6 +93,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %posttrans
+%foreman_db_seed
 %{foreman_restart}
 exit 0
 
