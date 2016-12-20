@@ -278,8 +278,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 2.5.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
-BuildRequires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.9
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
@@ -538,8 +536,6 @@ Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2
-Requires: %{?scl_prefix}rubygem(autoprefixer-rails) < 6.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.9
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 4.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
