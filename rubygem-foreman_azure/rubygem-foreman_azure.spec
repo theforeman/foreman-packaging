@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Dec 21 2016 Dominic Cleal <dominic@cleal.org> 1.3.0-1
+- Update foreman_azure to 1.3.0 (me@daniellobato.me)
+
 * Fri Nov 18 2016 Dominic Cleal <dominic@cleal.org> 1.2.0-1
 - Update foreman_azure to 1.2.0 (me@daniellobato.me)
 
