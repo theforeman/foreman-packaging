@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Thu Dec 22 2016 Eric D Helms <ericdhelms@gmail.com> 4.0.0-1
+- Bump bastion to 4.0.0 (ericdhelms@gmail.com)
+
 * Sat Nov 19 2016 Eric D Helms <ericdhelms@gmail.com> 3.4.4-1
 - Bump rubygem-bastion to 3.4.4 (ericdhelms@gmail.com)
 
