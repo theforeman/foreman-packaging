@@ -1,3 +1,9 @@
+ruby-foreman-digitalocean (1.2.0-1) stable; urgency=low
+
+  * 1.2.0 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Fri, 23 Dec 2016 16:41:36 +0100
+
 ruby-foreman-digitalocean (1.1.0-1) stable; urgency=low
 
   * 1.1.0 released
