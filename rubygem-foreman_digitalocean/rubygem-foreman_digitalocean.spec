@@ -17,7 +17,7 @@
 
 Summary:    Provision and manage DigitalOcean from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.1.0
+Version:    1.2.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
