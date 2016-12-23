@@ -112,6 +112,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Dec 23 2016 Dominic Cleal <dominic@cleal.org> 7.0.1-1
+- Updated foreman_discovery to 7.0.1 (lzap+git@redhat.com)
+
 * Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 7.0.0-1
 - Updated foreman_discovery to 7.0.0 (lzap+git@redhat.com)
 
