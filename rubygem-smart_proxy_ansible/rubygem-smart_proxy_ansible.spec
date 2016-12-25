@@ -23,6 +23,8 @@ Requires: rubygem(smart_proxy_dynflow) < 1.0
 Requires: ruby
 Requires: ruby(rubygems)
 
+Requires: ansible >= 2.2
+
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
 BuildRequires: ruby(abi)
