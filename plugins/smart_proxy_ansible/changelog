@@ -2,7 +2,7 @@ ruby-smart-proxy-ansible (1.0.0-2) unstable; urgency=low
 
   * Add dependency on ansible
 
- -- Tomer Brisker <tbrisker@redhat.com> Wed, 28 Dec 2016 16:45:29 +0200
+ -- Tomer Brisker <tbrisker@redhat.com>  Wed, 28 Dec 2016 16:45:29 +0200
 
 ruby-smart-proxy-ansible (1.0.0-1) unstable; urgency=low
 
