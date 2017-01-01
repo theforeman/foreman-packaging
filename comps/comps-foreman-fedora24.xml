@@ -65,7 +65,6 @@
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-autoparse</packagereq>
-      <packagereq type="default">rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-css_parser</packagereq>
@@ -153,7 +152,6 @@
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-autoparse-doc</packagereq>
-      <packagereq type="default">rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-css_parser-doc</packagereq>

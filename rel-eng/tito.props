@@ -87,7 +87,6 @@ whitelist = foreman
   rubygem-audited
   rubygem-audited-activerecord
   rubygem-autoparse
-  rubygem-autoprefixer-rails
   rubygem-awesome_print
   rubygem-bootstrap-sass
   rubygem-bundler_ext
@@ -237,7 +236,6 @@ whitelist = foreman
   rubygem-activerecord-session_store
   rubygem-apipie-bindings
   rubygem-autoparse
-  rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
   rubygem-clamp
   rubygem-css_parser
