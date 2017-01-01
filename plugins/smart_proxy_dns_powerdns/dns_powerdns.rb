@@ -1,1 +1,1 @@
-gem 'smart_proxy_dns_powerdns', '0.2.1'
+gem 'smart_proxy_dns_powerdns', '0.3.0'
