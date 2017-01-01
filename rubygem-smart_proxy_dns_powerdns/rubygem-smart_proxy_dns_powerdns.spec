@@ -6,12 +6,12 @@
 
 Summary: PowerDNS support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 0.2.1
+Version: 0.3.0
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dns_powerdns
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -20,7 +20,7 @@ BuildRequires: ruby(abi)
 Requires: ruby(release)
 BuildRequires: ruby(release)
 %endif
-Requires: foreman-proxy >= 1.11.0
+Requires: foreman-proxy >= 1.13.0
 Requires: ruby(rubygems)
 Requires: rubygem(mysql2)
 Requires: rubygem(pg)
