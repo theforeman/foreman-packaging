@@ -715,6 +715,7 @@ install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
+find %{buildroot}%{_datadir}/%{name}/script/%{name}-tail.d/* -type d |xargs rm -rf
 
 # remove all test units from produciton release
 find %{buildroot}%{_datadir}/%{name} -type d -name "test" |xargs rm -rf
