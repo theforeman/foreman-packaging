@@ -1,3 +1,9 @@
+ruby-smart-proxy-dns-powerdns (0.3.0-1) stable; urgency=low
+
+  * Release 0.3.0
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Sun, 01 Jan 2017 14:52:42 +0100
+
 ruby-smart-proxy-dns-powerdns (0.2.1-1) stable; urgency=low
 
   * Release 0.2.1
