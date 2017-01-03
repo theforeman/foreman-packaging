@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 3.15.0-1
+- Update patternfly-sass to 3.15.0 (dominic@cleal.org)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 3.11.0-1
 - Update patternfly-sass to 3.11.0 (dominic@cleal.org)
 
