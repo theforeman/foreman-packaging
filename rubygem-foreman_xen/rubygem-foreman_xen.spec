@@ -94,6 +94,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 0.3.2-1
+- update foreman_xen to 0.3.2 (kvedulv@kvedulv.de)
+
 * Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 0.3.1-1
 - update foreman_xen to 0.3.1 (kvedulv@kvedulv.de)
 
