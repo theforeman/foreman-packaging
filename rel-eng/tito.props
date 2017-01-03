@@ -143,6 +143,7 @@ whitelist = foreman
   rubygem-multipart-post
   rubygem-mysql2
   rubygem-net-ldap
+  rubygem-net-ping
   rubygem-netrc
   rubygem-net-scp
   rubygem-net-ssh
