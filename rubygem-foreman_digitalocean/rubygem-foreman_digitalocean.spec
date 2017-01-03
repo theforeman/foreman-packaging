@@ -88,6 +88,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 1.2.0-1
+- Update foreman_digitalocean to 1.2.0 (mail@timogoebel.name)
+
 * Mon Oct 03 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-1
 - Update foreman-digitalocean to 1.1 (me@daniellobato.me)
 - Use gem_install macro (dominic@cleal.org)
