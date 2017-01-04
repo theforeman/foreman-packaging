@@ -405,7 +405,7 @@ preference to this package.
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
-Requires:  %{?scl_prefix}rubygem(fog-aws) < 1.0.0
+Requires:  %{?scl_prefix}rubygem(fog-aws) < 2.0.0
 Requires:  %{name} = %{version}-%{release}
 
 %description ec2
