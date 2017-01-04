@@ -346,6 +346,7 @@ Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 Requires: %{name} = %{version}-%{release}
+Requires: genisoimage
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
