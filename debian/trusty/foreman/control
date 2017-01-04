@@ -112,6 +112,7 @@ Architecture: all
 Section: web
 Priority: extra
 Depends: foreman, pkg-config, libvirt-dev, ${misc:Depends}
+Recommends: genisoimage
 Description: metapackage providing libvirt dependencies for Foreman
  This package provides libvirt dependencies for Foreman, a
  flexible systems management web application.
