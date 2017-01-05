@@ -4,7 +4,7 @@
 %global gem_name css_parser
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.7
+Version: 1.4.7
 Release: 1%{?dist}
 Summary: A set of classes for parsing CSS in Ruby
 Group: Development/Languages
@@ -60,6 +60,7 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
