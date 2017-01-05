@@ -244,6 +244,9 @@ fi
 
 
 %changelog
+* Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 1.14.0-0.1.RC3
+- Release 1.14.0-RC3
+
 * Thu Dec 22 2016 Dominic Cleal <dominic@cleal.org> 1.14.0-0.1.RC2
 - Release 1.14.0-RC2
 
