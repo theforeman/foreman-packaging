@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-1
+- Update kafo_parsers to 0.1.6 (ares@users.noreply.github.com)
+
 * Wed Nov 23 2016 Dominic Cleal <dominic@cleal.org> 0.1.5-1
 - Update kafo_parsers to 0.1.5 (mhulan@redhat.com)
 
