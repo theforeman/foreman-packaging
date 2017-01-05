@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 1.4.7-1
+- Update css_parser to 1.4.7 (dominic@cleal.org)
+
 * Thu Jun 02 2016 Dominic Cleal <dominic@cleal.org> 1.3.7-1
 - new package built with tito
 
