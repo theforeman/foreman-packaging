@@ -4,7 +4,7 @@
 %global gem_name roadie
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.1
+Version: 3.2.0
 Release: 1%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 Group: Development/Languages
@@ -13,8 +13,8 @@ URL: https://github.com/Mange/roadie
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(css_parser) >= 1.3.4
-Requires: %{?scl_prefix}rubygem(css_parser) < 1.4.0
+Requires: %{?scl_prefix}rubygem(css_parser) >= 1.3.5
+Requires: %{?scl_prefix}rubygem(css_parser) < 1.5.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 1.7.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -66,7 +66,7 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
