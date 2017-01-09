@@ -5,11 +5,11 @@
 
 Summary: Deface is a library that allows you to customize views in Rails
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
-Release: 3%{?dist}
+Version: 1.1.0
+Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
-URL: https://github.com/DefaceCommunity/deface
+URL: https://github.com/spree/deface
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -17,7 +17,7 @@ Requires: %{?scl_prefix}rubygem(colorize) >= 0.5.8
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 1.7.0
 Requires: %{?scl_prefix_ror}rubygem(polyglot)
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 3.1
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -41,10 +41,9 @@ This package contains documentation for rubygem-%{gem_name}.
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -55,7 +54,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/init.rb
 %{gem_instdir}/tasks
 %exclude %{gem_cache}
@@ -63,10 +62,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/MIT-LICENSE
 
 %exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/Appraisals
 %exclude %{gem_instdir}/gemfiles
 %exclude %{gem_instdir}/spec
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/MIT-LICENSE
 %doc %{gem_instdir}/CHANGELOG.markdown
 %doc %{gem_instdir}/README.markdown
