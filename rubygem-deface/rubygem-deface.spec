@@ -79,6 +79,10 @@ sed -i '/nokogiri/ s/1\.6\.0/1.6/' %{buildroot}%{gem_spec}
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Jan 09 2017 Dominic Cleal <dominic@cleal.org> 1.1.0-1
+- Update deface to 1.1.0 (dominic@cleal.org)
+- Loosen nokogiri dependency to permit 1.7 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-3
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
