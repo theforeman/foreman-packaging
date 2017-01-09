@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Mon Jan 09 2017 Dominic Cleal <dominic@cleal.org> 3.2.1-1
+- Update roadie to 3.2.1 (dominic@cleal.org)
+
 * Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 3.2.0-1
 - Update roadie to 3.2.0 (dominic@cleal.org)
 
