@@ -15,7 +15,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(colorize) >= 0.5.8
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 1.7.0
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0.0
 Requires: %{?scl_prefix_ror}rubygem(polyglot)
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -51,6 +51,9 @@ mkdir -p .%{gem_dir}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+
+# Loosen nokogiri dependency to permit 1.7 (https://github.com/spree/deface/commit/04bbbfe)
+sed -i '/nokogiri/ s/1\.6\.0/1.6/' %{buildroot}%{gem_spec}
 
 %files
 %dir %{gem_instdir}
