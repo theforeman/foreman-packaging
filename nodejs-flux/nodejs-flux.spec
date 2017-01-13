@@ -1,8 +1,11 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name flux
 
 %{?nodejs_find_provides_and_requires}
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 2.1.1
 Release: 1%{?dist}
 Summary: An application architecture based on a unidirectional data flow
@@ -28,9 +31,8 @@ Source16: http://registry.npmjs.org/is-stream/-/is-stream-1.1.0.tgz
 Source17: http://registry.npmjs.org/encoding/-/encoding-0.1.12.tgz
 Source18: http://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz
 Source19: flux-2.1.1-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: npm
-BuildRequires: nodejs-packaging
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -39,7 +41,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(flux) = 2.1.1
 Provides: bundled-npm(fbemitter) = 2.1.1
 Provides: bundled-npm(immutable) = 3.8.1
@@ -68,13 +70,19 @@ AutoProv: no
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 19 -D -n npm_cache
 
 %build
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

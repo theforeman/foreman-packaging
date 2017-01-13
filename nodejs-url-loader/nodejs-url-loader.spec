@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name url-loader
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 0.5.7
 Release: 3%{?dist}
 Summary: url loader module for webpack
@@ -15,18 +18,17 @@ Source4: http://registry.npmjs.org/big.js/-/big.js-3.1.3.tgz
 Source5: http://registry.npmjs.org/json5/-/json5-0.5.0.tgz
 Source6: http://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz
 Source7: url-loader-0.5.7-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
-BuildRequires: npm(file-loader)
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: %{?scl_prefix_nodejs}npm
+BuildRequires: %{?scl_prefix}npm(file-loader)
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(url-loader) = 0.5.7
 Provides: bundled-npm(mime) = 1.2.11
 Provides: bundled-npm(loader-utils) = 0.2.15
@@ -53,7 +55,11 @@ This package contains documentation for nodejs-%{npm_name}
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 7 -D -n npm_cache
@@ -61,7 +67,9 @@ done
 %build
 mkdir node_modules
 ln -s %{nodejs_sitelib}/file-loader node_modules/
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . url-loader@0.5.7
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

@@ -19,6 +19,33 @@ whitelist = foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  puppet-agent-oauth
+  rubygem-apipie-bindings
+  rubygem-bundler_ext
+  rubygem-clamp
+  rubygem-concurrent-ruby
+  rubygem-foreman_api
+  rubygem-hashie
+  rubygem-highline
+  rubygem-kafo
+  rubygem-kafo_parsers
+  rubygem-kafo_wizards
+  rubygem-little-plugger
+  rubygem-logging
+  rubygem-multi_json
+  rubygem-netrc
+  rubygem-oauth
+  rubygem-passenger
+  rubygem-powerbar
+  rubygem-rack-protection
+  rubygem-rb-inotify
+  rubygem-rubyipmi
+  rubygem-sinatra
+  rubygem-tilt
+
+[foreman-nightly-rhel7]
+disttag = .el7
+whitelist = foreman
   nodejs-babel-core
   nodejs-babel-loader
   nodejs-babel-plugin-transform-object-assign
@@ -51,33 +78,6 @@ whitelist = foreman-installer
   nodejs-style-loader
   nodejs-url-loader
   nodejs-webpack
-  puppet-agent-oauth
-  rubygem-apipie-bindings
-  rubygem-bundler_ext
-  rubygem-clamp
-  rubygem-concurrent-ruby
-  rubygem-foreman_api
-  rubygem-hashie
-  rubygem-highline
-  rubygem-kafo
-  rubygem-kafo_parsers
-  rubygem-kafo_wizards
-  rubygem-little-plugger
-  rubygem-logging
-  rubygem-multi_json
-  rubygem-netrc
-  rubygem-oauth
-  rubygem-passenger
-  rubygem-powerbar
-  rubygem-rack-protection
-  rubygem-rb-inotify
-  rubygem-rubyipmi
-  rubygem-sinatra
-  rubygem-tilt
-
-[foreman-nightly-rhel7]
-disttag = .el7
-whitelist = foreman
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-addressable

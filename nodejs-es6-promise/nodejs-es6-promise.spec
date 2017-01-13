@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name es6-promise
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 3.2.1
 Release: 2%{?dist}
 Summary: A lightweight library that provides tools for organizing asynchronous code
@@ -8,17 +11,16 @@ License: MIT
 Group: Development/Libraries
 URL: https://github.com/jakearchibald/ES6-Promises
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %{?nodejs_find_provides_and_requires}
 
 %description

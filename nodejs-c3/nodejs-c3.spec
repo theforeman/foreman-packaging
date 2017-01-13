@@ -1,8 +1,11 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name c3
 
 %{?nodejs_find_provides_and_requires}
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 0.4.11
 Release: 1%{?dist}
 Summary: D3-based reusable chart library
@@ -11,9 +14,8 @@ URL: https://github.com/masayuki0812/c3
 Source0: http://registry.npmjs.org/c3/-/c3-0.4.11.tgz
 Source1: http://registry.npmjs.org/d3/-/d3-3.5.17.tgz
 Source2: c3-0.4.11-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: npm
-BuildRequires: nodejs-packaging
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -22,7 +24,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(c3) = 0.4.11
 Provides: bundled-npm(d3) = 3.5.17
 AutoReq: no
@@ -34,13 +36,19 @@ AutoProv: no
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 2 -D -n npm_cache
 
 %build
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

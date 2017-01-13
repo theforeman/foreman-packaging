@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name jquery.cookie
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.4.1
 Release: 2%{?dist}
 Summary: A simple, lightweight jQuery plugin for reading, writing and deleting cookies.
@@ -9,16 +12,15 @@ Group: Development/Libraries
 URL: http://github.com/carhartl/jquery-cookie
 Source0: http://registry.npmjs.org/jquery.cookie/-/jquery.cookie-1.4.1.tgz
 
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-Requires: npm(jquery) >= 1.2.0
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+Requires: %{?scl_prefix}npm(jquery) >= 1.2.0
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 A simple, lightweight jQuery plugin for reading, writing and deleting cookies.

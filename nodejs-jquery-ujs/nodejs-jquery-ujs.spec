@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name jquery-ujs
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.2.1
 Release: 3%{?dist}
 Summary: Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
@@ -9,16 +12,15 @@ Group: Development/Libraries
 URL: https://github.com/shakacode/jquery-ujs.git
 Source0: http://registry.npmjs.org/jquery-ujs/-/jquery-ujs-1.2.1.tgz
 
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-Requires: npm(jquery) >= 1.8.0
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+Requires: %{?scl_prefix}npm(jquery) >= 1.8.0
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 Ruby on Rails unobtrusive scripting adapter for jQuery, for npm

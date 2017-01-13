@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name extract-text-webpack-plugin
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.0.1
 Release: 2%{?dist}
 Summary: Extract text from bundle into a file
@@ -18,19 +21,18 @@ Source7: http://registry.npmjs.org/webpack-sources/-/webpack-sources-0.1.2.tgz
 Source8: http://registry.npmjs.org/source-list-map/-/source-list-map-0.1.6.tgz
 Source9: http://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz
 Source10: extract-text-webpack-plugin-1.0.1-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-Requires: npm(webpack)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
-BuildRequires: npm(webpack)
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+Requires: %{?scl_prefix}npm(webpack)
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: %{?scl_prefix_nodejs}npm
+BuildRequires: %{?scl_prefix}npm(webpack)
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(extract-text-webpack-plugin) = 1.0.1
 Provides: bundled-npm(loader-utils) = 0.2.15
 Provides: bundled-npm(async) = 1.5.2
@@ -51,7 +53,11 @@ Extract text from bundle into a file.
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 10 -D -n npm_cache
@@ -61,7 +67,9 @@ mkdir node_modules
 # Notice I make regular symlinks instead of running npm link, as the latter will ask for
 # root permissions
 ln -s %{nodejs_sitelib}/* node_modules/
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . extract-text-webpack-plugin@1.0.1
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

@@ -1,8 +1,11 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name react-bootstrap
 
 %{?nodejs_find_provides_and_requires}
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 0.30.5
 Release: 2%{?dist}
 Summary: Bootstrap 3 components built with React
@@ -23,11 +26,10 @@ Source11: http://registry.npmjs.org/keycode/-/keycode-2.1.7.tgz
 Source12: http://registry.npmjs.org/warning/-/warning-3.0.0.tgz
 Source13: http://registry.npmjs.org/uncontrollable/-/uncontrollable-4.0.3.tgz
 Source14: react-bootstrap-0.30.5-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: npm
-BuildRequires: nodejs-packaging
-BuildRequires: npm(react) >= 0.14.0
-BuildRequires: npm(react-dom) >= 0.14.0
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}npm
+BuildRequires: %{?scl_prefix}npm(react) >= 0.14.0
+BuildRequires: %{?scl_prefix}npm(react-dom) >= 0.14.0
 BuildArch:  noarch
 
 %if 0%{?fedora} >= 19
@@ -36,7 +38,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(react-bootstrap) = 0.30.5
 Provides: bundled-npm(invariant) = 2.2.1
 Provides: bundled-npm(classnames) = 2.2.5
@@ -60,7 +62,11 @@ AutoProv: no
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 14 -D -n npm_cache
@@ -68,7 +74,9 @@ done
 %build
 mkdir node_modules
 ln -s %{nodejs_sitelib}/{react,react-dom} node_modules/
+%{?scl:scl enable %{scl} - <<EOF}
 npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name babel-core
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 6.7.7
 Release: 3%{?dist}
 Summary: Babel compiler core
@@ -69,17 +72,16 @@ Source58: http://registry.npmjs.org/amdefine/-/amdefine-1.0.0.tgz
 Source59: http://registry.npmjs.org/balanced-match/-/balanced-match-0.4.2.tgz
 Source60: http://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.0.tgz
 Source61: babel-core-6.7.7-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(babel-core) = 6.7.7
 Provides: bundled-npm(babel-messages) = 6.8.0
 Provides: bundled-npm(babel-traverse) = 6.12.0
@@ -151,7 +153,7 @@ Babel compiler core.
 %package doc
 Summary: Documentation for nodejs-%{npm_name}
 Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
+Requires: %{?scl_prefix}nodejs-%{npm_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -160,13 +162,20 @@ This package contains documentation for nodejs-%{npm_name}
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
+
 
 %setup -T -q -a 61 -D -n npm_cache
 
 %build
+%{?scl:scl enable %{scl} - <<EOF}
 npm install %{npm_name}@%{version} --cache-min Infinity --cache .
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}

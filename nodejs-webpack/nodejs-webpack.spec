@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name webpack
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-%{npm_name}
 Version: 1.13.1
 Release: 2%{?dist}
 Summary: Packs CommonJs/AMD modules for the browser
@@ -242,17 +245,16 @@ Source231: http://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz
 Source232: http://registry.npmjs.org/is-property/-/is-property-1.0.2.tgz
 Source233: http://registry.npmjs.org/qs/-/qs-6.2.1.tgz
 Source234: webpack-1.13.1-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
+Requires: %{?scl_prefix_nodejs}nodejs(engine)
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+BuildRequires: %{?scl_prefix_nodejs}npm
 BuildArch: noarch
 %if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled-npm(webpack) = 1.13.1
 Provides: bundled-npm(mkdirp) = 0.5.1
 Provides: bundled-npm(interpret) = 0.6.6
@@ -509,13 +511,19 @@ This package contains documentation for nodejs-%{npm_name}
 %prep
 mkdir npm_cache
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  if [ $(echo $tgz | grep -q registry.npmjs.org) ];then
+%{?scl:scl enable %{scl} - <<EOF}
+npm cache add --cache ./npm_cache $tgz
+%{?scl:EOF}
+  fi
 done
 
 %setup -T -q -a 234 -D -n npm_cache
 
 %build
+%{?scl:scl enable %{scl} - <<EOF}
 npm install %{npm_name}@%{version} --cache-min Infinity --cache .  --verbose
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
