@@ -81,6 +81,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Jan 13 2017 Dominic Cleal <dominic@cleal.org> 1.14.0-1
+- Release 1.14.0
+
 * Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 1.14.0-0.1.RC3
 - Release 1.14.0-RC3
 
