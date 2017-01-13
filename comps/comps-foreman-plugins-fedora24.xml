@@ -170,6 +170,7 @@
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
+      <packagereq type="default">rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>

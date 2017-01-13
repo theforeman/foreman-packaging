@@ -82,6 +82,10 @@ GEMFILE
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 13 2017 Dominic Cleal <dominic@cleal.org> 2.0.0-1
+- Release puppetdb_foreman 2.0 (me@daniellobato.me)
+- Use gem_install to build rubygem (dominic@cleal.org)
+
 * Fri Sep 30 2016 Dominic Cleal <dominic@cleal.org> 1.0.4-1
 - Update puppetdb_foreman 1.0.4 (me@daniellobato.me)
 
