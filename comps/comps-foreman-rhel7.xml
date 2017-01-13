@@ -328,6 +328,7 @@
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ping-doc</packagereq>
       <packagereq type="default">tfm-rubygem-netrc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-doc</packagereq>
