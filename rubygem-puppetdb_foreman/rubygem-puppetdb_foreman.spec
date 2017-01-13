@@ -42,13 +42,20 @@ Provides: foreman-plugin-puppetdb
 This is a foreman plugin to interact with PuppetDB through callbacks
 and proxy the performance dashboard to Foreman.
 
+%package doc
+BuildArch:  noarch
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Documentation for rubygem-%{gem_name}
+
+%description doc
+This package contains documentation for rubygem-%{gem_name}.
+
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -71,7 +78,8 @@ GEMFILE
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 
-%exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
+%files doc
+%doc %{gem_docdir}
 
 %changelog
 * Fri Sep 30 2016 Dominic Cleal <dominic@cleal.org> 1.0.4-1
