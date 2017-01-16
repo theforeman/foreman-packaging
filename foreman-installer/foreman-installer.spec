@@ -34,6 +34,9 @@ BuildRequires: %{?scl_prefix}rubygem-kafo >= 1.0.5
 %if 0%{?fedora} >= 22
 BuildRequires: %{?scl_prefix}rubygem(puppet-strings) >= 0.99
 BuildRequires: %{?scl_prefix}rubygem(puppet-strings) < 2
+%else
+BuildRequires: puppet-agent-puppet-strings >= 0.99
+BuildRequires: puppet-agent-puppet-strings < 2
 %endif
 
 %description
