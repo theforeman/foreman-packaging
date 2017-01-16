@@ -46,3 +46,6 @@ else  # upgrade
 fi
 
 %changelog
+* Mon Jan 16 2017 Dominic Cleal <dominic@cleal.org> 0.9.5-1
+- new package built with tito
+
