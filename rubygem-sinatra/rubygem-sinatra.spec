@@ -84,6 +84,9 @@ rm %{buildroot}/%gem_instdir/.yardopts # Remove YARD configuration
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jan 16 2017 Dominic Cleal <dominic@cleal.org> 1.4.7-1
+- Update sinatra to 1.4.7 (dominic@cleal.org)
+
 * Thu Mar 07 2013 Bohuslav Kabrda <bkabrda@redhat.com> - 1:1.3.5-1
 - Update to version 1.3.5.
 - Run tests again.
