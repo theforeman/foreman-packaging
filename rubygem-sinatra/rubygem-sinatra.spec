@@ -4,26 +4,25 @@
 
 Summary:        Ruby-based web application framework
 Name:           rubygem-%{gem_name}
-Version:        1.3.5
+Version:        1.4.7
 Release:        1%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://sinatra.rubyforge.org
 Source0:        http://rubygems.org/downloads/%{gem_name}-%{version}.gem
-# https://github.com/sinatra/sinatra/pull/660
-Patch0:         %{name}-1.3.5-fix-tests-with-rdoc-4.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       ruby(release)
 Requires:       ruby(rubygems)
-Requires:       rubygem(rack) >= 1.4.0
-Requires:       rubygem(rack-protection) >= 1.3.0
+Requires:       rubygem(rack) >= 1.5.0
+Requires:       rubygem(rack-protection) >= 1.4.0
 Requires:       rubygem(tilt) >= 1.3.3
+Requires:       rubygem(tilt) < 3.0.0
 BuildRequires:  rubygems-devel
 %if 0%{bootstrap} < 1
-BuildRequires:  rubygem(rack) >= 1.4.0
+BuildRequires:  rubygem(rack) >= 1.5.0
 BuildRequires:  rubygem(rack-test)
-BuildRequires:  rubygem(rack-protection) >= 1.3.0
+BuildRequires:  rubygem(rack-protection) >= 1.4.0
 BuildRequires:  rubygem(tilt) >= 1.3.3
+BuildRequires:  rubygem(tilt) < 3.0.0
 BuildRequires:  rubygem(minitest)
 %endif
 BuildArch:      noarch
@@ -48,10 +47,6 @@ This package contains documentation for %{name}.
 %setup -q -c -T
 %{__mkdir_p} .%{gem_dir}
 %gem_install -n %{SOURCE0}
-
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
 
 %build
 
@@ -78,12 +73,13 @@ rm %{buildroot}/%gem_instdir/.yardopts # Remove YARD configuration
 %{gem_spec}
 
 %files doc
-%{gem_docdir}
-%{gem_instdir}/README.rdoc
-%{gem_instdir}/README.*.rdoc
-%{gem_instdir}/LICENSE
-%{gem_instdir}/AUTHORS
-%{gem_instdir}/CHANGES
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/README.*.md
+%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/AUTHORS.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/examples
 %{gem_instdir}/Gemfile
 
