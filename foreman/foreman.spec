@@ -415,8 +415,8 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 %package rackspace
 Summary: Foreman Rackspace support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1
-Requires: %{?scl_prefix}rubygem(fog-rackspace) < 1.0
+Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1.4
+Requires: %{?scl_prefix}rubygem(fog-rackspace) < 0.2.0
 Requires: %{name} = %{version}-%{release}
 
 %description rackspace
