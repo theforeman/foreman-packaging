@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support Rackspace
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.1
+Version: 0.1.4
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -38,29 +38,35 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.txt
+%doc %{gem_instdir}/LICENSE.md
 
 %files doc
-%{gem_instdir}/CODE_OF_CONDUCT.md
-%{gem_instdir}/README.md
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/tests
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/circle.yml
 %exclude %{gem_instdir}/bin
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
