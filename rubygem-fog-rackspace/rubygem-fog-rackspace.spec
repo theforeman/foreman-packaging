@@ -71,6 +71,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jan 17 2017 Dominic Cleal <dominic@cleal.org> 0.1.4-1
+- Update fog-rackspace to 0.1.4 (dominic@cleal.org)
+
 * Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 0.1.1-1
 - new package built with tito
 
