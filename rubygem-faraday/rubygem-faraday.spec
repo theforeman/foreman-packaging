@@ -6,7 +6,7 @@
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lostisland/faraday
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 18 2017 Dominic Cleal <dominic@cleal.org> 0.9.1-4
+- Change multipart-post dep to RPM name from virtual (#18123)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.9.1-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
