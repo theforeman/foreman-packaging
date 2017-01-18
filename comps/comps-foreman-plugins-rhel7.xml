@@ -19,7 +19,6 @@
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-infoblox</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
-      <packagereq type="default">rubygem-multipart-post</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
@@ -137,7 +136,6 @@
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-infoblox-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
-      <packagereq type="default">rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
