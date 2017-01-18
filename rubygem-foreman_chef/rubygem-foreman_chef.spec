@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 18 2017 Dominic Cleal <dominic@cleal.org> 0.4.2-1
+- Update foreman_chef to 0.4.2 (mhulan@redhat.com)
+
 * Mon Aug 22 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
 - Updates foreman_chef to 0.4.0 (mhulan@redhat.com)
 
