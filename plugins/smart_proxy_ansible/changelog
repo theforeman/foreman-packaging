@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (1.0.1-1) stable; urgency=low
+
+  * 1.0.1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 19 Jan 2017 21:04:02 +0100
+
 ruby-smart-proxy-ansible (1.0.0-2) unstable; urgency=low
 
   * Add dependency on ansible
