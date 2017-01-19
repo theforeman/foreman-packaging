@@ -4,8 +4,8 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
 License: GPLv3
@@ -67,6 +67,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
