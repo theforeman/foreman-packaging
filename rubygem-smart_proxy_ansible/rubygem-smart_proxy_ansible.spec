@@ -90,6 +90,10 @@ cp -pa .%{gem_instdir}/bundler.plugins.d/foreman_ansible_core.rb %{buildroot}/%{
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 20 2017 Dominic Cleal <dominic@cleal.org> 1.0.1-1
+- Release 1.0.1 smart_proxy_ansible (me@daniellobato.me)
+- Add Ansible dependency for Ansible proxy plugin (tbrisker@gmail.com)
+
 * Wed Oct 05 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - new package built with tito
 
