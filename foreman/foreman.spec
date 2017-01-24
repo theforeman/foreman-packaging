@@ -57,8 +57,8 @@ Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
-Requires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
-Requires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
+Requires: %{?scl_prefix}rubygem(audited) >= 4.3
+Requires: %{?scl_prefix}rubygem(audited) < 5.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -139,8 +139,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
-BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) >= 4.0
-BuildRequires: %{?scl_prefix}rubygem(audited-activerecord) < 5.0
+BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.3
+BuildRequires: %{?scl_prefix}rubygem(audited) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0

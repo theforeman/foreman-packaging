@@ -238,6 +238,7 @@ whitelist = foreman
   rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-apipie-bindings
+  rubygem-audited
   rubygem-autoparse
   rubygem-autoprefixer-rails
   rubygem-bootstrap-sass
