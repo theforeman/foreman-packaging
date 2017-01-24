@@ -20,6 +20,13 @@ FOREMAN_PROXY_HOME=${FOREMAN_PROXY_HOME:-/usr/share/foreman-proxy}
 FOREMAN_PROXY_SETTINGS=${FOREMAN_PROXY_SETTINGS:-/etc/foreman-proxy/settings.yml}
 
 start() {
+    if [ -f ${FOREMAN_PROXY_PID} ]; then
+        echo -n $"$prog is already running.";
+        failure $"$prog is already running.";
+        echo
+        return 1
+    fi
+
     echo -n $"Starting $prog: "
 
     if egrep -q ':daemon:\s*false' $FOREMAN_PROXY_SETTINGS; then
