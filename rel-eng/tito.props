@@ -86,7 +86,6 @@ whitelist = foreman
   rubygem-apipie-bindings
   rubygem-apipie-rails
   rubygem-audited
-  rubygem-audited-activerecord
   rubygem-autoparse
   rubygem-autoprefixer-rails
   rubygem-awesome_print
