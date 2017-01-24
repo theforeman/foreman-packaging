@@ -6,7 +6,7 @@
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.0
+Version: 4.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -14,6 +14,8 @@ URL: https://github.com/collectiveidea/audited
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.1
 Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1.2
 Requires: %{?scl_prefix}rubygem(rails-observers) < 0.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -40,10 +42,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -63,8 +64,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/.*
-# Seems that spec and test folders are included just by mistake.
-# https://github.com/collectiveidea/audited/pull/125
 %exclude %{gem_instdir}/spec
 %exclude %{gem_instdir}/test
 %exclude %{gem_cache}
