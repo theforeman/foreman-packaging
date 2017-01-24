@@ -18,26 +18,17 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
-Source1:        %{name}.sysconfig
-Source2:        %{name}.init
-Source3:        logrotate
-Source4:        %{name}.service
-Source5:        %{name}.tmpfiles
-Source6:        logrotate.systemd
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source1:        %{name}.service
+Source2:        %{name}.tmpfiles
+Source3:        logrotate.conf
 
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-Requires:      %{?scl_prefix_ruby}ruby(abi)
-%else
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 Requires:      %{?scl_prefix_ruby}ruby(release)
-%endif
 
 Requires:       foreman-debug
 Requires:       %{?scl_prefix_ruby}rubygems
@@ -55,18 +46,11 @@ Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
-%if 0%{?el6}
-Requires(post): chkconfig
-Requires(preun): chkconfig
-Requires(preun): initscripts
-Requires(postun): initscripts
-%else
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): systemd-units
 Requires(postun): systemd-units
 BuildRequires: systemd-units
-%endif
 
 
 %description
@@ -119,16 +103,9 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
-
-%if 0%{?el6}
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-install -Dp -m0755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
+install -Dp -m0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-%else
-install -Dp -m0644 %{SOURCE4} %{buildroot}%{_unitdir}/%{name}.service
-install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
-install -Dp -m0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-%endif
 
 mkdir -p %{buildroot}%{_sbindir}
 install -m 0755 sbin/foreman-prepare-realm %{buildroot}%{_sbindir}/foreman-prepare-realm
@@ -153,9 +130,6 @@ ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/logs
 # Link temp directory to system wide temp
 ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 
-%clean
-rm -rf %{buildroot}
-
 %files
 %doc README.md LICENSE VERSION
 %{_datadir}/%{name}
@@ -169,13 +143,8 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/%{name}/bundler.d/windows.rb
 %{_sbindir}/foreman-prepare-realm
 %{_mandir}/man8
-%if 0%{?el6}
-%{_initrddir}/%{name}
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
-%else
 %{_unitdir}/%{name}.service
 %{_prefix}/lib/tmpfiles.d/%{name}.conf
-%endif
 %{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
 
 %pre
@@ -209,38 +178,22 @@ if [ $1 == 2 ]; then
   popd >/dev/null
 fi
 
-%if 0%{?el6}
-  /sbin/chkconfig --add %{name}
-  exit 0
-%else
-  if [ $1 -eq 1 ]; then
-    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
-  fi
-%endif
+if [ $1 -eq 1 ]; then
+  /bin/systemctl daemon-reload >/dev/null 2>&1 || :
+fi
 
 %preun
 if [ $1 -eq 0 ] ; then
   # Package removal, not upgrade
-  %if 0%{?el6}
-    /sbin/service %{name} stop >/dev/null 2>&1
-    /sbin/chkconfig --del %{name}
-  %else
-    /bin/systemctl --no-reload disable foreman-proxy.service >/dev/null 2>&1 || :
-    /bin/systemctl stop foreman-proxy.service >/dev/null 2>&1 || :
-  %endif
+  /bin/systemctl --no-reload disable foreman-proxy.service >/dev/null 2>&1 || :
+  /bin/systemctl stop foreman-proxy.service >/dev/null 2>&1 || :
 fi
 
 %postun
-%if 0%{?el6}
-  if [ $1 -ge 1 ] ; then
-    /sbin/service %{name} restart >/dev/null 2>&1
-  fi
-%else
-  /bin/systemctl daemon-reload >/dev/null 2>&1 || :
-  if [ $1 -ge 1 ] ; then
-    /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
-  fi
-%endif
+/bin/systemctl daemon-reload >/dev/null 2>&1 || :
+if [ $1 -ge 1 ] ; then
+  /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
+fi
 
 
 %changelog
