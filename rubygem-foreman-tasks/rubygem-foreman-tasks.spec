@@ -92,6 +92,9 @@ gem install --local --install-dir .%{gem_dir} \
 %build
 sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' %{_builddir}/%{pkg_name}-%{version}/%{gem_instdir}/bin/%{service_name}
 
+#build locale files
+make -C locale all-mo
+
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
