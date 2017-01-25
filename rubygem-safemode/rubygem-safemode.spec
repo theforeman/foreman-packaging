@@ -87,6 +87,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Wed Jan 25 2017 Dominic Cleal <dominic@cleal.org> 1.2.5-1
+- Update rubygem-safemode to 1.2.5 (dmitri@appliedlogic.ca)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.2.4-2
 - Use gem_install macro (dominic@cleal.org)
 
