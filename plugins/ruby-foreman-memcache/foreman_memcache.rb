@@ -1,1 +1,1 @@
-gem 'foreman_memcache', '0.0.3'
+gem 'foreman_memcache', '0.0.5'
