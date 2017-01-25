@@ -1,11 +1,6 @@
 ruby-foreman-memcache (0.0.5-1) stable; urgency=low
 
   * 0.0.5 released
-
- -- Bram Vogelaar <bram@inuits.eu>  Wed, 25 Jan 2017 11:30:45 +0100
-
-ruby-foreman-memcache (0.0.5) stable; urgency=low
-
   * Set HOME to ~foreman as rb-readline requires it
 
  -- Bram Vogelaar <bram@attachmentgenie.com>  Wed, 25 Jan 2017 11:29:00 +0000
