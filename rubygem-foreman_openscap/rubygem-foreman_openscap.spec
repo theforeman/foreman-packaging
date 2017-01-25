@@ -65,6 +65,8 @@ mkdir -p .%{gem_dir}
 %{?scl:EOF}
 
 %build
+#build locale files
+make -C locale all-mo
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
