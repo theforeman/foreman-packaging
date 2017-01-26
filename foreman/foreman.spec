@@ -221,6 +221,8 @@ BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(c3) >= 0.4.11
 BuildRequires: npm(c3) < 1.0.0
+BuildRequires: npm(compression-webpack-plugin) >= 0.3.1
+BuildRequires: npm(compression-webpack-plugin) < 0.4.0
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(datatables.net) >= 1.10.12
@@ -480,6 +482,8 @@ Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(babel-preset-react) >= 6.5.0
 Requires: npm(c3) >= 0.4.11
 Requires: npm(c3) < 1.0.0
+Requires: npm(compression-webpack-plugin) >= 0.3.1
+Requires: npm(compression-webpack-plugin) < 0.4.0
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(css-loader) >= 0.23.1
 Requires: npm(datatables.net) >= 1.10.12
