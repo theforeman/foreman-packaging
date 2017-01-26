@@ -54,6 +54,9 @@ cp -pfr dist external src *.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %exclude %{nodejs_sitelib}/%{npm_name}/bower.json
 
 %changelog
+* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.2.4-1
+- Update nodejs-jquery to 2.2.4 (dominic@cleal.org)
+
 * Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.11.3-3
 - Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
 
