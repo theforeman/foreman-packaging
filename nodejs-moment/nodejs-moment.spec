@@ -49,3 +49,6 @@ cp -pfr CHANGELOG.md LICENSE README.md ender.js locale min moment.d.ts moment.js
 %doc README.md
 
 %changelog
+* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.17.1-1
+- new package built with tito
+
