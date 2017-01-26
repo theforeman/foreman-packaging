@@ -1,13 +1,13 @@
 %global npm_name jquery
 
 Name: nodejs-%{npm_name}
-Version: 1.11.3
-Release: 3%{?dist}
+Version: 2.2.4
+Release: 1%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/jquery/jquery.git
-Source0: http://registry.npmjs.org/jquery/-/jquery-1.11.3.tgz
+Source0: http://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz
 Requires: nodejs(engine)
 BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
@@ -36,7 +36,7 @@ This package contains documentation for nodejs-%{npm_name}.
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr dist src *.json *.md *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist external src *.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %build
 
@@ -45,10 +45,11 @@ cp -pfr dist src *.json *.md *.txt %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
+%doc LICENSE.txt
 
 %files doc
-%doc %{nodejs_sitelib}/%{npm_name}/*.md
-%doc %{nodejs_sitelib}/%{npm_name}/*.txt
+%doc *.md
+%doc *.txt
 %exclude %{nodejs_sitelib}/%{npm_name}/.*
 %exclude %{nodejs_sitelib}/%{npm_name}/bower.json
 
