@@ -42,6 +42,7 @@ whitelist = foreman-installer
   nodejs-jquery-ujs
   nodejs-jstz
   nodejs-lodash
+  nodejs-moment
   nodejs-multiselect
   nodejs-react
   nodejs-react-bootstrap
@@ -224,6 +225,7 @@ whitelist = foreman
   nodejs-jquery-ujs
   nodejs-jstz
   nodejs-lodash
+  nodejs-moment
   nodejs-multiselect
   nodejs-react
   nodejs-react-bootstrap
