@@ -57,3 +57,6 @@ cp -pf README.md ../../
 %doc README.md
 
 %changelog
+* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 0.3.2-1
+- new package built with tito
+
