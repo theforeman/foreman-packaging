@@ -26,6 +26,7 @@ whitelist = foreman-installer
   nodejs-babel-preset-es2015
   nodejs-babel-preset-react
   nodejs-c3
+  nodejs-compression-webpack-plugin
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
@@ -207,6 +208,7 @@ whitelist = foreman
   nodejs-babel-preset-es2015
   nodejs-babel-preset-react
   nodejs-c3
+  nodejs-compression-webpack-plugin
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
