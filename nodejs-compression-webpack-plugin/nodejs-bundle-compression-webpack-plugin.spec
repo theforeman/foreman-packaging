@@ -22,7 +22,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 %else
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
-
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(compression-webpack-plugin) = 0.3.2
 Provides: bundled-npm(async) = 0.2.10
 Provides: bundled-npm(webpack-sources) = 0.1.4
