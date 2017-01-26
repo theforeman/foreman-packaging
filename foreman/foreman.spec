@@ -916,6 +916,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 1.13.4-1
+- Release 1.13.4
+
 * Tue Dec 20 2016 Dominic Cleal <dominic@cleal.org> 1.13.3-1
 - Release 1.13.3
 
