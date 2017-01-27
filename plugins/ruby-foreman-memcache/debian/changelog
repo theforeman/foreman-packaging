@@ -1,3 +1,9 @@
+ruby-foreman-memcache (0.0.5-2) stable; urgency=low
+
+  * Add missing deface dependency
+
+ -- Dominic Cleal <dominic@cleal.org>  Fri, 27 Jan 2017 14:46:43 +0000
+
 ruby-foreman-memcache (0.0.5-1) stable; urgency=low
 
   * 0.0.5 released
