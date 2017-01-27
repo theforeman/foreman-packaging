@@ -1,1 +1,1 @@
-gem 'smart_proxy_chef', '0.1.8'
+gem 'smart_proxy_chef', '0.2.0'
