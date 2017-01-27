@@ -51,6 +51,7 @@ BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires:           container-selinux >= 2.0
 Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
 Requires(post):     policycoreutils-python
 Requires(post):     selinux-policy-targeted
@@ -130,6 +131,7 @@ Summary: SELinux policy module for Foreman Proxy
 Group:   System Environment/Base
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires:           container-selinux >= 2.0
 Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
 Requires(post):     policycoreutils-python
 Requires(post):     selinux-policy-targeted
