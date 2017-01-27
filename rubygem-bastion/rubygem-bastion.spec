@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Thu Jan 26 2017 Eric D Helms <ericdhelms@gmail.com> 4.2.2-1
+- Update rubygem-bastion to 4.2.2 (ericdhelms@gmail.com)
+
 * Thu Jan 26 2017 Eric D Helms <ericdhelms@gmail.com> 4.2.1-1
 - Update rubygem-bastion to 4.2.1 (ericdhelms@gmail.com)
 
