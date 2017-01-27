@@ -8,7 +8,7 @@
  # SSL Setup
  # If enabled, all communication would be verified via SSL
  # NOTE that both certificates need to be signed by the same CA in order for this to work
-@@ -15,7 +18,7 @@
+@@ -21,7 +24,7 @@
  #- foreman.prod.domain
  #- foreman.dev.domain
  #to deny access to all hosts use:
@@ -17,7 +17,7 @@
  
  # verify a DNS reverse lookup against it's forward lookup
  # 1.1.1.1 -> foreman.mycompany.com -> 1.1.1.1
-@@ -32,16 +35,16 @@
+@@ -38,16 +41,16 @@
  #:foreman_ssl_key: ssl/private_keys/fqdn.pem
  
  # by default smart_proxy runs in the foreground. To enable running as a daemon, uncomment 'daemon' setting
@@ -28,9 +28,9 @@
  #:daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
  
  # host and ports configuration
- # host to bind ports to (possible values: *, localhost, 0.0.0.0)
--#:bind_host: '*'
-+:bind_host: localhost
+ # an array of interfaces to bind ports to (possible values: *, localhost, 0.0.0.0)
+-#:bind_host: ['*']
++:bind_host: ['localhost']
  # http is disabled by default. To enable, uncomment 'http_port' setting
 -#:http_port: 8000
 +:http_port: 8000
