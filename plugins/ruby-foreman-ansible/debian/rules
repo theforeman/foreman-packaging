@@ -17,6 +17,7 @@ build:
 	cd /usr/share/foreman && ( \
 		/usr/bin/foreman-ruby /usr/bin/bundle install --local && \
 		/usr/bin/foreman-ruby /usr/bin/bundle exec rake db:migrate RAILS_ENV=development && \
+		/usr/bin/foreman-ruby /usr/bin/bundle exec rake plugin:assets:precompile[$(PLUGIN)] RAILS_ENV=production && \
 		/usr/bin/foreman-ruby /usr/bin/bundle exec rake plugin:apipie:cache[$(PLUGIN)] cache_part=resources \
 		OUT=/var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) RAILS_ENV=development \
 		)
