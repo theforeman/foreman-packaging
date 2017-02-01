@@ -7,27 +7,19 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 2.0.0
+Version: 3.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Route 53 DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dns_route53
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.11
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-%else
+Requires: foreman-proxy >= 1.13
 Requires: ruby(release)
-%endif
 Requires: ruby
 Requires: ruby(rubygems)
 Requires: rubygem(route53)
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
 BuildRequires: ruby(release)
-%endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
