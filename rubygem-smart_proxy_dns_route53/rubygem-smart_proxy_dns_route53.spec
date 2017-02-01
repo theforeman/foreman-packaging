@@ -86,6 +86,9 @@ mv %{buildroot}%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 01 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
+- Update smart_proxy_dns_route53 to 3.0.0 (dominic@cleal.org)
+
 * Thu Jun 23 2016 Dominic Cleal <dominic@cleal.org> 2.0.0-1
 - new package built with tito
 
