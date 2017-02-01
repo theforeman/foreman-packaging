@@ -36,7 +36,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-selinux
-Version:        1.14.0
+Version:        1.14.1
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
