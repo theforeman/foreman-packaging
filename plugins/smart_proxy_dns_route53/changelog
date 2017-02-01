@@ -1,3 +1,9 @@
+ruby-smart-proxy-dns-route53 (3.0.0-1) stable; urgency=low
+
+  * 3.0.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Wed, 01 Feb 2017 16:06:58 +0000
+
 ruby-smart-proxy-dns-route53 (2.0.0-1) stable; urgency=low
 
   * 2.0.0 released

@@ -11,7 +11,7 @@ XS-Ruby-Versions: all
 Package: ruby-smart-proxy-dns-route53
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: foreman-proxy (>= 1.1.10~rc1),
+Depends: foreman-proxy (>= 1.1.13~rc1),
          ruby | ruby-interpreter,
          ruby-route53,
          ${misc:Depends},
