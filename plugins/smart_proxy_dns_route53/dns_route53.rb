@@ -1,1 +1,1 @@
-gem 'smart_proxy_dns_route53', '2.0.0'
+gem 'smart_proxy_dns_route53', '3.0.0'
