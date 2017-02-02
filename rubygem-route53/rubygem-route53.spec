@@ -2,28 +2,20 @@
 %global gem_name route53
 
 Name: rubygem-%{gem_name}
-Version: 0.3.2
+Version: 0.4.0
 Release: 1%{?dist}
 Summary: Library for Amazon's Route 53 service
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/pcorliss/ruby_route_53
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-%else
 Requires: ruby(release)
-%endif
 Requires: ruby
 Requires: ruby(rubygems) >= 1.3.5
 Requires: rubygem(ruby-hmac)
 Requires: rubygem(nokogiri)
 Requires: rubygem(builder)
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
 BuildRequires: ruby(release)
-%endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel >= 1.3.5
 BuildArch: noarch
