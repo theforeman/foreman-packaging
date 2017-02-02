@@ -79,6 +79,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Thu Feb 02 2017 Dominic Cleal <dominic@cleal.org> 0.4.0-1
+- Update route53 to 0.4.0 (dominic@cleal.org)
+
 * Wed Jun 15 2016 Dominic Cleal <dominic@cleal.org> 0.3.2-1
 - new package built with tito
 
