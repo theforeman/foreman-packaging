@@ -91,6 +91,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 03 2017 Dominic Cleal <dominic@cleal.org> 4.0.1-1
+- templates: 4.0.1 release (greg.sutcliffe@gmail.com)
+
 * Tue Oct 04 2016 Dominic Cleal <dominic@cleal.org> 3.1.0-1
 - templates: 3.1.0 release (greg.sutcliffe@gmail.com)
 
