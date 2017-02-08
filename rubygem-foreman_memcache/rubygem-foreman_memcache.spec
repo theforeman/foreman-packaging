@@ -92,6 +92,9 @@ mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pl
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Feb 08 2017 Dominic Cleal <dominic@cleal.org> 0.0.6-1
+- Update foreman_memcache to 0.0.6 (ohadlevy@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
