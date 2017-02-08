@@ -17,8 +17,8 @@
 
 Summary:    Adds memcache integeration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
-Release:    4%{?foremandist}%{?dist}
+Version:    0.0.6
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_memcache
@@ -82,13 +82,13 @@ mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pl
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
 %doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-%doc %{gem_instdir}/MIT-LICENSE
+%doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_dir}/cache/%{gem_name}-%{version}.gem
 
 %files doc
-%doc %{gem_instdir}/MIT-LICENSE
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
 %changelog
