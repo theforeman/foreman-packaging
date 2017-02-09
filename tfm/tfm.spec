@@ -80,6 +80,7 @@ Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
 Obsoletes: %{scl_prefix}rubygem-select2-rails < 3.5.10-3
 Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
+Obsoletes: %{scl_prefix}rubygem-table_print < 1.5.1-7
 Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
 Obsoletes: %{scl_prefix}rubygem-underscore-rails < 1.8.3-5
 Obsoletes: %{scl_prefix}rubygem-uuid < 2.3.8-2

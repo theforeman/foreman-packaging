@@ -180,7 +180,6 @@ whitelist = foreman
   rubygem-spice-html5-rails
   rubygem-sshkey
   rubygem-syntax
-  rubygem-table_print
   rubygem-text
   rubygem-trollop
   rubygem-unf
@@ -296,7 +295,6 @@ whitelist = foreman
   rubygem-spice-html5-rails
   rubygem-sprockets-rails
   rubygem-strong_parameters
-  rubygem-table_print
   rubygem-therubyracer
   rubygem-trollop
   rubygem-useragent

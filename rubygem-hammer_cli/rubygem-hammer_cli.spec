@@ -24,7 +24,6 @@ Requires: %{?scl_prefix}rubygem(clamp) < 2.0
 Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(unicode-display_width)
 Requires: %{?scl_prefix}rubygem(awesome_print)
-Requires: %{?scl_prefix}rubygem(table_print) >= 1.5.0
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
