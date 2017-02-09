@@ -6,19 +6,17 @@
 
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.2
-Release: 2%{?dist}
+Version: 4.0.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
-Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release) >= 2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby(release) >= 2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -61,28 +59,14 @@ touch -r THANKS.txt THANKS.txt.new && \
 mv THANKS.txt.new THANKS.txt
 popd
 
-# remove gem "test-unit" line
-sed -i -e '/test-unit/, 1d' %{buildroot}%{gem_instdir}/test/common.rb
-
 # replace shebangs to prevent SCL packages depending on non-SCL Ruby
 find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
   sed -ri '1sX/usr/bin/rubyX/usr/bin/env rubyX' {} +
-
-%check
-
-pushd %{buildroot}%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-# requires newer version of mocha (>= 0.13.3)
-# ruby -Ilib -Itest test/test_all.rb
-%{?scl:"}
-popd
-
 
 %files
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
 %{gem_libdir}
-%exclude %{gem_instdir}/setup.rb
 %doc %{gem_instdir}/LICENSE.txt
 %exclude %{gem_cache}
 %{gem_spec}
@@ -93,14 +77,16 @@ popd
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/THANKS.txt
 %doc %{gem_instdir}/CHANGES.txt
+%{gem_instdir}/Gemfile*
 %{gem_instdir}/Manifest
 %{gem_instdir}/Rakefile
 %{gem_instdir}/support
-%{gem_instdir}/test
 # Required to run tests
 %{gem_instdir}/net-ssh.gemspec
 %{gem_instdir}/net-ssh-public_cert.pem
 %exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/appveyor.yml
+%exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.0.2-2
