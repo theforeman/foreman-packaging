@@ -7,7 +7,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Route 53 DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
