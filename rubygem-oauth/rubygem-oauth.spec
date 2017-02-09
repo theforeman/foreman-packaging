@@ -65,6 +65,9 @@ cp -a .%{_bindir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 0.5.1-1
+- Update oauth to 0.5.1 (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.4.7-8
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
