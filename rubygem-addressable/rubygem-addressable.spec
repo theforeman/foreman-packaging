@@ -43,10 +43,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -58,13 +57,22 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/*
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%dir %{gem_instdir}
+%{gem_instdir}/data
+%doc %{gem_instdir}/LICENSE.txt
+%{gem_libdir}
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Rakefile
+%{gem_instdir}/spec
+%exclude %{gem_instdir}/tasks
+%exclude %{gem_instdir}/website
 
 %changelog
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.3.6-3
