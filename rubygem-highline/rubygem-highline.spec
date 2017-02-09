@@ -4,8 +4,8 @@
 %global gem_name highline
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   1.6.21
-Release:   5%{?dist}
+Version:   1.7.8
+Release:   1%{?dist}
 Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
@@ -71,13 +71,14 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/AUTHORS
-%doc %{gem_instdir}/CHANGELOG
+%doc %{gem_instdir}/Changelog.md
 %doc %{gem_instdir}/INSTALL
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/TODO
 %doc %{gem_instdir}/examples
 %doc %{gem_instdir}/doc
 %{gem_instdir}/*.gemspec
+%{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
 %{gem_instdir}/setup.rb
 %{gem_instdir}/site
