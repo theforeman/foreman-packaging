@@ -89,6 +89,10 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
+* Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 4.0.1-1
+- Update net-ssh to 4.0.1 (dominic@cleal.org)
+- Modernise spec file (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 3.0.2-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
