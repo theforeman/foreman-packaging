@@ -86,6 +86,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 1.7.8-1
+- Update highline to 1.7.8 (dominic@cleal.org)
+- Modernise spec file (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.6.21-5
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
