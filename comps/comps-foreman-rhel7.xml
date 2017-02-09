@@ -250,6 +250,7 @@
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
+      <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-kafo-doc</packagereq>
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
       <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
@@ -310,6 +311,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hashie-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-highline-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
