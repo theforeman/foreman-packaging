@@ -43,10 +43,9 @@ Documentation for %{pkg_name}
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -83,20 +82,20 @@ popd
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
 %{gem_libdir}
-%{gem_instdir}/support
 %exclude %{gem_instdir}/setup.rb
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/THANKS.txt
-%doc %{gem_instdir}/CHANGES.txt
 %doc %{gem_instdir}/LICENSE.txt
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %defattr(-, root, root, -)
-%{gem_docdir}
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/THANKS.txt
+%doc %{gem_instdir}/CHANGES.txt
 %{gem_instdir}/Manifest
 %{gem_instdir}/Rakefile
+%{gem_instdir}/support
 %{gem_instdir}/test
 # Required to run tests
 %{gem_instdir}/net-ssh.gemspec
