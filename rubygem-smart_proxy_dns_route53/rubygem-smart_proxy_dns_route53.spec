@@ -86,6 +86,9 @@ mv %{buildroot}%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 3.0.1-1
+- Update smart_proxy_dns_route53 to 3.0.1 (dominic@cleal.org)
+
 * Wed Feb 01 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
 - Update smart_proxy_dns_route53 to 3.0.0 (dominic@cleal.org)
 
