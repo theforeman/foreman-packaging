@@ -7,7 +7,7 @@
 Summary: URI Implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.6
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://addressable.rubyforge.org/
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/website
 
 %changelog
+* Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 2.3.6-4
+- Modernise spec file (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.3.6-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
