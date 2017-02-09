@@ -5,18 +5,14 @@
 
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.7
-Release: 8%{?dist}
+Version: 0.5.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
@@ -26,6 +22,15 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 OAuth Core Ruby implementation
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}
 
 %prep
 %setup -q -c -T
@@ -46,13 +51,18 @@ cp -a .%{_bindir}/* \
 
 %files
 %{_bindir}/oauth
-%{gem_instdir}
-%doc %{gem_docdir}
+%dir %{gem_instdir}
+%{gem_instdir}/bin
+%{gem_libdir}
 %doc %{gem_instdir}/LICENSE
+%exclude %{gem_cache}
+%{gem_spec}
+
+%files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/TODO
-%{gem_cache}
-%{gem_spec}
+%{gem_instdir}/test
 
 %changelog
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.4.7-8
