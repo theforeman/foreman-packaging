@@ -5,10 +5,9 @@
 %{!?scl_vendor_in_name: %global scl_vendor_in_name 0}
 %{?scl_package:%scl_package %scl}
 
-# Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
 %{!?scl_ror:%global scl_ror sclo-ror42}
 %{!?scl_prefix_ror:%global scl_prefix_ror %{scl_ror}-}
-%{!?scl_ruby:%global scl_ruby rh-ruby22}
+%{!?scl_ruby:%global scl_ruby rh-ruby23}
 %{!?scl_prefix_ruby:%global scl_prefix_ruby %{scl_ruby}-}
 
 # Do not produce empty debuginfo package.
