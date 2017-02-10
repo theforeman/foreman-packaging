@@ -5,7 +5,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.7.8
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Feb 10 2017 Dominic Cleal <dominic@cleal.org> 1.7.8-2
+- Fix gem_name expansion for -doc dep (dominic@cleal.org)
+
 * Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 1.7.8-1
 - Update highline to 1.7.8 (dominic@cleal.org)
 - Modernise spec file (dominic@cleal.org)
