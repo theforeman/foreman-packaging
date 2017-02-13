@@ -6,7 +6,7 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.2
+Version: 1.4.4
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.14
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
-Requires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(foreman_ansible_core) < 2.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -32,9 +32,10 @@ BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.14
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 2.0.0
 BuildRequires: foreman-plugin >= 1.12.0
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 
@@ -68,7 +69,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -83,6 +84,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
 %exclude %{gem_instdir}/test
 
 %files doc
