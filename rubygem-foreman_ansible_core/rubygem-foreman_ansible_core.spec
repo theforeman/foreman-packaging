@@ -77,6 +77,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.1.0-1
+- Update foreman_ansible_core to 1.1.0 (me@daniellobato.me)
+
 * Fri Jan 20 2017 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - Release foreman_ansible_core 1.0.0 (me@daniellobato.me)
 
