@@ -87,6 +87,9 @@ rm %{buildroot}%{gem_instdir}/VERSION
 %{gem_docdir}
 
 %changelog
+* Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.3.1-1
+- Update safemode to 1.3.1 (dominic@cleal.org)
+
 * Wed Jan 25 2017 Dominic Cleal <dominic@cleal.org> 1.2.5-1
 - Update rubygem-safemode to 1.2.5 (dmitri@appliedlogic.ca)
 
