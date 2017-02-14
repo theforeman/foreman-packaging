@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Feb 14 2017 Dominic Cleal <dominic@cleal.org> 0.4.7-1
+- Update openscap to 0.4.7 (mhulan@redhat.com)
+
 * Mon Jan 04 2016 Dominic Cleal <dcleal@redhat.com> 0.4.3-2
 - Fix dep to install correct test framework for F21 (dcleal@redhat.com)
 
