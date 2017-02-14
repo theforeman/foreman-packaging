@@ -1,8 +1,8 @@
 %global gem_name openscap
 
 Name: rubygem-%{gem_name}
-Version: 0.4.3
-Release: 2%{?dist}
+Version: 0.4.7
+Release: 1%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -12,12 +12,12 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(rubygems)
 Requires: rubygem(ffi) >= 1.0.9
 # require libopenscap.so.8 in an arch neutral way
-Requires: openscap >= 1.2.1
+Requires: openscap >= 1.2.9
 Requires: openscap < 1.3.0
 BuildRequires: rubygems-devel
 
 # For tests we need:
-BuildRequires: openscap >= 1.2.1
+BuildRequires: openscap >= 1.2.9
 BuildRequires: openscap < 1.3.0
 BuildRequires: bzip2
 
@@ -78,15 +78,7 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0} --no-rdoc --no-ri
 
 %check
-set +e
-rake test 2>&1 > test.output
-ret=$?
-set -e
-cat test.output
-
-# Permit failure with OpenSCAP 1.2.6 or newer
-# https://github.com/OpenSCAP/ruby-openscap/commit/97ae42fed9275598521e0e72d66706ca62972c07
-[ $ret -eq 0 ] || grep -q "158 assertions, 1 failures" test.output
+rake test
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
