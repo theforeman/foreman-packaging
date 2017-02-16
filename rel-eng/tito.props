@@ -50,6 +50,7 @@ whitelist = foreman-installer
   nodejs-react-redux
   nodejs-redux
   nodejs-redux-logger
+  nodejs-redux-thunk
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
@@ -235,6 +236,7 @@ whitelist = foreman
   nodejs-react-redux
   nodejs-redux
   nodejs-redux-logger
+  nodejs-redux-thunk
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
