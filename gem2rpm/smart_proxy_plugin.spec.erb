@@ -134,7 +134,7 @@ mv %{buildroot}%{gem_instdir}/<%= config_file_path %> \
 <% config_file_paths.each do |config_file_path| -%>
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/<%= config_file_path %>
 <% end -%>
-<%= main_file_entries(spec).gsub(/^%license/, '%doc') %>
+<%= main_file_entries(spec) %>
 <% unless doc_subpackage -%>
 %doc %{gem_docdir}
 <%= doc_file_entries(spec) -%>
