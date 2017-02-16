@@ -47,6 +47,7 @@ whitelist = foreman-installer
   nodejs-react
   nodejs-react-bootstrap
   nodejs-react-dom
+  nodejs-react-redux
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
@@ -229,6 +230,7 @@ whitelist = foreman
   nodejs-react
   nodejs-react-bootstrap
   nodejs-react-dom
+  nodejs-react-redux
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
