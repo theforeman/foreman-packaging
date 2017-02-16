@@ -19,6 +19,10 @@ Source7: react-redux-5.0.2-registry.npmjs.org.tgz
 Requires: nodejs(engine)
 BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
+BuildRequires: npm(react) >= 0.14.0
+BuildRequires: npm(react) < 16.0.0
+BuildRequires: npm(redux) >= 2.0.0
+BuildRequires: npm(redux) < 4.0.0
 BuildRequires: npm
 BuildArch: noarch
 %if 0%{?fedora} >= 19
@@ -49,6 +53,8 @@ done
 %setup -T -q -a 7 -D -n npm_cache
 
 %build
+mkdir node_modules
+ln -s %{nodejs_sitelib}/{react,redux} node_modules/
 npm install --cache-min Infinity --cache . --no-optional --global-style true %{npm_name}@%{version}
 
 %install
