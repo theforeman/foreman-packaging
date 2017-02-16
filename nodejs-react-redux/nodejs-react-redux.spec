@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 5.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Official React bindings for Redux
 License: MIT
 URL: https://github.com/gaearon/react-redux
@@ -70,6 +70,9 @@ cp -pf CHANGELOG.md LICENSE.md README.md ../../
 %doc README.md
 
 %changelog
+* Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 5.0.2-2
+- Use existing react, redux peer dependencies (dominic@cleal.org)
+
 * Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 5.0.2-1
 - new package built with tito
 
