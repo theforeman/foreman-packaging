@@ -47,3 +47,6 @@ cp -pfr LICENSE.md README.md dist es index.d.ts lib package.json src %{buildroot
 %doc README.md
 
 %changelog
+* Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 2.2.0-1
+- new package built with tito
+
