@@ -90,23 +90,23 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/hammer
-%{_root_mandir}/man1/hammer.1.gz
+%doc %{_root_mandir}/man1/hammer.1.gz
 %{_root_sysconfdir}/bash_completion.d/%{gem_name}
 %{_root_sysconfdir}/%{confdir}/cli.modules.d
 %config(noreplace) %{_root_sysconfdir}/%{confdir}/cli_config.yml
 %{gem_instdir}/bin
 %{gem_instdir}/lib
 %{gem_instdir}/locale
-%{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%doc %{gem_instdir}/test
 %doc %{gem_docdir}
-%doc %{gem_instdir}/config
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/config
+%{gem_instdir}/test
 
 %changelog
 * Mon Dec 19 2016 Dominic Cleal <dominic@cleal.org> 0.9.0-1

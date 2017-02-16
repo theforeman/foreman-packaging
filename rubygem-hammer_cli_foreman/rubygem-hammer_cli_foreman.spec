@@ -67,15 +67,16 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/lib
 %{gem_instdir}/locale
 %config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
+%license %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/config
 %doc %{gem_instdir}/doc
-%doc %{gem_instdir}/test
+%{gem_instdir}/config
+%{gem_instdir}/test
 
 %changelog
 * Mon Dec 19 2016 Dominic Cleal <dominic@cleal.org> 0.9.0-1
