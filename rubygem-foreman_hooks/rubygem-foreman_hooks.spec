@@ -16,7 +16,7 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.12
+Version:    0.3.13
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -76,7 +76,8 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
+%attr(0755,-,-) %{gem_instdir}/extra/foreman-debug.sh
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
