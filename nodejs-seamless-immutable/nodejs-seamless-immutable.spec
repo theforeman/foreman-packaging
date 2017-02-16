@@ -48,3 +48,6 @@ cp -pfr .npmignore LICENSE README.md package.json seamless-immutable.development
 %doc README.md
 
 %changelog
+* Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 7.0.1-1
+- new package built with tito
+
