@@ -54,3 +54,6 @@ cp -pf CHANGELOG.md LICENSE README.md ../../
 %doc README.md
 
 %changelog
+* Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 2.8.1-1
+- new package built with tito
+
