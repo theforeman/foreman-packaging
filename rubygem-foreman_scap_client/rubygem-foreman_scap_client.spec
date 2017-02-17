@@ -16,7 +16,6 @@ Requires: ruby(rubygems)
 %if 0%{?rhel} >= 5 && 0%{?rhel} <= 6
 BuildRequires: ruby(abi) >= %{rubyabi}
 Requires: ruby(abi) >= %{rubyabi}
-Requires: openscap-utils
 %else
 BuildRequires: ruby(release)
 Requires: ruby(release)
