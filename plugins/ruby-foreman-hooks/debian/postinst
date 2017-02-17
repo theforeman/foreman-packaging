@@ -41,6 +41,13 @@ fi
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 
+GEM_INSTDIR=$(find /usr/share/foreman/vendor/ruby/*/gems -mindepth 1 -maxdepth 1 -name foreman_hooks\* -printf '%T+ %p\n' | sort -r | head -n 1 | awk '{ print $NF }')
+if [ -n "$GEM_INSTDIR" ]; then
+  chmod +x "$GEM_INSTDIR/extra/foreman-debug.sh"
+  mkdir -p /usr/share/foreman/script/foreman-debug.d
+  ln -sf "$GEM_INSTDIR/extra/foreman-debug.sh" /usr/share/foreman/script/foreman-debug.d/50-foreman_hooks
+fi
+
 #DEBHELPER#
 
 exit 0
