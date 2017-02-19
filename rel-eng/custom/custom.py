@@ -61,11 +61,10 @@ class ForemanSourceStrategy(SourceStrategy):
                     os.path.join(self.builder.rpmbuild_sourcedir, os.path.basename(s)))
         print("  %s.spec" % self.builder.project_name)
 
-        i = 0
         replacements = []
         src_files = run_command("find %s -type f" %
               os.path.join(self.builder.rpmbuild_sourcedir, 'archive')).split("\n")
-        for s in src_files:
+        for i, s in enumerate(src_files):
             base_name = os.path.basename(s)
             debug("Downloaded file %s" % base_name)
             if ".tar" not in base_name and ".gem" not in base_name:
@@ -81,7 +80,6 @@ class ForemanSourceStrategy(SourceStrategy):
             source_regex = re.compile("^(source%s:\s*)(.+)$" % i, re.IGNORECASE)
             new_line = "Source%s: %s\n" % (i, base_name)
             replacements.append((source_regex, new_line))
-            i += 1
 
         # Replace version in spec:
         version_regex = re.compile("^(version:\s*)(.+)$", re.IGNORECASE)
