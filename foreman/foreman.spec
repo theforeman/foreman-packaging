@@ -68,7 +68,7 @@ Requires: %{?scl_prefix}rubygem(scoped_search) < 5.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
-Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
+Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.5.0
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.4
@@ -150,7 +150,7 @@ BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.3.5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.4.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.5.0
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.4
