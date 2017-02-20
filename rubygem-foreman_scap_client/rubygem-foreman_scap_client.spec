@@ -80,6 +80,10 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Feb 20 2017 Dominic Cleal <dominic@cleal.org> 0.3.0-1
+- Update foreman_scap_client to 0.3.0 (mhulan@redhat.com)
+- Modernise spec file (dominic@cleal.org)
+
 * Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-1
 - Update foreman_scap_client to 0.2.0 (oprazak@redhat.com)
 
