@@ -13,15 +13,9 @@ URL: https://github.com/openscap/foreman_scap_client
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: bzip2
 Requires: ruby(rubygems)
-%if 0%{?rhel} >= 5 && 0%{?rhel} <= 6
-BuildRequires: ruby(abi) >= %{rubyabi}
-Requires: ruby(abi) >= %{rubyabi}
-Requires: openscap-utils
-%else
-BuildRequires: ruby(release)
 Requires: ruby(release)
 Requires: openscap-scanner
-%endif
+BuildRequires: ruby(release)
 BuildRequires: rubygems-devel
 BuildRequires: ruby
 BuildArch: noarch
@@ -78,7 +72,7 @@ mkdir -p %{buildroot}%{config_dir}
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/config
 
 %files doc
