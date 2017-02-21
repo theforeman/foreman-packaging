@@ -52,11 +52,9 @@ Documentation for %{pkg_name}
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-ri --no-rdoc
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
@@ -79,6 +77,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/MIT-LICENSE
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/Rakefile

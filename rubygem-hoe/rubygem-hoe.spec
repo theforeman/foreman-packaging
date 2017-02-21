@@ -63,16 +63,9 @@ This package contains documentation for %{pkg_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	-V \
-	--install-dir .%{gem_dir} \
-	--force \
-	--rdoc \
-	%{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 pushd .%{gem_instdir}
 %patch0 -p0
@@ -98,13 +91,11 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
 	%{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
+find %{buildroot}%{_bindir} -type f | xargs chmod 0755
+
 chmod 0644 %{buildroot}%{gem_dir}/cache/*gem
-
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}/%{gem_dir}/bin
-find %{buildroot}/%{gem_instdir}/bin -type f | xargs chmod 0755
-
 chmod 0755 %{buildroot}/%{gem_instdir}/template/bin/file_name.erb
 # Don't remove template files
 #rm -f %{buildroot}/%{gem_instdir}/template/.autotest.erb
@@ -122,13 +113,14 @@ popd
 
 %files
 %defattr(-, root, root, -)
-%{_bindir}/sow
 %dir %{gem_instdir}/
-%{gem_instdir}/bin/
 %{gem_instdir}/lib/
 %{gem_instdir}/template/
 %{gem_dir}/cache/%{gem_name}-%{version}.gem
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%dir %{gem_instdir}/bin
+%{gem_instdir}/bin/sow
+%{_bindir}/sow
 
 %doc %{gem_instdir}/[A-Z]*
 
@@ -233,7 +225,7 @@ popd
 * Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
-* Fri Jul  1 2009 Darryl L. Pierce <dpierce@redhat.com> - 2.3.2-1
+* Fri Jul  3 2009 Darryl L. Pierce <dpierce@redhat.com> - 2.3.2-1
 - Release 2.3.2 of Hoe.
 
 * Fri Jun 26 2009 Darryl L. Pierce <dpierce@redhat.com> - 2.3.1-1

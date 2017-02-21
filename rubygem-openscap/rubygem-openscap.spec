@@ -74,8 +74,7 @@ mkdir -p .%{gem_dir}
 
 gem build %{gem_name}.gemspec
 
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
+%gem_install -n %{gem_name}-%{version}.gem
 
 %check
 rake test
@@ -94,6 +93,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 
 %files devel
+%{gem_docdir}
 %{gem_instdir}/test/
 %{gem_instdir}/Rakefile
 

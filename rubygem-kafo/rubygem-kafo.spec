@@ -49,12 +49,9 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 sed -i "/add_runtime_dependency.*puppet/d" ./%{gem_spec}
@@ -89,6 +86,7 @@ cp -a .%{_bindir}/* \
 %{gem_spec}
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
 

@@ -57,19 +57,18 @@ mkdir -p ./%{gem_dir}
 %{?scl:scl enable %{scl} "}
 gem build %{gem_name}.gemspec
 %{?scl:"}
-#buildroot in %%install 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc  \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
+
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/bin -type f | xargs chmod a+x
 chmod a+x %{buildroot}%{gem_instdir}/spec/adapters/db2_spec.rb 
 
@@ -79,8 +78,9 @@ rm -rf %{buildroot}
 %files
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
-%{gem_dir}/bin/sequel
-%{gem_instdir}/bin
+%dir %{gem_instdir}/bin
+%{gem_instdir}/bin/sequel
+%{_bindir}/sequel
 %{gem_libdir}
 %doc %{gem_instdir}/MIT-LICENSE
 %exclude %{gem_instdir}/spec

@@ -42,7 +42,6 @@ Documentation for %{pkg_name}
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} - <<EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}

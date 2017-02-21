@@ -43,9 +43,8 @@ Documentation for %{pkg_name}
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - << \EOF}
-gem install --local --install-dir .%{gem_dir} \
-            --force --rdoc %{SOURCE0}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
 %build

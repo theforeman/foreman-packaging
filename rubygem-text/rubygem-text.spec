@@ -68,14 +68,8 @@ popd
 rm -rf tmpunpackdir
 
 %build
-%{?scl:scl enable %{scl} - << \EOF}
-gem install \
-  --local \
-  --install-dir .%{gem_dir} \
-  --force \
-  --rdoc \
-  -V \
-  %{gem_name}-%{version}.gem
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
 %{?scl:EOF}
 
 %install

@@ -40,16 +40,16 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
-%{?scl:"}
-rm -rf %{buildroot}%{gem_instdir}/.yardoc
-rm -f %{buildroot}%{gem_instdir}/.gemtest
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
@@ -58,6 +58,8 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %doc %{gem_instdir}/COPYING.txt
 %exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/.yardoc
+%exclude %{gem_instdir}/.gemtest
 
 %files doc
 %{gem_instdir}/spec

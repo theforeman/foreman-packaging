@@ -86,17 +86,9 @@ popd
 rm -rf tmpunpackdir
 
 %build
-%{__mkdir_p} .{%{gem_dir},%{_bindir}}
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	--install-dir .%{gem_dir} \
-	--bindir .%{_bindir} \
-	--force \
-	--rdoc \
-	-V \
-	%{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 
 #%%{__rm} -f .%{gem_instdir}/Rakefile
 %{__rm} -f .%{gem_instdir}/%{gem_name}.gemspec
