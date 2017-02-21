@@ -6,7 +6,7 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Feb 21 2017 Dominic Cleal <dominic@cleal.org> 0.4.0-2
+- Fix SCL prefix on rails dep (dominic@cleal.org)
+
 * Mon Feb 20 2017 Dominic Cleal <dominic@cleal.org> 0.4.0-1
 - Update apipie-rails to 0.4.0 (dominic@cleal.org)
 
