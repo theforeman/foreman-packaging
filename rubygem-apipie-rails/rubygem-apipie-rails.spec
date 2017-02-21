@@ -19,7 +19,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_ruby}rubygem(rails) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
