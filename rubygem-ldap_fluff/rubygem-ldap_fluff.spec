@@ -5,7 +5,7 @@
 
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.5
+Version: 0.4.6
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
