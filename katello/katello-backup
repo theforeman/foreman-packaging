@@ -1,0 +1,157 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'fileutils'
+require 'date'
+
+@options = {}
+@dir = nil
+
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: katello-backup /path/to/dir [options]\n eg: $ katello-backup /tmp/katello-backup"
+
+  opts.on("--skip-pulp-content", "Create backup without Pulp content for debugging only") do |config_only|
+    @options[:config_only] = config_only
+  end
+
+  opts.on("--incremental [PREVIOUS_BACKUP_DIR]", String, "Backup changes since previous backup") do |dir_path|
+    if File.directory?(dir_path)
+      dir_path.chop! if dir_path.end_with? "/"
+      @options[:incremental] = dir_path
+    else
+      opts.abort("Previous backup directory does not exist: #{dir_path}")
+    end
+  end
+
+  opts.on("--online-backup", "Keep services online during backup") do |online|
+    @options[:online] = online
+  end
+
+  opts.parse!
+
+  if ARGV.length == 0
+    opts.abort("**** ERROR: Please specify an export directory ****")
+  elsif ARGV.length != 1
+    puts opts
+    exit(-1)
+  end
+
+  @dir = ARGV[0].dup
+end
+
+def backup_db_online
+  puts "Backing up postgres db... "
+  `runuser - postgres -c "pg_dump -Fc foreman > #{@dir}/foreman.dump"`
+  `runuser - postgres -c "pg_dump -Fc candlepin > #{@dir}/candlepin.dump"`
+  puts "Done."
+
+  puts "Backing up mongo db... "
+  `mongodump --host localhost --out mongo_dump`
+  puts "Done."
+end
+
+def backup_pulp_online
+  puts "Backing up Pulp data... "
+  matching = false
+ 
+  until matching
+    checksum1 = `find /var/lib/pulp -printf '%T@\n' | md5sum`
+    `tar --selinux --create --file=pulp_data.tar --listed-incremental=.pulp.snar /var/lib/pulp/ /var/www/pub/`
+    checksum2 = `find /var/lib/pulp -printf '%T@\n' | md5sum`
+    matching = (checksum1 == checksum2)
+  end
+  puts "Done."
+end
+
+def backup_db_offline
+  puts "Backing up postgres db... "
+  `tar --selinux --create --file=pgsql_data.tar --listed-incremental=.postgres.snar /var/lib/pgsql/data/`
+  puts "Done."
+
+  puts "Backing up mongo db... "
+  `tar --selinux --create --file=mongo_data.tar --listed-incremental=.mongo.snar --exclude=mongod.lock /var/lib/mongodb/`
+  puts "Done."
+end
+
+def backup_pulp_offline
+  puts "Backing up Pulp data... "
+  `tar --selinux --create --file=pulp_data.tar --listed-incremental=.pulp.snar /var/lib/pulp/ /var/www/pub/`
+  puts "Done."
+end
+
+def compress_files
+  `gzip pgsql_data.tar`
+  `gzip mongo_data.tar`
+end
+
+if @dir.nil?
+  puts "**** ERROR: Please specify an export directory ****"
+  puts optparse
+  exit(-1)
+else
+  @dir << "/" unless @dir.end_with? "/"
+  @dir << "katello-backup-" + DateTime.now.to_s
+  @time = Time.now
+  puts "Starting backup: #{@time}"
+  FileUtils.mkdir_p(@dir)
+  puts "Creating backup folder #{@dir}"
+  FileUtils.chown(nil, 'postgres', @dir)
+  FileUtils.chmod 0770, @dir
+  FileUtils.cd @dir
+
+  CONFIGS=[
+    '/etc/candlepin',
+    '/etc/foreman',
+    '/etc/foreman-proxy',
+    '/etc/hammer',
+    '/etc/httpd',
+    '/etc/foreman-installer',
+    '/etc/pki/katello',
+    '/etc/pki/katello-certs-tools',
+    '/etc/pki/pulp',
+    '/etc/pulp',
+    '/etc/puppet',
+    '/etc/puppetlabs',
+    '/etc/qpid',
+    '/etc/qpid-dispatch',
+    '/etc/sysconfig/tomcat*',
+    '/etc/tomcat*',
+    '/root/ssl-build',
+    '/var/lib/candlepin',
+    '/var/www/html/pub',
+    '/var/lib/puppet/foreman_cache_data',
+    '/var/lib/puppet/ssl'
+  ]
+
+  puts "Generating metadata ... "
+  metadata = File.new 'metadata', 'w'
+  metadata.puts `cat /etc/redhat-release`
+  metadata.puts "Plugin list: "
+  plugin_list = `foreman-rake plugin:list | grep 'Foreman plugin: '`.lines
+  plugin_list.each do |line|
+    plugin = line.split
+    metadata.puts "  #{plugin[2]} #{plugin[3]}".chop
+  end
+
+  puts "Backing up config files... "
+  `tar --selinux --create --gzip --file=config_files.tar.gz --listed-incremental=.config.snar #{CONFIGS.join(' ')} 2>/dev/null`
+  puts "Done."
+
+  `shopt -s dotglob ; cp #{@options[:incremental]}/*.snar .` if @options[:incremental]
+
+  if @options[:online]
+    backup_db_online
+    backup_pulp_online unless @options[:config_only]
+  else
+    `katello-service stop`
+    backup_db_offline
+    backup_pulp_offline unless @options[:config_only]
+    `katello-service start`
+    compress_files
+  end
+
+  @time = Time.now
+  puts "Done with backup: #{@time}"
+  puts "**** BACKUP Complete, contents can be found in: #{@dir} ****"
+end
+
