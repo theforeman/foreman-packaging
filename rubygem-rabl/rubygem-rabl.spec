@@ -55,14 +55,9 @@ mkdir -p .%{gem_dir}
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install
+%{?scl:EOF}
 rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 
 %install

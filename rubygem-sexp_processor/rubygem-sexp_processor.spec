@@ -35,16 +35,11 @@ This package contains documentation for %{pkg_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install -V \
-  --local \
-  --install-dir $(pwd)/%{gem_dir} \
-  --force --rdoc \
-  %{SOURCE0}
-%{?scl:"}
 
 %install
 rm -rf %{buildroot}

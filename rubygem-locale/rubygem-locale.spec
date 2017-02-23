@@ -51,15 +51,9 @@ This package provides non-Gem support for %{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	--install-dir .%{gem_dir} \
-	--force \
-	--rdoc \
-	-V \
-	%{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 # rm -f .%{gem_instdir}/Rakefile
 find . -name \*gem | xargs chmod 0644

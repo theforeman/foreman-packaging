@@ -36,16 +36,9 @@ A script which automates a limited set of rubyforge operations.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
-
-mkdir -p ./%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install \
-	--local \
-	--install-dir ./%{gem_dir} \
-	--force \
-	--rdoc \
-	%{SOURCE0}
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 # json_pure -> json
 find . -name Rakefile -or -name \*.gemspec | \
@@ -54,17 +47,15 @@ find . -name Rakefile -or -name \*.gemspec | \
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}/
 
-mkdir -p %{buildroot}/%{_bindir}
-mv %{buildroot}%{gem_dir}/bin/* %{buildroot}/%{_bindir}
-rmdir %{buildroot}%{gem_dir}/bin
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 chmod 0755 %{buildroot}%{gem_instdir}/lib/rubyforge.rb
-chmod 0755 %{buildroot}%{gem_instdir}/bin/rubyforge
+chmod 0755 %{buildroot}%{_bindir}/rubyforge
 
 %clean
 rm -rf %{buildroot}
@@ -87,12 +78,14 @@ popd
 
 %files
 %defattr(-, root, root, -)
-%{_bindir}/rubyforge
 %dir %{gem_instdir}
 %{gem_instdir}/lib/
 %{gem_instdir}/bin/
 %{gem_dir}/cache/%{gem_name}-%{version}.gem
 %{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
+%dir %{gem_instdir}/bin
+%{gem_instdir}/bin/rubyforge
+%{_bindir}/rubyforge
 
 %doc %{gem_dir}/doc/%{gem_name}-%{version}
 %doc %{gem_instdir}/History.txt

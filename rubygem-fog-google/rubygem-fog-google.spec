@@ -40,14 +40,15 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -T -c
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
 
 %install
-mkdir -p %{gembuilddir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 
 %files
 %dir %{gem_instdir}
@@ -58,6 +59,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0} --no-rdoc --
 %exclude %{gem_instdir}/.*
 
 %files doc
+%doc %{gem_docdir}
 %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/README.md

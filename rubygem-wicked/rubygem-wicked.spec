@@ -58,15 +58,9 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-%if 0%{?fedora} > 18
+%{?scl:scl enable %{scl} - <<EOF}
 %gem_install
-%else
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install -V --local --install-dir .%{gem_dir} --force --rdoc \
-    %{gem_name}-%{version}.gem
-%{?scl:"}
-%endif
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

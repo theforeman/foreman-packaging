@@ -41,18 +41,11 @@ Documentation for %{name}
 
 %prep
 %setup -q -c -T -n  %{gem_name}-%{version}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-
-%{?scl:scl enable %{scl} "}
-gem install -V \
-        --local \
-        --install-dir ./%{gem_dir} \
-        --force \
-        --rdoc \
-        %{SOURCE0}
-%{?scl:"}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

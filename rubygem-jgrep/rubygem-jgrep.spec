@@ -46,16 +46,12 @@ Documentation for %{pkg_name}
 %setup -qn JSON-Grep-%{commit}
 %patch0 -p1
 
+%{?scl:scl enable %{scl} - <<EOF}
+gem build %{gem_name}.gemspec
+%gem_install -n %{gem_name}-%{version}.gem
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
-            --force %{gem_name}-%{version}.gem
-%{?scl:"}
-
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

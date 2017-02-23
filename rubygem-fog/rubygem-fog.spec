@@ -136,13 +136,10 @@ sed -i '/add_.*dependency.*cloudatcost/d' %{gem_name}.gemspec
 gem build %{gem_name}.gemspec
 %{?scl:"}
 
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --bindir .%{_bindir} \
-            --no-rdoc --no-ri \
-            --force %{gem_name}-%{version}.gem
-%{?scl:"}
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{gem_name}-%{version}.gem
+%{?scl:EOF}
+
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -171,6 +168,7 @@ bin/fog -v
 %exclude %{gem_cache}
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
