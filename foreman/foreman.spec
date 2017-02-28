@@ -257,6 +257,8 @@ BuildRequires: npm(moment) >= 2.17.1
 BuildRequires: npm(moment) < 3.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
+BuildRequires: npm(node-sass) >= 4.5.0
+BuildRequires: npm(node-sass) < 5.0.0
 BuildRequires: npm(react) >= 15.1.0
 BuildRequires: npm(react) < 16.0.0
 BuildRequires: npm(react-bootstrap) >= 0.30.0
@@ -271,6 +273,8 @@ BuildRequires: npm(redux-logger) >= 2.8.1
 BuildRequires: npm(redux-logger) < 3.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
+BuildRequires: npm(sass-loader) >= 4.1.1
+BuildRequires: npm(sass-loader) < 4.2.0
 BuildRequires: npm(seamless-immutable) >= 7.0.1
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
@@ -530,6 +534,8 @@ Requires: npm(moment) >= 2.17.1
 Requires: npm(moment) < 3.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
+Requires: npm(node-sass) >= 4.5.0
+Requires: npm(node-sass) < 5.0.0
 Requires: npm(react) >= 15.1.0
 Requires: npm(react) < 16.0.0
 Requires: npm(react-bootstrap) >= 0.30.0
@@ -544,6 +550,8 @@ Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
+Requires: npm(sass-loader) >= 4.1.1
+Requires: npm(sass-loader) < 4.2.0
 Requires: npm(seamless-immutable) >= 7.0.1
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
