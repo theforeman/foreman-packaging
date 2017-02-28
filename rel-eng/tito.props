@@ -51,6 +51,7 @@ whitelist = foreman-installer
   nodejs-redux
   nodejs-redux-logger
   nodejs-redux-thunk
+  nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-stats-webpack-plugin
@@ -238,6 +239,7 @@ whitelist = foreman
   nodejs-redux
   nodejs-redux-logger
   nodejs-redux-thunk
+  nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-stats-webpack-plugin
