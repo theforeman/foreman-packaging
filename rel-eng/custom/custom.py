@@ -64,12 +64,14 @@ class ForemanSourceStrategy(SourceStrategy):
         replacements = []
         src_files = run_command("find %s -type f" %
               os.path.join(self.builder.rpmbuild_sourcedir, 'archive')).split("\n")
-        for i, s in enumerate(src_files):
+
+        def filter_archives(path):
+            base_name = os.path.basename(path)
+            return ".tar" in base_name or ".gem" in base_name
+
+        for i, s in enumerate(filter(filter_archives, src_files)):
             base_name = os.path.basename(s)
             debug("Downloaded file %s" % base_name)
-            if ".tar" not in base_name and ".gem" not in base_name:
-                debug("Skipping %s as it isn't a source archive" % base_name)
-                continue
 
             dest_filepath = os.path.join(self.builder.rpmbuild_sourcedir,
                     base_name)
