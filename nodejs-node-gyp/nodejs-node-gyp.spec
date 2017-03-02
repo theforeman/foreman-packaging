@@ -306,3 +306,6 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/node-gyp.js %{buildroot}%{_bindir}/node
 %doc README.md
 
 %changelog
+* Thu Mar 02 2017 Dominic Cleal <dominic@cleal.org> 3.2.1-1
+- new package built with tito
+
