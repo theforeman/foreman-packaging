@@ -10,6 +10,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_xen
+%global plugin_name xen
 
 %global foreman_dir /usr/share/foreman
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
@@ -17,7 +18,7 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.4.1
+Version:    0.5.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -34,11 +35,15 @@ Requires: %{?scl_prefix}rubygem(fog-xenserver) < 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: foreman-plugin >= 1.13.0
+BuildRequires: foreman-assets
+BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) < 1.0.0
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-xen
+Provides: foreman-plugin-%{plugin_name}
 Provides: foreman-xen
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -55,8 +60,7 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
@@ -64,28 +68,26 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
-        %{buildroot}%{gem_dir}/
+cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
+%doc %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/lib
 %{gem_instdir}/locale
+%{gem_spec}
+%{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
+%{gem_instdir}/public/assets/compute_resources/xenserver
+
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/test
-%{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
