@@ -1,7 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
-%global executor_service_name dynflow-executor
+%global executor_service_name dynflowd
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
@@ -31,7 +31,11 @@ Source6: %{name}.repo
 Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 Source9: message_encryptor_extensions.rb
+Source10: %{executor_service_name}.sysconfig
+Source11: %{executor_service_name}.service
 BuildArch:  noarch
+
+Conflicts: foreman-tasks < 0.11.0-2
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -47,8 +51,11 @@ Requires: wget
 Requires: /etc/cron.d
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
+Requires(post): systemd-sysv
+Requires(post): systemd-units
 Requires(preun): chkconfig
 Requires(preun): initscripts
+Requires(preun): systemd-units
 Requires(postun): initscripts
 
 # Subpackages
@@ -404,8 +411,8 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) >= 1.2
 BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
-# facter
 BuildRequires: %{?scl_prefix}rubygem(facter)
+BuildRequires: systemd
 
 %package cli
 Summary: Foreman CLI
@@ -906,10 +913,9 @@ install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
 #Copy init scripts and sysconfigs
-install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/%{executor_service_name}
+install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/sysconfig/%{executor_service_name}
 install -Dp -m0644 %{SOURCE11} %{buildroot}%{_unitdir}/%{executor_service_name}.service
-mkdir -p %{buildroot}%{_bindir}
-ln -sv %{gem_instdir}/bin/%{executor_service_name} %{buildroot}%{_bindir}/%{executor_service_name}
+install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{executor_service_name}
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
@@ -1100,8 +1106,8 @@ rm -rf %{buildroot}
 %{_tmpfilesdir}/%{name}.conf
 
 # Service
-%{_bindir}/%{executor_service_name}
-%config %{_sysconfdir}/%{executor_service_name}
+%{_sbindir}/%{executor_service_name}
+%config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
 %{_unitdir}/%{executor_service_name}.service
 
 %pre
@@ -1138,6 +1144,7 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
 fi
 
 %systemd_postun_with_restart %{name}.service
+%systemd_post %{executor_service_name}.service
 exit 0
 
 %posttrans
@@ -1151,9 +1158,11 @@ exit 0
 exit 0
 
 %preun
+%systemd_preun %{executor_service_name}.service
 %systemd_preun %{name}.service
 
 %postun
+%systemd_postun_with_restart %{executor_service_name}.service
 %systemd_postun_with_restart %{name}.service
 
 %changelog

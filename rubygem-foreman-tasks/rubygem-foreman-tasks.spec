@@ -1,24 +1,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%if 0%{?scl:1}
-    %global sysconfig_dir %{_root_sysconfdir}/sysconfig
-    %global bin_dir %{_root_bindir}
-%else
-    %global sysconfig_dir %{_sysconfdir}/sysconfig
-    %global bin_dir %{_bindir}
-%endif
-
 %global gem_name foreman-tasks
 
 %global foreman_bundlerd_dir /usr/share/foreman/bundler.d
-%global confdir deploy
-%global service_name foreman-tasks
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -34,10 +24,6 @@ Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
 Requires: %{?scl_prefix_ror}rubygem(sinatra)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires(post): systemd-sysv
-Requires(post): systemd-units
-Requires(preun): systemd-units
-BuildRequires: systemd
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -80,7 +66,6 @@ This package contains documentation for rubygem-%{gem_name}.
 %{?scl:EOF}
 
 %build
-sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' %{_builddir}/%{pkg_name}-%{version}/%{gem_instdir}/bin/%{service_name}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -94,12 +79,6 @@ mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
   %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml
 
-#copy init scripts and sysconfigs
-install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.sysconfig %{buildroot}%{sysconfig_dir}/%{service_name}
-install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
-mkdir -p %{buildroot}%{bin_dir}
-ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
-
 #link dynflow-debug.sh to be called from foreman-debug
 chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 %{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
@@ -107,13 +86,6 @@ ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/fo
 
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
-%systemd_post %{service_name}.service
-
-%preun
-%systemd_preun %{service_name}.service
-
-%postun
-%systemd_postun_with_restart %{service_name}.service
 
 %posttrans
 # We need to run the db:migrate after the install transaction
@@ -134,6 +106,7 @@ exit 0
 %{gem_libdir}
 %{gem_instdir}/config
 %{gem_instdir}/db
+%{gem_instdir}/deploy
 %{gem_instdir}/locale
 %{gem_instdir}/extra
 %exclude %{gem_cache}
@@ -145,11 +118,7 @@ exit 0
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %doc %{gem_instdir}/LICENSE
-%{bin_dir}/%{service_name}
-%config %{sysconfig_dir}/%{service_name}
-%{_unitdir}/%{service_name}.service
 
-%exclude %{gem_instdir}/deploy
 %exclude %{gem_instdir}/test
 
 %files doc
