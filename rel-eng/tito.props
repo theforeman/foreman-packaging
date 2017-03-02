@@ -44,6 +44,7 @@ whitelist = foreman-installer
   nodejs-lodash
   nodejs-moment
   nodejs-multiselect
+  nodejs-node-gyp
   nodejs-react
   nodejs-react-bootstrap
   nodejs-react-dom
