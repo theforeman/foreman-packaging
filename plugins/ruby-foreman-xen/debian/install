@@ -1,2 +1,3 @@
 foreman_xen.rb      usr/share/foreman/bundler.d
 cache               usr/share/foreman/vendor
+foreman_xen         var/lib/foreman/public/assets
