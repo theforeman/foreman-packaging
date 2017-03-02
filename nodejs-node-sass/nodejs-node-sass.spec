@@ -425,3 +425,6 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/node-sass %{buildroot}%{_bindir}/node-s
 %doc README.md
 
 %changelog
+* Thu Mar 02 2017 Dominic Cleal <dominic@cleal.org> 4.5.0-1
+- new package built with tito
+
