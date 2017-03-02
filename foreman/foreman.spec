@@ -1,6 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
+%global executor_service_name dynflowd
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
@@ -30,7 +31,11 @@ Source6: %{name}.repo
 Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 Source9: message_encryptor_extensions.rb
+Source10: %{executor_service_name}.sysconfig
+Source11: %{executor_service_name}.service
 BuildArch:  noarch
+
+Conflicts: foreman-tasks < 0.11.0-2
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -46,8 +51,11 @@ Requires: wget
 Requires: /etc/cron.d
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
+Requires(post): systemd-sysv
+Requires(post): systemd-units
 Requires(preun): chkconfig
 Requires(preun): initscripts
+Requires(preun): systemd-units
 Requires(postun): initscripts
 
 # Subpackages
@@ -221,6 +229,7 @@ BuildRequires: http-parser
 # is resolved
 BuildRequires: libuv
 BuildRequires: nodejs-packaging
+BuildRequires: systemd
 
 # package.json devDependencies
 #BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
@@ -854,7 +863,7 @@ plugins required for Foreman to work.
 #replace shebangs and binaries in scripts for SCL
 %if %{?scl:1}%{!?scl:0}
   # shebangs
-  for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config ; do
+  for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
@@ -904,6 +913,10 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
+#Copy init scripts and sysconfigs
+install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/sysconfig/%{executor_service_name}
+install -Dp -m0644 %{SOURCE11} %{buildroot}%{_unitdir}/%{executor_service_name}.service
+install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{executor_service_name}
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
@@ -1093,6 +1106,11 @@ rm -rf %{buildroot}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
 
+# Service
+%{_sbindir}/%{executor_service_name}
+%config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
+%{_unitdir}/%{executor_service_name}.service
+
 %pre
 # Add the "foreman" user and group
 getent group %{name} >/dev/null || groupadd -r %{name}
@@ -1127,6 +1145,7 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
 fi
 
 %systemd_postun_with_restart %{name}.service
+%systemd_post %{executor_service_name}.service
 exit 0
 
 %posttrans
@@ -1140,9 +1159,11 @@ exit 0
 exit 0
 
 %preun
+%systemd_preun %{executor_service_name}.service
 %systemd_preun %{name}.service
 
 %postun
+%systemd_postun_with_restart %{executor_service_name}.service
 %systemd_postun_with_restart %{name}.service
 
 %changelog
