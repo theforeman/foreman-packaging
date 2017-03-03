@@ -7,7 +7,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 4.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Wrapper around libsass
 License: MIT
 URL: https://github.com/sass/node-sass
@@ -426,6 +426,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/node-sass %{buildroot}%{_bindir}/node-s
 %doc README.md
 
 %changelog
+* Fri Mar 03 2017 Dominic Cleal <dominic@cleal.org> 4.5.0-2
+- Add runtime dep on gyp, to satisfy symlink (dominic@cleal.org)
+
 * Thu Mar 02 2017 Dominic Cleal <dominic@cleal.org> 4.5.0-1
 - new package built with tito
 
