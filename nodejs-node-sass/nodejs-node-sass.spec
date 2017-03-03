@@ -190,6 +190,7 @@ Source175: http://registry.npmjs.org/error-ex/-/error-ex-1.3.0.tgz
 Source176: http://registry.npmjs.org/is-arrayish/-/is-arrayish-0.2.1.tgz
 Source177: node-sass-4.5.0-registry.npmjs.org.tgz
 Requires: nodejs(engine)
+Requires: npm(node-gyp)
 BuildRequires: nodejs-devel
 BuildRequires: nodejs-packaging
 BuildRequires: npm
