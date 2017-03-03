@@ -97,6 +97,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Mar 03 2017 Dominic Cleal <dominic@cleal.org> 0.5.1-1
+- update foreman_xen to 0.5.1 (kvedulv@kvedulv.de)
+
 * Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 0.4.1-1
 - update foreman_xen to 0.4.1 (kvedulv@kvedulv.de)
 
