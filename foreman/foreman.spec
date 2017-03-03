@@ -29,6 +29,7 @@ Source5: %{name}.tmpfiles
 Source6: %{name}.repo
 Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
+Source9: message_encryptor_extensions.rb
 BuildArch:  noarch
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -672,6 +673,9 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}-%{version}%{?dashalphatag}
+
+# Apply Rails 4.2.5.1 to .8 compatibility patch
+[ -e lib/core_extensions.rb ] && cat %{SOURCE9} >> lib/core_extensions.rb || exit 1
 
 %build
 #build man pages
