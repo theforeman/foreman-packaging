@@ -97,6 +97,9 @@ ln -s %{gem_instdir} %{buildroot}%{foreman_dir}/%{gem_name}
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 06 2017 Dominic Cleal <dominic@cleal.org> 0.3.13-1
+- Update foreman_hooks to 0.3.13 (dominic@cleal.org)
+
 * Mon Sep 05 2016 Dominic Cleal <dominic@cleal.org> 0.3.12-1
 - Update foreman_hooks to 0.3.12 (dominic@cleal.org)
 
