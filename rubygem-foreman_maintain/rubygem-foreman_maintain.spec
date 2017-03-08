@@ -8,8 +8,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Release: 4%{?dist}
+Version: 0.0.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/theforeman/foreman_maintain
@@ -80,6 +80,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 20 2017 Anurag Patel <apatel@redhat.com> 0.0.2-1
+- Updated foreman_maintain with 0.0.2 tag.
+
 * Mon Feb 27 2017 Anurag Patel <apatel@redhat.com> 0.0.1-1
 - Package foreman_maintain into RPM (#3, apatel@redhat.com)
 
