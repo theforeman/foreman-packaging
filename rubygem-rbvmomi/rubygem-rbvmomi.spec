@@ -106,6 +106,9 @@ popd
 %exclude %{gem_instdir}/*.gemspec
 
 %changelog
+* Tue Mar 14 2017 Dominic Cleal <dominic@cleal.org> 1.10.0-1
+- Update rbvmomi to 1.10.0 (dominic@cleal.org)
+
 * Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 1.9.4-1
 - Update rbvmomi to 1.9.4 (dominic@cleal.org)
 
