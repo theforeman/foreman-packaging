@@ -5,8 +5,8 @@
 
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 4%{?foremandist}%{?dist}
+Version: 0.2.3
+Release: 1%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,8 +16,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0.0
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.1.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) = 1.0.3
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
