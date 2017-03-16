@@ -127,6 +127,7 @@
       <packagereq type="default">rubygem-signet</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">rubygem-sprockets-rails</packagereq>
+      <packagereq type="default">rubygem-sshkey</packagereq>
       <packagereq type="default">rubygem-trollop</packagereq>
       <packagereq type="default">rubygem-useragent</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
@@ -214,6 +215,7 @@
       <packagereq type="default">rubygem-signet-doc</packagereq>
       <packagereq type="default">rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">rubygem-sprockets-rails-doc</packagereq>
+      <packagereq type="default">rubygem-sshkey-doc</packagereq>
       <packagereq type="default">rubygem-trollop-doc</packagereq>
       <packagereq type="default">rubygem-useragent-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
