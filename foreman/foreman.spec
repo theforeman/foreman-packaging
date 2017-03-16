@@ -117,6 +117,8 @@ Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
 Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
 Requires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
+Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
+Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 # facter
 %if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
@@ -199,6 +201,8 @@ BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
+BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 3
@@ -463,8 +467,6 @@ Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
 Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
-Requires: %{?scl_prefix}rubygem(sshkey) >= 1.3
-Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{name} = %{version}-%{release}
 
 %description gce
