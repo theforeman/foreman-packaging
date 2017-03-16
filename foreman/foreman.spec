@@ -117,8 +117,8 @@ Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
 Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
 Requires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
-Requires: %{?scl_prefix}rubygem(mail) >= 2.6
-Requires: %{?scl_prefix}rubygem(mail) < 3.0
+Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.6
+Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 # facter
@@ -203,8 +203,8 @@ BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.7
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 1.0.0
-BuildRequires: %{?scl_prefix}rubygem(mail) >= 2.6
-BuildRequires: %{?scl_prefix}rubygem(mail) < 3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.6
+BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
 # assets
