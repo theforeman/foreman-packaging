@@ -311,6 +311,7 @@ whitelist = foreman
   rubygem-signet
   rubygem-spice-html5-rails
   rubygem-sprockets-rails
+  rubygem-sshkey
   rubygem-strong_parameters
   rubygem-therubyracer
   rubygem-trollop
