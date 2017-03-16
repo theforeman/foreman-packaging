@@ -68,6 +68,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 16 2017 Dominic Cleal <dominic@cleal.org> 1.9.0-1
+- Update sshkey to 1.9.0 (dominic@cleal.org)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.6.0-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
