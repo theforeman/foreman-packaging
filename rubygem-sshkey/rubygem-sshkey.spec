@@ -5,8 +5,8 @@
 
 Summary: Generate private/public SSH keypairs using pure Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.0
-Release: 4%{?dist}
+Version: 1.9.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bensie/sshkey
