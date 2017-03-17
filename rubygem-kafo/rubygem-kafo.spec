@@ -93,6 +93,10 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Mar 17 2017 Dominic Cleal <dominic@cleal.org> 1.0.8-1
+- Update kafo to 1.0.8 (mhulan@redhat.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 1.0.6-1
 - Update kafo to 1.0.6 (mhulan@redhat.com)
 
