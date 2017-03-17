@@ -5,7 +5,7 @@
 
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.6
+Version: 1.0.8
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
@@ -87,6 +87,8 @@ cp -a .%{_bindir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/doc/kafo_run.png
+%doc %{gem_instdir}/doc/kafo_run.uml
 %doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
 
