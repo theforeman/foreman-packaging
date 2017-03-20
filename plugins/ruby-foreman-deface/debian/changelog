@@ -1,3 +1,9 @@
+ruby-foreman-deface (1.2.0-1) stable; urgency=low
+
+  * 1.2.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 20 Mar 2017 11:56:09 +0000
+
 ruby-foreman-deface (1.0.2-2) stable; urgency=low
 
   * Add missing polyglot dependency on 1.11+
