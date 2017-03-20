@@ -1,1 +1,1 @@
-gem 'deface', '1.0.2'
+gem 'deface', '1.2.0'
