@@ -77,6 +77,7 @@
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
+      <packagereq type="default">rubygem-rainbow</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
@@ -173,6 +174,7 @@
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">rubygem-puppetdb_foreman-doc</packagereq>
+      <packagereq type="default">rubygem-rainbow-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
