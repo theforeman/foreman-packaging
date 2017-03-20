@@ -399,6 +399,7 @@ whitelist = rubygem-algebrick
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-puppetdb_foreman
+  rubygem-rainbow
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
   rubygem-wicked
@@ -517,6 +518,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-logify
   rubygem-ovirt_provision_plugin
   rubygem-puppetdb_foreman
+  rubygem-rainbow
   rubygem-route53
   rubygem-satyr
   rubygem-smart_proxy_abrt
