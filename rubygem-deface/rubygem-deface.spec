@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 20 2017 Dominic Cleal <dominic@cleal.org> 1.2.0-1
+- Update deface to 1.2.0 (dominic@cleal.org)
+
 * Mon Jan 09 2017 Dominic Cleal <dominic@cleal.org> 1.1.0-1
 - Update deface to 1.1.0 (dominic@cleal.org)
 - Loosen nokogiri dependency to permit 1.7 (dominic@cleal.org)
