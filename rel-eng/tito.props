@@ -328,7 +328,6 @@ whitelist = rubygem-algebrick
   rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
-  rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
   rubygem-deface
@@ -451,7 +450,6 @@ whitelist = puppet-foreman_scap_client
   rubygem-chef-api
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
-  rubygem-colorize
   rubygem-commonjs
   rubygem-concurrent-ruby-edge
   rubygem-deface
