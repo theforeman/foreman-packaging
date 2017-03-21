@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Mar 21 2017 Dominic Cleal <dominic@cleal.org> 0.2.3-1
+- Update dynflow to 0.8.21 (me@daniellobato.me)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-4
 - Use gem_install macro (dominic@cleal.org)
 
