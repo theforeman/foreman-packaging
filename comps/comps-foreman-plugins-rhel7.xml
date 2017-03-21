@@ -51,6 +51,7 @@
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
@@ -121,7 +122,7 @@
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
-      
+
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -167,6 +168,7 @@
       <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
