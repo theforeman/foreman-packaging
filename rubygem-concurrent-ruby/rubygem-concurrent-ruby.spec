@@ -75,6 +75,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Mar 21 2017 Dominic Cleal <dominic@cleal.org> 1.0.3-1
+- Update dynflow to 0.8.21 (me@daniellobato.me)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Mon Feb 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
 - Update concurrent-ruby to 1.0.1 (dominic@cleal.org)
 
