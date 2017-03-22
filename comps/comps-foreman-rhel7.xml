@@ -165,6 +165,7 @@
       <packagereq type="default">nodejs-babel-plugin-transform-object-rest-spread</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
+      <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
