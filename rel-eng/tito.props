@@ -71,6 +71,7 @@ whitelist = foreman-installer
   rubygem-clamp
   rubygem-concurrent-ruby
   rubygem-foreman_api
+  rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
   rubygem-kafo
@@ -285,6 +286,7 @@ whitelist = foreman
   rubygem-gridster-rails
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
+  rubygem-foreman_maintain
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-jquery_pwstrength_bootstrap_4
