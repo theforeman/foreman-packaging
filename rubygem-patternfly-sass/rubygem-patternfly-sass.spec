@@ -4,7 +4,7 @@
 %global gem_name patternfly-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.15.0
+Version: 3.23.0
 Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
