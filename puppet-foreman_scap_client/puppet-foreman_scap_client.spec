@@ -44,6 +44,9 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/templates
 
 %changelog
+* Thu Mar 23 2017 Dominic Cleal <dominic@cleal.org> 0.3.15-1
+- Update puppet-foreman_scap_client to 0.3.15 (mhulan@redhat.com)
+
 * Wed Mar 15 2017 Dominic Cleal <dominic@cleal.org> 0.3.14-1
 - Update puppet-foreman_scap_client 0.3.14 (mhulan@redhat.com)
 
