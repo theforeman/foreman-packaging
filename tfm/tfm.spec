@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -284,6 +284,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Mar 24 2017 Dominic Cleal <dominic@cleal.org> 3.2-9
+- Remove ace-rails-ap gem (dominic@cleal.org)
+
 * Mon Mar 20 2017 Dominic Cleal <dominic@cleal.org> 3.2-8
 - Remove colorize gem (dominic@cleal.org)
 
