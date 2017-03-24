@@ -228,6 +228,8 @@ BuildRequires: npm(babel-preset-es2015) < 6.7.0
 BuildRequires: npm(babel-preset-es2015) >= 6.6.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
+BuildRequires: npm(brace) >= 0.10.0
+BuildRequires: npm(brace) < 1.0.0
 BuildRequires: npm(c3) >= 0.4.11
 BuildRequires: npm(c3) < 1.0.0
 BuildRequires: npm(compression-webpack-plugin) >= 0.3.1
@@ -297,8 +299,6 @@ BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(webpack) < 2.0.0
 BuildRequires: npm(webpack) >= 1.9.11
 BuildRequires: nodejs-packaging
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.1.0
-BuildRequires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
@@ -503,6 +503,8 @@ Requires: npm(babel-preset-es2015) < 6.7.0
 Requires: npm(babel-preset-es2015) >= 6.6.0
 Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(babel-preset-react) >= 6.5.0
+Requires: npm(brace) >= 0.10.0
+Requires: npm(brace) < 1.0.0
 Requires: npm(c3) >= 0.4.11
 Requires: npm(c3) < 1.0.0
 Requires: npm(compression-webpack-plugin) >= 0.3.1
@@ -571,8 +573,6 @@ Requires: npm(url-loader) < 1.0.0
 Requires: npm(url-loader) >= 0.5.7
 Requires: npm(webpack) < 2.0.0
 Requires: npm(webpack) >= 1.9.11
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) >= 4.1.0
-Requires: %{?scl_prefix}rubygem(ace-rails-ap) < 4.2.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
