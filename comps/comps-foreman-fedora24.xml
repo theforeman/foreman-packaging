@@ -70,7 +70,6 @@
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
-      <packagereq type="default">rubygem-ace-rails-ap</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-audited</packagereq>
@@ -158,7 +157,6 @@
       <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
       <packagereq type="default">nodejs-url-loader-doc</packagereq>
       <packagereq type="default">nodejs-webpack-doc</packagereq>
-      <packagereq type="default">rubygem-ace-rails-ap-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-audited-doc</packagereq>

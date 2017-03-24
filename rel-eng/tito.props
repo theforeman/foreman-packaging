@@ -89,7 +89,6 @@ whitelist = foreman-installer
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
-  rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-ancestry
@@ -252,7 +251,6 @@ whitelist = foreman
   nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
-  rubygem-ace-rails-ap
   rubygem-activerecord-session_store
   rubygem-apipie-bindings
   rubygem-audited
