@@ -11,11 +11,7 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path.sub('https:', 'http:') %>%{gem_name}-%{version}.gem
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-%else
 Requires: ruby(release)
-%endif
 <% for req in spec.required_ruby_version -%>
 Requires: ruby <%= req %>
 <% end -%>
@@ -27,11 +23,7 @@ Requires: ruby(rubygems) <%= req %>
 Requires: rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
 BuildRequires: ruby(release)
-%endif
 <% for req in spec.required_ruby_version -%>
 BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %> <%= req %>
 <% end -%>
