@@ -45,7 +45,7 @@ License:        GPLv3+
 URL:            http://www.theforeman.org
 Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 
-BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
+BuildRequires:  checkpolicy, selinux-policy-devel, hardlink, /usr/sbin/semodule
 BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
 BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
@@ -63,6 +63,9 @@ SELinux policy module for Foreman
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
+# list available modules (if this fails, we are missing base policy in the buildroot)
+semodule -l
+
 # determine distribution name and version
 %if 0%{?rhel} >= 6
 %define distver rhel%{rhel}
