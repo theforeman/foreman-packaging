@@ -5,7 +5,7 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.19
+Version: 0.1.0
 Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
