@@ -14,6 +14,7 @@ build:
 	/bin/rm -rf node_modules
 	/usr/bin/npm install npm
 	/usr/bin/nodejs node_modules/.bin/npm install --no-optional
+	/bin/cp debian/debian.rb bundler.d/
 	/usr/bin/bundle package
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
