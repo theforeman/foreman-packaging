@@ -84,3 +84,6 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 28 2017 Dominic Cleal <dominic@cleal.org> 0.0.2-1
+- new package built with tito
+
