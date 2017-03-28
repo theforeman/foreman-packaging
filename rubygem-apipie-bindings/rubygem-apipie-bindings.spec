@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Mar 28 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.0-1
+- Update rubygem-apipie-bindings to 0.1.0 (martin.bacovsky@gmail.com)
+
 * Wed Dec 14 2016 Dominic Cleal <dominic@cleal.org> 0.0.19-1
 - Update apipie-bindings to 0.0.19 (dominic@cleal.org)
 
