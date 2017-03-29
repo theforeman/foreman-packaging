@@ -108,6 +108,11 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 29 2017 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-1
+- Update hammer_cli to 0.10.0 (tstrachota@redhat.com)
+- Add LICENSE file, clarify doc/license tags (dominic@cleal.org)
+- Remove table_print (dominic@cleal.org)
+
 * Mon Dec 19 2016 Dominic Cleal <dominic@cleal.org> 0.9.0-1
 - Update hammer_cli to 0.9.0 (dominic@cleal.org)
 
