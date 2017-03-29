@@ -1,0 +1,5 @@
+ruby-smart-proxy-dhcp-remote-isc (0.0.2-1) stable; urgency=low
+
+  * Initial Debian packaging.
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 29 Mar 2017 21:00:30 +0200
