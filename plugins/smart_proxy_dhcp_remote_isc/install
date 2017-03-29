@@ -1,0 +1,2 @@
+debian/dhcp_remote_isc.rb usr/share/foreman-proxy/bundler.d
+config/dhcp_remote_isc.yml etc/foreman-proxy/settings.d
