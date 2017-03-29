@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Wed Mar 29 2017 Eric D. Helms <ericdhelms@gmail.com> 5.0.0-1
+- Update rubygem-bastion to 5.0.0 (ericdhelms@gmail.com)
+
 * Mon Mar 27 2017 Eric D. Helms <ericdhelms@gmail.com> 4.3.0-1
 - Bump rubygem-bastion to 4.3.0 (ericdhelms@gmail.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
