@@ -13,7 +13,7 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    8.0.1
+Version:    8.0.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -26,7 +26,7 @@ Requires:   %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.8.0
-Requires: %{?scl_prefix}rubygem-foreman-tasks < 0.9.0
+Requires: %{?scl_prefix}rubygem-foreman-tasks < 1.0.0
 
 BuildRequires: foreman-plugin >= 1.14.0
 BuildRequires: foreman-assets
