@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.0.0
+Version: 4.1.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -27,6 +27,7 @@ Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
 BuildRequires: %{?scl_prefix_ror}rubygem(rspec) >= 3.0
 BuildRequires: %{?scl_prefix_ror}rubygem(rspec) < 4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2.0
+BuildRequires: %{?scl_prefix_ror}rubygem(actionview) >= 4.2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 %endif
 
