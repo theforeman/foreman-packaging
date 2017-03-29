@@ -1,0 +1,229 @@
+#!/usr/bin/ruby
+
+require "socket"
+require "optparse"
+require "rubygems"
+require 'yaml'
+
+raise 'Must run as root' unless Process.uid == 0
+
+DEFAULT_SCENARIO = File.basename(File.readlink("/etc/foreman-installer/scenarios.d/last_scenario.yaml")).split(".")[0]
+DEFAULT_PROGRAM = DEFAULT_SCENARIO == "katello" ? "foreman" : DEFAULT_SCENARIO
+
+def is_rhel_version?(version)
+  `cat /etc/redhat-release`[/(\d+\.)/].include?(version)
+end
+
+def timestamp
+  Time.now.strftime("%Y%m%d%H%M")
+end
+
+def get_hostname
+  if is_rhel_version?("6")
+    hostname = `hostname`
+  else
+    hostname = Socket.gethostname
+  end
+  hostname.chomp 
+end
+
+def has_disable_system_check_option?
+  katello_installer_rpm = `rpm -qa | grep katello-installer`
+  katello_installer_version = katello_installer_rpm[/(\d+\.)(\d+\.)(\d+)/]
+  Gem::Version.new(katello_installer_version) >= Gem::Version.new("3.2.0")
+end
+
+def yesno
+  begin
+    system("stty raw -echo")
+    str = STDIN.getc
+  ensure
+    system("stty -raw echo")
+  end
+  if str.chr.downcase == "y"
+    return true
+  elsif str.chr.downcase == "n"
+    return false
+  else
+    puts "Invalid Character. Try again: [y/n]"
+    yesno
+  end
+end
+
+options = {}
+options[:program] = DEFAULT_PROGRAM
+options[:scenario] = DEFAULT_SCENARIO
+options[:system_check] = false
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Usage: katello-change-hostname HOSTNAME [OPTIONS]"
+  opt.separator  ""
+  opt.separator  "Example:"
+  opt.separator  " katello-change-hostname foo.example.com -u admin -p changeme"
+  opt.separator  ""
+  opt.separator  "Options"
+
+  opt.on("-u","--username USERNAME","admin username (required)") do |username|
+    options[:username] = username
+  end
+
+  opt.on("-p","--password PASSWORD","admin password (required)") do |password|
+    options[:password] = password
+  end
+
+  opt.on("-g","--program PROGRAM","name of the program you are modifying (defaults to #{DEFAULT_PROGRAM})") do |program|
+    options[:program] = program
+  end
+
+  opt.on("-S","--scenario SCENARIO","name of the scenario you are modifying (defaults to #{DEFAULT_SCENARIO})") do |scenario|
+    options[:scenario] = scenario
+  end
+
+
+  if has_disable_system_check_option?
+    opt.on("-d","--disable-system-checks","runs the installer with --disable-system-checks") do |system_check|
+      options[:system_check] = true
+    end
+  end
+
+  opt.on("-h","--help","help") do
+    puts opt_parser
+    exit
+  end
+end
+opt_parser.parse!
+
+# kept as variables for easy changing in backports
+proxy = "Foreman Proxy"
+plural_proxy = "Foreman Proxies"
+
+STDOUT.print("This will modify your system. You will need to re-register any #{ plural_proxy } and " \
+             "#{options[:scenario].capitalize} clients after script completion. #{ plural_proxy } " \
+             "will have to be reinstalled. If you are using custom certificates, you will have to run the " \
+             "#{options[:program]}-installer again with custom certificate options after this script completes." \
+             " Have you taken the necessary precautions (backups, snapshots, etc...) and want to proceed with " \
+             "changing your hostname? [y/n]:")
+response = yesno
+unless response
+  STDOUT.puts "Hostname change aborted, no changes have been made to your system"
+  exit
+end
+
+unless options[:username] && options[:password]
+  STDOUT.puts "Username and/or Password options are missing!"
+  puts opt_parser
+  exit
+end
+
+if ARGV[0] && ARGV.count >= 1
+  new_hostname = ARGV[0]
+else
+  puts opt_parser
+  exit
+end
+
+# Get the hostname from your system
+old_hostname = get_hostname
+
+scenario_answers = YAML.load_file("/etc/foreman-installer/scenarios.d/#{options[:scenario]}-answers.yaml")
+ssl_build_dir = scenario_answers["certs"]["ssl_build_dir"]
+ssl_backup_dir = "#{ssl_build_dir}-#{timestamp}-#{old_hostname}"
+
+STDOUT.puts "Updating default #{proxy}"
+default_capsule_id = `hammer -u #{options[:username]} -p #{options[:password]} capsule list | grep #{old_hostname} | awk '{ print $1 }'`[0]
+# Incorrect error message is piped to /dev/null, can be removed when http://projects.theforeman.org/issues/18186 is fixed
+`hammer -u #{options[:username]} -p #{options[:password]} capsule update --id #{default_capsule_id} --url https://#{new_hostname}:9090 --new-name #{new_hostname} 2> /dev/null`
+
+STDOUT.puts "Updating installation media paths"
+installation_media_ids = `hammer -u #{options[:username]} -p #{options[:password]} medium list | grep "#{old_hostname}" | awk '{ print $1 }'`.split("\n")
+installation_media_paths = `hammer -u #{options[:username]} -p #{options[:password]} medium list | grep "#{old_hostname}" | awk '{ print $5 }'`.split("\n")
+installation_media_ids.zip(installation_media_paths).each do |id, path|
+  `hammer -u #{options[:username]} -p #{options[:password]} medium update --id #{id} --path #{path.sub! old_hostname, new_hostname}`   
+end
+
+if is_rhel_version?("6")
+  STDOUT.puts "updating hostname in /etc/sysconfig/network"
+  STDOUT.puts("sed -i -e 's/#{old_hostname}/#{new_hostname}/g' /etc/sysconfig/network")
+  `sed -i -e 's/#{old_hostname}/#{new_hostname}/g' /etc/sysconfig/network`
+  STDOUT.puts "setting hostname"
+  `hostname #{new_hostname}`
+elsif is_rhel_version?("7")
+  STDOUT.puts "updating hostname in /etc/hostname"
+  `sed -i -e 's/#{old_hostname}/#{new_hostname}/g' /etc/hostname`
+  STDOUT.puts "setting hostname"
+  `hostnamectl set-hostname #{new_hostname}`
+else
+  STDOUT.puts "couldn't find RHEL version: #{RHEL_VERSION} - exiting, no changes have been made to your system"
+  exit
+end
+
+STDOUT.puts "checking if hostname was changed"
+if get_hostname != new_hostname
+  STDOUT.puts "the new hostname was not changed successfully, exiting script"
+  exit
+end
+
+STDOUT.puts "stopping services"
+`katello-service stop`
+
+STDOUT.puts "deleting old certs"
+`
+rm -rf #{scenario_answers["certs"]["pki_dir"]}{,.bak}
+rm -rf /etc/pki/katello-certs-tools{,.bak}
+rm -rf /etc/candlepin/certs/amqp{,.bak}
+rm -rf #{scenario_answers["foreman_proxy"]["ssl_ca"]}
+rm -rf #{scenario_answers["foreman_proxy"]["ssl_cert"]}
+rm -rf #{scenario_answers["foreman_proxy"]["ssl_key"]}
+rm -rf #{scenario_answers["foreman_proxy"]["foreman_ssl_ca"]}
+rm -rf #{scenario_answers["foreman_proxy"]["foreman_ssl_cert"]}
+rm -rf #{scenario_answers["foreman_proxy"]["foreman_ssl_key"]}
+rm -rf /etc/foreman/old-certs
+rm -rf #{scenario_answers["foreman"]["client_ssl_ca"]}
+rm -rf #{scenario_answers["foreman"]["client_ssl_cert"]}
+rm -rf #{scenario_answers["foreman"]["client_ssl_key"]}
+rm -rf #{scenario_answers["foreman_proxy"]["ssldir"]}
+rm -rf /etc/pki/katello/nssdb
+rm -f /etc/tomcat/keystore
+rm -f /etc/pki/katello/keystore
+cp -r #{ssl_build_dir} #{ssl_backup_dir}
+rm -rf #{ssl_build_dir}
+`
+STDOUT.puts "backed up #{ssl_build_dir} to #{ssl_backup_dir}"
+STDOUT.puts "updating hostname in /etc/hosts"
+`sed -i -e 's/#{old_hostname}/#{new_hostname}/g' /etc/hosts`
+
+STDOUT.puts "updating hostname in foreman installer scenarios"
+`sed -i -e 's/#{old_hostname}/#{new_hostname}/g' /etc/foreman-installer/scenarios.d/*.yaml`
+
+STDOUT.puts "removing last_scenario.yml file"
+`rm -rf /etc/foreman-installer/scenarios.d/last_scenario.yaml`
+
+STDOUT.puts "re-running the installer"
+
+installer = "#{options[:program]}-installer --scenario #{options[:scenario]} -v --certs-regenerate-ca=true --certs-regenerate=true \
+             --foreman-proxy-register-in-foreman true"
+
+installer << " --disable-system-checks" if options[:system_check]
+STDOUT.puts installer
+installer_output = `#{installer}`
+installer_success = $?.success?
+STDOUT.puts installer_output
+
+if installer_success
+  STDOUT.puts "
+  Hostname change complete!
+  
+  You will need to re-register any #{plural_proxy} or clients with the server. 
+  
+  When re-registering clients, you will have to reinstall the bootstrap RPM.
+  Any mention of the #{old_hostname} on your clients will have to change to #{new_hostname} (i.e. /etc/hosts)
+  
+  For #{plural_proxy}, you will need to regenerate the certs on the #{options[:scenario].capitalize} server and reinstall the #{proxy}
+  
+  If you want to use custom certificates, re-run the #{options[:program]}-installer with custom certificate options
+
+  Short hostnames have not been updated, please update those manually.
+  "
+else
+  STDOUT.puts "Something went wrong with the #{options[:scenario].capitalize} installer! Please check the above output and the corresponding logs"
+end

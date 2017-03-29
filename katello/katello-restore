@@ -1,0 +1,117 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'fileutils'
+
+STANDARD_BACKUP_FILES = ['config_files.tar.gz', 'pulp_data.tar']
+ONLINE_BACKUP_FILES = ['mongo_dump', 'candlepin.dump', 'foreman.dump']
+OFFLINE_BACKUP_FILES = ['mongo_data.tar.gz', 'pgsql_data.tar.gz']
+
+confirmed = false
+
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: katello-restore /path/to/dir [options]\n eg: $ katello-restore /tmp/backup/katello-backup-2016-09-30T00:00:00+00:00"
+
+  opts.on("-y", "--assumeyes", "Answer yes for all questions") do
+    confirmed = true
+  end
+end
+
+optparse.parse!
+DIR = ARGV.pop.dup
+DIR.chop! if DIR.end_with?("/")
+
+def set_file_security
+  puts "Setting file security"
+  `restorecon -Rnv /`
+  puts "Done.\n"
+end
+
+def reset_katello
+  puts "Resetting Katello"
+  `tar --selinux --overwrite --listed-incremental=/dev/null -xzf config_files.tar.gz -C /`
+  `foreman-installer --scenario katello --reset`
+  puts "Done.\n"
+end
+
+def restore_databases
+  if File.exist?('pulp_data.tar')
+    puts "Restoring Pulp data"
+    `tar --selinux --overwrite --listed-incremental=/dev/null -xf pulp_data.tar -C /`
+  end
+  if File.exist?('mongo_data.tar.gz')
+    `tar --selinux --overwrite --listed-incremental=/dev/null -xzf mongo_data.tar.gz -C /`
+    `tar --selinux --overwrite --listed-incremental=/dev/null -xzf pgsql_data.tar.gz -C /`
+  else
+    `service postgresql start`
+    `runuser - postgres -c "dropdb foreman"`
+    `runuser - postgres -c "dropdb candlepin"`
+    `runuser - postgres -c "pg_restore -C -d postgres #{DIR}/foreman.dump"`
+    `runuser - postgres -c "pg_restore -C -d postgres #{DIR}/candlepin.dump"`
+    `service postgresql stop`
+
+    `service mongod start`
+    `echo 'db.dropDatabase();' | mongo pulp_database`
+    `mongorestore --host localhost mongo_dump/pulp_database/`
+    `service mongod stop`
+  end
+  puts "Done.\n"
+end
+
+def restore
+  puts "#{DIR}"
+  puts "#{DIR}"
+  FileUtils.chown(nil, 'postgres', DIR)
+  Dir.chdir(DIR)
+
+  set_file_security
+  reset_katello
+
+  puts "Stopping Katello services"
+  `katello-service stop`
+  puts "Done.\n"
+
+  restore_databases
+
+  puts "Restarting all Katello processes"
+  `katello-service start`
+  puts "Done.\n"
+end
+
+def backup_valid?
+  files = Dir.entries(DIR)
+  (ONLINE_BACKUP_FILES + ['config_files.tar.gz'] - files).empty? \
+    || (OFFLINE_BACKUP_FILES + ['config_files.tar.gz'] - files).empty?
+end
+
+def confirm
+  puts "WARNING: This script will drop and restore your database."
+  puts "Your existing installation will be replaced with the backup database."
+  puts "Once this operation is complete there is no going back.\n"
+  print "Are you sure(Y/N)? "
+  response = gets.chomp
+  if /[Y]/i.match(response)
+    restore
+  else
+    puts "**** cancelled ****"
+  end
+end
+
+if !DIR.nil? && File.directory?(DIR)
+  if backup_valid?
+    confirmed ? restore : confirm
+  else
+    puts "**** Given directory does not contain necessary files ****"
+    puts "**** All backup directories contain: #{STANDARD_BACKUP_FILES.join(", ")} ****"
+    puts "**** An online backup directory contains: #{ONLINE_BACKUP_FILES.join(", ")} ****"
+    puts "**** An offline backup directory contains: #{OFFLINE_BACKUP_FILES.join(", ")} ****"
+    puts "**** Please choose a valid backup directory ****"
+    puts optparse
+    exit(-1)
+  end
+else
+  puts "**** Given directory is not valid ****"
+  puts optparse
+  exit(-1)
+end
+

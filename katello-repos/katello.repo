@@ -1,0 +1,50 @@
+# Place this file in your /etc/yum.repos.d/ directory
+
+[katello]
+name=Katello @REPO_NAME@
+baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/katello/@DIST@/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=1
+gpgcheck=0
+
+# Pulp RPMs as supported by Katello - This is a coordinated
+# copy of Pulp's packages in order to ensure compatibility
+[katello-pulp]
+name=Pulp Community Releases
+baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulp/@DIST@/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=1
+gpgcheck=0
+
+# Candlepin RPMs as supported by Katello - This is a coordinated
+# copy of Candlepin's packages in order to ensure compatibility
+
+[katello-candlepin]
+name=Candlepin: an open source entitlement management system.
+baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/candlepin/@DIST@/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=1
+gpgcheck=0
+
+# source repositories
+
+[katello-source]
+name=Katello @REPO_NAME@ Source
+baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/katello/@DIST@/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=0
+gpgcheck=0
+
+[katello-pulp-source]
+name=Katello Pulp source
+baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/pulp/@DIST@/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=0
+gpgcheck=0
+
+[katello-candlepin-source]
+name=Katello Candlepin source
+baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/candlepin/@DIST@/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+enabled=0
+gpgcheck=0
