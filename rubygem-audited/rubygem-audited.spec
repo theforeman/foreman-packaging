@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/gemfiles
 
 %changelog
+* Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 4.4.1-1
+- Update audited to 4.4.1 (dominic@cleal.org)
+
 * Tue Jan 24 2017 Dominic Cleal <dominic@cleal.org> 4.3.0-1
 - Update audited to 4.3.0 (dominic@cleal.org)
 
