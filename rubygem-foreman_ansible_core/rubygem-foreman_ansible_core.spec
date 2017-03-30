@@ -4,7 +4,7 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
@@ -14,8 +14,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 0.2
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
