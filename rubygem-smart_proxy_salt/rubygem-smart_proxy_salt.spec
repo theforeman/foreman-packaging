@@ -98,6 +98,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 2.1.8-1
+- update smart_proxy_salt to 2.1.8 (kvedulv@kvedulv.de)
+
 * Mon Oct 10 2016 Dominic Cleal <dominic@cleal.org> 2.1.7-1
 - update smart_proxy_salt to 2.1.7 (kvedulv@kvedulv.de)
 
