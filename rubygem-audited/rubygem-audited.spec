@@ -6,7 +6,7 @@
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.0
+Version: 4.4.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -15,9 +15,7 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.1
-Requires: %{?scl_prefix}rubygem(rails-observers) >= 0.1.2
-Requires: %{?scl_prefix}rubygem(rails-observers) < 0.2.0
+Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -72,7 +70,7 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Appraisals
-%doc %{gem_instdir}/CHANGELOG
+%doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
