@@ -1,3 +1,9 @@
+foreman-installer (1.16.0-1) stable; urgency=low
+
+  * Bump changelog to 1.16.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 30 Mar 2017 10:54:21 +0200
+
 foreman-installer (1.14.2-1) stable; urgency=low
 
   * 1.14.2 released
