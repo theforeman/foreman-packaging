@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Mar 31 2017 Dominic Cleal <dominic@cleal.org> 1.3.0-1
+- Update fog-aws to 1.3.0 (dominic@cleal.org)
+
 * Tue Jan 24 2017 Dominic Cleal <dominic@cleal.org> 1.2.0-1
 - Update fog-aws to 1.2.0 (dominic@cleal.org)
 
