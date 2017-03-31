@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 3.2
-Release: 9%{?dist}
+Release: 10%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -285,6 +285,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Mar 31 2017 Dominic Cleal <dominic@cleal.org> 3.2-10
+- Remove rails-observers gem (dominic@cleal.org)
+
 * Fri Mar 24 2017 Dominic Cleal <dominic@cleal.org> 3.2-9
 - Remove ace-rails-ap gem (dominic@cleal.org)
 
