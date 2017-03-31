@@ -168,7 +168,6 @@ whitelist = foreman
   rubygem-rabl
   rubygem-rack-jsonp
   rubygem-rails-i18n
-  rubygem-rails-observers
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-responders
