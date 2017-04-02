@@ -393,6 +393,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_vmwareannotations
   rubygem-foreman_xen
   rubygem-foreman_templates
+  rubygem-get_process_mem
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_bootdisk
@@ -513,6 +514,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman-tasks-core
   rubygem-foreman_vmwareannotations
   rubygem-foreman_xen
+  rubygem-get_process_mem
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_bootdisk
