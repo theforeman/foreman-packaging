@@ -99,6 +99,7 @@
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
+      <packagereq type="default">tfm-rubygem-get_process_mem</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
