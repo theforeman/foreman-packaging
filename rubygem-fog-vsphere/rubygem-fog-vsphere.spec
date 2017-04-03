@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support VMware vSphere
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.7.0
+Version: 1.9.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
