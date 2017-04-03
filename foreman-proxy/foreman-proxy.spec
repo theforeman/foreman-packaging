@@ -244,6 +244,9 @@ fi
 
 
 %changelog
+* Mon Apr 03 2017 Dominic Cleal <dominic@cleal.org> 1.14.3-1
+- Release 1.14.3
+
 * Thu Mar 02 2017 Dominic Cleal <dominic@cleal.org> 1.14.2-1
 - Release 1.14.2
 
