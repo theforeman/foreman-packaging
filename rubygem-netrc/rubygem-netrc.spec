@@ -71,6 +71,10 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 0.11.0-1
+- Update netrc to 0.11.0 (dominic@cleal.org)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 0.7.7-7
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
