@@ -197,6 +197,9 @@ fi
 
 
 %changelog
+* Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 1.15.0-0.1.RC1
+- Release 1.15.0-RC1 (me@daniellobato.me)
+
 * Tue Dec 06 2016 Dominic Cleal <dominic@cleal.org> - 1.15.0-0.develop
 - Bump version to 1.15-develop
 
