@@ -77,7 +77,6 @@ whitelist = foreman-installer
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
-  rubygem-netrc
   rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
