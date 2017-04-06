@@ -56,8 +56,8 @@ Requires: %{name}-debug
 # Gemfile
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
-Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8
+Requires: %{?scl_prefix}rubygem(rest-client) < 3.0
 Requires: %{?scl_prefix}rubygem(audited) >= 4.3
 Requires: %{?scl_prefix}rubygem(audited) < 5.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
@@ -140,8 +140,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
-BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygem(rest-client) < 1.9.0
+BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.8
+BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.3
 BuildRequires: %{?scl_prefix}rubygem(audited) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
