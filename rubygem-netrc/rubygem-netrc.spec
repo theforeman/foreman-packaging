@@ -6,20 +6,15 @@
 
 Summary: Library to read and write netrc files
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.7
-Release: 7%{?dist}
+Version: 0.11.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/netrc
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
@@ -57,33 +52,13 @@ cp -a .%{gem_dir}/* \
 %check
 pushd .%{gem_instdir}
 %{?scl:scl enable %{scl} - << \EOS}
-%if 0%{?el6} && 0%{!?scl:1}
-testrb -Ilib test
-%else
-# To run the tests using minitest 5
-# https://github.com/heroku/netrc/pull/36
-ruby -rminitest/autorun - << \EOF
-  module Kernel
-    alias orig_require require
-    remove_method :require
-
-    def require path
-      orig_require path unless path == 'test/unit'
-    end
-
-  end
-
-  Test = Minitest
-
-  Dir.glob "./test/**/test_*.rb", &method(:require)
-EOF
-%endif
+ruby -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
 %{?scl:EOS}
 popd
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/Readme.md
 %{gem_libdir}
 %exclude %{gem_cache}
