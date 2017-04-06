@@ -1,3 +1,15 @@
+foreman-installer (1.15.0~rc1-1) stable; urgency=low
+
+  * 1.15.0-RC1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 06 Apr 2017 13:50:56 +0200
+
+foreman-installer (1.14.3-1) stable; urgency=low
+
+  * 1.14.3 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 03 Apr 2017 12:05:04 +0100
+
 foreman-installer (1.14.2-1) stable; urgency=low
 
   * 1.14.2 released
