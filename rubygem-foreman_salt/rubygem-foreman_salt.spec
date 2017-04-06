@@ -103,6 +103,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 8.0.2-1
+- update foreman_salt to 8.0.2 (kvedulv@kvedulv.de)
+
 * Mon Mar 13 2017 Eric D Helms <ericdhelms@gmail.com> 8.0.1-1
 - update foreman_salt to 8.0.1 (kvedulv@kvedulv.de)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
