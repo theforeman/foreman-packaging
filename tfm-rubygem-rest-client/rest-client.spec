@@ -78,6 +78,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Apr 07 2017 Dominic Cleal <dominic@cleal.org> 2.0.1-1
+- Update rest-client to 2.0.1 (dominic@cleal.org)
+
 * Wed May 25 2016 Dominic Cleal <dominic@cleal.org> 1.8.0-1
 - Update rest-client to 1.8.0
 
