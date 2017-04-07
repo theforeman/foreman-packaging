@@ -101,6 +101,9 @@ exit 0
 
 
 %changelog
+* Fri Apr 07 2017 Dominic Cleal <dominic@cleal.org> 1.4.5-1
+- Update foreman_ansible to 1.4.5 (me@daniellobato.me)
+
 * Tue Feb 14 2017 Dominic Cleal <dominic@cleal.org> 1.4.4-1
 - Update foreman_ansible to 1.4.4 (me@daniellobato.me)
 
