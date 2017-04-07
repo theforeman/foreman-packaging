@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Apr 07 2017 Dominic Cleal <dominic@cleal.org> 9.0.0-1
+- Discovery 9.0.0 (lzap+git@redhat.com)
+
 * Mon Mar 27 2017 Dominic Cleal <dominic@cleal.org> 8.0.1-1
 - Updated foreman_discovery to 8.0.1 (lzap+git@redhat.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
