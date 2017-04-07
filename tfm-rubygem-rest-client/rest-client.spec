@@ -5,7 +5,7 @@
 
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: tfm-rubygem-%{gem_name}
-Version: 1.8.0
+Version: 2.0.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -16,8 +16,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix}rubygem(http-cookie) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(http-cookie) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.16
-Requires: %{?scl_prefix_ror}rubygem(mime-types) < 3.0
-Requires: %{?scl_prefix}rubygem(netrc) >= 0.7
+Requires: %{?scl_prefix_ror}rubygem(mime-types) < 4.0
+Requires: %{?scl_prefix}rubygem(netrc) >= 0.8
 Requires: %{?scl_prefix}rubygem(netrc) < 1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
@@ -68,7 +68,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/AUTHORS
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/history.md
 
 %exclude %{gem_instdir}/.*
