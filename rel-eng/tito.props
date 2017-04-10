@@ -249,6 +249,8 @@ whitelist = foreman
   nodejs-url-loader
   nodejs-webpack
   puppet-agent-oauth
+  puppet-agent-puppet-strings
+  puppet-agent-yard
   rubygem-activerecord-session_store
   rubygem-apipie-bindings
   rubygem-audited
