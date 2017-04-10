@@ -9,7 +9,7 @@
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
 URL: https://puppetlabs.com/%{gem_name}
@@ -93,6 +93,10 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 10 2017 Dominic Cleal <dominic@cleal.org> 2.4.0-4
+- Disable debuginfo package (dominic@cleal.org)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.4.0-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
