@@ -263,6 +263,7 @@ whitelist = foreman
   rubygem-deep_cloneable
   rubygem-excon
   rubygem-extlib
+  rubygem-facter
   rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core

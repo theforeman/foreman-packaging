@@ -120,11 +120,7 @@ Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 # facter
-%if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(facter)
-%else
-Requires: facter
-%endif
 # jsonp
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
@@ -316,11 +312,7 @@ BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 # facter
-%if 0%{?scl:1}
 BuildRequires: %{?scl_prefix}rubygem(facter)
-%else
-BuildRequires: facter
-%endif
 
 %package cli
 Summary: Foreman CLI

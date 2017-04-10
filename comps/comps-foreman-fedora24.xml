@@ -85,6 +85,7 @@
       <packagereq type="default">rubygem-deep_cloneable</packagereq>
       <packagereq type="default">rubygem-excon</packagereq>
       <packagereq type="default">rubygem-extlib</packagereq>
+      <packagereq type="default">rubygem-facter</packagereq>
       <packagereq type="default">rubygem-fog</packagereq>
       <packagereq type="default">rubygem-fog-aws</packagereq>
       <packagereq type="default">rubygem-fog-core</packagereq>
@@ -172,6 +173,7 @@
       <packagereq type="default">rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">rubygem-excon-doc</packagereq>
       <packagereq type="default">rubygem-extlib-doc</packagereq>
+      <packagereq type="default">rubygem-facter-doc</packagereq>
       <packagereq type="default">rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">rubygem-fog-core-doc</packagereq>
       <packagereq type="default">rubygem-fog-doc</packagereq>

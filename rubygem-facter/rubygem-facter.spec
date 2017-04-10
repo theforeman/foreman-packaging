@@ -3,6 +3,9 @@
 
 %global gem_name facter
 
+# Disable debuginfo as no native code is packaged (only Reqs)
+%global debug_package %{nil}
+
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
