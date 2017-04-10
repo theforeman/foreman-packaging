@@ -190,6 +190,10 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Mon Apr 10 2017 Dominic Cleal <dominic@cleal.org> 0.9.1-1
+- Update foreman-tasks to 0.9.1 (aruzicka@redhat.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Nov 24 2016 Dominic Cleal <dominic@cleal.org> 0.8.6-1
 - Update foreman-tasks to 0.8.6 (inecas@redhat.com)
 
