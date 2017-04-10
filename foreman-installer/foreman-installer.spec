@@ -16,28 +16,18 @@ Source0:    http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalp
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   %{?scl_prefix}puppet >= 3.6.0
+Requires:   %{?scl_prefix}puppet-agent >= 1.6.1
 Requires:   %{?scl_prefix}rubygem-kafo >= 1.0.5
 Requires:   foreman-selinux
-
-%if "%{?scl_ruby}" == "ruby193" || (0%{?el6} && 0%{!?scl:1})
-Requires:   %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires:   %{?scl_prefix_ruby}ruby(release)
-%endif
 Requires:   %{?scl_prefix}rubygem-highline
 
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
-BuildRequires: %{?scl_prefix}puppet >= 3.6.0
+BuildRequires: %{?scl_prefix}puppet-agent >= 1.6.1
 BuildRequires: %{?scl_prefix}rubygem-kafo >= 1.0.5
-%if 0%{?fedora} >= 22
-BuildRequires: %{?scl_prefix}rubygem(puppet-strings) >= 0.99
-BuildRequires: %{?scl_prefix}rubygem(puppet-strings) < 2
-%else
 BuildRequires: puppet-agent-puppet-strings >= 0.99
 BuildRequires: puppet-agent-puppet-strings < 2
-%endif
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
