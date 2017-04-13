@@ -754,6 +754,9 @@ find %{buildroot}%{_datadir}/%{name}/script/%{name}-tail.d/* -type d |xargs rm -
 # remove all test units from produciton release
 find %{buildroot}%{_datadir}/%{name} -type d -name "test" |xargs rm -rf
 
+# remove spring loader, depends on Bundler and only installed via development group
+rm -f %{buildroot}%{_datadir}/%{name}/bin/spring
+
 # Move config files to %{_sysconfdir}
 mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_datadir}/%{name}/config/database.yml
 mv %{buildroot}%{_datadir}/%{name}/config/email.yaml.example %{buildroot}%{_datadir}/%{name}/config/email.yaml
