@@ -94,9 +94,6 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
-* Thu Apr 13 2017 Dominic Cleal <dominic@cleal.org> 0.1.0-1
-- Update foreman_monitoring to 0.1.0 (dirk.goetz@netways.de)
-
 * Thu Apr 13 2017 Dirk Goetz <dirk.goetz> - 0.1.0-1
 - updated upstream
 
