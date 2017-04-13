@@ -6,7 +6,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 Group: Applications/Internet
@@ -78,6 +78,8 @@ mv %{buildroot}%{gem_instdir}/settings.d/monitoring.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/monitoring.yml
 mv %{buildroot}%{gem_instdir}/settings.d/monitoring_icinga2.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/monitoring_icinga2.yml
+mv %{buildroot}%{gem_instdir}/settings.d/monitoring_icingadirector.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/monitoring_icingadirector.yml
 
 # additional config
 mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
@@ -86,6 +88,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/monitoring.yml
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/monitoring_icinga2.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/monitoring_icingadirector.yml
 %doc %{gem_instdir}/LICENSE
 %{gem_instdir}/bundler.d
 %{gem_libdir}
@@ -100,5 +103,8 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 13 2017 Dirk Goetz <dirk.goetz@netways.de> - 0.1.0-1
+- updated upstream
+
 * Fri Aug 19 2016 Dirk Goetz <dirk.goetz@netways.de> - 0.0.1-1
 - inital build
