@@ -5,19 +5,19 @@
 %global plugin_name monitoring
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
 License: GPLv3
 URL: http://www.github.com/theforeman/foreman_monitoring
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.12
+Requires: foreman >= 1.15
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby 
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: foreman-plugin >= 1.12
+BuildRequires: foreman-plugin >= 1.15
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
@@ -94,5 +94,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 13 2017 Dirk Goetz <dirk.goetz> - 0.1.0-1
+- updated upstream
+
 * Fri Aug 19 2016 Dirk Goetz <dirk.goetz> - 0.0.3-1
 - initial build
