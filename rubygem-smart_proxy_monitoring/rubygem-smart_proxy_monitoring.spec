@@ -14,22 +14,14 @@ License: GPLv3
 URL: http://github.com/theforeman/smart_proxy_monitoring
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.12
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-%else
 Requires: ruby(release)
-%endif
-Requires: ruby 
-Requires: ruby(rubygems) 
-Requires: rubygem(rest-client) 
-Requires: rubygem(json) 
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
+Requires: ruby
+Requires: ruby(rubygems)
+Requires: rubygem(rest-client)
+Requires: rubygem(json)
 BuildRequires: ruby(release)
-%endif
-BuildRequires: ruby 
-BuildRequires: rubygems-devel 
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name}
