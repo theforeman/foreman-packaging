@@ -1,5 +1,4 @@
 # Install the basic application files
-config/email.yaml                        etc/foreman
 config/foreman-debug.conf                etc/foreman
 config/logging.yaml                      etc/foreman
 config/settings.yaml                     etc/foreman

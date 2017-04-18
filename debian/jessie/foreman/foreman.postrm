@@ -18,7 +18,6 @@ case "$1" in
 		fi
 		if which ucf >/dev/null 2>&1; then
 			ucf --debconf-ok --purge /etc/foreman/database.yml
-			ucf --debconf-ok --purge /etc/foreman/email.yml
 			ucf --debconf-ok --purge /etc/foreman/session.yml
 		fi
 		# package-generated or runtime files are removed
