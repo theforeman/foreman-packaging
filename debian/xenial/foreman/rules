@@ -10,7 +10,6 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 build:
 	/bin/cp config/settings.yaml.example config/settings.yaml
 	/bin/cp config/database.yml.example config/database.yml
-	/bin/cp config/email.yaml.example config/email.yaml
 	/bin/rm -rf node_modules
 	/usr/bin/npm install --no-optional
 	/bin/cp debian/debian.rb bundler.d/
