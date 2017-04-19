@@ -1,0 +1,27 @@
+Source: ruby-kafo
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 7.0.50~),
+               gem2deb
+Homepage: https://github.com/theforeman/kafo
+XS-Ruby-Versions: all
+
+Package: ruby-kafo
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-clamp (>= 0.6.2),
+         ruby-highline (<< 2.0),
+         ruby-highline (>= 1.6.21),
+         ruby-kafo-parsers (>= 0.1.6),
+         ruby-kafo-wizards,
+         ruby-logging (<< 3.0.0),
+         ruby-ansi,
+         ruby-powerbar,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Ruby gem for making installations based on puppet user friendly
+ If you write puppet modules for installing your software,
+ you can use kafo to create powerful installer

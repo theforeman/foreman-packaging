@@ -1,0 +1,5 @@
+ruby-dynflow (0.8.23-1) stable; urgency=low
+
+  * Initial release for Debian/stretch
+
+ -- Michael Moll <mmoll@mmoll.at>  Wed, 19 Apr 2017 12:35:15 +0200
