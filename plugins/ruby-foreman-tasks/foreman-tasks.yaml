@@ -13,11 +13,11 @@
 # Cleaning configuration: how long should the actions be kept before deleted
 # by `rake foreman_tasks:clean` task
 #
-#  :cleanup:
+ :cleanup:
 #
 # the period after which to delete all the tasks (by default all tasks are not being deleted after some period)
 #
-#    :after: 365d
+   :after: 30d
 #
 # per action settings to override the default defined in the actions (self.cleanup_after method)
 #

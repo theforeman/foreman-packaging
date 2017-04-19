@@ -25,6 +25,8 @@ build:
 		cp -rp $${GEM_PATH}/public/assets ./
 	[ -e apipie-cache ] || mkdir apipie-cache/
 	cp -rp /var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) ./apipie-cache/
+	[ -e cron ] || mkdir cron/
+   	cp deployment/foreman-tasks.cron.d ./cron/foreman-tasks
 
 %:
 	dh $@
