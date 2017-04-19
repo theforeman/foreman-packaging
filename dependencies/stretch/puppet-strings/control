@@ -1,0 +1,20 @@
+Source: ruby-puppet-strings
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+Standards-Version: 3.9.8
+Homepage: https://github.com/puppetlabs/puppet-strings
+XS-Ruby-Versions: all
+
+Package: ruby-puppet-strings
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-yard (>= 0.9.5), ruby-yard (<< 1.0.0),
+         puppet (>= 3.7.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Puppet documentation via YARD
+ Puppet documentation via YARD

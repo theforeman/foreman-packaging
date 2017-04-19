@@ -1,0 +1,21 @@
+Source: ruby-yard
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+Standards-Version: 3.9.8
+Homepage: http://yardoc.org
+XS-Ruby-Versions: all
+
+Package: ruby-yard
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Documentation tool for consistent and usable documentation in Ruby.
+ YARD is a documentation generation tool for the Ruby programming language.
+ It enables the user to generate consistent, usable documentation that can be
+ exported to a number of formats very easily, and also supports extending for
+ custom Ruby constructs such as custom class level definitions.
