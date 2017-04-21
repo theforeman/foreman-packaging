@@ -1,3 +1,9 @@
+ruby-foreman-templates (4.0.2-1) stable; urgency=low
+
+  * Update foreman_templates to 4.0.2
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 21 Apr 2017 09:20:42 +0200
+
 ruby-foreman-templates (4.0.1-1) stable; urgency=low
 
   * 4.0.1 released
