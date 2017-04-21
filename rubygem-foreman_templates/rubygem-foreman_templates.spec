@@ -90,6 +90,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Apr 21 2017 Dominic Cleal <dominic@cleal.org> 4.0.2-1
+- Update foreman_templates to 4.0.2 (mhulan@redhat.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Fri Feb 03 2017 Dominic Cleal <dominic@cleal.org> 4.0.1-1
 - templates: 4.0.1 release (greg.sutcliffe@gmail.com)
 
