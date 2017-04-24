@@ -5,8 +5,8 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 2%{?dist}
+Version: 0.5.0
+Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -19,7 +19,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
