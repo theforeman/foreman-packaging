@@ -91,6 +91,9 @@ exit 0
 %{gem_docdir}
 
 %changelog
+* Mon Apr 24 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
+- Update foreman_expire_hosts to 3.0.0 (mail@timogoebel.name)
+
 * Wed Feb 22 2017 Dominic Cleal <dominic@cleal.org> 2.2.0-1
 - Update foreman_expire_hosts to 2.2.0 (mail@timogoebel.name)
 
