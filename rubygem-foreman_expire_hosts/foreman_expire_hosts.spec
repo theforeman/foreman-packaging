@@ -5,7 +5,7 @@
 
 Summary:    A Foreman plugin to allow hosts to expire.
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.2.0
+Version:    3.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -13,7 +13,7 @@ URL:        https://github.com/theforeman/foreman_expire_hosts
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Source1:    %{gem_name}.cron.d
 
-Requires:   foreman >= 1.13.0
+Requires:   foreman >= 1.15.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 Requires:   %{?scl_prefix_ruby}rubygems
 Requires:   %{?scl_prefix}rubygem(deface)
@@ -24,7 +24,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.13.0
+BuildRequires: foreman-plugin >= 1.15.0
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(bootstrap-datepicker-rails)
 
