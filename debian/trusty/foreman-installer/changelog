@@ -1,3 +1,9 @@
+foreman-installer (1.15.0~rc2-1) stable; urgency=low
+
+  * 1.15.0-RC2 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Mon, 24 Apr 2017 16:24:38 +0200
+
 foreman-installer (1.15.0~rc1-1) stable; urgency=low
 
   * 1.15.0-RC1 released
