@@ -19,6 +19,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.10.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
+Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
+Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
