@@ -1,0 +1,16 @@
+ruby-http-cookie (1.0.2-1) unstable; urgency=low
+
+  * Team upload.
+  * Imported Upstream version 1.0.2
+  * d/control:
+    - added testsuite header
+    - bumped standards version to 3.9.6 (no changes needed)
+    - wrap sort
+
+ -- Jonas Genannt <jonas.genannt@capi2name.de>  Fri, 10 Oct 2014 10:50:25 +0200
+
+ruby-http-cookie (1.0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #713983)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Mon, 24 Jun 2013 10:15:34 -0500
