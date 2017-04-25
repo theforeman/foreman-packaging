@@ -1,0 +1,18 @@
+Description: Disable test that requires gpg
+Author: Lucas Nussbaum <lucas@debian.org>
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2015-05-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/test/test_netrc.rb
++++ b/test/test_netrc.rb
+@@ -184,7 +184,7 @@ class TestNetrc < Test::Unit::TestCase
+     end
+   end
+ 
+-  def test_encrypted_roundtrip
++  def disabled_test_encrypted_roundtrip
+     if `gpg --list-keys 2> /dev/null` != ""
+       FileUtils.rm_f("/tmp/test.netrc.gpg")
+       n = Netrc.read("/tmp/test.netrc.gpg")

@@ -1,0 +1,37 @@
+Source: ruby-rest-client
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Lucas Nussbaum <lucas@debian.org>
+Build-Depends: debhelper (>= 9),
+               gem2deb,
+               rake,
+               ruby-http-cookie (<< 2.0),
+               ruby-http-cookie (>= 1.0.2),
+               ruby-mime-types (<< 3.0),
+               ruby-mime-types (>= 1.16),
+               ruby-netrc (>= 0.7),
+               ruby-rspec
+Standards-Version: 3.9.8
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-rest-client.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-rest-client.git
+Homepage: https://github.com/rest-client/rest-client
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-rest-client
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-http-cookie (<< 2.0),
+         ruby-http-cookie (>= 1.0.2),
+         ruby-mime-types (<< 3.0),
+         ruby-mime-types (>= 1.16),
+         ruby-netrc (>= 0.7),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: simple REST client for Ruby
+ A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework
+ style of specifying actions: get, put, post, delete.
+ The package also includes the program restclient, it can be used to easily test
+ REST APIs.
