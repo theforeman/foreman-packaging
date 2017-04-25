@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.2.0-1) stable; urgency=low
+
+  * 0.2.0 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Tue, 25 Apr 2017 11:04:53 +0100
+
 ruby-apipie-bindings (0.1.0-1) stable; urgency=low
 
   * Initial release for Debian/stretch
