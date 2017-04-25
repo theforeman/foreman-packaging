@@ -16,14 +16,14 @@
 
 Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.0.2
+Version:    5.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_templates
 Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.14.1
+Requires:   foreman >= 1.15.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -35,6 +35,11 @@ Requires: %{?scl_prefix}rubygem(git)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: %{?scl_prefix}rubygem(diffy)
+BuildRequires: %{?scl_prefix}rubygem(git)
+BuildRequires: git
+BuildRequires: foreman-plugin >= 1.15
+
 
 BuildArch: noarch
 
@@ -68,19 +73,20 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/app
 %{gem_instdir}/lib
+%{gem_instdir}/config/routes.rb
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 
 %exclude %{gem_instdir}/Rakefile
 
@@ -88,6 +94,11 @@ GEMFILE
 %doc %{gem_docdir}
 %doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
+
+%posttrans
+%{foreman_apipie_cache}
+%{foreman_restart}
+exit 0
 
 %changelog
 * Fri Apr 21 2017 Dominic Cleal <dominic@cleal.org> 4.0.2-1
