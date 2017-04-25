@@ -38,6 +38,19 @@ else
   fi
 fi
 
+# Generate apipie cache
+if [ -f /usr/share/foreman/config/database.yml ]; then
+  if [ ! -z "${DEBUG}" ]; then
+    # plugin does not have migration
+    # /usr/sbin/foreman-rake db:migrate || true
+    /usr/sbin/foreman-rake apipie:cache:index || true
+  else
+    # plugin does not have migration
+    # /usr/sbin/foreman-rake db:migrate >> $LOGFILE 2>&1 || true
+    /usr/sbin/foreman-rake apipie:cache:index >> $LOGFILE 2>&1 || true
+  fi
+fi
+
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 
