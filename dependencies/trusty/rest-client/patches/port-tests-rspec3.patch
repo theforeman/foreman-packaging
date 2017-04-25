@@ -1,0 +1,2082 @@
+Description: Port tests to RSpec3 syntax
+Author: Balasankar C <balasankarc@autistici.org>
+Last-Update: 2016-01-11
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/spec/integration/integration_spec.rb
++++ b/spec/integration/integration_spec.rb
+@@ -6,15 +6,15 @@
+     body = 'abc'
+     stub_request(:get, "www.example.com").to_return(:body => body, :status => 200)
+     response = RestClient.get "www.example.com"
+-    response.code.should eq 200
+-    response.body.should eq body
++    expect(response.code).to eq 200
++    expect(response.body).to eq body
+   end
+ 
+   it "a simple request with gzipped content" do
+     stub_request(:get, "www.example.com").with(:headers => { 'Accept-Encoding' => 'gzip, deflate' }).to_return(:body => "\037\213\b\b\006'\252H\000\003t\000\313T\317UH\257\312,HM\341\002\000G\242(\r\v\000\000\000", :status => 200,  :headers => { 'Content-Encoding' => 'gzip' } )
+     response = RestClient.get "www.example.com"
+-    response.code.should eq 200
+-    response.body.should eq "i'm gziped\n"
++    expect(response.code).to eq 200
++    expect(response.body).to eq "i'm gziped\n"
+   end
+ 
+   it "a 404" do
+@@ -24,10 +24,10 @@
+       RestClient.get "www.example.com"
+       raise
+     rescue RestClient::ResourceNotFound => e
+-      e.http_code.should eq 404
+-      e.response.code.should eq 404
+-      e.response.body.should eq body
+-      e.http_body.should eq body
++      expect(e.http_code).to eq 404
++      expect(e.response.code).to eq 404
++      expect(e.response.body).to eq body
++      expect(e.http_body).to eq body
+     end
+   end
+ 
+--- a/spec/integration/request_spec.rb
++++ b/spec/integration/request_spec.rb
+@@ -75,7 +75,7 @@
+         },
+       )
+       expect {request.execute }.to_not raise_error
+-      ran_callback.should eq(true)
++      expect(ran_callback).to eq(true)
+     end
+ 
+     it "fails verification when the callback returns false",
+--- a/spec/unit/abstract_response_spec.rb
++++ b/spec/unit/abstract_response_spec.rb
+@@ -23,66 +23,66 @@
+   end
+ 
+   it "fetches the numeric response code" do
+-    @net_http_res.should_receive(:code).and_return('200')
+-    @response.code.should eq 200
++    expect(@net_http_res).to receive(:code).and_return('200')
++    expect(@response.code).to eq 200
+   end
+ 
+   it "has a nice description" do
+-    @net_http_res.should_receive(:to_hash).and_return({'Content-Type' => ['application/pdf']})
+-    @net_http_res.should_receive(:code).and_return('200')
+-    @response.description.should eq "200 OK | application/pdf  bytes\n"
++    expect(@net_http_res).to receive(:to_hash).and_return({'Content-Type' => ['application/pdf']})
++    expect(@net_http_res).to receive(:code).and_return('200')
++    expect(@response.description).to eq "200 OK | application/pdf  bytes\n"
+   end
+ 
+   it "beautifies the headers by turning the keys to symbols" do
+     h = RestClient::AbstractResponse.beautify_headers('content-type' => [ 'x' ])
+-    h.keys.first.should eq :content_type
++    expect(h.keys.first).to eq :content_type
+   end
+ 
+   it "beautifies the headers by turning the values to strings instead of one-element arrays" do
+     h = RestClient::AbstractResponse.beautify_headers('x' => [ 'text/html' ] )
+-    h.values.first.should eq 'text/html'
++    expect(h.values.first).to eq 'text/html'
+   end
+ 
+   it "fetches the headers" do
+-    @net_http_res.should_receive(:to_hash).and_return('content-type' => [ 'text/html' ])
+-    @response.headers.should eq({ :content_type => 'text/html' })
++    expect(@net_http_res).to receive(:to_hash).and_return('content-type' => [ 'text/html' ])
++    expect(@response.headers).to eq({ :content_type => 'text/html' })
+   end
+ 
+   it "extracts cookies from response headers" do
+-    @net_http_res.should_receive(:to_hash).and_return('set-cookie' => ['session_id=1; path=/'])
+-    @response.cookies.should eq({ 'session_id' => '1' })
++    expect(@net_http_res).to receive(:to_hash).and_return('set-cookie' => ['session_id=1; path=/'])
++    expect(@response.cookies).to eq({ 'session_id' => '1' })
+   end
+ 
+   it "extract strange cookies" do
+-    @net_http_res.should_receive(:to_hash).and_return('set-cookie' => ['session_id=ZJ/HQVH6YE+rVkTpn0zvTQ==; path=/'])
+-    @response.headers.should eq({:set_cookie => ['session_id=ZJ/HQVH6YE+rVkTpn0zvTQ==; path=/']})
+-    @response.cookies.should eq({ 'session_id' => 'ZJ/HQVH6YE+rVkTpn0zvTQ==' })
++    expect(@net_http_res).to receive(:to_hash).and_return('set-cookie' => ['session_id=ZJ/HQVH6YE+rVkTpn0zvTQ==; path=/'])
++    expect(@response.headers).to eq({:set_cookie => ['session_id=ZJ/HQVH6YE+rVkTpn0zvTQ==; path=/']})
++    expect(@response.cookies).to eq({ 'session_id' => 'ZJ/HQVH6YE+rVkTpn0zvTQ==' })
+   end
+ 
+   it "doesn't escape cookies" do
+-    @net_http_res.should_receive(:to_hash).and_return('set-cookie' => ['session_id=BAh7BzoNYXBwX25hbWUiEGFwcGxpY2F0aW9uOgpsb2dpbiIKYWRtaW4%3D%0A--08114ba654f17c04d20dcc5228ec672508f738ca; path=/'])
+-    @response.cookies.should eq({ 'session_id' => 'BAh7BzoNYXBwX25hbWUiEGFwcGxpY2F0aW9uOgpsb2dpbiIKYWRtaW4%3D%0A--08114ba654f17c04d20dcc5228ec672508f738ca' })
++    expect(@net_http_res).to receive(:to_hash).and_return('set-cookie' => ['session_id=BAh7BzoNYXBwX25hbWUiEGFwcGxpY2F0aW9uOgpsb2dpbiIKYWRtaW4%3D%0A--08114ba654f17c04d20dcc5228ec672508f738ca; path=/'])
++    expect(@response.cookies).to eq({ 'session_id' => 'BAh7BzoNYXBwX25hbWUiEGFwcGxpY2F0aW9uOgpsb2dpbiIKYWRtaW4%3D%0A--08114ba654f17c04d20dcc5228ec672508f738ca' })
+   end
+ 
+   it "can access the net http result directly" do
+-    @response.net_http_res.should eq @net_http_res
++    expect(@response.net_http_res).to eq @net_http_res
+   end
+ 
+   describe "#return!" do
+     it "should return the response itself on 200-codes" do
+-      @net_http_res.should_receive(:code).and_return('200')
+-      @response.return!.should be_equal(@response)
++      expect(@net_http_res).to receive(:code).and_return('200')
++      expect(@response.return!).to be_equal(@response)
+     end
+ 
+     it "should raise RequestFailed on unknown codes" do
+-      @net_http_res.should_receive(:code).and_return('1000')
+-      lambda { @response.return! }.should raise_error RestClient::RequestFailed
++      expect(@net_http_res).to receive(:code).and_return('1000')
++      expect { @response.return! }.to raise_error RestClient::RequestFailed
+     end
+ 
+     it "should raise an error on a redirection after non-GET/HEAD requests" do
+-      @net_http_res.should_receive(:code).and_return('301')
++      expect(@net_http_res).to receive(:code).and_return('301')
+       @response.args.merge(:method => :put)
+-      lambda { @response.return! }.should raise_error RestClient::RequestFailed
++      expect { @response.return! }.to raise_error RestClient::RequestFailed
+     end
+   end
+ end
+--- a/spec/unit/exceptions_spec.rb
++++ b/spec/unit/exceptions_spec.rb
+@@ -3,30 +3,30 @@
+ describe RestClient::Exception do
+   it "returns a 'message' equal to the class name if the message is not set, because 'message' should not be nil" do
+     e = RestClient::Exception.new
+-    e.message.should eq "RestClient::Exception"
++    expect(e.message).to eq "RestClient::Exception"
+   end
+ 
+   it "returns the 'message' that was set" do
+     e = RestClient::Exception.new
+     message = "An explicitly set message"
+     e.message = message
+-    e.message.should eq message
++    expect(e.message).to eq message
+   end
+ 
+   it "sets the exception message to ErrorMessage" do
+-    RestClient::ResourceNotFound.new.message.should eq 'Resource Not Found'
++    expect(RestClient::ResourceNotFound.new.message).to eq 'Resource Not Found'
+   end
+ 
+   it "contains exceptions in RestClient" do
+-    RestClient::Unauthorized.new.should be_a_kind_of(RestClient::Exception)
+-    RestClient::ServerBrokeConnection.new.should be_a_kind_of(RestClient::Exception)
++    expect(RestClient::Unauthorized.new).to be_a_kind_of(RestClient::Exception)
++    expect(RestClient::ServerBrokeConnection.new).to be_a_kind_of(RestClient::Exception)
+   end
+ end
+ 
+ describe RestClient::ServerBrokeConnection do
+   it "should have a default message of 'Server broke connection'" do
+     e = RestClient::ServerBrokeConnection.new
+-    e.message.should eq 'Server broke connection'
++    expect(e.message).to eq 'Server broke connection'
+   end
+ end
+ 
+@@ -40,21 +40,21 @@
+     begin
+       raise RestClient::RequestFailed, response
+     rescue RestClient::RequestFailed => e
+-      e.response.should eq response
++      expect(e.response).to eq response
+     end
+   end
+ 
+   it "http_code convenience method for fetching the code as an integer" do
+-    RestClient::RequestFailed.new(@response).http_code.should eq 502
++    expect(RestClient::RequestFailed.new(@response).http_code).to eq 502
+   end
+ 
+   it "http_body convenience method for fetching the body (decoding when necessary)" do
+-    RestClient::RequestFailed.new(@response).http_code.should eq 502
+-    RestClient::RequestFailed.new(@response).message.should eq 'HTTP status code 502'
++    expect(RestClient::RequestFailed.new(@response).http_code).to eq 502
++    expect(RestClient::RequestFailed.new(@response).message).to eq 'HTTP status code 502'
+   end
+ 
+   it "shows the status code in the message" do
+-    RestClient::RequestFailed.new(@response).to_s.should match(/502/)
++    expect(RestClient::RequestFailed.new(@response).to_s).to match(/502/)
+   end
+ end
+ 
+@@ -64,22 +64,22 @@
+     begin
+       raise RestClient::ResourceNotFound, response
+     rescue RestClient::ResourceNotFound => e
+-      e.response.should eq response
++      expect(e.response).to eq response
+     end
+   end
+ end
+ 
+ describe "backwards compatibility" do
+   it "alias RestClient::Request::Redirect to RestClient::Redirect" do
+-    RestClient::Request::Redirect.should eq RestClient::Redirect
++    expect(RestClient::Request::Redirect).to eq RestClient::Redirect
+   end
+ 
+   it "alias RestClient::Request::Unauthorized to RestClient::Unauthorized" do
+-    RestClient::Request::Unauthorized.should eq RestClient::Unauthorized
++    expect(RestClient::Request::Unauthorized).to eq RestClient::Unauthorized
+   end
+ 
+   it "alias RestClient::Request::RequestFailed to RestClient::RequestFailed" do
+-    RestClient::Request::RequestFailed.should eq RestClient::RequestFailed
++    expect(RestClient::Request::RequestFailed).to eq RestClient::RequestFailed
+   end
+ 
+   it "make the exception's response act like an Net::HTTPResponse" do
+@@ -89,7 +89,7 @@
+       RestClient.get "www.example.com"
+       raise
+     rescue RestClient::ResourceNotFound => e
+-      e.response.body.should eq body
++      expect(e.response.body).to eq body
+     end
+   end
+ end
+--- a/spec/unit/payload_spec.rb
++++ b/spec/unit/payload_spec.rb
+@@ -5,56 +5,56 @@
+ describe RestClient::Payload do
+   context "A regular Payload" do
+     it "should use standard enctype as default content-type" do
+-      RestClient::Payload::UrlEncoded.new({}).headers['Content-Type'].
+-          should eq 'application/x-www-form-urlencoded'
++      expect(RestClient::Payload::UrlEncoded.new({}).headers['Content-Type']).
++          to eq 'application/x-www-form-urlencoded'
+     end
+ 
+     it "should form properly encoded params" do
+-      RestClient::Payload::UrlEncoded.new({:foo => 'bar'}).to_s.
+-          should eq "foo=bar"
+-      ["foo=bar&baz=qux", "baz=qux&foo=bar"].should include(
++      expect(RestClient::Payload::UrlEncoded.new({:foo => 'bar'}).to_s).
++          to eq "foo=bar"
++      expect(["foo=bar&baz=qux", "baz=qux&foo=bar"]).to include(
+                                                         RestClient::Payload::UrlEncoded.new({:foo => 'bar', :baz => 'qux'}).to_s)
+     end
+ 
+     it "should escape parameters" do
+-      RestClient::Payload::UrlEncoded.new({'foo ' => 'bar'}).to_s.
+-          should eq "foo%20=bar"
++      expect(RestClient::Payload::UrlEncoded.new({'foo ' => 'bar'}).to_s).
++          to eq "foo%20=bar"
+     end
+ 
+     it "should properly handle hashes as parameter" do
+-      RestClient::Payload::UrlEncoded.new({:foo => {:bar => 'baz'}}).to_s.
+-          should eq "foo[bar]=baz"
+-      RestClient::Payload::UrlEncoded.new({:foo => {:bar => {:baz => 'qux'}}}).to_s.
+-          should eq "foo[bar][baz]=qux"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => {:bar => 'baz'}}).to_s).
++          to eq "foo[bar]=baz"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => {:bar => {:baz => 'qux'}}}).to_s).
++          to eq "foo[bar][baz]=qux"
+     end
+ 
+     it "should handle many attributes inside a hash" do
+       parameters = RestClient::Payload::UrlEncoded.new({:foo => {:bar => 'baz', :baz => 'qux'}}).to_s
+-      parameters.should include("foo[bar]=baz", "foo[baz]=qux")
++      expect(parameters).to include("foo[bar]=baz", "foo[baz]=qux")
+     end
+ 
+     it "should handle attributes inside a an array inside an hash" do
+       parameters = RestClient::Payload::UrlEncoded.new({"foo" => [{"bar" => 'baz'}, {"bar" => 'qux'}]}).to_s
+-      parameters.should include("foo[bar]=baz", "foo[bar]=qux")
++      expect(parameters).to include("foo[bar]=baz", "foo[bar]=qux")
+     end
+ 
+     it "should handle attributes inside a an array inside an array inside an hash" do
+       parameters = RestClient::Payload::UrlEncoded.new({"foo" => [[{"bar" => 'baz'}, {"bar" => 'qux'}]]}).to_s
+-      parameters.should include("foo[bar]=baz", "foo[bar]=qux")
++      expect(parameters).to include("foo[bar]=baz", "foo[bar]=qux")
+     end
+ 
+     it "should form properly use symbols as parameters" do
+-      RestClient::Payload::UrlEncoded.new({:foo => :bar}).to_s.
+-          should eq "foo=bar"
+-      RestClient::Payload::UrlEncoded.new({:foo => {:bar => :baz}}).to_s.
+-          should eq "foo[bar]=baz"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => :bar}).to_s).
++          to eq "foo=bar"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => {:bar => :baz}}).to_s).
++          to eq "foo[bar]=baz"
+     end
+ 
+     it "should properly handle arrays as repeated parameters" do
+-      RestClient::Payload::UrlEncoded.new({:foo => ['bar']}).to_s.
+-          should eq "foo[]=bar"
+-      RestClient::Payload::UrlEncoded.new({:foo => ['bar', 'baz']}).to_s.
+-          should eq "foo[]=bar&foo[]=baz"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => ['bar']}).to_s).
++          to eq "foo[]=bar"
++      expect(RestClient::Payload::UrlEncoded.new({:foo => ['bar', 'baz']}).to_s).
++          to eq "foo[]=bar&foo[]=baz"
+     end
+ 
+     it 'should not close if stream already closed' do
+@@ -67,8 +67,8 @@
+   context "A multipart Payload" do
+     it "should use standard enctype as default content-type" do
+       m = RestClient::Payload::Multipart.new({})
+-      m.stub(:boundary).and_return(123)
+-      m.headers['Content-Type'].should eq 'multipart/form-data; boundary=123'
++      allow(m).to receive(:boundary).and_return(123)
++      expect(m.headers['Content-Type']).to eq 'multipart/form-data; boundary=123'
+     end
+ 
+     it 'should not error on close if stream already closed' do
+@@ -78,7 +78,7 @@
+ 
+     it "should form properly separated multipart data" do
+       m = RestClient::Payload::Multipart.new([[:bar, "baz"], [:foo, "bar"]])
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="bar"\r
+ \r
+@@ -93,7 +93,7 @@
+ 
+     it "should not escape parameters names" do
+       m = RestClient::Payload::Multipart.new([["bar ", "baz"]])
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="bar "\r
+ \r
+@@ -105,7 +105,7 @@
+     it "should form properly separated multipart data" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+       m = RestClient::Payload::Multipart.new({:foo => f})
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="foo"; filename="master_shake.jpg"\r
+ Content-Type: image/jpeg\r
+@@ -118,7 +118,7 @@
+     it "should ignore the name attribute when it's not set" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+       m = RestClient::Payload::Multipart.new({nil => f})
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; filename="master_shake.jpg"\r
+ Content-Type: image/jpeg\r
+@@ -133,7 +133,7 @@
+       f.instance_eval "def content_type; 'text/plain'; end"
+       f.instance_eval "def original_filename; 'foo.txt'; end"
+       m = RestClient::Payload::Multipart.new({:foo => f})
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="foo"; filename="foo.txt"\r
+ Content-Type: text/plain\r
+@@ -145,7 +145,7 @@
+ 
+     it "should handle hash in hash parameters" do
+       m = RestClient::Payload::Multipart.new({:bar => {:baz => "foo"}})
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="bar[baz]"\r
+ \r
+@@ -157,7 +157,7 @@
+       f.instance_eval "def content_type; 'text/plain'; end"
+       f.instance_eval "def original_filename; 'foo.txt'; end"
+       m = RestClient::Payload::Multipart.new({:foo => {:bar => f}})
+-      m.to_s.should eq <<-EOS
++      expect(m.to_s).to eq <<-EOS
+ --#{m.boundary}\r
+ Content-Disposition: form-data; name="foo[bar]"; filename="foo.txt"\r
+ Content-Type: text/plain\r
+@@ -173,23 +173,23 @@
+     it "should properly determine the size of file payloads" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+       payload = RestClient::Payload.generate(f)
+-      payload.size.should eq 76_988
+-      payload.length.should eq 76_988
++      expect(payload.size).to eq 76_988
++      expect(payload.length).to eq 76_988
+     end
+ 
+     it "should properly determine the size of other kinds of streaming payloads" do
+       s = StringIO.new 'foo'
+       payload = RestClient::Payload.generate(s)
+-      payload.size.should eq 3
+-      payload.length.should eq 3
++      expect(payload.size).to eq 3
++      expect(payload.length).to eq 3
+ 
+       begin
+         f = Tempfile.new "rest-client"
+         f.write 'foo bar'
+ 
+         payload = RestClient::Payload.generate(f)
+-        payload.size.should eq 7
+-        payload.length.should eq 7
++        expect(payload.size).to eq 7
++        expect(payload.length).to eq 7
+       ensure
+         f.close
+       end
+@@ -198,44 +198,44 @@
+ 
+   context "Payload generation" do
+     it "should recognize standard urlencoded params" do
+-      RestClient::Payload.generate({"foo" => 'bar'}).should be_kind_of(RestClient::Payload::UrlEncoded)
++      expect(RestClient::Payload.generate({"foo" => 'bar'})).to be_kind_of(RestClient::Payload::UrlEncoded)
+     end
+ 
+     it "should recognize multipart params" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+-      RestClient::Payload.generate({"foo" => f}).should be_kind_of(RestClient::Payload::Multipart)
++      expect(RestClient::Payload.generate({"foo" => f})).to be_kind_of(RestClient::Payload::Multipart)
+     end
+ 
+     it "should be multipart if forced" do
+-      RestClient::Payload.generate({"foo" => "bar", :multipart => true}).should be_kind_of(RestClient::Payload::Multipart)
++      expect(RestClient::Payload.generate({"foo" => "bar", :multipart => true})).to be_kind_of(RestClient::Payload::Multipart)
+     end
+ 
+     it "should return data if no of the above" do
+-      RestClient::Payload.generate("data").should be_kind_of(RestClient::Payload::Base)
++      expect(RestClient::Payload.generate("data")).to be_kind_of(RestClient::Payload::Base)
+     end
+ 
+     it "should recognize nested multipart payloads in hashes" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+-      RestClient::Payload.generate({"foo" => {"file" => f}}).should be_kind_of(RestClient::Payload::Multipart)
++      expect(RestClient::Payload.generate({"foo" => {"file" => f}})).to be_kind_of(RestClient::Payload::Multipart)
+     end
+ 
+     it "should recognize nested multipart payloads in arrays" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+-      RestClient::Payload.generate({"foo" => [f]}).should be_kind_of(RestClient::Payload::Multipart)
++      expect(RestClient::Payload.generate({"foo" => [f]})).to be_kind_of(RestClient::Payload::Multipart)
+     end
+ 
+     it "should recognize file payloads that can be streamed" do
+       f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
+-      RestClient::Payload.generate(f).should be_kind_of(RestClient::Payload::Streamed)
++      expect(RestClient::Payload.generate(f)).to be_kind_of(RestClient::Payload::Streamed)
+     end
+ 
+     it "should recognize other payloads that can be streamed" do
+-      RestClient::Payload.generate(StringIO.new('foo')).should be_kind_of(RestClient::Payload::Streamed)
++      expect(RestClient::Payload.generate(StringIO.new('foo'))).to be_kind_of(RestClient::Payload::Streamed)
+     end
+ 
+     # hashery gem introduces Hash#read convenience method. Existence of #read method used to determine of content is streameable :/
+     it "shouldn't treat hashes as streameable" do
+-      RestClient::Payload.generate({"foo" => 'bar'}).should be_kind_of(RestClient::Payload::UrlEncoded)
++      expect(RestClient::Payload.generate({"foo" => 'bar'})).to be_kind_of(RestClient::Payload::UrlEncoded)
+     end
+   end
+ 
+--- a/spec/unit/raw_response_spec.rb
++++ b/spec/unit/raw_response_spec.rb
+@@ -9,10 +9,10 @@
+   end
+ 
+   it "behaves like string" do
+-    @response.to_s.should eq 'the answer is 42'
++    expect(@response.to_s).to eq 'the answer is 42'
+   end
+ 
+   it "exposes a Tempfile" do
+-    @response.file.should eq @tf
++    expect(@response.file).to eq @tf
+   end
+ end
+--- a/spec/unit/request2_spec.rb
++++ b/spec/unit/request2_spec.rb
+@@ -4,10 +4,10 @@
+ 
+   it "manage params for get requests" do
+     stub_request(:get, 'http://some/resource?a=b&c=d').with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Foo'=>'bar'}).to_return(:body => 'foo', :status => 200)
+-    RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :headers => {:foo => :bar, :params => {:a => :b, 'c' => 'd'}}).body.should eq 'foo'
++    expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :headers => {:foo => :bar, :params => {:a => :b, 'c' => 'd'}}).body).to eq 'foo'
+ 
+     stub_request(:get, 'http://some/resource').with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Foo'=>'bar', 'params' => 'a'}).to_return(:body => 'foo', :status => 200)
+-    RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :headers => {:foo => :bar, :params => :a}).body.should eq 'foo'
++    expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :headers => {:foo => :bar, :params => :a}).body).to eq 'foo'
+   end
+ 
+   it "can use a block to process response" do
+@@ -17,7 +17,7 @@
+     end
+     stub_request(:get, 'http://some/resource?a=b&c=d').with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Foo'=>'bar'}).to_return(:body => 'foo', :status => 200)
+     RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :headers => {:foo => :bar, :params => {:a => :b, 'c' => 'd'}}, :block_response => block)
+-    response_value.should eq "foo"
++    expect(response_value).to eq "foo"
+   end
+ 
+   it 'closes payload if not nil' do
+@@ -26,7 +26,7 @@
+     stub_request(:post, 'http://some/resource').with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate'}).to_return(:body => 'foo', :status => 200)
+     RestClient::Request.execute(:url => 'http://some/resource', :method => :post, :payload => {:file => test_file})
+ 
+-    test_file.closed?.should be_true
++    expect(test_file.closed?).to be_truthy
+   end
+ 
+ end
+--- a/spec/unit/request_spec.rb
++++ b/spec/unit/request_spec.rb
+@@ -5,116 +5,116 @@
+     @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload')
+ 
+     @uri = double("uri")
+-    @uri.stub(:request_uri).and_return('/resource')
+-    @uri.stub(:host).and_return('some')
+-    @uri.stub(:port).and_return(80)
++    allow(@uri).to receive(:request_uri).and_return('/resource')
++    allow(@uri).to receive(:host).and_return('some')
++    allow(@uri).to receive(:port).and_return(80)
+ 
+     @net = double("net::http base")
+     @http = double("net::http connection")
+-    Net::HTTP.stub(:new).and_return(@net)
+-    @net.stub(:start).and_yield(@http)
+-    @net.stub(:use_ssl=)
+-    @net.stub(:verify_mode=)
+-    @net.stub(:verify_callback=)
++    allow(Net::HTTP).to receive(:new).and_return(@net)
++    allow(@net).to receive(:start).and_yield(@http)
++    allow(@net).to receive(:use_ssl=)
++    allow(@net).to receive(:verify_mode=)
++    allow(@net).to receive(:verify_callback=)
+     allow(@net).to receive(:ciphers=)
+     allow(@net).to receive(:cert_store=)
+     RestClient.log = nil
+   end
+ 
+   it "accept */* mimetype, preferring xml" do
+-    @request.default_headers[:accept].should eq '*/*; q=0.5, application/xml'
++    expect(@request.default_headers[:accept]).to eq '*/*; q=0.5, application/xml'
+   end
+ 
+   describe "compression" do
+ 
+     it "decodes an uncompressed result body by passing it straight through" do
+-      RestClient::Request.decode(nil, 'xyz').should eq 'xyz'
++      expect(RestClient::Request.decode(nil, 'xyz')).to eq 'xyz'
+     end
+ 
+     it "doesn't fail for nil bodies" do
+-      RestClient::Request.decode('gzip', nil).should be_nil
++      expect(RestClient::Request.decode('gzip', nil)).to be_nil
+     end
+ 
+ 
+     it "decodes a gzip body" do
+-      RestClient::Request.decode('gzip', "\037\213\b\b\006'\252H\000\003t\000\313T\317UH\257\312,HM\341\002\000G\242(\r\v\000\000\000").should eq "i'm gziped\n"
++      expect(RestClient::Request.decode('gzip', "\037\213\b\b\006'\252H\000\003t\000\313T\317UH\257\312,HM\341\002\000G\242(\r\v\000\000\000")).to eq "i'm gziped\n"
+     end
+ 
+     it "ingores gzip for empty bodies" do
+-      RestClient::Request.decode('gzip', '').should be_empty
++      expect(RestClient::Request.decode('gzip', '')).to be_empty
+     end
+ 
+     it "decodes a deflated body" do
+-      RestClient::Request.decode('deflate', "x\234+\316\317MUHIM\313I,IMQ(I\255(\001\000A\223\006\363").should eq "some deflated text"
++      expect(RestClient::Request.decode('deflate', "x\234+\316\317MUHIM\313I,IMQ(I\255(\001\000A\223\006\363")).to eq "some deflated text"
+     end
+   end
+ 
+   it "processes a successful result" do
+     res = double("result")
+-    res.stub(:code).and_return("200")
+-    res.stub(:body).and_return('body')
+-    res.stub(:[]).with('content-encoding').and_return(nil)
+-    @request.process_result(res).body.should eq 'body'
+-    @request.process_result(res).to_s.should eq 'body'
++    allow(res).to receive(:code).and_return("200")
++    allow(res).to receive(:body).and_return('body')
++    allow(res).to receive(:[]).with('content-encoding').and_return(nil)
++    expect(@request.process_result(res).body).to eq 'body'
++    expect(@request.process_result(res).to_s).to eq 'body'
+   end
+ 
+   it "doesn't classify successful requests as failed" do
+     203.upto(207) do |code|
+       res = double("result")
+-      res.stub(:code).and_return(code.to_s)
+-      res.stub(:body).and_return("")
+-      res.stub(:[]).with('content-encoding').and_return(nil)
+-      @request.process_result(res).should be_empty
++      allow(res).to receive(:code).and_return(code.to_s)
++      allow(res).to receive(:body).and_return("")
++      allow(res).to receive(:[]).with('content-encoding').and_return(nil)
++      expect(@request.process_result(res)).to be_empty
+     end
+   end
+ 
+   it "parses a url into a URI object" do
+-    URI.should_receive(:parse).with('http://example.com/resource')
++    expect(URI).to receive(:parse).with('http://example.com/resource')
+     @request.parse_url('http://example.com/resource')
+   end
+ 
+   it "adds http:// to the front of resources specified in the syntax example.com/resource" do
+-    URI.should_receive(:parse).with('http://example.com/resource')
++    expect(URI).to receive(:parse).with('http://example.com/resource')
+     @request.parse_url('example.com/resource')
+   end
+ 
+   describe "user - password" do
+     it "extracts the username and password when parsing http://user:password@example.com/" do
+-      URI.stub(:parse).and_return(double('uri', :user => 'joe', :password => 'pass1'))
++      allow(URI).to receive(:parse).and_return(double('uri', :user => 'joe', :password => 'pass1'))
+       @request.parse_url_with_auth('http://joe:pass1@example.com/resource')
+-      @request.user.should eq 'joe'
+-      @request.password.should eq 'pass1'
++      expect(@request.user).to eq 'joe'
++      expect(@request.password).to eq 'pass1'
+     end
+ 
+     it "extracts with escaping the username and password when parsing http://user:password@example.com/" do
+-      URI.stub(:parse).and_return(double('uri', :user => 'joe%20', :password => 'pass1'))
++      allow(URI).to receive(:parse).and_return(double('uri', :user => 'joe%20', :password => 'pass1'))
+       @request.parse_url_with_auth('http://joe%20:pass1@example.com/resource')
+-      @request.user.should eq 'joe '
+-      @request.password.should eq 'pass1'
++      expect(@request.user).to eq 'joe '
++      expect(@request.password).to eq 'pass1'
+     end
+ 
+     it "doesn't overwrite user and password (which may have already been set by the Resource constructor) if there is no user/password in the url" do
+-      URI.stub(:parse).and_return(double('uri', :user => nil, :password => nil))
++      allow(URI).to receive(:parse).and_return(double('uri', :user => nil, :password => nil))
+       @request = RestClient::Request.new(:method => 'get', :url => 'example.com', :user => 'beth', :password => 'pass2')
+       @request.parse_url_with_auth('http://example.com/resource')
+-      @request.user.should eq 'beth'
+-      @request.password.should eq 'pass2'
++      expect(@request.user).to eq 'beth'
++      expect(@request.password).to eq 'pass2'
+     end
+   end
+ 
+   it "correctly formats cookies provided to the constructor" do
+-    URI.stub(:parse).and_return(double('uri', :user => nil, :password => nil))
++    allow(URI).to receive(:parse).and_return(double('uri', :user => nil, :password => nil))
+     @request = RestClient::Request.new(:method => 'get', :url => 'example.com', :cookies => {:session_id => '1', :user_id => "someone" })
+-    @request.should_receive(:default_headers).and_return({'Foo' => 'bar'})
+-    @request.make_headers({}).should eq({ 'Foo' => 'bar', 'Cookie' => 'session_id=1; user_id=someone'})
++    expect(@request).to receive(:default_headers).and_return({'Foo' => 'bar'})
++    expect(@request.make_headers({})).to eq({ 'Foo' => 'bar', 'Cookie' => 'session_id=1; user_id=someone'})
+   end
+ 
+   it "does not escape or unescape cookies" do
+     cookie = 'Foo%20:Bar%0A~'
+     @request = RestClient::Request.new(:method => 'get', :url => 'example.com',
+                                        :cookies => {:test => cookie})
+-    @request.should_receive(:default_headers).and_return({'Foo' => 'bar'})
+-    @request.make_headers({}).should eq({
++    expect(@request).to receive(:default_headers).and_return({'Foo' => 'bar'})
++    expect(@request.make_headers({})).to eq({
+       'Foo' => 'bar',
+       'Cookie' => "test=#{cookie}"
+     })
+@@ -125,10 +125,10 @@
+     # the RFC 6265 (4.1.1) prohibited characters such as control characters.
+ 
+     ['', 'foo=bar', 'foo;bar', "foo\nbar"].each do |cookie_name|
+-      lambda {
++      expect {
+         RestClient::Request.new(:method => 'get', :url => 'example.com',
+                                 :cookies => {cookie_name => 'value'})
+-      }.should raise_error(ArgumentError, /\AInvalid cookie name/)
++      }.to raise_error(ArgumentError, /\AInvalid cookie name/)
+     end
+   end
+ 
+@@ -137,231 +137,231 @@
+     # the RFC 6265 (4.1.1) prohibited characters such as control characters.
+ 
+     ['foo,bar', 'foo;bar', "foo\nbar"].each do |cookie_value|
+-      lambda {
++      expect {
+         RestClient::Request.new(:method => 'get', :url => 'example.com',
+                                 :cookies => {'test' => cookie_value})
+-      }.should raise_error(ArgumentError, /\AInvalid cookie value/)
++      }.to raise_error(ArgumentError, /\AInvalid cookie value/)
+     end
+   end
+ 
+   it "uses netrc credentials" do
+-    URI.stub(:parse).and_return(double('uri', :user => nil, :password => nil, :host => 'example.com'))
+-    Netrc.stub(:read).and_return('example.com' => ['a', 'b'])
++    allow(URI).to receive(:parse).and_return(double('uri', :user => nil, :password => nil, :host => 'example.com'))
++    allow(Netrc).to receive(:read).and_return('example.com' => ['a', 'b'])
+     @request.parse_url_with_auth('http://example.com/resource')
+-    @request.user.should eq 'a'
+-    @request.password.should eq 'b'
++    expect(@request.user).to eq 'a'
++    expect(@request.password).to eq 'b'
+   end
+ 
+   it "uses credentials in the url in preference to netrc" do
+-    URI.stub(:parse).and_return(double('uri', :user => 'joe%20', :password => 'pass1', :host => 'example.com'))
+-    Netrc.stub(:read).and_return('example.com' => ['a', 'b'])
++    allow(URI).to receive(:parse).and_return(double('uri', :user => 'joe%20', :password => 'pass1', :host => 'example.com'))
++    allow(Netrc).to receive(:read).and_return('example.com' => ['a', 'b'])
+     @request.parse_url_with_auth('http://joe%20:pass1@example.com/resource')
+-    @request.user.should eq 'joe '
+-    @request.password.should eq 'pass1'
++    expect(@request.user).to eq 'joe '
++    expect(@request.password).to eq 'pass1'
+   end
+ 
+   it "determines the Net::HTTP class to instantiate by the method name" do
+-    @request.net_http_request_class(:put).should eq Net::HTTP::Put
++    expect(@request.net_http_request_class(:put)).to eq Net::HTTP::Put
+   end
+ 
+   describe "user headers" do
+     it "merges user headers with the default headers" do
+-      @request.should_receive(:default_headers).and_return({ :accept => '*/*; q=0.5, application/xml', :accept_encoding => 'gzip, deflate' })
++      expect(@request).to receive(:default_headers).and_return({ :accept => '*/*; q=0.5, application/xml', :accept_encoding => 'gzip, deflate' })
+       headers = @request.make_headers("Accept" => "application/json", :accept_encoding => 'gzip')
+-      headers.should have_key "Accept-Encoding"
+-      headers["Accept-Encoding"].should eq "gzip"
+-      headers.should have_key "Accept"
+-      headers["Accept"].should eq "application/json"
++      expect(headers).to have_key "Accept-Encoding"
++      expect(headers["Accept-Encoding"]).to eq "gzip"
++      expect(headers).to have_key "Accept"
++      expect(headers["Accept"]).to eq "application/json"
+     end
+ 
+     it "prefers the user header when the same header exists in the defaults" do
+-      @request.should_receive(:default_headers).and_return({ '1' => '2' })
++      expect(@request).to receive(:default_headers).and_return({ '1' => '2' })
+       headers = @request.make_headers('1' => '3')
+-      headers.should have_key('1')
+-      headers['1'].should eq '3'
++      expect(headers).to have_key('1')
++      expect(headers['1']).to eq '3'
+     end
+ 
+     it "converts user headers to string before calling CGI::unescape which fails on non string values" do
+-      @request.should_receive(:default_headers).and_return({ '1' => '2' })
++      expect(@request).to receive(:default_headers).and_return({ '1' => '2' })
+       headers = @request.make_headers('1' => 3)
+-      headers.should have_key('1')
+-      headers['1'].should eq '3'
++      expect(headers).to have_key('1')
++      expect(headers['1']).to eq '3'
+     end
+   end
+ 
+   describe "header symbols" do
+ 
+     it "converts header symbols from :content_type to 'Content-Type'" do
+-      @request.should_receive(:default_headers).and_return({})
++      expect(@request).to receive(:default_headers).and_return({})
+       headers = @request.make_headers(:content_type => 'abc')
+-      headers.should have_key('Content-Type')
+-      headers['Content-Type'].should eq 'abc'
++      expect(headers).to have_key('Content-Type')
++      expect(headers['Content-Type']).to eq 'abc'
+     end
+ 
+     it "converts content-type from extension to real content-type" do
+-      @request.should_receive(:default_headers).and_return({})
++      expect(@request).to receive(:default_headers).and_return({})
+       headers = @request.make_headers(:content_type => 'json')
+-      headers.should have_key('Content-Type')
+-      headers['Content-Type'].should eq 'application/json'
++      expect(headers).to have_key('Content-Type')
++      expect(headers['Content-Type']).to eq 'application/json'
+     end
+ 
+     it "converts accept from extension(s) to real content-type(s)" do
+-      @request.should_receive(:default_headers).and_return({})
++      expect(@request).to receive(:default_headers).and_return({})
+       headers = @request.make_headers(:accept => 'json, mp3')
+-      headers.should have_key('Accept')
+-      headers['Accept'].should eq 'application/json, audio/mpeg'
++      expect(headers).to have_key('Accept')
++      expect(headers['Accept']).to eq 'application/json, audio/mpeg'
+ 
+-      @request.should_receive(:default_headers).and_return({})
++      expect(@request).to receive(:default_headers).and_return({})
+       headers = @request.make_headers(:accept => :json)
+-      headers.should have_key('Accept')
+-      headers['Accept'].should eq 'application/json'
++      expect(headers).to have_key('Accept')
++      expect(headers['Accept']).to eq 'application/json'
+     end
+ 
+     it "only convert symbols in header" do
+-      @request.should_receive(:default_headers).and_return({})
++      expect(@request).to receive(:default_headers).and_return({})
+       headers = @request.make_headers({:foo_bar => 'value', "bar_bar" => 'value'})
+-      headers['Foo-Bar'].should eq 'value'
+-      headers['bar_bar'].should eq 'value'
++      expect(headers['Foo-Bar']).to eq 'value'
++      expect(headers['bar_bar']).to eq 'value'
+     end
+ 
+     it "converts header values to strings" do
+-      @request.make_headers('A' => 1)['A'].should eq '1'
++      expect(@request.make_headers('A' => 1)['A']).to eq '1'
+     end
+   end
+ 
+   it "executes by constructing the Net::HTTP object, headers, and payload and calling transmit" do
+-    @request.should_receive(:parse_url_with_auth).with('http://some/resource').and_return(@uri)
++    expect(@request).to receive(:parse_url_with_auth).with('http://some/resource').and_return(@uri)
+     klass = double("net:http class")
+-    @request.should_receive(:net_http_request_class).with(:put).and_return(klass)
+-    klass.should_receive(:new).and_return('result')
+-    @request.should_receive(:transmit).with(@uri, 'result', kind_of(RestClient::Payload::Base))
++    expect(@request).to receive(:net_http_request_class).with(:put).and_return(klass)
++    expect(klass).to receive(:new).and_return('result')
++    expect(@request).to receive(:transmit).with(@uri, 'result', kind_of(RestClient::Payload::Base))
+     @request.execute
+   end
+ 
+   it "transmits the request with Net::HTTP" do
+-    @http.should_receive(:request).with('req', 'payload')
+-    @request.should_receive(:process_result)
++    expect(@http).to receive(:request).with('req', 'payload')
++    expect(@request).to receive(:process_result)
+     @request.transmit(@uri, 'req', 'payload')
+   end
+ 
+   describe "payload" do
+     it "sends nil payloads" do
+-      @http.should_receive(:request).with('req', nil)
+-      @request.should_receive(:process_result)
+-      @request.stub(:response_log)
++      expect(@http).to receive(:request).with('req', nil)
++      expect(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "passes non-hash payloads straight through" do
+-      @request.process_payload("x").should eq "x"
++      expect(@request.process_payload("x")).to eq "x"
+     end
+ 
+     it "converts a hash payload to urlencoded data" do
+-      @request.process_payload(:a => 'b c+d').should eq "a=b%20c%2Bd"
++      expect(@request.process_payload(:a => 'b c+d')).to eq "a=b%20c%2Bd"
+     end
+ 
+     it "accepts nested hashes in payload" do
+       payload = @request.process_payload(:user => { :name => 'joe', :location => { :country => 'USA', :state => 'CA' }})
+-      payload.should include('user[name]=joe')
+-      payload.should include('user[location][country]=USA')
+-      payload.should include('user[location][state]=CA')
++      expect(payload).to include('user[name]=joe')
++      expect(payload).to include('user[location][country]=USA')
++      expect(payload).to include('user[location][state]=CA')
+     end
+   end
+ 
+   it "set urlencoded content_type header on hash payloads" do
+     @request.process_payload(:a => 1)
+-    @request.headers[:content_type].should eq 'application/x-www-form-urlencoded'
++    expect(@request.headers[:content_type]).to eq 'application/x-www-form-urlencoded'
+   end
+ 
+   describe "credentials" do
+     it "sets up the credentials prior to the request" do
+-      @http.stub(:request)
++      allow(@http).to receive(:request)
+ 
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @request.stub(:user).and_return('joe')
+-      @request.stub(:password).and_return('mypass')
+-      @request.should_receive(:setup_credentials).with('req')
++      allow(@request).to receive(:user).and_return('joe')
++      allow(@request).to receive(:password).and_return('mypass')
++      expect(@request).to receive(:setup_credentials).with('req')
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "does not attempt to send any credentials if user is nil" do
+-      @request.stub(:user).and_return(nil)
++      allow(@request).to receive(:user).and_return(nil)
+       req = double("request")
+-      req.should_not_receive(:basic_auth)
++      expect(req).not_to receive(:basic_auth)
+       @request.setup_credentials(req)
+     end
+ 
+     it "setup credentials when there's a user" do
+-      @request.stub(:user).and_return('joe')
+-      @request.stub(:password).and_return('mypass')
++      allow(@request).to receive(:user).and_return('joe')
++      allow(@request).to receive(:password).and_return('mypass')
+       req = double("request")
+-      req.should_receive(:basic_auth).with('joe', 'mypass')
++      expect(req).to receive(:basic_auth).with('joe', 'mypass')
+       @request.setup_credentials(req)
+     end
+   end
+ 
+   it "catches EOFError and shows the more informative ServerBrokeConnection" do
+-    @http.stub(:request).and_raise(EOFError)
+-    lambda { @request.transmit(@uri, 'req', nil) }.should raise_error(RestClient::ServerBrokeConnection)
++    allow(@http).to receive(:request).and_raise(EOFError)
++    expect { @request.transmit(@uri, 'req', nil) }.to raise_error(RestClient::ServerBrokeConnection)
+   end
+ 
+   it "catches OpenSSL::SSL::SSLError and raise it back without more informative message" do
+-    @http.stub(:request).and_raise(OpenSSL::SSL::SSLError)
+-    lambda { @request.transmit(@uri, 'req', nil) }.should raise_error(OpenSSL::SSL::SSLError)
++    allow(@http).to receive(:request).and_raise(OpenSSL::SSL::SSLError)
++    expect { @request.transmit(@uri, 'req', nil) }.to raise_error(OpenSSL::SSL::SSLError)
+   end
+ 
+   it "catches Timeout::Error and raise the more informative RequestTimeout" do
+-    @http.stub(:request).and_raise(Timeout::Error)
+-    lambda { @request.transmit(@uri, 'req', nil) }.should raise_error(RestClient::RequestTimeout)
++    allow(@http).to receive(:request).and_raise(Timeout::Error)
++    expect { @request.transmit(@uri, 'req', nil) }.to raise_error(RestClient::RequestTimeout)
+   end
+ 
+   it "catches Timeout::Error and raise the more informative RequestTimeout" do
+-    @http.stub(:request).and_raise(Errno::ETIMEDOUT)
+-    lambda { @request.transmit(@uri, 'req', nil) }.should raise_error(RestClient::RequestTimeout)
++    allow(@http).to receive(:request).and_raise(Errno::ETIMEDOUT)
++    expect { @request.transmit(@uri, 'req', nil) }.to raise_error(RestClient::RequestTimeout)
+   end
+ 
+   it "class method execute wraps constructor" do
+     req = double("rest request")
+-    RestClient::Request.should_receive(:new).with(1 => 2).and_return(req)
+-    req.should_receive(:execute)
++    expect(RestClient::Request).to receive(:new).with(1 => 2).and_return(req)
++    expect(req).to receive(:execute)
+     RestClient::Request.execute(1 => 2)
+   end
+ 
+   describe "exception" do
+     it "raises Unauthorized when the response is 401" do
+       res = double('response', :code => '401', :[] => ['content-encoding' => ''], :body => '' )
+-      lambda { @request.process_result(res) }.should raise_error(RestClient::Unauthorized)
++      expect { @request.process_result(res) }.to raise_error(RestClient::Unauthorized)
+     end
+ 
+     it "raises ResourceNotFound when the response is 404" do
+       res = double('response', :code => '404', :[] => ['content-encoding' => ''], :body => '' )
+-      lambda { @request.process_result(res) }.should raise_error(RestClient::ResourceNotFound)
++      expect { @request.process_result(res) }.to raise_error(RestClient::ResourceNotFound)
+     end
+ 
+     it "raises RequestFailed otherwise" do
+       res = double('response', :code => '500', :[] => ['content-encoding' => ''], :body => '' )
+-      lambda { @request.process_result(res) }.should raise_error(RestClient::InternalServerError)
++      expect { @request.process_result(res) }.to raise_error(RestClient::InternalServerError)
+     end
+   end
+ 
+   describe "block usage" do
+     it "returns what asked to" do
+       res = double('response', :code => '401', :[] => ['content-encoding' => ''], :body => '' )
+-      @request.process_result(res){|response, request| "foo"}.should eq "foo"
++      expect(@request.process_result(res){|response, request| "foo"}).to eq "foo"
+     end
+   end
+ 
+   describe "proxy" do
+     it "creates a proxy class if a proxy url is given" do
+-      RestClient.stub(:proxy).and_return("http://example.com/")
+-      @request.net_http_class.proxy_class?.should be_true
++      allow(RestClient).to receive(:proxy).and_return("http://example.com/")
++      expect(@request.net_http_class.proxy_class?).to be_truthy
+     end
+ 
+     it "creates a non-proxy class if a proxy url is not given" do
+-      @request.net_http_class.proxy_class?.should be_false
++      expect(@request.net_http_class.proxy_class?).to be_falsey
+     end
+   end
+ 
+@@ -370,130 +370,130 @@
+     it "logs a get request" do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :get, :url => 'http://url').log_request
+-      log[0].should eq %Q{RestClient.get "http://url", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"\n}
++      expect(log[0]).to eq %Q{RestClient.get "http://url", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"\n}
+     end
+ 
+     it "logs a post request with a small payload" do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :post, :url => 'http://url', :payload => 'foo').log_request
+-      log[0].should eq %Q{RestClient.post "http://url", "foo", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"3"\n}
++      expect(log[0]).to eq %Q{RestClient.post "http://url", "foo", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"3"\n}
+     end
+ 
+     it "logs a post request with a large payload" do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :post, :url => 'http://url', :payload => ('x' * 1000)).log_request
+-      log[0].should eq %Q{RestClient.post "http://url", 1000 byte(s) length, "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"1000"\n}
++      expect(log[0]).to eq %Q{RestClient.post "http://url", 1000 byte(s) length, "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"1000"\n}
+     end
+ 
+     it "logs input headers as a hash" do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :get, :url => 'http://url', :headers => { :accept => 'text/plain' }).log_request
+-      log[0].should eq %Q{RestClient.get "http://url", "Accept"=>"text/plain", "Accept-Encoding"=>"gzip, deflate"\n}
++      expect(log[0]).to eq %Q{RestClient.get "http://url", "Accept"=>"text/plain", "Accept-Encoding"=>"gzip, deflate"\n}
+     end
+ 
+     it "logs a response including the status code, content type, and result body size in bytes" do
+       log = RestClient.log = []
+       res = double('result', :code => '200', :class => Net::HTTPOK, :body => 'abcd')
+-      res.stub(:[]).with('Content-type').and_return('text/html')
++      allow(res).to receive(:[]).with('Content-type').and_return('text/html')
+       @request.log_response res
+-      log[0].should eq "# => 200 OK | text/html 4 bytes\n"
++      expect(log[0]).to eq "# => 200 OK | text/html 4 bytes\n"
+     end
+ 
+     it "logs a response with a nil Content-type" do
+       log = RestClient.log = []
+       res = double('result', :code => '200', :class => Net::HTTPOK, :body => 'abcd')
+-      res.stub(:[]).with('Content-type').and_return(nil)
++      allow(res).to receive(:[]).with('Content-type').and_return(nil)
+       @request.log_response res
+-      log[0].should eq "# => 200 OK |  4 bytes\n"
++      expect(log[0]).to eq "# => 200 OK |  4 bytes\n"
+     end
+ 
+     it "logs a response with a nil body" do
+       log = RestClient.log = []
+       res = double('result', :code => '200', :class => Net::HTTPOK, :body => nil)
+-      res.stub(:[]).with('Content-type').and_return('text/html; charset=utf-8')
++      allow(res).to receive(:[]).with('Content-type').and_return('text/html; charset=utf-8')
+       @request.log_response res
+-      log[0].should eq "# => 200 OK | text/html 0 bytes\n"
++      expect(log[0]).to eq "# => 200 OK | text/html 0 bytes\n"
+     end
+ 
+     it 'does not log request password' do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :get, :url => 'http://user:password@url', :headers => {:user_agent => 'rest-client', :accept => '*/*'}).log_request
+-      log[0].should eq %Q{RestClient.get "http://user:REDACTED@url", "Accept"=>"*/*", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client"\n}
++      expect(log[0]).to eq %Q{RestClient.get "http://user:REDACTED@url", "Accept"=>"*/*", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client"\n}
+     end
+ 
+     it 'logs invalid URIs, even though they will fail elsewhere' do
+       log = RestClient.log = []
+       RestClient::Request.new(:method => :get, :url => 'http://a@b:c', :headers => {:user_agent => 'rest-client', :accept => '*/*'}).log_request
+-      log[0].should eq %Q{RestClient.get "[invalid uri]", "Accept"=>"*/*", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client"\n}
++      expect(log[0]).to eq %Q{RestClient.get "[invalid uri]", "Accept"=>"*/*", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client"\n}
+     end
+   end
+ 
+   it "strips the charset from the response content type" do
+     log = RestClient.log = []
+     res = double('result', :code => '200', :class => Net::HTTPOK, :body => 'abcd')
+-    res.stub(:[]).with('Content-type').and_return('text/html; charset=utf-8')
++    allow(res).to receive(:[]).with('Content-type').and_return('text/html; charset=utf-8')
+     @request.log_response res
+-    log[0].should eq "# => 200 OK | text/html 4 bytes\n"
++    expect(log[0]).to eq "# => 200 OK | text/html 4 bytes\n"
+   end
+ 
+   describe "timeout" do
+     it "does not set timeouts if not specified" do
+       @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload')
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @net.should_not_receive(:read_timeout=)
+-      @net.should_not_receive(:open_timeout=)
++      expect(@net).not_to receive(:read_timeout=)
++      expect(@net).not_to receive(:open_timeout=)
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "set read_timeout" do
+       @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload', :timeout => 123)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @net.should_receive(:read_timeout=).with(123)
++      expect(@net).to receive(:read_timeout=).with(123)
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "set open_timeout" do
+       @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload', :open_timeout => 123)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @net.should_receive(:open_timeout=).with(123)
++      expect(@net).to receive(:open_timeout=).with(123)
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "disable timeout by setting it to nil" do
+       @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload', :timeout => nil, :open_timeout => nil)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @net.should_receive(:read_timeout=).with(nil)
+-      @net.should_receive(:open_timeout=).with(nil)
++      expect(@net).to receive(:read_timeout=).with(nil)
++      expect(@net).to receive(:open_timeout=).with(nil)
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+ 
+     it "deprecated: disable timeout by setting it to -1" do
+       @request = RestClient::Request.new(:method => :put, :url => 'http://some/resource', :payload => 'payload', :timeout => -1, :open_timeout => -1)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+ 
+-      @request.should_receive(:warn)
+-      @net.should_receive(:read_timeout=).with(nil)
++      expect(@request).to receive(:warn)
++      expect(@net).to receive(:read_timeout=).with(nil)
+ 
+-      @request.should_receive(:warn)
+-      @net.should_receive(:open_timeout=).with(nil)
++      expect(@request).to receive(:warn)
++      expect(@net).to receive(:open_timeout=).with(nil)
+ 
+       @request.transmit(@uri, 'req', nil)
+     end
+@@ -501,56 +501,56 @@
+ 
+   describe "ssl" do
+     it "uses SSL when the URI refers to a https address" do
+-      @uri.stub(:is_a?).with(URI::HTTPS).and_return(true)
+-      @net.should_receive(:use_ssl=).with(true)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@uri).to receive(:is_a?).with(URI::HTTPS).and_return(true)
++      expect(@net).to receive(:use_ssl=).with(true)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should default to verifying ssl certificates" do
+-      @request.verify_ssl.should eq OpenSSL::SSL::VERIFY_PEER
++      expect(@request.verify_ssl).to eq OpenSSL::SSL::VERIFY_PEER
+     end
+ 
+     it "should have expected values for VERIFY_PEER and VERIFY_NONE" do
+-      OpenSSL::SSL::VERIFY_NONE.should eq(0)
+-      OpenSSL::SSL::VERIFY_PEER.should eq(1)
++      expect(OpenSSL::SSL::VERIFY_NONE).to eq(0)
++      expect(OpenSSL::SSL::VERIFY_PEER).to eq(1)
+     end
+ 
+     it "should set net.verify_mode to OpenSSL::SSL::VERIFY_NONE if verify_ssl is false" do
+       @request = RestClient::Request.new(:method => :put, :verify_ssl => false, :url => 'http://some/resource', :payload => 'payload')
+-      @net.should_receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_NONE)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_NONE)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should not set net.verify_mode to OpenSSL::SSL::VERIFY_NONE if verify_ssl is true" do
+       @request = RestClient::Request.new(:method => :put, :url => 'https://some/resource', :payload => 'payload', :verify_ssl => true)
+-      @net.should_not_receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_NONE)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_NONE)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should set net.verify_mode to OpenSSL::SSL::VERIFY_PEER if verify_ssl is true" do
+       @request = RestClient::Request.new(:method => :put, :url => 'https://some/resource', :payload => 'payload', :verify_ssl => true)
+-      @net.should_receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_PEER)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_PEER)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should set net.verify_mode to OpenSSL::SSL::VERIFY_PEER if verify_ssl is not given" do
+       @request = RestClient::Request.new(:method => :put, :url => 'https://some/resource', :payload => 'payload')
+-      @net.should_receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_PEER)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_PEER)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -560,15 +560,15 @@
+                                           :url => 'https://some/resource',
+                                           :payload => 'payload',
+                                           :verify_ssl => mode )
+-      @net.should_receive(:verify_mode=).with(mode)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:verify_mode=).with(mode)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should default to not having an ssl_client_cert" do
+-      @request.ssl_client_cert.should be(nil)
++      expect(@request.ssl_client_cert).to be(nil)
+     end
+ 
+     it "should set the ssl_version if provided" do
+@@ -578,10 +578,10 @@
+         :payload => 'payload',
+         :ssl_version => "TLSv1"
+       )
+-      @net.should_receive(:ssl_version=).with("TLSv1")
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:ssl_version=).with("TLSv1")
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -591,10 +591,10 @@
+         :url => 'https://some/resource',
+         :payload => 'payload'
+       )
+-      @net.should_not_receive(:ssl_version=).with("TLSv1")
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:ssl_version=).with("TLSv1")
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -606,10 +606,10 @@
+         :payload => 'payload',
+         :ssl_ciphers => ciphers
+       )
+-      @net.should_receive(:ciphers=).with(ciphers)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:ciphers=).with(ciphers)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -620,10 +620,10 @@
+         :payload => 'payload',
+         :ssl_ciphers => nil,
+       )
+-      @net.should_not_receive(:ciphers=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:ciphers=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -644,11 +644,11 @@
+         :payload => 'payload',
+       )
+ 
+-      @net.should_receive(:ciphers=).with(RestClient::Request::DefaultCiphers)
++      expect(@net).to receive(:ciphers=).with(RestClient::Request::DefaultCiphers)
+ 
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -669,11 +669,11 @@
+         :payload => 'payload',
+       )
+ 
+-      @net.should_not_receive(:ciphers=)
++      expect(@net).not_to receive(:ciphers=)
+ 
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -684,10 +684,10 @@
+               :payload => 'payload',
+               :ssl_client_cert => "whatsupdoc!"
+       )
+-      @net.should_receive(:cert=).with("whatsupdoc!")
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:cert=).with("whatsupdoc!")
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -697,15 +697,15 @@
+               :url => 'https://some/resource',
+               :payload => 'payload'
+       )
+-      @net.should_not_receive(:cert=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:cert=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should default to not having an ssl_client_key" do
+-      @request.ssl_client_key.should be(nil)
++      expect(@request.ssl_client_key).to be(nil)
+     end
+ 
+     it "should set the ssl_client_key if provided" do
+@@ -715,10 +715,10 @@
+               :payload => 'payload',
+               :ssl_client_key => "whatsupdoc!"
+       )
+-      @net.should_receive(:key=).with("whatsupdoc!")
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:key=).with("whatsupdoc!")
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -728,15 +728,15 @@
+               :url => 'https://some/resource',
+               :payload => 'payload'
+       )
+-      @net.should_not_receive(:key=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:key=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should default to not having an ssl_ca_file" do
+-      @request.ssl_ca_file.should be(nil)
++      expect(@request.ssl_ca_file).to be(nil)
+     end
+ 
+     it "should set the ssl_ca_file if provided" do
+@@ -746,11 +746,11 @@
+               :payload => 'payload',
+               :ssl_ca_file => "Certificate Authority File"
+       )
+-      @net.should_receive(:ca_file=).with("Certificate Authority File")
+-      @net.should_not_receive(:cert_store=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:ca_file=).with("Certificate Authority File")
++      expect(@net).not_to receive(:cert_store=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -760,15 +760,15 @@
+               :url => 'https://some/resource',
+               :payload => 'payload'
+       )
+-      @net.should_not_receive(:ca_file=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:ca_file=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+     it "should default to not having an ssl_ca_path" do
+-      @request.ssl_ca_path.should be(nil)
++      expect(@request.ssl_ca_path).to be(nil)
+     end
+ 
+     it "should set the ssl_ca_path if provided" do
+@@ -778,11 +778,11 @@
+               :payload => 'payload',
+               :ssl_ca_path => "Certificate Authority Path"
+       )
+-      @net.should_receive(:ca_path=).with("Certificate Authority Path")
+-      @net.should_not_receive(:cert_store=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:ca_path=).with("Certificate Authority Path")
++      expect(@net).not_to receive(:cert_store=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -792,10 +792,10 @@
+               :url => 'https://some/resource',
+               :payload => 'payload'
+       )
+-      @net.should_not_receive(:ca_path=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:ca_path=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -809,12 +809,12 @@
+               :payload => 'payload',
+               :ssl_cert_store => store
+       )
+-      @net.should_receive(:cert_store=).with(store)
+-      @net.should_not_receive(:ca_path=)
+-      @net.should_not_receive(:ca_file=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:cert_store=).with(store)
++      expect(@net).not_to receive(:ca_path=)
++      expect(@net).not_to receive(:ca_file=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -824,12 +824,12 @@
+               :url => 'https://some/resource',
+               :payload => 'payload'
+       )
+-      @net.should_receive(:cert_store=)
+-      @net.should_not_receive(:ca_path=)
+-      @net.should_not_receive(:ca_file=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).to receive(:cert_store=)
++      expect(@net).not_to receive(:ca_path=)
++      expect(@net).not_to receive(:ca_file=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -840,10 +840,10 @@
+               :payload => 'payload',
+               :ssl_cert_store => nil,
+       )
+-      @net.should_not_receive(:cert_store=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:cert_store=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -853,10 +853,10 @@
+               :url => 'https://some/resource',
+               :payload => 'payload',
+       )
+-      @net.should_not_receive(:verify_callback=)
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      expect(@net).not_to receive(:verify_callback=)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -868,7 +868,7 @@
+               :payload => 'payload',
+               :ssl_verify_callback => callback,
+       )
+-      @net.should_receive(:verify_callback=).with(callback)
++      expect(@net).to receive(:verify_callback=).with(callback)
+ 
+       # we'll read cert_store on jruby
+       # https://github.com/jruby/jruby/issues/597
+@@ -876,9 +876,9 @@
+         allow(@net).to receive(:cert_store)
+       end
+ 
+-      @http.stub(:request)
+-      @request.stub(:process_result)
+-      @request.stub(:response_log)
++      allow(@http).to receive(:request)
++      allow(@request).to receive(:process_result)
++      allow(@request).to receive(:response_log)
+       @request.transmit(@uri, 'req', 'payload')
+     end
+ 
+@@ -892,11 +892,11 @@
+             :payload => 'payload'
+     )
+     net_http_res = Net::HTTPNoContent.new("", "204", "No Content")
+-    net_http_res.stub(:read_body).and_return(nil)
+-    @http.should_receive(:request).and_return(@request.fetch_body(net_http_res))
++    allow(net_http_res).to receive(:read_body).and_return(nil)
++    expect(@http).to receive(:request).and_return(@request.fetch_body(net_http_res))
+     response = @request.transmit(@uri, 'req', 'payload')
+-    response.should_not be_nil
+-    response.code.should eq 204
++    expect(response).not_to be_nil
++    expect(response.code).to eq 204
+   end
+ 
+   describe "raw response" do
+@@ -904,13 +904,13 @@
+       @request = RestClient::Request.new(:method => "get", :url => "example.com", :raw_response => true)
+ 
+       tempfile = double("tempfile")
+-      tempfile.should_receive(:binmode)
+-      tempfile.stub(:open)
+-      tempfile.stub(:close)
+-      Tempfile.should_receive(:new).with("rest-client").and_return(tempfile)
++      expect(tempfile).to receive(:binmode)
++      allow(tempfile).to receive(:open)
++      allow(tempfile).to receive(:close)
++      expect(Tempfile).to receive(:new).with("rest-client").and_return(tempfile)
+ 
+       net_http_res = Net::HTTPOK.new(nil, "200", "body")
+-      net_http_res.stub(:read_body).and_return("body")
++      allow(net_http_res).to receive(:read_body).and_return("body")
+       @request.fetch_body(net_http_res)
+     end
+   end
+--- a/spec/unit/resource_spec.rb
++++ b/spec/unit/resource_spec.rb
+@@ -7,37 +7,37 @@
+ 
+   context "Resource delegation" do
+     it "GET" do
+-      RestClient::Request.should_receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.get
+     end
+ 
+     it "HEAD" do
+-      RestClient::Request.should_receive(:execute).with(:method => :head, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :head, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.head
+     end
+ 
+     it "POST" do
+-      RestClient::Request.should_receive(:execute).with(:method => :post, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :post, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.post 'abc', :content_type => 'image/jpg'
+     end
+ 
+     it "PUT" do
+-      RestClient::Request.should_receive(:execute).with(:method => :put, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :put, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.put 'abc', :content_type => 'image/jpg'
+     end
+ 
+     it "PATCH" do
+-      RestClient::Request.should_receive(:execute).with(:method => :patch, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :patch, :url => 'http://some/resource', :payload => 'abc', :headers => {:content_type => 'image/jpg', 'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.patch 'abc', :content_type => 'image/jpg'
+     end
+ 
+     it "DELETE" do
+-      RestClient::Request.should_receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass')
+       @resource.delete
+     end
+ 
+     it "overrides resource headers" do
+-      RestClient::Request.should_receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {'X-Something' => '2'}, :user => 'jane', :password => 'mypass')
++      expect(RestClient::Request).to receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {'X-Something' => '2'}, :user => 'jane', :password => 'mypass')
+       @resource.get 'X-Something' => '2'
+     end
+   end
+@@ -48,41 +48,41 @@
+ 
+   it "is backwards compatible with previous constructor" do
+     @resource = RestClient::Resource.new('http://some/resource', 'user', 'pass')
+-    @resource.user.should eq 'user'
+-    @resource.password.should eq 'pass'
++    expect(@resource.user).to eq 'user'
++    expect(@resource.password).to eq 'pass'
+   end
+ 
+   it "concatenates urls, inserting a slash when it needs one" do
+-    @resource.concat_urls('http://example.com', 'resource').should eq 'http://example.com/resource'
++    expect(@resource.concat_urls('http://example.com', 'resource')).to eq 'http://example.com/resource'
+   end
+ 
+   it "concatenates urls, using no slash if the first url ends with a slash" do
+-    @resource.concat_urls('http://example.com/', 'resource').should eq 'http://example.com/resource'
++    expect(@resource.concat_urls('http://example.com/', 'resource')).to eq 'http://example.com/resource'
+   end
+ 
+   it "concatenates urls, using no slash if the second url starts with a slash" do
+-    @resource.concat_urls('http://example.com', '/resource').should eq 'http://example.com/resource'
++    expect(@resource.concat_urls('http://example.com', '/resource')).to eq 'http://example.com/resource'
+   end
+ 
+   it "concatenates even non-string urls, :posts + 1 => 'posts/1'" do
+-    @resource.concat_urls(:posts, 1).should eq 'posts/1'
++    expect(@resource.concat_urls(:posts, 1)).to eq 'posts/1'
+   end
+ 
+   it "offers subresources via []" do
+     parent = RestClient::Resource.new('http://example.com')
+-    parent['posts'].url.should eq 'http://example.com/posts'
++    expect(parent['posts'].url).to eq 'http://example.com/posts'
+   end
+ 
+   it "transports options to subresources" do
+     parent = RestClient::Resource.new('http://example.com', :user => 'user', :password => 'password')
+-    parent['posts'].user.should eq 'user'
+-    parent['posts'].password.should eq 'password'
++    expect(parent['posts'].user).to eq 'user'
++    expect(parent['posts'].password).to eq 'password'
+   end
+ 
+   it "passes a given block to subresources" do
+     block = proc {|r| r}
+     parent = RestClient::Resource.new('http://example.com', &block)
+-    parent['posts'].block.should eq block
++    expect(parent['posts'].block).to eq block
+   end
+ 
+   it "the block should be overrideable" do
+@@ -90,8 +90,8 @@
+     block2 = proc {|r| }
+     parent = RestClient::Resource.new('http://example.com', &block1)
+     # parent['posts', &block2].block.should eq block2 # ruby 1.9 syntax
+-    parent.send(:[], 'posts', &block2).block.should eq block2
+-    parent.send(:[], 'posts', &block2).block.should_not eq block1
++    expect(parent.send(:[], 'posts', &block2).block).to eq block2
++    expect(parent.send(:[], 'posts', &block2).block).not_to eq block1
+   end
+ 
+   it "the block should be overrideable in ruby 1.9 syntax" do
+@@ -99,31 +99,31 @@
+     block2 = ->(r) {}
+ 
+     parent = RestClient::Resource.new('http://example.com', &block1)
+-    parent['posts', &block2].block.should eq block2
+-    parent['posts', &block2].block.should_not eq block1
++    expect(parent['posts', &block2].block).to eq block2
++    expect(parent['posts', &block2].block).not_to eq block1
+   end
+ 
+   it "prints its url with to_s" do
+-    RestClient::Resource.new('x').to_s.should eq 'x'
++    expect(RestClient::Resource.new('x').to_s).to eq 'x'
+   end
+ 
+   describe 'block' do
+     it 'can use block when creating the resource' do
+       stub_request(:get, 'www.example.com').to_return(:body => '', :status => 404)
+       resource = RestClient::Resource.new('www.example.com') { |response, request| 'foo' }
+-      resource.get.should eq 'foo'
++      expect(resource.get).to eq 'foo'
+     end
+ 
+     it 'can use block when executing the resource' do
+       stub_request(:get, 'www.example.com').to_return(:body => '', :status => 404)
+       resource = RestClient::Resource.new('www.example.com')
+-      resource.get { |response, request| 'foo' }.should eq 'foo'
++      expect(resource.get { |response, request| 'foo' }).to eq 'foo'
+     end
+ 
+     it 'execution block override resource block' do
+       stub_request(:get, 'www.example.com').to_return(:body => '', :status => 404)
+       resource = RestClient::Resource.new('www.example.com') { |response, request| 'foo' }
+-      resource.get { |response, request| 'bar' }.should eq 'bar'
++      expect(resource.get { |response, request| 'bar' }).to eq 'bar'
+     end
+ 
+   end
+--- a/spec/unit/response_spec.rb
++++ b/spec/unit/response_spec.rb
+@@ -9,18 +9,18 @@
+   end
+ 
+   it "behaves like string" do
+-    @response.to_s.should eq 'abc'
+-    @response.to_str.should eq 'abc'
+-    @response.to_i.should eq 200
++    expect(@response.to_s).to eq 'abc'
++    expect(@response.to_str).to eq 'abc'
++    expect(@response.to_i).to eq 200
+   end
+ 
+   it "accepts nil strings and sets it to empty for the case of HEAD" do
+-    RestClient::Response.create(nil, @net_http_res, {}, @request).to_s.should eq ""
++    expect(RestClient::Response.create(nil, @net_http_res, {}, @request).to_s).to eq ""
+   end
+ 
+   it "test headers and raw headers" do
+-    @response.raw_headers["Status"][0].should eq "200 OK"
+-    @response.headers[:status].should eq "200 OK"
++    expect(@response.raw_headers["Status"][0]).to eq "200 OK"
++    expect(@response.headers[:status]).to eq "200 OK"
+   end
+ 
+   describe "cookie processing" do
+@@ -29,15 +29,15 @@
+ 
+       net_http_res = double('net http response', :to_hash => {"etag" => ["\"e1ac1a2df945942ef4cac8116366baad\""], "set-cookie" => [header_val]})
+       response = RestClient::Response.create('abc', net_http_res, {}, @request)
+-      response.headers[:set_cookie].should eq [header_val]
+-      response.cookies.should eq({ "main_page" => "main_page_no_rewrite" })
++      expect(response.headers[:set_cookie]).to eq [header_val]
++      expect(response.cookies).to eq({ "main_page" => "main_page_no_rewrite" })
+     end
+ 
+     it "should correctly deal with multiple cookies [multiple Set-Cookie headers]" do
+       net_http_res = double('net http response', :to_hash => {"etag" => ["\"e1ac1a2df945942ef4cac8116366baad\""], "set-cookie" => ["main_page=main_page_no_rewrite; path=/; expires=Sat, 10-Jan-2037 15:03:14 GMT", "remember_me=; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT", "user=somebody; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT"]})
+       response = RestClient::Response.create('abc', net_http_res, {}, @request)
+-      response.headers[:set_cookie].should eq ["main_page=main_page_no_rewrite; path=/; expires=Sat, 10-Jan-2037 15:03:14 GMT", "remember_me=; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT", "user=somebody; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT"]
+-      response.cookies.should eq({
++      expect(response.headers[:set_cookie]).to eq ["main_page=main_page_no_rewrite; path=/; expires=Sat, 10-Jan-2037 15:03:14 GMT", "remember_me=; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT", "user=somebody; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT"]
++      expect(response.cookies).to eq({
+         "main_page" => "main_page_no_rewrite",
+         "remember_me" => "",
+         "user" => "somebody"
+@@ -47,7 +47,7 @@
+     it "should correctly deal with multiple cookies [one Set-Cookie header with multiple cookies]" do
+       net_http_res = double('net http response', :to_hash => {"etag" => ["\"e1ac1a2df945942ef4cac8116366baad\""], "set-cookie" => ["main_page=main_page_no_rewrite; path=/; expires=Sat, 10-Jan-2037 15:03:14 GMT, remember_me=; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT, user=somebody; path=/; expires=Sat, 10-Jan-2037 00:00:00 GMT"]})
+       response = RestClient::Response.create('abc', net_http_res, {}, @request)
+-      response.cookies.should eq({
++      expect(response.cookies).to eq({
+         "main_page" => "main_page_no_rewrite",
+         "remember_me" => "",
+         "user" => "somebody"
+@@ -69,7 +69,7 @@
+         unless (200..207).include? code
+           net_http_res = double('net http response', :code => code.to_i)
+           response = RestClient::Response.create('abc', net_http_res, {}, @request)
+-          lambda { response.return!}.should raise_error
++          expect { response.return!}.to raise_error
+         end
+       end
+     end
+@@ -81,93 +81,93 @@
+     it "follows a redirection when the request is a get" do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://new/resource'})
+       stub_request(:get, 'http://new/resource').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Foo'
+     end
+ 
+     it "follows a redirection and keep the parameters" do
+       stub_request(:get, 'http://foo:bar@some/resource').with(:headers => {'Accept' => 'application/json'}).to_return(:body => '', :status => 301, :headers => {'Location' => 'http://new/resource'})
+       stub_request(:get, 'http://foo:bar@new/resource').with(:headers => {'Accept' => 'application/json'}).to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :user => 'foo', :password => 'bar', :headers => {:accept => :json}).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get, :user => 'foo', :password => 'bar', :headers => {:accept => :json}).body).to eq 'Foo'
+     end
+ 
+     it "follows a redirection and keep the cookies" do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://some/new_resource', })
+       stub_request(:get, 'http://some/new_resource').with(:headers => {'Cookie' => 'Foo=Bar'}).to_return(:body => 'Qux')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Qux'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Qux'
+     end
+ 
+     it 'does not keep cookies across domains' do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Set-Cookie' => 'Foo=Bar', 'Location' => 'http://new/resource', })
+       stub_request(:get, 'http://new/resource').with(:headers => {'Cookie' => ''}).to_return(:body => 'Qux')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Qux'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Qux'
+     end
+ 
+     it "doesn't follow a 301 when the request is a post" do
+       net_http_res = double('net http response', :code => 301)
+       response = RestClient::Response.create('abc', net_http_res, {:method => :post}, @request)
+-      lambda { response.return!(@request)}.should raise_error(RestClient::MovedPermanently)
++      expect { response.return!(@request)}.to raise_error(RestClient::MovedPermanently)
+     end
+ 
+     it "doesn't follow a 302 when the request is a post" do
+       net_http_res = double('net http response', :code => 302)
+       response = RestClient::Response.create('abc', net_http_res, {:method => :post}, @request)
+-      lambda { response.return!(@request)}.should raise_error(RestClient::Found)
++      expect { response.return!(@request)}.to raise_error(RestClient::Found)
+     end
+ 
+     it "doesn't follow a 307 when the request is a post" do
+       net_http_res = double('net http response', :code => 307)
+       response = RestClient::Response.create('abc', net_http_res, {:method => :post}, @request)
+-      lambda { response.return!(@request)}.should raise_error(RestClient::TemporaryRedirect)
++      expect { response.return!(@request)}.to raise_error(RestClient::TemporaryRedirect)
+     end
+ 
+     it "doesn't follow a redirection when the request is a put" do
+       net_http_res = double('net http response', :code => 301)
+       response = RestClient::Response.create('abc', net_http_res, {:method => :put}, @request)
+-      lambda { response.return!(@request)}.should raise_error(RestClient::MovedPermanently)
++      expect { response.return!(@request)}.to raise_error(RestClient::MovedPermanently)
+     end
+ 
+     it "follows a redirection when the request is a post and result is a 303" do
+       stub_request(:put, 'http://some/resource').to_return(:body => '', :status => 303, :headers => {'Location' => 'http://new/resource'})
+       stub_request(:get, 'http://new/resource').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :put).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :put).body).to eq 'Foo'
+     end
+ 
+     it "follows a redirection when the request is a head" do
+       stub_request(:head, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://new/resource'})
+       stub_request(:head, 'http://new/resource').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :head).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :head).body).to eq 'Foo'
+     end
+ 
+     it "handles redirects with relative paths" do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Location' => 'index'})
+       stub_request(:get, 'http://some/index').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Foo'
+     end
+ 
+     it "handles redirects with relative path and query string" do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Location' => 'index?q=1'})
+       stub_request(:get, 'http://some/index?q=1').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Foo'
+     end
+ 
+     it "follow a redirection when the request is a get and the response is in the 30x range" do
+       stub_request(:get, 'http://some/resource').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://new/resource'})
+       stub_request(:get, 'http://new/resource').to_return(:body => 'Foo')
+-      RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body.should eq 'Foo'
++      expect(RestClient::Request.execute(:url => 'http://some/resource', :method => :get).body).to eq 'Foo'
+     end
+ 
+     it "follows no more than 10 redirections before raising error" do
+       stub_request(:get, 'http://some/redirect-1').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://some/redirect-2'})
+       stub_request(:get, 'http://some/redirect-2').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://some/redirect-2'})
+-      lambda { RestClient::Request.execute(:url => 'http://some/redirect-1', :method => :get) }.should raise_error(RestClient::MaxRedirectsReached)
+-      WebMock.should have_requested(:get, 'http://some/redirect-2').times(10)
++      expect { RestClient::Request.execute(:url => 'http://some/redirect-1', :method => :get) }.to raise_error(RestClient::MaxRedirectsReached)
++      expect(WebMock).to have_requested(:get, 'http://some/redirect-2').times(10)
+     end
+ 
+     it "follows no more than max_redirects redirections, if specified" do
+       stub_request(:get, 'http://some/redirect-1').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://some/redirect-2'})
+       stub_request(:get, 'http://some/redirect-2').to_return(:body => '', :status => 301, :headers => {'Location' => 'http://some/redirect-2'})
+-      lambda { RestClient::Request.execute(:url => 'http://some/redirect-1', :method => :get, :max_redirects => 5) }.should raise_error(RestClient::MaxRedirectsReached)
+-      WebMock.should have_requested(:get, 'http://some/redirect-2').times(5)
++      expect { RestClient::Request.execute(:url => 'http://some/redirect-1', :method => :get, :max_redirects => 5) }.to raise_error(RestClient::MaxRedirectsReached)
++      expect(WebMock).to have_requested(:get, 'http://some/redirect-2').times(5)
+     end
+   end
+ 
+--- a/spec/unit/restclient_spec.rb
++++ b/spec/unit/restclient_spec.rb
+@@ -3,37 +3,37 @@
+ describe RestClient do
+   describe "API" do
+     it "GET" do
+-      RestClient::Request.should_receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :get, :url => 'http://some/resource', :headers => {})
+       RestClient.get('http://some/resource')
+     end
+ 
+     it "POST" do
+-      RestClient::Request.should_receive(:execute).with(:method => :post, :url => 'http://some/resource', :payload => 'payload', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :post, :url => 'http://some/resource', :payload => 'payload', :headers => {})
+       RestClient.post('http://some/resource', 'payload')
+     end
+ 
+     it "PUT" do
+-      RestClient::Request.should_receive(:execute).with(:method => :put, :url => 'http://some/resource', :payload => 'payload', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :put, :url => 'http://some/resource', :payload => 'payload', :headers => {})
+       RestClient.put('http://some/resource', 'payload')
+     end
+ 
+     it "PATCH" do
+-      RestClient::Request.should_receive(:execute).with(:method => :patch, :url => 'http://some/resource', :payload => 'payload', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :patch, :url => 'http://some/resource', :payload => 'payload', :headers => {})
+       RestClient.patch('http://some/resource', 'payload')
+     end
+ 
+     it "DELETE" do
+-      RestClient::Request.should_receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {})
+       RestClient.delete('http://some/resource')
+     end
+ 
+     it "HEAD" do
+-      RestClient::Request.should_receive(:execute).with(:method => :head, :url => 'http://some/resource', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :head, :url => 'http://some/resource', :headers => {})
+       RestClient.head('http://some/resource')
+     end
+ 
+     it "OPTIONS" do
+-      RestClient::Request.should_receive(:execute).with(:method => :options, :url => 'http://some/resource', :headers => {})
++      expect(RestClient::Request).to receive(:execute).with(:method => :options, :url => 'http://some/resource', :headers => {})
+       RestClient.options('http://some/resource')
+     end
+   end
+@@ -45,27 +45,27 @@
+ 
+     it "uses << if the log is not a string" do
+       log = RestClient.log = []
+-      log.should_receive(:<<).with('xyz')
++      expect(log).to receive(:<<).with('xyz')
+       RestClient.log << 'xyz'
+     end
+ 
+     it "displays the log to stdout" do
+       RestClient.log = 'stdout'
+-      STDOUT.should_receive(:puts).with('xyz')
++      expect(STDOUT).to receive(:puts).with('xyz')
+       RestClient.log << 'xyz'
+     end
+ 
+     it "displays the log to stderr" do
+       RestClient.log = 'stderr'
+-      STDERR.should_receive(:puts).with('xyz')
++      expect(STDERR).to receive(:puts).with('xyz')
+       RestClient.log << 'xyz'
+     end
+ 
+     it "append the log to the requested filename" do
+       RestClient.log = '/tmp/restclient.log'
+       f = double('file handle')
+-      File.should_receive(:open).with('/tmp/restclient.log', 'a').and_yield(f)
+-      f.should_receive(:puts).with('xyz')
++      expect(File).to receive(:open).with('/tmp/restclient.log', 'a').and_yield(f)
++      expect(f).to receive(:puts).with('xyz')
+       RestClient.log << 'xyz'
+     end
+   end
+@@ -73,7 +73,7 @@
+   describe 'version' do
+     it 'has a version ~> 1.8.0.alpha' do
+       ver = Gem::Version.new(RestClient.version)
+-      Gem::Requirement.new('~> 1.8.0.alpha').should be_satisfied_by(ver)
++      expect(Gem::Requirement.new('~> 1.8.0.alpha')).to be_satisfied_by(ver)
+     end
+   end
+ end
+--- a/spec/unit/windows/root_certs_spec.rb
++++ b/spec/unit/windows/root_certs_spec.rb
+@@ -5,7 +5,7 @@
+   let(:x509_store) { RestClient::Windows::RootCerts.instance.to_a }
+ 
+   it 'should return at least one X509 certificate' do
+-    expect(x509_store.to_a).to have_at_least(1).items
++    expect(x509_store.to_a.size).to be >= 1
+   end
+ 
+   it 'should return an X509 certificate with a subject' do
+@@ -16,7 +16,7 @@
+ 
+   it 'should return X509 certificate objects' do
+     x509_store.each do |cert|
+-      cert.should be_a(OpenSSL::X509::Certificate)
++      expect(cert).to be_a(OpenSSL::X509::Certificate)
+     end
+   end
+ end
