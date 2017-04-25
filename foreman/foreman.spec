@@ -994,6 +994,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Tue Apr 25 2017 Dominic Cleal <dominic@cleal.org> 1.15.0-0.1.RC2
+- Release 1.15.0-RC2 (me@daniellobato.me)
+
 * Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 1.15.0-0.1.RC1
 - Release 1.15.0-RC1 (me@daniellobato.me)
 
