@@ -27,7 +27,7 @@ Requires: %{?scl_prefix}rubygem(awesome_print)
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.0.19
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
