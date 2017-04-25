@@ -5,7 +5,7 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.2.0
 Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
@@ -17,17 +17,9 @@ Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires:      %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%else
-Requires:      %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%endif
-
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildArch: noarch
 
