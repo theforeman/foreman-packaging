@@ -1,0 +1,5 @@
+ruby-netrc (0.10.3-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Tue, 05 May 2015 15:08:04 +0200

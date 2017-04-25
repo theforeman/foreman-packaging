@@ -1,0 +1,5 @@
+---
+- test/helper.rb
+# - test/simplecov_start.rb Requires not-yet-packaged simplecov-html
+- test/test_http_cookie.rb
+- test/test_http_cookie_jar.rb

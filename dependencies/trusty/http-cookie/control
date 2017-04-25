@@ -1,0 +1,32 @@
+Source: ruby-http-cookie
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Gunnar Wolf <gwolf@debian.org>
+Build-Depends: debhelper (>= 7.0.50~),
+               gem2deb (>= 0.4.1~),
+               ruby-domain-name,
+               ruby-sqlite3,
+               ruby-test-unit
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-http-cookie.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-http-cookie.git;a=summary
+Homepage: https://github.com/sparklemotion/http-cookie
+XS-Ruby-Versions: all
+Testsuite: autopkgtest-pkg-ruby
+
+Package: ruby-http-cookie
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-domain-name,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: ruby-sqlite3
+Description: Ruby library to handle HTTP Cookies based on RFC 6265
+ HTTP::Cookie is a Ruby library to handle HTTP Cookies based on RFC
+ 6265.  It has with security, standards compliance and compatibility
+ in mind, to behave just the same as today's major web browsers.  It
+ has builtin support for the legacy cookies.txt and the latest
+ cookies.sqlite formats of Mozilla Firefox, and its modular API makes
+ it easy to add support for a new backend store.

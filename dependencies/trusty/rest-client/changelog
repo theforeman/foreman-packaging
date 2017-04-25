@@ -1,0 +1,194 @@
+ruby-rest-client (1.8.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 9
+  * Use https:// in Vcs-* fields
+  * Bump Standards-Version to 3.9.8 (no changes needed)
+  * Use new default gem2deb Rakefile to run the tests
+  * Add disable-network-tests.patch to disable tests needing network access
+    (Closes: #818459). Thanks Matthias Klose for the patch!
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 07 Jun 2016 00:50:03 +0200
+
+ruby-rest-client (1.8.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Port tests to support RSpec3 syntax (Closes: #798538)
+    - Add port-tests-rspec3.patch
+  * Bump debhelper compatibility
+
+ -- Balasankar C <balasankarc@autistici.org>  Mon, 11 Jan 2016 23:02:23 +0530
+
+ruby-rest-client (1.8.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh packaging.
+  * Drop patch 0001_fix-set-cookie-CVE-2015-1820.patch: backport no longer
+    needed.
+  * Install history.md as upstream changelog.
+  * Add ruby-webmock to build-dependencies.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Wed, 06 May 2015 18:08:56 +0200
+
+ruby-rest-client (1.6.7-6) unstable; urgency=medium
+
+  * Team upload.
+  * d/control:
+      - Bump Standards-Version (no changes)
+      - Use https and cgit URL for VCS-Browser
+      - Wrap and sort control file
+      - Apply upstream patch for CVE-2015-1820 (Closes: #781238)
+
+ -- Sebastien Badia <seb@sebian.fr>  Wed, 08 Apr 2015 12:01:20 +0200
+
+ruby-rest-client (1.6.7-5) unstable; urgency=medium
+
+  * Team upload.
+  * rebuild for proper rubygems-integration
+
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 05 Feb 2015 12:41:03 -0200
+
+ruby-rest-client (1.6.7-4) unstable; urgency=low
+
+  * Team upload.
+
+  [ Cédric Boutillier ]
+  * debian/control:
+   - remove obsolete DM-Upload-Allowed flag
+   - use canonical URI in Vcs-* fields
+
+  [ Jonas Genannt ]
+  * d/control:
+   - removed transitional packages (Closes: #735739)
+   - bumped standards to 3.9.5 (no changes needed)
+   - added ruby-mime-types to build deps
+   - updated long description
+  * updated upstream homepage
+  * added ruby-tests for basic testing
+  * d/rules: do not ignore tests
+  * d/copyright
+   - updated to format 1.0
+   - added myself to copyright
+
+ -- Jonas Genannt <jonas.genannt@capi2name.de>  Sat, 25 Jan 2014 23:30:46 +0100
+
+ruby-rest-client (1.6.7-3) unstable; urgency=low
+
+  * Team upload.
+  * Set the priority of the transtional packages to "extra".
+  * Bumped standards-version to 3.9.3.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Wed, 27 Jun 2012 21:34:21 +0200
+
+ruby-rest-client (1.6.7-2) unstable; urgency=low
+
+  * Team upload.
+  * Bump build dependency on gem2deb to >= 0.3.0~.
+
+ -- Paul van Tilburg <paulvt@debian.org>  Wed, 27 Jun 2012 21:09:22 +0200
+
+ruby-rest-client (1.6.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * Switch from conflicts to breaks as recommended by lintian.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Sun, 25 Sep 2011 11:41:30 +0200
+
+ruby-rest-client (1.6.3-1) unstable; urgency=low
+
+  * New upstream version.
+  * Update my email address.
+  * Update Standards-Version.
+  * Update Depends to ruby | ruby-interpreter.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Tue, 14 Jun 2011 22:30:35 +0200
+
+ruby-rest-client (1.6.1-2) unstable; urgency=low
+
+  * Move to gem2deb-based packaging. Rename source and binary packages.
+  * UNIT TESTS ARE DISABLED: they need webmock, which is not packaged yet.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Tue, 26 Apr 2011 15:55:30 +0200
+
+librestclient-ruby (1.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Standards-Version to 3.9.1. No changes needed.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Tue, 31 Aug 2010 14:56:08 +0200
+
+librestclient-ruby (1.6.0-1) unstable; urgency=low
+
+  * new upstream release.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Wed, 14 Jul 2010 13:08:26 +0200
+
+librestclient-ruby (1.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added debian/source.
+     + switch to quilt 3.0 format.
+  * debian/copyright
+     + added maintained by list.
+     + updated patches author's list.
+     + updated debian's copyright information.
+  * debian/control
+     + added myself to uploaders.
+  * debian/rules
+     + added entry for man page.
+  * debian/
+     + added restclient.1 man page.
+
+ -- Deepak Tripathi <apenguinlinux@gmail.com>  Tue, 18 May 2010 13:53:22 -0400
+
+librestclient-ruby (1.5.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Tue, 04 May 2010 14:37:32 +0200
+
+librestclient-ruby (1.4.2-1) unstable; urgency=medium
+
+  * New bugfix-only upstream release.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sun, 14 Mar 2010 10:32:49 +0100
+
+librestclient-ruby (1.4.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bugfix-only release, upload with urgency: medium.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sat, 06 Mar 2010 19:13:00 +0100
+
+librestclient-ruby (1.4.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump Standards-Version to 3.8.4. No changes needed.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sun, 28 Feb 2010 22:00:45 +0100
+
+librestclient-ruby (1.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Fri, 12 Feb 2010 09:47:15 +0100
+
+librestclient-ruby (1.3.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + Point Homepage to archiloque's. (new upstream)
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sun, 10 Jan 2010 00:51:24 +0100
+
+librestclient-ruby (1.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + debian/watch: point to new upstream.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sun, 10 Jan 2010 00:49:08 +0100
+
+librestclient-ruby (1.1.5-1) unstable; urgency=low
+
+  * Initial upload.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sat, 12 Dec 2009 15:53:18 +0100
