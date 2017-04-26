@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Apr 26 2017 Dominic Cleal <dominic@cleal.org> 5.0.0-1
+- Update foreman_templates to 5.0.0 (mhulan@redhat.com)
+
 * Fri Apr 21 2017 Dominic Cleal <dominic@cleal.org> 4.0.2-1
 - Update foreman_templates to 4.0.2 (mhulan@redhat.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
