@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Apr 26 2017 Dominic Cleal <dominic@cleal.org> 0.5.1-1
+- Update apipie-rails to 0.5.1 (dominic@cleal.org)
+
 * Mon Apr 24 2017 Dominic Cleal <dominic@cleal.org> 0.5.0-1
 - Update apipie-rails to 0.5.0 (dominic@cleal.org)
 
