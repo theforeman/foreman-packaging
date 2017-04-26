@@ -16,7 +16,7 @@
 
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.0
+Version:    3.0.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -26,11 +26,13 @@ Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires:   foreman >= 1.11.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}rubygems
 
+BuildRequires: foreman-plugin >= 1.11.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 
@@ -51,35 +53,58 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
-%{gem_instdir}/lib
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
+
+%posttrans
+%{foreman_apipie_cache}
+%{foreman_restart}
+exit 0
 
 %changelog
 * Fri Jan 13 2017 Dominic Cleal <dominic@cleal.org> 2.0.0-1
