@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (3.0.2-1) stable; urgency=low
+
+  * 3.0.2 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Wed, 27 Apr 2017 13:38:40 +0200
+
 ruby-puppetdb-foreman (2.0.0-1) stable; urgency=low
 
   * 2.0.0 released
