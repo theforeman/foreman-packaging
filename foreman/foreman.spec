@@ -599,7 +599,6 @@ Meta package with support for plugins.
 
 %files plugin
 %{_sysconfdir}/rpm/macros.%{name}-plugin
-%{_datadir}/%{name}/schema_plugin.rb
 
 
 %package console
@@ -705,7 +704,7 @@ ln -s %{nodejs_sitelib} node_modules
 export NODE_ENV=production
 webpack.js --bail --config config/webpack.config.js
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
-%{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
+%{scl_rake} db:migrate RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
 rm config/database.yml config/settings.yaml
 
@@ -806,9 +805,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
 EOF
 
-# Keep a copy of the schema for quick initialisation of plugin builds
-cp -pr db/schema.rb %{buildroot}%{_datadir}/%{name}/schema_plugin.rb
-
 cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-dist << EOF
 # Version to use like a dist tag
 %%%{name}dist .fm$(echo %{version} | awk -F. '{print $1 "_" $2}')
@@ -858,7 +854,6 @@ rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create db:schema:load SCHEMA=%{_datadir}/%{name}/schema_plugin.rb RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} --trace} \\
 \\
