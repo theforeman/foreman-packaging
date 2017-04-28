@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Apr 28 2017 Dominic Cleal <dominic@cleal.org> 3.0.2-1
+- Update puppetdb_foreman to 3.0.2 (mail@timogoebel.name)
+
 * Wed Apr 26 2017 Dominic Cleal <dominic@cleal.org> 3.0.1-1
 - Update puppetdb_foreman to 3.0.1 (mail@timogoebel.name)
 
