@@ -20,24 +20,15 @@ Requires: crontabs
 Requires: rubygem-satyr >= 0.1
 Requires: rubygem-satyr < 1.0
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
 Requires: ruby(release)
 BuildRequires: ruby(release)
-%endif
 BuildRequires: rubygems-devel
 BuildRequires: ruby(rubygems)
-
-%if 0%{?rhel}
-%else
 BuildRequires: rubygem(test-unit)
 BuildRequires: rubygem(mocha)
 BuildRequires: rubygem(rack-test)
 BuildRequires: rubygem(json)
 BuildRequires: foreman-proxy >= 1.8.0
-%endif
 
 BuildArch: noarch
 
@@ -92,15 +83,10 @@ mv %{buildroot}%{gem_instdir}/extra/foreman-proxy-abrt-send.cron \
 mkdir -p %{buildroot}%{spool_dir}
 
 %check
-%if 0%{?rhel}
-# rhel6 has incompatible version of rubygem-mocha
-# rhel7 is missing rubygem-rack-test: https://bugzilla.redhat.com/show_bug.cgi?id=1096201
-%else
 pushd .%{gem_instdir}
 # Explicitly include smart-proxy path because it is not installed as a gem
 ruby -Ilib:test:%{foreman_proxy_dir}/lib -e 'Dir.glob "./test/*_test.rb", &method(:require)'
 popd
-%endif
 
 %files
 %dir %{gem_instdir}
