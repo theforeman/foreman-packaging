@@ -48,6 +48,7 @@ Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?das
 BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
 BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
 BuildRequires:  /usr/bin/pod2man
+BuildRequires:  docker-selinux
 BuildArch:      noarch
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
