@@ -7,7 +7,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.8
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Automatic Bug Reporting Tool plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ popd
 %{gem_instdir}/README
 
 %changelog
+* Thu May 04 2017 Dominic Cleal <dominic@cleal.org> 0.0.8-3
+- Enable check on EL builds (dominic@cleal.org)
+
 * Tue May 31 2016 Dominic Cleal <dominic@cleal.org> 0.0.8-2
 - Replace testrb with call to ruby (dominic@cleal.org)
 
