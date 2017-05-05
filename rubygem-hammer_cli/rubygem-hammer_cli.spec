@@ -108,6 +108,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 05 2017 Dominic Cleal <dominic@cleal.org> 0.10.2-1
+- Update hammer-cli to 0.10.2 (tstrachota@redhat.com)
+
 * Tue Apr 25 2017 Dominic Cleal <dominic@cleal.org> 0.10.1-1
 - Update hammer_cli to 0.10.1 (dominic@cleal.org)
 - refs #19083 - require apipie-bindings >= 0.2.0 (dominic@cleal.org)
