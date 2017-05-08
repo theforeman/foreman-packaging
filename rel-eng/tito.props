@@ -60,6 +60,7 @@ whitelist = foreman-installer
   nodejs-stats-webpack-plugin
   nodejs-style-loader
   nodejs-url-loader
+  nodejs-uuid
   nodejs-webpack
   puppet-agent-oauth
   puppet-agent-puppet-strings
@@ -247,6 +248,7 @@ whitelist = foreman
   nodejs-stats-webpack-plugin
   nodejs-style-loader
   nodejs-url-loader
+  nodejs-uuid
   nodejs-webpack
   puppet-agent-oauth
   puppet-agent-puppet-strings

@@ -69,6 +69,7 @@
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
+      <packagereq type="default">nodejs-uuid</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
