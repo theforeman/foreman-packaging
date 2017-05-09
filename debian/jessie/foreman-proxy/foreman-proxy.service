@@ -8,6 +8,7 @@ Type=forking
 User=foreman-proxy
 ExecStart=/usr/share/foreman-proxy/bin/smart-proxy
 PIDFile=/run/foreman-proxy/foreman-proxy.pid
+TimeoutStartSec=0
 
 [Install]
 WantedBy=multi-user.target
