@@ -1,3 +1,9 @@
+foreman (1.15.0-1) stable; urgency=low
+
+  * 1.15.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Tue, 09 May 2017 07:27:48 +0200
+
 foreman (1.15.0~rc2-1) stable; urgency=low
 
   * 1.15.0-RC2 released
