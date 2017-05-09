@@ -18,9 +18,8 @@ Group:          Applications/System
 License:        GPLv3+
 URL:            http://theforeman.org/projects/smart-proxy
 Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
-Source1:        %{name}.service
-Source2:        %{name}.tmpfiles
-Source3:        logrotate.conf
+Source1:        %{name}.tmpfiles
+Source2:        logrotate.conf
 
 BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
@@ -103,9 +102,13 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_var}/run/%{name}
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
-install -Dp -m0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
-install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+
+install -Dp -m0644 extra/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
+# Compatibility with old init script, prefer systemd overrides now
+sed -i '/^ExecStart/a EnvironmentFile=-%{_sysconfdir}/sysconfig/%{name}' %{buildroot}%{_unitdir}/%{name}.service
+
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
+install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 mkdir -p %{buildroot}%{_sbindir}
 install -m 0755 sbin/foreman-prepare-realm %{buildroot}%{_sbindir}/foreman-prepare-realm
