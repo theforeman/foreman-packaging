@@ -15,11 +15,12 @@
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source1: logrotate.conf
 Requires: foreman-proxy >= 1.11.0
 
 Requires: %{?scl_prefix}rubygem(bundler_ext)
@@ -83,8 +84,9 @@ cp -pa .%{_bindir}/* %{buildroot}%{root_bindir}/
 mkdir -p %{buildroot}%{root_sysconfdir}/smart_proxy_dynflow_core
 cp -pa .%{gem_instdir}/config/settings.yml.example %{buildroot}%{root_sysconfdir}/smart_proxy_dynflow_core/settings.yml
 
-#copy init scripts and sysconfigs
+#copy init scripts, sysconfigs and logrotate config
 install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 %post
 %systemd_post %{service_name}.service
@@ -109,6 +111,7 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{b
 %{root_sysconfdir}/%{gem_name}/settings.yml
 %doc %{gem_instdir}/LICENSE
 %{root_bindir}/%{service_name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %{_unitdir}/%{service_name}.service
 
 %exclude %{gem_instdir}/deploy
