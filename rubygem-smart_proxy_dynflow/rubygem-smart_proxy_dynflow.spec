@@ -6,7 +6,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.1.5
+Version: 0.1.6
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
