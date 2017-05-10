@@ -35,17 +35,10 @@ Requires: %{?scl_prefix_ror}rubygem(rack)
 Requires: %{?scl_prefix_ror}rubygem(sqlite3)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-%if 0%{?rhel} == 6
-Requires(post): chkconfig
-Requires(preun): chkconfig
-Requires(preun): initscripts
-%else
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): systemd-units
 BuildRequires: systemd
-%endif
-
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -91,34 +84,16 @@ mkdir -p %{buildroot}%{root_sysconfdir}/smart_proxy_dynflow_core
 cp -pa .%{gem_instdir}/config/settings.yml.example %{buildroot}%{root_sysconfdir}/smart_proxy_dynflow_core/settings.yml
 
 #copy init scripts and sysconfigs
-%if 0%{?rhel} == 6
-install -Dp -m0755 %{buildroot}%{gem_instdir}/deploy/%{service_name}.init %{buildroot}%{_root_initddir}/%{service_name}
-%else
 install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
-%endif
 
 %post
-%if 0%{?rhel} == 6
-  /sbin/chkconfig --add %{service_name}
-  exit 0
-%else
-  %systemd_post %{service_name}.service
-%endif
+%systemd_post %{service_name}.service
 
 %preun
-%if 0%{?rhel} == 6
-  if [ $1 -eq 0 ] ; then
-    /sbin/service %{service_name} stop >/dev/null 2>&1
-    /sbin/chkconfig --del %{service_name}
-  fi
-%else
-  %systemd_preun %{service_name}.service
-%endif
+%systemd_preun %{service_name}.service
 
 %postun
-%if 0%{?rhel} != 6
-  %systemd_postun_with_restart %{service_name}.service
-%endif
+%systemd_postun_with_restart %{service_name}.service
 
 %files
 %dir %{gem_instdir}
@@ -134,11 +109,7 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{b
 %{root_sysconfdir}/%{gem_name}/settings.yml
 %doc %{gem_instdir}/LICENSE
 %{root_bindir}/%{service_name}
-%if 0%{?rhel} == 6
-%{_root_initddir}/%{service_name}
-%else
 %{_unitdir}/%{service_name}.service
-%endif
 
 %exclude %{gem_instdir}/deploy
 

@@ -13,6 +13,7 @@ License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
+Requires: ruby(release)
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.11.0
 
@@ -22,13 +23,7 @@ Requires: rubygem(smart_proxy_dynflow_core) = %{version}
 Requires: tfm-rubygem(smart_proxy_dynflow_core) = %{version}
 %endif
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
-Requires: ruby(release)
 BuildRequires: ruby(release)
-%endif
 BuildRequires: rubygems-devel
 BuildArch: noarch
 
