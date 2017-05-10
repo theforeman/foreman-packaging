@@ -118,6 +118,10 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{b
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed May 10 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-1
+- upgrade smart_proxy_dynflow_core to 0.1.6 (a.ruzicka@outlook.com)
+- Remove EL version conditionals (dominic@cleal.org)
+
 * Tue Sep 20 2016 Dominic Cleal <dominic@cleal.org> 0.1.5-1
 - Update smart_proxy_dynflow_core to 0.1.5 (inecas@redhat.com)
 
