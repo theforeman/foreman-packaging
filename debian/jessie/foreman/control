@@ -16,7 +16,7 @@ Priority: extra
 Depends: ruby2.1, bundler (>= 1.3), zlib1g-dev,
          ruby2.1-dev, build-essential,
          rake (>=0.8.4), ${misc:Depends}
-Recommends: foreman-proxy, foreman-debug, python-minimal
+Recommends: foreman-proxy, foreman-debug (= ${binary:Version}), python-minimal
 Conflicts: ruby-activerecord-deprecated-finders
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
@@ -43,7 +43,7 @@ Priority: extra
 Replaces: foreman-pgsql
 Provides: foreman-pgsql
 Conflicts: foreman-pgsql
-Depends: foreman, libpq-dev, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), libpq-dev, ${misc:Depends}
 Description: metapackage providing PostgreSQL dependencies for Foreman
  This package provides PostgreSQL dependencies for Foreman, a
  flexible systems management web application. Install this
@@ -55,7 +55,7 @@ Package: foreman-sqlite3
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, libsqlite3-dev , ${misc:Depends}
+Depends: foreman (= ${binary:Version}), libsqlite3-dev , ${misc:Depends}
 Description: metapackage providing sqlite dependencies for Foreman
  This package provides sqlite dependencies for Foreman, a
  flexible systems management web application. Install this
@@ -67,7 +67,7 @@ Package: foreman-console
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing console dependencies for Foreman
  This package provides console dependencies for Foreman, a
  flexible systems management web application.
@@ -78,7 +78,7 @@ Package: foreman-devel
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing development dependencies for Foreman
  This package provides development dependencies for Foreman, a
  flexible systems management web application.
@@ -90,7 +90,7 @@ Architecture: all
 Section: web
 Priority: extra
 Recommends: foreman-ec2
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing fog dependencies for Foreman,
  adding OpenStack and Rackspace compute resource support.
  This package provides fog dependencies for Foreman, a
@@ -102,7 +102,7 @@ Package: foreman-ec2
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing EC2 dependencies for Foreman
  This package provides Amazon EC2 dependencies for Foreman, a
  flexible systems management web application.
@@ -113,7 +113,7 @@ Package: foreman-libvirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, pkg-config, libvirt-dev, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), pkg-config, libvirt-dev, ${misc:Depends}
 Recommends: genisoimage
 Description: metapackage providing libvirt dependencies for Foreman
  This package provides libvirt dependencies for Foreman, a
@@ -128,7 +128,7 @@ Priority: extra
 Replaces: foreman-mysql
 Provides: foreman-mysql
 Conflicts: foreman-mysql
-Depends: foreman, libmysqlclient-dev, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), libmysqlclient-dev, ${misc:Depends}
 Description: metapackage providing mysql2 dependencies for Foreman
  This package provides mysql2 dependencies for Foreman, a
  flexible systems management web application.
@@ -139,7 +139,7 @@ Package: foreman-openstack
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing OpenStack dependencies for Foreman
  This package provides OpenStack dependencies for Foreman, a
  flexible systems management web application.
@@ -150,7 +150,7 @@ Package: foreman-ovirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, foreman-compute, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), foreman-compute (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing ovirt dependencies for Foreman
  This package provides ovirt dependencies for Foreman, a
  flexible systems management web application.
@@ -161,7 +161,7 @@ Package: foreman-rackspace
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing Rackspace dependencies for Foreman
  This package provides Rackspace dependencies for Foreman, a
  flexible systems management web application.
@@ -172,7 +172,7 @@ Package: foreman-test
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing test dependencies for Foreman
  This package provides test dependencies for Foreman, a
  flexible systems management web application.
@@ -183,7 +183,7 @@ Package: foreman-assets
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, nodejs (>= 4.2), ${misc:Depends}
+Depends: foreman (= ${binary:Version}), nodejs (>= 4.2), ${misc:Depends}
 Description: metapackage providing Rails asset dependencies for Foreman
  This package provides asset dependencies for Foreman, a
  flexible systems management web application.
@@ -194,7 +194,7 @@ Package: foreman-vmware
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing vmware dependencies for Foreman
  This package provides vmware dependencies for Foreman, a
  flexible systems management web application.
@@ -214,7 +214,7 @@ Package: foreman-gce
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing GCE dependencies for Foreman
  This package provides Google Compute Engine dependencies for Foreman,
  a flexible systems management web application.
