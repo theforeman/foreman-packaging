@@ -56,6 +56,7 @@
       <packagereq type="default">nodejs-moment</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
+      <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
