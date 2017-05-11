@@ -111,6 +111,9 @@ cp -pf CHANGELOG.md LICENSE README.md ../../
 %doc README.md
 
 %changelog
+* Thu May 11 2017 Dominic Cleal <dominic@cleal.org> 0.31.0-1
+- Update react-bootstrap to 0.31.0 (dominic@cleal.org)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.30.5-2
 - Use existing react, react-dom peer dependencies (dominic@cleal.org)
 
