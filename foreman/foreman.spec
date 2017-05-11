@@ -262,9 +262,11 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
+BuildRequires: npm(prop-types) >= 15.5.9
+BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 15.1.0
 BuildRequires: npm(react) < 16.0.0
-BuildRequires: npm(react-bootstrap) >= 0.30.0
+BuildRequires: npm(react-bootstrap) >= 0.31.0
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-dom) >= 15.1.0
 BuildRequires: npm(react-dom) < 16.0.0
@@ -535,9 +537,11 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
+Requires: npm(prop-types) >= 15.5.9
+Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 15.1.0
 Requires: npm(react) < 16.0.0
-Requires: npm(react-bootstrap) >= 0.30.0
+Requires: npm(react-bootstrap) >= 0.31.0
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-dom) >= 15.1.0
 Requires: npm(react-dom) < 16.0.0
