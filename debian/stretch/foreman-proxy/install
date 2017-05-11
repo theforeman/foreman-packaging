@@ -13,3 +13,4 @@ smart_proxy.gemspec       usr/share/foreman-proxy
 tasks                     usr/share/foreman-proxy
 VERSION                   usr/share/foreman-proxy
 extra/foreman-debug-proxy usr/share/foreman/script/foreman-debug.d
+extra/systemd/foreman-proxy.service lib/systemd/system
