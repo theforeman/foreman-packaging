@@ -111,7 +111,7 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %{root_sysconfdir}/%{gem_name}/settings.yml
 %doc %{gem_instdir}/LICENSE
 %{root_bindir}/%{service_name}
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config %{_sysconfdir}/logrotate.d/%{name}
 %{_unitdir}/%{service_name}.service
 
 %exclude %{gem_instdir}/deploy
