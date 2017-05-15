@@ -447,7 +447,7 @@ Meta package to install requirements for Rackspace compute resource support.
 %package vmware
 Summary: Foreman VMware support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 1.7.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 1.9.2
 Requires: %{name} = %{version}-%{release}
 
 %description vmware
