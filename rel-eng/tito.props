@@ -84,8 +84,6 @@ whitelist = foreman-installer
   rubygem-powerbar
   rubygem-rb-inotify
   rubygem-rubyipmi
-  rubygem-sinatra
-  rubygem-tilt
 
 [foreman-nightly-rhel7]
 disttag = .el7
