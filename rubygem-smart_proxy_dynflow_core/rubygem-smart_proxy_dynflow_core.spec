@@ -86,7 +86,7 @@ cp -pa .%{gem_instdir}/config/settings.yml.example %{buildroot}%{root_sysconfdir
 
 #copy init scripts, sysconfigs and logrotate config
 install -Dp -m0644 %{buildroot}%{gem_instdir}/deploy/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 
 %post
 %systemd_post %{service_name}.service
@@ -111,7 +111,7 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 %{root_sysconfdir}/%{gem_name}/settings.yml
 %doc %{gem_instdir}/LICENSE
 %{root_bindir}/%{service_name}
-%config %{_sysconfdir}/logrotate.d/%{name}
+%config %{root_sysconfdir}/logrotate.d/%{name}
 %{_unitdir}/%{service_name}.service
 
 %exclude %{gem_instdir}/deploy
