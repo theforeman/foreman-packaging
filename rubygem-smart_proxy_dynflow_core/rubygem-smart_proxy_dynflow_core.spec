@@ -15,7 +15,7 @@
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -150,6 +150,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Mon May 15 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-2
+- Logrotate for smart_proxy_dynflow_core (#19521, aruzicka@redhat.com)
+
 * Wed May 10 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-1
 - upgrade smart_proxy_dynflow_core to 0.1.6 (a.ruzicka@outlook.com)
 
