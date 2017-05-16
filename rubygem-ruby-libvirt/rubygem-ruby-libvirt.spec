@@ -87,6 +87,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Tue May 16 2017 Dominic Cleal <dominic@cleal.org> 0.7.0-1
+- Update ruby-libvirt to 0.7.0 (dominic@cleal.org)
+
 * Thu Mar 03 2016 Dominic Cleal <dominic@cleal.org> 0.5.2-4
 - Fix missing gem.build_complete file (#13948, dominic@cleal.org)
 
