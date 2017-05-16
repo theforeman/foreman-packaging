@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.2.0
+Version: 0.4.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -18,8 +18,7 @@ Requires: %{?scl_prefix}rubygem(fog-core) < 2
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
-Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
-Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 0.7
+Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.7.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
