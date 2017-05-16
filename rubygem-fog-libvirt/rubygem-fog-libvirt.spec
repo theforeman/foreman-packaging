@@ -71,6 +71,11 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue May 16 2017 Dominic Cleal <dominic@cleal.org> 0.4.0-1
+- Update fog-libvirt to 0.4.0 (dominic@cleal.org)
+- Use rubygem-ruby-libvirt on Fedora, replaces ruby-libvirt in F23+
+  (dominic@cleal.org)
+
 * Thu May 19 2016 Dominic Cleal <dominic@cleal.org> 0.2.0-1
 - Update fog-libvirt to 0.2.0 (dominic@cleal.org)
 
