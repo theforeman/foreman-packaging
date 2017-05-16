@@ -11,12 +11,20 @@ License: MIT
 URL: http://github.com/rtomayko/%{gem_name}
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ruby(release)
+%if 0%{?el6} && 0%{!?scl:1}
+Requires: %{?scl_prefix}ruby(abi)
+%else
+Requires: %{?scl_prefix}ruby(release)
+%endif
 Requires: ruby(rubygems)
-Requires: ruby
-BuildRequires: ruby(release)
-BuildRequires: rubygems-devel
+%if 0%{?el6} && 0%{!?scl:1}
+BuildRequires: %{?scl_prefix}ruby(abi)
+%else
+BuildRequires: %{?scl_prefix}ruby(release)
+%endif
 BuildRequires: ruby
+BuildRequires: ruby(rubygems)
+BuildRequires: rubygems-devel
 %if 0%{bootstrap} < 1
 BuildRequires: rubygem(asciidoctor)
 BuildRequires: rubygem(rdoc)
