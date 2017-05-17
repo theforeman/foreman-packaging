@@ -102,6 +102,9 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed May 17 2017 Dominic Cleal <dominic@cleal.org> 0.3.14-1
+- Update foreman_hooks to 0.3.14 (dominic@cleal.org)
+
 * Tue Mar 07 2017 Dominic Cleal <dominic@cleal.org> 0.3.13-2
 - Added debug hook script (lzap+git@redhat.com)
 
