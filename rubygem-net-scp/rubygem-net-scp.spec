@@ -83,6 +83,9 @@ popd
 %doc %{gem_docdir}
 
 %changelog
+* Fri May 19 2017 Dominic Cleal <dominic@cleal.org> 1.2.1-1
+- Update net-scp to 1.2.1 (dominic@cleal.org)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-6
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
