@@ -5,12 +5,15 @@
 
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 6%{?dist}
+Version: 1.2.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+# Fix test broken due to Net::SSH 4.0+.
+# https://github.com/net-ssh/net-scp/pull/30
+Patch0: net-scp-1.2.1-Fix-compatiblity-with-net-ssh-4.0.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(net-ssh)
@@ -37,15 +40,18 @@ Requires:%{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Documentation for %{pkg_name}
 
 %prep
-
-%build
-
-%install
-mkdir -p %{buildroot}%{gem_dir}
+%setup -q -c -T
 %{?scl:scl enable %{scl} - <<EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
+pushd .%{gem_instdir}
+%patch0 -p1
+popd
+
+%build
+
+%install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -58,23 +64,22 @@ ruby -Ilib -Itest test/test_all.rb
 popd
 
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.*
 %{gem_libdir}
-%doc %{gem_instdir}/README.rdoc
-%{gem_cache}
+%license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%defattr(-, root, root, -)
 %{gem_instdir}/Manifest
 %{gem_instdir}/Rakefile
 %{gem_instdir}/net-scp.gemspec
-%{gem_instdir}/setup.rb
-%doc %{gem_instdir}/CHANGES.txt
-%doc %{gem_instdir}/LICENSE.txt
-%{gem_instdir}/test
 %{gem_instdir}/gem-public_cert.pem
+%exclude %{gem_instdir}/setup.rb
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/CHANGES.txt
+%{gem_instdir}/test
 %doc %{gem_docdir}
 
 %changelog
