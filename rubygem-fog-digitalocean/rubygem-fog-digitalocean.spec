@@ -88,3 +88,6 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-digitalocean.gemspec
 
 %changelog
+* Mon May 22 2017 Dominic Cleal <dominic@cleal.org> 0.3.0-1
+- new package built with tito
+
