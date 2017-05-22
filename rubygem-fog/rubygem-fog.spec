@@ -193,6 +193,10 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Mon May 22 2017 Dominic Cleal <dominic@cleal.org> 1.40.0-1
+- Update fog to 1.40.0 (dominic@cleal.org)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Mar 31 2016 Dominic Cleal <dominic@cleal.org> 1.38.0-1
 - Update fog to 1.38.0 (dominic@cleal.org)
 
