@@ -6,12 +6,14 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.38.0
+Version: 1.40.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# Maintained at https://github.com/theforeman/fog, branch v%{version}-simplify
 Patch1:  fog-no-brightbox.patch
 Patch2:  fog-no-sakuracloud.patch
 Patch3:  fog-no-softlayer.patch
@@ -28,11 +30,13 @@ Patch13: fog-no-local.patch
 Patch14: fog-no-powerdns.patch
 Patch15: fog-no-dynect.patch
 Patch16: fog-no-aliyun.patch
+Patch17: fog-no-dnsimple.patch
 
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.6.0
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
+Requires: %{?scl_prefix}rubygem(fog-core) >= 1.43.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
+Requires: %{?scl_prefix}rubygem(fog-digitalocean) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-openstack)
@@ -43,13 +47,16 @@ Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
+Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(fog-aws) >= 0.6.0
-BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.32.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) >= 1.43.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(fog-digitalocean) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
 BuildRequires: %{?scl_prefix}rubygem(fog-openstack)
@@ -60,6 +67,8 @@ BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.4
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
 BuildArch: noarch
@@ -130,6 +139,8 @@ sed -i '/add_.*dependency.*dynect/d' %{gem_name}.gemspec
 %patch16 -p1
 sed -i '/add_.*dependency.*aliyun/d' %{gem_name}.gemspec
 sed -i '/add_.*dependency.*cloudatcost/d' %{gem_name}.gemspec
+%patch17 -p1
+sed -i '/add_.*dependency.*dnsimple/d' %{gem_name}.gemspec
 
 %build
 %{?scl:scl enable %{scl} "}

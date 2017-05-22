@@ -1,7 +1,7 @@
-From 424a88d5a22b567c8d88baba5b52b4326ab63543 Mon Sep 17 00:00:00 2001
+From b4612c6f0345e95fee7fe9c6875028a532ad8ade Mon Sep 17 00:00:00 2001
 From: Daniel Lobato <elobatocs@gmail.com>
 Date: Mon, 23 Feb 2015 11:33:48 +0200
-Subject: [PATCH 12/14] Remove fog-riakcs dependency
+Subject: [PATCH] Remove fog-riakcs dependency
 
 ---
  lib/fog.rb     | 1 -
@@ -9,11 +9,11 @@ Subject: [PATCH 12/14] Remove fog-riakcs dependency
  2 files changed, 2 deletions(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index d458286..5c249f6 100644
+index 100fdd2..b2e204a 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -42,7 +42,6 @@ require 'fog/bare_metal_cloud'
- require 'fog/ninefold'
+@@ -40,7 +40,6 @@ require 'fog/local'
+ require 'fog/bare_metal_cloud'
  require 'fog/rackspace'
  require 'fog/rage4'
 -require 'fog/riakcs'
@@ -21,11 +21,11 @@ index d458286..5c249f6 100644
  require 'fog/ovirt'
  require 'fog/powerdns'
 diff --git a/lib/fog/bin.rb b/lib/fog/bin.rb
-index edc1a54..c20861b 100644
+index 7d615fd..e7d7973 100644
 --- a/lib/fog/bin.rb
 +++ b/lib/fog/bin.rb
-@@ -74,7 +74,6 @@ require 'fog/bin/bare_metal_cloud'
- require 'fog/bin/ninefold'
+@@ -72,7 +72,6 @@ require 'fog/bin/local'
+ require 'fog/bin/bare_metal_cloud'
  require 'fog/bin/rackspace'
  require 'fog/bin/rage4'
 -require 'fog/bin/riakcs'
@@ -33,5 +33,5 @@ index edc1a54..c20861b 100644
  require 'fog/bin/ovirt'
  require 'fog/bin/powerdns'
 -- 
-2.1.0
+2.7.4
 

@@ -1,24 +1,24 @@
-From 9f433d1f6cc429a0e3b14a1c4ef887dafce9edd6 Mon Sep 17 00:00:00 2001
+From c6dc1af6cb31064b9cf8201875ba3c77b8aa4d80 Mon Sep 17 00:00:00 2001
 From: Dominic Cleal <dcleal@redhat.com>
 Date: Fri, 24 Apr 2015 09:22:40 +0100
-Subject: [PATCH 13/14] Remove fog-local dependency
+Subject: [PATCH] Remove fog-local dependency
 
 ---
  lib/fog.rb | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/lib/fog.rb b/lib/fog.rb
-index 5c249f6..b68fcc7 100644
+index b2e204a..89bb1f4 100644
 --- a/lib/fog.rb
 +++ b/lib/fog.rb
-@@ -37,7 +37,6 @@ require 'fog/ibm'
+@@ -36,7 +36,6 @@ require 'fog/ibm'
  require 'fog/internet_archive'
  require 'fog/joyent'
  require 'fog/linode'
 -require 'fog/local'
  require 'fog/bare_metal_cloud'
- require 'fog/ninefold'
  require 'fog/rackspace'
+ require 'fog/rage4'
 -- 
-2.1.0
+2.7.4
 
