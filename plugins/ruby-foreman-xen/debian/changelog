@@ -1,3 +1,9 @@
+ruby-foreman-xen (0.5.2-1) stable; urgency=low
+
+  * 0.5.2 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 23 May 2017 19:40:48 +0200
+
 ruby-foreman-xen (0.5.1-2) stable; urgency=low
 
   * Fix precompiled assets
