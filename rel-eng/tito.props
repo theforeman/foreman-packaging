@@ -167,6 +167,7 @@ whitelist = foreman
   rubygem-netrc
   rubygem-net-scp
   rubygem-net-ssh
+  rubygem-net-ssh-krb
   rubygem-oauth
   rubygem-paint
   rubygem-passenger
@@ -283,6 +284,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-net-ssh-gateway
+  rubygem-net-ssh-krb
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
