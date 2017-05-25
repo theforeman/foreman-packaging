@@ -64,3 +64,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 25 2017 Dominic Cleal <dominic@cleal.org> 0.4.2-1
+- new package built with tito
+
