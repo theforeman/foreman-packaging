@@ -358,7 +358,7 @@ for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.0.2
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
