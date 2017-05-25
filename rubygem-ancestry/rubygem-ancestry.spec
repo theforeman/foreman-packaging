@@ -6,7 +6,7 @@
 Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.2.1
+Version: 3.0.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -15,7 +15,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ror}rubygem-activerecord >= 2.2.2
+Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 3.2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(ancestry) = %{version}
@@ -64,22 +64,22 @@ gem build %{gem_name}.gemspec
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.rdoc} ./
+mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 
 %files
-%doc MIT-LICENSE
+%license MIT-LICENSE
 %dir %{gem_instdir}
 %{gem_libdir}
-%{gem_instdir}/init.rb
-%{gem_instdir}/install.rb
-%{gem_instdir}/ancestry.gemspec
+%{gem_spec}
 %exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
-%{gem_spec}
+%exclude %{gem_instdir}/init.rb
+%exclude %{gem_instdir}/install.rb
 
 %files doc
 %doc %{gem_docdir}
-%doc README.rdoc
+%doc README.md
+%{gem_instdir}/ancestry.gemspec
 
 %changelog
 * Wed Oct 26 2016 Dominic Cleal <dominic@cleal.org> 2.2.1-1
