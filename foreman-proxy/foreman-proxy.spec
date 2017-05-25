@@ -40,6 +40,7 @@ Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.9.2
 Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       %{?scl_prefix}rubygem(rb-inotify)
+Requires:       %{?scl_prefix}rubygem(rsec)
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 Requires:       sudo
