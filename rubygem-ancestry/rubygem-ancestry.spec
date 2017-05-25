@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Thu May 25 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
+- Update ancestry to 3.0.0 (dominic@cleal.org)
+
 * Wed Oct 26 2016 Dominic Cleal <dominic@cleal.org> 2.2.1-1
 - Update ancestry to 2.2.1 (dominic@cleal.org)
 
