@@ -83,6 +83,7 @@ whitelist = foreman-installer
   rubygem-passenger
   rubygem-powerbar
   rubygem-rb-inotify
+  rubygem-rsec
   rubygem-rubyipmi
 
 [foreman-nightly-rhel7]
@@ -307,6 +308,7 @@ whitelist = foreman
   rubygem-retriable
   rubygem-roadie
   rubygem-roadie-rails
+  rubygem-rsec
   rubygem-rubyipmi
   rubygem-safemode
   rubygem-scoped_search
