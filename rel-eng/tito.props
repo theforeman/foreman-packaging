@@ -15,7 +15,8 @@ fetch_strategy = custom.ForemanSourceStrategy
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = foreman-installer
+whitelist = foreman-bootloaders-redhat
+  foreman-installer
   foreman-proxy
   foreman-release-scl
   foreman-selinux
@@ -207,6 +208,7 @@ scl = tfm
 [foreman-nightly-fedora24]
 disttag = .fc24
 whitelist = foreman
+  foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
   foreman-selinux
