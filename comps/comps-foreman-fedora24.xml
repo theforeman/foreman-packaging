@@ -93,6 +93,7 @@
       <packagereq type="default">rubygem-fog-core</packagereq>
       <packagereq type="default">rubygem-fog-digitalocean</packagereq>
       <packagereq type="default">rubygem-fog-google</packagereq>
+      <packagereq type="default">rubygem-fog-libvirt</packagereq>
       <packagereq type="default">rubygem-fog-openstack</packagereq>
       <packagereq type="default">rubygem-fog-rackspace</packagereq>
       <packagereq type="default">rubygem-fog-vsphere</packagereq>
