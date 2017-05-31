@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed May 31 2017 Dominic Cleal <dominic@cleal.org> 5.0.1-1
+- Update foreman_templates to 5.0.1 (mhulan@redhat.com)
+
 * Wed Apr 26 2017 Dominic Cleal <dominic@cleal.org> 5.0.0-1
 - Update foreman_templates to 5.0.0 (mhulan@redhat.com)
 
