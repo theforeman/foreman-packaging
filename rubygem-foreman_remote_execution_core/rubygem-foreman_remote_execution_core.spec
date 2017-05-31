@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed May 31 2017 Dominic Cleal <dominic@cleal.org> 1.0.4-1
+- Update foreman_remote_execution_core to 1.0.4 (inecas@redhat.com)
+
 * Tue Apr 11 2017 Dominic Cleal <dominic@cleal.org> 1.0.3-1
 - Update foreman_remote_execution_core to 1.0.3 (aruzicka@redhat.com)
 
