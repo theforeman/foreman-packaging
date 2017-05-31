@@ -1,3 +1,9 @@
+ruby-foreman-templates (5.0.1-1) stable; urgency=low
+
+  * Update foreman_templates to 5.0.1
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 31 May 2017 09:27:14 +0200
+
 ruby-foreman-templates (5.0.0-1) stable; urgency=low
 
   * Update foreman_templates to 5.0.0
