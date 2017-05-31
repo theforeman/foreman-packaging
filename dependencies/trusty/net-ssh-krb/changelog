@@ -1,0 +1,5 @@
+ruby-net-ssh-krb (0.4.0-1) unstable; urgency=low
+
+  * Initial release for Ubuntu/trusty
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 30 May 2017 14:53:27 +0200

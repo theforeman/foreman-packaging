@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: net-ssh-kerberos
+Source: https://github.com/cbeer/net-ssh-kerberos
+
+Files: *
+Copyright: 2009-2011 Joe Khoobyar
+License: GPL-2
