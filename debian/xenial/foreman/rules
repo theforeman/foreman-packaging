@@ -12,7 +12,8 @@ build:
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/cp config/email.yaml.example config/email.yaml
 	/bin/rm -rf node_modules
-	/usr/bin/npm install --no-optional
+	/usr/bin/npm install npm@'<5.0.0'
+	/usr/bin/nodejs node_modules/.bin/npm install --no-optional
 	/bin/cp debian/debian.rb bundler.d/
 	/usr/bin/bundle package
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
