@@ -1,0 +1,5 @@
+ruby-hammer-cli (0.0.7-1) stable; urgency=low
+
+  * Initial release
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Thu, 10 Oct 2013 10:20:52 +0100
