@@ -10,7 +10,7 @@ Summary: A set of Rails responders to dry up your application
 Group: Development/Languages
 License: MIT
 URL: http://github.com/plataformatec/responders
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.2.0

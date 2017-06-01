@@ -10,7 +10,7 @@ Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: http://github.com/Apipie/apipie-bindings
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5

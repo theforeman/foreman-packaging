@@ -22,7 +22,7 @@ Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_abrt
-Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.8.0
 

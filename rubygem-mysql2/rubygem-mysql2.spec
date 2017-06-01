@@ -26,7 +26,7 @@ Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/brianmario/mysql2
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.6
 Requires: %{?scl_prefix_ruby}rubygems

@@ -7,7 +7,7 @@ Summary: Parse uReport bug report format
 Group: Development/Languages
 License: GPLv2
 URL: http://github.com/abrt/satyr
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 Requires: rubygem(ffi)

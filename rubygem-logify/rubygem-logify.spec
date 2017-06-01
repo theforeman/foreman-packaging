@@ -7,7 +7,7 @@ Summary: Logify is an incredibly light-weight Ruby logger
 Group: Development/Languages
 License: ASL 2.0
 URL: http://github.com/sethvargo/logify
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 
