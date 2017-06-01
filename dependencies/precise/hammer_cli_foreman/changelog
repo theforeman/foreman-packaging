@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman (0.0.7-1) stable; urgency=low
+
+  * Initial release
+
+ -- Tomas Strachota <tstrachota@redhat.com>  Mon, 14 Oct 2013 14:54:40 +0100
