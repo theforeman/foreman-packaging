@@ -30,7 +30,7 @@ Release:    %{?prever:0.}%{release}%{?prever}%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/theforeman/foreman_discovery
-Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
+Source0:    http://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
 
 Requires:   foreman >= 1.15.0
 

@@ -22,7 +22,7 @@ Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        http://github.com/GregSutcliffe/foreman_column_view
-Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.2.0
 Requires:   %{?scl_prefix}rubygem(deface) < 2.0

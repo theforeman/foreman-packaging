@@ -11,7 +11,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://github.com/stefankroes/ancestry
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Requires: %{?scl_prefix_ruby}rubygems

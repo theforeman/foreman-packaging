@@ -18,7 +18,7 @@ Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        http://github.com/katello/bastion
-Source0:    http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

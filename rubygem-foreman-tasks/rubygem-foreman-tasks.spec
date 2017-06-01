@@ -22,7 +22,7 @@ Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.15.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)

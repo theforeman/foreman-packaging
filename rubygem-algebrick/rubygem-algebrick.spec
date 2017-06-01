@@ -10,7 +10,7 @@ Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: http://github.com/pitr-ch/algebrick
-Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
