@@ -1,3 +1,9 @@
+ruby-foreman-cockpit (2.0.3-1) stable; urgency=low
+
+  * 2.0.3 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Mon, 05 Jun 2017 12:33:11 +0200
+
 ruby-foreman-cockpit (2.0.2-1) stable; urgency=low
 
   * 2.0.2 released
