@@ -49,6 +49,8 @@ the packages locally and quickly.
 The last argument is the name of the mock config in mock/, which includes SCL
 and non-SCL variants.
 
+**Notice:** tito works only on committed changes! If you are changing the `.spec` files, make sure you commit those changes before running `tito build` command.
+
 ### With koji access
 
 If you have a certificate for our Koji server (regular packagers can get them),
