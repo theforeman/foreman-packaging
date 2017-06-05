@@ -8,8 +8,8 @@
 
 Summary: Foreman discovery commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
-Release: 2%{?dist}
+Version: 1.0.0
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-discovery
