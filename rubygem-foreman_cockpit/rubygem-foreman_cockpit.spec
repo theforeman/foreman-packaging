@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jun 07 2017 Dominic Cleal <dominic@cleal.org> 2.0.3-1
+- Updated foreman_cockpit to 2.0.3 (me@daniellobato.me)
+
 * Thu Aug 04 2016 Dominic Cleal <dominic@cleal.org> 2.0.2-1
 - Updated foreman_cockpit to 2.0.2 (elobatocs@gmail.com)
 
