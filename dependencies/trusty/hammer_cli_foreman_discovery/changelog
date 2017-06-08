@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-discovery (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 08 Jun 2017 13:28:45 +0200
+
 ruby-hammer-cli-foreman-discovery (0.0.3-2) stable; urgency=low
 
   * Use Ruby 2.0 explicitly on Ubuntu/trusty
