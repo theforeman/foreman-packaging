@@ -5,14 +5,14 @@
 
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.4.1
 Release: 1%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
 # https://github.com/grosser/fast_gettext/issues/50
 License: MIT and (GPLv2+ or Ruby)
-URL: http://github.com/grosser/fast_gettext
+URL: https://github.com/grosser/fast_gettext
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
