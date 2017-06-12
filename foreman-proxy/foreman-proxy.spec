@@ -197,6 +197,9 @@ fi
 
 
 %changelog
+* Mon Jun 12 2017 Dominic Cleal <dominic@cleal.org> 1.15.1-1
+- Release 1.15.1 (me@daniellobato.me)
+
 * Wed May 10 2017 Dominic Cleal <dominic@cleal.org> 1.15.0-1
 - Release 1.15.0 (me@daniellobato.me)
 
