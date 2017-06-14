@@ -202,6 +202,7 @@
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-stats-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
+      <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
@@ -304,6 +305,7 @@
       <packagereq type="default">tfm-rubygem-fog-google-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-urijs-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-openstack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-rackspace-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere-doc</packagereq>

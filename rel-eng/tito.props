@@ -61,6 +61,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
+  nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
   nodejs-webpack
@@ -252,6 +253,7 @@ whitelist = foreman
   nodejs-select2
   nodejs-stats-webpack-plugin
   nodejs-style-loader
+  nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
   nodejs-webpack
