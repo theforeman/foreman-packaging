@@ -167,7 +167,6 @@ whitelist = foreman
   rubygem-netrc
   rubygem-net-scp
   rubygem-net-ssh
-  rubygem-net-ssh-krb
   rubygem-oauth
   rubygem-paint
   rubygem-passenger
