@@ -76,6 +76,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jun 16 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.3-1
+- new package built with tito
+
 * Tue May 23 2017 Anurag Patel <apatel@redhat.com> 0.0.3-1
 - Updated foreman_maintain with 0.0.3 tag.
 
