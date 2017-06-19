@@ -99,3 +99,6 @@ cp -lpf %{_datarootdir}/%{name}/grub2/* %{_sharedstatedir}/tftpboot/grub2/
 
 
 %changelog
+* Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 201705231433-1
+- new package built with tito
+
