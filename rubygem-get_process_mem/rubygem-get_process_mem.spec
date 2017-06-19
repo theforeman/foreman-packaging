@@ -80,3 +80,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 0.2.1-1
+- new package built with tito
+
