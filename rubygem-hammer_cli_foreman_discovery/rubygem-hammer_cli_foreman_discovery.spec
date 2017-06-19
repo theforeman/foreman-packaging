@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-1
+- Updated hammer_cli_foreman_discovery-1.0.0 (lzap+git@redhat.com)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.3-2
 - Use gem_install macro (dominic@cleal.org)
 
