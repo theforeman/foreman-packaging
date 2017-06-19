@@ -18,13 +18,14 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.15.0
 
+Requires: /etc/cron.d
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.22
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
@@ -102,6 +103,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/%{confdir}/%{service_name}.service
 mkdir -p %{buildroot}%{bin_dir}
 ln -sv %{gem_instdir}/bin/%{service_name} %{buildroot}%{bin_dir}/%{service_name}
 
+# install cron job
+install -Dp -m0644 %{buildroot}/%{gem_instdir}/%{confdir}/%{gem_name}.cron.d %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
+
 #link dynflow-debug.sh to be called from foreman-debug
 chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 %{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
@@ -143,6 +147,7 @@ exit 0
 %{foreman_bundlerd_plugin}
 %{gem_instdir}/public
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
+%config %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
