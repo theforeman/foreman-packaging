@@ -204,7 +204,7 @@ BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
 BuildRequires: %{scl}-runtime-assets >= 3
 BuildRequires: %{scl}-runtime-assets < 4
 %endif
-BuildRequires: nodejs
+BuildRequires: nodejs >= 6.10
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 BuildRequires: libuv
@@ -481,7 +481,7 @@ Requires: %{name} = %{version}-%{release}
 Requires: %{scl}-runtime-assets >= 3
 Requires: %{scl}-runtime-assets < 4
 %endif
-Requires: nodejs
+Requires: nodejs >= 6.10
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 Requires: libuv
