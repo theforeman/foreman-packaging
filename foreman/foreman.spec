@@ -288,6 +288,8 @@ BuildRequires: npm(stats-webpack-plugin) < 1.0.0
 BuildRequires: npm(stats-webpack-plugin) >= 0.2.1
 BuildRequires: npm(style-loader) < 1.0.0
 BuildRequires: npm(style-loader) >= 0.13.1
+BuildRequires: npm(urijs) < 1.19.0
+BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(url-loader) < 1.0.0
 BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(uuid) >= 3.0.1
@@ -563,6 +565,8 @@ Requires: npm(stats-webpack-plugin) < 1.0.0
 Requires: npm(stats-webpack-plugin) >= 0.2.1
 Requires: npm(style-loader) < 1.0.0
 Requires: npm(style-loader) >= 0.13.1
+Requires: npm(urijs) < 1.19.0
+Requires: npm(urijs) >= 1.18.10
 Requires: npm(url-loader) < 1.0.0
 Requires: npm(url-loader) >= 0.5.7
 Requires: npm(uuid) >= 3.0.1
