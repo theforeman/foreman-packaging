@@ -252,8 +252,6 @@ BuildRequires: npm(fbjs) < 1.0.0
 BuildRequires: npm(fbjs) >= 0.8.12
 BuildRequires: npm(file-loader) < 1.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
-BuildRequires: npm(flux) >= 2.1.1
-BuildRequires: npm(flux) < 3.0.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
 BuildRequires: npm(jquery) < 2.3.0
@@ -533,8 +531,6 @@ Requires: npm(fbjs) < 1.0.0
 Requires: npm(fbjs) >= 0.8.12
 Requires: npm(file-loader) < 1.0.0
 Requires: npm(file-loader) >= 0.9.0
-Requires: npm(flux) >= 2.1.1
-Requires: npm(flux) < 3.0.0
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
 Requires: npm(jquery) < 2.3.0
