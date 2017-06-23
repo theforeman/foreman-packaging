@@ -50,3 +50,6 @@ cp -pfr CHANGELOG.md LICENSE.txt README.md package.json src %{buildroot}%{nodejs
 %doc README.md
 
 %changelog
+* Fri Jun 23 2017 Eric D. Helms <ericdhelms@gmail.com> 1.18.10-1
+- new package built with tito
+
