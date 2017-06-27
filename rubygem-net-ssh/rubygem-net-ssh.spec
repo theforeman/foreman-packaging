@@ -12,6 +12,8 @@ Group: Development/Languages
 License: MIT
 URL: http://github.com/net-ssh/net-ssh
 Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
+# Fixes #20018
+Patch0: 0001-Close-transport-on-proxy-error.patch
 Requires: %{?scl_prefix_ruby}ruby(release) >= 2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
@@ -44,6 +46,10 @@ mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} - <<EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
+
+pushd .%{gem_instdir}
+%patch0 -p1
+popd
 
 %build
 
