@@ -1,3 +1,9 @@
+ruby-kafo (2.0.2-1) stable; urgency=low
+
+  * Update kafo to 2.0.2
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 28 Jun 2017 16:19:20 +0200
+
 ruby-kafo (2.0.1-1) stable; urgency=low
 
   * Initial release for Debian/stretch
