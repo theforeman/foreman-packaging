@@ -1,1 +1,1 @@
-gem 'foreman_docker', '3.2.0'
+gem 'foreman_docker', '3.2.1'
