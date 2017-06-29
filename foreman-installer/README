@@ -1,0 +1,2 @@
+how to build this package:
+tito release copr-nightly --arg jenkins_job=packaging_trigger_installer_develop
