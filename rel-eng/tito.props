@@ -301,7 +301,6 @@ whitelist = foreman
   rubygem-kafo_parsers
   rubygem-kafo_wizards
   rubygem-launchy
-  rubygem-librarian-puppet
   rubygem-patternfly-sass
   rubygem-po_to_json
   rubygem-powerbar
@@ -324,8 +323,6 @@ whitelist = foreman
   rubygem-spice-html5-rails
   rubygem-sprockets-rails
   rubygem-sshkey
-  rubygem-strong_parameters
-  rubygem-therubyracer
   rubygem-trollop
   rubygem-useragent
   rubygem-validates_lengths_from_database
@@ -364,7 +361,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_chef
   rubygem-foreman_cockpit
   rubygem-foreman_column_view
-  rubygem-foreman_content
   rubygem-foreman_custom_parameters
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
@@ -382,7 +378,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
-  rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_remote_execution
   rubygem-foreman_remote_execution_core
@@ -484,7 +479,6 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman_chef
   rubygem-foreman_cockpit
   rubygem-foreman_column_view
-  rubygem-foreman_content
   rubygem-foreman_custom_parameters
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
@@ -502,7 +496,6 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
-  rubygem-foreman_openstack_cluster
   rubygem-foreman_param_lookup
   rubygem-foreman_remote_execution
   rubygem-foreman_remote_execution_core
