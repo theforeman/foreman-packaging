@@ -1,3 +1,9 @@
+ruby-foreman-tasks-core (0.1.4-1) stable; urgency=low
+
+  * 0.1.4 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Tue, 11 Jul 2017 21:10:28 +0200
+
 ruby-foreman-tasks-core (0.1.2-1) stable; urgency=low
 
   * Initial release for Debian/stretch
