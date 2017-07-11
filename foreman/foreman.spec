@@ -236,8 +236,10 @@ BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(expose-loader) >= 0.6.0
-BuildRequires: npm(extract-text-webpack-plugin) < 2.0.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 1.0.1
+BuildRequires: npm(extract-text-webpack-plugin) < 3.0.0
+BuildRequires: npm(extract-text-webpack-plugin) >= 2.1.0
+BuildRequires: npm(fbjs) < 1.0.0
+BuildRequires: npm(fbjs) >= 0.8.12
 BuildRequires: npm(file-loader) < 1.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(flux) >= 2.1.1
@@ -285,7 +287,7 @@ BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(stats-webpack-plugin) < 1.0.0
-BuildRequires: npm(stats-webpack-plugin) >= 0.2.1
+BuildRequires: npm(stats-webpack-plugin) >= 0.6.0
 BuildRequires: npm(style-loader) < 1.0.0
 BuildRequires: npm(style-loader) >= 0.13.1
 BuildRequires: npm(urijs) < 1.19.0
@@ -513,8 +515,10 @@ Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
 Requires: npm(expose-loader) < 0.7.0
 Requires: npm(expose-loader) >= 0.6.0
-Requires: npm(extract-text-webpack-plugin) < 2.0.0
-Requires: npm(extract-text-webpack-plugin) >= 1.0.1
+Requires: npm(extract-text-webpack-plugin) < 3.0.0
+Requires: npm(extract-text-webpack-plugin) >= 2.1.0
+Requires: npm(fbjs) < 1.0.0
+Requires: npm(fbjs) >= 0.8.12
 Requires: npm(file-loader) < 1.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(flux) >= 2.1.1
@@ -562,7 +566,7 @@ Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(stats-webpack-plugin) < 1.0.0
-Requires: npm(stats-webpack-plugin) >= 0.2.1
+Requires: npm(stats-webpack-plugin) >= 0.6.0
 Requires: npm(style-loader) < 1.0.0
 Requires: npm(style-loader) >= 0.13.1
 Requires: npm(urijs) < 1.19.0
@@ -571,8 +575,8 @@ Requires: npm(url-loader) < 1.0.0
 Requires: npm(url-loader) >= 0.5.7
 Requires: npm(uuid) >= 3.0.1
 Requires: npm(uuid) < 4.0.0
-Requires: npm(webpack) < 2.0.0
-Requires: npm(webpack) >= 1.9.11
+Requires: npm(webpack) >= 3.0.0
+Requires: npm(webpack) < 4.0.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3

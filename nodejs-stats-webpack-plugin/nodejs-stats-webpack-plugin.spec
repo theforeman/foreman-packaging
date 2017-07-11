@@ -1,61 +1,58 @@
 %global npm_name stats-webpack-plugin
+%global enable_tests 0
 
-Name: nodejs-%{npm_name}
-Version: 0.4.0
-Release: 2%{?dist}
-Summary: Write the stats of a build to a file
-License: MIT
-Group: Development/Libraries
-URL: https://github.com/unindented/stats-webpack-plugin
-Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildRequires: npm
-BuildArch: noarch
-%if 0%{?fedora} >= 19
-ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-Provides: npm(%{npm_name}) = %{version}
 %{?nodejs_find_provides_and_requires}
 
+Name: nodejs-%{npm_name}
+Version: 0.6.1
+Release: 1%{?dist}
+Summary: Write the stats of a build to a file
+License: MIT
+URL: git://github.com/unindented/stats-webpack-plugin.git
+Source0: http://registry.npmjs.org/stats-webpack-plugin/-/stats-webpack-plugin-0.6.1.tgz
+Source1: http://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz
+Source2: stats-webpack-plugin-0.6.1-registry.npmjs.org.tgz
+BuildRequires: nodejs-packaging
+BuildRequires: npm
+BuildArch:  noarch
+ExclusiveArch: %{nodejs_arches} noarch
+
+Provides: bundled-npm(stats-webpack-plugin) = 0.6.1
+Provides: bundled-npm(lodash) = 4.17.4
+AutoReq: no
+AutoProv: no
+
+
 %description
-Write the stats of a build to a file.
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}
+%{summary}
 
 %prep
-%setup -q -n package
+mkdir npm_cache
+for tgz in %{sources}; do
+  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+done
+
+%setup -T -q -a 2 -D -n npm_cache
 
 %build
-%nodejs_symlink_deps --build
+npm install --cache-min Infinity --cache . --no-optional --global-style true %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr LICENSE index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-%nodejs_symlink_deps
+cd node_modules/stats-webpack-plugin
+cp -pfr README.md index.js package.json node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pf README.md ../../
+# If any binaries are included, symlink them to bindir here
 
+%if 0%{?enable_tests}
 %check
+%{nodejs_symlink_deps} --check
+#$CHECK
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%doc LICENSE
 
-%files doc
+%doc README.md
 
 %changelog
-* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.4.0-2
-- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
-
-* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 0.4.0-1
-- new package built with tito
-
