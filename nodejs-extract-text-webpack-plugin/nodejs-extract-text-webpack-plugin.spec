@@ -1,52 +1,63 @@
+# FIXME
+# Remove nodejs_symlink_deps if installing bundled module with NPM
+
 %global npm_name extract-text-webpack-plugin
+%global enable_tests 0
+
+%{?nodejs_find_provides_and_requires}
 
 Name: nodejs-%{npm_name}
-Version: 1.0.1
-Release: 2%{?dist}
+Version: 2.1.2
+Release: 1%{?dist}
 Summary: Extract text from bundle into a file
 License: MIT
-Group: Development/Libraries
-URL: http://github.com/webpack/extract-text-webpack-plugin
-Source0: http://registry.npmjs.org/extract-text-webpack-plugin/-/extract-text-webpack-plugin-1.0.1.tgz
-Source1: http://registry.npmjs.org/loader-utils/-/loader-utils-0.2.15.tgz
-Source2: http://registry.npmjs.org/async/-/async-1.5.2.tgz
-Source3: http://registry.npmjs.org/emojis-list/-/emojis-list-2.0.1.tgz
-Source4: http://registry.npmjs.org/big.js/-/big.js-3.1.3.tgz
-Source5: http://registry.npmjs.org/json5/-/json5-0.5.0.tgz
-Source6: http://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz
-Source7: http://registry.npmjs.org/webpack-sources/-/webpack-sources-0.1.2.tgz
-Source8: http://registry.npmjs.org/source-list-map/-/source-list-map-0.1.6.tgz
+URL: http://github.com/webpack-contrib/extract-text-webpack-plugin
+Source0: http://registry.npmjs.org/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.2.tgz
+Source1: http://registry.npmjs.org/schema-utils/-/schema-utils-0.3.0.tgz
+Source2: http://registry.npmjs.org/webpack-sources/-/webpack-sources-1.0.1.tgz
+Source3: http://registry.npmjs.org/loader-utils/-/loader-utils-1.1.0.tgz
+Source4: http://registry.npmjs.org/async/-/async-2.4.1.tgz
+Source5: http://registry.npmjs.org/emojis-list/-/emojis-list-2.1.0.tgz
+Source6: http://registry.npmjs.org/json5/-/json5-0.5.1.tgz
+Source7: http://registry.npmjs.org/source-list-map/-/source-list-map-2.0.0.tgz
+Source8: http://registry.npmjs.org/big.js/-/big.js-3.1.3.tgz
 Source9: http://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz
-Source10: extract-text-webpack-plugin-1.0.1-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-Requires: npm(webpack)
-BuildRequires: nodejs-devel
+Source10: http://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz
+Source11: http://registry.npmjs.org/ajv/-/ajv-5.2.0.tgz
+Source12: http://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.3.0.tgz
+Source13: http://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-0.1.0.tgz
+Source14: http://registry.npmjs.org/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz
+Source15: http://registry.npmjs.org/co/-/co-4.6.0.tgz
+Source16: http://registry.npmjs.org/jsonify/-/jsonify-0.0.0.tgz
+Source17: extract-text-webpack-plugin-2.1.2-registry.npmjs.org.tgz
 BuildRequires: nodejs-packaging
 BuildRequires: npm
-BuildRequires: npm(webpack)
-BuildArch: noarch
-%if 0%{?fedora} >= 19
+BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(extract-text-webpack-plugin) = 1.0.1
-Provides: bundled-npm(loader-utils) = 0.2.15
-Provides: bundled-npm(async) = 1.5.2
-Provides: bundled-npm(emojis-list) = 2.0.1
+
+Provides: bundled-npm(extract-text-webpack-plugin) = 2.1.2
+Provides: bundled-npm(schema-utils) = 0.3.0
+Provides: bundled-npm(webpack-sources) = 1.0.1
+Provides: bundled-npm(loader-utils) = 1.1.0
+Provides: bundled-npm(async) = 2.4.1
+Provides: bundled-npm(emojis-list) = 2.1.0
+Provides: bundled-npm(json5) = 0.5.1
+Provides: bundled-npm(source-list-map) = 2.0.0
 Provides: bundled-npm(big.js) = 3.1.3
-Provides: bundled-npm(json5) = 0.5.0
-Provides: bundled-npm(object-assign) = 4.1.0
-Provides: bundled-npm(webpack-sources) = 0.1.2
-Provides: bundled-npm(source-list-map) = 0.1.6
 Provides: bundled-npm(source-map) = 0.5.6
+Provides: bundled-npm(lodash) = 4.17.4
+Provides: bundled-npm(ajv) = 5.2.0
+Provides: bundled-npm(json-schema-traverse) = 0.3.0
+Provides: bundled-npm(fast-deep-equal) = 0.1.0
+Provides: bundled-npm(json-stable-stringify) = 1.0.1
+Provides: bundled-npm(co) = 4.6.0
+Provides: bundled-npm(jsonify) = 0.0.0
 AutoReq: no
 AutoProv: no
 
 
 %description
-Extract text from bundle into a file.
+%{summary}
 
 %prep
 mkdir npm_cache
@@ -54,29 +65,28 @@ for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
 done
 
-%setup -T -q -a 10 -D -n npm_cache
+%setup -T -q -a 17 -D -n npm_cache
 
 %build
-mkdir node_modules
-# Notice I make regular symlinks instead of running npm link, as the latter will ask for
-# root permissions
-ln -s %{nodejs_sitelib}/* node_modules/
-npm install --cache-min Infinity --cache . extract-text-webpack-plugin@1.0.1
+npm install --cache-min Infinity --cache . --no-optional --global-style true %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cd node_modules/extract-text-webpack-plugin
-cp -pfr .editorconfig .eslintrc .npmignore .travis.yml ExtractedModule.js OrderUndefinedError.js index.js loader.js package.json node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr CHANGELOG.md ExtractedModule.js OrderUndefinedError.js README.md index.js loader.js package.json schema node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pf CHANGELOG.md README.md ../../
+# If any binaries are included, symlink them to bindir here
 
+%if 0%{?enable_tests}
 %check
+%{nodejs_symlink_deps} --check
+#$CHECK
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
 
+%doc CHANGELOG.md
+%doc README.md
+
 %changelog
-* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.0.1-2
-- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
-
-* Wed Aug 31 2016 Dominic Cleal <dominic@cleal.org> 1.0.1-1
-- new package built with tito
-
