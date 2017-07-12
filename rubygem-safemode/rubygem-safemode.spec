@@ -86,6 +86,9 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 1.3.2-1
+- Update safemode to 1.3.2 (tbrisker@gmail.com)
+
 * Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.3.1-1
 - Update safemode to 1.3.1 (dominic@cleal.org)
 
