@@ -6,7 +6,7 @@
 Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.3.1
+Version: 1.3.2
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -19,7 +19,6 @@ Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.2.0
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.3.0
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-#BuildRequires: %{?scl_prefix}rubygem(jeweler) >= 1.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -68,7 +67,7 @@ rm -rf ./%{gem_instdir}/.yardoc
 mkdir -p %{buildroot}%{gem_dir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 mv %{buildroot}%{gem_instdir}/{LICENCSE,README.markdown} ./
-rm %{buildroot}%{gem_instdir}/VERSION
+rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 
 %files
 %doc LICENCSE
