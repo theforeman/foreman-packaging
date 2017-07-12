@@ -994,6 +994,10 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 1.15.2-1
+- Release 1.15.2 (me@daniellobato.me)
+- Correct 1.15.1 annexes for foreman and proxy (me@daniellobato.me)
+
 * Mon Jun 12 2017 Dominic Cleal <dominic@cleal.org> 1.15.1-1
 - Release 1.15.1 (me@daniellobato.me)
 
