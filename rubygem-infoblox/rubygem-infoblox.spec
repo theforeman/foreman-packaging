@@ -2,7 +2,7 @@
 %global gem_name infoblox
 
 Name: rubygem-%{gem_name}
-Version: 1.0.0
+Version: 2.0.4
 Release: 1%{?dist}
 Summary: A Ruby wrapper to the Infoblox WAPI
 Group: Development/Languages
