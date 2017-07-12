@@ -95,6 +95,10 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
+* Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 4.0.1-2
+- Fixes #20018 - Bump release version (aruzicka@redhat.com)
+- Fixes #20018 - Backport ProxyCommand patch for net-ssh (aruzicka@redhat.com)
+
 * Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 4.0.1-1
 - Update net-ssh to 4.0.1 (dominic@cleal.org)
 - Modernise spec file (dominic@cleal.org)
