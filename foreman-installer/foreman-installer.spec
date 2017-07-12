@@ -84,6 +84,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 1.15.2-1
+- Release 1.15.2 (me@daniellobato.me)
+
 * Mon Jun 12 2017 Dominic Cleal <dominic@cleal.org> 1.15.1-1
 - Release 1.15.1 (me@daniellobato.me)
 
