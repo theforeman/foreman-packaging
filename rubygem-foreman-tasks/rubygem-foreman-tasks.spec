@@ -163,6 +163,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 0.9.4-1
+-  Update foreman-tasks to 0.9.4 (inecas@redhat.com)
+
 * Wed Jun 28 2017 Eric D. Helms <ericdhelms@gmail.com> 0.9.3-1
 - Update foreman-tasks to 0.9.3 (inecas@redhat.com)
 
