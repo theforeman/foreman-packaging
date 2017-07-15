@@ -90,3 +90,12 @@ cp -pf CHANGELOG.md README.md ../../
 %doc README.md
 
 %changelog
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 2.1.2-1
+- update webpack to v3.0 (ohadlevy@gmail.com)
+
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com>
+- update webpack to v3.0 (ohadlevy@gmail.com)
+
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com>
+- update webpack to v3.0 (ohadlevy@gmail.com)
+
