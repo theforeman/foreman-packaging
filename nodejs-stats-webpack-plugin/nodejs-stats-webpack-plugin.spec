@@ -56,3 +56,6 @@ cp -pf README.md ../../
 %doc README.md
 
 %changelog
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.6.1-1
+- update webpack to v3.0 (ohadlevy@gmail.com)
+
