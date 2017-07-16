@@ -669,6 +669,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack.js %{buildroot}%{_bindir}/webpa
 %doc README.md
 
 %changelog
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-2
+- Add back missing Provides: npm (ericdhelms@gmail.com)
+
 * Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-1
 - update webpack to v3.0 (ohadlevy@gmail.com)
 
