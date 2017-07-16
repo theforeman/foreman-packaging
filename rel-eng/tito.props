@@ -94,10 +94,12 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  rubygem-algebrick
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-ancestry
   rubygem-apipie-bindings
+  rubygem-apipie-params
   rubygem-apipie-rails
   rubygem-audited
   rubygem-autoparse
@@ -105,12 +107,14 @@ whitelist = foreman
   rubygem-awesome_print
   rubygem-bootstrap-sass
   rubygem-bundler_ext
+  rubygem-concurrent-ruby-edge
   rubygem-clamp
   rubygem-css_parser
   rubygem-daemons
   rubygem-deacon
   rubygem-deep_cloneable
   rubygem-domain_name
+  rubygem-dynflow
   rubygem-eventmachine
   rubygem-excon
   rubygem-extlib
@@ -132,6 +136,7 @@ whitelist = foreman
   rubygem-font-awesome-sass
   rubygem-formatador
   rubygem-friendly_id
+  rubygem-get_process_mem
   rubygem-gettext
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
@@ -212,20 +217,16 @@ scl = tfm
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = rubygem-algebrick
-  rubygem-angular-rails-templates
-  rubygem-apipie-params
+whitelist = rubygem-angular-rails-templates
   rubygem-azure
   rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-commonjs
   rubygem-concurrent-ruby
-  rubygem-concurrent-ruby-edge
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-dynflow
   rubygem-faraday_middleware
   rubygem-ffi
   rubygem-fog-azure
@@ -270,7 +271,6 @@ whitelist = rubygem-algebrick
   rubygem-foreman_vmwareannotations
   rubygem-foreman_xen
   rubygem-foreman_templates
-  rubygem-get_process_mem
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_bootdisk

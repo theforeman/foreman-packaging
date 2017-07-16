@@ -213,6 +213,7 @@ BuildRequires: %{scl}-runtime-assets >= 3
 BuildRequires: %{scl}-runtime-assets < 4
 %endif
 BuildRequires: nodejs >= 6.10
+BuildRequires: http-parser
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 BuildRequires: libuv
@@ -731,7 +732,9 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/se
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
 export NODE_ENV=production
+%{?scl:scl enable %{scl} "}
 webpack.js --bail --config config/webpack.config.js
+%{?scl:"}
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
