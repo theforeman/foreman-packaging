@@ -84,6 +84,9 @@ cp -pf CHANGELOG.md README.md ../../
 %doc README.md
 
 %changelog
+* Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.12-2
+- Add back missing Provides: npm (ericdhelms@gmail.com)
+
 * Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.12-1
 - new package built with tito
 
