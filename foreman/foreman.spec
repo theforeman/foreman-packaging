@@ -296,8 +296,8 @@ BuildRequires: npm(url-loader) < 1.0.0
 BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(uuid) >= 3.0.1
 BuildRequires: npm(uuid) < 4.0.0
-BuildRequires: npm(webpack) < 2.0.0
-BuildRequires: npm(webpack) >= 1.9.11
+BuildRequires: npm(webpack) >= 3.0.0
+BuildRequires: npm(webpack) < 4.0.0
 BuildRequires: nodejs-packaging
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
