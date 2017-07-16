@@ -5,7 +5,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Write the stats of a build to a file
 License: MIT
 URL: git://github.com/unindented/stats-webpack-plugin.git
@@ -17,6 +17,7 @@ BuildRequires: npm
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(stats-webpack-plugin) = 0.6.1
 Provides: bundled-npm(lodash) = 4.17.4
 AutoReq: no

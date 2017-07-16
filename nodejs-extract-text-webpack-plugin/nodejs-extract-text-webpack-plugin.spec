@@ -8,7 +8,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 2.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Extract text from bundle into a file
 License: MIT
 URL: http://github.com/webpack-contrib/extract-text-webpack-plugin
@@ -35,6 +35,7 @@ BuildRequires: npm
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(extract-text-webpack-plugin) = 2.1.2
 Provides: bundled-npm(schema-utils) = 0.3.0
 Provides: bundled-npm(webpack-sources) = 1.0.1

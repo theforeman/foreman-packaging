@@ -5,7 +5,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Packs CommonJs/AMD modules for the browser
 License: MIT
 URL: https://github.com/webpack/webpack
@@ -321,6 +321,7 @@ BuildRequires: npm
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(webpack) = 3.0.0
 Provides: bundled-npm(acorn-dynamic-import) = 2.0.2
 Provides: bundled-npm(interpret) = 1.0.3

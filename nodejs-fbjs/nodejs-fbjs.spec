@@ -5,7 +5,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.8.12
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A collection of utility libraries used by other Facebook JS projects
 License: BSD-3-Clause
 URL: FIXME
@@ -30,6 +30,7 @@ BuildRequires: npm
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(fbjs) = 0.8.12
 Provides: bundled-npm(loose-envify) = 1.3.1
 Provides: bundled-npm(setimmediate) = 1.0.5
