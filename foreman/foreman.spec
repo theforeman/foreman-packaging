@@ -286,8 +286,8 @@ BuildRequires: npm(seamless-immutable) >= 7.0.1
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
-BuildRequires: npm(stats-webpack-plugin) < 1.0.0
-BuildRequires: npm(stats-webpack-plugin) >= 0.6.0
+BuildRequires: npm(webpack-stats-plugin) < 1.0.0
+BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
 BuildRequires: npm(style-loader) < 1.0.0
 BuildRequires: npm(style-loader) >= 0.13.1
 BuildRequires: npm(urijs) < 1.19.0
@@ -565,8 +565,8 @@ Requires: npm(seamless-immutable) >= 7.0.1
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
-Requires: npm(stats-webpack-plugin) < 1.0.0
-Requires: npm(stats-webpack-plugin) >= 0.6.0
+Requires: npm(webpack-stats-plugin) < 1.0.0
+Requires: npm(webpack-stats-plugin) >= 0.1.5
 Requires: npm(style-loader) < 1.0.0
 Requires: npm(style-loader) >= 0.13.1
 Requires: npm(urijs) < 1.19.0
@@ -719,7 +719,9 @@ sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/se
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
 export NODE_ENV=production
+%{?scl:scl enable %{scl} "}
 webpack.js --bail --config config/webpack.config.js
+%{?scl:"}
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
