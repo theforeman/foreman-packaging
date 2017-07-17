@@ -1,7 +1,7 @@
 %define _binaries_in_noarch_packages_terminate_build 0
 
 Name: foreman-bootloaders-redhat
-Version: 201705231433
+Version: 201707171807
 Release: 1%{?dist}
 Summary: Binaries of Grub1, Grub2 and Shim bootloaders
 
@@ -54,6 +54,8 @@ install -d -m0755 %{buildroot}%{_sharedstatedir}/tftpboot
 %attr(644,root,root)
 %{_datarootdir}/%{name}/grub/grubia32.efi
 %{_datarootdir}/%{name}/grub/grubx64.efi
+%{_datarootdir}/%{name}/grub/bootia32.efi
+%{_datarootdir}/%{name}/grub/bootx64.efi
 %{_datarootdir}/%{name}/grub2/grubaa64.efi
 %{_datarootdir}/%{name}/grub2/grubia32.efi
 %{_datarootdir}/%{name}/grub2/grubppc64.efi
@@ -74,6 +76,8 @@ install -d -m0755 %{buildroot}%{_sharedstatedir}/tftpboot
 %ghost %{_sharedstatedir}/tftpboot/grub2
 %ghost %{_sharedstatedir}/tftpboot/grub/grubia32.efi
 %ghost %{_sharedstatedir}/tftpboot/grub/grubx64.efi
+%ghost %{_sharedstatedir}/tftpboot/grub/bootia32.efi
+%ghost %{_sharedstatedir}/tftpboot/grub/bootx64.efi
 %ghost %{_sharedstatedir}/tftpboot/grub2/grubaa64.efi
 %ghost %{_sharedstatedir}/tftpboot/grub2/grubia32.efi
 %ghost %{_sharedstatedir}/tftpboot/grub2/grubppc64.efi
