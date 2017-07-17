@@ -91,6 +91,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.5-1
+- Update smart_proxy_remote_execution_ssh_core to 0.1.5 (inecas@redhat.com)
+
 * Tue Sep 20 2016 Dominic Cleal <dominic@cleal.org> 0.1.4-1
 - Update smart_proxy_remote_execution to 0.1.4 (inecas@redhat.com)
 
