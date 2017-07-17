@@ -103,6 +103,9 @@ cp -lpf %{_datarootdir}/%{name}/grub2/* %{_sharedstatedir}/tftpboot/grub2/
 
 
 %changelog
+* Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 201707171807-1
+- Foreman-bootloaders rebase to 201707171807 (lzap+git@redhat.com)
+
 * Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 201705231433-1
 - new package built with tito
 
