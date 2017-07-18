@@ -66,6 +66,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-url-loader
   nodejs-uuid
   nodejs-webpack
+  nodejs-webpack-stats-plugin
   puppet-agent-oauth
   puppet-agent-puppet-strings
   puppet-agent-yard

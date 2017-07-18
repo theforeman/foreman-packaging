@@ -44,10 +44,7 @@ original_locale=$LC_COLLATE
 export LC_COLLATE=en_GB
 el7whitelist=$(crudini --get rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist)
 el7whitelist=$(echo "$el7whitelist nodejs-$1" | tr " " "\n" | sort)
-f24whitelist=$(crudini --get rel-eng/tito.props foreman-nightly-fedora24 whitelist)
-f24whitelist=$(echo "$f24whitelist nodejs-$1" | tr " " "\n" | sort)
 crudini --set rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist "$el7whitelist"
-crudini --set rel-eng/tito.props foreman-nightly-fedora24 whitelist "$f24whitelist"
 export LC_COLLATE=$original_locale
 git add rel-eng/tito.props
 echo "FINISHED"
@@ -65,7 +62,6 @@ git add *.spec
 echo "FINISHED"
 echo -e "Updating comps... - "
 cd ..
-./add_to_comps.rb comps/comps-foreman-fedora24.xml nodejs-$1
 ./add_to_comps.rb comps/comps-foreman-rhel7.xml nodejs-$1 nonscl
 ./comps_doc.sh
 git add comps/
