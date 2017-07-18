@@ -166,7 +166,7 @@ done
 %setup -T -q -a 61 -D -n npm_cache
 
 %build
-npm install %{npm_name}@%{version} --cache-min Infinity --cache .
+npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
