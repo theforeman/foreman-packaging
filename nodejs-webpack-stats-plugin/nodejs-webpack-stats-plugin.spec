@@ -51,3 +51,6 @@ cp -pfr HISTORY.md LICENSE.txt README.md index.js lib package.json %{buildroot}%
 %doc README.md
 
 %changelog
+* Tue Jul 18 2017 Michael Moll <kvedulv@kvedulv.de> 0.1.5-1
+- Replace nodejs-stats-webpack-plugin with nodejs-webpack-stats-plugin
+
