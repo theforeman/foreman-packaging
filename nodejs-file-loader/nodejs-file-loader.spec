@@ -56,7 +56,7 @@ done
 %setup -T -q -a 6 -D -n npm_cache
 
 %build
-npm install --cache-min Infinity --cache . file-loader@0.9.0
+npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
