@@ -7,12 +7,12 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
-URL: https://github.com/sjoeboo/smart_proxy_dns_infoblox
+URL: https://github.com/theforeman/smart_proxy_dns_infoblox
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.13.0
 %if 0%{?rhel} == 6
