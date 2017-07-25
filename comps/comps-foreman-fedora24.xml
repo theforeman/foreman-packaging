@@ -152,13 +152,11 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">nodejs-babel-core-doc</packagereq>
-      <packagereq type="default">nodejs-babel-loader-doc</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs-doc</packagereq>
       <packagereq type="default">nodejs-datatables.net-doc</packagereq>
       <packagereq type="default">nodejs-diff-doc</packagereq>
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
-      <packagereq type="default">nodejs-fbjs-doc</packagereq>
       <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-ipaddr.js-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
@@ -169,10 +167,7 @@
       <packagereq type="default">nodejs-lodash-doc</packagereq>
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
-      <packagereq type="default">nodejs-stats-webpack-plugin-doc</packagereq>
-      <packagereq type="default">nodejs-urijs-doc</packagereq>
       <packagereq type="default">nodejs-url-loader-doc</packagereq>
-      <packagereq type="default">nodejs-webpack-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-audited-doc</packagereq>
