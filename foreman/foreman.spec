@@ -103,8 +103,8 @@ Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
 Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
+Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3
+Requires: %{?scl_prefix}rubygem(sprockets-rails) < 4
 Requires: %{?scl_prefix}rubygem(responders) >= 2.0
 Requires: %{?scl_prefix}rubygem(responders) < 3
 Requires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
@@ -119,6 +119,10 @@ Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.6
 Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.25
+Requires: %{?scl_prefix}rubygem(dynflow) < 1.0
+Requires: %{?scl_prefix}rubygem(daemons)
+Requires: %{?scl_prefix}rubygem(get_process_mem)
 # facter
 Requires: %{?scl_prefix}rubygem(facter)
 # jsonp
@@ -183,8 +187,8 @@ BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) < 4
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 2.3.3
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 3
+BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3
+BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) < 4
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 3
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 1.1
@@ -199,6 +203,10 @@ BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.6
 BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.25
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(daemons)
+BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 3
@@ -210,8 +218,8 @@ BuildRequires: nodejs >= 6.10
 BuildRequires: libuv
 BuildRequires: npm(babel-core) < 6.8.0
 BuildRequires: npm(babel-core) >= 6.7.2
-BuildRequires: npm(babel-loader) < 6.3.0
-BuildRequires: npm(babel-loader) >= 6.2.4
+BuildRequires: npm(babel-loader) < 7.2.0
+BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
@@ -236,8 +244,8 @@ BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(expose-loader) >= 0.6.0
-BuildRequires: npm(extract-text-webpack-plugin) < 3.0.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 2.1.0
+BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
+BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(fbjs) < 1.0.0
 BuildRequires: npm(fbjs) >= 0.8.12
 BuildRequires: npm(file-loader) < 1.0.0
@@ -272,6 +280,8 @@ BuildRequires: npm(react-bootstrap) >= 0.31.0
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-dom) >= 15.1.0
 BuildRequires: npm(react-dom) < 16.0.0
+BuildRequires: npm(react-numeric-input) >= 2.0.7
+BuildRequires: npm(react-numeric-input) < 3.0.0
 BuildRequires: npm(react-redux) >= 5.0.2
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(redux) >= 3.6.0
@@ -286,8 +296,6 @@ BuildRequires: npm(seamless-immutable) >= 7.0.1
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
-BuildRequires: npm(stats-webpack-plugin) < 1.0.0
-BuildRequires: npm(stats-webpack-plugin) >= 0.6.0
 BuildRequires: npm(style-loader) < 1.0.0
 BuildRequires: npm(style-loader) >= 0.13.1
 BuildRequires: npm(urijs) < 1.19.0
@@ -298,6 +306,8 @@ BuildRequires: npm(uuid) >= 3.0.1
 BuildRequires: npm(uuid) < 4.0.0
 BuildRequires: npm(webpack) >= 3.0.0
 BuildRequires: npm(webpack) < 4.0.0
+BuildRequires: npm(webpack-stats-plugin) < 1.0.0
+BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
 BuildRequires: nodejs-packaging
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
@@ -489,8 +499,8 @@ Requires: nodejs >= 6.10
 Requires: libuv
 Requires: npm(babel-core) < 6.8.0
 Requires: npm(babel-core) >= 6.7.2
-Requires: npm(babel-loader) < 6.3.0
-Requires: npm(babel-loader) >= 6.2.4
+Requires: npm(babel-loader) < 7.2.0
+Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-plugin-transform-object-assign) < 7.0.0
 Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
@@ -515,8 +525,8 @@ Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
 Requires: npm(expose-loader) < 0.7.0
 Requires: npm(expose-loader) >= 0.6.0
-Requires: npm(extract-text-webpack-plugin) < 3.0.0
-Requires: npm(extract-text-webpack-plugin) >= 2.1.0
+Requires: npm(extract-text-webpack-plugin) < 4.0.0
+Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(fbjs) < 1.0.0
 Requires: npm(fbjs) >= 0.8.12
 Requires: npm(file-loader) < 1.0.0
@@ -551,6 +561,8 @@ Requires: npm(react-bootstrap) >= 0.31.0
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-dom) >= 15.1.0
 Requires: npm(react-dom) < 16.0.0
+Requires: npm(react-numeric-input) >= 2.0.7
+Requires: npm(react-numeric-input) < 3.0.0
 Requires: npm(react-redux) >= 5.0.2
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
@@ -565,8 +577,6 @@ Requires: npm(seamless-immutable) >= 7.0.1
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
-Requires: npm(stats-webpack-plugin) < 1.0.0
-Requires: npm(stats-webpack-plugin) >= 0.6.0
 Requires: npm(style-loader) < 1.0.0
 Requires: npm(style-loader) >= 0.13.1
 Requires: npm(urijs) < 1.19.0
@@ -577,6 +587,8 @@ Requires: npm(uuid) >= 3.0.1
 Requires: npm(uuid) < 4.0.0
 Requires: npm(webpack) >= 3.0.0
 Requires: npm(webpack) < 4.0.0
+Requires: npm(webpack-stats-plugin) < 1.0.0
+Requires: npm(webpack-stats-plugin) >= 0.1.5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
