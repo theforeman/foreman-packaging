@@ -8,7 +8,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 7.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: babel module loader for webpack
 License: MIT
 URL: https://github.com/babel/babel-loader
@@ -34,6 +34,7 @@ BuildRequires: nodejs-packaging
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
+Provides: npm(%{npm_name}) = %{version}
 Provides: bundled-npm(babel-loader) = 7.1.1
 Provides: bundled-npm(find-cache-dir) = 1.0.0
 Provides: bundled-npm(mkdirp) = 0.5.1
