@@ -91,6 +91,9 @@ cp -pf CHANGELOG.md README.md ../../
 %doc README.md
 
 %changelog
+* Tue Jul 25 2017 Michael Moll <kvedulv@kvedulv.de> 7.1.1-2
+- Add missing provides to nodejs-babel-loader (eric.d.helms@gmail.com)
+
 * Tue Jul 25 2017 Michael Moll <kvedulv@kvedulv.de> 7.1.1-1
 - Bump babel-loader to 7.1.1 (eric.d.helms@gmail.com)
 
