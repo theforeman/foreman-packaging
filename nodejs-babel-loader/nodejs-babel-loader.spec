@@ -90,6 +90,9 @@ cp -pf CHANGELOG.md README.md ../../
 %doc README.md
 
 %changelog
+* Tue Jul 25 2017 Michael Moll <kvedulv@kvedulv.de> 7.1.1-1
+- Bump babel-loader to 7.1.1 (eric.d.helms@gmail.com)
+
 * Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 6.2.4-2
 - Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
 
