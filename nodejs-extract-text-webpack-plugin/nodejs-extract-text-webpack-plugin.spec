@@ -80,6 +80,9 @@ cp -pf CHANGELOG.md README.md LICENSE ../../
 %doc README.md
 
 %changelog
+* Wed Jul 26 2017 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-1
+- Update nodejs-extract-text-webpack to 3.0 (me@daniellobato.me)
+
 * Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 2.1.2-2
 - Add back missing Provides: npm (ericdhelms@gmail.com)
 
