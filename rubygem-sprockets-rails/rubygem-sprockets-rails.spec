@@ -1,40 +1,30 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from sprockets-rails-2.0.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name sprockets-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.3
+Version: 3.2.0
 Release: 1%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rails/sprockets-rails
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-# Get the tests
-# git clone https://github.com/rails/sprockets-rails.git && cd sprockets-rails/
-# git checkout v2.3.3
-# tar czvf sprockets-rails-2.3.3-tests.tgz test/
-Source2: sprockets-rails-%{version}-tests.tgz
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 2.8
-Requires: %{?scl_prefix}rubygem(sprockets) < 4
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix_ror}rubygem(railties)
-BuildRequires: %{?scl_prefix}rubygem(sprockets)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
-Provides Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline.
+Sprockets Rails integration.
 
 
 %package doc
@@ -44,20 +34,28 @@ Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %scl - << \EOF}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
 %{?scl:EOF}
+
 %setup -q -D -T -n  %{gem_name}-%{version}
-%{?scl:scl enable %scl - << \EOF}
+
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable %scl - << \EOF}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
@@ -66,23 +64,12 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%check
-pushd .%{gem_instdir}
-# Move the tests into place
-tar xzvf %{SOURCE2}
-
-%{?scl:scl enable %scl - << \EOF}
-ruby -Ilib -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
-%{?scl:EOF}
-popd
-
-
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/MIT-LICENSE
 
 %files doc
 %doc %{gem_docdir}
