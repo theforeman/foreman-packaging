@@ -76,6 +76,11 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 27 2017 Eric D. Helms <ericdhelms@gmail.com> 3.2.0-1
+- Update rubygem-sprockets-rails to 3.2.0 (me@daniellobato.me)
+- Import sprockets-rails for F24, 2.3.3 is required (dominic@cleal.org)
+- Remove packages now in sclo-ror42 (dominic@cleal.org)
+
 * Tue Jan 19 2016 Dominic Cleal <dcleal@redhat.com> 2.3.3-1
 - Update sprockets-rails to 2.3.3 for Patternfly (elobatocs@gmail.com)
 
