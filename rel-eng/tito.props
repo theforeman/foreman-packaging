@@ -191,6 +191,7 @@ whitelist = foreman
   rubygem-sexp_processor
   rubygem-signet
   rubygem-spice-html5-rails
+  rubygem-sprockets-rails
   rubygem-sshkey
   rubygem-syntax
   rubygem-text
