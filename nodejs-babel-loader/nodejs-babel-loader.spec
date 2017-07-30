@@ -30,6 +30,7 @@ Source14: http://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz
 Source15: http://registry.npmjs.org/p-locate/-/p-locate-2.0.0.tgz
 Source16: http://registry.npmjs.org/p-limit/-/p-limit-1.1.0.tgz
 Source17: babel-loader-7.1.1-registry.npmjs.org.tgz
+BuildRequires: npm
 BuildRequires: nodejs-packaging
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
