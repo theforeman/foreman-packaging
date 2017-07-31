@@ -1,0 +1,5 @@
+ruby-smart-proxy-monitoring (0.1.0-1) stable; urgency=low
+
+  * Initial Debian package
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 31 Jul 2017 21:56:27 +0200
