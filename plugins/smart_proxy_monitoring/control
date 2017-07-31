@@ -1,0 +1,17 @@
+Source: ruby-smart-proxy-monitoring
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_monitoring
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-monitoring
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.12.0~rc1),
+         ruby-json,
+         ruby-rest-client
+Description: Monitoring plug-in for Foreman's smart proxy
+ Monitoring plug-in for Foreman's smart proxy
