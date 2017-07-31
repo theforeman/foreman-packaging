@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.13.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: style loader module for webpack
 License: MIT
 URL: https://www.npmjs.com/package/style-loader

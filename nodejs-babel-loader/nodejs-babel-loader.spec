@@ -8,7 +8,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 7.1.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: babel module loader for webpack
 License: MIT
 URL: https://github.com/babel/babel-loader

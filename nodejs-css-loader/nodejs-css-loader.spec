@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.23.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: css loader module for webpack
 License: MIT
 URL: https://www.npmjs.com/package/css-loader

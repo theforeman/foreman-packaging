@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 6.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Babel preset for all es2015 plugins
 License: MIT
 Group: Development/Libraries

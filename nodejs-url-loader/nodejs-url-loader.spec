@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.5.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: url loader module for webpack
 License: MIT
 Group: Development/Libraries

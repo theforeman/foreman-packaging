@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 6.7.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Babel compiler core
 License: MIT
 Group: Development/Libraries
