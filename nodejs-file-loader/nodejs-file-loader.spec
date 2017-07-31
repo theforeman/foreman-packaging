@@ -2,7 +2,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 0.9.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: file loader module for webpack
 License: MIT
 Group: Development/Libraries
