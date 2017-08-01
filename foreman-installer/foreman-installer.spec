@@ -57,7 +57,7 @@ rake install \
   --trace
 
 %post
-foreman-installer --scenario foreman --migrations-only > /dev/null
+foreman-installer --scenario foreman --migrations-only >> /var/log/foreman-installer/yum-post-scriplet.log
 
 %files
 %defattr(-,root,root,-)
