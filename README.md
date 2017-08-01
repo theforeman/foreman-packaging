@@ -22,6 +22,7 @@ To build locally or release RPMs from this repo, you also require:
 
 * [tito](https://github.com/dgoodwin/tito) 0.6.1 or higher
 * [mock](http://fedoraproject.org/wiki/Projects/Mock) or koji client and an account (certificate) on koji.katello.org
+* scl-utils-build package (Fedora or Red Hat repositories)
 
 ## HOWTO: checkout
 
