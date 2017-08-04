@@ -5,7 +5,7 @@
 
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.1
+Version: 2.0.2
 Release: 1%{?dist}
 Group: Development/Libraries
 License: GPLv3+
