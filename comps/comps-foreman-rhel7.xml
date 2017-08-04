@@ -194,6 +194,7 @@
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
+      <packagereq type="default">nodejs-react-numeric-input</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-logger</packagereq>
@@ -201,12 +202,12 @@
       <packagereq type="default">nodejs-sass-loader</packagereq>
       <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
-      <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
+      <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
