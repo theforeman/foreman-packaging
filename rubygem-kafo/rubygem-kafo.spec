@@ -93,6 +93,10 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Aug 04 2017 Michael Moll <kvedulv@kvedulv.de> 2.0.2-1
+- Update kafo to 2.0.2 (ares@users.noreply.github.com)
+- Update kafo to 2.0.1 (mhulan@redhat.com)
+
 * Fri Mar 24 2017 Dominic Cleal <dominic@cleal.org> 2.0.0-1
 - Update kafo to 2.0.0 (mhulan@redhat.com)
 
