@@ -15,8 +15,8 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem-multipart-post >= 1.2.0
-Requires: %{?scl_prefix}rubygem-multipart-post < 3
+Requires: %{?scl_prefix}rubygem(multipart-post) >= 1.2.0
+Requires: %{?scl_prefix}rubygem(multipart-post) < 3
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
