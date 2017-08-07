@@ -54,7 +54,6 @@
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
-      <packagereq type="default">tfm-rubygem-dynflow</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
@@ -95,7 +94,6 @@
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
-      <packagereq type="default">tfm-rubygem-get_process_mem</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
@@ -167,7 +165,6 @@
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
@@ -207,7 +204,6 @@
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-get_process_mem-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
