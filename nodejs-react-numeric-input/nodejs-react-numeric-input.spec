@@ -47,3 +47,6 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Mon Aug 07 2017 Eric D. Helms <ericdhelms@gmail.com> 2.0.7-1
+- new package built with tito
+
