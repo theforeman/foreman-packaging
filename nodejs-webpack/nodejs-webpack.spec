@@ -378,6 +378,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack.js %{buildroot}%{_bindir}/webpa
 %doc README.md
 
 %changelog
+* Mon Aug 07 2017 Eric D. Helms <ericdhelms@gmail.com> 3.4.1-1
+- Update nodejs-weebpack to 3.4.1 (me@daniellobato.me)
+
 * Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-2
 - Add back missing Provides: npm (ericdhelms@gmail.com)
 
