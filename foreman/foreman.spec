@@ -30,6 +30,7 @@ Source6: %{name}.repo
 Source7: %{name}-plugins.repo
 Source8: %{name}.gpg
 Source9: message_encryptor_extensions.rb
+Source10: http://downloads.theforeman.org/%{name}/%{name}-node-modules-%{version}%{?dashalphatag}.tar.bz2
 BuildArch:  noarch
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -210,8 +211,8 @@ BuildRequires: nodejs >= 6.10
 BuildRequires: libuv
 BuildRequires: npm(babel-core) < 6.8.0
 BuildRequires: npm(babel-core) >= 6.7.2
-BuildRequires: npm(babel-loader) < 6.3.0
-BuildRequires: npm(babel-loader) >= 6.2.4
+BuildRequires: npm(babel-loader) >= 7.0.0
+BuildRequires: npm(babel-loader) < 8.0.0
 BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
@@ -236,8 +237,8 @@ BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(expose-loader) >= 0.6.0
-BuildRequires: npm(extract-text-webpack-plugin) < 3.0.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 2.1.0
+BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
+BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(fbjs) < 1.0.0
 BuildRequires: npm(fbjs) >= 0.8.12
 BuildRequires: npm(file-loader) < 1.0.0
@@ -489,8 +490,8 @@ Requires: nodejs >= 6.10
 Requires: libuv
 Requires: npm(babel-core) < 6.8.0
 Requires: npm(babel-core) >= 6.7.2
-Requires: npm(babel-loader) < 6.3.0
-Requires: npm(babel-loader) >= 6.2.4
+Requires: npm(babel-loader) >= 7.0.0
+Requires: npm(babel-loader) < 8.0.0
 Requires: npm(babel-plugin-transform-object-assign) < 7.0.0
 Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
@@ -717,9 +718,14 @@ cp config/settings.yaml.example config/settings.yaml
 sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.yaml
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
 export BUNDLER_EXT_GROUPS="default assets"
-ln -s %{nodejs_sitelib} node_modules
+
+%{?scl:scl enable %{scl} - <<EOF}
 export NODE_ENV=production
-webpack.js --bail --config config/webpack.config.js
+tar -jxf %{SOURCE10}
+./node_modules/webpack/bin/webpack.js --bail --config config/webpack.config.js
+rm -rf node_modules/
+%{?scl:EOF}
+
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
 %{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
