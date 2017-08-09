@@ -1,3 +1,9 @@
+foreman-installer (1.15.3-1) stable; urgency=low
+
+  * 1.15.3 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Wed, 09 Aug 2017 09:47:39 +0200
+
 foreman-installer (1.15.2-1) stable; urgency=low
 
   * 1.15.2 released
