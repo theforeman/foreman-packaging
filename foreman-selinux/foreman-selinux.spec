@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Aug 09 2017 Eric D. Helms <ericdhelms@gmail.com> 1.15.3-1
+- Release 1.15.3 (me@daniellobato.me)
+
 * Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 1.15.2-1
 - Release 1.15.2 (me@daniellobato.me)
 
