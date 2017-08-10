@@ -120,6 +120,9 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 
 %changelog
+* Thu Aug 10 2017 Eric D. Helms <ericdhelms@gmail.com> 0.6.5-1
+- Update smart_proxy_openscap to v0.6.5 (oprazak@redhat.com)
+
 * Wed Apr 12 2017 Dominic Cleal <dominic@cleal.org> 0.6.4-1
 - Update smart_proxy_openscap to 0.6.4 (mhulan@redhat.com)
 
