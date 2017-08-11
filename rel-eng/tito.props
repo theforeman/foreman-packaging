@@ -376,6 +376,7 @@ whitelist = rubygem-algebrick
   rubygem-foreman_salt
   rubygem-foreman_setup
   rubygem-foreman_snapshot
+  rubygem-foreman_snapshot_management
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
   rubygem-foreman_vmwareannotations
