@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.6-1
+- Update smart_proxy_dns_infoblox to 0.0.6 (dmitri@appliedlogic.ca)
+
 * Mon Sep 12 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-1
 - new package built with tito
 
