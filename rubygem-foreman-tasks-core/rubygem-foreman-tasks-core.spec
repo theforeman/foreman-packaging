@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.2.0-1
+- Update foreman-tasks-core to 0.2.0 (inecas@redhat.com)
+
 * Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.4-1
 -  Update foreman-tasks-core to 0.1.4 (inecas@redhat.com)
 
