@@ -888,7 +888,7 @@ unlink tmp \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
-%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
+%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create db:schema:load SCHEMA=%{_datadir}/%{name}/schema_plugin.rb RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} --trace} \\
