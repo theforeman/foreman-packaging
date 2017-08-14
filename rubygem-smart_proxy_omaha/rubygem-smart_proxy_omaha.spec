@@ -113,6 +113,9 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.2-1
+- Update smart_proxy_omaha to 0.0.2 (mail@timogoebel.name)
+
 * Mon Oct 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
 
