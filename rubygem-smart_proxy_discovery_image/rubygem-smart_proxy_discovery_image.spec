@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.7-1
+- Update smart_proxy_discovery_image-1.0.7.gem (lzap+git@redhat.com)
+
 * Wed May 24 2017 Dominic Cleal <dominic@cleal.org> 1.0.6-1
 - Update smart_proxy_discovery_image-1.0.6 (lzap+git@redhat.com)
 
