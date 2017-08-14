@@ -81,6 +81,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.11.0-1
+- Update hammer_cli_foreman to 0.11.0 (tstrachota@redhat.com)
+
 * Fri May 05 2017 Dominic Cleal <dominic@cleal.org> 0.10.2-1
 - Update hammer-cli-foreman to 0.10.2 (tstrachota@redhat.com)
 
