@@ -163,6 +163,11 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-2
+- Update foreman-tasks use of foreman_precompile_plugin macro
+  (ericdhelms@gmail.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-1
 - Update foreman-tasks to 0.10.0 (inecas@redhat.com)
 
