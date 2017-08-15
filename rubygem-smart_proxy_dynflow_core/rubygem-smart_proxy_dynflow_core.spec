@@ -120,6 +120,10 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.7-1
+- Update smart_proxy_dynflow_core to 0.1.7 (inecas@redhat.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon May 15 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-2
 - Logrotate for smart_proxy_dynflow_core (#19521, aruzicka@redhat.com)
 
