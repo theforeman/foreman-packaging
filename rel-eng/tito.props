@@ -498,6 +498,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_snapshot
+  rubygem-foreman_snapshot_management
   rubygem-foreman_templates
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
