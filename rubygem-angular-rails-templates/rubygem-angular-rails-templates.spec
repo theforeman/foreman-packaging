@@ -7,8 +7,8 @@
 %global gem_name angular-rails-templates
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   0.1.2
-Release:   5%{?dist}
+Version:   1.0.2
+Release:   1%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -21,8 +21,10 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
-Requires:  %{?scl_prefix_ror}rubygem(railties) >= 3.1
-Requires:  %{?scl_prefix_ror}rubygem(sprockets)
+Requires:  %{?scl_prefix_ror}rubygem(railties) >= 4.2
+Requires:  %{?scl_prefix_ror}rubygem(railties) < 6
+Requires:  %{?scl_prefix_ror}rubygem(sprockets) >= 3.0
+Requires:  %{?scl_prefix_ror}rubygem(sprockets) < 5
 Requires:  %{?scl_prefix_ror}rubygem(tilt)
 Requires:  %{?scl_prefix_ruby}ruby(release)
 
