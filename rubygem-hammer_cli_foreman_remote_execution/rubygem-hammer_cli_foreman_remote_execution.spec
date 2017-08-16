@@ -71,6 +71,10 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 16 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.6-1
+- Update rubygem-hammer_cli_foreman_remote_execution to 0.0.6
+  (aruzicka@redhat.com)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.5-2
 - Use gem_install macro (dominic@cleal.org)
 
