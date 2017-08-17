@@ -1,1 +1,0 @@
-gem 'net-ssh-krb'

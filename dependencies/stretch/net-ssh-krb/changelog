@@ -1,5 +1,5 @@
-ruby-net-ssh-krb (0.4.0-1) unstable; urgency=low
+ruby-net-ssh-krb (0.4.0-1) unstable; urgency=medium
 
-  * Initial release for Debian/stretch
+  * Initial release (Closes: #872417)
 
- -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 30 May 2017 14:53:27 +0200
+ -- Michael Moll <kvedulv@kvedulv.de>  Thu, 17 Aug 2017 11:30:30 +0200
