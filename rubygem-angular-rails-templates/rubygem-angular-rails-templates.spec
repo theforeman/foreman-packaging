@@ -70,6 +70,11 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Aug 18 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.2-1
+- Update rubygem-angular-rails-templates to 1.0.2 (kvedulv@kvedulv.de)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-5
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
