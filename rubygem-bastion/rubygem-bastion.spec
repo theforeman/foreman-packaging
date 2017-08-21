@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Mon Aug 21 2017 Eric D. Helms <ericdhelms@gmail.com> 5.0.9-1
+- Release rubygem-bastion 5.0.9 (eric.d.helms@gmail.com)
+
 * Tue Jun 13 2017 Eric D. Helms <ericdhelms@gmail.com> 5.0.6-1
 - Update rubygem-bastion to 5.0.6 (ericdhelms@gmail.com)
 
