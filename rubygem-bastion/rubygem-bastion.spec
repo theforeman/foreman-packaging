@@ -13,7 +13,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.9
+Version:    5.0.10
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
@@ -24,11 +24,11 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-Requires: foreman >= 1.11.0
+Requires: foreman >= 1.15.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
 
-BuildRequires: foreman-assets >= 1.11.0
-BuildRequires: foreman-plugin >= 1.11.0
+BuildRequires: foreman-assets >= 1.15.0
+BuildRequires: foreman-plugin >= 1.15.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
