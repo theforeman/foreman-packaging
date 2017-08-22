@@ -1,7 +1,7 @@
 Source: ruby-net-ssh-krb
 Section: ruby
 Priority: optional
-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Maintainer: Adam Ruzicka <aruzicka@redhat.com>
 Uploaders: Michael Moll <kvedulv@kvedulv.de>
 Build-Depends: debhelper (>= 9~),
                gem2deb,
