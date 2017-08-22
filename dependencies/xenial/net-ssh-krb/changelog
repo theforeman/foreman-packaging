@@ -1,0 +1,5 @@
+ruby-net-ssh-krb (0.4.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #872417)
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 17 Aug 2017 11:30:30 +0200
