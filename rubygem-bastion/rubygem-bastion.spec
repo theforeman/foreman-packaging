@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Tue Aug 22 2017 Eric D. Helms <ericdhelms@gmail.com> 5.0.10-1
+- Release rubygem-bastion 5.0.10 (ericdhelms@gmail.com)
+
 * Sat Aug 19 2017 Michael Moll <kvedulv@kvedulv.de> 5.0.9-1
 - Release rubygem-bastion 5.0.9 (eric.d.helms@gmail.com)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
