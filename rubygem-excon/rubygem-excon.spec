@@ -5,7 +5,7 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.51.0
+Version: 0.58.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,7 @@ ln -sf /etc/pki/tls/cert.pem \
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/spec
 %{gem_spec}
 %doc %{gem_instdir}/LICENSE.md
 
