@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.2.0
+Version: 0.4.1
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
