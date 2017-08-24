@@ -6,7 +6,7 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.44.2
+Version: 1.45.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -14,7 +14,7 @@ URL: http://github.com/fog/fog-core
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem-builder
-Requires: %{?scl_prefix}rubygem-excon >= 0.49.0
+Requires: %{?scl_prefix}rubygem-excon >= 0.58.0
 Requires: %{?scl_prefix}rubygem-excon < 1
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
