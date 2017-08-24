@@ -91,6 +91,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 24 2017 Eric D. Helms <ericdhelms@gmail.com> 0.58.0-1
+- Update excon to 0.58 (me@daniellobato.me)
+
 * Tue Jul 19 2016 Dominic Cleal <dominic@cleal.org> 0.51.0-1
 - Update excon to 0.51.0 (dominic@cleal.org)
 
