@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Thu Aug 24 2017 Eric D. Helms <ericdhelms@gmail.com> 1.45.0-1
+- Update fog-core to 1.45.0 (me@daniellobato.me)
+
 * Mon May 22 2017 Dominic Cleal <dominic@cleal.org> 1.44.2-1
 - Update fog-core to 1.44.2 (dominic@cleal.org)
 
