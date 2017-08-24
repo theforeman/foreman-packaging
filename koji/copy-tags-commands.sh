@@ -10,11 +10,11 @@ fi
 OLD=$1
 VERSION=$2
 
-NONSCL_SYSTEMS="fedora24"
+NONSCL_SYSTEMS=""
 SCL_SYSTEMS="rhel7"
 
 clone() {
-  echo kkoji clone-tag $PRODUCT-$OLD-$SYSTEM $PRODUCT-$VERSION-$SYSTEM
+  echo kkoji clone-tag --config $PRODUCT-$OLD-$SYSTEM $PRODUCT-$VERSION-$SYSTEM
 
   echo kkoji add-tag --parent=$PRODUCT-$VERSION-$SYSTEM $PRODUCT-$VERSION-$SYSTEM-override
   echo kkoji add-tag --parent=$PRODUCT-$VERSION-$SYSTEM-override $PRODUCT-$VERSION-$SYSTEM-build
