@@ -65,8 +65,6 @@ gem build %{gem_name}.gemspec
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-
 
 %files
 %dir %{gem_instdir}
