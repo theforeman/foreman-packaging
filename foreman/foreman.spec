@@ -94,7 +94,7 @@ Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
 Requires: %{?scl_prefix}rubygem(logging) < 3.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.44.2
+Requires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -178,7 +178,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.44.2
+BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -373,7 +373,7 @@ for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.4.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.4
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
@@ -418,7 +418,7 @@ Meta package to install requirements for oVirt compute resource support.
 %package compute
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.40.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.41.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
