@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 4%{?dist}
+Release: 1%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 Group: Development/Languages
 License: MIT
@@ -72,7 +72,8 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/COPYING
+%{gem_instdir}/Rakefile
+%{gem_instdir}/VERSION
 
 %files doc
 %doc %{gem_docdir}
@@ -80,10 +81,7 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/COPYING
 %doc %{gem_instdir}/Changelog.md
 %doc %{gem_instdir}/Gemfile
-%{gem_instdir}/VERSION
 %{gem_instdir}/examples
-%{gem_instdir}/test
-%{gem_instdir}/Rakefile
 %doc %{gem_instdir}/preamble
 
 %changelog
