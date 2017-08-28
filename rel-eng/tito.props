@@ -13,7 +13,7 @@ tag_suffix = .fm1_16
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.16-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -91,7 +91,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.16-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-algebrick
@@ -214,7 +214,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.16-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -293,7 +293,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.16-nonscl-rhel7]
 disttag = .el7
 whitelist = puppet-foreman_scap_client
   rubygem-algebrick
