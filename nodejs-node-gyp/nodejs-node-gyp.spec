@@ -132,10 +132,14 @@ Source118: addon-rpm.gypi
 Patch1: node-gyp-addon-gypi.patch
 Requires: nodejs(engine)
 # this is the standard set of headers expected to build any node native module
-Requires: nodejs-devel libuv-devel http-parser-devel
+Requires: nodejs-devel
+Requires: libuv-devel
+Requires: http-parser-devel
 # we also need a C++ compiler to actually build stuff ;-)
 Requires: gcc-c++
 BuildRequires: nodejs-devel
+BuildRequires: libuv-devel
+BuildRequires: http-parser-devel
 BuildRequires: nodejs-packaging
 BuildRequires: npm
 BuildArch: noarch
