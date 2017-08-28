@@ -9,6 +9,8 @@
     <packagelist>
       <packagereq type="default">centos-release-scl</packagereq>
       <packagereq type="default">centos-release-scl-rh</packagereq>
+      <packagereq type="default">http-parser</packagereq>
+      <packagereq type="default">http-parser-devel</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
