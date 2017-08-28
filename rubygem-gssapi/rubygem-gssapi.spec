@@ -74,6 +74,7 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %{gem_spec}
 %{gem_instdir}/Rakefile
 %{gem_instdir}/VERSION
+%exclude %{gem_instdir}/spec
 
 %files doc
 %doc %{gem_docdir}

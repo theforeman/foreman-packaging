@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_instdir}/net-ssh-kerberos.gemspec
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/spec
+%{gem_instdir}/Rakefile
+%{gem_instdir}/Gemfile
 %{gem_spec}
 
 %files doc
