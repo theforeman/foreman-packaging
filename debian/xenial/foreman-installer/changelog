@@ -1,8 +1,44 @@
-foreman-installer (1.16.0-1) stable; urgency=low
+foreman-installer (1.15.3-1) stable; urgency=low
 
-  * Bump changelog to 1.16.0 to match VERSION
+  * 1.15.3 released
 
- -- Michael Moll <mmoll@mmoll.at>  Thu, 30 Mar 2017 10:54:21 +0200
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Wed, 09 Aug 2017 09:47:39 +0200
+
+foreman-installer (1.15.2-1) stable; urgency=low
+
+  * 1.15.2 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Fri, 07 Jul 2017 18:11:44 +0200
+
+foreman-installer (1.15.1-1) stable; urgency=low
+
+  * 1.15.1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Fri, 09 Jun 2017 09:33:17 +0200
+
+foreman-installer (1.15.0-1) stable; urgency=low
+
+  * 1.15.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Tue, 09 May 2017 07:27:48 +0200
+
+foreman-installer (1.15.0~rc2-1) stable; urgency=low
+
+  * 1.15.0-RC2 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Mon, 24 Apr 2017 16:24:38 +0200
+
+foreman-installer (1.15.0~rc1-1) stable; urgency=low
+
+  * 1.15.0-RC1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 06 Apr 2017 13:50:56 +0200
+
+foreman-installer (1.14.3-1) stable; urgency=low
+
+  * 1.14.3 released
+
+ -- Dominic Cleal <dominic@cleal.org>  Mon, 03 Apr 2017 12:05:04 +0100
 
 foreman-installer (1.14.2-1) stable; urgency=low
 
