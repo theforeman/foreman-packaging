@@ -144,7 +144,7 @@ sed -i '/add_.*dependency.*cloudatcost/d' %{gem_name}.gemspec
 %patch17 -p1
 sed -i '/add_.*dependency.*dnsimple/d' %{gem_name}.gemspec
 %patch18 -p1
-sed -i '/add_.*dependency.*internet_archive/d' %{gem_name}.gemspec
+sed -i '/add_.*dependency.*internet-archive/d' %{gem_name}.gemspec
 %patch19 -p1
 sed -i '/add_.*dependency.*joyent/d' %{gem_name}.gemspec
 
