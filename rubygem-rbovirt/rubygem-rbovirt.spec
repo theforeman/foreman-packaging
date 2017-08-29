@@ -70,6 +70,10 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Tue Aug 29 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.4-1
+- Update rbovirt to 0.1.4 (inecas@redhat.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Feb 22 2017 Dominic Cleal <dominic@cleal.org> 0.1.3-1
 - Updated rbovirt to 0.1.3 (lzap+git@redhat.com)
 
