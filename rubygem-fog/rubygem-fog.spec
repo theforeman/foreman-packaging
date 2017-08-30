@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.41.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://github.com/fog/fog
@@ -199,6 +199,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Wed Aug 30 2017 Eric D. Helms <ericdhelms@gmail.com> 1.41.0-2
+- Properly remove the internet-archive dependency (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Aug 25 2017 Michael Moll <kvedulv@kvedulv.de> 1.41.0-1
 - Update fog to 1.41 (me@daniellobato.me)
 
