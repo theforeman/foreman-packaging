@@ -357,7 +357,7 @@ Useful utilities for debug info collection
 
 %package release
 Summary:        Foreman repository files
-Group:  	Applications/System
+Group:          Applications/System
 
 
 %description release
@@ -488,7 +488,7 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 
 %package assets
 Summary: Foreman asset pipeline support
-Group: Applications/system
+Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
 Requires: %{scl}-runtime-assets >= 3
