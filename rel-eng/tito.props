@@ -126,6 +126,7 @@ whitelist = foreman
   rubygem-fog-core
   rubygem-fog-digitalocean
   rubygem-fog-google
+  rubygem-fog-internet-archive
   rubygem-fog-json
   rubygem-fog-libvirt
   rubygem-fog-openstack

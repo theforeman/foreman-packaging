@@ -40,6 +40,7 @@ Requires: %{?scl_prefix}rubygem(fog-core) >= 1.45.0
 Requires: %{?scl_prefix}rubygem(fog-core) < 2.0.0
 Requires: %{?scl_prefix}rubygem(fog-digitalocean) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
+Requires: %{?scl_prefix}rubygem(fog-internet-archive)
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-openstack)
 Requires: %{?scl_prefix}rubygem(fog-rackspace)
