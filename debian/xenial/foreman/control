@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7), cdbs, bundler (>= 1.3), ruby2.3-dev, git | git-core,
                zlib1g-dev, libmysqlclient-dev, libpq-dev, pkg-config, libvirt-dev,
-               libsqlite3-dev, build-essential, curl, nodejs (>= 6.10), yarn,
+               libsqlite3-dev, build-essential, curl, nodejs (>= 6.10),
                python
 Homepage: http://www.theforeman.org/
 
