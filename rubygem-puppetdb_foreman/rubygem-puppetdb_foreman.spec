@@ -16,7 +16,7 @@
 
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.2
+Version:    3.1.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -67,6 +67,7 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -80,6 +81,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %posttrans
+%{foreman_db_migrate}
 %{foreman_apipie_cache}
 %{foreman_restart}
 exit 0
