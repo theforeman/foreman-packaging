@@ -55,7 +55,7 @@ class ForemanSourceStrategy(SourceStrategy):
                 self.builder.project_name),
             self.spec_file)
         for s in os.listdir(self.builder.start_dir):
-            if os.path.exists(os.path.join(self.builder.start_dir, s)):
+            if os.path.exists(os.path.join(self.builder.start_dir, s)) and os.path.isfile(s):
                 shutil.copyfile(
                     os.path.join(self.builder.start_dir, s),
                     os.path.join(self.builder.rpmbuild_sourcedir, os.path.basename(s)))
