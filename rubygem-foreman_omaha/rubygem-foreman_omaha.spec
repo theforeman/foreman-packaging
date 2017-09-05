@@ -5,7 +5,7 @@
 %global plugin_name omaha
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
@@ -16,6 +16,7 @@ Requires: foreman >= 1.12.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: foreman-assets
 BuildRequires: foreman-plugin >= 1.12.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -67,7 +68,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -82,6 +83,7 @@ cp -pa .%{gem_dir}/* \
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
 
 %files doc
 %doc %{gem_docdir}
