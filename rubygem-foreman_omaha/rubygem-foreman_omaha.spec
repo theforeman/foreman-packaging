@@ -99,6 +99,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 06 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.3-1
+- Update foreman_omaha to 0.0.3 (mail@timogoebel.name)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Oct 24 2016 Dominic Cleal <dominic@cleal.org> 0.0.2-1
 - Update foreman_omaha to 0.0.2 (timo.goebel@dm.de)
 
