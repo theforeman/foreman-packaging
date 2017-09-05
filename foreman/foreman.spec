@@ -129,6 +129,7 @@ Requires: %{?scl_prefix}rubygem(facter)
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
 # Build dependencies
+%{?systemd_requires}
 BuildRequires: gettext
 BuildRequires: asciidoc
 BuildRequires: %{scl_ruby_bin}
@@ -357,7 +358,7 @@ Useful utilities for debug info collection
 
 %package release
 Summary:        Foreman repository files
-Group:  	Applications/System
+Group:          Applications/System
 
 
 %description release
@@ -488,7 +489,7 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 
 %package assets
 Summary: Foreman asset pipeline support
-Group: Applications/system
+Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
 Requires: %{scl}-runtime-assets >= 3
@@ -768,9 +769,7 @@ install -Dp -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
-%if 0%{?rhel} > 6 || 0%{?fedora} > 16
-install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
-%endif
+install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}%{_tmpfilesdir}/%{name}.conf
 
 install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
@@ -834,7 +833,7 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_rake         %{foreman_rake}
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_restart      (/sbin/service %{name} status && /sbin/service %{name} restart) >/dev/null 2>&1
+%%%{name}_restart      (/bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 EOF
 
 # Keep a copy of the schema for quick initialisation of plugin builds
@@ -948,17 +947,9 @@ rm -rf %{buildroot}
 %attr(-,%{name},%{name}) %{_localstatedir}/run/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
-# Symlink to /etc, EL6 needs attrs for ghost files, Fedora doesn't
-%if 0%{?rhel} == 6
-%ghost %attr(0777,root,root) %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%else
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%endif
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
-# Only need tmpfiles on systemd (F17 and up)
-%if 0%{?rhel} > 6 || 0%{?fedora} > 16
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
-%endif
+%{_prefix}%{_tmpfilesdir}/%{name}.conf
 
 %pre
 # Add the "foreman" user and group
@@ -993,8 +984,7 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
 
-/sbin/chkconfig --add %{name} || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+%systemd_postun_with_restart %{name}.service
 exit 0
 
 %posttrans
@@ -1004,20 +994,14 @@ exit 0
 %{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
 %{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
 %{foreman_rake} tmp:clear >> %{_localstatedir}/log/%{name}/tmp_clear.log 2>&1 || :
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+(/bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 exit 0
 
 %preun
-if [ $1 -eq 0 ] ; then
-/sbin/service %{name} stop >/dev/null 2>&1
-/sbin/chkconfig --del %{name} || :
-fi
+%systemd_preun %{name}.service
 
 %postun
-if [ $1 -ge 1 ] ; then
-# Restart the service
-/sbin/service %{name} restart >/dev/null 2>&1 || :
-fi
+%systemd_postun_with_restart %{name}.service
 
 %changelog
 * Mon Aug 28 2017 Daniel Lobato Garcia <me@daniellobato.me> - 1.17.0-0.develop
