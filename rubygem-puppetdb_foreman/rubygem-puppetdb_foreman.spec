@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 06 2017 Daniel Lobato Garcia <me@daniellobato.me> 3.1.2-1
+- Update puppetdb_foreman to 3.1.2 (mail@timogoebel.name)
+
 * Fri Apr 28 2017 Dominic Cleal <dominic@cleal.org> 3.0.2-1
 - Update puppetdb_foreman to 3.0.2 (mail@timogoebel.name)
 
