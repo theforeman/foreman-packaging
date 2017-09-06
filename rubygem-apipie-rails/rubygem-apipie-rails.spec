@@ -5,7 +5,7 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.1
+Version: 0.5.4
 Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
@@ -81,7 +81,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/NOTICE
 %doc %{gem_instdir}/images
 %{gem_instdir}/Rakefile
-%{gem_instdir}/Gemfile
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
