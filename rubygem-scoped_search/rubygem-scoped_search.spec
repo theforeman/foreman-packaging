@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.1.0
+Version: 4.1.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
