@@ -110,6 +110,10 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Sep 08 2017 Daniel Lobato Garcia <me@daniellobato.me> 4.1.2-1
+- Update scoped_search to 0.4.2 (ares@users.noreply.github.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Mar 29 2017 Dominic Cleal <dominic@cleal.org> 4.1.0-1
 - Update scoped_search to 4.1.0 (dominic@cleal.org)
 
