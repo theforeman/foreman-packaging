@@ -14,7 +14,7 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby,
          ruby-kafo (>= 1.0.5),
-         puppet-agent (>= 1.6.1) | puppet (>= 4.6.1),
+         puppet-agent (>= 1.9.0) | puppet (>= 4.9.0),
          curl,
          lsb-release
 Description: Automated puppet-based installer for The Foreman
