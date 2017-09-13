@@ -90,3 +90,6 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Sep 14 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.1-1
+- new package built with tito
+
