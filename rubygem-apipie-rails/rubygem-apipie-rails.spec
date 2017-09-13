@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Sep 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.5.4-1
+- Update apipie-rails to 0.5.4 (ares@users.noreply.github.com)
+
 * Tue Feb 21 2017 Dominic Cleal <dominic@cleal.org> 0.4.0-2
 - Fix SCL prefix on rails dep (dominic@cleal.org)
 
