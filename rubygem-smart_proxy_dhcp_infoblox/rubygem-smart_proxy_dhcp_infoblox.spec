@@ -7,7 +7,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.6
+Version: 0.0.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -22,7 +22,7 @@ Requires: ruby(release)
 %endif
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(infoblox)
+Requires: rubygem(infoblox) >= 2.0.4
 %if 0%{?rhel} == 6
 BuildRequires: ruby(abi)
 %else
