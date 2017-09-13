@@ -84,6 +84,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Sep 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.5.4-1
+- Update apipie-rails to 0.5.4 (ares@users.noreply.github.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Apr 26 2017 Dominic Cleal <dominic@cleal.org> 0.5.1-1
 - Update apipie-rails to 0.5.1 (dominic@cleal.org)
 
