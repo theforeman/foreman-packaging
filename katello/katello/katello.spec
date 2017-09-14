@@ -134,6 +134,7 @@ Requires:       %{?scl_prefix}rubygem-katello
 Requires:       %{?scl_prefix}rubygem-hammer_cli
 Requires:       %{?scl_prefix}rubygem-hammer_cli_foreman
 Requires:       %{?scl_prefix}rubygem-hammer_cli_katello
+Requires:       rubygem-highline
 Requires:       %{name}-debug
 Requires:       %{name}-service
 
@@ -172,6 +173,7 @@ Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
 Requires: foreman-installer-%{name}
+Requires: rubygem-highline
 Obsoletes: katello-capsule
 
 %description -n foreman-proxy-content

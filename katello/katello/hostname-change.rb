@@ -5,6 +5,7 @@ require "yaml"
 require "shellwords"
 require "json"
 require "uri"
+require "highline/import"
 require_relative "helper.rb"
 
 module KatelloUtilities
@@ -41,23 +42,6 @@ module KatelloUtilities
 
     def get_hostname
       Socket.gethostname.chomp
-    end
-
-    def yesno
-      begin
-        system("stty raw -echo")
-        str = STDIN.getc
-      ensure
-        system("stty -raw echo")
-      end
-      if str.chr.downcase == "y"
-        return true
-      elsif str.chr.downcase == "n"
-        return false
-      else
-        puts "Invalid Character. Try again: [y/n]"
-        self.yesno
-      end
     end
 
     def check_for_certs_tar
@@ -112,7 +96,7 @@ module KatelloUtilities
         response = true
       else
         STDOUT.print(self.warning_message)
-        response = self.yesno
+        response = agree('Proceed with changing your hostname? [y/n]')
       end
 
       unless response
@@ -163,8 +147,7 @@ module KatelloUtilities
         STDOUT.print(" #{ @plural_proxy } will have to be re-registered and reinstalled. If you are using custom certificates, you " \
                      "will have to run the #{@options[:program]}-installer again with custom certificate options after this script completes.")
       end
-      STDOUT.print(" Have you taken the necessary precautions (backups, snapshots, etc...) and want to proceed with " \
-                   "changing your hostname? \n [y/n]:")
+      STDOUT.print(" Have you taken the necessary precautions (backups, snapshots, etc...)?\n")
     end
 
     def hammer_cmd(cmd, exit_codes=[0], message=nil)
