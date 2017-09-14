@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Thu Sep 14 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.7-1
+- Updated smart_proxy_dhcp_infoblox to 0.0.7 (witlessbird@gmail.com)
+
 * Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.6-1
 - Update smart_proxy_dhcp_infoblox to 0.0.6 (dmitri@appliedlogic.ca)
 
