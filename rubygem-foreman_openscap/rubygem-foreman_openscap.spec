@@ -105,6 +105,10 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Thu Sep 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.7.6-1
+- Update foreman_openscap to 0.7.6 (mhulan@redhat.com)
+- Remove old OpenSCAP gems (me@daniellobato.me)
+
 * Wed Sep 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.1-1
 - Update foreman_openscap to 0.8.1 (ares@users.noreply.github.com)
 
