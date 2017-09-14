@@ -65,6 +65,9 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.5-1
+- Update hammer_cli_foreman_openscap to 0.1.5 (mhulan@redhat.com)
+
 * Wed Jul 26 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.4-1
 - Update hammer_cli_foreman_openscap to 0.1.4 (mhulan@redhat.com)
 
