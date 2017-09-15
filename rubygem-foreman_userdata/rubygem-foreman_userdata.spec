@@ -10,8 +10,8 @@ Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for serving user-data for cloud-init to The Foreman
 Group: Applications/Systems
 License: GPL-3
-URL: http://github.com/theforeman/foreman_userdata
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/theforeman/foreman_userdata
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.12
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
