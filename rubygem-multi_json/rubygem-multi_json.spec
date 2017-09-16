@@ -4,8 +4,8 @@
 
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.10.1
-Release: 3%{?dist}
+Version: 1.12.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/intridea/multi_json
@@ -63,14 +63,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-# Remove useless shebang.
-sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
-
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/LICENSE.md
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -82,8 +77,6 @@ sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/spec
 
 
 %changelog
