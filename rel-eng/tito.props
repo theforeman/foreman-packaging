@@ -267,6 +267,7 @@ whitelist = foreman
   rubygem-fog-aws
   rubygem-fog-core
   rubygem-fog-google
+  rubygem-fog-libvirt
   rubygem-fog-openstack
   rubygem-fog-rackspace
   rubygem-fog-vsphere
