@@ -16,7 +16,7 @@ Source0:    http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalp
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   %{?scl_prefix}puppet-agent >= 1.6.1
+Requires:   %{?scl_prefix}puppet-agent >= 1.9.0
 Requires:   %{?scl_prefix}rubygem-kafo >= 1.0.5
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
@@ -24,7 +24,7 @@ Requires:   %{?scl_prefix}rubygem-highline
 
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
-BuildRequires: %{?scl_prefix}puppet-agent >= 1.6.1
+BuildRequires: %{?scl_prefix}puppet-agent >= 1.9.0
 BuildRequires: %{?scl_prefix}rubygem-kafo >= 1.0.5
 BuildRequires: puppet-agent-puppet-strings >= 0.99
 BuildRequires: puppet-agent-puppet-strings < 2
