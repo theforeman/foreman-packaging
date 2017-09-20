@@ -1,7 +1,12 @@
 module KatelloUtilities
   module Helper
     def last_scenario
-      File.basename(File.readlink("/etc/foreman-installer/scenarios.d/last_scenario.yaml")).split(".")[0]
+      last_scenario_yaml = '/etc/foreman-installer/scenarios.d/last_scenario.yaml'
+      if File.exists?(last_scenario_yaml)
+        File.basename(File.readlink(last_scenario_yaml)).split(".")[0]
+      else
+        'katello'
+      end
     end
 
     def accepted_scenarios
