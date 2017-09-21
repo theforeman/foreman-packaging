@@ -15,7 +15,7 @@ Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/theforeman/ruby-newt
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby
 Requires: rubygems

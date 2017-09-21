@@ -13,7 +13,7 @@ Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dns_infoblox
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.13.0
 %if 0%{?rhel} == 6
 Requires: ruby(abi)

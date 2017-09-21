@@ -10,8 +10,8 @@ Version: 0.8.0
 Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/bluemonk/ipaddress
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/bluemonk/ipaddress
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Patch0: rubygem-ipaddress-0.8.0-ruby2-conversion.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

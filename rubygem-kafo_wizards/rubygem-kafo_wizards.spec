@@ -10,7 +10,7 @@ Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_wizards
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?scl:1} || (0%{?el6} && 0%{!?scl:1})
 Requires:      %{?scl_prefix_ruby}ruby(abi)

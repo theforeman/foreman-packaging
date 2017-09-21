@@ -12,8 +12,8 @@ Version: 0.0.10
 Release: 2%{?foremandist}%{?dist}
 Group: Applications/Systems
 License: GPLv3+
-URL: http://github.com/theforeman/hammer-cli-foreman-tasks
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/theforeman/hammer-cli-foreman-tasks
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

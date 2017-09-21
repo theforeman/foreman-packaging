@@ -13,8 +13,8 @@ Group: Development/Libraries
 #Twitter Bootstrap and google-code-prettify are licensed under Apache License
 #2.0. Copy is included in file APACHE-LICENSE-2.0.
 License: MIT and ASL 2.0
-URL: http://github.com/Apipie/apipie-rails
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/Apipie/apipie-rails
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby(release)

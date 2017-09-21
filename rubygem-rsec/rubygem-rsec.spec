@@ -8,7 +8,7 @@ Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
 License: Ruby or BSD 
 URL: http://rsec.herokuapp.com
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(release)
 Requires: ruby(rubygems) 
 BuildRequires: ruby(release)

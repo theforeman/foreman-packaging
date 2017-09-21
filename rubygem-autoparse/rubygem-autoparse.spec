@@ -10,7 +10,7 @@ Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://autoparse.rubyforge.org/
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

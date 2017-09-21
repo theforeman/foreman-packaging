@@ -10,8 +10,8 @@ Version: 0.1.18
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-openstack
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-openstack
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.40
 Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0

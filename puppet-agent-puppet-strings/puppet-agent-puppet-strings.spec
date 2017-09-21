@@ -8,7 +8,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppetlabs-strings
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: puppet-agent
 Requires: puppet-agent-yard >= 0.9.5
 Requires: puppet-agent-yard < 1

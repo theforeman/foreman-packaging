@@ -11,7 +11,7 @@ Summary: Azure as a Compute Resource of Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_azure
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.11.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby

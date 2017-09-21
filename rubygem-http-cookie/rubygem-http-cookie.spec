@@ -10,7 +10,7 @@ Summary: Ruby library to handle HTTP Cookies based on RFC 6265
 Group: Development/Languages
 License: MIT
 URL: https://github.com/sparklemotion/http-cookie
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(domain_name) >= 0.5

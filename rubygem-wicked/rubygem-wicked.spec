@@ -17,7 +17,7 @@ Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
 URL:       %{_url}
-Source0:   http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}

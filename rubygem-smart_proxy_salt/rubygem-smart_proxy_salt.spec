@@ -13,7 +13,7 @@ Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.8.0

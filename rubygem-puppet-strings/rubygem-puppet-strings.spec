@@ -7,7 +7,7 @@ Release: 1%{?dist}
 Group: System Environment/Base
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppets-strings
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: puppet >= 3.7.0
 BuildRequires: ruby(release)
 BuildRequires: rubygems-devel

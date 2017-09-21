@@ -10,8 +10,8 @@ Release: 1%{?dist}
 Summary: Core library to be consumed by Ruby SDK gems
 Group: Development/Languages
 License: ASL 2.0
-URL: http://github.com/Azure/azure-ruby-asm-core
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/Azure/azure-ruby-asm-core
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby

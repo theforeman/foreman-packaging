@@ -9,8 +9,8 @@ Version: 1.0.3
 Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/nubis/gettext_i18n_rails_js
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/nubis/gettext_i18n_rails_js
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby

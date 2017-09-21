@@ -9,8 +9,8 @@ Version: 2.4.3
 Release: 4%{?dist}
 Group: Development/Languages
 License: ISC
-URL: http://github.com/copiousfreetime/launchy
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/copiousfreetime/launchy
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

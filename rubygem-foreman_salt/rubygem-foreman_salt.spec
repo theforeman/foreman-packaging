@@ -17,8 +17,8 @@ Version:    8.0.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman_salt
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman_salt
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.14.0
 Requires:   %{?scl_prefix}rubygem(deface)

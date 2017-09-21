@@ -8,7 +8,7 @@ Summary: A Ruby wrapper to the Infoblox WAPI
 Group: Development/Languages
 License: MIT
 URL: https://github.com/govdelivery/infoblox
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
 %else

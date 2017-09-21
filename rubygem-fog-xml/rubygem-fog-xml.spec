@@ -10,8 +10,8 @@ Version: 0.1.2
 Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-xml
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-xml
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.11

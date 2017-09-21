@@ -22,8 +22,8 @@ Version:    0.5.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman-xen
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman-xen
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.13.0
 

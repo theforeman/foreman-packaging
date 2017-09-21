@@ -9,8 +9,8 @@ Version: 0.10.0
 Release: 2%{?dist}
 Group: Development/Languages
 License: LGPLv2.1
-URL: http://github.com/logicminds/rubyipmi
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/logicminds/rubyipmi
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18 || 0%{?rhel} >= 7
 Requires: %{?scl_prefix_ruby}ruby(release)
 %else

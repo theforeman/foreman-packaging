@@ -17,7 +17,7 @@ Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/OpenSCAP/foreman_openscap
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: foreman >= 1.16.0
 

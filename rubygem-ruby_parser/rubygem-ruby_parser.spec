@@ -12,7 +12,7 @@ Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # These test cases are carried in the ParseTree gem in test/. Carry them here
 # rather than attempting to install ParseTree-doc in check and introducing a circular
 # dependency

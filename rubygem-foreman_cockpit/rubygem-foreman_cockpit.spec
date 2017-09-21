@@ -17,8 +17,8 @@ Version:    2.0.3
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman_cockpit
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman_cockpit
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.7.0
 Requires:   %{?scl_prefix}rubygem(deface) < 2.0

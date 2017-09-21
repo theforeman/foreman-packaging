@@ -9,8 +9,8 @@ Release: 1%{?dist}
 Summary: DigitalOcean fog provider gem
 Group: Development/Languages
 License: MIT
-URL: http://github.com/fog/fog-digitalocean
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-digitalocean
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

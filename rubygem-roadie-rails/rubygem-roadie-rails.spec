@@ -10,7 +10,7 @@ Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Mange/roadie-rails
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0

@@ -7,7 +7,7 @@ Version: 3.0.0
 Release: 1%{?dist}
 Summary: Extract text from bundle into a file
 License: MIT
-URL: http://github.com/webpack-contrib/extract-text-webpack-plugin
+URL: https://github.com/webpack-contrib/extract-text-webpack-plugin
 Source0: http://registry.npmjs.org/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.0.tgz
 Source1: http://registry.npmjs.org/schema-utils/-/schema-utils-0.3.0.tgz
 Source2: http://registry.npmjs.org/webpack-sources/-/webpack-sources-1.0.1.tgz

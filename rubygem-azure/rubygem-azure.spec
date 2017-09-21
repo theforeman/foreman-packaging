@@ -10,8 +10,8 @@ Release: 1%{?dist}
 Summary: Official ruby client library to consume Microsoft Azure services
 Group: Development/Languages
 License: ASL 2.0
-URL: http://github.com/azure/azure-sdk-for-ruby
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/azure/azure-sdk-for-ruby
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

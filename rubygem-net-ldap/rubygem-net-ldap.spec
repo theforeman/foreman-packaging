@@ -9,8 +9,8 @@ Version: 0.15.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/ruby-ldap/ruby-net-ldap
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/ruby-ldap/ruby-net-ldap
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel

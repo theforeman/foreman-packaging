@@ -10,7 +10,7 @@ Summary: Making HTML emails comfortable for the Ruby rockstars
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Mange/roadie
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(css_parser) >= 1.3.5

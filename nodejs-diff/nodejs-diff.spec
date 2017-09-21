@@ -6,7 +6,7 @@ Version: 3.0.0
 Release: 1%{?dist}
 Summary: A javascript text diff implementation
 License: BSD-3-Clause
-URL: http://github.com/kpdecker/jsdiff/issues
+URL: https://github.com/kpdecker/jsdiff/issues
 Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch:  noarch

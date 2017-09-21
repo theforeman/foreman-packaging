@@ -11,7 +11,7 @@ Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-scp
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.2
 Requires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5

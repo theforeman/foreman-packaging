@@ -10,7 +10,7 @@ Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/FILIADATAGmbH/foreman_host_extra_validator
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.11.0
 Requires:   %{?scl_prefix_ruby}ruby(release)

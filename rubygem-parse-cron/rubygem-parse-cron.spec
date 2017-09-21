@@ -11,7 +11,7 @@ Group: Development/Languages
 
 License: MIT
 URL: https://github.com/siebertm/parse-cron
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(release)

@@ -12,8 +12,8 @@ Release: 1%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy.
 Group: Applications/Internet
 License: GPLv3+
-URL: http://github.com/openscap/smart_proxy_openscap
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/openscap/smart_proxy_openscap
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
 BuildRequires: ruby(abi)

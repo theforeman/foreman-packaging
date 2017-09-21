@@ -8,8 +8,8 @@ Version: 1.10.1
 Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/intridea/multi_json
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/intridea/multi_json
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)

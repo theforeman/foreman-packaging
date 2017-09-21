@@ -21,8 +21,8 @@ Version:    0.4
 Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman-one
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman-one
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman-compute >= 1.8.0
 Requires:   %{?scl_prefix}rubygem(opennebula) >= 4.4.0

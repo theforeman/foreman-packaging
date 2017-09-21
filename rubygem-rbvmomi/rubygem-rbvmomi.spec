@@ -10,7 +10,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # git clone https://github.com/vmware/rbvmomi.git && cd rbvmomi/
 # git checkout v1.10.0
 # tar czvf rbvmomi-1.10.0-tests.tgz test/

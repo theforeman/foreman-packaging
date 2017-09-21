@@ -10,7 +10,7 @@ Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix}rubygem(paint) >= 0.8
 Requires: %{?scl_prefix}rubygem(paint) < 1.0
