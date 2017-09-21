@@ -5,8 +5,8 @@
 
 Summary: Code used both at Forman and Foreman proxy regarding tasks
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.2.4
+Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
