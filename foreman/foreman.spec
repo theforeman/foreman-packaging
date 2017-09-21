@@ -8,7 +8,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-#global alphatag RC1
+%global alphatag RC1
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
