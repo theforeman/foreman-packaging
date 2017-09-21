@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Sep 21 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.2.RC1
+- foreman-selinux 1.16.0-RC1 0.2 release (me@daniellobato.me)
+
 * Thu Sep 21 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC1
 - new package built with tito
 
