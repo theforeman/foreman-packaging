@@ -5,7 +5,7 @@
 
 Summary: Code used both at Forman and Foreman proxy regarding tasks
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
+Version: 0.1.8
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: GPLv3
