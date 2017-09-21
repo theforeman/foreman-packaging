@@ -1,6 +1,7 @@
 %global homedir %{_datadir}/%{name}
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
+%global executor_service_name dynflow-executor
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
@@ -904,6 +905,11 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
+#Copy init scripts and sysconfigs
+install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/%{executor_service_name}
+install -Dp -m0644 %{SOURCE11} %{buildroot}%{_unitdir}/%{executor_service_name}.service
+mkdir -p %{buildroot}%{_bindir}
+ln -sv %{gem_instdir}/bin/%{executor_service_name} %{buildroot}%{_bindir}/%{executor_service_name}
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
@@ -1092,6 +1098,11 @@ rm -rf %{buildroot}
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
+
+# Service
+%{_bindir}/%{executor_service_name}
+%config %{_sysconfdir}/%{executor_service_name}
+%{_unitdir}/%{executor_service_name}.service
 
 %pre
 # Add the "foreman" user and group
