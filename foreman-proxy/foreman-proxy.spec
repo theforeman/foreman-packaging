@@ -201,6 +201,9 @@ fi
 
 
 %changelog
+* Thu Sep 21 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC1
+- new package built with tito
+
 * Wed Mar 29 2017 Eric D Helms <ericdhelms@gmail.com> - 1.16.0-0.develop
 - Bump version to 1.16-develop
 
