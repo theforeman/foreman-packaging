@@ -10,8 +10,8 @@ Version: 1.0.2
 Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-json
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-json
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
 Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2

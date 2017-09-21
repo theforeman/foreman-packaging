@@ -8,7 +8,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://yardoc.org/
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: puppet-agent
 BuildArch: noarch
 

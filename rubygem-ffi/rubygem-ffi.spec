@@ -20,7 +20,7 @@ Group:          Development/Languages
 
 License:        LGPLv3
 URL:            http://wiki.github.com/ffi/ffi
-Source0:        http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:        https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildRequires:  %{?scl_prefix_ruby}ruby-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel

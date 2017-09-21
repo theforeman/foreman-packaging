@@ -9,8 +9,8 @@ Version: 0.0.6
 Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv3
-URL: http://github.com/eranb/zscheduler
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/eranb/zscheduler
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

@@ -6,8 +6,8 @@ Version: 0.6.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
-URL: http://github.com/sethvargo/chef-api
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/sethvargo/chef-api
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(release)
 BuildRequires: ruby(release)

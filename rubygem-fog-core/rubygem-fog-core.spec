@@ -10,8 +10,8 @@ Version: 1.45.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-core
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-core
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem-builder
 Requires: %{?scl_prefix}rubygem-excon >= 0.58.0

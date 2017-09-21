@@ -21,8 +21,8 @@ Version:    0.3.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/domcleal/rubygem-foreman_param_lookup
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/domcleal/rubygem-foreman_param_lookup
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.2.0
 

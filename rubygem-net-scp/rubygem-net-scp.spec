@@ -10,7 +10,7 @@ Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # Fix test broken due to Net::SSH 4.0+.
 # https://github.com/net-ssh/net-scp/pull/30
 Patch0: net-scp-1.2.1-Fix-compatiblity-with-net-ssh-4.0.patch

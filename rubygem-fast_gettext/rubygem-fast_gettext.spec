@@ -13,7 +13,7 @@ Group: Development/Languages
 # https://github.com/grosser/fast_gettext/issues/50
 License: MIT and (GPLv2+ or Ruby)
 URL: https://github.com/grosser/fast_gettext
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems

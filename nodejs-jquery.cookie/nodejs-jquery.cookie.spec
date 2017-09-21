@@ -6,7 +6,7 @@ Release: 2%{?dist}
 Summary: A simple, lightweight jQuery plugin for reading, writing and deleting cookies.
 License: MIT
 Group: Development/Libraries
-URL: http://github.com/carhartl/jquery-cookie
+URL: https://github.com/carhartl/jquery-cookie
 Source0: http://registry.npmjs.org/jquery.cookie/-/jquery.cookie-1.4.1.tgz
 
 BuildRequires: nodejs-devel

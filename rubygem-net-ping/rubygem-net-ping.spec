@@ -10,7 +10,7 @@ Summary: A ping interface for Ruby
 Group: Development/Languages
 License: Artistic 2.0
 URL: https://github.com/chernesk/net-ping
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

@@ -10,8 +10,8 @@ Version: 1.3.2
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/svenfuchs/safemode
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/svenfuchs/safemode
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.0.6

@@ -7,8 +7,8 @@ Release: 1%{?dist}
 Summary: Library for Amazon's Route 53 service
 Group: Development/Languages
 License: GPLv3
-URL: http://github.com/pcorliss/ruby_route_53
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/pcorliss/ruby_route_53
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems) >= 1.3.5

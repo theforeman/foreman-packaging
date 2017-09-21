@@ -10,8 +10,8 @@ Version: 0.2.7
 Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
-URL: http://github.com/cowboyd/commonjs.rb
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/cowboyd/commonjs.rb
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby

@@ -10,7 +10,7 @@ Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/Patternfly/patternfly-sass
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.7
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2

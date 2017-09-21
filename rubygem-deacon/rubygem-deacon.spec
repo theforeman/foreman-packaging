@@ -11,7 +11,7 @@ Summary: Human readable random name generator
 Group: Development/Languages
 License: GPLv3 and Public domain
 URL: https://github.com/lzap/deacon
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

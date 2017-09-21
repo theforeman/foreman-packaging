@@ -9,8 +9,8 @@ Version: 1.0.0
 Release: 5%{?dist}
 Group: Development/Languages
 License: Apache 2.0
-URL: http://github.com/mdub/clamp
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/mdub/clamp
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)

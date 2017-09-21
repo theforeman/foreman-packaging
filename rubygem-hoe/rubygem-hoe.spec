@@ -10,7 +10,7 @@ Release:    	8%{?dist}
 Group:      	Development/Languages
 License:    	MIT
 URL:        	http://rubyforge.org/projects/seattlerb/
-Source0:    	http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:    	https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # Rescue Hoe.spec task when Manifest.txt
 # seattlerb-Bugs-28571
 Patch0:		rubygem-hoe-2.12.2-rescue-missing-Manifest.patch

@@ -10,8 +10,8 @@ Release: 1%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
-URL: http://github.com/theforeman/smart_proxy_discovery
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/theforeman/smart_proxy_discovery
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.7.0

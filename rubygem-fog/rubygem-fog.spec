@@ -10,8 +10,8 @@ Version: 1.41.0
 Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # Maintained at https://github.com/theforeman/fog, branch v%{version}-simplify
 Patch1:  fog-no-brightbox.patch

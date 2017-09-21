@@ -9,7 +9,7 @@ Version: 1.1.3
 Release: 21%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://rubygems.org/gems/little-plugger
+URL: https://rubygems.org/gems/little-plugger
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 

@@ -14,7 +14,7 @@ Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
 License:   MIT
 URL:       https://github.com/pitr/angular-rails-templates
-Source0:   http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}

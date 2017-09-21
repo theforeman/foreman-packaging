@@ -11,7 +11,7 @@ Summary: HTTP User Agent parser
 Group: Development/Languages
 License: MIT
 URL: https://github.com/gshutler/useragent
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else

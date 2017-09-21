@@ -10,8 +10,8 @@ Version: 0.1.0
 Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/fog/fog-google
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/fog/fog-google
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(fog-json)

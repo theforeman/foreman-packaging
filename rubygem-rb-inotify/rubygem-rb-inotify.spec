@@ -7,8 +7,8 @@ Release: 2%{?dist}
 Summary: A Ruby wrapper for Linux's inotify, using FFI
 Group: Development/Languages
 License: MIT
-URL: http://github.com/nex3/rb-inotify
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/nex3/rb-inotify
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18 || 0%{?rhel} >= 7
 Requires: %{?scl_prefix_ruby}ruby(release)
 %else

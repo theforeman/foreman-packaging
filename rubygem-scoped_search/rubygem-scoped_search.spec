@@ -10,7 +10,7 @@ Version: 4.1.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/wvanbergen/scoped_search/wiki
+URL: https://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems

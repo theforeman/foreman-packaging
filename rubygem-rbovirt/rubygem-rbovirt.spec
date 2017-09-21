@@ -10,8 +10,8 @@ Version: 0.1.4
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
-URL: http://github.com/abenari/rbovirt
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/abenari/rbovirt
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Requires: %{?scl_prefix_ror}rubygem-nokogiri

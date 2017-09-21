@@ -12,8 +12,8 @@ Version: 0.0.4
 Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3+
-URL: http://github.com/theforeman/hammer_cli_foreman_docker
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/theforeman/hammer_cli_foreman_docker
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

@@ -21,8 +21,8 @@ Version:    3.2.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman-docker
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman-docker
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman-compute >= 1.15.0
 Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.18.0

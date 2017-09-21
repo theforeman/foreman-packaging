@@ -12,7 +12,7 @@ Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?rhel:tfm-}rubygem(smart_proxy_dynflow_core) >= 0.1.5
 Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) >= 1.1.0

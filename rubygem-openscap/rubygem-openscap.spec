@@ -7,7 +7,7 @@ Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
 URL: https://github.com/OpenSCAP/ruby-openscap
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ruby(rubygems)
 Requires: rubygem(ffi) >= 1.0.9

@@ -9,8 +9,8 @@ Version: 0.1.11
 Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/theforeman/foreman_api
-Source0:  http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/theforeman/foreman_api
+Source0:  https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
 %else

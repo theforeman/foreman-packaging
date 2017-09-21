@@ -5,7 +5,7 @@ Version: 0.3.2
 Release: 2%{?dist}
 Summary: Prepare compressed versions of assets to serve them with Content-Encoding
 License: MIT
-URL: http://github.com/webpack/compression-webpack-plugin
+URL: https://github.com/webpack/compression-webpack-plugin
 Source0: http://registry.npmjs.org/compression-webpack-plugin/-/compression-webpack-plugin-0.3.2.tgz
 Source1: http://registry.npmjs.org/async/-/async-0.2.10.tgz
 Source2: http://registry.npmjs.org/webpack-sources/-/webpack-sources-0.1.4.tgz

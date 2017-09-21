@@ -10,7 +10,7 @@ Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
 URL:       https://github.com/JEG2/highline
-Source0:   http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:  %{?scl_prefix_ruby}ruby(release)
 Requires:  %{?scl_prefix_ruby}rubygems

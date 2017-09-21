@@ -10,7 +10,7 @@ Summary: Client script that runs OpenSCAP scan and uploads the result to foreman
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/openscap/foreman_scap_client
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: bzip2
 Requires: ruby(rubygems)
 Requires: ruby(release)

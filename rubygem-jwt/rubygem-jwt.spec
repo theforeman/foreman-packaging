@@ -9,8 +9,8 @@ Version: 1.2.0
 Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/progrium/ruby-jwt
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/progrium/ruby-jwt
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

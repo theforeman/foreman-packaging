@@ -11,8 +11,8 @@ Version: 0.2.1
 Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/geemus/%{gem_name}
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/geemus/%{gem_name}
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # TODO: Fix tests failing when redirected to a file, reported at
 # https://github.com/geemus/formatador/commit/a874311f52a34b9a1f1d0fe9fef20a095b79f941
 Patch0: formatador-fix-tests-when-redirecting-to-file.patch

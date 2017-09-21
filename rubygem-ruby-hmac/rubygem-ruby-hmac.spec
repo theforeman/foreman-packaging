@@ -8,7 +8,7 @@ Summary: This module provides common interface to HMAC functionality
 Group: Development/Languages
 License: MIT
 URL: http://ruby-hmac.rubyforge.org
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
 %else

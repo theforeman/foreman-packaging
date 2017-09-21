@@ -11,7 +11,7 @@ Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/unicode-display_width
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems

@@ -10,7 +10,7 @@ Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
 URL: https://github.com/knu/ruby-unf
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(unf_ext)

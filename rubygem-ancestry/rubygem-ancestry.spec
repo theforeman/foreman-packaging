@@ -10,8 +10,8 @@ Version: 3.0.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/stefankroes/ancestry
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/stefankroes/ancestry
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Requires: %{?scl_prefix_ruby}rubygems

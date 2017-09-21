@@ -15,7 +15,7 @@ Release:	4%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT
-URL:		http://github.com/threedaymonk/text
+URL:		https://github.com/threedaymonk/text
 Source0:	https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildRequires:	%{?scl_prefix_ruby}ruby(release)

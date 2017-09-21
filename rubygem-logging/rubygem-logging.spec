@@ -9,7 +9,7 @@ Version: 1.8.2
 Release: 4%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
-URL: http://rubygems.org/gems/logging
+URL: https://rubygems.org/gems/logging
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
 BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)

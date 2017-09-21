@@ -10,8 +10,8 @@ Version: 1.0.2
 Release: 10%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
-URL: http://github.com/evrone/quiet_assets
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/evrone/quiet_assets
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby

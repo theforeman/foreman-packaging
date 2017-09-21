@@ -11,7 +11,7 @@ Summary: systemu
 Group: Development/Languages
 License: Ruby
 URL: https://github.com/ahoward/systemu
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby

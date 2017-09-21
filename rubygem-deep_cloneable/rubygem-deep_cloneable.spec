@@ -9,8 +9,8 @@ Version: 2.2.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
-URL: http://github.com/moiristo/deep_cloneable
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL: https://github.com/moiristo/deep_cloneable
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
