@@ -37,7 +37,7 @@
 
 Name:           foreman-selinux
 Version:        1.16.0
-Release:        0.2%{?dotalphatag}%{?dist}
+Release:        0.3%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
