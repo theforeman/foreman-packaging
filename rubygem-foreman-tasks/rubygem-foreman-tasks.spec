@@ -17,7 +17,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.4
+Version: 0.9.6
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -26,7 +26,7 @@ Source0: http://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.15.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.22
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
