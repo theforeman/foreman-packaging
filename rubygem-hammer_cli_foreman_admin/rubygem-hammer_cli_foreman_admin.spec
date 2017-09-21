@@ -68,6 +68,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 21 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.7-1
+- Updated rubygem-hammer_cli_foreman_admin to 0.0.7 (lzap+git@redhat.com)
+
 * Mon Dec 12 2016 Dominic Cleal <dominic@cleal.org> 0.0.6-1
 - Update hammer_cli_foreman_admin to 0.0.6 (lzap+git@redhat.com)
 
