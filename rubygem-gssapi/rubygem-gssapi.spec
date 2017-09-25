@@ -86,6 +86,9 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/preamble
 
 %changelog
+* Mon Sep 25 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.2.0-1
+- new package built with tito
+
 * Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
