@@ -274,6 +274,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_xen
   rubygem-foreman_templates
   rubygem-graphite-api
+  rubygem-gssapi
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
@@ -284,6 +285,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-net-ssh-gateway
+  rubygem-net-ssh-krb
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron

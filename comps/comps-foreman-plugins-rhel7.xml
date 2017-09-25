@@ -98,6 +98,7 @@
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
+      <packagereq type="default">tfm-rubygem-gssapi</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery</packagereq>
@@ -109,6 +110,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
@@ -209,6 +211,7 @@
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-gssapi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery-doc</packagereq>
@@ -220,6 +223,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
