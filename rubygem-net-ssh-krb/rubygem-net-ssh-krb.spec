@@ -84,3 +84,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Sep 25 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.4.0-1
+- new package built with tito
+
