@@ -56,6 +56,7 @@ Obsoletes: ruby193-ruby-wrapper
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
+Obsoletes: %{scl_prefix}npm(flux) < 2.1.1-2
 Obsoletes: %{scl_prefix}rubygem-ace-rails-ap < 4.1.1-2
 Obsoletes: %{scl_prefix}rubygem-ansi < 1.4.3-7
 Obsoletes: %{scl_prefix}rubygem-archive-tar-minitar < 0.5.2-12
