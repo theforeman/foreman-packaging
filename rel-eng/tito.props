@@ -35,7 +35,6 @@ whitelist = foreman-installer
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-file-loader
-  nodejs-flux
   nodejs-ipaddr.js
   nodejs-jquery
   nodejs-jquery.cookie

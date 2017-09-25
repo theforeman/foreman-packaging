@@ -176,7 +176,6 @@
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-file-loader</packagereq>
-      <packagereq type="default">nodejs-flux</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
