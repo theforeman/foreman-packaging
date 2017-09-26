@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.30-1
+- Update Dynflow to 0.8.30 (inecas@redhat.com)
+
 * Thu May 04 2017 Dominic Cleal <dominic@cleal.org> 0.8.24-1
 - upgrade dynflow to 0.8.24 (jsherril@redhat.com)
 
