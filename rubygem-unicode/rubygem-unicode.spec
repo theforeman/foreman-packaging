@@ -66,6 +66,9 @@ ruby -I.%{gem_instdir}/lib:.%{gem_extdir_mri} test/test.rb
 
 
 %changelog
+* Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.4.4.1-2
+- new package built with tito
+
 * Mon Jul 14 2014 Dan Callaghan <dcallagh@redhat.com> - 0.4.4.1-2
 - run test program in %%check
 - use HTTPS for Ruby license source URL
