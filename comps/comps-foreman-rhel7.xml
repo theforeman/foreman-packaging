@@ -152,6 +152,7 @@
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
       <packagereq type="default">tfm-rubygem-unf</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
+      <packagereq type="default">tfm-rubygem-unicode</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
       <packagereq type="default">tfm-rubygem-useragent</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
@@ -391,6 +392,7 @@
       <packagereq type="default">tfm-rubygem-trollop-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-unicode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-useragent-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>

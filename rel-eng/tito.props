@@ -202,6 +202,7 @@ whitelist = foreman
   rubygem-trollop
   rubygem-unf
   rubygem-unf_ext
+  rubygem-unicode
   rubygem-unicode-display_width
   rubygem-useragent
   rubygem-validates_lengths_from_database
