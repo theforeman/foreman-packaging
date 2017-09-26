@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.30-1
+- Update Dynflow to 0.8.30 (inecas@redhat.com)
+
 * Mon Aug 07 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.26-1
 - Update rubygem-dynflow to 0.8.26 (me@daniellobato.me)
 
