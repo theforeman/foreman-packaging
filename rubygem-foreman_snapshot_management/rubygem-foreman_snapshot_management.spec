@@ -5,7 +5,7 @@
 %global plugin_name snapshot_management
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
