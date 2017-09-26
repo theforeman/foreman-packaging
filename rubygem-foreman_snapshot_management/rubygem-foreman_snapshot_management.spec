@@ -88,6 +88,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
+- Update foreman_snapshot_management to 1.1.0 (mail@timogoebel.name)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-1
 - new package built with tito
 
