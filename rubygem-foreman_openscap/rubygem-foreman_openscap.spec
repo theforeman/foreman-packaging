@@ -11,7 +11,7 @@
 %global gem_name foreman_openscap
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.6
+Version: 0.7.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
