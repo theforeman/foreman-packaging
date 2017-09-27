@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        0.4.4.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Unicode normalization library for Ruby
 License:        Ruby
 URL:            http://www.yoshidam.net/Ruby.html#unicode
@@ -19,6 +19,7 @@ Requires:       %{?scl_prefix_ruby}ruby
 %{?scl:BuildRequires: %{scl}-runtime}
 BuildRequires:  %{?scl_prefix_ruby}ruby-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
+Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 
 %description
@@ -48,7 +49,7 @@ mkdir -p %{buildroot}%{gem_instdir}
 cp -pa .%{gem_instdir}/lib %{buildroot}%{gem_instdir}/
 mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -pa .%{gem_extdir_mri}/%{gem_name} %{buildroot}%{gem_extdir_mri}/
-touch %{buildroot}%{gem_extdir_mri}/%{gem_name}/gem.build_complete
+touch %{buildroot}%{gem_extdir_mri}/gem.build_complete
 
 
 %check
