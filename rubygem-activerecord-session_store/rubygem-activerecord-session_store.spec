@@ -77,6 +77,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
+- Fixes #20960 - update activerecord-session_store to 1.1.0
+  (kvedulv@kvedulv.de)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.1.2-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
