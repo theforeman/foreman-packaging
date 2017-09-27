@@ -1016,6 +1016,10 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.2.RC1
+- Update release version of Foreman - without flux (me@daniellobato.me)
+- Remove flux packaging (ohadlevy@gmail.com)
+
 * Thu Sep 21 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC1
 - new package built with tito
 
