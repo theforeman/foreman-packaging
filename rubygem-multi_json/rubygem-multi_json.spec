@@ -80,6 +80,12 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.12.2-1
+- Fixes #20960 - update activerecord-session_store to 1.1.0
+  (kvedulv@kvedulv.de)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.10.1-3
 - Update dependencies to ror SCL (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
