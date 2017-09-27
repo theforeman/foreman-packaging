@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An Action Dispatch session store backed by Active Record
 Group: Development/Languages
 License: MIT
@@ -17,8 +17,8 @@ Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
 Requires: %{?scl_prefix_ror}rubygem(actionpack) < 5.2
 Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0
 Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.2
-Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.11.2
-Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2.0
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11.2
+Requires: %{?scl_prefix}rubygem(multi_json) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(rack) >= 1.5.2
 Requires: %{?scl_prefix_ror}rubygem(rack) < 3
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.0
