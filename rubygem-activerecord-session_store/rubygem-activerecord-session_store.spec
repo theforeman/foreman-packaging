@@ -77,6 +77,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 28 2017 Michael Moll <kvedulv@kvedulv.de> 1.1.0-2
+- Refs #20960 - ar-session_store: multi_json is from tfm SCL now
+  (kvedulv@kvedulv.de)
+
 * Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
 - Fixes #20960 - update activerecord-session_store to 1.1.0
   (kvedulv@kvedulv.de)
