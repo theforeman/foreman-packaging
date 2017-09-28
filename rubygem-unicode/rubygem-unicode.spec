@@ -67,6 +67,10 @@ ruby -I.%{gem_instdir}/lib:.%{gem_extdir_mri} test/test.rb
 
 
 %changelog
+* Wed Sep 27 2017 Eric D. Helms <ericdhelms@gmail.com> 0.4.4.1-3
+- rubygem-unicode: Fix provides & native extensions
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.4.4.1-2
 - new package built with tito
 
