@@ -13,7 +13,7 @@ URL: http://github.com/zenchild/gssapi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}rubygem(ffi) >= 1.0.1
+Requires: %{?scl_prefix_ror}rubygem(ffi) >= 1.0.1
 Requires: krb5-libs
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
