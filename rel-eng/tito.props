@@ -160,6 +160,7 @@ whitelist = foreman
   rubygem-locale
   rubygem-logging
   rubygem-multipart-post
+  rubygem-multi_json
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-ping
