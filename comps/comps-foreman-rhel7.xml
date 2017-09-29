@@ -106,6 +106,7 @@
       <packagereq type="default">tfm-rubygem-little-plugger</packagereq>
       <packagereq type="default">tfm-rubygem-locale</packagereq>
       <packagereq type="default">tfm-rubygem-logging</packagereq>
+      <packagereq type="default">tfm-rubygem-multi_json</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap</packagereq>
@@ -350,6 +351,7 @@
       <packagereq type="default">tfm-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-locale-doc</packagereq>
       <packagereq type="default">tfm-rubygem-logging-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap-doc</packagereq>
