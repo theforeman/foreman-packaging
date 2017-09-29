@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 Group: Development/Languages
 License: MIT
@@ -86,6 +86,12 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/preamble
 
 %changelog
+* Fri Sep 29 2017 Eric D. Helms <ericdhelms@gmail.com> 1.2.0-2
+- Get rubygem-ffi from the ror SCL (ewoud@kohlvanwijngaarden.nl)
+
+* Fri Sep 29 2017 Eric D. Helms <ericdhelms@gmail.com>
+- Get rubygem-ffi from the ror SCL (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Sep 25 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.2.0-1
 - new package built with tito
 
