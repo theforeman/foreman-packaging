@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 Group: Development/Languages
 License: MIT
@@ -13,7 +13,7 @@ URL: http://github.com/zenchild/gssapi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(ffi) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.1
 Requires: krb5-libs
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
