@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Sep 29 2017 Eric D. Helms <ericdhelms@gmail.com> 2.0.4-1
+- Update infoblox to 2.0.4 (github@kohlvanwijngaarden.nl)
+
 * Tue Sep 06 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - new package built with tito
 
