@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Oct 04 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.1.3-1
+- Updated to foreman_discovery-9.1.3.gem (lzap@redhat.com)
+
 * Tue Sep 05 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.1.2-1
 - Updated foreman_discovery to 9.1.2 (RPM) (lzap@redhat.com)
 
