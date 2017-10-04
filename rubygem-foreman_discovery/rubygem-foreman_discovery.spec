@@ -108,6 +108,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Oct 04 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.1.3-1
+- Updated to foreman_discovery-9.1.3.gem (lzap@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 9.1.1-1
 - Bumped foreman_discovery to 9.1.1 (lzap+git@redhat.com)
 
