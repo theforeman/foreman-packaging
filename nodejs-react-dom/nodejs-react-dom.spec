@@ -41,6 +41,9 @@ cp -pfr LICENSE README.md dist index.js lib package.json server.js test-utils.js
 %doc README.md
 
 %changelog
+* Thu Oct 05 2017 Eric D. Helms <ericdhelms@gmail.com> 15.6.2-1
+- Update react-dom to 15.6.2 (me@daniellobato.me)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 15.3.2-1
 - new package built with tito
 
