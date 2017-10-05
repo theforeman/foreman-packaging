@@ -84,5 +84,8 @@ rm -rf %{buildroot} npm_cache
 %doc README.md
 
 %changelog
+* Thu Oct 05 2017 Eric D. Helms <ericdhelms@gmail.com> 15.6.2-1
+- Update React to 15.6.2 (me@daniellobato.me)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 15.3.2-1
 - new package built with tito
