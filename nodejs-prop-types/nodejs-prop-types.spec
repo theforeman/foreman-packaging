@@ -80,6 +80,9 @@ rm -rf %{buildroot} npm_cache
 %doc README.md
 
 %changelog
+* Thu Oct 05 2017 Eric D. Helms <ericdhelms@gmail.com> 15.6.0-1
+- Update prop-types to 15.5.9 (me@daniellobato.me)
+
 * Thu May 11 2017 Dominic Cleal <dominic@cleal.org> 15.5.9-1
 - new package built with tito
 
