@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Oct 06 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.6-1
+- Update foreman_remote_execution_core to 1.0.6 (inecas@redhat.com)
+
 * Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.5-1
 - Update foreman_remote_execution_core to 1.0.5 (inecas@redhat.com)
 
