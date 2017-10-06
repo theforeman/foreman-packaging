@@ -4,3 +4,4 @@ bin/foreman-tasks                 usr/bin
 foreman-tasks.yaml                etc/foreman/plugins
 apipie-cache/foreman-tasks        var/lib/foreman/public/apipie-cache/plugin
 assets                            var/lib/foreman/public
+cron/foreman-tasks                etc/cron.d/
