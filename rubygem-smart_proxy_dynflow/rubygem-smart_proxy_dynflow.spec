@@ -84,6 +84,9 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 %doc %{gem_docdir}
 
 %changelog
+* Fri Oct 06 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.8-1
+- Update smart_proxy_dynflow to 0.1.8 (inecas@redhat.com)
+
 * Wed May 10 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-1
 - upgrade smart_proxy_dynflow to 0.1.6 (a.ruzicka@outlook.com)
 
