@@ -197,6 +197,9 @@ fi
 
 
 %changelog
+* Mon Oct 09 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.15.5-1
+- Release 1.15.5
+
 * Fri Sep 15 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.15.4-1
 - Release 1.15.4
 
