@@ -990,6 +990,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Oct 11 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.15.6-1
+- Release 1.15.6
+
 * Mon Oct 09 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.15.5-1
 - Release 1.15.5
 
