@@ -109,6 +109,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Oct 10 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.3.5-1
+- Update foreman_remote_execution to 1.3.5 (inecas@redhat.com)
+
 * Fri Oct 06 2017 Eric D. Helms <ericdhelms@gmail.com> 1.3.4-1
 - Update foreman_remote_execution to 1.3.4 (inecas@redhat.com)
 
