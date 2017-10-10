@@ -765,7 +765,7 @@ install -Dp -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
-install -Dp -m0644 %{SOURCE5} %{buildroot}%{_prefix}%{_tmpfilesdir}/%{name}.conf
+install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
 install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
@@ -945,7 +945,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
-%{_prefix}%{_tmpfilesdir}/%{name}.conf
+%{_tmpfilesdir}/%{name}.conf
 
 %pre
 # Add the "foreman" user and group
