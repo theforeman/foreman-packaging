@@ -3,13 +3,13 @@ Section: ruby
 Priority: extra
 Maintainer: Stephen Benjamin <stephen@redhat.com>
 Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.15.0~rc1), foreman (>= 1.15.0~rc1),
-  foreman-sqlite3 (>= 1.15.0~rc1), ruby-foreman-tasks (>= 0.9), ruby-foreman-deface
+  foreman-sqlite3 (>= 1.15.0~rc1), ruby-foreman-tasks (>= 0.9.5), ruby-foreman-deface
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_remote_execution
 
 Package: ruby-foreman-remote-execution
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.15.0~rc1), ruby-foreman-tasks (>= 0.9),
+Depends: ${misc:Depends}, bundler, foreman (>= 1.15.0~rc1), ruby-foreman-tasks (>= 0.9.5),
   ruby-foreman-deface
 Description: Foreman Remote Execution Plugin
   A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality
