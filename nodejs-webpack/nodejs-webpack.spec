@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Packs CommonJs/AMD modules for the browser
 License: MIT
 URL: https://github.com/webpack/webpack
@@ -378,6 +378,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack.js %{buildroot}%{_bindir}/webpa
 %doc README.md
 
 %changelog
+* Sat Oct 14 2017 Eric D. Helms <ericdhelms@gmail.com> 3.4.1-2
+- Bump release to rebuild
+
 * Mon Aug 07 2017 Eric D. Helms <ericdhelms@gmail.com> 3.4.1-1
 - Update nodejs-weebpack to 3.4.1 (me@daniellobato.me)
 
