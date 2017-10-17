@@ -6,7 +6,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 Group: Applications/Internet
