@@ -1,3 +1,9 @@
+ruby-smart-proxy-monitoring (0.1.1-1) stable; urgency=low
+
+  * 0.1.1 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Tue, 17 Oct 2017 10:24:36 +0200
+
 ruby-smart-proxy-monitoring (0.1.0-1) stable; urgency=low
 
   * Initial Debian package
