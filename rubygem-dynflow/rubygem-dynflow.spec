@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Mon Oct 16 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.31-1
+- Update dynflow to 0.8.31 (aruzicka@redhat.com)
+
 * Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.30-1
 - Update Dynflow to 0.8.30 (inecas@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
