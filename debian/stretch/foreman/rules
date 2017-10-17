@@ -9,7 +9,6 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 
 build:
 	/bin/cp config/settings.yaml.example config/settings.yaml
-	/bin/sed -i -e 's~#:rails: 4.2~:rails: 4.2~' config/settings.yaml
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/rm -rf node_modules
 	/usr/bin/npm install npm@'<5.0.0'
