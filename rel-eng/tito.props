@@ -48,6 +48,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
+  nodejs-object-assign
   nodejs-prop-types
   nodejs-react
   nodejs-react-bootstrap
