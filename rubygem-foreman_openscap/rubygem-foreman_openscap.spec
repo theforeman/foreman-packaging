@@ -12,7 +12,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
 License: GPLv3
@@ -74,7 +74,7 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -83,11 +83,14 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 %{gem_instdir}/db
 %{gem_instdir}/config
 %{gem_instdir}/locale
+%foreman_apipie_cache_plugin
+%foreman_apipie_cache_foreman
+%foreman_assets_plugin
+
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %doc %{gem_instdir}/LICENSE
-%{foreman_assets_plugin}
 
 %exclude %{gem_instdir}/test
 
