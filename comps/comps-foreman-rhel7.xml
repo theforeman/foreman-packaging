@@ -9,8 +9,6 @@
     <packagelist>
       <packagereq type="default">centos-release-scl</packagereq>
       <packagereq type="default">centos-release-scl-rh</packagereq>
-      <packagereq type="default">http-parser</packagereq>
-      <packagereq type="default">http-parser-devel</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
@@ -35,6 +33,8 @@
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+      <packagereq type="default">http-parser</packagereq>
+      <packagereq type="default">http-parser-devel</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
@@ -200,6 +200,7 @@
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
+      <packagereq type="default">nodejs-object-assign</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
