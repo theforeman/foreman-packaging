@@ -8,7 +8,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.9
+Version: 0.0.10
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
