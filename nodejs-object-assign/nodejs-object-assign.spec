@@ -48,3 +48,6 @@ rm -rf %{buildroot} npm_cache
 %doc readme.md
 
 %changelog
+* Wed Oct 18 2017 Eric D. Helms <ericdhelms@gmail.com> 4.1.1-1
+- new package built with tito
+
