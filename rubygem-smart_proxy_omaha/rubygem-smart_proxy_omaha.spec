@@ -113,6 +113,10 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.3-1
+- Update smart_proxy_omaha to 0.0.3 (mail@timogoebel.name)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.2-1
 - Update smart_proxy_omaha to 0.0.2 (mail@timogoebel.name)
 
