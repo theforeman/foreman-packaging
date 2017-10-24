@@ -103,6 +103,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.1-1
+- Update smart_proxy_monitoring to 0.1.1 (mail@timogoebel.name)
+
 * Thu Apr 13 2017 Dirk Goetz <dirk.goetz@netways.de> - 0.1.0-1
 - updated upstream
 
