@@ -105,6 +105,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.3-1
+- Update foreman_openscap to 0.8.3 (ares@users.noreply.github.com)
+
 * Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.2-1
 - Update foreman_openscap to 0.8.2 (ares@users.noreply.github.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
