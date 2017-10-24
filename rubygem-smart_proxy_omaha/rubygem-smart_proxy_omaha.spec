@@ -8,7 +8,7 @@
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
