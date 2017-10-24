@@ -5,7 +5,7 @@
 %global plugin_name monitoring
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
@@ -14,13 +14,13 @@ URL: http://www.github.com/theforeman/foreman_monitoring
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.15
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby 
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: foreman-plugin >= 1.15
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby 
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
