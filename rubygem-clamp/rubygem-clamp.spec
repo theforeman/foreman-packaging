@@ -5,8 +5,8 @@
 
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 5%{?dist}
+Version: 1.1.2
+Release: 1%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: https://github.com/mdub/clamp
@@ -70,6 +70,9 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.autotest
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/Guardfile
+
 %{gem_spec}
 
 %files doc
