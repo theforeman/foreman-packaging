@@ -105,6 +105,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.7.10-1
+- Update foreman_openscap to 0.7.10 (ares@users.noreply.github.com)
+
 * Thu Oct 12 2017 Eric D. Helms <ericdhelms@gmail.com> 0.7.9-1
 - Update foreman_openscap to 0.7.9 (oprazak@redhat.com)
 
