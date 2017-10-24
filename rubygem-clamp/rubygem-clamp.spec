@@ -81,6 +81,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.2-1
+- Update rubygem-clamp to 1.1.2 (martin.bacovsky@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.0.0-5
 - Use gem_install macro (dominic@cleal.org)
 
