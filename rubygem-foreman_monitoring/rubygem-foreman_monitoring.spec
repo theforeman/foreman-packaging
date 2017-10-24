@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.1-1
+- Update foreman_monitoring to 0.1.1 (mail@timogoebel.name)
+
 * Thu Apr 13 2017 Dirk Goetz <dirk.goetz> - 0.1.0-1
 - updated upstream
 
