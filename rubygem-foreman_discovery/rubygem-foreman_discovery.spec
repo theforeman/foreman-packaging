@@ -108,6 +108,12 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Oct 25 2017 Eric D. Helms <ericdhelms@gmail.com> 9.1.5-1
+- Added 9.1.5 discovery (lzap+git@redhat.com)
+- Automatic commit of package [rubygem-foreman_discovery] minor release
+  [9.1.3-1.fm1_15]. (me@daniellobato.me)
+- Updated to foreman_discovery-9.1.3.gem (lzap@redhat.com)
+
 * Wed Oct 04 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.1.3-1
 - Updated to foreman_discovery-9.1.3.gem (lzap@redhat.com)
 
