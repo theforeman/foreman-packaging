@@ -124,6 +124,10 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 
 %changelog
+* Wed Oct 25 2017 Eric D. Helms <ericdhelms@gmail.com> 0.6.8-1
+- Update smart_proxy_openscap to 0.6.8 (mhulan@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Sep 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.6.7-1
 - Update smart_proxy_openscap to 0.6.7 (mhulan@redhat.com)
 
