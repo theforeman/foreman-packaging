@@ -211,6 +211,7 @@ whitelist = foreman
   rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
+  rubygem-where-or
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
