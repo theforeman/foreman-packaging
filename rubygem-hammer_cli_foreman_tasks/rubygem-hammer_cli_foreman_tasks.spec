@@ -77,6 +77,10 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 25 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.12-1
+- Update hammer-cli-foreman-tasks 0.0.12 (inecas@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.10-2
 - Use gem_install macro (dominic@cleal.org)
 
