@@ -127,6 +127,7 @@ You'll also need an alias `kojikat` to point to:
    `git annex add foo.gem`
 1. Update rel-eng/tito.props and add to the appropriate whitelists
 1. Update comps/comps-foreman-\*.xml by running `./add_to_comps.rb comps/compsfile.xml rubygem-example`
+   but note you may have to add the SCL prefix.
 2. Run `./comps_doc.sh` to automatically add doc packages
 1. Commit the changes
   1. `git add -A`
