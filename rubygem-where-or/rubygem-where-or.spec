@@ -73,3 +73,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Oct 26 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.6-1
+- new package built with tito
+
