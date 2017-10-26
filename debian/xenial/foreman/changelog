@@ -1,3 +1,9 @@
+foreman (1.16.0~rc2-1) stable; urgency=low
+
+  * 1.16.0-RC2 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 26 Oct 2017 15:59:15 +0200
+
 foreman (1.16.0~rc1-1) stable; urgency=low
 
   * 1.16.0-RC1 released
