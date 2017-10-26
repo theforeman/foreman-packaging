@@ -1,0 +1,25 @@
+Source: ruby-clamp
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Tim Potter <tpot@hp.com>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               ruby-rr,
+               ruby-rspec
+Standards-Version: 3.9.8
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-clamp.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-clamp.git
+Homepage: http://github.com/mdub/clamp
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-clamp
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: minimal framework for Ruby command-line utilities
+ Clamp provides an object-model for command-line utilities.
+ It handles parsing of command-line options, and generation of usage help.
