@@ -11,7 +11,7 @@
 
 %global gem_name foreman_discovery
 
-%global mainver 9.1.2
+%global mainver 10.0.0
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -29,16 +29,16 @@ Version:    %{mainver}
 Release:    %{?prever:0.}%{release}%{?prever}%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman_discovery
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
+URL:        https://github.com/theforeman/foreman_discovery
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
 
-Requires:   foreman >= 1.15.0
+Requires:   foreman >= 1.16.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: foreman-plugin >= 1.15.0
+BuildRequires: foreman-plugin >= 1.16.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
