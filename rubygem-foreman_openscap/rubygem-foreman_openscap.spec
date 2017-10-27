@@ -108,6 +108,10 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.7.10-2
+- Fixes #21377 - Precompile apidoc for foreman_openscap
+  (xprazak2@users.noreply.github.com)
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.7.10-1
 - Update foreman_openscap to 0.7.10 (ares@users.noreply.github.com)
 
