@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 10.0.0-1
+- Update discovery to 10.0.0 (lzap@redhat.com)
+
 * Wed Oct 04 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.1.3-1
 - Updated to foreman_discovery-9.1.3.gem (lzap@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
