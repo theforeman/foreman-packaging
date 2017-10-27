@@ -1016,6 +1016,9 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC2
+- Release 1.16.0-RC2 (github@kohlvanwijngaarden.nl)
+
 * Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.2.RC1
 - Update release version of Foreman - without flux (me@daniellobato.me)
 - Remove flux packaging (ohadlevy@gmail.com)
