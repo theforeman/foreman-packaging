@@ -74,6 +74,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC2
+- Release 1.16.0-RC2 (github@kohlvanwijngaarden.nl)
+
 * Thu Sep 21 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC1
 - new package built with tito
 
