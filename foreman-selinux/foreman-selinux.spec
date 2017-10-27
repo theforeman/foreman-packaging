@@ -31,13 +31,13 @@
 %define moduletype apps
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC1
+%global alphatag RC2
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
 Name:           foreman-selinux
 Version:        1.16.0
-Release:        0.3%{?dotalphatag}%{?dist}
+Release:        0.1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
