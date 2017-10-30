@@ -1,3 +1,9 @@
+ruby-dynflow (0.8.32-1) stable; urgency=low
+
+  * 0.8.32 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 30 Oct 2017 14:34:39 +0100
+
 ruby-dynflow (0.8.31-1) stable; urgency=low
 
   * 0.8.31 released
