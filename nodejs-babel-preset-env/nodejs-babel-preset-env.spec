@@ -202,3 +202,6 @@ cp -pf CHANGELOG.md CONTRIBUTING.md README.md LICENSE ../../
 %doc README.md
 
 %changelog
+* Mon Oct 30 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.1-1
+- new package built with tito
+
