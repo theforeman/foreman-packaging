@@ -1,3 +1,9 @@
+ruby-foreman-tasks-core (0.1.8-1) stable; urgency=low
+
+  * 0.1.8 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 30 Oct 2017 15:22:43 +0100
+
 ruby-foreman-tasks-core (0.1.4-1) stable; urgency=low
 
   * 0.1.4 released
