@@ -1,0 +1,2 @@
+this package can be built using:
+tito release copr-nightly --arg jenkins_job=test_develop
