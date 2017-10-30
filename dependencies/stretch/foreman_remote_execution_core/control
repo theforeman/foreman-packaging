@@ -13,5 +13,5 @@ Package: ruby-foreman-remote-execution-core
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake,
-  ruby-foreman-tasks-core (>= 0.1.3), ruby-net-scp, ruby-net-ssh
+  ruby-foreman-tasks-core (>= 0.1.5), ruby-net-scp, ruby-net-ssh
 Description: Foreman remote execution - core bits
