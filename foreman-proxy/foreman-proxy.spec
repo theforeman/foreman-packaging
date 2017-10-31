@@ -201,6 +201,9 @@ fi
 
 
 %changelog
+* Tue Oct 31 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.2.RC2
+- Correct release for 1.16 RC2 (github@kohlvanwijngaarden.nl)
+
 * Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-0.1.RC2
 - Release 1.16.0-RC2 (github@kohlvanwijngaarden.nl)
 
