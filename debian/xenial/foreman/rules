@@ -13,8 +13,7 @@ build:
 	/bin/cp debian/debian.rb bundler.d/
 	/usr/bin/bundle package
 	/bin/rm -rf node_modules
-	/usr/bin/npm install npm@'<5.0.0'
-	/usr/bin/nodejs node_modules/.bin/npm install --no-optional --unsafe-perm
+	/usr/bin/npm install --no-optional --unsafe-perm
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
 	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
