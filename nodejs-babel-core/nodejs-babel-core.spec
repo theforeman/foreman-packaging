@@ -164,6 +164,11 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Wed Nov 01 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.26.0-1
+- Release babel-core 6.26.0 (ericdhelms@gmail.com)
+- Bump releases (frostyx@email.cz)
+- Fix cannot stat 'node_modules' for el7 (jkadlcik@redhat.com)
+
 * Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 6.7.7-3
 - Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
 
