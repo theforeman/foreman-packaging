@@ -59,6 +59,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-bootstrap
   nodejs-react-dom
   nodejs-react-numeric-input
+  nodejs-react-onclickoutside
   nodejs-react-redux
   nodejs-redux
   nodejs-redux-logger
