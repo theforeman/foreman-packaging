@@ -1,0 +1,52 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: 'Check if git branch exists'
+      command: "git rev-parse --quiet --verify {{ name }}-{{ version }}"
+      register: branch
+
+    - name: 'Create update branch'
+      command: "git checkout -b {{ name }}-{{ version }}"
+      when: branch | failed
+
+    - name: 'Copy changelog'
+      set_fact:
+        changelog: "{{ lookup('file', 'nodejs-' + name + '/nodejs-' + name + '.spec').split('%changelog')[1] }}"
+
+    - name: 'Run npm2rpm'
+      command: "/home/ehelms/workspace//npm2rpm/bin/npm2rpm.js -n {{ name }} -v {{ version }} -s {{ strategy }}"
+
+    - name: 'Remove existing package directory'
+      file:
+        state: absent
+        path: "nodejs-{{ name }}"
+
+    - name: 'Copy sources'
+      synchronize:
+        src: "npm2rpm/SOURCES/"
+        dest: "nodejs-{{ name }}"
+
+    - name: 'Copy spec'
+      shell: "cp npm2rpm/SPECS/*.spec nodejs-{{ name }}/nodejs-{{ name }}.spec"
+
+    - name: 'Replace changelog'
+      replace:
+        path: "nodejs-{{ name }}/nodejs-{{ name }}.spec"
+        replace: "%changelog{{ changelog }}"
+        regexp: "%changelog(\n.+)+$"
+
+    - name: 'Remove npm2rpm'
+      file:
+        state: absent
+        path: npm2rpm
+
+    - name: 'Add registry.npmjs.org.tgz to git'
+      command: "git add nodejs-{{ name }}/*-registry.npmjs.org.tgz"
+      when: strategy == 'bundle'
+
+    - name: 'Annex sources'
+      command: "git annex add nodejs-{{ name }}/*.tgz"
+
+    - name: 'Add spec to git'
+      command: 'git add nodejs-{{ name }}/*.spec'
