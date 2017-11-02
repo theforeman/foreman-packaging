@@ -357,7 +357,6 @@ scl = tfm
 blacklist = rubygem-jenkins_api_client
   rubygem-mixlib-shellout
   rubygem-terminal-table
-  python-urllib3
 
 [katello-thirdparty-rhel7]
 disttag = .el7
@@ -365,7 +364,6 @@ scl = tfm
 whitelist = rubygem-jenkins_api_client
   rubygem-mixlib-shellout
   rubygem-terminal-table
-  python-urllib3
 
 [katello-nightly-fedora26]
 disttag = .fc26
