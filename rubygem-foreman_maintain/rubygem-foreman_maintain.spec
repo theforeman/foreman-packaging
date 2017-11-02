@@ -85,6 +85,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 02 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.11-1
+- Update foreman_maintain to 0.0.11 (inecas@redhat.com)
+
 * Wed Oct 18 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.10-1
 - Update foreman_maintain to 0.0.10 (inecas@redhat.com)
 
