@@ -78,6 +78,7 @@ Obsoletes: %{scl_prefix}rubygem-macaddr < 1.7.1-2
 Obsoletes: %{scl_prefix}rubygem-multi_json < 1.10.1-4
 Obsoletes: %{scl_prefix}rubygem-multi-select-rails < 0.9.12-6
 Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
+Obsoletes: %{scl_prefix}rubygem-protected_attributes < 1.1.3-4
 Obsoletes: %{scl_prefix}rubygem-rails-observers < 0.1.2-8
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
 Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
