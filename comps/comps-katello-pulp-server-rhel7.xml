@@ -70,7 +70,6 @@
        <packagereq type="default">python-gofer-qpid</packagereq>
        <packagereq type="default">python-gofer-amqp</packagereq>
        <packagereq type="default">python-gofer-proton</packagereq>
-       <packagereq type="default">python-requests-toolbelt</packagereq>
        <packagereq type="default">python-saslwrapper</packagereq>
        <packagereq type="default">python-webpy</packagereq>
        <packagereq type="default">saslwrapper</packagereq>
