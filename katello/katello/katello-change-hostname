@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+# check if production install
+if __FILE__.include?('sbin')
+  UTILS_PATH='/usr/share/katello'
+else
+  UTILS_PATH=File.expand_path('..', __FILE__)
+end
+
+require File.join(UTILS_PATH, 'hostname-change.rb')
+
+options = {
+ proxy: "Foreman Proxy",
+ plural_proxy: "Foreman Proxies",
+ proxy_hyphenated: "foreman-proxy-content",
+ command_prefix: "katello"
+}
+
+hostname_change = KatelloUtilities::HostnameChange.new(options)
+
+if hostname_change.accepted_scenarios.include? hostname_change.last_scenario
+  hostname_change.run
+else
+  STDOUT.puts hostname_change.error_message
+end

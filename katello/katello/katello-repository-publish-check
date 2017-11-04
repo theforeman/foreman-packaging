@@ -1,0 +1,5 @@
+#!/bin/env bash
+# Script for checking for any repositories that have not been published since
+#  their last sync, and republishing them
+
+foreman-rake katello:publish_unpublished_repositories RAILS_ENV=production >/dev/null 2>&1

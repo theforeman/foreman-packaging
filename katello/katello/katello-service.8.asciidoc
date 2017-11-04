@@ -1,0 +1,46 @@
+katello-service(8)
+==================
+:man source:  katello
+:man manual:  Katello User Manual
+
+NAME
+----
+katello-service - Script to control Katello server.
+
+SYNOPSIS
+--------
+
+*katello-service* {*start*|*stop*|*status*|*reload*|*restart*|*list*|*enable*|*disable*}
+
+DESCRIPTION
+-----------
+
+Katello consists of several services. While each of these services has its own service unit
+and you can start/stop each service separately, you usually want to control all services together.
+This script does exactly this.
+
+OPTIONS
+-------
+
+*start*|*stop*|*status*|*reload*|*restart*|*enable*|*disable*::
+    Perform specified action against all Katello services.
+
+*list*::
+	List all Katello services and if it is enabled or disabled.
+
+*enable*::
+        Enable all Katello services
+	
+*disable*::
+	Disable all Katello services
+
+*--exclude* SERVICE::
+    Perform action on all but these services
+
+*--only* SERVICE::
+    Perform action on specified services only
+
+SEE ALSO
+--------
+
+*service*(8) *systemctl*(8)
