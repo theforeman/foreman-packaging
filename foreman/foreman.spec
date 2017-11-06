@@ -218,7 +218,7 @@ BuildRequires: http-parser
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
 # is resolved
 BuildRequires: libuv
-BuildRequires: npm(babel-core) < 6.8.0
+BuildRequires: npm(babel-core) < 6.27.0
 BuildRequires: npm(babel-core) >= 6.7.2
 BuildRequires: npm(babel-loader) < 7.2.0
 BuildRequires: npm(babel-loader) >= 7.1.1
