@@ -82,6 +82,11 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 07 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.0.9-1
+- Updated smart_proxy_discovery_image to 1.0.9 (lzap@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.7-1
 - Update smart_proxy_discovery_image-1.0.7.gem (lzap+git@redhat.com)
 
