@@ -71,6 +71,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-redux
   nodejs-redux
   nodejs-redux-form
+  nodejs-redux-form-validators
   nodejs-redux-logger
   nodejs-redux-thunk
   nodejs-sass-loader
