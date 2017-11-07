@@ -209,6 +209,7 @@
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-numeric-input</packagereq>
+      <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-logger</packagereq>
@@ -251,7 +252,6 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">nodejs-babel-core-doc</packagereq>
       <packagereq type="default">nodejs-babel-preset-es2015-doc</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs-doc</packagereq>
       <packagereq type="default">nodejs-datatables.net-doc</packagereq>
