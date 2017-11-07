@@ -70,6 +70,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-onclickoutside
   nodejs-react-redux
   nodejs-redux
+  nodejs-redux-form
   nodejs-redux-logger
   nodejs-redux-thunk
   nodejs-sass-loader

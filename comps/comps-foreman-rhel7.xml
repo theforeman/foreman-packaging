@@ -220,6 +220,7 @@
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
+      <packagereq type="default">nodejs-redux-form</packagereq>
       <packagereq type="default">nodejs-redux-logger</packagereq>
       <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
