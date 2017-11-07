@@ -202,6 +202,7 @@
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
+      <packagereq type="default">nodejs-jsdom</packagereq>
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
