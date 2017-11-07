@@ -100,5 +100,8 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.0.6-1
+- Update nodejs-sass-loader to 6.0.6 (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Feb 28 2017 Dominic Cleal <dominic@cleal.org> 4.1.1-1
 - new package built with tito
