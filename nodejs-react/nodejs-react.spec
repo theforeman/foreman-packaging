@@ -86,6 +86,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 16.0.0-1
+- Update nodejs-react to 16.0.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Oct 05 2017 Eric D. Helms <ericdhelms@gmail.com> 15.6.2-1
 - Update React to 15.6.2 (me@daniellobato.me)
 
