@@ -41,3 +41,6 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Tue Nov 07 2017 Daniel Lobato Garcia <me@daniellobato.me> 6.6.3-1
+- new package built with tito
+
