@@ -172,6 +172,7 @@
       -->
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">nodejs-babel-cli</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-assign</packagereq>

@@ -22,6 +22,7 @@ whitelist = foreman-bootloaders-redhat
   foreman-proxy
   foreman-release-scl
   foreman-selinux
+  nodejs-babel-cli
   nodejs-babel-core
   nodejs-babel-loader
   nodejs-babel-plugin-transform-object-assign
