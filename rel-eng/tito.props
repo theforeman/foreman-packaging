@@ -76,6 +76,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-redux-logger
   nodejs-redux-thunk
   nodejs-sass-loader
+  nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-style-loader
