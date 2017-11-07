@@ -64,6 +64,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-object-assign
   nodejs-performance-now
   nodejs-prop-types
+  nodejs-raf
   nodejs-react
   nodejs-react-bootstrap
   nodejs-react-dom
