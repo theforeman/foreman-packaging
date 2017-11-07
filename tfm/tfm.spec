@@ -264,7 +264,8 @@ selinuxenabled && load_policy || :
 %files
 
 %files runtime -f rubygems_filesystem.list
-%doc README LICENSE
+%doc README
+%license LICENSE
 %exclude %{_scl_scripts}/enable_assets
 %scl_files
 %dir %{_mandir}/man*
@@ -278,12 +279,12 @@ selinuxenabled && load_policy || :
 %{_scl_scripts}/enable_assets
 
 %files build
-%doc LICENSE
+%license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl}-config
 %{_rpmconfigdir}/fileattrs
 
 %files scldevel
-%doc LICENSE
+%license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
