@@ -62,6 +62,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
+  nodejs-patternfly
   nodejs-performance-now
   nodejs-prop-types
   nodejs-raf

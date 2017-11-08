@@ -212,6 +212,7 @@
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
       <packagereq type="default">nodejs-object-assign</packagereq>
+      <packagereq type="default">nodejs-patternfly</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
