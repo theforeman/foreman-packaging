@@ -45,3 +45,6 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Wed Nov 08 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.0-1
+- new package built with tito
+
