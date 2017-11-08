@@ -113,6 +113,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Wed Nov 08 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.31.5-1
+- Bump nodejs-react-bootstrap to 0.31.5 (#1936) (github@kohlvanwijngaarden.nl)
+
 * Thu May 11 2017 Dominic Cleal <dominic@cleal.org> 0.31.0-1
 - Update react-bootstrap to 0.31.0 (dominic@cleal.org)
 
