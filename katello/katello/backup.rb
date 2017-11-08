@@ -228,9 +228,13 @@ module KatelloUtilities
         puts "Done."
       when 'pgsql'
         puts "Backing up postgres online schema... "
-        run_cmd("runuser - postgres -c 'pg_dumpall -g > #{File.join(@dir, 'pg_globals.dump')}'")
-        run_cmd("runuser - postgres -c 'pg_dump -Fc foreman > #{File.join(@dir, 'foreman.dump')}'")
-        run_cmd("runuser - postgres -c 'pg_dump -Fc candlepin > #{File.join(@dir, 'candlepin.dump')}'")
+        if db_config.any_local_db?
+          run_cmd("runuser - postgres -c 'pg_dumpall -g > #{File.join(@dir, 'pg_globals.dump')}'")
+        else
+          puts 'Backup of global objects is not supported for remote databases. Skipping...'
+        end
+        run_cmd(db_config.pg_dump_command(db_config.foreman, File.join(@dir, 'foreman.dump')))
+        run_cmd(db_config.pg_dump_command(db_config.candlepin, File.join(@dir, 'candlepin.dump')))
         puts "Done."
       when 'mongodb'
         puts "Backing up mongo online schema... "
@@ -257,18 +261,25 @@ module KatelloUtilities
         end
       when 'pgsql'
         dir_path ||= '/var/lib/pgsql/data'
-        FileUtils.cd dir_path do
-          puts "Backing up postgres db..."
-          run_cmd("tar --selinux --create --file=#{File.join(@dir, 'pgsql_data.tar')} --listed-incremental=#{File.join(@dir, '.postgres.snar')} --transform 's,^,var/lib/pgsql/data/,S' -S *")
-          puts "Done."
+        if db_config.any_remote_db?
+          puts "Backup of #{dir_path} is not supported for remote databases. Doing postgres online backup instead... "
+          online_backup(database)
+        else
+          FileUtils.cd dir_path do
+            puts "Backing up postgres db..."
+            run_cmd("tar --selinux --create --file=#{File.join(@dir, 'pgsql_data.tar')} --listed-incremental=#{File.join(@dir, '.postgres.snar')} --transform 's,^,var/lib/pgsql/data/,S' -S *")
+            puts "Done."
+          end
         end
       end
     end
 
     def compress_files
-      psql = spawn('gzip', 'pgsql_data.tar', '-f') if @databases.include? "pgsql"
+      if @databases.include? "pgsql" && File.exist?(File.join(@dir, 'pgsql_data.tar'))
+        psql = spawn('gzip', 'pgsql_data.tar', '-f')
+        Process.wait(psql)
+      end
       mongo = spawn('gzip', 'mongo_data.tar', '-f')
-      Process.wait(psql) if @databases.include? "pgsql"
       Process.wait(mongo)
     end
 

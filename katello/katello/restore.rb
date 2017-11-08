@@ -12,6 +12,7 @@ module KatelloUtilities
       @standard_backup_files = ['config_files.tar.gz', 'pulp_data.tar*']
       @online_backup_files = ['mongo_dump', 'candlepin.dump', 'foreman.dump', 'pg_globals.dump']
       @offline_backup_files = ['mongo_data.tar.gz', 'pgsql_data.tar.gz']
+      @offline_remote_backup_files = ['mongo_data.tar.gz', 'candlepin.dump', 'foreman.dump']
       @foreman_proxy_content_backup_files = ['mongo_data.tar.gz']
       @foreman_proxy_content_online_backup_files = ['mongo_dump']
       @foreman_proxy_content = foreman_proxy_content
@@ -82,11 +83,19 @@ module KatelloUtilities
     def restore_psql_dumps
       puts "Restoring postgres dump files"
       run_cmd("katello-service start --only postgresql")
-      run_cmd("runuser - postgres -c 'dropdb foreman'")
-      run_cmd("runuser - postgres -c 'dropdb candlepin'")
-      run_cmd("runuser - postgres -c 'psql -f #{File.join(@dir, "pg_globals.dump")} postgres 2>/dev/null'")
-      run_cmd("runuser - postgres -c 'pg_restore -C -d postgres #{File.join(@dir, "foreman.dump")}'")
-      run_cmd("runuser - postgres -c 'pg_restore -C -d postgres #{File.join(@dir, "candlepin.dump")}'")
+      if db_config.any_remote_db?
+        if db_config.any_local_db?
+          run_cmd("runuser - postgres -c 'psql -f #{File.join(@dir, "pg_globals.dump")} postgres 2>/dev/null'")
+        end
+        run_cmd(db_config.pg_command(db_config.foreman, 'pg_restore', "--no-privileges --clean -n public #{File.join(@dir, "foreman.dump")}"))
+        run_cmd(db_config.pg_command(db_config.candlepin, 'pg_restore', "--no-privileges --clean -n public #{File.join(@dir, "candlepin.dump")}"))
+      else
+        run_cmd("runuser - postgres -c 'dropdb foreman'")
+        run_cmd("runuser - postgres -c 'dropdb candlepin'")
+        run_cmd("runuser - postgres -c 'psql -f #{File.join(@dir, "pg_globals.dump")} postgres 2>/dev/null'")
+        run_cmd("runuser - postgres -c 'pg_restore -C -d postgres #{File.join(@dir, "foreman.dump")}'")
+        run_cmd("runuser - postgres -c 'pg_restore -C -d postgres #{File.join(@dir, "candlepin.dump")}'")
+      end
       run_cmd("katello-service stop --only postgresql")
       puts "Done."
     end
@@ -134,6 +143,11 @@ module KatelloUtilities
       !(@candlepin_dump_exists || @foreman_dump_exists || @mongo_dump_exists)
     end
 
+    def valid_standard_remote_backup
+      @mongo_data_exists && @candlepin_dump_exists && @foreman_dump_exists &&
+          !(@pgsql_data_exists || @mongo_dump_exists)
+    end
+
     def valid_fpc_standard_backup
       @mongo_data_exists &&
       !(@pgsql_data_exists || @candlepin_dump_exists || @foreman_dump_exists || @mongo_dump_exists)
@@ -151,13 +165,11 @@ module KatelloUtilities
       if @pgsql_data_exists
         run_cmd("tar --selinux --overwrite --listed-incremental=/dev/null -xzf pgsql_data.tar.gz -C /")
       end
-      if !@mongo_data_exists && !@pgsql_data_exists && !valid_logical_backup
-        if @foreman_dump_exists && @candlepin_dump_exists
-          restore_psql_dumps
-        end
-        if @mongo_dump_exists
-          restore_mongo_dump
-        end
+      if @foreman_dump_exists && @candlepin_dump_exists && !@pgsql_data_exists
+        restore_psql_dumps
+      end
+      if @mongo_dump_exists && !@mongo_data_exists
+        restore_mongo_dump
       end
       migrate_pulp
       puts "Done.\n"
@@ -190,6 +202,7 @@ module KatelloUtilities
       else
         puts "---- An online backup directory contains: #{@online_backup_files.join(", ")}"
         puts "---- An offline backup directory contains: #{@offline_backup_files.join(", ")}"
+        puts "---- An offline backup with remote DB contains: #{@offline_remote_backup_files.join(", ")}"
       end
       puts "---- A logical backup directory contains: #{@online_backup_files.join(", ")}, #{@offline_backup_files.join(", ")}"
       puts "---- *pulp_data.tar is optional"
@@ -232,7 +245,7 @@ module KatelloUtilities
           display_backup_options
         end
       else
-        unless valid_standard_backup || valid_online_backup
+        unless valid_standard_backup || valid_standard_remote_backup || valid_online_backup
           display_backup_options
         end
       end

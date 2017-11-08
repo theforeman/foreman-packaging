@@ -2,6 +2,14 @@
 
 require 'optparse'
 
+# check if production install
+if __FILE__.start_with?('/sbin/')
+  UTILS_PATH='/usr/share/katello'
+else
+  UTILS_PATH=File.expand_path('..', __FILE__)
+end
+require File.join(UTILS_PATH, 'db_config.rb')
+
 ACTIONS = ['restart', 'stop', 'start', 'status', 'list', 'enable', 'disable']
 COMMAND = '/usr/sbin/service-wait'
 SERVICES = {
@@ -25,6 +33,7 @@ SERVICES = {
 }
 
 @options = {:excluded => []}
+@db_config = KatelloUtilities::DBConfig.new
 
 OptionParser.new do |opts|
   opts.banner = "Usage: katello-service [options] [#{ACTIONS.join('|')}]"
@@ -50,6 +59,7 @@ OptionParser.new do |opts|
 end
 
 def service_exists?(service)
+  return false if !@db_config.any_local_db? and service == 'postgresql'
   systemd = `systemctl is-enabled #{service} 2>&1`.strip
   systemd == 'enabled' || systemd == 'disabled'
 end
