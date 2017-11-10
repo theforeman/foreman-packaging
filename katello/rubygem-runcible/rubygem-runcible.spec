@@ -4,7 +4,7 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.3.0
+Version:        2.4.0
 Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
@@ -56,6 +56,8 @@ mkdir -p %{buildroot}%{gem_docdir}
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
+%{gem_instdir}/Rakefile
+%{gem_instdir}/Gemfile
 %exclude %{gem_cache}
 %{gem_spec}
 %license %{gem_instdir}/LICENSE
