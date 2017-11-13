@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Mon Nov 13 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.32-1
+- Update dynflow to 0.8.32 (aruzicka@redhat.com)
+
 * Mon Oct 16 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.31-1
 - Update dynflow to 0.8.31 (aruzicka@redhat.com)
 
