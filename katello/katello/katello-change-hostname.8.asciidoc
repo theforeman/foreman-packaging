@@ -10,7 +10,7 @@ katello-change-hostname - Script to change the hostname on katello systems
 SYNOPSIS
 --------
 
-*katello-service* [options] [hostname]
+*katello-change-hostname* [options] [hostname]
 
 DESCRIPTION
 -----------
