@@ -130,7 +130,8 @@ CONTENT=[
   '/usr/share/qpid-tools',
   '/var/cache/',
   '/opt/theforeman',
-  '/var/www/html/pub/katello-rhsm-consumer'
+  '/var/www/html/pub/katello-rhsm-consumer',
+  '/var/tmp/foreman-proxy'
 ]
 
 CONTENT.map! do |dir|
