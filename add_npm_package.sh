@@ -87,7 +87,7 @@ echo -n "Setting tito props..."
 original_locale=$LC_COLLATE
 export LC_COLLATE=en_GB
 el7whitelist=$(crudini --get rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist)
-el7whitelist=$(echo "$el7whitelist nodejs-$NPM_MODULE_NAME" | tr " " "\n" | sort)
+el7whitelist=$(echo "$el7whitelist nodejs-$NPM_MODULE_NAME" | tr " " "\n" | sort -u)
 crudini --set rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist "$el7whitelist"
 export LC_COLLATE=$original_locale
 git add rel-eng/tito.props
