@@ -3,18 +3,19 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: requestAnimationFrame polyfill for node and the browser
 License: MIT
+Group: Development/Libraries
 URL: https://github.com/chrisdickinson/raf
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-%{?nodejs_find_provides_and_requires}
+Requires: npm(performance-now) >= 2.1.0
+Requires: npm(performance-now) < 3.0.0
 
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
 %description
 %{summary}
 
@@ -40,7 +41,6 @@ rm -rf %{buildroot} %{npm_cache_dir}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
 %doc README.md
 
 %changelog
