@@ -1,43 +1,43 @@
 %global npm_name datatables.net-bs
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.10.12
+Version: 1.10.16
 Release: 1%{?dist}
-Summary: DataTables for jQuery with styling for Bootstrap
+Summary: DataTables for jQuery with styling for Bootstrap 3
 License: MIT
+Group: Development/Libraries
 URL: https://datatables.net
-Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch:  noarch
-%{?nodejs_find_provides_and_requires}
+ExclusiveArch: %{nodejs_arches} noarch
+Obsoletes: %{name}-doc < %{version}
+
+Requires: npm(datatables.net) = 1.10.16
+Requires: npm(jquery) >= 1.7
 
 %description
 %{summary}
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}
 
 %prep
 %setup -q -n package
 
 %build
-%nodejs_symlink_deps --build
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr Readme.md css js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+
 %nodejs_symlink_deps
+
+%if 0%{?enable_tests}
+%check
+%{nodejs_symlink_deps} --check
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
-%files doc
 %doc Readme.md
 
 %changelog
