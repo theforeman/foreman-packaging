@@ -99,6 +99,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Fri Nov 17 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.6-1
+- Bump nodejs-react-redux to 5.0.6 (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 5.0.2-2
 - Use existing react, redux peer dependencies (dominic@cleal.org)
 
