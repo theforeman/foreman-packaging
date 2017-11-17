@@ -39,6 +39,9 @@ cp -pfr index.js package.json src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc docs
 
 %changelog
+* Fri Nov 17 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.0-1
+- Bump nodejs-react-numeric-input to 2.2.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Aug 07 2017 Eric D. Helms <ericdhelms@gmail.com> 2.0.7-1
 - new package built with tito
 
