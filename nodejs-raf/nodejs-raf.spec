@@ -44,6 +44,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Sun Nov 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.4.0-2
+- Set explicit dependencies for nodejs-raf (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.4.0-1
 - new package built with tito
 
