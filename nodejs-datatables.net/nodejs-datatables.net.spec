@@ -40,6 +40,9 @@ cp -pfr Readme.md js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc Readme.md
 
 %changelog
+* Sun Nov 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.16-1
+- Bump datatables.net to 1.10.16 (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Sep 02 2016 Dominic Cleal <dominic@cleal.org> 1.10.12-1
 - new package built with tito
 
