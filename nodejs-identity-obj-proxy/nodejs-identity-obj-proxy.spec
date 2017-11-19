@@ -41,6 +41,9 @@ cp -pfr LICENSE README.md package.json src %{buildroot}%{nodejs_sitelib}/%{npm_n
 %doc README.md
 
 %changelog
+* Sun Nov 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-2
+- Set dependencies to nodejs-harmony-reflect (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-1
 - new package built with tito
 
