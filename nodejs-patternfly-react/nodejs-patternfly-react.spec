@@ -44,6 +44,9 @@ cp -pfr CONTRIBUTING.md LICENSE README.md lib package.json %{buildroot}%{nodejs_
 %doc README.md
 
 %changelog
+* Sun Nov 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.10.0-1
+- Update nodejs-patternfly-react to 0.10.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Nov 08 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.0-1
 - new package built with tito
 
