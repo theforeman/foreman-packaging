@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Mon Nov 20 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.1.5-1
+- Bump rubygem-bastion to 6.1.5 (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Oct 03 2017 Daniel Lobato Garcia <me@daniellobato.me> 6.0.0-1
 - Release rubygem-bastion 6.0.0 (eric.d.helms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
