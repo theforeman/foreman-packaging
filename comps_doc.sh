@@ -3,7 +3,7 @@ begin='<!--RGD-START-->'
 end='<!--RGD-END-->'
 
 original_locale=$LC_COLLATE
-export LC_COLLATE=en_GB
+export LC_COLLATE=en_GB.UTF-8
 TEMP=$(mktemp)
 trap "rm -f $TEMP" EXIT
 
