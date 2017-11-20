@@ -23,7 +23,7 @@ License: <%= spec.licenses.join(" and ") %>
 <% if spec.homepage -%>
 URL: <%= spec.homepage %>
 <% end -%>
-Source0: <%= download_path.sub('https:', 'http:') %>%{gem_name}-%{version}.gem
+Source0: <%= download_path %>%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: %{?scl_prefix_ruby}ruby <%= req %>
