@@ -22,7 +22,7 @@ Requires: katello-selinux
 Requires: foreman >= 1.17.0
 Requires: foreman-postgresql
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
-Requires: %{?scl_prefix}rubygem(bastion) >= 6.0.0
+Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.2
 Requires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(rest-client)
@@ -45,7 +45,7 @@ BuildRequires: foreman-assets
 BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_docker) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
-BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.0.0
+BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.2
 BuildRequires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
