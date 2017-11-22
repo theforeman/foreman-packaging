@@ -377,6 +377,10 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack %{buildroot}%{_bindir}/webpack
 %doc README.md
 
 %changelog
+* Wed Nov 22 2017 Daniel Lobato Garcia <me@daniellobato.me> 3.4.1-3
+- Install webpack binary without the .js extension
+  (github@kohlvanwijngaarden.nl)
+
 * Sat Oct 14 2017 Eric D. Helms <ericdhelms@gmail.com> 3.4.1-2
 - Bump release to rebuild
 
