@@ -4,7 +4,7 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.4.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Packs CommonJs/AMD modules for the browser
 License: MIT
 URL: https://github.com/webpack/webpack
@@ -365,16 +365,15 @@ mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cd node_modules/webpack
 cp -pfr LICENSE README.md bin buildin hot lib package.json schemas web_modules node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pf README.md LICENSE ../../
-# If any binaries are included, symlink them to bindir here
-mkdir -p %{buildroot}%{nodejs_sitelib}/${npm_name}/bin
+mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin
 mkdir -p %{buildroot}%{_bindir}/
-install -p -D -m0755 bin/webpack.js %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/webpack.js
-ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack.js %{buildroot}%{_bindir}/webpack.js
+install -p -D -m0755 bin/webpack.js %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/webpack
+ln -sf %{nodejs_sitelib}/%{npm_name}/bin/webpack %{buildroot}%{_bindir}/webpack
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%{_bindir}/webpack.js
-%doc LICENSE
+%{_bindir}/webpack
+%license LICENSE
 %doc README.md
 
 %changelog

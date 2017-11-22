@@ -846,7 +846,7 @@ export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
 export NODE_ENV=production
 %{?scl:scl enable %{scl} "}
-webpack.js --bail --config config/webpack.config.js
+webpack --bail --config config/webpack.config.js
 %{?scl:"}
 %{scl_rake} assets:precompile RAILS_ENV=production --trace
 %{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
