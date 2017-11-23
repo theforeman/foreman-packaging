@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-datacenter
+Source: https://github.com/cloudevelops/foreman_datacenter
+
+Files: *
+Copyright: 2013 Cloudevelops <foreman@cloudevelops.com>
+License: GPL-3.0+
