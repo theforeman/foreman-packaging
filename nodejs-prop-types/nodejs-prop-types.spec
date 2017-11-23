@@ -43,6 +43,9 @@ cp -pfr CHANGELOG.md LICENSE README.md checkPropTypes.js factory.js factoryWithT
 %doc README.md
 
 %changelog
+* Thu Nov 23 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 15.6.0-2
+- Unbundle nodejs-prop-types (github@kohlvanwijngaarden.nl)
+
 * Thu Oct 05 2017 Eric D. Helms <ericdhelms@gmail.com> 15.6.0-1
 - Update prop-types to 15.5.9 (me@daniellobato.me)
 
