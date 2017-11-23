@@ -5,6 +5,7 @@ config/settings.yaml                     etc/foreman
 config/database.yml                      etc/foreman
 script/foreman-rake                      usr/sbin
 script/foreman-tail                      usr/sbin
+script/dynflowd                          usr/sbin
 app                                      usr/share/foreman
 bin                                      usr/share/foreman
 config                                   usr/share/foreman
@@ -26,3 +27,6 @@ bundler.d/facter.rb                      usr/share/foreman/bundler.d
 bundler.d/jsonp.rb                       usr/share/foreman/bundler.d
 public                                   var/lib/foreman
 db                                       var/lib/foreman
+debian/dynflowd.default                  etc/default
+debian/dynflowd.init                     etc/init.d
+debian/dynflowd.service                  lib/systemd/system

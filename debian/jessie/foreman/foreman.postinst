@@ -101,6 +101,10 @@ fi
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 
+# During dh_install we cannot rename files, so we do so here
+mv /etc/init.d/dynflowd.init /etc/init.d/dynflowd
+mv /etc/default/dynflowd.default /etc/default/dynflowd
+
 #DEBHELPER#
 
 exit 0
