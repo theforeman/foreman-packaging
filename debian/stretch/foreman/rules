@@ -25,9 +25,8 @@ build:
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
 	/bin/mkdir -p .ssh
-	# Ensure backwards compatiblity by having dynflowd aliased to foreman-tasks
-	/bin/mv /usr/sbin/dynflow-executor /usr/sbin/dynflowd
-	/bin/ln -s /usr/sbin/dynflowd /usr/sbin/ruby-foreman-tasks
+	# https://projects.theforeman.org/issues/21757
+	/bin/mv bin/dynflow-executor script/dynflowd
 
 %:
 	dh $@ --with=systemd
