@@ -77,6 +77,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Fri Nov 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.16-1
+- Bump nodejs-fbjs to 0.8.16 (github@kohlvanwijngaarden.nl)
+
 * Sat Jul 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.8.12-2
 - Add back missing Provides: npm (ericdhelms@gmail.com)
 
