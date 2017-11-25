@@ -1,3 +1,9 @@
+ruby-foreman-salt (8.0.3-1) stable; urgency=low
+
+  * 8.0.3 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 25 Nov 2017 16:53:11 +0100
+
 ruby-foreman-salt (8.0.2-1) stable; urgency=low
 
   * 8.0.2 released
