@@ -309,7 +309,6 @@ BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
-BuildRequires: npm(fbjs) = 0.8.12
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
 BuildRequires: npm(jquery) >= 2.2.4
@@ -644,7 +643,6 @@ Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
 Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
-Requires: npm(fbjs) = 0.8.12
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
 Requires: npm(jquery) >= 2.2.4
