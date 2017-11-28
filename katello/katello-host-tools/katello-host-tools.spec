@@ -155,8 +155,8 @@ exit 0
 
 %files
 %defattr(-,root,root,-)
-%{_sysconfdir}/yum/pluginconf.d/package_upload.conf
-%{_sysconfdir}/yum/pluginconf.d/enabled_repos_upload.conf
+%config %{_sysconfdir}/yum/pluginconf.d/package_upload.conf
+%config %{_sysconfdir}/yum/pluginconf.d/enabled_repos_upload.conf
 /var/cache/katello-agent/
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
