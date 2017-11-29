@@ -1,3 +1,9 @@
+foreman-proxy (1.16.0-1) stable; urgency=low
+
+  * 1.16.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Wed, 29 Nov 2017 14:01:10 +0100
+
 foreman-proxy (1.16.0~rc2-1) stable; urgency=low
 
   * 1.16.0-RC2 released
