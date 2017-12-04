@@ -27,4 +27,3 @@ bundler.d/facter.rb                      usr/share/foreman/bundler.d
 bundler.d/jsonp.rb                       usr/share/foreman/bundler.d
 public                                   var/lib/foreman
 db                                       var/lib/foreman
-debian/dynflowd.service                  lib/systemd/system

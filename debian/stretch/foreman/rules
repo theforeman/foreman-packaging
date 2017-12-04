@@ -29,4 +29,5 @@ build:
 	dh $@ --with=systemd
 
 override_dh_installinit:
+	dh_installinit
 	dh_installinit --name=dynflowd
