@@ -1,8 +1,6 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-
 # Uncomment this to turn on verbose mode.
 # DEB_VERBOSE_ALL=1
 # DH_VERBOSE=1
@@ -25,3 +23,11 @@ build:
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
 	/bin/mkdir -p .ssh
+	dh $@
+
+%:
+	dh $@ --with=systemd
+
+override_dh_installinit:
+	dh_installinit
+	dh_installinit --name=dynflowd
