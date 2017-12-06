@@ -256,8 +256,24 @@ module KatelloUtilities
 
       public_dir = "/var/www/html/pub"
       public_backup_dir = "#{public_dir}/#{@old_hostname}-#{self.timestamp}.backup"
-      STDOUT.puts "deleting old certs"
+      
+      STDOUT.puts "removing old cert rpms"
+      cert_packages = [
+        "foreman-proxy-client*",
+        "qpid-client-cert*",
+        "qpid-router-server*",
+        "tomcat*",
+        "apache*",
+        "qpid-broker*",
+        "puppet-client*",
+        "foreman-proxy*",
+        "qpid-router-client*",
+        "foreman-client*"
+      ]
+      cert_rpms = cert_packages.map { |pkg| "#{@old_hostname}-#{pkg}*" }.join(' ')
+      self.run_cmd("yum remove -y #{cert_rpms}")
 
+      STDOUT.puts "deleting old certs"
       self.run_cmd("rm -rf /etc/pki/katello-certs-tools{,.bak}")
       self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["ssl_cert"]}")
       self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["ssl_key"]}")
