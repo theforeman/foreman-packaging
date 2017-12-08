@@ -6,8 +6,8 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.41.0
-Release: 2%{?dist}
+Version: 1.42.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog
@@ -42,6 +42,7 @@ Requires: %{?scl_prefix}rubygem(fog-digitalocean) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-openstack)
+Requires: %{?scl_prefix}rubygem(fog-ovirt)
 Requires: %{?scl_prefix}rubygem(fog-rackspace)
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(fog-xenserver)
@@ -49,8 +50,7 @@ Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.5
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
-Requires: %{?scl_prefix_ruby}rubygem(json) < 2.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -62,6 +62,7 @@ BuildRequires: %{?scl_prefix}rubygem(fog-digitalocean) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 BuildRequires: %{?scl_prefix}rubygem(fog-json)
 BuildRequires: %{?scl_prefix}rubygem(fog-openstack)
+BuildRequires: %{?scl_prefix}rubygem(fog-ovirt)
 BuildRequires: %{?scl_prefix}rubygem(fog-rackspace)
 BuildRequires: %{?scl_prefix}rubygem(fog-vsphere) >= 0.4.0
 BuildRequires: %{?scl_prefix}rubygem(fog-xenserver)
@@ -69,8 +70,7 @@ BuildRequires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 BuildRequires: %{?scl_prefix}rubygem(fog-xml) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
-BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
-BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 2.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
 BuildArch: noarch
