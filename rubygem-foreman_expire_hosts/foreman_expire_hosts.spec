@@ -92,6 +92,11 @@ exit 0
 %{gem_docdir}
 
 %changelog
+* Mon Dec 11 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
+- Update foreman_expire_hosts to 4.0.0 (mail@timogoebel.name)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Apr 24 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
 - Update foreman_expire_hosts to 3.0.0 (mail@timogoebel.name)
 
