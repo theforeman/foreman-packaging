@@ -101,6 +101,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Dec 11 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 10.0.1-1
+- Update foreman_bootdisk to 10.0.1 (mail@timogoebel.name)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Mar 22 2017 Dominic Cleal <dominic@cleal.org> 9.0.0-1
 - Update foreman_bootdisk to 9.0.0 (dominic@cleal.org)
 
