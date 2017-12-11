@@ -112,7 +112,7 @@ exit 0
 * Thu Oct 20 2016 Dominic Cleal <dominic@cleal.org> 2.1.0-1
 - Update foreman_expire_hosts to 2.1.0 (timo.goebel@dm.de)
 
-* Wed Jul 07 2016 Timo Goebel <mail@timogoebel.name> 2.0.2-1
+* Thu Jul 07 2016 Timo Goebel <mail@timogoebel.name> 2.0.2-1
 - release v2.0.2
 
 * Fri Jun 17 2016 Timo Goebel <mail@timogoebel.name> 2.0.1-1
