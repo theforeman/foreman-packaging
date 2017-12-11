@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Mon Dec 11 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.6.0-1
+- rubygem-runcible 2.6.0 build (jsherril@redhat.com)
+
 * Mon Nov 20 2017 Justin Sherrill <jsherril@redhat.com> 2.5.0-1
 - Runcible 2.5.0 (jsherril@redhat.com)
 
