@@ -5,14 +5,14 @@
 
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.1
+Version: 0.5.4
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release) >= 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
@@ -62,7 +62,6 @@ cp -a .%{_bindir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/TODO
-%{gem_instdir}/test
 
 %changelog
 * Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 0.5.1-1
