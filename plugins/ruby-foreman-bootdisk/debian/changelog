@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (10.0.1-1) stable; urgency=low
+
+  * 10.0.1 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Tue, 05 Dec 2017 15:06:16 +0100
+
 ruby-foreman-bootdisk (9.0.0-1) stable; urgency=low
 
   * 9.0.0 released
