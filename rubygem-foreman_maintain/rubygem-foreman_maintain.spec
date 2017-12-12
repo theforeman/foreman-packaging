@@ -85,6 +85,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Dec 12 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.1-1
+- Update rubygem-foreman_maintain to 0.1.1 (gnurag@gmail.com)
+
 * Thu Nov 02 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.11-1
 - Update foreman_maintain to 0.0.11 (inecas@redhat.com)
 
