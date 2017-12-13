@@ -103,6 +103,10 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.0.0-1
+- update foreman_salt to 9.0.0 (kvedulv@kvedulv.de)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 8.0.2-1
 - update foreman_salt to 8.0.2 (kvedulv@kvedulv.de)
 
