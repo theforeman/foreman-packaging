@@ -84,6 +84,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.5.6-1
+- Update apipie-rails to 0.5.6 (pcreech@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Sep 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.5.4-1
 - Update apipie-rails to 0.5.4 (ares@users.noreply.github.com)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
