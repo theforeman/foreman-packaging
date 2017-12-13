@@ -103,6 +103,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 8.0.3-1
+- update foreman_salt to 8.0.3 (kvedulv@kvedulv.de)
+
 * Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 8.0.2-1
 - update foreman_salt to 8.0.2 (kvedulv@kvedulv.de)
 
