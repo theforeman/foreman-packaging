@@ -43,3 +43,6 @@ cp -pfr changelog.md examples lib license package.json readme.md %{buildroot}%{n
 %doc examples
 
 %changelog
+* Thu Dec 14 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.1-1
+- new package built with tito
+
