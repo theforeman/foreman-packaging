@@ -1,20 +1,19 @@
 #!/bin/bash
-#! /bin/sh
 ### BEGIN INIT INFO
-# Provides:          foreman-tasks
+# Provides:          dynflowd
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Init script for foreman-tasks
-# Description:       Init script for foreman-tasks service used by foreman-tasks foreman plugin
+# Short-Description: Init script for dynflowd
+# Description:       Init script for dynflowd service used by foreman
 ### END INIT INFO
 
 # Author: Marek Hulan <mhulan@redhat.com>
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="Foreman-tasks start dynflow executor"
-NAME=foreman-tasks
+DESC="Start dynflow executor"
+NAME=dynflowd
 DAEMON=/usr/bin/$NAME
 SCRIPTNAME=/etc/init.d/$NAME
 
@@ -40,7 +39,6 @@ FOREMAN_ENV=${FOREMAN_ENV:-production}
 FOREMAN_TASK_PARAMS=${FOREMAN_TASK_PARAMS:--p foreman}
 FOREMAN_PID_DIR=$FOREMAN_HOME/tmp/pids
 FOREMAN_LOG_DIR=${FOREMAN_LOG_DIR:-/var/log/foreman}
-DAEMON="/usr/bin/foreman-tasks"
 PID_FILE=$FOREMAN_PID_DIR/dynflow_executor_monitor.pid
 export RAILS_ENV=$FOREMAN_ENV
 export FOREMAN_LOGGING=${FOREMAN_LOGGING:-warn}
