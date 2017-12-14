@@ -48,6 +48,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-file-loader
   nodejs-harmony-reflect
   nodejs-identity-obj-proxy
+  nodejs-intl
   nodejs-ipaddr.js
   nodejs-jquery
   nodejs-jquery.cookie
