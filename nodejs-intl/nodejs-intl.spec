@@ -40,3 +40,6 @@ cp -pfr CONTRIBUTING.md LICENSE.txt README.md bower.json dist index.js lib local
 %doc README.md
 
 %changelog
+* Thu Dec 14 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.5-1
+- new package built with tito
+
