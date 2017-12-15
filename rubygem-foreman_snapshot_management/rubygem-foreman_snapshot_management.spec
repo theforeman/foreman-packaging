@@ -5,7 +5,7 @@
 %global plugin_name snapshot_management
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
@@ -15,6 +15,7 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.14.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface)
 BuildRequires: foreman-plugin >= 1.14
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
