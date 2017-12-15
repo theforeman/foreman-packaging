@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.10.6-2) stable; urgency=low
+
+  * Dynflow executor is in core now
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 15 Dec 2017 00:12:13 +0100
+
 ruby-foreman-tasks (0.10.6-1) stable; urgency=low
 
   * 0.10.6 released
