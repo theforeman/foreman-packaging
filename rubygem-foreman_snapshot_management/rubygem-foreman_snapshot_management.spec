@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Dec 15 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-1
+- Update foreman_snapshot_management to 1.3.0 (mail@timogoebel.name)
+
 * Tue Sep 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
 - Update foreman_snapshot_management to 1.1.0 (mail@timogoebel.name)
 
