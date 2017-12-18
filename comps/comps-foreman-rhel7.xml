@@ -223,6 +223,7 @@
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
+      <packagereq type="default">nodejs-react-c3js</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-fontawesome</packagereq>
       <packagereq type="default">nodejs-react-numeric-input</packagereq>
