@@ -92,20 +92,18 @@ crudini --set rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist "$el7whi
 export LC_COLLATE=$original_locale
 git add rel-eng/tito.props
 echo "FINISHED"
-cd nodejs-$NPM_MODULE_NAME
 if [ "$STRATEGY" = "bundle" ]; then
   echo -e "Adding npmjs cache binary... - "
-  git add *-registry.npmjs.org.tgz
+  git add nodejs-$NPM_MODULE_NAME/*-registry.npmjs.org.tgz
   echo "FINISHED"
 fi
 echo -e "Annexing sources... - "
-git annex add *.tgz
+git annex add nodejs-$NPM_MODULE_NAME/*.tgz
 echo "FINISHED"
 echo -e "Adding spec to git... - "
-git add *.spec
+git add nodejs-$NPM_MODULE_NAME/*.spec
 echo "FINISHED"
 echo -e "Updating comps... - "
-cd ..
 ./add_to_comps.rb comps/comps-foreman-rhel7.xml nodejs-$NPM_MODULE_NAME nonscl
 ./comps_doc.sh
 git add comps/
