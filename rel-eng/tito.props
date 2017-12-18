@@ -35,6 +35,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-register
   nodejs-brace
   nodejs-c3
+  nodejs-change-emitter
   nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-css-loader

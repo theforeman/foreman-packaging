@@ -185,6 +185,7 @@
       <packagereq type="default">nodejs-babel-register</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
+      <packagereq type="default">nodejs-change-emitter</packagereq>
       <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
