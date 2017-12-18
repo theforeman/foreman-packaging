@@ -325,9 +325,9 @@ BuildRequires: npm(lodash) >= 4.15.0
 BuildRequires: npm(lodash) < 4.16.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
-BuildRequires: npm(patternfly) >= 3.29.5
+BuildRequires: npm(patternfly) >= 3.31.2
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 0.8.1
+BuildRequires: npm(patternfly-react) >= 0.18.2
 BuildRequires: npm(patternfly-react) < 1.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -659,9 +659,9 @@ Requires: npm(lodash) >= 4.15.0
 Requires: npm(lodash) < 4.16.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
-Requires: npm(patternfly) >= 3.29.5
+Requires: npm(patternfly) >= 3.31.2
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 0.8.1
+Requires: npm(patternfly-react) >= 0.18.2
 Requires: npm(patternfly-react) < 1.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
