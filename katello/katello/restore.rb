@@ -1,3 +1,4 @@
+require 'rubygems/package'
 require 'socket'
 require 'optparse'
 require 'fileutils'
@@ -198,11 +199,33 @@ module KatelloUtilities
       exit(-1)
     end
 
+    def tarball_file_list(tarball)
+      # accepts tar.gz files only
+      file_list = []
+      File.open(tarball, "rb") do |file|
+        ::Zlib::GzipReader.wrap(file) do |gz|
+          ::Gem::Package::TarReader.new(gz) do |tar|
+            tar.each { |entry| file_list << entry.full_name }
+          end
+        end
+      end
+      file_list
+    end
+
     def hostname_check
       # make sure that the system hostname is the same as the backup
-      backup_hostname = run_cmd("tar zxf #{File.join(@dir, 'config_files.tar.gz')} etc/httpd/conf/httpd.conf --to-stdout | grep ServerName | awk {'print $2'} | tr -d '\"'").chomp
-      hostname = Socket.gethostname.chomp
-      backup_hostname == hostname
+      config_tarball = File.join(@dir, 'config_files.tar.gz')
+      config_files = tarball_file_list(config_tarball)
+
+      # Incremental backups sometimes don't include httpd.conf. Since a "base" backup is restored before an incremental, we can
+      # assume that the hostname is checked during the base backup restore
+      if config_files.include?("etc/httpd/conf/httpd.conf")
+        backup_hostname = run_cmd("tar zxf #{config_tarball} etc/httpd/conf/httpd.conf --to-stdout | grep ServerName | awk {'print $2'} | tr -d '\"'").chomp
+        hostname = Socket.gethostname.chomp
+        backup_hostname == hostname
+      else
+        true
+      end
     end
 
     def backup_valid?
