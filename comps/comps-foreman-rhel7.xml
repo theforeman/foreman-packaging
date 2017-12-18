@@ -198,6 +198,7 @@
       <packagereq type="default">nodejs-fbjs</packagereq>
       <packagereq type="default">nodejs-file-loader</packagereq>
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
+      <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
