@@ -228,6 +228,7 @@
       <packagereq type="default">nodejs-react-numeric-input</packagereq>
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-recompose</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-form</packagereq>
       <packagereq type="default">nodejs-redux-form-validators</packagereq>

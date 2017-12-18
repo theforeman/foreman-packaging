@@ -78,6 +78,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
   nodejs-react-redux
+  nodejs-recompose
   nodejs-redux
   nodejs-redux-form
   nodejs-redux-form-validators
