@@ -36,3 +36,6 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.6-1
+- new package built with tito
+
