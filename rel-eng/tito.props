@@ -62,6 +62,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-file-loader
   nodejs-font-awesome
   nodejs-font-awesome-sass
+  nodejs-google-code-prettify
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
