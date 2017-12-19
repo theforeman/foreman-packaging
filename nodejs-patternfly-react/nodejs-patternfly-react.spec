@@ -48,6 +48,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.19.2-1
+- Update nodejs-patternfly-react to 0.19.2 (github@kohlvanwijngaarden.nl)
+
 * Thu Dec 14 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.13.0-1
 - Update patternfly-react to 0.13.0 (oprazak@redhat.com)
 
