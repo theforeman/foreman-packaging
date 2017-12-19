@@ -51,6 +51,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-datatables.net-bs
   nodejs-datatables.net-colreorder
   nodejs-datatables.net-colreorder-bs
+  nodejs-datatables.net-select
   nodejs-diff
   nodejs-dotenv
   nodejs-expose-loader
