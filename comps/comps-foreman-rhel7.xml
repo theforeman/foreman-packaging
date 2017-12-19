@@ -219,6 +219,7 @@
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
+      <packagereq type="default">nodejs-jquery-match-height</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
@@ -297,7 +298,6 @@
       <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-ipaddr.js-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
-      <packagereq type="default">nodejs-jquery-doc</packagereq>
       <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
       <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
       <packagereq type="default">nodejs-jstz-doc</packagereq>

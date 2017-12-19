@@ -71,6 +71,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-jquery
   nodejs-jquery.cookie
   nodejs-jquery-flot
+  nodejs-jquery-match-height
   nodejs-jquery-ujs
   nodejs-jsdom
   nodejs-js-tokens
