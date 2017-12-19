@@ -199,6 +199,7 @@
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-datatables.net-colreorder</packagereq>
+      <packagereq type="default">nodejs-datatables.net-colreorder-bs</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
