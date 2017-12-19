@@ -188,6 +188,7 @@
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-bootstrap-slider</packagereq>
       <packagereq type="default">nodejs-bootstrap-switch</packagereq>
+      <packagereq type="default">nodejs-bootstrap-touchspin</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-change-emitter</packagereq>

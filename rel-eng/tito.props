@@ -39,6 +39,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-bootstrap-select
   nodejs-bootstrap-slider
   nodejs-bootstrap-switch
+  nodejs-bootstrap-touchspin
   nodejs-brace
   nodejs-c3
   nodejs-change-emitter
