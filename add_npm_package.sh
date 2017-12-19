@@ -4,6 +4,8 @@ NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
 
+PACKAGE_NAME=nodejs-$NPM_MODULE_NAME
+
 if [[ -z $NPM_MODULE_NAME ]]; then
   echo "This script adds a new npm package based on the module found on npmjs.org"
   echo -e "\nUsage:\n$0 NPM_MODULE_NAME VERSION STRATEGY \n"
@@ -70,16 +72,16 @@ if [[ -z $STRATEGY ]] ; then
 fi
 
 echo -n "Making directory..."
-mkdir nodejs-$NPM_MODULE_NAME
+mkdir $PACKAGE_NAME
 echo "FINISHED"
 echo -n "Creating specs and downloading sources..."
 npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY
 echo "FINISHED"
 echo -n "Copying specs..."
-cp npm2rpm/SPECS/* nodejs-$NPM_MODULE_NAME
+cp npm2rpm/SPECS/* $PACKAGE_NAME
 echo "FINISHED"
 echo -n "Copying sources..."
-cp npm2rpm/SOURCES/* nodejs-$NPM_MODULE_NAME
+cp npm2rpm/SOURCES/* $PACKAGE_NAME
 echo "FINISHED"
 rm -r npm2rpm
 echo -n "Setting tito props..."
@@ -87,25 +89,26 @@ echo -n "Setting tito props..."
 original_locale=$LC_COLLATE
 export LC_COLLATE=en_GB
 el7whitelist=$(crudini --get rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist)
-el7whitelist=$(echo "$el7whitelist nodejs-$NPM_MODULE_NAME" | tr " " "\n" | sort -u)
+el7whitelist=$(echo "$el7whitelist $PACKAGE_NAME" | tr " " "\n" | sort -u)
 crudini --set rel-eng/tito.props foreman-nightly-nonscl-rhel7 whitelist "$el7whitelist"
 export LC_COLLATE=$original_locale
 git add rel-eng/tito.props
 echo "FINISHED"
 if [ "$STRATEGY" = "bundle" ]; then
   echo -e "Adding npmjs cache binary... - "
-  git add nodejs-$NPM_MODULE_NAME/*-registry.npmjs.org.tgz
+  git add $PACKAGE_NAME/*-registry.npmjs.org.tgz
   echo "FINISHED"
 fi
-echo -e "Annexing sources... - "
-git annex add nodejs-$NPM_MODULE_NAME/*.tgz
-echo "FINISHED"
 echo -e "Adding spec to git... - "
-git add nodejs-$NPM_MODULE_NAME/*.spec
+git add $PACKAGE_NAME/*.spec
+echo "FINISHED"
+echo -e "Annexing sources... - "
+git annex add $PACKAGE_NAME/*.tgz
 echo "FINISHED"
 echo -e "Updating comps... - "
-./add_to_comps.rb comps/comps-foreman-rhel7.xml nodejs-$NPM_MODULE_NAME nonscl
+./add_to_comps.rb comps/comps-foreman-rhel7.xml $PACKAGE_NAME nonscl
 ./comps_doc.sh
 git add comps/
 echo "FINISHED"
-echo "Done! Now commit and send your pull request."
+git commit -m "Add $PACKAGE_NAME package"
+echo "Done! Now review the generated file and send a pull request"
