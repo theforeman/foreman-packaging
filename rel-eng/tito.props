@@ -35,6 +35,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-register
   nodejs-brace
   nodejs-c3
+  nodejs-change-emitter
   nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-css-loader
@@ -47,6 +48,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-fbjs
   nodejs-file-loader
   nodejs-harmony-reflect
+  nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
   nodejs-intl
   nodejs-ipaddr.js
@@ -71,11 +73,13 @@ whitelist = foreman-bootloaders-redhat
   nodejs-raf
   nodejs-react
   nodejs-react-bootstrap
+  nodejs-react-c3js
   nodejs-react-dom
   nodejs-react-fontawesome
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
   nodejs-react-redux
+  nodejs-recompose
   nodejs-redux
   nodejs-redux-form
   nodejs-redux-form-validators
@@ -85,6 +89,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-style-loader
+  nodejs-symbol-observable
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
