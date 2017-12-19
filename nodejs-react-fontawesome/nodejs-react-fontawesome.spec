@@ -41,6 +41,9 @@ cp -pfr lib package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc examples
 
 %changelog
+* Tue Dec 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.1-2
+- Fix the nodejs-react-fontawesome spec (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Dec 14 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.1-1
 - new package built with tito
 
