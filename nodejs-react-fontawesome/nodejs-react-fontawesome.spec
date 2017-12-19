@@ -1,9 +1,9 @@
 %global npm_name react-fontawesome
-%global enable_tests 1 
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
 Version: 1.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A React component for the font-awesome icon library
 License: MIT
 URL: https://github.com/danawoodman/react-fontawesome#readme
@@ -12,8 +12,8 @@ BuildRequires: nodejs-packaging
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Requires: npm(proptypes) >= 15.5.6
-Requires: npm(proptypes) < 16.0.0
+Requires: npm(prop-types) >= 15.5.6
+Requires: npm(prop-types) < 16.0.0
 
 %description
 %{summary}
@@ -21,11 +21,9 @@ Requires: npm(proptypes) < 16.0.0
 %prep
 %setup -q -n package
 
-%build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr changelog.md examples lib license package.json readme.md %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr lib package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
