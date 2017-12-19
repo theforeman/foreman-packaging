@@ -1,57 +1,44 @@
 %global npm_name jquery
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 2.2.4
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/jquery/jquery.git
-Source0: http://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
+URL: https://jquery.com
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch: noarch
-%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-Provides: npm(%{npm_name}) = %{version}
+Obsoletes: nodejs-%{npm_name}-doc < 3.2.1
 
 %description
-JavaScript library for DOM operations
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}.
+%{summary}
 
 %prep
 %setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr dist external src *.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr external %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%build
+%nodejs_symlink_deps
 
+%if 0%{?enable_tests}
 %check
-%nodejs_symlink_deps --check
+%{nodejs_symlink_deps} --check
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%doc LICENSE.txt
-
-%files doc
-%doc *.md
-%doc *.txt
-%exclude %{nodejs_sitelib}/%{npm_name}/.*
-%exclude %{nodejs_sitelib}/%{npm_name}/bower.json
+%license LICENSE.txt
+%doc AUTHORS.txt
+%doc README.md
 
 %changelog
 * Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.2.4-1
