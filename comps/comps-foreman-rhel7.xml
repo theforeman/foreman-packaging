@@ -224,6 +224,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
       <packagereq type="default">nodejs-moment</packagereq>
+      <packagereq type="default">nodejs-moment-timezone</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>

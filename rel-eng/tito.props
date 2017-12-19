@@ -75,6 +75,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-lodash
   nodejs-loose-envify
   nodejs-moment
+  nodejs-moment-timezone
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
