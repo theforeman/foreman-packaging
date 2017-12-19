@@ -93,3 +93,6 @@ cp -pfr xstreamObservableConfig.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.26.0-1
+- new package built with tito
+
