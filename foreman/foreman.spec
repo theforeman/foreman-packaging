@@ -377,8 +377,6 @@ BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.23.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.24.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
-BuildRequires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
@@ -710,8 +708,6 @@ Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.23.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.24.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-Requires: %{?scl_prefix}rubygem(quiet_assets) >= 1.0
-Requires: %{?scl_prefix}rubygem(quiet_assets) < 2.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
