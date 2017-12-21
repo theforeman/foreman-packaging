@@ -6,7 +6,7 @@
 Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.0.9
+Version: 5.0.4
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -15,8 +15,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem(i18n) >= 0.7
 Requires: %{?scl_prefix_ror}rubygem(i18n) < 1
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.0
+Requires: %{?scl_prefix_ror}rubygem(railties) >= 5.0
+Requires: %{?scl_prefix_ror}rubygem(railties) < 6.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
