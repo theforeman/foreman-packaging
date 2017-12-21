@@ -4,7 +4,7 @@
 %global gem_name roadie-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.1
+Version: 1.2.1
 Release: 1%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
@@ -14,7 +14,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.1
+Requires: %{?scl_prefix_ror}rubygem(railties) < 5.2
 Requires: %{?scl_prefix}rubygem(roadie) >= 3.1
 Requires: %{?scl_prefix}rubygem(roadie) < 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -68,6 +68,7 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %doc %{gem_instdir}/LICENSE.txt
 %exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/codecov.yml
 
 %files doc
 %doc %{gem_docdir}
@@ -76,7 +77,6 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %doc %{gem_instdir}/Upgrading.md
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/setup.sh
-%{gem_instdir}/spec
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
