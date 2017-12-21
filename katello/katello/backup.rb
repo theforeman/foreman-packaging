@@ -20,6 +20,7 @@ module KatelloUtilities
       @databases = @databases.dup
       @accepted_scenarios = accepted_scenarios
       @last_scenario = self.last_scenario
+      @services_online = true
 
       # keep as variables for easy backporting
       @foreman_proxy_content = foreman_proxy_content
@@ -44,9 +45,19 @@ module KatelloUtilities
           system("lvremove #{snapshot_location} -f") unless snapshot_location.empty?
         end
       end
-      `katello-service start #{@excluded}` unless @options[:online]
+      `katello-service start #{@excluded}` unless @services_online
       puts "Done."
       exit(exitstatus)
+    end
+
+    def start_services
+      run_cmd("katello-service start #{@excluded}") unless @services_online
+      @services_online = true
+    end
+
+    def stop_services
+      run_cmd("katello-service stop #{@excluded}") if @services_online
+      @services_online = false
     end
 
     def specified_features
@@ -138,11 +149,9 @@ module KatelloUtilities
     def create_directories(directory)
       @dir = File.join directory, "#{@program}-backup-" + self.timestamp unless @options[:no_subdir]
       puts "Creating backup folder #{@dir}"
-      FileUtils.mkdir_p @dir
-      unless @options[:no_subdir]
-        FileUtils.chown_R nil, 'postgres', @dir if @databases.include? "pgsql"
-        FileUtils.chmod_R 0770, @dir
-      end
+      FileUtils.mkdir @dir
+      FileUtils.chown_R nil, 'postgres', @dir if @databases.include? "pgsql"
+      FileUtils.chmod_R 0770, @dir
     end
 
     def snapshot_backup
@@ -150,9 +159,9 @@ module KatelloUtilities
       @snapsize = @options[:snapshot_size] || "2G"
       FileUtils.mkdir_p @mountdir
       confirm unless @options[:confirm]
-      run_cmd("katello-service stop #{@excluded}")
+      stop_services
       create_and_mount_snapshots
-      run_cmd("katello-service start #{@excluded}")
+      start_services
       backup_and_destroy_snapshots
     end
 
@@ -314,7 +323,7 @@ module KatelloUtilities
         puts "****cancelled****"
         puts "Postgres user needs write access to the backup directory"
         puts "Please select a directory, such as /tmp or /var/tmp which allows Postgres write access"
-        cleanup
+        FileUtils.rm_rf @dir unless @options[:no_subdir]
       end
     end
 
@@ -429,11 +438,11 @@ module KatelloUtilities
           end
         else
           confirm unless @options[:confirm]
-          run_cmd("katello-service stop #{@excluded}")
+          stop_services
           @databases.each do |database|
             offline_backup(database)
           end
-          run_cmd("katello-service start #{@excluded}")
+          start_services
           compress_files
         end
       end
