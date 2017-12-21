@@ -204,7 +204,6 @@ whitelist = foreman
   rubygem-pg
   rubygem-po_to_json
   rubygem-powerbar
-  rubygem-quiet_assets
   rubygem-rabl
   rubygem-rack-jsonp
   rubygem-rails-i18n
