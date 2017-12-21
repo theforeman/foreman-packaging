@@ -4,7 +4,7 @@
 %global gem_name responders
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
+Version: 2.4.0
 Release: 1%{?dist}
 Summary: A set of Rails responders to dry up your application
 Group: Development/Languages
@@ -13,8 +13,10 @@ URL: https://github.com/plataformatec/responders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.2.0
+Requires: %{?scl_prefix_ror}rubygem(actionpack) < 5.3
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.2.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.1
+Requires: %{?scl_prefix_ror}rubygem(railties) < 5.3
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
