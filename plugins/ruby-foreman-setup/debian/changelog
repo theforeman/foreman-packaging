@@ -1,3 +1,9 @@
+ruby-foreman-setup (6.0.0-1) stable; urgency=low
+
+  * 6.0.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 25 Dec 2017 20:56:51 +0100
+
 ruby-foreman-setup (5.0.0-1) stable; urgency=low
 
   * 5.0.0 released
