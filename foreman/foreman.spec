@@ -311,6 +311,8 @@ BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
+BuildRequires: npm(isomorphic-fetch) >= 2.2.1
+BuildRequires: npm(isomorphic-fetch) < 3.0.0
 BuildRequires: npm(jquery) >= 2.2.4
 BuildRequires: npm(jquery) < 2.3.0
 BuildRequires: npm(jquery-flot) >= 0.8.3
@@ -645,6 +647,8 @@ Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
+Requires: npm(isomorphic-fetch) >= 2.2.1
+Requires: npm(isomorphic-fetch) < 3.0.0
 Requires: npm(jquery) >= 2.2.4
 Requires: npm(jquery) < 2.3.0
 Requires: npm(jquery-flot) >= 0.8.3
@@ -669,7 +673,7 @@ Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
 Requires: npm(react) >= 16.0.0
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) >= 0.31.0
+Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-dom) >= 16.0.0
 Requires: npm(react-dom) < 17.0.0
@@ -681,9 +685,9 @@ Requires: npm(react-redux) >= 5.0.2
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
-Requires: npm(redux-form) >= 7.0.3
+Requires: npm(redux-form) >= 7.2.0
 Requires: npm(redux-form) < 8.0.0
-Requires: npm(redux-form-validators) >= 2.0.1
+Requires: npm(redux-form-validators) >= 2.1.2
 Requires: npm(redux-form-validators) < 3.0.0
 Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
