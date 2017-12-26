@@ -2,7 +2,7 @@
 %global enable_tests 0
 
 Name: nodejs-%{npm_name}
-Version: 2.1.0
+Version: 2.1.2
 Release: 1%{?dist}
 Summary: Simple validations with redux-form
 License: MIT
@@ -11,8 +11,6 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
-%{?nodejs_find_provides_and_requires}
 
 %define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
 %description
@@ -26,7 +24,6 @@ ExclusiveArch: %{nodejs_arches} noarch
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr .bootstraprc README.md TODO.txt coverage dist lib package.json postcss.config.js registerBabel.js src translationRunner.js yarn.lock %{buildroot}%{nodejs_sitelib}/%{npm_name}
-
 %nodejs_symlink_deps
 
 %clean
@@ -46,4 +43,3 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %changelog
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
 - new package built with tito
-
