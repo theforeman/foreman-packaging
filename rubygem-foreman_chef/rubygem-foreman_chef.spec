@@ -98,6 +98,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Dec 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.6.0-1
+- Update foreman_chef to 0.6.0 (ares@users.noreply.github.com)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Fri Feb 03 2017 Dominic Cleal <dominic@cleal.org> 0.5.0-1
 - Update foreman_chef to 0.5.0 (mhulan@redhat.com)
 
