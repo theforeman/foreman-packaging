@@ -68,6 +68,10 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Dec 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.11.3-1
+- Update fog-vsphere to 1.11.3 (me@daniellobato.me)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri May 12 2017 Dominic Cleal <dominic@cleal.org> 1.9.2-1
 - Update fog-vsphere to 1.9.2 (mhulan@redhat.com)
 
