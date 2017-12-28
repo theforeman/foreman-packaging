@@ -5,8 +5,8 @@
 %global plugin_name virt_who_configure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.8
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.9
+Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
 License: GPLv3
