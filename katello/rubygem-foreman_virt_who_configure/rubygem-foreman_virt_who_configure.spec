@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Dec 28 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.9-1
+- new package built with tito
+
 * Thu Oct 26 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.8-2
 - Fixes #21455 - generate apipie cache during build (mhulan@redhat.com)
 
