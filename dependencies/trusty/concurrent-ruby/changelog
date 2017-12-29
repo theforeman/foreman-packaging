@@ -1,5 +1,0 @@
-ruby-concurrent (1.0.0-1) unstable; urgency=medium
-
-  * Initial release (Closes: #809338)
-
- -- Balasankar C <balasankarc@autistici.org>  Tue, 08 Dec 2015 16:27:18 +0530
