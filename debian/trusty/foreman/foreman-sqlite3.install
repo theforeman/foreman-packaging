@@ -1,2 +1,0 @@
-bundler.d/sqlite.rb                 /usr/share/foreman/bundler.d
-debian/database.yml.sqlite3-example /etc/foreman
