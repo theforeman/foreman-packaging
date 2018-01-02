@@ -25,6 +25,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-cli
   nodejs-babel-core
   nodejs-babel-loader
+  nodejs-babel-plugin-lodash
   nodejs-babel-plugin-transform-class-properties
   nodejs-babel-plugin-transform-object-assign
   nodejs-babel-plugin-transform-object-rest-spread
