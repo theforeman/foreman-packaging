@@ -41,5 +41,8 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc TODO.txt
 
 %changelog
+* Tue Jan 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.2-1
+- Update redux-form-validators to 2.1.2 (me@daniellobato.me)
+
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
 - new package built with tito
