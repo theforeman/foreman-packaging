@@ -5,3 +5,4 @@ rel-eng/custom/*.pyc
 rel-eng/custom/__pycache__
 mock/site-defaults.cfg
 node_modules
+OLD_CHANGELOG

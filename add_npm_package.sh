@@ -72,6 +72,12 @@ if [[ -z $STRATEGY ]] ; then
 fi
 
 echo -n "Making directory..."
+UPDATE=false
+if [ -f "$PACKAGE_NAME/*.spec" ]; then
+  UPDATE=true
+  sed -n '/%changelog/,$p' $PACKAGE_NAME/*.spec > OLD_CHANGELOG
+  git rm -r $PACKAGE_NAME
+fi
 mkdir $PACKAGE_NAME
 echo "FINISHED"
 echo -n "Creating specs and downloading sources..."
@@ -79,6 +85,12 @@ npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY
 echo "FINISHED"
 echo -n "Copying specs..."
 cp npm2rpm/SPECS/* $PACKAGE_NAME
+if [ "$UPDATE" = true ]; then
+  echo "Restoring changelogs..."
+  cat OLD_CHANGELOG >> $PACKAGE_NAME/*.spec
+  sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_NAME/*.spec
+  rm OLD_CHANGELOG
+fi
 echo "FINISHED"
 echo -n "Copying sources..."
 cp npm2rpm/SOURCES/* $PACKAGE_NAME
