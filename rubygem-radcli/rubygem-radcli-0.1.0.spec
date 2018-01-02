@@ -82,3 +82,6 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
+- new package built with tito
+
