@@ -310,6 +310,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-mysql2
   rubygem-newt
   rubygem-openscap
+  rubygem-radcli
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
