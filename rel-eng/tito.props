@@ -209,6 +209,7 @@ whitelist = foreman
   rubygem-rails-i18n
   rubygem-rbovirt
   rubygem-rbvmomi
+  rubygem-record_tag_helper
   rubygem-responders
   rubygem-retriable
   rubygem-roadie
