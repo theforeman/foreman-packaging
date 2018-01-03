@@ -1,7 +1,5 @@
 %global npm_name babel-plugin-lodash
 
-%{?nodejs_find_provides_and_requires}
-
 Name: nodejs-%{npm_name}
 Version: 3.3.2
 Release: 1%{?dist}
