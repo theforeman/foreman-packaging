@@ -176,6 +176,7 @@
       <packagereq type="default">nodejs-babel-cli</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
+      <packagereq type="default">nodejs-babel-plugin-lodash</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-assign</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-rest-spread</packagereq>
