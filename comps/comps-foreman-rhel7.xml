@@ -130,6 +130,7 @@
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
+      <packagereq type="default">tfm-rubygem-record-tag-helper</packagereq>
       <packagereq type="default">tfm-rubygem-responders</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
@@ -158,7 +159,6 @@
       <packagereq type="default">tfm-rubygem-useragent</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails</packagereq>
-      <packagereq type="default">tfm-rubygem-where-or</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
@@ -397,6 +397,7 @@
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-record-tag-helper-doc</packagereq>
       <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
@@ -422,7 +423,6 @@
       <packagereq type="default">tfm-rubygem-useragent-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-where-or-doc</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>

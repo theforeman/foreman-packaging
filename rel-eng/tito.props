@@ -211,6 +211,7 @@ whitelist = foreman
   rubygem-rails-i18n
   rubygem-rbovirt
   rubygem-rbvmomi
+  rubygem-record_tag_helper
   rubygem-responders
   rubygem-retriable
   rubygem-roadie
@@ -238,7 +239,6 @@ whitelist = foreman
   rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
-  rubygem-where-or
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
