@@ -1,13 +1,13 @@
-%global npm_name moment
+%global npm_name google-code-prettify
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 2.14.1
+Version: 1.0.5
 Release: 1%{?dist}
-Summary: Parse, validate, manipulate, and display dates
-License: MIT
+Summary: Javascript code prettifier
+License: Apache-2.0
 Group: Development/Libraries
-URL: http://momentjs.com
+URL: https://github.com/mattdsteele/google-code-prettify
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch: noarch
@@ -21,14 +21,10 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr ender.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr locale %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr min %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr moment.d.ts %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr moment.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr package.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr bin %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr styles %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -39,11 +35,11 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license LICENSE
-%doc CHANGELOG.md
+%license COPYING
+%doc CHANGES.html
+%doc README-zh-Hans.html
+%doc README.html
 %doc README.md
+%doc examples
 
 %changelog
-* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.17.1-1
-- new package built with tito
-

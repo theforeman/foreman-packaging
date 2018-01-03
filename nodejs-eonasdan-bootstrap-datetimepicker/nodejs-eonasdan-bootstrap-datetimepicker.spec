@@ -1,15 +1,21 @@
-%global npm_name moment
+%global npm_name eonasdan-bootstrap-datetimepicker
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 2.14.1
+Version: 4.17.47
 Release: 1%{?dist}
-Summary: Parse, validate, manipulate, and display dates
+Summary: A date/time picker component designed to work with Bootstrap 3 and Momentjs
 License: MIT
 Group: Development/Libraries
-URL: http://momentjs.com
+URL: http://eonasdan.github.io/bootstrap-datetimepicker/
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
+Requires: npm(bootstrap) >= 3.3
+Requires: npm(jquery) >= 1.8.3
+Requires: npm(jquery) < 4.0.0
+Requires: npm(moment) >= 2.10
+Requires: npm(moment-timezone) >= 0.4.0
+Requires: npm(moment-timezone) < 1.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -21,14 +27,11 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr ender.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr locale %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr min %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr moment.d.ts %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr moment.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr package.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr component.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr tasks %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -40,10 +43,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
-%doc CHANGELOG.md
+%doc CONTRIBUTING.md
 %doc README.md
+%doc docs
+%doc mkdocs.yml
 
 %changelog
-* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.17.1-1
-- new package built with tito
-

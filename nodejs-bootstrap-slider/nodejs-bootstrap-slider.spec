@@ -1,18 +1,17 @@
-%global npm_name jquery
+%global npm_name bootstrap-slider
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 3.2.1
+Version: 9.10.0
 Release: 1%{?dist}
-Summary: JavaScript library for DOM operations
+Summary: Slider view component for Twitter Bootstrap
 License: MIT
 Group: Development/Libraries
-URL: https://jquery.com
+URL: http://github.com/seiyria/bootstrap-slider
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Obsoletes: nodejs-%{npm_name}-doc < 3.2.1
 
 %description
 %{summary}
@@ -22,10 +21,12 @@ Obsoletes: nodejs-%{npm_name}-doc < 3.2.1
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dependencies %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr external %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr tpl %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -36,20 +37,8 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license LICENSE.txt
-%doc AUTHORS.txt
+%license LICENSE.md
+%doc CHANGELOG.md
 %doc README.md
 
 %changelog
-* Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.2.4-1
-- Update nodejs-jquery to 2.2.4 (dominic@cleal.org)
-
-* Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.11.3-3
-- Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
-
-* Fri Aug 12 2016 Dominic Cleal <dominic@cleal.org> 1.11.3-2
-- Fix pkg/npm_name macro reference (dominic@cleal.org)
-
-* Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.11.3-1
-- new package built with tito
-

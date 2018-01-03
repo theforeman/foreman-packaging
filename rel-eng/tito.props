@@ -33,20 +33,36 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-preset-env
   nodejs-babel-preset-react
   nodejs-babel-register
+  nodejs-bootstrap
+  nodejs-bootstrap-datepicker
+  nodejs-bootstrap-sass
+  nodejs-bootstrap-select
+  nodejs-bootstrap-slider
+  nodejs-bootstrap-switch
+  nodejs-bootstrap-touchspin
   nodejs-brace
   nodejs-c3
   nodejs-change-emitter
   nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-css-loader
+  nodejs-d3
   nodejs-datatables.net
   nodejs-datatables.net-bs
+  nodejs-datatables.net-colreorder
+  nodejs-datatables.net-colreorder-bs
+  nodejs-datatables.net-select
   nodejs-diff
   nodejs-dotenv
+  nodejs-drmonty-datatables-colvis
+  nodejs-eonasdan-bootstrap-datetimepicker
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-fbjs
   nodejs-file-loader
+  nodejs-font-awesome
+  nodejs-font-awesome-sass
+  nodejs-google-code-prettify
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
@@ -55,6 +71,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-jquery
   nodejs-jquery.cookie
   nodejs-jquery-flot
+  nodejs-jquery-match-height
   nodejs-jquery-ujs
   nodejs-jsdom
   nodejs-js-tokens
@@ -62,11 +79,14 @@ whitelist = foreman-bootloaders-redhat
   nodejs-lodash
   nodejs-loose-envify
   nodejs-moment
+  nodejs-moment-timezone
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
   nodejs-patternfly
+  nodejs-patternfly-bootstrap-combobox
+  nodejs-patternfly-bootstrap-treeview
   nodejs-patternfly-react
   nodejs-performance-now
   nodejs-prop-types
