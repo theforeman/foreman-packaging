@@ -51,7 +51,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
-  nodejs-intl
   nodejs-ipaddr.js
   nodejs-jquery
   nodejs-jquery.cookie
@@ -62,7 +61,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-jstz
   nodejs-lodash
   nodejs-loose-envify
-  nodejs-moment
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
