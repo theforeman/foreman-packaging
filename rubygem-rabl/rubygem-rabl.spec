@@ -5,8 +5,8 @@
 
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.0
-Release: 2%{?dist}
+Version: 0.13.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
