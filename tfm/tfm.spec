@@ -58,6 +58,8 @@ Obsoletes: ruby193-ruby-wrapper
 # and to ensure smooth upgrades when old packages deps aren't satisified
 Obsoletes: %{scl_prefix}npm(babel-preset-es2015) < 6.6.0-4
 Obsoletes: %{scl_prefix}npm(flux) < 2.1.1-2
+Obsoletes: %{scl_prefix}npm(intl) < 1.2.5-2
+Obsoletes: %{scl_prefix}npm(moment) < 2.17.1-2
 Obsoletes: %{scl_prefix}rubygem-ace-rails-ap < 4.1.1-2
 Obsoletes: %{scl_prefix}rubygem-ansi < 1.4.3-7
 Obsoletes: %{scl_prefix}rubygem-archive-tar-minitar < 0.5.2-12

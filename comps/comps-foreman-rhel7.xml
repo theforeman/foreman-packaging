@@ -201,7 +201,6 @@
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
       <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
-      <packagereq type="default">nodejs-intl</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
@@ -212,7 +211,6 @@
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
-      <packagereq type="default">nodejs-moment</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
