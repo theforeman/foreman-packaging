@@ -259,16 +259,16 @@ module KatelloUtilities
       
       STDOUT.puts "removing old cert rpms"
       cert_packages = [
-        "foreman-proxy-client*",
-        "qpid-client-cert*",
-        "qpid-router-server*",
-        "tomcat*",
-        "apache*",
-        "qpid-broker*",
-        "puppet-client*",
-        "foreman-proxy*",
-        "qpid-router-client*",
-        "foreman-client*"
+        "apache",
+        "foreman-client",
+        "foreman-proxy",
+        "foreman-proxy-client",
+        "puppet-client",
+        "qpid-broker",
+        "qpid-client-cert",
+        "qpid-router-client",
+        "qpid-router-server",
+        "tomcat"
       ]
       cert_rpms = cert_packages.map { |pkg| "#{@old_hostname}-#{pkg}*" }.join(' ')
       self.run_cmd("yum remove -y #{cert_rpms}")
