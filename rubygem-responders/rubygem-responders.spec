@@ -62,6 +62,11 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 2.4.0-1
+- Bump rubygem-responders to 2.4.0 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Aug 17 2016 Dominic Cleal <dominic@cleal.org> 2.3.0-1
 - Update responders to 2.3.0 (dominic@cleal.org)
 
