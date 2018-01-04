@@ -96,6 +96,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Thu Jan 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.2.0-1
+- Update redux-form to 7.1.2 (me@daniellobato.me)
+
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.1.2-1
 - new package built with tito
 
