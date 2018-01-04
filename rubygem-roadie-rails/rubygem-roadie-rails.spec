@@ -83,6 +83,11 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.1-1
+- Bump roadie-rails to 1.2.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Thu Jun 02 2016 Dominic Cleal <dominic@cleal.org> 1.1.1-1
 - new package built with tito
 
