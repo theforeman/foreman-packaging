@@ -112,6 +112,10 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Thu Jan 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.32.1-1
+- Update nodejs-patternfly to 3.32.1 (me@daniellobato.me)
+- Correct nodejs spec filenames (github@kohlvanwijngaarden.nl)
+
 * Wed Nov 08 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.29.13-1
 - new package built with tito
 
