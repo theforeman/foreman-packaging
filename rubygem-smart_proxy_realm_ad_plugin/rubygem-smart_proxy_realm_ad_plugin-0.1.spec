@@ -86,3 +86,6 @@ mv %{buildroot}%{gem_instdir}/config/realm_ad.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jan 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1-1
+- new package built with tito
+
