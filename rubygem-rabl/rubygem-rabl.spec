@@ -90,6 +90,11 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 0.13.1-1
+- Bump rubygem-rabl to 0.13.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.12.0-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
