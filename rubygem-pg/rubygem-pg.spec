@@ -6,8 +6,8 @@
 
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.1
-Release: 3%{?dist}
+Version: 0.21.0
+Release: 1%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -120,7 +120,6 @@ popd
 %doc %{gem_instdir}/README.ja.rdoc
 %doc %{gem_instdir}/README-OS_X.rdoc
 %doc %{gem_instdir}/README-Windows.rdoc
-%{gem_instdir}/sample
 %{gem_instdir}/spec
 
 %changelog
