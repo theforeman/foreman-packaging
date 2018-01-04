@@ -287,6 +287,15 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 4.0-1
+- Update tfm to use Rails 5.1 and Ruby 2.4 (ericdhelms@gmail.com)
+- Remove babel-preset-es2015 (me@daniellobato.me)
+- use %%license tag in tfm package (evgeni@golov.de)
+- drop unused rubygem-protected_attributes (evgeni@golov.de)
+- Remove flux packaging (ohadlevy@gmail.com)
+- Removed old tito.props entries (lzap+git@redhat.com)
+- Remove sinatra and tilt, replaced by EPEL7 (dominic@cleal.org)
+
 * Fri Mar 31 2017 Dominic Cleal <dominic@cleal.org> 3.2-10
 - Remove rails-observers gem (dominic@cleal.org)
 
