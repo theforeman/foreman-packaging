@@ -123,6 +123,10 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jan 04 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.21.0-1
+- Update pg to 0.21 (eric.d.helms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.15.1-3
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
