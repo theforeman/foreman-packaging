@@ -51,6 +51,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
   nodejs-ipaddr.js
+  nodejs-isomorphic-fetch
   nodejs-jquery
   nodejs-jquery.cookie
   nodejs-jquery-flot
