@@ -64,6 +64,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 5.0.4-1
+- Bump rails-i18n to 5.0.4 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Jul 05 2016 Dominic Cleal <dominic@cleal.org> 4.0.9-1
 - Update rails-i18n to 4.0.9 (dominic@cleal.org)
 
