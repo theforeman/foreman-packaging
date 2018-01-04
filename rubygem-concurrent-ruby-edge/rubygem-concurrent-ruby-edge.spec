@@ -75,6 +75,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 0.2.4-1
+- Bump concurrent-ruby-edge to 0.2.4 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Mar 21 2017 Dominic Cleal <dominic@cleal.org> 0.2.3-1
 - Update dynflow to 0.8.21 (me@daniellobato.me)
 
