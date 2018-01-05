@@ -86,6 +86,11 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.7.8-3
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Fri Feb 10 2017 Dominic Cleal <dominic@cleal.org> 1.7.8-2
 - Fix gem_name expansion for -doc dep (dominic@cleal.org)
 
