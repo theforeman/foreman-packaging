@@ -49,6 +49,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %doc README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.0-1
+- Bump nodejs-uuid to 3.1.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Mon May 08 2017 Dominic Cleal <dominic@cleal.org> 3.0.1-1
 - new package built with tito
 
