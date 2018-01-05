@@ -149,6 +149,13 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.9-12
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+- Remove unused non-SCL awesome_print, locale gems (dominic@cleal.org)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.9-11
 - Remove touch from prep to not touch root-owned files (dcleal@redhat.com)
 
