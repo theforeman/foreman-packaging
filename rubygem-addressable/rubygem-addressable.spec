@@ -74,6 +74,11 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/website
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.3.6-5
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 2.3.6-4
 - Modernise spec file (dominic@cleal.org)
 
