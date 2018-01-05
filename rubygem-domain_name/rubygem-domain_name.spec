@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.20160310
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Domain Name manipulation library for Ruby
 Group: Development/Languages
 License: BSD and (MPLv1.1 or GPLv2+ or LGPLv2+)

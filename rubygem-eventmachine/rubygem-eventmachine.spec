@@ -10,7 +10,7 @@
 Summary:    Ruby/EventMachine library
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.6
-Release:    1%{?dist}
+Release:    2%{?dist}
 Group:      Development/Languages
 License:    GPLv2 or Ruby
 URL:        http://rubyeventmachine.com
