@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.0-3
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+
 * Thu Sep 28 2017 Michael Moll <kvedulv@kvedulv.de> 1.1.0-2
 - Refs #20960 - ar-session_store: multi_json is from tfm SCL now
   (kvedulv@kvedulv.de)
