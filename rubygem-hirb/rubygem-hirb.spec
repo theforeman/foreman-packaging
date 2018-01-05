@@ -74,6 +74,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.0-10
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.7.0-9
 - Use gem_install macro (dominic@cleal.org)
 
