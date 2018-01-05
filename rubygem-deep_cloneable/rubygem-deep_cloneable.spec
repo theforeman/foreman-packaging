@@ -70,6 +70,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/readme.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.2-2
+- Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Oct 10 2016 Dominic Cleal <dominic@cleal.org> 2.2.2-1
 - Update deep_cloneable to 2.2.2 (dominic@cleal.org)
 
