@@ -63,6 +63,10 @@ popd
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-12
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.0.0-11
 - Fix build errors and modernise specs (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
