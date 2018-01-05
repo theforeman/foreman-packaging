@@ -132,6 +132,11 @@ popd
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.12.3-9
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.12.3-8
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Fix build errors and modernise specs (dcleal@redhat.com)
