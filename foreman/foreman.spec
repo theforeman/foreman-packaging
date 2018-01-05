@@ -223,6 +223,12 @@ BuildRequires: libuv
 BuildRequires: nodejs-packaging
 
 # package.json devDependencies
+#BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
+#BuildRequires: npm(@storybook/addon-actions) < 4.0.0
+#BuildRequires: npm(@storybook/react) >= 3.2.12
+#BuildRequires: npm(@storybook/react) < 4.0.0
+#BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
+#BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
 BuildRequires: npm(babel-core) >= 6.26.0
@@ -233,6 +239,8 @@ BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-jest) < 16.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
+BuildRequires: npm(babel-plugin-lodash) >= 3.3.2
+BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
@@ -253,14 +261,18 @@ BuildRequires: npm(dotenv) >= 2.0.0
 BuildRequires: npm(dotenv) < 3.0.0
 #BuildRequires: npm(enzyme) >= 3.1.1
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.2.1
-#BuildRequires: npm(enzyme-to-json) < 4.0.0
 #BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(eslint) >= 3.3.1
-#BuildRequires: npm(eslint) < 4.0.0
-#BuildRequires: npm(eslint-plugin-react) >= 6.1.2
-#BuildRequires: npm(eslint-plugin-react) < 7.0.0
+#BuildRequires: npm(enzyme-to-json) >= 3.2.1
+#BuildRequires: npm(enzyme-to-json) < 4.0.0
+#BuildRequires: npm(eslint) >= 4.10.0
+#BuildRequires: npm(eslint) < 5.0.0
+#BuildRequires: npm(eslint-config-airbnb-base) >= 12.1.0
+#BuildRequires: npm(eslint-config-airbnb-base) < 13.0.0
+#BuildRequires: npm(eslint-plugin-import) >= 2.8.0
+#BuildRequires: npm(eslint-plugin-import) < 3.0.0
+#BuildRequires: npm(eslint-plugin-react) >= 7.4.0
+#BuildRequires: npm(eslint-plugin-react) < 8.0.0
 BuildRequires: npm(expose-loader) >= 0.6.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(file-loader) >= 0.9.0
@@ -271,13 +283,13 @@ BuildRequires: npm(identity-obj-proxy) < 4.0.0
 #BuildRequires: npm(jest-cli) < 21.0.0
 BuildRequires: npm(jsdom) >= 9.5.0
 BuildRequires: npm(jsdom) < 10.0.0
+BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
+BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
 #BuildRequires: npm(nock) >= 9.0.14
 #BuildRequires: npm(nock) < 10.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
-#BuildRequires: npm(react-addons-test-utils) >= 15.3.1
-#BuildRequires: npm(react-addons-test-utils) < 16.0.0
-#BuildRequires: npm(react-test-renderer) >= 16.0.0
+#BuildRequires: npm(react-test-renderer) >= 16.2.0
 #BuildRequires: npm(react-test-renderer) < 17.0.0
 #BuildRequires: npm(redux-mock-store) >= 1.2.2
 #BuildRequires: npm(redux-mock-store) < 2.0.0
@@ -293,6 +305,8 @@ BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(url-loader) < 1.0.0
 BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
+#BuildRequires: npm(webpack-dev-server) >= 2.5.1
+#BuildRequires: npm(webpack-dev-server) < 3.0.0
 
 # package.json dependencies
 BuildRequires: npm(babel-polyfill) >= 6.26.0
@@ -311,6 +325,8 @@ BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
+BuildRequires: npm(isomorphic-fetch) >= 2.2.1
+BuildRequires: npm(isomorphic-fetch) < 3.0.0
 BuildRequires: npm(jquery) >= 2.2.4
 BuildRequires: npm(jquery) < 2.3.0
 BuildRequires: npm(jquery-flot) >= 0.8.3
@@ -325,20 +341,22 @@ BuildRequires: npm(lodash) >= 4.15.0
 BuildRequires: npm(lodash) < 4.16.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
-BuildRequires: npm(patternfly) >= 3.29.5
+BuildRequires: npm(patternfly) >= 3.31.2
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 0.8.1
+BuildRequires: npm(patternfly-react) >= 0.18.2
 BuildRequires: npm(patternfly-react) < 1.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
-BuildRequires: npm(react) >= 16.0.0
+BuildRequires: npm(react) >= 16.2.0
 BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) >= 0.31.0
+BuildRequires: npm(react-bootstrap) >= 0.31.5
 BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-dom) >= 16.0.0
+BuildRequires: npm(react-dom) >= 16.2.0
 BuildRequires: npm(react-dom) < 17.0.0
+BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.5
+BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
 BuildRequires: npm(react-onclickoutside) >= 6.6.2
@@ -347,9 +365,9 @@ BuildRequires: npm(react-redux) >= 5.0.2
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(redux-form) >= 7.0.3
+BuildRequires: npm(redux-form) >= 7.2.0
 BuildRequires: npm(redux-form) < 8.0.0
-BuildRequires: npm(redux-form-validators) >= 2.0.1
+BuildRequires: npm(redux-form-validators) >= 2.1.2
 BuildRequires: npm(redux-form-validators) < 3.0.0
 BuildRequires: npm(redux-logger) >= 2.8.1
 BuildRequires: npm(redux-logger) < 3.0.0
@@ -555,6 +573,12 @@ Requires: nodejs >= 6.10
 Requires: libuv
 
 # package.json devDependencies
+#Requires: npm(@storybook/addon-actions) >= 3.2.12
+#Requires: npm(@storybook/addon-actions) < 4.0.0
+#Requires: npm(@storybook/react) >= 3.2.12
+#Requires: npm(@storybook/react) < 4.0.0
+#Requires: npm(@storybook/storybook-deployer) >= 2.0.0
+#Requires: npm(@storybook/storybook-deployer) < 3.0.0
 Requires: npm(babel-cli) >= 6.10.1
 Requires: npm(babel-cli) < 7.0.0
 Requires: npm(babel-core) >= 6.26.0
@@ -565,6 +589,8 @@ Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-jest) < 16.0.0
 Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-loader) < 8.0.0
+Requires: npm(babel-plugin-lodash) >= 3.3.2
+Requires: npm(babel-plugin-lodash) < 4.0.0
 Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
 Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
@@ -585,14 +611,18 @@ Requires: npm(dotenv) >= 2.0.0
 Requires: npm(dotenv) < 3.0.0
 #Requires: npm(enzyme) >= 3.1.1
 #Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-to-json) >= 3.2.1
-#Requires: npm(enzyme-to-json) < 4.0.0
 #Requires: npm(enzyme-adapter-react-16) >= 1.0.4
 #Requires: npm(enzyme-adapter-react-16) < 2.0.0
-#Requires: npm(eslint) >= 3.3.1
-#Requires: npm(eslint) < 4.0.0
-#Requires: npm(eslint-plugin-react) >= 6.1.2
-#Requires: npm(eslint-plugin-react) < 7.0.0
+#Requires: npm(enzyme-to-json) >= 3.2.1
+#Requires: npm(enzyme-to-json) < 4.0.0
+#Requires: npm(eslint) >= 4.10.0
+#Requires: npm(eslint) < 5.0.0
+#Requires: npm(eslint-config-airbnb-base) >= 12.1.0
+#Requires: npm(eslint-config-airbnb-base) < 13.0.0
+#Requires: npm(eslint-plugin-import) >= 2.8.0
+#Requires: npm(eslint-plugin-import) < 3.0.0
+#Requires: npm(eslint-plugin-react) >= 7.4.0
+#Requires: npm(eslint-plugin-react) < 8.0.0
 Requires: npm(expose-loader) >= 0.6.0
 Requires: npm(expose-loader) < 0.7.0
 Requires: npm(file-loader) >= 0.9.0
@@ -603,13 +633,13 @@ Requires: npm(identity-obj-proxy) < 4.0.0
 #Requires: npm(jest-cli) < 21.0.0
 Requires: npm(jsdom) >= 9.5.0
 Requires: npm(jsdom) < 10.0.0
+Requires: npm(lodash-webpack-plugin) >= 0.11.4
+Requires: npm(lodash-webpack-plugin) < 1.0.0
 #Requires: npm(nock) >= 9.0.14
 #Requires: npm(nock) < 10.0.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
-#Requires: npm(react-addons-test-utils) >= 15.3.1
-#Requires: npm(react-addons-test-utils) < 16.0.0
-#Requires: npm(react-test-renderer) >= 16.0.0
+#Requires: npm(react-test-renderer) >= 16.2.0
 #Requires: npm(react-test-renderer) < 17.0.0
 #Requires: npm(redux-mock-store) >= 1.2.2
 #Requires: npm(redux-mock-store) < 2.0.0
@@ -625,6 +655,8 @@ Requires: npm(url-loader) >= 0.5.7
 Requires: npm(url-loader) < 1.0.0
 Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
+#Requires: npm(webpack-dev-server) >= 2.5.1
+#Requires: npm(webpack-dev-server) < 3.0.0
 
 # package.json dependencies
 Requires: npm(babel-polyfill) >= 6.26.0
@@ -643,6 +675,8 @@ Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
+Requires: npm(isomorphic-fetch) >= 2.2.1
+Requires: npm(isomorphic-fetch) < 3.0.0
 Requires: npm(jquery) >= 2.2.4
 Requires: npm(jquery) < 2.3.0
 Requires: npm(jquery-flot) >= 0.8.3
@@ -657,20 +691,22 @@ Requires: npm(lodash) >= 4.15.0
 Requires: npm(lodash) < 4.16.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
-Requires: npm(patternfly) >= 3.29.5
+Requires: npm(patternfly) >= 3.31.2
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 0.8.1
+Requires: npm(patternfly-react) >= 0.18.2
 Requires: npm(patternfly-react) < 1.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
-Requires: npm(react) >= 16.0.0
+Requires: npm(react) >= 16.2.0
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) >= 0.31.0
+Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-dom) >= 16.0.0
+Requires: npm(react-dom) >= 16.2.0
 Requires: npm(react-dom) < 17.0.0
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.5
+Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
 Requires: npm(react-onclickoutside) >= 6.6.2
@@ -679,9 +715,9 @@ Requires: npm(react-redux) >= 5.0.2
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
-Requires: npm(redux-form) >= 7.0.3
+Requires: npm(redux-form) >= 7.2.0
 Requires: npm(redux-form) < 8.0.0
-Requires: npm(redux-form-validators) >= 2.0.1
+Requires: npm(redux-form-validators) >= 2.1.2
 Requires: npm(redux-form-validators) < 3.0.0
 Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
