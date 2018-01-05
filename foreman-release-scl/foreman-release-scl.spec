@@ -29,6 +29,9 @@ install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
 %config %{_sysconfdir}/yum.repos.d/*.repo
 
 %changelog
+* Fri Jan 05 2018 Eric D. Helms <ericdhelms@gmail.com> 4-1
+- Add tfm-ror51 repo to foreman-release-scl (ericdhelms@gmail.com)
+
 * Tue Apr 05 2016 Dominic Cleal <dominic@cleal.org> 3-1
 - Switch to CentOS SCLo SIG builds (#12912, dominic@cleal.org)
 
