@@ -80,6 +80,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/website
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.6.0-6
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-5
 - Use gem_install macro (dominic@cleal.org)
 
