@@ -6,7 +6,7 @@
 Summary:    Anemone web-spider framework
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.7.2
-Release:    14%{?dist}
+Release:    15%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        http://anemone.rubyforge.org/
