@@ -76,6 +76,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.3.7-2
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Oct 10 2016 Dominic Cleal <dominic@cleal.org> 3.3.7-1
 - Update bootstrap-sass to 3.3.7 (dominic@cleal.org)
 
