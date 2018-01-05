@@ -75,6 +75,13 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.1-5
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Refs #18123 revert "change multipart-post dep to RPM name from virtual"
+  (github@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Wed Jan 18 2017 Dominic Cleal <dominic@cleal.org> 0.9.1-4
 - Change multipart-post dep to RPM name from virtual (#18123)
 
