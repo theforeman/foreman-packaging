@@ -82,6 +82,11 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-2
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Thu May 25 2017 Dominic Cleal <dominic@cleal.org> 3.0.0-1
 - Update ancestry to 3.0.0 (dominic@cleal.org)
 
