@@ -85,6 +85,10 @@ ruby -Ilib:test test/test_trollop.rb | grep "1 failures, 1 errors"
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.2-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Oct 19 2016 Dominic Cleal <dominic@cleal.org> 2.1.2-1
 - Update trollop to 2.1, modernise (dominic@cleal.org)
 
