@@ -87,6 +87,10 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue May 16 2017 Dominic Cleal <dominic@cleal.org> 0.7.0-1
 - Update ruby-libvirt to 0.7.0 (dominic@cleal.org)
 
