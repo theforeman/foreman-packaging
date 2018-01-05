@@ -102,6 +102,10 @@ popd
 %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.6.3-5
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 3.6.3-4
 - Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
 
