@@ -67,6 +67,11 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/gem-public_cert.pem
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.7-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon May 09 2016 Dominic Cleal <dominic@cleal.org> 0.0.7-1
 - new package built with tito
 
