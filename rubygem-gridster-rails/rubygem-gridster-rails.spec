@@ -69,6 +69,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.5.6.1-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Aug 09 2016 Dominic Cleal <dominic@cleal.org> 0.5.6.1-1
 - Update gridster-rails to 0.5.6.1 (dominic@cleal.org)
 
