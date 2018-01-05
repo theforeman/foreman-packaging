@@ -94,6 +94,10 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.15.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Jul 29 2016 Dominic Cleal <dominic@cleal.org> 0.15.0-1
 - Update net-ldap to 0.15.0 (dominic@cleal.org)
 
