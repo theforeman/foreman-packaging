@@ -97,6 +97,12 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.17-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.17-1
 - Update powerbar to 1.0.17 (dominic@cleal.org)
 
