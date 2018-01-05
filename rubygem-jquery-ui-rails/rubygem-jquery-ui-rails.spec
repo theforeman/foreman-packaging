@@ -70,6 +70,10 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.1.2-6
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri May 27 2016 Dominic Cleal <dominic@cleal.org> 4.1.2-5
 - Rebuild and modernise for F24 (dominic@cleal.org)
 
