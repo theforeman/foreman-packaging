@@ -176,6 +176,10 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.4-7
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 3.1.4-6
 - Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
 
