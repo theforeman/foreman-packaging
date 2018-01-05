@@ -91,6 +91,10 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.58.0-2
+- Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Aug 24 2017 Eric D. Helms <ericdhelms@gmail.com> 0.58.0-1
 - Update excon to 0.58 (me@daniellobato.me)
 
