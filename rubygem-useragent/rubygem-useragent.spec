@@ -82,6 +82,11 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.16.8-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Add missing EL6 build information (ericdhelms@gmail.com)
+
 * Mon Sep 12 2016 Dominic Cleal <dominic@cleal.org> 0.16.8-1
 - new package built with tito
 
