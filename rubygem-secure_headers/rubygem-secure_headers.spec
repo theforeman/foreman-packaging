@@ -71,6 +71,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.4.1-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Sep 12 2016 Dominic Cleal <dominic@cleal.org> 3.4.1-1
 - Update secure_headers to 3.4.1 (dominic@cleal.org)
 
