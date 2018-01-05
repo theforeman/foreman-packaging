@@ -129,6 +129,7 @@
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
+      <packagereq type="default">tfm-rubygem-record-tag-helper</packagereq>
       <packagereq type="default">tfm-rubygem-responders</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
@@ -394,6 +395,7 @@
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-record-tag-helper-doc</packagereq>
       <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
