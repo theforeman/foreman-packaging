@@ -71,6 +71,11 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.4.4-4
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.4.4-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
