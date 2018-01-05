@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.2-2
+- Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.2-1
 - Update rubygem-clamp to 1.1.2 (martin.bacovsky@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
