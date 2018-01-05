@@ -131,6 +131,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.6-2
+- Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.0.6-1
 - Update eventmachine to 1.0.6 (dcleal@redhat.com)
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
