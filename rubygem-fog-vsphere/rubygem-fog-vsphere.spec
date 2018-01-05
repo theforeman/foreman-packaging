@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.11.3-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+
 * Wed Dec 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.11.3-1
 - Update fog-vsphere to 1.11.3 (me@daniellobato.me)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
