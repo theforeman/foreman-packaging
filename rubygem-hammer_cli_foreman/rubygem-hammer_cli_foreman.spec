@@ -81,6 +81,10 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.11.0-1
 - Update hammer_cli_foreman to 0.11.0 (tstrachota@redhat.com)
 
