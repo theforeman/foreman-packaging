@@ -86,6 +86,12 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.2-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Update safemode to 1.3.2 (tbrisker@gmail.com)
+
 * Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.3.1-1
 - Update safemode to 1.3.1 (dominic@cleal.org)
 
