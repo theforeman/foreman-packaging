@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.12.2-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+
 * Wed Sep 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.12.2-1
 - Fixes #20960 - update activerecord-session_store to 1.1.0
   (kvedulv@kvedulv.de)
