@@ -74,6 +74,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.1-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri May 19 2017 Dominic Cleal <dominic@cleal.org> 1.2.1-1
 - Update net-scp to 1.2.1 (dominic@cleal.org)
 
