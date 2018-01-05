@@ -68,6 +68,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.9.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Mar 16 2017 Dominic Cleal <dominic@cleal.org> 1.9.0-1
 - Update sshkey to 1.9.0 (dominic@cleal.org)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
