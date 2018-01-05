@@ -72,6 +72,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.txt
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-5
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 1.2.0-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
