@@ -63,6 +63,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.6.2-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 4.6.2-1
 - Update font-awesome-sass to 4.6.2 (dominic@cleal.org)
 
