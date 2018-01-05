@@ -38,8 +38,8 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 3
-Requires: %{scl}-runtime < 4
+Requires: %{scl}-runtime >= 4
+Requires: %{scl}-runtime < 5
 %endif
 
 Requires: wget
@@ -54,8 +54,8 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # Gemfile
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
-Requires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 5.1.4
+Requires: %{?scl_prefix_ror}rubygem(rails) < 5.2
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0
 Requires: %{?scl_prefix}rubygem(audited) >= 4.3
@@ -88,8 +88,8 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) < 5.1.0
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8
@@ -123,7 +123,7 @@ Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.25
 Requires: %{?scl_prefix}rubygem(dynflow) < 1.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
-Requires: %{?scl_prefix}rubygem(where-or)
+Requires: %{?scl_prefix}rubygem(record_tag_helper)
 # facter
 Requires: %{?scl_prefix}rubygem(facter)
 # jsonp
@@ -140,8 +140,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
 # Gemfile
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 4.2.5.1
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 4.2.7
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 5.1.4
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 5.2
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.3
@@ -174,8 +174,8 @@ BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 4.0.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 4.1.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 5.1.0
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8
@@ -209,11 +209,11 @@ BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.25
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
-BuildRequires: %{?scl_prefix}rubygem(where-or)
+BuildRequires: %{?scl_prefix}rubygem(record_tag_helper)
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 3
-BuildRequires: %{scl}-runtime-assets < 4
+BuildRequires: %{scl}-runtime-assets >= 4
+BuildRequires: %{scl}-runtime-assets < 5
 %endif
 BuildRequires: nodejs >= 6.10
 BuildRequires: http-parser
@@ -388,8 +388,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
-BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 2.5.0
+BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 2.7.0
+BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.23.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.24.0
@@ -491,7 +491,7 @@ Meta package to install requirements for oVirt compute resource support.
 %package compute
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog) = 1.41.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.42.0
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
@@ -564,8 +564,8 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 3
-Requires: %{scl}-runtime-assets < 4
+Requires: %{scl}-runtime-assets >= 4
+Requires: %{scl}-runtime-assets < 5
 %endif
 Requires: nodejs >= 6.10
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
