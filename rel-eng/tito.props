@@ -75,6 +75,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-bootstrap
   nodejs-react-c3js
   nodejs-react-dom
+  nodejs-react-ellipsis-with-tooltip
   nodejs-react-fontawesome
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
