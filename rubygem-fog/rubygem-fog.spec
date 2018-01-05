@@ -199,6 +199,10 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.42.0-1
+- Update fog to 1.42 (oprazak@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Aug 30 2017 Eric D. Helms <ericdhelms@gmail.com> 1.41.0-2
 - Properly remove the internet-archive dependency (ewoud@kohlvanwijngaarden.nl)
 
