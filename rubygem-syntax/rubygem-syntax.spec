@@ -6,7 +6,7 @@
 Summary:        Ruby library for performing simple syntax highlighting
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.0.0
-Release:        11%{?dist}
+Release:        12%{?dist}
 Group:          Development/Languages
 License:        Public Domain
 URL:            http://syntax.rubyforge.org/

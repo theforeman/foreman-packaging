@@ -6,7 +6,7 @@
 Summary: A command-line option parsing library for ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/Productivity
 License: MIT
 URL: http://trollop.rubyforge.org/

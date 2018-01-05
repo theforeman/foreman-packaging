@@ -6,7 +6,7 @@
 Summary: Use with Net::HTTP to do multipart form posts
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nicksieger/multipart-post

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT

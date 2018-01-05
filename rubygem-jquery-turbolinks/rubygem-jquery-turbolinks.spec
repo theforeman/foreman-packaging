@@ -6,7 +6,7 @@
 Summary: jQuery plugin for binded events problem caused by Turbolinks
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kossnocorp/jquery.turbolinks

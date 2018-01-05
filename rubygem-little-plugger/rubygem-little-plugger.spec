@@ -6,7 +6,7 @@
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 21%{?dist}
+Release: 22%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/little-plugger

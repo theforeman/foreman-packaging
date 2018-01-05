@@ -6,7 +6,7 @@
 Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.20.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
@@ -70,7 +70,7 @@ mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 
 find %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/bin -type f | xargs chmod a+x
-chmod a+x %{buildroot}%{gem_instdir}/spec/adapters/db2_spec.rb 
+chmod a+x %{buildroot}%{gem_instdir}/spec/adapters/db2_spec.rb
 
 %clean
 rm -rf %{buildroot}
@@ -97,7 +97,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-6
-- 
+-
 
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 4.20.0-5
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)

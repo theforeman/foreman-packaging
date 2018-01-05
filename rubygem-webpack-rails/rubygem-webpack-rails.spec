@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Webpack & Rails integration made easier
 Group: Development/Languages
 License: MIT

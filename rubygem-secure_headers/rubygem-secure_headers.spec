@@ -6,7 +6,7 @@
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders

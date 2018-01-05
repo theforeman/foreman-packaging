@@ -6,7 +6,7 @@
 Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: Ruby or BSD
 URL: https://rubygems.org/gems/logging

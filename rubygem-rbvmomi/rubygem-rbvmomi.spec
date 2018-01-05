@@ -6,7 +6,7 @@
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.10.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi

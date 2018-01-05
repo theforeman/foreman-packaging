@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.3.0
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT

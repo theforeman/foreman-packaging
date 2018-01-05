@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A ping interface for Ruby
 Group: Development/Languages
 License: Artistic 2.0

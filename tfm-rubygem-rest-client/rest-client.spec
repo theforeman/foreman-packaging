@@ -6,7 +6,7 @@
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: tfm-rubygem-%{gem_name}
 Version: 2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rest-client/rest-client
