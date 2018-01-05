@@ -70,6 +70,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.23.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Mar 23 2017 Dominic Cleal <dominic@cleal.org> 3.23.0-1
 - Update patternfly-sass to 3.23.0 (dominic@cleal.org)
 
