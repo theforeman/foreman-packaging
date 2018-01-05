@@ -95,6 +95,10 @@ popd
 %doc %{gem_instdir}/test/
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.4-7
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.4-6
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
