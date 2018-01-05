@@ -64,6 +64,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.7-7
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 0.8.7-6
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
