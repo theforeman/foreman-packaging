@@ -64,6 +64,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/TODO
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.5.4-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+
 * Mon Dec 11 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.5.4-1
 - Update oauth to 0.5.4 (oprazak@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
