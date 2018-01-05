@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+
 * Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.2-1
 - new package built with tito
 
