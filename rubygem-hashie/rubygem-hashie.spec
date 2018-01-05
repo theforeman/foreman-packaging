@@ -97,6 +97,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.5-5
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Dec 22 2015 Dominic Cleal <dcleal@redhat.com> 2.0.5-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
