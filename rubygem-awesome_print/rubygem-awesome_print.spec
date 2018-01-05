@@ -92,6 +92,11 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.7.0-2
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Sun Jun 12 2016 Dominic Cleal <dominic@cleal.org> 1.7.0-1
 - Bump rubygem-awesome_print to 1.7.0 (akofink@redhat.com)
 - Remove unused non-SCL gem (dominic@cleal.org)
