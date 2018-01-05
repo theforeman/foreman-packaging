@@ -110,6 +110,10 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.1.2-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Sep 08 2017 Daniel Lobato Garcia <me@daniellobato.me> 4.1.2-1
 - Update scoped_search to 0.4.2 (ares@users.noreply.github.com)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
