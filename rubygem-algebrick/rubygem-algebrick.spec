@@ -6,7 +6,7 @@
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/pitr-ch/algebrick

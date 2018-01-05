@@ -6,7 +6,7 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -71,7 +71,7 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rspec
 %exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/Gemfile.*
+%exclude %{gem_instdir}/Gemfile*
 
 %files doc
 %doc %{gem_docdir}

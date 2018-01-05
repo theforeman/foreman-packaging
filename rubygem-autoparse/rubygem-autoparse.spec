@@ -6,7 +6,7 @@
 Summary: An implementation of the JSON Schema specification
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.3
-Release: 5%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://autoparse.rubyforge.org/

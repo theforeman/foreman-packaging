@@ -6,7 +6,7 @@
 Summary: bootstrap-sass is a Sass-powered version of Bootstrap 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/twbs/bootstrap-sass
