@@ -1,7 +1,14 @@
+require 'pathname'
+require_relative 'db_config'
+
 module KatelloUtilities
   module Helper
+    def last_scenario_config
+      Pathname.new("/etc/foreman-installer/scenarios.d/last_scenario.yaml").realpath.to_s
+    end
+
     def last_scenario
-      File.basename(File.readlink("/etc/foreman-installer/scenarios.d/last_scenario.yaml")).split(".")[0]
+      File.basename(last_scenario_config).split(".")[0]
     end
 
     def accepted_scenarios
@@ -48,6 +55,10 @@ module KatelloUtilities
 
     def timestamp
       DateTime.now.strftime('%Y%m%d%H%M%S')
+    end
+
+    def db_config
+      @katello_db_config ||= KatelloUtilities::DBConfig.new(last_scenario_config)
     end
   end
 end
