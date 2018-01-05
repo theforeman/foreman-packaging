@@ -117,6 +117,11 @@ rm -f %{buildroot}%{gem_libdir}/mysql2/*.so
 %{gem_instdir}/examples
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.5-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Tue Oct 25 2016 Dominic Cleal <dominic@cleal.org> 0.4.5-1
 - Update mysql2 to 0.4.5 (dominic@cleal.org)
 
