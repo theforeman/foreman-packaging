@@ -70,6 +70,13 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.4-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Automatic commit of package [rubygem-rbovirt] minor release [0.1.4-1.fm1_16].
+  (me@daniellobato.me)
+- Update rbovirt to 0.1.4 (inecas@redhat.com)
+
 * Tue Aug 29 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.4-1
 - Update rbovirt to 0.1.4 (inecas@redhat.com)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
