@@ -88,6 +88,11 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-digitalocean.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Fix gem to be referenced by git-annex (dominic@cleal.org)
+
 * Mon May 22 2017 Dominic Cleal <dominic@cleal.org> 0.3.0-1
 - new package built with tito
 
