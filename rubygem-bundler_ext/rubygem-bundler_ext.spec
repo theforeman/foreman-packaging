@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/bundlerext/bundler_ext
@@ -131,7 +131,7 @@ cp -pa .%{gem_dir}/* \
 - new package built with tito
 
 * Thu Nov 22 2012 Vít Ondruch <vondruch@redhat.com> - 0.1.0-2
-- Add RHEL6 and Fedora 16 compatibility. 
+- Add RHEL6 and Fedora 16 compatibility.
 
 * Tue Nov 20 2012 Vít Ondruch <vondruch@redhat.com> - 0.1.0-1
 - Initial package

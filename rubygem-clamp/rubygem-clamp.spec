@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: https://github.com/mdub/clamp

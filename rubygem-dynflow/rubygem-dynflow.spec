@@ -6,7 +6,7 @@
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.34
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow

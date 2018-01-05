@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of classes for parsing CSS in Ruby
 Group: Development/Languages
 License: MIT

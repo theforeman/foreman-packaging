@@ -6,7 +6,7 @@
 Summary: A toolkit to create and control daemons in different ways
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://daemons.rubyforge.org
