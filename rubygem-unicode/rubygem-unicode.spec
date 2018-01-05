@@ -67,6 +67,9 @@ ruby -I.%{gem_instdir}/lib:.%{gem_extdir_mri} test/test.rb
 
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.4.1-4
+- Final set of rebuilds (ericdhelms@gmail.com)
+
 * Wed Sep 27 2017 Eric D. Helms <ericdhelms@gmail.com> 0.4.4.1-3
 - rubygem-unicode: Fix provides & native extensions
   (ewoud@kohlvanwijngaarden.nl)
