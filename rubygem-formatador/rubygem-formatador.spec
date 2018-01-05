@@ -8,7 +8,7 @@
 Summary: Ruby STDOUT text formatting
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/%{gem_name}

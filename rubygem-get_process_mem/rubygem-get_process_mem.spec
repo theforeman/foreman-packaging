@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Use GetProcessMem to find out the amount of RAM used by any process
 Group: Development/Languages
 License: MIT

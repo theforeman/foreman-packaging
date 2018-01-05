@@ -9,7 +9,7 @@
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
 URL: https://puppetlabs.com/%{gem_name}

@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support Google
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-google

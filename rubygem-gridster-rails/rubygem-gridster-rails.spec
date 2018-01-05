@@ -6,7 +6,7 @@
 Summary: Provides jquery.gridster for your Rails 3+ application
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails

@@ -8,7 +8,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	3.1.4
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
@@ -43,8 +43,8 @@ Provides:	%{?scl_prefix}ruby-gettext-package = %{version}-%{release}
 BuildArch:	noarch
 
 %description
-Ruby-GetText-Package is a GNU GetText-like program for Ruby. 
-The catalog file(po-file) is same format with GNU GetText. 
+Ruby-GetText-Package is a GNU GetText-like program for Ruby.
+The catalog file(po-file) is same format with GNU GetText.
 So you can use GNU GetText tools for maintaining.
 
 This package provides gem for Ruby-Gettext-Package.
@@ -315,7 +315,7 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 - Reintroduce 4 args bindtextdomain() compatibility
 
 * Tue Feb 24 2009 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 1.93.0-8
-- %%global-ize "nested" macro 
+- %%global-ize "nested" macro
 
 * Thu Oct 23 2008 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 1.93.0-7
 - Handle gettext .mo files under %%{gem_instdir}/data/locale by

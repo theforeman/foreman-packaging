@@ -6,7 +6,7 @@
 Summary:    	Hoe is a simple rake/rubygems helper for project Rakefiles
 Name:       	%{?scl_prefix}rubygem-%{gem_name}
 Version:    	2.12.3
-Release:    	8%{?dist}
+Release:    	9%{?dist}
 Group:      	Development/Languages
 License:    	MIT
 URL:        	http://rubyforge.org/projects/seattlerb/

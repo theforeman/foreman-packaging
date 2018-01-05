@@ -14,7 +14,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   4%{?dist}
+Release:   5%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}

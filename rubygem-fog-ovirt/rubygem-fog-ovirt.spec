@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT

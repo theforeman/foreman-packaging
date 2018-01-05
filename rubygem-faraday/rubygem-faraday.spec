@@ -6,7 +6,7 @@
 Summary: HTTP/REST API client library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lostisland/faraday
