@@ -93,6 +93,9 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.3-5
+- Final set of rebuilds (ericdhelms@gmail.com)
+
 * Wed Jan 06 2016 Dominic Cleal <dcleal@redhat.com> 2.1.3-4
 - Replace shebangs to remove deps on non-SCL Ruby (dcleal@redhat.com)
 
