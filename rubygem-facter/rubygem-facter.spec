@@ -93,6 +93,10 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.0-5
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Apr 10 2017 Dominic Cleal <dominic@cleal.org> 2.4.0-4
 - Disable debuginfo package (dominic@cleal.org)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
