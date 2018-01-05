@@ -83,6 +83,11 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.2.2-1
+- Bump rubygem-roadie to 3.2.2 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Jan 09 2017 Dominic Cleal <dominic@cleal.org> 3.2.1-1
 - Update roadie to 3.2.1 (dominic@cleal.org)
 
