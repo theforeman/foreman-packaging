@@ -75,6 +75,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.2.1.3-3
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 5.2.1.3-2
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
