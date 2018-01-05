@@ -79,6 +79,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.1-2
+- Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Jun 03 2016 Dominic Cleal <dominic@cleal.org> 0.4.1-1
 - Update bundler_ext to 0.4.1 (dominic@cleal.org)
 
