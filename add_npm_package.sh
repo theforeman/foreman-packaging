@@ -73,7 +73,7 @@ fi
 
 echo -n "Making directory..."
 UPDATE=false
-if [ -f "$PACKAGE_NAME/*.spec" ]; then
+if [ -f "$PACKAGE_NAME"/*.spec ]; then
   UPDATE=true
   sed -n '/%changelog/,$p' $PACKAGE_NAME/*.spec > OLD_CHANGELOG
   git rm -r $PACKAGE_NAME
