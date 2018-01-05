@@ -78,6 +78,10 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Apr 07 2017 Dominic Cleal <dominic@cleal.org> 2.0.1-1
 - Update rest-client to 2.0.1 (dominic@cleal.org)
 
