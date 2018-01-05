@@ -70,6 +70,11 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.2.0-2
+- Rebuild for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Tue Apr 25 2017 Dominic Cleal <dominic@cleal.org> 0.2.0-1
 - Update apipie-bindings to 0.2.0 (dominic@cleal.org)
 
