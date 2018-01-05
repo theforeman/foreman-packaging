@@ -6,7 +6,7 @@
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/grosser/gettext_i18n_rails

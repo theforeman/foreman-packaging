@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support OpenStack clouds
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.18
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-openstack

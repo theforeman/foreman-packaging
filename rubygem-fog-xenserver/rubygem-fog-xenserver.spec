@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support XENSERVER
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-xenserver

@@ -7,7 +7,7 @@ Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-json

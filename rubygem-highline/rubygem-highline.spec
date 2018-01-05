@@ -5,7 +5,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.7.8
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
