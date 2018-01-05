@@ -106,6 +106,10 @@ popd
 %exclude %{gem_instdir}/*.gemspec
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Mar 14 2017 Dominic Cleal <dominic@cleal.org> 1.10.0-1
 - Update rbvmomi to 1.10.0 (dominic@cleal.org)
 
