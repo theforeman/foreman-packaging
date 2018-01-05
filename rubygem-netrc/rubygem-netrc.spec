@@ -71,6 +71,10 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-2
+- Final set of rebuilds (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Apr 06 2017 Dominic Cleal <dominic@cleal.org> 0.11.0-1
 - Update netrc to 0.11.0 (dominic@cleal.org)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
