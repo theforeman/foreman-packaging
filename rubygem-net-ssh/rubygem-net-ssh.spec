@@ -7,7 +7,7 @@
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh

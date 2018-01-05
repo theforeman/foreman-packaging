@@ -6,7 +6,7 @@
 Summary: Retriable is a DSL to retry failed code blocks with a backoff
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kamui/retriable

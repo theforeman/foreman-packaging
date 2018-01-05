@@ -22,7 +22,7 @@ Summary: A simple, fast Mysql library for Ruby, binding to libmysql
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: %{version}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/brianmario/mysql2

@@ -10,7 +10,7 @@
 Summary:       A script which automates a limited set of rubyforge operations
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       2.0.4
-Release:       6%{?dist}
+Release:       7%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://rubyforge.org/projects/codeforpeople

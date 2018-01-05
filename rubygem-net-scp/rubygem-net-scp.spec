@@ -6,7 +6,7 @@
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
@@ -20,8 +20,6 @@ Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
-BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -55,13 +53,6 @@ popd
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-%check
-pushd %{buildroot}%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-ruby -Ilib -Itest test/test_all.rb
-%{?scl:"}
-popd
 
 %files
 %dir %{gem_instdir}

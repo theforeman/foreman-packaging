@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: X-editable for Rails
 Group: Development/Languages
 License: MIT

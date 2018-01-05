@@ -6,7 +6,7 @@
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth

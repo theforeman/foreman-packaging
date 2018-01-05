@@ -6,7 +6,7 @@
 Summary: Introspects your database string field maximum lengths and validates
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database

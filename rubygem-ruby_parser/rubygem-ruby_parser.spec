@@ -8,7 +8,7 @@
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.6.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -67,7 +67,7 @@ mv ./%{_bindir}/* %{buildroot}%{_bindir}/
 
 find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 
-# Drop the standalone mode for tests - won't run that way due to missing 
+# Drop the standalone mode for tests - won't run that way due to missing
 # rubygems require anyway. One instance in lib as well
 find %{buildroot}%{gem_instdir}/{test,lib} -type f | \
   xargs -n 1 sed -i  -e '/^#!\/usr\/.*\/ruby.*/d'

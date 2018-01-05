@@ -7,7 +7,7 @@
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
@@ -63,7 +63,7 @@ mkdir -p %{buildroot}/%{_bindir}
 mv .%{_bindir}/* %{buildroot}/%{_bindir}
 find %{buildroot}%{_bindir} -type f | xargs chmod a+x
 
-# Drop the standalone mode for tests - won't run that way due to missing 
+# Drop the standalone mode for tests - won't run that way due to missing
 # rubygems require anyway.
 find %{buildroot}%{gem_instdir}/test -type f | \
   xargs -n 1 sed -i  -e '/^#!\/usr\/.*\/ruby.*/d'

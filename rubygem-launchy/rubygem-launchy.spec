@@ -6,7 +6,7 @@
 Summary: Launchy is helper class for launching cross-platform applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: ISC
 URL: https://github.com/copiousfreetime/launchy

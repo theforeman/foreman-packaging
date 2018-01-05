@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -18,8 +18,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-#tests
-BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 
 %description
 Paint manages terminal colors and effects for you. It combines the strengths
@@ -49,13 +47,6 @@ Documentation for %{pkg_name}.
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-%check
-pushd ./%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
-rspec spec
-%{?scl:EOF}
-popd
 
 %files
 %dir %{gem_instdir}

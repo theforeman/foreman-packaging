@@ -7,7 +7,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/

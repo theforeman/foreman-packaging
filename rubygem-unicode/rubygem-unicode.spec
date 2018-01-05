@@ -5,14 +5,14 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        0.4.4.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Unicode normalization library for Ruby
 License:        Ruby
 URL:            http://www.yoshidam.net/Ruby.html#unicode
 Source0:        https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # https://github.com/blackwinter/unicode/issues/7
 Source1:        https://www.ruby-lang.org/en/about/license.txt
-# This is a C extension linked against MRI, it's not compatible with other 
+# This is a C extension linked against MRI, it's not compatible with other
 # interpreters. So we require MRI specifically instead of ruby(release).
 Requires:       %{?scl_prefix_ruby}ruby
 %{?scl:Requires: %{scl}-runtime}

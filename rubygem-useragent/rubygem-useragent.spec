@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.16.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP User Agent parser
 Group: Development/Languages
 License: MIT

@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	11%{?dist}
+Release:	12%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/

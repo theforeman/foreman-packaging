@@ -6,7 +6,7 @@
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/google/signet/

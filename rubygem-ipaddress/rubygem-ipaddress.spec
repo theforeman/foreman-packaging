@@ -7,7 +7,7 @@
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
@@ -25,7 +25,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %description
 IPAddress is a Ruby library designed to make manipulation
 of IPv4 and IPv6 addresses both powerful and simple. It maintains
-a layer of compatibility with Ruby's own IPAddr, while 
+a layer of compatibility with Ruby's own IPAddr, while
 addressing many of its issues.
 
 %package doc

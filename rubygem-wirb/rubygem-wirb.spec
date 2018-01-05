@@ -6,7 +6,7 @@ Summary: Wavy IRB: Colorizes irb results.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb

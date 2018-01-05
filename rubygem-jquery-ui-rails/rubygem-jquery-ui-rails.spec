@@ -7,7 +7,7 @@
 Summary: jQuery UI packaged for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/joliss/jquery-ui-rails

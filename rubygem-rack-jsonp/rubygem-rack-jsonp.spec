@@ -6,7 +6,7 @@
 Summary: A Rack middleware for providing JSON-P support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/crohr/rack-jsonp
