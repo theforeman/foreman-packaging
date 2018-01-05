@@ -67,6 +67,10 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.1-2
+- More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Jul 12 2017 Eric D. Helms <ericdhelms@gmail.com> 1.4.1-1
 - Update fast_gettext to 1.4.1 (tbrisker@gmail.com)
 
