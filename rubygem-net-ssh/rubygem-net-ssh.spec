@@ -31,7 +31,6 @@ Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix_ror}rubygem(mocha)
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch

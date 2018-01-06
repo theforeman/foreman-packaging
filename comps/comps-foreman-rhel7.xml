@@ -76,6 +76,7 @@
       <packagereq type="default">tfm-rubygem-fog-json</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-openstack</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-ovirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-rackspace</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
@@ -292,7 +293,6 @@
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
-      <packagereq type="default">rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
@@ -345,6 +345,7 @@
       <packagereq type="default">tfm-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-openstack-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-rackspace-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
