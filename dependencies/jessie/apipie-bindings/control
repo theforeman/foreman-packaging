@@ -13,6 +13,6 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
          ruby-json (>= 1.6.1),
          ruby-rest-client (>= 1.6.5), ruby-rest-client (<< 3.0.0),
-         ruby-oauth,
+         ruby-oauth (< 0.5.2),
 Description: Ruby bindings for Apipie documented APIs
  Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
