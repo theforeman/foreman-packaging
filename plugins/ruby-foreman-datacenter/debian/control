@@ -1,0 +1,13 @@
+Source: ruby-foreman-datacenter
+Section: ruby
+Priority: extra
+Maintainer: Cloudevelops <foreman@cloudevelops.com>
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.15.0), foreman-sqlite3 (>= 1.15.0), ruby-foreman-deface (<<2.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/cloudevelops/foreman_datacenter
+
+Package: ruby-foreman-datacenter
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.15.0), foreman-compute (>= 1.15.0), ruby-foreman-deface (<<2.0.0)
+Description: Foreman Datacenter for managing physical servers
+ Foreman Datacenter lets you document your physical servers across multiple datacenters
