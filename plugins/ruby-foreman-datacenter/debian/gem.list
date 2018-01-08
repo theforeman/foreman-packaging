@@ -1,5 +1,5 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_datacenter-0.1.43.gem"
+GEMS="https://rubygems.org/downloads/foreman_datacenter-0.1.44.gem"
 GEMS="$GEMS https://rubygems.org/downloads/prawn-2.2.2.gem"
 GEMS="$GEMS https://rubygems.org/downloads/pdf-core-0.7.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/ttfunk-1.5.1.gem"
