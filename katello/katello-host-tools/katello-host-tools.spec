@@ -1,6 +1,6 @@
 Name: katello-host-tools
 Version: 3.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -14,7 +14,6 @@ Requires: subscription-manager
 Requires: %{name}-fact-plugin
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
-Requires: python2-tracer >= 0.6.12
 Requires: python-rhsm
 Requires: crontabs
 %endif
@@ -76,6 +75,17 @@ Obsoletes:  katello-agent-fact-plugin <= 3.0.0
 %description fact-plugin
 A subscription-manager plugin to add an additional fact 'network.fqdn' if not present
 
+%package tracer
+BuildArch:  noarch
+Summary:    Adds Tracer functionality to a client managed by katello-host-tools
+Group:      Development/Languages
+
+Requires: katello-host-tools
+Requires: python2-tracer >= 0.6.12
+
+%description tracer
+Adds Tracer functionality to a client managed by katello-host-tools
+
 %prep
 %setup -q -n katello-agent-%{version}
 
@@ -112,11 +122,11 @@ cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
 # cache directory
 mkdir -p %{buildroot}/var/cache/katello-agent/
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
 cp src/yum-plugins/tracer_upload.py %{buildroot}/%{_prefix}/lib/yum-plugins
 cp etc/yum/pluginconf.d/tracer_upload.conf %{buildroot}/%{_sysconfdir}/yum/pluginconf.d/tracer_upload.conf
 cp bin/katello-tracer-upload %{buildroot}%{_sbindir}/katello-tracer-upload
 
+%if 0%{?fedora} > 18 || 0%{?rhel} > 6
 # crontab
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
 cp extra/katello-agent-send.cron %{buildroot}%{_sysconfdir}/cron.d/%{name}
@@ -160,17 +170,21 @@ exit 0
 /var/cache/katello-agent/
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
-%{_prefix}/lib/yum-plugins
+%{_prefix}/lib/yum-plugins/package_upload.py*
+%{_prefix}/lib/yum-plugins/enabled_repos_upload.py*
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
-%{_sysconfdir}/yum/pluginconf.d/tracer_upload.conf
-%attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
 %endif
 
 %files fact-plugin
 %config %{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
 %{_datadir}/rhsm-plugins/fqdn.*
+
+%files tracer
+%{_sysconfdir}/yum/pluginconf.d/tracer_upload.conf
+%attr(750, root, root) %{_sbindir}/katello-tracer-upload
+%{_prefix}/lib/yum-plugins/tracer_upload.py*
 
 %changelog
 * Thu Sep 28 2017 Justin Sherrill <jsherril@redhat.com> 3.1.0-1
