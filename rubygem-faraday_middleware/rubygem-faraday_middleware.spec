@@ -78,5 +78,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/faraday_middleware.gemspec
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue May 17 2016 Daniel Lobato - 0.10.0-1
 - Initial package
