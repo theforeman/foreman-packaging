@@ -115,6 +115,9 @@ done
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.21.0-2
+- Remove tests and rspec from pg (ericdhelms@gmail.com)
+
 * Thu Jan 04 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.21.0-1
 - Update pg to 0.21 (eric.d.helms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
