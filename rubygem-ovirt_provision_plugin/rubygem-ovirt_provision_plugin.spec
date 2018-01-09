@@ -93,6 +93,12 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.2-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Mon Jun 27 2016 Dominic Cleal <dominic@cleal.org> 1.0.2-1
 - re-add ovirt_provision_plugin (kvedulv@kvedulv.de)
 
