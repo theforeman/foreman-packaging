@@ -75,6 +75,10 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.3-6
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Mar 21 2017 Dominic Cleal <dominic@cleal.org> 1.0.3-1
 - Update dynflow to 0.8.21 (me@daniellobato.me)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
