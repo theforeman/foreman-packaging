@@ -68,6 +68,10 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.0.7-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Sep 21 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.7-1
 - Updated rubygem-hammer_cli_foreman_admin to 0.0.7 (lzap+git@redhat.com)
 
