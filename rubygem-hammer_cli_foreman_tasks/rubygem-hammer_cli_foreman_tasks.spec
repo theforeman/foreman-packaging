@@ -77,6 +77,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.0.12-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+
 * Wed Oct 25 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.12-1
 - Update hammer-cli-foreman-tasks 0.0.12 (inecas@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
