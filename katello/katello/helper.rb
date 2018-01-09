@@ -36,6 +36,15 @@ module KatelloUtilities
       exit(false)
     end
 
+    def fail_if_file_not_found(files)
+      files.reject! { |file| File.exist?(file) }
+      if files.any?
+        multiple_files = files.count > 1
+        fail_with_message("Error: #{multiple_files ? "Files" : "File"} #{files.join(", ")} " \
+                          "#{multiple_files ? "do" : "does"} not exist! Please check the file path and try again.")
+      end
+    end
+
     def run_cmd(command, exit_codes=[0], message=nil)
       result = `#{command}`
       unless exit_codes.include?($?.exitstatus)
