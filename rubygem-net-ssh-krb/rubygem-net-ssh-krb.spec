@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.4.0-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+
 * Mon Sep 25 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.4.0-1
 - new package built with tito
 
