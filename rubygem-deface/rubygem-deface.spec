@@ -76,6 +76,11 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.0-7
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Mar 20 2017 Dominic Cleal <dominic@cleal.org> 1.2.0-1
 - Update deface to 1.2.0 (dominic@cleal.org)
 
