@@ -86,6 +86,9 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/preamble
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.0-4
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+
 * Fri Sep 29 2017 Michael Moll <kvedulv@kvedulv.de> 1.2.0-3
 - Use ffi from tfm SCL (eric.d.helms@gmail.com)
 
