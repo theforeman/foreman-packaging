@@ -71,6 +71,10 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.0.6-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Aug 16 2017 Eric D. Helms <ericdhelms@gmail.com> 0.0.6-1
 - Update rubygem-hammer_cli_foreman_remote_execution to 0.0.6
   (aruzicka@redhat.com)
