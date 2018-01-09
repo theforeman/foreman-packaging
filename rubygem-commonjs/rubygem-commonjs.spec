@@ -70,6 +70,10 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.2.7-5
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.2.7-4
 - Use gem_install macro (dominic@cleal.org)
 
