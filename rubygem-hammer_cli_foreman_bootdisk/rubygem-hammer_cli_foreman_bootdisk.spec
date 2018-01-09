@@ -9,7 +9,7 @@
 Summary: Foreman boot disk commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_bootdisk

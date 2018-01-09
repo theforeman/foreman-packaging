@@ -6,7 +6,7 @@
 Summary: OpenNebula Client API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.8.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://opennebula.org/

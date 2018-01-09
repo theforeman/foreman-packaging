@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Various middleware for Faraday
 Group: Development/Languages
 License: MIT

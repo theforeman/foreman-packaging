@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Colorize printed text on ANSI terminals
 Group: Development/Languages
 License: MIT

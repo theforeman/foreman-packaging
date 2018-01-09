@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Official ruby client library to consume Microsoft Azure services
 Group: Development/Languages
 License: ASL 2.0

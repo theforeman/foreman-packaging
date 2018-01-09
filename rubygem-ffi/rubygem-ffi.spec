@@ -14,7 +14,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.4.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        FFI Extensions for Ruby
 Group:          Development/Languages
 
