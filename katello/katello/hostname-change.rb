@@ -47,11 +47,7 @@ module KatelloUtilities
     def check_for_certs_tar
       STDOUT.puts "Checking for certs tarball"
       if @options[:certs_tar]
-        if File.file?(@options[:certs_tar])
-          true
-        else
-          self.fail_with_message("#{@options[:certs_tar]} does not exist! Please check the file path and try again")
-        end
+        fail_if_file_not_found([@options[:certs_tar]])
       else
         self.fail_with_message("You must specify --certs-tar argument when on a #{@proxy}." \
                                " These can be generated on the #{@default_program} server using " \
@@ -107,8 +103,6 @@ module KatelloUtilities
     def successful_hostname_change_message
     # the following multi-line string isn't indented because the indents are taken literally.
     successful_message = %(
-  If you want to use custom certificates, re-run the #{@options[:program]}-installer with custom certificate options.
-
   You will have to install the new bootstrap rpm and reregister all clients and #{@plural_proxy} with subscription-manager
   (update organization and environment arguments appropriately):
 
@@ -161,6 +155,16 @@ module KatelloUtilities
       proxy["Id"]
     end
 
+    def using_custom_certs?(scenario_answers)
+      scenario_answers["certs"]["server_cert"] &&
+      scenario_answers["certs"]["server_key"] &&
+      scenario_answers["certs"]["server_cert_req"]
+    end
+
+    def all_custom_cert_options_present?(scenario_answers)
+      @options[:custom_cert] && @options[:custom_key] && @options[:custom_cert_req]
+    end
+
     def setup_opt_parser
       @opt_parser = OptionParser.new do |opt|
         opt.banner = "usage: #{@command_prefix}-change-hostname hostname [options]"
@@ -194,7 +198,19 @@ module KatelloUtilities
           opt.on("-c",
                  "--certs-tar certs_tar",
                  "the path to the certs tar generated on the #{@default_program} server with the new hostname (required for #{@plural_proxy})") do |certs_tar|
-            @options[:certs_tar] = certs_tar
+            @options[:certs_tar] = File.expand_path(certs_tar)
+          end
+        else
+          opt.on("-c","--custom-cert CERT","If you are using custom certificates, please provide a server cert with the new hostname") do |custom_cert|
+            @options[:custom_cert] = File.expand_path(custom_cert)
+          end
+
+          opt.on("-k","--custom-key KEY","If you are using custom certificates, please provide a server key with the new hostname") do |custom_key|
+            @options[:custom_key] = File.expand_path(custom_key)
+          end
+
+          opt.on("-r","--custom-cert-req CERTREQ","If you are using custom certificates, please provide a certificate request with the new hostname") do |custom_cert_req|
+            @options[:custom_cert_req] = File.expand_path(custom_cert_req)
           end
         end
 
@@ -209,17 +225,33 @@ module KatelloUtilities
     def run
       raise 'Must run as root' unless Process.uid == 0
 
-      self.precheck
+      scenario_answers = load_scenario_answers(@options[:scenario])
+
+      if using_custom_certs?(scenario_answers)
+        unless all_custom_cert_options_present?(scenario_answers)
+          fail_with_message("You are currently using custom certificates but not all custom " \
+                            "certificate arguments are present. To change the hostname, " \
+                            "you need to provide certificates with the new hostname. Please " \
+                            "review the custom certificate arguments required with --help.")
+        end
+      end
+
+      if using_custom_certs?(scenario_answers) && !@foreman_proxy_content
+        STDOUT.puts "\nChecking custom certificates"
+        fail_if_file_not_found([@options[:custom_cert], @options[:custom_key], @options[:custom_cert_req]])
+        run_cmd("katello-certs-check -c #{@options[:custom_cert]} -k #{@options[:custom_key]} " \
+                "-r #{@options[:custom_cert_req]} -b #{scenario_answers["certs"]["server_ca_cert"]}")
+      end
 
       if @foreman_proxy_content
         self.check_for_certs_tar
         fpc_installer_args = self.get_fpc_answers
       end
 
+      self.precheck
+
       # Get the hostname from your system
       @old_hostname = self.get_hostname
-
-      scenario_answers = load_scenario_answers(@options[:scenario])
 
       unless @foreman_proxy_content
         STDOUT.puts "\nUpdating default #{@proxy}"
@@ -308,6 +340,13 @@ module KatelloUtilities
       if @foreman_proxy_content
         installer << fpc_installer_args
       else
+        if using_custom_certs?(scenario_answers)
+          # The CA must be the same one used for the original certs
+          installer << " --certs-server-ca-cert #{scenario_answers["certs"]["server_ca_cert"]}" 
+          installer << " --certs-server-cert #{@options[:custom_cert]}"
+          installer << " --certs-server-key #{@options[:custom_key]}"
+          installer << " --certs-server-cert-req #{@options[:custom_cert_req]}"
+        end
         installer << " --certs-regenerate=true --foreman-proxy-register-in-foreman true"
       end
       # always disable system checks to avoid unnecessary errors. The installer should have
