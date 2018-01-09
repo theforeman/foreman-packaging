@@ -74,6 +74,10 @@ cp -a ./%{_bindir}/* %{buildroot}%{_bindir}
 
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.3.3-9
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.3.3-8
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
