@@ -78,5 +78,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/samples
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 2.6.5-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue May 17 2016 Daniel Lobato - 2.6.5-1
 - Initial package
