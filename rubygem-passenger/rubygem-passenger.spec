@@ -453,6 +453,9 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 4.0.18-9.12
+- Bump rubygem-passenger release (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 4.0.18-9.11
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
