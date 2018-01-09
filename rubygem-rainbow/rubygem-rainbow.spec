@@ -84,6 +84,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 2.2.1-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Mar 20 2017 Dominic Cleal <dominic@cleal.org> 2.2.1-1
 - new package built with tito
 
