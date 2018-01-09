@@ -64,6 +64,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.1.4-3
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue Jan 05 2016 Dominic Cleal <dcleal@redhat.com> 0.1.4-2
 - Add foremandist to plugin dependencies (dcleal@redhat.com)
 
