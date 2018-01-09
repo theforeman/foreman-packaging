@@ -92,6 +92,10 @@ popd
 
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.4.0-7
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.4.0-6
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
