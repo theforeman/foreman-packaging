@@ -44,6 +44,9 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.5-8
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 1.2.5-7
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Fix build errors and modernise specs (dcleal@redhat.com)
