@@ -70,6 +70,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.2-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Aug 18 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.2-1
 - Update rubygem-angular-rails-templates to 1.0.2 (kvedulv@kvedulv.de)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
