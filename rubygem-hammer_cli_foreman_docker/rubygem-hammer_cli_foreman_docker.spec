@@ -76,6 +76,10 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.0.4-3
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.0.4-2
 - Use gem_install macro (dominic@cleal.org)
 
