@@ -17,8 +17,8 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.11.0
+Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -26,14 +26,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.15.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.22
+Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
 Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
-Requires: %{?scl_prefix}rubygem-sequel
 Requires: %{?scl_prefix_ror}rubygem(sinatra)
-Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires(post): systemd-sysv
@@ -45,14 +43,12 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.22
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
-BuildRequires: %{?scl_prefix}rubygem-sequel
 BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
-BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: foreman-plugin >= 1.15.0
 BuildRequires: foreman-assets
 
