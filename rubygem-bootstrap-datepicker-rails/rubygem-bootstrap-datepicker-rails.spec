@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A date picker for Twitter Bootstrap
 Group: Development/Languages
 License: MIT

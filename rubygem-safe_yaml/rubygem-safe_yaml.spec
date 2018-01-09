@@ -6,7 +6,7 @@
 Summary: Parse YAML safely
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/dtao/safe_yaml

@@ -9,7 +9,7 @@
 Summary: Adds remote SSH support to Hammer Foreman CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman-ssh

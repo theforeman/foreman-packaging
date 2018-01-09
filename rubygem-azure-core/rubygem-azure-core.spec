@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Core library to be consumed by Ruby SDK gems
 Group: Development/Languages
 License: ASL 2.0

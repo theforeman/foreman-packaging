@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.6.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemu
 Group: Development/Languages
 License: Ruby

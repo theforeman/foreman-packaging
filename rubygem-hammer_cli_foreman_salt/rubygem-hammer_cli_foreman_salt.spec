@@ -9,7 +9,7 @@
 Summary: Foreman Salt-related commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_salt

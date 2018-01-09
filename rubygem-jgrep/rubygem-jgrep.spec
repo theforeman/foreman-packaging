@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -17,8 +17,6 @@ Patch0:         0001-Fix-test-run.patch
 BuildArch:      noarch
 
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ror}rubygem(rspec)
-BuildRequires:  %{?scl_prefix_ror}rubygem(mocha)
 BuildRequires:  %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix_ruby}ruby(release) >= 1.8
 Requires:       %{?scl_prefix_ruby}rubygems
@@ -58,12 +56,6 @@ mkdir -p %{buildroot}%{gem_dir}
 mkdir -p %{buildroot}%{_bindir}
 cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 cp -a ./%{_bindir}/* %{buildroot}%{_bindir}
-
-
-%check
-%{?scl:scl enable %{scl} "}
-rspec -Ilib spec
-%{?scl:"}
 
 
 %files

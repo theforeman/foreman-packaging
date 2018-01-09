@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Add Kerberos support to Net::SSH
 Group: Development/Languages
 License: GPLv2

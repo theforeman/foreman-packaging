@@ -7,7 +7,7 @@
 Summary: A simple library to assist in establishing tunneled Net::SSH connections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-scp
@@ -19,8 +19,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) >= 2.6.5
-BuildRequires: %{?scl_prefix_ror}rubygem(mocha)
-BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -49,17 +47,6 @@ Documentation for %{pkg_name}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-%check
-pushd .%{gem_instdir}
-# Fix Mocha 1.x compatibility.
-# https://github.com/net-ssh/net-ssh-gateway/pull/5
-sed -i 's|mocha|mocha/setup|' test/gateway_test.rb
-
-%{?scl:scl enable %{scl} - << \EOF}
-ruby -Ilib -e 'Dir.glob "./test/**/*_test.rb", &method(:require)'
-%{?scl:EOF}
-popd
 
 %files
 %dir %{gem_instdir}

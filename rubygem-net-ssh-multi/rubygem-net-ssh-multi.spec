@@ -9,7 +9,7 @@
 Summary: Control multiple Net::SSH connections via a single interface
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh-multi

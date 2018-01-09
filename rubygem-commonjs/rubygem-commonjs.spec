@@ -7,7 +7,7 @@
 Summary: Provide access to your Ruby and Operating System runtime via the commonjs API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/cowboyd/commonjs.rb

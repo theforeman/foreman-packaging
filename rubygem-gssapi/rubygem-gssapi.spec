@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 Group: Development/Languages
 License: MIT

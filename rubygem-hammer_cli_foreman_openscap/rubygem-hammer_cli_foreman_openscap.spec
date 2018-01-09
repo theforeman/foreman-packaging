@@ -9,7 +9,7 @@
 Summary: Foreman OpenSCAP commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_openscap

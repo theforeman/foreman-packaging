@@ -6,7 +6,7 @@
 Summary: A simple REST client for the Docker Remote API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.28.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/swipely/docker-api

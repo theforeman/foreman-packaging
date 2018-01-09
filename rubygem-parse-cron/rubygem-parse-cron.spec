@@ -6,7 +6,7 @@
 Summary: Cron expression parser
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.4
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Development/Languages
 
 License: MIT

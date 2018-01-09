@@ -9,7 +9,7 @@
 Summary: Foreman Docker-related commands for Hammer
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: https://github.com/theforeman/hammer_cli_foreman_docker

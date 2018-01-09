@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.0.2
-Release:   1%{?dist}
+Release:   2%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
