@@ -7,14 +7,12 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=1
 gpgcheck=0
 
-# Pulp RPMs as supported by Katello - This is a coordinated
-# copy of Pulp's packages in order to ensure compatibility
-[katello-pulp]
-name=Pulp Community Releases
-baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulp/@DIST@/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+[pulp]
+name=Pulp Community Release
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_RELEASE@/@PULP_VERSION@/$releasever/$basearch
+gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=1
-gpgcheck=0
+gpgcheck=1
 
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
@@ -35,12 +33,12 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=0
 gpgcheck=0
 
-[katello-pulp-source]
-name=Katello Pulp source
-baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/pulp/@DIST@/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
+[pulp-source]
+name=Pulp Community Release Source
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_RELEASE@/@PULP_VERSION@/$releasever/src/
+gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=0
-gpgcheck=0
+gpgcheck=1
 
 [katello-candlepin-source]
 name=Katello Candlepin source
