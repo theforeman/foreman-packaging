@@ -75,6 +75,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-2
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Jun 19 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-1
 - Updated hammer_cli_foreman_discovery-1.0.0 (lzap+git@redhat.com)
 
