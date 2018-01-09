@@ -74,6 +74,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 3.0.1-4
+- Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 3.0.1-3
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 
