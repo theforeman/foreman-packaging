@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 %license %{gem_instdir}/LICENSE
 
 %changelog
+* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 1.36.0-1
+- new package built with tito
+
 * Wed Jul 20 2016 Justin Sherrill <jsherril@redhat.com> 0.34.1-1
 - Fixes #13017 - remove priorities to use qpid from epel (jsherril@redhat.com)
 
