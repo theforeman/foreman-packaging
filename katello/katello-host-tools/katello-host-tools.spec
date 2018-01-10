@@ -187,6 +187,9 @@ exit 0
 %{_prefix}/lib/yum-plugins/tracer_upload.py*
 
 %changelog
+* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 3.1.0-2
+- new package built with tito
+
 * Thu Sep 28 2017 Justin Sherrill <jsherril@redhat.com> 3.1.0-1
 - katello-host-tools 3.1.0 (jsherril@redhat.com)
 
