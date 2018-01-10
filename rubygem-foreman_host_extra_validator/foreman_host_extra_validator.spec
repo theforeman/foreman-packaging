@@ -75,5 +75,10 @@ exit 0
 %{gem_docdir}
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Jul 20 2016 Timo Goebel <mail@timogoebel.name> 0.0.4-1
 - initial packaging
