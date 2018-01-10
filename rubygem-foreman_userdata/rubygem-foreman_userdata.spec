@@ -90,6 +90,12 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.1-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Switch foreman_userdata URLs to HTTPS (github@kohlvanwijngaarden.nl)
+- Automatic commit of package [rubygem-foreman_userdata] minor release
+  [0.0.1-1.fm1_17]. (mail@timogoebel.name)
+
 * Thu Sep 14 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.1-1
 - new package built with tito
 
