@@ -5,8 +5,8 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?dist}
+Version: 0.2.2
+Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/Apipie/apipie-bindings
@@ -158,5 +158,5 @@ cp -pa .%{gem_dir}/* \
 * Wed Mar 19 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.4-1
 - new package built with tito
 
-* Tue Feb 19 2014 Martin Bacovsky <mbacovsk@redhat.com> 0.0.4-1
+* Wed Feb 19 2014 Martin Bacovsky <mbacovsk@redhat.com> 0.0.4-1
 - new package built with tito
