@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-8
+- Add rubygem-polyglot and update deface (ericdhelms@gmail.com)
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.0-7
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
