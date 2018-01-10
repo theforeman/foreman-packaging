@@ -18,7 +18,7 @@
 Summary:    Plugin to improve storage of custom information in parameters
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_custom_parameters

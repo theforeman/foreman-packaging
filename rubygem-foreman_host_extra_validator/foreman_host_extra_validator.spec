@@ -6,7 +6,7 @@
 Summary:    Foreman plugin to add extra validations to a host.
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/FILIADATAGmbH/foreman_host_extra_validator

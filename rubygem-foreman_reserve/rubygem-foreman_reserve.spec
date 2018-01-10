@@ -17,7 +17,7 @@
 Summary:    Reserve hosts via Foreman API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.8.3
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_reserve

@@ -18,7 +18,7 @@
 Summary:    Snapshot plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.0
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_snapshot
