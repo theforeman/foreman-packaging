@@ -158,5 +158,5 @@ cp -pa .%{gem_dir}/* \
 * Wed Mar 19 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.4-1
 - new package built with tito
 
-* Tue Feb 19 2014 Martin Bacovsky <mbacovsk@redhat.com> 0.0.4-1
+* Wed Feb 19 2014 Martin Bacovsky <mbacovsk@redhat.com> 0.0.4-1
 - new package built with tito
