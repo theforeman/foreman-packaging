@@ -92,6 +92,12 @@ GEMFILE
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Fri Apr 22 2016 Dominic Cleal <dominic@cleal.org> 0.3.0-1
 - Update foreman_param_lookup to 0.3.0 (dominic@cleal.org)
 
