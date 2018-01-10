@@ -2,11 +2,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name qpid_messaging
-%global qpid_version 0.34
+%global qpid_version 1.36.0
 
 Summary: Ruby bindings for the Qpid messaging framework
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: %{qpid_version}.1
+Version: %{qpid_version}
 Release: 1%{?dist}
 License: ASL 2.0
 URL:     https://qpid.apache.org
