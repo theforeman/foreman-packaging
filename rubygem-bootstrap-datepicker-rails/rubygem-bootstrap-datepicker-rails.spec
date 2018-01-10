@@ -4,8 +4,8 @@
 %global gem_name bootstrap-datepicker-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.1.1
-Release: 2%{?dist}
+Version: 1.7.1.1
+Release: 1%{?dist}
 Summary: A date picker for Twitter Bootstrap
 Group: Development/Languages
 License: MIT
@@ -14,7 +14,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
