@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3

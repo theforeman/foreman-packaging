@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This plug-in adds support for serving user-data for cloud-init to The Foreman
 Group: Applications/Systems
 License: GPL-3

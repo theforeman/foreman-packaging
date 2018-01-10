@@ -18,7 +18,7 @@
 Summary:    Exposes smart class parameters lookups as an API
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.3.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/domcleal/rubygem-foreman_param_lookup

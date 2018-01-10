@@ -17,7 +17,7 @@
 Summary:    API for Rundeck to pull host data from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_host_rundeck
