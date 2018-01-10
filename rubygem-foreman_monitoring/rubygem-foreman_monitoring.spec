@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.1-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.1-1
 - Update foreman_monitoring to 0.1.1 (mail@timogoebel.name)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
