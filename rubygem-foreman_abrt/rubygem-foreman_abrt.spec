@@ -99,6 +99,12 @@ GEMFILE
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.7-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Tue May 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.7-1
 - Updated foreman_abrt to 0.0.7 (lzap+git@redhat.com)
 
