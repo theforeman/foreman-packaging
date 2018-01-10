@@ -320,6 +320,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-net-ssh-multi
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
+  rubygem-polyglot
   rubygem-puppetdb_foreman
   rubygem-rainbow
   rubygem-safe_yaml
