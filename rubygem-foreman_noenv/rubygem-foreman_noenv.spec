@@ -102,6 +102,11 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.7-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Nov 07 2016 Josh Baird <jbaird@follett.com> 0.0.7-1
 - Support for Foreman 1.13.x
 
