@@ -60,6 +60,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.2.0-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Annex foreman-tasks-core 0.2.0 (ericdhelms@gmail.com)
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 0.2.0-1
 - Update foreman-tasks-core to 0.2.0 (inecas@redhat.com)
 
