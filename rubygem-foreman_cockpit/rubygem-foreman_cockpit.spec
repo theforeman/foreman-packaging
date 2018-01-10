@@ -90,6 +90,11 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.3-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Jun 07 2017 Dominic Cleal <dominic@cleal.org> 2.0.3-1
 - Updated foreman_cockpit to 2.0.3 (me@daniellobato.me)
 - Switch to using gem_install macro (ericdhelms@gmail.com)
