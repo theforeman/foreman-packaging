@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 2.6.0-2
+- Update katello packages for Rails 5.1 (ericdhelms@gmail.com)
+
 * Mon Dec 11 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.6.0-1
 - rubygem-runcible 2.6.0 build (jsherril@redhat.com)
 
