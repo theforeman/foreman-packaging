@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+
 * Fri Dec 15 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-1
 - Update foreman_snapshot_management to 1.3.0 (mail@timogoebel.name)
 
