@@ -102,6 +102,11 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.14-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed May 17 2017 Dominic Cleal <dominic@cleal.org> 0.3.14-1
 - Update foreman_hooks to 0.3.14 (dominic@cleal.org)
 
