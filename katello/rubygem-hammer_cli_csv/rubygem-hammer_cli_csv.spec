@@ -69,6 +69,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 2.3.0-2
+- new package built with tito
+
 * Tue Jun 13 2017 Eric D. Helms <ericdhelms@gmail.com> 2.3.0-1
 - Fixes #19972 - Update hammer_cli_csv to 2.3.0 (akofink@redhat.com)
 - Use gem_install macro (ericdhelms@gmail.com)
