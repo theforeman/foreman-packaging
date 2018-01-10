@@ -93,6 +93,12 @@ mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.2-5
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Dec 24 2015 Dominic Cleal <dcleal@redhat.com> 0.0.2-4
 - Replace ruby(abi) for ruby22 rebuild (dcleal@redhat.com)
 - Add foremandist to more plugins (dcleal@redhat.com)
