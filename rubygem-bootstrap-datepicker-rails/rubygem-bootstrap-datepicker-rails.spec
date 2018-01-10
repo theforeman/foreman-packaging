@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.7.1.1-1
+- Update rubygem-bootstrap-datepicker-rails to 1.7.1.1 (ericdhelms@gmail.com)
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.6.1.1-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
