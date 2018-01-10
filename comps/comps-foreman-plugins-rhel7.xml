@@ -117,6 +117,7 @@
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
+      <packagereq type="default">tfm-rubygem-polyglot</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
@@ -232,6 +233,7 @@
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-polyglot-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>

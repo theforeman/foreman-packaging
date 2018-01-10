@@ -6,7 +6,7 @@
 Summary: Deface is a library that allows you to customize views in Rails
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/spree/deface
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(rainbow) >= 2.1.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6.0
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0.0
-Requires: %{?scl_prefix_ror}rubygem(polyglot)
+Requires: %{?scl_prefix}rubygem(polyglot)
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
