@@ -79,6 +79,9 @@ popd
 %{gem_instdir}/spec/
 
 %changelog
+* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-20
+- new package built with tito
+
 * Tue Apr 26 2016 Justin Sherrill <jsherril@redhat.com> 1.0.0-19
 - rebuilding for ruby on rails 4.2 (jsherril@redhat.com)
 
