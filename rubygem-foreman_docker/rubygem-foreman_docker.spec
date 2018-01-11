@@ -122,6 +122,11 @@ sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
 exit 0
 
 %changelog
+* Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
+- Release foreman_docker 4.0.0 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Jun 28 2017 Eric D. Helms <ericdhelms@gmail.com> 3.2.1-1
 - plugins:foreman_docker - Release 3.2.1 (mail@bastilian.me)
 
