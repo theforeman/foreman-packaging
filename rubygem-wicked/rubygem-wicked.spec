@@ -3,7 +3,7 @@
 
 %global gem_name wicked
 
-%define _version 1.1.0
+%define _version 1.3.2
 %define _summary Wicked is a Rails engine for producing easy wizard controllers
 %define _url https://github.com/schneems/wicked
 %define _license MIT
@@ -12,7 +12,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   4%{?dist}
+Release:   1%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
 License:   %{_license}
@@ -25,7 +25,7 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix_ruby}ruby(release)
 Requires:  %{?scl_prefix_ruby}rubygems
-Requires:  %{?scl_prefix_ror}rubygem(rails) >= 3.0.7
+Requires:  %{?scl_prefix_ror}rubygem(railties) >= 3.0.7
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -76,11 +76,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/gemfiles
 %{gem_spec}
 %{gem_libdir}
-%{gem_instdir}/app
 %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/VERSION
-%doc %{gem_instdir}/MIT-LICENSE
-%doc %{gem_instdir}/CHANGELOG.md
+%license %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/.gitignore
 
 %files doc
 %doc %{gem_instdir}/test
@@ -88,6 +86,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 %doc %{gem_docdir}/rdoc
 %doc %{gem_docdir}/ri
+%doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-4
