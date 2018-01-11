@@ -89,6 +89,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Thu Jan 11 2018 Eric D. Helms <ericdhelms@gmail.com> 1.3.2-1
+- Bump rubygem-wicked to 1.3.2 (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+- Switch to using gem_install macro (ericdhelms@gmail.com)
+
 * Thu Apr 21 2016 Dominic Cleal <dominic@cleal.org> 1.1.0-4
 - Rebuild tfm against sclo-ror42 (dominic@cleal.org)
 
