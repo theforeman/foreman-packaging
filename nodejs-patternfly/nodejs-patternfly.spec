@@ -105,6 +105,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.35.1-1
+- Bump nodejs-patternfly to 3.35.1 (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Jan 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.32.1-1
 - Update nodejs-patternfly to 3.32.1 (me@daniellobato.me)
 - Correct nodejs spec filenames (github@kohlvanwijngaarden.nl)
