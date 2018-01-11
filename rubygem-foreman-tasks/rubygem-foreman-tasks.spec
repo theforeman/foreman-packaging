@@ -161,6 +161,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.10.9-1
+- Update foreman-tasks to 0.10.9 (inecas@redhat.com)
+
 * Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-2
 - Update foreman-tasks use of foreman_precompile_plugin macro
   (ericdhelms@gmail.com)
