@@ -140,7 +140,6 @@ whitelist = foreman
   rubygem-concurrent-ruby-edge
   rubygem-css_parser
   rubygem-daemons
-  rubygem-dalli
   rubygem-deacon
   rubygem-deep_cloneable
   rubygem-domain_name
@@ -256,6 +255,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-bootstrap-datepicker-rails
   rubygem-commonjs
   rubygem-concurrent-ruby
+  rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
