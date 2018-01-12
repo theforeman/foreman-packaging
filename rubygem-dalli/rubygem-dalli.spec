@@ -75,3 +75,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.7.6-1
+- Add rubygem-dalli for foreman_memcache (ericdhelms@gmail.com)
+- Remove packages now in sclo-ror42 (dominic@cleal.org)
+
