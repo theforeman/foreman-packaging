@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/azure.gemspec
 
 %changelog
+* Fri Jan 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.10-1
+- Bump rubygem-azure to 0.7.10 (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.7.7-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
