@@ -35,7 +35,6 @@
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">http-parser</packagereq>
       <packagereq type="default">http-parser-devel</packagereq>
-      <packagereq type="default">rubygem-dalli</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
@@ -293,7 +292,6 @@
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
-      <packagereq type="default">rubygem-dalli-doc</packagereq>
       <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
