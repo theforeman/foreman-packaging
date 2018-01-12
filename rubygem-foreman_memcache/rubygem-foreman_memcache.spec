@@ -18,14 +18,14 @@
 Summary:    Adds memcache integeration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.6
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.2.0
-Requires:   %{?scl_prefix_ror}rubygem(dalli)
+Requires:   %{?scl_prefix}rubygem(dalli)
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
