@@ -230,6 +230,7 @@ whitelist = foreman
   rubygem-sshkey
   rubygem-syntax
   rubygem-text
+  rubygem-thor
   rubygem-trollop
   rubygem-unf
   rubygem-unf_ext
