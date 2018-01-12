@@ -123,9 +123,9 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
-  rubygem-algebrick
   rubygem-activerecord-session_store
   rubygem-addressable
+  rubygem-algebrick
   rubygem-ancestry
   rubygem-apipie-bindings
   rubygem-apipie-params
@@ -136,8 +136,8 @@ whitelist = foreman
   rubygem-awesome_print
   rubygem-bootstrap-sass
   rubygem-bundler_ext
-  rubygem-concurrent-ruby-edge
   rubygem-clamp
+  rubygem-concurrent-ruby-edge
   rubygem-css_parser
   rubygem-daemons
   rubygem-deacon
@@ -190,8 +190,8 @@ whitelist = foreman
   rubygem-little-plugger
   rubygem-locale
   rubygem-logging
-  rubygem-multipart-post
   rubygem-multi_json
+  rubygem-multipart-post
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-ping
