@@ -264,6 +264,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-fog-azure
   rubygem-git
   rubygem-jgrep
+  rubygem-jquery-matchheight-rails
   rubygem-opennebula
   rubygem-systemu
   rubygem-foreman_abrt
