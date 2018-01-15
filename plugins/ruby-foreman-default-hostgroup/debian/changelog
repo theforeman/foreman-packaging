@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (4.0.1-1) stable; urgency=low
+
+  * 4.0.1 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 15 Jan 2018 02:15:31 +0100
+
 ruby-foreman-default-hostgroup (4.0.0-1) stable; urgency=low
 
   * Release 4.0.0
