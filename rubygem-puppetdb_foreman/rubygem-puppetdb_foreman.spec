@@ -16,20 +16,20 @@
 
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.1.2
+Version:    4.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/puppetdb_foreman
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.11.0
+Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}rubygems
 
-BuildRequires: foreman-plugin >= 1.11.0
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -149,7 +149,7 @@ exit 0
 - Update to v0.1.2 (dlobatog@redhat.com)
 - Better error handling for dashboard
 
-* Fri Oct 11 2014 Daniel Lobato <dlobatog@redhat.com> 0.1.1-1
+* Sat Oct 11 2014 Daniel Lobato <dlobatog@redhat.com> 0.1.1-1
 - Update to v0.1.1 (dlobatog@redhat.com)
 - Proxy PuppetDB dashboard
 
