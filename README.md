@@ -114,24 +114,16 @@ You'll also need an alias `kojikat` to point to:
   * http://www.isitfedoraruby.com/fedorarpms/NAME
   * If only building non-SCL and it's in both Fedora and EPEL, stop now
 1. If available in Fedora, copy the spec from the SCM link on the left
+1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
-  * `mkdir rubygem-example` (no SCL prefix)
-  * `cd rubygem-example`
-  * `gem2rpm -o rubygem-example.spec --fetch example -t ../gem2rpm/template.spec.erb`
+  `./add_gem_package.sh GEM_NAME TEMPLATE TITO_TAG`
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
   * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
   * Ensure summary is under 72 characters
-1. Ensure the source file (e.g. the .gem) is in the spec directory and run
-   `git annex add foo.gem`
-1. Update rel-eng/tito.props and add to the appropriate whitelists
-1. Update comps/comps-foreman-\*.xml by running `./add_to_comps.rb comps/compsfile.xml rubygem-example`
-   but note you may have to add the SCL prefix.
-2. Run `./comps_doc.sh` to automatically add doc packages
-1. Commit the changes
-  1. `git add -A`
-  1. `git commit -m "Add NAME package"`
+  * Verify everything is added properly
+  * Amend any changes to the existing commit
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
@@ -147,15 +139,14 @@ Otherwise we will bundle the dependencies. You can read an explanation of how we
 
 In both cases:
 
+1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Generate the spec and download the sources automatically with npm2rpm.
   * For packages without dependencies - `./add_npm_package.sh example version single`
   * For packages that bundle dependencies - `./add_npm_package.sh example version bundle`
 1. This should have created a nodejs-example directory with the packages needed, the spec,
 and the cache if it's a bundled package. It should have modified tito.props, comps and
-added everything to git.
-1. Update the spec if needed (e.g: for peer dependencies)
-1. Commit the changes
-  1. `git commit -m "Add NAME package"`
+added everything to git, including a commit.
+1. Update the spec if needed (e.g: for peer dependencies). Amend the commit if needed.
 1. Follow the "test a package" section above until it builds for all targeted platforms and
 required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
