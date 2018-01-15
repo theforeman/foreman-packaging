@@ -1,3 +1,9 @@
+ruby-foreman-monitoring (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Mon, 15 Jan 2018 15:07:47 +0100
+
 ruby-foreman-monitoring (0.1.1-1) stable; urgency=low
 
   * 0.1.1 released
