@@ -160,17 +160,14 @@ added everything to git.
 required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
-## HOWTO: update a package
+## HOWTO: update a gem package
 
-1. `git rm foo-old.gem`
-1. Change the version in the spec, set "Release" to 1
-1. Run `gem compare -b foo 0.1 0.2 -k` (needs [gem-compare](https://rubygems.org/gems/gem-compare))
+1. Run the update script
+  1. `./bump_rpm.sh rubygem-foo`
+1. Check the output of [gem-compare](https://rubygems.org/gems/gem-compare)
   1. update `Requires` to match changes in runtime dependencies
   1. add/remove entries in %files if required for new root files
-1. Download the source file (e.g. the .gem) into the spec directory and run
-   `git annex add foo.gem`
 1. Commit the changes
-  1. `git add -A`
   1. `git commit -m "Update NAME to VERSION"`
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
