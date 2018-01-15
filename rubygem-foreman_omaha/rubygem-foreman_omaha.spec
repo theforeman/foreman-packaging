@@ -5,22 +5,24 @@
 %global plugin_name omaha
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 1.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_omaha
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.12.0
+Requires: foreman >= 1.17.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(jquery-matchheight-rails)
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.12.0
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix}rubygem(jquery-matchheight-rails)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
