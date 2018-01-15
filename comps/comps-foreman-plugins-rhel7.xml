@@ -112,6 +112,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
@@ -229,6 +230,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
