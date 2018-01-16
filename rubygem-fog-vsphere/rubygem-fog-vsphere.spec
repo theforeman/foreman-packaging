@@ -3,22 +3,23 @@
 
 %global gem_name fog-vsphere
 
-Summary: Module for the 'fog' gem to support VMware vSphere
 Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 1.11.3
-Release: 2%{?dist}
-Group: Development/Ruby
+Version: 1.13.1
+Release: 1%{?dist}
+Summary: Module for the 'fog' gem to support VMware vSphere
+Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-vsphere
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 2
-Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -26,46 +27,64 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 This library can be used as a module for `fog` or as standalone provider to
 use vSphere in applications.
 
+
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
+%license %{gem_instdir}/LICENSE.md
+%exclude %{gem_instdir}/fog-vsphere.gemspec
+%{gem_instdir}/gemfiles
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/.*
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/tests
-%{gem_instdir}/gemfiles
-%{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/%{gem_name}.gemspec
+%{gem_instdir}/tests
 
 %changelog
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.11.3-2
