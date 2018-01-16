@@ -7,7 +7,7 @@
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.6.8
+Version: 0.6.9
 Release: 1%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy.
 Group: Applications/Internet
