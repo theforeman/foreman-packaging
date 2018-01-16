@@ -101,6 +101,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jan 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
+- Update foreman_omaha to 1.0.0 (mail@timogoebel.name)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Sep 06 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.3-1
 - Update foreman_omaha to 0.0.3 (mail@timogoebel.name)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
