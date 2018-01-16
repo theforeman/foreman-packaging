@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 6.1.7-1
+- Release rubygem-bastion 6.1.7 (ericdhelms@gmail.com)
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 6.1.5-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 
