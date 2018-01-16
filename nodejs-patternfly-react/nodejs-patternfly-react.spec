@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 0.19.2
+Version: 0.26.0
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -12,8 +12,12 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
+Requires: npm(patternfly) >= 3.35.1
+Requires: npm(patternfly) < 4.0.0
 Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-bootstrap-switch) >= 15.5.3
+Requires: npm(react-bootstrap-switch) < 16.0.0
 Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 1.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
@@ -31,7 +35,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
