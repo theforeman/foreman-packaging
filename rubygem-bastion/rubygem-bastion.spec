@@ -13,8 +13,8 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.1.5
-Release:    2%{?foremandist}%{?dist}
+Version:    6.1.7
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv2+
 URL:        https://github.com/katello/bastion
@@ -27,8 +27,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Requires: foreman >= 1.15.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
 
-BuildRequires: foreman-assets >= 1.15.0
-BuildRequires: foreman-plugin >= 1.15.0
+BuildRequires: foreman-assets >= 1.17.0
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
