@@ -230,7 +230,7 @@ BuildRequires: http-parser
 BuildRequires: libuv
 BuildRequires: nodejs-packaging
 
-# package.json devDependencies
+# start package.json devDependencies BuildRequires
 #BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
 #BuildRequires: npm(@storybook/addon-actions) < 4.0.0
 #BuildRequires: npm(@storybook/react) >= 3.2.12
@@ -315,8 +315,9 @@ BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
 #BuildRequires: npm(webpack-dev-server) >= 2.5.1
 #BuildRequires: npm(webpack-dev-server) < 3.0.0
+# end package.json devDependencies BuildRequires
 
-# package.json dependencies
+# start package.json dependencies BuildRequires
 BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(brace) >= 0.10.0
@@ -391,6 +392,7 @@ BuildRequires: npm(uuid) >= 3.0.1
 BuildRequires: npm(uuid) < 4.0.0
 BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
 BuildRequires: npm(webpack-stats-plugin) < 1.0.0
+# end package.json dependencies BuildRequires
 
 # Other gems
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5
@@ -580,7 +582,7 @@ Requires: nodejs >= 6.10
 # is resolved
 Requires: libuv
 
-# package.json devDependencies
+# start package.json devDependencies Requires
 #Requires: npm(@storybook/addon-actions) >= 3.2.12
 #Requires: npm(@storybook/addon-actions) < 4.0.0
 #Requires: npm(@storybook/react) >= 3.2.12
@@ -665,8 +667,9 @@ Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
 #Requires: npm(webpack-dev-server) >= 2.5.1
 #Requires: npm(webpack-dev-server) < 3.0.0
+# end package.json devDependencies Requires
 
-# package.json dependencies
+# start package.json dependencies Requires
 Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
 Requires: npm(brace) >= 0.10.0
@@ -741,6 +744,7 @@ Requires: npm(uuid) >= 3.0.1
 Requires: npm(uuid) < 4.0.0
 Requires: npm(webpack-stats-plugin) >= 0.1.5
 Requires: npm(webpack-stats-plugin) < 1.0.0
+# end package.json dependencies Requires
 
 # Other gems
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5

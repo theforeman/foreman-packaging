@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+
+import semver
+
+# We need a blacklist of packages that are devDependencies but not needed to build
+BLACKLIST = [
+    'babel-eslint',
+    'babel-jest',
+    'jest-cli',
+    'nock',
+    'react-addons-test-utils',
+    'react-test-renderer',
+    'redux-mock-store',
+    'webpack-dev-server',
+]
+
+BLACKLIST_PREFIXES = [
+    '@storybook/',
+    'enzyme',
+    'eslint',
+    'stylelint',
+]
+
+def is_blacklisted(package):
+    return package in BLACKLIST or any(package.startswith(prefix) for prefix in BLACKLIST_PREFIXES)
+
+
+def get_requirement(version):
+    if not version:
+        raise ValueError('Empty version received')
+
+    if version[0].isdigit():
+        return ['= {}'.format(version)]
+
+    if version.startswith('^') or version.startswith('~'):
+        modifier = version[0]
+        parsed = semver.parse_version_info(version[1:])
+
+        min_version = '{}.{}.{}'.format(parsed.major, parsed.minor, parsed.patch)
+        if modifier == '^':
+            max_version = semver.bump_major(min_version)
+        elif modifier == '~':
+            max_version = semver.bump_minor(min_version)
+
+        return ['>= {}'.format(min_version), '< {}'.format(max_version)]
+
+    raise ValueError('Unable to handle version {}'.format(version))
+
+
+def get_requirements(dependencies, fmt):
+    for package, version in sorted(dependencies.items()):
+        for requirement in get_requirement(version):
+            if is_blacklisted(package):
+                yield '#' + fmt.format(package, requirement)
+            else:
+                yield fmt.format(package, requirement)
+
+
+def get_sections(packages):
+    for section in ('devDependencies', 'dependencies'):
+        for requires in ('BuildRequires', 'Requires'):
+            trigger = '{} {}\n'.format(section, requires)
+            requirements = list(get_requirements(packages[section], requires + ': npm({}) {}\n'))
+            yield trigger, requirements
+
+
+def get_new_content(current_content, requires):
+    key = None
+    prefix = '# start package.json '
+
+    for line in current_content:
+        if key:
+            if line == key:
+                yield line
+                key = None
+        else:
+            yield line
+
+            if line.startswith(prefix):
+                key = line[len(prefix):]
+                try:
+                    for require in requires[key]:
+                        yield require
+                except KeyError:
+                    raise SystemExit('Unrecognized section found: ' + line)
+                key = '# end package.json {}'.format(key)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Update the nodejs dependencies from package.json')
+    parser.add_argument('packagesfile', help='Path to the packages file',
+                        type=argparse.FileType('r'))
+    parser.add_argument('specfile', help='path to the specfile', default='foreman.spec', nargs='?',
+                        type=argparse.FileType('r'))
+    args = parser.parse_args()
+
+    requires = dict(get_sections(json.load(args.packagesfile)))
+
+    current_content = args.specfile.readlines()
+    args.specfile.close()
+
+    new_content = list(get_new_content(current_content, requires))
+
+    with open(args.specfile.name, 'w') as fp:
+        fp.writelines(new_content)
+
+
+if __name__ == '__main__':
+    main()
