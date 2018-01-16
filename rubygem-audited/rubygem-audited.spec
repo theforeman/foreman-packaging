@@ -1,13 +1,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from audited-3.0.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name audited
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.4.1
-Release: 2%{?dist}
+Version: 4.6.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
@@ -60,7 +59,7 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/spec
 %exclude %{gem_instdir}/test
