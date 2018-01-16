@@ -73,6 +73,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-raf
   nodejs-react
   nodejs-react-bootstrap
+  nodejs-react-bootstrap-switch
   nodejs-react-c3js
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
