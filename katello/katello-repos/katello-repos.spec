@@ -84,6 +84,11 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-1.nightly
+- Bump katello RPMs to 3.7.0 (ericdhelms@gmail.com)
+- Automatic commit of package [katello-repos] minor release
+  [3.6.0-2.nightly.fm1_18]. (ericdhelms@gmail.com)
+
 * Mon Jan 15 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2.nightly
 - new package built with tito
 
