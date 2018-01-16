@@ -52,6 +52,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Jan 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.26.0-1
+- Bump nodejs-patternfly-react to 0.26.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.19.2-1
 - Update nodejs-patternfly-react to 0.19.2 (github@kohlvanwijngaarden.nl)
 
