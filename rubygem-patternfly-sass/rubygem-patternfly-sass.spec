@@ -4,13 +4,16 @@
 %global gem_name patternfly-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.23.0
-Release: 2%{?dist}
+Version: 3.37.0
+Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
-URL: https://github.com/Patternfly/patternfly-sass
+URL: https://github.com/Patternfly/patternfly
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.7
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2
@@ -26,6 +29,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %description
 Red Hat's Patternfly, converted to Sass and ready to drop into Rails.
 
+
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
@@ -36,38 +40,48 @@ BuildArch: noarch
 Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.*
-%doc %{gem_instdir}/LICENSE.txt
-%doc %{gem_instdir}/OPEN_SOURCE_LICENCES.txt
-%{gem_instdir}/assets
-%{gem_instdir}/bower.json
-%{gem_instdir}/package.json
+%{gem_instdir}/CODE_OF_CONDUCT.md
+%license %{gem_instdir}/LICENSE.txt
+%license %{gem_instdir}/OPEN_SOURCE_LICENCES.txt
+%{gem_instdir}/QUICKSTART.md
+%{gem_instdir}/dist
 %{gem_libdir}
-%{gem_instdir}/tasks
+%exclude %{gem_instdir}/patternfly-sass.gemspec
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/patternfly-sass.gemspec
-%{gem_instdir}/spec
 
 %changelog
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.23.0-2
