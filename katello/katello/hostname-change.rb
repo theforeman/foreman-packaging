@@ -5,6 +5,7 @@ require "yaml"
 require "shellwords"
 require "json"
 require "uri"
+require "fileutils"
 require "highline/import"
 require_relative "helper.rb"
 
@@ -24,6 +25,7 @@ module KatelloUtilities
       @options = {}
       @options[:program] = init_options.fetch(:program, @default_program)
       @options[:scenario] = init_options.fetch(:scenario, @last_scenario)
+      @scenario_answers = load_scenario_answers(@options[:scenario])
       @foreman_proxy_content = @options[:scenario] == @proxy_hyphenated
 
       setup_opt_parser
@@ -161,8 +163,24 @@ module KatelloUtilities
       scenario_answers["certs"]["server_cert_req"]
     end
 
-    def all_custom_cert_options_present?(scenario_answers)
+    def all_custom_cert_options_present?
       @options[:custom_cert] && @options[:custom_key] && @options[:custom_cert_req]
+    end
+
+    def custom_certs_check(scenario_answers)
+      if all_custom_cert_options_present?
+        if FileUtils.compare_file(scenario_answers["foreman"]["server_ssl_ca"],
+                                  scenario_answers["foreman"]["server_ssl_chain"])
+          fail_with_message("This system is set up with custom certificates, but those certificates " \
+                            "are using the same CA as the default #{@default_program} CA. " \
+                            "Please fix this and re-run #{@default_program}-change-hostname.")
+        end
+      else
+        fail_with_message("You are currently using custom certificates but not all custom " \
+                          "certificate arguments are present. To change the hostname, " \
+                          "you need to provide certificates with the new hostname. Please " \
+                          "review the custom certificate arguments required with --help.")
+      end
     end
 
     def setup_opt_parser
@@ -201,16 +219,18 @@ module KatelloUtilities
             @options[:certs_tar] = File.expand_path(certs_tar)
           end
         else
-          opt.on("-c","--custom-cert CERT","If you are using custom certificates, please provide a server cert with the new hostname") do |custom_cert|
-            @options[:custom_cert] = File.expand_path(custom_cert)
-          end
+          if using_custom_certs?(@scenario_answers)
+            opt.on("-c","--custom-cert CERT","If you are using custom certificates, please provide a server cert with the new hostname") do |custom_cert|
+              @options[:custom_cert] = File.expand_path(custom_cert)
+            end
 
-          opt.on("-k","--custom-key KEY","If you are using custom certificates, please provide a server key with the new hostname") do |custom_key|
-            @options[:custom_key] = File.expand_path(custom_key)
-          end
+            opt.on("-k","--custom-key KEY","If you are using custom certificates, please provide a server key with the new hostname") do |custom_key|
+              @options[:custom_key] = File.expand_path(custom_key)
+            end
 
-          opt.on("-r","--custom-cert-req CERTREQ","If you are using custom certificates, please provide a certificate request with the new hostname") do |custom_cert_req|
-            @options[:custom_cert_req] = File.expand_path(custom_cert_req)
+            opt.on("-r","--custom-cert-req CERTREQ","If you are using custom certificates, please provide a certificate request with the new hostname") do |custom_cert_req|
+              @options[:custom_cert_req] = File.expand_path(custom_cert_req)
+            end
           end
         end
 
@@ -225,22 +245,16 @@ module KatelloUtilities
     def run
       raise 'Must run as root' unless Process.uid == 0
 
-      scenario_answers = load_scenario_answers(@options[:scenario])
 
-      if using_custom_certs?(scenario_answers)
-        unless all_custom_cert_options_present?(scenario_answers)
-          fail_with_message("You are currently using custom certificates but not all custom " \
-                            "certificate arguments are present. To change the hostname, " \
-                            "you need to provide certificates with the new hostname. Please " \
-                            "review the custom certificate arguments required with --help.")
-        end
+      if using_custom_certs?(@scenario_answers)
+        custom_certs_check(@scenario_answers)
       end
 
-      if using_custom_certs?(scenario_answers) && !@foreman_proxy_content
+      if using_custom_certs?(@scenario_answers) && !@foreman_proxy_content
         STDOUT.puts "\nChecking custom certificates"
         fail_if_file_not_found([@options[:custom_cert], @options[:custom_key], @options[:custom_cert_req]])
         run_cmd("katello-certs-check -c #{@options[:custom_cert]} -k #{@options[:custom_key]} " \
-                "-r #{@options[:custom_cert_req]} -b #{scenario_answers["certs"]["server_ca_cert"]}")
+                "-r #{@options[:custom_cert_req]} -b #{@scenario_answers["certs"]["server_ca_cert"]}")
       end
 
       if @foreman_proxy_content
@@ -307,10 +321,10 @@ module KatelloUtilities
 
       STDOUT.puts "deleting old certs"
       self.run_cmd("rm -rf /etc/pki/katello-certs-tools{,.bak}")
-      self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["ssl_cert"]}")
-      self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["ssl_key"]}")
-      self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["foreman_ssl_cert"]}")
-      self.run_cmd("rm -rf #{scenario_answers["foreman_proxy"]["foreman_ssl_key"]}")
+      self.run_cmd("rm -rf #{@scenario_answers["foreman_proxy"]["ssl_cert"]}")
+      self.run_cmd("rm -rf #{@scenario_answers["foreman_proxy"]["ssl_key"]}")
+      self.run_cmd("rm -rf #{@scenario_answers["foreman_proxy"]["foreman_ssl_cert"]}")
+      self.run_cmd("rm -rf #{@scenario_answers["foreman_proxy"]["foreman_ssl_key"]}")
       self.run_cmd("rm -rf /etc/pki/katello/nssdb")
       self.run_cmd("mkdir #{public_backup_dir}")
       self.run_cmd("mv #{public_dir}/*.rpm #{public_backup_dir}")
@@ -320,8 +334,8 @@ module KatelloUtilities
         self.run_cmd("rm -f /etc/tomcat/keystore")
         self.run_cmd("rm -rf /etc/foreman/old-certs")
         self.run_cmd("rm -f /etc/pki/katello/keystore")
-        self.run_cmd("rm -rf #{scenario_answers["foreman"]["client_ssl_cert"]}")
-        self.run_cmd("rm -rf #{scenario_answers["foreman"]["client_ssl_key"]}")
+        self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_cert"]}")
+        self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_key"]}")
       end
 
       STDOUT.puts "backed up #{public_dir} to #{public_backup_dir}"
@@ -340,9 +354,9 @@ module KatelloUtilities
       if @foreman_proxy_content
         installer << fpc_installer_args
       else
-        if using_custom_certs?(scenario_answers)
+        if using_custom_certs?(@scenario_answers)
           # The CA must be the same one used for the original certs
-          installer << " --certs-server-ca-cert #{scenario_answers["certs"]["server_ca_cert"]}" 
+          installer << " --certs-server-ca-cert #{@scenario_answers["certs"]["server_ca_cert"]}" 
           installer << " --certs-server-cert #{@options[:custom_cert]}"
           installer << " --certs-server-key #{@options[:custom_key]}"
           installer << " --certs-server-cert-req #{@options[:custom_cert_req]}"
