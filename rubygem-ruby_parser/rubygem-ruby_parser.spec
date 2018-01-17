@@ -7,8 +7,8 @@
 
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.6.3
-Release: 5%{?dist}
+Version: 3.10.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -17,14 +17,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # rather than attempting to install ParseTree-doc in check and introducing a circular
 # dependency
 Source1: pt_testcase.rb
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
+Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.9
 Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.1
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.9
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -85,9 +85,9 @@ popd
 %files
 %{_bindir}/ruby_parse
 %{_bindir}/ruby_parse_extract_error
-%doc %{gem_instdir}/History.txt
+%doc %{gem_instdir}/History.rdoc
 %doc %{gem_instdir}/Manifest.txt
-%doc %{gem_instdir}/README.txt
+%doc %{gem_instdir}/README.rdoc
 %dir %{gem_instdir}
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -96,7 +96,7 @@ popd
 
 %files doc
 %{gem_instdir}/Rakefile
-%{gem_instdir}/.gemtest
+%{gem_instdir}/compare
 %{gem_instdir}/.autotest
 %{gem_instdir}/test
 %{gem_docdir}
