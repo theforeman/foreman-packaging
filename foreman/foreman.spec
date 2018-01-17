@@ -875,7 +875,7 @@ plugins required for Foreman to work.
 #replace shebangs and binaries in scripts for SCL
 %if %{?scl:1}%{!?scl:0}
   # shebangs
-  for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config ; do
+  for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
