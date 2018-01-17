@@ -124,6 +124,10 @@ ln -sv %{content_dir} %{buildroot}%{_datadir}/foreman-proxy/openscap
 
 
 %changelog
+* Wed Jan 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.6.9-1
+- Update smart_proxy_openscap to 0.6.9 (mhulan@redhat.com)
+- Remove old OpenSCAP gems (me@daniellobato.me)
+
 * Wed Sep 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.6.6-1
 - Update smart_proxy_openscap to 0.6.6 (ares@users.noreply.github.com)
 
