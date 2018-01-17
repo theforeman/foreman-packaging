@@ -6,13 +6,13 @@
 
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.3
-Release: 5%{?dist}
+Version: 2.4.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
 Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
+Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
 Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
 Requires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
@@ -22,7 +22,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
 BuildRequires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
@@ -76,9 +76,9 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 
 %files
 %{_bindir}/r2r_show
-%doc %{gem_instdir}/History.txt
+%doc %{gem_instdir}/History.rdoc
 %doc %{gem_instdir}/Manifest.txt
-%doc %{gem_instdir}/README.txt
+%doc %{gem_instdir}/README.rdoc
 %dir %{gem_instdir}
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -88,7 +88,6 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %files doc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/.autotest
-%{gem_instdir}/.gemtest
 %{gem_instdir}/test
 %{gem_docdir}
 
