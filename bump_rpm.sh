@@ -29,7 +29,7 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
 
-	rm -f *.gem
+	git rm *.gem
 
 	spectool --get-files $SPEC_FILE
 	git annex add *.gem
