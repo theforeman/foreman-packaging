@@ -5,7 +5,7 @@
 
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.4.4
+Version: 4.10.0
 Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
