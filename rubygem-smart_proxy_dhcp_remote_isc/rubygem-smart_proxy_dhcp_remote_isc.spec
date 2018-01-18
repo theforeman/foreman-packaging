@@ -7,14 +7,14 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dhcp_remote_isc
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.15.0
+Requires: foreman-proxy >= 1.16.0
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
