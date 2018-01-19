@@ -90,7 +90,7 @@ Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
 Requires: %{?scl_prefix}rubygem(secure_headers) < 4.0
-Requires: %{?scl_prefix}rubygem(safemode) >= 1.3
+Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.4
 Requires: %{?scl_prefix}rubygem(safemode) < 2.0
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0.0
@@ -131,7 +131,6 @@ Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(ruby2ruby) < 2.4.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
 Requires: %{?scl_prefix}rubygem(dynflow) < 1.0
 Requires: %{?scl_prefix}rubygem(daemons)
@@ -180,7 +179,7 @@ BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3
+BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.4
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0.0
@@ -221,7 +220,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(ruby2ruby) < 2.4.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
