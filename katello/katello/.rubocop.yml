@@ -1,0 +1,12 @@
+MethodLength:
+  Description: 'Avoid methods longer than 30 lines of code.'
+  Max: 30 # default is 10
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyleIsWithSpaces: false
+
+Documentation:
+  Enabled: false # don't require documentation
+
+Metrics/LineLength:
+  Max: 120

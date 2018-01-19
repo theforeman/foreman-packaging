@@ -2,15 +2,15 @@ module KatelloUtilities
   module Helper
     def last_scenario
       last_scenario_yaml = '/etc/foreman-installer/scenarios.d/last_scenario.yaml'
-      if File.exists?(last_scenario_yaml)
-        File.basename(File.readlink(last_scenario_yaml)).split(".")[0]
+      if File.exist?(last_scenario_yaml)
+        File.basename(File.readlink(last_scenario_yaml)).split('.')[0]
       else
         'katello'
       end
     end
 
     def accepted_scenarios
-      @accepted_scenarios || ["katello", "foreman-proxy-content"]
+      @accepted_scenarios || ['katello', 'foreman-proxy-content']
     end
 
     def error_message
@@ -18,7 +18,7 @@ module KatelloUtilities
     end
 
     def foreman_rpm_installed?
-      system("rpm -q foreman > /dev/null")
+      system('rpm -q foreman > /dev/null')
     end
 
     def load_scenario_answers(scenario)
@@ -27,10 +27,10 @@ module KatelloUtilities
 
     def disable_system_check_option?
       katello_installer_version = run_cmd("rpm -q --queryformat '%{RPMTAG_VERSION}' katello-installer-base")
-      Gem::Version.new(katello_installer_version) >= Gem::Version.new("3.2.0")
+      Gem::Version.new(katello_installer_version) >= Gem::Version.new('3.2.0')
     end
 
-    def fail_with_message(message, opt_parser=nil)
+    def fail_with_message(message, opt_parser = nil)
       STDOUT.puts message
       puts opt_parser if opt_parser
       exit(false)
@@ -40,20 +40,20 @@ module KatelloUtilities
       files.reject! { |file| File.exist?(file) }
       if files.any?
         multiple_files = files.count > 1
-        fail_with_message("Error: #{multiple_files ? "Files" : "File"} #{files.join(", ")} " \
-                          "#{multiple_files ? "do" : "does"} not exist! Please check the file path and try again.")
+        fail_with_message("Error: #{multiple_files ? 'Files' : 'File'} #{files.join(', ')} " \
+                          "#{multiple_files ? 'do' : 'does'} not exist! Please check the file path and try again.")
       end
     end
 
-    def run_cmd(command, exit_codes=[0], message=nil)
+    def run_cmd(command, exit_codes = [0], message = nil)
       result = `#{command}`
-      unless exit_codes.include?($?.exitstatus)
+      unless exit_codes.include?($CHILD_STATUS.exitstatus)
         STDOUT.puts result
         STDOUT.puts message if message
-        failed_command = "Failed '#{command}' with exit code #{$?.exitstatus}"
-        if self.respond_to? :cleanup
+        failed_command = "Failed '#{command}' with exit code #{$CHILD_STATUS.exitstatus}"
+        if respond_to? :cleanup
           STDOUT.puts failed_command
-          cleanup($?.exitstatus)
+          cleanup($CHILD_STATUS.exitstatus)
         end
         fail_with_message(failed_command)
       end
