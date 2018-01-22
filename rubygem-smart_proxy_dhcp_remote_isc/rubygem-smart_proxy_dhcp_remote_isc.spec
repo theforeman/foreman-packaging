@@ -84,6 +84,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-1
+- Updated dhcp_remote_isc to 0.0.4 (dmitri@appliedlogic.ca)
+
 * Tue Mar 28 2017 Dominic Cleal <dominic@cleal.org> 0.0.2-1
 - new package built with tito
 
