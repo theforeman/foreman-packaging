@@ -6,7 +6,7 @@
 
 Name:    katello-installer-base
 Version: 3.6.0
-Release: 1.nightly%{?prever}%{?dist}
+Release: 1%{?prever}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
 License: GPLv3+ and ASL 2.0
