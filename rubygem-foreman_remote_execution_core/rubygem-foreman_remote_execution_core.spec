@@ -5,8 +5,8 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.5
-Release: 2%{?foremandist}%{?dist}
+Version: 1.1.0
+Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -14,7 +14,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1.3
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1.5
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
