@@ -105,7 +105,6 @@ exit 0
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
 
 %changelog
