@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.1.6-2) stable; urgency=low
+
+  * relax dependency on ruby-foreman-remote-execution-core
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 22 Jan 2018 23:21:32 +0100
+
 ruby-smart-proxy-remote-execution-ssh (0.1.6-1) stable; urgency=low
 
   * 0.1.6 released
