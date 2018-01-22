@@ -43,34 +43,34 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(react-bootstrap) = 0.31.5
-Provides: bundled-npm(invariant) = 2.2.2
-Provides: bundled-npm(prop-types-extra) = 1.0.1
-Provides: bundled-npm(dom-helpers) = 3.3.1
-Provides: bundled-npm(classnames) = 2.2.5
-Provides: bundled-npm(keycode) = 2.1.9
-Provides: bundled-npm(prop-types) = 15.6.0
-Provides: bundled-npm(uncontrollable) = 4.1.0
-Provides: bundled-npm(babel-runtime) = 6.26.0
-Provides: bundled-npm(object-assign) = 4.1.1
-Provides: bundled-npm(react-overlays) = 0.7.4
-Provides: bundled-npm(regenerator-runtime) = 0.11.1
-Provides: bundled-npm(core-js) = 2.5.3
-Provides: bundled-npm(warning) = 3.0.0
-Provides: bundled-npm(loose-envify) = 1.3.1
-Provides: bundled-npm(js-tokens) = 3.0.2
-Provides: bundled-npm(fbjs) = 0.8.16
-Provides: bundled-npm(setimmediate) = 1.0.5
-Provides: bundled-npm(isomorphic-fetch) = 2.2.1
-Provides: bundled-npm(promise) = 7.3.1
-Provides: bundled-npm(core-js) = 1.2.7
-Provides: bundled-npm(asap) = 2.0.6
-Provides: bundled-npm(whatwg-fetch) = 2.0.3
-Provides: bundled-npm(node-fetch) = 1.7.3
-Provides: bundled-npm(is-stream) = 1.1.0
-Provides: bundled-npm(encoding) = 0.1.12
-Provides: bundled-npm(iconv-lite) = 0.4.19
-Provides: bundled-npm(ua-parser-js) = 0.7.17
+Provides: bundled(npm(react-bootstrap)) = 0.31.5
+Provides: bundled(npm(invariant)) = 2.2.2
+Provides: bundled(npm(prop-types-extra)) = 1.0.1
+Provides: bundled(npm(dom-helpers)) = 3.3.1
+Provides: bundled(npm(classnames)) = 2.2.5
+Provides: bundled(npm(keycode)) = 2.1.9
+Provides: bundled(npm(prop-types)) = 15.6.0
+Provides: bundled(npm(uncontrollable)) = 4.1.0
+Provides: bundled(npm(babel-runtime)) = 6.26.0
+Provides: bundled(npm(object-assign)) = 4.1.1
+Provides: bundled(npm(react-overlays)) = 0.7.4
+Provides: bundled(npm(regenerator-runtime)) = 0.11.1
+Provides: bundled(npm(core-js)) = 2.5.3
+Provides: bundled(npm(warning)) = 3.0.0
+Provides: bundled(npm(loose-envify)) = 1.3.1
+Provides: bundled(npm(js-tokens)) = 3.0.2
+Provides: bundled(npm(fbjs)) = 0.8.16
+Provides: bundled(npm(setimmediate)) = 1.0.5
+Provides: bundled(npm(isomorphic-fetch)) = 2.2.1
+Provides: bundled(npm(promise)) = 7.3.1
+Provides: bundled(npm(core-js)) = 1.2.7
+Provides: bundled(npm(asap)) = 2.0.6
+Provides: bundled(npm(whatwg-fetch)) = 2.0.3
+Provides: bundled(npm(node-fetch)) = 1.7.3
+Provides: bundled(npm(is-stream)) = 1.1.0
+Provides: bundled(npm(encoding)) = 0.1.12
+Provides: bundled(npm(iconv-lite)) = 0.4.19
+Provides: bundled(npm(ua-parser-js)) = 0.7.17
 AutoReq: no
 AutoProv: no
 

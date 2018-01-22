@@ -13,8 +13,8 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(lodash-webpack-plugin) = 0.11.4
-Provides: bundled-npm(lodash) = 4.17.4
+Provides: bundled(npm(lodash-webpack-plugin)) = 0.11.4
+Provides: bundled(npm(lodash)) = 4.17.4
 AutoReq: no 
 AutoProv: no 
 

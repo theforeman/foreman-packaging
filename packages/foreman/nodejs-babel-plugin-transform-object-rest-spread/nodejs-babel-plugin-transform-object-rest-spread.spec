@@ -26,11 +26,11 @@ ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-plugin-transform-object-rest-spread) = 6.16.0
-Provides: bundled-npm(babel-plugin-syntax-object-rest-spread) = 6.13.0
-Provides: bundled-npm(babel-runtime) = 6.11.6
-Provides: bundled-npm(regenerator-runtime) = 0.9.5
-Provides: bundled-npm(core-js) = 2.4.1
+Provides: bundled(npm(babel-plugin-transform-object-rest-spread)) = 6.16.0
+Provides: bundled(npm(babel-plugin-syntax-object-rest-spread)) = 6.13.0
+Provides: bundled(npm(babel-runtime)) = 6.11.6
+Provides: bundled(npm(regenerator-runtime)) = 0.9.5
+Provides: bundled(npm(core-js)) = 2.4.1
 AutoReq: no
 AutoProv: no
 

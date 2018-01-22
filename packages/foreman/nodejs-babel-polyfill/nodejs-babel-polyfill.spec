@@ -18,11 +18,11 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-polyfill) = 6.26.0
-Provides: bundled-npm(babel-runtime) = 6.26.0
-Provides: bundled-npm(core-js) = 2.5.1
-Provides: bundled-npm(regenerator-runtime) = 0.11.0
-Provides: bundled-npm(regenerator-runtime) = 0.10.5
+Provides: bundled(npm(babel-polyfill)) = 6.26.0
+Provides: bundled(npm(babel-runtime)) = 6.26.0
+Provides: bundled(npm(core-js)) = 2.5.1
+Provides: bundled(npm(regenerator-runtime)) = 0.11.0
+Provides: bundled(npm(regenerator-runtime)) = 0.10.5
 AutoReq: no
 AutoProv: no
 

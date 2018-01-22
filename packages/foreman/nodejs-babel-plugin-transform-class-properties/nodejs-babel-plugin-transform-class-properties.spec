@@ -42,35 +42,35 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-plugin-transform-class-properties) = 6.24.1
-Provides: bundled-npm(babel-template) = 6.26.0
-Provides: bundled-npm(babel-traverse) = 6.26.0
-Provides: bundled-npm(babel-types) = 6.26.0
-Provides: bundled-npm(lodash) = 4.17.4
-Provides: bundled-npm(babylon) = 6.18.0
-Provides: bundled-npm(babel-runtime) = 6.26.0
-Provides: bundled-npm(babel-helper-function-name) = 6.24.1
-Provides: bundled-npm(babel-plugin-syntax-class-properties) = 6.13.0
-Provides: bundled-npm(globals) = 9.18.0
-Provides: bundled-npm(babel-messages) = 6.23.0
-Provides: bundled-npm(debug) = 2.6.9
-Provides: bundled-npm(invariant) = 2.2.2
-Provides: bundled-npm(to-fast-properties) = 1.0.3
-Provides: bundled-npm(esutils) = 2.0.2
-Provides: bundled-npm(regenerator-runtime) = 0.11.0
-Provides: bundled-npm(babel-helper-get-function-arity) = 6.24.1
-Provides: bundled-npm(babel-code-frame) = 6.26.0
-Provides: bundled-npm(loose-envify) = 1.3.1
-Provides: bundled-npm(ms) = 2.0.0
-Provides: bundled-npm(core-js) = 2.5.1
-Provides: bundled-npm(js-tokens) = 3.0.2
-Provides: bundled-npm(chalk) = 1.1.3
-Provides: bundled-npm(escape-string-regexp) = 1.0.5
-Provides: bundled-npm(strip-ansi) = 3.0.1
-Provides: bundled-npm(has-ansi) = 2.0.0
-Provides: bundled-npm(supports-color) = 2.0.0
-Provides: bundled-npm(ansi-styles) = 2.2.1
-Provides: bundled-npm(ansi-regex) = 2.1.1
+Provides: bundled(npm(babel-plugin-transform-class-properties)) = 6.24.1
+Provides: bundled(npm(babel-template)) = 6.26.0
+Provides: bundled(npm(babel-traverse)) = 6.26.0
+Provides: bundled(npm(babel-types)) = 6.26.0
+Provides: bundled(npm(lodash)) = 4.17.4
+Provides: bundled(npm(babylon)) = 6.18.0
+Provides: bundled(npm(babel-runtime)) = 6.26.0
+Provides: bundled(npm(babel-helper-function-name)) = 6.24.1
+Provides: bundled(npm(babel-plugin-syntax-class-properties)) = 6.13.0
+Provides: bundled(npm(globals)) = 9.18.0
+Provides: bundled(npm(babel-messages)) = 6.23.0
+Provides: bundled(npm(debug)) = 2.6.9
+Provides: bundled(npm(invariant)) = 2.2.2
+Provides: bundled(npm(to-fast-properties)) = 1.0.3
+Provides: bundled(npm(esutils)) = 2.0.2
+Provides: bundled(npm(regenerator-runtime)) = 0.11.0
+Provides: bundled(npm(babel-helper-get-function-arity)) = 6.24.1
+Provides: bundled(npm(babel-code-frame)) = 6.26.0
+Provides: bundled(npm(loose-envify)) = 1.3.1
+Provides: bundled(npm(ms)) = 2.0.0
+Provides: bundled(npm(core-js)) = 2.5.1
+Provides: bundled(npm(js-tokens)) = 3.0.2
+Provides: bundled(npm(chalk)) = 1.1.3
+Provides: bundled(npm(escape-string-regexp)) = 1.0.5
+Provides: bundled(npm(strip-ansi)) = 3.0.1
+Provides: bundled(npm(has-ansi)) = 2.0.0
+Provides: bundled(npm(supports-color)) = 2.0.0
+Provides: bundled(npm(ansi-styles)) = 2.2.1
+Provides: bundled(npm(ansi-regex)) = 2.1.1
 AutoReq: no
 AutoProv: no
 

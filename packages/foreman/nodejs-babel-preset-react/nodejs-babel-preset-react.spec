@@ -37,22 +37,22 @@ ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-preset-react) = 6.16.0
-Provides: bundled-npm(babel-plugin-transform-react-display-name) = 6.8.0
-Provides: bundled-npm(babel-plugin-transform-react-jsx-self) = 6.11.0
-Provides: bundled-npm(babel-plugin-syntax-jsx) = 6.13.0
-Provides: bundled-npm(babel-plugin-transform-flow-strip-types) = 6.14.0
-Provides: bundled-npm(babel-plugin-transform-react-jsx) = 6.8.0
-Provides: bundled-npm(babel-plugin-transform-react-jsx-source) = 6.9.0
-Provides: bundled-npm(babel-plugin-syntax-flow) = 6.13.0
-Provides: bundled-npm(babel-runtime) = 6.11.6
-Provides: bundled-npm(core-js) = 2.4.1
-Provides: bundled-npm(babel-helper-builder-react-jsx) = 6.9.0
-Provides: bundled-npm(esutils) = 2.0.2
-Provides: bundled-npm(regenerator-runtime) = 0.9.5
-Provides: bundled-npm(babel-types) = 6.16.0
-Provides: bundled-npm(lodash) = 4.16.4
-Provides: bundled-npm(to-fast-properties) = 1.0.2
+Provides: bundled(npm(babel-preset-react)) = 6.16.0
+Provides: bundled(npm(babel-plugin-transform-react-display-name)) = 6.8.0
+Provides: bundled(npm(babel-plugin-transform-react-jsx-self)) = 6.11.0
+Provides: bundled(npm(babel-plugin-syntax-jsx)) = 6.13.0
+Provides: bundled(npm(babel-plugin-transform-flow-strip-types)) = 6.14.0
+Provides: bundled(npm(babel-plugin-transform-react-jsx)) = 6.8.0
+Provides: bundled(npm(babel-plugin-transform-react-jsx-source)) = 6.9.0
+Provides: bundled(npm(babel-plugin-syntax-flow)) = 6.13.0
+Provides: bundled(npm(babel-runtime)) = 6.11.6
+Provides: bundled(npm(core-js)) = 2.4.1
+Provides: bundled(npm(babel-helper-builder-react-jsx)) = 6.9.0
+Provides: bundled(npm(esutils)) = 2.0.2
+Provides: bundled(npm(regenerator-runtime)) = 0.9.5
+Provides: bundled(npm(babel-types)) = 6.16.0
+Provides: bundled(npm(lodash)) = 4.16.4
+Provides: bundled(npm(to-fast-properties)) = 1.0.2
 AutoReq: no
 AutoProv: no
 

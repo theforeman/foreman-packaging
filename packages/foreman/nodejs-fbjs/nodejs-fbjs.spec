@@ -28,21 +28,21 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(whatwg-fetch) = 2.0.3
-Provides: bundled-npm(fbjs) = 0.8.16
-Provides: bundled-npm(promise) = 7.3.1
-Provides: bundled-npm(setimmediate) = 1.0.5
-Provides: bundled-npm(object-assign) = 4.1.1
-Provides: bundled-npm(ua-parser-js) = 0.7.17
-Provides: bundled-npm(core-js) = 1.2.7
-Provides: bundled-npm(isomorphic-fetch) = 2.2.1
-Provides: bundled-npm(node-fetch) = 1.7.3
-Provides: bundled-npm(asap) = 2.0.6
-Provides: bundled-npm(loose-envify) = 1.3.1
-Provides: bundled-npm(is-stream) = 1.1.0
-Provides: bundled-npm(encoding) = 0.1.12
-Provides: bundled-npm(js-tokens) = 3.0.2
-Provides: bundled-npm(iconv-lite) = 0.4.19
+Provides: bundled(npm(whatwg-fetch)) = 2.0.3
+Provides: bundled(npm(fbjs)) = 0.8.16
+Provides: bundled(npm(promise)) = 7.3.1
+Provides: bundled(npm(setimmediate)) = 1.0.5
+Provides: bundled(npm(object-assign)) = 4.1.1
+Provides: bundled(npm(ua-parser-js)) = 0.7.17
+Provides: bundled(npm(core-js)) = 1.2.7
+Provides: bundled(npm(isomorphic-fetch)) = 2.2.1
+Provides: bundled(npm(node-fetch)) = 1.7.3
+Provides: bundled(npm(asap)) = 2.0.6
+Provides: bundled(npm(loose-envify)) = 1.3.1
+Provides: bundled(npm(is-stream)) = 1.1.0
+Provides: bundled(npm(encoding)) = 0.1.12
+Provides: bundled(npm(js-tokens)) = 3.0.2
+Provides: bundled(npm(iconv-lite)) = 0.4.19
 AutoReq: no
 AutoProv: no
 

@@ -34,29 +34,29 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-plugin-lodash) = 3.3.2
-Provides: bundled-npm(babel-types) = 6.26.0
-Provides: bundled-npm(glob) = 7.1.2
-Provides: bundled-npm(lodash) = 4.17.4
-Provides: bundled-npm(require-package-name) = 2.0.1
-Provides: bundled-npm(to-fast-properties) = 1.0.3
-Provides: bundled-npm(inflight) = 1.0.6
-Provides: bundled-npm(fs.realpath) = 1.0.0
-Provides: bundled-npm(esutils) = 2.0.2
-Provides: bundled-npm(babel-helper-module-imports) = 7.0.0-beta.3
-Provides: bundled-npm(inherits) = 2.0.3
-Provides: bundled-npm(babel-runtime) = 6.26.0
-Provides: bundled-npm(once) = 1.4.0
-Provides: bundled-npm(path-is-absolute) = 1.0.1
-Provides: bundled-npm(wrappy) = 1.0.2
-Provides: bundled-npm(minimatch) = 3.0.4
-Provides: bundled-npm(babel-types) = 7.0.0-beta.3
-Provides: bundled-npm(brace-expansion) = 1.1.8
-Provides: bundled-npm(core-js) = 2.5.3
-Provides: bundled-npm(to-fast-properties) = 2.0.0
-Provides: bundled-npm(concat-map) = 0.0.1
-Provides: bundled-npm(regenerator-runtime) = 0.11.1
-Provides: bundled-npm(balanced-match) = 1.0.0
+Provides: bundled(npm(babel-plugin-lodash)) = 3.3.2
+Provides: bundled(npm(babel-types)) = 6.26.0
+Provides: bundled(npm(glob)) = 7.1.2
+Provides: bundled(npm(lodash)) = 4.17.4
+Provides: bundled(npm(require-package-name)) = 2.0.1
+Provides: bundled(npm(to-fast-properties)) = 1.0.3
+Provides: bundled(npm(inflight)) = 1.0.6
+Provides: bundled(npm(fs.realpath)) = 1.0.0
+Provides: bundled(npm(esutils)) = 2.0.2
+Provides: bundled(npm(babel-helper-module-imports)) = 7.0.0-beta.3
+Provides: bundled(npm(inherits)) = 2.0.3
+Provides: bundled(npm(babel-runtime)) = 6.26.0
+Provides: bundled(npm(once)) = 1.4.0
+Provides: bundled(npm(path-is-absolute)) = 1.0.1
+Provides: bundled(npm(wrappy)) = 1.0.2
+Provides: bundled(npm(minimatch)) = 3.0.4
+Provides: bundled(npm(babel-types)) = 7.0.0-beta.3
+Provides: bundled(npm(brace-expansion)) = 1.1.8
+Provides: bundled(npm(core-js)) = 2.5.3
+Provides: bundled(npm(to-fast-properties)) = 2.0.0
+Provides: bundled(npm(concat-map)) = 0.0.1
+Provides: bundled(npm(regenerator-runtime)) = 0.11.1
+Provides: bundled(npm(balanced-match)) = 1.0.0
 AutoReq: no 
 AutoProv: no 
 

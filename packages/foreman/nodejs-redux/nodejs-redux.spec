@@ -26,12 +26,12 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(redux) = 3.6.0
-Provides: bundled-npm(loose-envify) = 1.3.1
-Provides: bundled-npm(lodash-es) = 4.17.4
-Provides: bundled-npm(symbol-observable) = 1.0.4
-Provides: bundled-npm(lodash) = 4.17.4
-Provides: bundled-npm(js-tokens) = 3.0.1
+Provides: bundled(npm(redux)) = 3.6.0
+Provides: bundled(npm(loose-envify)) = 1.3.1
+Provides: bundled(npm(lodash-es)) = 4.17.4
+Provides: bundled(npm(symbol-observable)) = 1.0.4
+Provides: bundled(npm(lodash)) = 4.17.4
+Provides: bundled(npm(js-tokens)) = 3.0.1
 AutoReq: no
 AutoProv: no
 

@@ -36,23 +36,23 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(babel-loader) = 7.1.1
-Provides: bundled-npm(find-cache-dir) = 1.0.0
-Provides: bundled-npm(mkdirp) = 0.5.1
-Provides: bundled-npm(loader-utils) = 1.1.0
-Provides: bundled-npm(pkg-dir) = 2.0.0
-Provides: bundled-npm(commondir) = 1.0.1
-Provides: bundled-npm(minimist) = 0.0.8
-Provides: bundled-npm(emojis-list) = 2.1.0
-Provides: bundled-npm(big.js) = 3.1.3
-Provides: bundled-npm(find-up) = 2.1.0
-Provides: bundled-npm(make-dir) = 1.0.0
-Provides: bundled-npm(json5) = 0.5.1
-Provides: bundled-npm(pify) = 2.3.0
-Provides: bundled-npm(locate-path) = 2.0.0
-Provides: bundled-npm(path-exists) = 3.0.0
-Provides: bundled-npm(p-locate) = 2.0.0
-Provides: bundled-npm(p-limit) = 1.1.0
+Provides: bundled(npm(babel-loader)) = 7.1.1
+Provides: bundled(npm(find-cache-dir)) = 1.0.0
+Provides: bundled(npm(mkdirp)) = 0.5.1
+Provides: bundled(npm(loader-utils)) = 1.1.0
+Provides: bundled(npm(pkg-dir)) = 2.0.0
+Provides: bundled(npm(commondir)) = 1.0.1
+Provides: bundled(npm(minimist)) = 0.0.8
+Provides: bundled(npm(emojis-list)) = 2.1.0
+Provides: bundled(npm(big.js)) = 3.1.3
+Provides: bundled(npm(find-up)) = 2.1.0
+Provides: bundled(npm(make-dir)) = 1.0.0
+Provides: bundled(npm(json5)) = 0.5.1
+Provides: bundled(npm(pify)) = 2.3.0
+Provides: bundled(npm(locate-path)) = 2.0.0
+Provides: bundled(npm(path-exists)) = 3.0.0
+Provides: bundled(npm(p-locate)) = 2.0.0
+Provides: bundled(npm(p-limit)) = 1.1.0
 AutoReq: no
 AutoProv: no
 

@@ -22,8 +22,8 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(redux-logger) = 2.8.1
-Provides: bundled-npm(deep-diff) = 0.3.4
+Provides: bundled(npm(redux-logger)) = 2.8.1
+Provides: bundled(npm(deep-diff)) = 0.3.4
 AutoReq: no
 AutoProv: no
 

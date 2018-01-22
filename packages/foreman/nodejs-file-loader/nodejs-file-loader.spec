@@ -25,12 +25,12 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(file-loader) = 0.9.0
-Provides: bundled-npm(loader-utils) = 0.2.15
-Provides: bundled-npm(emojis-list) = 2.0.1
-Provides: bundled-npm(big.js) = 3.1.3
-Provides: bundled-npm(object-assign) = 4.1.0
-Provides: bundled-npm(json5) = 0.5.0
+Provides: bundled(npm(file-loader)) = 0.9.0
+Provides: bundled(npm(loader-utils)) = 0.2.15
+Provides: bundled(npm(emojis-list)) = 2.0.1
+Provides: bundled(npm(big.js)) = 3.1.3
+Provides: bundled(npm(object-assign)) = 4.1.0
+Provides: bundled(npm(json5)) = 0.5.0
 AutoReq: no
 AutoProv: no
 
