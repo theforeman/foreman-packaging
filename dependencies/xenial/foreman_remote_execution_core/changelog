@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution-core (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Mon, 22 Jan 2018 14:28:57 +0100
+
 ruby-foreman-remote-execution-core (1.0.6-1) stable; urgency=low
 
   * 1.0.6 released
