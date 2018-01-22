@@ -23,11 +23,11 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(compression-webpack-plugin) = 0.3.2
-Provides: bundled-npm(async) = 0.2.10
-Provides: bundled-npm(webpack-sources) = 0.1.4
-Provides: bundled-npm(source-list-map) = 0.1.8
-Provides: bundled-npm(source-map) = 0.5.6
+Provides: bundled(npm(compression-webpack-plugin)) = 0.3.2
+Provides: bundled(npm(async)) = 0.2.10
+Provides: bundled(npm(webpack-sources)) = 0.1.4
+Provides: bundled(npm(source-list-map)) = 0.1.8
+Provides: bundled(npm(source-map)) = 0.5.6
 AutoReq: no
 AutoProv: no
 

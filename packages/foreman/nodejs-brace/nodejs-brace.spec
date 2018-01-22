@@ -22,8 +22,8 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(brace) = 0.10.0
-Provides: bundled-npm(w3c-blob) = 0.0.1
+Provides: bundled(npm(brace)) = 0.10.0
+Provides: bundled(npm(w3c-blob)) = 0.0.1
 AutoReq: no
 AutoProv: no
 

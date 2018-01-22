@@ -19,12 +19,12 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(isomorphic-fetch) = 2.2.1
-Provides: bundled-npm(node-fetch) = 1.7.3
-Provides: bundled-npm(whatwg-fetch) = 2.0.3
-Provides: bundled-npm(encoding) = 0.1.12
-Provides: bundled-npm(is-stream) = 1.1.0
-Provides: bundled-npm(iconv-lite) = 0.4.19
+Provides: bundled(npm(isomorphic-fetch)) = 2.2.1
+Provides: bundled(npm(node-fetch)) = 1.7.3
+Provides: bundled(npm(whatwg-fetch)) = 2.0.3
+Provides: bundled(npm(encoding)) = 0.1.12
+Provides: bundled(npm(is-stream)) = 1.1.0
+Provides: bundled(npm(iconv-lite)) = 0.4.19
 AutoReq: no
 AutoProv: no
 

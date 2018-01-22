@@ -37,28 +37,28 @@ BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(sass-loader) = 6.0.6
-Provides: bundled-npm(async) = 2.6.0
-Provides: bundled-npm(lodash) = 4.17.4
-Provides: bundled-npm(lodash.tail) = 4.1.1
-Provides: bundled-npm(pify) = 3.0.0
-Provides: bundled-npm(clone-deep) = 0.3.0
-Provides: bundled-npm(loader-utils) = 1.1.0
-Provides: bundled-npm(kind-of) = 3.2.2
-Provides: bundled-npm(emojis-list) = 2.1.0
-Provides: bundled-npm(is-buffer) = 1.1.6
-Provides: bundled-npm(is-plain-object) = 2.0.4
-Provides: bundled-npm(isobject) = 3.0.1
-Provides: bundled-npm(json5) = 0.5.1
-Provides: bundled-npm(for-own) = 1.0.0
-Provides: bundled-npm(for-in) = 1.0.2
-Provides: bundled-npm(big.js) = 3.2.0
-Provides: bundled-npm(shallow-clone) = 0.1.2
-Provides: bundled-npm(lazy-cache) = 0.2.7
-Provides: bundled-npm(kind-of) = 2.0.1
-Provides: bundled-npm(is-extendable) = 0.1.1
-Provides: bundled-npm(mixin-object) = 2.0.1
-Provides: bundled-npm(for-in) = 0.1.8
+Provides: bundled(npm(sass-loader)) = 6.0.6
+Provides: bundled(npm(async)) = 2.6.0
+Provides: bundled(npm(lodash)) = 4.17.4
+Provides: bundled(npm(lodash.tail)) = 4.1.1
+Provides: bundled(npm(pify)) = 3.0.0
+Provides: bundled(npm(clone-deep)) = 0.3.0
+Provides: bundled(npm(loader-utils)) = 1.1.0
+Provides: bundled(npm(kind-of)) = 3.2.2
+Provides: bundled(npm(emojis-list)) = 2.1.0
+Provides: bundled(npm(is-buffer)) = 1.1.6
+Provides: bundled(npm(is-plain-object)) = 2.0.4
+Provides: bundled(npm(isobject)) = 3.0.1
+Provides: bundled(npm(json5)) = 0.5.1
+Provides: bundled(npm(for-own)) = 1.0.0
+Provides: bundled(npm(for-in)) = 1.0.2
+Provides: bundled(npm(big.js)) = 3.2.0
+Provides: bundled(npm(shallow-clone)) = 0.1.2
+Provides: bundled(npm(lazy-cache)) = 0.2.7
+Provides: bundled(npm(kind-of)) = 2.0.1
+Provides: bundled(npm(is-extendable)) = 0.1.1
+Provides: bundled(npm(mixin-object)) = 2.0.1
+Provides: bundled(npm(for-in)) = 0.1.8
 AutoReq: no
 AutoProv: no
 

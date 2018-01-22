@@ -31,23 +31,23 @@ BuildRequires: npm
 BuildArch:  noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(extract-text-webpack-plugin) = 3.0.0
-Provides: bundled-npm(schema-utils) = 0.3.0
-Provides: bundled-npm(webpack-sources) = 1.0.1
-Provides: bundled-npm(loader-utils) = 1.1.0
-Provides: bundled-npm(async) = 2.5.0
-Provides: bundled-npm(emojis-list) = 2.1.0
-Provides: bundled-npm(source-list-map) = 2.0.0
-Provides: bundled-npm(big.js) = 3.1.3
-Provides: bundled-npm(json5) = 0.5.1
-Provides: bundled-npm(source-map) = 0.5.6
-Provides: bundled-npm(ajv) = 5.2.2
-Provides: bundled-npm(lodash) = 4.17.4
-Provides: bundled-npm(json-schema-traverse) = 0.3.1
-Provides: bundled-npm(fast-deep-equal) = 1.0.0
-Provides: bundled-npm(json-stable-stringify) = 1.0.1
-Provides: bundled-npm(co) = 4.6.0
-Provides: bundled-npm(jsonify) = 0.0.0
+Provides: bundled(npm(extract-text-webpack-plugin)) = 3.0.0
+Provides: bundled(npm(schema-utils)) = 0.3.0
+Provides: bundled(npm(webpack-sources)) = 1.0.1
+Provides: bundled(npm(loader-utils)) = 1.1.0
+Provides: bundled(npm(async)) = 2.5.0
+Provides: bundled(npm(emojis-list)) = 2.1.0
+Provides: bundled(npm(source-list-map)) = 2.0.0
+Provides: bundled(npm(big.js)) = 3.1.3
+Provides: bundled(npm(json5)) = 0.5.1
+Provides: bundled(npm(source-map)) = 0.5.6
+Provides: bundled(npm(ajv)) = 5.2.2
+Provides: bundled(npm(lodash)) = 4.17.4
+Provides: bundled(npm(json-schema-traverse)) = 0.3.1
+Provides: bundled(npm(fast-deep-equal)) = 1.0.0
+Provides: bundled(npm(json-stable-stringify)) = 1.0.1
+Provides: bundled(npm(co)) = 4.6.0
+Provides: bundled(npm(jsonify)) = 0.0.0
 AutoReq: no
 AutoProv: no
 
