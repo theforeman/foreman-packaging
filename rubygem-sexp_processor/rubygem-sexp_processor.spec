@@ -71,6 +71,9 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.10.0-4
+- Bump rubygem-sexp_processor to 4.10.0 (dmitri@appliedlogic.ca)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.4.4-4
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
