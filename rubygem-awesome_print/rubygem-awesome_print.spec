@@ -5,7 +5,7 @@
 
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.7.0
+Version: 1.8.0
 Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
