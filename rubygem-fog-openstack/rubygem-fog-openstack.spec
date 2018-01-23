@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.23-1
+- Update fog-openstack to 0.1.23 (me@daniellobato.me)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.18-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
