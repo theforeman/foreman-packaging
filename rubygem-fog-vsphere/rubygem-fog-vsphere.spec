@@ -87,6 +87,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.13.1-1
+- Bump rubygem-fog-vsphere to 1.13.1 (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.11.3-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 
