@@ -6,14 +6,15 @@
 Summary: Module for the 'fog' gem to support OpenStack clouds
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.18
-Release: 2%{?dist}
+Version: 0.1.23
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-openstack
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.40
+Requires: %{?scl_prefix}rubygem(fog-core) < 2.0
 Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -64,7 +65,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/supported.md
 %doc %{gem_instdir}/docs
 %doc %{gem_instdir}/examples
-%{gem_instdir}/gemfiles
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/.*
