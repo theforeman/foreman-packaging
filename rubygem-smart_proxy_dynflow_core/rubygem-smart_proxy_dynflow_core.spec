@@ -119,6 +119,10 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.9-1
+- Bump rubygem-smart_proxy_dynflow{,_core} to 0.1.9
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.8-1
 - Bump rubygem-smart_proxy_dynflow{,_core} to 0.1.8
   (ewoud@kohlvanwijngaarden.nl)
