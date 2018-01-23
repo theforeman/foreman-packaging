@@ -93,6 +93,11 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
+- Update kafo to 2.1.0 (mhulan@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Fri Aug 04 2017 Michael Moll <kvedulv@kvedulv.de> 2.0.2-1
 - Update kafo to 2.0.2 (ares@users.noreply.github.com)
 
