@@ -49,6 +49,9 @@ cp bootstrap.py %{buildroot}%{_var}/www/html/pub/bootstrap.py
 %{_var}/www/html/pub/bootstrap.py
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.0-1
+- new package built with tito
+
 * Mon Oct 09 2017 Evgeni Golov 1.4.2-1
 - Release katello-client-bootstrap 1.4.2 (#550) (evgeni@golov.de)
 
