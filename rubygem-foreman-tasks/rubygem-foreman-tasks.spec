@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-2
+- Deploy dynflow-executor service via Foreman package (me@daniellobato.me)
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.11.0-1
 - Bump foreman-tasks to 0.11.0 (zhunting@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
