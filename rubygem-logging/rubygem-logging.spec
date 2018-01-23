@@ -3,29 +3,24 @@
 
 %global gem_name logging
 
-Summary: A flexible and extendable logging library for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
-Release: 5%{?dist}
+Version: 2.2.2
+Release: 1%{?dist}
+Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
-License: Ruby or BSD
+License: MIT
 URL: https://rubygems.org/gems/logging
-Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%else
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
-%endif
-Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.8.4
-
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1
+Requires: %{?scl_prefix}rubygem(little-plugger) < 2
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix}rubygem(multi_json) < 2
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-# BuildRequires: %{?scl_prefix}rubygem(little-plugger) >= 1.1.3
-# BuildRequires: %{?scl_prefix}rubygem(flexmock) >= 0.9.0
-# BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -36,51 +31,63 @@ design of Java's log4j library. It features a hierarchical logging system,
 custom level names, multiple output destinations per log event, custom
 formatting, and more.
 
+
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{pkg_name}.
-
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/data
-# contains licensing information
-%doc %{gem_instdir}/README.rdoc
-# version.txt is needed for runtime
-%{gem_instdir}/version.txt
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/script
-%{gem_instdir}/lib
-%{gem_spec}
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
+%exclude %{gem_instdir}/logging.gemspec
+%{gem_instdir}/script
 %exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/History.txt
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 %{gem_instdir}/examples
 %{gem_instdir}/test
-%{gem_instdir}/Rakefile
-%doc %{gem_docdir}/ri
-%doc %{gem_docdir}/rdoc
-%doc %{gem_instdir}/History.txt
 
 %changelog
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.8.2-5
