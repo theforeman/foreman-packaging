@@ -93,6 +93,9 @@ mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.1-1
+- update foreman_default_hostgroup to 4.0.1 (kvedulv@kvedulv.de)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
