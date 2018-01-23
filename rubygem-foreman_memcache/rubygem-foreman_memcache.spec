@@ -90,6 +90,9 @@ mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pl
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.6-3
+- Add rubygem-dalli for foreman_memcache (ericdhelms@gmail.com)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.6-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
