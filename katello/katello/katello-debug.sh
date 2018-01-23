@@ -13,6 +13,8 @@ then
   exit 1
 fi
 
+TEMP_DIR=$(mktemp -d) # no trap - foreman-debug cleans automatically
+
 # foreman-debug will truncate any file beyond fixed size limit,
 # for larger files we need to copy the entire file.
 copy_files() {
@@ -127,15 +129,7 @@ add_cmd "rpm -qa | grep qpid" "qpid-rpm-qa"
 add_cmd "mongo pulp_database --eval \"db.reserved_resources.find().pretty().shellPrint()\"" "mongo-reserved_resources"
 add_cmd "mongo pulp_database --eval \"DBQuery.shellBatchSize = ${FOREMAN_DEBUG_MONGOTASKS:-200};; db.task_status.find().sort({finish_time: -1}).pretty().shellPrint()\"" "mongo-task_status"
 
-TEMP_DIR=`mktemp -d`
-cleanup() {
-  rm $TEMP_DIR/pulp_running_tasks.js
-  rmdir $TEMP_DIR
-}
-trap "cleanup" SIGHUP SIGINT SIGTERM EXIT
-
 echo "db.task_status.find({state:{\$ne: \"finished\"}}).pretty().shellPrint()" > $TEMP_DIR/pulp_running_tasks.js
-
 add_cmd "mongo pulp_database $TEMP_DIR/pulp_running_tasks.js" "pulp-running_tasks"
 
 add_cmd "hammer ping" "hammer-ping"
