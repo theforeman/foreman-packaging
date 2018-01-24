@@ -19,14 +19,20 @@ cfg.each do |entry|
   end
   missing_pkgs = comp_pkgs - koji_pkgs
   extra_pkgs = koji_pkgs - comp_pkgs
-  puts "\n# Packages missing in tag #{tag}"
-  missing_pkgs.sort.each { |x| puts " * [x] #{x}" }
-  puts "```shell"
-  missing_pkgs.sort.each { |x| puts "koji add-pkg --owner=kojiadm #{tag} #{x}" }
-  puts "```"
-  puts "\n# Packages not expected in #{tag}"
-  extra_pkgs.sort.each { |x| puts " * [x] #{x}" }
-  puts "```shell"
-  extra_pkgs.sort.each { |x| puts "koji remove-pkg #{tag} #{x}" }
-  puts "```"
+
+  if missing_pkgs.any?
+    puts "\n# Packages missing in tag #{tag}"
+    missing_pkgs.sort.each { |x| puts " * [x] #{x}" }
+    puts "```shell"
+    missing_pkgs.sort.each { |x| puts "koji add-pkg --owner=kojiadm #{tag} #{x}" }
+    puts "```"
+  end
+
+  if extra_pkgs.any?
+    puts "\n# Packages not expected in #{tag}"
+    extra_pkgs.sort.each { |x| puts " * [x] #{x}" }
+    puts "```shell"
+    extra_pkgs.sort.each { |x| puts "koji remove-pkg #{tag} #{x}" }
+    puts "```"
+  end
 end
