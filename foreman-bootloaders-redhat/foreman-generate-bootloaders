@@ -1,0 +1,52 @@
+#!/bin/bash -e
+# vim: ai ts=2 sw=2 et sts=2 ft=sh
+#
+# Generates Grub2 bootloaders for multiple architectures in both
+# netboot and embedded formats for Foreman. Also copies Shim
+# bootloader for SecureBoot compatibility.
+#
+# SYNOPSIS:
+#   foreman-generate-boot [x86|aa64|ppc|ppc64|ppc64le]
+
+ARCH=${1:-x86_64}
+MODULES="all_video boot btrfs cat configfile echo ext2 fat font gfxmenu gfxterm gzio halt hfsplus iso9660 jpeg loadenv loopback lvm mdraid09 mdraid1x minicmd normal part_apple part_msdos part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file search_label serial sleep syslinuxcfg test tftp video xfs linux"
+
+generate() {
+  grub2-mknetdir --net-directory=/var/lib/tftpboot/ --locales="" --fonts="" -d /usr/lib/grub/$1/ --subdir=grub2 >/dev/null
+  grub2-mkimage -d /usr/lib/grub/$1/ -O $1 -o /var/lib/tftpboot/$2 -p "" $MODULES
+}
+
+check_pkg() {
+  rpm -q "$1" &>/dev/null || echo "Please install: yum -y install $1" >/dev/stderr && exit 1
+}
+
+if [[ "$ARCH" == "aa64" ]]; then
+  check_pkg grub2-efi-aa64-modules
+  generate arm64-efi grub2/grubaa64.efi
+elif [[ "$ARCH" == "ppc" ]]; then
+  check_pkg grub2-ppc-modules
+  # efi extension is for backward compatibility - will be removed
+  generate powerpc-ieee1275 grub2/grubppc.efi
+  generate powerpc-ieee1275 grub2/grubppc.elf
+elif [[ "$ARCH" == "ppc64" ]]; then
+  check_pkg grub2-ppc64-modules
+  # efi extension is for backward compatibility - will be removed
+  generate powerpc-ieee1275 grub2/grubppc64.efi
+  generate powerpc-ieee1275 grub2/grubppc64.elf
+elif [[ "$ARCH" == "ppc64le" ]]; then
+  check_pkg grub2-ppc64le-modules
+  # efi extension is for backward compatibility - will be removed
+  generate powerpc-ieee1275 grub2/grubppc64le.efi
+  generate powerpc-ieee1275 grub2/grubppc64le.elf
+else
+  check_pkg grub2-pc-modules
+  generate i386-pc grub2/grubia32.0
+  check_pkg grub2-efi-ia32-modules
+  generate i386-efi grub2/grubia32.efi
+  check_pkg grub2-efi-x64-modules
+  generate x86_64-efi grub2/grubx64.efi
+fi
+
+check_pkg shim-ia32
+check_pkg shim-x64
+cp -f /boot/efi/EFI/*/shim*.efi /var/lib/tftpboot/grub2
