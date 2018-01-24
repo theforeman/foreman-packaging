@@ -15,7 +15,7 @@ tag_suffix = .fm1_17
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.17-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -121,7 +121,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.17-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-activerecord-session_store
@@ -246,7 +246,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.17-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -331,7 +331,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.17-nonscl-rhel7]
 disttag = .el7
 whitelist = puppet-foreman_scap_client
   rubygem-algebrick
@@ -372,15 +372,15 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
 
-[katello-nightly-rhel5]
+[katello-1.17-rhel5]
 disttag = .el5
 whitelist = katello-repos katello-host-tools
 
-[katello-nightly-rhel6]
+[katello-1.17-rhel6]
 disttag = .el6
 whitelist = katello-repos katello-host-tools
 
-[katello-nightly-rhel7]
+[katello-1.17-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-robotex
@@ -413,10 +413,10 @@ whitelist = rubygem-jenkins_api_client
   rubygem-mixlib-shellout
   rubygem-terminal-table
 
-[katello-nightly-fedora26]
+[katello-1.17-fedora26]
 disttag = .fc26
 whitelist = katello-repos katello-host-tools
 
-[katello-nightly-fedora25]
+[katello-1.17-fedora25]
 disttag = .fc25
 whitelist = katello-repos katello-host-tools
