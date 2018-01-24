@@ -159,10 +159,25 @@ module KatelloUtilities
       @snapsize = @options[:snapshot_size] || "2G"
       FileUtils.mkdir_p @mountdir
       confirm unless @options[:confirm]
+      validate_logical_volume
       stop_services
       create_and_mount_snapshots
       start_services
       backup_and_destroy_snapshots
+    end
+
+    def validate_logical_volume
+      backup_lv = get_lv_info(@dir)
+      shared_lv = @databases.select {|database| get_lv_info(database) == backup_lv}
+      if shared_lv.any?
+        unless agree("*** WARNING: The chosen backup location is mounted on the same logical volume as the #{shared_lv.join(', ')} location\n" \
+                     "*** It is highly suggested to backup to a different logical volume than the #{shared_lv.join(', ')} database.\n" \
+                     "*** If you would like to continue, the snapshot size will be required to be at least the size of the actual #{shared_lv.join(', ')} database.\n" \
+                     "*** You can skip this confirmation with the '-y' flag. Do you want to proceed(y/n)? ")
+          puts "**** cancelled ****"
+          cleanup
+	end
+      end
     end
 
     def create_and_mount_snapshots
@@ -185,7 +200,8 @@ module KatelloUtilities
     def get_lv_info(database)
       target = database
       target = File.join(database, 'data') if target == 'pgsql'
-      run_cmd("findmnt -n --target #{File.join('/var/lib', target)} -o SOURCE,FSTYPE").split
+      target = File.join('/var/lib', target) if @databases.include? database
+      run_cmd("findmnt -n --target #{target} -o SOURCE,FSTYPE").split
     end
 
     def get_base_directory(database)
