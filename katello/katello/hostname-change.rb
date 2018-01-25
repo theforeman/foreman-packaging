@@ -7,11 +7,14 @@ require "json"
 require "uri"
 require "fileutils"
 require "highline/import"
+require "tempfile"
 require_relative "helper.rb"
 
 module KatelloUtilities
   class HostnameChange
     include ::KatelloUtilities::Helper
+
+    attr_accessor :temp_last_scenario_yaml
 
     def initialize(init_options)
       @default_program = self.get_default_program
@@ -102,9 +105,12 @@ module KatelloUtilities
       end
     end
 
-    def successful_hostname_change_message
-    # the following multi-line string isn't indented because the indents are taken literally.
-    successful_message = %(
+    def next_steps_message
+      if @foreman_proxy_content
+        "You will have to update the Name and URL of the Smart Proxy in #{@options[:program].capitalize} to the new hostname.\n"
+      else
+        # the following multi-line string isn't indented because the indents are taken literally.
+%(
   You will have to install the new bootstrap rpm and reregister all clients and #{@plural_proxy} with subscription-manager
   (update organization and environment arguments appropriately):
 
@@ -125,15 +131,8 @@ module KatelloUtilities
                                   --foreman-proxy-trusted-hosts #{@new_hostname}
 
   Short hostnames have not been updated, please update those manually.\n
-    )
-      STDOUT.puts "**** Hostname change complete! **** \nIMPORTANT:"
-      if @foreman_proxy_content
-        STDOUT.print "You will have to update the Name and URL of the Smart Proxy in #{@options[:program].capitalize} to the new hostname.\n"
-      else
-        STDOUT.print successful_message
+)
       end
-      STDOUT.print ""
-      exit(true)
     end
 
     def warning_message
@@ -245,7 +244,6 @@ module KatelloUtilities
     def run
       raise 'Must run as root' unless Process.uid == 0
 
-
       if using_custom_certs?(@scenario_answers)
         custom_certs_check(@scenario_answers)
       end
@@ -343,14 +341,24 @@ module KatelloUtilities
       self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/hosts")
 
       STDOUT.puts "updating hostname in foreman installer scenarios"
-      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/foreman-installer/scenarios.d/*.yaml")
+      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' #{scenarios_path}/*.yaml")
 
-      STDOUT.puts "removing last_scenario.yml file"
-      self.run_cmd("rm -rf /etc/foreman-installer/scenarios.d/last_scenario.yaml")
+      if File.exist?(last_scenario_yaml)
+        STDOUT.puts 'backing up last_scenario.yaml'
+        temp_last_scenario_yaml = Tempfile.new('last_scenario')
+        begin
+          temp_last_scenario_yaml << File.read(last_scenario_yaml)
+        ensure
+          temp_last_scenario_yaml.close
+        end
+
+        STDOUT.puts 'removing last_scenario.yaml'
+        File.unlink(last_scenario_yaml)
+      end
 
       STDOUT.puts "re-running the installer"
 
-      installer = "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v"
+      installer = default_installer
       if @foreman_proxy_content
         installer << fpc_installer_args
       else
@@ -363,25 +371,63 @@ module KatelloUtilities
         end
         installer << " --certs-regenerate=true --foreman-proxy-register-in-foreman true"
       end
+
+      STDOUT.puts installer
+      run_cmd(installer, [0], installer_failure_message) do |result, success|
+        if temp_last_scenario_yaml && temp_last_scenario_yaml.path
+          unless success
+            STDOUT.puts 'restoring last_scenario.yaml'
+            if File.exist?(last_scenario_yaml)
+              run_cmd("cp #{temp_last_scenario_yaml.path} #{last_scenario_yaml}")
+            else
+              # if the installer failed early the last_scenario symlink won't exist
+              scenario_path = "#{scenarios_path}/#{@options[:scenario]}.yaml"
+              run_cmd("cp #{temp_last_scenario_yaml.path} #{scenario_path}")
+              File.symlink(scenario_path, last_scenario_yaml)
+            end
+          end
+          STDOUT.puts 'cleaning up temporary files'
+          temp_last_scenario_yaml.unlink
+        end
+
+        if success
+          STDOUT.puts result
+          STDOUT.puts 'Restarting puppet services'
+          run_cmd('/sbin/service puppet restart')
+          run_cmd('katello-service restart --only puppetserver')
+
+          STDOUT.puts "**** Hostname change complete! ****".green
+          STDOUT.puts "IMPORTANT:"
+          STDOUT.print next_steps_message
+          STDOUT.print ""
+          exit(true)
+        end
+      end
+    end
+
+    private
+
+    def installer_failure_message
+      resolve_text = """
+  Once the issue is resolved you may complete the hostname change by running: '#{default_installer}'
+  and completing the following steps:\n#{next_steps_message}
+"""
+
+"""
+  Something went wrong with the #{@options[:scenario].capitalize} installer.
+  Please check the above output and the corresponding logs.
+  #{resolve_text.gray}
+"""
+    end
+
+    def default_installer
+      installer = "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v"
+
       # always disable system checks to avoid unnecessary errors. The installer should have
       # already ran since this is to be run on an existing system and installer checks would
       # have already been skipped
       installer << " --disable-system-checks" if disable_system_check_option?
-
-      STDOUT.puts installer
-      installer_output = self.run_cmd("#{installer}")
-      installer_success = $?.success?
-      STDOUT.puts installer_output
-
-      STDOUT.puts "Restarting puppet services"
-      self.run_cmd("/sbin/service puppet restart")
-      self.run_cmd("katello-service restart --only puppetserver")
-
-      if installer_success
-        self.successful_hostname_change_message
-      else
-        self.fail_with_message("Something went wrong with the #{@options[:scenario].capitalize} installer! Please check the above output and the corresponding logs")
-      end
+      installer
     end
   end
 end

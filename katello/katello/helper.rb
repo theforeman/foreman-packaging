@@ -1,12 +1,19 @@
 module KatelloUtilities
   module Helper
     def last_scenario
-      last_scenario_yaml = '/etc/foreman-installer/scenarios.d/last_scenario.yaml'
-      if File.exists?(last_scenario_yaml)
+      if File.exist?(last_scenario_yaml)
         File.basename(File.readlink(last_scenario_yaml)).split(".")[0]
       else
         'katello'
       end
+    end
+
+    def scenarios_path
+      '/etc/foreman-installer/scenarios.d'
+    end
+
+    def last_scenario_yaml
+      "#{scenarios_path}/last_scenario.yaml"
     end
 
     def accepted_scenarios
@@ -31,7 +38,7 @@ module KatelloUtilities
     end
 
     def fail_with_message(message, opt_parser=nil)
-      STDOUT.puts message
+      STDOUT.puts message.red
       puts opt_parser if opt_parser
       exit(false)
     end
@@ -45,23 +52,49 @@ module KatelloUtilities
       end
     end
 
-    def run_cmd(command, exit_codes=[0], message=nil)
+    def run_cmd(command, exit_codes=[0], message=nil, &block)
       result = `#{command}`
-      unless exit_codes.include?($?.exitstatus)
+      exit_code = $?.exitstatus
+      success = $?.success?
+
+      yield(result, success) if block_given?
+
+      unless exit_codes.include?(exit_code)
         STDOUT.puts result
-        STDOUT.puts message if message
-        failed_command = "Failed '#{command}' with exit code #{$?.exitstatus}"
+        STDOUT.puts message.red if message
+        failed_command = "Failed '#{command}' with exit code #{exit_code}"
         if self.respond_to? :cleanup
           STDOUT.puts failed_command
-          cleanup($?.exitstatus)
+          cleanup(exit_code)
         end
         fail_with_message(failed_command)
       end
+
       result
     end
 
     def timestamp
       DateTime.now.strftime('%Y%m%d%H%M%S')
+    end
+
+    class ::String
+      def red
+        colorize(31)
+      end
+
+      def green
+        colorize(32)
+      end
+
+      def gray
+        colorize(37)
+      end
+
+      private
+
+      def colorize(color_code)
+        "\e[#{color_code}m#{self}\e[0m"
+      end
     end
   end
 end
