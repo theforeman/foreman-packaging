@@ -67,6 +67,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Thu Jan 25 2018 Eric D. Helms <ericdhelms@gmail.com> 201801241201-1
+- Foreman-bootloaders no longer ships binaries (lzap@teepee.home.lan)
+
 * Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 201707171807-1
 - Foreman-bootloaders rebase to 201707171807 (lzap+git@redhat.com)
 
