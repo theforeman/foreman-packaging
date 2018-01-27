@@ -14,7 +14,7 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.9
+Version: 0.1.10
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
