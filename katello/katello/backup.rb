@@ -159,7 +159,7 @@ module KatelloUtilities
       @snapsize = @options[:snapshot_size] || "2G"
       FileUtils.mkdir_p @mountdir
       confirm unless @options[:confirm]
-      validate_logical_volume
+      validate_logical_volume unless @options[:confirm]
       stop_services
       create_and_mount_snapshots
       start_services
