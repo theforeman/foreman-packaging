@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.0.6
+Version: 1.0.7
 Release: 1%{?dist}
 Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip
 License: MIT
