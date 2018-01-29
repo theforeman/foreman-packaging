@@ -7,10 +7,10 @@ import semver
 
 # We need a blacklist of packages that are devDependencies but not needed to build
 BLACKLIST = [
+    'axios-mock-adapter',
     'babel-eslint',
     'babel-jest',
     'jest-cli',
-    'nock',
     'react-addons-test-utils',
     'react-test-renderer',
     'redux-mock-store',

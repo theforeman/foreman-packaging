@@ -76,7 +76,7 @@ Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.2
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.3.4
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.2
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
@@ -244,6 +244,8 @@ BuildRequires: systemd
 #BuildRequires: npm(@storybook/react) < 4.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
+#BuildRequires: npm(axios-mock-adapter) >= 1.10.0
+#BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
 BuildRequires: npm(babel-core) >= 6.26.0
@@ -302,8 +304,6 @@ BuildRequires: npm(jsdom) >= 9.5.0
 BuildRequires: npm(jsdom) < 10.0.0
 BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
 BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
-#BuildRequires: npm(nock) >= 9.0.14
-#BuildRequires: npm(nock) < 10.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
 BuildRequires: npm(raf) >= 3.4.0
@@ -331,6 +331,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
+BuildRequires: npm(axios) >= 0.17.1
+BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(brace) >= 0.10.0
@@ -373,18 +375,19 @@ BuildRequires: npm(react-bootstrap) >= 0.31.5
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-dom) >= 16.2.0
 BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.6
+BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
 BuildRequires: npm(react-onclickoutside) >= 6.6.2
 BuildRequires: npm(react-onclickoutside) < 7.0.0
+BuildRequires: npm(react-password-strength) >= 2.1.0
+BuildRequires: npm(react-password-strength) < 3.0.0
 BuildRequires: npm(react-redux) >= 5.0.2
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(redux-form) >= 7.2.0
-BuildRequires: npm(redux-form) < 8.0.0
+BuildRequires: npm(redux-form) = 7.2.0
 BuildRequires: npm(redux-form-validators) >= 2.1.2
 BuildRequires: npm(redux-form-validators) < 3.0.0
 BuildRequires: npm(redux-logger) >= 2.8.1
@@ -419,7 +422,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4)
 # facter.rb
 BuildRequires: %{?scl_prefix}rubygem(facter)
 
@@ -596,6 +598,8 @@ Requires: libuv
 #Requires: npm(@storybook/react) < 4.0.0
 #Requires: npm(@storybook/storybook-deployer) >= 2.0.0
 #Requires: npm(@storybook/storybook-deployer) < 3.0.0
+#Requires: npm(axios-mock-adapter) >= 1.10.0
+#Requires: npm(axios-mock-adapter) < 2.0.0
 Requires: npm(babel-cli) >= 6.10.1
 Requires: npm(babel-cli) < 7.0.0
 Requires: npm(babel-core) >= 6.26.0
@@ -654,8 +658,6 @@ Requires: npm(jsdom) >= 9.5.0
 Requires: npm(jsdom) < 10.0.0
 Requires: npm(lodash-webpack-plugin) >= 0.11.4
 Requires: npm(lodash-webpack-plugin) < 1.0.0
-#Requires: npm(nock) >= 9.0.14
-#Requires: npm(nock) < 10.0.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
 Requires: npm(raf) >= 3.4.0
@@ -683,6 +685,8 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
+Requires: npm(axios) >= 0.17.1
+Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
 Requires: npm(brace) >= 0.10.0
@@ -725,18 +729,19 @@ Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-dom) >= 16.2.0
 Requires: npm(react-dom) < 17.0.0
-Requires: npm(react-ellipsis-with-tooltip) >= 1.0.6
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
 Requires: npm(react-onclickoutside) >= 6.6.2
 Requires: npm(react-onclickoutside) < 7.0.0
+Requires: npm(react-password-strength) >= 2.1.0
+Requires: npm(react-password-strength) < 3.0.0
 Requires: npm(react-redux) >= 5.0.2
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
-Requires: npm(redux-form) >= 7.2.0
-Requires: npm(redux-form) < 8.0.0
+Requires: npm(redux-form) = 7.2.0
 Requires: npm(redux-form-validators) >= 2.1.2
 Requires: npm(redux-form-validators) < 3.0.0
 Requires: npm(redux-logger) >= 2.8.1
@@ -770,7 +775,6 @@ Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-Requires: %{?scl_prefix}rubygem(jquery_pwstrength_bootstrap_4)
 
 %description assets
 Meta package to install asset pipeline support.
