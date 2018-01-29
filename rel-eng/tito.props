@@ -63,6 +63,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-lodash
   nodejs-lodash-webpack-plugin
   nodejs-loose-envify
+  nodejs-ms
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
