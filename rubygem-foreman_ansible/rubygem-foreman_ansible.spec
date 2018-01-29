@@ -13,7 +13,7 @@ License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: foreman >= 1.12.0
+Requires: foreman >= 1.16.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -34,7 +34,7 @@ BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.14
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 2.0
-BuildRequires: foreman-plugin >= 1.12.0
+BuildRequires: foreman-plugin >= 1.16.0
 BuildRequires: foreman-assets
 
 BuildArch: noarch
