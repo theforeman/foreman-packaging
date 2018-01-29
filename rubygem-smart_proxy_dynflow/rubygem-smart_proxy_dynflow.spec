@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jan 29 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.10-1
+- Bump rubygem-smart_proxy_dynflow{,_core} to 0.1.10 (inecas@redhat.com)
+
 * Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.9-1
 - Bump rubygem-smart_proxy_dynflow{,_core} to 0.1.9
   (ewoud@kohlvanwijngaarden.nl)
