@@ -85,6 +85,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-fontawesome
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
+  nodejs-react-password-strength
   nodejs-react-redux
   nodejs-recompose
   nodejs-redux
