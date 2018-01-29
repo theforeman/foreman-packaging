@@ -41,6 +41,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-css-loader
   nodejs-datatables.net
   nodejs-datatables.net-bs
+  nodejs-debug
   nodejs-diff
   nodejs-dotenv
   nodejs-expose-loader
