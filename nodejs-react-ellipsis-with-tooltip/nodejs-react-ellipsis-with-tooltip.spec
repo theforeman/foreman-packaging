@@ -41,6 +41,10 @@ cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.7-1
+- Bump nodejs-react-ellipsis-with-tooltip to 1.0.7
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.6-1
 - new package built with tito
 
