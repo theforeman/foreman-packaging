@@ -1,8 +1,32 @@
-foreman-installer (1.17.0-1) stable; urgency=low
+foreman-installer (1.17.0~rc1-1) stable; urgency=low
 
-  * Bump changelog to 1.17.0 to match VERSION
+  * 1.17.0-RC1 released
 
- -- Daniel Lobato Garcia <me@daniellobato.me>  Tue, 29 Aug 2017 13:02:03 +0200
+ -- Ondrej Prazak <oprazak@redhat.com>  Tue, 30 Jan 2018 15:57:44 +0000
+
+foreman-installer (1.16.0-1) stable; urgency=low
+
+  * 1.16.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Wed, 29 Nov 2017 14:01:10 +0100
+
+foreman-installer (1.16.0~rc2-1) stable; urgency=low
+
+  * 1.16.0-RC2 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 26 Oct 2017 15:59:15 +0200
+
+foreman-installer (1.16.0~rc1-1) stable; urgency=low
+
+  * 1.16.0-RC1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 21 Sep 2017 15:56:02 +0200
+
+foreman-installer (1.15.4-1) stable; urgency=low
+
+  * 1.15.4 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 21 Sep 2017 15:55:44 +0200
 
 foreman-installer (1.16.0-1) stable; urgency=low
 
