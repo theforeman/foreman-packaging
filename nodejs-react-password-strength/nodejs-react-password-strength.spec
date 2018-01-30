@@ -47,3 +47,6 @@ cp -pfr webpack.universal.config.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc changelog.md
 
 %changelog
+* Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.3.1-1
+- new package built with tito
+
