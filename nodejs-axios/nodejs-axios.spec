@@ -46,3 +46,6 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc UPGRADE_GUIDE.md
 
 %changelog
+* Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.17.1-1
+- new package built with tito
+
