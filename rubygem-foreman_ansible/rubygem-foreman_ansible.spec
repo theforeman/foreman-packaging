@@ -101,6 +101,9 @@ exit 0
 
 
 %changelog
+* Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.6-1
+- Update foreman_ansible to 1.4.6 (me@daniellobato.me)
+
 * Fri Apr 07 2017 Dominic Cleal <dominic@cleal.org> 1.4.5-1
 - Update foreman_ansible to 1.4.5 (me@daniellobato.me)
 
