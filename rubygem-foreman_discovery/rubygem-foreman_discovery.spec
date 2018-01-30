@@ -108,6 +108,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 11.0.0-1
+- Updated to foreman_discovery-11.0.0 (lzap+git@redhat.com)
+
 * Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 10.0.0-1
 - Update discovery to 10.0.0 (lzap@redhat.com)
 
