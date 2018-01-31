@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.17.0
-Release: 0.1%{?dotalphatag}%{?dist}
+Release: 0.2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -753,7 +753,7 @@ Requires: npm(uuid) < 4.0.0
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
-Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.23.1
+Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.23.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.24.0
 Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
 Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
