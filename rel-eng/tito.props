@@ -318,6 +318,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_dhcp_device42
   rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_dhcp_remote_isc
   rubygem-smart_proxy_discovery
