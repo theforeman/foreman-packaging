@@ -84,6 +84,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Jan 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-2.nightly
+- Switch to using Pulp 2.15 stable (ericdhelms@gmail.com)
+
 * Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-1.nightly
 - Bump katello RPMs to 3.7.0 (ericdhelms@gmail.com)
 - Automatic commit of package [katello-repos] minor release
