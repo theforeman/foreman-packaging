@@ -98,6 +98,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
+  nodejs-sortabular
   nodejs-style-loader
   nodejs-symbol-observable
   nodejs-urijs
