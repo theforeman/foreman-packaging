@@ -59,6 +59,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Mon Mar 12 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
+- Update rubygem-foreman_remote_execution_core to 1.1.0
+  (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.5-1
 - Update foreman_remote_execution_core to 1.0.5 (inecas@redhat.com)
 
