@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 0.26.0
+Version: 1.6.0
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -12,7 +12,9 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
-Requires: npm(patternfly) >= 3.35.1
+Requires: npm(lodash.orderby) >= 4.6.0
+Requires: npm(lodash.orderby) < 5.0.0
+Requires: npm(patternfly) >= 3.37.6
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
@@ -22,8 +24,14 @@ Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 1.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
+Requires: npm(reactabular-table) >= 8.12.0
+Requires: npm(reactabular-table) < 9.0.0
 Requires: npm(recompose) >= 0.26.0
 Requires: npm(recompose) < 1.0.0
+Requires: npm(sortabular) >= 1.5.1
+Requires: npm(sortabular) < 2.0.0
+Requires: npm(table-resolver) >= 3.2.0
+Requires: npm(table-resolver) < 4.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
