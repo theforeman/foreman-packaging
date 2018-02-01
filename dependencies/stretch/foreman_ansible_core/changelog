@@ -1,3 +1,9 @@
+ruby-foreman-ansible-core (2.0.2-1) stable; urgency=low
+
+  * 2.0.2 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 01 Feb 2018 17:14:00 +0100
+
 ruby-foreman-ansible-core (1.1.1-1) stable; urgency=low
 
   * Initial release for Debian/stretch
