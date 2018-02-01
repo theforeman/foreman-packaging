@@ -77,6 +77,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-prop-types
   nodejs-raf
   nodejs-react
+  nodejs-reactabular-table
   nodejs-react-bootstrap
   nodejs-react-bootstrap-switch
   nodejs-react-c3js
