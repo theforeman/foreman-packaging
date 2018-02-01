@@ -101,6 +101,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-sortabular
   nodejs-style-loader
   nodejs-symbol-observable
+  nodejs-table-resolver
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
