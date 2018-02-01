@@ -199,14 +199,6 @@ module KatelloUtilities
           @options[:password] = password
         end
 
-        opt.on("-g","--program program","name of the program you are modifying (defaults to #{@default_program})") do |program|
-          @options[:program] = program
-        end
-
-        opt.on("-s","--scenario scenario","name of the scenario you are modifying (defaults to #{@last_scenario})") do |scenario|
-          @options[:scenario] = scenario
-        end
-
         opt.on("-y", "--assumeyes", "answer yes for all questions") do |confirm|
           @options[:confirm] = confirm
         end
