@@ -372,15 +372,15 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
 
-[katello-1.17-rhel5]
+[katello-3.6-rhel5]
 disttag = .el5
 whitelist = katello-repos katello-host-tools
 
-[katello-1.17-rhel6]
+[katello-3.6-rhel6]
 disttag = .el6
 whitelist = katello-repos katello-host-tools
 
-[katello-1.17-rhel7]
+[katello-3.6-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-robotex
@@ -406,17 +406,17 @@ whitelist = rubygem-robotex
   rubygem-terminal-table
 
 
-[katello-thirdparty-rhel7]
+[katello-3.6-thirdparty-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-jenkins_api_client
   rubygem-mixlib-shellout
   rubygem-terminal-table
 
-[katello-1.17-fedora26]
+[katello-3.6-fedora26]
 disttag = .fc26
 whitelist = katello-repos katello-host-tools
 
-[katello-1.17-fedora25]
-disttag = .fc25
+[katello-3.6-fedora27]
+disttag = .fc27
 whitelist = katello-repos katello-host-tools
