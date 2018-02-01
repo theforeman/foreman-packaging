@@ -79,6 +79,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 12 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.0.2-1
+- Bump foreman_ansible_core to 2.0.2 (me@daniellobato.me)
+
 * Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 1.1.1-1
 - Update foreman_ansible_core to 1.1.1 (me@daniellobato.me)
 
