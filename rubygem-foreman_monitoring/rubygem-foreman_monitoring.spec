@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Feb 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-2
+- Update foreman_monitoring to 1.0.0 (mail@timogoebel.name)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.1-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 
