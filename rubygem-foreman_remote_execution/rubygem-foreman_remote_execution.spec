@@ -108,6 +108,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.5-1
+- Update foreman_remote_execution to 1.4.5 (mhulan@redhat.com)
+
 * Mon Jan 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.2-1
 - drop doc directory (aruzicka@redhat.com)
 - Update rubygem-foreman_remote_execution to 1.4.2 (aruzicka@redhat.com)
