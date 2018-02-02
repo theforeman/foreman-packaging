@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 201801241201
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System

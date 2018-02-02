@@ -17,7 +17,7 @@ generate() {
 }
 
 check_pkg() {
-  rpm -q "$1" &>/dev/null || echo "Please install: yum -y install $1" >/dev/stderr && exit 1
+  rpm -q "$1" &>/dev/null || ( echo "Please install: yum -y install $1" >/dev/stderr && exit 1 )
 }
 
 if [[ "$ARCH" == "aa64" ]]; then
