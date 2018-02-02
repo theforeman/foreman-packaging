@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Fri Feb 02 2018 Eric D. Helms <ericdhelms@gmail.com> 0.12.0-1
+- Update Hammer-Cli-Katello to 0.12.0 (zhunting@redhat.com)
+
 * Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 0.11.0-2
 - new package built with tito
 
