@@ -85,6 +85,11 @@ cp -pa .%{gem_instdir}/bundler.plugins.d/foreman_ansible_core.rb %{buildroot}/%{
 %doc %{gem_docdir}
 
 %changelog
+* Fri Feb 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.0-1
+- Update smart_proxy_ansible to 2.0.0 (me@daniellobato.me)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.1.1-1
 - Update smart_proxy_ansible to 1.1.1 (me@daniellobato.me)
 
