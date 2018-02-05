@@ -53,6 +53,7 @@
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
+      <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
@@ -341,6 +342,7 @@
       <packagereq type="default">tfm-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-chunky_png-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>

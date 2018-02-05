@@ -313,6 +313,7 @@ plugins_packages:
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chef-api: {}
+    rubygem-chunky_png: {}
     rubygem-commonjs: {}
     rubygem-dalli: {}
     rubygem-deface: {}
