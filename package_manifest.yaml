@@ -342,6 +342,7 @@ plugins_packages:
     rubygem-foreman_cockpit: {}
     rubygem-foreman_column_view: {}
     rubygem-foreman_custom_parameters: {}
+    rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
     rubygem-foreman_dhcp_browser: {}
     rubygem-foreman_digitalocean: {}
