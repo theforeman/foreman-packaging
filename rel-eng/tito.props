@@ -343,6 +343,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
   rubygem-systemu
+  rubygem-ttfunk
   rubygem-wicked
   rubygem-zscheduler
 
