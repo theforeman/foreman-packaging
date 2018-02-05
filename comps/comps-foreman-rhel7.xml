@@ -141,6 +141,7 @@
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
       <packagereq type="default">tfm-rubygem-roadie</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
@@ -428,6 +429,7 @@
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
