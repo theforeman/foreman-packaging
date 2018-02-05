@@ -387,6 +387,7 @@ plugins_packages:
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
     rubygem-polyglot: {}
+    rubygem-prawn: {}
     rubygem-puppetdb_foreman: {}
     rubygem-radcli: {}
     rubygem-rainbow: {}
