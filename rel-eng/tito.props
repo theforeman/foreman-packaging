@@ -277,11 +277,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-faraday_middleware
   rubygem-ffi
   rubygem-fog-azure
-  rubygem-git
-  rubygem-jgrep
-  rubygem-jquery-matchheight-rails
-  rubygem-opennebula
-  rubygem-systemu
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
@@ -317,10 +312,11 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_snapshot_management
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
+  rubygem-foreman_templates
   rubygem-foreman_userdata
   rubygem-foreman_vmwareannotations
   rubygem-foreman_xen
-  rubygem-foreman_templates
+  rubygem-git
   rubygem-graphite-api
   rubygem-gssapi
   rubygem-hammer_cli_foreman_admin
@@ -332,9 +328,12 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
+  rubygem-jgrep
+  rubygem-jquery-matchheight-rails
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
+  rubygem-opennebula
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-polyglot
@@ -342,6 +341,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-rainbow
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
+  rubygem-systemu
   rubygem-wicked
   rubygem-zscheduler
 
