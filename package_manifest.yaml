@@ -408,6 +408,7 @@ plugins_packages:
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
     rubygem-systemu: {}
+    rubygem-ttfunk: {}
     rubygem-wicked: {}
     rubygem-zscheduler: {}
 
