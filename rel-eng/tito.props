@@ -338,6 +338,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-parse-cron
   rubygem-pdf-core
   rubygem-polyglot
+  rubygem-prawn
   rubygem-puppetdb_foreman
   rubygem-rainbow
   rubygem-safe_yaml
