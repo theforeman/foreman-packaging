@@ -125,6 +125,7 @@
       <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass</packagereq>
+      <packagereq type="default">tfm-rubygem-pdf-core</packagereq>
       <packagereq type="default">tfm-rubygem-pg</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar</packagereq>
@@ -408,6 +409,7 @@
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-pdf-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar-doc</packagereq>

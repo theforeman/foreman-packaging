@@ -336,6 +336,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-opennebula
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
+  rubygem-pdf-core
   rubygem-polyglot
   rubygem-puppetdb_foreman
   rubygem-rainbow
