@@ -379,6 +379,7 @@ plugins_packages:
     rubygem-openscap: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
+    rubygem-pdf-core: {}
     rubygem-polyglot: {}
     rubygem-puppetdb_foreman: {}
     rubygem-radcli: {}
