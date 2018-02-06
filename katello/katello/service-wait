@@ -58,7 +58,7 @@ before_start() {
 after_start() {
   case "$SERVICE" in
     tomcat|tomcat6)
-      # RHBZ 789288 - wait until data port is avaiable
+      # RHBZ 789288 - wait until data port is available
       wait_for_url $TOMCAT_TEST_URL
       ;;
     foreman)
