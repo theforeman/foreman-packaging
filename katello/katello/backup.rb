@@ -125,6 +125,13 @@ module KatelloUtilities
       backup_configs + feature_configs
     end
 
+    def excluded_configs
+      excluded_configs = []
+      excluded_configs.push("--exclude /var/www/html/pub/isos*") if Dir.exist?('/var/www/html/pub/isos')
+      excluded_configs.push("--exclude /var/www/html/pub/exports*") if Dir.exist?('/var/www/html/pub/exports')
+      excluded_configs
+    end
+
     def confirm
       unless agree("WARNING: This script will stop your services. Do you want to proceed(y/n)? ")
         puts "**** cancelled ****"
@@ -329,7 +336,7 @@ module KatelloUtilities
 
     def backup_config_files
       puts "Backing up config files... "
-      run_cmd("tar --selinux --create --gzip --file=#{File.join(@dir, 'config_files.tar.gz')} --listed-incremental=#{File.join(@dir, '.config.snar')} #{configure_configs.join(' ')} 2>/dev/null", [0,2])
+      run_cmd("tar --selinux --create --gzip --file=#{File.join(@dir, 'config_files.tar.gz')} --listed-incremental=#{File.join(@dir, '.config.snar')} #{configure_configs.join(' ')} #{excluded_configs.join(' ')} 2>/dev/null", [0,2])
       puts "Done."
     end
 
