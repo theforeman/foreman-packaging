@@ -343,25 +343,17 @@ whitelist = rubygem-angular-rails-templates
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = puppet-foreman_scap_client
-  rubygem-algebrick
-  rubygem-apipie-params
   rubygem-chef-api
-  rubygem-concurrent-ruby-edge
-  rubygem-dynflow
-  rubygem-faraday
   rubygem-faraday_middleware
-  rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify
-  rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-radcli
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
-  rubygem-sequel
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
