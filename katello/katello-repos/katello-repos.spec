@@ -1,3 +1,5 @@
+%global prever .rc1
+
 Name:           katello-repos
 Version:        3.6.0
 Release:        1%{?dist}
