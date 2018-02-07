@@ -2,21 +2,21 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name katello
-# %%global prever .rc1
+%global prever .rc1
 %global mainver 3.6.0
-%global release 1.nightly
+%global release 1
 
 %define katello_ostree %{?scl_prefix}rubygem-%{gem_name}_ostree
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Katello
 
-Version: %{mainver}
+Version: %{mainver}%{?prever}
 Release: %{?prever:0.}%{release}%{?prever}%{?dist}
 Group:   Development/Ruby
 License: Distributable
 URL:     https://theforeman.org/plugins/katello
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
+Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 
 Requires: katello-selinux
 Requires: foreman >= 1.17.0
