@@ -189,6 +189,7 @@ whitelist = foreman
   rubygem-hoe
   rubygem-http-cookie
   rubygem-ipaddress
+  rubygem-journald-logger
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
