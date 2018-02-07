@@ -107,6 +107,9 @@ cp -a .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Wed Feb 07 2018 Eric D. Helms <ericdhelms@gmail.com> 6.1.8-1
+- Add version 6.1.8 of bastion (zhunting@redhat.com)
+
 * Thu Feb 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.1.7-1
 - Release rubygem-bastion 6.1.7 (ericdhelms@gmail.com)
 
