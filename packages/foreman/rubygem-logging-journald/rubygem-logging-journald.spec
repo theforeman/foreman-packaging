@@ -84,3 +84,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.0-1
+- new package built with tito
+
