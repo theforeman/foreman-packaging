@@ -1,7 +1,16 @@
 #!/bin/bash
 
-dir='*'
-[ -n "$1" ] && dir=$1
+dir='./packages/*/*'
+if [ -n "$1" ]
+then
+  dir=$1
+  if ! [ -d "$1" ]
+  then
+    [ -d "./packages/foreman/$1" ] && dir="./packages/foreman/$1"
+    [ -d "./packages/plugins/$1" ] && dir="./packages/plugins/$1"
+    [ -d "./packages/katello/$1" ] && dir="./packages/katello/$1"
+  fi
+fi
 
 for spec in $dir/*.spec; do
   d=$(dirname $spec)
