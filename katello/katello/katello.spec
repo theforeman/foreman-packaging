@@ -213,3 +213,6 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Feb 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2.rc1
+- new package built with tito
+
