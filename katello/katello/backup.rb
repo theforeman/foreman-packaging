@@ -149,7 +149,7 @@ module KatelloUtilities
     def create_directories(directory)
       @dir = File.join directory, "#{@program}-backup-" + self.timestamp unless @options[:no_subdir]
       puts "Creating backup folder #{@dir}"
-      FileUtils.mkdir @dir
+      FileUtils.mkdir_p @dir
       FileUtils.chown_R nil, 'postgres', @dir if @databases.include? "pgsql"
       FileUtils.chmod_R 0770, @dir
     end
@@ -329,7 +329,10 @@ module KatelloUtilities
 
     def backup_config_files
       puts "Backing up config files... "
-      run_cmd("tar --selinux --create --gzip --file=#{File.join(@dir, 'config_files.tar.gz')} --listed-incremental=#{File.join(@dir, '.config.snar')} #{configure_configs.join(' ')} 2>/dev/null", [0,2])
+      flags = "--exclude=\"/var/www/html/pub/isos*\" --exclude=\"/var/www/html/pub/exports*\" --selinux --create --gzip"
+      flags += " --file=#{File.join(@dir, 'config_files.tar.gz')} --listed-incremental=#{File.join(@dir, '.config.snar')}"
+      tar_command = "tar #{flags} #{configure_configs.join(' ')} 2>/dev/null"
+      run_cmd(tar_command, [0,2])
       puts "Done."
     end
 
