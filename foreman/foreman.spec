@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.17.0
-Release: 0.2%{?dotalphatag}%{?dist}
+Release: 0.3%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
