@@ -409,7 +409,7 @@ module KatelloUtilities
           exit(-1)
         end
 
-        @dir = ARGV[0].dup
+        @dir = File.expand_path(ARGV[0].dup)
       rescue OptionParser::ParseError => e
         puts e
         puts @optparse
