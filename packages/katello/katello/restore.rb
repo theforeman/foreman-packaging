@@ -98,7 +98,7 @@ module KatelloUtilities
       pulp_services = "pulp,celerybeat,pulp_workers,pulp_resource_manager"
       run_cmd("katello-service start --only #{necessary_services}")
       run_cmd("katello-service stop --only #{pulp_services}")
-      run_cmd("sudo -u apache pulp-manage-db")
+      run_cmd("su - apache -s /bin/bash -c pulp-manage-db")
       puts "Done."
     end
 
