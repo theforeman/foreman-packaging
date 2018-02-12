@@ -339,7 +339,7 @@ module KatelloUtilities
 
     def validate_directory
       return true unless @databases.include? "pgsql"
-      unless system("sudo -u postgres test -w #{@dir}")
+      unless system("runuser - postgres -c 'test -w #{@dir}'")
         puts "****cancelled****"
         puts "Postgres user needs write access to the backup directory"
         puts "Please select a directory, such as /tmp or /var/tmp which allows Postgres write access"
