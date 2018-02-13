@@ -123,7 +123,8 @@ module KatelloUtilities
       feature_configs += ["/var/lib/dhcpd", "/etc/dhcp"] if feature_included?("dhcp")
       feature_configs.push("/usr/share/xml/scap") if feature_included?("openscap")
 
-      backup_configs + feature_configs
+      all_configs = backup_configs + feature_configs
+      all_configs.compact.select { |path| Dir.glob(path).any? }
     end
 
     def confirm
@@ -332,8 +333,8 @@ module KatelloUtilities
       puts "Backing up config files... "
       flags = "--exclude=\"/var/www/html/pub/isos*\" --exclude=\"/var/www/html/pub/exports*\" --selinux --create --gzip"
       flags += " --file=#{File.join(@dir, 'config_files.tar.gz')} --listed-incremental=#{File.join(@dir, '.config.snar')}"
-      tar_command = "tar #{flags} #{configure_configs.join(' ')} 2>/dev/null"
-      run_cmd(tar_command, [0,2])
+      tar_command = "tar #{flags} #{configure_configs.join(' ')}"
+      run_cmd(tar_command)
       puts "Done."
     end
 
