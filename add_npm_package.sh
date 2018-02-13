@@ -7,6 +7,7 @@ TITO_TAG=foreman-nightly-nonscl-rhel7
 DISTRO=${TITO_TAG##*-}
 
 PACKAGE_NAME=nodejs-$NPM_MODULE_NAME
+PACKAGE_DIR=packages/foreman/$PACKAGE_NAME
 
 program_exists() {
   which "$@" &> /dev/null
@@ -27,41 +28,41 @@ ensure_program() {
 generate_npm_package() {
   echo -n "Making directory..."
   UPDATE=false
-  if [ -f "$PACKAGE_NAME"/*.spec ]; then
+  if [ -f "$PACKAGE_DIR"/*.spec ]; then
     echo -n "Detected update..."
     UPDATE=true
-    sed -n '/%changelog/,$p' $PACKAGE_NAME/*.spec > OLD_CHANGELOG
-    git rm -r $PACKAGE_NAME
+    sed -n '/%changelog/,$p' $PACKAGE_DIR/*.spec > OLD_CHANGELOG
+    git rm -r $PACKAGE_DIR
   fi
-  mkdir $PACKAGE_NAME
+  mkdir $PACKAGE_DIR
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
   npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY
   echo "FINISHED"
   echo -n "Copying specs..."
-  cp npm2rpm/SPECS/* $PACKAGE_NAME
+  cp npm2rpm/SPECS/* $PACKAGE_DIR
   if [ "$UPDATE" = true ]; then
     echo "Restoring changelogs..."
-    cat OLD_CHANGELOG >> $PACKAGE_NAME/*.spec
-    sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_NAME/*.spec
+    cat OLD_CHANGELOG >> $PACKAGE_DIR/*.spec
+    sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_DIR/*.spec
     rm OLD_CHANGELOG
   fi
   echo "FINISHED"
   echo -n "Copying sources..."
-  cp npm2rpm/SOURCES/* $PACKAGE_NAME
+  cp npm2rpm/SOURCES/* $PACKAGE_DIR
   echo "FINISHED"
   rm -r npm2rpm
 
   if [ "$STRATEGY" = "bundle" ]; then
     echo -e "Adding npmjs cache binary... - "
-    git add $PACKAGE_NAME/*-registry.npmjs.org.tgz
+    git add $PACKAGE_DIR/*-registry.npmjs.org.tgz
     echo "FINISHED"
   fi
   echo -e "Adding spec to git... - "
-  git add $PACKAGE_NAME/*.spec
+  git add $PACKAGE_DIR/*.spec
   echo "FINISHED"
   echo -e "Annexing sources... - "
-  git annex add $PACKAGE_NAME/*.tgz
+  git annex add $PACKAGE_DIR/*.tgz
   echo "FINISHED"
 }
 
