@@ -85,3 +85,6 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Feb 14 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.4-1
+- new package built with tito
+
