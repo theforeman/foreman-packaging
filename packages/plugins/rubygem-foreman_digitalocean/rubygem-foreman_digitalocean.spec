@@ -90,6 +90,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-1
+- update foreman_digitalocean to 1.3.0 (kvedulv@kvedulv.de)
+- Restructure plugin packages to prepare for obal (pcreech@redhat.com)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-5
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
