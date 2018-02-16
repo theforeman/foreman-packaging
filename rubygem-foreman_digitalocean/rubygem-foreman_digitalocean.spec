@@ -90,6 +90,10 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-1
+- update foreman_digitalocean to 1.3.0 (kvedulv@kvedulv.de)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 1.2.0-1
 - Update foreman_digitalocean to 1.2.0 (mail@timogoebel.name)
 
