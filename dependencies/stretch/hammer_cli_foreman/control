@@ -12,8 +12,8 @@ Package: ruby-hammer-cli-foreman
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-hammer-cli (>= 0.11.0),
-         ruby-apipie-bindings (>= 0.2.0),
+         ruby-hammer-cli (>= 0.12.0),
+         ruby-apipie-bindings (>= 0.2.2),
          ruby-rest-client (>= 1.8.0),
          ruby-rest-client (<< 3.0.0)
 Description: Foreman commands for Hammer
