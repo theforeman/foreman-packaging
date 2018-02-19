@@ -144,7 +144,17 @@ module KatelloUtilities
       puts "Logical backup detected, using the standard backup files to restore" if valid_logical_backup
       if @pulp_data_exists
         puts "Restoring Pulp data"
-        run_cmd("tar --selinux --overwrite --listed-incremental=/dev/null -xf pulp_data.tar -C /")
+
+        tar_command = "tar --selinux --overwrite --listed-incremental=/dev/null "
+
+        if File.exist?('pulp_data.part0002')
+          split_tar_script = default_split_tar_script
+          tar_command += "-M --new-volume-script=#{split_tar_script} "
+        end
+
+        tar_command += "-xf pulp_data.tar -C /"
+
+        run_cmd(tar_command)
       end
       if @mongo_data_exists
         run_cmd("tar --selinux --overwrite --listed-incremental=/dev/null -xzf mongo_data.tar.gz -C /")
