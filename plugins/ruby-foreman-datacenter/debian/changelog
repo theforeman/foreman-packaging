@@ -1,3 +1,12 @@
+ruby-foreman-datacenter (0.1.46) stable; urgency=low
+
+  * 0.1.46 released
+  * fixed compatibility issues with version 1.17
+  * fixed error Index names too long for sqlite
+  * html/css fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Mon, 19 Feb 2018 18:15:26 +0200
+
 ruby-foreman-datacenter (0.1.45) stable; urgency=low
 
   * 0.1.45 released
