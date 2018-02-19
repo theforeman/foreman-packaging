@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.12.0-1) stable; urgency=low
+
+  * 0.12.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Mon, 19 Feb 2018 15:10:13 +0100
+
 ruby-hammer-cli-foreman (0.11.0-1) stable; urgency=low
 
   * 0.11.0 released
