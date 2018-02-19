@@ -340,7 +340,17 @@ module KatelloUtilities
     end
 
     def create_pulp_data_tar
-      run_cmd("tar --selinux --create --file=#{File.join(@dir, 'pulp_data.tar')} --exclude=var/lib/pulp/katello-export --listed-incremental=#{File.join(@dir, '.pulp.snar')} --transform 's,^,var/lib/pulp/,S' -S *")
+      archive_size = @options[:split_tar]
+      tar_command = "tar --selinux --create --file=#{File.join(@dir, 'pulp_data.tar')} "
+
+      if archive_size
+        split_tar_script = default_split_tar_script
+        tar_command += "--tape-length=#{archive_size} --new-volume-script=#{split_tar_script} "
+      end
+
+      tar_command += "--exclude=var/lib/pulp/katello-export --listed-incremental=#{File.join(@dir, '.pulp.snar')} --transform 's,^,var/lib/pulp/,S' -S *"
+
+      run_cmd(tar_command)
     end
 
     def backup_config_files
@@ -378,6 +388,11 @@ module KatelloUtilities
           else
             opts.abort("Previous backup directory does not exist: #{dir_path}")
           end
+        end
+
+        opts.on("--split-pulp-tar SIZE", "Split pulp data into files of a specified size, i.e. (100M, 50G). See '--tape-length' in 'info tar' for all sizes") do |size|
+          opts.abort("Please specify size according to 'tar --tape-length' format.") unless size
+          @options[:split_tar] = size
         end
 
         opts.on("--online-backup", "Keep services online during backup") do |online|

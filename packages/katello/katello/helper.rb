@@ -24,6 +24,24 @@ module KatelloUtilities
       "This utility can't run on a non-katello system."
     end
 
+    def default_split_tar_script
+      # check if production install
+      if __FILE__.include?('sbin')
+        utils_path='/usr/share/katello'
+      else
+        utils_path=File.expand_path('..', __FILE__)
+      end
+
+      split_tar_script = File.join(utils_path, 'katello-backup-rotate-tar.sh')
+      if !File.executable?(split_tar_script)
+        puts "**** ERROR: split_tar_script not executable ****"
+        puts split_tar_script
+        exit(-1)
+      end
+
+      split_tar_script
+    end
+
     def foreman_rpm_installed?
       system("rpm -q foreman > /dev/null")
     end
