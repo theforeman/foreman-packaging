@@ -81,6 +81,10 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.12.0-2
+- Bump hammer_cli_foreman spec (me@daniellobato.me)
+- Fix broken gem annex cherrypick (me@daniellobato.me)
+
 * Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.12.0-1
 - Update rubygem-hammer_cli_foreman to 0.12.0 (martin.bacovsky@gmail.com)
 
