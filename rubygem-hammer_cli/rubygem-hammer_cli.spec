@@ -109,6 +109,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.12.0-1
+- Update rubygem-hammer_cli to 0.12.0 (martin.bacovsky@gmail.com)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Add rubygem-unicode (github@kohlvanwijngaarden.nl)
