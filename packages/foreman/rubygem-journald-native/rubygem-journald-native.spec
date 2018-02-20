@@ -88,3 +88,6 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.9-1
+- new package built with tito
+
