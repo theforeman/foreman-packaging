@@ -67,8 +67,9 @@ Requires(post): candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
 Requires: java-openjdk >= 1:1.7.0
 Requires: java-openjdk < 1:1.8.0.45
-Requires: postgresql
-Requires: postgresql-server
+Requires: /usr/bin/psql
+Requires: /usr/bin/pg_dump
+Requires: /usr/bin/pg_dumpall
 
 %description
 Provides a package for managing application life-cycle for Linux systems.
