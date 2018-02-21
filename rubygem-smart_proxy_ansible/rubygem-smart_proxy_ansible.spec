@@ -87,6 +87,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-1
+- Update smart_proxy_ansible to 2.0.1 (me@daniellobato.me)
+
 * Fri Feb 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.0-1
 - Update smart_proxy_ansible to 2.0.0 (me@daniellobato.me)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
