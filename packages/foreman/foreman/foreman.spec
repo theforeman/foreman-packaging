@@ -272,6 +272,8 @@ BuildRequires: npm(babel-register) >= 6.9.0
 BuildRequires: npm(babel-register) < 7.0.0
 BuildRequires: npm(compression-webpack-plugin) >= 0.3.1
 BuildRequires: npm(compression-webpack-plugin) < 0.4.0
+#BuildRequires: npm(coveralls) >= 3.0.0
+#BuildRequires: npm(coveralls) < 4.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 2.0.0
@@ -365,8 +367,8 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.31.2
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 0.22.1
-BuildRequires: npm(patternfly-react) < 1.0.0
+BuildRequires: npm(patternfly-react) >= 1.5.0
+BuildRequires: npm(patternfly-react) < 2.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.2.0
@@ -626,6 +628,8 @@ Requires: npm(babel-register) >= 6.9.0
 Requires: npm(babel-register) < 7.0.0
 Requires: npm(compression-webpack-plugin) >= 0.3.1
 Requires: npm(compression-webpack-plugin) < 0.4.0
+#Requires: npm(coveralls) >= 3.0.0
+#Requires: npm(coveralls) < 4.0.0
 Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(dotenv) >= 2.0.0
@@ -719,8 +723,8 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.31.2
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 0.22.1
-Requires: npm(patternfly-react) < 1.0.0
+Requires: npm(patternfly-react) >= 1.5.0
+Requires: npm(patternfly-react) < 2.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.2.0
