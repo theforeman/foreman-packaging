@@ -160,7 +160,16 @@ Common runtime components of %{name}
 %package debug
 Summary: Katello Debug utilities
 Group: Applications/System
+Requires: bash
+Requires: mktemp
 Requires: foreman-debug
+Requires: findutils
+Requires: coreutils
+Requires: qpid-tools
+Requires: /bin/ps
+Requires: mongodb
+Requires: %{?scl_prefix}rubygem-hammer_cli_katello
+Requires: %{name}-service
 
 %description debug
 Useful utilities for debug info collecting
