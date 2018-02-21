@@ -9,7 +9,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC1
+%global alphatag RC2
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
@@ -318,6 +318,8 @@ BuildRequires: npm(style-loader) < 1.0.0
 #BuildRequires: npm(stylelint) < 8.0.0
 #BuildRequires: npm(stylelint-config-standard) >= 16.0.0
 #BuildRequires: npm(stylelint-config-standard) < 17.0.0
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) < 1.3.0
 BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(url-loader) < 1.0.0
 BuildRequires: npm(webpack) >= 3.4.1
@@ -392,6 +394,8 @@ BuildRequires: npm(seamless-immutable) >= 7.0.1
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) < 1.3.0
 BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(urijs) < 2.0.0
 BuildRequires: npm(uuid) >= 3.0.1
