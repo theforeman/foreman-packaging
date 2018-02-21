@@ -86,6 +86,10 @@ cp -pfr tests %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.39.0-1
+- Bump nodejs-patternfly to 3.39.0 (ewoud@kohlvanwijngaarden.nl)
+- Restructure foreman packages to prepare for obal (pcreech@redhat.com)
+
 * Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.35.1-1
 - Bump nodejs-patternfly to 3.35.1 (ewoud@kohlvanwijngaarden.nl)
 
