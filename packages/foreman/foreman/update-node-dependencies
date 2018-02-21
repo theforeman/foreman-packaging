@@ -10,6 +10,7 @@ BLACKLIST = [
     'axios-mock-adapter',
     'babel-eslint',
     'babel-jest',
+    'coveralls',
     'jest-cli',
     'react-addons-test-utils',
     'react-test-renderer',
