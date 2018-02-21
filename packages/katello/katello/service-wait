@@ -76,7 +76,7 @@ after_start() {
       # RHBZ 800534 for RHEL 6.x - pg sysvinit script return non-zero when PID is not created in 2 seconds
       RETVAL=0
       # and wait until port is really avaiable
-      for i in {1..$WAIT_MAX}; do netstat -ln | grep -q ":$POSTGRES_PORT\s" && break; sleep 1; done
+      for i in {1..$WAIT_MAX}; do ss -ln | grep -q ":$POSTGRES_PORT\s" && break; sleep 1; done
       # and create lock and pid files if they does not exist
       [ -f "/var/lock/subsys/postgresql" ] || touch "/var/lock/subsys/postgresql"
       [ -f "/var/run/postmaster.${POSTGRES_PORT}.pid" ] || head -n 1 "$POSTGRES_DATA/postmaster.pid" > "/var/run/postmaster.${POSTGRES_PORT}.pid"
@@ -92,7 +92,7 @@ before_stop() {
   case "$SERVICE" in
     tomcat6|tomcat)
       # RHBZ 789288 - wait until service port is available
-      for i in {1..$WAIT_MAX}; do netstat -ln | grep -q ":$TOMCAT_SERV_PORT\s" && break; sleep 1; done
+      for i in {1..$WAIT_MAX}; do ss -ln | grep -q ":$TOMCAT_SERV_PORT\s" && break; sleep 1; done
       ;;
   esac
 }

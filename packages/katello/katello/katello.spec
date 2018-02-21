@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    1.nightly%{?dist}
+Release:    2.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -196,10 +196,9 @@ Summary: Katello Service utilities
 Group: Applications/System
 
 # service-wait dependency
-Requires:       wget
 Requires:       curl
 Requires:       ruby
-Requires:       net-tools
+Requires:       /usr/sbin/ss
 Requires:       /bin/systemctl
 
 %description service
