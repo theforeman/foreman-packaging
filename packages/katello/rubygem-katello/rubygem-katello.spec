@@ -7,6 +7,10 @@
 %global release 1.nightly
 
 %define katello_ostree %{?scl_prefix}rubygem-%{gem_name}_ostree
+%define katello_yum %{?scl_prefix}rubygem-%{gem_name}_yum
+%define katello_puppet %{?scl_prefix}rubygem-%{gem_name}_puppet
+%define katello_docker %{?scl_prefix}rubygem-%{gem_name}_docker
+%define katello_deb %{?scl_prefix}rubygem-%{gem_name}_deb
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Katello
@@ -85,6 +89,34 @@ Summary:    Katello Ostree Plugin
 %description -n %{katello_ostree}
 This package provides the ostree plugin for rubygem-%{gem_name}.
 
+%package -n %{katello_yum}
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Katello Yum Plugin
+
+%description -n %{katello_yum}
+This package provides the Yum plugin for rubygem-%{gem_name}.
+
+%package -n %{katello_puppet}
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Katello Puppet Plugin
+
+%description -n %{katello_puppet}
+This package provides the puppet plugin for rubygem-%{gem_name}.
+
+%package -n %{katello_docker}
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Katello Docker Plugin
+
+%description -n %{katello_docker}
+This package provides the Docker plugin for rubygem-%{gem_name}.
+
+%package -n %{katello_deb}
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Katello Debian Plugin
+
+%description -n %{katello_deb}
+This package provides the Debian plugin for rubygem-%{gem_name}.
+
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
 %{?scl:scl enable %{scl} - <<EOF}
@@ -120,6 +152,11 @@ cp -a .%{gem_dir}/* \
 
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/lib/katello/repository_types/ostree.rb
+%exclude %{gem_instdir}/lib/katello/repository_types/yum.rb
+%exclude %{gem_instdir}/lib/katello/repository_types/file.rb
+%exclude %{gem_instdir}/lib/katello/repository_types/puppet.rb
+%exclude %{gem_instdir}/lib/katello/repository_types/docker.rb
+%exclude %{gem_instdir}/lib/katello/repository_types/deb.rb
 
 %license %{gem_instdir}/LICENSE.txt
 
@@ -129,5 +166,18 @@ cp -a .%{gem_dir}/* \
 
 %files -n %{katello_ostree}
 %{gem_instdir}/lib/katello/repository_types/ostree.rb
+
+%files -n %{katello_yum}
+%{gem_instdir}/lib/katello/repository_types/yum.rb
+%{gem_instdir}/lib/katello/repository_types/file.rb
+
+%files -n %{katello_puppet}
+%{gem_instdir}/lib/katello/repository_types/puppet.rb
+
+%files -n %{katello_docker}
+%{gem_instdir}/lib/katello/repository_types/docker.rb
+
+%files -n %{katello_deb}
+%{gem_instdir}/lib/katello/repository_types/deb.rb
 
 %changelog
