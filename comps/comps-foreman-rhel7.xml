@@ -192,6 +192,7 @@
       <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
+      <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-debug</packagereq>
