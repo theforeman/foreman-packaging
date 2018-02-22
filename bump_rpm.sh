@@ -11,7 +11,7 @@ SPEC_FILE=*.spec
 GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
 CURRENT_VERSION=$(rpmspec -P $SPEC_FILE | awk '/^Version:/ { print $2 }')
 
-TYPE=${1%%-*}
+TYPE=$(pwd | awk '/rubygem/ {print "rubygem"}')
 
 if [[ -z $2 ]] ; then
 	if [[ $TYPE == "rubygem" ]] ; then
