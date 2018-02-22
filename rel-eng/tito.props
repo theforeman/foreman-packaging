@@ -40,6 +40,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-css-loader
+  nodejs-d3
   nodejs-datatables.net
   nodejs-datatables.net-bs
   nodejs-debug
@@ -64,6 +65,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-js-tokens
   nodejs-jstz
   nodejs-lodash
+  nodejs-lodash.orderby
   nodejs-lodash-webpack-plugin
   nodejs-loose-envify
   nodejs-ms
@@ -77,6 +79,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-prop-types
   nodejs-raf
   nodejs-react
+  nodejs-reactabular-table
   nodejs-react-bootstrap
   nodejs-react-bootstrap-switch
   nodejs-react-c3js
@@ -96,8 +99,10 @@ whitelist = foreman-bootloaders-redhat
   nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
+  nodejs-sortabular
   nodejs-style-loader
   nodejs-symbol-observable
+  nodejs-table-resolver
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
@@ -190,6 +195,7 @@ whitelist = foreman
   rubygem-http-cookie
   rubygem-ipaddress
   rubygem-journald-logger
+  rubygem-journald-native
   rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
@@ -199,6 +205,7 @@ whitelist = foreman
   rubygem-little-plugger
   rubygem-locale
   rubygem-logging
+  rubygem-logging-journald
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mysql2
@@ -342,25 +349,17 @@ whitelist = rubygem-angular-rails-templates
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = puppet-foreman_scap_client
-  rubygem-algebrick
-  rubygem-apipie-params
   rubygem-chef-api
-  rubygem-concurrent-ruby-edge
-  rubygem-dynflow
-  rubygem-faraday
   rubygem-faraday_middleware
-  rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify
-  rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-radcli
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
-  rubygem-sequel
   rubygem-smart_proxy_abrt
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef

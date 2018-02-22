@@ -27,12 +27,9 @@ ensure_program() {
 
 generate_npm_package() {
   echo -n "Making directory..."
-  UPDATE=false
-  if [ -f "$PACKAGE_DIR"/*.spec ]; then
-    echo -n "Detected update..."
-    UPDATE=true
-    sed -n '/%changelog/,$p' $PACKAGE_DIR/*.spec > OLD_CHANGELOG
-    git rm -r $PACKAGE_DIR
+  if [[ $UPDATE == true ]] ; then
+    sed -n '/%changelog/,$p' $PACKAGE_NAME/*.spec > OLD_CHANGELOG
+    git rm -r $PACKAGE_NAME
   fi
   mkdir $PACKAGE_DIR
   echo "FINISHED"
@@ -41,7 +38,7 @@ generate_npm_package() {
   echo "FINISHED"
   echo -n "Copying specs..."
   cp npm2rpm/SPECS/* $PACKAGE_DIR
-  if [ "$UPDATE" = true ]; then
+  if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
     cat OLD_CHANGELOG >> $PACKAGE_DIR/*.spec
     sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_DIR/*.spec
@@ -87,10 +84,6 @@ add_npm_to_comps() {
   git add comps/
 }
 
-commit() {
-  git commit -m "Add $PACKAGE_NAME package"
-}
-
 # Main script
 
 if [[ -z $NPM_MODULE_NAME ]]; then
@@ -127,12 +120,23 @@ if [[ -z $STRATEGY ]] ; then
   echo "Found $DEPENDENCIES dependencies - using $STRATEGY strategy"
 fi
 
+if [ -f "$PACKAGE_NAME"/*.spec ]; then
+  echo -n "Detected update..."
+  UPDATE=true
+else
+  UPDATE=false
+fi
+
 generate_npm_package
-echo -n "Setting tito props..."
-add_to_tito_props
-echo "FINISHED"
-echo -e "Updating comps... - "
-add_npm_to_comps
-echo "FINISHED"
-commit
+if [[ $UPDATE == true ]] ; then
+  git commit -m "Bump $PACKAGE_NAME to $VERSION"
+else
+  echo -n "Setting tito props..."
+  add_to_tito_props
+  echo "FINISHED"
+  echo -e "Updating comps... - "
+  add_npm_to_comps
+  echo "FINISHED"
+  git commit -m "Add $PACKAGE_NAME package"
+fi
 echo "Done! Now review the generated file and send a pull request"

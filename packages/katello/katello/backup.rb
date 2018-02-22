@@ -87,7 +87,8 @@ module KatelloUtilities
         '/opt/puppetlabs/puppet/cache/foreman_cache_data',
         '/opt/puppetlabs/puppet/ssl/',
         '/var/lib/puppet/foreman_cache_data',
-        '/var/lib/puppet/ssl'
+        '/var/lib/puppet/ssl',
+        '/usr/share/foreman-proxy/.ssh/'
       ]
 
       scenario_answers = load_scenario_answers(@last_scenario)

@@ -99,6 +99,7 @@
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger</packagereq>
+      <packagereq type="default">tfm-rubygem-journald-native</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
@@ -108,6 +109,7 @@
       <packagereq type="default">tfm-rubygem-little-plugger</packagereq>
       <packagereq type="default">tfm-rubygem-locale</packagereq>
       <packagereq type="default">tfm-rubygem-logging</packagereq>
+      <packagereq type="default">tfm-rubygem-logging-journald</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2</packagereq>
@@ -191,6 +193,7 @@
       <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
+      <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-datatables.net</packagereq>
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-debug</packagereq>
@@ -216,6 +219,7 @@
       <packagereq type="default">nodejs-jstz</packagereq>
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-lodash-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-lodash.orderby</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
       <packagereq type="default">nodejs-ms</packagereq>
       <packagereq type="default">nodejs-multiselect</packagereq>
@@ -238,6 +242,7 @@
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-password-strength</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-reactabular-table</packagereq>
       <packagereq type="default">nodejs-recompose</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-form</packagereq>
@@ -247,8 +252,10 @@
       <packagereq type="default">nodejs-sass-loader</packagereq>
       <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
+      <packagereq type="default">nodejs-sortabular</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-symbol-observable</packagereq>
+      <packagereq type="default">nodejs-table-resolver</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
@@ -377,6 +384,7 @@
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
@@ -386,6 +394,7 @@
       <packagereq type="default">tfm-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-locale-doc</packagereq>
       <packagereq type="default">tfm-rubygem-logging-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-logging-journald-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mysql2-doc</packagereq>

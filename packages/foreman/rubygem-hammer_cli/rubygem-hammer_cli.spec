@@ -10,8 +10,8 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.0
-Release: 2%{?dist}
+Version: 0.12.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli
@@ -20,7 +20,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 1.0
-Requires: %{?scl_prefix}rubygem(clamp) < 2.0
+Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
 Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(unicode-display_width)
 Requires: %{?scl_prefix}rubygem(awesome_print)
@@ -109,6 +109,10 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.12.0-1
+- Update rubygem-hammer_cli to 0.12.0 (martin.bacovsky@gmail.com)
+- Restructure foreman packages to prepare for obal (pcreech@redhat.com)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Add rubygem-unicode (github@kohlvanwijngaarden.nl)

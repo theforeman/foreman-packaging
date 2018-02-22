@@ -7,7 +7,7 @@
 
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -65,7 +65,9 @@ mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/ansible.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/ansible.yml
 
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.plugins.d/foreman_ansible_core.rb %{buildroot}/%{smart_proxy_dynflow_bundlerd_dir}
+cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
+gem 'foreman_ansible_core'
+EOF
 
 %files
 %dir %{gem_instdir}
@@ -85,6 +87,10 @@ cp -pa .%{gem_instdir}/bundler.plugins.d/foreman_ansible_core.rb %{buildroot}/%{
 %doc %{gem_docdir}
 
 %changelog
+* Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-1
+- Update smart_proxy_ansible to 2.0.1 (me@daniellobato.me)
+- Restructure plugin packages to prepare for obal (pcreech@redhat.com)
+
 * Fri Feb 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.0-1
 - Update smart_proxy_ansible to 2.0.0 (me@daniellobato.me)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
