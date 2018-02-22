@@ -28,8 +28,8 @@ ensure_program() {
 generate_npm_package() {
   echo -n "Making directory..."
   if [[ $UPDATE == true ]] ; then
-    sed -n '/%changelog/,$p' $PACKAGE_NAME/*.spec > OLD_CHANGELOG
-    git rm -r $PACKAGE_NAME
+    sed -n '/%changelog/,$p' $PACKAGE_DIR/*.spec > OLD_CHANGELOG
+    git rm -r $PACKAGE_DIR
   fi
   mkdir $PACKAGE_DIR
   echo "FINISHED"
@@ -120,7 +120,7 @@ if [[ -z $STRATEGY ]] ; then
   echo "Found $DEPENDENCIES dependencies - using $STRATEGY strategy"
 fi
 
-if [ -f "$PACKAGE_NAME"/*.spec ]; then
+if [ -f "$PACKAGE_DIR"/*.spec ]; then
   echo -n "Detected update..."
   UPDATE=true
 else
