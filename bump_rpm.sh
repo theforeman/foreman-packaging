@@ -7,14 +7,13 @@ fi
 
 cd $1
 
+PACKAGE_NAME=$(basename $1)
 SPEC_FILE=*.spec
 GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
 CURRENT_VERSION=$(rpmspec -P $SPEC_FILE | awk '/^Version:/ { print $2 }')
 
-TYPE=${1%%-*}
-
 if [[ -z $2 ]] ; then
-	if [[ $TYPE == "rubygem" ]] ; then
+	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
 	else
 		echo "Unknown package type for $1"
