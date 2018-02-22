@@ -1,58 +1,52 @@
 %global npm_name c3
-
-%{?nodejs_find_provides_and_requires}
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
 Version: 0.4.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: D3-based reusable chart library
 License: MIT
-URL: https://github.com/masayuki0812/c3
-Source0: http://registry.npmjs.org/c3/-/c3-0.4.11.tgz
-Source1: http://registry.npmjs.org/d3/-/d3-3.5.17.tgz
-Source2: c3-0.4.11-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: npm
+Group: Development/Libraries
+URL: https://github.com/masayuki0812/c3#readme
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
-
-%if 0%{?fedora} >= 19
+Requires: npm(d3) >= 3.5.0
+Requires: npm(d3) < 3.6.0
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-
-Provides: npm(%{npm_name}) = %{version}
-Provides: bundled-npm(c3) = 0.4.11
-Provides: bundled-npm(d3) = 3.5.17
-AutoReq: no
-AutoProv: no
 
 %description
 %{summary}
 
 %prep
-mkdir npm_cache
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
-done
-
-%setup -T -q -a 2 -D -n npm_cache
-
-%build
-npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+%setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cd node_modules/c3
-cp -pfr .editorconfig .jshintrc .npmignore .travis.yml CONTRIBUTING.md Gruntfile.coffee LICENSE README.md bower.json c3.css c3.js c3.min.css c3.min.js component.json extensions htdocs karma.conf.js package.json spec src node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pf CONTRIBUTING.md LICENSE README.md ../../
+cp -pfr Gruntfile.coffee %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr c3.css %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr c3.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr c3.min.css %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr c3.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr component.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr extensions %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr spec %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+
+%nodejs_symlink_deps
+
+%if 0%{?enable_tests}
+%check
+%{nodejs_symlink_deps} --check
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%doc LICENSE
+%license LICENSE
 %doc CONTRIBUTING.md
 %doc README.md
+%doc htdocs
 
 %changelog
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.4.11-1
