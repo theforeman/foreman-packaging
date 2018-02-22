@@ -103,6 +103,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.40.0-1
+- Bump nodejs-patternfly to 3.40.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.39.0-1
 - Bump nodejs-patternfly to 3.39.0 (ewoud@kohlvanwijngaarden.nl)
 - Restructure foreman packages to prepare for obal (pcreech@redhat.com)
