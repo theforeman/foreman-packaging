@@ -98,6 +98,7 @@
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
+      <packagereq type="default">tfm-rubygem-journald-logger</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
@@ -382,6 +383,7 @@
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
