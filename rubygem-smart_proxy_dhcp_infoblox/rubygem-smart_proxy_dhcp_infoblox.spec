@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.12-1
+- Updated rubygem-smart_proxy_dhcp_infoblox to 0.0.12 (dmitri@appliedlogic.ca)
+
 * Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.10-1
 - Updated smart_proxy_dhcp_infoblox to 0.0.10 (dmitri@appliedlogic.ca)
 
