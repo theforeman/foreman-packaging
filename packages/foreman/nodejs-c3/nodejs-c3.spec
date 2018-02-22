@@ -49,6 +49,10 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc htdocs
 
 %changelog
+* Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.11-2
+- Unbundle nodejs-c3 (ewoud@kohlvanwijngaarden.nl)
+- Restructure foreman packages to prepare for obal (pcreech@redhat.com)
+
 * Fri Oct 14 2016 Dominic Cleal <dominic@cleal.org> 0.4.11-1
 - new package built with tito
 
