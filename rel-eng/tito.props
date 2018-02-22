@@ -40,6 +40,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-css-loader
+  nodejs-d3
   nodejs-datatables.net
   nodejs-datatables.net-bs
   nodejs-debug
