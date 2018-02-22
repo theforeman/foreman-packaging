@@ -20,6 +20,7 @@ For npm modules (nodejs- packages) you will need:
 
 To build locally or release RPMs from this repo, you also require:
 
+* [obal](https://github.com/theforeman/obal) 0.0.2 or higher
 * [tito](https://github.com/dgoodwin/tito) 0.6.1 or higher
 * [mock](http://fedoraproject.org/wiki/Projects/Mock) or koji client and an account (certificate) on koji.katello.org
 * scl-utils-build package (Fedora or Red Hat repositories)
@@ -34,7 +35,7 @@ Run:
 
 ## HOWTO: test a package
 
-Before tagging a build, please test it.  Using tito's --test flag, you can
+Before releasing a build, please test it.  Using tito's --test flag, you can
 generate test (S)RPMs by first committing your changes locally, then it will
 use the SHA in the RPM version.
 
@@ -49,8 +50,6 @@ the packages locally and quickly.
 
 The last argument is the name of the mock config in mock/, which includes SCL
 and non-SCL variants.
-
-**Notice:** tito works only on committed changes! If you are changing the `.spec` files, make sure you commit those changes before running `tito build` command.
 
 ### With koji access
 
@@ -79,33 +78,6 @@ Using a local git checkout, change `source_dir` as appropriate:
 
 * Core packages: `tito release --scratch --arg source_dir=~/foreman koji-foreman-nightly`
 * Plugins: `tito release --scratch --arg source_dir=~/foreman_bootdisk koji-foreman-plugins-nightly`
-
-### Alternative method with koji access
-
-lzap's [sbu utility](https://github.com/lzap/bin-public/blob/master/sbu) is
-good for building test packages, especially with sources from elsewhere:
-
-1. sbu (defaults for EL6 with SCL)
-1. sbu katello fc24 foreman-nightly-fedora24
-1. sbu katello el6 foreman-nightly-nonscl-rhel6
-
-Most packages should build for EL6 with SCL and Fedora 19.
-
-To be able to build foreman core packages with sbu, one needs to create script
-for each project name. It's purpose is to generate and copy source tarball to
-SOURCES/ directory. Typical script looks like:
-
-    $ cat .git/sbu-sources/foreman-selinux
-    #!/bin/bash
-    DIR=$HOME/work/$(basename $0)
-    pushd $DIR
-    rake pkg:generate_source
-    popd
-    mv -v $DIR/pkg/*.tar.{bz2,gz} $HOME/rpmbuild/SOURCES/ 2>/dev/null
-
-You'll also need an alias `kojikat` to point to:
-
-    koji -c ~/.koji/katello-config build
 
 ## HOWTO: create a new core package or dependency (gems)
 
@@ -205,20 +177,14 @@ reference source files directly on rubygems.org etc, or perhaps set up a kind
 of lookaside cache in the future.  For now, we use the [special web remote](http://git-annex.branchable.com/tips/using_the_web_as_a_special_remote/)
 with URLs to all of our source files available on the web.
 
-tito's git-annex support will automatically (lazily) fetch files and cache
-them in your local git checkout as and when you build packages.
+Obal's custom git-annex support for tito will automatically (lazily) fetch
+files and cache them in your local git checkout as and when you build packages.
 
-tito works in two key stages: tagging and releasing.  For every RPM build, a
-tag needs to be created with tito (i.e. `tito tag --keep-version`) and this
-git tag is pushed to the central repository.  tito helps by creating a
-%changelog entry and tags in standard formats etc.
+tito works in two key stages: tagging and releasing.  Obal's custom git-annex
+support helps bypass the tagging stage.
 
-When a tag is present in the central repository for a version, tito lets you
-build a SRPM and submit to koji, which builds the binary package (whereupon it
-gets pulled into our yum repositories).  This tagging strategy means we can
-rebuild a package from any point in the repository's history, and since the
-git-annex metadata is part of the tagged commit, even the binary content is
-effectively under source control.
+tito lets you build a SRPM and submit to koji, which builds the binary package
+(whereupon it gets pulled into our yum repositories).
 
 This repository is branched like Foreman itself, with rpm/1.x branches
 for major releases.
@@ -233,6 +199,25 @@ To find tito build targets do this:
 To build a new release package for foreman project for example, do this:
 
     $ tito release koji-foreman
+
+## Releasing a package
+
+After a PR has been merged to add or update a package, then the package should be released.  In
+case it's a new package, be sure to add it to the correct koji tags as well.  [Here's a helper script](https://github.com/theforeman/foreman-packaging/blob/rpm/develop/rel-eng/compare-with-tags.rb)
+
+1. Switch to the directory for the package to be released, i.e. for the rubygem-mysql2 package:
+
+    `$ cd packages/foreman/rubygem-mysql2/`
+
+1. Do a scratch build of the release first:
+
+    `$ tito release --scratch koji-foreman koji-foreman-plugins`
+
+1. Verify package built successfully in koji, and then release:
+
+    `$ tito release koji-foreman koji-foreman-plugins`
+
+* This uses local filesystem, so please be sure your using a clean checkout with no local changes
 
 ## License
 
