@@ -1,6 +1,6 @@
 Name:           katello-repos
 Version:        3.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -55,7 +55,12 @@ install -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/yum.repos.d/
 
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
-REPO_VERSION=$(python -c "print 'nightly' if 'nightly' in '%{release}' else '.'.join('%{version}'.split('.', 2)[:2])")
+if [[ '%{release}' == *"nightly"* ]];then
+REPO_VERSION='nightly'
+else
+REPO_VERSION=$(python -c "'.'.join('%{version}'.split('.', 2)[:2])")
+fi
+
 REPO_NAME=$(python -c  "print '${REPO_VERSION}'.title()")
 
 for repofile in %{buildroot}%{_sysconfdir}/yum.repos.d/*.repo; do
