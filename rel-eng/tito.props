@@ -350,10 +350,12 @@ whitelist = rubygem-angular-rails-templates
 disttag = .el7
 whitelist = puppet-foreman_scap_client
   rubygem-chef-api
+  rubygem-faraday
   rubygem-faraday_middleware
   rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify
+  rubygem-mysql2
   rubygem-newt
   rubygem-openscap
   rubygem-radcli
