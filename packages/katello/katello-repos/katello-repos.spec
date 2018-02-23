@@ -18,7 +18,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires: sed
-BuildRequires: python
 
 %description
 Defines yum repositories for Katello and its sub projects, Candlepin and Pulp.
@@ -59,12 +58,13 @@ install -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/yum.repos.d/
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 if [[ '%{release}' == *"nightly"* ]];then
-REPO_VERSION='nightly'
+    REPO_VERSION='nightly'
+    REPO_NAME='Nightly'
 else
-REPO_VERSION=$(python -c "'.'.join('%{version}'.split('.', 2)[:2])")
+    # Get major.minor from the version
+    REPO_VERSION="$(echo '%{version}' | sed 's/\([^\.]\+\.[^\.]\+\)\..\+/\1/')"
+    REPO_NAME=$REPO_VERSION
 fi
-
-REPO_NAME=$(python -c  "print '${REPO_VERSION}'.title()")
 
 for repofile in %{buildroot}%{_sysconfdir}/yum.repos.d/*.repo; do
     trimmed_dist=`echo %{dist} | sed 's/^\.//'`
