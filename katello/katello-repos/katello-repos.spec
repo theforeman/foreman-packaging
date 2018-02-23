@@ -86,6 +86,11 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-3.rc1
+- Bump katello-repos release (ericdhelms@gmail.com)
+- Drop python as a BuildRequires for katello-repos
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2.rc1
 - Switch to Pulp community releases (ericdhelms@gmail.com)
 - Add .rc1 to katello-repos spec file (zhunting@redhat.com)
