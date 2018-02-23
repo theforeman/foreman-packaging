@@ -4,7 +4,7 @@
 
 Name:           katello-repos
 Version:        3.6.0
-Release:        1%{?prever}%{?dist}
+Release:        2%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -85,6 +85,10 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2.rc1
+- Switch to Pulp community releases (ericdhelms@gmail.com)
+- Add .rc1 to katello-repos spec file (zhunting@redhat.com)
+
 * Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-1
 - new package built with tito
 
