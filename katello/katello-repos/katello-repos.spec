@@ -74,6 +74,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-1
+- new package built with tito
+
 * Wed Jul 05 2017 Eric D. Helms <ericdhelms@gmail.com> 3.5.0-1.nightly
 - Bump specs to 3.5.0 (ericdhelms@gmail.com)
 - Update katello-repos.spec so that repo files are config files
