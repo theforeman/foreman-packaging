@@ -79,6 +79,10 @@ cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_prox
 %doc %{gem_docdir}
 
 %changelog
+* Mon Feb 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.10-1
+- Bump rubygem-smart_proxy_dynflow{,_core} to 0.1.10 (inecas@redhat.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+
 * Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.7-1
 - Update smart_proxy_dynflow to 0.1.7 (inecas@redhat.com)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
