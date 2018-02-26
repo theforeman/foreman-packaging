@@ -62,6 +62,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Feb 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.0-1
+- Bump nodejs-patternfly-react to 1.10.0 (ewoud@kohlvanwijngaarden.nl)
+
 * Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.0-1
 - Bump nodejs-patternfly-react to 1.6.0 (ewoud@kohlvanwijngaarden.nl)
 - Restructure foreman packages to prepare for obal (pcreech@redhat.com)
