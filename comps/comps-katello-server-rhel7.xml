@@ -16,6 +16,10 @@
        <packagereq type="default">foreman-proxy-content</packagereq>
        <packagereq type="default">tfm-rubygem-katello</packagereq>
        <packagereq type="default">tfm-rubygem-katello_ostree</packagereq>
+       <packagereq type="default">tfm-rubygem-katello_yum</packagereq>
+       <packagereq type="default">tfm-rubygem-katello_puppet</packagereq>
+       <packagereq type="default">tfm-rubygem-katello_docker</packagereq>
+       <packagereq type="default">tfm-rubygem-katello_deb</packagereq>
        <packagereq type="default">katello-certs-tools</packagereq>
        <packagereq type="default">katello-common</packagereq>
        <packagereq type="default">katello-debug</packagereq>
