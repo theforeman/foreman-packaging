@@ -6,8 +6,6 @@
 %global mainver 3.7.0
 %global release 1.nightly
 
-%define katello_ostree %{?scl_prefix}rubygem-%{gem_name}_ostree
-
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Katello
 
@@ -62,6 +60,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 
+Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
+
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(katello) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -77,13 +77,6 @@ Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
 This package contains documentation for rubygem-%{gem_name}.
-
-%package -n %{katello_ostree}
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Katello Ostree Plugin
-
-%description -n %{katello_ostree}
-This package provides the ostree plugin for rubygem-%{gem_name}.
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
@@ -119,15 +112,11 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/public/assets/bastion_katello
 
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/lib/katello/repository_types/ostree.rb
 
 %license %{gem_instdir}/LICENSE.txt
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-
-%files -n %{katello_ostree}
-%{gem_instdir}/lib/katello/repository_types/ostree.rb
 
 %changelog
