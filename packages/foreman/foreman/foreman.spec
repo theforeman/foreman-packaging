@@ -339,8 +339,6 @@ BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(brace) >= 0.10.0
 BuildRequires: npm(brace) < 1.0.0
-BuildRequires: npm(c3) >= 0.4.11
-BuildRequires: npm(c3) < 1.0.0
 BuildRequires: npm(datatables.net) >= 1.10.12
 BuildRequires: npm(datatables.net) < 1.11.0
 BuildRequires: npm(datatables.net-bs) >= 1.10.12
@@ -367,7 +365,7 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.31.2
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 1.5.0
+BuildRequires: npm(patternfly-react) >= 1.10.0
 BuildRequires: npm(patternfly-react) < 2.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -695,8 +693,6 @@ Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
 Requires: npm(brace) >= 0.10.0
 Requires: npm(brace) < 1.0.0
-Requires: npm(c3) >= 0.4.11
-Requires: npm(c3) < 1.0.0
 Requires: npm(datatables.net) >= 1.10.12
 Requires: npm(datatables.net) < 1.11.0
 Requires: npm(datatables.net-bs) >= 1.10.12
@@ -723,7 +719,7 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.31.2
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 1.5.0
+Requires: npm(patternfly-react) >= 1.10.0
 Requires: npm(patternfly-react) < 2.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -858,6 +854,24 @@ Meta Package to install requirements for sqlite support
 
 %files sqlite
 %{_datadir}/%{name}/bundler.d/sqlite.rb
+
+%description
+Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
+Foreman is based on Ruby on Rails, and this package bundles Rails and all
+plugins required for Foreman to work.
+
+%package telemetry
+Summary: Foreman telemetry support
+Group:  Applications/System
+Requires: %{?scl_prefix_ror}rubygem(prometheus-client)
+Requires: %{?scl_prefix_ror}rubygem(statsd-instrument)
+Requires: %{name} = %{version}-%{release}
+
+%description telemetry
+Meta Package to install requirements for telemetry support
+
+%files telemetry
+%{_datadir}/%{name}/bundler.d/telemetry.rb
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
