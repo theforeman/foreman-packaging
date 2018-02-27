@@ -213,6 +213,7 @@
       <packagereq type="default">nodejs-isomorphic-fetch</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
+      <packagereq type="default">nodejs-jquery-ui</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
       <packagereq type="default">nodejs-jquery.cookie</packagereq>
       <packagereq type="default">nodejs-js-tokens</packagereq>
