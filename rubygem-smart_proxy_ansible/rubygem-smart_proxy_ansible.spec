@@ -7,16 +7,16 @@
 
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 1.1.1
+Version: 2.0.2
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?rhel:tfm-}rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) >= 1.1.0
-Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) < 2.0.0
+Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) >= 2.0.2
+Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) < 3.0.0
 Requires: foreman-proxy >= 1.11.0
 Requires: rubygem(smart_proxy_dynflow) >= 0.1
 Requires: rubygem(smart_proxy_dynflow) < 1.0
@@ -26,13 +26,8 @@ Requires: ruby(rubygems)
 
 Requires: ansible >= 2.2
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
 Requires: ruby(release)
 BuildRequires: ruby(release)
-%endif
 BuildRequires: rubygems-devel
 BuildArch: noarch
 
@@ -70,7 +65,9 @@ mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/ansible.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/ansible.yml
 
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.plugins.d/foreman_ansible_core.rb %{buildroot}/%{smart_proxy_dynflow_bundlerd_dir}
+cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
+gem 'foreman_ansible_core'
+EOF
 
 %files
 %dir %{gem_instdir}
