@@ -62,6 +62,10 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Mar 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.11.0-1
+- Refs #22724 - Bump nodejs-patternfly-react to 1.11.0
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Mon Feb 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.0-1
 - Bump nodejs-patternfly-react to 1.10.0 (ewoud@kohlvanwijngaarden.nl)
 
