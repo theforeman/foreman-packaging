@@ -1,3 +1,21 @@
+ruby-smart-proxy-ansible (2.0.2-1) stable; urgency=low
+
+  * 2.0.2 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 01 Mar 2018 10:05:54 +0100
+
+ruby-smart-proxy-ansible (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Mon, 12 Feb 2018 14:31:24 +0100
+
+ruby-smart-proxy-ansible (2.0.0-1) stable; urgency=low
+
+  * 2.0.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 01 Feb 2018 17:20:54 +0100
+
 ruby-smart-proxy-ansible (1.1.1-1) stable; urgency=low
 
   * 1.1.1 released
