@@ -7,7 +7,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.1
+Version: 0.12.0
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Fri Mar 02 2018 Eric D. Helms <ericdhelms@gmail.com> 0.12.0-1
+- Release rubygem-foreman-tasks 0.12.0
+
 * Tue Feb 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.1-1
 - update foreman-tasks to 0.11.1 (kvedulv@kvedulv.de)
 - Restructure plugin packages to prepare for obal (pcreech@redhat.com)
