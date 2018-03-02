@@ -16,19 +16,19 @@
 
 Summary:    DHCP browser plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.7
-Release:    4%{?foremandist}%{?dist}
+Version:    0.0.8
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_dhcp_browser
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.0
+Requires:   foreman >= 1.12.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 
-Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
+Requires: %{?scl_prefix}rubygem(deface) >= 0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
