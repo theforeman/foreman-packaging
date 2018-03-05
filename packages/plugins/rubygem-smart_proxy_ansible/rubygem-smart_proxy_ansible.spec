@@ -87,6 +87,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 05 2018 Daniel Lobato Garcia <me@daniellobato.me> - 2.0.2-1
+- Update smart-proxy-ansible to 2.0.2
+
 * Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-1
 - Update smart_proxy_ansible to 2.0.1 (me@daniellobato.me)
 - Restructure plugin packages to prepare for obal (pcreech@redhat.com)
