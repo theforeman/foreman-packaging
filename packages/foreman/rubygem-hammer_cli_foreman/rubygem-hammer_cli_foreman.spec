@@ -8,7 +8,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.0
+Version: 0.12.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -81,6 +81,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 05 2018 Martin Bacovsky <martin.bacovsky@gmail.com> 0.12.1-1
+- Update rubygem-hammer_cli_foreman to 0.12.1 (martin.bacovsky@gmail.com)
+
 * Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.12.0-1
 - Update rubygem-hammer_cli_foreman to 0.12.0 (martin.bacovsky@gmail.com)
 - Restructure foreman packages to prepare for obal (pcreech@redhat.com)
