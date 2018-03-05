@@ -87,6 +87,10 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.2-1
+- Update smart-proxy-ansible to 2.0.2 (me@daniellobato.me)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Mon Feb 13 2017 Dominic Cleal <dominic@cleal.org> 1.1.1-1
 - Update smart_proxy_ansible to 1.1.1 (me@daniellobato.me)
 
