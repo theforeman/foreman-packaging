@@ -131,6 +131,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/lib/katello/repository_types/ostree.rb
 
 %changelog
+* Tue Mar 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0.1.rc2-0.1.rc2
+- Update Katello to 3.6.0.1-rc2 (zhunting@redhat.com)
+
 * Thu Feb 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0.rc1-0.1.rc1
 - new package built with tito
 
