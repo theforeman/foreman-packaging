@@ -5,7 +5,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.34
+Version: 0.8.36
 Release: 2%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Tue Mar 06 2018 Adam Ruzicka <aruzicka@redhat.com> 0.8.36-1
+- Update Dynflow to 0.8.36 (aruzicka@redhat.com)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.34-2
 - Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
 
