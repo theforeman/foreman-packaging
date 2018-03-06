@@ -1,6 +1,6 @@
 Name: katello-host-tools
 Version: 3.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -87,7 +87,7 @@ Requires: python2-tracer >= 0.6.12
 Adds Tracer functionality to a client managed by katello-host-tools
 
 %prep
-%setup -q -n katello-agent-%{version}
+%setup -q -n katello-host-tools-%{version}
 
 %build
 pushd src
@@ -187,6 +187,9 @@ exit 0
 %{_prefix}/lib/yum-plugins/tracer_upload.py*
 
 %changelog
+* Tue Mar 6 2018 Jonathon Turel <jturel@redhat.com> 3.1.0-3
+- Fix directory used by setup macro
+
 * Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 3.1.0-2
 - new package built with tito
 
