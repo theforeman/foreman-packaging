@@ -6,7 +6,7 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.4
+Version: 2.1.2
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
@@ -34,6 +34,8 @@ BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.4.4
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
+BuildRequires: npm(react-json-tree) >= 0.1.1
+BuildRequires: npm(react-json-tree) < 1.0
 BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: foreman-assets
 
@@ -85,6 +87,10 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_instdir}/test
 
 %files doc
