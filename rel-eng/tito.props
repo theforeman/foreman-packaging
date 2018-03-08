@@ -61,6 +61,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-style-loader
+  nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid

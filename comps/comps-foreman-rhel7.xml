@@ -209,6 +209,7 @@
       <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
       <packagereq type="default">nodejs-style-loader</packagereq>
+      <packagereq type="default">nodejs-uglifyjs-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
