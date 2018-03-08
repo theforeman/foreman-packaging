@@ -14,7 +14,9 @@ foreman_packages:
   hosts:
     foreman:
       releasers:
-      - koji-foreman-nightly
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_develop"
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
@@ -65,8 +67,16 @@ foreman_packages:
     rubygem-gettext_i18n_rails_js: {}
     rubygem-google-api-client: {}
     rubygem-gridster-rails: {}
-    rubygem-hammer_cli: {}
-    rubygem-hammer_cli_foreman: {}
+    rubygem-hammer_cli:
+      releasers:
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_hammer_cli"
+    rubygem-hammer_cli_foreman:
+      releasers:
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_hammer_cli_foreman"
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-hirb: {}
@@ -143,14 +153,20 @@ foreman_packages:
     foreman-bootloaders-redhat: {}
     foreman-installer:
       releasers:
-      - koji-foreman-nightly
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=packaging_trigger_installer_develop"
     foreman-proxy:
       releasers:
-      - koji-foreman-nightly
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_proxy_develop"
     foreman-release-scl: {}
     foreman-selinux:
       releasers:
-      - koji-foreman-nightly
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=packaging_trigger_selinux_develop"
     nodejs-axios: {}
     nodejs-babel-cli: {}
     nodejs-babel-core: {}
@@ -264,7 +280,11 @@ katello_packages:
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello: {}
     rubygem-jenkins_api_client: {}
-    rubygem-katello: {}
+    rubygem-katello:
+      releasers:
+        - koji-katello-jenkins
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_katello_core"
     rubygem-mixlib-shellout: {}
     rubygem-qpid_messaging: {}
     rubygem-robotex: {}
