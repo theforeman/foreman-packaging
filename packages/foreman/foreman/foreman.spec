@@ -322,6 +322,8 @@ BuildRequires: npm(style-loader) < 1.0.0
 #BuildRequires: npm(stylelint) < 8.0.0
 #BuildRequires: npm(stylelint-config-standard) >= 16.0.0
 #BuildRequires: npm(stylelint-config-standard) < 17.0.0
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
 BuildRequires: npm(url-loader) >= 0.5.7
 BuildRequires: npm(url-loader) < 1.0.0
 BuildRequires: npm(webpack) >= 3.4.1
@@ -365,8 +367,7 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.31.2
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 1.10.0
-BuildRequires: npm(patternfly-react) < 2.0.0
+BuildRequires: npm(patternfly-react) = 1.11.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.2.0
@@ -676,6 +677,8 @@ Requires: npm(style-loader) < 1.0.0
 #Requires: npm(stylelint) < 8.0.0
 #Requires: npm(stylelint-config-standard) >= 16.0.0
 #Requires: npm(stylelint-config-standard) < 17.0.0
+Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
 Requires: npm(url-loader) >= 0.5.7
 Requires: npm(url-loader) < 1.0.0
 Requires: npm(webpack) >= 3.4.1
@@ -719,8 +722,7 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.31.2
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 1.10.0
-Requires: npm(patternfly-react) < 2.0.0
+Requires: npm(patternfly-react) = 1.11.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.2.0
