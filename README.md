@@ -79,29 +79,32 @@ Using a local git checkout, change `source_dir` as appropriate:
 * Core packages: `tito release --scratch --arg source_dir=~/foreman koji-foreman-nightly`
 * Plugins: `tito release --scratch --arg source_dir=~/foreman_bootdisk koji-foreman-plugins-nightly`
 
-## HOWTO: create a new core package or dependency (gems)
+## HOWTO: Add a package
+
+### Adding gem packages
 
 1. Check if it's available in Fedora:
-  * https://apps.fedoraproject.org/packages/NAME
-  * http://www.isitfedoraruby.com/fedorarpms/NAME
-  * If only building non-SCL and it's in both Fedora and EPEL, stop now
+   * https://apps.fedoraproject.org/packages/NAME
+   * http://www.isitfedoraruby.com/fedorarpms/NAME
+   * If only building non-SCL and it's in both Fedora and EPEL, stop now
 1. If available in Fedora, copy the spec from the SCM link on the left
 1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
   `./add_gem_package.sh GEM_NAME TEMPLATE TITO_TAG`
-1. Add the package to `package_manifest.yaml`. Amend the commit.
+1. Add the package to `package_manifest.yaml`
+1. Amend the commit
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
-  * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
-  * Ensure summary is under 72 characters
-  * Verify everything is added properly
-  * Amend any changes to the existing commit
+   * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
+   * Ensure summary is under 72 characters
+   * Verify everything is added properly
+   * Amend any changes to the existing commit
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
-## HOWTO: create a new core package or dependency (npm modules)
+### Adding npm packages
 
 First, you need to decide if your package will include bundled dependencies or not.
 If you can resolve all the npm modules dependencies tree using the packages available, then
@@ -114,26 +117,38 @@ In both cases:
 
 1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Generate the spec and download the sources automatically with npm2rpm.
-  * For packages without dependencies - `./add_npm_package.sh example version single`
-  * For packages that bundle dependencies - `./add_npm_package.sh example version bundle`
+   * For packages without dependencies - `./add_npm_package.sh example version single`
+   * For packages that bundle dependencies - `./add_npm_package.sh example version bundle`
 1. This should have created a nodejs-example directory with the packages needed, the spec,
 and the cache if it's a bundled package. It should have modified tito.props, comps and
 added everything to git, including a commit.
-1. Add the package to `package_manifest.yaml`. Amend the commit.
+1. Add the package to `package_manifest.yaml`
+1. Amend the commit
 1. Update the spec if needed (e.g: for peer dependencies). Amend the commit if needed.
 1. Follow the "test a package" section above until it builds for all targeted platforms and
 required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
-## HOWTO: update a gem package
+## HOWTO: Updating packages
+
+### Updating gem packages
 
 1. Run the update script
-  1. `./bump_rpm.sh rubygem-foo`
-1. Check the output of [gem-compare](https://rubygems.org/gems/gem-compare)
-  1. update `Requires` to match changes in runtime dependencies
-  1. add/remove entries in %files if required for new root files
-1. Commit the changes
-  1. `git commit -m "Update NAME to VERSION"`
+   * `./bump_rpm.sh rubygem-foo`
+1. Check the output
+   * update `Requires` to match changes in runtime dependencies
+   * add/remove entries in `%files` if required for new root files
+1. Amend the commit if needed
+1. Follow the "test a package" section above until it builds for all
+   targeted platforms and required SCL + non-SCL modes.
+1. Submit a pull request against `rpm/develop`
+
+### Updating npm packages
+
+1. Run the update script
+   * `./add_npm_package.sh PACKAGE`
+1. Verify the changes
+1. Amend the commit if needed
 1. Follow the "test a package" section above until it builds for all
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
