@@ -92,6 +92,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-select2
   nodejs-style-loader
   nodejs-symbol-observable
+  nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
