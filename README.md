@@ -90,6 +90,7 @@ Using a local git checkout, change `source_dir` as appropriate:
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
   `./add_gem_package.sh GEM_NAME TEMPLATE TITO_TAG`
+1. Add the package to `package_manifest.yaml`. Amend the commit.
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
   * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
@@ -118,6 +119,7 @@ In both cases:
 1. This should have created a nodejs-example directory with the packages needed, the spec,
 and the cache if it's a bundled package. It should have modified tito.props, comps and
 added everything to git, including a commit.
+1. Add the package to `package_manifest.yaml`. Amend the commit.
 1. Update the spec if needed (e.g: for peer dependencies). Amend the commit if needed.
 1. Follow the "test a package" section above until it builds for all targeted platforms and
 required non-SCL modes.
