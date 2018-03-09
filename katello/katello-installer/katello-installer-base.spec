@@ -117,6 +117,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Thu Mar 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-1.rc2
+- Add Katello-installer-3.6.0rc2 (zhunting@redhat.com)
+
 * Thu Feb 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-1.rc1
 - new package built with tito
 
