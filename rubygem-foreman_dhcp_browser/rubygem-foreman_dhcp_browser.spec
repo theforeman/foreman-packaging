@@ -91,6 +91,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.8-1
+- update foreman_dhcp_browser to 0.0.8 (kvedulv@kvedulv.de)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.7-4
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
