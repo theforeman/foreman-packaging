@@ -99,6 +99,9 @@ exit 0
 
 
 %changelog
+* Wed Mar 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.2-1
+- Bump foreman_ansible to 1.5.2 (me@daniellobato.me)
+
 * Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.6-1
 - Update foreman_ansible to 1.4.6 (me@daniellobato.me)
 
