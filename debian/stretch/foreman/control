@@ -240,3 +240,15 @@ Description: metapackage providing telemetry dependencies for Foreman
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-journald
+Architecture: all
+Section: web
+Priority: extra
+Build-Depends: libsystemd-dev
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
+Description: metapackage providing journald dependencies for Foreman
+ This package provides journald logging dependencies for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
