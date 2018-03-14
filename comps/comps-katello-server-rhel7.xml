@@ -26,7 +26,6 @@
        <packagereq type="default">pulp-katello</packagereq>
        <packagereq type="default">katello-installer-base</packagereq>
        <packagereq type="default">foreman-installer-katello</packagereq>
-       <packagereq type="default">foreman-installer-katello-devel</packagereq>
        <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>

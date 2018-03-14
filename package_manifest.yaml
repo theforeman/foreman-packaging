@@ -270,7 +270,11 @@ katello_packages:
     katello: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer: {}
+    katello-installer:
+      releasers:
+        - koji-katello-jenkins
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
     pulp-katello: {}
     rubygem-anemone: {}

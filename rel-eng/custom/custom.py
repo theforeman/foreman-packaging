@@ -121,6 +121,7 @@ class ForemanSourceStrategy(SourceStrategy):
         job_url_base = "%s/job/%s/%s" % (url_base, job_name, job_id)
         json_url = "%s/api/json" % job_url_base
 
+        debug(json_url)
         job_info = json.loads(urlopen(json_url).read().decode("utf-8"))
         if "number" in job_info:
             job_id = job_info["number"]
