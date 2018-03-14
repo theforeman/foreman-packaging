@@ -279,17 +279,14 @@ katello_packages:
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello: {}
-    rubygem-jenkins_api_client: {}
     rubygem-katello:
       releasers:
         - koji-katello-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_katello_core"
-    rubygem-mixlib-shellout: {}
     rubygem-qpid_messaging: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
-    rubygem-terminal-table: {}
 katello_client_packages:
   vars:
     package_base_dir: 'packages/katello/'

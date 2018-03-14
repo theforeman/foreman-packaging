@@ -27,7 +27,6 @@
        <packagereq type="default">katello-installer-base</packagereq>
        <packagereq type="default">foreman-installer-katello</packagereq>
        <packagereq type="default">foreman-installer-katello-devel</packagereq>
-       <packagereq type="default">tfm-rubygem-foreman_pipeline</packagereq>
        <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
@@ -41,14 +40,11 @@
        <packagereq type="default">tfm-rubygem-foreman_scc_manager</packagereq>
        <packagereq type="default">tfm-rubygem-fssm</packagereq>
        <packagereq type="default">tfm-rubygem-hpricot</packagereq>
-       <packagereq type="default">tfm-rubygem-jenkins_api_client</packagereq>
        <packagereq type="default">tfm-rubygem-justified</packagereq>
        <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
-       <packagereq type="default">tfm-rubygem-mixlib-shellout</packagereq>
        <packagereq type="default">tfm-rubygem-robotex</packagereq>
        <packagereq type="default">tfm-rubygem-runcible</packagereq>
        <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
-       <packagereq type="default">tfm-rubygem-terminal-table</packagereq>
        <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_csv</packagereq>
 
@@ -63,15 +59,11 @@
     <description>Katello Server Documentation Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-       <packagereq type="optional">tfm-rubygem-foreman_pipeline-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-jenkins_api_client-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-mixlib-shellout-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-terminal-table-doc</packagereq>
     </packagelist>
   </group>
 </comps>
