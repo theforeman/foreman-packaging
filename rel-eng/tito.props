@@ -114,7 +114,6 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-oauth
   puppet-agent-puppet-strings
   puppet-agent-yard
-  rubygem-apipie-bindings
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-concurrent-ruby
@@ -395,8 +394,7 @@ whitelist = katello-repos katello-host-tools
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = rubygem-robotex
-  katello
+whitelist = katello
   katello-certs-tools
   katello-client-bootstrap
   katello-installer-base
@@ -409,21 +407,10 @@ whitelist = rubygem-robotex
   rubygem-hammer_cli_csv
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
-  rubygem-jenkins_api_client
   rubygem-katello
-  rubygem-mixlib-shellout
   rubygem-qpid_messaging
   rubygem-robotex
   rubygem-runcible
-  rubygem-terminal-table
-
-
-[katello-thirdparty-rhel7]
-disttag = .el7
-scl = tfm
-whitelist = rubygem-jenkins_api_client
-  rubygem-mixlib-shellout
-  rubygem-terminal-table
 
 [katello-nightly-fedora26]
 disttag = .fc26
