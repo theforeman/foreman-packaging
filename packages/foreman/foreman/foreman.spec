@@ -875,6 +875,19 @@ Meta Package to install requirements for telemetry support
 %files telemetry
 %{_datadir}/%{name}/bundler.d/telemetry.rb
 
+%package journald
+Summary: Foreman journald logging support
+Group:  Applications/System
+Requires: %{?scl_prefix_ror}rubygem(journald-logger) >= 1.0
+Requires: %{?scl_prefix_ror}rubygem(journald-logger) < 2.0
+Requires: %{name} = %{version}-%{release}
+
+%description journald
+Meta Package to install requirements for journald logging support
+
+%files journald
+%{_datadir}/%{name}/bundler.d/journald.rb
+
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
 Foreman is based on Ruby on Rails, and this package bundles Rails and all
