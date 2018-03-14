@@ -6,7 +6,7 @@ Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 9.20160709), bundler (>= 1.3), ruby2.3-dev, git | git-core,
                zlib1g-dev, default-libmysqlclient-dev, libpq-dev, pkg-config, libvirt-dev,
                libsqlite3-dev, build-essential, curl, nodejs (>= 8.9),
-               python
+               python, libsystemd-dev
 Homepage: http://www.theforeman.org/
 
 Package: foreman
@@ -237,6 +237,17 @@ Priority: extra
 Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: metapackage providing telemetry dependencies for Foreman
  This package provides telemetry dependencies for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
+Package: foreman-journald
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman (= ${binary:Version}), libsystemd-dev, ${misc:Depends}
+Description: metapackage providing journald dependencies for Foreman
+ This package provides journald logging dependencies for Foreman,
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
