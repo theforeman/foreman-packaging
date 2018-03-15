@@ -383,11 +383,15 @@ whitelist = puppet-foreman_scap_client
 
 [katello-nightly-rhel5]
 disttag = .el5
-whitelist = katello-repos katello-host-tools
+whitelist = katello-host-tools
+  katello-repos
+  python-rhsm
+  subscription-manager
 
 [katello-nightly-rhel6]
 disttag = .el6
-whitelist = katello-repos katello-host-tools
+whitelist = katello-host-tools
+  katello-repos
 
 [katello-nightly-rhel7]
 disttag = .el7
@@ -395,6 +399,7 @@ scl = tfm
 whitelist = katello
   katello-certs-tools
   katello-client-bootstrap
+  katello-host-tools
   katello-installer-base
   katello-repos
   katello-selinux
