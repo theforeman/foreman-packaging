@@ -6,13 +6,13 @@
 
 require 'configparser'
 
-cfg = ConfigParser.new('tito.props')
-cfg.each do |entry|
-  tag = entry.first
-  scl = entry.last['scl']
-  next unless tag =~ /^foreman/
-  comp_pkgs = entry.last['whitelist'].split
-  comp_pkgs.map!{ |x| (scl && x =~ /^rubygem-/) ? "#{scl}-#{x}" : x }
+cfg = ConfigParser.new(File.join(__dir__, 'tito.props'))
+cfg.each do |tag, entry|
+  next unless entry.has_key?('whitelist')
+  comp_pkgs = entry['whitelist'].split
+  if entry['scl']
+    comp_pkgs.map!{ |x| x =~ /^rubygem-/ ? "#{entry['scl']}-#{x}" : x }
+  end
   koji_pkgs = []
   `koji list-pkgs --tag=#{tag} --quiet`.each_line do |line|
     koji_pkgs << line.split.first
@@ -24,7 +24,7 @@ cfg.each do |entry|
     puts "\n# Packages missing in tag #{tag}"
     missing_pkgs.sort.each { |x| puts " * [x] #{x}" }
     puts "```shell"
-    missing_pkgs.sort.each { |x| puts "koji add-pkg --owner=kojiadm #{tag} #{x}" }
+    puts "koji add-pkg --owner=kojiadm #{tag} #{missing_pkgs.sort.join(" ")}"
     puts "```"
   end
 
@@ -32,7 +32,7 @@ cfg.each do |entry|
     puts "\n# Packages not expected in #{tag}"
     extra_pkgs.sort.each { |x| puts " * [x] #{x}" }
     puts "```shell"
-    extra_pkgs.sort.each { |x| puts "koji remove-pkg #{tag} #{x}" }
+    puts "koji remove-pkg #{tag} #{extra_pkgs.sort.join(" ")}"
     puts "```"
   end
 end
