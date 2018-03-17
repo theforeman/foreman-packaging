@@ -6,6 +6,7 @@
 %global gem_name <%= spec.name %>
 %global plugin_name <%= spec.name.sub(/\Asmart_proxy_/, '') %>
 
+%global foreman_proxy_min_version FIXME
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
@@ -20,7 +21,7 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= FIXME
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: ruby <%= req %>

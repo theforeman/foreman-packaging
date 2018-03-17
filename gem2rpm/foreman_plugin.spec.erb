@@ -10,6 +10,7 @@
 
 %global gem_name <%= spec.name %>
 %global plugin_name <%= spec.name.sub(/\Aforeman_/, '') %>
+%global foreman_min_version FIXME
 <%
 has_assets = spec.files.any? { |f| f.start_with?('app/assets/') }
 has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/api/} }
@@ -35,7 +36,7 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
-Requires: foreman >= FIXME
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: %{?scl_prefix_ruby}ruby <%= req %>
@@ -51,7 +52,7 @@ Requires: %{?scl_prefix}rubygem(<%= d.name %>) <%= req  %>
 <% if has_assets -%>
 BuildRequires: foreman-assets
 <% end -%>
-BuildRequires: foreman-plugin >= FIXME
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 <% if has_assets || has_apidoc -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
