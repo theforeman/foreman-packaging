@@ -3,6 +3,7 @@
 #   2. Delete these lines
 #
 # Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
+# template: smart_proxy_plugin
 %global gem_name <%= spec.name %>
 %global plugin_name <%= spec.name.sub(/\Asmart_proxy_/, '') %>
 
@@ -21,6 +22,8 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
+
+# start generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
@@ -46,6 +49,7 @@ BuildArch: noarch
 <% end -%>
 Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name}
+# end generated dependencies
 
 %description
 <%= spec.description %>

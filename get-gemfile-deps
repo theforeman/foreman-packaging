@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+require 'bundler'
+require 'json'
+filename = ARGV.shift || 'Gemfile'
+
+HEADER = ARGV.shift || 'specfile'
+EXCLUDED_GROUPS = [:test, :development]
+SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
+
+def package(gem)
+  return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
+end
+
+def source(url)
+end
+
+def gem(name, *requirements)
+  requirements.pop if requirements.last.kind_of?(Hash)
+  if requirements.empty?
+      puts "#{$require}: #{package(name)}"
+  else
+    requirement = Gem::Requirement.create(requirements)
+    requirement.requirements.each do |op, version|
+      if op == '~>'
+        puts "#{$require}: #{package(name)} >= #{version}"
+        puts "#{$require}: #{package(name)} < #{version.bump}.0"
+      else
+        puts "#{$require}: #{package(name)} #{op} #{version}"
+      end
+    end
+  end
+end
+
+def group(name, &block)
+  if $open_group
+    puts "# end #{HEADER} #{$open_group} #{$require}"
+    $open_group = nil
+  end
+
+  unless EXCLUDED_GROUPS.include?(name)
+    puts ""
+    puts "# start #{HEADER} #{name} #{$require}"
+    block.call
+    puts "# end #{HEADER} #{name} #{$require}"
+  end
+end
+
+['BuildRequires', 'Requires'].each do |req|
+  $require = req
+  $open_group = 'main'
+  puts "# start #{HEADER} #{$open_group} #{$require}"
+  load filename
+end

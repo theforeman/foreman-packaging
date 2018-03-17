@@ -1,7 +1,8 @@
 # Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
+# template: hammer_plugin
 <%-
 require 'json'
-prefixes = JSON.load(File.read('scl_prefixes.json'))
+SCL_PREFIXES = JSON.load(File.read(File.join(`git rev-parse --show-toplevel`.strip, 'scl_prefixes.json')))
 -%>
 <% config.rules[:doc] << /\/?config(\/.*)?/ -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
@@ -23,6 +24,8 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
+
+# start generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: %{?scl_prefix_ruby}ruby <%= req %>
@@ -32,7 +35,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems) <%= req %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: %{?scl_prefix<%= prefixes[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
+Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -46,6 +49,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel <%= req %>
 BuildArch: noarch
 <% end -%>
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end generated dependencies
 
 %description
 <%= spec.description %>

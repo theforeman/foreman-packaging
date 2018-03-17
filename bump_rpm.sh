@@ -30,7 +30,7 @@ ensure_program() {
 }
 
 if [[ -z $2 ]] ; then
-	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
+	if [[ $PACKAGE_NAME == rubygem-* ]] || [[ $PACKAGE_NAME == tfm-rubygem-* ]]; then
 		ensure_program curl
 		ensure_program jq
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
@@ -64,13 +64,19 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	git annex add *.gem
 	git add $SPEC_FILE
 
-	echo "TODO:"
-	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
-		echo "* Verify the ruby runtime dependencies"
+	if [[ $PACKAGE_NAME == rubygem-* ]] || [[ $PACKAGE_NAME == tfm-rubygem-* ]]; then
+		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
+		if [[ -n $TEMPLATE ]] ; then
+			echo "* Updating requirements"
+			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $ROOT/update-requirements - $SPEC_FILE specfile
+			git add $SPEC_FILE
+		fi
 
 		# TODO: hint at installing rubygem-gem-compare
+		echo "* Calling gem compare"
 		gem compare -b $GEM_NAME $CURRENT_VERSION $NEW_VERSION
 	else
+		echo "TODO:"
 		echo "* Verify the dependencies"
 	fi
 

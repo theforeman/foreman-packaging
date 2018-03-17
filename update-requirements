@@ -6,19 +6,21 @@ import json
 import semver
 
 # We need a blacklist of packages that are devDependencies but not needed to build
-BLACKLIST = [
+NPM_BLACKLIST = [
     'axios-mock-adapter',
     'babel-eslint',
     'babel-jest',
     'coveralls',
+    'jest',
     'jest-cli',
+    'prettier',
     'react-addons-test-utils',
     'react-test-renderer',
     'redux-mock-store',
     'webpack-dev-server',
 ]
 
-BLACKLIST_PREFIXES = [
+NPM_BLACKLIST_PREFIXES = [
     '@storybook/',
     'enzyme',
     'eslint',
@@ -26,7 +28,8 @@ BLACKLIST_PREFIXES = [
 ]
 
 def is_blacklisted(package):
-    return package in BLACKLIST or any(package.startswith(prefix) for prefix in BLACKLIST_PREFIXES)
+    return (package in NPM_BLACKLIST
+            or any(package.startswith(prefix) for prefix in NPM_BLACKLIST_PREFIXES))
 
 
 def get_requirement(version):
@@ -60,7 +63,7 @@ def get_requirements(dependencies, fmt):
                 yield fmt.format(package, requirement)
 
 
-def get_sections(packages):
+def get_npm_sections(packages):
     for section in ('devDependencies', 'dependencies'):
         for requires in ('BuildRequires', 'Requires'):
             trigger = '{} {}\n'.format(section, requires)
@@ -68,9 +71,28 @@ def get_sections(packages):
             yield trigger, requirements
 
 
-def get_new_content(current_content, requires):
+def get_specfile_sections(prefix, fp):
+    trigger = prefix.replace('start', 'end', 1)
     key = None
-    prefix = '# start package.json '
+    section = []
+
+    for line in fp:
+        if line.startswith(prefix):
+            if key:
+                raise Exception('Unclosed section {}'.format(key))
+
+            key = strip_prefix(line, prefix)
+            section = []
+        elif key:
+            if line.startswith(trigger):
+                yield (key, section)
+                key = None
+            else:
+                section.append(line.rstrip() + '\n')
+
+
+def get_new_content(prefix, current_content, requires):
+    key = None
 
     for line in current_content:
         if key:
@@ -81,29 +103,42 @@ def get_new_content(current_content, requires):
             yield line
 
             if line.startswith(prefix):
-                key = line[len(prefix):]
+                key = strip_prefix(line, prefix)
                 try:
                     for require in requires[key]:
                         yield require
                 except KeyError:
                     raise SystemExit('Unrecognized section found: ' + line)
-                key = '# end package.json {}'.format(key)
+                key = prefix.replace('start', 'end') + key
+
+
+def strip_prefix(line, prefix):
+    return line[len(prefix):]
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Update the nodejs dependencies from package.json')
-    parser.add_argument('packagesfile', help='Path to the packages file',
+    parser = argparse.ArgumentParser(description='Update the dependencies within sections')
+    parser.add_argument('requirementstype', help='the type of conversion',
+                        choices=('npm', 'specfile', 'direct'))
+    parser.add_argument('requirementsfile', help='Path to the requirements file',
                         type=argparse.FileType('r'))
-    parser.add_argument('specfile', help='path to the specfile', default='foreman.spec', nargs='?',
-                        type=argparse.FileType('r'))
+    parser.add_argument('specfile', help='path to the specfile', type=argparse.FileType('r'))
     args = parser.parse_args()
 
-    requires = dict(get_sections(json.load(args.packagesfile)))
+    if args.requirementstype == 'npm':
+        prefix = '# start package.json '
+        requires = dict(get_npm_sections(json.load(args.requirementsfile)))
+    elif args.requirementstype == 'specfile':
+        prefix = '# start specfile '
+        requires = dict(get_specfile_sections(prefix, args.requirementsfile))
+    else:
+        prefix = '# start '
+        requires = json.load(args.requirementsfile)
 
     current_content = args.specfile.readlines()
     args.specfile.close()
 
-    new_content = list(get_new_content(current_content, requires))
+    new_content = list(get_new_content(prefix, current_content, requires))
 
     with open(args.specfile.name, 'w') as fp:
         fp.writelines(new_content)

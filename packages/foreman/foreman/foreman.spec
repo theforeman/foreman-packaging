@@ -61,7 +61,7 @@ Requires(postun): initscripts
 # Subpackages
 Requires: %{name}-debug
 
-# Gemfile
+# start specfile main Requires
 Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
@@ -134,10 +134,15 @@ Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
-# facter
+# end specfile main Requires
+
+# start specfile facter Requires
 Requires: %{?scl_prefix}rubygem(facter)
-# jsonp
+# end specfile facter Requires
+
+# start specfile jsonp Requires
 Requires: %{?scl_prefix}rubygem(rack-jsonp)
+# end specfile jsonp Requires
 
 # Build dependencies
 %{?systemd_requires}
@@ -148,9 +153,12 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
+# start specfile sqlite BuildRequires
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
 BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
-# Gemfile
+# end specfile sqlite BuildRequires
+
+# start specfile main BuildRequires
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
@@ -223,6 +231,8 @@ BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
+# end specfile main BuildRequires
+
 # assets
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 4
@@ -407,8 +417,7 @@ BuildRequires: npm(uuid) >= 3.0.1
 BuildRequires: npm(uuid) < 4.0.0
 # end package.json dependencies BuildRequires
 
-# Other gems
-# assets.rb
+# start specfile assets BuildRequires
 BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
 BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
@@ -425,8 +434,11 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
-# facter.rb
+# end specfile assets BuildRequires
+
+# start specfile facter BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(facter)
+# end specfile facter BuildRequires
 
 %package cli
 Summary: Foreman CLI
@@ -468,10 +480,12 @@ for Yum.
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
+# start specfile libvirt Requires
 Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
+# end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
 Requires: genisoimage
 Obsoletes: foreman-virt < 1.0.0
@@ -486,8 +500,10 @@ Meta package to install requirements for libvirt compute resource support.
 %package openstack
 Summary: Foreman OpenStack support
 Group:  Applications/System
+# start specfile openstack Requires
 Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.11
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
+# end specfile openstack Requires
 Requires: %{name} = %{version}-%{release}
 
 %description openstack
@@ -499,8 +515,10 @@ Meta package to install requirements for OpenStack compute resource support.
 %package ovirt
 Summary: Foreman oVirt support
 Group:  Applications/System
+# start specfile ovirt Requires
 Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
+# end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
@@ -513,7 +531,9 @@ Meta package to install requirements for oVirt compute resource support.
 %package compute
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
+# start specfile fog Requires
 Requires: %{?scl_prefix}rubygem(fog) = 1.42.0
+# end specfile fog Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
 Obsoletes: foreman-fog < 1.0.0
@@ -531,8 +551,10 @@ preference to this package.
 %package ec2
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
+# start specfile ec2 Requires
 Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.1
 Requires: %{?scl_prefix}rubygem(fog-aws) < 2
+# end specfile ec2 Requires
 Requires:  %{name} = %{version}-%{release}
 
 %description ec2
@@ -544,8 +566,10 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 %package rackspace
 Summary: Foreman Rackspace support
 Group:  Applications/System
+# start specfile rackspace Requires
 Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(fog-rackspace) < 0.2.0
+# end specfile rackspace Requires
 Requires: %{name} = %{version}-%{release}
 
 %description rackspace
@@ -557,7 +581,9 @@ Meta package to install requirements for Rackspace compute resource support.
 %package vmware
 Summary: Foreman VMware support
 Group:  Applications/System
+# start specfile vmware Requires
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.0
+# end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
 %description vmware
@@ -569,9 +595,11 @@ Meta package to install requirements for VMware compute resource support.
 %package gce
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
+# start specfile gce Requires
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
 Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
+# end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
 %description gce
@@ -764,7 +792,7 @@ Requires: npm(uuid) >= 3.0.1
 Requires: npm(uuid) < 4.0.0
 # end package.json dependencies Requires
 
-# Other gems
+# start specfile assets Requires
 Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
 Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
@@ -781,6 +809,7 @@ Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
+# end specfile assets Requires
 
 %description assets
 Meta package to install asset pipeline support.
@@ -807,12 +836,14 @@ Meta package with support for plugins.
 %package console
 Summary: Foreman console support
 Group:  Applications/System
+# start specfile console Requires
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
 Requires: %{?scl_prefix}rubygem(wirb) < 3.0
 Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
 Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
+# end specfile console Requires
 Requires: %{name} = %{version}-%{release}
 
 %description console
@@ -824,8 +855,10 @@ Meta Package to install requirements for console support
 %package mysql2
 Summary: Foreman mysql2 support
 Group:  Applications/System
+# start specfile mysql2 Requires
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
 Requires: %{?scl_prefix}rubygem(mysql2) < 0.5
+# end specfile mysql2 Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
 Provides: %{name}-mysql = %{version}
@@ -839,8 +872,10 @@ Meta Package to install requirements for mysql2 support
 %package postgresql
 Summary: Foreman Postgresql support
 Group:  Applications/System
+# start specfile postgresql Requires
 Requires: %{?scl_prefix}rubygem(pg) >= 0.18
 Requires: %{?scl_prefix}rubygem(pg) < 1.0
+# end specfile postgresql Requires
 Requires: %{name} = %{version}-%{release}
 
 %description postgresql
@@ -852,8 +887,10 @@ Meta Package to install requirements for postgresql support
 %package sqlite
 Summary: Foreman sqlite support
 Group:  Applications/System
+# start specfile sqlite Requires
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
 Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
+# end specfile sqlite Requires
 Requires: %{name} = %{version}-%{release}
 
 %description sqlite
@@ -870,8 +907,10 @@ plugins required for Foreman to work.
 %package telemetry
 Summary: Foreman telemetry support
 Group:  Applications/System
+# start specfile telemetry Requires
 Requires: %{?scl_prefix}rubygem(prometheus-client)
 Requires: %{?scl_prefix}rubygem(statsd-instrument)
+# end specfile telemetry Requires
 Requires: %{name} = %{version}-%{release}
 
 %description telemetry
@@ -883,8 +922,10 @@ Meta Package to install requirements for telemetry support
 %package journald
 Summary: Foreman journald logging support
 Group:  Applications/System
+# start specfile journald Requires
 Requires: %{?scl_prefix}rubygem(logging-journald) >= 1.0
 Requires: %{?scl_prefix}rubygem(logging-journald) < 2.0
+# end specfile journald Requires
 Requires: %{name} = %{version}-%{release}
 
 %description journald

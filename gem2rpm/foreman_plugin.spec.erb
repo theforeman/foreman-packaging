@@ -3,9 +3,10 @@
 #   2. Delete these lines
 #
 # Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
+# template: foreman_plugin
 <%-
 require 'json'
-prefixes = JSON.load(File.read('scl_prefixes.json'))
+SCL_PREFIXES = JSON.load(File.read(File.join(`git rev-parse --show-toplevel`.strip, 'scl_prefixes.json')))
 -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -38,6 +39,8 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
+
+# start generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
@@ -48,17 +51,17 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems) <%= req %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: %{?scl_prefix<%= prefixes[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
+Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
 <% if has_assets -%>
-BuildRequires: foreman-assets
+BuildRequires: foreman-assets >= %{foreman_min_version}
 <% end -%>
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 <% if has_assets || has_apidoc -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-BuildRequires: %{?scl_prefix<%= prefixes[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
+BuildRequires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
 <% end -%>
@@ -77,6 +80,7 @@ Provides: foreman-plugin-%{plugin_name}
 <% if has_compute -%>
 Provides: foreman-%{plugin_name}
 <% end -%>
+# end generated dependencies
 
 %description
 <%= spec.description %>

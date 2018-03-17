@@ -139,6 +139,25 @@ required non-SCL modes.
    targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
+### Updating nightly dependencies
+
+The nightly packages are slightly special because we can't use a gem or npm
+package to extract dependencies from. That's why we have our own tools:
+
+#### Foreman
+
+To update foreman we'll assume a git checkout at `~/foreman`:
+
+    ./get-gemfile-deps ~/foreman/Gemfile | ./update-requirements specfile - packages/foreman/foreman/foreman.spec
+    ./update-requirements npm ~/foreman/package.json packages/foreman/foreman/foreman.spec
+
+#### Katello
+
+To update Katello we'll assume a git checkout at `~/katello`:
+
+    # TODO: extract dependencies from gemspec
+    ./update-requirements npm ~/katello/package.json packages/katello/rubygem-katello/rubygem-katello.spec
+
 ## HOWTO: build multiple packages
 
 If you have multiple packages that you want to build together because they

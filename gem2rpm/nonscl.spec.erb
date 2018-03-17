@@ -1,4 +1,5 @@
 # Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
+# template: nonscl
 %global gem_name <%= spec.name %>
 
 Name: rubygem-%{gem_name}
@@ -11,6 +12,8 @@ License: <%= spec.licenses.join(" and ") %>
 URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
+
+# start generated dependencies
 Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: ruby <%= req %>
@@ -34,6 +37,7 @@ BuildRequires: rubygems-devel <%= req %>
 BuildArch: noarch
 <% end -%>
 Provides: rubygem(%{gem_name}) = %{version}
+# end generated dependencies
 
 %description
 <%= spec.description %>
