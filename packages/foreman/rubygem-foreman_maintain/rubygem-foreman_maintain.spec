@@ -9,7 +9,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_maintain
@@ -25,6 +25,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: %{gem_name} = %{version}
+Provides: foreman-maintain = %{version}
 
 %description
 foreman_maintain aims to provide various features that helps keeping
@@ -86,6 +88,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 4 2018 Sean o'Keeffe <seanokeeffe797@gmail.com> 0.1.5-2
+- Provide foreman-maintain & foreman_maintain (seanokeeffe797@gmail.com)
+
 * Wed Jan 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.3-1
 - Update foreman_maintain to 0.1.3 (inecas@redhat.com)
 
