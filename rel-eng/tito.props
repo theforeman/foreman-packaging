@@ -117,7 +117,6 @@ whitelist = foreman-bootloaders-redhat
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-concurrent-ruby
-  rubygem-foreman_api
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
