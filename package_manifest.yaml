@@ -47,11 +47,13 @@ foreman_packages:
     nodejs-babel-preset-react: {}
     nodejs-babel-register: {}
     nodejs-brace: {}
+    nodejs-breakjs: {}
     nodejs-c3: {}
     nodejs-change-emitter: {}
     nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
     nodejs-css-loader: {}
+    nodejs-d3: {}
     nodejs-datatables.net-bs: {}
     nodejs-datatables.net: {}
     nodejs-debug: {}
@@ -76,6 +78,7 @@ foreman_packages:
     nodejs-jsdom: {}
     nodejs-jstz: {}
     nodejs-lodash-webpack-plugin: {}
+    nodejs-lodash.orderby: {}
     nodejs-lodash: {}
     nodejs-loose-envify: {}
     nodejs-ms: {}
@@ -99,6 +102,7 @@ foreman_packages:
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
     nodejs-react: {}
+    nodejs-reactabular-table: {}
     nodejs-recompose: {}
     nodejs-redux-form-validators: {}
     nodejs-redux-form: {}
@@ -108,8 +112,10 @@ foreman_packages:
     nodejs-sass-loader: {}
     nodejs-seamless-immutable: {}
     nodejs-select2: {}
+    nodejs-sortabular: {}
     nodejs-style-loader: {}
     nodejs-symbol-observable: {}
+    nodejs-table-resolver: {}
     nodejs-uglifyjs-webpack-plugin: {}
     nodejs-urijs: {}
     nodejs-url-loader: {}
@@ -189,6 +195,7 @@ foreman_packages:
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
     rubygem-journald-logger: {}
+    rubygem-journald-native: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
     rubygem-jquery_pwstrength_bootstrap_4: {}
@@ -402,6 +409,7 @@ plugins_packages:
     rubygem-smart_proxy_chef: {}
     rubygem-smart_proxy_dhcp_infoblox: {}
     rubygem-smart_proxy_dhcp_remote_isc: {}
+    rubygem-smart_proxy_dhcp_device42: {}
     rubygem-smart_proxy_discovery: {}
     rubygem-smart_proxy_discovery_image: {}
     rubygem-smart_proxy_dns_infoblox: {}
