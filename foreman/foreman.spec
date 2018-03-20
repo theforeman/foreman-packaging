@@ -1177,6 +1177,10 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Mar 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.17.0-0.3.RC2
+- Release 1.17.0-RC2 (oprazak@redhat.com)
+- Fix plugin repo names (ewoud@kohlvanwijngaarden.nl)
+
 * Thu Feb 08 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.17.0-0.3.RC1
 - Fix plugins repo definition (ewoud@kohlvanwijngaarden.nl)
 
