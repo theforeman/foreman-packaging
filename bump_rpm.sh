@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 if [[ -z $1 ]] ; then
-	echo "Usage: $0 directory"
+	echo "Usage: $0 directory [version]"
 	exit 1
 elif [[ ! -d $1 ]] ; then
 	echo "$1 is not a directory. It must be the full path"
@@ -45,13 +45,12 @@ fi
 if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	ensure_program rpmspec rpm-build
 
-	echo "${GEM_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
-
+	echo "${PACKAGE_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
 	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
 
 	RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
 	if [[ ${RELEASE} != 1 ]] ; then
-		echo "Resetting release ($RELEASE) in $SPEC_FILE"
+		echo "* Resetting release ($RELEASE) in $SPEC_FILE"
 		sed -i "s/^\(Release:\s\+\)${RELEASE}/\11/" $SPEC_FILE
 	fi
 
@@ -63,7 +62,7 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	spectool --get-files $SPEC_FILE
 	git annex add *.gem
-	git add .
+	git add $SPEC_FILE
 
 	echo "TODO:"
 	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
@@ -77,5 +76,5 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	git commit -m "Update $PACKAGE_NAME to $NEW_VERSION"
 else
-	echo "${GEM_NAME}: $CURRENT_VERSION == $NEW_VERSION ; skipping"
+	echo "${PACKAGE_NAME}: $CURRENT_VERSION == $NEW_VERSION ; skipping"
 fi
