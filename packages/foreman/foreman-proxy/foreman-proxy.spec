@@ -102,13 +102,13 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
-install -d -m0750 %{buildroot}%{_var}/run/%{name}
+install -d -m0750 %{buildroot}%{_rundir}/%{name}
 
 install -Dp -m0644 extra/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 # Compatibility with old init script, prefer systemd overrides now
 sed -i '/^ExecStart/a EnvironmentFile=-%{_sysconfdir}/sysconfig/%{name}' %{buildroot}%{_unitdir}/%{name}.service
 
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{name}.conf
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 mkdir -p %{buildroot}%{_sbindir}
@@ -140,7 +140,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
-%attr(-,%{name},%{name}) %{_var}/run/%{name}
+%attr(-,%{name},%{name}) %{_rundir}/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
@@ -148,7 +148,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %{_sbindir}/foreman-prepare-realm
 %{_mandir}/man8
 %{_unitdir}/%{name}.service
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
+%{_tmpfilesdir}/%{name}.conf
 %{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
 
 %pre
