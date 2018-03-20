@@ -46,12 +46,8 @@ Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
-Requires(post): systemd-sysv
-Requires(post): systemd-units
-Requires(preun): systemd-units
-Requires(postun): systemd-units
-BuildRequires: systemd-units
-
+%{?systemd_requires}
+BuildRequires: systemd
 
 %description
 Manages DNS, DHCP, TFTP and puppet settings though HTTP Restful API
@@ -73,7 +69,6 @@ SYSCONFDIR=%{_sysconfdir} \
   for f in bin/smart-proxy extra/query.rb extra/changelog extra/migrate_settings.rb; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' extra/spec/foreman-proxy.init
 %endif
 
 #replace default location of 'settings.d'
@@ -100,7 +95,7 @@ install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/config
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
-install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
+install -d -m0755 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_rundir}/%{name}
 
@@ -140,7 +135,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
-%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
+%attr(-,%{name},%{name}) %{_sharedstatedir}/%{name}
 %attr(-,%{name},%{name}) %{_rundir}/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
@@ -183,22 +178,13 @@ if [ $1 == 2 ]; then
   popd >/dev/null
 fi
 
-if [ $1 -eq 1 ]; then
-  /bin/systemctl daemon-reload >/dev/null 2>&1 || :
-fi
+%systemd_post %{name}.service
 
 %preun
-if [ $1 -eq 0 ] ; then
-  # Package removal, not upgrade
-  /bin/systemctl --no-reload disable foreman-proxy.service >/dev/null 2>&1 || :
-  /bin/systemctl stop foreman-proxy.service >/dev/null 2>&1 || :
-fi
+%systemd_preun %{name}.service
 
 %postun
-/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-if [ $1 -ge 1 ] ; then
-  /bin/systemctl try-restart foreman-proxy.service >/dev/null 2>&1 || :
-fi
+%systemd_postun_with_restart %{name}.service
 
 
 %changelog
