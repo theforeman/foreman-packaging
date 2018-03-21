@@ -5,7 +5,7 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.1.1
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -59,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed Mar 21 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.1.1-1
+- Update to 1.1.1
+
 * Fri Feb 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.0-1
 - Update rubygem-foreman_remote_execution to 1.4.2 (aruzicka@redhat.com)
 
