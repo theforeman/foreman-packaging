@@ -179,6 +179,7 @@ module KatelloUtilities
 
       puts "Ensuring all Katello processes are started"
       run_cmd("katello-service start")
+      run_cmd("systemctl daemon-reload") unless @is_foreman_proxy_content
       puts "Done.\n"
     end
 
