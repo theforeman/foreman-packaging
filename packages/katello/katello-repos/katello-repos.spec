@@ -1,5 +1,5 @@
 %global pulp_release stable
-%global pulp_version 2.15
+%global pulp_version 2.16
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -18,7 +18,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        2.nightly%{?dist}
+Release:        3.nightly%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -28,6 +28,7 @@ Source0:        katello.repo
 Source1:        katello-client.repo
 Source2:        RPM-GPG-KEY-katello-2015
 Source3:        qpid-copr.repo
+Source4:        gofer-copr.repo
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
@@ -51,6 +52,10 @@ Defines yum repositories for Katello clients.
 %if 0%{?rhel} == 6
 %config %{repo_dir}/qpid-copr.repo
 %endif
+%if 0%{?suse_version} == 0
+%config %{repo_dir}/gofer-copr.repo
+%endif
+
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %prep
@@ -71,6 +76,10 @@ install -m 644 %{SOURCE1} %{buildroot}%{repo_dir}/
 install -m 644 %{SOURCE3} %{buildroot}%{repo_dir}/
 %endif
 
+%if 0%{?suse_version} == 0
+install -m 644 %{SOURCE4} %{buildroot}%{repo_dir}/
+%endif
+
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 if [[ '%{release}' == *"nightly"* ]];then
@@ -85,6 +94,7 @@ fi
 for repofile in %{buildroot}%{repo_dir}/*.repo; do
     trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
     sed -i "s/@DIST@/${trimmed_dist}/" $repofile
+    sed -i "s/@RHEL@/%{rhel}/" $repofile
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
@@ -107,6 +117,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-3.nightly
+- Switch to using Pulp 2.16 stable (ericdhelms@gmail.com)
+
 * Tue Jan 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-2.nightly
 - Switch to using Pulp 2.15 stable (ericdhelms@gmail.com)
 
