@@ -126,7 +126,6 @@ whitelist = foreman-bootloaders-redhat
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
-  rubygem-oauth
   rubygem-passenger
   rubygem-powerbar
   rubygem-rb-inotify
