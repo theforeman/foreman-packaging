@@ -272,6 +272,7 @@ katello_packages:
     katello-client-bootstrap: {}
     katello-installer: {}
     katello-selinux: {}
+    nodejs-bootstrap-select: {}
     nodejs-downshift: {}
     pulp-katello: {}
     rubygem-anemone: {}
