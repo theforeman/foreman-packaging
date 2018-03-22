@@ -275,6 +275,7 @@ katello_packages:
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
     nodejs-react-router-dom: {}
+    nodejs-react-router-bootstrap: {}
     pulp-katello: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}
