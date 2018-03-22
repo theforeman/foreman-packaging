@@ -340,7 +340,8 @@ module KatelloUtilities
       os_version = run_cmd("cat /etc/redhat-release").chomp
       plugins = plugin_list
       rpms = run_cmd("rpm -qa").split("\n")
-      system_facts = {os_version: os_version, plugin_list: plugins, rpms: rpms}
+      incremental = @options.fetch(:incremental, false)
+      system_facts = {os_version: os_version, plugin_list: plugins, rpms: rpms, incremental: incremental}
       File.open('metadata.yml', 'w') do |metadata_file|
         metadata_file.puts system_facts.to_yaml
       end
