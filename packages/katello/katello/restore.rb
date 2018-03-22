@@ -3,6 +3,7 @@ require 'socket'
 require 'optparse'
 require 'fileutils'
 require 'date'
+require 'yaml'
 require_relative "helper.rb"
 
 module KatelloUtilities
@@ -19,7 +20,7 @@ module KatelloUtilities
       @accepted_scenarios = accepted_scenarios
       @program = program
 
-      @confirmed = false
+      @options = {}
       @is_foreman_proxy_content = !foreman_rpm_installed?
       @skip_register = false
 
@@ -30,8 +31,12 @@ module KatelloUtilities
       @optparse = OptionParser.new do |opts|
         opts.banner = "Usage: #{@program}-restore /path/to/dir [options]\n eg: $ #{@program}-restore /tmp/backup/#{@program}-backup-20171002150106"
 
+        opts.on("-i", "--incremental", "Restore an incremental backup") do
+          @options[:incremental] = true
+        end
+
         opts.on("-y", "--assumeyes", "Answer yes for all questions") do
-          @confirmed = true
+          @options[:confirmed] = true
         end
       end
       @optparse
@@ -178,8 +183,11 @@ module KatelloUtilities
       FileUtils.chown(nil, 'postgres', @dir) unless @is_foreman_proxy_content
       Dir.chdir(@dir)
 
-      set_file_security
-      reset_katello
+      metadata = YAML.load_file(File.join @dir, 'metadata.yml')
+      unless @options[:incremental] || metadata[:incremental]
+        set_file_security
+        reset_katello
+      end
 
       puts "Stopping Katello services"
       run_cmd("katello-service stop")
@@ -291,7 +299,7 @@ module KatelloUtilities
     def run
       parse_options
       if backup_valid?
-        @confirmed ? restore : confirm
+        @options[:confirmed] ? restore : confirm
       else
         display_backup_options
       end
