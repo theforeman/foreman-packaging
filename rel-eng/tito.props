@@ -359,7 +359,8 @@ whitelist = rubygem-angular-rails-templates
 
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = puppet-foreman_scap_client
+whitelist = nodejs-react-json-tree
+  puppet-foreman_scap_client
   rubygem-chef-api
   rubygem-faraday
   rubygem-faraday_middleware
