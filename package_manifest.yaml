@@ -272,6 +272,7 @@ katello_packages:
     katello-client-bootstrap: {}
     katello-installer: {}
     katello-selinux: {}
+    nodejs-downshift: {}
     pulp-katello: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}
