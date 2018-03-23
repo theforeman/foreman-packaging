@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Fri Mar 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.2-1
+- Update foreman-tasks to 0.11.2 (inecas@redhat.com)
+
 * Tue Feb 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.1-1
 - update foreman-tasks to 0.11.1 (kvedulv@kvedulv.de)
 
