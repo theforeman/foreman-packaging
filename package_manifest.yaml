@@ -17,139 +17,6 @@ foreman_packages:
         - koji-foreman-nightly
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_develop"
-    rubygem-activerecord-session_store: {}
-    rubygem-addressable: {}
-    rubygem-algebrick: {}
-    rubygem-ancestry: {}
-    rubygem-apipie-bindings: {}
-    rubygem-apipie-params: {}
-    rubygem-apipie-rails: {}
-    rubygem-audited: {}
-    rubygem-autoparse: {}
-    rubygem-autoprefixer-rails: {}
-    rubygem-awesome_print: {}
-    rubygem-bootstrap-sass: {}
-    rubygem-bundler_ext: {}
-    rubygem-clamp: {}
-    rubygem-concurrent-ruby: {}
-    rubygem-concurrent-ruby-edge: {}
-    rubygem-css_parser: {}
-    rubygem-daemons: {}
-    rubygem-deacon: {}
-    rubygem-deep_cloneable: {}
-    rubygem-domain_name: {}
-    rubygem-dynflow: {}
-    rubygem-eventmachine: {}
-    rubygem-excon: {}
-    rubygem-extlib: {}
-    rubygem-facter: {}
-    rubygem-faraday: {}
-    rubygem-fast_gettext: {}
-    rubygem-fog: {}
-    rubygem-fog-aws: {}
-    rubygem-fog-core: {}
-    rubygem-fog-digitalocean: {}
-    rubygem-fog-google: {}
-    rubygem-fog-json: {}
-    rubygem-fog-libvirt: {}
-    rubygem-fog-openstack: {}
-    rubygem-fog-ovirt: {}
-    rubygem-fog-rackspace: {}
-    rubygem-fog-vsphere: {}
-    rubygem-fog-xenserver: {}
-    rubygem-fog-xml: {}
-    rubygem-font-awesome-sass: {}
-    rubygem-formatador: {}
-    rubygem-friendly_id: {}
-    rubygem-get_process_mem: {}
-    rubygem-gettext: {}
-    rubygem-gettext_i18n_rails: {}
-    rubygem-gettext_i18n_rails_js: {}
-    rubygem-google-api-client: {}
-    rubygem-gridster-rails: {}
-    rubygem-hammer_cli:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli"
-    rubygem-hammer_cli_foreman:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli_foreman"
-    rubygem-hashie: {}
-    rubygem-highline: {}
-    rubygem-hirb: {}
-    rubygem-hirb-unicode-steakknife: {}
-    rubygem-hoe: {}
-    rubygem-http-cookie: {}
-    rubygem-ipaddress: {}
-    rubygem-jquery-turbolinks: {}
-    rubygem-jquery-ui-rails: {}
-    rubygem-jquery_pwstrength_bootstrap_4: {}
-    rubygem-jwt: {}
-    rubygem-launchy: {}
-    rubygem-ldap_fluff: {}
-    rubygem-little-plugger: {}
-    rubygem-locale: {}
-    rubygem-logging: {}
-    rubygem-multi_json: {}
-    rubygem-multipart-post: {}
-    rubygem-mysql2:
-      releasers:
-      - koji-foreman-plugins
-      - koji-foreman
-    rubygem-net-ldap: {}
-    rubygem-net-ping: {}
-    rubygem-net-scp: {}
-    rubygem-net-ssh: {}
-    rubygem-netrc: {}
-    rubygem-oauth: {}
-    rubygem-paint: {}
-    rubygem-passenger: {}
-    rubygem-patternfly-sass: {}
-    rubygem-pg: {}
-    rubygem-po_to_json: {}
-    rubygem-powerbar: {}
-    rubygem-puppet-strings: {}
-    rubygem-rabl: {}
-    rubygem-rack-jsonp: {}
-    rubygem-rails-i18n: {}
-    rubygem-rbovirt: {}
-    rubygem-rbvmomi: {}
-    rubygem-record_tag_helper: {}
-    rubygem-responders: {}
-    rubygem-retriable: {}
-    rubygem-roadie: {}
-    rubygem-roadie-rails: {}
-    rubygem-ruby-libvirt: {}
-    rubygem-ruby2ruby: {}
-    rubygem-ruby_parser: {}
-    rubygem-rubyforge: {}
-    rubygem-safemode: {}
-    rubygem-scoped_search: {}
-    rubygem-secure_headers: {}
-    rubygem-sequel: {}
-    rubygem-sexp_processor: {}
-    rubygem-signet: {}
-    rubygem-spice-html5-rails: {}
-    rubygem-sprockets-rails: {}
-    rubygem-sshkey: {}
-    rubygem-syntax: {}
-    rubygem-text: {}
-    rubygem-trollop: {}
-    rubygem-unf: {}
-    rubygem-unf_ext: {}
-    rubygem-unicode: {}
-    rubygem-unicode-display_width: {}
-    rubygem-useragent: {}
-    rubygem-validates_lengths_from_database: {}
-    rubygem-webpack-rails: {}
-    rubygem-will_paginate: {}
-    rubygem-wirb: {}
-    rubygem-x-editable-rails: {}
-    tfm: {}
-    tfm-rubygem-rest-client: {}
     foreman-bootloaders-redhat: {}
     foreman-installer:
       releasers:
@@ -185,8 +52,8 @@ foreman_packages:
     nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
     nodejs-css-loader: {}
-    nodejs-datatables.net: {}
     nodejs-datatables.net-bs: {}
+    nodejs-datatables.net: {}
     nodejs-debug: {}
     nodejs-diff: {}
     nodejs-dotenv: {}
@@ -201,29 +68,28 @@ foreman_packages:
     nodejs-ipaddr.js: {}
     nodejs-is-buffer: {}
     nodejs-isomorphic-fetch: {}
-    nodejs-jquery: {}
     nodejs-jquery-flot: {}
     nodejs-jquery-ujs: {}
     nodejs-jquery.cookie: {}
+    nodejs-jquery: {}
     nodejs-js-tokens: {}
     nodejs-jsdom: {}
     nodejs-jstz: {}
-    nodejs-lodash: {}
     nodejs-lodash-webpack-plugin: {}
+    nodejs-lodash: {}
     nodejs-loose-envify: {}
     nodejs-ms: {}
     nodejs-multiselect: {}
     nodejs-node-gyp: {}
     nodejs-node-sass: {}
     nodejs-object-assign: {}
-    nodejs-patternfly: {}
     nodejs-patternfly-react: {}
+    nodejs-patternfly: {}
     nodejs-performance-now: {}
     nodejs-prop-types: {}
     nodejs-raf: {}
-    nodejs-react: {}
-    nodejs-react-bootstrap: {}
     nodejs-react-bootstrap-switch: {}
+    nodejs-react-bootstrap: {}
     nodejs-react-c3js: {}
     nodejs-react-dom: {}
     nodejs-react-ellipsis-with-tooltip: {}
@@ -232,12 +98,13 @@ foreman_packages:
     nodejs-react-onclickoutside: {}
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
+    nodejs-react: {}
     nodejs-recompose: {}
-    nodejs-redux: {}
-    nodejs-redux-form: {}
     nodejs-redux-form-validators: {}
+    nodejs-redux-form: {}
     nodejs-redux-logger: {}
     nodejs-redux-thunk: {}
+    nodejs-redux: {}
     nodejs-sass-loader: {}
     nodejs-seamless-immutable: {}
     nodejs-select2: {}
@@ -247,20 +114,152 @@ foreman_packages:
     nodejs-urijs: {}
     nodejs-url-loader: {}
     nodejs-uuid: {}
-    nodejs-webpack: {}
     nodejs-webpack-stats-plugin: {}
+    nodejs-webpack: {}
     nodejs-zxcvbn: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
     puppet-agent-yard: {}
-    rubygem-foreman_api: {}
+    rubygem-activerecord-session_store: {}
+    rubygem-addressable: {}
+    rubygem-algebrick: {}
+    rubygem-ancestry: {}
+    rubygem-apipie-bindings: {}
+    rubygem-apipie-params: {}
+    rubygem-apipie-rails: {}
+    rubygem-audited: {}
+    rubygem-autoparse: {}
+    rubygem-autoprefixer-rails: {}
+    rubygem-awesome_print: {}
+    rubygem-bootstrap-sass: {}
+    rubygem-bundler_ext: {}
+    rubygem-clamp: {}
+    rubygem-concurrent-ruby-edge: {}
+    rubygem-concurrent-ruby: {}
+    rubygem-css_parser: {}
+    rubygem-daemons: {}
+    rubygem-deacon: {}
+    rubygem-deep_cloneable: {}
+    rubygem-domain_name: {}
+    rubygem-dynflow: {}
+    rubygem-eventmachine: {}
+    rubygem-excon: {}
+    rubygem-extlib: {}
+    rubygem-facter: {}
+    rubygem-faraday: {}
+    rubygem-fast_gettext: {}
+    rubygem-fog-aws: {}
+    rubygem-fog-core: {}
+    rubygem-fog-digitalocean: {}
+    rubygem-fog-google: {}
+    rubygem-fog-json: {}
+    rubygem-fog-libvirt: {}
+    rubygem-fog-openstack: {}
+    rubygem-fog-ovirt: {}
+    rubygem-fog-rackspace: {}
+    rubygem-fog-vsphere: {}
+    rubygem-fog-xenserver: {}
+    rubygem-fog-xml: {}
+    rubygem-fog: {}
+    rubygem-font-awesome-sass: {}
     rubygem-foreman_maintain: {}
+    rubygem-formatador: {}
+    rubygem-friendly_id: {}
+    rubygem-get_process_mem: {}
+    rubygem-gettext: {}
+    rubygem-gettext_i18n_rails: {}
+    rubygem-gettext_i18n_rails_js: {}
+    rubygem-google-api-client: {}
+    rubygem-gridster-rails: {}
+    rubygem-hammer_cli:
+      releasers:
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_hammer_cli"
+    rubygem-hammer_cli_foreman:
+      releasers:
+        - koji-foreman-nightly
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=test_hammer_cli_foreman"
+    rubygem-hashie: {}
+    rubygem-highline: {}
+    rubygem-hirb-unicode-steakknife: {}
+    rubygem-hirb: {}
+    rubygem-hoe: {}
+    rubygem-http-cookie: {}
+    rubygem-ipaddress: {}
+    rubygem-jquery-turbolinks: {}
+    rubygem-jquery-ui-rails: {}
+    rubygem-jquery_pwstrength_bootstrap_4: {}
+    rubygem-jwt: {}
     rubygem-kafo: {}
+    rubygem-launchy: {}
+    rubygem-ldap_fluff: {}
+    rubygem-little-plugger: {}
+    rubygem-locale: {}
+    rubygem-logging: {}
+    rubygem-multi_json: {}
+    rubygem-multipart-post: {}
     rubygem-kafo_parsers: {}
     rubygem-kafo_wizards: {}
+    rubygem-mysql2:
+      releasers:
+        - koji-foreman-plugins
+        - koji-foreman
+    rubygem-net-ldap: {}
+    rubygem-net-ping: {}
+    rubygem-net-scp: {}
+    rubygem-net-ssh: {}
+    rubygem-netrc: {}
+    rubygem-oauth: {}
+    rubygem-paint: {}
+    rubygem-passenger: {}
+    rubygem-patternfly-sass: {}
+    rubygem-pg: {}
+    rubygem-po_to_json: {}
+    rubygem-powerbar: {}
+    rubygem-puppet-strings: {}
+    rubygem-rabl: {}
+    rubygem-rack-jsonp: {}
+    rubygem-rails-i18n: {}
     rubygem-rb-inotify: {}
+    rubygem-rbovirt: {}
+    rubygem-rbvmomi: {}
+    rubygem-record_tag_helper: {}
+    rubygem-responders: {}
+    rubygem-retriable: {}
+    rubygem-roadie-rails: {}
+    rubygem-roadie: {}
     rubygem-rsec: {}
+    rubygem-ruby-libvirt: {}
+    rubygem-ruby2ruby: {}
+    rubygem-ruby_parser: {}
+    rubygem-rubyforge: {}
     rubygem-rubyipmi: {}
+    rubygem-safemode: {}
+    rubygem-scoped_search: {}
+    rubygem-secure_headers: {}
+    rubygem-sequel: {}
+    rubygem-sexp_processor: {}
+    rubygem-signet: {}
+    rubygem-spice-html5-rails: {}
+    rubygem-sprockets-rails: {}
+    rubygem-sshkey: {}
+    rubygem-syntax: {}
+    rubygem-text: {}
+    rubygem-trollop: {}
+    rubygem-unf: {}
+    rubygem-unf_ext: {}
+    rubygem-unicode-display_width: {}
+    rubygem-unicode: {}
+    rubygem-useragent: {}
+    rubygem-validates_lengths_from_database: {}
+    rubygem-webpack-rails: {}
+    rubygem-will_paginate: {}
+    rubygem-wirb: {}
+    rubygem-x-editable-rails: {}
+    tfm: {}
+    tfm-rubygem-rest-client: {}
 katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
@@ -301,11 +300,13 @@ plugins_packages:
     releasers:
     - koji-foreman-plugins
   hosts:
+    puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
-    rubygem-azure: {}
     rubygem-azure-core: {}
+    rubygem-azure: {}
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
+    rubygem-chef-api: {}
     rubygem-commonjs: {}
     rubygem-dalli: {}
     rubygem-deface: {}
@@ -314,8 +315,8 @@ plugins_packages:
     rubygem-faraday_middleware: {}
     rubygem-ffi: {}
     rubygem-fog-azure: {}
-    rubygem-foreman-tasks: {}
     rubygem-foreman-tasks-core: {}
+    rubygem-foreman-tasks: {}
     rubygem-foreman_abrt: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_ansible_core: {}
@@ -346,6 +347,7 @@ plugins_packages:
     rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_reserve: {}
     rubygem-foreman_salt: {}
+    rubygem-foreman_scap_client: {}
     rubygem-foreman_setup: {}
     rubygem-foreman_snapshot: {}
     rubygem-foreman_snapshot_management: {}
@@ -365,32 +367,25 @@ plugins_packages:
     rubygem-hammer_cli_foreman_salt: {}
     rubygem-hammer_cli_foreman_ssh: {}
     rubygem-hammer_cli_foreman_tasks: {}
+    rubygem-infoblox: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
+    rubygem-logify: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
+    rubygem-newt: {}
     rubygem-opennebula: {}
+    rubygem-openscap: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-polyglot: {}
     rubygem-puppetdb_foreman: {}
-    rubygem-rainbow: {}
-    rubygem-safe_yaml: {}
-    rubygem-smart_proxy_dynflow_core: {}
-    rubygem-systemu: {}
-    rubygem-wicked: {}
-    rubygem-zscheduler: {}
-    puppet-foreman_scap_client: {}
-    rubygem-chef-api: {}
-    rubygem-foreman_scap_client: {}
-    rubygem-infoblox: {}
-    rubygem-logify: {}
-    rubygem-newt: {}
-    rubygem-openscap: {}
     rubygem-radcli: {}
+    rubygem-rainbow: {}
     rubygem-route53: {}
     rubygem-ruby-hmac: {}
+    rubygem-safe_yaml: {}
     rubygem-satyr: {}
     rubygem-smart_proxy_abrt: {}
     rubygem-smart_proxy_ansible: {}
@@ -403,6 +398,7 @@ plugins_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
     rubygem-smart_proxy_openscap: {}
@@ -410,6 +406,9 @@ plugins_packages:
     rubygem-smart_proxy_realm_ad_plugin: {}
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
+    rubygem-systemu: {}
+    rubygem-wicked: {}
+    rubygem-zscheduler: {}
 
 
 repoclosures:
