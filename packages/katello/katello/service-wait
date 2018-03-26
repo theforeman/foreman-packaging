@@ -43,7 +43,7 @@ wait_for_url() {
 
   while [[ $RETVAL -ne 0 && $tries -lt $WAIT_MAX ]]; do
     tries=$((tries + 1))
-    /usr/bin/curl -ks --noproxy '*' $1 > /dev/null
+    /usr/bin/curl -ks --noproxy '*' --cert /dev/null $1 > /dev/null
     RETVAL=$?
     sleep $RETRY_INTERVAL
   done

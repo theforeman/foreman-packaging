@@ -223,4 +223,3 @@ Useful utilities for managing Katello services
 %changelog
 * Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-1.nightly
 - new package built with tito
-
