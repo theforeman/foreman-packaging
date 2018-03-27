@@ -865,8 +865,8 @@ plugins required for Foreman to work.
 %package telemetry
 Summary: Foreman telemetry support
 Group:  Applications/System
-Requires: %{?scl_prefix_ror}rubygem(prometheus-client)
-Requires: %{?scl_prefix_ror}rubygem(statsd-instrument)
+Requires: %{?scl_prefix}rubygem(prometheus-client)
+Requires: %{?scl_prefix}rubygem(statsd-instrument)
 Requires: %{name} = %{version}-%{release}
 
 %description telemetry
@@ -878,8 +878,8 @@ Meta Package to install requirements for telemetry support
 %package journald
 Summary: Foreman journald logging support
 Group:  Applications/System
-Requires: %{?scl_prefix_ror}rubygem(journald-logger) >= 1.0
-Requires: %{?scl_prefix_ror}rubygem(journald-logger) < 2.0
+Requires: %{?scl_prefix}rubygem(journald-logger) >= 1.0
+Requires: %{?scl_prefix}rubygem(journald-logger) < 2.0
 Requires: %{name} = %{version}-%{release}
 
 %description journald
