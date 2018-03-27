@@ -259,11 +259,18 @@ module KatelloUtilities
         FileUtils.cd '/var/lib/pulp' do
           puts "Backing up Pulp data... "
           matching = false
+          backup_file = File.join(@dir, '.pulp.snar')
+          alternate_backup = File.join(@dir, '.pulp.snar.backup')
           until matching
+            FileUtils.cp backup_file, alternate_backup if File.exist? backup_file
             checksum1 = run_cmd("find . -printf '%T@\n' | md5sum")
             create_pulp_data_tar
             checksum2 = run_cmd("find . -printf '%T@\n' | md5sum")
             matching = (checksum1 == checksum2)
+            FileUtils.rm backup_file unless matching
+            if File.exist? alternate_backup
+              matching ? FileUtils.rm(alternate_backup) : FileUtils.mv(alternate_backup, backup_file)
+            end
           end
         end
         puts "Done."
