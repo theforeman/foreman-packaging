@@ -5,7 +5,7 @@
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.6.0
+Version: 4.7.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -76,6 +76,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/gemfiles
 
 %changelog
+* Tue Mar 27 2018 Tomer Brisker <tbrisker@gmail.com> 4.7.0-1
+- Update to 4.7.0
+
 * Tue Jan 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.6.0-1
 - Bump rubygem-audited to 4.6.0 (ewoud@kohlvanwijngaarden.nl)
 
