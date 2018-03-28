@@ -5,8 +5,8 @@
 %global plugin_name monitoring
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
 License: GPLv3
@@ -94,7 +94,7 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
-* Thu Feb 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-2
+* Mon Jan 15 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-2
 - Update foreman_monitoring to 1.0.0 (mail@timogoebel.name)
 
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.1-2
