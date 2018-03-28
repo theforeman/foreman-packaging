@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    3.nightly%{?dist}
+Release:    4.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -18,7 +18,6 @@ Source1:    katello-debug.sh
 Source2:    katello-remove
 Source3:    katello-remove-orphans
 Source4:    katello-service
-Source5:    service-wait
 Source6:    katello-restore
 Source7:    katello-backup
 Source8:    katello-service-bash_completion.sh
@@ -38,9 +37,6 @@ BuildRequires: util-linux
 
 Requires: %{name}-common = %{version}-%{release}
 
-%if 0%{?rhel} == 6
-Requires: redhat-logos >= 60.0.14
-%endif
 Requires: foreman-installer-%{name}
 
 #Pulp Requirements
@@ -109,7 +105,6 @@ install -Dp -m0755 %{SOURCE9} %{buildroot}%{_sbindir}/qpid-core-dump
 install -Dp -m0755 %{SOURCE7} %{buildroot}%{_sbindir}/katello-backup
 install -Dp -m0755 %{SOURCE6} %{buildroot}%{_sbindir}/katello-restore
 install -Dp -m0755 %{SOURCE4} %{buildroot}%{_sbindir}/katello-service
-install -Dp -m0755 %{SOURCE5} %{buildroot}%{_sbindir}/service-wait
 install -Dp -m0755 %{SOURCE2} %{buildroot}%{_sbindir}/katello-remove
 install -Dp -m0755 %{SOURCE1} %{buildroot}/usr/share/foreman/script/foreman-debug.d/katello-debug.sh
 
@@ -208,23 +203,21 @@ Provides a federation of katello services
 %package service
 Summary: Katello Service utilities
 Group: Applications/System
-
-# service-wait dependency
-Requires:       curl
-Requires:       ruby
-Requires:       /usr/sbin/ss
-Requires:       /bin/systemctl
+Requires: ruby
+Requires: /bin/systemctl
 
 %description service
 Useful utilities for managing Katello services
 
 %files service
-%{_sbindir}/service-wait
 %{_sbindir}/katello-service
 %{_mandir}/man8/katello-service.8*
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Fri May 11 2018 Chris Roberts <chrobert@redhat.com> - 3.7.0-4.nightly
+- removed el6 references and service-wait
+
 * Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.7.0-3.nightly
 - rebuilt
 

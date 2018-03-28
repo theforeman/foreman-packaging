@@ -3,7 +3,6 @@
 require 'optparse'
 
 ACTIONS = ['restart', 'stop', 'start', 'status', 'list', 'enable', 'disable']
-COMMAND = '/usr/sbin/service-wait'
 SERVICES = {
   'rh-mongodb34-mongod'      => 5,
   'postgresql'               => 5,
@@ -11,7 +10,6 @@ SERVICES = {
   'qdrouterd'                => 10,
   'squid'                    => 10,
   'tomcat'                   => 20,
-  'tomcat6'                  => 20,
   'pulp_workers'             => 20,
   'pulp_celerybeat'          => 20,
   'pulp_resource_manager'    => 20,
@@ -20,7 +18,7 @@ SERVICES = {
   'smart_proxy_dynflow_core' => 20,
   'httpd'                    => 30,
   'puppetserver'             => 30,
-  'foreman-tasks'            => 30,
+  'dynflowd'                 => 30,
   'goferd'                   => 30
 }
 
@@ -74,14 +72,8 @@ def manage_services(action)
 
   services_by_priority(action == 'stop').each do |service|
     if service_exists?(service)
-      case action
-      when 'enable', 'disable'
-        puts "systemctl #{action} #{service}.service"
-        puts `systemctl #{action} #{service}.service`
-      else
-        puts "#{COMMAND} #{service} #{action}"
-        puts `#{COMMAND} #{service} #{action}`
-      end
+      puts "systemctl #{action} #{service}.service"
+      puts `systemctl #{action} #{service}.service`
       failures << service unless $?.success?
     end
   end
