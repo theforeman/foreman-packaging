@@ -1,7 +1,7 @@
 # Opts for every command
 _katelloservice_help_opts="-h --help"
 _katello_action_opts="restart stop start status list enable disable"
-_katello_services="mongod postgresql qpidd qdrouterd squid tomcat tomcat6 pulp_workers pulp_celerybeat pulp_resource_manager pulp_streamer foreman-proxy smart_proxy_dynflow_core httpd puppetserver foreman-tasks goferd"
+_katello_services="mongod postgresql qpidd qdrouterd squid tomcat pulp_workers pulp_celerybeat pulp_resource_manager pulp_streamer foreman-proxy smart_proxy_dynflow_core httpd puppetserver foreman-tasks goferd"
 
 _katello-service_exclude-only()
 {
