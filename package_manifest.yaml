@@ -405,6 +405,7 @@ plugins_packages:
     rubygem-puppetdb_foreman: {}
     rubygem-radcli: {}
     rubygem-rainbow: {}
+    rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
     rubygem-route53: {}
     rubygem-rqrcode: {}
