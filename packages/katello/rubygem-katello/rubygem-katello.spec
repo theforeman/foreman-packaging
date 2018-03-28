@@ -12,7 +12,7 @@ Summary: Katello
 Version: %{mainver}
 Release: %{?prever:0.}%{release}%{?prever}%{?dist}
 Group:   Development/Ruby
-License: Distributable
+License: GPLv2
 URL:     https://theforeman.org/plugins/katello
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
 
