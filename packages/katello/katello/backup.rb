@@ -82,7 +82,6 @@ module KatelloUtilities
         "/etc/pki/katello-certs-tools",
         "/etc/pki/pulp",
         "/etc/pulp",
-        "/etc/puppet",
         "/etc/puppetlabs",
         "/etc/qpid",
         "/etc/qpid-dispatch",

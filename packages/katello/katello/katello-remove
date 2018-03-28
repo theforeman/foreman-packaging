@@ -22,7 +22,6 @@ CONFIG_FILES = [
   '/etc/candlepin',
   '/etc/katello',
   '/etc/httpd',
-  '/etc/tomcat6',
   '/etc/foreman',
   '/etc/tomcat',
   '/etc/foreman-installer',
@@ -32,7 +31,6 @@ CONFIG_FILES = [
   '/etc/hammer',
   '/etc/tomcat',
   '/etc/squid',
-  '/etc/puppet',
   '/etc/puppetlabs',
   '/etc/qpid',
   '/etc/qpid-dispatch',
@@ -41,7 +39,6 @@ CONFIG_FILES = [
 
 LOG_FILES = [
   '/var/log/katello',
-  '/var/log/tomcat6',
   '/var/log/pulp',
   '/var/log/candlepin',
   '/var/log/httpd',
@@ -68,7 +65,6 @@ RPMS = [
   'postgre',
   '^mod_',
   '^rubygem',
-  '^ruby193',
   '^tfm',
   '^foreman',
   '^qpid',
