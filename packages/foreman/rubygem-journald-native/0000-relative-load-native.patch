@@ -1,0 +1,13 @@
+diff --git a/lib/journald/native.rb b/lib/journald/native.rb
+index 3b8aa0f..70d80a0 100644
+--- a/lib/journald/native.rb
++++ b/lib/journald/native.rb
+@@ -18,7 +18,7 @@
+ #
+ 
+ require 'journald/native/version'
+-require_relative '../journald_native'
++require 'journald_native'
+ 
+ module Journald
+   module Native
