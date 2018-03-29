@@ -5,8 +5,8 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
-Release: 1%{?foremandist}%{?dist}
+Version: 0.8.37
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -86,9 +86,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
-* Wed Mar 28 2018 Adam Ruzicka <aruzicka@redhat.com> 0.9.0-1
-- Update to 0.9.0
-
 * Tue Mar 06 2018 Adam Ruzicka <aruzicka@redhat.com> 0.8.36-1
 - Update Dynflow to 0.8.36 (aruzicka@redhat.com)
 
