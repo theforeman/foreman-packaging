@@ -372,6 +372,10 @@ module KatelloUtilities
       end
     end
 
+    def tape_length_validator(size)
+      !!(size =~ /^\d+[bBcGKkMPTw]?$/)
+    end
+
     def setup_opt_parser
       @optparse = OptionParser.new do |opts|
         opts.banner = "Usage: #{@program}-backup /path/to/dir [options]\n eg: $ #{@program}-backup /tmp/#{@program}-backup"
@@ -391,7 +395,9 @@ module KatelloUtilities
         end
 
         opts.on("--split-pulp-tar SIZE", "Split pulp data into files of a specified size, i.e. (100M, 50G). See '--tape-length' in 'info tar' for all sizes") do |size|
-          opts.abort("Please specify size according to 'tar --tape-length' format.") unless size
+          unless size && tape_length_validator(size)
+            opts.abort("Please specify size according to 'tar --tape-length' format.")
+          end
           @options[:split_tar] = size
         end
 
