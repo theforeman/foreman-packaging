@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPL-2.1+
@@ -19,6 +19,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.9.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: systemd-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Patch0: 0000-relative-load-native.patch
 
 %description
 systemd-journal logging native lib wrapper.
@@ -43,6 +44,8 @@ gem unpack %{SOURCE0}
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
+
+%patch0 -p1
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -88,6 +91,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 29 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.9-2
+* added relative loading patch
+
 * Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.9-1
 - new package built with tito
 

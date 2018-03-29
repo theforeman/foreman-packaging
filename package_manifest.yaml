@@ -84,6 +84,7 @@ foreman_packages:
     rubygem-hoe: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
+    rubygem-journald-logger: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
     rubygem-jquery_pwstrength_bootstrap_4: {}
@@ -93,6 +94,7 @@ foreman_packages:
     rubygem-little-plugger: {}
     rubygem-locale: {}
     rubygem-logging: {}
+    rubygem-logging-journald: {}
     rubygem-multi_json: {}
     rubygem-multipart-post: {}
     rubygem-mysql2:

@@ -878,8 +878,8 @@ Meta Package to install requirements for telemetry support
 %package journald
 Summary: Foreman journald logging support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(journald-logger) >= 1.0
-Requires: %{?scl_prefix}rubygem(journald-logger) < 2.0
+Requires: %{?scl_prefix}rubygem(logging-journald) >= 1.0
+Requires: %{?scl_prefix}rubygem(logging-journald) < 2.0
 Requires: %{name} = %{version}-%{release}
 
 %description journald
