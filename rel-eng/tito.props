@@ -470,7 +470,6 @@ scl = tfm
 whitelist = katello
   katello-certs-tools
   katello-client-bootstrap
-  katello-installer-base
   katello-repos
   katello-selinux
   nodejs-bootstrap-select

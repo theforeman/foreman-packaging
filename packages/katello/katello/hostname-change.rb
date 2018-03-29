@@ -418,13 +418,10 @@ module KatelloUtilities
     end
 
     def default_installer
-      installer = "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v"
-
       # always disable system checks to avoid unnecessary errors. The installer should have
       # already ran since this is to be run on an existing system and installer checks would
       # have already been skipped
-      installer << " --disable-system-checks" if disable_system_check_option?
-      installer
+      "#{@options[:program]}-installer --scenario #{@options[:scenario]} -v --disable-system-checks"
     end
   end
 end
