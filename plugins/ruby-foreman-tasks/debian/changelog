@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.13.0-1) stable; urgency=low
+
+  * 0.13.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 02 Apr 2018 22:36:55 +0200
+
 ruby-foreman-tasks (0.12.1-1) stable; urgency=low
 
   * 0.12.1 released
