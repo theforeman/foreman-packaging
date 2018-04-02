@@ -13,14 +13,14 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    6.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.13.0
+Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Apr 02 2018 Michael Moll <mmoll@moll.at> 6.0.0-1
+- Update foreman_setup to 6.0.0 (mmoll@moll.at)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
