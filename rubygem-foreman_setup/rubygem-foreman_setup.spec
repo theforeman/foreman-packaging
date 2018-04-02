@@ -13,14 +13,14 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    6.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.13.0
+Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
