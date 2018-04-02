@@ -4,8 +4,8 @@
 %global gem_name fog-ovirt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.2
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
@@ -19,7 +19,7 @@ Requires: %{?scl_prefix}rubygem(fog-core) < 2
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
-Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.4
+Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -71,6 +71,8 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/%{gem_name}.gemspec
@@ -89,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Apr 03 2018 Michael Moll <mmoll@mmoll.at> 1.0.1-1
+- Update fog-ovirt to 1.0.1
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 
