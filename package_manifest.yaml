@@ -222,6 +222,7 @@ foreman_packages:
     rubygem-net-ssh: {}
     rubygem-netrc: {}
     rubygem-oauth: {}
+    rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
     rubygem-passenger: {}
     rubygem-patternfly-sass: {}
