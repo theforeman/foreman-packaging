@@ -215,6 +215,7 @@ whitelist = foreman
   rubygem-net-scp
   rubygem-net-ssh
   rubygem-oauth
+  rubygem-ovirt-engine-sdk
   rubygem-paint
   rubygem-passenger
   rubygem-patternfly-sass
