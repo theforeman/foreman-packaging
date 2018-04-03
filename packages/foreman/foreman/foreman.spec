@@ -131,8 +131,8 @@ Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
-Requires: %{?scl_prefix}rubygem(dynflow) < 1.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 # facter
@@ -220,8 +220,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
-BuildRequires: %{?scl_prefix}rubygem(dynflow) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 # assets
