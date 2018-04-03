@@ -382,6 +382,7 @@ plugins_packages:
     rubygem-hammer_cli_foreman_salt: {}
     rubygem-hammer_cli_foreman_ssh: {}
     rubygem-hammer_cli_foreman_tasks: {}
+    rubygem-hammer_cli_foreman_templates: {}
     rubygem-infoblox: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
