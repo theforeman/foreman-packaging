@@ -1020,6 +1020,11 @@ if [ $1 -ge 1 ] ; then
 fi
 
 %changelog
+* Wed Apr 04 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.16.1-1
+- Release 1.16.1 (me@daniellobato.me)
+- Update foreman.spec to reflect need for newer fog-vsphere
+  (Klaas-@users.noreply.github.com)
+
 * Thu Nov 30 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-1
 - Release 1.16.0 (me@daniellobato.me)
 
