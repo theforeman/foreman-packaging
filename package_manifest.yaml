@@ -203,6 +203,7 @@ foreman_packages:
     nodejs-isomorphic-fetch: {}
     nodejs-jquery: {}
     nodejs-jquery-flot: {}
+    nodejs-jquery-ui: {}
     nodejs-jquery-ujs: {}
     nodejs-jquery.cookie: {}
     nodejs-js-tokens: {}
