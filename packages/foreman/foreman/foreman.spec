@@ -497,8 +497,8 @@ Meta package to install requirements for OpenStack compute resource support.
 %package ovirt
 Summary: Foreman oVirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 0.1.2
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 0.2.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
