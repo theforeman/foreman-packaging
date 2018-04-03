@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Apr 03 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.1.3-1
+- Update foreman_monitoring to 0.1.3 (mail@timogoebel.name)
+
 * Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-1
 - Update foreman_monitoring to 0.1.2 (mail@timogoebel.name)
 
