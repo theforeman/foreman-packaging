@@ -108,6 +108,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Tue Apr 03 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.2-1
+- Update foreman_openscap to 0.9.2 (mhulan@redhat.com)
+
 * Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.0-1
 - Update foreman_openscap to 0.9.0 (mhulan@redhat.com)
 
