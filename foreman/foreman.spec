@@ -13,7 +13,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.16.0
+Version: 1.16.1
 Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -297,6 +297,8 @@ BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(style-loader) < 1.0.0
 BuildRequires: npm(style-loader) >= 0.13.1
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
 BuildRequires: npm(urijs) < 1.19.0
 BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(url-loader) < 1.0.0
@@ -576,6 +578,8 @@ Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(style-loader) < 1.0.0
 Requires: npm(style-loader) >= 0.13.1
+Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
 Requires: npm(urijs) < 1.19.0
 Requires: npm(urijs) >= 1.18.10
 Requires: npm(url-loader) < 1.0.0
