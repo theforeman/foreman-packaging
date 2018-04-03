@@ -5,7 +5,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version: 1.16.0
+Version: 1.16.1
 Release: 1%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
