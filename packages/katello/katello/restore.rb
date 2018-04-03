@@ -99,7 +99,7 @@ module KatelloUtilities
 
     def migrate_pulp
       puts "Migrating pulp databases"
-      necessary_services = "mongod,qpidd"
+      necessary_services = "rh-mongodb34-mongod,qpidd"
       pulp_services = "pulp,celerybeat,pulp_workers,pulp_resource_manager"
       run_cmd("katello-service start --only #{necessary_services}")
       run_cmd("katello-service stop --only #{pulp_services}")
@@ -109,10 +109,10 @@ module KatelloUtilities
 
     def restore_mongo_dump
       puts "Restoring mongo dump"
-      run_cmd("katello-service start --only mongod")
+      run_cmd("katello-service start --only rh-mongodb34-mongod")
       run_cmd("echo 'db.dropDatabase();' | mongo pulp_database")
       run_cmd("mongorestore --host localhost mongo_dump/pulp_database/")
-      run_cmd("katello-service stop --only mongod")
+      run_cmd("katello-service stop --only rh-mongodb34-mongod")
       puts "Done."
     end
 

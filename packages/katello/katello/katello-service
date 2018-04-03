@@ -5,7 +5,7 @@ require 'optparse'
 ACTIONS = ['restart', 'stop', 'start', 'status', 'list', 'enable', 'disable']
 COMMAND = '/usr/sbin/service-wait'
 SERVICES = {
-  'mongod'                   => 5,
+  'rh-mongodb34-mongod'      => 5,
   'postgresql'               => 5,
   'qpidd'                    => 10,
   'qdrouterd'                => 10,
