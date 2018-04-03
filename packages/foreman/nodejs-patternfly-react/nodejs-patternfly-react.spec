@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.11.0
+Version: 1.16.4
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -14,6 +14,8 @@ Requires: npm(breakjs) >= 1.0.0
 Requires: npm(breakjs) < 2.0.0
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
+Requires: npm(css-element-queries) >= 1.0.1
+Requires: npm(css-element-queries) < 2.0.0
 Requires: npm(lodash.orderby) >= 4.6.0
 Requires: npm(lodash.orderby) < 5.0.0
 Requires: npm(patternfly) >= 3.38.0
@@ -45,6 +47,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr coverage %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -62,6 +65,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Apr 03 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.16.4-1
+- Update to 1.16.4
+
 * Thu Mar 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.11.0-1
 - Refs #22724 - Bump nodejs-patternfly-react to 1.11.0
   (ewoud@kohlvanwijngaarden.nl)
