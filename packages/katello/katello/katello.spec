@@ -52,8 +52,7 @@ Requires: pulp-puppet-tools
 Requires: pulp-selinux
 Requires: pulp-server
 Requires: python-pulp-streamer
-Requires: mongodb >= 2.4
-Requires: mongodb-server >= 2.4
+Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
 Requires: python-crane
 Requires: python-gofer-qpid
@@ -171,7 +170,7 @@ Requires: findutils
 Requires: coreutils
 Requires: qpid-tools
 Requires: /bin/ps
-Requires: mongodb
+Requires: rh-mongodb34
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 Requires: %{name}-service
 
@@ -185,6 +184,7 @@ Useful utilities for debug info collecting
 Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
+Requires: rh-mongodb34
 Requires: foreman-installer-%{name}
 Requires: rubygem-highline
 Obsoletes: katello-capsule

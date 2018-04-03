@@ -18,6 +18,7 @@ end
 
 CONFIG_FILES = [
   '/etc/pulp',
+  '/etc/opt/rh/rh-mongodb34/mongod.conf',
   '/etc/candlepin',
   '/etc/katello',
   '/etc/httpd',

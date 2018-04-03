@@ -67,7 +67,7 @@ after_start() {
     katello)
       wait_for_url $KATELLO_TEST_URL
       ;;
-    mongod)
+    rh-mongodb34-mongod)
       # RHBZ 824405 - wait until service is avaiable
       for i in {1..$WAIT_MAX}; do mongo --eval "printjson(db.getCollectionNames())" 2>/dev/null 1>&2 && break; sleep 1; done
       sleep $ADDITIONAL_SLEEP
