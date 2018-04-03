@@ -199,6 +199,7 @@
       <packagereq type="default">nodejs-change-emitter</packagereq>
       <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-css-element-queries</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
       <packagereq type="default">nodejs-d3</packagereq>
       <packagereq type="default">nodejs-datatables.net</packagereq>
@@ -315,7 +316,6 @@
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_api-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>

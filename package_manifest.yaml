@@ -51,6 +51,7 @@ foreman_packages:
     nodejs-change-emitter: {}
     nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
+    nodejs-css-element-queries: {}
     nodejs-css-loader: {}
     nodejs-datatables.net-bs: {}
     nodejs-datatables.net: {}
