@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-templates (0.1.0-1) stable; urgency=low
+
+  * Initial release for Debian/stretch
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 04 Apr 2018 18:25:44 +0200

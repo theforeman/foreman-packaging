@@ -1,0 +1,16 @@
+Source: ruby-hammer-cli-foreman-templates
+Section: ruby
+Priority: optional
+Maintainer: Marek Hulan <mhulan@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: http://github.com/theforeman/hammer-cli-foreman-templates
+XS-Ruby-Versions: all
+
+Package: ruby-hammer-cli-foreman-templates
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
+         ruby-hammer-cli-foreman (>= 0.1.1), ruby-hammer-cli-foreman (<< 1.0.0)
+Description: foreman_templates commands for Hammer CLI
+ This Hammer CLI plugin contains the commands for foreman_templates
