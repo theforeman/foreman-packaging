@@ -343,8 +343,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-prawn
   rubygem-puppetdb_foreman
   rubygem-rainbow
-  rubygem-rqrcode
   rubygem-redhat_access_lib
+  rubygem-rqrcode
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
   rubygem-systemu
