@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (1.5.0-1) stable; urgency=low
+
+  * 1.5.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Wed, 04 Apr 2018 19:08:29 +0200
+
 ruby-foreman-remote-execution (1.4.6-1) stable; urgency=low
 
   * 1.4.6 released
