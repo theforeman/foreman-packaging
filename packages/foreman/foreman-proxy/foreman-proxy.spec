@@ -140,6 +140,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
+%attr(-,%{name},%{name}) %{_localstatedir}/lib/%{name}
 %attr(-,%{name},%{name}) %{_rundir}/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
