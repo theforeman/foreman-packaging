@@ -20,7 +20,6 @@ module KatelloUtilities
       @databases = @databases.dup
       @accepted_scenarios = accepted_scenarios
       @last_scenario = self.last_scenario
-      @services_online = true
 
       # keep as variables for easy backporting
       @foreman_proxy_content = foreman_proxy_content
@@ -51,11 +50,13 @@ module KatelloUtilities
     end
 
     def start_services
+      puts "Starting services"
       run_cmd("katello-service start #{@excluded}") unless @services_online
       @services_online = true
     end
 
     def stop_services
+      puts "Stopping services"
       run_cmd("katello-service stop #{@excluded}") if @services_online
       @services_online = false
     end
@@ -379,6 +380,11 @@ module KatelloUtilities
       end
     end
 
+    def validate_services
+      result = run_cmd("katello-service status #{@excluded}", [0,1])
+      !result.include? 'inactive (dead)'
+    end
+
     def tape_length_validator(size)
       !!(size =~ /^\d+[bBcGKkMPTw]?$/)
     end
@@ -475,6 +481,8 @@ module KatelloUtilities
       @databases.delete 'pgsql' if @is_foreman_proxy_content
       create_directories(@dir.dup)
       validate_directory
+      @services_online = validate_services
+      start_services unless @services_online
 
       Dir.chdir(@dir) do
         generate_metadata
