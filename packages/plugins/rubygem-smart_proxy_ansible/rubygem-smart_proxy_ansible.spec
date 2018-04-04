@@ -1,6 +1,7 @@
 %global gem_name smart_proxy_ansible
 
 %global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_statedir %{_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -8,7 +9,7 @@
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
@@ -52,6 +53,17 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %build
 
+%pre
+for i in ansible ansible_galaxy; do
+  if [ -d %{foreman_proxy_dir}/.$i ]; then
+    mv %{foreman_proxy_dir}/.$i %{foreman_proxy_statedir}/$i
+  fi
+done
+
+if [ -f %{foreman_proxy_dir}/.ansible.cfg ]; then
+  mv %{foreman_proxy_dir}/.ansible.cfg %{_sysconfdir}/foreman-proxy/ansible.cfg
+fi
+
 %install
 mkdir -p %{buildroot}%{gem_dir}
 
@@ -69,13 +81,29 @@ cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core
 gem 'foreman_ansible_core'
 EOF
 
+mkdir -p %{buildroot}%{foreman_proxy_dir}
+
+# Ensure all the ansible state is in /var/lib
+for i in ansible ansible_galaxy; do
+  mkdir -p %{buildroot}%{foreman_proxy_statedir}/$i
+  ln -sv %{foreman_proxy_statedir}/$i %{buildroot}%{foreman_proxy_dir}/.$i
+done
+
+ln -sv %{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
+
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/smart_proxy_ansible.rb
-%config %{foreman_proxy_settingsd_dir}/ansible.yml
-%doc %{gem_instdir}/LICENSE
+%config(noreplace) %{foreman_proxy_settingsd_dir}/ansible.yml
+%{foreman_proxy_dir}/.ansible
+%{foreman_proxy_dir}/.ansible_galaxy
+%{foreman_proxy_dir}/.ansible.cfg
+%attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
+%attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
+%ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_sysconfdir}/foreman-proxy/ansible.cfg
+%license %{gem_instdir}/LICENSE
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
 
 %exclude %{gem_instdir}/bundler.plugins.d
@@ -87,6 +115,10 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.2-2
+- Manage ansible config/state files and migrate them if needed
+- Mark ansible.yml as noreplace
+
 * Mon Mar 05 2018 Daniel Lobato Garcia <me@daniellobato.me> - 2.0.2-1
 - Update smart-proxy-ansible to 2.0.2
 

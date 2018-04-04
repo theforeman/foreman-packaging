@@ -1,6 +1,6 @@
 %global gem_name smart_proxy_remote_execution_ssh
-
 %global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_statedir %{_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -8,7 +8,7 @@
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
@@ -22,14 +22,8 @@ Requires: rubygem(smart_proxy_dynflow) < 0.2.0
 
 Requires: ruby
 Requires: ruby(rubygems)
-
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
 Requires: ruby(release)
 BuildRequires: ruby(release)
-%endif
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Obsoletes: %{?rhel:tfm-}rubygem-smart_proxy_remote_execution_ssh_core < 0.1.4
@@ -56,7 +50,16 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %build
 
+%pre
+if [ -d %{foreman_proxy_dir}/.ssh ]; then
+  mv %{foreman_proxy_dir}/.ssh %{foreman_proxy_statedir}/ssh
+fi
+
 %install
+mkdir -p %{buildroot}%{foreman_proxy_statedir}/ssh
+mkdir -p %{buildroot}%{foreman_proxy_dir}
+ln -sv %{foreman_proxy_statedir}/ssh %{buildroot}%{foreman_proxy_dir}/.ssh
+
 mkdir -p %{buildroot}%{gem_dir}
 
 cp -pa .%{gem_dir}/* \
@@ -78,10 +81,11 @@ EOF
 %{gem_instdir}/lib
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/remote_execution_ssh.rb
-%config %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
-%doc %{gem_instdir}/LICENSE
+%config(noreplace) %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
+%license %{gem_instdir}/LICENSE
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
-
+%{foreman_proxy_dir}/.ssh
+%attr(0750,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
 %exclude %{gem_instdir}/bundler.plugins.d
 %exclude %{gem_cache}
 %{gem_spec}
@@ -91,6 +95,11 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.5-2
+- Move state files to /var
+- Remove EL6 packaging compatibility
+- Mark remote_execution_ssh.yml as noreplace
+
 * Mon Jul 17 2017 Eric D. Helms <ericdhelms@gmail.com> 0.1.5-1
 - Update smart_proxy_remote_execution_ssh_core to 0.1.5 (inecas@redhat.com)
 
