@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Apr 04 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.16.1-1
+- Release 1.16.1 (me@daniellobato.me)
+
 * Thu Nov 30 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-1
 - Release 1.16.0 (me@daniellobato.me)
 
