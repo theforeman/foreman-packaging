@@ -1,5 +1,4 @@
 %global gem_name smart_proxy_remote_execution_ssh
-
 %global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
@@ -56,7 +55,16 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %build
 
+%pre
+if [ -d %{foreman_proxy_dir}/.ssh ]; then
+  mv %{foreman_proxy_dir}/.ssh %{_localstatedir}/lib/foreman-proxy/ssh
+else
+  mkdir -p %{_localstatedir}/lib/foreman-proxy/ssh
+fi
+
 %install
+ln -sv %{_localstatedir}/lib/foreman-proxy/ssh %{foreman_proxy_dir}/.ssh
+
 mkdir -p %{buildroot}%{gem_dir}
 
 cp -pa .%{gem_dir}/* \
@@ -81,7 +89,8 @@ EOF
 %config %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 %doc %{gem_instdir}/LICENSE
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
-
+%attr(-,root,root) %{foreman_proxy_dir}/.ssh
+%attr(-,foreman-proxy,foreman-proxy) %{_localstatedir}/lib/foreman_proxy/ssh
 %exclude %{gem_instdir}/bundler.plugins.d
 %exclude %{gem_cache}
 %{gem_spec}

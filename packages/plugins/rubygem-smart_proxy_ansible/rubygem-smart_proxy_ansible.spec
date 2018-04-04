@@ -52,7 +52,26 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %build
 
+%pre
+for i in ansible ansible_galaxy; do
+  if [ -d %{foreman_proxy_dir}/.$i ]; then
+    mv %{foreman_proxy_dir}/.$i %{buildroot}%{_localstatedir}/lib/foreman-proxy/$i
+  else
+    mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-proxy/$i
+  fi
+done
+
+if [-f %{foreman_proxy_dir}/.ansible.cfg ]; then
+  mv %{foreman_proxy_dir}/.ansible.cfg %{buildroot}%{_sysconfdir}/foreman-proxy/ansible.cfg
+else
+  touch %{buildroot}%{_sysconfdir}/foreman-proxy/ansible.cfg
+fi
+
 %install
+ln -sv %{buildroot}%{_localstatedir}/lib/foreman-proxy/$i %{buildroot}%{foreman_proxy_dir}/.ansible
+ln -sv %{buildroot}%{_localstatedir}/lib/foreman-proxy/$i %{buildroot}%{foreman_proxy_dir}/.ansible_galaxy
+ln -sv %{buildroot}%{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
+
 mkdir -p %{buildroot}%{gem_dir}
 
 cp -pa .%{gem_dir}/* \
@@ -75,6 +94,12 @@ EOF
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/smart_proxy_ansible.rb
 %config %{foreman_proxy_settingsd_dir}/ansible.yml
+%attr(-,root,root) %{foreman_proxy_dir}/.ansible
+%attr(-,root,root) %{foreman_proxy_dir}/.ansible_galaxy
+%attr(-,root,root) %{foreman_proxy_dir}/.ansible.cfg
+%attr(-,foreman-proxy,foreman-proxy) %{_localstatedir}/lib/foreman_proxy/ansible
+%attr(-,foreman-proxy,foreman-proxy) %{_localstatedir}/lib/foreman_proxy/ansible_galaxy
+%attr(-,root,foreman-proxy) %{_sysconfdir}/foreman-proxy/ansible.cfg
 %doc %{gem_instdir}/LICENSE
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
 
