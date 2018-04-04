@@ -5,7 +5,7 @@ Priority: extra
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 9), bundler (>= 1.3), ruby2.3-dev, git | git-core,
                zlib1g-dev, libmysqlclient-dev, libpq-dev, pkg-config, libvirt-dev,
-               libsqlite3-dev, build-essential, curl, nodejs (>= 8.9),
+               libsqlite3-dev, build-essential, curl, nodejs (>= 8.9), libxml2-dev,
                python, dh-systemd (>= 1.5), libsystemd-dev, libcurl4-openssl-dev
 Homepage: http://www.theforeman.org/
 
@@ -150,7 +150,7 @@ Package: foreman-ovirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman (= ${binary:Version}), foreman-compute (= ${binary:Version}), libcurl4-openssl-dev, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), foreman-compute (= ${binary:Version}), libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
 Description: metapackage providing ovirt dependencies for Foreman
  This package provides ovirt dependencies for Foreman, a
  flexible systems management web application.
