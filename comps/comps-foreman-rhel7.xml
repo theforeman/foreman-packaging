@@ -53,9 +53,7 @@
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
-      <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
-      <packagereq type="default">tfm-rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser</packagereq>
       <packagereq type="default">tfm-rubygem-daemons</packagereq>
@@ -127,11 +125,9 @@
       <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass</packagereq>
-      <packagereq type="default">tfm-rubygem-pdf-core</packagereq>
       <packagereq type="default">tfm-rubygem-pg</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar</packagereq>
-      <packagereq type="default">tfm-rubygem-prawn</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
@@ -143,7 +139,6 @@
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
       <packagereq type="default">tfm-rubygem-roadie</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
-      <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
@@ -160,7 +155,6 @@
       <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
-      <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
       <packagereq type="default">tfm-rubygem-unf</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode</packagereq>
@@ -275,11 +269,9 @@
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
-      <packagereq type="default">rubygem-apipie-bindings</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
-      <packagereq type="default">rubygem-foreman_api</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
@@ -293,7 +285,6 @@
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-rb-inotify</packagereq>
-      <packagereq type="default">rubygem-rdoc</packagereq>
       <packagereq type="default">rubygem-rsec</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <!--
@@ -313,7 +304,6 @@
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">nodejs-url-loader-doc</packagereq>
-      <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
@@ -344,9 +334,7 @@
       <packagereq type="default">tfm-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-chunky_png-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-daemons-doc</packagereq>
@@ -416,11 +404,9 @@
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-pdf-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-prawn-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
@@ -432,7 +418,6 @@
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
@@ -447,7 +432,6 @@
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-trollop-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>

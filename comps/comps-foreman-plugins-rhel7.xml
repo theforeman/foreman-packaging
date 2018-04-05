@@ -53,6 +53,7 @@
       <packagereq type="default">tfm-rubygem-bastion</packagereq>
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
       <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
@@ -121,10 +122,13 @@
       <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
+      <packagereq type="default">tfm-rubygem-pdf-core</packagereq>
       <packagereq type="default">tfm-rubygem-polyglot</packagereq>
+      <packagereq type="default">tfm-rubygem-prawn</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
+      <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
@@ -176,6 +180,7 @@
       <packagereq type="default">tfm-rubygem-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-chunky_png-doc</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dalli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
@@ -233,6 +238,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
@@ -241,10 +247,13 @@
       <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-pdf-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-polyglot-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-prawn-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
