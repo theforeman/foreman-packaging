@@ -5,8 +5,8 @@
 %global plugin_name snapshot_management
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.4.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPL-3.0
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.0-1
+- Update to 1.4.0
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 
