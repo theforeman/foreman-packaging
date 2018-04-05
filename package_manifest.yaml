@@ -230,6 +230,7 @@ foreman_packages:
     rubygem-po_to_json: {}
     rubygem-powerbar: {}
     rubygem-puppet-strings: {}
+    rubygem-quantile: {}
     rubygem-rabl: {}
     rubygem-rack-jsonp: {}
     rubygem-rails-i18n: {}
