@@ -132,6 +132,7 @@
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
+      <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <!--
@@ -257,6 +258,7 @@
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->
