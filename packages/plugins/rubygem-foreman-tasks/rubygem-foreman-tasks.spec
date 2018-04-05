@@ -7,7 +7,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.1
+Version: 0.13.0
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -16,8 +16,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.17.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
-Requires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0
+Requires: %{?scl_prefix}rubygem(dynflow) < 2.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
@@ -29,8 +29,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 0.8.29
-BuildRequires: %{?scl_prefix}rubygem(dynflow) < 0.9.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.13.0-1
+- Update to 0.13.0
+
 * Fri Mar 02 2018 Eric D. Helms <ericdhelms@gmail.com> 0.12.0-1
 - Release rubygem-foreman-tasks 0.12.0
 
