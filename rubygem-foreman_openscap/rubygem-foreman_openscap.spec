@@ -108,6 +108,9 @@ mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 exit 0
 
 %changelog
+* Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.6-1
+- Update foreman_openscap to 0.8.6 (mhulan@redhat.com)
+
 * Fri Oct 27 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.8.3-2
 - Precompile assets for foreman_openscap in nightlies
   (xprazak2@users.noreply.github.com)
