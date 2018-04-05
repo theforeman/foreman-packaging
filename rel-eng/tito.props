@@ -222,6 +222,7 @@ whitelist = foreman
   rubygem-pg
   rubygem-po_to_json
   rubygem-powerbar
+  rubygem-prometheus-client
   rubygem-quantile
   rubygem-rabl
   rubygem-rack-jsonp

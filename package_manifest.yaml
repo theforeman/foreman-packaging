@@ -229,6 +229,7 @@ foreman_packages:
     rubygem-pg: {}
     rubygem-po_to_json: {}
     rubygem-powerbar: {}
+    rubygem-prometheus-client: {}
     rubygem-puppet-strings: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
