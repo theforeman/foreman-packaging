@@ -153,6 +153,7 @@
       <packagereq type="default">tfm-rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">tfm-rubygem-sprockets-rails</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey</packagereq>
+      <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
       <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-trollop</packagereq>
@@ -431,6 +432,7 @@
       <packagereq type="default">tfm-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sprockets-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-trollop-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>

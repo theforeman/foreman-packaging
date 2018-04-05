@@ -256,6 +256,7 @@ foreman_packages:
     rubygem-spice-html5-rails: {}
     rubygem-sprockets-rails: {}
     rubygem-sshkey: {}
+    rubygem-statsd-instrument: {}
     rubygem-syntax: {}
     rubygem-text: {}
     rubygem-trollop: {}
