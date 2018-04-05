@@ -3,19 +3,20 @@
 require 'optparse'
 require 'fileutils'
 
+options = {}
 optparse = OptionParser.new do |opts|
-  opts.banner = "This script is used to remove all katello related packages and services. \nThis should only be used if you are sure you are wanting to completly remove Katello from this machine and lose all of your settings and synced content."
+  opts.banner = """
+  This script is used to remove all Katello related packages and services.
+  This should only be used if you are sure you are wanting to completly remove Katello from this machine and lose all of your settings and synced content.\n
+  """
 
+  opts.on('-y', '--assume-yes', 'Remove without confirmation') do
+    options[:unattended] = true
+  end
   opts.parse!
 end
 
-def confirmed?
-  puts "\nARE YOU SURE?: This script permanently deletes data and configuration."
-  print "Read the source for a list of what is removed.  Type [remove] to continue? "
-  'remove' == (gets.chomp)
-end
-
-CONFIG_FILES=[
+CONFIG_FILES = [
   '/etc/pulp',
   '/etc/candlepin',
   '/etc/katello',
@@ -37,7 +38,7 @@ CONFIG_FILES=[
   '/etc/sysconfig/foreman.rpmsave'
 ]
 
-LOG_FILES=[
+LOG_FILES = [
   '/var/log/katello',
   '/var/log/tomcat6',
   '/var/log/pulp',
@@ -52,7 +53,7 @@ LOG_FILES=[
   '/var/log/capsule-certs-generate*'
 ]
 
-RPMS=[
+RPMS = [
   'puppetlabs-release',
   'foreman-release',
   'foreman-client',
@@ -93,7 +94,7 @@ RPMS=[
   'squid'
 ]
 
-CERT_FILES=[
+CERT_FILES = [
   '/etc/pki/pulp',
   '/etc/pki/content/*',
   '/etc/pki/katello',
@@ -106,7 +107,7 @@ CERT_FILES=[
   '/etc/pki/ca-trust/source/anchors/katello_server-host-cert.crt'
 ]
 
-CONTENT=[
+CONTENT = [
   '/usr/share/foreman-proxy',
   '/usr/share/foreman-installer-katello',
   '/var/www/html/pub/katello-server-ca.crt',
@@ -135,7 +136,7 @@ CONTENT=[
 ]
 
 CONTENT.map! do |dir|
-  if File.readlines('/proc/mounts').any?{ |line| line.split(" ")[1] =~ /#{dir}$/ }
+  if File.readlines('/proc/mounts').any? { |line| line.split(' ')[1] =~ /#{dir}$/ }
     dir + '/*'
   else
     dir
@@ -143,50 +144,63 @@ CONTENT.map! do |dir|
 end
 
 def remove
+  puts 'Stopping services'
   `katello-service stop`
 
-  puts "Removing RPMs"
+  puts 'Removing RPMs'
   packages = []
-  RPMS.each do | rpm |
+  RPMS.each do |rpm|
     rpmpackages = `rpm -qa | grep "#{rpm}"`
     packages += rpmpackages.lines.map(&:chomp)
   end
-  `yum erase -y #{packages.join(" ")} > /dev/null 2>&1`
+  `yum erase -y #{packages.join(' ')} > /dev/null 2>&1`
 
-  puts "Cleaning up configuration files"
+  puts 'Cleaning up configuration files'
   FileUtils.rm_rf CONFIG_FILES
 
-  puts "Cleaning up log files"
+  puts 'Cleaning up log files'
   # logs
   FileUtils.rm_rf LOG_FILES
 
-  puts "Cleaning up Certs"
+  puts 'Cleaning up certs'
   # pulp cert stuff
   FileUtils.rm_rf CERT_FILES
 
-  puts "Cleaning up content"
-  #content
+  puts 'Cleaning up content'
+  # content
   FileUtils.rm_rf CONTENT
+
+  puts 'Finished'
 end
 
-puts "\nWARNING: This script will erase many packages and config files."
-puts "Important packages such as the following will be removed:\n"
-puts "  * httpd (apache)"
-puts "  * mongodb"
-puts "  * tomcat"
-puts "  * puppet"
-puts "  * ruby"
-puts "  * rubygems"
-puts "  * All Katello and Foreman Packages\n"
-puts "Once these packages and configuration files are removed there is no going back."
-puts "If you use this system for anything other than Katello and Foreman you probably"
-puts "do not want to execute this script.\n"
+def confirmed?
+  puts "\nARE YOU SURE?: This script permanently deletes data and configurations."
+  puts "\nRead the source at /usr/sbin/katello-remove for a list of what is removed.  Type [remove] to continue "
+  gets.chomp == 'remove'
+end
 
-print "Read the source for a list of what is removed.  Are you sure(Y/N)? "
+def check?
+  puts "\nWARNING: This script will erase many packages and config files."
+  puts "Important packages such as the following will be removed:\n"
+  puts '  * httpd (apache)'
+  puts '  * mongodb'
+  puts '  * tomcat'
+  puts '  * puppet'
+  puts '  * ruby'
+  puts '  * rubygems'
+  puts "  * All Katello and Foreman Packages\n"
+  puts 'Once these packages and configuration files are removed there is no going back.'
+  puts 'If you use this system for anything other than Katello and Foreman you probably'
+  puts "do not want to execute this script.\n"
+  puts "\nRead the source at /usr/sbin/katello-remove for a list of what is removed.  Are you sure(Y/N) "
 
-response = gets.chomp
-if /[Y]/i.match(response)
-  confirmed? ? remove : (puts "**** cancelled ****")
+  response = gets.chomp
+  /[Y]/i.match(response)
+end
+
+if options[:unattended] || (check? && confirmed?)
+  puts "\nStarting removal"
+  remove
 else
-  puts "**** cancelled ****"
+   puts "**cancelled**"
 end
