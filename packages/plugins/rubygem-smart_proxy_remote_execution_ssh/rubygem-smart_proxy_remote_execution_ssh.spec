@@ -7,8 +7,8 @@
 
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.1.5
-Release: 2%{?dist}
+Version: 0.1.6
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
@@ -95,6 +95,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.6-1
+- Update to 0.1.6
+
 * Wed Apr 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.5-2
 - Move state files to /var
 - Remove EL6 packaging compatibility
