@@ -302,6 +302,8 @@ katello_packages:
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_katello_core"
     rubygem-qpid_messaging: {}
+    rubygem-redhat_access: {}
+    rubygem-redhat_access_lib: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
 katello_client_packages:
@@ -405,8 +407,6 @@ plugins_packages:
     rubygem-puppetdb_foreman: {}
     rubygem-radcli: {}
     rubygem-rainbow: {}
-    rubygem-redhat_access: {}
-    rubygem-redhat_access_lib: {}
     rubygem-route53: {}
     rubygem-rqrcode: {}
     rubygem-ruby-hmac: {}
