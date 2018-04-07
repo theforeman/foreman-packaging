@@ -90,7 +90,7 @@ Architecture: all
 Section: web
 Priority: extra
 Recommends: foreman-ec2
-Depends: foreman (= ${binary:Version}), ${misc:Depends}
+Depends: foreman (= ${binary:Version}), libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
 Description: metapackage providing fog dependencies for Foreman,
  adding OpenStack and Rackspace compute resource support.
  This package provides fog dependencies for Foreman, a
