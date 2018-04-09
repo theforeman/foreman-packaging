@@ -112,8 +112,8 @@ Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
 Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4.0
-Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
-Requires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 Requires: %{?scl_prefix}rubygem(responders) >= 2.0
@@ -148,7 +148,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
-BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
+BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 # Gemfile
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
@@ -200,8 +201,8 @@ BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
-BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
@@ -405,8 +406,8 @@ BuildRequires: npm(uuid) < 4.0.0
 
 # Other gems
 # assets.rb
-BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
-BuildRequires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3.0
+BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
+BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
@@ -495,7 +496,7 @@ Meta package to install requirements for OpenStack compute resource support.
 %package ovirt
 Summary: Foreman oVirt support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
@@ -527,8 +528,8 @@ preference to this package.
 %package ec2
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
-Requires:  %{?scl_prefix}rubygem(fog-aws) >= 0.1.0
-Requires:  %{?scl_prefix}rubygem(fog-aws) < 2.0.0
+Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.1
+Requires: %{?scl_prefix}rubygem(fog-aws) < 2
 Requires:  %{name} = %{version}-%{release}
 
 %description ec2
@@ -553,7 +554,7 @@ Meta package to install requirements for Rackspace compute resource support.
 %package vmware
 Summary: Foreman VMware support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 1.13.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.0
 Requires: %{name} = %{version}-%{release}
 
 %description vmware
@@ -565,7 +566,6 @@ Meta package to install requirements for VMware compute resource support.
 %package gce
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-google) >= 0.0
 Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
 Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
 Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
@@ -759,22 +759,22 @@ Requires: npm(uuid) < 4.0.0
 # end package.json dependencies Requires
 
 # Other gems
-Requires: %{?scl_prefix}rubygem(jquery-turbolinks) >= 2.1
-Requires: %{?scl_prefix}rubygem(jquery-turbolinks) < 3
+Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
+Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
 Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
-Requires: %{?scl_prefix}rubygem(gridster-rails) < 1
+Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
-Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6
+Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
 Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2
+Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
 
 %description assets
 Meta package to install asset pipeline support.
@@ -803,7 +803,7 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
 Requires: %{?scl_prefix}rubygem(wirb) < 3.0
 Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
-Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1
+Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
 Requires: %{name} = %{version}-%{release}
@@ -818,7 +818,7 @@ Meta Package to install requirements for console support
 Summary: Foreman mysql2 support
 Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
-Requires: %{?scl_prefix}rubygem(mysql2) < 0.5.0
+Requires: %{?scl_prefix}rubygem(mysql2) < 0.5
 Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
 Provides: %{name}-mysql = %{version}
@@ -832,7 +832,7 @@ Meta Package to install requirements for mysql2 support
 %package postgresql
 Summary: Foreman Postgresql support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(pg) >= 0.18.0
+Requires: %{?scl_prefix}rubygem(pg) >= 0.18
 Requires: %{?scl_prefix}rubygem(pg) < 1.0
 Requires: %{name} = %{version}-%{release}
 
