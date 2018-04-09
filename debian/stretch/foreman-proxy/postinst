@@ -26,7 +26,7 @@ case "$1" in
   configure)
     getent group $GROUPNAME >/dev/null || groupadd -r $GROUPNAME
     getent passwd $USERNAME >/dev/null || \
-      useradd -r -g $GROUPNAME -d $FOREMAN_HOME -s /usr/sbin/nologin -c "Foreman" $USERNAME
+      useradd -r -g $GROUPNAME -d $FOREMAN_HOME -s /usr/sbin/nologin -c "Foreman Proxy daemon user" $USERNAME
 
     mkdir -p "$FOREMAN_HOME/tmp"
     mkdir -p "/var/log/foreman-proxy"
