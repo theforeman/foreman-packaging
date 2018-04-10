@@ -2,9 +2,8 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name katello
-%global prever .rc2
-%global mainver 3.6.0.1
-%global release 1
+%global mainver 3.6.0
+%global release 2
 
 %define katello_ostree %{?scl_prefix}rubygem-%{gem_name}_ostree
 

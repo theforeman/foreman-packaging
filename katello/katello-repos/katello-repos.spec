@@ -1,10 +1,9 @@
-%global prever .rc1
 %global pulp_release stable
 %global pulp_version 2.15
 
 Name:           katello-repos
 Version:        3.6.0
-Release:        3%{?prever}%{?dist}
+Release:        4%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
