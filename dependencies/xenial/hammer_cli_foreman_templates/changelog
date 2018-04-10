@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-templates (5.0.2-1) stable; urgency=low
+
+  * Update foreman_templates to 5.0.2
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 10 Apr 2018 16:43:20 +0200
+
 ruby-hammer-cli-foreman-templates (0.1.0-1) stable; urgency=low
 
   * Initial release for Ubuntu/xenial
