@@ -16,14 +16,14 @@
 
 Summary:    Plugin to synchronise provisioning templates from GitHub
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.1
-Release:    2%{?foremandist}%{?dist}
+Version:    6.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.15.0
+Requires:   foreman >= 1.18.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -38,7 +38,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(diffy)
 BuildRequires: %{?scl_prefix}rubygem(git)
 BuildRequires: git
-BuildRequires: foreman-plugin >= 1.15
+BuildRequires: foreman-plugin >= 1.18
 
 
 BuildArch: noarch
@@ -101,6 +101,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Apr 10 2018 Marek Hulan <mhulan@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.1-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
