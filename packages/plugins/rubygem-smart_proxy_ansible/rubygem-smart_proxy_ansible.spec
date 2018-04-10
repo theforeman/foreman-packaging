@@ -9,7 +9,7 @@
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
 Version: 2.0.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
@@ -60,7 +60,7 @@ for i in ansible ansible_galaxy; do
   fi
 done
 
-if [ -f %{foreman_proxy_dir}/.ansible.cfg ]; then
+if [ -f %{foreman_proxy_dir}/.ansible.cfg ] && [ ! -L %{foreman_proxy_dir}/.ansible.cfg ]; then
   mv %{foreman_proxy_dir}/.ansible.cfg %{_sysconfdir}/foreman-proxy/ansible.cfg
 fi
 
@@ -115,6 +115,9 @@ ln -sv %{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}
 %doc %{gem_docdir}
 
 %changelog
+* Tue Apr 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.2-3
+- Handle .ansible.cfg symlinks
+
 * Wed Apr 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.2-2
 - Manage ansible config/state files and migrate them if needed
 - Mark ansible.yml as noreplace
