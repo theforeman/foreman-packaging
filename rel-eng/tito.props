@@ -427,6 +427,10 @@ whitelist = katello
   rubygem-robotex
   rubygem-runcible
 
+[katello-nightly-fedora27]
+disttag = .fc27
+whitelist = katello-repos katello-host-tools
+
 [katello-nightly-fedora26]
 disttag = .fc26
 whitelist = katello-repos katello-host-tools

@@ -1,6 +1,9 @@
+%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
+%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
+
 Name: katello-host-tools
-Version: 3.1.0
-Release: 3%{?dist}
+Version: 3.2.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -14,7 +17,11 @@ Requires: subscription-manager
 Requires: %{name}-fact-plugin
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
+%if %{dnf_install}
+Requires: python3-subscription-manager-rhsm
+%else
 Requires: python-rhsm
+%endif
 Requires: crontabs
 %endif
 
@@ -25,8 +32,13 @@ Requires: python-simplejson
 %if 0%{?sles_version}
 BuildRequires: python-devel >= 2.6
 %else
+%if %{dnf_install}
+BuildRequires: python3-devel
+%else
 BuildRequires: python2-devel
 %endif
+%endif
+
 BuildRequires: python-setuptools
 BuildRequires: rpm-python
 
@@ -81,13 +93,17 @@ Summary:    Adds Tracer functionality to a client managed by katello-host-tools
 Group:      Development/Languages
 
 Requires: katello-host-tools
+%if %{dnf_install}
+Requires: python3-tracer
+%else
 Requires: python2-tracer >= 0.6.12
+%endif
 
 %description tracer
 Adds Tracer functionality to a client managed by katello-host-tools
 
 %prep
-%setup -q -n katello-host-tools-%{version}
+%setup -q
 
 %build
 pushd src
@@ -96,35 +112,48 @@ popd
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/%{_sysconfdir}/gofer/plugins
-mkdir -p %{buildroot}/%{_prefix}/lib/gofer/plugins
+mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
+mkdir -p %{buildroot}%{_prefix}/lib/gofer/plugins
 
-cp etc/gofer/plugins/katelloplugin.conf %{buildroot}/%{_sysconfdir}/gofer/plugins
-cp src/katello/agent/katelloplugin.py %{buildroot}/%{_prefix}/lib/gofer/plugins
+cp etc/gofer/plugins/katelloplugin.conf %{buildroot}%{_sysconfdir}/gofer/plugins
+cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
 
-mkdir -p %{buildroot}/%{_prefix}/lib/yum-plugins
-cp src/yum-plugins/package_upload.py %{buildroot}/%{_prefix}/lib/yum-plugins
-cp src/yum-plugins/enabled_repos_upload.py %{buildroot}/%{_prefix}/lib/yum-plugins
+%if %{dnf_install}
+%define katello_libdir %{python3_sitelib}/katello
+%define plugins_dir %{python3_sitelib}/dnf-plugins
+%define plugins_confdir %{_sysconfdir}/dnf/plugins
+%else
+%define katello_libdir %{python_sitelib}/katello
+%define plugins_dir %{_prefix}/lib/yum-plugins
+%define plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%endif
 
-mkdir -p %{buildroot}/%{_sysconfdir}/yum/pluginconf.d/
-cp etc/yum/pluginconf.d/package_upload.conf %{buildroot}/%{_sysconfdir}/yum/pluginconf.d/package_upload.conf
-cp etc/yum/pluginconf.d/enabled_repos_upload.conf %{buildroot}/%{_sysconfdir}/yum/pluginconf.d/enabled_repos_upload.conf
+mkdir -p %{buildroot}%{katello_libdir}
+mkdir -p %{buildroot}%{plugins_dir}
+mkdir -p %{buildroot}%{plugins_confdir}
 
+cp src/katello/*.py %{buildroot}%{katello_libdir}/
+cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
+
+%if %{dnf_install}
+cp src/dnf_plugins/*.py %{buildroot}%{plugins_dir}/
+rm %{buildroot}%{plugins_dir}/__init__.py
+%else # Yum
+cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
+
+# executables
 mkdir -p %{buildroot}%{_sbindir}
-cp bin/katello-package-upload %{buildroot}%{_sbindir}/katello-package-upload
-cp bin/katello-enabled-repos-upload %{buildroot}%{_sbindir}/katello-enabled-repos-upload
+cp bin/* %{buildroot}%{_sbindir}/
+%endif
 
+# RHSM plugin
 mkdir -p %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/
 mkdir -p %{buildroot}%{_datadir}/rhsm-plugins/
 cp etc/rhsm/pluginconf.d/fqdn.FactsPlugin.conf %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
 cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
 
 # cache directory
-mkdir -p %{buildroot}/var/cache/katello-agent/
-
-cp src/yum-plugins/tracer_upload.py %{buildroot}/%{_prefix}/lib/yum-plugins
-cp etc/yum/pluginconf.d/tracer_upload.conf %{buildroot}/%{_sysconfdir}/yum/pluginconf.d/tracer_upload.conf
-cp bin/katello-tracer-upload %{buildroot}%{_sbindir}/katello-tracer-upload
+mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
 # crontab
@@ -165,13 +194,31 @@ exit 0
 
 %files
 %defattr(-,root,root,-)
-%config %{_sysconfdir}/yum/pluginconf.d/package_upload.conf
-%config %{_sysconfdir}/yum/pluginconf.d/enabled_repos_upload.conf
-/var/cache/katello-agent/
+%dir %{_localstatedir}/cache/katello-agent/
+%config(noreplace) %{plugins_confdir}/package_upload.conf
+%config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
+%{katello_libdir}/constants.py*
+%{katello_libdir}/enabled_report.py*
+%{katello_libdir}/packages.py*
+%{katello_libdir}/repos.py*
+%{katello_libdir}/uep.py*
+%{katello_libdir}/__init__.py*
+%{plugins_dir}/enabled_repos_upload.py*
+%{plugins_dir}/package_upload.py*
+
+%if %{dnf_install}
+%{katello_libdir}/__pycache__/constants.*
+%{katello_libdir}/__pycache__/enabled_report.*
+%{katello_libdir}/__pycache__/packages.*
+%{katello_libdir}/__pycache__/repos.*
+%{katello_libdir}/__pycache__/uep.*
+%{katello_libdir}/__pycache__/__init__.*
+%{plugins_dir}/__pycache__/enabled_repos_upload.*
+%{plugins_dir}/__pycache__/package_upload.*
+%else
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
-%{_prefix}/lib/yum-plugins/package_upload.py*
-%{_prefix}/lib/yum-plugins/enabled_repos_upload.py*
+%endif
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
@@ -182,11 +229,26 @@ exit 0
 %{_datadir}/rhsm-plugins/fqdn.*
 
 %files tracer
-%{_sysconfdir}/yum/pluginconf.d/tracer_upload.conf
+%{plugins_dir}/tracer_upload.py*
+%{katello_libdir}/tracer.py*
+%{plugins_confdir}/tracer_upload.conf
+
+%if %{dnf_install}
+%{katello_libdir}/__pycache__/tracer.*
+%{plugins_dir}/__pycache__/tracer_upload.*
+%else
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
-%{_prefix}/lib/yum-plugins/tracer_upload.py*
+%endif
 
 %changelog
+* Wed Mar 21 2018 Justin Sherrill <jsherril@redhat.com> 3.2.0-1
+- Version bump 3.2.0 (jturel@redhat.com)
+- Fixes #22889 - Zypper client tooling (paji@redhat.com)
+- Fixes #22852 - Python3 support for Facts plugin (jturel@redhat.com)
+- Fixes #22330 - Always run cron after reboot (seanokeeffe797@gmail.com)
+- Fixes #22852 - Python3 support for Facts plugin (jturel@redhat.com)
+- Refs #22623 - Support DNF (jturel@redhat.com)
+
 * Tue Mar 6 2018 Jonathon Turel <jturel@redhat.com> 3.1.0-3
 - Fix directory used by setup macro
 
