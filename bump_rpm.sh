@@ -3,6 +3,9 @@
 if [[ -z $1 ]] ; then
 	echo "Usage: $0 directory"
 	exit 1
+elif [[ ! -d $1 ]] ; then
+	echo "$1 is not a directory. It must be the full path"
+	exit 1
 fi
 
 cd $1
@@ -13,8 +16,23 @@ SPEC_FILE=*.spec
 GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
 CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
 
+program_exists() {
+	which "$@" &> /dev/null
+}
+
+ensure_program() {
+	package=${2:-$1}
+	if !(program_exists $1); then
+		echo "$1 is not installed - you can install it with"
+		echo "sudo yum install $package"
+		exit 1
+	fi
+}
+
 if [[ -z $2 ]] ; then
 	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
+		ensure_program curl
+		ensure_program jq
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
 	else
 		echo "Unknown package type for $1"
@@ -25,6 +43,8 @@ else
 fi
 
 if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
+	ensure_program rpmspec rpm-build
+
 	echo "${GEM_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
 
 	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
@@ -49,6 +69,7 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	if [[ $PACKAGE_NAME == rubygem-* ]] ; then
 		echo "* Verify the ruby runtime dependencies"
 
+		# TODO: hint at installing rubygem-gem-compare
 		gem compare -b $GEM_NAME $CURRENT_VERSION $NEW_VERSION
 	else
 		echo "* Verify the dependencies"
