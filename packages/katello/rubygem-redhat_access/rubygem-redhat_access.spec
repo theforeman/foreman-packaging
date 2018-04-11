@@ -5,7 +5,7 @@
 %global plugin_name redhat_access
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.1
+Version: 2.1.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
@@ -71,11 +71,21 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
+mkdir -p %{buildroot}%{foreman_bundlerd_dir}
+mkdir -p %{buildroot}/etc/redhat_access
+
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# Copy config file
+cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildroot}/etc/redhat_access/config.yml
+
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
+
+# Below is static assets hack - here until we figure out how to do precompile properly
+cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/images/*  %{buildroot}/%{gem_dir}/gems/%{gem_name}-%{version}/public/assets
+cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}/%{gem_dir}/gems/%{gem_name}-%{version}/public/assets
 
 %files
 %dir %{gem_instdir}
@@ -92,11 +102,11 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
-%{foreman_assets_plugin}
+#%{foreman_apipie_cache_foreman}
+#%{foreman_apipie_cache_plugin}
+#%{foreman_assets_plugin}
 
-%config(noreplace) %{_sysconfdir}/redhat_access/config.yml
+%config(noreplace) /etc/redhat_access/config.yml
 
 %files doc
 %doc %{gem_docdir}
