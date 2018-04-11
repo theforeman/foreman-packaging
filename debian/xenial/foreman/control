@@ -180,7 +180,7 @@ Description: metapackage providing test dependencies for Foreman
  The foreman package should be installed along with this package.
 
 Package: foreman-assets
-Architecture: any
+Architecture: all
 Section: web
 Priority: extra
 Depends: foreman (= ${binary:Version}), nodejs (>= 8.9), ${misc:Depends}
