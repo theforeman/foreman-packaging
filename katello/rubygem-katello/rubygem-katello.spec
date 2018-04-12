@@ -130,6 +130,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/lib/katello/repository_types/ostree.rb
 
 %changelog
+* Wed Apr 11 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2
+- Update katello for GA (zhunting@redhat.com)
+
 * Tue Mar 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0.1.rc2-0.1.rc2
 - Update Katello to 3.6.0.1-rc2 (zhunting@redhat.com)
 
