@@ -3,99 +3,92 @@
 
 %global gem_name sequel
 
-Summary: The Database Toolkit for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.20.0
-Release: 7%{?dist}
+Version: 5.7.1
+Release: 1%{?dist}
+Summary: The Database Toolkit for Ruby
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-The Database Toolkit for Ruby
+The Database Toolkit for Ruby.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{pkg_name}.
-
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
-%setup -q -D -T -n %{gem_name}-%{version}
-%{?scl:scl enable %{scl} "}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
 %build
-mkdir -p ./%{gem_dir}
-%{?scl:scl enable %{scl} "}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
-%{?scl:scl enable %{scl} - <<EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
-
-find %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/bin -type f | xargs chmod a+x
-chmod a+x %{buildroot}%{gem_instdir}/spec/adapters/db2_spec.rb
-
-%clean
-rm -rf %{buildroot}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
-%dir %{gem_instdir}/bin
-%{gem_instdir}/bin/sequel
 %{_bindir}/sequel
+%license %{gem_instdir}/MIT-LICENSE
+%{gem_instdir}/bin
 %{gem_libdir}
-%doc %{gem_instdir}/MIT-LICENSE
-%exclude %{gem_instdir}/spec
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%defattr(-, root, root, -)
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG
-%doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/Rakefile
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/doc
+%{gem_instdir}/spec
 
 %changelog
+* Thu Apr 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.7.1-1
+- Update to 5.7.1
+- Regenerate the spec based on gem2rpm/scl.spec.erb
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.20.0-7
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
