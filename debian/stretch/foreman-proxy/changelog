@@ -1,3 +1,9 @@
+foreman-proxy (1.17.0-1) stable; urgency=low
+
+  * 1.17.0 released
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 12 Apr 2018 06:43:38 +0000
+
 foreman-proxy (1.17.0~rc2-1) stable; urgency=low
 
   * Release 1.17.0-RC2

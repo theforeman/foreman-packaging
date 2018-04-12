@@ -1,1 +1,1 @@
-UPSTREAM=develop
+UPSTREAM=1.17.0
