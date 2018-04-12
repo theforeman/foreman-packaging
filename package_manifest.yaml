@@ -394,7 +394,6 @@ plugins_packages:
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
-    rubygem-newt: {}
     rubygem-opennebula: {}
     rubygem-openscap: {}
     rubygem-ovirt_provision_plugin: {}
