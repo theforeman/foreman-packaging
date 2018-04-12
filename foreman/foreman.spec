@@ -9,13 +9,13 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC2
-%global dotalphatag .%{alphatag}
-%global dashalphatag -%{alphatag}
+#global alphatag RC2
+#global dotalphatag .%{alphatag}
+#global dashalphatag -%{alphatag}
 
 Name:   foreman
 Version: 1.17.0
-Release: 0.3%{?dotalphatag}%{?dist}
+Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
