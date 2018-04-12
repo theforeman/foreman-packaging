@@ -3,7 +3,7 @@
 
 Name: katello-host-tools
 Version: 3.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -87,6 +87,7 @@ Obsoletes:  katello-agent-fact-plugin <= 3.0.0
 %description fact-plugin
 A subscription-manager plugin to add an additional fact 'network.fqdn' if not present
 
+%if !0%{?suse_version}
 %package tracer
 BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
@@ -101,6 +102,7 @@ Requires: python2-tracer >= 0.6.12
 
 %description tracer
 Adds Tracer functionality to a client managed by katello-host-tools
+%endif
 
 %prep
 %setup -q
@@ -144,6 +146,11 @@ cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
 # executables
 mkdir -p %{buildroot}%{_sbindir}
 cp bin/* %{buildroot}%{_sbindir}/
+%endif
+
+%if 0%{?suse_version}
+rm %{buildroot}%{plugins_dir}/tracer_upload.py
+rm %{buildroot}%{katello_libdir}/tracer.py
 %endif
 
 # RHSM plugin
@@ -228,6 +235,7 @@ exit 0
 %config %{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
 %{_datadir}/rhsm-plugins/fqdn.*
 
+%if !0%{?suse_version}
 %files tracer
 %{plugins_dir}/tracer_upload.py*
 %{katello_libdir}/tracer.py*
@@ -238,6 +246,7 @@ exit 0
 %{plugins_dir}/__pycache__/tracer_upload.*
 %else
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
+%endif
 %endif
 
 %changelog
