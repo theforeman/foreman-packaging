@@ -102,9 +102,6 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-#%{foreman_apipie_cache_foreman}
-#%{foreman_apipie_cache_plugin}
-#%{foreman_assets_plugin}
 
 %config(noreplace) /etc/redhat_access/config.yml
 
