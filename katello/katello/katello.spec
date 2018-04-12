@@ -212,6 +212,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Apr 11 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-3
+- Update katello for GA (zhunting@redhat.com)
+
 * Thu Feb 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2.rc1
 - new package built with tito
 
