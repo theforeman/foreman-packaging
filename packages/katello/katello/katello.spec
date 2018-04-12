@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    2.nightly%{?dist}
+Release:    3.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -52,8 +52,7 @@ Requires: pulp-puppet-tools
 Requires: pulp-selinux
 Requires: pulp-server
 Requires: python-pulp-streamer
-Requires: mongodb >= 2.4
-Requires: mongodb-server >= 2.4
+Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
 Requires: python-crane
 Requires: python-gofer-qpid
@@ -71,6 +70,8 @@ Requires: java-openjdk < 1:1.8.0.45
 Requires: /usr/bin/psql
 Requires: /usr/bin/pg_dump
 Requires: /usr/bin/pg_dumpall
+
+Obsoletes: mongodb
 
 %description
 Provides a package for managing application life-cycle for Linux systems.
@@ -171,7 +172,7 @@ Requires: findutils
 Requires: coreutils
 Requires: qpid-tools
 Requires: /bin/ps
-Requires: mongodb
+Requires: rh-mongodb34
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 Requires: %{name}-service
 
