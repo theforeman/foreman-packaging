@@ -85,6 +85,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Wed Apr 11 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-4
+- Update katello for GA (zhunting@redhat.com)
+
 * Fri Feb 23 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-3.rc1
 - Bump katello-repos release (ericdhelms@gmail.com)
 - Drop python as a BuildRequires for katello-repos
