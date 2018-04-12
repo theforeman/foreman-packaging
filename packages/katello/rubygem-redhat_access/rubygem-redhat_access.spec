@@ -31,6 +31,9 @@ BuildRequires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.0.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
+Provides: %{?scl_prefix}rubygem-foreman-%{gem_name} = %{version}
+Provides: %{?scl_prefix}rubygem(foreman-%{gem_name}) = %{version}
+Obsoletes: %{?scl_prefix}rubygem-foreman-%{gem_name} < %{version}
 
 %description
 This plugin adds Red Hat Access knowledge base search, case management and
@@ -82,10 +85,6 @@ cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildro
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
-
-# Below is static assets hack - here until we figure out how to do precompile properly
-cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/images/*  %{buildroot}/%{gem_dir}/gems/%{gem_name}-%{version}/public/assets
-cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}/%{gem_dir}/gems/%{gem_name}-%{version}/public/assets
 
 %files
 %dir %{gem_instdir}
