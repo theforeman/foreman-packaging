@@ -115,6 +115,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Wed Apr 11 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-2
+- Update katello for GA (zhunting@redhat.com)
+
 * Thu Mar 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-1.rc2
 - Add Katello-installer-3.6.0rc2 (zhunting@redhat.com)
 
