@@ -30,6 +30,7 @@
        <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
        <packagereq type="default">tfm-rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
+       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
        <packagereq type="default">katello-client-bootstrap</packagereq>
 
        <!-- katello thirdparty rubygem packages -->
@@ -41,6 +42,7 @@
        <packagereq type="default">tfm-rubygem-hpricot</packagereq>
        <packagereq type="default">tfm-rubygem-justified</packagereq>
        <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
+       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
        <packagereq type="default">tfm-rubygem-robotex</packagereq>
        <packagereq type="default">tfm-rubygem-runcible</packagereq>
        <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
@@ -61,6 +63,8 @@
        <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
+       <packagereq type="default">tfm-rubygem-redhat_access-doc</packagereq>
+       <packagereq type="default">tfm-rubygem-redhat_access_lib-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
        <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
     </packagelist>

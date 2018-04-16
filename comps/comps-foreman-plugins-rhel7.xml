@@ -126,7 +126,6 @@
       <packagereq type="default">tfm-rubygem-prawn</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
-      <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
@@ -251,7 +250,6 @@
       <packagereq type="default">tfm-rubygem-prawn-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-redhat_access_lib-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
