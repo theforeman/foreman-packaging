@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+
+<comps>
+<!--  <meta> -->
+<!-- Meta information will go here eventually -->
+<!--  </meta> -->
+  <group>
+    <id>katello-client</id>
+    <name>Katello Client</name>
+    <description>Katello Client Packages</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+       <packagereq type="default">katello-host-tools</packagereq>
+       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
+       <packagereq type="default">katello-client-repos</packagereq>
+       <packagereq type="default">subscription-manager</packagereq>
+       <packagereq type="default">subscription-manager-gui</packagereq>
+       <packagereq type="default">subscription-manager-rhsm</packagereq>
+       <packagereq type="default">subscription-manager-rhsm-certificates</packagereq>
+       <packagereq type="default">python-iniparse</packagereq>
+       <packagereq type="default">python-rhsm</packagereq>
+       <packagereq type="default">python-rhsm-certificates</packagereq>
+       <packagereq type="default">virt-what</packagereq>
+    </packagelist>
+  </group>
+</comps>
