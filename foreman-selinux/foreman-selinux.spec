@@ -173,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Mon Apr 16 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.17.0-1
+- Release 1.17.0 (oprazak@redhat.com)
+
 * Tue Mar 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.17.0-0.1.RC2
 - Release 1.17.0-RC2 (oprazak@redhat.com)
 
