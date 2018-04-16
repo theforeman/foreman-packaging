@@ -6,7 +6,7 @@
 Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.3.4
+Version: 1.3.5
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -86,6 +86,9 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Mon Apr 16 2018 Dmitri Dolguikh <dmitri@appliedlogic.ca> 1.3.5-1
+- Update to 1.3.5
+
 * Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.4-1
 - Update rubygem-safemode to 1.3.4 (dmitri@appliedlogic.ca)
 
