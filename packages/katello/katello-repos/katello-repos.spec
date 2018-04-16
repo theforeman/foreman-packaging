@@ -100,8 +100,7 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 %dir /etc/pki
 %dir /etc/pki/rpm-gpg
-%dir /etc/zypp
-%dir /etc/zypp/repos.d
+%dir %{repo_dir}
 
 %changelog
 * Tue Jan 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-2.nightly
