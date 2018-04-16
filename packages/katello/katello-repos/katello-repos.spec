@@ -4,7 +4,13 @@
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
 %define repo_dir %{_sysconfdir}/zypp/repos.d
+
+%if 0%{?suse_version} < 1300
+%define repo_dist sles11
+%else
 %define repo_dist sles12
+%endif
+
 %else
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
