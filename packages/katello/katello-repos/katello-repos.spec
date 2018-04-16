@@ -98,9 +98,13 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %config %{repo_dir}/*.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
+
+%if 0%{?suse_version}
 %dir /etc/pki
 %dir /etc/pki/rpm-gpg
+%dir /etc/zypp
 %dir %{repo_dir}
+%endif
 
 %changelog
 * Tue Jan 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-2.nightly
