@@ -86,6 +86,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Apr 17 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.1.1-1
+- update fog-vsphere to 2.1.1 (mail@timogoebel.name)
+- Refs #21520 - Update rubygem-fog-vsphere to 2.1.0
+  (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Apr 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
 - Update to 2.1.0
 
