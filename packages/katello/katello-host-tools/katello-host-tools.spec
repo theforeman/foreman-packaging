@@ -1,8 +1,19 @@
-%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
+%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 25)
+%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || (0%{?fedora} == 25)
+%global zypper_install (0%{?suse_version} > 0)
+
+%global build_tracer (0%{?suse_version} == 0)
+
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
+%global build_agent (0%{?suse_version} == 0)
+
+%if 0%{?suse_version}
+%define dist suse%{?suse_version}
+%endif
+
 Name: katello-host-tools
-Version: 3.2.0
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -11,7 +22,12 @@ URL:     https://github.com/Katello/katello-agent
 Source0: https://codeload.github.com/Katello/katello-agent/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+%if 0%{?suse_version} && 0%{?suse_version} < 1200
+BuildArch: x86_64
+%else
 BuildArch: noarch
+%endif
 
 Requires: subscription-manager
 Requires: %{name}-fact-plugin
@@ -35,7 +51,7 @@ BuildRequires: python-devel >= 2.6
 %if %{dnf_install}
 BuildRequires: python3-devel
 %else
-BuildRequires: python2-devel
+BuildRequires: %{?suse_version:python-devel >= 2.6} %{!?suse_version:python2-devel}
 %endif
 %endif
 
@@ -45,6 +61,7 @@ BuildRequires: rpm-python
 %description
 A set of commands and yum plugins that support a Katello host including faster package profile uploading and bound repository reporting.  This is required for errata and package applicability reporting.
 
+%if %{build_agent}
 %package -n katello-agent
 BuildArch:  noarch
 Summary:    The Katello Agent
@@ -75,6 +92,7 @@ Requires: yum-security
 %description -n katello-agent
 Provides plugin for gofer, which allows communicating with Katello server
 and execute scheduled actions.
+%endif 
 
 %package fact-plugin
 BuildArch:  noarch
@@ -87,6 +105,7 @@ Obsoletes:  katello-agent-fact-plugin <= 3.0.0
 %description fact-plugin
 A subscription-manager plugin to add an additional fact 'network.fqdn' if not present
 
+%if %{build_tracer}
 %package tracer
 BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
@@ -101,6 +120,7 @@ Requires: python2-tracer >= 0.6.12
 
 %description tracer
 Adds Tracer functionality to a client managed by katello-host-tools
+%endif #build tracer
 
 %prep
 %setup -q
@@ -112,20 +132,29 @@ popd
 
 %install
 rm -rf %{buildroot}
+
+%if %{build_agent}
 mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
 mkdir -p %{buildroot}%{_prefix}/lib/gofer/plugins
-
 cp etc/gofer/plugins/katelloplugin.conf %{buildroot}%{_sysconfdir}/gofer/plugins
 cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
+%endif 
 
 %if %{dnf_install}
-%define katello_libdir %{python3_sitelib}/katello
-%define plugins_dir %{python3_sitelib}/dnf-plugins
-%define plugins_confdir %{_sysconfdir}/dnf/plugins
-%else
-%define katello_libdir %{python_sitelib}/katello
-%define plugins_dir %{_prefix}/lib/yum-plugins
-%define plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%global katello_libdir %{python3_sitelib}/katello
+%global plugins_dir %{python3_sitelib}/dnf-plugins
+%global plugins_confdir %{_sysconfdir}/dnf/plugins
+%endif
+
+%if %{yum_install}
+%global katello_libdir %{python_sitelib}/katello
+%global plugins_dir %{_prefix}/lib/yum-plugins
+%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
+%endif
+
+%if %{zypper_install}
+%global katello_libdir %{python_sitelib}/katello
+%global plugins_dir %{_prefix}/lib/zypp/plugins/commit/
 %endif
 
 mkdir -p %{buildroot}%{katello_libdir}
@@ -133,18 +162,40 @@ mkdir -p %{buildroot}%{plugins_dir}
 mkdir -p %{buildroot}%{plugins_confdir}
 
 cp src/katello/*.py %{buildroot}%{katello_libdir}/
-cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
 
+%if %{?plugins_confdir:1}%{!?plugins_confdir:0}
+cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
+%endif
+
+#copy package managment plugins
 %if %{dnf_install}
 cp src/dnf_plugins/*.py %{buildroot}%{plugins_dir}/
 rm %{buildroot}%{plugins_dir}/__init__.py
-%else # Yum
+%endif
+
+%if %{yum_install}
 cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
+%endif 
+
+%if %{zypper_install}
+cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
+rm %{buildroot}%{plugins_dir}/__init__.py
+%endif
 
 # executables
+%if %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{_sbindir}
 cp bin/* %{buildroot}%{_sbindir}/
 %endif
+
+#clean up tracer if its not being built
+%if %{build_tracer}
+#do nothing
+%else
+rm %{buildroot}%{katello_libdir}/tracer.py
+rm %{buildroot}%{_sbindir}/katello-tracer-upload
+%endif
+
 
 # RHSM plugin
 mkdir -p %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/
@@ -164,6 +215,7 @@ cp extra/katello-agent-send.cron %{buildroot}%{_sysconfdir}/cron.d/%{name}
 %clean
 rm -rf %{buildroot}
 
+%if %{build_agent}
 %post -n katello-agent
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
   systemctl enable goferd
@@ -175,12 +227,14 @@ rm -rf %{buildroot}
 
 touch /tmp/katello-agent-restart
 exit 0
+%endif
 
 %posttrans
 katello-package-upload 2> /dev/null
 katello-enabled-repos-upload 2> /dev/null
 exit 0
 
+%if %{build_agent}
 %postun -n katello-agent
 touch /tmp/katello-agent-restart
 exit 0
@@ -189,14 +243,19 @@ exit 0
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/gofer/plugins/katelloplugin.conf
 %{_prefix}/lib/gofer/plugins/katelloplugin.*
-
-%doc LICENSE
+%endif
 
 %files
 %defattr(-,root,root,-)
+%doc LICENSE
 %dir %{_localstatedir}/cache/katello-agent/
+
+%if %{dnf_install} || %{yum_install}
 %config(noreplace) %{plugins_confdir}/package_upload.conf
 %config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
+%endif
+
+%dir %{katello_libdir}/
 %{katello_libdir}/constants.py*
 %{katello_libdir}/enabled_report.py*
 %{katello_libdir}/packages.py*
@@ -220,15 +279,27 @@ exit 0
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
 %endif
 
+%if %{zypper_install}
+%dir /usr/lib/zypp/
+%dir /usr/lib/zypp/plugins/
+%dir /usr/lib/zypp/plugins/commit/
+%endif
+
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
 %endif
 
 %files fact-plugin
+%defattr(-,root,root,-)
+%dir %{_sysconfdir}/rhsm/
+%dir %{_sysconfdir}/rhsm/pluginconf.d/
 %config %{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
+%dir %{_datadir}/rhsm-plugins/
 %{_datadir}/rhsm-plugins/fqdn.*
 
+%if %{build_tracer}
 %files tracer
+%defattr(-,root,root,-)
 %{plugins_dir}/tracer_upload.py*
 %{katello_libdir}/tracer.py*
 %{plugins_confdir}/tracer_upload.conf
@@ -239,6 +310,7 @@ exit 0
 %else
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
+%endif #build_tracer
 
 %changelog
 * Wed Mar 21 2018 Justin Sherrill <jsherril@redhat.com> 3.2.0-1
