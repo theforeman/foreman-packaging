@@ -1,6 +1,21 @@
 %global pulp_release stable
 %global pulp_version 2.15
 
+%if 0%{?suse_version}
+%define dist suse%{?suse_version}
+%define repo_dir %{_sysconfdir}/zypp/repos.d
+
+%if 0%{?suse_version} < 1300
+%define repo_dist sles11
+%else
+%define repo_dist sles12
+%endif
+
+%else
+%define repo_dir %{_sysconfdir}/yum.repos.d
+%define repo_dist %{dist}
+%endif
+
 Name:           katello-repos
 Version:        3.7.0
 Release:        2.nightly%{?dist}
@@ -23,17 +38,18 @@ BuildRequires: sed
 Defines yum repositories for Katello and its sub projects, Candlepin and Pulp.
 
 %package -n katello-client-repos
-Summary:  Definition of yum repositories for Katello clients
-Group:    Applications/System
+Summary:   Definition of yum repositories for Katello clients
+Group:     Applications/System
+Conflicts: katello-repos
 
 %description -n katello-client-repos
 Defines yum repositories for Katello clients.
 
 %files -n katello-client-repos
 %defattr(-, root, root)
-%config %{_sysconfdir}/yum.repos.d/katello-client.repo
+%config %{repo_dir}/katello-client.repo
 %if 0%{?rhel} == 6
-%config %{_sysconfdir}/yum.repos.d/qpid-copr.repo
+%config %{repo_dir}/qpid-copr.repo
 %endif
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
@@ -45,14 +61,14 @@ Defines yum repositories for Katello clients.
 rm -rf %{buildroot}
 
 #prepare dir structure
-install -d -m 0755 %{buildroot}%{_sysconfdir}/yum.repos.d
+install -d -m 0755 %{buildroot}%{repo_dir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
-install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
-install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/yum.repos.d/
+install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
+install -m 644 %{SOURCE1} %{buildroot}%{repo_dir}/
 
 %if 0%{?rhel} == 6
-install -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/yum.repos.d/
+install -m 644 %{SOURCE3} %{buildroot}%{repo_dir}/
 %endif
 
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
@@ -66,8 +82,8 @@ else
     REPO_NAME=$REPO_VERSION
 fi
 
-for repofile in %{buildroot}%{_sysconfdir}/yum.repos.d/*.repo; do
-    trimmed_dist=`echo %{dist} | sed 's/^\.//'`
+for repofile in %{buildroot}%{repo_dir}/*.repo; do
+    trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
     sed -i "s/@DIST@/${trimmed_dist}/" $repofile
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
@@ -80,8 +96,15 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
-%config %{_sysconfdir}/yum.repos.d/*.repo
+%config %{repo_dir}/*.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
+
+%if 0%{?suse_version}
+%dir /etc/pki
+%dir /etc/pki/rpm-gpg
+%dir /etc/zypp
+%dir %{repo_dir}
+%endif
 
 %changelog
 * Tue Jan 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-2.nightly
