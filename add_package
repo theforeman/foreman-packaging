@@ -1,0 +1,205 @@
+#!/usr/bin/env python3
+
+import argparse
+import configparser
+import logging
+import subprocess
+from pathlib import Path
+from typing import Optional, Sequence, Tuple
+
+TITO_PROPS_FILENAME = Path('rel-eng') / 'tito.props'
+COMPS_DIR = Path('comps')
+
+logger = logging.getLogger('add_package')
+
+
+def _strip_prefix(value: str, prefix: str) -> str:
+    if value.startswith(prefix):
+        return value[len(prefix):]
+    return value
+
+
+def _is_scl_package(short_package_name: str) -> bool:
+    # TODO: This makes a very simple assumption that's foreman-packaging specific
+    return short_package_name.startswith('rubygem-') or short_package_name.startswith('nodejs-')
+
+
+def add_to_tito_props(short_tag: str, short_package_name: str,
+                      filename: Path = TITO_PROPS_FILENAME) -> \
+                              Tuple[Optional[Path], Sequence[Tuple[str, str]]]:
+    """
+    Add a package to tito.
+
+    This assumes a convention in tito tags that is <short>-<dist>. For example
+    katello-nightly-fedora27 and katello-nightly-fedora28. In this case you pass in
+    katello-nightly as a short tag.
+
+
+    :param short_tag: The short form of a tito tag
+    :param short_package_name: The short package name. This means without the SCL tag prefixed.
+    :result: A tuple of the filename and packages. The filename will be None when there were no
+             modifications. Packages are a list of tuples. Each tuple is a dist and full package
+             name. When the tag has a SCL then the SCL tag will be prepended if applicable.
+    """
+    parser = configparser.ConfigParser()
+    parser.read(TITO_PROPS_FILENAME)
+
+    changed = False
+    result = []
+
+    sections = [(tag, section) for tag, section in parser.items()
+                if tag.startswith(f'{short_tag}-') and 'whitelist' in section]
+
+    for tag, section in sections:
+        dist = tag[len(short_tag) + 1:]
+        whitelist = section['whitelist'].split()
+
+        if 'scl' in section and _is_scl_package(short_package_name):
+            package_name = f'{section["scl"]}-{short_package_name}'
+        else:
+            package_name = short_package_name
+
+        result.append((dist, package_name))
+
+        if short_package_name not in whitelist:
+            logger.info('Adding %s to %s', short_package_name, tag)
+            changed = True
+            section['whitelist'] = '\n'.join(sorted(whitelist + [short_package_name]))
+
+    if changed:
+        logger.debug('Writing %s', filename)
+        with filename.open('w') as props_file:
+            parser.write(props_file)
+
+        return filename, result
+
+    return None, result
+
+
+def add_to_comps(name, dist, package_name, directory: Path = COMPS_DIR) -> Sequence[Path]:
+    filename = directory / f'comps-{name}-{dist}.xml'
+
+    scl = '' if package_name.startswith('tfm-') else 'nonscl'
+
+    # TODO: Pure python version?
+    logger.info('Adding %s to %s', package_name, filename)
+    try:
+        subprocess.check_call(['./add_to_comps.rb', filename, package_name, scl])
+    except subprocess.CalledProcessError as error:
+        if error.returncode == 1:
+            logger.debug('Package %s already present in %s', package_name, filename)
+            return []
+        raise SystemExit('Adding to comps failed')
+
+    logger.debug('Added package %s to %s', package_name, filename)
+    return [filename]
+
+
+def generate_comps_docs(directory: Path = COMPS_DIR) -> Sequence[Path]:
+    logger.info('Regenerating doc packages in comps')
+    subprocess.check_call(['./comps_doc.sh'])
+    # TODO: know which file to add?
+    return list(directory.glob('comps-*.xml'))
+
+
+def stage_files(filenames: Sequence[Path]) -> None:
+    to_annex = {filename for filename in filenames if filename.name.endswith('.gem')}
+    if to_annex:
+        subprocess.check_call(['git', 'annex', 'add'] + [path.as_posix() for path in to_annex])
+
+    to_add = set(filenames) - to_annex
+    if to_add:
+        subprocess.check_call(['git', 'add'] + [path.as_posix() for path in to_add])
+
+
+def commit(message: str) -> None:
+    subprocess.check_call(['git', 'commit', '-m', message])
+
+
+def _get_tito_tags(filename: Path) -> Sequence[str]:
+    parser = configparser.ConfigParser()
+    parser.read(filename)
+
+    return [section for section, content in parser.items() if 'whitelist' in content]
+
+
+def get_short_tito_tags(filename: Path = TITO_PROPS_FILENAME) -> Sequence[str]:
+    return sorted(set(tag.rsplit('-', 1)[0] for tag in _get_tito_tags(filename)))
+
+
+def _get_comps(directory: Path) -> Sequence[str]:
+    return [comps.name[6:-4] for comps in directory.glob('comps-*.xml')]
+
+
+def get_short_comps(directory: Path = COMPS_DIR) -> Sequence[str]:
+    return sorted(set(comp.rsplit('-', 1)[0] for comp in _get_comps(directory)))
+
+
+def get_dists(directory: Path = COMPS_DIR) -> Sequence[str]:
+    return sorted(set(comp.rsplit('-', 1)[1] for comp in _get_comps(directory)))
+
+
+def add_gem_package(gem_name: str, package_dir: Path, spec_name: str, template: str) -> \
+        Sequence[Path]:
+    output = package_dir / spec_name
+
+    subprocess.check_call(['gem2rpm', '--directory', package_dir, '--output', output.as_posix(),
+                           '--fetch', '--template', template, gem_name])
+
+    # TODO: changelog
+    return list(package_dir.glob('*.gem')) + [output]
+
+
+def add_npm_package(args) -> Sequence[Path]:
+    raise NotImplementedError
+
+
+def main():
+    # TODO: chdir
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('package_name', help='Name of the package to add')
+    parser.add_argument('package_base_dir', help='Directory to store the package')
+    parser.add_argument('tag', help='tito tag to add to', choices=get_short_tito_tags())
+    parser.add_argument('comp', help='comp to add to', choices=get_short_comps())
+    parser.add_argument('--version', help='Version of the package to add')
+    parser.add_argument('--template', help='Template to use. Required for some package types')
+
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.DEBUG)
+
+    short_package_name = args.package_name
+    package_dir = Path(args.package_base_dir) / short_package_name
+    spec_name = f'{short_package_name}.spec'
+
+    package_dir.mkdir(parents=True, exist_ok=True)
+
+    to_stage = []
+
+    if short_package_name.startswith('rubygem-'):
+        if not args.template:
+            raise SystemExit('Template not specified')
+        gem_name = _strip_prefix(short_package_name, 'rubygem-')
+        to_stage.extend(add_gem_package(gem_name, package_dir, spec_name, args.template))
+    elif short_package_name.startswith('nodejs-'):
+        to_stage.extend(add_npm_package(args))
+    # TODO: ansible roles
+    else:
+        raise SystemExit('Unknown package type')
+
+    props, packages = add_to_tito_props(args.tag, short_package_name)
+    if props:
+        to_stage.append(props)
+    for dist, package_name in packages:
+        to_stage.extend(add_to_comps(args.comp, dist, package_name))
+
+    to_stage.extend(generate_comps_docs())
+
+    if to_stage:
+        stage_files(to_stage)
+        commit(f'Add {short_package_name} package')
+
+
+if __name__ == '__main__':
+    main()
