@@ -236,6 +236,36 @@ case it's a new package, be sure to add it to the correct koji tags as well.  [H
 
 * This uses local filesystem, so please be sure your using a clean checkout with no local changes
 
+## Releasing Katello client packages for SUSE
+
+For SLES client builds, they must be manually done for now by submitting the jobs to [OBS](https://build.opensuse.org/).  You can use the OSC client tools.  All Katello packages are hosted in the [systemsmanagement:katello](https://build.opensuse.org/project/show/systemsmanagement:katello) project.
+
+After installing OSC, you can check out the particular package you're interested in.  The first time OSC runs, it will prompt for and save your credentials.
+
+
+```
+osc checkout systemsmanagement:katello katello-repos
+```
+
+Update any files as needed. If you're syncing from the foreman-packaging repo, be aware you need to adjust the `Release` line to the following format.  Other than that, RPM's should build on both Koji and OBS.
+
+```
+Release:        <CI_CNT>.<B_CNT>.%{?dist}
+```
+
+Add and commit the changes.  OBS packages will be built automatically, and once complete, you can download them and import into koji.  You need to include the SRPM when importing to Koji.
+
+```
+koji import /tmp/packages/*.*rpm
+```
+
+Once the packages are in Koji, tag them appropriately:
+
+```
+koji tag-build katello-nightly-sles12 katello-repos-3.7.0-18.1.nightly.suse131
+koji tag-build katello-nightly-sles11 katello-repos-3.7.0-18.1.nightly.suse1110
+```
+
 ## License
 
 Spec files are generally based on Fedora spec files, which means that unless a
