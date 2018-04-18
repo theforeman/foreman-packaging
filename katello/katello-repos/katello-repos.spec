@@ -85,6 +85,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Wed Apr 18 2018 Justin Sherrill <jsherril@redhat.com> 3.6.0-5
+- Add Public GPG key for 3.6 (zhunting@redhat.com)
+
 * Wed Apr 11 2018 Eric D. Helms <ericdhelms@gmail.com> 3.6.0-4
 - Update katello for GA (zhunting@redhat.com)
 
