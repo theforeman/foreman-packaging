@@ -3,7 +3,7 @@
 
 Name:           katello-repos
 Version:        3.6.0
-Release:        4%{?prever}%{?dist}
+Release:        5%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -11,7 +11,7 @@ License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
 Source1:        katello-client.repo
-Source2:        RPM-GPG-KEY-katello-2015
+Source2:        RPM-GPG-KEY-katello-3.6
 Source3:        qpid-copr.repo
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
