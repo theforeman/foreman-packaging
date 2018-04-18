@@ -112,6 +112,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/public/assets/bastion_katello
 
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 
 %license %{gem_instdir}/LICENSE.txt
 
