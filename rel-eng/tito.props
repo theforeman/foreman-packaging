@@ -34,6 +34,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-preset-env
   nodejs-babel-preset-react
   nodejs-babel-register
+  nodejs-bootstrap-select
   nodejs-brace
   nodejs-breakjs
   nodejs-c3

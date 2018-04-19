@@ -48,6 +48,7 @@ foreman_packages:
     nodejs-babel-register: {}
     nodejs-brace: {}
     nodejs-breakjs: {}
+    nodejs-bootstrap-select: {}
     nodejs-c3: {}
     nodejs-change-emitter: {}
     nodejs-classnames: {}
