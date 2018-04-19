@@ -61,6 +61,7 @@ foreman_packages:
     nodejs-debug: {}
     nodejs-diff: {}
     nodejs-dotenv: {}
+    nodejs-downshift: {}
     nodejs-expose-loader: {}
     nodejs-extract-text-webpack-plugin: {}
     nodejs-fbjs: {}
