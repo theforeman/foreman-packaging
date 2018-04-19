@@ -289,6 +289,10 @@ katello_packages:
       build_package_tito_releaser_args:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
+    nodejs-bootstrap-select: {}
+    nodejs-downshift: {}
+    nodejs-react-router-dom: {}
+    nodejs-react-router-bootstrap: {}
     pulp-katello: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}

@@ -34,6 +34,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-preset-env
   nodejs-babel-preset-react
   nodejs-babel-register
+  nodejs-bootstrap-select
   nodejs-brace
   nodejs-breakjs
   nodejs-c3
@@ -48,6 +49,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-debug
   nodejs-diff
   nodejs-dotenv
+  nodejs-downshift
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-fbjs
@@ -92,6 +94,8 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-onclickoutside
   nodejs-react-password-strength
   nodejs-react-redux
+  nodejs-react-router-bootstrap
+  nodejs-react-router-dom
   nodejs-recompose
   nodejs-redux
   nodejs-redux-form
