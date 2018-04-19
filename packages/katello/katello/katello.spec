@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    2.nightly%{?dist}
+Release:    3.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -225,5 +225,8 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.7.0-3.nightly
+- rebuilt
+
 * Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-1.nightly
 - new package built with tito
