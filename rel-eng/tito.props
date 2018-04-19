@@ -93,6 +93,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-password-strength
   nodejs-react-redux
   nodejs-react-router-bootstrap
+  nodejs-react-router-dom
   nodejs-recompose
   nodejs-redux
   nodejs-redux-form

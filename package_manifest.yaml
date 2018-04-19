@@ -104,6 +104,7 @@ foreman_packages:
     nodejs-react-redux: {}
     nodejs-react: {}
     nodejs-react-router-bootstrap: {}
+    nodejs-react-router-dom: {}
     nodejs-reactabular-table: {}
     nodejs-recompose: {}
     nodejs-redux-form-validators: {}
