@@ -13,7 +13,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.5.0
+Version:    1.5.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -73,6 +73,7 @@ This package contains documentation for rubygem-%{gem_name}.
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+rm %{buildroot}%{gem_instdir}/.babelrc
 
 %{foreman_bundlerd_file}
 %foreman_precompile_plugin -a -s
@@ -89,6 +90,8 @@ exit 0
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
@@ -100,6 +103,8 @@ exit 0
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
@@ -110,6 +115,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 19 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.5.1-1
+- Update to 1.5.1
+
 * Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.0-1
 - Update to 1.5.0
 
