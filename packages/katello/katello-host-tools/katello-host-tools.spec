@@ -1,5 +1,5 @@
-%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 25)
-%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || (0%{?fedora} == 25)
+%global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
+%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || (0%{?fedora} < 27)
 %global zypper_install (0%{?suse_version} > 0)
 
 %global build_tracer (0%{?suse_version} == 0)
@@ -14,7 +14,7 @@
 
 Name: katello-host-tools
 Version: 3.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -92,7 +92,7 @@ Requires: yum-security
 %description -n katello-agent
 Provides plugin for gofer, which allows communicating with Katello server
 and execute scheduled actions.
-%endif 
+%endif
 
 %package fact-plugin
 BuildArch:  noarch
@@ -138,7 +138,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
 mkdir -p %{buildroot}%{_prefix}/lib/gofer/plugins
 cp etc/gofer/plugins/katelloplugin.conf %{buildroot}%{_sysconfdir}/gofer/plugins
 cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
-%endif 
+%endif
 
 %if %{dnf_install}
 %global katello_libdir %{python3_sitelib}/katello
@@ -175,7 +175,7 @@ rm %{buildroot}%{plugins_dir}/__init__.py
 
 %if %{yum_install}
 cp src/yum-plugins/*.py %{buildroot}%{plugins_dir}/
-%endif 
+%endif
 
 %if %{zypper_install}
 cp src/zypper_plugins/*.py %{buildroot}%{plugins_dir}/
@@ -313,6 +313,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-2
+- rebuilt
+
 * Wed Mar 21 2018 Justin Sherrill <jsherril@redhat.com> 3.2.0-1
 - Version bump 3.2.0 (jturel@redhat.com)
 - Fixes #22889 - Zypper client tooling (paji@redhat.com)
