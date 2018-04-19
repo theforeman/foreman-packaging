@@ -103,6 +103,7 @@ foreman_packages:
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
     nodejs-react: {}
+    nodejs-react-router-bootstrap: {}
     nodejs-reactabular-table: {}
     nodejs-recompose: {}
     nodejs-redux-form-validators: {}
