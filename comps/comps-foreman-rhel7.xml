@@ -207,6 +207,7 @@
       <packagereq type="default">nodejs-debug</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
+      <packagereq type="default">nodejs-downshift</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-fbjs</packagereq>
