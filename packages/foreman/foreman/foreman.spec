@@ -1062,6 +1062,8 @@ GEMFILE
 %%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
 # Common assets locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+# Common webpack locations
+%%%{name}_webpack_plugin %%{foreman_dir}/public/webpack/%%{gem_name}
 # Common apipie locations
 %%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
 %%%{name}_apipie_cache_foreman %%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}
@@ -1100,6 +1102,8 @@ popd \\
 rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
 %%{?-a:ln -s %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}}
+%%{?-s:mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
+%%{?-s:ln -s %%{gem_instdir}/public/webpack/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/webpack/%%{gem_name}}
 EOF
 
 %clean
