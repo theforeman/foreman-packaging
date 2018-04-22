@@ -251,6 +251,7 @@
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-password-strength</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-react-router</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-reactabular-table</packagereq>
