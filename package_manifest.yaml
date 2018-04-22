@@ -105,6 +105,7 @@ foreman_packages:
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
     nodejs-react: {}
+    nodejs-react-router: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-reactabular-table: {}
