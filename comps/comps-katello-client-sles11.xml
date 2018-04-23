@@ -14,9 +14,11 @@
       <packagereq type="default">katello-client-repos</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
+      <packagereq type="default">python-decorator</packagereq>
       <packagereq type="default">python-iniparse</packagereq>
       <packagereq type="default">python-rhsm-certificates</packagereq>
       <packagereq type="default">python-rhsm</packagereq>
+      <packagereq type="default">python-six</packagereq>
       <packagereq type="default">subscription-manager-gui</packagereq>
       <packagereq type="default">subscription-manager-rhsm-certificates</packagereq>
       <packagereq type="default">subscription-manager-rhsm</packagereq>
