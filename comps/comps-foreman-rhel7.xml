@@ -214,6 +214,7 @@
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
       <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
+      <packagereq type="default">nodejs-invariant</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-is-buffer</packagereq>
       <packagereq type="default">nodejs-isomorphic-fetch</packagereq>
