@@ -66,7 +66,7 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
-mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
+mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/dhcp_device42.yml
 
 %files
@@ -90,4 +90,3 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
 
 * Wed Feb 14 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.4-1
 - new package built with tito
-
