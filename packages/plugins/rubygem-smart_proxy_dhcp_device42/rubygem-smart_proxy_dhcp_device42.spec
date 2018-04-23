@@ -85,9 +85,8 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Thu Apr 19 2018 vagrant 1.0.6-1
+* Thu Apr 19 2018 Anatolii Chmykhalo <anatolii.chmykhalo@device42.com> 1.0.6-1
 - Update to 1.0.6
 
 * Wed Feb 14 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.4-1
 - new package built with tito
-
