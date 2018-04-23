@@ -192,7 +192,6 @@
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-register</packagereq>
-      <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
@@ -207,7 +206,6 @@
       <packagereq type="default">nodejs-debug</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
-      <packagereq type="default">nodejs-downshift</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-fbjs</packagereq>
@@ -251,9 +249,6 @@
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-password-strength</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
-      <packagereq type="default">nodejs-react-router</packagereq>
-      <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
-      <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-reactabular-table</packagereq>
       <packagereq type="default">nodejs-recompose</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>

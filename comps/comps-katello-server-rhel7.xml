@@ -33,6 +33,13 @@
        <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
        <packagereq type="default">katello-client-bootstrap</packagereq>
 
+       <!-- katello thirdparty nodejs packages -->
+       <packagereq type="default">nodejs-bootstrap-select</packagereq>
+       <packagereq type="default">nodejs-downshift</packagereq>
+       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
+       <packagereq type="default">nodejs-react-router-dom</packagereq>
+       <packagereq type="default">nodejs-react-router</packagereq>
+
        <!-- katello thirdparty rubygem packages -->
        <packagereq type="default">tfm-rubygem-anemone</packagereq>
        <packagereq type="default">tfm-rubygem-ansi</packagereq>
