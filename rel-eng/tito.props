@@ -56,7 +56,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
-  nodejs-invariant
   nodejs-ipaddr.js
   nodejs-is-buffer
   nodejs-isomorphic-fetch
@@ -110,7 +109,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
-  nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
   nodejs-zxcvbn
@@ -417,9 +415,12 @@ whitelist = katello
   katello-selinux
   nodejs-bootstrap-select
   nodejs-downshift
+  nodejs-history
+  nodejs-invariant
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
+  nodejs-warning
   pulp-katello
   rubygem-anemone
   rubygem-foreman_scc_manager
