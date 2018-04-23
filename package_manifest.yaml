@@ -48,7 +48,6 @@ foreman_packages:
     nodejs-babel-register: {}
     nodejs-brace: {}
     nodejs-breakjs: {}
-    nodejs-bootstrap-select: {}
     nodejs-c3: {}
     nodejs-change-emitter: {}
     nodejs-classnames: {}
@@ -61,7 +60,6 @@ foreman_packages:
     nodejs-debug: {}
     nodejs-diff: {}
     nodejs-dotenv: {}
-    nodejs-downshift: {}
     nodejs-expose-loader: {}
     nodejs-extract-text-webpack-plugin: {}
     nodejs-fbjs: {}
@@ -105,9 +103,6 @@ foreman_packages:
     nodejs-react-password-strength: {}
     nodejs-react-redux: {}
     nodejs-react: {}
-    nodejs-react-router: {}
-    nodejs-react-router-bootstrap: {}
-    nodejs-react-router-dom: {}
     nodejs-reactabular-table: {}
     nodejs-recompose: {}
     nodejs-redux-form-validators: {}
@@ -294,6 +289,11 @@ katello_packages:
       build_package_tito_releaser_args:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
+    nodejs-bootstrap-select: {}
+    nodejs-downshift: {}
+    nodejs-react-router-bootstrap: {}
+    nodejs-react-router-dom: {}
+    nodejs-react-router: {}
     pulp-katello: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}
