@@ -291,9 +291,12 @@ katello_packages:
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
+    nodejs-history: {}
+    nodejs-invariant: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
+    nodejs-warning: {}
     pulp-katello: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}

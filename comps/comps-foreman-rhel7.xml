@@ -214,7 +214,6 @@
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
       <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
-      <packagereq type="default">nodejs-invariant</packagereq>
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-is-buffer</packagereq>
       <packagereq type="default">nodejs-isomorphic-fetch</packagereq>
@@ -268,7 +267,6 @@
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
-      <packagereq type="default">nodejs-warning</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">nodejs-zxcvbn</packagereq>
