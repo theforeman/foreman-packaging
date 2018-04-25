@@ -1,0 +1,11 @@
+# UDP port
+#STATSD_EXPORTER_OPTS="-statsd.listen-udp :9125"
+
+# TCP port
+#STATSD_EXPORTER_OPTS="-statsd.listen-tcp :9125"
+
+# HTTP endpoint port
+#STATSD_EXPORTER_OPTS="-web.listen-address :9102"
+
+# Mapping file
+#STATSD_EXPORTER_OPTS="-statsd.mapping-config /var/lib/prometheus/statsd_exporter.mapping.yaml"

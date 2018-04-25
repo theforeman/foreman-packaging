@@ -291,6 +291,7 @@
       <packagereq type="default">rubygem-rb-inotify</packagereq>
       <packagereq type="default">rubygem-rsec</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
+      <packagereq type="default">statsd_exporter</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->

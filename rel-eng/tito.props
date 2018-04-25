@@ -132,6 +132,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rb-inotify
   rubygem-rsec
   rubygem-rubyipmi
+  statsd_exporter
 
 [foreman-nightly-rhel7]
 disttag = .el7
