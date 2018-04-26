@@ -17,15 +17,15 @@
 
 Summary:    Adds memcache integeration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.6
+Version:    0.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        http://github.com/theforeman/foreman_memcache
-Source0:    http://rubygems.org/gems/%{gem_name}-%{version}.gem
+URL:        https://github.com/theforeman/foreman_memcache
+Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.0
-Requires:   %{?scl_prefix_ror}rubygem(dalli)
+Requires:   foreman >= 1.16.0
+Requires:   %{?scl_prefix}rubygem(dalli)
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -90,6 +90,17 @@ mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pl
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Apr 26 2018 Timo Goebel <mail@timogoebel.name> - 0.1.0-1
+ - Update foreman_memcache to 0.1.0
+
+* Fri Jan 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.6-3
+- Add rubygem-dalli for foreman_memcache (ericdhelms@gmail.com)
+
+* Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.6-2
+- Bump Foreman plugins release (ericdhelms@gmail.com)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Wed Feb 08 2017 Dominic Cleal <dominic@cleal.org> 0.0.6-1
 - Update foreman_memcache to 0.0.6 (ohadlevy@gmail.com)
 - Modernise spec file (dominic@cleal.org)
