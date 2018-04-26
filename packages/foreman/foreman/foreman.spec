@@ -89,7 +89,7 @@ Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
 Requires: %{?scl_prefix}rubygem(secure_headers) < 4.0
-Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.4
+Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(safemode) < 2
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
@@ -178,7 +178,7 @@ BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6.0
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 3.4
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.4
+BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
@@ -275,8 +275,8 @@ BuildRequires: npm(compression-webpack-plugin) < 0.4.0
 #BuildRequires: npm(coveralls) < 4.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
-BuildRequires: npm(dotenv) >= 2.0.0
-BuildRequires: npm(dotenv) < 3.0.0
+BuildRequires: npm(dotenv) >= 5.0.0
+BuildRequires: npm(dotenv) < 6.0.0
 #BuildRequires: npm(enzyme) >= 3.1.1
 #BuildRequires: npm(enzyme) < 4.0.0
 #BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
@@ -365,7 +365,7 @@ BuildRequires: npm(lodash) < 4.16.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) = 3.41.6
-BuildRequires: npm(patternfly-react) >= 1.12.0
+BuildRequires: npm(patternfly-react) >= 1.16.0
 BuildRequires: npm(patternfly-react) < 2.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -383,7 +383,7 @@ BuildRequires: npm(react-onclickoutside) >= 6.6.2
 BuildRequires: npm(react-onclickoutside) < 7.0.0
 BuildRequires: npm(react-password-strength) >= 2.1.0
 BuildRequires: npm(react-password-strength) < 3.0.0
-BuildRequires: npm(react-redux) >= 5.0.2
+BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
@@ -394,8 +394,7 @@ BuildRequires: npm(redux-logger) >= 2.8.1
 BuildRequires: npm(redux-logger) < 3.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
-BuildRequires: npm(seamless-immutable) >= 7.0.1
-BuildRequires: npm(seamless-immutable) < 8.0.0
+BuildRequires: npm(seamless-immutable) = 7.0.1
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(urijs) >= 1.18.10
@@ -629,8 +628,8 @@ Requires: npm(compression-webpack-plugin) < 0.4.0
 #Requires: npm(coveralls) < 4.0.0
 Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
-Requires: npm(dotenv) >= 2.0.0
-Requires: npm(dotenv) < 3.0.0
+Requires: npm(dotenv) >= 5.0.0
+Requires: npm(dotenv) < 6.0.0
 #Requires: npm(enzyme) >= 3.1.1
 #Requires: npm(enzyme) < 4.0.0
 #Requires: npm(enzyme-adapter-react-16) >= 1.0.4
@@ -719,7 +718,7 @@ Requires: npm(lodash) < 4.16.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) = 3.41.6
-Requires: npm(patternfly-react) >= 1.12.0
+Requires: npm(patternfly-react) >= 1.16.0
 Requires: npm(patternfly-react) < 2.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -737,7 +736,7 @@ Requires: npm(react-onclickoutside) >= 6.6.2
 Requires: npm(react-onclickoutside) < 7.0.0
 Requires: npm(react-password-strength) >= 2.1.0
 Requires: npm(react-password-strength) < 3.0.0
-Requires: npm(react-redux) >= 5.0.2
+Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
@@ -748,8 +747,7 @@ Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
-Requires: npm(seamless-immutable) >= 7.0.1
-Requires: npm(seamless-immutable) < 8.0.0
+Requires: npm(seamless-immutable) = 7.0.1
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(urijs) >= 1.18.10
