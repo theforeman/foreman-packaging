@@ -1,59 +1,47 @@
 %global npm_name redux
-
-%{?nodejs_find_provides_and_requires}
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 3.6.0
+Version: 3.7.2
 Release: 1%{?dist}
 Summary: Predictable state container for JavaScript apps
 License: MIT
+Group: Development/Libraries
 URL: http://redux.js.org
-Source0: http://registry.npmjs.org/redux/-/redux-3.6.0.tgz
-Source1: http://registry.npmjs.org/loose-envify/-/loose-envify-1.3.1.tgz
-Source2: http://registry.npmjs.org/lodash-es/-/lodash-es-4.17.4.tgz
-Source3: http://registry.npmjs.org/symbol-observable/-/symbol-observable-1.0.4.tgz
-Source4: http://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz
-Source5: http://registry.npmjs.org/js-tokens/-/js-tokens-3.0.1.tgz
-Source6: redux-3.6.0-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
+Requires: npm(lodash) >= 4.2.1
+Requires: npm(lodash) < 5.0.0
+Requires: npm(lodash-es) >= 4.2.1
+Requires: npm(lodash-es) < 5.0.0
+Requires: npm(loose-envify) >= 1.1.0
+Requires: npm(loose-envify) < 2.0.0
+Requires: npm(symbol-observable) >= 1.0.3
+Requires: npm(symbol-observable) < 2.0.0
 BuildArch: noarch
-%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-Provides: npm(%{npm_name}) = %{version}
-Provides: bundled(npm(redux)) = 3.6.0
-Provides: bundled(npm(loose-envify)) = 1.3.1
-Provides: bundled(npm(lodash-es)) = 4.17.4
-Provides: bundled(npm(symbol-observable)) = 1.0.4
-Provides: bundled(npm(lodash)) = 4.17.4
-Provides: bundled(npm(js-tokens)) = 3.0.1
-AutoReq: no
-AutoProv: no
 
 %description
 %{summary}
 
 %prep
-mkdir npm_cache
-for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
-done
-
-%setup -T -q -a 6 -D -n npm_cache
-
-%build
-npm install --cache-min Infinity --cache . --no-optional --global-style true %{npm_name}@%{version}
+%setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cd node_modules/redux
-cp -pfr CHANGELOG.md LICENSE.md README.md dist es index.d.ts lib package.json src node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pf CHANGELOG.md LICENSE.md README.md ../../
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr es %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.d.ts %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+
+%nodejs_symlink_deps
+
+%if 0%{?enable_tests}
+%check
+%{nodejs_symlink_deps} --check
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -62,6 +50,9 @@ cp -pf CHANGELOG.md LICENSE.md README.md ../../
 %doc README.md
 
 %changelog
+* Thu Apr 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.7.2-1
+- Update to 3.7.2
+
 * Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 3.6.0-1
 - new package built with tito
 
