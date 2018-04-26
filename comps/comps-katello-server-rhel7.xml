@@ -35,6 +35,7 @@
 
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-babel-plugin-syntax-object-rest-spread</packagereq>
+      <packagereq type="default">nodejs-babel-plugin-transform-object-rest-spread</packagereq>
       <packagereq type="default">nodejs-babel-runtime</packagereq>
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-corejs</packagereq>

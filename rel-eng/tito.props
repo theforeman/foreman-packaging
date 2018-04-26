@@ -415,6 +415,7 @@ whitelist = katello
   katello-repos
   katello-selinux
   nodejs-babel-plugin-syntax-object-rest-spread
+  nodejs-babel-plugin-transform-object-rest-spread
   nodejs-babel-runtime
   nodejs-bootstrap-select
   nodejs-core-js
