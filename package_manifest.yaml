@@ -78,6 +78,7 @@ foreman_packages:
     nodejs-js-tokens: {}
     nodejs-jsdom: {}
     nodejs-jstz: {}
+    nodejs-lodash-es: {}
     nodejs-lodash-webpack-plugin: {}
     nodejs-lodash.orderby: {}
     nodejs-lodash: {}
