@@ -57,27 +57,13 @@ If you have a certificate for our Koji server (regular packagers can get them),
 then you can use tito to build scratch packages on Koji, though it's slower
 than mock (above).
 
-Non-core packages in the main Foreman repo, with sources in git(-annex):
-
-    tito release koji-foreman --test --scratch
-
-Packages in the plugins repo:
-
-    tito release koji-foreman-plugins --test --scratch
-
-Core nightly Foreman packages:
-
-* foreman: `tito release --scratch --arg jenkins_job=test_develop koji-foreman-nightly`
-* foreman-installer: `tito release --scratch --arg jenkins_job=packaging_trigger_installer_develop koji-foreman-nightly`
-* foreman-proxy: `tito release --scratch --arg jenkins_job=test_proxy_develop koji-foreman-nightly`
-* foreman-selinux: `tito release --scratch --arg jenkins_job=packaging_trigger_selinux_develop koji-foreman-nightly`
-* rubygem-hammer\_cli: `tito release --scratch --arg jenkins_job=test_hammer_cli koji-foreman-nightly`
-* rubygem-hammer\_cli\_foreman: `tito release --scratch --arg jenkins_job=test_hammer_cli_foreman koji-foreman-nightly`
+    obal scratch PACKAGE
 
 Using a local git checkout, change `source_dir` as appropriate:
 
-* Core packages: `tito release --scratch --arg source_dir=~/foreman koji-foreman-nightly`
-* Plugins: `tito release --scratch --arg source_dir=~/foreman_bootdisk koji-foreman-plugins-nightly`
+* Core packages: `obal scratch foreman -e "{'releasers':['koji-foreman-nightly'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
+* Plugins: `obal scratch rubygem-foreman_bootdisk -e "{'releasers': ['koji-foreman-plugins-nightly']}, 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman_bootdisk']}"`
+* Katello: `obal scratch rubygem-katello -e "{'releasers': ['koji-katello-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/katello']}"`
 
 ## HOWTO: Add a package
 
