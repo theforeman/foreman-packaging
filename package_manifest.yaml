@@ -291,6 +291,7 @@ katello_packages:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
     nodejs-bootstrap-select: {}
+    nodejs-core-js: {}
     nodejs-downshift: {}
     nodejs-history: {}
     nodejs-invariant: {}
