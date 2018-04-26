@@ -304,7 +304,6 @@
       <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
       <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
       <packagereq type="default">nodejs-jstz-doc</packagereq>
-      <packagereq type="default">nodejs-lodash-doc</packagereq>
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">nodejs-url-loader-doc</packagereq>
