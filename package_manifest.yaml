@@ -299,6 +299,7 @@ katello_packages:
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
+    nodejs-regenerator-runtime: {}
     nodejs-warning: {}
     pulp-katello: {}
     rubygem-anemone: {}
