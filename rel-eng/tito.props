@@ -418,6 +418,7 @@ whitelist = katello
   nodejs-downshift
   nodejs-history
   nodejs-invariant
+  nodejs-jed
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom

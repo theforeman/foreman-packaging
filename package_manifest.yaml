@@ -294,6 +294,7 @@ katello_packages:
     nodejs-downshift: {}
     nodejs-history: {}
     nodejs-invariant: {}
+    nodejs-jed: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
