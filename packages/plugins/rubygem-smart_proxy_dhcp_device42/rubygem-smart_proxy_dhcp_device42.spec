@@ -6,7 +6,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.4
+Version: 1.0.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Device42 DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -66,7 +66,7 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
-mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
+mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/dhcp_device42.yml
 
 %files
@@ -85,6 +85,8 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 23 2018 Anatolii Chmykhalo <anatolii.chmykhalo@device42.com> 1.0.7-1
+- Update to 1.0.7
+
 * Wed Feb 14 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.4-1
 - new package built with tito
-
