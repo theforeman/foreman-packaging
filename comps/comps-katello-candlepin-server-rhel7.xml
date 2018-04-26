@@ -2,18 +2,18 @@
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
 
 <comps>
-<!--  <meta> -->
-<!-- Meta information will go here eventually -->
-<!--  </meta> -->
+  <!--  <meta> -->
+  <!-- Meta information will go here eventually -->
+  <!--  </meta> -->
   <group>
     <id>katello-candlepin-server</id>
     <name>Candlepin for Katello Server</name>
     <description>Candlepin Server Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-       <packagereq type="default">candlepin</packagereq>
-       <packagereq type="default">candlepin-common</packagereq>
-       <packagereq type="default">candlepin-selinux</packagereq>
+      <packagereq type="default">candlepin</packagereq>
+      <packagereq type="default">candlepin-common</packagereq>
+      <packagereq type="default">candlepin-selinux</packagereq>
     </packagelist>
   </group>
   <group>
@@ -22,7 +22,7 @@
     <description>Candlepin Server Debuginfo Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-       <packagereq type="optional">akuma-debuginfo</packagereq>
+      <packagereq type="optional">akuma-debuginfo</packagereq>
     </packagelist>
   </group>
 </comps>

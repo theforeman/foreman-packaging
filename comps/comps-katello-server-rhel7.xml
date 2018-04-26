@@ -2,66 +2,66 @@
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
 
 <comps>
-<!--  <meta> -->
-<!-- Meta information will go here eventually -->
-<!--  </meta> -->
+  <!--  <meta> -->
+  <!-- Meta information will go here eventually -->
+  <!--  </meta> -->
   <group>
     <id>katello-server</id>
     <name>Katello Server</name>
     <description>Katello Server Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-       <!-- katello core packages -->
-       <packagereq type="default">katello</packagereq>
-       <packagereq type="default">foreman-proxy-content</packagereq>
-       <packagereq type="default">tfm-rubygem-katello</packagereq>
-       <packagereq type="default">katello-certs-tools</packagereq>
-       <packagereq type="default">katello-common</packagereq>
-       <packagereq type="default">katello-debug</packagereq>
-       <packagereq type="default">katello-service</packagereq>
-       <packagereq type="default">katello-repos</packagereq>
-       <packagereq type="default">katello-repos-testing</packagereq>
-       <packagereq type="default">katello-selinux</packagereq>
-       <packagereq type="default">katello-utils</packagereq>
-       <packagereq type="default">pulp-katello</packagereq>
-       <packagereq type="default">katello-installer-base</packagereq>
-       <packagereq type="default">foreman-installer-katello</packagereq>
-       <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
-       <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
-       <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
-       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
-       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
-       <packagereq type="default">katello-client-bootstrap</packagereq>
+      <!-- katello core packages -->
+      <packagereq type="default">foreman-installer-katello</packagereq>
+      <packagereq type="default">foreman-proxy-content</packagereq>
+      <packagereq type="default">katello</packagereq>
+      <packagereq type="default">katello-certs-tools</packagereq>
+      <packagereq type="default">katello-client-bootstrap</packagereq>
+      <packagereq type="default">katello-common</packagereq>
+      <packagereq type="default">katello-debug</packagereq>
+      <packagereq type="default">katello-installer-base</packagereq>
+      <packagereq type="default">katello-repos</packagereq>
+      <packagereq type="default">katello-repos-testing</packagereq>
+      <packagereq type="default">katello-selinux</packagereq>
+      <packagereq type="default">katello-service</packagereq>
+      <packagereq type="default">katello-utils</packagereq>
+      <packagereq type="default">pulp-katello</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
+      <packagereq type="default">tfm-rubygem-katello</packagereq>
+      <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
 
-       <!-- katello thirdparty nodejs packages -->
-       <packagereq type="default">nodejs-bootstrap-select</packagereq>
-       <packagereq type="default">nodejs-downshift</packagereq>
-       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
-       <packagereq type="default">nodejs-react-router-dom</packagereq>
-       <packagereq type="default">nodejs-react-router</packagereq>
-       <packagereq type="default">nodejs-history</packagereq>
-       <packagereq type="default">nodejs-invariant</packagereq>
-       <packagereq type="default">nodejs-warning</packagereq>
+      <!-- katello thirdparty nodejs packages -->
+      <packagereq type="default">nodejs-bootstrap-select</packagereq>
+      <packagereq type="default">nodejs-downshift</packagereq>
+      <packagereq type="default">nodejs-history</packagereq>
+      <packagereq type="default">nodejs-invariant</packagereq>
+      <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
+      <packagereq type="default">nodejs-react-router-dom</packagereq>
+      <packagereq type="default">nodejs-react-router</packagereq>
+      <packagereq type="default">nodejs-warning</packagereq>
 
-       <!-- katello thirdparty rubygem packages -->
-       <packagereq type="default">tfm-rubygem-anemone</packagereq>
-       <packagereq type="default">tfm-rubygem-ansi</packagereq>
-       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
-       <packagereq type="default">tfm-rubygem-foreman_scc_manager</packagereq>
-       <packagereq type="default">tfm-rubygem-fssm</packagereq>
-       <packagereq type="default">tfm-rubygem-hpricot</packagereq>
-       <packagereq type="default">tfm-rubygem-justified</packagereq>
-       <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
-       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
-       <packagereq type="default">tfm-rubygem-robotex</packagereq>
-       <packagereq type="default">tfm-rubygem-runcible</packagereq>
-       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
-       <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
-       <packagereq type="default">tfm-rubygem-hammer_cli_csv</packagereq>
+      <!-- katello thirdparty rubygem packages -->
+      <packagereq type="default">tfm-rubygem-anemone</packagereq>
+      <packagereq type="default">tfm-rubygem-ansi</packagereq>
+      <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_scc_manager</packagereq>
+      <packagereq type="default">tfm-rubygem-fssm</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_csv</packagereq>
+      <packagereq type="default">tfm-rubygem-hpricot</packagereq>
+      <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
+      <packagereq type="default">tfm-rubygem-justified</packagereq>
+      <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
+      <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
+      <packagereq type="default">tfm-rubygem-robotex</packagereq>
+      <packagereq type="default">tfm-rubygem-runcible</packagereq>
+      <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
 
-       <!-- temporary qpid packages -->
-       <packagereq type="default">qpid-dispatch-router</packagereq>
-       <packagereq type="default">qpid-dispatch-tools</packagereq>
+      <!-- temporary qpid packages -->
+      <packagereq type="default">qpid-dispatch-router</packagereq>
+      <packagereq type="default">qpid-dispatch-tools</packagereq>
     </packagelist>
   </group>
   <group>
@@ -70,13 +70,13 @@
     <description>Katello Server Documentation Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-       <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
-       <packagereq type="default">tfm-rubygem-redhat_access-doc</packagereq>
-       <packagereq type="default">tfm-rubygem-redhat_access_lib-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
-       <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-redhat_access-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-redhat_access_lib-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
     </packagelist>
   </group>
 </comps>
