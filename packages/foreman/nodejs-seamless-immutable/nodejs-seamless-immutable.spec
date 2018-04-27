@@ -1,25 +1,17 @@
 %global npm_name seamless-immutable
 %global enable_tests 1
 
-%{?nodejs_find_provides_and_requires}
-
 Name: nodejs-%{npm_name}
-Version: 7.0.1
+Version: 7.1.3
 Release: 1%{?dist}
 Summary: Immutable backwards-compatible data structures for JavaScript
 License: BSD
+Group: Development/Libraries
 URL: https://github.com/rtfeldman/seamless-immutable
-Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
-
-%if 0%{?fedora} >= 19
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-
-%{?nodejs_find_provides_and_requires}
 
 %description
 Immutable data structures for JavaScript which are backwards-compatible with
@@ -28,12 +20,13 @@ normal JS Arrays and Objects.
 %prep
 %setup -q -n package
 
-%build
-%nodejs_symlink_deps --build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr .npmignore LICENSE README.md package.json seamless-immutable.development.js seamless-immutable.development.min.js seamless-immutable.production.min.js src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr seamless-immutable.development.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr seamless-immutable.development.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr seamless-immutable.production.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -48,6 +41,9 @@ cp -pfr .npmignore LICENSE README.md package.json seamless-immutable.development
 %doc README.md
 
 %changelog
+* Fri Apr 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.1.3-1
+- Update to 7.1.3
+
 * Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 7.0.1-1
 - new package built with tito
 
