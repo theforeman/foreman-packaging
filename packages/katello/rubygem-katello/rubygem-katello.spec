@@ -59,6 +59,10 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: npm(react-router-bootstrap) >= 0.24.4
+BuildRequires: npm(react-router-bootstrap-select) >= 1.12.2
+BuildRequires: npm(react-router-dom) >= 4.2.2
+BuildRequires: npm(downshift) >= 1.28.0
 
 Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
 
@@ -109,6 +113,7 @@ cp -a .%{gem_dir}/* \
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
 %{gem_instdir}/public/assets/bastion_katello
 
 %exclude %{gem_cache}
