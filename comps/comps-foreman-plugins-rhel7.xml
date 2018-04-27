@@ -8,6 +8,7 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">ipxe-bootimgs</packagereq>
+      <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-apipie-params</packagereq>

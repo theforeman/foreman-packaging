@@ -335,6 +335,7 @@ plugins_packages:
     releasers:
     - koji-foreman-plugins
   hosts:
+    nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
     rubygem-azure-core: {}
