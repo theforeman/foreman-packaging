@@ -7,7 +7,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.12
+Version: 0.0.13
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 27 2018 Dmitri Dolguikh <dmitri@appliedlogic.ca> 0.0.13-1
+- Update to 0.0.13
+
 * Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.12-1
 - Updated rubygem-smart_proxy_dhcp_infoblox to 0.0.12 (dmitri@appliedlogic.ca)
 - Restructure plugin packages to prepare for obal (pcreech@redhat.com)
