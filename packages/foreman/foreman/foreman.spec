@@ -361,7 +361,7 @@ BuildRequires: npm(jquery.cookie) < 1.5.0
 BuildRequires: npm(jstz) >= 1.0.7
 BuildRequires: npm(jstz) < 1.1.0
 BuildRequires: npm(lodash) >= 4.15.0
-BuildRequires: npm(lodash) < 4.16.0
+BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) = 3.41.6
@@ -394,7 +394,8 @@ BuildRequires: npm(redux-logger) >= 2.8.1
 BuildRequires: npm(redux-logger) < 3.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
-BuildRequires: npm(seamless-immutable) = 7.0.1
+BuildRequires: npm(seamless-immutable) >= 7.1.2
+BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(urijs) >= 1.18.10
@@ -714,7 +715,7 @@ Requires: npm(jquery.cookie) < 1.5.0
 Requires: npm(jstz) >= 1.0.7
 Requires: npm(jstz) < 1.1.0
 Requires: npm(lodash) >= 4.15.0
-Requires: npm(lodash) < 4.16.0
+Requires: npm(lodash) < 5.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) = 3.41.6
@@ -747,7 +748,8 @@ Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
-Requires: npm(seamless-immutable) = 7.0.1
+Requires: npm(seamless-immutable) >= 7.1.2
+Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(urijs) >= 1.18.10
