@@ -29,6 +29,9 @@ fi
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 
+# make webpack file executable
+chmod 755 '/usr/share/foreman/node_modules/webpack/bin/webpack.js'
+
 #DEBHELPER#
 
 exit 0
