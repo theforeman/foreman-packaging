@@ -13,13 +13,13 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.2.1
-Release: 2%{?dist}
+Version: 3.2.2
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
 URL:     https://github.com/Katello/katello-agent
-Source0: https://codeload.github.com/Katello/katello-agent/tar.gz/%{version}#/%{name}-%{version}.tar.gz
+Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -313,6 +313,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Apr 30 2018 Justin Sherrill <jlsherrill@gmail.com> - 3.2.2-1
+- 3.2.2 release
+
 * Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-2
 - rebuilt
 
