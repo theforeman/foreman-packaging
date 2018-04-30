@@ -1,0 +1,5 @@
+ruby-smart-proxy-dhcp-device42 (1.0.7-1) stable; urgency=low
+
+  * Initial Debian packaging.
+
+-- Anatolii Chmykhalo <anatolii.chmykhalo@device42.com>  Mon, 30 Apr 2018 19:08:30 +0300

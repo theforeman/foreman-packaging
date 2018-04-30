@@ -1,0 +1,2 @@
+debian/dhcp_device42.rb usr/share/foreman-proxy/bundler.d
+config/dhcp_device42.yml etc/foreman-proxy/settings.d

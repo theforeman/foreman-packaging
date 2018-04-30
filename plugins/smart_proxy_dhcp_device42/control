@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-dhcp-device42
+Section: ruby
+Priority: optional
+Maintainer: Anatolii Chmykhalo <anatolii.chmykhalo@device42.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_dhcp_device42
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-dhcp-device42
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.16.0~rc1), ruby-httparty (>= 0.15), ruby-httparty (<< 1)
+Description: Device42 DHCP provider plugin for Foreman's smart proxy
+ Device42 DHCP provider plugin for Foreman's smart proxy
