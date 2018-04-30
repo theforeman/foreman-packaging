@@ -130,6 +130,7 @@
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar</packagereq>
       <packagereq type="default">tfm-rubygem-prometheus-client</packagereq>
+      <packagereq type="default">tfm-rubygem-puma</packagereq>
       <packagereq type="default">tfm-rubygem-quantile</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
@@ -412,6 +413,7 @@
       <packagereq type="default">tfm-rubygem-po_to_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-powerbar-doc</packagereq>
       <packagereq type="default">tfm-rubygem-prometheus-client-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-puma-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>

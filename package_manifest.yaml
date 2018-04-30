@@ -232,6 +232,7 @@ foreman_packages:
     rubygem-powerbar: {}
     rubygem-prometheus-client: {}
     rubygem-puppet-strings: {}
+    rubygem-puma: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
     rubygem-rack-jsonp: {}
