@@ -5,8 +5,8 @@
 
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.4.1
-Release: 2%{?dist}
+Version: 5.0.5
+Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -15,7 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(useragent)
+Requires: %{?scl_prefix}rubygem(useragent) >= 0.15.0
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -63,14 +63,19 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/upgrading-to-3-0.md
+%doc %{gem_instdir}/docs
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
 %{gem_instdir}/spec
 
 %changelog
+* Mon Apr 30 2018 Michael Moll <mmoll@mmoll.at> 5.0.5-1
+- Update secure_headers to 5.0.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.4.1-2
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
