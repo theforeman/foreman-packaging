@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.16.4
+Version: 2.2.1
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -10,17 +10,17 @@ Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
+Requires: npm(bootstrap-slider-without-jquery) >= 10.0.0
+Requires: npm(bootstrap-slider-without-jquery) < 11.0.0
 Requires: npm(breakjs) >= 1.0.0
 Requires: npm(breakjs) < 2.0.0
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
 Requires: npm(css-element-queries) >= 1.0.1
 Requires: npm(css-element-queries) < 2.0.0
-Requires: npm(lodash.orderby) >= 4.6.0
-Requires: npm(lodash.orderby) < 5.0.0
-Requires: npm(patternfly) >= 3.38.0
+Requires: npm(patternfly) >= 3.42.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(react-bootstrap) >= 0.31.5
+Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-bootstrap-switch) >= 15.5.3
 Requires: npm(react-bootstrap-switch) < 16.0.0
@@ -28,7 +28,7 @@ Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 1.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
-Requires: npm(reactabular-table) >= 8.12.0
+Requires: npm(reactabular-table) >= 8.12.1
 Requires: npm(reactabular-table) < 9.0.0
 Requires: npm(recompose) >= 0.26.0
 Requires: npm(recompose) < 1.0.0
@@ -47,7 +47,6 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr coverage %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -65,6 +64,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue May 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.1-1
+- Update to 2.2.1
+
 * Tue Apr 03 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.16.4-1
 - Update to 1.16.4
 
