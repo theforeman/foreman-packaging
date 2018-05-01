@@ -14,12 +14,13 @@
 
 Name: katello-host-tools
 Version: 3.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
 URL:     https://github.com/Katello/katello-agent
 Source0: https://codeload.github.com/Katello/katello-agent/tar.gz/%{version}#/%{name}-%{version}.tar.gz
+Patch0: enabled_repos_format.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -124,6 +125,7 @@ Adds Tracer functionality to a client managed by katello-host-tools
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 pushd src
@@ -313,6 +315,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Apr 30 2018 Justin Sherrill <jlsherrill@gmail.com> 3.2.1-3
+- Backporting format issue with enabled-repos
+
 * Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-2
 - rebuilt
 
