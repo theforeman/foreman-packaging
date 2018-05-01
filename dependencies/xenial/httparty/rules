@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+export GEM2DEB_TEST_RUNNER = --check-dependencies
+
+%:
+	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_installman:
+	help2man --no-info --include=debian/httparty.h2m \
+          -h "-I lib/ bin/httparty -h"  --version-string $(DEB_VERSION_UPSTREAM) /usr/bin/ruby  > httparty.1
+	patch httparty.1 < debian/httparty.1.diff
+	dh_installman
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf coverage/

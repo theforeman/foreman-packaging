@@ -1,0 +1,36 @@
+--- httparty.1.a	2014-02-28 11:56:53.787079286 +0100
++++ httparty.1.b	2014-02-28 12:00:30.196107353 +0100
+@@ -9,24 +9,27 @@
+ grokking the structure of output). This can also be overridden to output
+ formatted XML or JSON.
+ .PP
+-USAGE: bin/httparty [options] [url]
++.SH USAGE
++ httparty [\fIoptions\fR] [\fIurl\fR]
++
++.SH OPTIONS
+ .TP
+-\fB\-f\fR, \fB\-\-format\fR [FORMAT]
++\fB\-f\fR, \fB\-\-format\fR [\fIFORMAT\fR]
+ Output format to use instead of pretty\-print ruby: plain, csv, json or xml
+ .TP
+-\fB\-a\fR, \fB\-\-action\fR [ACTION]
++\fB\-a\fR, \fB\-\-action\fR [\fIACTION\fR]
+ HTTP action: get (default), post, put, delete, head, or options
+ .TP
+-\fB\-d\fR, \fB\-\-data\fR [BODY]
++\fB\-d\fR, \fB\-\-data\fR [\fIBODY\fR]
+ Data to put in request body (prefix with '@' for file)
+ .TP
+-\fB\-H\fR, \fB\-\-header\fR [NAME:VALUE]
++\fB\-H\fR, \fB\-\-header\fR [\fINAME:VALUE\fR]
+ Additional HTTP headers in NAME:VALUE form
+ .TP
+ \fB\-v\fR, \fB\-\-verbose\fR
+ If set, print verbose output
+ .TP
+-\fB\-u\fR, \fB\-\-user\fR [CREDS]
++\fB\-u\fR, \fB\-\-user\fR [\fICREDS\fR]
+ Use basic authentication. Value should be user:password
+ .TP
+ \fB\-r\fR, \fB\-\-response\-code\fR
