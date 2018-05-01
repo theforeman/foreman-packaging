@@ -1,0 +1,12 @@
+[name]
+httparty \- query web services and examine the resulting output
+
+[description]
+`httparty' is a command-line tool to query
+query web services and examine the resulting output. By default
+it will output the response as a pretty-printed Ruby object (useful for
+grokking the structure of output). This can also be overridden to output
+formatted XML or JSON.
+
+[example]
+httparty "http://twitter.com/statuses/public_timeline.json"

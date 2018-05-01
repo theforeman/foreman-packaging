@@ -1,0 +1,37 @@
+Source: ruby-httparty
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Cédric Boutillier <boutil@debian.org>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               help2man,
+               ruby-fakeweb,
+               ruby-multi-json,
+               ruby-multi-xml,
+               ruby-rspec (>= 3~),
+               ruby-simplecov,
+               ruby-webmock
+Standards-Version: 4.1.2
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-httparty.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-httparty.git
+Homepage: http://jnunemaker.github.com/httparty
+XS-Ruby-Versions: all
+Testsuite: autopkgtest-pkg-ruby
+
+Package: ruby-httparty
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-multi-json,
+         ruby-multi-xml,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: quick web service consumption from any Ruby class
+ HTTParty is a Ruby library to build easily classes that can use
+ Web-based APIs and related services. At its simplest, the
+ HTTParty module is included within a class, which gives the class a
+ "get" method that can retrieve data over HTTP. Further directives,
+ however, instruct HTTParty to parse results (XML, JSON, and so on),
+ define base URIs for the requests, and define HTTP authentication
+ information.

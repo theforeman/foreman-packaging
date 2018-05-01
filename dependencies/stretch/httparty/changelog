@@ -1,0 +1,85 @@
+ruby-httparty (0.15.6-1) unstable; urgency=medium
+
+  * Reupload to unstable
+  * Bump Standards-Version to 4.1.2 (no changes needed)
+  * Use https in watch file
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 26 Dec 2017 00:03:14 +0100
+
+ruby-httparty (0.15.6-1~exp1) experimental; urgency=medium
+
+  * New upstream version 0.15.6
+  * Bump Standards-Version to 4.1.1 (no changes needed)
+  * Bump debhelper compatibility level to 10
+  * Refresh skip_failing_test.patch
+  * New patch git-in-gemspecs.patch to remove use of git in gemspecs
+  * Build-depend on ruby-webmock
+  * Use DEB_VERSION_UPSTREAM instead of parsing changelog
+  * Test gem dependencies when running tests 
+
+ -- Cédric Boutillier <boutil@debian.org>  Sat, 25 Nov 2017 10:41:34 +0100
+
+ruby-httparty (0.13.7-2) unstable; urgency=medium
+
+  * Relax dependency version in gem dependency on json.
+    This fixes loading httparty with the gem command (Closes: #864723)
+
+ -- Cédric Boutillier <boutil@debian.org>  Sat, 25 Nov 2017 00:30:18 +0100
+
+ruby-httparty (0.13.7-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.13.7
+  * Bump debhelper compatibility level to 9
+  * Remove version in the gem2deb build-dependency
+  * Use https:// in Vcs-* fields
+  * Bump Standards-Version to 3.9.8 (no changes needed)
+  * Run wrap-and-sort on packaging files
+  * Set Testsuite field to autopkgtest-pkg-ruby
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 07 Jun 2016 10:57:29 +0200
+
+ruby-httparty (0.13.5-1) unstable; urgency=medium
+
+  * Reupload to unstable.
+
+ -- Cédric Boutillier <boutil@debian.org>  Sun, 05 Jul 2015 14:31:22 +0200
+
+ruby-httparty (0.13.5-1~exp1) experimental; urgency=medium
+
+  * Imported Upstream version 0.13.5
+    + now uses rspec3
+    + upload to experimental until rspec3 is in unstable
+  * skip all old patches, add skip_failing_test.patch
+  * bump Standards-Version to 3.9.6
+  * add build-dep on ruby-simplecov
+  * remove coverage/ dir upon cleaning
+  * wrap and sort fields in debian/control
+
+ -- Cédric Boutillier <boutil@debian.org>  Mon, 25 May 2015 00:03:03 +0200
+
+ruby-httparty (0.13.0-2) unstable; urgency=medium
+
+  * Add spec_convert_nil_to_empty_string.patch to fix a FTBFS caused by the
+    addition of a string with nil in a test. (Closes: #747734)
+
+ -- Cédric Boutillier <boutil@debian.org>  Mon, 16 Jun 2014 01:01:57 +0200
+
+ruby-httparty (0.13.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.13.0
+  * Refresh clean_spec_helper.patch and newer_rspec.patch
+  * Add exception_spec.patch to adapt a new spec to RSpec 2.0
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 28 Feb 2014 11:42:16 +0100
+
+ruby-httparty (0.12.0-2) unstable; urgency=medium
+
+  * Add copyright notice for website/css/common.css 
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 24 Jan 2014 14:50:01 +0100
+
+ruby-httparty (0.12.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #712096)
+
+ -- Cédric Boutillier <boutil@debian.org>  Sat, 11 Jan 2014 07:33:58 +0100
