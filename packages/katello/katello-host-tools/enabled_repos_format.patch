@@ -1,0 +1,23 @@
+From d16caad146aecf85353c51bf3453ad27f640c209 Mon Sep 17 00:00:00 2001
+From: Justin Sherrill <jsherril@redhat.com>
+Date: Mon, 30 Apr 2018 13:28:57 -0400
+Subject: [PATCH] Fixes #23456 - send array of urls in repo report
+
+---
+ src/katello/enabled_report.py            | 2 +-
+ test/test_katello/test_enabled_report.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/katello/enabled_report.py b/src/katello/enabled_report.py
+index 1c5edaded..1f5d3676a 100755
+--- a/src/katello/enabled_report.py
++++ b/src/katello/enabled_report.py
+@@ -13,7 +13,7 @@ def __generate(self):
+         config = ConfigParser()
+         config.read(self.repofile)
+         enabled_sections = [section for section in config.sections() if config.getboolean(section, "enabled")]
+-        enabled_repos = [{"repositoryid": section,"baseurl": config.get(section, "baseurl")} for section in enabled_sections]
++        enabled_repos = [{"repositoryid": section,"baseurl": [config.get(section, "baseurl")]} for section in enabled_sections]
+         return {"enabled_repos": {"repos": enabled_repos}}
+ 
+     def __init__(self, repo_file = REPOSITORY_PATH):
