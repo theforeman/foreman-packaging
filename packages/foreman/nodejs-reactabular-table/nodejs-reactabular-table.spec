@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 8.12.0
+Version: 8.13.0
 Release: 1%{?dist}
 Summary: Table components for Reactabular
 License: MIT
@@ -40,6 +40,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue May 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.13.0-1
+- Update to 8.13.0
+
 * Wed Feb 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.12.0-1
 - new package built with tito
 
