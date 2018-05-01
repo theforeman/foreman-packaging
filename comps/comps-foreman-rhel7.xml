@@ -193,6 +193,7 @@
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-register</packagereq>
+      <packagereq type="default">nodejs-bootstrap-slider-without-jquery</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
