@@ -115,6 +115,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-zxcvbn
   puppet-agent-oauth
   puppet-agent-puppet-strings
+  puppet-agent-rgen
   puppet-agent-yard
   rubygem-bundler_ext
   rubygem-clamp
