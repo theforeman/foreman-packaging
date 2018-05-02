@@ -1100,14 +1100,14 @@ export NODE_ENV=production \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create db:schema:load SCHEMA=%{_datadir}/%{name}/schema_plugin.rb RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} --trace} \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} --trace} \\
 \\
 popd \\
 rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
-%%{?-a:ln -s %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}} \\
-%%{?-s:mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
-%%{?-s:ln -s %%{gem_instdir}/public/webpack/%%{gem_name} %%{buildroot}%%{foreman_dir}/public/webpack/%%{gem_name}}
+%%{?-a:ln -s %%{%{name}_apipie_cache_plugin} %%{buildroot}%%{%{name}_apipie_cache_foreman}} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}}
 EOF
 
 %clean
