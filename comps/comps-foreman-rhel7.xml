@@ -274,6 +274,7 @@
       <packagereq type="default">nodejs-zxcvbn</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
+      <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>

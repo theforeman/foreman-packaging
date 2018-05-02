@@ -127,6 +127,7 @@ foreman_packages:
     nodejs-zxcvbn: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
+    puppet-agent-rgen: {}
     puppet-agent-yard: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
