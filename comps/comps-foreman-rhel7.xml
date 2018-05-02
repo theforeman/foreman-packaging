@@ -291,6 +291,7 @@
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-rb-inotify</packagereq>
+      <packagereq type="default">rubygem-rgen</packagereq>
       <packagereq type="default">rubygem-rsec</packagereq>
       <packagereq type="default">rubygem-rubyipmi</packagereq>
       <!--
@@ -324,6 +325,7 @@
       <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
+      <packagereq type="default">rubygem-rgen-doc</packagereq>
       <packagereq type="default">rubygem-rsec-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
