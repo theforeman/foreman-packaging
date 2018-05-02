@@ -28,6 +28,7 @@ BuildRequires: %{?scl_prefix}puppet-agent >= 1.9.0
 BuildRequires: %{?scl_prefix}rubygem-kafo >= 1.0.5
 BuildRequires: puppet-agent-puppet-strings >= 0.99
 BuildRequires: puppet-agent-puppet-strings < 2
+BuildRequires: puppet-agent-rgen
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.

@@ -131,6 +131,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-passenger
   rubygem-powerbar
   rubygem-rb-inotify
+  rubygem-rgen
   rubygem-rsec
   rubygem-rubyipmi
 
