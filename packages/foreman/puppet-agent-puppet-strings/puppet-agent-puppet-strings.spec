@@ -3,7 +3,7 @@
 
 Summary: Puppet documentation via YARD
 Name: puppet-agent-%{gem_name}
-Version: 1.0.0
+Version: 1.2.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL-2.0
@@ -12,6 +12,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: puppet-agent
 Requires: puppet-agent-yard >= 0.9.5
 Requires: puppet-agent-yard < 1
+Requires: puppet-agent-rgen
 BuildArch: noarch
 
 %description
