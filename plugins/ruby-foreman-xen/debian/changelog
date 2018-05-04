@@ -1,3 +1,9 @@
+ruby-foreman-xen (0.5.3-1) stable; urgency=low
+
+  * 0.5.3 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 05 May 2018 01:42:35 +0200
+
 ruby-foreman-xen (0.5.2-1) stable; urgency=low
 
   * 0.5.2 released
