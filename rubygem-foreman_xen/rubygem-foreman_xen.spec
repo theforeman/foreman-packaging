@@ -18,14 +18,14 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.5.2
-Release:    2%{?foremandist}%{?dist}
+Version:    0.6.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-xen
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.13.0
+Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -35,7 +35,7 @@ Requires: %{?scl_prefix}rubygem(fog-xenserver) < 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: foreman-plugin >= 1.13.0
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) < 1.0.0
@@ -83,7 +83,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
-%{gem_instdir}/public/assets/compute_resources/xenserver
+%{gem_instdir}/public/assets/foreman_xen
 
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/Rakefile
