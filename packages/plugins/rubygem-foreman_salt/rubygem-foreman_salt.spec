@@ -13,14 +13,14 @@
 
 Summary:    Plugin for Salt integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.0.0
+Version:    10.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_salt
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.14.0
+Requires:   foreman >= 1.17.0
 Requires:   %{?scl_prefix}rubygem(deface)
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -28,7 +28,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.8.0
 Requires: %{?scl_prefix}rubygem-foreman-tasks < 1.0.0
 
-BuildRequires: foreman-plugin >= 1.14.0
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -103,6 +103,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue May 08 2018 Michael Moll <kvedulv@kvedulv.de> 10.0.0-1
+- update foreman_salt to 10.0.0 (kvedulv@kvedulv.de)
+
 * Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.0.0-1
 - update foreman_salt to 9.0.0 (kvedulv@kvedulv.de)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
