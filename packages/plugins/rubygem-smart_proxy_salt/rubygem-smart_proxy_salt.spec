@@ -8,7 +8,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 2.1.8
+Version: 2.1.9
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -98,6 +98,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 08 2018 Michael Moll <kvedulv@kvedulv.de> 2.1.9-1
+- update smart_proxy_salt to 2.1.9 (kvedulv@kvedulv.de)
+
 * Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 2.1.8-1
 - update smart_proxy_salt to 2.1.8 (kvedulv@kvedulv.de)
 
