@@ -92,6 +92,9 @@ exit 0
 %{gem_docdir}
 
 %changelog
+* Mon May 07 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.1.0-1
+- Update foreman_expire_hosts to 5.1.0 (mail@timogoebel.name)
+
 * Thu Feb 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.0.0-1
 - Update foreman_expire_hosts to 5.0.0 (mail@timogoebel.name)
 - Correct non-existing date (ewoud@kohlvanwijngaarden.nl)
