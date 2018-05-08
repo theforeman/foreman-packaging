@@ -276,6 +276,7 @@ foreman_packages:
     rubygem-will_paginate: {}
     rubygem-wirb: {}
     rubygem-x-editable-rails: {}
+    statsd_exporter: {}
     tfm: {}
     tfm-rubygem-rest-client: {}
 katello_packages:
