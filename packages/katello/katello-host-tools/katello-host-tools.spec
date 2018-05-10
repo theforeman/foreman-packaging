@@ -1,5 +1,5 @@
 %global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
-%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || (0%{?fedora} < 27)
+%global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
 
 %global build_tracer (0%{?suse_version} == 0)
@@ -14,7 +14,7 @@
 
 Name: katello-host-tools
 Version: 3.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -161,11 +161,11 @@ cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
 
 mkdir -p %{buildroot}%{katello_libdir}
 mkdir -p %{buildroot}%{plugins_dir}
-mkdir -p %{buildroot}%{plugins_confdir}
 
 cp src/katello/*.py %{buildroot}%{katello_libdir}/
 
-%if %{?plugins_confdir:1}%{!?plugins_confdir:0}
+%if %{dnf_install} || %{yum_install}
+mkdir -p %{buildroot}%{plugins_confdir}
 cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
 %endif
 
@@ -315,6 +315,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu May 10 2018 Justin Sherrill <jsherrill@gmail.com> 3.2.1-4
+- suse build fixes
+
 * Mon Apr 30 2018 Justin Sherrill <jlsherrill@gmail.com> 3.2.1-3
 - Backporting format issue with enabled-repos
 
