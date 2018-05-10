@@ -386,7 +386,6 @@ plugins_packages:
     rubygem-foreman_omaha: {}
     rubygem-foreman_one: {}
     rubygem-foreman_openscap: {}
-    rubygem-foreman_param_lookup: {}
     rubygem-foreman_remote_execution: {}
     rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_salt: {}

@@ -90,7 +90,6 @@
       <packagereq type="default">tfm-rubygem-foreman_omaha</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_one</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_param_lookup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_salt</packagereq>
@@ -212,7 +211,6 @@
       <packagereq type="default">tfm-rubygem-foreman_omaha-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_param_lookup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_salt-doc</packagereq>

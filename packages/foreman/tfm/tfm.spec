@@ -71,6 +71,7 @@ Obsoletes: %{scl_prefix}rubygem-ejs < 1.1.1-4
 Obsoletes: %{scl_prefix}rubygem-flot-rails < 0.0.3-8
 Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
 Obsoletes: %{scl_prefix}rubygem-foreman_reserve < 0.1.8.3-6
+Obsoletes: %{scl_prefix}rubygem-foreman_param_lookup < 0.3.0-3
 Obsoletes: %{scl_prefix}rubygem-foremancli < 1.0-10
 Obsoletes: %{scl_prefix}rubygem-hirb-unicode < 0.0.5-9
 Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
