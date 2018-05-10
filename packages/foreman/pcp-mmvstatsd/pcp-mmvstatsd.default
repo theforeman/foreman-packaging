@@ -1,0 +1,8 @@
+# debug logging
+#CMD_OPTS="-debug"
+
+# UDP address and port
+#CMD_OPTS="-address :8125"
+
+# TCP address and port
+#CMD_OPTS="-tcpaddr :8125"

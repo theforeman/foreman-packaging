@@ -1,0 +1,15 @@
+[Unit]
+Description=PCP MMV statsd aggregator
+Documentation=https://github.com/lzap/pcp-mmvstatsd
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/pcp-mmvstatsd
+# Run as pcp until ownership is resolved
+User=pcp
+#User=pcp-mmvstatsd
+ExecStart=/usr/bin/pcp-mmvstatsd $CMD_OPTS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
