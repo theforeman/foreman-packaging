@@ -76,6 +76,7 @@ if [ $NOGENERIC -eq 0 ]; then
   add_files /etc/qpid/*
   add_files /etc/qpidd.conf
   add_files /etc/qpid-dispatch/qdrouterd.conf
+  add_files /var/log/qdrouterd/qdrouterd.log
 fi
 
 add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-q"
