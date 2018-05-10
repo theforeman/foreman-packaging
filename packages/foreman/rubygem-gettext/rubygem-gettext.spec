@@ -266,10 +266,10 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 * Wed May 30 2012 Mamoru Tasaka <mtasaka@fedoraproject.org> - 2.2.1-1
 - 2.2.1
 
-* Mon Apr  7 2012 Mamoru Tasaka <mtasaka@fedoraproject.org> - 2.2.0-2
+* Sat Apr  7 2012 Mamoru Tasaka <mtasaka@fedoraproject.org> - 2.2.0-2
 - Fix test case
 
-* Mon Apr  7 2012 Mamoru Tasaka <mtasaka@fedoraproject.org> - 2.2.0-1
+* Sat Apr  7 2012 Mamoru Tasaka <mtasaka@fedoraproject.org> - 2.2.0-1
 - 2.2.0
 
 * Tue Apr 03 2012 Bohuslav Kabrda <bkabrda@redhat.com> - 2.1.0-7
@@ -296,7 +296,7 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 * Sat Jul 25 2009 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.0.4-2
 - F-12: Mass rebuild
 
-* Wed May 28 2009 Mamoru Tasaka <mtasaka@ios.s.u-tokyo.ac.jp> - 2.0.4-1
+* Thu May 28 2009 Mamoru Tasaka <mtasaka@ios.s.u-tokyo.ac.jp> - 2.0.4-1
 - 2.0.4
 
 * Mon May 11 2009 Mamoru Tasaka <mtasaka@ios.s.u-tokyo.ac.jp> - 2.0.3-2
@@ -312,7 +312,7 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 * Tue Apr 21 2009 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.0.1-1
 - 2.0.1, drop patches already in upstream (all)
 
-* Sat Mar 29 2009 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.0.0-1
+* Sun Mar 29 2009 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.0.0-1
 - Update to 2.0.0
 - Now require rubygem(locale)
 - Rescue NoMethodError on gem call on gettext.rb

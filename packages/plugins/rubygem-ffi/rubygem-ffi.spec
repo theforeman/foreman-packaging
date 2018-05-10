@@ -144,10 +144,10 @@ popd
 * Tue Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.6.2-1
 - Pull in 0.6.2 from upstream
 
-* Tue Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-3
+* Mon Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-3
 - Final updates based on package review
 
-* Tue Feb 16 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-2
+* Mon Feb 16 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-2
 - Updates Based on code review comments
 
 * Mon Feb 15 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-1

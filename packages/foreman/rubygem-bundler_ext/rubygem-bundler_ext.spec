@@ -116,7 +116,7 @@ cp -pa .%{gem_dir}/* \
 * Wed Nov 28 2012 Lukas Zapletal <lzap+git@redhat.com> 0.2.0-2
 - bundler_ext 0.2.0 version bump
 
-* Thu Nov 28 2012 Lukas Zapletal <lzap+rpm[@]redhat.com> - 0.2.0-1
+* Wed Nov 28 2012 Lukas Zapletal <lzap+rpm[@]redhat.com> - 0.2.0-1
 - bumping version to 0.2.0
 
 * Wed Nov 28 2012 Miroslav Suchý <msuchy@redhat.com> 0.1.0-7
