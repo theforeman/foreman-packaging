@@ -98,6 +98,11 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri May 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.9-1
+- update smart_proxy_salt to 2.1.9 (kvedulv@kvedulv.de)
+- Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
+- Set proper download URLs for rubygems (komidore64@gmail.com)
+
 * Thu Mar 30 2017 Dominic Cleal <dominic@cleal.org> 2.1.8-1
 - update smart_proxy_salt to 2.1.8 (kvedulv@kvedulv.de)
 
