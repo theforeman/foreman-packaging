@@ -25,7 +25,7 @@ URL:        https://github.com/theforeman/foreman_memcache
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   foreman >= 1.16.0
-Requires:   %{?scl_prefix}rubygem(dalli)
+Requires:   %{?scl_prefix_ror}rubygem(dalli)
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
