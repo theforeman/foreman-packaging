@@ -103,6 +103,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri May 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.0.4-1
+- update foreman_salt to 8.0.4 (kvedulv@kvedulv.de)
+
 * Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 8.0.3-1
 - update foreman_salt to 8.0.3 (kvedulv@kvedulv.de)
 
