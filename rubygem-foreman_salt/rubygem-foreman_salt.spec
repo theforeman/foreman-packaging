@@ -103,6 +103,9 @@ exit 0
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri May 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 9.0.1-1
+- update foreman_salt to 9.0.1 (kvedulv@kvedulv.de)
+
 * Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.0.0-1
 - update foreman_salt to 9.0.0 (kvedulv@kvedulv.de)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
