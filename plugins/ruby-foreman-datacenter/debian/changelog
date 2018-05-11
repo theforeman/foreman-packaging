@@ -1,3 +1,47 @@
+ruby-foreman-datacenter (0.1.50) stable; urgency=low
+
+  * 0.1.50 released
+  * fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Fri, 11 May 2018 12:10:12 +0200
+
+ruby-foreman-datacenter (0.1.49) stable; urgency=low
+
+  * 0.1.49 released
+  * fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Tue, 13 Mar 2018 18:25:43 +0200
+
+ruby-foreman-datacenter (0.1.48) stable; urgency=low
+
+  * 0.1.48 released
+  * fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Fri, 23 Feb 2018 22:45:07 +0200
+
+ruby-foreman-datacenter (0.1.47) stable; urgency=low
+
+  * 0.1.47 released
+  * added sync button on device show page for synchronization interfaces
+  html/css fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Fri, 23 Feb 2018 22:44:31 +0200
+
+ruby-foreman-datacenter (0.1.46) stable; urgency=low
+
+  * 0.1.46 released
+  * fixed compatibility issues with version 1.17
+  * fixed error Index names too long for sqlite
+  * html/css fixes and improvements
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Mon, 19 Feb 2018 18:13:54 +0200
+
+ruby-foreman-datacenter (0.1.45) stable; urgency=low
+
+  * 0.1.45 released
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Tue, 23 Jan 2017 13:33:07 +0200
+
 ruby-foreman-datacenter (0.1.44) stable; urgency=low
 
   * 0.1.44 released
