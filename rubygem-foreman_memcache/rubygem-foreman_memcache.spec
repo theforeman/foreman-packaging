@@ -18,7 +18,7 @@
 Summary:    Adds memcache integeration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
@@ -90,6 +90,9 @@ mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pl
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri May 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.0-2
+- Fix foreman_memcache dependency on dalli (ewoud@kohlvanwijngaarden.nl)
+
 * Fri Apr 27 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.1.0-1
 - Update foreman_memcache to 0.1.0 (mail@timogoebel.name)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
