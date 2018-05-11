@@ -54,6 +54,7 @@
       <packagereq type="default">tfm-rubygem-bastion-devel</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
+      <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
@@ -170,6 +171,7 @@
       <packagereq type="default">tfm-rubygem-bastion-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dalli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
