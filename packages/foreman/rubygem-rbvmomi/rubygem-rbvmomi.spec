@@ -150,7 +150,7 @@ popd
 * Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.3-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
-* Mon Jul 21 2011 Michal Fojtik <mfojtik@redhat.com> - 1.2.3-3
+* Thu Jul 21 2011 Michal Fojtik <mfojtik@redhat.com> - 1.2.3-3
 - Added vmodl.db back, since it's required dependency
 
 * Mon Jul 11 2011 Francesco Vollero <fvollero@redhat.com> - 1.2.3-2
