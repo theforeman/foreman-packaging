@@ -141,13 +141,13 @@ popd
 * Wed Mar 10 2010 Bryan Kearney <bkearney@redhat.com> - 0.6.2-1
 - Power PC fixes from upstream which were found testing 0.6.2
 
-* Tue Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.6.2-1
+* Mon Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.6.2-1
 - Pull in 0.6.2 from upstream
 
 * Mon Feb 22 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-3
 - Final updates based on package review
 
-* Mon Feb 16 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-2
+* Tue Feb 16 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-2
 - Updates Based on code review comments
 
 * Mon Feb 15 2010 Bryan Kearney <bkearney@redhat.com> - 0.5.4-1
