@@ -8,12 +8,12 @@
 
 Summary: CSV input/output command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
-Release: 2%{?dist}
+Version: 2.3.1
+Release: 1%{?dist}
 Group:   Development/Languages
 License: GPLv3
 URL:     https://github.com/Katello/hammer-cli-csv
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -69,8 +69,8 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/config
 
 %changelog
-* Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 2.3.0-2
-- new package built with tito
+* Tue Apr 10 2018 Eric D. Helms <ericdhelms@gmail.com> 2.3.1-1
+- Update hammer_cli_csv to 2.3.1
 
 * Tue Jun 13 2017 Eric D. Helms <ericdhelms@gmail.com> 2.3.0-1
 - Fixes #19972 - Update hammer_cli_csv to 2.3.0 (akofink@redhat.com)
