@@ -35,8 +35,8 @@ Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires:       %{?scl_prefix_ruby}rubygem(sinatra)
 Requires:       %{?scl_prefix_ruby}rubygem(rack) >= 1.1.0
 Requires:       %{?scl_prefix_ruby}rubygem(json)
-Requires:       %{?scl_prefix}rubygem(rkerberos)
-Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.9.2
+Requires:       %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
+Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
 Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       %{?scl_prefix}rubygem(rb-inotify)
