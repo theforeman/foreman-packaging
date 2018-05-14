@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.0.7
+Version: 1.0.8
 Release: 1%{?dist}
 Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip
 License: MIT
@@ -41,6 +41,9 @@ cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon May 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.8-1
+- Update to 1.0.8
+
 * Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.7-1
 - Bump nodejs-react-ellipsis-with-tooltip to 1.0.7
   (ewoud@kohlvanwijngaarden.nl)
