@@ -5,21 +5,21 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.3.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPL-3.0
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.13.0
+Requires: foreman >= 1.17.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
-Requires: %{?scl_prefix}rubygem(katello) >= 3.2
+Requires: %{?scl_prefix}rubygem(katello) >= 3.6
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.13
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.2
+BuildRequires: foreman-plugin >= 1.17
+BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.6
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -43,12 +43,27 @@ BuildArch: noarch
 Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{gem_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -84,9 +99,27 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
-* Mon Aug 28 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.1-1
-- new package built with tito
-
+* Wed May 16 2018 Matthias Dellweg <dellweg@atix.de> 1.3.1-1
+- Migration to rails 5 by evgeni
+- Fix issue with productless account
+* Tue May 15 2018 Matthias Dellweg <dellweg@atix.de> 1.3.0-1
+- Prevent exception in case no further products were selected
+- Show proper sync status
+* Mon Mar 19 2018 Matthias Dellweg <dellweg@atix.de> 1.2.0-1
+- Change Edit/Action behaviour to be more user-friendly
+- Do not use transaction to create Products and Repositories
+- Update some dependencies
+- Bump requirement to Katello 3.5
+- Issue #7 by prokhorovva: Fast fix
+- Catch RecordNotFound when assigning extensions
+- disable submit if account was not synced
+- Bump requirement to foreman 1.16
+* Tue Sep 26 2017 Matthias Dellweg <dellweg@atix.de> 1.1.0-1
+- Set default download policy
+- Force katello to load before scc_manager
+- restart foreman-tasks after installation
+- Added note to use Organization credentials
+- Select organization landing page
 * Wed Aug 16 2017 Matthias Dellweg <dellweg@atix.de> 1.0.1-1
 - specfile from gem2spec
 - fix asset compilation
