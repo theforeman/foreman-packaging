@@ -428,6 +428,7 @@ whitelist = katello
   nodejs-history
   nodejs-invariant
   nodejs-jed
+  nodejs-react-bootstrap-tooltip-button
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom

@@ -302,6 +302,7 @@ katello_packages:
     nodejs-history: {}
     nodejs-invariant: {}
     nodejs-jed: {}
+    nodejs-react-bootstrap-tooltip-button: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
