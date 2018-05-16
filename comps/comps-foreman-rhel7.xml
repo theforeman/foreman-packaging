@@ -229,6 +229,7 @@
       <packagereq type="default">nodejs-lodash</packagereq>
       <packagereq type="default">nodejs-lodash-es</packagereq>
       <packagereq type="default">nodejs-lodash-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-lodash.debounce</packagereq>
       <packagereq type="default">nodejs-lodash.orderby</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
       <packagereq type="default">nodejs-ms</packagereq>

@@ -81,6 +81,7 @@ foreman_packages:
     nodejs-jstz: {}
     nodejs-lodash-es: {}
     nodejs-lodash-webpack-plugin: {}
+    nodejs-lodash.debounce: {}
     nodejs-lodash.orderby: {}
     nodejs-lodash: {}
     nodejs-loose-envify: {}
