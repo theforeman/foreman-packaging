@@ -1,18 +1,11 @@
-#!/usr/bin/env ruby
+#!/bin/sh
 
-# check if production install
-if __FILE__.include?('sbin')
-  UTILS_PATH='/usr/share/katello'
-else
-  UTILS_PATH=File.expand_path('..', __FILE__)
-end
+MESSAGE="
+IMPORTANT: katello-restore has been removed in favor of 'foreman-maintain restore'.
+This change happened in order to support remote databases and a newer mongo version.
+Please update your scripts and/or cron jobs.
+"
 
-require File.join(UTILS_PATH, 'restore.rb')
+echo "$MESSAGE"
+exit 1
 
-katello_restore = KatelloUtilities::Restore.new("foreman-proxy-content", "katello")
-
-if katello_restore.accepted_scenarios.include? katello_restore.last_scenario
-  katello_restore.run
-else
-  STDOUT.puts katello_restore.error_message
-end

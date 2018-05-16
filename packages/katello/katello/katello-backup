@@ -1,18 +1,10 @@
-#!/usr/bin/env ruby
+#!/bin/sh
 
-# check if production install
-if __FILE__.include?('sbin')
-  UTILS_PATH='/usr/share/katello'
-else
-  UTILS_PATH=File.expand_path('..', __FILE__)
-end
+MESSAGE="
+IMPORTANT: katello-backup has been removed in favor of 'foreman-maintain backup'.
+This change happened in order to support remote databases and a newer mongo version.
+Please update your scripts and/or cron jobs.
+"
 
-require File.join(UTILS_PATH, 'backup.rb')
-
-katello_backup = KatelloUtilities::Backup.new("foreman-proxy-content", "foreman proxy", "katello")
-
-if katello_backup.accepted_scenarios.include? katello_backup.last_scenario
-  katello_backup.run
-else
-  STDOUT.puts katello_backup.error_message
-end
+echo "$MESSAGE"
+exit 1

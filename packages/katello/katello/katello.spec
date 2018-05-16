@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    4.nightly%{?dist}
+Release:    5.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -26,11 +26,8 @@ Source10:   katello-clean-empty-puppet-environments
 Source11:   katello-change-hostname
 Source12:   katello-repository-publish-check
 Source13:   katello-change-hostname.8.asciidoc
-Source14:   restore.rb
-Source15:   backup.rb
 Source16:   hostname-change.rb
 Source17:   helper.rb
-Source18:   katello-backup-rotate-tar.sh
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -60,6 +57,7 @@ Requires: squid
 Requires: mod_xsendfile
 
 Requires(post): candlepin >= 2.0
+Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: candlepin-selinux >= 2.0
 Requires: java-openjdk >= 1:1.7.0
 Requires: java-openjdk < 1:1.8.0.45
@@ -91,11 +89,8 @@ install -m 755 %{SOURCE12} %{buildroot}%{_sysconfdir}/cron.daily/katello-reposit
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
-install -m 644 %{SOURCE14} %{buildroot}%{_datarootdir}/katello/restore.rb
-install -m 644 %{SOURCE15} %{buildroot}%{_datarootdir}/katello/backup.rb
 install -m 644 %{SOURCE16} %{buildroot}%{_datarootdir}/katello/hostname-change.rb
 install -m 644 %{SOURCE17} %{buildroot}%{_datarootdir}/katello/helper.rb
-install -m 755 %{SOURCE18} %{buildroot}%{_datarootdir}/katello/katello-backup-rotate-tar.sh
 
 # install important scripts
 mkdir -p %{buildroot}%{_bindir}
@@ -145,11 +140,8 @@ Common runtime components of %{name}
 %{_sbindir}/qpid-core-dump
 %{_sbindir}/katello-change-hostname
 %{_mandir}/man8/katello-change-hostname.8*
-%{_datarootdir}/katello/restore.rb
-%{_datarootdir}/katello/backup.rb
 %{_datarootdir}/katello/hostname-change.rb
 %{_datarootdir}/katello/helper.rb
-%{_datarootdir}/katello/katello-backup-rotate-tar.sh
 %config(missingok) %{_sysconfdir}/cron.weekly/katello-clean-empty-puppet-environments
 %config(missingok) %{_sysconfdir}/cron.weekly/katello-remove-orphans
 %config(missingok) %{_sysconfdir}/cron.daily/katello-repository-publish-check
@@ -182,6 +174,7 @@ Requires: findutils
 Requires: rh-mongodb34
 Requires: foreman-installer-%{name}
 Requires: rubygem-highline
+Requires: rubygem-foreman_maintain >= 0.2.2
 Obsoletes: katello-capsule
 
 %description -n foreman-proxy-content
@@ -193,11 +186,8 @@ Provides a federation of katello services
 %{_sbindir}/katello-restore
 %{_sbindir}/katello-change-hostname
 %{_sbindir}/katello-remove
-%{_datarootdir}/katello/restore.rb
-%{_datarootdir}/katello/backup.rb
 %{_datarootdir}/katello/hostname-change.rb
 %{_datarootdir}/katello/helper.rb
-%{_datarootdir}/katello/katello-backup-rotate-tar.sh
 
 # ------ Service ----------------
 %package service
@@ -215,6 +205,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed May 23 2018 John Mitsch <jomitsch@redhat.com> - 3.7.0-5.nightly
+- Remove katello-backup and katello-restore and require foreman-maintain
+
 * Fri May 11 2018 Chris Roberts <chrobert@redhat.com> - 3.7.0-4.nightly
 - removed el6 references and service-wait
 
