@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed May 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.1-1
+- new package built with tito
+
 * Wed May 16 2018 Matthias Dellweg <dellweg@atix.de> 1.3.1-1
 - Migration to rails 5 by evgeni
 - Fix issue with productless account
