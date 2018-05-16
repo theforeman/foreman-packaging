@@ -13,7 +13,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.5.1
+Version:    1.5.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -24,9 +24,9 @@ Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.12.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(deface)
@@ -36,9 +36,9 @@ BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.12.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(deface)
@@ -115,6 +115,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 16 2018 Ivan Nečas <inecas@redhat.com> 1.5.2-1
+- Update to 1.5.2
+
 * Thu Apr 19 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.5.1-1
 - Update to 1.5.1
 
