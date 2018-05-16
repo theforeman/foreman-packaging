@@ -5,7 +5,7 @@
 
 Summary: Code used both at Forman and Foreman proxy regarding tasks
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
+Version: 0.2.5
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed May 16 2018 Ivan Nečas <inecas@redhat.com> 0.2.5-1
+- Update to 0.2.5
+
 * Tue Jan 16 2018 Eric D. Helms <ericdhelms@gmail.com> 0.2.4-1
 - Update foreman-tasks-core to 0.2.4 (inecas@redhat.com)
 
