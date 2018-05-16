@@ -1,6 +1,6 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman-tasks-0.13.0.gem"
-GEMS="$GEMS https://rubygems.org/downloads/foreman-tasks-core-0.2.4.gem"
+GEMS="https://rubygems.org/downloads/foreman-tasks-0.13.1.gem"
+GEMS="$GEMS https://rubygems.org/downloads/foreman-tasks-core-0.2.5.gem"
 GEMS="$GEMS https://rubygems.org/downloads/parse-cron-0.1.4.gem"
 GEMS="$GEMS https://rubygems.org/downloads/sinatra-2.0.1.gem"
 GEMS="$GEMS https://rubygems.org/downloads/rack-protection-2.0.1.gem"
