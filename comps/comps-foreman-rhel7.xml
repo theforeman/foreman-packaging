@@ -246,6 +246,7 @@
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-switch</packagereq>
       <packagereq type="default">nodejs-react-c3js</packagereq>
+      <packagereq type="default">nodejs-react-debounce-input</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-fontawesome</packagereq>

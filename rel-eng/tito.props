@@ -88,6 +88,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-bootstrap
   nodejs-react-bootstrap-switch
   nodejs-react-c3js
+  nodejs-react-debounce-input
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
   nodejs-react-fontawesome
