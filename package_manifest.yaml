@@ -126,6 +126,7 @@ foreman_packages:
     nodejs-webpack-stats-plugin: {}
     nodejs-webpack: {}
     nodejs-zxcvbn: {}
+    pcp-mmvstatsd: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
     puppet-agent-rgen: {}

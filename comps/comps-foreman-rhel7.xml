@@ -273,6 +273,7 @@
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">nodejs-zxcvbn</packagereq>
+      <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>

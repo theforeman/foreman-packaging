@@ -114,6 +114,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-webpack
   nodejs-webpack-stats-plugin
   nodejs-zxcvbn
+  pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
   puppet-agent-rgen
