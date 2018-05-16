@@ -17,7 +17,7 @@ Depends: ruby2.3, bundler (>= 1.3), zlib1g-dev,
          ruby2.3-dev, build-essential,
          rake (>=0.8.4), ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version}), python-minimal
-Conflicts: ruby-activerecord-deprecated-finders
+Conflicts: ruby-activerecord-deprecated-finders, ruby-sequel-pg
 Description: Systems management web interface
  Foreman is aimed to be a single address for all machines life cycle management.
  .
