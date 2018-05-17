@@ -105,6 +105,9 @@ CONFIG
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu May 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.0-1
+- Update rubygem-foreman_column_view to 0.4.0 (greg.sutcliffe@gmail.com)
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
