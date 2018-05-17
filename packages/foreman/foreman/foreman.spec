@@ -374,9 +374,11 @@ BuildRequires: npm(react) >= 16.2.0
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
+BuildRequires: npm(react-debounce-input) >= 3.2.0
+BuildRequires: npm(react-debounce-input) < 4.0.0
 BuildRequires: npm(react-dom) >= 16.2.0
 BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
+BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
@@ -729,9 +731,11 @@ Requires: npm(react) >= 16.2.0
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-debounce-input) >= 3.2.0
+Requires: npm(react-debounce-input) < 4.0.0
 Requires: npm(react-dom) >= 16.2.0
 Requires: npm(react-dom) < 17.0.0
-Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
