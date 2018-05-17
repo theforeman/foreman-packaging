@@ -1,1 +1,1 @@
-gem 'foreman_column_view', '0.3.0'
+gem 'foreman_column_view', '0.4.0'
