@@ -17,14 +17,14 @@
 
 Summary:    Column View Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.0
-Release:    2%{?foremandist}%{?dist}
+Version:    0.4.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        https://github.com/GregSutcliffe/foreman_column_view
+URL:        https://github.com/theforeman/foreman_column_view
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.2.0
+Requires:   foreman >= 1.17.0
 Requires:   %{?scl_prefix}rubygem(deface) < 2.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -105,6 +105,10 @@ CONFIG
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu May 17 2018 Greg Sutcliffe <greg.sutcliffe@gmail.com> 0.4.0-1
+- Update to 0.4.0
+-   * 1.17 / Rails 5 - Module#prepend compatibility
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
