@@ -1151,7 +1151,6 @@ rm -rf %{buildroot}
 %{_mandir}/man8
 %config(noreplace) %{_sysconfdir}/%{name}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
-%ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/local_secret_token.rb
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config %{_sysconfdir}/cron.d/%{name}
@@ -1163,7 +1162,7 @@ rm -rf %{buildroot}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
 %attr(-,%{name},root) %{_datadir}/%{name}/config/environment.rb
 %ghost %{_datadir}/%{name}/config/initializers/encryption_key.rb
-%ghost %{_datadir}/%{name}/config/initializers/local_secret_token.rb
+%ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
 
 # Service
@@ -1180,20 +1179,12 @@ exit 0
 
 %post
 # secret token used for cookie signing etc.
-if [ ! -e %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] ; then
+if [ ! -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ]; then
   touch %{_datadir}/%{name}/config/initializers/local_secret_token.rb
   chmod 0660 %{_datadir}/%{name}/config/initializers/local_secret_token.rb
   chgrp foreman %{_datadir}/%{name}/config/initializers/local_secret_token.rb
   %{foreman_rake} security:generate_token >/dev/null 2>&1 || :
   chmod 0640 %{_datadir}/%{name}/config/initializers/local_secret_token.rb
-fi
-if [ -f %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] && \
-   [ ! -L %{_datadir}/%{name}/config/initializers/local_secret_token.rb ] ; then
-  mv %{_datadir}/%{name}/config/initializers/local_secret_token.rb %{_sysconfdir}/%{name}/
-fi
-if [ ! -e %{_datadir}/%{name}/config/initializers/local_secret_token.rb -a \
-    -e %{_sysconfdir}/%{name}/local_secret_token.rb ]; then
-  ln -s %{_sysconfdir}/%{name}/local_secret_token.rb %{_datadir}/%{name}/config/initializers/
 fi
 
 # encryption key used to encrypt DB contents
