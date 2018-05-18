@@ -17,18 +17,16 @@ URL:        https://theforeman.org/plugins/katello
 Source0:    katello-service.8.asciidoc
 Source1:    katello-debug.sh
 Source2:    katello-remove
-Source3:    katello-remove-orphans
 Source4:    katello-service
 Source6:    katello-restore
 Source7:    katello-backup
 Source8:    katello-service-bash_completion.sh
 Source9:    qpid-core-dump
-Source10:   katello-clean-empty-puppet-environments
 Source11:   katello-change-hostname
-Source12:   katello-repository-publish-check
 Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
+Source18:   katello.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -87,11 +85,8 @@ popd
 mkdir -p %{buildroot}/%{_mandir}/man8
 
 #copy cron scripts to be scheduled
-install -d -m0755 %{buildroot}%{_sysconfdir}/cron.weekly
-install -d -m0755 %{buildroot}%{_sysconfdir}/cron.daily
-install -m 755 %{SOURCE3} %{buildroot}%{_sysconfdir}/cron.weekly/katello-remove-orphans
-install -m 755 %{SOURCE10} %{buildroot}%{_sysconfdir}/cron.weekly/katello-clean-empty-puppet-environments
-install -m 755 %{SOURCE12} %{buildroot}%{_sysconfdir}/cron.daily/katello-repository-publish-check
+install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
+install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
@@ -149,9 +144,7 @@ Common runtime components of %{name}
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
 %{_datarootdir}/katello/helper.rb
-%config(missingok) %{_sysconfdir}/cron.weekly/katello-clean-empty-puppet-environments
-%config(missingok) %{_sysconfdir}/cron.weekly/katello-remove-orphans
-%config(missingok) %{_sysconfdir}/cron.daily/katello-repository-publish-check
+%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Debug ----------------
 %package debug
@@ -188,7 +181,7 @@ Obsoletes: katello-capsule
 Provides a federation of katello services
 
 %files -n foreman-proxy-content
-%config(missingok) %{_sysconfdir}/cron.weekly/katello-clean-empty-puppet-environments
+%config(missingok) %{_sysconfdir}/cron.d/katello
 %{_sbindir}/katello-backup
 %{_sbindir}/katello-restore
 %{_sbindir}/katello-change-hostname
