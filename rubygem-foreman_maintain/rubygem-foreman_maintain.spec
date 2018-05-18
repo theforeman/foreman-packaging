@@ -8,7 +8,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.2.2
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -25,6 +25,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: %{gem_name} = %{version}
+Provides: foreman-maintain = %{version}
 
 %description
 foreman_maintain aims to provide various features that helps keeping
@@ -69,6 +71,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-maintain
+%{_root_bindir}/foreman-maintain-rotate-tar
 %{_root_bindir}/passenger-recycler
 %{gem_instdir}/bin
 %{gem_instdir}/definitions
@@ -86,8 +89,20 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-1
-- Bump rubygem-foreman_maintain to 0.1.2 (imswapab@gmail.com)
+* Fri May 18 2018 Ivan Nečas <inecas@redhat.com> 0.2.2-1
+- Update to 0.2.2
+
+* Thu May 03 2018 Ivan Nečas <inecas@redhat.com> 0.2.1-1
+- Update to 0.2.1
+
+* Wed Apr 4 2018 Sean o'Keeffe <seanokeeffe797@gmail.com> 0.1.5-2
+- Provide foreman-maintain & foreman_maintain (seanokeeffe797@gmail.com)
+
+* Wed Jan 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.3-1
+- Update foreman_maintain to 0.1.3 (inecas@redhat.com)
+
+* Wed Jan 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-1
+- Ref #19496 - Install passenger-recycler (imswapab@gmail.com)
 
 * Tue Dec 12 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.1-1
 - Update rubygem-foreman_maintain to 0.1.1 (gnurag@gmail.com)
