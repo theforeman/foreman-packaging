@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Puppet 4
-[ -d /etc/puppetlabs/code/environments ] &&  find /etc/puppetlabs/code/environments/KT* -maxdepth 0 -type d -empty -delete > /dev/null 2>&1
-
-# Puppet 3
-[ -d /etc/puppet/environments ] && find /etc/puppet/environments/KT* -maxdepth 0 -type d -empty -delete > /dev/null 2>&1
