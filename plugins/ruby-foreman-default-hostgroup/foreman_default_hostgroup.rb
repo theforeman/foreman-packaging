@@ -1,1 +1,1 @@
-gem 'foreman_default_hostgroup', '4.0.1'
+gem 'foreman_default_hostgroup', '5.0.0'
