@@ -4,7 +4,7 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.8.0
+Version:        2.8.1
 Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Mon May 21 2018 Justin Sherrill <jsherril@redhat.com> 2.8.1-1
+- Update package to 2.8.1
+
 * Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 2.6.0-2
 - Update katello packages for Rails 5.1 (ericdhelms@gmail.com)
 
