@@ -8,7 +8,7 @@ Homepage: https://github.com/theforeman/foreman_default_hostgroup
 
 Package: ruby-foreman-default-hostgroup
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.12.0~rc1)
+Depends: ${misc:Depends}, bundler, foreman (>= 1.17.0~rc1)
 Description: Foreman Default Hostgroup Plugin
  Adds the option to specify a default hostgroup for new hosts created from
  facts/reports.
