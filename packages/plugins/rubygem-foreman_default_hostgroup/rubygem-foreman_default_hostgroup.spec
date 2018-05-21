@@ -17,14 +17,14 @@
 
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.0.1
+Version:    5.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
-URL:        https://github.com/GregSutcliffe/foreman_default_hostgroup
+URL:        https://github.com/theforeman/foreman_default_hostgroup
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.12.0
+Requires:   foreman >= 1.17.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -93,6 +93,11 @@ mv %{buildroot}%{gem_instdir}/default_hostgroup.yaml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon May 21 2018 Greg Sutcliffe <greg.sutcliffe@gmail.com> 5.0.0-1
+- Update to 5.0.0
+- 1.17 / Rails 5 - Module#prepend compatibility
+- Fix source URL
+
 * Mon Jan 15 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.1-1
 - update foreman_default_hostgroup to 4.0.1 (kvedulv@kvedulv.de)
 
