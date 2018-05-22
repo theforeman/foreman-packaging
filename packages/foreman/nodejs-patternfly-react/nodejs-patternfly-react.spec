@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 2.2.1
+Version: 2.3.4
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -28,7 +28,7 @@ Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 1.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
-Requires: npm(reactabular-table) >= 8.12.1
+Requires: npm(reactabular-table) >= 8.13.0
 Requires: npm(reactabular-table) < 9.0.0
 Requires: npm(recompose) >= 0.26.0
 Requires: npm(recompose) < 1.0.0
@@ -59,11 +59,13 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license LICENSE
-%doc CONTRIBUTING.md
+%doc CHANGELOG.md
 %doc README.md
 
 %changelog
+* Tue May 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.3.4-1
+- Update to 2.3.4
+
 * Tue May 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.1-1
 - Update to 2.2.1
 
