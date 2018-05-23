@@ -12,10 +12,7 @@
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
-      <packagereq type="default">rubygem-apipie-params</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
-      <packagereq type="default">rubygem-dynflow</packagereq>
       <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-faraday_middleware</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
@@ -138,10 +135,7 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
-      <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
-      <packagereq type="default">rubygem-dynflow-doc</packagereq>
       <packagereq type="default">rubygem-faraday-doc</packagereq>
       <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
