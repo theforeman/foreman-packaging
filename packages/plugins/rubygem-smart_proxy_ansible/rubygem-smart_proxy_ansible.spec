@@ -8,16 +8,14 @@
 
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 2.0.2
-Release: 3%{?foremandist}%{?dist}
+Version: 2.0.3
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?rhel:tfm-}rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) >= 2.0.2
-Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core) < 3.0.0
 Requires: foreman-proxy >= 1.11.0
 Requires: rubygem(smart_proxy_dynflow) >= 0.1
 Requires: rubygem(smart_proxy_dynflow) < 1.0
@@ -90,9 +88,11 @@ for i in ansible ansible_galaxy; do
 done
 
 ln -sv %{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
+%{gem_instdir}/bin
 %{gem_instdir}/lib
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/smart_proxy_ansible.rb
@@ -115,6 +115,9 @@ ln -sv %{_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 23 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.0.3-1
+- Update to 2.0.3
+
 * Tue Apr 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.2-3
 - Handle .ansible.cfg symlinks
 
