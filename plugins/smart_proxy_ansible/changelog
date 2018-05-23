@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (2.0.2-2) stable; urgency=low
+
+  * Fix conflicts with ruby-foreman-ansible-core
+
+ -- Maksim Malchuk <maksim.malchuk@gmail.com>  Fri, 18 May 2018 22:39:15 +0300
+
 ruby-smart-proxy-ansible (2.0.2-1) stable; urgency=low
 
   * 2.0.2 released
