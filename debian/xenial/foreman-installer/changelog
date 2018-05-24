@@ -1,3 +1,9 @@
+foreman-installer (1.17.1-1) stable; urgency=low
+
+  * Release 1.17.1
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 24 May 2018 17:45:59 +0200
+
 foreman-installer (1.17.0-1) stable; urgency=low
 
   * 1.17.0 released
