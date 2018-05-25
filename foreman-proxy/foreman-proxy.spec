@@ -201,6 +201,9 @@ fi
 
 
 %changelog
+* Fri May 25 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.17.1-1
+- Release 1.17.1 (oprazak@redhat.com)
+
 * Mon Apr 16 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.17.0-1
 - Release 1.17.0 (oprazak@redhat.com)
 
