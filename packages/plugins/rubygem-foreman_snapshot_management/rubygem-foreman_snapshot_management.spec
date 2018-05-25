@@ -5,18 +5,18 @@
 %global plugin_name snapshot_management
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.0
+Version: 1.5.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPL-3.0
 URL: http://www.orcharhino.com
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.14.0
+Requires: foreman >= 1.17.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-BuildRequires: foreman-plugin >= 1.14
+BuildRequires: foreman-plugin >= 1.17.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -89,6 +89,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri May 25 2018 Matthias Dellweg <dellweg@atix.de> 1.5.0-1
+- Update to 1.5.0
+- Add a bulk action for snapshots
+
 * Thu Apr 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.0-1
 - Update to 1.4.0
 
