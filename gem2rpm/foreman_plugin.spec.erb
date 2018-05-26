@@ -1,8 +1,3 @@
-# FIXME:
-#   1. Edit foreman requirement(s) and specify minimum version
-#   2. Delete these lines
-#
-# Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 <%-
 require 'json'
@@ -35,16 +30,16 @@ config.rules[:ignore] << /.tx(\/.*)?/
 config.rules[:ignore] << /webpack(\/.*)?/
 -%>
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: <%= spec.version %>
-Release: 1%{?foremandist}%{?dist}
-Summary: <%= spec.summary.gsub(/\.$/, "") %>
-Group: Applications/Systems
-License: <%= (spec.licenses.empty? ? ['FIXME'] : spec.licenses).join(" and ") %>
+Summary:    <%= spec.summary.gsub(/\.$/, "") %>
+Name:       %{?scl_prefix}rubygem-%{gem_name}
+Version:    <%= spec.version %>
+Release:    1%{?foremandist}%{?dist}
+Group:      Applications/Systems
+License:    <%= (spec.licenses.empty? ? ['FIXME'] : spec.licenses).join(" and ") %>
 <% if spec.homepage -%>
-URL: <%= spec.homepage %>
+URL:        <%= spec.homepage %>
 <% end -%>
-Source0: <%= download_path %>%{gem_name}-%{version}.gem
+Source0:    <%= download_path %>%{gem_name}-%{version}.gem
 
 # start generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -87,16 +82,18 @@ Provides: foreman-plugin-%{plugin_name}
 Provides: foreman-%{plugin_name}
 <% end -%>
 # end generated dependencies
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 <%= spec.description %>
 
 <% if doc_subpackage -%>
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-BuildArch: noarch
+BuildArch:  noarch
+Group:      Documentation
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
 Documentation for %{pkg_name}.
