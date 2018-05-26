@@ -1,25 +1,29 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_azure
 %global plugin_name azure
+%global foreman_min_version 1.11.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Azure as a Compute Resource of Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_azure
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.11.0
+
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-azure) = 0.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.11.0
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(fog-azure) = 0.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -29,6 +33,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
 Provides: foreman-%{plugin_name}
+# end generated dependencies
 
 %description
 Azure as a Compute Resource of Foreman.
@@ -76,7 +81,7 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
@@ -93,11 +98,14 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %posttrans
-%foreman_db_seed
+%{foreman_db_seed}
 %{foreman_restart}
 exit 0
 
 %changelog
+* Sat May 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.3.1-2
+- Regenerate spec file based on the current template
+
 * Fri Mar 24 2017 Dominic Cleal <dominic@cleal.org> 1.3.1-1
 - Update foreman_azure to 1.3.1 (me@daniellobato.me)
 
