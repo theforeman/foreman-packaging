@@ -86,6 +86,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Sun May 27 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.1.1-1
+- Bump version to 2.1.1 (suttner@atix.de)
+
 * Thu May 24 2018 Bernhard Suttner <suttner@atix.de> 2.1.1-1
 - update fog-vsphere to 2.1.1 (mail@timogoebel.name)
 
