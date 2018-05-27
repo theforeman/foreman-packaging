@@ -1,76 +1,80 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_column_view
-
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-%global foreman_pluginconf_dir /etc/foreman/plugins
+%global plugin_name column_view
+%global foreman_min_version 1.17.0
 
 Summary:    Column View Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.4.0
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Release:    2%{?foremandist}%{?dist}
+Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_column_view
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.17.0
-Requires:   %{?scl_prefix}rubygem(deface) < 2.0
-
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-column_view
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Displays an additional column in the Foreman Hosts view and/or additional
-entries in the Host show page.
+Displays an additional column in the Foreman Hosts view
+and/or additional entries in the Host show page.
+
 
 %package doc
 BuildArch:  noarch
+Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
+%foreman_bundlerd_file
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 cat <<CONFIG > %{buildroot}%{foreman_pluginconf_dir}/%{gem_name}.yaml.example
@@ -90,21 +94,27 @@ CONFIG
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%{gem_instdir}/lib
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
 %doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-%doc %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
+%posttrans
+%{foreman_restart}
+exit 0
+
 %changelog
+* Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.4.0-2
+- Regenerate spec file based on the current template
+
 * Thu May 17 2018 Greg Sutcliffe <greg.sutcliffe@gmail.com> 0.4.0-1
 - Update to 0.4.0
 -   * 1.17 / Rails 5 - Module#prepend compatibility
