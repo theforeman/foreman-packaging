@@ -1,127 +1,131 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_docker
+%global plugin_name docker
+%global foreman_min_version 1.17.0
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-%global foreman_pluginconf_dir %{foreman_dir}/config/settings.plugins.d
-
-Summary:    A Foreman plugin for Docker container management
+Summary:    Provision and manage Docker containers and images from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.0.0
+Version:    4.1.0
 Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Group:      Applications/Systems
 License:    GPLv3
-URL:        https://github.com/theforeman/foreman-docker
+URL:        https://github.com/theforeman/foreman_docker
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman-compute >= 1.15.0
-Requires:   %{?scl_prefix}rubygem(docker-api) >= 1.18.0
-Requires:   %{?scl_prefix}rubygem(docker-api) < 2.0
-Requires:   %{?scl_prefix}rubygem(wicked) >= 1.1
-Requires:   %{?scl_prefix}rubygem(wicked) < 2.0
-Requires:   %{?scl_prefix}rubygem(deface) < 2.0
-Requires:   %{?scl_prefix}rubygem(excon) >= 0.46
-Requires:   %{?scl_prefix}rubygem(excon) < 1.0
-
-BuildRequires: foreman-compute >= 1.17.0
-BuildRequires: foreman-plugin >= 1.17.0
-BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.18.0
-BuildRequires: %{?scl_prefix}rubygem(docker-api) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
-BuildRequires: %{?scl_prefix}rubygem(wicked) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(excon) >= 0.46
-BuildRequires: %{?scl_prefix}rubygem(excon) < 1.0
-
+Requires: foreman-compute >= %{foreman_min_version}
+BuildRequires: foreman-compute >= %{foreman_min_version}
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(docker-api) >= 1.18
+Requires: %{?scl_prefix}rubygem(docker-api) < 2
+Requires: %{?scl_prefix}rubygem(excon) >= 0.46
+Requires: %{?scl_prefix}rubygem(excon) < 1
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Requires: %{?scl_prefix}rubygem(wicked) >= 1.1
+Requires: %{?scl_prefix}rubygem(wicked) < 2
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.18
+BuildRequires: %{?scl_prefix}rubygem(docker-api) < 2
+BuildRequires: %{?scl_prefix}rubygem(excon) >= 0.46
+BuildRequires: %{?scl_prefix}rubygem(excon) < 1
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
+BuildRequires: %{?scl_prefix}rubygem(wicked) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: foreman-assets
-
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-docker
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 Provides: foreman-docker
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-This plugin enables provisioning and managing Docker containers and images in
-Foreman.
+Provision and manage Docker containers and images from Foreman.
+
 
 %package doc
 BuildArch:  noarch
+Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-# Fix version to match the full docker-api package version, as auto-requires
-# generates a dep of "= 1.17" that can't be resolved by yum
-sed -i '/docker-api/ s/"= 1\.17"/"= 1.17.0"/' %{buildroot}%{gem_spec}
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
+%exclude %{gem_instdir}/.rubocop.yml
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
+%{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/test
-%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %posttrans
-# We need to run the db:migrate after the install transaction
-%foreman_db_migrate
-%foreman_apipie_cache
-%foreman_restart
+%{foreman_db_migrate}
+%{foreman_apipie_cache}
+%{foreman_restart}
 exit 0
 
 %changelog
+* Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.1.0-1
+- Update to 4.1.0
+- Regenerate spec file based on the current template
+
 * Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
 - Release foreman_docker 4.0.0 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
