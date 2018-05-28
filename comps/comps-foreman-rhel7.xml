@@ -186,6 +186,7 @@
       <packagereq type="default">nodejs-babel-core</packagereq>
       <packagereq type="default">nodejs-babel-loader</packagereq>
       <packagereq type="default">nodejs-babel-plugin-lodash</packagereq>
+      <packagereq type="default">nodejs-babel-plugin-syntax-object-rest-spread</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-class-properties</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-assign</packagereq>
       <packagereq type="default">nodejs-babel-plugin-transform-object-rest-spread</packagereq>
@@ -193,6 +194,7 @@
       <packagereq type="default">nodejs-babel-preset-env</packagereq>
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-register</packagereq>
+      <packagereq type="default">nodejs-babel-runtime</packagereq>
       <packagereq type="default">nodejs-bootstrap-slider-without-jquery</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
