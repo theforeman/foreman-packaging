@@ -1,113 +1,116 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation/1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_openscap
+%global plugin_name openscap
+%global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
-Group: Applications/System
+Group: Applications/Systems
 License: GPLv3
-URL: https://github.com/OpenSCAP/foreman_openscap
+URL: https://github.com/theforeman/foreman_openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: foreman >= 1.17.0
-
 Requires: scap-security-guide
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: foreman-assets >= 1.7.0
-BuildRequires: foreman-plugin >= 1.8.0
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-openscap
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
 
 %description
 Foreman plug-in for managing security compliance reports.
 
 
 %package doc
-Summary: Documentation for %{name}
+Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}.
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%{gem_instdir}/db
 %{gem_instdir}/config
+%{gem_instdir}/db
+%{gem_libdir}
 %{gem_instdir}/locale
-%foreman_apipie_cache_plugin
-%foreman_apipie_cache_foreman
-%foreman_assets_plugin
-
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/test
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/test
 
 %posttrans
-# We need to run the db:migrate (because of SCAPtimony) after the install transaction
-%foreman_db_migrate
-%foreman_db_seed
-%foreman_apipie_cache
-%foreman_restart
+%{foreman_db_migrate}
+%{foreman_db_seed}
+%{foreman_apipie_cache}
+%{foreman_restart}
 exit 0
 
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.9.2-2
+- Regenerate spec file based on the current template
+
 * Thu Jan 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.9.0-1
 - Update foreman_openscap to 0.9.0 (mhulan@redhat.com)
 
