@@ -1,31 +1,37 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_omaha
 %global plugin_name omaha
+%global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_omaha
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.17.0
+
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(jquery-matchheight-rails)
-BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.17.0
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(jquery-matchheight-rails)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(jquery-matchheight-rails)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
+%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This plug-in adds support for the Omaha procotol to The Foreman. It allows you
@@ -74,7 +80,7 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
@@ -101,6 +107,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-2
+- Regenerate spec file based on the current template
+
 * Tue Jan 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
 - Update foreman_omaha to 1.0.0 (mail@timogoebel.name)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
