@@ -1,29 +1,34 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_vmwareannotations
 %global plugin_name vmwareannotations
+%global foreman_min_version 1.12.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
 Release: 2%{?foremandist}%{?dist}
-Summary: This plug-in sets the host comment to VMWare annotations
+Summary: This plug-in copies the host comment to VMWare annotations in The Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_vmwareannotations
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.12
+
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-BuildRequires: foreman-plugin >= 1.12
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 
 %description
 This plug-in copies the host comment to VMWare annotations in The Foreman.
@@ -88,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.0.1-2
+- Regenerate spec file based on the current template
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.1-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

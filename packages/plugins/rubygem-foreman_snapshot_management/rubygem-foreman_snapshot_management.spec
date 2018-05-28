@@ -1,28 +1,35 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_snapshot_management
 %global plugin_name snapshot_management
+%global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
-License: GPL-3.0
-URL: http://www.orcharhino.com
+License: GPLv3
+URL: https://www.orcharhino.com
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.17.0
+
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-BuildRequires: foreman-plugin >= 1.17.0
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 
 %description
 Foreman-plugin to manage snapshots in a vSphere environment.
@@ -66,6 +73,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -77,6 +85,8 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -85,10 +95,14 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %posttrans
+%{foreman_apipie_cache}
 %{foreman_restart}
 exit 0
 
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.5.0-2
+- Regenerate spec file based on the current template
+
 * Fri May 25 2018 Matthias Dellweg <dellweg@atix.de> 1.5.0-1
 - Update to 1.5.0
 - Add a bulk action for snapshots

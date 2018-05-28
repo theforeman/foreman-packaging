@@ -1,97 +1,104 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_memcache
+%global plugin_name memcache
+%global foreman_min_version 1.16.0
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-%global foreman_pluginconf_dir %{foreman_dir}/config/settings.plugins.d
-
-Summary:    Adds memcache integeration to foreman
+Summary:    Adds memcache integration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.0
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Release:    2%{?foremandist}%{?dist}
+Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.16.0
-Requires:   %{?scl_prefix}rubygem(dalli)
-
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(dalli)
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-memcache
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Adds memcache integeration to foreman.
+Adds memcache support to foreman.
+
 
 %package doc
 BuildArch:  noarch
+Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
-gem '%{gem_name}'
-GEMFILE
-
-mkdir -p %{buildroot}%{foreman_pluginconf_dir}
-mv %{buildroot}/%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_pluginconf_dir}/
+%foreman_bundlerd_file
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%license %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/foreman_memcache.yaml.example
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
-%doc %{foreman_pluginconf_dir}/%{gem_name}.yaml.example
-%doc %{gem_instdir}/LICENSE
+%{foreman_bundlerd_plugin}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
+%posttrans
+%{foreman_restart}
+exit 0
+
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.0-2
+- Regenerate spec file based on the current template
+
 * Thu Apr 26 2018 Timo Goebel <mail@timogoebel.name> - 0.1.0-1
- - Update foreman_memcache to 0.1.0
+- Update foreman_memcache to 0.1.0
 
 * Fri Jan 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.6-3
 - Add rubygem-dalli for foreman_memcache (ericdhelms@gmail.com)
