@@ -20,13 +20,19 @@ has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/api/} }
 has_db_migrations = spec.files.any? { |f| f.start_with?('db/migrate/') }
 has_db_seeds = spec.files.any? { |f| f.start_with?('db/seeds.d/') }
 has_compute = spec.runtime_dependencies.any? { |d| d.name.start_with?('fog-') }
+has_webpack = spec.files.any? { |f| f.start_with?('webpack/') }
 
 precompile_flags = ''
 precompile_flags << ' -a' if has_apidoc
-precompile_flags << ' -s' if has_assets
+precompile_flags << ' -s' if has_assets || has_webpack
 
 config.rules[:doc] << /\/?CHANGES/
+config.rules[:ignore] << '.hound.yml'
+config.rules[:ignore] << '.rubocop_todo.yml'
+config.rules[:ignore] << 'package.json'
+config.rules[:ignore] << /.eslint(rc|ignore)/
 config.rules[:ignore] << /.tx(\/.*)?/
+config.rules[:ignore] << /webpack(\/.*)?/
 -%>
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -54,11 +60,11 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems) <%= req %>
 Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
-<% if has_assets -%>
+<% if has_assets || has_webpack -%>
 BuildRequires: foreman-assets >= %{foreman_min_version}
 <% end -%>
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-<% if has_assets || has_apidoc -%>
+<% if has_assets || has_webpack || has_apidoc -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
 BuildRequires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
@@ -171,6 +177,10 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 <% end -%>
 <% if has_assets -%>
 %{foreman_assets_plugin}
+<% end -%>
+<% if has_webpack -%>
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 <% end -%>
 
 <% if doc_subpackage -%>
