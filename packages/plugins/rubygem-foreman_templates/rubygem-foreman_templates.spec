@@ -1,76 +1,81 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_templates
+%global plugin_name templates
+%global foreman_min_version 1.18.0
 
-%global foreman_dir /usr/share/foreman
-%global foreman_bundlerd_dir %{foreman_dir}/bundler.d
-
-Summary:    Plugin to synchronise provisioning templates from GitHub
+Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    6.0.1
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Release:    2%{?foremandist}%{?dist}
+Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.18.0
-
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-
 Requires: git
+BuildRequires: git
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(diffy)
 Requires: %{?scl_prefix}rubygem(git)
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(diffy)
 BuildRequires: %{?scl_prefix}rubygem(git)
-BuildRequires: git
-BuildRequires: foreman-plugin >= 1.18
-
-
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-templates
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-This plugin will sync the contents of the Foreman Community Templates
-repository (or a git repo of your choice) to your local Foreman instance.
+Engine to synchronise provisioning templates from GitHub.
+
 
 %package doc
 BuildArch:  noarch
+Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -78,22 +83,20 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%{gem_instdir}/lib
-%{gem_instdir}/config/routes.rb
-%doc %{gem_instdir}/LICENSE
+%{gem_instdir}/config
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_dir}/%{gem_name}.rb
+%{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 
-%exclude %{gem_instdir}/Rakefile
-
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 
 %posttrans
 %{foreman_apipie_cache}
@@ -101,6 +104,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.0.1-2
+- Regenerate spec file based on the current template
+
 * Thu May 17 2018 Marek Hulan <mhulan@redhat.com> 6.0.1-1
 - Update to 6.0.1
 
