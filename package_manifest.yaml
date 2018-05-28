@@ -39,6 +39,7 @@ foreman_packages:
     nodejs-babel-core: {}
     nodejs-babel-loader: {}
     nodejs-babel-plugin-lodash: {}
+    nodejs-babel-plugin-syntax-object-rest-spread: {}
     nodejs-babel-plugin-transform-class-properties: {}
     nodejs-babel-plugin-transform-object-assign: {}
     nodejs-babel-plugin-transform-object-rest-spread: {}
@@ -46,6 +47,7 @@ foreman_packages:
     nodejs-babel-preset-env: {}
     nodejs-babel-preset-react: {}
     nodejs-babel-register: {}
+    nodejs-babel-runtime: {}
     nodejs-bootstrap-slider-without-jquery: {}
     nodejs-brace: {}
     nodejs-breakjs: {}
@@ -296,9 +298,6 @@ katello_packages:
       build_package_tito_releaser_args:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
-    nodejs-babel-plugin-syntax-object-rest-spread: {}
-    nodejs-babel-plugin-transform-object-rest-spread: {}
-    nodejs-babel-runtime: {}
     nodejs-bootstrap-select: {}
     nodejs-core-js: {}
     nodejs-downshift: {}
