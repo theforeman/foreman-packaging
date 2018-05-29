@@ -390,7 +390,6 @@ plugins_packages:
     rubygem-foreman_salt: {}
     rubygem-foreman_scap_client: {}
     rubygem-foreman_setup: {}
-    rubygem-foreman_snapshot: {}
     rubygem-foreman_snapshot_management: {}
     rubygem-foreman_templates: {}
     rubygem-foreman_userdata: {}
