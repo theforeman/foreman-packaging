@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
 License: MIT
@@ -16,8 +16,8 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(little-plugger) >= 1.1
 Requires: %{?scl_prefix}rubygem(little-plugger) < 2
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2
+Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -90,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-2
+- Use multi_json from Rails SCL
+
 * Tue Jan 23 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.2.2-1
 - Bump rubygem-logging to 2.2.2 (github@kohlvanwijngaarden.nl)
 
