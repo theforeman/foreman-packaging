@@ -43,6 +43,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-change-emitter
   nodejs-classnames
   nodejs-compression-webpack-plugin
+  nodejs-core-js
   nodejs-css-element-queries
   nodejs-css-loader
   nodejs-d3
@@ -422,7 +423,6 @@ whitelist = katello
   katello-repos
   katello-selinux
   nodejs-bootstrap-select
-  nodejs-core-js
   nodejs-downshift
   nodejs-history
   nodejs-invariant

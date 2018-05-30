@@ -35,7 +35,6 @@
 
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
-      <packagereq type="default">nodejs-core-js</packagereq>
       <packagereq type="default">nodejs-downshift</packagereq>
       <packagereq type="default">nodejs-history</packagereq>
       <packagereq type="default">nodejs-invariant</packagereq>

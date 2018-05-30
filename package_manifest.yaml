@@ -55,6 +55,7 @@ foreman_packages:
     nodejs-change-emitter: {}
     nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
+    nodejs-core-js: {}
     nodejs-css-element-queries: {}
     nodejs-css-loader: {}
     nodejs-d3: {}
@@ -299,7 +300,6 @@ katello_packages:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
     nodejs-bootstrap-select: {}
-    nodejs-core-js: {}
     nodejs-downshift: {}
     nodejs-history: {}
     nodejs-invariant: {}
