@@ -19,7 +19,7 @@ Version: <%= spec.version %>
 Release: 1%{?foremandist}%{?dist}
 Summary: <%= spec.summary.gsub(/\.$/, "") %>
 Group: Development/Languages
-License: <%= spec.licenses.join(" and ") %>
+License: <%= spec.licenses.empty? ? 'FIXME' : spec.licenses.join(" and ") %>
 <% if spec.homepage -%>
 URL: <%= spec.homepage %>
 <% end -%>
