@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -291,6 +291,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed May 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.0-2
+- rebuilt
+
 * Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 4.0-1
 - Update tfm to use Rails 5.1 and Ruby 2.4 (ericdhelms@gmail.com)
 - Remove babel-preset-es2015 (me@daniellobato.me)
