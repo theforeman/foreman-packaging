@@ -9,14 +9,14 @@
 Summary:    Foreman plugin for limiting host lifetime
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.1.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_expire_hosts
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1:    %{gem_name}.cron.d
 
-Requires:   %{_sysconfdir}/cron.d
+Requires:   %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d
 # start generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -78,7 +78,7 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
@@ -96,7 +96,7 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
+%config(noreplace) %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
@@ -116,6 +116,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 exit 0
 
 %changelog
+* Wed May 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-3
+- Correct cron.d location
+
 * Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-2
 - Regenerate spec file based on the current template
 
