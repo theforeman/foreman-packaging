@@ -105,6 +105,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-redux-form-validators
   nodejs-redux-logger
   nodejs-redux-thunk
+  nodejs-regenerator-runtime
   nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
@@ -431,7 +432,6 @@ whitelist = katello
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
-  nodejs-regenerator-runtime
   nodejs-warning
   pulp-katello
   rubygem-anemone
