@@ -1,6 +1,6 @@
 Name:     foreman-release-scl
 Version:  4
-Release:  1%{?dist}
+Release:  2%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
@@ -29,6 +29,9 @@ install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
 %config %{_sysconfdir}/yum.repos.d/*.repo
 
 %changelog
+* Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4-2
+- Point to yum.theforeman.org for tfm-ror51
+
 * Fri Jan 05 2018 Eric D. Helms <ericdhelms@gmail.com> 4-1
 - Add tfm-ror51 repo to foreman-release-scl (ericdhelms@gmail.com)
 
