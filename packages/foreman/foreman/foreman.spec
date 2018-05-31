@@ -62,7 +62,7 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
+Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7
@@ -159,7 +159,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7
@@ -382,13 +382,11 @@ BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.2.0
 BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
+BuildRequires: npm(react-bootstrap) >= 0.31.5
 BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-debounce-input) >= 3.2.0
-BuildRequires: npm(react-debounce-input) < 4.0.0
 BuildRequires: npm(react-dom) >= 16.2.0
 BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
+BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
@@ -516,7 +514,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.2
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -582,7 +580,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -757,13 +755,11 @@ Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.2.0
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
+Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-debounce-input) >= 3.2.0
-Requires: npm(react-debounce-input) < 4.0.0
 Requires: npm(react-dom) >= 16.2.0
 Requires: npm(react-dom) < 17.0.0
-Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
@@ -857,7 +853,7 @@ Summary: Foreman mysql2 support
 Group:  Applications/System
 # start specfile mysql2 Requires
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
-Requires: %{?scl_prefix}rubygem(mysql2) < 0.5
+Requires: %{?scl_prefix}rubygem(mysql2) < 0.6.0
 # end specfile mysql2 Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
@@ -874,7 +870,7 @@ Summary: Foreman Postgresql support
 Group:  Applications/System
 # start specfile postgresql Requires
 Requires: %{?scl_prefix}rubygem(pg) >= 0.18
-Requires: %{?scl_prefix}rubygem(pg) < 1.0
+Requires: %{?scl_prefix}rubygem(pg) < 2.0
 # end specfile postgresql Requires
 Requires: %{name} = %{version}-%{release}
 
