@@ -10,14 +10,14 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-proxy
-Version:        1.18.0
+Version:        1.19.0
 Release:        0.develop%{?dotalphatag}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
 License:        GPLv3+
-URL:            http://theforeman.org/projects/smart-proxy
-Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+URL:            https://theforeman.org/projects/smart-proxy
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
 
@@ -51,7 +51,7 @@ BuildRequires: systemd
 
 %description
 Manages DNS, DHCP, TFTP and puppet settings though HTTP Restful API
-Mainly used by the foreman project (http://theforeman.org)
+Mainly used by the foreman project (https://theforeman.org)
 
 %prep
 %setup -q -n %{name}-%{version}%{?dashalphatag}
@@ -130,7 +130,8 @@ ln -sv %{_localstatedir}/log/%{name} %{buildroot}%{_datadir}/%{name}/logs
 ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 
 %files
-%doc README.md LICENSE VERSION
+%doc README.md VERSION
+%license LICENSE
 %{_datadir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
@@ -188,8 +189,12 @@ fi
 
 
 %changelog
+* Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
+- Bump version to 1.19-develop
+
 * Mon Aug 28 2017 Daniel Lobato Garcia <me@daniellobato.me> - 1.17.0-0.develop
 - Bump version to 1.17-develop
+
 * Wed Mar 29 2017 Eric D Helms <ericdhelms@gmail.com> - 1.16.0-0.develop
 - Bump version to 1.16-develop
 

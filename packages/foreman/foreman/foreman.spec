@@ -14,14 +14,14 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.18.0
+Version: 1.19.0
 Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
 License: GPLv3+ with exceptions
-URL: http://theforeman.org
-Source0: http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+URL: https://theforeman.org
+Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 Source1: %{name}.init
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
@@ -899,11 +899,6 @@ Meta Package to install requirements for sqlite support
 %files sqlite
 %{_datadir}/%{name}/bundler.d/sqlite.rb
 
-%description
-Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
-Foreman is based on Ruby on Rails, and this package bundles Rails and all
-plugins required for Foreman to work.
-
 %package telemetry
 Summary: Foreman telemetry support
 Group:  Applications/System
@@ -1162,7 +1157,8 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
-%doc CHANGELOG Contributors LICENSE README.md VERSION
+%doc CHANGELOG Contributors README.md VERSION
+%license LICENSE
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/app
 %exclude %{_datadir}/%{name}/app/assets
@@ -1271,6 +1267,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
+- Bump version to 1.19-develop
+
 * Mon Aug 28 2017 Daniel Lobato Garcia <me@daniellobato.me> - 1.17.0-0.develop
 - Bump version to 1.17-develop
 * Wed Mar 29 2017 Eric D Helms <ericdhelms@gmail.com> - 1.16.0-0.develop
