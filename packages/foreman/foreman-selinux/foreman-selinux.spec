@@ -36,14 +36,14 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-selinux
-Version:        1.18.0
+Version:        1.19.0
 Release:        0.develop%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
 License:        GPLv3+
-URL:            http://www.theforeman.org
-Source0:        http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+URL:            https://theforeman.org
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 
 BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
 BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
@@ -115,7 +115,8 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %files
-%doc Contributors CHANGELOG LICENSE foreman.fc foreman.if foreman.te foreman.sh
+%doc Contributors CHANGELOG foreman.fc foreman.if foreman.te foreman.sh
+%license LICENSE
 %attr(0600,root,root) %{_datadir}/selinux/*/foreman.pp.bz2
 %{_datadir}/selinux/devel/include/%{moduletype}/foreman.if
 %attr(0755,root,root) %{_sbindir}/%{name}-enable
@@ -161,7 +162,8 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %files -n foreman-proxy-selinux
-%doc Contributors CHANGELOG LICENSE
+%doc Contributors CHANGELOG
+%license LICENSE
 %doc foreman-proxy.fc foreman-proxy.if foreman-proxy.te
 %attr(0600,root,root) %{_datadir}/selinux/*/foreman-proxy.pp.bz2
 %{_datadir}/selinux/devel/include/%{moduletype}/foreman-proxy.if
@@ -173,8 +175,12 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
+- Bump version to 1.19-develop
+
 * Mon Aug 28 2017 Daniel Lobato Garcia <me@daniellobato.me> - 1.17.0-0.develop
 - Bump version to 1.17-develop
+
 * Wed Mar 29 2017 Eric D Helms <ericdhelms@gmail.com> - 1.16.0-0.develop
 - Bump version to 1.16-develop
 
