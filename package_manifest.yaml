@@ -442,12 +442,8 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-scl-sclo
-        - el7-scl-ruby
-        - el7-scl-v8
-        - el7-puppet-4
-        - el7-subscription-manager
-        - el7-qpid
-        - el7-tfm-ror51
+        - el7-puppet-5
+        - el7-foreman-rails-1.18
     plugins-repoclosure-el7:
       repoclosure_target_repo: el7-foreman-plugins-1.18
       repoclosure_lookaside_repos:
@@ -457,13 +453,9 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-scl-sclo
-        - el7-scl-ruby
-        - el7-scl-v8
-        - el7-puppet-4
-        - el7-subscription-manager
-        - el7-qpid
-        - el7-tfm-ror51
+        - el7-puppet-5
         - el7-foreman-1.18
+        - el7-foreman-rails-1.18
     katello-repoclosure-el7:
       repoclosure_target_repo: el7-katello-1.18
       repoclosure_lookaside_repos:
@@ -473,57 +465,55 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-scl-sclo
-        - el7-scl-ruby
-        - el7-scl-v8
-        - el7-puppet-4
+        - el7-puppet-5
         - el7-subscription-manager
         - el7-qpid
-        - el7-tfm-ror51
         - el7-foreman-1.18
         - el7-foreman-plugins-1.18
-        - el7-katello-pulp-1.18
-        - el7-katello-candlepin-1.18
+        - el7-foreman-rails-1.18
+        - el7-katello-pulp-3.7
+        - el7-katello-candlepin-3.7
     katello-client-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-client-1.18
+      repoclosure_target_repo: el7-katello-client-3.7
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-4
+        - el7-puppet-5
         - el7-subscription-manager
         - el7-qpid
     katello-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-katello-client-1.18
+      repoclosure_target_repo: el6-katello-client-3.7
       repoclosure_lookaside_repos:
         - el6-base
         - el6-updates
         - el6-epel
         - el6-extras
-        - el6-puppet-4
+        - el6-puppet-5
         - el6-subscription-manager
         - el6-qpid
     katello-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-katello-client-1.18
+      repoclosure_target_repo: el5-katello-client-3.7
       repoclosure_lookaside_repos:
         - el5-base
         - el5-updates
         - el5-epel
         - el5-extras
-        - el5-puppet-4
+        - el5-puppet-5
         - el5-subscription-manager
         - el5-qpid
     katello-client-repoclosure-f26:
       repoclosure_config: repoclosure/yum_f26.conf
-      repoclosure_target_repo: f26-katello-client-1.18
+      repoclosure_target_repo: f26-katello-client-3.7
       repoclosure_lookaside_repos:
         - f26-base
         - f26-puppet-5
     katello-client-repoclosure-f27:
       repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-katello-client-1.18
+      repoclosure_target_repo: f27-katello-client-3.7
       repoclosure_lookaside_repos:
         - f27-base
         - f27-puppet-5
