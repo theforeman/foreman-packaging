@@ -12,28 +12,12 @@ foreman_packages:
     releasers:
     - koji-foreman
   hosts:
-    foreman:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_develop"
+    foreman: {}
     foreman-bootloaders-redhat: {}
-    foreman-installer:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=packaging_trigger_installer_develop"
-    foreman-proxy:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_proxy_develop"
+    foreman-installer: {}
+    foreman-proxy: {}
     foreman-release-scl: {}
-    foreman-selinux:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=packaging_trigger_selinux_develop"
+    foreman-selinux: {}
     nodejs-axios: {}
     nodejs-babel-cli: {}
     nodejs-babel-core: {}
@@ -188,16 +172,8 @@ foreman_packages:
     rubygem-gettext_i18n_rails_js: {}
     rubygem-google-api-client: {}
     rubygem-gridster-rails: {}
-    rubygem-hammer_cli:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli"
-    rubygem-hammer_cli_foreman:
-      releasers:
-        - koji-foreman-nightly
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli_foreman"
+    rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-hirb-unicode-steakknife: {}
@@ -294,11 +270,7 @@ katello_packages:
     katello: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer:
-      releasers:
-        - koji-katello-jenkins
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=katello-installer-nightly-release"
+    katello-installer: {}
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
@@ -462,7 +434,7 @@ repoclosures:
     repoclosure_config: repoclosure/yum_el7.conf
   hosts:
     foreman-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-nightly
+      repoclosure_target_repo: el7-foreman-1.18
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -477,7 +449,7 @@ repoclosures:
         - el7-qpid
         - el7-tfm-ror51
     plugins-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-plugins-nightly
+      repoclosure_target_repo: el7-foreman-plugins-1.18
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -491,9 +463,9 @@ repoclosures:
         - el7-subscription-manager
         - el7-qpid
         - el7-tfm-ror51
-        - el7-foreman-nightly
+        - el7-foreman-1.18
     katello-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-nightly
+      repoclosure_target_repo: el7-katello-1.18
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -507,12 +479,12 @@ repoclosures:
         - el7-subscription-manager
         - el7-qpid
         - el7-tfm-ror51
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
-        - el7-katello-pulp-nightly
-        - el7-katello-candlepin-nightly
+        - el7-foreman-1.18
+        - el7-foreman-plugins-1.18
+        - el7-katello-pulp-1.18
+        - el7-katello-candlepin-1.18
     katello-client-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-client-nightly
+      repoclosure_target_repo: el7-katello-client-1.18
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -523,7 +495,7 @@ repoclosures:
         - el7-qpid
     katello-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-katello-client-nightly
+      repoclosure_target_repo: el6-katello-client-1.18
       repoclosure_lookaside_repos:
         - el6-base
         - el6-updates
@@ -534,7 +506,7 @@ repoclosures:
         - el6-qpid
     katello-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-katello-client-nightly
+      repoclosure_target_repo: el5-katello-client-1.18
       repoclosure_lookaside_repos:
         - el5-base
         - el5-updates
@@ -545,13 +517,13 @@ repoclosures:
         - el5-qpid
     katello-client-repoclosure-f26:
       repoclosure_config: repoclosure/yum_f26.conf
-      repoclosure_target_repo: f26-katello-client-nightly
+      repoclosure_target_repo: f26-katello-client-1.18
       repoclosure_lookaside_repos:
         - f26-base
         - f26-puppet-5
     katello-client-repoclosure-f27:
       repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-katello-client-nightly
+      repoclosure_target_repo: f27-katello-client-1.18
       repoclosure_lookaside_repos:
         - f27-base
         - f27-puppet-5

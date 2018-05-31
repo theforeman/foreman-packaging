@@ -1,11 +1,11 @@
 Name:     foreman-release-scl
 Version:  5
-Release:  1%{?dist}
+Release:  2%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
 License:  GPLv3+
-URL:      http://theforeman.org
+URL:      https://theforeman.org
 Source0:  tfm-ror51.repo
 
 BuildArch: noarch
@@ -29,6 +29,9 @@ install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
 %config %{_sysconfdir}/yum.repos.d/*.repo
 
 %changelog
+* Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5-2
+- Point to 1.18 repo
+
 * Tue May 29 2018 Eric D. Helms <ericdhelms@gmail.com> 5-1
 - Move to using yum.theforeman.org for tfm-ror51 (ericdhelms@gmail.com)
 
