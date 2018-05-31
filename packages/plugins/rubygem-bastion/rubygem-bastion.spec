@@ -8,7 +8,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.1.10
+Version:    6.1.11
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv2+
@@ -123,6 +123,9 @@ cp -pa .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Thu May 31 2018 Samir Jha <samirjha1525@gmail.com> 6.1.11-1
+- Update to 6.1.11
+
 * Mon May 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.1.10-1
 - Update to 6.1.10
 
