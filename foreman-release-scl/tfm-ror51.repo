@@ -1,10 +1,5 @@
-# As defined by https://copr.fedorainfracloud.org/coprs/g/theforeman/tfm-ror51/repo/epel-7/group_theforeman-tfm-ror51-epel-7.repo
-[group_theforeman-tfm-ror51]
-name=Copr repo for tfm-ror51 owned by @theforeman
-baseurl=https://copr-be.cloud.fedoraproject.org/results/@theforeman/tfm-ror51/epel-7-$basearch/
-type=rpm-md
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/@theforeman/tfm-ror51/pubkey.gpg
-repo_gpgcheck=0
+[foreman-rails]
+name=Rails SCL for Foreman 1.17
+baseurl=https://yum.theforeman.org/rails/foreman-1.17/el7/$basearch
 enabled=1
-enabled_metadata=1
+gpgcheck=0
