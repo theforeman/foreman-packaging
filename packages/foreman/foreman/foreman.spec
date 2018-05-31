@@ -62,7 +62,7 @@ Requires(postun): initscripts
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
+Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7
@@ -95,15 +95,13 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) < 5.1.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
-Requires: %{?scl_prefix}rubygem(excon) >= 0.58
-Requires: %{?scl_prefix}rubygem(excon) < 0.60
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh)
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -159,7 +157,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.4
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7
@@ -192,15 +190,13 @@ BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 5.1.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
-BuildRequires: %{?scl_prefix}rubygem(excon) >= 0.58
-BuildRequires: %{?scl_prefix}rubygem(excon) < 0.60
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
@@ -376,7 +372,7 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.42.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.1.0
+BuildRequires: npm(patternfly-react) >= 2.3.3
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -516,7 +512,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.2
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -582,7 +578,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -751,7 +747,7 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.42.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.1.0
+Requires: npm(patternfly-react) >= 2.3.3
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -857,7 +853,7 @@ Summary: Foreman mysql2 support
 Group:  Applications/System
 # start specfile mysql2 Requires
 Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
-Requires: %{?scl_prefix}rubygem(mysql2) < 0.5
+Requires: %{?scl_prefix}rubygem(mysql2) < 0.6.0
 # end specfile mysql2 Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: %{name}-mysql < 1.4.0
@@ -874,7 +870,7 @@ Summary: Foreman Postgresql support
 Group:  Applications/System
 # start specfile postgresql Requires
 Requires: %{?scl_prefix}rubygem(pg) >= 0.18
-Requires: %{?scl_prefix}rubygem(pg) < 1.0
+Requires: %{?scl_prefix}rubygem(pg) < 2.0
 # end specfile postgresql Requires
 Requires: %{name} = %{version}-%{release}
 
