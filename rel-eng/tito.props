@@ -451,10 +451,7 @@ whitelist = katello
 disttag = .fc27
 whitelist = katello-repos katello-host-tools
 
-[katello-3.7-fedora26]
-disttag = .fc26
+[katello-3.7-fedora28]
+disttag = .fc28
 whitelist = katello-repos katello-host-tools
 
-[katello-3.7-fedora25]
-disttag = .fc25
-whitelist = katello-repos katello-host-tools
