@@ -7,7 +7,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    1%{prever}%{?dist}
+Release:    2%{prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -158,7 +158,7 @@ Requires: findutils
 Requires: coreutils
 Requires: qpid-tools
 Requires: /bin/ps
-Requires: rh-mongodb34
+Requires: rh-mongodb34-syspaths
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 Requires: %{name}-service
 
@@ -172,7 +172,7 @@ Useful utilities for debug info collecting
 Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
-Requires: rh-mongodb34
+Requires: rh-mongodb34-syspaths
 Requires: foreman-installer-%{name}
 Requires: rubygem-highline
 Requires: rubygem-foreman_maintain >= 0.2.2
@@ -206,6 +206,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jun 13 2018 Chris Roberts <chrobert@redhat> - 3.7.0-2.rc1
+- Added rh-mongodb34-syspaths to deps to bypass scl enable bash
+
 * Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
 - Rev for 3.7 RC1
 
