@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.8.0
-Release:    1.nightly%{?dist}
+Release:    2.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -199,8 +199,7 @@ Provides a federation of katello services
 %package service
 Summary: Katello Service utilities
 Group: Applications/System
-Requires: ruby
-Requires: /bin/systemctl
+Requires: rubygem-foreman_maintain >= 0.2.2
 
 %description service
 Useful utilities for managing Katello services
@@ -211,7 +210,10 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
-* Sun Jun 03 2018 Chris Roberts <chrobert@redhat> - 3.7.0-6.nightly
+* Mon Jun 04 2018 John Mitsch <jomitsch@redhat.com> - 3.8.0-2.nightly
+- Redirect katello-service to foreman-maintain
+
+* Sun Jun 03 2018 Chris Roberts <chrobert@redhat.com> - 3.7.0-6.nightly
 - Added rh-mongodb34-syspaths to deps to bypass scl enable bash
 
 * Wed May 23 2018 John Mitsch <jomitsch@redhat.com> - 3.7.0-5.nightly
