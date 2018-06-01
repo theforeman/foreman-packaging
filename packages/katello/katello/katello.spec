@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    5.nightly%{?dist}
+Release:    6.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -110,6 +110,9 @@ install -m 644 %{SOURCE8} %{buildroot}/etc/bash_completion.d/katello-service
 # install man page
 install -m 644 %{_sourcedir}/katello-service.8.gz %{buildroot}/%{_mandir}/man8
 install -m 644 %{_sourcedir}/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/man8
+
+# Enable SCL for Mongo 3.x
+scl enable rh-mongodb34 bash
 
 %clean
 %{__rm} -rf %{buildroot}
