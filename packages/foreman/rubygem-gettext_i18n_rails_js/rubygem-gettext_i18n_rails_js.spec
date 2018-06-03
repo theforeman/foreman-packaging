@@ -6,7 +6,7 @@
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nubis/gettext_i18n_rails_js
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spec
 
 %changelog
+* Sun Jun 03 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.3-4
+- Rebuilt with rails 5.1
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 1.0.3-3
 - Use gem_install macro (dominic@cleal.org)
 
