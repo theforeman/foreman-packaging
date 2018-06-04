@@ -7,25 +7,25 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 %global build_agent (0%{?suse_version} == 0)
+%global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
 %endif
 
 Name: katello-host-tools
-Version: 3.2.1
-Release: 4%{?dist}
+Version: 3.3.0
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
 URL:     https://github.com/Katello/katello-agent
-Source0: https://codeload.github.com/Katello/katello-agent/tar.gz/%{version}#/%{name}-%{version}.tar.gz
-Patch0: enabled_repos_format.patch
+Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?suse_version} && 0%{?suse_version} < 1200
-BuildArch: x86_64
+ExclusiveArch: x86_64
 %else
 BuildArch: noarch
 %endif
@@ -77,8 +77,12 @@ Requires: gofer >= 2.7.6
 %endif
 
 Requires: python-gofer-proton >= 2.5
+
+%if %{legacy_agent}
 Requires: python-pulp-agent-lib >= 2.6
 Requires: pulp-rpm-handlers >= 2.6
+%endif
+
 Requires: subscription-manager
 Requires: katello-host-tools
 
@@ -125,7 +129,6 @@ Adds Tracer functionality to a client managed by katello-host-tools
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 pushd src
@@ -135,13 +138,6 @@ popd
 %install
 rm -rf %{buildroot}
 
-%if %{build_agent}
-mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
-mkdir -p %{buildroot}%{_prefix}/lib/gofer/plugins
-cp etc/gofer/plugins/katelloplugin.conf %{buildroot}%{_sysconfdir}/gofer/plugins
-cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
-%endif
-
 %if %{dnf_install}
 %global katello_libdir %{python3_sitelib}/katello
 %global plugins_dir %{python3_sitelib}/dnf-plugins
@@ -150,19 +146,33 @@ cp src/katello/agent/katelloplugin.py %{buildroot}%{_prefix}/lib/gofer/plugins
 
 %if %{yum_install}
 %global katello_libdir %{python_sitelib}/katello
-%global plugins_dir %{_prefix}/lib/yum-plugins
+%global plugins_dir %{_usr}/lib/yum-plugins
 %global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
 %endif
 
 %if %{zypper_install}
 %global katello_libdir %{python_sitelib}/katello
-%global plugins_dir %{_prefix}/lib/zypp/plugins/commit/
+%global plugins_dir %{_usr}/lib/zypp/plugins/commit/
 %endif
 
 mkdir -p %{buildroot}%{katello_libdir}
 mkdir -p %{buildroot}%{plugins_dir}
 
 cp src/katello/*.py %{buildroot}%{katello_libdir}/
+
+%if %{build_agent}
+mkdir -p %{buildroot}%{_sysconfdir}/gofer/plugins
+cp etc/gofer/plugins/katello.conf %{buildroot}%{_sysconfdir}/gofer/plugins
+cp -R src/katello/agent %{buildroot}%{katello_libdir}/
+
+%if %{legacy_agent}
+mv %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py %{buildroot}%{katello_libdir}/agent/goferd/plugin.py
+rm -rf %{buildroot}%{katello_libdir}/agent/pulp
+%else
+rm %{buildroot}%{katello_libdir}/agent/pulp/test.py
+rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
+%endif
+%endif
 
 %if %{dnf_install} || %{yum_install}
 mkdir -p %{buildroot}%{plugins_confdir}
@@ -243,8 +253,33 @@ exit 0
 
 %files -n katello-agent
 %defattr(-,root,root,-)
-%config %{_sysconfdir}/gofer/plugins/katelloplugin.conf
-%{_prefix}/lib/gofer/plugins/katelloplugin.*
+%config %{_sysconfdir}/gofer/plugins/katello.conf
+%{katello_libdir}/agent/__init__.py*
+%{katello_libdir}/agent/goferd/plugin.*
+%{katello_libdir}/agent/goferd/__init__.py*
+
+%if %{legacy_agent}
+%else
+%{katello_libdir}/agent/pulp/__init__.py*
+%{katello_libdir}/agent/pulp/dispatcher.py*
+%{katello_libdir}/agent/pulp/handler.py*
+%{katello_libdir}/agent/pulp/libdnf.py*
+%{katello_libdir}/agent/pulp/libyum.py*
+%{katello_libdir}/agent/pulp/report.py*
+
+%if %{dnf_install}
+%{katello_libdir}/agent/goferd/__pycache__/__init__.*
+%{katello_libdir}/agent/goferd/__pycache__/plugin.*
+%{katello_libdir}/agent/__pycache__/__init__.*
+%{katello_libdir}/agent/pulp/__pycache__/__init__.*
+%{katello_libdir}/agent/pulp/__pycache__/dispatcher.*
+%{katello_libdir}/agent/pulp/__pycache__/handler.*
+%{katello_libdir}/agent/pulp/__pycache__/libdnf.*
+%{katello_libdir}/agent/pulp/__pycache__/libyum.*
+%{katello_libdir}/agent/pulp/__pycache__/report.*
+%endif
+
+%endif
 %endif
 
 %files
@@ -282,9 +317,9 @@ exit 0
 %endif
 
 %if %{zypper_install}
-%dir /usr/lib/zypp/
-%dir /usr/lib/zypp/plugins/
-%dir /usr/lib/zypp/plugins/commit/
+%dir %{_usr}/lib/zypp/
+%dir %{_usr}/lib/zypp/plugins/
+%dir %{_usr}/lib/zypp/plugins/commit/
 %endif
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
@@ -315,6 +350,12 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Fri May 25 2018 Jonathon Turel <jturel@gmail.com> - 3.3.0-1
+- Fixes #23459 - Restore legacy goferd plugin
+- Remove yum plugin dep, dead code, fix lint
+- Further containerize the tests
+- Fixes #23405 - Tracer executable throws error
+
 * Thu May 10 2018 Justin Sherrill <jsherrill@gmail.com> 3.2.1-4
 - suse build fixes
 
