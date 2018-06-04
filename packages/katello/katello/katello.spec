@@ -73,10 +73,15 @@ Provides a package for managing application life-cycle for Linux systems.
 
 %build
 #man pages
-a2x -d manpage -f manpage %{SOURCE0}
-a2x -d manpage -f manpage %{SOURCE13}
-gzip -f9 %{_sourcedir}/katello-service.8
-gzip -f9 %{_sourcedir}/katello-change-hostname.8
+mkdir -p ./manpages
+cp %{SOURCE0} ./manpages
+cp %{SOURCE13} ./manpages
+pushd ./manpages
+a2x -d manpage -f manpage katello-service.8.asciidoc
+a2x -d manpage -f manpage katello-change-hostname.8.asciidoc
+gzip -f9 katello-service.8
+gzip -f9 katello-change-hostname.8
+popd
 
 %install
 mkdir -p %{buildroot}/%{_mandir}/man8
@@ -109,10 +114,11 @@ install -d %{buildroot}/etc/bash_completion.d
 install -m 644 %{SOURCE8} %{buildroot}/etc/bash_completion.d/katello-service
 
 # install man page
-install -m 644 %{_sourcedir}/katello-service.8.gz %{buildroot}/%{_mandir}/man8
-install -m 644 %{_sourcedir}/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/man8
+install -m 644 ./manpages/katello-service.8.gz %{buildroot}/%{_mandir}/man8
+install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/man8
 
 %clean
+%{__rm} -rf ./manpages
 %{__rm} -rf %{buildroot}
 
 %files
