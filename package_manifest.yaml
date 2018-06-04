@@ -14,24 +14,24 @@ foreman_packages:
   hosts:
     foreman:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_develop"
     foreman-bootloaders-redhat: {}
     foreman-installer:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=packaging_trigger_installer_develop"
     foreman-proxy:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_proxy_develop"
     foreman-release-scl: {}
     foreman-selinux:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=packaging_trigger_selinux_develop"
     nodejs-axios: {}
@@ -190,12 +190,12 @@ foreman_packages:
     rubygem-gridster-rails: {}
     rubygem-hammer_cli:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli"
     rubygem-hammer_cli_foreman:
       releasers:
-        - koji-foreman-nightly
+        - koji-foreman-jenkins
       build_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli_foreman"
     rubygem-hashie: {}
