@@ -2,7 +2,7 @@ Source: ruby-hammer-cli-foreman-remote-execution
 Section: ruby
 Priority: optional
 Maintainer: Stephen Benjamin <stephen@redhat.com>
-Build-Depends: debhelper, gem2deb
+Build-Depends: debhelper, gem2deb, git
 Standards-Version: 3.9.3
 Homepage: http://github.com/theforeman/hammer_cli_foreman_remote_execution
 XS-Ruby-Versions: all
