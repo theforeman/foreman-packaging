@@ -5,7 +5,7 @@
 %global plugin_name katello
 %global gem_name katello
 # %%global prever .rc1
-%global mainver 3.7.0
+%global mainver 3.8.0
 %global release 1.nightly
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}

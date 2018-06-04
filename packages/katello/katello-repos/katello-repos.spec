@@ -17,8 +17,8 @@
 %endif
 
 Name:           katello-repos
-Version:        3.7.0
-Release:        3.nightly%{?dist}
+Version:        3.8.0
+Release:        1.nightly%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
