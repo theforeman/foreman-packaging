@@ -5,8 +5,8 @@
 
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.1.0
-Release: 4%{?dist}
+Version: 5.2.4
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -68,6 +68,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/Changelog.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/UPGRADING.md
 %{gem_instdir}/bench.rb
 %{gem_instdir}/Gemfile
 %{gem_instdir}/gemfiles
@@ -76,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 04 2018 Michael Moll <mmoll@mmoll.at> 5.2.4-1
+- Update to 5.2.4
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.1.0-4
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
