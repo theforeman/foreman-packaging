@@ -5,7 +5,7 @@
 
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.7.0
+Version: 4.7.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -14,7 +14,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.2
+Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -76,6 +76,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/gemfiles
 
 %changelog
+* Mon Jun 04 2018 Michael Moll <mmoll@mmoll.at> 4.7.1-1
+- Update to 4.7.1
+
 * Tue Mar 27 2018 Tomer Brisker <tbrisker@gmail.com> 4.7.0-1
 - Update to 4.7.0
 
