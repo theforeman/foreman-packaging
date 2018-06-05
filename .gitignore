@@ -6,3 +6,4 @@ rel-eng/custom/__pycache__
 mock/site-defaults.cfg
 node_modules
 OLD_CHANGELOG
+downloaded_rpms
