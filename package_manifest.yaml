@@ -393,6 +393,7 @@ plugins_packages:
     rubygem-foreman_scap_client: {}
     rubygem-foreman_setup: {}
     rubygem-foreman_snapshot_management: {}
+    rubygem-foreman_spacewalk: {}
     rubygem-foreman_templates: {}
     rubygem-foreman_userdata: {}
     rubygem-foreman_vmwareannotations: {}
