@@ -321,6 +321,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_openscap
   rubygem-foreman_remote_execution
   rubygem-foreman_remote_execution_core
+  rubygem-foreman_rescue
   rubygem-foreman_salt
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
