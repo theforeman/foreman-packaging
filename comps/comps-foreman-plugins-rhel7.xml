@@ -96,6 +96,7 @@
       <packagereq type="default">tfm-rubygem-foreman_setup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot_management</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_spacewalk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_userdata</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations</packagereq>
@@ -215,6 +216,7 @@
       <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot_management-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_spacewalk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
