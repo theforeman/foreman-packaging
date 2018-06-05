@@ -16,7 +16,7 @@
 
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.6.0
+Version:    0.7.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
@@ -98,6 +98,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jun 05 2018 Marek Hulan <mhulan@redhat.com> 0.7.0-1
+- Update to 0.7.0
+
 * Tue Dec 26 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.6.0-1
 - Update foreman_chef to 0.6.0 (ares@users.noreply.github.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
