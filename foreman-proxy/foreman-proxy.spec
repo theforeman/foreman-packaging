@@ -201,6 +201,10 @@ fi
 
 
 %changelog
+* Tue Jun 05 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.16.2-1
+- Release 1.16.2 (me@daniellobato.me)
+- Release 1.16.1 (me@daniellobato.me)
+
 * Thu Nov 30 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.16.0-1
 - Release 1.16.0 (me@daniellobato.me)
 
