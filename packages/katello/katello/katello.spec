@@ -205,7 +205,7 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
-* Sun Jun 03 2018 Chris Roberts <chrobert@redhat> - 2.7.0-6.nightly
+* Sun Jun 03 2018 Chris Roberts <chrobert@redhat> - 3.7.0-6.nightly
 - Added rh-mongodb34-syspaths to deps to bypass scl enable bash
 
 * Wed May 23 2018 John Mitsch <jomitsch@redhat.com> - 3.7.0-5.nightly
