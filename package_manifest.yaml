@@ -394,6 +394,7 @@ plugins_packages:
     rubygem-foreman_templates: {}
     rubygem-foreman_userdata: {}
     rubygem-foreman_vmwareannotations: {}
+    rubygem-foreman_wreckingball: {}
     rubygem-foreman_xen: {}
     rubygem-git: {}
     rubygem-graphite-api: {}
