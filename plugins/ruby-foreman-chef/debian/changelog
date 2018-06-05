@@ -1,3 +1,9 @@
+ruby-foreman-chef (0.8.0-1) stable; urgency=low
+
+  * 0.8.0 released
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 05 Jun 2018 21:09:28 +0200
+
 ruby-foreman-chef (0.6.0-1) stable; urgency=low
 
   * Update foreman_chef to 0.6.0
