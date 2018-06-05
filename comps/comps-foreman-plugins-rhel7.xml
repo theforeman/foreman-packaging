@@ -77,6 +77,7 @@
       <packagereq type="default">tfm-rubygem-foreman_dhcp_browser</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_discovery</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_dlm</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_docker</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
@@ -199,6 +200,7 @@
       <packagereq type="default">tfm-rubygem-foreman_dhcp_browser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_discovery-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_dlm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
