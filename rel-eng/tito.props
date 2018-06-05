@@ -406,18 +406,6 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
-[katello-nightly-rhel5]
-disttag = .el5
-whitelist = katello-host-tools
-  katello-repos
-  python-rhsm
-  subscription-manager
-
-[katello-nightly-rhel6]
-disttag = .el6
-whitelist = katello-host-tools
-  katello-repos
-
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
@@ -451,6 +439,18 @@ whitelist = katello
   rubygem-redhat_access_lib
   rubygem-robotex
   rubygem-runcible
+
+[katello-nightly-rhel6]
+disttag = .el6
+whitelist = katello-host-tools
+  katello-repos
+
+[katello-nightly-rhel5]
+disttag = .el5
+whitelist = katello-host-tools
+  katello-repos
+  python-rhsm
+  subscription-manager
 
 [katello-nightly-fedora27]
 disttag = .fc27
