@@ -342,6 +342,7 @@ plugins_packages:
     rubygem-foreman_dhcp_browser: {}
     rubygem-foreman_digitalocean: {}
     rubygem-foreman_discovery: {}
+    rubygem-foreman_dlm: {}
     rubygem-foreman_docker: {}
     rubygem-foreman_expire_hosts: {}
     rubygem-foreman_graphite: {}
