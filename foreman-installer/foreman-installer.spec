@@ -74,6 +74,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Tue Jun 05 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.16.2-1
+- Release 1.16.2 (me@daniellobato.me)
+
 * Wed Apr 04 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.16.1-1
 - Release 1.16.1 (me@daniellobato.me)
 
