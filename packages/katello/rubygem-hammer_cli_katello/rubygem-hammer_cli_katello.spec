@@ -8,7 +8,7 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.1
+Version: 0.13.2
 Release: 1%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -53,6 +53,9 @@ Documentation for %{pkg_name}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
+%build
+# empty, but rpmlint prefers it to be present nevertheless
+
 %install
 mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 .%{gem_instdir}/config/katello.yml %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/katello.yml
@@ -74,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Wed Jun 06 2018 Jonathon Turel <jturel@redhat.com> 0.13.2-1
+- Update to 0.13.2
+
 * Tue May 15 2018 Andrew Kofink <akofink@redhat.com> 0.13.1-1
 - Update to 0.13.1
 
