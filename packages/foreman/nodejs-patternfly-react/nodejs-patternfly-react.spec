@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 2.3.4
+Version: 2.5.1
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: Apache-2.0
@@ -18,7 +18,7 @@ Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
 Requires: npm(css-element-queries) >= 1.0.1
 Requires: npm(css-element-queries) < 2.0.0
-Requires: npm(patternfly) >= 3.42.0
+Requires: npm(patternfly) >= 3.48.0
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
@@ -28,7 +28,7 @@ Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 1.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
-Requires: npm(reactabular-table) >= 8.13.0
+Requires: npm(reactabular-table) >= 8.14.0
 Requires: npm(reactabular-table) < 9.0.0
 Requires: npm(recompose) >= 0.26.0
 Requires: npm(recompose) < 1.0.0
@@ -47,6 +47,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr __mocks__ %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -63,6 +64,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 2.5.1-1
+- Update to 2.5.1
+
 * Tue May 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.3.4-1
 - Update to 2.3.4
 
