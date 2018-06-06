@@ -1,83 +1,67 @@
 %global npm_name url-loader
 
 Name: nodejs-%{npm_name}
-Version: 0.5.7
-Release: 4%{?dist}
+Version: 0.5.9
+Release: 1%{?dist}
 Summary: url loader module for webpack
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/webpack/url-loader
-Source0: http://registry.npmjs.org/url-loader/-/url-loader-0.5.7.tgz
-Source1: http://registry.npmjs.org/mime/-/mime-1.2.11.tgz
-Source2: http://registry.npmjs.org/loader-utils/-/loader-utils-0.2.15.tgz
-Source3: http://registry.npmjs.org/emojis-list/-/emojis-list-2.0.1.tgz
-Source4: http://registry.npmjs.org/big.js/-/big.js-3.1.3.tgz
-Source5: http://registry.npmjs.org/json5/-/json5-0.5.0.tgz
-Source6: http://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz
-Source7: url-loader-0.5.7-registry.npmjs.org.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
+URL: https://github.com/webpack/url-loader#readme
+Source0: https://registry.npmjs.org/url-loader/-/url-loader-0.5.9.tgz
+Source1: https://registry.npmjs.org/loader-utils/-/loader-utils-1.1.0.tgz
+Source2: https://registry.npmjs.org/mime/-/mime-1.3.6.tgz
+Source3: https://registry.npmjs.org/emojis-list/-/emojis-list-2.1.0.tgz
+Source4: https://registry.npmjs.org/big.js/-/big.js-3.2.0.tgz
+Source5: https://registry.npmjs.org/json5/-/json5-0.5.1.tgz
+Source6: %{npm_name}-%{version}-registry.npmjs.org.tgz
 BuildRequires: nodejs-packaging
-BuildRequires: npm
-BuildRequires: npm(file-loader)
 BuildArch: noarch
-%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
+
 Provides: npm(%{npm_name}) = %{version}
-Provides: bundled(npm(url-loader)) = 0.5.7
-Provides: bundled(npm(mime)) = 1.2.11
-Provides: bundled(npm(loader-utils)) = 0.2.15
-Provides: bundled(npm(emojis-list)) = 2.0.1
-Provides: bundled(npm(big.js)) = 3.1.3
-Provides: bundled(npm(json5)) = 0.5.0
-Provides: bundled(npm(object-assign)) = 4.1.0
+Provides: bundled(npm(big.js)) = 3.2.0
+Provides: bundled(npm(emojis-list)) = 2.1.0
+Provides: bundled(npm(json5)) = 0.5.1
+Provides: bundled(npm(loader-utils)) = 1.1.0
+Provides: bundled(npm(mime)) = 1.3.6
+Provides: bundled(npm(url-loader)) = 0.5.9
 AutoReq: no
 AutoProv: no
 
+%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
 
 %description
-url loader module for webpack
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}
+%{summary}
 
 %prep
-mkdir npm_cache
+mkdir -p %{npm_cache_dir}
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache ./npm_cache $tgz
+  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
-
-%setup -T -q -a 7 -D -n npm_cache
+%setup -T -q -a 6 -D -n %{npm_cache_dir}
 
 %build
-mkdir node_modules
-ln -s %{nodejs_sitelib}/file-loader node_modules/
-npm install --cache-min Infinity --cache . --global-style true %{npm_name}@%{version}
+npm install --cache-min Infinity --cache %{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cd node_modules/url-loader
-cp -pfr .npmignore README.md index.js package.json node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pf README.md ../../
+cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr node_modules/%{npm_name}/index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%check
+%clean
+rm -rf %{buildroot} %{npm_cache_dir}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
-%files doc
-%doc README.md
+%license node_modules/%{npm_name}/LICENSE
+%doc node_modules/%{npm_name}/CHANGELOG.md
+%doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 0.5.9-1
+- Update to 0.5.9
+
 * Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 0.5.7-3
 - Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
 
