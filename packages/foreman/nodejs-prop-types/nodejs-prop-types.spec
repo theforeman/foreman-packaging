@@ -2,10 +2,11 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 15.6.0
-Release: 2%{?dist}
+Version: 15.6.1
+Release: 1%{?dist}
 Summary: Runtime type checking for React props and similar objects
 License: MIT
+Group: Development/Libraries
 URL: https://facebook.github.io/react/
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
@@ -15,7 +16,7 @@ Requires: npm(loose-envify) >= 1.3.1
 Requires: npm(loose-envify) < 2.0.0
 Requires: npm(object-assign) >= 4.1.1
 Requires: npm(object-assign) < 5.0.0
-BuildArch:  noarch
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
 %description
@@ -26,7 +27,15 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr CHANGELOG.md LICENSE README.md checkPropTypes.js factory.js factoryWithThrowingShims.js factoryWithTypeCheckers.js index.js lib package.json prop-types.js prop-types.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr checkPropTypes.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr factory.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr factoryWithThrowingShims.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr factoryWithTypeCheckers.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr prop-types.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr prop-types.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -37,12 +46,14 @@ cp -pfr CHANGELOG.md LICENSE README.md checkPropTypes.js factory.js factoryWithT
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
 %license LICENSE
 %doc CHANGELOG.md
 %doc README.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 15.6.1-1
+- Update to 15.6.1
+
 * Thu Nov 23 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 15.6.0-2
 - Unbundle nodejs-prop-types (github@kohlvanwijngaarden.nl)
 
