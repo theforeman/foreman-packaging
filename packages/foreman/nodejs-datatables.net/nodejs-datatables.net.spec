@@ -10,11 +10,9 @@ Group: Development/Libraries
 URL: https://datatables.net
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
-ExclusiveArch: %{nodejs_arches} noarch
-Obsoletes: %{name}-doc < %{version}
-
 Requires: npm(jquery) >= 1.7
+BuildArch: noarch
+ExclusiveArch: %{nodejs_arches} noarch
 
 %description
 %{summary}
@@ -26,7 +24,8 @@ Requires: npm(jquery) >= 1.7
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr Readme.md js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -40,6 +39,9 @@ cp -pfr Readme.md js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc Readme.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 1.10.16-1
+- Update to 1.10.16
+
 * Sun Nov 19 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.16-1
 - Bump datatables.net to 1.10.16 (ewoud@kohlvanwijngaarden.nl)
 
