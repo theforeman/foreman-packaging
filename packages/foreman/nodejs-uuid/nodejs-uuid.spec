@@ -2,7 +2,7 @@
 %global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 3.1.0
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
@@ -26,6 +26,7 @@ cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr v1.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr v3.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr v4.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr v5.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -45,10 +46,14 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %{_bindir}/uuid
 %license LICENSE.md
 %doc AUTHORS
-%doc HISTORY.md
+%doc CHANGELOG.md
 %doc README.md
+%doc README_js.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.2.1-1
+- Update to 3.2.1
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.0-1
 - Bump nodejs-uuid to 3.1.0 (ewoud@kohlvanwijngaarden.nl)
 
