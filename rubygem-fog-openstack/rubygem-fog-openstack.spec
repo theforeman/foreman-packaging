@@ -6,14 +6,15 @@
 Summary: Module for the 'fog' gem to support OpenStack clouds
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.18
-Release: 2%{?dist}
+Version: 0.1.25
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-openstack
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core) >= 1.40
+Requires: %{?scl_prefix}rubygem(fog-core) < 2.0
 Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -64,14 +65,20 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/supported.md
 %doc %{gem_instdir}/docs
 %doc %{gem_instdir}/examples
-%{gem_instdir}/gemfiles
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/docker-compose.yml
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/bin
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Jun 06 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.1.25-1
+- Update to 0.1.25
+
+* Tue Jan 23 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.23-1
+- Update fog-openstack to 0.1.23 (me@daniellobato.me)
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.18-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
