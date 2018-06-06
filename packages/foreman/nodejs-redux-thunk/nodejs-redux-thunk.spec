@@ -1,25 +1,17 @@
 %global npm_name redux-thunk
 %global enable_tests 1
 
-%{?nodejs_find_provides_and_requires}
-
 Name: nodejs-%{npm_name}
-Version: 2.2.0
+Version: 2.3.0
 Release: 1%{?dist}
 Summary: Thunk middleware for Redux
 License: MIT
-URL: https://github.com/gaearon/redux-thunk
-Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+Group: Development/Libraries
+URL: https://github.com/reduxjs/redux-thunk
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
-
-%if 0%{?fedora} >= 19
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-
-%{?nodejs_find_provides_and_requires}
 
 %description
 %{summary}
@@ -27,12 +19,14 @@ ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %prep
 %setup -q -n package
 
-%build
-%nodejs_symlink_deps --build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr LICENSE.md README.md dist es index.d.ts lib package.json src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr es %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.d.ts %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -47,6 +41,9 @@ cp -pfr LICENSE.md README.md dist es index.d.ts lib package.json src %{buildroot
 %doc README.md
 
 %changelog
+* Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 2.3.0-1
+- Update to 2.3.0
+
 * Thu Feb 16 2017 Dominic Cleal <dominic@cleal.org> 2.2.0-1
 - new package built with tito
 
