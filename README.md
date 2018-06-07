@@ -61,8 +61,8 @@ than mock (above).
 
 Using a local git checkout, change `source_dir` as appropriate:
 
-* Core packages: `obal scratch foreman -e "{'releasers':['koji-foreman-nightly'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
-* Plugins: `obal scratch rubygem-foreman_bootdisk -e "{'releasers': ['koji-foreman-plugins-nightly']}, 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman_bootdisk']}"`
+* Core packages: `obal scratch foreman -e "{'releasers':['koji-foreman-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
+* Plugins: `obal scratch rubygem-foreman_bootdisk -e "{'releasers': ['koji-foreman-plugins-jenkins']}, 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman_bootdisk']}"`
 * Katello: `obal scratch rubygem-katello -e "{'releasers': ['koji-katello-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/katello']}"`
 
 ## HOWTO: Add a package
@@ -215,8 +215,12 @@ To find tito build targets do this:
 
     $ tito release -l
     [koji-foreman]
-    [koji-foreman-nightly]
+    [koji-foreman-jenkins]
     [koji-foreman-plugins]
+    [koji-foreman-plugins-jenkins]
+    [koji-katello]
+    [koji-katello-client]
+    [koji-katello-jenkins]
 
 To build a new release package for foreman project for example, do this:
 
