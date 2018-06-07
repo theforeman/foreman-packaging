@@ -12,18 +12,10 @@ foreman_packages:
     releasers:
     - koji-foreman
   hosts:
-    foreman:
-      releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_1_18_stable"
+    foreman: {}
     foreman-bootloaders-redhat: {}
     foreman-installer: {}
-    foreman-proxy:
-      releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_proxy_1_18_stable"
+    foreman-proxy: {}
     foreman-release-scl: {}
     foreman-selinux: {}
     nodejs-axios: {}
