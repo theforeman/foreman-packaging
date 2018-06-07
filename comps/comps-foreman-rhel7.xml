@@ -243,6 +243,7 @@
       <packagereq type="default">nodejs-patternfly</packagereq>
       <packagereq type="default">nodejs-patternfly-react</packagereq>
       <packagereq type="default">nodejs-performance-now</packagereq>
+      <packagereq type="default">nodejs-phantomjs-prebuilt</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
@@ -317,7 +318,6 @@
       <packagereq type="default">nodejs-jstz-doc</packagereq>
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
-      <packagereq type="default">nodejs-url-loader-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>

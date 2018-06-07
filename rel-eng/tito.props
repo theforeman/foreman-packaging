@@ -84,6 +84,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-patternfly
   nodejs-patternfly-react
   nodejs-performance-now
+  nodejs-phantomjs-prebuilt
   nodejs-prop-types
   nodejs-raf
   nodejs-react
