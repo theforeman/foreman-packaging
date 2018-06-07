@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.18.0
-Release: 0.1%{?dotalphatag}%{?dist}
+Release: 0.2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -772,7 +772,7 @@ Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
 Requires: npm(redux-form) = 7.2.0
-Requires: npm(redux-form-validators) >= 2.7.2
+Requires: npm(redux-form-validators) >= 2.7.0
 Requires: npm(redux-form-validators) < 3.0.0
 Requires: npm(redux-logger) >= 2.10.2
 Requires: npm(redux-logger) < 3.0.0
