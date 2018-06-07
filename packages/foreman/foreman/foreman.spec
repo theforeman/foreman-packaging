@@ -9,13 +9,13 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global alphatag RC1
+%global dotalphatag .%{alphatag}
+%global dashalphatag -%{alphatag}
 
 Name:   foreman
 Version: 1.18.0
-Release: 0.develop%{?dotalphatag}%{?dist}
+Release: 0.1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -247,13 +247,13 @@ BuildRequires: nodejs-packaging
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
+#BuildRequires: npm(@storybook/addon-actions) >= 3.4.6
 #BuildRequires: npm(@storybook/addon-actions) < 4.0.0
-#BuildRequires: npm(@storybook/react) >= 3.2.12
+#BuildRequires: npm(@storybook/react) >= 3.4.6
 #BuildRequires: npm(@storybook/react) < 4.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
-#BuildRequires: npm(axios-mock-adapter) >= 1.10.0
+#BuildRequires: npm(axios-mock-adapter) >= 1.15.0
 #BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
@@ -263,7 +263,7 @@ BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-eslint) < 7.0.0
 #BuildRequires: npm(babel-jest) >= 15.0.0
 #BuildRequires: npm(babel-jest) < 16.0.0
-BuildRequires: npm(babel-loader) >= 7.1.1
+BuildRequires: npm(babel-loader) >= 7.1.4
 BuildRequires: npm(babel-loader) < 8.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.2
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
@@ -273,7 +273,7 @@ BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.6.1
+BuildRequires: npm(babel-preset-env) >= 1.7.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
@@ -281,39 +281,39 @@ BuildRequires: npm(babel-register) >= 6.9.0
 BuildRequires: npm(babel-register) < 7.0.0
 BuildRequires: npm(compression-webpack-plugin) >= 0.3.1
 BuildRequires: npm(compression-webpack-plugin) < 0.4.0
-#BuildRequires: npm(coveralls) >= 3.0.0
+#BuildRequires: npm(coveralls) >= 3.0.1
 #BuildRequires: npm(coveralls) < 4.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 5.0.0
 BuildRequires: npm(dotenv) < 6.0.0
-#BuildRequires: npm(enzyme) >= 3.1.1
+#BuildRequires: npm(enzyme) >= 3.3.0
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.1.1
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.2.1
+#BuildRequires: npm(enzyme-to-json) >= 3.3.4
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
-#BuildRequires: npm(eslint) >= 4.10.0
+#BuildRequires: npm(eslint) >= 4.19.1
 #BuildRequires: npm(eslint) < 5.0.0
 #BuildRequires: npm(eslint-config-airbnb-base) >= 12.1.0
 #BuildRequires: npm(eslint-config-airbnb-base) < 13.0.0
-#BuildRequires: npm(eslint-plugin-import) >= 2.8.0
+#BuildRequires: npm(eslint-plugin-import) >= 2.12.0
 #BuildRequires: npm(eslint-plugin-import) < 3.0.0
-#BuildRequires: npm(eslint-plugin-react) >= 7.4.0
+#BuildRequires: npm(eslint-plugin-react) >= 7.9.1
 #BuildRequires: npm(eslint-plugin-react) < 8.0.0
 BuildRequires: npm(expose-loader) >= 0.6.0
 BuildRequires: npm(expose-loader) < 0.7.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
+BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.2
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(file-loader) < 1.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-#BuildRequires: npm(jest-cli) >= 20.0.0
+#BuildRequires: npm(jest-cli) >= 20.0.4
 #BuildRequires: npm(jest-cli) < 21.0.0
 BuildRequires: npm(jsdom) >= 9.5.0
 BuildRequires: npm(jsdom) < 10.0.0
-BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
+BuildRequires: npm(lodash-webpack-plugin) >= 0.11.5
 BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
@@ -323,19 +323,19 @@ BuildRequires: npm(raf) < 4.0.0
 #BuildRequires: npm(react-test-renderer) < 17.0.0
 #BuildRequires: npm(redux-mock-store) >= 1.2.2
 #BuildRequires: npm(redux-mock-store) < 2.0.0
-BuildRequires: npm(sass-loader) >= 6.0.6
+BuildRequires: npm(sass-loader) >= 6.0.7
 BuildRequires: npm(sass-loader) < 6.1.0
-BuildRequires: npm(style-loader) >= 0.13.1
+BuildRequires: npm(style-loader) >= 0.13.2
 BuildRequires: npm(style-loader) < 1.0.0
 #BuildRequires: npm(stylelint) >= 7.13.0
 #BuildRequires: npm(stylelint) < 8.0.0
 #BuildRequires: npm(stylelint-config-standard) >= 16.0.0
 #BuildRequires: npm(stylelint-config-standard) < 17.0.0
-BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.5
 BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
-BuildRequires: npm(url-loader) >= 0.5.7
+BuildRequires: npm(url-loader) >= 0.5.9
 BuildRequires: npm(url-loader) < 1.0.0
-BuildRequires: npm(webpack) >= 3.4.1
+BuildRequires: npm(webpack) >= 3.12.0
 BuildRequires: npm(webpack) < 4.0.0
 #BuildRequires: npm(webpack-dev-server) >= 2.5.1
 #BuildRequires: npm(webpack-dev-server) < 3.0.0
@@ -350,11 +350,11 @@ BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(brace) >= 0.10.0
 BuildRequires: npm(brace) < 1.0.0
-BuildRequires: npm(datatables.net) >= 1.10.12
+BuildRequires: npm(datatables.net) >= 1.10.16
 BuildRequires: npm(datatables.net) < 1.11.0
-BuildRequires: npm(datatables.net-bs) >= 1.10.12
+BuildRequires: npm(datatables.net-bs) >= 1.10.16
 BuildRequires: npm(datatables.net-bs) < 1.11.0
-BuildRequires: npm(diff) >= 3.0.0
+BuildRequires: npm(diff) >= 3.0.1
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
@@ -364,46 +364,46 @@ BuildRequires: npm(jquery) >= 2.2.4
 BuildRequires: npm(jquery) < 2.3.0
 BuildRequires: npm(jquery-flot) >= 0.8.3
 BuildRequires: npm(jquery-flot) < 0.9.0
-BuildRequires: npm(jquery-ujs) >= 1.2.0
+BuildRequires: npm(jquery-ujs) >= 1.2.2
 BuildRequires: npm(jquery-ujs) < 1.3.0
 BuildRequires: npm(jquery.cookie) >= 1.4.1
 BuildRequires: npm(jquery.cookie) < 1.5.0
-BuildRequires: npm(jstz) >= 1.0.7
+BuildRequires: npm(jstz) >= 1.0.11
 BuildRequires: npm(jstz) < 1.1.0
 BuildRequires: npm(lodash) >= 4.15.0
 BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
-BuildRequires: npm(patternfly) >= 3.42.0
+BuildRequires: npm(patternfly) >= 3.48.3
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.1.0
+BuildRequires: npm(patternfly-react) >= 2.5.1
 BuildRequires: npm(patternfly-react) < 3.0.0
-BuildRequires: npm(prop-types) >= 15.6.0
+BuildRequires: npm(prop-types) >= 15.6.1
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.2.0
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.31.5
 BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-dom) >= 16.2.0
+BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
-BuildRequires: npm(react-numeric-input) >= 2.0.7
+BuildRequires: npm(react-numeric-input) >= 2.2.3
 BuildRequires: npm(react-numeric-input) < 3.0.0
-BuildRequires: npm(react-onclickoutside) >= 6.6.2
+BuildRequires: npm(react-onclickoutside) >= 6.7.1
 BuildRequires: npm(react-onclickoutside) < 7.0.0
 BuildRequires: npm(react-password-strength) >= 2.1.0
 BuildRequires: npm(react-password-strength) < 3.0.0
-BuildRequires: npm(react-redux) >= 5.0.6
+BuildRequires: npm(react-redux) >= 5.0.7
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
 BuildRequires: npm(redux-form) = 7.2.0
-BuildRequires: npm(redux-form-validators) >= 2.1.2
+BuildRequires: npm(redux-form-validators) >= 2.7.0
 BuildRequires: npm(redux-form-validators) < 3.0.0
-BuildRequires: npm(redux-logger) >= 2.8.1
+BuildRequires: npm(redux-logger) >= 2.10.2
 BuildRequires: npm(redux-logger) < 3.0.0
-BuildRequires: npm(redux-thunk) >= 2.2.0
+BuildRequires: npm(redux-thunk) >= 2.3.0
 BuildRequires: npm(redux-thunk) < 3.0.0
 BuildRequires: npm(seamless-immutable) >= 7.1.2
 BuildRequires: npm(seamless-immutable) < 8.0.0
@@ -636,7 +636,7 @@ Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-eslint) < 7.0.0
 #Requires: npm(babel-jest) >= 15.0.0
 #Requires: npm(babel-jest) < 16.0.0
-Requires: npm(babel-loader) >= 7.1.1
+Requires: npm(babel-loader) >= 7.1.4
 Requires: npm(babel-loader) < 8.0.0
 Requires: npm(babel-plugin-lodash) >= 3.3.2
 Requires: npm(babel-plugin-lodash) < 4.0.0
@@ -646,7 +646,7 @@ Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-assign) < 7.0.0
 Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-Requires: npm(babel-preset-env) >= 1.6.1
+Requires: npm(babel-preset-env) >= 1.7.0
 Requires: npm(babel-preset-env) < 2.0.0
 Requires: npm(babel-preset-react) >= 6.5.0
 Requires: npm(babel-preset-react) < 7.0.0
@@ -676,7 +676,7 @@ Requires: npm(dotenv) < 6.0.0
 #Requires: npm(eslint-plugin-react) < 8.0.0
 Requires: npm(expose-loader) >= 0.6.0
 Requires: npm(expose-loader) < 0.7.0
-Requires: npm(extract-text-webpack-plugin) >= 3.0.0
+Requires: npm(extract-text-webpack-plugin) >= 3.0.2
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(file-loader) < 1.0.0
@@ -686,7 +686,7 @@ Requires: npm(identity-obj-proxy) < 4.0.0
 #Requires: npm(jest-cli) < 21.0.0
 Requires: npm(jsdom) >= 9.5.0
 Requires: npm(jsdom) < 10.0.0
-Requires: npm(lodash-webpack-plugin) >= 0.11.4
+Requires: npm(lodash-webpack-plugin) >= 0.11.5
 Requires: npm(lodash-webpack-plugin) < 1.0.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
@@ -708,7 +708,7 @@ Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
 Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
 Requires: npm(url-loader) >= 0.5.7
 Requires: npm(url-loader) < 1.0.0
-Requires: npm(webpack) >= 3.4.1
+Requires: npm(webpack) >= 3.12.0
 Requires: npm(webpack) < 4.0.0
 #Requires: npm(webpack-dev-server) >= 2.5.1
 #Requires: npm(webpack-dev-server) < 3.0.0
@@ -723,11 +723,11 @@ Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
 Requires: npm(brace) >= 0.10.0
 Requires: npm(brace) < 1.0.0
-Requires: npm(datatables.net) >= 1.10.12
+Requires: npm(datatables.net) >= 1.10.16
 Requires: npm(datatables.net) < 1.11.0
-Requires: npm(datatables.net-bs) >= 1.10.12
+Requires: npm(datatables.net-bs) >= 1.10.16
 Requires: npm(datatables.net-bs) < 1.11.0
-Requires: npm(diff) >= 3.0.0
+Requires: npm(diff) >= 3.0.1
 Requires: npm(diff) < 3.1.0
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
@@ -737,46 +737,46 @@ Requires: npm(jquery) >= 2.2.4
 Requires: npm(jquery) < 2.3.0
 Requires: npm(jquery-flot) >= 0.8.3
 Requires: npm(jquery-flot) < 0.9.0
-Requires: npm(jquery-ujs) >= 1.2.0
+Requires: npm(jquery-ujs) >= 1.2.2
 Requires: npm(jquery-ujs) < 1.3.0
 Requires: npm(jquery.cookie) >= 1.4.1
 Requires: npm(jquery.cookie) < 1.5.0
-Requires: npm(jstz) >= 1.0.7
+Requires: npm(jstz) >= 1.0.11
 Requires: npm(jstz) < 1.1.0
 Requires: npm(lodash) >= 4.15.0
 Requires: npm(lodash) < 5.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
-Requires: npm(patternfly) >= 3.42.0
+Requires: npm(patternfly) >= 3.48.3
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.1.0
+Requires: npm(patternfly-react) >= 2.5.1
 Requires: npm(patternfly-react) < 3.0.0
-Requires: npm(prop-types) >= 15.6.0
+Requires: npm(prop-types) >= 15.6.1
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.2.0
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.31.5
 Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-dom) >= 16.2.0
+Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
-Requires: npm(react-numeric-input) >= 2.0.7
+Requires: npm(react-numeric-input) >= 2.2.3
 Requires: npm(react-numeric-input) < 3.0.0
-Requires: npm(react-onclickoutside) >= 6.6.2
+Requires: npm(react-onclickoutside) >= 6.7.1
 Requires: npm(react-onclickoutside) < 7.0.0
 Requires: npm(react-password-strength) >= 2.1.0
 Requires: npm(react-password-strength) < 3.0.0
-Requires: npm(react-redux) >= 5.0.6
+Requires: npm(react-redux) >= 5.0.7
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
 Requires: npm(redux-form) = 7.2.0
-Requires: npm(redux-form-validators) >= 2.1.2
+Requires: npm(redux-form-validators) >= 2.7.2
 Requires: npm(redux-form-validators) < 3.0.0
-Requires: npm(redux-logger) >= 2.8.1
+Requires: npm(redux-logger) >= 2.10.2
 Requires: npm(redux-logger) < 3.0.0
-Requires: npm(redux-thunk) >= 2.2.0
+Requires: npm(redux-thunk) >= 2.3.0
 Requires: npm(redux-thunk) < 3.0.0
 Requires: npm(seamless-immutable) >= 7.1.2
 Requires: npm(seamless-immutable) < 8.0.0
@@ -784,7 +784,7 @@ Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
 Requires: npm(urijs) >= 1.18.10
 Requires: npm(urijs) < 2.0.0
-Requires: npm(uuid) >= 3.0.1
+Requires: npm(uuid) >= 3.2.1
 Requires: npm(uuid) < 4.0.0
 # end package.json dependencies Requires
 
