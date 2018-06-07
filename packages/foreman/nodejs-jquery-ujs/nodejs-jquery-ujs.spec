@@ -1,56 +1,48 @@
 %global npm_name jquery-ujs
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 1.2.1
-Release: 3%{?dist}
-Summary: Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
+Version: 1.2.2
+Release: 1%{?dist}
+Summary: Unobtrusive scripting adapter for jQuery
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/shakacode/jquery-ujs.git
-Source0: http://registry.npmjs.org/jquery-ujs/-/jquery-ujs-1.2.1.tgz
-
-BuildRequires: nodejs-devel
+URL: https://github.com/rails/jquery-ujs#readme
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-Requires: npm(jquery) >= 1.8.0
+Requires: npm(jquery) >=1.8.0
 BuildArch: noarch
-%if 0%{?fedora} >= 19
 ExclusiveArch: %{nodejs_arches} noarch
-%else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
-%endif
-Provides: npm(%{npm_name}) = %{version}
 
 %description
-Ruby on Rails unobtrusive scripting adapter for jQuery, for npm
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}
+%{summary}
 
 %prep
 %setup -q -n package
 
-%build
-#nothing to do
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr script src test MIT-LICENSE *.json *.md %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
+
+%nodejs_symlink_deps
+
+%if 0%{?enable_tests}
+%check
+%{nodejs_symlink_deps} --check
+%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%doc %{nodejs_sitelib}/%{npm_name}/MIT-LICENSE
-
-%files doc
-%doc %{nodejs_sitelib}/%{npm_name}/README.md
-%doc %{nodejs_sitelib}/%{npm_name}/CONTRIBUTING.md
+%license MIT-LICENSE
+%doc CONTRIBUTING.md
+%doc README.md
+%doc RELEASE.md
 
 %changelog
+* Thu Jun 07 2018 Tomas Strachota <tstrachota@redhat.com> 1.2.2-1
+- Update to 1.2.2
+
 * Sat Sep 24 2016 Eric D Helms <ericdhelms@gmail.com> 1.2.1-3
 - Fix ExclusiveArch for nodejs packages on EL6 (ericdhelms@gmail.com)
 
