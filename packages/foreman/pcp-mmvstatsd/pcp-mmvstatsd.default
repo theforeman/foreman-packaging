@@ -1,8 +1,13 @@
-# debug logging
+# increased logging (trace is very noisy)
+#CMD_OPTS="-verbose"
 #CMD_OPTS="-debug"
+#CMD_OPTS="-trace"
 
 # UDP address and port
 #CMD_OPTS="-address :8125"
 
 # TCP address and port
 #CMD_OPTS="-tcpaddr :8125"
+
+# set both addresses
+#CMD_OPTS="-address :8125 -tcpaddr :8125"

@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:    pcp-mmvstatsd
-Version: 0.2
+Version: 0.3
 Release: 1%{?dist}
 Summary: Statsd to PCP MMV aggregator
 License: MIT and BSD
@@ -17,7 +17,6 @@ ExclusiveArch: %{ix86} x86_64 %{arm}
 BuildRequires: systemd
 BuildRequires: golang
 
-Requires(pre): shadow-utils
 Requires:      pcp
 
 %description
@@ -42,13 +41,6 @@ install -D -m 755 _gopath/src/%{name}-%{version}/%{name}-%{version} %{buildroot}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 install -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/default/%{name}
 
-%pre
-getent group %{name} >/dev/null || groupadd -r %{name}
-getent passwd %{name} >/dev/null || \
-    useradd -r -g %{name} -d %{_sharedstatedir}/%{name} -s /sbin/nologin \
-    -c "Prometheus services" %{name}
-exit 0
-
 %post
 %systemd_post %{name}.service
 
@@ -65,3 +57,5 @@ exit 0
 %{_unitdir}/%{name}.service
 %config(noreplace) %{_sysconfdir}/default/%{name}
 %attr(755, %{name}, %{name})%{_sharedstatedir}/%{name}
+
+%changelog

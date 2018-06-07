@@ -5,9 +5,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=-/etc/default/pcp-mmvstatsd
-# Run as pcp until ownership is resolved
 User=pcp
-#User=pcp-mmvstatsd
 ExecStart=/usr/bin/pcp-mmvstatsd $CMD_OPTS
 Restart=on-failure
 
