@@ -1,8 +1,8 @@
-foreman-proxy (1.18.0-1) stable; urgency=low
+foreman-proxy (1.18.0~rc1-1) stable; urgency=low
 
-  * Bump changelog to 1.18.0 to match VERSION
+  * 1.18.0-RC1 release
 
- -- Michael Moll <mmoll@mmoll.at>  Thu, 11 Jan 2018 16:10:03 +0100
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 07 Jun 2018 11:46:57 +0000
 
 foreman-proxy (1.17.0-1) stable; urgency=low
 
