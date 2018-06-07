@@ -1,18 +1,17 @@
 %global npm_name react-onclickoutside
-%global enable_tests 0
+%global enable_tests 1
 
 Name: nodejs-%{npm_name}
-Version: 6.6.3
+Version: 6.7.1
 Release: 1%{?dist}
 Summary: An onClickOutside wrapper for React components
 License: MIT
+Group: Development/Libraries
 URL: https://github.com/Pomax/react-onclickoutside
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
-%{?nodejs_find_provides_and_requires}
 
 %description
 %{summary}
@@ -20,16 +19,12 @@ ExclusiveArch: %{nodejs_arches} noarch
 %prep
 %setup -q -n package
 
-%build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr README.md dist es lib package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
-
-%clean
-rm -rf %{buildroot} %{npm_cache_dir}
 
 %if 0%{?enable_tests}
 %check
@@ -41,6 +36,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Thu Jun 07 2018 Tomas Strachota <tstrachota@redhat.com> 6.7.1-1
+- Update to 6.7.1
+
 * Tue Nov 07 2017 Daniel Lobato Garcia <me@daniellobato.me> 6.6.3-1
 - new package built with tito
 
