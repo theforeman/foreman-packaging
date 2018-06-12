@@ -8,8 +8,8 @@
 
 Summary:    Adds memcache integration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.1.0
-Release:    2%{?foremandist}%{?dist}
+Version:    0.1.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.1.1-1
+- Update foreman_memcache to 0.1.1
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.0-2
 - Regenerate spec file based on the current template
 
