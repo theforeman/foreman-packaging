@@ -1,5 +1,6 @@
 %global pulp_release stable
 %global pulp_version 2.16
+%global prever .rc1
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -18,7 +19,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        3.nightly%{?dist}
+Release:        1%{prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -117,6 +118,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
+- Rev for 3.7 RC1
+
 * Thu Apr 19 2018 Eric D. Helms <ericdhelms@gmail.com> 3.7.0-3.nightly
 - Switch to using Pulp 2.16 stable (ericdhelms@gmail.com)
 
