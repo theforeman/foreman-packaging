@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jun 12 2018 Eric D. Helms <ericdhelms@gmail.com> 0.9.3-1
+- Update foreman_openscap to 0.9.3 (mhulan@redhat.com)
+
 * Thu May 31 2018 Marek Hulan <mhulan@redhat.com> 0.9.3-1
 - Update to 0.9.3
 
