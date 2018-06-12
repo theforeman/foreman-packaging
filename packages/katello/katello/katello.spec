@@ -3,10 +3,11 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
+%global prever .rc1
 
 Name:       katello
 Version:    3.7.0
-Release:    5.nightly%{?dist}
+Release:    1%{prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -205,6 +206,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
+- Rev for 3.7 RC1
+
 * Wed May 23 2018 John Mitsch <jomitsch@redhat.com> - 3.7.0-5.nightly
 - Remove katello-backup and katello-restore and require foreman-maintain
 
