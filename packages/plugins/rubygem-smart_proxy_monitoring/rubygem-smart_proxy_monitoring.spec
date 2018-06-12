@@ -6,7 +6,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.1.1
+Version: 0.1.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 Group: Applications/Internet
@@ -95,6 +95,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.1.2-1
+- Update smart_proxy_monitoring to 0.1.2
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.1-1
 - Update smart_proxy_monitoring to 0.1.1 (mail@timogoebel.name)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
