@@ -11,4 +11,4 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 20 22 * * 0	root	[ -d /etc/puppet/environments ] && find /etc/puppet/environments/KT* -maxdepth 0 -type d -empty -delete > /dev/null 2>&1
 
 # Script for publishing unpublished repositories
-* 22 * * *     root    foreman-rake katello:publish_unpublished_repositories RAILS_ENV=production >/dev/null 2>&1
+00 23 * * *     root    foreman-rake katello:publish_unpublished_repositories RAILS_ENV=production >/dev/null 2>&1
