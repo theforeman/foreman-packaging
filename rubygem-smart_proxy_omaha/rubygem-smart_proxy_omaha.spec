@@ -8,7 +8,7 @@
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
@@ -19,7 +19,7 @@ Requires: foreman-proxy >= 1.12
 Requires: crontabs
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(nokogiri)
+Requires: rubygem(nokogiri) >= 1.8.1
 Requires: rubygem(json)
 %if 0%{?rhel} == 6
 BuildRequires: ruby(abi)
@@ -113,6 +113,9 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.0.4-1
+- Update smart_proxy_omaha to 0.0.4
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.3-1
 - Update smart_proxy_omaha to 0.0.3 (mail@timogoebel.name)
 - Set proper download URLs for rubygems (komidore64@gmail.com)
@@ -122,4 +125,3 @@ mkdir -p %{buildroot}%{content_dir}
 
 * Mon Oct 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
-
