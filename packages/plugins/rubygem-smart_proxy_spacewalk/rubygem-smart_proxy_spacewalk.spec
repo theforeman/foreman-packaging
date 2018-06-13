@@ -12,7 +12,7 @@ Release: 1%{?foremandist}%{?dist}
 Summary: Spacewalk integration support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
-URL: http://github.com/dm-drogeriemarkt/smart_proxy_spacewalk
+URL: https://github.com/dm-drogeriemarkt/smart_proxy_spacewalk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
