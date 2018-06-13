@@ -361,7 +361,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-rqrcode
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
-  rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-ttfunk
   rubygem-wicked
@@ -404,6 +403,7 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
+  rubygem-smart_proxy_spacewalk
 
 [katello-nightly-rhel5]
 disttag = .el5
