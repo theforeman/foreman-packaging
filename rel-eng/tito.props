@@ -361,6 +361,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-rqrcode
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
+  rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-ttfunk
   rubygem-wicked
