@@ -376,6 +376,7 @@ whitelist = puppet-foreman_scap_client
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
+  rubygem-smart_proxy_spacewalk
 
 [katello-3.6-rhel5]
 disttag = .el5
