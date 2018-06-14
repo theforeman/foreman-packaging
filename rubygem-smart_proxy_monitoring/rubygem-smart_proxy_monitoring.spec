@@ -95,6 +95,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jun 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.2-1
+- Update smart_proxy_monitoring to 0.1.2 (mail@timogoebel.name)
+
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.1-1
 - Update smart_proxy_monitoring to 0.1.1 (mail@timogoebel.name)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
