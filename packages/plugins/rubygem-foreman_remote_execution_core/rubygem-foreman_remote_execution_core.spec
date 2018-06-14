@@ -6,8 +6,8 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.2
-Release: 2%{?dist}
+Version: 1.1.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Jun 14 2018 Ivan Nečas <inecas@redhat.com> 1.1.3-1
+- Update to 1.1.3
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.1.2-2
 - Regenerate spec file based on the current template
 
