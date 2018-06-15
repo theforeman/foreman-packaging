@@ -348,7 +348,7 @@ katello_packages:
       releasers:
         - koji-katello-jenkins
       build_package_tito_releaser_args:
-        - "--arg jenkins_job=test_katello_core"
+        - "--arg jenkins_job=rubygem-katello-nightly-release"
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
