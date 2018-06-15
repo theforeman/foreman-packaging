@@ -86,6 +86,8 @@ BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: npm(babel-polyfill) >= 6.26.0
+BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(babel-preset-env) >= 1.6.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.24.1
@@ -126,8 +128,7 @@ BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 #BuildRequires: npm(axios-mock-adapter) >= 1.10.0
 #BuildRequires: npm(axios-mock-adapter) < 2.0.0
-BuildRequires: npm(bootstrap-select) >= 1.12.2
-BuildRequires: npm(bootstrap-select) < 2.0.0
+BuildRequires: npm(bootstrap-select) = 1.12.4
 BuildRequires: npm(classnames) >= 2.2.5
 BuildRequires: npm(classnames) < 3.0.0
 BuildRequires: npm(downshift) >= 1.28.0
@@ -142,13 +143,13 @@ BuildRequires: npm(patternfly-react) >= 2.1.0
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.0.0
+BuildRequires: npm(react) >= 16.3.1
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.31.5
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-bootstrap-tooltip-button) >= 1.0.6
 BuildRequires: npm(react-bootstrap-tooltip-button) < 2.0.0
-BuildRequires: npm(react-dom) >= 16.0.0
+BuildRequires: npm(react-dom) >= 16.3.1
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
