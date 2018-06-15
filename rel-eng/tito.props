@@ -375,6 +375,7 @@ whitelist = ansiblerole-insights-client
   rubygem-chef-api
   rubygem-faraday
   rubygem-faraday_middleware
+  rubygem-foreman_ansible_core
   rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify

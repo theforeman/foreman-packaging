@@ -14,12 +14,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+%if 0%{?scl:1}
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 1.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) >= 1.1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) < 2.0
 Requires: %{?scl_prefix}rubygem(net-ssh) >= 4.0
 Requires: %{?scl_prefix}rubygem(net-ssh) < 5.0
+%endif
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
