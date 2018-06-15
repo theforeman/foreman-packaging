@@ -113,6 +113,9 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jun 15 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.0.4-1
+- Update smart_proxy_omaha to 0.0.4 (mail@timogoebel.name)
+
 * Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.0.4-1
 - Update smart_proxy_omaha to 0.0.4
 
