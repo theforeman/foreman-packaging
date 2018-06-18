@@ -9,7 +9,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.0.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -19,13 +19,9 @@ Requires: foreman-proxy >= 1.12
 Requires: crontabs
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(nokogiri) >= 1.8.1
+Requires: rubygem(nokogiri) >= 1.5.11
 Requires: rubygem(json)
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
 BuildRequires: ruby(release)
-%endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
@@ -113,11 +109,12 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 18 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-2
+- Relax nokogiri dependency
+- Remove EL6 compatibility
+
 * Fri Jun 15 2018 Daniel Lobato Garcia <me@daniellobato.me> 0.0.4-1
 - Update smart_proxy_omaha to 0.0.4 (mail@timogoebel.name)
-
-* Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.0.4-1
-- Update smart_proxy_omaha to 0.0.4
 
 * Tue Oct 24 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.0.3-1
 - Update smart_proxy_omaha to 0.0.3 (mail@timogoebel.name)
@@ -128,3 +125,4 @@ mkdir -p %{buildroot}%{content_dir}
 
 * Mon Oct 17 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
+
