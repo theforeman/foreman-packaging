@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:    pcp-mmvstatsd
-Version: 0.2
+Version: 0.4
 Release: 1%{?dist}
 Summary: Statsd to PCP MMV aggregator
 License: MIT and BSD
@@ -65,3 +65,7 @@ exit 0
 %{_unitdir}/%{name}.service
 %config(noreplace) %{_sysconfdir}/default/%{name}
 %attr(755, %{name}, %{name})%{_sharedstatedir}/%{name}
+
+%changelog
+* Tue Jun 19 2018 Lukas Zapletal <lzap+rpm@redhat.com> 0.4-1
+- Initial version
