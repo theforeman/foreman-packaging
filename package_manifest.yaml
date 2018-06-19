@@ -385,9 +385,11 @@ katello_client_packages:
       - el5-qpid
       - el5-katello-client-nightly
       - f28-base
+      - f28-updates
       - f28-puppet-5
       - f28-katello-client-nightly
       - f27-base
+      - f27-updates
       - f27-puppet-5
       - f27-katello-client-nightly
   hosts:
