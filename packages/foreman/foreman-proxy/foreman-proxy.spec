@@ -5,7 +5,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC1
+%global alphatag RC2
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
@@ -188,6 +188,12 @@ fi
 
 
 %changelog
+* Tue Jun 19 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.1.RC2
+- Release 1.18.0-RC2
+
+* Tue Jun 12 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.1.RC1
+- Release 1.18.0-RC1
+
 * Mon Aug 28 2017 Daniel Lobato Garcia <me@daniellobato.me> - 1.17.0-0.develop
 - Bump version to 1.17-develop
 * Wed Mar 29 2017 Eric D Helms <ericdhelms@gmail.com> - 1.16.0-0.develop
