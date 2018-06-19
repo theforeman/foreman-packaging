@@ -6,7 +6,7 @@
 Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.5
+Version: 0.1.6
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jun 19 2018 Ori Rabin <orrabin@gmail.com> 0.1.6-1
+- Update to 0.1.6
+
 * Tue Mar 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.5-1
 - Update to 0.1.5
 
