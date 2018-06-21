@@ -4,10 +4,10 @@
 
 %global gem_name foreman_discovery
 %global plugin_name discovery
-%global foreman_min_version 1.17.0
+%global foreman_min_version 1.18.0
 
-%global mainver 11.0.0
-%global release 2
+%global mainver 12.0.0
+%global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{mainver}%{?prever}
@@ -112,6 +112,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Jun 22 2018 Lukas Zapletal <lzap+rpm@redhat.com> 12.0.0-1
+- Update to version 12.0
+
 * Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 11.0.0-2
 - Regenerate spec file based on the current template
 
