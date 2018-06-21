@@ -178,6 +178,107 @@ Summary:    Documentation for %{pkg_name}
 %description doc
 Documentation for %{pkg_name}.
 
+%package assets
+BuildArch:  noarch
+Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary:    Rebuild the assets for %{pkg_name}
+
+Requires: foreman-assets >= %{foreman_min_version}
+# start package.json devDependencies Requires
+#Requires: npm(@storybook/react) >= 3.2.17
+#Requires: npm(@storybook/react) < 4.0.0
+#Requires: npm(@storybook/storybook-deployer) >= 2.0.0
+#Requires: npm(@storybook/storybook-deployer) < 3.0.0
+Requires: npm(babel-core) >= 6.26.3
+Requires: npm(babel-core) < 7.0.0
+#Requires: npm(babel-jest) >= 21.2.0
+#Requires: npm(babel-jest) < 22.0.0
+Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
+Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
+Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+Requires: npm(babel-polyfill) >= 6.26.0
+Requires: npm(babel-polyfill) < 7.0.0
+Requires: npm(babel-preset-env) >= 1.6.0
+Requires: npm(babel-preset-env) < 2.0.0
+Requires: npm(babel-preset-react) >= 6.24.1
+Requires: npm(babel-preset-react) < 7.0.0
+#Requires: npm(enzyme) >= 3.2.0
+#Requires: npm(enzyme) < 4.0.0
+#Requires: npm(enzyme-adapter-react-16) >= 1.1.0
+#Requires: npm(enzyme-adapter-react-16) < 2.0.0
+#Requires: npm(enzyme-to-json) >= 3.1.2
+#Requires: npm(enzyme-to-json) < 4.0.0
+#Requires: npm(eslint) >= 4.8.0
+#Requires: npm(eslint) < 5.0.0
+#Requires: npm(eslint-config-airbnb) >= 16.0.0
+#Requires: npm(eslint-config-airbnb) < 17.0.0
+#Requires: npm(eslint-plugin-import) >= 2.7.0
+#Requires: npm(eslint-plugin-import) < 3.0.0
+#Requires: npm(eslint-plugin-jest) >= 21.2.0
+#Requires: npm(eslint-plugin-jest) < 22.0.0
+#Requires: npm(eslint-plugin-jsx-a11y) >= 6.0.2
+#Requires: npm(eslint-plugin-jsx-a11y) < 7.0.0
+#Requires: npm(eslint-plugin-react) >= 7.4.0
+#Requires: npm(eslint-plugin-react) < 8.0.0
+Requires: npm(identity-obj-proxy) >= 3.0.0
+Requires: npm(identity-obj-proxy) < 4.0.0
+#Requires: npm(jest) >= 21.2.1
+#Requires: npm(jest) < 22.0.0
+#Requires: npm(prettier) >= 1.7.4
+#Requires: npm(prettier) < 2.0.0
+#Requires: npm(react-test-renderer) >= 16.0.0
+#Requires: npm(react-test-renderer) < 17.0.0
+#Requires: npm(redux-mock-store) >= 1.3.0
+#Requires: npm(redux-mock-store) < 2.0.0
+Requires: npm(redux-thunk) >= 2.2.0
+Requires: npm(redux-thunk) < 3.0.0
+# end package.json devDependencies Requires
+# start package.json dependencies Requires
+Requires: npm(axios) >= 0.17.1
+Requires: npm(axios) < 1.0.0
+#Requires: npm(axios-mock-adapter) >= 1.10.0
+#Requires: npm(axios-mock-adapter) < 2.0.0
+Requires: npm(bootstrap-select) = 1.12.4
+Requires: npm(classnames) >= 2.2.5
+Requires: npm(classnames) < 3.0.0
+Requires: npm(downshift) >= 1.28.0
+Requires: npm(downshift) < 2.0.0
+Requires: npm(jed) >= 1.1.1
+Requires: npm(jed) < 2.0.0
+Requires: npm(lodash) >= 4.17.5
+Requires: npm(lodash) < 5.0.0
+Requires: npm(patternfly) >= 3.41.1
+Requires: npm(patternfly) < 4.0.0
+Requires: npm(patternfly-react) = 2.5.1
+Requires: npm(prop-types) >= 15.6.0
+Requires: npm(prop-types) < 16.0.0
+Requires: npm(react) >= 16.3.1
+Requires: npm(react) < 17.0.0
+Requires: npm(react-bootstrap) >= 0.31.5
+Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-bootstrap-tooltip-button) >= 1.0.6
+Requires: npm(react-bootstrap-tooltip-button) < 2.0.0
+Requires: npm(react-dom) >= 16.3.1
+Requires: npm(react-dom) < 17.0.0
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
+Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
+Requires: npm(react-redux) >= 5.0.6
+Requires: npm(react-redux) < 6.0.0
+Requires: npm(react-router) >= 4.2.0
+Requires: npm(react-router) < 5.0.0
+Requires: npm(react-router-bootstrap) = 0.24.4
+Requires: npm(react-router-dom) >= 4.2.2
+Requires: npm(react-router-dom) < 5.0.0
+Requires: npm(redux) >= 3.7.2
+Requires: npm(redux) < 4.0.0
+Requires: npm(seamless-immutable) >= 7.1.2
+Requires: npm(seamless-immutable) < 8.0.0
+# end package.json dependencies Requires
+
+%description assets
+This package can be used to rebuild the assets for %{pkg_name}.
+
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
@@ -222,8 +323,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/public/assets/bastion_katello
 %{gem_instdir}/vendor
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/package.json
-%exclude %{gem_instdir}/webpack
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
@@ -235,6 +334,10 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+
+%files assets
+%{gem_instdir}/package.json
+%{gem_instdir}/webpack
 
 %changelog
 * Wed Jun 6 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-1.nightly

@@ -33,6 +33,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">tfm-rubygem-katello</packagereq>
+      <packagereq type="default">tfm-rubygem-katello-assets</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
 
       <!-- katello thirdparty nodejs packages -->
