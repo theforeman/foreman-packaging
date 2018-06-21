@@ -65,8 +65,8 @@ Requires: %{name}-debug
 Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
-Requires: %{?scl_prefix}rubygem(audited) >= 4.7
-Requires: %{?scl_prefix}rubygem(audited) < 5.0
+Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
+Requires: %{?scl_prefix}rubygem(audited) < 5
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -81,12 +81,12 @@ Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 Requires: %{?scl_prefix}rubygem(oauth) < 1
-Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
+Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.3.2
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
-Requires: %{?scl_prefix}rubygem(friendly_id) < 6.0
+Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+Requires: %{?scl_prefix}rubygem(friendly_id) < 6
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
 Requires: %{?scl_prefix}rubygem(secure_headers) < 6.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -160,8 +160,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
-BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7
-BuildRequires: %{?scl_prefix}rubygem(audited) < 5.0
+BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
+BuildRequires: %{?scl_prefix}rubygem(audited) < 5
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -176,12 +176,12 @@ BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
-BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.2.2
+BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 2.3.2
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 6.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -245,6 +245,8 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 #BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
 #BuildRequires: npm(@storybook/addon-actions) < 4.0.0
+#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.3
+#BuildRequires: npm(@storybook/addon-knobs) < 4.0.0
 #BuildRequires: npm(@storybook/react) >= 3.2.12
 #BuildRequires: npm(@storybook/react) < 4.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
@@ -275,8 +277,8 @@ BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(babel-register) >= 6.9.0
 BuildRequires: npm(babel-register) < 7.0.0
-BuildRequires: npm(compression-webpack-plugin) >= 0.3.1
-BuildRequires: npm(compression-webpack-plugin) < 0.4.0
+BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
+BuildRequires: npm(compression-webpack-plugin) < 1.2.0
 #BuildRequires: npm(coveralls) >= 3.0.0
 #BuildRequires: npm(coveralls) < 4.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
@@ -372,17 +374,16 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.42.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.3.3
-BuildRequires: npm(patternfly-react) < 3.0.0
+BuildRequires: npm(patternfly-react) = 2.5.1
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.2.0
+BuildRequires: npm(react) >= 16.3.1
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
-BuildRequires: npm(react-dom) >= 16.2.0
+BuildRequires: npm(react-dom) >= 16.3.1
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -497,7 +498,7 @@ Meta package to install requirements for libvirt compute resource support.
 Summary: Foreman OpenStack support
 Group:  Applications/System
 # start specfile openstack Requires
-Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.11
+Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.25
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
 # end specfile openstack Requires
 Requires: %{name} = %{version}-%{release}
@@ -512,7 +513,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.3
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.4
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -579,6 +580,7 @@ Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
 Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
+Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -620,6 +622,8 @@ Requires: libuv
 # start package.json devDependencies Requires
 #Requires: npm(@storybook/addon-actions) >= 3.2.12
 #Requires: npm(@storybook/addon-actions) < 4.0.0
+#Requires: npm(@storybook/addon-knobs) >= 3.4.3
+#Requires: npm(@storybook/addon-knobs) < 4.0.0
 #Requires: npm(@storybook/react) >= 3.2.12
 #Requires: npm(@storybook/react) < 4.0.0
 #Requires: npm(@storybook/storybook-deployer) >= 2.0.0
@@ -650,8 +654,8 @@ Requires: npm(babel-preset-react) >= 6.5.0
 Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(babel-register) >= 6.9.0
 Requires: npm(babel-register) < 7.0.0
-Requires: npm(compression-webpack-plugin) >= 0.3.1
-Requires: npm(compression-webpack-plugin) < 0.4.0
+Requires: npm(compression-webpack-plugin) >= 1.1.11
+Requires: npm(compression-webpack-plugin) < 1.2.0
 #Requires: npm(coveralls) >= 3.0.0
 #Requires: npm(coveralls) < 4.0.0
 Requires: npm(css-loader) >= 0.23.1
@@ -747,17 +751,16 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.42.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.3.3
-Requires: npm(patternfly-react) < 3.0.0
+Requires: npm(patternfly-react) = 2.5.1
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.2.0
+Requires: npm(react) >= 16.3.1
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
-Requires: npm(react-dom) >= 16.2.0
+Requires: npm(react-dom) >= 16.3.1
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
