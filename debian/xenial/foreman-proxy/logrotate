@@ -9,6 +9,10 @@
   compress
 	daily
   postrotate
-    [ -e /etc/init.d/foreman-proxy ] && /etc/init.d/foreman-proxy logrotate >/dev/null 2>&1 || true
+    if [ -d /run/systemd/system ] ; then
+      /bin/systemctl kill --signal=SIGUSR1 foreman-proxy >/dev/null 2>&1 || true
+    elif [ -e /etc/init.d/foreman-proxy ] ; then
+      /etc/init.d/foreman-proxy logrotate >/dev/null 2>&1 || true
+    fi
   endscript
 }
