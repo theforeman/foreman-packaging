@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.18.0
-Release: 0.1%{?dotalphatag}%{?dist}
+Release: 0.2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -1269,6 +1269,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jun 25 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.2.RC2
+- Release 1.18.0-RC2
+
 * Tue Jun 19 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.1.RC2
 - Release 1.18.0-RC2
 
