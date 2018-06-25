@@ -8,7 +8,7 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.2
+Version: 0.14.0
 Release: 1%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -25,7 +25,7 @@ Obsoletes: rubygem-hammer_cli_gutterball
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.13.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.14.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Mon Jun 25 2018 Adam Price <komidore64@gmail.com> 0.14.0-1
+- Update to 0.14.0
+
 * Wed Jun 06 2018 Jonathon Turel <jturel@redhat.com> 0.13.2-1
 - Update to 0.13.2
 

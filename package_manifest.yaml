@@ -343,7 +343,11 @@ katello_packages:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello: {}
+    rubygem-hammer_cli_katello:
+      releasers:
+        - koji-katello-jenkins
+      build_package_tito_releaser_args:
+        - "--arg jenkins_job=hammer-cli-katello-nightly-release"
     rubygem-katello:
       releasers:
         - koji-katello-jenkins
