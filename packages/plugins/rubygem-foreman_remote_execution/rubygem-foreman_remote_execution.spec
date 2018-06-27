@@ -14,7 +14,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.5.3
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -115,6 +115,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 27 2018 Ondrej Prazak <oprazak@redhat.com> 1.5.3-2
+- Plugin rebuild
+
 * Thu Jun 14 2018 Ivan Nečas <inecas@redhat.com> 1.5.3-1
 - Update to 1.5.3
 
