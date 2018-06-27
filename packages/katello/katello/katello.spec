@@ -7,7 +7,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    1%{?prever}%{?dist}
+Release:    2%{?prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -47,7 +47,6 @@ Requires: python-pulp-streamer
 Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
 Requires: python-crane
-Requires: python-gofer-qpid
 Requires: qpid-cpp-server-linearstore
 Requires: qpid-cpp-client-devel
 Requires: qpid-dispatch-router
@@ -205,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-2
+- remove python-gofer-qpid dep
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
 - Rev for 3.7 GA
 
