@@ -19,7 +19,8 @@
       <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">python3-gofer</packagereq>
       <packagereq type="default">python3-gofer-proton</packagereq>
-      <packagereq type="default">python-gofer</packagereq>
+      <packagereq type="default">python2-gofer</packagereq>
+      <packagereq type="default">python2-gofer-proton</packagereq>
     </packagelist>
   </group>
 </comps>
