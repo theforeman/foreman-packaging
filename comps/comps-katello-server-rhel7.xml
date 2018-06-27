@@ -36,14 +36,11 @@
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-downshift</packagereq>
-      <packagereq type="default">nodejs-history</packagereq>
-      <packagereq type="default">nodejs-invariant</packagereq>
       <packagereq type="default">nodejs-jed</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-tooltip-button</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-router-dom</packagereq>
       <packagereq type="default">nodejs-react-router</packagereq>
-      <packagereq type="default">nodejs-warning</packagereq>
 
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">tfm-rubygem-anemone</packagereq>
