@@ -17,10 +17,7 @@
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">pulp-rpm-handlers</packagereq>
-      <packagereq type="default">python-amqp</packagereq>
-      <packagereq type="default">python-gofer-amqp</packagereq>
       <packagereq type="default">python-gofer-proton</packagereq>
-      <packagereq type="default">python-gofer-qpid</packagereq>
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">python-isodate</packagereq>
       <packagereq type="default">python-pulp-agent-lib</packagereq>

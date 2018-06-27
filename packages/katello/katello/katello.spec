@@ -6,7 +6,7 @@
 
 Name:       katello
 Version:    3.8.0
-Release:    3.nightly%{?dist}
+Release:    4.nightly%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -46,7 +46,6 @@ Requires: python-pulp-streamer
 Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
 Requires: python-crane
-Requires: python-gofer-qpid
 Requires: qpid-cpp-server-linearstore
 Requires: qpid-cpp-client-devel
 Requires: qpid-dispatch-router
@@ -203,6 +202,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jun 27 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.0-4.nightly
+- rebuilt
+
 * Wed Jun 20 2018 Chris Roberts <chrobert@redhat.com> - 3.8.0-3.nightly
 - Reverted rh-mongodb34-syspaths due to MongoDB 2.6 dependency error
 
