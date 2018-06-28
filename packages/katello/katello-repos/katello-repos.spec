@@ -19,7 +19,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        1%{prever}%{?dist}
+Release:        2%{prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -29,7 +29,6 @@ Source0:        katello.repo
 Source1:        katello-client.repo
 Source2:        RPM-GPG-KEY-katello-2015
 Source3:        qpid-copr.repo
-Source4:        gofer-copr.repo
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
@@ -53,9 +52,6 @@ Defines yum repositories for Katello clients.
 %if 0%{?rhel} == 6
 %config %{repo_dir}/qpid-copr.repo
 %endif
-%if 0%{?suse_version} == 0
-%config %{repo_dir}/gofer-copr.repo
-%endif
 
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
@@ -75,10 +71,6 @@ install -m 644 %{SOURCE1} %{buildroot}%{repo_dir}/
 
 %if 0%{?rhel} == 6
 install -m 644 %{SOURCE3} %{buildroot}%{repo_dir}/
-%endif
-
-%if 0%{?suse_version} == 0
-install -m 644 %{SOURCE4} %{buildroot}%{repo_dir}/
 %endif
 
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
@@ -118,6 +110,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu Jun 28 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-2.rc1
+- remove gofer-copr.repo
+
 * Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
 - Rev for 3.7 RC1
 
