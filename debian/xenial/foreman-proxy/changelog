@@ -1,3 +1,9 @@
+foreman-proxy (1.18.0~rc3-1) stable; urgency=low
+
+  * Release 1.18.0-RC3
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 28 Jun 2018 10:25:14 +0000
+
 foreman-proxy (1.18.0~rc2-1) stable; urgency=low
 
   * Release 1.18.0-RC2
