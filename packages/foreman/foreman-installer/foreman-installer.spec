@@ -1,5 +1,5 @@
 # set and uncomment all three to set alpha tag
-%global alphatag RC2
+%global alphatag RC3
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
@@ -74,6 +74,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Thu Jun 28 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.1.RC3
+- Release 1.18.0-RC3
+
 * Tue Jun 19 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.1.RC2
 - Release 1.18.0-RC2
 

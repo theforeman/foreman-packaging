@@ -9,7 +9,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC2
+%global alphatag RC3
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
@@ -416,6 +416,11 @@ BuildRequires: npm(urijs) < 2.0.0
 BuildRequires: npm(uuid) >= 3.0.1
 BuildRequires: npm(uuid) < 4.0.0
 # end package.json dependencies BuildRequires
+
+# start specific assets Requires
+Requires: npm(react-debounce-input) >= 3.2.0
+Requires: npm(react-debounce-input) < 4.0.0
+# end specific assets Requires
 
 # start specfile assets BuildRequires
 BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
@@ -1269,6 +1274,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jun 28 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.2.RC3
+- Release 1.18.0-RC3
+
 * Mon Jun 25 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-0.2.RC2
 - Release 1.18.0-RC2
 
