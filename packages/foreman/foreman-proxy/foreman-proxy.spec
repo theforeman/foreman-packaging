@@ -97,6 +97,7 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/settings.d
 install -d -m0755 %{buildroot}%{_sharedstatedir}/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
+install -d -m0750 %{buildroot}%{_localstatedir}/spool/%{name}
 install -d -m0750 %{buildroot}%{_rundir}/%{name}
 
 install -Dp -m0644 extra/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
@@ -136,6 +137,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
+%attr(-,%{name},%{name}) %{_localstatedir}/spool/%{name}
 %attr(-,%{name},%{name}) %{_sharedstatedir}/%{name}
 %attr(-,%{name},%{name}) %{_rundir}/%{name}
 %attr(-,%{name},root) %{_datadir}/%{name}/config.ru
