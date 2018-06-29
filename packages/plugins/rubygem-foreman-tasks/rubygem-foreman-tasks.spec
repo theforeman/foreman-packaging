@@ -7,7 +7,7 @@
 
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.2
+Version: 0.13.3
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Fri Jun 29 2018 Andrew Kofink <akofink@redhat.com> 0.13.3-1
+- Update to 0.13.3
+
 * Thu Jun 14 2018 Ivan Nečas <inecas@redhat.com> 0.13.2-1
 - Update to 0.13.2
 
