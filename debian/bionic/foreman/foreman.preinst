@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -n "${DEBUG}" ] && set -x
+set -e
+
+#DEBHELPER#
+
+exit 0

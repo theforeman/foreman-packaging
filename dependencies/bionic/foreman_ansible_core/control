@@ -1,0 +1,18 @@
+Source: ruby-foreman-ansible-core
+Section: ruby
+Priority: optional
+Maintainer: Ivan Nečas <inecas@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-foreman-ansible-core.git
+#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-foreman-ansible-core.git;a=summary
+Homepage: http://github.com/theforeman/foreman_ansible
+XS-Ruby-Versions: all
+
+Package: ruby-foreman-ansible-core
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake,
+  ruby-foreman-tasks-core (>= 0.1.0), ruby-foreman-tasks-core (<< 1.0.0),
+  ruby-net-scp, ruby-net-ssh
+Description: Foreman ansible - core bits
