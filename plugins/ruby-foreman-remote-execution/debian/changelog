@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (1.5.4-2) stable; urgency=low
+
+  * Fix links to webpack assets
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Tue, 18 Jul 2018 14:45:04 +0300
+
 ruby-foreman-remote-execution (1.5.4-1) stable; urgency=low
 
   * 1.5.4 released
