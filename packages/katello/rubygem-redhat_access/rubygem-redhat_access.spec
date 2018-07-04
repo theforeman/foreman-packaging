@@ -5,7 +5,7 @@
 %global plugin_name redhat_access
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.5
+Version: 2.1.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
@@ -120,6 +120,9 @@ cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildro
 exit 0
 
 %changelog
+* Wed Jul 04 2018 Marek Hulan <mhulan@redhat.com> 2.1.6-1
+- Update to 2.1.6
+
 * Tue Jun 12 2018 Marek Hulan <mhulan@redhat.com> 2.1.5-1
 - Update to 2.1.5
 
