@@ -336,6 +336,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-graphite-api
   rubygem-gssapi
   rubygem-hammer_cli_foreman_admin
+  rubygem-hammer_cli_foreman_ansible
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
   rubygem-hammer_cli_foreman_docker
