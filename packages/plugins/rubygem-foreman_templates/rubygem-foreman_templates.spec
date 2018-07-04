@@ -8,8 +8,8 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.1
-Release:    2%{?foremandist}%{?dist}
+Version:    6.0.2
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jul 04 2018 Marek Hulan <mhulan@redhat.com> 6.0.2-1
+- Update to 6.0.2
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.0.1-2
 - Regenerate spec file based on the current template
 
