@@ -1,0 +1,4 @@
+the_foreman_proxmox.rb             usr/share/foreman/bundler.d
+cache                              usr/share/foreman/vendor
+the_foreman_proxmox                var/lib/foreman/public/assets
+apipie-cache/the_foreman_proxmox   var/lib/foreman/public/apipie-cache/plugin
