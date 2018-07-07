@@ -8,5 +8,7 @@ Homepage: https://github.com/puppetlabs/puppet-strings
 
 Package: puppet-agent-puppet-strings
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent, puppet-agent-yard (>= 0.9.5), puppet-agent-yard (<< 1.0.0)
+Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent,
+  puppet-agent-yard (>= 0.9.5), puppet-agent-yard (<< 1.0.0),
+  puppet-agent-rgen
 Description: Puppet documentation via YARD
