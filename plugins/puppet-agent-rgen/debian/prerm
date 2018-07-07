@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# see: dh_installdeb(1)
+
+if [ ! -z "${DEBUG}" ]; then
+  set -x
+else
+  set -e
+fi
+
+. /usr/share/debconf/confmodule
+
+# if this script aborts with an error dpkg can
+# hang if daemons have been started
+trap db_stop EXIT
+
+/opt/puppetlabs/puppet/bin/gem uninstall -x -v 0.8.2 rgen >/dev/null
+
+#DEBHELPER#
+
+exit 0
