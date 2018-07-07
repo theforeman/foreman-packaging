@@ -1,3 +1,9 @@
+puppet-agent-puppet-strings (1.2.1-1) stable; urgency=low
+
+  * Update puppet-agent-puppet-strings to 1.2.1
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 07 Jul 2018 14:22:01 +0200
+
 puppet-agent-puppet-strings (1.0.0-1) stable; urgency=low
 
   * Initial release
