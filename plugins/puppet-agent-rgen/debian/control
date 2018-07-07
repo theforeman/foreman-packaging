@@ -1,0 +1,12 @@
+Source: puppet-agent-rgen
+Section: admin
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.3
+Homepage: http://rgenoc.org/
+
+Package: puppet-agent-rgen
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, puppet-agent
+Description: RGen is a framework for Model Driven Software Development (MDSD) in Ruby.
