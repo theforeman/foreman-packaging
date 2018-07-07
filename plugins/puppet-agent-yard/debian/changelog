@@ -1,3 +1,9 @@
+puppet-agent-yard (0.9.14-1) stable; urgency=low
+
+  * Update to 0.9.14
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 07 Jul 2017 14:18:19 +0200
+
 puppet-agent-yard (0.9.5-1) stable; urgency=low
 
   * Initial release
