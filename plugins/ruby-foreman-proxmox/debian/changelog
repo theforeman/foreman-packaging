@@ -1,4 +1,16 @@
-ruby-foreman-proxmox (0.0.1) unstable; urgency=low
+ruby-foreman-proxmox (0.3.3-1) stable; urgency=low
+
+  * 0.3.3 released
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Mon, 09 Jul 2018 13:56:54 +0200
+
+ruby-foreman-proxmox (0.3.2-1) unstable; urgency=low
+
+  * 0.3.2 release: adds uglifier dependency and packaging fixes.
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Mon, 09 Jul 2018 09:38:22 +0200
+
+ruby-foreman-proxmox (0.3.1-1) unstable; urgency=low
 
   * Initial Release.
 
