@@ -8,8 +8,8 @@
 
 Summary:    Foreman Plug-in for Proxmox
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    10.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    0.3.3
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/tristanrobert/foreman_proxmox
@@ -21,13 +21,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.4.0
-Requires: %{?scl_prefix}rubygem(fog-proxmox) < 0.5
+Requires: %{?scl_prefix}rubygem(uglifier) >= 4.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.4.0
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 0.5
+BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -108,5 +108,7 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
-* Fri Jul 6 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.0.1
+* Mon Jul 9 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.3-1
+- fixes dependencies
+* Fri Jul 6 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.1-1
 - Initial version
