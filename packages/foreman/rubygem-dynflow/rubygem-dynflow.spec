@@ -5,7 +5,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.5
+Version: 1.1.0
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Mon Jul 09 2018 Adam Ruzicka <aruzicka@redhat.com> 1.1.0-1
+- Update to 1.1.0
+
 * Wed Jun 13 2018 Adam Ruzicka <aruzicka@redhat.com> 1.0.5-1
 - Update to 1.0.5
 
