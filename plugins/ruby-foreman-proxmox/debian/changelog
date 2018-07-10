@@ -1,4 +1,10 @@
-ruby-foreman-proxmox (0.3.3-1) stable; urgency=low
+ruby-foreman-proxmox (0.3.4-1) stable; urgency=low
+
+  * 0.3.4 released
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Tue, 10 Jul 2018 14:55:03 +0200
+
+ruby-foreman-proxmox (0.3.3-1) unstable; urgency=low
 
   * 0.3.3 released
 
