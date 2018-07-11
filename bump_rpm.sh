@@ -68,7 +68,7 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
 		if [[ -n $TEMPLATE ]] ; then
 			echo "* Updating requirements"
-			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $ROOT/update-requirements - $SPEC_FILE specfile
+			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $ROOT/update-requirements specfile - $SPEC_FILE
 			git add $SPEC_FILE
 		fi
 
