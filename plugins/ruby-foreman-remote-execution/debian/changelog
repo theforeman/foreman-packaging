@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (1.5.4-1) stable; urgency=low
+
+  * 1.5.4 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 12 Jul 2018 14:23:07 +0200
+
 ruby-foreman-remote-execution (1.5.3-2) stable; urgency=low
 
   * add precompiled webpack assets
