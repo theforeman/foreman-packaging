@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Proxmox
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.4
+Version:    0.3.5
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -106,6 +106,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Jul 12 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.5-1
+- fixes assets
 * Tue Jul 10 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.4-1
 - remove uglifier
 * Mon Jul 9 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.3-1
