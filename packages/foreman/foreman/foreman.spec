@@ -15,14 +15,14 @@
 
 Name:   foreman
 Version: 1.18.0
-Release: 1%{?dotalphatag}%{?dist}
+Release: 2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
 License: GPLv3+ with exceptions
-URL: http://theforeman.org
-Source0: http://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
-Source1: %{name}.init
+URL: https://theforeman.org
+Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source1: %{name}.service
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
@@ -54,9 +54,7 @@ Requires(post): chkconfig
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): chkconfig
-Requires(preun): initscripts
 Requires(preun): systemd-units
-Requires(postun): initscripts
 
 # Subpackages
 Requires: %{name}-debug
@@ -962,7 +960,6 @@ plugins required for Foreman to work.
   for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
 %endif
@@ -1016,7 +1013,7 @@ install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{exe
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
-install -Dp -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
@@ -1193,13 +1190,11 @@ rm -rf %{buildroot}
 %attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
 %{_datadir}/%{name}/tmp
 %{_datadir}/%{name}/VERSION
-%{_initrddir}/%{name}
 %{_sbindir}/%{name}-rake
 %{_sbindir}/%{name}-tail
 %{_mandir}/man8
 %config(noreplace) %{_sysconfdir}/%{name}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config %{_sysconfdir}/cron.d/%{name}
 %{_sysconfdir}/rpm/macros.%{name}
@@ -1214,6 +1209,8 @@ rm -rf %{buildroot}
 %{_tmpfilesdir}/%{name}.conf
 
 # Service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%{_unitdir}/%{name}.service
 %{_sbindir}/%{executor_service_name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
 %{_unitdir}/%{executor_service_name}.service
@@ -1274,6 +1271,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jul 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.18.0-2
+- Remove initscripts in favor of systemd
+
 * Thu Jul 12 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.0-1
 - Release 1.18.0
 

@@ -1,0 +1,17 @@
+[Unit]
+Description=Foreman
+Documentation=https://theforeman.org
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+User=foreman
+TimeoutSec=300
+WorkingDirectory=/usr/share/foreman
+ExecStart=/usr/bin/scl enable tfm "rails server -e $FOREMAN_ENV -p $FOREMAN_PORT"
+Environment=FOREMAN_ENV=production FOREMAN_PORT=3000
+EnvironmentFile=-/etc/sysconfig/foreman
+
+[Install]
+WantedBy=multi-user.target
+Alias=foreman-tasks.service
