@@ -513,8 +513,8 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.4
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
@@ -529,7 +529,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
 # start specfile fog Requires
-Requires: %{?scl_prefix}rubygem(fog) = 1.42.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.42.1
 # end specfile fog Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
