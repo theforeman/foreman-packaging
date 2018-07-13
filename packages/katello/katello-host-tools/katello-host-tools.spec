@@ -14,7 +14,7 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.1
+Version: 3.3.2
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -356,6 +356,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Fri Jul 13 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-1
+- Fixes #24214 - fill in vars on repo URLs (cduryee@redhat.com)
+
 * Thu Jun 28 2018 Jonathon Turel <jturel@gmail.com> - 3.3.1-1
 - fixes #24081 - Fix errata install of extra packages.
 - fixes #24006 - support plugin reload when queue not found.
