@@ -2,17 +2,17 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name the_foreman_proxmox
-%global plugin_name proxmox
+%global gem_name foreman_fog_proxmox
+%global plugin_name foreman_fog_proxmox
 %global foreman_min_version 1.17.0
 
-Summary:    Foreman Plug-in for Proxmox
+Summary:    Foreman Plug-in for fog-proxmox
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.5
+Version:    0.4.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
-URL:        https://github.com/tristanrobert/foreman_proxmox
+URL:        https://github.com/tristanrobert/foreman_fog_proxmox
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
@@ -34,7 +34,7 @@ Provides: foreman-plugin-%{plugin_name}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Foreman Plug-in for Proxmox.
+Foreman Plug-in adding Proxmox VE compute ressource via fog-proxmox gem.
 
 
 %package doc
@@ -106,6 +106,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Jul 13 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.4.0-1
+- rename plugin
 * Thu Jul 12 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.5-1
 - fixes assets
 * Tue Jul 10 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.3.4-1
