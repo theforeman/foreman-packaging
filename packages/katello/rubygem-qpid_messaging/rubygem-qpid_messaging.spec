@@ -7,13 +7,14 @@
 Summary: Ruby bindings for the Qpid messaging framework
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: %{qpid_version}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: ASL 2.0
 URL:     https://qpid.apache.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: qpid-cpp-client
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
@@ -70,6 +71,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 %license %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Jul 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.36.0-2
+- rebuilt
+
 * Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 1.36.0-1
 - new package built with tito
 
