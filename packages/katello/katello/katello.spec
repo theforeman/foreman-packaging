@@ -3,10 +3,11 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
+%global release 1.nightly
 
 Name:       katello
-Version:    3.8.0
-Release:    4.nightly%{?dist}
+Version:    3.9.0
+Release:    %{?prever:0.}%{release}%{?prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -202,6 +203,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
+- Bump to 3.9
+
 * Wed Jun 27 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.0-4.nightly
 - rebuilt
 

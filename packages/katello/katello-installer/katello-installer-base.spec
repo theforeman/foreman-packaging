@@ -3,10 +3,11 @@
 %global scl_ruby /usr/bin/ruby
 
 # %%global prever .rc1
+%global release 1.nightly
 
 Name:    katello-installer-base
-Version: 3.8.0
-Release: 1.nightly%{?prever}%{?dist}
+Version: 3.9.0
+Release: %{?prever:0.}%{release}%{?prever}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
 License: GPLv3+ and ASL 2.0
@@ -117,3 +118,6 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
+- Bump to 3.9
+
