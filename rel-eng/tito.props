@@ -15,7 +15,7 @@ tag_suffix = .fm1_19
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.19-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -143,7 +143,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.19-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-activerecord-session_store
@@ -276,7 +276,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.19-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -363,7 +363,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.19-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-insights-client
   nodejs-react-json-tree
@@ -401,7 +401,7 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
-[katello-nightly-rhel7]
+[katello-3.8-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -432,23 +432,23 @@ whitelist = katello
   rubygem-robotex
   rubygem-runcible
 
-[katello-nightly-rhel6]
+[katello-3.8-rhel6]
 disttag = .el6
 whitelist = katello-host-tools
   katello-repos
 
-[katello-nightly-rhel5]
+[katello-3.8-rhel5]
 disttag = .el5
 whitelist = katello-host-tools
   katello-repos
   python-rhsm
   subscription-manager
 
-[katello-nightly-fedora27]
+[katello-3.8-fedora27]
 disttag = .fc27
 whitelist = katello-repos katello-host-tools
 
-[katello-nightly-fedora28]
+[katello-3.8-fedora28]
 disttag = .fc28
 whitelist = katello-repos katello-host-tools
 

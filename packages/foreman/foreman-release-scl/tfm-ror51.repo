@@ -1,6 +1,6 @@
 [tfm-ror51]
 name=Rails 5.1 SCL
-baseurl=https://yum.theforeman.org/rails/foreman-nightly/el7/$basearch
+baseurl=https://yum.theforeman.org/rails/foreman-1.19/el7/$basearch
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
