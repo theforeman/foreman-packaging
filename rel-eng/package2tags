@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+from collections import defaultdict
+from configparser import ConfigParser
+
+parser = ConfigParser()
+with open('tito.props') as fp:
+    parser.readfp(fp)
+
+packages = defaultdict(list)
+
+for tag, section in parser.items():
+    for package in section.get('whitelist', '').split():
+        packages[package].append(tag)
+
+for package, tags in sorted(packages.items()):
+    if len(tags) > 1:
+        print('{}: {}'.format(package, ', '.join(tags)))

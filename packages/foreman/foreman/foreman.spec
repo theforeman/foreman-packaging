@@ -14,7 +14,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.19.0
+Version: 1.20.0
 Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -1263,6 +1263,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
+- Bump version to 1.20-develop
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
 - Bump version to 1.19-develop
 
