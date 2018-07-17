@@ -5,7 +5,7 @@
 %global plugin_name katello
 %global gem_name katello
 # %%global prever .rc1
-%global mainver 3.8.0
+%global mainver 3.9.0
 %global release 1.nightly
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -340,5 +340,8 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
+- Bump to 3.9
+
 * Wed Jun 6 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-1.nightly
 - Switch Katello to 3.8
