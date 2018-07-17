@@ -1,3 +1,9 @@
+ruby-foreman-ansible (2.1.0-1) stable; urgency=low
+
+  * 2.1.0 released
+
+ -- Daniel Lobato Garcia <me@daniellobato.me>  Thu, 08 Mar 2018 10:36:08 +0100
+
 ruby-foreman-ansible (2.0.1-1) stable; urgency=low
 
   * 2.0.1 released
