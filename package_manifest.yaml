@@ -415,8 +415,6 @@ plugins_packages:
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
-    rubygem-azure-core: {}
-    rubygem-azure: {}
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chef-api: {}
@@ -428,7 +426,6 @@ plugins_packages:
     rubygem-docker-api: {}
     rubygem-faraday_middleware: {}
     rubygem-ffi: {}
-    rubygem-fog-azure: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
