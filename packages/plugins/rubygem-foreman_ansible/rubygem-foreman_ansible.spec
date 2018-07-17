@@ -6,7 +6,7 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.1
+Version: 2.2.3
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
@@ -24,6 +24,8 @@ Requires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
 Requires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.4.4
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
+Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -34,6 +36,8 @@ BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.4.4
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: npm(react-json-tree) >= 0.1.1
 BuildRequires: npm(react-json-tree) < 1.0
 BuildRequires: foreman-plugin >= 1.17.0
@@ -107,6 +111,12 @@ exit 0
 
 
 %changelog
+* Fri Jul 13 2018 Marek Hulan <mhulan@redhat.com> 2.2.3-1
+- Update to 2.2.3
+
+* Thu Jul 12 2018 Marek Hulan <mhulan@redhat.com> 2.2.2-1
+- Update to 2.2.2
+
 * Wed Jul 04 2018 Marek Hulan <mhulan@redhat.com> 2.2.1-1
 - Update to 2.2.1
 
