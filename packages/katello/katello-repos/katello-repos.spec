@@ -16,9 +16,11 @@
 %define repo_dist %{dist}
 %endif
 
+%global prerelease .rc1
+
 Name:           katello-repos
 Version:        3.8.0
-Release:        2.nightly%{?dist}
+Release:        2%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -109,6 +111,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Jul 17 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-2.rc1
+- RC1
+
 * Wed Jun 27 2018 Jonathon Turel <jturel@gmail.com> 3.8.0-2.nightly
 - remove gofer-copr.repo
 
