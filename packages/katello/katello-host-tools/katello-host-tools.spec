@@ -15,7 +15,7 @@
 
 Name: katello-host-tools
 Version: 3.3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -77,6 +77,8 @@ Requires: python-pulp-agent-lib >= 2.6
 Requires: pulp-rpm-handlers >= 2.6
 %else
 Requires: gofer >= 2.12.1
+Obsoletes: python-pulp-agent-lib < 3.0
+Obsoletes: pulp-rpm-handlers < 3.0
 %endif
 
 %if %{dnf_install}
@@ -356,6 +358,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Tue Jul 17 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-2
+- Fix obsoletes
+
 * Fri Jul 13 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-1
 - Fixes #24214 - fill in vars on repo URLs (cduryee@redhat.com)
 
