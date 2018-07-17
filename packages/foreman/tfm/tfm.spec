@@ -70,6 +70,8 @@ Obsoletes: %{scl_prefix}rubygem-dalli < 2.6.4-4
 Obsoletes: %{scl_prefix}rubygem-ejs < 1.1.1-4
 Obsoletes: %{scl_prefix}rubygem-flot-rails < 0.0.3-8
 Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
+Obsoletes: %{scl_prefix}rubygem-foreman_abrt < 0.0.7-3
+Obsoletes: %{scl_prefix}rubygem-foreman_azure < 1.3.1-2
 Obsoletes: %{scl_prefix}rubygem-foreman_param_lookup < 0.3.0-3
 Obsoletes: %{scl_prefix}rubygem-foreman_reserve < 0.1.8.3-6
 Obsoletes: %{scl_prefix}rubygem-foreman_snapshot < 0.1.0-5
@@ -89,6 +91,7 @@ Obsoletes: %{scl_prefix}rubygem-rails-observers < 0.1.2-8
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
 Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
 Obsoletes: %{scl_prefix}rubygem-select2-rails < 3.5.10-3
+Obsoletes: %{scl_prefix}rubygem-smart_proxy_abrt < 0.0.8-4
 Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
 Obsoletes: %{scl_prefix}rubygem-table_print < 1.5.1-7

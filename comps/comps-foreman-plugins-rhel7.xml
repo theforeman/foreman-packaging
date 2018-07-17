@@ -27,7 +27,6 @@
       <packagereq type="default">rubygem-ruby-hmac</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">rubygem-sequel</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_abrt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42</packagereq>
@@ -64,10 +63,8 @@
       <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_abrt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_azure</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit</packagereq>
@@ -154,7 +151,6 @@
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-sequel-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_abrt-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42-doc</packagereq>
@@ -187,10 +183,8 @@
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>

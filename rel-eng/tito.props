@@ -294,10 +294,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-faraday_middleware
   rubygem-ffi
   rubygem-fog-azure
-  rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
-  rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
@@ -386,7 +384,6 @@ whitelist = ansiblerole-insights-client
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
-  rubygem-smart_proxy_abrt
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_dhcp_device42
