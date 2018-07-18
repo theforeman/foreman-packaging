@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prever .rc1
+%global prever .rc2
 %global mainver 3.7.0
 %global release 1
 
@@ -12,7 +12,7 @@ Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
 
 Version: %{mainver}%{?prever}
-Release: %{?prever:0.}%{release}%{?prever}%{?dist}
+Release: %{?prever:0.}%{release}%{?dist}
 Group:   Applications/Systems
 License: GPLv2
 URL:     https://theforeman.org/plugins/katello
@@ -237,5 +237,8 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0.rc2-0.1
+- Rev for 3.7 RC2
+
 * Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
 - Rev for 3.7 RC1
