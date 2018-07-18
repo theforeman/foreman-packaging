@@ -323,7 +323,7 @@ katello_packages:
     katello: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer:
+    katello-installer-base:
       releasers:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
