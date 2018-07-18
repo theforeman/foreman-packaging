@@ -3,11 +3,11 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prever .rc1
+%global prever .rc2
 
 Name:       katello
 Version:    3.7.0
-Release:    3%{prever}%{?dist}
+Release:    1%{prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -205,6 +205,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Jul 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc2
+- Rev for 3.7 RC2
+
 * Wed Jun 20 2018 Chris Roberts <chrobert@redhat> - 3.7.0-3.rc1
 - Reverted rh-mongodb34-syspaths due to MongoDB 2.6 dependency error
 
