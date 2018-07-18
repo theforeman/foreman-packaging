@@ -1,12 +1,13 @@
 Name:     foreman-release-scl
 Version:  4
-Release:  2%{?dist}
+Release:  3%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
 License:  GPLv3+
-URL:      http://theforeman.org
+URL:      https://theforeman.org
 Source0:  tfm-ror51.repo
+Source1:  copr.gpg
 
 BuildArch: noarch
 
@@ -25,10 +26,16 @@ install -d -m 0755 %{buildroot}%{_sysconfdir}/yum.repos.d
 
 install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
 
+install -Dpm0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
+
 %files
 %config %{_sysconfdir}/yum.repos.d/*.repo
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Wed Jul 18 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4-3
+- Enable GPG checks
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4-2
 - Point to yum.theforeman.org for tfm-ror51
 
