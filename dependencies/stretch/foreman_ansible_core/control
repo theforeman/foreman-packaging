@@ -14,5 +14,6 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake,
   ruby-foreman-tasks-core (>= 0.1.0), ruby-foreman-tasks-core (<< 1.0.0),
-  ruby-net-scp, ruby-net-ssh
+  ruby-foreman-remote-execution-core (>= 1.1.0), ruby-foreman-remote-execution-core (<< 2.0.0),
+  ruby-net-ssh
 Description: Foreman ansible - core bits
