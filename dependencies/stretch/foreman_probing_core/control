@@ -1,0 +1,17 @@
+Source: ruby-foreman_probing_core
+Section: ruby
+Priority: optional
+Maintainer: Adam Růžička <aruzicka@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-foreman-probing-core.git
+#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-foreman-probing-core.git;a=summary
+Homepage: http://github.com/adamruzicka/foreman-probing
+XS-Ruby-Versions: all
+
+Package: ruby-foreman_probing_core
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake, nmap,
+	ruby-foreman-tasks-core (>= 0), ruby-formean-tasks-core (<< 1.0.0)
+Description: Foreman probing - core bits
