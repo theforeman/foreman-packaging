@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 1.nightly
+%global release 2.nightly
 
 Name:       katello
 Version:    3.9.0
@@ -203,6 +203,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Jul 19 2018 Chris Roberts <chrobert@redhat.com> - 3.9.0-2.nightly
+- Updated katello-debug to remove qpid resource mgr command
+
 * Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
 - Bump to 3.9
 
