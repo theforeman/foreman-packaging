@@ -584,6 +584,7 @@ plugin_scl_packages:
     rubygem-foreman_one: {}
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing_core: {}
+    rubygem-foreman_probing: {}
     rubygem-foreman_remote_execution: {}
     rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
