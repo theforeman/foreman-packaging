@@ -1,6 +1,6 @@
-foreman-installer (1.19.0-1) stable; urgency=low
+foreman-installer (1.20.0-1) stable; urgency=low
 
-  * Bump changelog to 1.19.0 to match VERSION
+  * Bump changelog to 1.20.0 to match VERSION
 
  -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 17 Jul 2018 18:26:17 +0200
 
