@@ -4,7 +4,7 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
@@ -81,6 +81,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Thu Jul 19 2018 Marek Hulan <mhulan@redhat.com> 2.1.1-1
+- Update to 2.1.1
+
 * Fri Jun 15 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.1.0-1
 - Update to 2.1.0
 
