@@ -1,0 +1,14 @@
+Source: ruby-rprogram
+Section: ruby
+Priority: optional
+Maintainer: Adam Růžička <aruzicka@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+Homepage: https://github.com/postmodern/rprogram
+XS-Ruby-Versions: all
+
+Package: ruby-rprogram
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: Ruby library for creating wrappers around command-line programs

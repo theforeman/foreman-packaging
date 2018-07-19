@@ -1,0 +1,5 @@
+ruby-rprogram (0.3.2-1) stable; urgency=low
+
+  * Initial release for Debian/stretch
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 19 Jul 2018 12:08:13 +0200
