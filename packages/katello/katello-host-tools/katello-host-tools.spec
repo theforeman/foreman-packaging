@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.2
-Release: 2%{?dist}
+Version: 3.3.3
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -358,6 +358,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Fri Jul 20 2018 Jonathon Turel <jturel@gmail.com> - 3.3.3-1
+- Fixes #24270: Handle server errors
+
 * Tue Jul 17 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-2
 - Fix obsoletes
 
