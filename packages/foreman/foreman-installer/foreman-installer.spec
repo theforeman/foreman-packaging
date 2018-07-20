@@ -1,12 +1,12 @@
 # set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global alphatag RC1
+%global dotalphatag .%{alphatag}
+%global dashalphatag -%{alphatag}
 
 Name:       foreman-installer
 Epoch:      1
 Version:    1.19.0
-Release:    0.develop%{?dotalphatag}%{?dist}
+Release:    0.1%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
@@ -75,6 +75,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Jul 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-0.1.RC1
+- Release 1.19.0-RC1
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.19.0-0.develop
 - Bump version to 1.19-develop
 

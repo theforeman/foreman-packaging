@@ -9,13 +9,13 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global alphatag RC1
+%global dotalphatag .%{alphatag}
+%global dashalphatag -%{alphatag}
 
 Name:   foreman
 Version: 1.19.0
-Release: 0.develop%{?dotalphatag}%{?dist}
+Release: 0.1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -1263,6 +1263,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Jul 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-0.1.RC1
+- Release 1.19.0-RC1
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
 - Bump version to 1.19-develop
 
