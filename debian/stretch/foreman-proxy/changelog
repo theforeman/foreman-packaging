@@ -1,3 +1,9 @@
+foreman-proxy (1.19.0~rc1-1) stable; urgency=low
+
+  * Release 1.19.0-RC1
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Fri, 20 Jul 2018 14:01:24 +0200
+
 foreman-proxy (1.19.0-1) stable; urgency=low
 
   * Bump changelog to 1.19.0 to match VERSION
