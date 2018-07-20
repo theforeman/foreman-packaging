@@ -1,108 +1,124 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_salt
+%global plugin_name salt
+%global foreman_min_version 1.17.0
 
-Summary:    Plugin for Salt integration with Foreman
+Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.0.0
+Version:    10.1.0
 Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_salt
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.14.0
-Requires:   %{?scl_prefix}rubygem(deface)
-
+# start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem-foreman-tasks >= 0.8.0
-Requires: %{?scl_prefix}rubygem-foreman-tasks < 1.0.0
-
-BuildRequires: foreman-plugin >= 1.14.0
-BuildRequires: foreman-assets
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface) < 2.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem-foreman-tasks >= 0.8.0
-BuildRequires: %{?scl_prefix}rubygem-foreman-tasks < 1.0.0
-
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-salt
+Provides: foreman-plugin-%{plugin_name}
+# end generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
-Foreman extensions that provide Salt support
+Foreman Plug-in for Salt.
+
 
 %package doc
 BuildArch:  noarch
+Group:      Documentation
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary:    Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
-%posttrans
-# We need to run the db:migrate after the install transaction
-/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
-/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
-%{foreman_apipie_cache}
-(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
-exit 0
-
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
-%{gem_instdir}/db
-%{gem_instdir}/lib
 %{gem_instdir}/config
-%{gem_instdir}/public
+%{gem_instdir}/db
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
 %{foreman_bundlerd_plugin}
-%foreman_apipie_cache_foreman
+%{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
-
-%exclude %{gem_instdir}/test
-%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/test
+
+%posttrans
+%{foreman_db_migrate}
+%{foreman_db_seed}
+%{foreman_apipie_cache}
+%{foreman_restart}
+exit 0
 
 %changelog
+* Fri Jul 20 2018 Greg Sutcliffe <greg.sutcliffe@gmail.com> 10.1.0-1
+- Update to 10.1.0
+
+* Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 10.0.0-2
+- Regenerate spec file based on the current template
+
+* Tue May 08 2018 Michael Moll <kvedulv@kvedulv.de> 10.0.0-1
+- update foreman_salt to 10.0.0 (kvedulv@kvedulv.de)
+
 * Wed Dec 13 2017 Daniel Lobato Garcia <me@daniellobato.me> 9.0.0-1
 - update foreman_salt to 9.0.0 (kvedulv@kvedulv.de)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
