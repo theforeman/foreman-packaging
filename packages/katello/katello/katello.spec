@@ -3,11 +3,12 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 2.nightly
+# %%global prerelease .rc1
+%global release 3
 
 Name:       katello
 Version:    3.9.0
-Release:    %{?prever:0.}%{release}%{?prever}%{?dist}
+Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -203,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-3
+- Add prerelease macro support
+
 * Thu Jul 19 2018 Chris Roberts <chrobert@redhat.com> - 3.9.0-2.nightly
 - Updated katello-debug to remove qpid resource mgr command
 

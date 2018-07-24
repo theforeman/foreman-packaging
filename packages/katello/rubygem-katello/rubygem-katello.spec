@@ -4,19 +4,19 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-# %%global prever .rc1
+# %%global prerelease .rc1
 %global mainver 3.9.0
-%global release 1.nightly
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
 
 Version: %{mainver}
-Release: %{?prever:0.}%{release}%{?prever}%{?dist}
+Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Group:   Applications/Systems
 License: GPLv2
 URL:     https://theforeman.org/plugins/katello
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prever}.gem
+Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: katello-selinux
 Requires: foreman-postgresql
@@ -284,7 +284,7 @@ This package can be used to rebuild the assets for %{pkg_name}.
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%setup -q -D -T -n  %{gem_name}-%{version}
+%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -340,6 +340,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
+- Add prerelease macro support
+
 * Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
 - Bump to 3.9
 
