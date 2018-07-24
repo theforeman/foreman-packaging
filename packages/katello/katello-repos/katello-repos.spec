@@ -16,12 +16,12 @@
 %define repo_dist %{dist}
 %endif
 
-# %%global prever .rc1
-%global release 1.nightly
+# %%global prerelease .rc1
+%global release 2
 
 Name:           katello-repos
 Version:        3.9.0
-Release:        %{?prever:0.}%{release}%{?prever}%{?dist}
+Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -112,6 +112,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
+- Add prerelease macro support
+
 * Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
 - Bump
 
