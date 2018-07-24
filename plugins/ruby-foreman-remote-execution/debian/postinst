@@ -53,7 +53,7 @@ fi
 
 PLUGIN_ROOT=`$BUNDLE show $PLUGIN`
 mkdir -p $PLUGIN_ROOT/public
-ln -s /var/lib/foreman/public/webpack/ $PLUGIN_ROOT/public/webpack
+ln -snf /var/lib/foreman/public/webpack/ $PLUGIN_ROOT/public/webpack
 
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
