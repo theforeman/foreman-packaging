@@ -19,7 +19,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        1%{?prever}%{?dist}
+Release:        2%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -110,6 +110,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-2
+- Enable gpgcheck
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
 - Rev for 3.7 GA
 
