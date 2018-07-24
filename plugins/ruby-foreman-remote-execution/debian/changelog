@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (1.5.4-3) stable; urgency=low
+
+  * Change webpack link creation to use -nf
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Tue, 24 Jul 2018 10:29:05 +0300
+
 ruby-foreman-remote-execution (1.5.4-2) stable; urgency=low
 
   * Fix links to webpack assets
