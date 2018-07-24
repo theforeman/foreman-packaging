@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prever .rc2
+#%%global prever .rc2
 %global mainver 3.7.0
 %global release 1
 
@@ -237,6 +237,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
+- Rev for 3.7 GA
+
 * Mon Jul 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0.rc2-0.1
 - Rev for 3.7 RC2
 

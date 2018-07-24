@@ -1,6 +1,6 @@
 %global pulp_release stable
 %global pulp_version 2.16
-%global prever .rc2
+#%%global prever .rc2
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -19,7 +19,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        1%{prever}%{?dist}
+Release:        1%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -110,6 +110,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
+- Rev for 3.7 GA
+
 * Mon Jul 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc2
 - Rev for 3.7 RC2
 
