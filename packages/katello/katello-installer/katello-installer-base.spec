@@ -2,7 +2,7 @@
 %undefine scl_prefix
 %global scl_ruby /usr/bin/ruby
 
-%global prever .rc2
+#%%global prever .rc2
 
 Name:    katello-installer-base
 Version: 3.7.0
@@ -117,7 +117,10 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
-* Mon Jun 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc2
+* Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
+- Rev for 3.7 GA
+
+* Mon Jul 16 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc2
 - Rev for 3.7 RC2
 
 * Mon Jun 11 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1.rc1
