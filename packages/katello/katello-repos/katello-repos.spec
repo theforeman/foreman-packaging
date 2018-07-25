@@ -16,8 +16,8 @@
 %define repo_dist %{dist}
 %endif
 
-# %%global prerelease .rc1
-%global release 2
+%global prerelease .nightly
+%global release 3
 
 Name:           katello-repos
 Version:        3.9.0
@@ -112,6 +112,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.3.nightly
+- Add nightly back to release
+
 * Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
 - Add prerelease macro support
 
