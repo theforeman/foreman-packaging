@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    3.9.0
@@ -63,8 +63,6 @@ Requires: java-openjdk < 1:1.8.0.45
 Requires: /usr/bin/psql
 Requires: /usr/bin/pg_dump
 Requires: /usr/bin/pg_dumpall
-
-Obsoletes: python-gofer-qpid < 2.8
 
 %description
 Provides a package for managing application life-cycle for Linux systems.
@@ -206,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.9.0-5
+- Obsolete the python-gofer-qpid obsolete
+
 * Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.9.0-4
 - Obsolete python-gofer-qpid
 
