@@ -83,17 +83,10 @@ class ForemanSourceStrategy(SourceStrategy):
             new_line = "Source%s: %s\n" % (i, base_name)
             replacements.append((source_regex, new_line))
 
-        # Replace version in spec:
-        version_regex = re.compile("^(version:\s*)(.+)$", re.IGNORECASE)
-        self.version = self._get_version()
-        print("Building version: %s" % self.version)
-        replacements.append((version_regex, "Version: %s\n" % self.version))
-        self.replace_in_spec(replacements)
-
         rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
         self.release = rel_date + gitrev
         print("Building release: %s" % self.release)
-        run_command("sed -i '/^Release:/ s/%%/.%s%%/' %s" % (self.release, self.spec_file))
+        run_command("sed -i '/^Release:/ s/%%/0.%s.%%/' %s" % (self.release, self.spec_file))
 
     """
     Downloads the source files from Jenkins, from a job that produces them as

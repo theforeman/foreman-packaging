@@ -1,17 +1,15 @@
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global release 1
+%global prerelease develop
 
 Name:       foreman-installer
 Epoch:      1
 Version:    1.20.0
-Release:    0.develop%{?dotalphatag}%{?dist}
+Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
 URL:        https://theforeman.org
-Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
 BuildArch:  noarch
 
@@ -33,7 +31,7 @@ BuildRequires: puppet-agent-puppet-strings < 2
 Complete installer for The Foreman life-cycle management system based on Puppet.
 
 %prep
-%setup -q -n %{name}-%{version}%{?dashalphatag}
+%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 #replace shebangs for SCL
@@ -75,6 +73,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.20.0-0.1.develop
+- Add prerelease macro
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.20.0-0.develop
 - Bump version to 1.20-develop
 
