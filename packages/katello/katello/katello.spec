@@ -7,7 +7,7 @@
 
 Name:       katello
 Version:    3.7.0
-Release:    2%{?prever}%{?dist}
+Release:    3%{?prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -62,6 +62,8 @@ Requires: java-openjdk < 1:1.8.0.45
 Requires: /usr/bin/psql
 Requires: /usr/bin/pg_dump
 Requires: /usr/bin/pg_dumpall
+
+Obsoletes: python-gofer-qpid < 2.8
 
 %description
 Provides a package for managing application life-cycle for Linux systems.
@@ -204,6 +206,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.7.0-3
+- Obsolete python-gofer-qpid
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-2
 - remove python-gofer-qpid dep
 
