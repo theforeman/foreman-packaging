@@ -4,20 +4,18 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global release 1
+%global prerelease develop
 
 Name:           foreman-proxy
 Version:        1.20.0
-Release:        0.develop%{?dotalphatag}%{?dist}
+Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://theforeman.org/projects/smart-proxy
-Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{prerelease}.tar.bz2
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
 
@@ -54,7 +52,7 @@ Manages DNS, DHCP, TFTP and puppet settings though HTTP Restful API
 Mainly used by the foreman project (https://theforeman.org)
 
 %prep
-%setup -q -n %{name}-%{version}%{?dashalphatag}
+%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 #build man pages
@@ -191,6 +189,9 @@ fi
 
 
 %changelog
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.1.develop
+- Add prerelease macro
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
 - Bump version to 1.20-develop
 

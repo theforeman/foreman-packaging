@@ -30,20 +30,18 @@
 
 %define moduletype apps
 
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global release 1
+%global prerelease develop
 
 Name:           foreman-selinux
 Version:        1.20.0
-Release:        0.develop%{?dotalphatag}%{?dist}
+Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
 License:        GPLv3+
 URL:            https://theforeman.org
-Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
 BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
 BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
@@ -60,7 +58,7 @@ Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
 SELinux policy module for Foreman
 
 %prep
-%setup -q -n %{name}-%{version}%{?dashalphatag}
+%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 # determine distribution name and version
@@ -175,6 +173,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.1.develop
+- Add prerelease macro
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
 - Bump version to 1.20-develop
 
