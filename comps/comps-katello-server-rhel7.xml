@@ -26,6 +26,7 @@
       <packagereq type="default">katello-service</packagereq>
       <packagereq type="default">katello-utils</packagereq>
       <packagereq type="default">python-gofer</packagereq>
+      <packagereq type="default">python-gofer-qpid</packagereq>
       <packagereq type="default">pulp-katello</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
