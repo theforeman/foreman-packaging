@@ -75,8 +75,6 @@ cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-%foreman_bundlerd_file
-
 %files
 %dir %{gem_instdir}
 %{_bindir}/console
