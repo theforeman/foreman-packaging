@@ -1,15 +1,9 @@
-# FIXME:
-#   1. Edit foreman requirement(s) and specify minimum version
-#   2. Delete these lines
-#
-# Generated from foreman_fog_proxmox-0.4.0.gem by gem2rpm -*- rpm-spec -*-
-# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
-%global foreman_min_version FIXME
+%global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
