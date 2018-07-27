@@ -294,6 +294,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-faraday_middleware
   rubygem-ffi
   rubygem-fog-azure
+  rubygem-fog-proxmox
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
