@@ -280,8 +280,6 @@ scl = tfm
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
-  rubygem-azure
-  rubygem-azure-core
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
@@ -298,7 +296,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
-  rubygem-foreman_azure
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_cockpit
@@ -388,7 +385,6 @@ whitelist = ansiblerole-insights-client
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
-  rubygem-smart_proxy_abrt
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_dhcp_device42

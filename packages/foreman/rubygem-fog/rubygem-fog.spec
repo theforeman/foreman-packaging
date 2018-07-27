@@ -6,7 +6,7 @@
 Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.42.0
+Version: 1.42.1
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -199,6 +199,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Thu Jul 12 2018 Ivan Nečas <inecas@redhat.com> 1.42.1-1
+- Update to 1.42.1
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.42.0-1
 - Update fog to 1.42 (oprazak@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

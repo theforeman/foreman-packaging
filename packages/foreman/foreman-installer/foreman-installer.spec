@@ -5,7 +5,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.19.0
+Version:    1.20.0
 Release:    0.develop%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -75,6 +75,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.20.0-0.develop
+- Bump version to 1.20-develop
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.19.0-0.develop
 - Bump version to 1.19-develop
 

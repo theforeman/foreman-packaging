@@ -16,9 +16,12 @@
 %define repo_dist %{dist}
 %endif
 
+%global prerelease .nightly
+%global release 3
+
 Name:           katello-repos
-Version:        3.8.0
-Release:        2.nightly%{?dist}
+Version:        3.9.0
+Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -109,6 +112,15 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.3.nightly
+- Add nightly back to release
+
+* Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
+- Add prerelease macro support
+
+* Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
+- Bump
+
 * Wed Jun 27 2018 Jonathon Turel <jturel@gmail.com> 3.8.0-2.nightly
 - remove gofer-copr.repo
 

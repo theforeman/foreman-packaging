@@ -82,7 +82,6 @@ fi
 add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-q"
 add_cmd "qpid-stat -u --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-u"
 add_cmd "qpid-stat -c --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-c"
-add_cmd "qpid-stat --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt  -b amqps://localhost:5671 -q resource_manager" "qpid-stat-resource_manager"
 add_cmd "ps -awfux" "ps-awfux"
 add_cmd "ps -efLm" "ps-elfm"
 

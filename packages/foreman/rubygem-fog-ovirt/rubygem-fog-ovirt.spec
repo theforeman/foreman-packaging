@@ -4,7 +4,7 @@
 %global gem_name fog-ovirt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.4
+Version: 1.1.1
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
@@ -14,11 +14,11 @@ Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.45
-Requires: %{?scl_prefix}rubygem(fog-core) < 2
+Requires: %{?scl_prefix}rubygem(fog-core)
+Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(fog-json)
-Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.1
-Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
+Requires: %{?scl_prefix}rubygem(fog-xml)
+Requires: %{?scl_prefix}rubygem(fog-xml)
 Requires: %{?scl_prefix}rubygem(ovirt-engine-sdk) >= 4.1.3
 Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2
@@ -92,6 +92,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Thu Jul 12 2018 Ivan Nečas <inecas@redhat.com> 1.1.1-1
+- Update to 1.1.1
+
 * Thu Jun 14 2018 Ori Rabin <orrabin@gmail.com> 1.0.4-1
 - Update to 1.0.4
 

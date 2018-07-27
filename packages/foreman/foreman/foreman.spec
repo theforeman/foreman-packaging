@@ -14,7 +14,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.19.0
+Version: 1.20.0
 Release: 0.develop%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -22,7 +22,7 @@ Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
-Source1: %{name}.init
+Source1: %{name}.service
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
@@ -54,9 +54,7 @@ Requires(post): chkconfig
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): chkconfig
-Requires(preun): initscripts
 Requires(preun): systemd-units
-Requires(postun): initscripts
 
 # Subpackages
 Requires: %{name}-debug
@@ -255,7 +253,7 @@ BuildRequires: systemd
 #BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
-BuildRequires: npm(babel-core) >= 6.26.0
+BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-eslint) >= 6.1.2
 #BuildRequires: npm(babel-eslint) < 7.0.0
@@ -263,7 +261,7 @@ BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-jest) < 16.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
-BuildRequires: npm(babel-plugin-lodash) >= 3.3.2
+BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
@@ -271,7 +269,7 @@ BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.6.1
+BuildRequires: npm(babel-preset-env) >= 1.7.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
@@ -325,14 +323,14 @@ BuildRequires: npm(sass-loader) >= 6.0.6
 BuildRequires: npm(sass-loader) < 6.1.0
 BuildRequires: npm(style-loader) >= 0.13.1
 BuildRequires: npm(style-loader) < 1.0.0
-#BuildRequires: npm(stylelint) >= 7.13.0
-#BuildRequires: npm(stylelint) < 8.0.0
-#BuildRequires: npm(stylelint-config-standard) >= 16.0.0
-#BuildRequires: npm(stylelint-config-standard) < 17.0.0
+#BuildRequires: npm(stylelint) >= 9.3.0
+#BuildRequires: npm(stylelint) < 10.0.0
+#BuildRequires: npm(stylelint-config-standard) >= 18.0.0
+#BuildRequires: npm(stylelint-config-standard) < 19.0.0
 BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
 BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
-BuildRequires: npm(url-loader) >= 0.5.7
-BuildRequires: npm(url-loader) < 1.0.0
+BuildRequires: npm(url-loader) >= 1.0.1
+BuildRequires: npm(url-loader) < 2.0.0
 BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
 #BuildRequires: npm(webpack-dev-server) >= 2.5.1
@@ -368,7 +366,7 @@ BuildRequires: npm(jquery.cookie) >= 1.4.1
 BuildRequires: npm(jquery.cookie) < 1.5.0
 BuildRequires: npm(jstz) >= 1.0.7
 BuildRequires: npm(jstz) < 1.1.0
-BuildRequires: npm(lodash) >= 4.15.0
+BuildRequires: npm(lodash) >= 4.17.10
 BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
@@ -513,8 +511,8 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.0.4
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.1.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
@@ -529,7 +527,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary: Foreman compute resource Fog dependencies
 Group:  Applications/System
 # start specfile fog Requires
-Requires: %{?scl_prefix}rubygem(fog) = 1.42.0
+Requires: %{?scl_prefix}rubygem(fog) = 1.42.1
 # end specfile fog Requires
 Requires: %{name} = %{version}-%{release}
 Obsoletes: foreman-compute < 1.8.0
@@ -579,7 +577,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.3.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
@@ -632,7 +630,7 @@ Requires: libuv
 #Requires: npm(axios-mock-adapter) < 2.0.0
 Requires: npm(babel-cli) >= 6.10.1
 Requires: npm(babel-cli) < 7.0.0
-Requires: npm(babel-core) >= 6.26.0
+Requires: npm(babel-core) >= 6.26.3
 Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-eslint) >= 6.1.2
 #Requires: npm(babel-eslint) < 7.0.0
@@ -640,7 +638,7 @@ Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-jest) < 16.0.0
 Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-loader) < 8.0.0
-Requires: npm(babel-plugin-lodash) >= 3.3.2
+Requires: npm(babel-plugin-lodash) >= 3.3.4
 Requires: npm(babel-plugin-lodash) < 4.0.0
 Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
@@ -648,7 +646,7 @@ Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-assign) < 7.0.0
 Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
 Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-Requires: npm(babel-preset-env) >= 1.6.1
+Requires: npm(babel-preset-env) >= 1.7.0
 Requires: npm(babel-preset-env) < 2.0.0
 Requires: npm(babel-preset-react) >= 6.5.0
 Requires: npm(babel-preset-react) < 7.0.0
@@ -702,14 +700,14 @@ Requires: npm(sass-loader) >= 6.0.6
 Requires: npm(sass-loader) < 6.1.0
 Requires: npm(style-loader) >= 0.13.1
 Requires: npm(style-loader) < 1.0.0
-#Requires: npm(stylelint) >= 7.13.0
-#Requires: npm(stylelint) < 8.0.0
-#Requires: npm(stylelint-config-standard) >= 16.0.0
-#Requires: npm(stylelint-config-standard) < 17.0.0
+#Requires: npm(stylelint) >= 9.3.0
+#Requires: npm(stylelint) < 10.0.0
+#Requires: npm(stylelint-config-standard) >= 18.0.0
+#Requires: npm(stylelint-config-standard) < 19.0.0
 Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
 Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
-Requires: npm(url-loader) >= 0.5.7
-Requires: npm(url-loader) < 1.0.0
+Requires: npm(url-loader) >= 1.0.1
+Requires: npm(url-loader) < 2.0.0
 Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
 #Requires: npm(webpack-dev-server) >= 2.5.1
@@ -745,7 +743,7 @@ Requires: npm(jquery.cookie) >= 1.4.1
 Requires: npm(jquery.cookie) < 1.5.0
 Requires: npm(jstz) >= 1.0.7
 Requires: npm(jstz) < 1.1.0
-Requires: npm(lodash) >= 4.15.0
+Requires: npm(lodash) >= 4.17.10
 Requires: npm(lodash) < 5.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
@@ -953,7 +951,6 @@ plugins required for Foreman to work.
   for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
-  sed -ri '1,$sX/usr/bin/rubyX%{scl_ruby_bin}X' %{SOURCE1}
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
 %endif
@@ -1007,7 +1004,7 @@ install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{exe
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
-install -Dp -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
@@ -1185,13 +1182,11 @@ rm -rf %{buildroot}
 %attr(700,%{name},%{name}) %{_datadir}/%{name}/.ssh
 %{_datadir}/%{name}/tmp
 %{_datadir}/%{name}/VERSION
-%{_initrddir}/%{name}
 %{_sbindir}/%{name}-rake
 %{_sbindir}/%{name}-tail
 %{_mandir}/man8
 %config(noreplace) %{_sysconfdir}/%{name}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config %{_sysconfdir}/cron.d/%{name}
 %{_sysconfdir}/rpm/macros.%{name}
@@ -1206,6 +1201,8 @@ rm -rf %{buildroot}
 %{_tmpfilesdir}/%{name}.conf
 
 # Service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%{_unitdir}/%{name}.service
 %{_sbindir}/%{executor_service_name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
 %{_unitdir}/%{executor_service_name}.service
@@ -1266,6 +1263,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
+- Bump version to 1.20-develop
+
 * Thu May 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.develop
 - Bump version to 1.19-develop
 

@@ -14,7 +14,7 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.0
+Version: 3.3.4
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -70,17 +70,21 @@ Group:      Development/Languages
 
 Conflicts: pulp-consumer-client
 
-%if 0%{?rhel} == 5
-Requires: gofer >= 2.5
-%else
-Requires: gofer >= 2.7.6
-%endif
-
-Requires: python-gofer-proton >= 2.5
-
 %if %{legacy_agent}
+Requires: gofer >= 2.11.5
+Requires: gofer < 2.12
 Requires: python-pulp-agent-lib >= 2.6
 Requires: pulp-rpm-handlers >= 2.6
+%else
+Requires: gofer >= 2.12.1
+Obsoletes: python-pulp-agent-lib < 3.0
+Obsoletes: pulp-rpm-handlers < 3.0
+%endif
+
+%if %{dnf_install}
+Requires: python3-gofer-proton
+%else
+Requires: python-gofer-proton >= 2.5
 %endif
 
 Requires: subscription-manager
@@ -229,6 +233,10 @@ rm -rf %{buildroot}
 
 %if %{build_agent}
 %post -n katello-agent
+%if %{dnf_install}
+sed 's/bin\/python/bin\/python3/' /etc/sysconfig/goferd -i
+%endif
+
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
   systemctl enable goferd
   /bin/systemctl start goferd > /dev/null 2>&1 || :
@@ -350,6 +358,22 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Jul 23 2018 Jonathon Turel <jturel@gmail.com> - 3.3.4-1
+- Fixes #24353 - handle update all packages
+
+* Fri Jul 20 2018 Jonathon Turel <jturel@gmail.com> - 3.3.3-1
+- Fixes #24270: Handle server errors
+
+* Tue Jul 17 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-2
+- Fix obsoletes
+
+* Fri Jul 13 2018 Jonathon Turel <jturel@gmail.com> - 3.3.2-1
+- Fixes #24214 - fill in vars on repo URLs (cduryee@redhat.com)
+
+* Thu Jun 28 2018 Jonathon Turel <jturel@gmail.com> - 3.3.1-1
+- fixes #24081 - Fix errata install of extra packages.
+- fixes #24006 - support plugin reload when queue not found.
+
 * Fri May 25 2018 Jonathon Turel <jturel@gmail.com> - 3.3.0-1
 - Fixes #23459 - Restore legacy goferd plugin
 - Remove yum plugin dep, dead code, fix lint

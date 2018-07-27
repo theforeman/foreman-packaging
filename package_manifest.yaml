@@ -11,6 +11,7 @@ foreman_packages:
     package_base_dir: 'packages/foreman/'
     releasers:
     - koji-foreman
+    nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -25,25 +26,29 @@ foreman_packages:
   hosts:
     foreman:
       releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_develop"
     foreman-bootloaders-redhat: {}
     foreman-installer:
       releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=packaging_trigger_installer_develop"
     foreman-proxy:
       releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_proxy_develop"
     foreman-release-scl: {}
     foreman-selinux:
       releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=packaging_trigger_selinux_develop"
     nodejs-axios: {}
     nodejs-babel-cli: {}
@@ -200,14 +205,10 @@ foreman_packages:
     rubygem-google-api-client: {}
     rubygem-gridster-rails: {}
     rubygem-hammer_cli:
-      releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli"
     rubygem-hammer_cli_foreman:
-      releasers:
-        - koji-foreman-jenkins
-      build_package_tito_releaser_args:
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli_foreman"
     rubygem-hashie: {}
     rubygem-highline: {}
@@ -302,6 +303,7 @@ katello_packages:
     package_base_dir: 'packages/katello/'
     releasers:
     - koji-katello
+    nightly_releaser: koji-katello-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -321,10 +323,11 @@ katello_packages:
     katello: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer:
+    katello-installer-base:
       releasers:
-        - koji-katello-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=katello-installer-nightly-release"
     katello-selinux: {}
     nodejs-bootstrap-select: {}
@@ -340,11 +343,14 @@ katello_packages:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello: {}
+    rubygem-hammer_cli_katello:
+      nightly_package_tito_releaser_args:
+        - "--arg jenkins_job=hammer-cli-katello-nightly-release"
     rubygem-katello:
       releasers:
-        - koji-katello-jenkins
-      build_package_tito_releaser_args:
+        - "{{ nightly_releaser }}"
+      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
+      nightly_package_tito_releaser_args:
         - "--arg jenkins_job=rubygem-katello-nightly-release"
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
@@ -398,6 +404,7 @@ plugins_packages:
     package_base_dir: 'packages/plugins/'
     releasers:
     - koji-foreman-plugins
+    nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -415,8 +422,6 @@ plugins_packages:
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
-    rubygem-azure-core: {}
-    rubygem-azure: {}
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chef-api: {}
@@ -432,10 +437,8 @@ plugins_packages:
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
-    rubygem-foreman_abrt: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_ansible_core: {}
-    rubygem-foreman_azure: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
     rubygem-foreman_cockpit: {}
@@ -508,7 +511,6 @@ plugins_packages:
     rubygem-ruby-hmac: {}
     rubygem-safe_yaml: {}
     rubygem-satyr: {}
-    rubygem-smart_proxy_abrt: {}
     rubygem-smart_proxy_ansible: {}
     rubygem-smart_proxy_chef: {}
     rubygem-smart_proxy_dhcp_infoblox: {}

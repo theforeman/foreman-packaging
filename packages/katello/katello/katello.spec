@@ -3,10 +3,12 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
+# %%global prerelease .rc1
+%global release 5
 
 Name:       katello
-Version:    3.8.0
-Release:    4.nightly%{?dist}
+Version:    3.9.0
+Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -202,6 +204,21 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.9.0-5
+- Obsolete the python-gofer-qpid obsolete
+
+* Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.9.0-4
+- Obsolete python-gofer-qpid
+
+* Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-3
+- Add prerelease macro support
+
+* Thu Jul 19 2018 Chris Roberts <chrobert@redhat.com> - 3.9.0-2.nightly
+- Updated katello-debug to remove qpid resource mgr command
+
+* Wed Jul 18 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-1.nightly
+- Bump to 3.9
+
 * Wed Jun 27 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.0-4.nightly
 - rebuilt
 

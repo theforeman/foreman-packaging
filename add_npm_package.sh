@@ -53,7 +53,7 @@ generate_npm_package() {
   echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec ${VERSION}-1
   echo "FINISHED"
   echo -n "Copying sources..."
-  cp npm2rpm/SOURCES/* $PACKAGE_DIR
+  cp -r npm2rpm/SOURCES/* $PACKAGE_DIR
   echo "FINISHED"
   rm -r npm2rpm
 
