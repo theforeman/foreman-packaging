@@ -19,7 +19,7 @@
 
 Name:           katello-repos
 Version:        3.7.0
-Release:        2%{?prever}%{?dist}
+Release:        3%{?prever}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -27,7 +27,7 @@ License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
 Source1:        katello-client.repo
-Source2:        RPM-GPG-KEY-katello-2015
+Source2:        RPM-GPG-KEY-katello-3.7
 Source3:        qpid-copr.repo
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -110,6 +110,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Fri Jul 27 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-3
+- Add 3.7 GPG key
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-2
 - Enable gpgcheck
 
