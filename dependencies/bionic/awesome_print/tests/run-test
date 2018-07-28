@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+QUILT_PATCHES=debian/patches quilt push -a || true
+gem2deb-test-runner --check-dependencies --autopkgtest 2>&1
+QUILT_PATCHES=debian/patches quilt pop -a || true

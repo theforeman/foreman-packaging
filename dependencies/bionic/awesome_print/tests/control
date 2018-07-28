@@ -1,0 +1,3 @@
+Tests: run-test
+Depends: @, gem2deb-test-runner, rake, ruby-rspec, ruby-nokogiri, ruby-activesupport
+Restrictions: allow-stderr

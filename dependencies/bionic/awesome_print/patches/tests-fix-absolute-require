@@ -1,0 +1,21 @@
+Description: Fix absolute require of libary in tests
+ Tests can't rely on the library in the lib/ dir in the source package,
+ instead they must test the installed copy.
+Author: Christian Hofstaedtler <zeha@debian.org>
+Origin: Debian
+Forwarded: no
+Last-Update: 2015-09-10
+
+Index: ruby-awesome-print/spec/misc_spec.rb
+===================================================================
+--- ruby-awesome-print.orig/spec/misc_spec.rb
++++ ruby-awesome-print/spec/misc_spec.rb
+@@ -45,7 +45,7 @@ RSpec.describe 'AwesomePrint' do
+ 
+     # Require different file name this time (lib/ap.rb vs. lib/awesome_print).
+     it "several require 'awesome_print' should do no harm" do
+-      require File.expand_path(File.dirname(__FILE__) + '/../lib/ap')
++      require 'ap'
+       expect { rand.ai }.not_to raise_error
+     end
+ 
