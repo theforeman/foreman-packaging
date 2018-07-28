@@ -6,7 +6,8 @@ Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 9.20160709), bundler (>= 1.3), ruby2.5-dev, git | git-core,
                zlib1g-dev, default-libmysqlclient-dev, libpq-dev, pkg-config, libvirt-dev,
                libsqlite3-dev, build-essential, curl, nodejs (>= 8.9),
-               python, libsystemd-dev, libcurl4-openssl-dev, libxml2-dev, tzdata
+               python, libsystemd-dev, libcurl4-openssl-dev, libxml2-dev, tzdata,
+               libfontconfig1, libfreetype6
 Homepage: http://www.theforeman.org/
 
 Package: foreman
@@ -183,7 +184,7 @@ Package: foreman-assets
 Architecture: any
 Section: web
 Priority: extra
-Depends: foreman (= ${binary:Version}), nodejs (>= 8.9), ${misc:Depends}
+Depends: foreman (= ${binary:Version}), nodejs (>= 8.9), libfontconfig1, libfreetype6, ${misc:Depends}
 Description: metapackage providing Rails asset dependencies for Foreman
  This package provides asset dependencies for Foreman, a
  flexible systems management web application.
