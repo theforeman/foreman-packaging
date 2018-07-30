@@ -434,7 +434,6 @@ plugins_packages:
     rubygem-faraday_middleware: {}
     rubygem-ffi: {}
     rubygem-fog-azure: {}
-    rubygem-fog-proxmox: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
