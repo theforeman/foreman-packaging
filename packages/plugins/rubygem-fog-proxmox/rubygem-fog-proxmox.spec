@@ -4,10 +4,12 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name fog-proxmox
+%global plugin_name fog-proxmox
+%global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.0
-Release: 1%{?dist}
+Release: 1%{?foremandist}%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 Group: Applications/Systems
 License: GPL-3.0
@@ -15,6 +17,7 @@ URL: http://github.com/fog/fog-proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -24,11 +27,14 @@ Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
 Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-%{plugin_name}
 # end generated dependencies
 
 %description
@@ -77,6 +83,8 @@ cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
+%foreman_bundlerd_file
+
 %files
 %dir %{gem_instdir}
 %{_bindir}/console
@@ -100,6 +108,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_bundlerd_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -113,6 +122,10 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/examples
 %{gem_instdir}/fog-proxmox.gemspec
 %{gem_instdir}/spec
+
+%posttrans
+%{foreman_restart}
+exit 0
 
 %changelog
 * Mon Jul 30 2018 Tristan Robert <tristan.robert.44@gmail.com> 0.5.0-1
