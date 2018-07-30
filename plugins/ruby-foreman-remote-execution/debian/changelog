@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (1.6.0-1) stable; urgency=low
+
+  * 1.6.0 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Mon, 30 Jul 2018 14:28:42 +0200
+
 ruby-foreman-remote-execution (1.5.4-3) stable; urgency=low
 
   * Change webpack link creation to use -nf
