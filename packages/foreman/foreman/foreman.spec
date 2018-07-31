@@ -36,6 +36,7 @@ Source11: %{executor_service_name}.service
 BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
+Conflicts: foreman-release-scl < 6-1
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
