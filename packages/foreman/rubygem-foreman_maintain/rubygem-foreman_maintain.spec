@@ -8,7 +8,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.5
+Version: 0.2.6
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -89,6 +89,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 31 2018 Ivan Nečas <inecas@redhat.com> 0.2.6-1
+- Update to 0.2.6
+
 * Thu Jul 26 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.2.5-1
 - Update to 0.2.5
 
