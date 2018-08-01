@@ -298,6 +298,45 @@ foreman_packages:
     tfm: {}
     tfm-rubygem-rest-client: {}
 
+foreman_client_packages:
+  vars:
+    package_base_dir: 'packages/client/'
+    releasers:
+    - koji-foreman-client
+    repoclosure_config: repoclosure/yum.conf
+    repoclosure_lookaside_repos:
+      - el7-base
+      - el7-updates
+      - el7-epel
+      - el7-extras
+      - el7-puppet-5
+      - el7-foreman-client-nightly
+      - el6-base
+      - el6-updates
+      - el6-epel
+      - el6-extras
+      - el6-puppet-5
+      - el6-subscription-manager
+      - el6-qpid
+      - el6-foreman-client-nightly
+      - el5-base
+      - el5-updates
+      - el5-epel
+      - el5-extras
+      - el5-puppet-5
+      - el5-subscription-manager
+      - el5-qpid
+      - el5-foreman-client-nightly
+      - f28-base
+      - f28-updates
+      - f28-puppet-5
+      - f28-foreman-client-nightly
+      - f27-base
+      - f27-updates
+      - f27-puppet-5
+      - f27-foreman-client-nightly
+  hosts: {}
+
 katello_packages:
   vars:
     package_base_dir: 'packages/katello/'

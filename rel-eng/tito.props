@@ -401,6 +401,21 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
+[foreman-client-nightly-rhel7]
+disttag = .el7
+
+[foreman-client-nightly-rhel6]
+disttag = .el6
+
+[foreman-client-nightly-rhel5]
+disttag = .el5
+
+[foreman-client-nightly-fedora27]
+disttag = .fc27
+
+[foreman-client-nightly-fedora28]
+disttag = .fc28
+
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
@@ -451,4 +466,3 @@ whitelist = katello-repos katello-host-tools
 [katello-nightly-fedora28]
 disttag = .fc28
 whitelist = katello-repos katello-host-tools
-
