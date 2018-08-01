@@ -20,6 +20,7 @@ disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
+  foreman-release
   foreman-release-scl
   foreman-selinux
   nodejs-axios
