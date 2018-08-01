@@ -8,13 +8,13 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
-Name:   foreman
+Name:    foreman
 Version: 1.20.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
-Summary:Systems Management web application
+Summary: Systems Management web application
 
 Group:  Applications/System
 License: GPLv3+ with exceptions
@@ -25,14 +25,9 @@ Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
-Source6: %{name}.repo
-Source7: %{name}-plugins.repo
-Source8: %{name}.gpg
 Source9: message_encryptor_extensions.rb
 Source10: %{executor_service_name}.sysconfig
 Source11: %{executor_service_name}.service
-Source12: %{name}-rails.repo
-Source13: %{name}-rails.gpg
 BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
@@ -458,21 +453,6 @@ Useful utilities for debug info collection
 %{_sbindir}/%{name}-debug
 %{_datadir}/%{name}/script/%{name}-debug.d
 
-%package release
-Summary:        Foreman repository files
-Group:          Applications/System
-
-
-%description release
-Foreman repository contains open source and other distributable software for
-distributions in RPM format. This package contains the repository configuration
-for Yum.
-
-%files release
-%config %{_sysconfdir}/yum.repos.d/*
-/etc/pki/rpm-gpg/*
-%{_sysconfdir}/rpm/macros.%{name}-dist
-
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
@@ -820,7 +800,7 @@ Meta package to install asset pipeline support.
 Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
-Requires: %{name}-release = %{version}-%{release}
+Requires: %{name}-build = %{version}-%{release}
 Requires: %{name}-sqlite = %{version}-%{release}
 
 %description plugin
@@ -830,6 +810,15 @@ Meta package with support for plugins.
 %{_sysconfdir}/rpm/macros.%{name}-plugin
 %{_datadir}/%{name}/schema_plugin.rb
 
+%package build
+Summary: Foreman package RPM support
+Group: Development/Libraries
+
+%description build
+Meta package with support for building RPMs in the Foreman release cycle.
+
+%files build
+%{_sysconfdir}/rpm/macros.%{name}-dist
 
 %package console
 Summary: Foreman console support
@@ -1010,20 +999,6 @@ install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
-
-install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
-install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
-install -Dpm0644 %{SOURCE12} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-rails.repo
-sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
-if [[ '%{release}' != *"develop"* ]];then
-  VERSION="%{version}"
-  sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
-  # Enable GPG checking on foreman.repo. Plugins is always unsigned and
-  # foreman-rails.repo is checked even in nightly.
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
-fi
-install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
-install -Dpm0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
@@ -1269,6 +1244,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Aug 20 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.4.develop
+- Remove foreman-release as a subpackage
+
 * Mon Aug 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.develop
 - Handle GPG checking after branching
 

@@ -13,6 +13,7 @@
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat-tftpboot</packagereq>
+      <packagereq type="default">foreman-build</packagereq>
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
