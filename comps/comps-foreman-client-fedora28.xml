@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+
+<comps>
+  <!--  <meta> -->
+  <!-- Meta information will go here eventually -->
+  <!--  </meta> -->
+  <group>
+    <id>foreman-client</id>
+    <name>Foreman Client</name>
+    <description>Foreman Client Packages</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+    </packagelist>
+  </group>
+</comps>
