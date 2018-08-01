@@ -1,5 +1,5 @@
-[tfm-ror51]
-name=Rails 5.1 SCL
+[foreman-rails]
+name=Foreman Rails nightly
 baseurl=https://yum.theforeman.org/rails/foreman-nightly/el7/$basearch
 enabled=1
 gpgcheck=1
