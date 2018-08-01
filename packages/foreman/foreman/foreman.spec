@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.19.0
-Release: 0.1%{?dotalphatag}%{?dist}
+Release: 0.2%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -33,9 +33,12 @@ Source8: %{name}.gpg
 Source9: message_encryptor_extensions.rb
 Source10: %{executor_service_name}.sysconfig
 Source11: %{executor_service_name}.service
+Source12: %{name}-rails.repo
+Source13: %{name}-rails.gpg
 BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
+Conflicts: foreman-release-scl < 7-1
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -1012,12 +1015,14 @@ install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
 install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
+install -Dpm0644 %{SOURCE12} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-rails.repo
 sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
 if [[ '%{release}' != *"develop"* ]];then
 	VERSION="%{version}"
 	sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
 fi
 install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
+install -Dpm0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
@@ -1263,6 +1268,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.2.RC1
+- Move foreman-rails repo to foreman-release
+
 * Fri Jul 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-0.1.RC1
 - Release 1.19.0-RC1
 

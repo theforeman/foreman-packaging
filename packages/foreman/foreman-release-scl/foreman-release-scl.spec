@@ -1,12 +1,11 @@
 Name:     foreman-release-scl
-Version:  5
-Release:  2%{?dist}
+Version:  7
+Release:  1%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
 License:  GPLv3+
 URL:      https://theforeman.org
-Source0:  tfm-ror51.repo
 
 BuildArch: noarch
 
@@ -20,15 +19,22 @@ This meta-package depends on those packages that contain the Yum repository
 configuration files required for Foreman.  It's designed for use on Red Hat
 Enterprise Linux rebuilds, such as CentOS.
 
-%install
-install -d -m 0755 %{buildroot}%{_sysconfdir}/yum.repos.d
+%prep
 
-install -m 644 %{SOURCE0} %{buildroot}%{_sysconfdir}/yum.repos.d/
+%build
+
+%install
 
 %files
-%config %{_sysconfdir}/yum.repos.d/*.repo
 
 %changelog
+* Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7-1
+- Move the foreman-rails repository definition from foreman-release-scl to foreman-release
+
+* Wed Jul 18 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6-1
+- Add GPG key
+- Bump version for the new release cycle
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5-2
 - Point to 1.19 repositories
 
