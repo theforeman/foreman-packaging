@@ -39,12 +39,14 @@ class ForemanSourceStrategy(SourceStrategy):
     in git).
     """
     def fetch(self):
-        if "jenkins_job" in self.builder.args:
-            gitrev = self._fetch_jenkins()
+        if "source_files" in self.builder.args:
+            gitrev = self._fetch_prebuilt_local()
         elif "source_dir" in self.builder.args:
             gitrev = self._fetch_local()
+        elif "jenkins_job" in self.builder.args:
+            gitrev = self._fetch_jenkins()
         else:
-            raise Exception("Specify either '--arg jenkins_job=...' or '--arg source_dir=...'")
+            raise Exception("Specify either '--arg jenkins_job=...', '--arg source_dir=...', or '--arg source_files=...[,...]")
 
         # Copy the live spec from our starting location. Unlike most builders,
         # we are not using a copy from a past git commit.
@@ -194,6 +196,18 @@ class ForemanSourceStrategy(SourceStrategy):
         os.chdir(old_dir)
 
         return gitrev
+
+    def _fetch_prebuilt_local(self):
+        source_files = [os.path.expanduser(source_file) for source_file in self.builder.args['source_files']]
+        dest_dir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
+        if not os.path.exists(dest_dir):
+            os.mkdir(dest_dir)
+
+        for src in source_files:
+            debug("Copying %s to %s" % (src, os.path.join(dest_dir, '')))
+            shutil.copy(src, os.path.join(dest_dir, ''))
+
+        return ""
 
     def _get_version(self):
         """
