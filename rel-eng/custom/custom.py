@@ -100,7 +100,7 @@ class ForemanSourceStrategy(SourceStrategy):
     in git).
 
     Takes the following arguments:
-      jenkins_url: base URL of Jenkins ("http://ci.theforeman.org")
+      jenkins_url: base URL of Jenkins ("https://ci.theforeman.org")
       jenkins_job: name of job ("test_develop")
       jenkins_job_id: job number or alias ("123", "lastSuccessfulBuild")
     """
