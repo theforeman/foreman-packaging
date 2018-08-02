@@ -404,7 +404,10 @@ whitelist = ansiblerole-insights-client
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = katello
+# gofer is built in pulp and then tagged in. It's here so this file has a
+# complete list of packages that should be in the tag.
+whitelist = gofer
+  katello
   katello-certs-tools
   katello-client-bootstrap
   katello-host-tools
