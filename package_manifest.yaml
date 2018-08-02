@@ -9,6 +9,10 @@ packages:
 foreman_packages:
   vars:
     package_base_dir: 'packages/foreman/'
+    diff_package_skip: false
+    diff_package_tags:
+      - foreman-nightly-rhel7
+      - foreman-nightly-nonscl-rhel7
     releasers:
     - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -301,6 +305,9 @@ foreman_packages:
 katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
+    diff_package_skip: false
+    diff_package_tags:
+      - katello-nightly-rhel7
     releasers:
     - koji-katello
     nightly_releaser: koji-katello-jenkins
@@ -361,6 +368,13 @@ katello_packages:
 katello_client_packages:
   vars:
     package_base_dir: 'packages/katello/'
+    diff_package_skip: false
+    diff_package_tags:
+      - katello-nightly-rhel7
+      - katello-nightly-rhel6
+      - katello-nightly-rhel5
+      - katello-nightly-fedora27
+      - katello-nightly-fedora28
     releasers:
     - koji-katello-client
     repoclosure_config: repoclosure/yum.conf
@@ -402,6 +416,10 @@ katello_client_packages:
 plugins_packages:
   vars:
     package_base_dir: 'packages/plugins/'
+    diff_package_skip: false
+    diff_package_tags:
+      - foreman-plugins-nightly-rhel7
+      - foreman-plugins-nightly-nonscl-rhel7
     releasers:
     - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
