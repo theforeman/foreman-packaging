@@ -204,8 +204,8 @@ class ForemanSourceStrategy(SourceStrategy):
             os.mkdir(dest_dir)
 
         for src in source_files:
-            debug("Copying %s to %s" % (src, os.path.join(dest_dir, '')))
-            shutil.copy(src, os.path.join(dest_dir, ''))
+            debug("Copying %s to %s" % (src, os.path.join(dest_dir, os.path.basename(src))))
+            shutil.copy(src, os.path.join(dest_dir, os.path.basename(src)))
 
         return ""
 
