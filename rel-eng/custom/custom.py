@@ -207,7 +207,11 @@ class ForemanSourceStrategy(SourceStrategy):
             debug("Copying %s to %s" % (src, os.path.join(dest_dir, os.path.basename(src))))
             shutil.copy(src, os.path.join(dest_dir, os.path.basename(src)))
 
-        return ""
+        gitsha = self.builder.args['git_hash'][0]
+        if gitsha:
+            return "git%s" % gitsha[0:7]
+        else:
+            return ""
 
     def _get_version(self):
         """
