@@ -1,6 +1,6 @@
 [foreman-rails]
-name=Foreman Rails 1.19
-baseurl=https://yum.theforeman.org/rails/foreman-1.19/el7/$basearch
+name=Rails SCL for Foreman 1.19
+baseurl=https://yum.theforeman.org/rails/foreman-1.19/$DIST/$basearch
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails

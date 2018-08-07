@@ -15,7 +15,7 @@
 
 Name:   foreman
 Version: 1.19.0
-Release: 0.2%{?dotalphatag}%{?dist}
+Release: 0.3%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -1268,6 +1268,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Aug 07 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.3.RC1
+- Correct foreman-rails repository configuration
+
 * Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.2.RC1
 - Move foreman-rails repo to foreman-release
 
