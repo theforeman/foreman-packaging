@@ -199,9 +199,9 @@ class ForemanSourceStrategy(SourceStrategy):
 
     def _fetch_prebuilt_local(self):
         source_files = [os.path.expanduser(source_file) for source_file in self.builder.args['source_files']]
-        if self.builder.args['git_hash']:
+        try:
             gitsha = self.builder.args['git_hash'][0]
-        else:
+        except (KeyError, IndexError):
             raise Exception("Specify '--arg git_hash=...' when using '--arg source_files=...[,...]")
         dest_dir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
         if not os.path.exists(dest_dir):
