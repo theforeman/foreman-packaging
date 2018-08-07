@@ -14,8 +14,9 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.17.1
-Release: 2%{?dotalphatag}%{?dist}
+Version: 1.17.3
+Release: 1%{?dotalphatag}%{?dist}
+
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -486,7 +487,7 @@ Meta package to install requirements for libvirt compute resource support.
 %package openstack
 Summary: Foreman OpenStack support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.11
+Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.25
 Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
 Requires: %{name} = %{version}-%{release}
 
@@ -557,7 +558,8 @@ Meta package to install requirements for Rackspace compute resource support.
 %package vmware
 Summary: Foreman VMware support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 1.13.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) < 2.3.0
 Requires: %{name} = %{version}-%{release}
 
 %description vmware
@@ -1182,6 +1184,12 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Aug 09 2018 Ondrej Prazak <oprazak@redhat.com> 1.17.3-1
+- Release 1.17.3 (oprazak@redhat.com)
+
+* Tue Aug 07 2018 Ondrej Prazak <oprazak@redhat.com> 1.17.2-1
+- Release 1.17.2 (oprazak@redhat.com)
+
 * Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.17.1-2
 - Move the foreman-rails repository definition from foreman-release-scl to foreman-release
 
