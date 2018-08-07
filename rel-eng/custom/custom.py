@@ -199,6 +199,10 @@ class ForemanSourceStrategy(SourceStrategy):
 
     def _fetch_prebuilt_local(self):
         source_files = [os.path.expanduser(source_file) for source_file in self.builder.args['source_files']]
+        if self.builder.args['git_hash']:
+            gitsha = self.builder.args['git_hash'][0]
+        else:
+            raise Exception("Specify '--arg git_hash=...' when using '--arg source_files=...[,...]")
         dest_dir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
         if not os.path.exists(dest_dir):
             os.mkdir(dest_dir)
@@ -207,11 +211,7 @@ class ForemanSourceStrategy(SourceStrategy):
             debug("Copying %s to %s" % (src, os.path.join(dest_dir, os.path.basename(src))))
             shutil.copy(src, os.path.join(dest_dir, os.path.basename(src)))
 
-        gitsha = self.builder.args['git_hash'][0]
-        if gitsha:
-            return "git%s" % gitsha[0:7]
-        else:
-            return ""
+        return "git%s" % gitsha[0:7]
 
     def _get_version(self):
         """
