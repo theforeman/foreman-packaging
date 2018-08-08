@@ -9,7 +9,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 # set and uncomment all three to set alpha tag
-%global alphatag RC1
+%global alphatag RC2
 %global dotalphatag .%{alphatag}
 %global dashalphatag -%{alphatag}
 
@@ -1268,6 +1268,10 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Aug 08 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.2.RC2
+- Release 1.19.0-RC2
+- Correct foreman-rails repository configuration
+
 * Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.2.RC1
 - Move foreman-rails repo to foreman-release
 
