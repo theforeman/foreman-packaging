@@ -17,6 +17,7 @@ NPM_BLACKLIST = [
     'react-addons-test-utils',
     'react-test-renderer',
     'redux-mock-store',
+    'webpack-bundle-analyzer',
     'webpack-dev-server',
 ]
 
