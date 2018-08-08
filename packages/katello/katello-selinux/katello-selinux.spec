@@ -37,7 +37,7 @@
 
 Name:           katello-selinux
 Version:        3.0.3
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -64,6 +64,7 @@ SELinux policy module for Katello
 %setup -q -n %{name}-%{version}%{?dashalphatag}
 
 %build
+exit 1
 # determine distribution name and version
 %if 0%{?rhel} >= 6
 %define distver rhel%{rhel}
@@ -127,6 +128,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Wed Aug 08 2018 Evgeni Golov <evgeni@golov.de> 3.0.3-2
+- test
+
 * Thu Jul 27 2017 Justin Sherrill <jsherril@redhat.com> 3.0.3-1
 - Upgrade katello-selinux to 3.0.3 (akofink@redhat.com)
 
