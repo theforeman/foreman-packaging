@@ -6,9 +6,9 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%global scl_ror tfm-ror51
+%global scl_ror tfm-ror52
 %global scl_prefix_ror %{scl_ror}-
-%global scl_ruby rh-ruby24
+%global scl_ruby rh-ruby25
 %global scl_prefix_ruby %{scl_ruby}-
 
 # Do not produce empty debuginfo package.
@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 4.0
-Release: 3%{?dist}
+Version: 5.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -182,6 +182,7 @@ export MANPATH=%{_mandir}:\${MANPATH}
 export CPATH=%{_includedir}\${CPATH:+:\${CPATH}}
 export PKG_CONFIG_PATH=%{_libdir}/pkgconfig\${PKG_CONFIG_PATH:+:\${PKG_CONFIG_PATH}}
 export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ror} -- ruby -e "print Gem.path.join(':')"\`}
+export GEM_HOME="%{gem_dir}"
 EOF
 
 # enable asset compilation collections optionally, only if -runtime-assets is
@@ -290,14 +291,17 @@ selinuxenabled && load_policy || :
 
 %files build
 %license LICENSE
-%{_root_sysconfdir}/rpm/macros.%{scl}-config
 %{_rpmconfigdir}/fileattrs
+%{_root_sysconfdir}/rpm/macros.%{scl}-config
 
 %files scldevel
 %license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Aug 10 2018 Eric D. Helms <ericdhelms@gmail.com> 5.0-1
+- Update to rh-ruby25 and tfm-ror52
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0-3
 - Remove foreman_abrt + smart_proxy_abrt
 - Remove foreman_azure + dependencies
