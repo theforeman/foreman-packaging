@@ -11,6 +11,7 @@ NPM_BLACKLIST = [
     'babel-eslint',
     'babel-jest',
     'coveralls',
+    'highlight.js',
     'jest',
     'jest-cli',
     'prettier',
