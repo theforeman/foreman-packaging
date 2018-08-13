@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:   foreman
@@ -1018,6 +1018,9 @@ sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yu
 if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
   sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
+  # Enable GPG checking on foreman.repo. Plugins is always unsigned and
+  # foreman-rails.repo is checked even in nightly.
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
 fi
 install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 install -Dpm0644 %{SOURCE13} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
@@ -1266,6 +1269,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Aug 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.develop
+- Handle GPG checking after branching
+
 * Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.2.develop
 - Move the foreman-rails repository definition from foreman-release-scl to foreman-release
 
