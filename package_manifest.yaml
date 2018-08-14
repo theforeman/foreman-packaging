@@ -431,6 +431,7 @@ plugins_packages:
     rubygem-deface: {}
     rubygem-diffy: {}
     rubygem-docker-api: {}
+    rubygem-fast_gettext: {}
     rubygem-faraday_middleware: {}
     rubygem-ffi: {}
     rubygem-foreman-tasks-core: {}
