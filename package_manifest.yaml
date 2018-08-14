@@ -159,7 +159,10 @@ foreman_packages:
     rubygem-extlib: {}
     rubygem-facter: {}
     rubygem-faraday: {}
-    rubygem-fast_gettext: {}
+    rubygem-fast_gettext:
+      releasers:
+        - koji-foreman
+        - koji-foreman-plugins
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
     rubygem-fog-digitalocean: {}
