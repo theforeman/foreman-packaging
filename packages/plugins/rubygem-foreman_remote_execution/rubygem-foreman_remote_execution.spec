@@ -31,7 +31,7 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(deface)
 
-BuildRequires: foreman-plugin >= 1.17.0
+BuildRequires: foreman-plugin >= 1.20.0
 BuildRequires: foreman-assets
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
