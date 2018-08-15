@@ -366,6 +366,7 @@ whitelist = rubygem-angular-rails-templates
 [foreman-plugins-1.19-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-insights-client
+  foreman-discovery-image-service
   nodejs-react-json-tree
   puppet-foreman_scap_client
   rubygem-chef-api
