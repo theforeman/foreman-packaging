@@ -4,7 +4,7 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.1
+Version: 2.1.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
@@ -18,8 +18,7 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 1.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) >= 1.1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) < 2.0
-Requires: %{?scl_prefix}rubygem(net-ssh) >= 4.0
-Requires: %{?scl_prefix}rubygem(net-ssh) < 5.0
+Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -81,6 +80,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Wed Aug 15 2018 Sebastian Gräßl <mail@bastilian.me> 2.1.2-1
+- Update to 2.1.2
+
 * Thu Jul 19 2018 Marek Hulan <mhulan@redhat.com> 2.1.1-1
 - Update to 2.1.1
 
@@ -108,4 +110,3 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 * Fri Sep 23 2016 Dominic Cleal <dominic@cleal.org> 0.0.1-1
 - new package built with tito
-
