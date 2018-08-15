@@ -481,6 +481,7 @@ plugins_packages:
       - el7-foreman-plugins-nightly
   hosts:
     ansiblerole-insights-client: {}
+    foreman-discovery-image-service: {}
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
