@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.13.1-1) stable; urgency=low
+
+  * 0.13.1 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 16 Aug 2018 13:50:39 +0200
+
 ruby-hammer-cli (0.13.0-1) stable; urgency=low
 
   * Initial release for Ubuntu/bionic
