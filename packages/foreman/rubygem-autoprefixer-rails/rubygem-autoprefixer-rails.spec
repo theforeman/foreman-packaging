@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Add vendor prefixes to CSS rules using values from caniuse.com
 Group: Development/Languages
 License: MIT
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.1.3-4
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.2.1.3-3
 - Rebuild for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

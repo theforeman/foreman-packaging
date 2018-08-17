@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-3
+- Rebuild for Rails 5.2
+
 * Wed May 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-2
 - Use multi_json from Rails SCL
 

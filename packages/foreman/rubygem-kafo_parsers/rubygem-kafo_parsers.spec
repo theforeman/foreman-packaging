@@ -6,7 +6,7 @@
 Summary: Puppet module parsers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo_parsers
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.6-2
+- Rebuild for Rails 5.2
+
 * Thu Jan 05 2017 Dominic Cleal <dominic@cleal.org> 0.1.6-1
 - Update kafo_parsers to 0.1.6 (ares@users.noreply.github.com)
 

@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:0.2.4-2
+- Rebuild for Rails 5.2
+
 * Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 0.2.4-1
 - Bump concurrent-ruby-edge to 0.2.4 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

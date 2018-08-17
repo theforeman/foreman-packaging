@@ -7,7 +7,7 @@
 Summary: jQuery UI packaged for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/joliss/jquery-ui-rails
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.1.2-7
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.1.2-6
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

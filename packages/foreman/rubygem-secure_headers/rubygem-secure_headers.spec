@@ -6,7 +6,7 @@
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.0.5-2
+- Rebuild for Rails 5.2
+
 * Mon Apr 30 2018 Michael Moll <mmoll@mmoll.at> 5.0.5-1
 - Update secure_headers to 5.0.5
 

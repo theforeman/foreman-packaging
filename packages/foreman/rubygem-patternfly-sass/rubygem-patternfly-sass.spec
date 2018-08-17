@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.37.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.37.0-2
+- Rebuild for Rails 5.2
+
 * Tue Jan 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.37.0-1
 - Bump rubygem-patternfly-sass to 3.37.0 (ewoud@kohlvanwijngaarden.nl)
 

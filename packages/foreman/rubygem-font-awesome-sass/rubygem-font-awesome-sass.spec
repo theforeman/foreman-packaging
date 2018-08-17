@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.6.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Font-Awesome SASS
 Group: Development/Languages
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.6.2-3
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.6.2-2
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

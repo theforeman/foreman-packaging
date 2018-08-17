@@ -8,7 +8,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	3.1.4
-Release:	7%{?dist}
+Release:	8%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
@@ -176,6 +176,9 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.1.4-8
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.4-7
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)

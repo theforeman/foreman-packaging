@@ -6,7 +6,7 @@
 Summary: Use with Net::HTTP to do multipart form posts
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nicksieger/multipart-post
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.txt
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-6
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.0-5
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

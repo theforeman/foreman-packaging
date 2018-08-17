@@ -9,7 +9,7 @@
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.13.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman
@@ -81,6 +81,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.13.2-2
+- Rebuild for Rails 5.2
+
 * Thu Aug 16 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.13.2-1
 - Update to 0.13.2
 

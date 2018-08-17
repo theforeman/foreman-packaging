@@ -6,7 +6,7 @@
 Summary: Launchy is helper class for launching cross-platform applications
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: ISC
 URL: https://github.com/copiousfreetime/launchy
@@ -83,6 +83,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.3-6
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.3-5
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

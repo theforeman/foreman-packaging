@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-2
+- Rebuild for Rails 5.2
+
 * Wed Aug 15 2018 Eric D. Helms <ericdhelms@gmail.com> 1.3.0-1
 - Bump to 1.3.0
 

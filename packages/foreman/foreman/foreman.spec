@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:   foreman
@@ -44,8 +44,8 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 4
-Requires: %{scl}-runtime < 5
+Requires: %{scl}-runtime >= 5
+Requires: %{scl}-runtime < 6
 %endif
 
 Requires: wget
@@ -61,7 +61,7 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
+Requires: %{?scl_prefix_ror}rubygem(rails) = 5.2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
@@ -156,7 +156,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
@@ -230,8 +230,8 @@ BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 4
-BuildRequires: %{scl}-runtime-assets < 5
+BuildRequires: %{scl}-runtime-assets >= 5
+BuildRequires: %{scl}-runtime-assets < 6
 %endif
 BuildRequires: nodejs >= 6.10
 BuildRequires: http-parser
@@ -610,8 +610,8 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 4
-Requires: %{scl}-runtime-assets < 5
+Requires: %{scl}-runtime-assets >= 5
+Requires: %{scl}-runtime-assets < 6
 %endif
 Requires: nodejs >= 6.10
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
@@ -1269,6 +1269,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.4.develop
+- Rebuild for Rails 5.2
+
 * Mon Aug 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.develop
 - Handle GPG checking after branching
 

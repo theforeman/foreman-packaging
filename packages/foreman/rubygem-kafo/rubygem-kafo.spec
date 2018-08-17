@@ -6,7 +6,7 @@
 Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: GPLv3+
 URL: https://github.com/theforeman/kafo
@@ -93,6 +93,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
+- Rebuild for Rails 5.2
+
 * Mon Jan 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
 - Update kafo to 2.1.0 (mhulan@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

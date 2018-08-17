@@ -7,7 +7,7 @@
 Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://seattlerb.rubyforge.org/ruby2ruby/
@@ -92,6 +92,9 @@ sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_sp
 %{gem_docdir}
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
+- Rebuild for Rails 5.2
+
 * Fri Jan 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.0-1
 - Updated rubygem-ruby2ruby to 2.4.0 (dmitri@appliedlogic.ca)
 
