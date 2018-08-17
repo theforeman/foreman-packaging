@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: Apache 2.0
 URL: https://github.com/mdub/clamp
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.2-3
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.2-2
 - Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
 

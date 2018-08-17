@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.11.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/docs
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.4-3
+- Rebuild for Rails 5.2
+
 * Sat Jun 02 2018 Eric D. Helms <ericdhelms@gmail.com> 3.11.4-2
 - Update rubygem-puma spec and rebuild
 

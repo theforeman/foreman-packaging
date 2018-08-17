@@ -7,7 +7,7 @@ Summary: brings clouds to you
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.42.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog
@@ -199,6 +199,9 @@ bin/fog -v
 %{gem_instdir}/fog.gemspec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.42.1-2
+- Rebuild for Rails 5.2
+
 * Thu Jul 12 2018 Ivan Nečas <inecas@redhat.com> 1.42.1-1
 - Update to 1.42.1
 

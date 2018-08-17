@@ -7,7 +7,7 @@ Summary: A mini view framework for console/irb that's easy to use, even while un
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.7.0
-Release: 10%{?dist}
+Release: 11%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://tagaholic.me/hirb/
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_docdir}
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-11
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.0-10
 - More rebuilds for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

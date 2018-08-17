@@ -10,7 +10,7 @@
 Summary:    Ruby/EventMachine library
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.6
-Release:    2%{?dist}
+Release:    3%{?dist}
 Group:      Development/Languages
 License:    GPLv2 or Ruby
 URL:        http://rubyeventmachine.com
@@ -131,6 +131,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.6-3
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.6-2
 - Rebuild packages for Rails 5.1 (ericdhelms@gmail.com)
 

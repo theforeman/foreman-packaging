@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
 License: Ruby or BSD 
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4.2-2
+- Rebuild for Rails 5.2
+
 * Thu May 25 2017 Dominic Cleal <dominic@cleal.org> 0.4.2-1
 - new package built with tito
 

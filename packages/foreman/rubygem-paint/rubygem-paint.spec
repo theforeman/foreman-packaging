@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -64,6 +64,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.8.7-8
+- Rebuild for Rails 5.2
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.7-7
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)

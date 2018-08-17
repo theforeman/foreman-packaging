@@ -3,7 +3,7 @@
 Summary: Puppet documentation via YARD
 Name: rubygem-%{gem_name}
 Version: 0.99.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: System Environment/Base
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppets-strings
@@ -61,6 +61,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.99.0-2
+- Rebuild for Rails 5.2
+
 * Mon Oct 31 2016 Dominic Cleal <dominic@cleal.org> 0.99.0-1
 - Update puppet-strings to 0.99.0 (dominic@cleal.org)
 

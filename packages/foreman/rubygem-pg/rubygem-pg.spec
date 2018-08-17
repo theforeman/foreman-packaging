@@ -7,7 +7,7 @@
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.21.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -115,6 +115,9 @@ done
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.21.0-3
+- Rebuild for Rails 5.2
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.21.0-2
 - Remove tests and rspec from pg (ericdhelms@gmail.com)
 
