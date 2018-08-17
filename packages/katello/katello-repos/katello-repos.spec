@@ -1,5 +1,5 @@
-%global pulp_release stable
-%global pulp_version 2.16
+%global pulp_release beta
+%global pulp_version 2.17
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -17,7 +17,7 @@
 %endif
 
 %global prerelease .nightly
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        3.9.0
@@ -112,6 +112,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Fri Aug 17 2018 Partha Aji <paji@redhat.com> - 3.9.0-0.4.nightly
+- Switch to Pulp 2.17 beta
+
 * Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.3.nightly
 - Add nightly back to release
 
