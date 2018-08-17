@@ -636,6 +636,49 @@ repoclosures:
         - el7-foreman-plugins-nightly
         - el7-katello-pulp-nightly
         - el7-katello-candlepin-nightly
+    foreman-client-repoclosure-el7:
+      repoclosure_config: repoclosure/yum_el7.conf
+      repoclosure_target_repo: el7-foreman-client-nightly
+      repoclosure_lookaside_repos:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-5
+    foreman-client-repoclosure-el6:
+      repoclosure_config: repoclosure/yum_el6.conf
+      repoclosure_target_repo: el6-foreman-client-nightly
+      repoclosure_lookaside_repos:
+        - el6-base
+        - el6-updates
+        - el6-epel
+        - el6-extras
+        - el6-puppet-5
+        - el6-subscription-manager
+        - el6-qpid
+    foreman-client-repoclosure-el5:
+      repoclosure_config: repoclosure/yum_el5.conf
+      repoclosure_target_repo: el5-foreman-client-nightly
+      repoclosure_lookaside_repos:
+        - el5-base
+        - el5-updates
+        - el5-epel
+        - el5-extras
+        - el5-puppet-5
+        - el5-subscription-manager
+        - el5-qpid
+    foreman-client-repoclosure-f28:
+      repoclosure_config: repoclosure/yum_f28.conf
+      repoclosure_target_repo: f28-foreman-client-nightly
+      repoclosure_lookaside_repos:
+        - f28-base
+        - f28-puppet-5
+    foreman-client-repoclosure-f27:
+      repoclosure_config: repoclosure/yum_f27.conf
+      repoclosure_target_repo: f27-foreman-client-nightly
+      repoclosure_lookaside_repos:
+        - f27-base
+        - f27-puppet-5
     katello-client-repoclosure-el7:
       repoclosure_target_repo: el7-katello-client-nightly
       repoclosure_lookaside_repos:
