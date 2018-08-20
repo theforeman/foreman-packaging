@@ -88,7 +88,7 @@ class ForemanSourceStrategy(SourceStrategy):
         rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
         self.release = rel_date + gitrev
         print("Building release: %s" % self.release)
-        run_command("sed -i '/^Release:/ s/ \+/ 0.%s/' %s" % (self.release, self.spec_file))
+        run_command("sed -i '/^Release:/ s/\s\+/ 0.%s/' %s" % (self.release, self.spec_file))
 
     """
     Downloads the source files from Jenkins, from a job that produces them as
