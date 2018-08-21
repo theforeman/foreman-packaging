@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -83,6 +83,7 @@ Obsoletes: %{scl_prefix}rubygem-hirb-unicode < 0.0.5-9
 Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
 Obsoletes: %{scl_prefix}rubygem-ipaddrjs-rails < 1.1.1-2
 Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
+Obsoletes: %{scl_prefix}rubygem-jquery_pwstrength_bootstrap_4 < 1.2.2-5
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
 Obsoletes: %{scl_prefix}rubygem-macaddr < 1.7.1-2
@@ -298,6 +299,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue Aug 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0-4
+- Remove rubygem-jquery_pwstrength_bootstrap_4
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0-3
 - Remove foreman_abrt + smart_proxy_abrt
 - Remove foreman_azure + dependencies
