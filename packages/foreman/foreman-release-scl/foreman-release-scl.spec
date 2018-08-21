@@ -1,6 +1,6 @@
 Name:     foreman-release-scl
 Version:  7
-Release:  1%{?dist}
+Release:  2%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
@@ -9,7 +9,7 @@ URL:      https://theforeman.org
 
 BuildArch: noarch
 
-Requires: centos-release-scl
+Requires: centos-release-scl-rh
 
 %description
 Software Collection repositories provide additional sets of software packages,
@@ -28,6 +28,9 @@ Enterprise Linux rebuilds, such as CentOS.
 %files
 
 %changelog
+* Tue Aug 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7-2
+- Switch dependency to centos-release-scl-rh
+
 * Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7-1
 - Move the foreman-rails repository definition from foreman-release-scl to foreman-release
 

@@ -23,7 +23,6 @@ foreman_packages:
       - el7-epel
       - el7-extras
       - el7-scl
-      - el7-scl-sclo
       - el7-puppet-5
       - el7-foreman-rails-nightly
       - el7-foreman-nightly
@@ -365,7 +364,6 @@ katello_packages:
       - el7-epel
       - el7-extras
       - el7-scl
-      - el7-scl-sclo
       - el7-puppet-5
       - el7-foreman-rails-nightly
       - el7-foreman-nightly
@@ -477,7 +475,6 @@ plugins_packages:
       - el7-epel
       - el7-extras
       - el7-scl
-      - el7-scl-sclo
       - el7-puppet-5
       - el7-foreman-rails-nightly
       - el7-foreman-nightly
@@ -611,7 +608,6 @@ repoclosures:
         - el7-epel
         - el7-extras
         - el7-scl
-        - el7-scl-sclo
         - el7-puppet-5
         - el7-foreman-rails-nightly
     plugins-repoclosure-el7:
@@ -622,7 +618,6 @@ repoclosures:
         - el7-epel
         - el7-extras
         - el7-scl
-        - el7-scl-sclo
         - el7-puppet-5
         - el7-foreman-rails-nightly
         - el7-foreman-nightly
@@ -634,7 +629,6 @@ repoclosures:
         - el7-epel
         - el7-extras
         - el7-scl
-        - el7-scl-sclo
         - el7-puppet-5
         - el7-foreman-rails-nightly
         - el7-foreman-nightly
