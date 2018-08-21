@@ -16,7 +16,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global prerelease .rc2
+%global prerelease .rc3
 
 Name:           katello-repos
 Version:        3.8.0
@@ -111,6 +111,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-2.rc3
+- Release 3.8.0 RC3
+
 * Wed Aug 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-2.rc2
 - Release RC2
 

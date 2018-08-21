@@ -2,7 +2,7 @@
 %undefine scl_prefix
 %global scl_ruby /usr/bin/ruby
 
-%global prerelease .rc2
+%global prerelease .rc3
 
 Name:    katello-installer-base
 Version: 3.8.0
@@ -117,6 +117,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-0.1.rc3
+- Release 3.8.0 RC3
+
 * Wed Aug 08 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-0.1.rc2
 - Release RC2
 
