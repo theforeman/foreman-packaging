@@ -228,7 +228,6 @@ foreman_packages:
     rubygem-journald-native: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
-    rubygem-jquery_pwstrength_bootstrap_4: {}
     rubygem-jwt: {}
     rubygem-kafo: {}
     rubygem-launchy: {}
