@@ -14,7 +14,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.18.1
+Version: 1.18.2
 Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -585,8 +585,8 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.1.1
-Requires: %{?scl_prefix}rubygem(fog-vsphere) < 2.2.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.3.0
+Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1278,6 +1278,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Sep 04 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.2-1
+- Release 1.18.2
+
 * Tue Aug 14 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.1-1
 - Release 1.18.1
 
