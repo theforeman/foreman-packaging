@@ -1281,6 +1281,9 @@ exit 0
 * Tue Sep 04 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.2-1
 - Release 1.18.2
 
+* Thu Aug 23 2018 Chris Roberts <chrobert@redhat.com> - 1.18.1-2
+* Updated fog-vsphere gem to 2.3.0
+
 * Tue Aug 14 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.1-1
 - Release 1.18.1
 
