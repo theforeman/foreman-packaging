@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.2.0-2) stable; urgency=low
+
+  * Move .ssh to /var/lib/foreman-proxy
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 23 Aug 2018 16:36:26 +0200
+
 ruby-smart-proxy-remote-execution-ssh (0.2.0-1) stable; urgency=low
 
   * 0.2.0 released
