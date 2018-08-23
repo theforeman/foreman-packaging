@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (2.0.3-2) stable; urgency=low
+
+  * Fix smart-proxy-dynflow dependency
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 23 May 2018 14:02:37 +0200
+
 ruby-smart-proxy-ansible (2.0.3-1) stable; urgency=low
 
   * 2.0.3 released
