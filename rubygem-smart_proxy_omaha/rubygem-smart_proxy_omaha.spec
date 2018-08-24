@@ -8,8 +8,8 @@
 %global proxy_user foreman-proxy
 
 Name: rubygem-%{gem_name}
-Version: 0.0.4
-Release: 2%{?foremandist}%{?dist}
+Version: 0.0.5
+Release: 1%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mkdir -p %{buildroot}%{content_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Aug 24 2018 Timo Goebel <mail@timogoebel.name> - 0.0.5-1
+- Update smart_proxy_omaha to 0.0.5
+
 * Mon Jun 18 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-2
 - Relax nokogiri dependency
 - Remove EL6 compatibility
