@@ -8,7 +8,7 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
@@ -22,7 +22,6 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.1
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 0.14
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -99,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Aug 27 2018 Timo Goebel <mail@timogoebel.name> - 3.0.1-1
+- Update foreman_wreckingball to 3.0.1
+
 * Wed Jun 13 2018 Ondrej Prazak <oprazak@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
