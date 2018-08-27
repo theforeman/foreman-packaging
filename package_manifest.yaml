@@ -352,7 +352,6 @@ katello_packages:
       - katello-nightly-rhel7
     releasers:
     - koji-katello
-    nightly_releaser: koji-katello-nightly
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
