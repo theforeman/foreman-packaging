@@ -2,12 +2,12 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name qpid_messaging
-%global qpid_version 1.36.0
+%global qpid_version 1.38.0
 
 Summary: Ruby bindings for the Qpid messaging framework
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: %{qpid_version}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: ASL 2.0
 URL:     https://qpid.apache.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -39,20 +39,34 @@ BuildArch: noarch
 %{Summary}.
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/ChangeLog
 %{gem_instdir}/examples
 %doc %{gem_instdir}/TODO
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} "}
-gem install --local --install-dir .%{gem_dir} \
-            --force %{SOURCE0} --no-rdoc --no-ri
-%{?scl:"}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -71,6 +85,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 %license %{gem_instdir}/LICENSE
 
 %changelog
+* Mon Aug 27 2018 Eric D. Helms <ericdhelms@gmail.com> 1.38.0-1
+- Update to qpid 1.38 stack
+
 * Fri Jul 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.36.0-2
 - rebuilt
 
