@@ -6,9 +6,9 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%global scl_ror tfm-ror51
+%global scl_ror tfm-ror52
 %global scl_prefix_ror %{scl_ror}-
-%global scl_ruby rh-ruby24
+%global scl_ruby rh-ruby25
 %global scl_prefix_ruby %{scl_ruby}-
 
 # Do not produce empty debuginfo package.
@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 4.0
-Release: 4%{?dist}
+Version: 5.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -82,8 +82,8 @@ Obsoletes: %{scl_prefix}rubygem-foremancli < 1.0-10
 Obsoletes: %{scl_prefix}rubygem-hirb-unicode < 0.0.5-9
 Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
 Obsoletes: %{scl_prefix}rubygem-ipaddrjs-rails < 1.1.1-2
-Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-jquery_pwstrength_bootstrap_4 < 1.2.2-5
+Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
 Obsoletes: %{scl_prefix}rubygem-macaddr < 1.7.1-2
@@ -183,6 +183,7 @@ export MANPATH=%{_mandir}:\${MANPATH}
 export CPATH=%{_includedir}\${CPATH:+:\${CPATH}}
 export PKG_CONFIG_PATH=%{_libdir}/pkgconfig\${PKG_CONFIG_PATH:+:\${PKG_CONFIG_PATH}}
 export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ror} -- ruby -e "print Gem.path.join(':')"\`}
+export GEM_HOME="%{gem_dir}"
 EOF
 
 # enable asset compilation collections optionally, only if -runtime-assets is
@@ -299,6 +300,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Aug 27 2018 Eric D. Helms <ericdhelms@gmail.com> 5.0-1
+- Update to rh-ruby25 and tfm-ror52
+
 * Tue Aug 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0-4
 - Remove rubygem-jquery_pwstrength_bootstrap_4
 
