@@ -5,7 +5,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.17.3
+Version:    1.17.4
 Release:    1%{?dotalphatag}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -74,6 +74,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Tue Aug 28 2018 Ondrej Prazak <oprazak@redhat.com> 1.17.4-1
+- Release 1.17.4 (oprazak@redhat.com)
+
 * Thu Aug 09 2018 Ondrej Prazak <oprazak@redhat.com> 1.17.3-1
 - Release 1.17.3 (oprazak@redhat.com)
 
