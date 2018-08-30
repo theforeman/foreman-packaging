@@ -2,16 +2,16 @@
 %undefine scl_prefix
 %global scl_ruby /usr/bin/ruby
 
-%global prerelease .rc3
+#%%global prerelease .rc3
 
 Name:    katello-installer-base
 Version: 3.8.0
-Release: 0.1%{?prerelease}%{?dist}
+Release: 1%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
 License: GPLv3+ and ASL 2.0
 URL:     https://theforeman.org/plugins/katello
-Source0: https://fedorapeople.org/groups/katello/releases/source/tarball/katello-installer-%{version}%{prerelease}.tar.gz
+Source0: https://fedorapeople.org/groups/katello/releases/source/tarball/katello-installer-%{version}.tar.gz
 
 BuildArch: noarch
 Obsoletes: katello-installer < 2.1.0
@@ -64,7 +64,7 @@ A set of tools for installation of Katello and Katello Capsule,
 including Foreman and Foreman Proxy.
 
 %prep
-%setup -q -n katello-installer-%{version}%{?prerelease}
+%setup -q -n katello-installer-%{version}
 
 %build
 #replace shebangs
@@ -117,6 +117,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-1
+- Release 3.8.0
+
 * Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-0.1.rc3
 - Release 3.8.0 RC3
 

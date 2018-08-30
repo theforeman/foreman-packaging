@@ -16,11 +16,11 @@
 %define repo_dist %{dist}
 %endif
 
-%global prerelease .rc3
+#%%global prerelease .rc3
 
 Name:           katello-repos
 Version:        3.8.0
-Release:        2%{?prerelease}%{?dist}
+Release:        3%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -111,6 +111,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-3
+- Release 3.8.0
+
 * Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-2.rc3
 - Release 3.8.0 RC3
 
