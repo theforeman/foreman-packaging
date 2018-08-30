@@ -30,14 +30,9 @@
 
 %define moduletype apps
 
-# set and uncomment all three to set alpha tag
-%global alphatag RC3
-%global dotalphatag .%{alphatag}
-%global dashalphatag -%{alphatag}
-
 Name:           foreman-selinux
 Version:        1.19.0
-Release:        0.1%{?dotalphatag}%{?dist}
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
@@ -175,6 +170,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Aug 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-1
+- Release 1.19.0
+
 * Mon Aug 20 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.0-0.1.RC3
 - Release 1.19.0-RC3
 
