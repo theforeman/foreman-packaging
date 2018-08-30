@@ -18,21 +18,13 @@
 
 %define selinux_variants targeted
 %define selinux_modules foreman foreman-proxy
-
-%if 0%{?rhel} == 5
-# absolute minimum versions for RHEL 5
-%define selinux_policy_ver 3.11.1-81
-%else
-# absolute minimum versions for RHEL 6
-%define selinux_policy_ver 2.4.6-80
-%endif
-%define selinux_policycoreutils_ver 1.33.12-1
+%global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
 Name:           foreman-selinux
 Version:        1.19.0
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
@@ -41,7 +33,7 @@ URL:            https://theforeman.org
 Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
 
 BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
-BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
+BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
@@ -170,6 +162,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Sep 05 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.19.0-2
+- Updated selinux_policy_ver macro
+
 * Thu Aug 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-1
 - Release 1.19.0
 
