@@ -4,11 +4,11 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 
-%global prerelease .rc3
+#%%global prerelease .rc3
 
 Name:       katello
 Version:    3.8.0
-Release:    4%{?prerelease}%{?dist}
+Release:    5%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -204,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-5
+- Release 3.8.0
+
 * Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-4.rc3
 - Release 3.8.0 RC3
 

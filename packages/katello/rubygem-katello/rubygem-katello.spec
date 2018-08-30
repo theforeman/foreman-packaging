@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .rc3
+#%%global prerelease .rc3
 %global mainver 3.8.0
 %global release 1
 
@@ -340,6 +340,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-1
+- Release 3.8.0
+
 * Tue Aug 21 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-0.1.rc3
 - Release 3.8.0 RC3
 
