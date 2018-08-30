@@ -8,14 +8,9 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-# set and uncomment all three to set alpha tag
-%global alphatag RC3
-%global dotalphatag .%{alphatag}
-%global dashalphatag -%{alphatag}
-
 Name:   foreman
 Version: 1.19.0
-Release: 0.3%{?dotalphatag}%{?dist}
+Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
 Group:  Applications/System
@@ -1268,6 +1263,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Aug 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-1
+- Release 1.19.0
+
 * Wed Aug 22 2018 Tomer Brisker <tbrisker@gmail.com> - 1.19.0-0.3.RC3
 - Rebuild 1.19.0-RC3
 - Disable foreman-plugins GPG checking
