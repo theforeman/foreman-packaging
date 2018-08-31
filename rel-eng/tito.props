@@ -404,18 +404,23 @@ whitelist = ansiblerole-insights-client
 
 [foreman-client-nightly-rhel7]
 disttag = .el7
+whitelist = foreman-client-release
 
 [foreman-client-nightly-rhel6]
 disttag = .el6
+whitelist = foreman-client-release
 
 [foreman-client-nightly-rhel5]
 disttag = .el5
+whitelist = foreman-client-release
 
 [foreman-client-nightly-fedora27]
 disttag = .fc27
+whitelist = foreman-client-release
 
 [foreman-client-nightly-fedora28]
 disttag = .fc28
+whitelist = foreman-client-release
 
 [katello-nightly-rhel7]
 disttag = .el7
