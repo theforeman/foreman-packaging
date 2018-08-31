@@ -11,6 +11,7 @@
     <description>Foreman Client Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">foreman-client-release</packagereq>
     </packagelist>
   </group>
 </comps>
