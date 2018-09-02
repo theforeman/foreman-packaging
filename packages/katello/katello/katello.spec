@@ -8,7 +8,7 @@
 
 Name:       katello
 Version:    3.8.0
-Release:    5%{?prerelease}%{?dist}
+Release:    6%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -204,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Sun Sep 02 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-6
+- Use foreman-maintain instead of katello-service in debug
+
 * Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-5
 - Release 3.8.0
 
