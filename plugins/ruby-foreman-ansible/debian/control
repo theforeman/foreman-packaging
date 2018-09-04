@@ -13,6 +13,7 @@ Package: ruby-foreman-ansible
 Architecture: all
 Depends: ${misc:Depends}, bundler, foreman (>= 1.18.0~rc1),
   ruby-foreman-deface (<<2.0.0),
-  ruby-foreman-tasks (>= 0.8.2-2), ruby-foreman-tasks (<<1.0.0)
+  ruby-foreman-tasks (>= 0.8.2-2), ruby-foreman-tasks (<<1.0.0),
+  ruby-foreman-remote-execution (>= 1.4.4-1), ruby-foreman-remote-execution (<<2.0.0)
 Description: Foreman Ansible plugin
  Integration with Ansible in Foreman.
