@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -283,7 +283,7 @@ BuildRequires: npm(dotenv) >= 5.0.0
 BuildRequires: npm(dotenv) < 6.0.0
 #BuildRequires: npm(enzyme) >= 3.1.1
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
 #BuildRequires: npm(enzyme-to-json) >= 3.2.1
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
@@ -373,13 +373,13 @@ BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) = 2.5.1
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.3.1
+BuildRequires: npm(react) >= 16.4.0
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
-BuildRequires: npm(react-dom) >= 16.3.1
+BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -647,7 +647,7 @@ Requires: npm(dotenv) >= 5.0.0
 Requires: npm(dotenv) < 6.0.0
 #Requires: npm(enzyme) >= 3.1.1
 #Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.0.4
+#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
 #Requires: npm(enzyme-adapter-react-16) < 2.0.0
 #Requires: npm(enzyme-to-json) >= 3.2.1
 #Requires: npm(enzyme-to-json) < 4.0.0
@@ -737,13 +737,13 @@ Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) = 2.5.1
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.3.1
+Requires: npm(react) >= 16.4.0
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
-Requires: npm(react-dom) >= 16.3.1
+Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -1248,6 +1248,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Sep 07 2018 Michael Moll <mmoll@mmoll.at> - 1.20.0-0.6.develop
+- Update react dependency
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> 1.20.0-0.5.develop
 - Updates for Rails 5.2 and Ruby 2.5
 
