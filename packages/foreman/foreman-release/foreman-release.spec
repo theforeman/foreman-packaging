@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:     foreman-release
@@ -38,12 +38,15 @@ if [[ '%{release}' != *"develop"* ]];then
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
-install -Dpm0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
+install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %files
 %config %{_sysconfdir}/yum.repos.d/*.repo
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Tue Sep 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.2.develop
+- Correct Rails GPG key
+
 * Wed Aug 01 2018 Eric D. Helms <ericdhelms@gmail.com> 1.20.0-0.1.develop
 - Splitting out foreman-release package
