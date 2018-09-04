@@ -290,7 +290,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-faraday_middleware
   rubygem-ffi
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core

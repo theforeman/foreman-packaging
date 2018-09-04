@@ -462,12 +462,16 @@ katello_client_packages:
     katello-repos: {}
 
 plugins_packages:
+  children:
+    plugin_scl_packages: {}
+    plugin_nonscl_packages: {}
+
+plugin_scl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     diff_package_skip: false
     diff_package_tags:
       - foreman-plugins-nightly-rhel7
-      - foreman-plugins-nightly-nonscl-rhel7
     releasers:
     - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -483,21 +487,15 @@ plugins_packages:
       - el7-foreman-nightly
       - el7-foreman-plugins-nightly
   hosts:
-    ansiblerole-insights-client: {}
-    foreman-discovery-image-service: {}
-    nodejs-react-json-tree: {}
-    puppet-foreman_scap_client: {}
     rubygem-angular-rails-templates: {}
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
-    rubygem-chef-api: {}
     rubygem-chunky_png: {}
     rubygem-commonjs: {}
     rubygem-dalli: {}
     rubygem-deface: {}
     rubygem-diffy: {}
     rubygem-docker-api: {}
-    rubygem-faraday_middleware: {}
     rubygem-ffi: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
@@ -528,7 +526,6 @@ plugins_packages:
     rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
-    rubygem-foreman_scap_client: {}
     rubygem-foreman_setup: {}
     rubygem-foreman_snapshot_management: {}
     rubygem-foreman_spacewalk: {}
@@ -551,28 +548,60 @@ plugins_packages:
     rubygem-hammer_cli_foreman_ssh: {}
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
-    rubygem-infoblox: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
-    rubygem-logify: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
-    rubygem-newt: {}
     rubygem-opennebula: {}
-    rubygem-openscap: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
     rubygem-polyglot: {}
     rubygem-prawn: {}
     rubygem-puppetdb_foreman: {}
-    rubygem-radcli: {}
     rubygem-rainbow: {}
-    rubygem-route53: {}
     rubygem-rqrcode: {}
-    rubygem-ruby-hmac: {}
     rubygem-safe_yaml: {}
+    rubygem-smart_proxy_dynflow_core: {}
+    rubygem-systemu: {}
+    rubygem-ttfunk: {}
+    rubygem-wicked: {}
+    rubygem-zscheduler: {}
+
+plugin_nonscl_packages:
+  vars:
+    package_base_dir: 'packages/plugins/'
+    diff_package_skip: false
+    diff_package_tags:
+    - foreman-plugins-nightly-nonscl-rhel7
+    releasers:
+    - koji-foreman-plugins
+    nightly_releaser: koji-foreman-plugins-jenkins
+    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_lookaside_repos:
+      - el7-base
+      - el7-updates
+      - el7-epel
+      - el7-extras
+      - el7-puppet-5
+      - el7-foreman-nightly
+      - el7-foreman-plugins-nightly
+  hosts:
+    ansiblerole-insights-client: {}
+    foreman-discovery-image-service: {}
+    nodejs-react-json-tree: {}
+    puppet-foreman_scap_client: {}
+    rubygem-chef-api: {}
+    rubygem-faraday_middleware: {}
+    rubygem-foreman_scap_client: {}
+    rubygem-infoblox: {}
+    rubygem-logify: {}
+    rubygem-newt: {}
+    rubygem-openscap: {}
+    rubygem-radcli: {}
+    rubygem-route53: {}
+    rubygem-ruby-hmac: {}
     rubygem-satyr: {}
     rubygem-smart_proxy_ansible: {}
     rubygem-smart_proxy_chef: {}
@@ -585,7 +614,6 @@ plugins_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
     rubygem-smart_proxy_openscap: {}
@@ -594,11 +622,6 @@ plugins_packages:
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
     rubygem-smart_proxy_spacewalk: {}
-    rubygem-systemu: {}
-    rubygem-ttfunk: {}
-    rubygem-wicked: {}
-    rubygem-zscheduler: {}
-
 
 repoclosures:
   vars:
