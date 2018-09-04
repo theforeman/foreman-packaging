@@ -357,7 +357,6 @@ katello_packages:
       - katello-nightly-rhel7
     releasers:
     - koji-katello
-    nightly_releaser: koji-katello-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -396,9 +395,7 @@ katello_packages:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello:
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=hammer-cli-katello-nightly-release"
+    rubygem-hammer_cli_katello: {}
     rubygem-katello:
       releasers:
         - "{{ nightly_releaser }}"
