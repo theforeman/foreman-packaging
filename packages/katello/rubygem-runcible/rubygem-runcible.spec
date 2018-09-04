@@ -4,7 +4,7 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.8.1
+Version:        2.9.0
 Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Tue Sep 04 2018 Justin Sherrill <jsherril@redhat.com> 2.9.0-1
+- Update to 2.9.0
+
 * Mon May 21 2018 Justin Sherrill <jsherril@redhat.com> 2.8.1-1
 - Update package to 2.8.1
 
