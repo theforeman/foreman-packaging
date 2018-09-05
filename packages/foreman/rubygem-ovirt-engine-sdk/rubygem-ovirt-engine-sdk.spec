@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby SDK for the oVirt Engine API.
 Group: Development/Languages
 License: Apache-2.0
@@ -86,5 +86,8 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %doc %{gem_instdir}/CHANGES.adoc
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.2.3-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Apr 04 2018 Ivan Necas <inecas@redhat.com> 4.2.3-1
 - new package

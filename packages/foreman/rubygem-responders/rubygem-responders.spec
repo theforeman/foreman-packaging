@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of Rails responders to dry up your application
 Group: Development/Languages
 License: MIT
@@ -62,6 +62,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 2.4.0-1
 - Bump rubygem-responders to 2.4.0 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

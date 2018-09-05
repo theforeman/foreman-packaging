@@ -7,7 +7,7 @@ Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/abenari/rbovirt
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jul 24 2018 Ivan Nečas <inecas@redhat.com> 0.1.7-1
 - Update to 0.1.7
 
