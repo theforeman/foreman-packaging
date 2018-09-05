@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPL-2.1+
@@ -88,6 +88,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.10-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Apr 03 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.10-1
 - new upstream release (contains relative load patch)
 - dropped relative loading patch

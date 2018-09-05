@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal native logger
 Group: Development/Languages
 License: MIT
@@ -79,6 +79,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.3-1
 - new package built with tito
 

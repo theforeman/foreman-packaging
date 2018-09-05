@@ -6,7 +6,7 @@
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 22%{?dist}
+Release: 23%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/little-plugger
@@ -78,6 +78,9 @@ find %{buildroot}/%{gem_spec} -name %{gem_name}-%{version}.gemspec -exec sed -i 
 %doc %{gem_instdir}/History.txt
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.3-23
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.3-22
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

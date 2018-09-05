@@ -6,7 +6,7 @@
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/moiristo/deep_cloneable
@@ -71,6 +71,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.3.2-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon Jun 04 2018 Michael Moll <mmoll@mmoll.at> 2.3.2-1
 - Update to 2.3.2
 

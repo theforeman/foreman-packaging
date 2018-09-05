@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.7.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Database Toolkit for Ruby
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.7.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Apr 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.7.1-1
 - Update to 5.7.1
 - Regenerate the spec based on gem2rpm/scl.spec.erb

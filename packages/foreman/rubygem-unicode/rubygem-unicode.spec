@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        0.4.4.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Unicode normalization library for Ruby
 License:        Ruby
 URL:            http://www.yoshidam.net/Ruby.html#unicode
@@ -67,6 +67,9 @@ ruby -I.%{gem_instdir}/lib:.%{gem_extdir_mri} test/test.rb
 
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4.4.1-5
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.4.1-4
 - Final set of rebuilds (ericdhelms@gmail.com)
 

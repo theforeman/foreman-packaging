@@ -6,7 +6,7 @@
 Summary: Log all changes to your models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.7.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/collectiveidea/audited
@@ -76,6 +76,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/gemfiles
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.7.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon Jun 04 2018 Michael Moll <mmoll@mmoll.at> 4.7.1-1
 - Update to 4.7.1
 

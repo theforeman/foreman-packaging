@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: An Action Dispatch session store backed by Active Record
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Aug 15 2018 Eric D. Helms <ericdhelms@gmail.com> 1.1.1-1
 - Bump to 1.1.1
 
