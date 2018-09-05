@@ -1,7 +1,3 @@
-# FIXME:
-#   1. Edit foreman requirement(s) and specify minimum version
-#   2. Delete these lines
-#
 # Generated from fog-proxmox-0.5.1.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
@@ -9,7 +5,6 @@
 
 %global gem_name fog-proxmox
 %global plugin_name fog-proxmox
-%global foreman_min_version FIXME
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.1
@@ -21,7 +16,6 @@ URL: http://github.com/fog/fog-proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
-Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -31,13 +25,11 @@ Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
 Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1
-BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
 Provides: foreman-%{plugin_name}
 # end generated dependencies
 
@@ -87,8 +79,6 @@ cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-%foreman_bundlerd_file
-
 %files
 %dir %{gem_instdir}
 %{_bindir}/console
@@ -112,7 +102,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -128,7 +117,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %posttrans
-%{foreman_restart}
 exit 0
 
 %changelog
