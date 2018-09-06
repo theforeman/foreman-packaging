@@ -25,7 +25,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 9.12%{?dist}
+Release: 10.12%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -453,6 +453,9 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Thu Sep 06 2018 Eric D. Helms <ericdhelms@gmail.com>
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 4.0.18-9.12
 - Bump rubygem-passenger release (ericdhelms@gmail.com)
 
