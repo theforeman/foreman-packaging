@@ -146,7 +146,8 @@ whitelist = foreman-bootloaders-redhat
 
 [foreman-nightly-rhel7]
 disttag = .el7
-whitelist = foreman
+whitelist = dist-macro
+  foreman
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick
