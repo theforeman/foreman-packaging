@@ -27,6 +27,7 @@ foreman_packages:
       - el7-foreman-rails-nightly
       - el7-foreman-nightly
   hosts:
+    dist-macro: {}
     foreman:
       releasers:
         - "{{ nightly_releaser }}"
