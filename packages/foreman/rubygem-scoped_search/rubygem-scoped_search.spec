@@ -6,8 +6,8 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.1.3
-Release: 2%{?dist}
+Version: 4.1.4
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
@@ -110,6 +110,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Sep 06 2018 Marek Hulan <mhulan@redhat.com> 4.1.4-1
+- Update to 4.1.4
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.1.3-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
