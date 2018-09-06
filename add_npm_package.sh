@@ -66,7 +66,7 @@ generate_npm_package() {
   git add $PACKAGE_DIR/*.spec
   echo "FINISHED"
   echo -e "Annexing sources... - "
-  git annex add $PACKAGE_DIR/*.tgz
+  find "$PACKAGE_DIR" -name '*.tgz' -exec git annex add {} +
   echo "FINISHED"
 }
 
