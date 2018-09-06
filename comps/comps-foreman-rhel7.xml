@@ -192,6 +192,7 @@
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-register</packagereq>
       <packagereq type="default">nodejs-babel-runtime</packagereq>
+      <packagereq type="default">nodejs-bootstrap-sass</packagereq>
       <packagereq type="default">nodejs-bootstrap-slider-without-jquery</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
@@ -303,18 +304,14 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">nodejs-diff-doc</packagereq>
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-ipaddr.js-doc</packagereq>
       <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-jquery-doc</packagereq>
       <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
-      <packagereq type="default">nodejs-jquery-ujs-doc</packagereq>
-      <packagereq type="default">nodejs-jstz-doc</packagereq>
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
-      <packagereq type="default">nodejs-url-loader-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
