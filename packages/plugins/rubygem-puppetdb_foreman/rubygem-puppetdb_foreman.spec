@@ -17,7 +17,7 @@
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    4.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/puppetdb_foreman
@@ -109,6 +109,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon Jan 15 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
 - Update puppetdb_foreman to 4.0.0 (mail@timogoebel.name)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

@@ -14,7 +14,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.4.0
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        FFI Extensions for Ruby
 Group:          Development/Languages
 
@@ -92,6 +92,9 @@ popd
 
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.0-8
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.4.0-7
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

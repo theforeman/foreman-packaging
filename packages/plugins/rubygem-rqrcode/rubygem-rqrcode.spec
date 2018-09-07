@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A library to encode QR Codes
 Group: Development/Languages
 License: MIT
@@ -79,3 +79,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.10.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
