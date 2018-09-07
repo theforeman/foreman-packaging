@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPL-3.0
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Jun 07 2018 Dirk Goetz <dirk.goetz@netways.de> 1.0.0-2
 - Changed to foreman_plugin template
 

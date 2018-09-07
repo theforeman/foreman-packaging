@@ -9,7 +9,7 @@
 Summary:    Adds memcache integration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.1
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jun 12 2018 Timo Goebel <mail@timogoebel.name> - 0.1.1-1
 - Update foreman_memcache to 0.1.1
 

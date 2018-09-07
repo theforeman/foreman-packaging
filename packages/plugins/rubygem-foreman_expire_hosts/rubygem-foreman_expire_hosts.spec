@@ -9,7 +9,7 @@
 Summary:    Foreman plugin for limiting host lifetime
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.1.0
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_expire_hosts
@@ -116,6 +116,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.1.0-4
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed May 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.1.0-3
 - Correct cron.d location
 
