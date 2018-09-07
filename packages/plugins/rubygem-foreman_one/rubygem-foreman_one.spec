@@ -9,7 +9,7 @@
 Summary:    Provision and manage OpenNebula VMs from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.4
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-one
@@ -100,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.4-2
 - Regenerate spec file based on the current template
 

@@ -9,7 +9,7 @@
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.0.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_default_hostgroup
@@ -95,6 +95,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0.0-2
 - Regenerate spec file based on the current template
 
