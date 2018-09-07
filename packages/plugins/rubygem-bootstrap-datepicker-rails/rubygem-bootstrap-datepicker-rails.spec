@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A date picker for Twitter Bootstrap
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.7.1.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.7.1.1-1
 - Update rubygem-bootstrap-datepicker-rails to 1.7.1.1 (ericdhelms@gmail.com)
 

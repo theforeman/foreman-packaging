@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A fast and nimble PDF generator for Ruby
 Group: Development/Languages
 License: (GPLv2 or GPLv3 or Ruby) and APAFML
@@ -88,3 +88,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+

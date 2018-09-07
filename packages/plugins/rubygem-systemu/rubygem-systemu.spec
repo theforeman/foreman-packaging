@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.6.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: systemu
 Group: Development/Languages
 License: Ruby
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/samples
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.6.5-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 2.6.5-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

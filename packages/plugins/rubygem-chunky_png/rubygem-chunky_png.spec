@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pure ruby library for read/write, chunk-level access to PNG files
 Group: Development/Languages
 License: MIT
@@ -97,3 +97,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.10-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
