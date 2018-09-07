@@ -68,6 +68,7 @@ foreman_packages:
     nodejs-babel-preset-react: {}
     nodejs-babel-register: {}
     nodejs-babel-runtime: {}
+    nodejs-bootstrap-sass: {}
     nodejs-bootstrap-slider-without-jquery: {}
     nodejs-brace: {}
     nodejs-breakjs: {}
