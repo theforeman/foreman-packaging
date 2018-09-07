@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        2.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
 License:        MIT
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.9.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Sep 04 2018 Justin Sherrill <jsherril@redhat.com> 2.9.0-1
 - Update to 2.9.0
 
