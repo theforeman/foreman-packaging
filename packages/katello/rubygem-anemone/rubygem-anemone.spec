@@ -6,7 +6,7 @@
 Summary:    Anemone web-spider framework
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.7.2
-Release:    15%{?dist}
+Release:    16%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        http://anemone.rubyforge.org/
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.2-16
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Jan 10 2018 Eric D. Helms <ericdhelms@gmail.com> 0.7.2-15
 - new package built with tito
 
