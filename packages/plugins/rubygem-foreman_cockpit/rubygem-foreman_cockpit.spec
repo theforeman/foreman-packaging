@@ -9,7 +9,7 @@
 Summary:    Use your hosts' Cockpit in Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.3
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_cockpit
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-4
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Sat May 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.3-2
 - Regenerate spec file based on the current template
 

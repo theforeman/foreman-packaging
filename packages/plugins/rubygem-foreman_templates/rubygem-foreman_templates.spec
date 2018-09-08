@@ -9,7 +9,7 @@
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    6.0.3
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Jul 11 2018 Marek Hulan <mhulan@redhat.com> 6.0.3-1
 - Update to 6.0.3
 
