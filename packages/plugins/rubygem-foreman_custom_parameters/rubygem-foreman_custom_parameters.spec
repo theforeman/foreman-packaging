@@ -18,7 +18,7 @@
 Summary:    Plugin to improve storage of custom information in parameters
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.2
-Release:    5%{?foremandist}%{?dist}
+Release:    6%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_custom_parameters
@@ -93,6 +93,9 @@ mv %{buildroot}/%{gem_instdir}/custom_parameters.yaml.example \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-6
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.2-5
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

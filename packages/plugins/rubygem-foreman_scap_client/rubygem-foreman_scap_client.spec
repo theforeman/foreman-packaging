@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -80,6 +80,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Jan 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
 - Bump Foreman plugins release (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

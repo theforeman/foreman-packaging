@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
 License: GPLv3
@@ -80,6 +80,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Wed Aug 15 2018 Sebastian Gräßl <mail@bastilian.me> 2.1.2-1
 - Update to 2.1.2
 

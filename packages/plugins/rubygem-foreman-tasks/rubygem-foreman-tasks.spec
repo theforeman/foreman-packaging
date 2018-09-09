@@ -8,7 +8,7 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.14.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -128,6 +128,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.14.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jul 31 2018 Ivan Nečas <inecas@redhat.com> 0.14.0-1
 - Update to 0.14.0
 

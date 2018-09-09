@@ -9,7 +9,7 @@
 Summary:    Provision and manage DigitalOcean droplets from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.3.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-digitalocean
@@ -97,6 +97,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Sun May 27 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.3.0-2
 - Regenerate spec file based on the current template
 

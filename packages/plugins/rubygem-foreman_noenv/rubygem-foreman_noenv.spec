@@ -9,7 +9,7 @@
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.7
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -105,6 +105,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 exit 0
 
 %changelog
+* Sat Sep 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-4
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.0.7-3
 - Regenerate spec file based on the current template
 
