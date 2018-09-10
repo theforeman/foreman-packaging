@@ -8,8 +8,8 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.1.11
-Release:    2%{?foremandist}%{?dist}
+Version:    6.1.3
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv2+
 URL:        https://github.com/Katello/bastion
@@ -123,6 +123,9 @@ cp -pa .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> 6.1.3-1
+- Release rubygem-bastion 6.1.3
+
 * Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 6.1.11-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
