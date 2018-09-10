@@ -389,6 +389,7 @@ katello_packages:
     nodejs-jed: {}
     nodejs-react-bootstrap-tooltip-button: {}
     nodejs-react-router-bootstrap: {}
+    nodejs-react-helmet: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
     pulp-katello: {}

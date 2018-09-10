@@ -433,6 +433,7 @@ whitelist = katello
   nodejs-downshift
   nodejs-jed
   nodejs-react-bootstrap-tooltip-button
+  nodejs-react-helmet
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
