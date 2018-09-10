@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPL-3.0
@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Mon Aug 27 2018 Timo Goebel <mail@timogoebel.name> - 3.0.1-1
 - Update foreman_wreckingball to 3.0.1
 
