@@ -6,7 +6,7 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.3
+Version: 2.2.6
 Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
@@ -111,6 +111,12 @@ exit 0
 
 
 %changelog
+* Wed Aug 15 2018 Sebastian Gräßl <mail@bastilian.me> 2.2.6-1
+- Update to 2.2.6
+
+* Wed Jul 25 2018 Marek Hulan <mhulan@redhat.com> 2.2.5-1
+- Update to 2.2.5
+
 * Fri Jul 13 2018 Marek Hulan <mhulan@redhat.com> 2.2.3-1
 - Update to 2.2.3
 
