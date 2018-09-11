@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.6
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -125,6 +125,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 exit 0
 
 %changelog
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.6-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Aug 02 2018 Daniel Lobato <dlobatog@redhat.com> 2.1.6-2
 - Include static assets
 

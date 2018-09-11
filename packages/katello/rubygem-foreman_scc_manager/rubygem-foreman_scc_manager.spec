@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPL-3.0
@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Aug 07 2018 Matthias Dellweg <dellweg@atix.de> 1.4.0-1
 - Raise compatibility to foreman 1.18
 * Wed May 16 2018 Matthias Dellweg <dellweg@atix.de> 1.3.1-1
