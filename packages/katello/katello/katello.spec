@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 8
+%global release 9
 
 Name:       katello
 Version:    3.9.0
@@ -158,7 +158,6 @@ Requires: coreutils
 Requires: qpid-tools
 Requires: /bin/ps
 Requires: rh-mongodb34
-Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 Requires: %{name}-service
 
 %description debug
@@ -204,6 +203,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-9
+- Drop hammer requirement from katello-debug
+
 * Mon Sep 03 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-8
 - Use foreman-maintain instead of katello-service in debug
 
