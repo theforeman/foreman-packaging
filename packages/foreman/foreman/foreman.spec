@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -1113,16 +1113,16 @@ ln -s %{nodejs_sitelib} node_modules \\
 sed -i 's/:locations_enabled: false/:locations_enabled: true/' \`pwd\`/config/settings.yaml \\
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/config/settings.yaml \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
-cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 export NODE_ENV=production \\
-%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create db:schema:load SCHEMA=%{_datadir}/%{name}/schema_plugin.rb RAILS_ENV=development --trace} \\
+cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
+%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} --trace} \\
 \\
 popd \\
@@ -1248,6 +1248,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.6.develop
+- Drop schema loading for plugin builds
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> 1.20.0-0.5.develop
 - Updates for Rails 5.2 and Ruby 2.5
 
