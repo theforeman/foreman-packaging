@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:    foreman
@@ -271,8 +271,6 @@ BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(babel-register) >= 6.9.0
 BuildRequires: npm(babel-register) < 7.0.0
-BuildRequires: npm(bootstrap-sass) >= 3.3.7
-BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: npm(compression-webpack-plugin) < 1.2.0
 #BuildRequires: npm(coveralls) >= 3.0.0
@@ -281,9 +279,9 @@ BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 5.0.0
 BuildRequires: npm(dotenv) < 6.0.0
-#BuildRequires: npm(enzyme) >= 3.1.1
+#BuildRequires: npm(enzyme) >= 3.4.0
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
 #BuildRequires: npm(enzyme-to-json) >= 3.2.1
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
@@ -301,6 +299,8 @@ BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(file-loader) < 1.0.0
+#BuildRequires: npm(highlight.js) >= 9.12.0
+#BuildRequires: npm(highlight.js) < 10.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 #BuildRequires: npm(jest-cli) >= 20.0.0
@@ -313,6 +313,10 @@ BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
+#BuildRequires: npm(raw-loader) >= 0.5.1
+#BuildRequires: npm(raw-loader) < 1.0.0
+#BuildRequires: npm(react-remarkable) >= 1.1.3
+#BuildRequires: npm(react-remarkable) < 2.0.0
 #BuildRequires: npm(react-test-renderer) >= 16.2.0
 #BuildRequires: npm(react-test-renderer) < 17.0.0
 #BuildRequires: npm(redux-mock-store) >= 1.2.2
@@ -331,6 +335,8 @@ BuildRequires: npm(url-loader) >= 1.0.1
 BuildRequires: npm(url-loader) < 2.0.0
 BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
+#BuildRequires: npm(webpack-bundle-analyzer) >= 2.13.1
+#BuildRequires: npm(webpack-bundle-analyzer) < 3.0.0
 #BuildRequires: npm(webpack-dev-server) >= 2.5.1
 #BuildRequires: npm(webpack-dev-server) < 3.0.0
 BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
@@ -342,6 +348,8 @@ BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
+BuildRequires: npm(bootstrap-sass) >= 3.3.7
+BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(brace) >= 0.10.0
 BuildRequires: npm(brace) < 1.0.0
 BuildRequires: npm(datatables.net) >= 1.10.12
@@ -373,13 +381,12 @@ BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) = 2.5.1
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.3.1
+BuildRequires: npm(react) >= 16.4.0
 BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
-BuildRequires: npm(react-bootstrap) < 1.0.0
+BuildRequires: npm(react-bootstrap) = 0.32.1
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
-BuildRequires: npm(react-dom) >= 16.3.1
+BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -494,7 +501,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.2
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -635,8 +642,6 @@ Requires: npm(babel-preset-react) >= 6.5.0
 Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(babel-register) >= 6.9.0
 Requires: npm(babel-register) < 7.0.0
-Requires: npm(bootstrap-sass) >= 3.3.7
-Requires: npm(bootstrap-sass) < 4.0.0
 Requires: npm(compression-webpack-plugin) >= 1.1.11
 Requires: npm(compression-webpack-plugin) < 1.2.0
 #Requires: npm(coveralls) >= 3.0.0
@@ -645,9 +650,9 @@ Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(dotenv) >= 5.0.0
 Requires: npm(dotenv) < 6.0.0
-#Requires: npm(enzyme) >= 3.1.1
+#Requires: npm(enzyme) >= 3.4.0
 #Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.0.4
+#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
 #Requires: npm(enzyme-adapter-react-16) < 2.0.0
 #Requires: npm(enzyme-to-json) >= 3.2.1
 #Requires: npm(enzyme-to-json) < 4.0.0
@@ -665,6 +670,8 @@ Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(file-loader) < 1.0.0
+#Requires: npm(highlight.js) >= 9.12.0
+#Requires: npm(highlight.js) < 10.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
 #Requires: npm(jest-cli) >= 20.0.0
@@ -677,6 +684,10 @@ Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
 Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
+#Requires: npm(raw-loader) >= 0.5.1
+#Requires: npm(raw-loader) < 1.0.0
+#Requires: npm(react-remarkable) >= 1.1.3
+#Requires: npm(react-remarkable) < 2.0.0
 #Requires: npm(react-test-renderer) >= 16.2.0
 #Requires: npm(react-test-renderer) < 17.0.0
 #Requires: npm(redux-mock-store) >= 1.2.2
@@ -695,6 +706,8 @@ Requires: npm(url-loader) >= 1.0.1
 Requires: npm(url-loader) < 2.0.0
 Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
+#Requires: npm(webpack-bundle-analyzer) >= 2.13.1
+#Requires: npm(webpack-bundle-analyzer) < 3.0.0
 #Requires: npm(webpack-dev-server) >= 2.5.1
 #Requires: npm(webpack-dev-server) < 3.0.0
 Requires: npm(webpack-stats-plugin) >= 0.1.5
@@ -706,6 +719,8 @@ Requires: npm(axios) >= 0.17.1
 Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
+Requires: npm(bootstrap-sass) >= 3.3.7
+Requires: npm(bootstrap-sass) < 4.0.0
 Requires: npm(brace) >= 0.10.0
 Requires: npm(brace) < 1.0.0
 Requires: npm(datatables.net) >= 1.10.12
@@ -737,13 +752,12 @@ Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) = 2.5.1
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.3.1
+Requires: npm(react) >= 16.4.0
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-bootstrap) = 0.32.1
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
-Requires: npm(react-dom) >= 16.3.1
+Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -847,7 +861,7 @@ Meta Package to install requirements for console support
 Summary: Foreman mysql2 support
 Group:  Applications/System
 # start specfile mysql2 Requires
-Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
+Requires: %{?scl_prefix}rubygem(mysql2) >= 0.4.4
 Requires: %{?scl_prefix}rubygem(mysql2) < 0.6.0
 # end specfile mysql2 Requires
 Requires: %{name} = %{version}-%{release}
@@ -1248,6 +1262,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Sep 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.7.develop
+- Update Gem and NPM dependencies
+
 * Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.6.develop
 - Drop schema loading for plugin builds
 
