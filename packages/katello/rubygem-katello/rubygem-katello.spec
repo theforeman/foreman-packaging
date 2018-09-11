@@ -6,7 +6,7 @@
 %global gem_name katello
 # %%global prerelease .rc1
 %global mainver 3.9.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -29,7 +29,7 @@ Requires: %{?scl_prefix_ror}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.4
-Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.9
+Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.13
 Requires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -49,7 +49,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(rails)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.4
-BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.9
+BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.13
 BuildRequires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -152,6 +152,8 @@ BuildRequires: npm(react-dom) >= 16.3.1
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
+BuildRequires: npm(react-helmet) >= 5.2.0
+BuildRequires: npm(react-helmet) < 6.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(react-router) >= 4.2.0
@@ -263,6 +265,8 @@ Requires: npm(react-dom) >= 16.3.1
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
+Requires: npm(react-helmet) >= 5.2.0
+Requires: npm(react-helmet) < 6.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(react-router) >= 4.2.0
@@ -340,6 +344,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-3
+- Update dependencies
+
 * Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
 - Add prerelease macro support
 
