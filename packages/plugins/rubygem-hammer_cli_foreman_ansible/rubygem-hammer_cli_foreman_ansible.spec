@@ -9,10 +9,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman Ansible plugin for Hammer CLI
 Group: Development/Languages
-License: GPL-3.0
+License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -85,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.1.1-3
+- Move licenes which are GPL-* to GPLv3
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

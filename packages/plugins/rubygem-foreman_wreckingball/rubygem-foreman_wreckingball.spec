@@ -9,10 +9,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3+
 URL: https://github.com/dm-drogeriemarkt/foreman_wreckingball
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 3.0.1-3
+- Move licenes which are GPL-* to GPLv3
+
 * Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
