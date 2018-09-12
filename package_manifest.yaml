@@ -60,7 +60,7 @@ foreman_scl_packages:
     rubygem-excon: {}
     rubygem-extlib: {}
     rubygem-facter: {}
-    rubygem-faraday: {}
+    rubygem-faraday:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
