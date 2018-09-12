@@ -6,7 +6,7 @@
 %global gem_name hammer_cli_katello
 %global confdir hammer
 
-%global release 2
+%global release 3
 %global prerelease .pre.master
 
 Summary: Katello command plugin for the Hammer CLI
@@ -28,7 +28,7 @@ Obsoletes: rubygem-hammer_cli_gutterball
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.3.pre.master
+- Change hammer_cli_foreman requirement to match version
+
 * Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.2.pre.master
 - Add prerelease support
 
