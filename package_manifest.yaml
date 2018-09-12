@@ -213,15 +213,9 @@ foreman_packages:
     rubygem-google-api-client: {}
     rubygem-gridster-rails: {}
     rubygem-hammer_cli:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli"
     rubygem-hammer_cli_foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_hammer_cli_foreman"
     rubygem-hashie: {}
