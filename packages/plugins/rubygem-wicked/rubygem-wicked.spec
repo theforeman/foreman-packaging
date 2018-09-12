@@ -6,16 +6,15 @@
 %define _version 1.3.2
 %define _summary Wicked is a Rails engine for producing easy wizard controllers
 %define _url https://github.com/schneems/wicked
-%define _license MIT
 
 %define desc Wicked is a Rails engine for producing easy wizard controllers
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
-License:   %{_license}
+License:   MIT
 URL:       %{_url}
 Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -89,6 +88,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.3.2-3
+- Remove the use of the _license macro and just hard code it in the License line
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.2-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

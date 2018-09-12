@@ -8,16 +8,15 @@
 %define _version 1.0.17
 %define _summary The last progressbar-library you'll ever need
 %define _url https://github.com/busyloop/powerbar
-%define _license MIT
 
 %define desc The last progressbar-library you'll ever need
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   3%{?dist}
+Release:   4%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
-License:   %{_license}
+License:   MIT
 URL:       %{_url}
 Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -97,6 +96,9 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_docdir}/ri
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.17-4
+- Remove the use of the _license macro and just hard code it in the License line
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.17-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
