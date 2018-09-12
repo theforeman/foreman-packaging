@@ -5,10 +5,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Streaming Quantile Estimation
 Group: Development/Languages
-License: Apache 2.0
+License: ASL 2.0
 URL: http://github.com/matttproud/ruby_quantile_estimation
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.2.0-3
+- Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
