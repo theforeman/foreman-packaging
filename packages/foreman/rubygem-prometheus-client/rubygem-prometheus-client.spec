@@ -5,10 +5,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A suite of instrumentation metric primitivesthat can be exposed through a web services interface
 Group: Development/Languages
-License: Apache 2.0
+License: ASL 2.0
 URL: https://github.com/prometheus/client_ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.7.1-3
+- Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

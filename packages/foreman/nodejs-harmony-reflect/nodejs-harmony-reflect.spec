@@ -3,9 +3,9 @@
 
 Name: nodejs-%{npm_name}
 Version: 1.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: ES5 shim for ES6 (ECMAScript 6) Reflect and Proxy objects
-License: (Apache-2.0 OR MPL-1.1)
+License: (ASL 2.0 OR MPL-1.1)
 URL: https://github.com/tvcutsem/harmony-reflect
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
@@ -43,6 +43,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.5.1-2
+- Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
+
 * Tue Nov 07 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.1-1
 - new package built with tito
 
