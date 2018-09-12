@@ -7,10 +7,10 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.0.7
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Device42 DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
-License: GPL-3.0
+License: GPLv3
 URL: https://www.device42.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.16
@@ -85,6 +85,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.7-2
+- Move licenes which are GPL-* to GPLv3
+
 * Mon Apr 23 2018 Anatolii Chmykhalo <anatolii.chmykhalo@device42.com> 1.0.7-1
 - Update to 1.0.7
 

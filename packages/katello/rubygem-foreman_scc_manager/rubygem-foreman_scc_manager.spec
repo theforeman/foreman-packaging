@@ -6,10 +6,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3+
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman >= 1.18.0
@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.4.0-3
+- Move licenes which are GPL-* to GPLv3
+
 * Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
