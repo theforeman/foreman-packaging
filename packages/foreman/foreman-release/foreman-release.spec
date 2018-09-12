@@ -1,4 +1,4 @@
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:     foreman-release
@@ -35,6 +35,7 @@ if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
   sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*.repo
   sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/foreman.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/foreman-rails.repo
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -45,6 +46,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.3.develop
+- Drop gpgcheck on foreman-rails on nightly
+
 * Tue Sep 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.2.develop
 - Correct Rails GPG key
 
