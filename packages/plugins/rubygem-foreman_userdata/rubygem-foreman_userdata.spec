@@ -7,8 +7,8 @@
 %global foreman_min_version 1.12.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Release: 3%{?foremandist}%{?dist}
+Version: 0.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for serving user-data for cloud-init to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -95,6 +95,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 0.1.0-1
+- Update foreman_userdata to 0.1.0
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.0.1-3
 - Regenerate spec file based on the current template
 
