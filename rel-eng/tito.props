@@ -293,6 +293,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-diffy
   rubygem-docker-api
   rubygem-ffi
+  rubygem-fog-proxmox
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk

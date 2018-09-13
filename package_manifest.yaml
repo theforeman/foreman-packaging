@@ -581,6 +581,7 @@ plugin_scl_packages:
     rubygem-diffy: {}
     rubygem-docker-api: {}
     rubygem-ffi: {}
+    rubygem-fog-proxmox: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
