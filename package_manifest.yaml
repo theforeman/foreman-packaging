@@ -111,7 +111,6 @@ foreman_scl_packages:
     rubygem-journald-native: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
-    rubygem-jwt: {}
     rubygem-launchy: {}
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
@@ -363,6 +362,7 @@ foreman_scl_and_nonscl_packages:
     rubygem-clamp: {}
     rubygem-hashie: {}
     rubygem-highline: {}
+    rubygem-jwt: {}
     rubygem-little-plugger: {}
     rubygem-logging: {}
     rubygem-multi_json: {}
