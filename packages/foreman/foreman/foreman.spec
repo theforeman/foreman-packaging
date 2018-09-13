@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prerelease develop
 
 Name:    foreman
@@ -25,7 +25,6 @@ Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
-Source9: message_encryptor_extensions.rb
 Source10: %{executor_service_name}.sysconfig
 Source11: %{executor_service_name}.service
 BuildArch:  noarch
@@ -942,9 +941,6 @@ plugins required for Foreman to work.
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
-# Apply Rails 4.2.5.1 to .8 compatibility patch
-[ -e lib/core_extensions.rb ] && cat %{SOURCE9} >> lib/core_extensions.rb || exit 1
-
 %build
 #build man pages
 %{scl_rake} -f Rakefile.dist build \
@@ -1262,6 +1258,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 1.20.0-0.8.develop
+- remove rails 4 message encryptor extensions patch
+
 * Tue Sep 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.7.develop
 - Update Gem and NPM dependencies
 
