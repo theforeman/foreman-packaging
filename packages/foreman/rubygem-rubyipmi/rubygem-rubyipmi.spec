@@ -6,9 +6,9 @@
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
-License: LGPLv2.1
+License: LGPLv2
 URL: https://github.com/logicminds/rubyipmi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 %if 0%{?fedora} > 18 || 0%{?rhel} >= 7
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Thu Sep 13 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.10.0-3
+- Use LGPLv2 for versions 2 and 2.1 of the license
+
 * Wed May 04 2016 Dominic Cleal <dominic@cleal.org> 0.10.0-2
 - Use gem_install macro (dominic@cleal.org)
 - Converted spec files (dcleal@redhat.com)
