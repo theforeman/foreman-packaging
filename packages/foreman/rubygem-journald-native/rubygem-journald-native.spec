@@ -5,10 +5,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
-License: LGPL-2.1+
+License: LGPLv2
 URL: https://github.com/sandfoxme/journald-native
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -88,6 +88,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Thu Sep 13 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.10-3
+- Use LGPLv2 for versions 2 and 2.1 of the license
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.10-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
