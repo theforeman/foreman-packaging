@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -71,6 +71,7 @@ Obsoletes: %{scl_prefix}rubygem-concurrent-ruby < 1.0.1-2
 Obsoletes: %{scl_prefix}rubygem-dalli < 2.6.4-4
 Obsoletes: %{scl_prefix}rubygem-ejs < 1.1.1-4
 Obsoletes: %{scl_prefix}rubygem-flot-rails < 0.0.3-8
+Obsoletes: %{scl_prefix}rubygem-faraday_middleware < 0.10.0-3
 Obsoletes: %{scl_prefix}rubygem-fog-azure < 0.0.8-9
 Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
 Obsoletes: %{scl_prefix}rubygem-foreman_abrt < 0.0.7-3
@@ -300,6 +301,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Sep 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.0-2
+- Obsolete rubygem-faraday_middleware
+
 * Mon Aug 27 2018 Eric D. Helms <ericdhelms@gmail.com> 5.0-1
 - Update to rh-ruby25 and tfm-ror52
 
