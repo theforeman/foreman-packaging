@@ -1,3 +1,9 @@
+ruby-foreman-ansible (2.2.7-1) stable; urgency=low
+
+  * Update foreman_ansible to 2.2.7
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 13 Sep 2018 11:03:41 +0200
+
 ruby-foreman-ansible (2.2.6-2) stable; urgency=low
 
   * Add foreman_remote_execution as runtime dependency
