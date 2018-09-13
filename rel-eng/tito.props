@@ -65,9 +65,10 @@ whitelist = foreman-bootloaders-redhat
   nodejs-ipaddr.js
   nodejs-is-buffer
   nodejs-isomorphic-fetch
+  nodejs-jed
   nodejs-jquery
-  nodejs-jquery.cookie
   nodejs-jquery-flot
+  nodejs-jquery.cookie
   nodejs-jquery-ujs
   nodejs-jsdom
   nodejs-js-tokens
@@ -435,7 +436,6 @@ whitelist = katello
   katello-selinux
   nodejs-bootstrap-select
   nodejs-downshift
-  nodejs-jed
   nodejs-query-string
   nodejs-react-bootstrap-tooltip-button
   nodejs-react-helmet

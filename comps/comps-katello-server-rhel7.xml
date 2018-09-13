@@ -39,7 +39,6 @@
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-downshift</packagereq>
-      <packagereq type="default">nodejs-jed</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-tooltip-button</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
