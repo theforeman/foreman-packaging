@@ -1,102 +1,93 @@
+# Generated from hashie-3.6.0.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# check files-sections at the end of this file and
-
 %global gem_name hashie
 
-%define _version 2.0.5
-%define _summary Your friendly neighborhood hash toolkit.
-%define _url https://github.com/intridea/hashie
-%define _license MIT
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 3.6.0
+Release: 1%{?dist}
+Summary: Your friendly neighborhood hash library
+Group: Development/Languages
+License: MIT
+URL: https://github.com/intridea/hashie
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%define desc Hashie is a small collection of tools that make hashes more powerful. Currently includes Mash (Mocking Hash) and Dash (Discrete Hash)
-
-Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   %{_version}
-Release:   6%{?dist}
-Summary:   %{_summary}
-Group:     Development/Languages
-License:   %{_license}
-URL:       %{_url}
-Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-BuildArch: noarch
-Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires:  %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires:  %{?scl_prefix_ruby}ruby(release)
+# start generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-Requires:  %{?scl_prefix_ruby}rubygems
-
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end generated dependencies
 
 %description
-%{desc}
+Hashie is a collection of classes and mixins that make hashes more powerful.
 
-%package   doc
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
-Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:   Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
+
 %setup -q -D -T -n %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
 %build
-%{?scl:scl enable %{scl} "}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{gem_name}-%{version}.gem
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
 %{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.document
-%exclude %{gem_instdir}/.rspec
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/.yardopts
-%exclude %{gem_instdir}/Guardfile
-%exclude %{gem_instdir}/spec
 %dir %{gem_instdir}
-%{gem_instdir}/hashie.gemspec
-%{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/.yardopts
+%license %{gem_instdir}/LICENSE
+%{gem_instdir}/UPGRADING.md
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_libdir}
-%doc %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/LICENSE
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/README.markdown
-%doc %{gem_docdir}/rdoc
-%doc %{gem_docdir}/ri
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/hashie.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Thu Sep 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.6.0-1
+- Update to 3.6.0-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.5-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 
