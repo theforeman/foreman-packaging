@@ -4,7 +4,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:           foreman-proxy
@@ -39,6 +39,7 @@ Requires:       %{?scl_prefix}rubygem(gssapi)
 Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       %{?scl_prefix}rubygem(rb-inotify)
 Requires:       %{?scl_prefix}rubygem(rsec)
+Requires:       %{?scl_prefix}rubygem(jwt)
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 Requires:       sudo
@@ -105,6 +106,10 @@ sed -i '/^ExecStart/a EnvironmentFile=-%{_sysconfdir}/sysconfig/%{name}' %{build
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
+mkdir -p %{buildroot}%{_libexecdir}/%{name}
+mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
+install -m 0755 extra/puppet_sign.rb %{buildroot}%{_libexecdir}/%{name}/puppet_sign.rb
+
 mkdir -p %{buildroot}%{_sbindir}
 install -m 0755 sbin/foreman-prepare-realm %{buildroot}%{_sbindir}/foreman-prepare-realm
 cp -p -r bin extra lib modules Rakefile Gemfile.in smart_proxy.gemspec bundler.d config.ru VERSION %{buildroot}%{_datadir}/%{name}
@@ -132,6 +137,7 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %doc README.md VERSION
 %license LICENSE
 %{_datadir}/%{name}
+%{_libexecdir}/%{name}/puppet_sign.rb
 %config(noreplace) %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
@@ -189,6 +195,9 @@ fi
 
 
 %changelog
+* Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 1.20.0-0.2.develop
+- add puppetca_token_whitelisting provider helper script
+
 * Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.1.develop
 - Add prerelease macro
 
