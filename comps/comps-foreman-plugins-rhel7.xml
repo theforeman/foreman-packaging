@@ -60,6 +60,8 @@
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
@@ -76,6 +78,7 @@
       <packagereq type="default">tfm-rubygem-foreman_dlm</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_docker</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_fog_proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
@@ -179,6 +182,9 @@
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
@@ -193,6 +199,7 @@
       <packagereq type="default">tfm-rubygem-foreman_dlm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_fog_proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator-doc</packagereq>

@@ -550,6 +550,7 @@ plugins_packages:
     rubygem-docker-api: {}
     rubygem-faraday_middleware: {}
     rubygem-ffi: {}
+    rubygem-fog-azure: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}

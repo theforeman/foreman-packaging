@@ -291,6 +291,9 @@ whitelist = rubygem-angular-rails-templates
   rubygem-docker-api
   rubygem-faraday_middleware
   rubygem-ffi
+  rubygem-fog-azure
+  rubygem-fog-proxmox
+  rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
@@ -305,6 +308,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_dlm
   rubygem-foreman_docker
   rubygem-foreman_expire_hosts
+  rubygem-foreman_fog_proxmox
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
