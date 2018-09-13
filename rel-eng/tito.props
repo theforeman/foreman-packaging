@@ -133,6 +133,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
+  rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
