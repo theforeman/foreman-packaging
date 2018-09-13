@@ -6,8 +6,8 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.6
-Release: 2%{?foremandist}%{?dist}
+Version: 2.2.7
+Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0
 Requires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
 Requires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.4.4
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.5.6
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
@@ -111,6 +111,9 @@ exit 0
 
 
 %changelog
+* Thu Sep 13 2018 Marek Hulan <mhulan@redhat.com> 2.2.7-1
+- Update to 2.2.7
+
 * Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.6-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
