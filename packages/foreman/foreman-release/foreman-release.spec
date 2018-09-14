@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:     foreman-release
@@ -42,14 +42,14 @@ Foreman repository contains open source and other distributable software for
 distributions in RPM format. This package contains the repository configuration
 for Yum.
 
-%package   client
+%package   -n foreman-client-release
 Summary:   Foreman client repositories meta-package
 Group:     Applications/System
 
-%description client
+%description -n foreman-client-release
 Defines yum repositories for Foreman clients.
 
-%files client
+%files -n foreman-client-release
 %config %{repo_dir}/foreman-client.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
@@ -86,6 +86,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Fri Sep 14 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.5.develop
+- Rename client subpackge to foreman-client-release
+
 * Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.4.develop
 - Add client release
 
