@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 9
 %global prerelease develop
 
 Name:    foreman
@@ -1029,7 +1029,7 @@ rm -f %{buildroot}%{_datadir}/%{name}/bin/spring
 mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_datadir}/%{name}/config/database.yml
 mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_datadir}/%{name}/config/settings.yaml
 
-for i in database.yml logging.yaml settings.yaml foreman-debug.conf; do
+for i in database.yml settings.yaml foreman-debug.conf; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
@@ -1258,6 +1258,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Sep 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.9.develop
+- Treat logging.yaml as non-config
+
 * Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 1.20.0-0.8.develop
 - remove rails 4 message encryptor extensions patch
 
