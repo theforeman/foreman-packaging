@@ -445,6 +445,7 @@ katello_packages:
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
     nodejs-jed: {}
+    nodejs-query-string: {}
     nodejs-react-bootstrap-tooltip-button: {}
     nodejs-react-router-bootstrap: {}
     nodejs-react-helmet: {}
