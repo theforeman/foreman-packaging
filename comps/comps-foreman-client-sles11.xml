@@ -12,6 +12,18 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">foreman-client-release</packagereq>
+      <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
+      <packagereq type="default">katello-host-tools</packagereq>
+      <packagereq type="default">python-decorator</packagereq>
+      <packagereq type="default">python-iniparse</packagereq>
+      <packagereq type="default">python-rhsm-certificates</packagereq>
+      <packagereq type="default">python-rhsm</packagereq>
+      <packagereq type="default">python-six</packagereq>
+      <packagereq type="default">subscription-manager-gui</packagereq>
+      <packagereq type="default">subscription-manager-rhsm-certificates</packagereq>
+      <packagereq type="default">subscription-manager-rhsm</packagereq>
+      <packagereq type="default">subscription-manager</packagereq>
+      <packagereq type="default">virt-what</packagereq>
     </packagelist>
   </group>
 </comps>
