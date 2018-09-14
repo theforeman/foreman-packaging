@@ -409,22 +409,27 @@ whitelist = ansiblerole-insights-client
 [foreman-client-nightly-rhel7]
 disttag = .el7
 whitelist = foreman-release
+  katello-host-tools
 
 [foreman-client-nightly-rhel6]
 disttag = .el6
 whitelist = foreman-release
+  katello-host-tools
 
 [foreman-client-nightly-rhel5]
 disttag = .el5
 whitelist = foreman-release
+  katello-host-tools
 
 [foreman-client-nightly-fedora27]
 disttag = .fc27
 whitelist = foreman-release
+  katello-host-tools
 
 [foreman-client-nightly-fedora28]
 disttag = .fc28
 whitelist = foreman-release
+  katello-host-tools
 
 [katello-nightly-rhel7]
 disttag = .el7
@@ -432,7 +437,6 @@ scl = tfm
 whitelist = katello
   katello-certs-tools
   katello-client-bootstrap
-  katello-host-tools
   katello-installer-base
   katello-repos
   katello-selinux
