@@ -8,16 +8,15 @@
 %define _version 2.0.5
 %define _summary Your friendly neighborhood hash toolkit.
 %define _url https://github.com/intridea/hashie
-%define _license MIT
 
 %define desc Hashie is a small collection of tools that make hashes more powerful. Currently includes Mash (Mocking Hash) and Dash (Discrete Hash)
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   %{_version}
-Release:   6%{?dist}
+Release:   7%{?dist}
 Summary:   %{_summary}
 Group:     Development/Languages
-License:   %{_license}
+License:   MIT
 URL:       %{_url}
 Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -97,6 +96,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_docdir}/ri
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 2.0.5-7
+- Remove the use of the _license macro and just hard code it in the License line
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.5-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 
