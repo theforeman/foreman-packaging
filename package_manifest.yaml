@@ -311,6 +311,7 @@ foreman_nonscl_packages:
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}
+    nodejs-reselect: {}
     nodejs-sass-loader: {}
     nodejs-seamless-immutable: {}
     nodejs-select2: {}
