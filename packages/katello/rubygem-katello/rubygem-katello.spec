@@ -6,7 +6,7 @@
 %global gem_name katello
 # %%global prerelease .rc1
 %global mainver 3.9.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -159,6 +159,8 @@ BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-helmet) >= 5.2.0
 BuildRequires: npm(react-helmet) < 6.0.0
+BuildRequires: npm(query-string) >= 6.1.0
+BuildRequires: npm(query-string) < 7.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(react-router) >= 4.2.0
@@ -277,6 +279,8 @@ Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-helmet) >= 5.2.0
 Requires: npm(react-helmet) < 6.0.0
+Requires: npm(query-string) >= 6.1.0
+Requires: npm(query-string) < 7.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(react-router) >= 4.2.0
@@ -354,6 +358,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Sep 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-5
+- Add nodejs-query-string as a dependency
+
 * Thu Sep 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-4
 - Update NPM dependencies
 
