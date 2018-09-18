@@ -308,6 +308,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_m2
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv

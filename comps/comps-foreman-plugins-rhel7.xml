@@ -78,6 +78,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_m2</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
@@ -194,6 +195,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_m2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv-doc</packagereq>
