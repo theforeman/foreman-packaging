@@ -676,6 +676,7 @@ plugin_nonscl_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
     rubygem-smart_proxy_openscap: {}
