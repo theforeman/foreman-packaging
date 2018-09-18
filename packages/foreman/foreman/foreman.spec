@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prerelease develop
 
 Name:    foreman
@@ -25,6 +25,8 @@ Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
+Source6: %{name}.attr
+Source7: %{name}.provreq
 Source10: %{executor_service_name}.sysconfig
 Source11: %{executor_service_name}.service
 BuildArch:  noarch
@@ -854,6 +856,8 @@ Meta package with support for building RPMs in the Foreman release cycle.
 
 %files build
 %{_sysconfdir}/rpm/macros.%{name}-dist
+%{_fileattrsdir}/%{name}.attr
+%{_rpmconfigdir}/%{name}.*
 
 %package console
 Summary: Foreman console support
@@ -1161,6 +1165,11 @@ rm -rf ./usr \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}}
 EOF
 
+#copy rpm config
+install -Dpm0644 %{SOURCE6} %{buildroot}%{_fileattrsdir}/%{name}.attr
+install -pm0755 %{SOURCE7} %{buildroot}%{_rpmconfigdir}/%{name}.prov
+install -pm0755 %{SOURCE7} %{buildroot}%{_rpmconfigdir}/%{name}.req
+
 %clean
 rm -rf %{buildroot}
 
@@ -1276,6 +1285,11 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Oct 12 2018 Evgeni Golov - 1.20.0-0.11.develop
+- Add automatic Provides and Requires for Foreman's webpack bundles.
+  This should ensure that plugins can depend on a specific bundle version and
+  get rebuilt when Foreman's bundle changes.
+
 * Mon Oct 08 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.10.develop
 - Update Gem and NPM dependencies
 

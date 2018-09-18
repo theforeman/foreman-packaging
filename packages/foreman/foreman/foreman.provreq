@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+"""
+Automatic Provides and Requires generator for Foreman's webpack bundles.
+
+Foreman ships webpack bundles in its RPMs to be consumed by plugins. To ensure
+proper dependency relationships between the plugins and the main Foreman RPM,
+this script generates Provides for the Foreman RPM that contain the hash of
+the webpack bundles shipped and matching Requires for the plugins packages.
+Each time the Foreman bundles change hashes, the plugins become uninstallable
+and indicate that a rebuild is required.
+"""
+from __future__ import print_function
+
+import json
+import os
+import sys
+
+try:
+    basestring
+except NameError:
+    basestring = str
+
+FOREMAN_MANIFEST = '/var/lib/foreman/public/webpack/manifest.json'
+
+
+def foreman_webpack(name, chunk):
+    filename, fileext = os.path.splitext(chunk)
+    fileext = fileext.lstrip('.')
+    filehash = filename.rsplit('-', 1)[1]
+    return 'foreman-webpack-{}-{}({})'.format(name, fileext, filehash)
+
+
+def parse_manifest(manifest_path):
+    webpack_chunks = set()
+
+    with open(manifest_path) as fh:
+        manifest = json.load(fh)
+
+    for name, content in manifest['assetsByChunkName'].items():
+        if name != 'vendor':
+            continue
+        if isinstance(content, basestring):
+            content = [content]
+        for chunk in content:
+            webpack_chunks.add(foreman_webpack(name, chunk))
+
+    return webpack_chunks
+
+
+paths = [path.rstrip() for path in sys.stdin.readlines()]
+
+mode = os.path.splitext(sys.argv[0])[1].lstrip('.')
+
+result = set()
+
+for path in paths:
+    if path.endswith('/webpack/manifest.json') and mode == 'prov':
+        result.update(parse_manifest(path))
+    elif path.endswith('/manifest.json') and mode == 'req':
+        result.update(parse_manifest(FOREMAN_MANIFEST))
+
+print("\n".join(result))

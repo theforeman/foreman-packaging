@@ -1,0 +1,3 @@
+%__foreman_provides  %{_rpmconfigdir}/foreman.prov
+%__foreman_requires  %{_rpmconfigdir}/foreman.req
+%__foreman_path ^(/var/lib/foreman/public/webpack|/opt/theforeman/tfm/root/usr/share/gems/gems/[^/]+/public/webpack/[^/]+)/manifest\\.json$
