@@ -9,7 +9,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_maintain
@@ -70,6 +70,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/lib/%{directory_name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{directory_name}
 install -d -m0750 %{buildroot}%{_sysconfdir}/%{directory_name}
 install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packaging %{buildroot}%{_sysconfdir}/%{directory_name}/foreman_maintain.yml
+install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{buildroot}%{_sysconfdir}/passenger-recycler.yaml
 
 %files
 %dir %{gem_instdir}
@@ -83,6 +84,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %config(noreplace) %{_sysconfdir}/%{directory_name}
+%config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %{_localstatedir}/log/%{directory_name}
 %{_localstatedir}/lib/%{directory_name}
 %license %{gem_instdir}/LICENSE
@@ -94,6 +96,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 19 2018 Ivan Nečas <inecas@redhat.com> 0.2.9-2
+- Ship /etc/passenger-recycler.yaml
+
 * Fri Sep 07 2018 Ivan Nečas <inecas@redhat.com> 0.2.9-1
 - Update to 0.2.9
 
