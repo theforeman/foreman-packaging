@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow-core (0.2.1-1) stable; urgency=high
+
+  * 0.2.1 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 20 Sep 2018 21:48:29 +0200
+
 ruby-smart-proxy-dynflow-core (0.2.0-2) stable; urgency=low
 
   * Fix version in dynflow_core.rb
