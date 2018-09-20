@@ -1,3 +1,15 @@
+ruby-smart-proxy-dynflow (0.1.11-1) stable; urgency=high
+
+  * 0.1.11 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 20 Sep 2018 22:05:32 +0200
+
+ruby-smart-proxy-dynflow (0.1.10-1) stable; urgency=low
+
+  * 0.1.10 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Sat, 27 Jan 2018 08:37:07 +0100
+
 ruby-smart-proxy-dynflow (0.1.8-1) stable; urgency=low
 
   * 0.1.8 released
