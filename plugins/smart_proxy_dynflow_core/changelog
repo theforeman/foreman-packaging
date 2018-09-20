@@ -1,3 +1,15 @@
+ruby-smart-proxy-dynflow-core (0.1.11-1) stable; urgency=high
+
+  * 0.1.11 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 20 Sep 2018 22:05:45 +0200
+
+ruby-smart-proxy-dynflow-core (0.1.10-1) stable; urgency=low
+
+  * 0.1.10 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Sat, 27 Jan 2018 08:36:57 +0100
+
 ruby-smart-proxy-dynflow-core (0.1.8-2) stable; urgency=low
 
   * Add dependency onto rest-client
@@ -7,6 +19,12 @@ ruby-smart-proxy-dynflow-core (0.1.8-2) stable; urgency=low
 ruby-smart-proxy-dynflow-core (0.1.8-1) stable; urgency=low
 
   * 0.1.8 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 30 Oct 2017 14:49:13 +0100
+
+ruby-smart-proxy-dynflow-core (0.1.7-1) stable; urgency=low
+
+  * 0.1.7 released
 
  -- Ivan Nečas <inecas@redhat.com>  Fri, 06 Oct 2017 17:13:31 +0200
 
