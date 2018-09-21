@@ -18,9 +18,11 @@ Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.11.0
 
 %if 0%{?fedora}
-Requires: rubygem(smart_proxy_dynflow_core) = %{version}
+Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.7
+Requires: rubygem(smart_proxy_dynflow_core) < 0.2.0
 %else
-Requires: tfm-rubygem(smart_proxy_dynflow_core) = %{version}
+Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.1.7
+Requires: tfm-rubygem(smart_proxy_dynflow_core) < 0.2.0
 %endif
 
 BuildRequires: ruby(release)
