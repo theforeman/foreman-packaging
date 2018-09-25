@@ -1,3 +1,9 @@
+ruby-foreman-ansible (2.2.9-1) stable; urgency=low
+
+  * 2.2.9 released
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 25 Sep 2018 16:50:46 +0200
+
 ruby-foreman-ansible (2.2.8-1) stable; urgency=low
 
   * Update foreman_ansible to 2.2.8
