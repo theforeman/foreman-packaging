@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:     foreman-release
@@ -30,6 +30,9 @@ Source2:  foreman.gpg
 Source3:  foreman-rails.repo
 Source4:  foreman-rails.gpg
 Source5:  foreman-client.repo
+Source6:  qpid-copr.repo
+Source7:  subscription-manager.repo
+Source8:  pulp.repo
 
 # Required by RHEL5
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -53,6 +56,15 @@ Defines yum repositories for Foreman clients.
 %config %{repo_dir}/foreman-client.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
+%if 0%{?rhel} == 6
+%config %{repo_dir}/pulp.repo
+%config %{repo_dir}/qpid-copr.repo
+%endif
+
+%if 0%{?rhel} == 5
+%config %{repo_dir}/subscription-manager.repo
+%endif
+
 %if 0%{?suse_version}
 %dir /etc/pki
 %dir /etc/pki/rpm-gpg
@@ -65,6 +77,15 @@ install -Dpm0644 %{SOURCE0} %{buildroot}%{repo_dir}/foreman.repo
 install -Dpm0644 %{SOURCE1} %{buildroot}%{repo_dir}/foreman-plugins.repo
 install -Dpm0644 %{SOURCE3} %{buildroot}%{repo_dir}/foreman-rails.repo
 install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
+
+%if 0%{?rhel} == 6
+install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
+install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
+%endif
+
+%if 0%{?rhel} == 5
+install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
+%endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
 sed "s/\$DIST/${trimmed_dist}/g" -i %{buildroot}%{repo_dir}/*.repo
@@ -86,6 +107,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Thu Sep 27 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.6.develop
+- Add required repos to deploy in foreman-client-release
+
 * Fri Sep 14 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.5.develop
 - Rename client subpackge to foreman-client-release
 
