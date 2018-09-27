@@ -12,7 +12,7 @@ Release: 1%{?foremandist}%{?dist}
 Summary: M2 smart proxy plugin for Foreman
 Group: Applications/Internet
 License: GPLv3
-URL: http://github.com/ianballou/smart_proxy_m2
+URL: https://github.com/ianballou/smart_proxy_m2
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies

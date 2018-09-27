@@ -40,6 +40,7 @@
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_m2</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
@@ -133,7 +134,6 @@
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
-      <packagereq type="default">rubygem-smart_proxy_m2</packagereq>
       <!--RGD-START-->
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
