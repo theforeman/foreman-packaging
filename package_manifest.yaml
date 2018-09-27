@@ -3,6 +3,7 @@ packages:
   children:
     foreman_packages: {}
     plugins_packages: {}
+    foreman_client_packages: {}
     katello_packages: {}
     katello_client_packages: {}
 
@@ -416,6 +417,7 @@ foreman_client_packages:
       - f27-foreman-client-nightly
   hosts:
     katello-host-tools:
+      package_base_dir: 'packages/katello/'
       diff_package_tags:
       - foreman-client-nightly-rhel7
       - foreman-client-nightly-rhel6
