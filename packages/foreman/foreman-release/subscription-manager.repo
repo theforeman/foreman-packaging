@@ -1,0 +1,5 @@
+[subscription-manager]
+name=Subscription manager repository from Candlepin
+baseurl=https://repos.fedorapeople.org/candlepin/subscription-manager/epel-5/x86_64/
+gpgcheck=0
+enabled=1
