@@ -37,13 +37,15 @@ def parse_manifest(manifest_path):
     with open(manifest_path) as fh:
         manifest = json.load(fh)
 
-    for name, content in manifest['assetsByChunkName'].items():
-        if name != 'vendor':
-            continue
+    try:
+        name = 'vendor'
+        content = manifest['assetsByChunkName'][name]
         if isinstance(content, basestring):
             content = [content]
         for chunk in content:
             webpack_chunks.add(foreman_webpack(name, chunk))
+    except KeyError:
+        pass
 
     return webpack_chunks
 
