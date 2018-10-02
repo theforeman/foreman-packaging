@@ -397,6 +397,7 @@ foreman_client_packages:
       - el6-extras
       - el6-puppet-5
       - el6-qpid
+      - el6-subscription-manager
       - el6-pulp
       - el6-foreman-client-nightly
       - el5-base
@@ -526,6 +527,8 @@ katello_client_packages:
       - el6-extras
       - el6-puppet-5
       - el6-qpid
+      - el6-pulp
+      - el6-subscription-manager
       - el6-katello-client-nightly
       - el5-base
       - el5-updates
@@ -769,6 +772,8 @@ repoclosures:
         - el6-extras
         - el6-puppet-5
         - el6-qpid
+        - el6-pulp
+        - el6-subscription-manager
     foreman-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
       repoclosure_target_repo: el5-foreman-client-nightly
@@ -810,6 +815,8 @@ repoclosures:
         - el6-extras
         - el6-puppet-5
         - el6-qpid
+        - el6-pulp
+        - el6-subscription-manager
     katello-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
       repoclosure_target_repo: el5-katello-client-nightly
