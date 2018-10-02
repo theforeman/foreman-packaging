@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:     foreman-release
@@ -59,6 +59,7 @@ Defines yum repositories for Foreman clients.
 %if 0%{?rhel} == 6
 %config %{repo_dir}/pulp.repo
 %config %{repo_dir}/qpid-copr.repo
+%config %{repo_dir}/subscription-manager.repo
 %endif
 
 %if 0%{?rhel} == 5
@@ -81,10 +82,13 @@ install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 %if 0%{?rhel} == 6
 install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
 install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
+install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
+sed "s/\$OS_VERSION/6/g" -i %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 %if 0%{?rhel} == 5
 install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
+sed "s/\$OS_VERSION/7/g" -i %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
@@ -107,6 +111,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Tue Oct 02 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.7.develop
+- Add EL6 subscription-manager repository
+
 * Thu Sep 27 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.6.develop
 - Add required repos to deploy in foreman-client-release
 
