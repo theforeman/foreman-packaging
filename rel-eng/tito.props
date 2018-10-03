@@ -67,8 +67,8 @@ whitelist = foreman-bootloaders-redhat
   nodejs-isomorphic-fetch
   nodejs-jed
   nodejs-jquery
-  nodejs-jquery-flot
   nodejs-jquery.cookie
+  nodejs-jquery-flot
   nodejs-jquery-ujs
   nodejs-jsdom
   nodejs-js-tokens
@@ -83,6 +83,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
+  nodejs-novnc
   nodejs-object-assign
   nodejs-patternfly
   nodejs-patternfly-react

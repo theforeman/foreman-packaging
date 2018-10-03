@@ -238,6 +238,7 @@
       <packagereq type="default">nodejs-multiselect</packagereq>
       <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
+      <packagereq type="default">nodejs-novnc</packagereq>
       <packagereq type="default">nodejs-object-assign</packagereq>
       <packagereq type="default">nodejs-patternfly</packagereq>
       <packagereq type="default">nodejs-patternfly-react</packagereq>
