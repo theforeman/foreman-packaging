@@ -7,7 +7,7 @@ TITO_TAG=foreman-nightly-nonscl-rhel7
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
-PACKAGE_NAME=nodejs-$NPM_MODULE_NAME
+PACKAGE_NAME=nodejs-${NPM_MODULE_NAME##*/}
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
@@ -21,6 +21,8 @@ ensure_program() {
     echo "$1 is not installed - you can install it with"
     if [[ $1 == "npm2pm" ]] ; then
       echo "sudo npm install npm2rpm"
+    elif [[ $1 == "spectool" ]] ; then
+      echo "sudo yum install rpmdevtools"
     else
       echo "sudo yum install $1"
     fi
@@ -37,10 +39,8 @@ generate_npm_package() {
   mkdir $PACKAGE_DIR
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
-  npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY
+  npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY -o $PACKAGE_DIR
   echo "FINISHED"
-  echo -n "Copying specs..."
-  cp npm2rpm/SPECS/* $PACKAGE_DIR
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
     cat OLD_CHANGELOG >> $PACKAGE_DIR/*.spec
@@ -52,10 +52,9 @@ generate_npm_package() {
   fi
   echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec ${VERSION}-1
   echo "FINISHED"
-  echo -n "Copying sources..."
-  cp -r npm2rpm/SOURCES/* $PACKAGE_DIR
+  echo -n "Downloading sources..."
+  spectool --list-files $PACKAGE_DIR/*.spec | awk '/https?:/ { print $2 }' | xargs --no-run-if-empty wget --directory-prefix=$PACKAGE_DIR --no-verbose
   echo "FINISHED"
-  rm -r npm2rpm
 
   if [ "$STRATEGY" = "bundle" ]; then
     echo -e "Adding npmjs cache binary... - "
@@ -91,6 +90,11 @@ add_npm_to_comps() {
   git add comps/
 }
 
+npm_info() {
+  local name=$(python2 -c "import urllib ; print(urllib.quote('$NPM_MODULE_NAME', safe=''))")
+  curl -s https://api.npms.io/v2/package/$name
+}
+
 # Main script
 
 if [[ -z $NPM_MODULE_NAME ]]; then
@@ -101,12 +105,13 @@ fi
 
 ensure_program crudini
 ensure_program npm2rpm
+ensure_program spectool
 
 if [[ $VERSION == "auto" ]] ; then
   ensure_program curl
   ensure_program jq
 
-  VERSION=$(curl -s https://api.npms.io/v2/package/$NPM_MODULE_NAME | jq -r .collected.metadata.version)
+  VERSION=$(npm_info | jq -r .collected.metadata.version)
 
   if [[ $VERSION == "null" ]] ; then
     echo "Could not determine the version for $NPM_MODULE_NAME"
@@ -118,7 +123,7 @@ if [[ -z $STRATEGY ]] ; then
   ensure_program curl
   ensure_program jq
 
-  DEPENDENCIES=$(curl -s https://api.npms.io/v2/package/$NPM_MODULE_NAME | jq -r '.collected.metadata.dependencies|length')
+  DEPENDENCIES=$(npm_info | jq -r '.collected.metadata.dependencies|length')
   if [[ $DEPENDENCIES -gt 2 ]] ; then
     STRATEGY="bundle"
   else
