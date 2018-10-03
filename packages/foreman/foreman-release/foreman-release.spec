@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 7
+%global release 8
 %global prerelease develop
 
 Name:     foreman-release
@@ -31,8 +31,9 @@ Source3:  foreman-rails.repo
 Source4:  foreman-rails.gpg
 Source5:  foreman-client.repo
 Source6:  qpid-copr.repo
-Source7:  subscription-manager.repo
+Source7:  subscription-manager-el5.repo
 Source8:  pulp.repo
+Source9:  subscription-manager-el6.repo
 
 # Required by RHEL5
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -82,13 +83,11 @@ install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 %if 0%{?rhel} == 6
 install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
 install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
-install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
-sed "s/\$OS_VERSION/6/g" -i %{buildroot}%{repo_dir}/subscription-manager.repo
+install -m 644 %{SOURCE9} %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 %if 0%{?rhel} == 5
 install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
-sed "s/\$OS_VERSION/7/g" -i %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
@@ -111,6 +110,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Oct 03 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.8.develop
+- EL6 needs different sub-man repo
+
 * Tue Oct 02 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.7.develop
 - Add EL6 subscription-manager repository
 
