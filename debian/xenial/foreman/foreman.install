@@ -5,7 +5,6 @@ config/settings.yaml                     etc/foreman
 config/database.yml                      etc/foreman
 script/foreman-rake                      usr/sbin
 script/foreman-tail                      usr/sbin
-script/dynflowd                          usr/bin
 app                                      usr/share/foreman
 bin                                      usr/share/foreman
 config                                   usr/share/foreman

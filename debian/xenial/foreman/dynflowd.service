@@ -8,8 +8,8 @@ Type=forking
 User=foreman
 TimeoutSec=90
 WorkingDirectory=/usr/share/foreman
-ExecStart=/usr/bin/dynflowd start
-ExecStop=/usr/bin/dynflowd stop
+ExecStart=/usr/bin/bundle exec script/dynflowd start
+ExecStop=/usr/bin/bundle exec script/dynflowd stop
 EnvironmentFile=-/etc/default/dynflowd
 
 [Install]

@@ -14,7 +14,8 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Start dynflow executor"
 NAME=dynflowd
-DAEMON=/usr/bin/$NAME
+DAEMON="/usr/bin/bundle"
+DAEMON_OPTS="exec scripts/dynflowd"
 SCRIPTNAME=/etc/init.d/$NAME
 
 # Exit if the package is not installed
@@ -160,7 +161,7 @@ start() {
             RAILS_ENV='$RAILS_ENV' \
             FOREMAN_LOGGING='$FOREMAN_LOGGING' \
             FOREMAN_LOGGING_SQL='$FOREMAN_LOGGING_SQL' \
-            $DAEMON $FOREMAN_TASK_PARAMS -m -n $FOREMAN_TASK_WORKERS start &>>${FOREMAN_LOG_DIR}/jobs-startup.log"
+            $DAEMON $DAEMON_OPTS $FOREMAN_TASK_PARAMS -m -n $FOREMAN_TASK_WORKERS start &>>${FOREMAN_LOG_DIR}/jobs-startup.log"
         RETVAL=$?
         if [ $RETVAL = 0 ]; then
             log_success_msg $NAME start
@@ -186,7 +187,7 @@ stop() {
             RAILS_ENV='$RAILS_ENV' \
             FOREMAN_LOGGING='$FOREMAN_LOGGING' \
             FOREMAN_LOGGING_SQL='$FOREMAN_LOGGING_SQL' \
-            $DAEMON $FOREMAN_TASK_PARAMS -m -n $FOREMAN_TASK_WORKERS stop &>>${FOREMAN_LOG_DIR}/jobs-startup.log"
+            $DAEMON $DAEMON_OPTS $FOREMAN_TASK_PARAMS -m -n $FOREMAN_TASK_WORKERS stop &>>${FOREMAN_LOG_DIR}/jobs-startup.log"
         if [ -f $FOREMAN_PID_DIR/dynflow_executor_monitor.pid ]; then
             echo -n $"Stopping dynflow_executor_monitor: "
             killproc -p $FOREMAN_PID_DIR/dynflow_executor_monitor.pid
