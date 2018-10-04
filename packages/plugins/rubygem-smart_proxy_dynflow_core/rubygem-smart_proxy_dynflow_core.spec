@@ -15,7 +15,7 @@
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -34,7 +34,6 @@ Requires: %{?scl_prefix_ror}rubygem(rack)
 Requires: %{?scl_prefix_ror}rubygem(sqlite3)
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: /usr/bin/pkill
 Requires(post): systemd-sysv
 Requires(post): systemd-units
 Requires(preun): systemd-units
@@ -120,6 +119,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed Sep 12 2018 Adam Ruzicka <aruzicka@redhat.com> 0.2.0-4
+- Send signal after logrotate with systemctl kill --kill-who=main
+
 * Wed Sep 12 2018 Adam Ruzicka <aruzicka@redhat.com> 0.2.0-3
 - Fix signal sending after logrotate
 
