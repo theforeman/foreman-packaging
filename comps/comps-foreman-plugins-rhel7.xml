@@ -60,7 +60,6 @@
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
