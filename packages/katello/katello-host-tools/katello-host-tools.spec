@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.4
-Release: 1%{?dist}
+Version: 3.3.5
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -79,6 +79,7 @@ Requires: pulp-rpm-handlers >= 2.6
 Requires: gofer >= 2.12.1
 Obsoletes: python-pulp-agent-lib < 3.0
 Obsoletes: pulp-rpm-handlers < 3.0
+Obsoletes: python-pulp-rpm-common < 2.16.4
 %endif
 
 %if %{dnf_install}
@@ -358,6 +359,17 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Fri Sep 21 2018 Patrick Creech <pcreech@redhat.com> - 3.3.5-3
+- Decrease Obsolete version for python-pulp-rpm-common
+
+* Tue Sep 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.3.5-2
+- Obsolete python-pulp-rpm-common on EL7
+
+* Wed Aug 29 2018 Jonathon Turel <jturel@gmail.com> - 3.3.5-1
+- Fixes #24500 - prevent exceptions through registerCommand
+- Remove old makefile syntax from readme
+- Add a readme, makefile help, other small fixes
+
 * Mon Jul 23 2018 Jonathon Turel <jturel@gmail.com> - 3.3.4-1
 - Fixes #24353 - handle update all packages
 

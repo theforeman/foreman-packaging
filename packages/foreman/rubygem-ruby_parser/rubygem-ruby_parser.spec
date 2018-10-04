@@ -8,7 +8,7 @@
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.10.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -102,6 +102,9 @@ popd
 %{gem_docdir}
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Jan 18 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.10.1-1
 - Bump up rubygem to version 3.10.1 (dmitri@appliedlogic.ca)
 

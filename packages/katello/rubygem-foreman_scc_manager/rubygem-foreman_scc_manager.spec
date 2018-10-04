@@ -5,21 +5,21 @@
 %global plugin_name scc_manager
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.1
-Release: 1%{?foremandist}%{?dist}
+Version: 1.4.0
+Release: 3%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3+
 URL: https://www.orcharhino.com/
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.17.0
+Requires: foreman >= 1.18.0
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
-Requires: %{?scl_prefix}rubygem(katello) >= 3.6
+Requires: %{?scl_prefix}rubygem(katello) >= 3.7
 BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.17
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.6
+BuildRequires: foreman-plugin >= 1.18
+BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.7
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -99,6 +99,14 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.4.0-3
+- Move licenes which are GPL-* to GPLv3
+
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
+* Tue Aug 07 2018 Matthias Dellweg <dellweg@atix.de> 1.4.0-1
+- Raise compatibility to foreman 1.18
 * Wed May 16 2018 Matthias Dellweg <dellweg@atix.de> 1.3.1-1
 - Migration to rails 5 by evgeni
 - Fix issue with productless account

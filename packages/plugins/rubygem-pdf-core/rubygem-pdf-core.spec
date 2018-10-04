@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: PDF::Core is used by Prawn to render PDF documents
 Group: Development/Languages
 License: GPLv2 or GPLv3 or Ruby
@@ -78,3 +78,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+

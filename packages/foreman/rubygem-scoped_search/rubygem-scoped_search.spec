@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.1.3
+Version: 4.1.5
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -110,6 +110,15 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Sep 19 2018 Marek Hulan <mhulan@redhat.com> 4.1.5-1
+- Update to 4.1.5
+
+* Thu Sep 06 2018 Marek Hulan <mhulan@redhat.com> 4.1.4-1
+- Update to 4.1.4
+
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.1.3-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.1.2-2
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

@@ -18,35 +18,25 @@
 
 %define selinux_variants targeted
 %define selinux_modules foreman foreman-proxy
-
-%if 0%{?rhel} == 5
-# absolute minimum versions for RHEL 5
-%define selinux_policy_ver 3.11.1-81
-%else
-# absolute minimum versions for RHEL 6
-%define selinux_policy_ver 2.4.6-80
-%endif
-%define selinux_policycoreutils_ver 1.33.12-1
+%global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global release 2
+%global prerelease develop
 
 Name:           foreman-selinux
 Version:        1.20.0
-Release:        0.develop%{?dotalphatag}%{?dist}
+Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
 License:        GPLv3+
 URL:            https://theforeman.org
-Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
 BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
-BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
+BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
@@ -60,7 +50,7 @@ Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
 SELinux policy module for Foreman
 
 %prep
-%setup -q -n %{name}-%{version}%{?dashalphatag}
+%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 # determine distribution name and version
@@ -175,6 +165,12 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Sep 05 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.20.0-0.2.develop
+- Updated selinux_policy_ver macro
+
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.1.develop
+- Add prerelease macro
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
 - Bump version to 1.20-develop
 

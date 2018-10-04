@@ -6,7 +6,7 @@
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
 Name: tfm-rubygem-%{gem_name}
 Version: 2.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rest-client/rest-client
@@ -78,6 +78,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-2
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

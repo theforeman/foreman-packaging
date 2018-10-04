@@ -7,7 +7,7 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/stefankroes/ancestry
@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-2
 - Rebuild for Rails 5.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

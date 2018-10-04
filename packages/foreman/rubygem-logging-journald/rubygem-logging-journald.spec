@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Journald appender for logging gem
 Group: Development/Languages
 License: MIT
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Feb 20 2018 Daniel Lobato Garcia <me@daniellobato.me> 1.0.0-1
 - new package built with tito
 

@@ -4,8 +4,8 @@
 %global gem_name fog-ovirt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.1
-Release: 1%{?dist}
+Version: 1.1.2
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
@@ -92,6 +92,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.2-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
+* Thu Aug 30 2018 Ori Rabin <orrabin@gmail.com> 1.1.2-1
+- Update to 1.1.2
+
 * Thu Jul 12 2018 Ivan Nečas <inecas@redhat.com> 1.1.1-1
 - Update to 1.1.1
 

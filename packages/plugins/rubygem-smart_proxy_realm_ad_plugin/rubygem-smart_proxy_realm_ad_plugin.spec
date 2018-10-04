@@ -7,10 +7,10 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A realm ad provider plugin for Foreman's smart proxy
 Group: Applications/Internet
-License: GPL-3.0
+License: GPLv3+
 URL: https://github.com/martencassel/smart_proxy_realm_ad_plugin
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.15
@@ -86,6 +86,9 @@ mv %{buildroot}%{gem_instdir}/config/realm_ad.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.1-2
+- Move licenes which are GPL-* to GPLv3
+
 * Thu Jan 04 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1-1
 - new package built with tito
 

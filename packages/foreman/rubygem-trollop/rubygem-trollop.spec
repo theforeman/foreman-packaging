@@ -6,7 +6,7 @@
 Summary: A command-line option parsing library for ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/Productivity
 License: MIT
 URL: http://trollop.rubyforge.org/
@@ -85,6 +85,9 @@ ruby -Ilib:test test/test_trollop.rb | grep "1 failures, 1 errors"
 %{gem_instdir}/test
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.2-2
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

@@ -7,12 +7,12 @@
     <description>Packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
-      <packagereq type="default">centos-release-scl</packagereq>
       <packagereq type="default">centos-release-scl-rh</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat-tftpboot</packagereq>
+      <packagereq type="default">foreman-build</packagereq>
       <packagereq type="default">foreman-cli</packagereq>
       <packagereq type="default">foreman-compute</packagereq>
       <packagereq type="default">foreman-console</packagereq>
@@ -35,8 +35,6 @@
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
-      <packagereq type="default">http-parser</packagereq>
-      <packagereq type="default">http-parser-devel</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
@@ -103,7 +101,6 @@
       <packagereq type="default">tfm-rubygem-journald-native</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
       <packagereq type="default">tfm-rubygem-launchy</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff</packagereq>
@@ -195,6 +192,7 @@
       <packagereq type="default">nodejs-babel-preset-react</packagereq>
       <packagereq type="default">nodejs-babel-register</packagereq>
       <packagereq type="default">nodejs-babel-runtime</packagereq>
+      <packagereq type="default">nodejs-bootstrap-sass</packagereq>
       <packagereq type="default">nodejs-bootstrap-slider-without-jquery</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
@@ -222,6 +220,7 @@
       <packagereq type="default">nodejs-ipaddr.js</packagereq>
       <packagereq type="default">nodejs-is-buffer</packagereq>
       <packagereq type="default">nodejs-isomorphic-fetch</packagereq>
+      <packagereq type="default">nodejs-jed</packagereq>
       <packagereq type="default">nodejs-jquery</packagereq>
       <packagereq type="default">nodejs-jquery-flot</packagereq>
       <packagereq type="default">nodejs-jquery-ujs</packagereq>
@@ -265,6 +264,7 @@
       <packagereq type="default">nodejs-redux-logger</packagereq>
       <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>
+      <packagereq type="default">nodejs-reselect</packagereq>
       <packagereq type="default">nodejs-sass-loader</packagereq>
       <packagereq type="default">nodejs-seamless-immutable</packagereq>
       <packagereq type="default">nodejs-select2</packagereq>
@@ -289,6 +289,7 @@
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
+      <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-kafo_wizards</packagereq>
@@ -320,6 +321,7 @@
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
+      <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-kafo-doc</packagereq>
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
       <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
@@ -391,7 +393,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery_pwstrength_bootstrap_4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>

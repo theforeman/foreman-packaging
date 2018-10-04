@@ -4,8 +4,8 @@
 %global gem_name activerecord-session_store
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 4%{?dist}
+Version: 1.1.1
+Release: 2%{?dist}
 Summary: An Action Dispatch session store backed by Active Record
 Group: Development/Languages
 License: MIT
@@ -14,15 +14,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) < 5.2
 Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activerecord) < 5.2
 Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.11.2
 Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(rack) >= 1.5.2
 Requires: %{?scl_prefix_ror}rubygem(rack) < 3
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
@@ -77,6 +74,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
+* Wed Aug 15 2018 Eric D. Helms <ericdhelms@gmail.com> 1.1.1-1
+- Bump to 1.1.1
+
 * Wed May 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-4
 - Use multi_json from Rails SCL
 

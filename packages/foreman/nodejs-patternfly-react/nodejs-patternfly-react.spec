@@ -3,9 +3,9 @@
 
 Name: nodejs-%{npm_name}
 Version: 2.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
-License: Apache-2.0
+License: ASL 2.0
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -64,6 +64,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 2.5.1-2
+- Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
+
 * Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 2.5.1-1
 - Update to 2.5.1
 

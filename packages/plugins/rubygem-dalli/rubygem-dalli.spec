@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.7.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: High performance memcached client for Ruby
 Group: Development/Languages
 License: MIT
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.7.6-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.7.6-1
 - Add rubygem-dalli for foreman_memcache (ericdhelms@gmail.com)
 - Remove packages now in sclo-ror42 (dominic@cleal.org)

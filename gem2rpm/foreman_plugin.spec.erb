@@ -82,9 +82,9 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel <%= req %>
 BuildArch: noarch
 <% end -%>
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 <% if has_compute -%>
-Provides: foreman-%{plugin_name}
+Provides: foreman-%{plugin_name} = %{version}
 <% end -%>
 # end generated dependencies
 

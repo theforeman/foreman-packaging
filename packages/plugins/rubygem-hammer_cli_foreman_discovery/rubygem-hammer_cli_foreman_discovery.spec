@@ -9,7 +9,7 @@
 Summary: Foreman discovery commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-discovery
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

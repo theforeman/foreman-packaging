@@ -6,7 +6,7 @@
 Summary: Parse YAML safely
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/dtao/safe_yaml
@@ -73,6 +73,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/CHANGES.md
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.4-4
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.4-3
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -74,6 +74,9 @@ cp -a ./%{_bindir}/* %{buildroot}%{_bindir}
 
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-10
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.3.3-9
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Switch to using gem_install macro (ericdhelms@gmail.com)

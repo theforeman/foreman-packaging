@@ -77,6 +77,11 @@ module KatelloUtilities
         self.fail_with_message("Please specify a hostname.", @opt_parser)
       end
 
+      if @old_hostname == @new_hostname
+        self.fail_with_message("The hostname specified must be different from the current hostname. If you have changed the hostname" \
+                              " with another utility, please change it back to the original hostname before running this tool.")
+      end
+
       STDOUT.puts "\nChecking hostname validity"
       # This regex is an approximation of a hostname, it will handle most invalid hostnames and typos.
       # Taken from https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch08s15.html
@@ -252,10 +257,10 @@ module KatelloUtilities
         fpc_installer_args = self.get_fpc_answers
       end
 
-      self.precheck
-
       # Get the hostname from your system
       @old_hostname = self.get_hostname
+
+      self.precheck
 
       unless @foreman_proxy_content
         STDOUT.puts "\nUpdating default #{@proxy}"

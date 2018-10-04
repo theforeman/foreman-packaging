@@ -8,6 +8,8 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">ansiblerole-insights-client</packagereq>
+      <packagereq type="default">foreman-discovery-image-service</packagereq>
+      <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
@@ -38,6 +40,7 @@
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_m2</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap</packagereq>
@@ -56,9 +59,7 @@
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api</packagereq>
-      <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-azure</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
@@ -80,6 +81,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_m2</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
@@ -162,6 +164,7 @@
       <packagereq type="default">rubygem-smart_proxy_dns_powerdns-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_route53-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dynflow-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_m2-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
@@ -179,10 +182,7 @@
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_abrt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
@@ -201,6 +201,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_m2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv-doc</packagereq>

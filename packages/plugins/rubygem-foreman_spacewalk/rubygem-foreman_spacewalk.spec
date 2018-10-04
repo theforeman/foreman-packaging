@@ -7,10 +7,10 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Spacewalk integration for Foreman
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3+
 URL: https://github.com/dm-drogeriemarkt/foreman_spacewalk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -95,6 +95,12 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 2.0.0-3
+- Move licenes which are GPL-* to GPLv3
+
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jun 29 2018 Timo Goebel <mail@timogoebel.name> - 2.0.0-1
 - Update foreman_spacewalk to 2.0.0
 

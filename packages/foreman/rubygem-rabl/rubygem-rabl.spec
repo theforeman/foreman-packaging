@@ -6,7 +6,7 @@
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.13.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -90,6 +90,9 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.13.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 0.13.1-1
 - Bump rubygem-rabl to 0.13.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

@@ -20,6 +20,7 @@ disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
+  foreman-release
   foreman-release-scl
   foreman-selinux
   nodejs-axios
@@ -36,6 +37,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
+  nodejs-bootstrap-sass
   nodejs-bootstrap-slider-without-jquery
   nodejs-brace
   nodejs-breakjs
@@ -63,9 +65,10 @@ whitelist = foreman-bootloaders-redhat
   nodejs-ipaddr.js
   nodejs-is-buffer
   nodejs-isomorphic-fetch
+  nodejs-jed
   nodejs-jquery
-  nodejs-jquery.cookie
   nodejs-jquery-flot
+  nodejs-jquery.cookie
   nodejs-jquery-ujs
   nodejs-jsdom
   nodejs-js-tokens
@@ -106,6 +109,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-redux-logger
   nodejs-redux-thunk
   nodejs-regenerator-runtime
+  nodejs-reselect
   nodejs-sass-loader
   nodejs-seamless-immutable
   nodejs-select2
@@ -131,6 +135,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
+  rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
@@ -206,7 +211,6 @@ whitelist = foreman
   rubygem-ipaddress
   rubygem-journald-logger
   rubygem-journald-native
-  rubygem-jquery_pwstrength_bootstrap_4
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
@@ -284,16 +288,12 @@ whitelist = rubygem-angular-rails-templates
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
   rubygem-commonjs
-  rubygem-concurrent-ruby
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
-  rubygem-faraday_middleware
   rubygem-ffi
-  rubygem-fog-azure
   rubygem-fog-proxmox
-  rubygem-foreman_abrt
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
@@ -312,6 +312,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_m2
   rubygem-foreman_memcache
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
@@ -370,11 +371,13 @@ whitelist = rubygem-angular-rails-templates
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-insights-client
+  foreman-discovery-image-service
   nodejs-react-json-tree
   puppet-foreman_scap_client
   rubygem-chef-api
   rubygem-faraday
   rubygem-faraday_middleware
+  rubygem-fast_gettext
   rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify
@@ -396,6 +399,7 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
+  rubygem-smart_proxy_m2
   rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_omaha
   rubygem-smart_proxy_openscap
@@ -405,20 +409,45 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
+[foreman-client-nightly-rhel7]
+disttag = .el7
+whitelist = foreman-release
+  katello-host-tools
+
+[foreman-client-nightly-rhel6]
+disttag = .el6
+whitelist = foreman-release
+  katello-host-tools
+
+[foreman-client-nightly-rhel5]
+disttag = .el5
+whitelist = foreman-release
+  katello-host-tools
+
+[foreman-client-nightly-fedora27]
+disttag = .fc27
+whitelist = foreman-release
+  katello-host-tools
+
+[foreman-client-nightly-fedora28]
+disttag = .fc28
+whitelist = foreman-release
+  katello-host-tools
+
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
   katello-certs-tools
   katello-client-bootstrap
-  katello-host-tools
   katello-installer-base
   katello-repos
   katello-selinux
   nodejs-bootstrap-select
   nodejs-downshift
-  nodejs-jed
+  nodejs-query-string
   nodejs-react-bootstrap-tooltip-button
+  nodejs-react-helmet
   nodejs-react-router
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
@@ -455,4 +484,3 @@ whitelist = katello-repos katello-host-tools
 [katello-nightly-fedora28]
 disttag = .fc28
 whitelist = katello-repos katello-host-tools
-

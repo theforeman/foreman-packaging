@@ -1,102 +1,95 @@
+# Generated from powerbar-2.0.1.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# check files-sections at the end of this file and
-
 %global gem_name powerbar
 
-%define _version 1.0.17
-%define _summary The last progressbar-library you'll ever need
-%define _url https://github.com/busyloop/powerbar
-%define _license MIT
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 2.0.1
+Release: 1%{?dist}
+Summary: The last progressbar-library you'll ever need
+Group: Development/Languages
+License: MIT
+URL: https://github.com/busyloop/powerbar
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%define desc The last progressbar-library you'll ever need
-
-Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   %{_version}
-Release:   2%{?dist}
-Summary:   %{_summary}
-Group:     Development/Languages
-License:   %{_license}
-URL:       %{_url}
-Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-BuildArch: noarch
-Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-Requires:  %{?scl_prefix}rubygem(hashie) >= 1.1.0
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires:  %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires:  %{?scl_prefix_ruby}ruby(release)
+# start generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby > 1.9.3
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(hashie) >= 1.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-Requires:  %{?scl_prefix_ruby}rubygems
-
+BuildRequires: %{?scl_prefix_ruby}ruby > 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end generated dependencies
 
 %description
-%{desc}
+The last progressbar-library you'll ever need.
 
-%package   doc
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
-Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:   Documentation for %{pkg_name}
 
 %description doc
-This package contains documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
+
 %setup -q -D -T -n %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
 %build
-%{?scl:scl enable %{scl} "}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
-%{?scl:scl enable %{scl} - <<EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
-
-mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_cache}
-
 %dir %{gem_instdir}
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Rakefile
-%{gem_instdir}/powerbar.gemspec
-%{gem_spec}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.ruby-version
+%exclude %{gem_instdir}/bin/powerbar-demo
 %{gem_libdir}
-%dir %{gem_instdir}/bin
-%{gem_instdir}/bin/powerbar-demo
-%{_bindir}/powerbar-demo
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
+%doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.MD
-%doc %{gem_docdir}/rdoc
-%doc %{gem_docdir}/ri
+%{gem_instdir}/Rakefile
+%{gem_instdir}/powerbar.gemspec
 
 %changelog
+* Thu Sep 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.0.1-1
+- Update to 2.0.1-1
+
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.17-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jan 05 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.17-2
 - Final set of rebuilds (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
