@@ -10,7 +10,7 @@
 	daily
   postrotate
     if [ -d /run/systemd/system ] ; then
-      pkill --signal SIGUSR1 --full /usr/share/foreman-proxy/bin/smart-proxy >/dev/null 2>&1 || true
+      /bin/systemctl kill --signal=SIGUSR1 --kill-who=main foreman-proxy >/dev/null 2>&1 || true
     elif [ -e /etc/init.d/foreman-proxy ] ; then
       /etc/init.d/foreman-proxy logrotate >/dev/null 2>&1 || true
     fi
