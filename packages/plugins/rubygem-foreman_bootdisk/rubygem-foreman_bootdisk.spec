@@ -4,12 +4,12 @@
 
 %global gem_name foreman_bootdisk
 %global plugin_name bootdisk
-%global foreman_min_version 1.18.0
+%global foreman_min_version 1.20.0
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    12.0.0
-Release:    3%{?foremandist}%{?dist}
+Version:    13.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_bootdisk
@@ -111,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Oct 04 2018 Lukas Zapletal <lzap+rpm@redhat.com> 13.0.0-1
+- Update to 13.0.0
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 12.0.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
