@@ -464,23 +464,3 @@ whitelist = katello
   rubygem-redhat_access_lib
   rubygem-robotex
   rubygem-runcible
-
-[katello-nightly-rhel6]
-disttag = .el6
-whitelist = katello-host-tools
-  katello-repos
-
-[katello-nightly-rhel5]
-disttag = .el5
-whitelist = katello-host-tools
-  katello-repos
-  python-rhsm
-  subscription-manager
-
-[katello-nightly-fedora27]
-disttag = .fc27
-whitelist = katello-repos katello-host-tools
-
-[katello-nightly-fedora28]
-disttag = .fc28
-whitelist = katello-repos katello-host-tools
