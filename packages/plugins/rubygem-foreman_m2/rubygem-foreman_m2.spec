@@ -6,7 +6,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: M2 bare metal provisioning plugin for Foreman
 Group: Applications/Systems
