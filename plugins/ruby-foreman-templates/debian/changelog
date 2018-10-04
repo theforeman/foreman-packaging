@@ -1,3 +1,15 @@
+ruby-foreman-templates (6.0.3-1) stable; urgency=low
+
+  * Update foreman_templates to 6.0.3
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 11 Jul 2018 14:15:48 +0200
+
+ruby-foreman-templates (6.0.2-1) stable; urgency=low
+
+  * Update foreman_templates to 6.0.2
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 04 Jul 2018 10:53:05 +0200
+
 ruby-foreman-templates (6.0.1-1) stable; urgency=low
 
   * Update foreman_templates to 6.0.1

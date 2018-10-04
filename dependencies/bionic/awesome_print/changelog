@@ -1,0 +1,24 @@
+ruby-awesome-print (1.8.0-1) stable; urgency=low
+
+  * New upstream release
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 28 Jul 2018 20:33:41 +0200
+
+ruby-awesome-print (1.6.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix test failure under autopkgtest
+
+ -- Christian Hofstaedtler <zeha@debian.org>  Thu, 10 Sep 2015 00:45:26 +0000
+
+ruby-awesome-print (1.6.1-1) unstable; urgency=medium
+
+  * Import upstream version 1.6.1
+
+ -- Tim Potter <tpot@hp.com>  Tue, 11 Aug 2015 12:23:55 +1000
+
+ruby-awesome-print (1.2.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #711979)
+
+ -- Tim Potter <tpot@hp.com>  Tue, 14 Oct 2014 15:58:54 +1100

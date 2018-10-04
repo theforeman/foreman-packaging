@@ -1,0 +1,17 @@
+ruby-hammer-cli-foreman (0.14.0-1) stable; urgency=low
+
+  * 0.14.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Mon, 27 Aug 2018 18:50:40 +0200
+
+ruby-hammer-cli-foreman (0.13.2-1) stable; urgency=low
+
+  * 0.13.2 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 16 Aug 2018 13:55:03 +0200
+
+ruby-hammer-cli-foreman (0.13.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200

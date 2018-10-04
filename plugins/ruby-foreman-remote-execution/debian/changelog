@@ -1,3 +1,45 @@
+ruby-foreman-remote-execution (1.6.3-1) stable; urgency=low
+
+  * 1.6.3 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Wed, 12 Sep 2018 15:33:00 +0200
+
+ruby-foreman-remote-execution (1.6.2-1) stable; urgency=low
+
+  * 1.6.2 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Fri, 07 Sep 2018 09:50:20 +0200
+
+ruby-foreman-remote-execution (1.6.1-1) stable; urgency=low
+
+  * 1.6.1 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 14 Aug 2018 10:38:46 +0200
+
+ruby-foreman-remote-execution (1.5.5-1) stable; urgency=low
+
+  * 1.5.5 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 14 Aug 2018 10:45:42 +0200
+
+ruby-foreman-remote-execution (1.5.4-3) stable; urgency=low
+
+  * Change webpack link creation to use -nf
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Tue, 24 Jul 2018 10:29:05 +0300
+
+ruby-foreman-remote-execution (1.5.4-2) stable; urgency=low
+
+  * Fix links to webpack assets
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Tue, 18 Jul 2018 14:45:04 +0300
+
+ruby-foreman-remote-execution (1.5.4-1) stable; urgency=low
+
+  * 1.5.4 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Thu, 12 Jul 2018 14:23:07 +0200
+
 ruby-foreman-remote-execution (1.5.3-2) stable; urgency=low
 
   * add precompiled webpack assets

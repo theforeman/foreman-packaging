@@ -1,0 +1,11 @@
+ruby-dynflow (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Mon, 09 Jul 2018 14:47:26 +0200
+
+ruby-dynflow (1.0.5-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200

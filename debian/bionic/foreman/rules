@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+# DEB_VERBOSE_ALL=1
+# DH_VERBOSE=1
+
+build:
+	/bin/cp config/settings.yaml.example config/settings.yaml
+	/bin/cp config/database.yml.example config/database.yml
+	/usr/bin/gem install -f rake -v '12.3.1'
+	/usr/bin/gem install -f minitest -v '5.10.3'
+	/usr/bin/gem install -f thor -v '0.19.4'
+	BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
+	/bin/rm -rf node_modules
+	/usr/bin/npm install --no-optional --unsafe-perm
+	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
+	/usr/bin/bundle exec rake webpack:compile
+	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
+	# we need to allow taxonomies so apipie cache renders documentation with them
+	/bin/sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.yaml
+	/bin/sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
+	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
+	/bin/rm db/production.sqlite3
+	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
+	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
+	/bin/mkdir -p .ssh
+	dh $@
+
+%:
+	dh $@ --with=systemd
+
+override_dh_installinit:
+	dh_installinit
+	dh_installinit --name=dynflowd
+
+override_dh_systemd_enable:
+	dh_systemd_enable
+	dh_systemd_enable --name=dynflowd

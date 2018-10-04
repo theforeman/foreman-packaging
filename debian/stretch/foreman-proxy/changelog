@@ -1,3 +1,9 @@
+foreman-proxy (1.20.0-1) stable; urgency=low
+
+  * Bump changelog to 1.20.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 17 Jul 2018 18:26:17 +0200
+
 foreman-proxy (1.19.0-1) stable; urgency=low
 
   * Bump changelog to 1.19.0 to match VERSION
@@ -6,9 +12,27 @@ foreman-proxy (1.19.0-1) stable; urgency=low
 
 foreman-proxy (1.18.0-1) stable; urgency=low
 
-  * Bump changelog to 1.18.0 to match VERSION
+  * Release 1.18.0
 
- -- Michael Moll <mmoll@mmoll.at>  Thu, 11 Jan 2018 16:10:03 +0100
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 12 Jul 2018 08:36:20 +0000
+
+foreman-proxy (1.18.0~rc3-1) stable; urgency=low
+
+  * Release 1.18.0-RC3
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 28 Jun 2018 10:25:14 +0000
+
+foreman-proxy (1.18.0~rc2-1) stable; urgency=low
+
+  * Release 1.18.0-RC2
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Tue, 19 Jun 2018 11:38:17 +0000
+
+foreman-proxy (1.18.0~rc1-1) stable; urgency=low
+
+  * 1.18.0-RC1 release
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Thu, 07 Jun 2018 11:46:57 +0000
 
 foreman-proxy (1.17.0-1) stable; urgency=low
 

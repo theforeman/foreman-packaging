@@ -1,0 +1,17 @@
+[Unit]
+Description=Foreman jobs daemon
+Documentation=https://theforeman.org
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+User=foreman
+TimeoutSec=90
+WorkingDirectory=/usr/share/foreman
+ExecStart=/usr/bin/dynflowd start
+ExecStop=/usr/bin/dynflowd stop
+EnvironmentFile=-/etc/default/dynflowd
+
+[Install]
+WantedBy=multi-user.target
+Alias=ruby-foreman-tasks.service

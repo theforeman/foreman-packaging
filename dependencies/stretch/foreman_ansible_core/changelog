@@ -1,3 +1,9 @@
+ruby-foreman-ansible-core (2.1.2-1) stable; urgency=low
+
+  * Update foreman_ansible_core to 2.1.2
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 19 Jul 2018 14:30:44 +0200
+
 ruby-foreman-ansible-core (2.0.2-1) stable; urgency=low
 
   * 2.0.2 released
