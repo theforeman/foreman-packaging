@@ -417,22 +417,7 @@ foreman_client_packages:
       - f27-puppet-5
       - f27-foreman-client-nightly
   hosts:
-    katello-host-tools:
-      package_base_dir: 'packages/katello/'
-      diff_package_tags:
-      - foreman-client-nightly-rhel7
-      - foreman-client-nightly-rhel6
-      - foreman-client-nightly-rhel5
-      - foreman-client-nightly-fedora27
-      - foreman-client-nightly-fedora28
-      - katello-nightly-rhel7
-      - katello-nightly-rhel6
-      - katello-nightly-rhel5
-      - katello-nightly-fedora27
-      - katello-nightly-fedora28
-      releasers:
-      - koji-foreman-client
-      - koji-katello-client
+    katello-host-tools: {}
 
 katello_packages:
   vars:
