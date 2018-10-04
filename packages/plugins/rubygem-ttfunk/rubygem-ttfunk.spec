@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: TrueType Font Metrics Parser
 Group: Development/Languages
 License: GPLv2 or GPLv3 or Ruby
@@ -79,3 +79,6 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.5.1-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+

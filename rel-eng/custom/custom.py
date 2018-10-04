@@ -39,12 +39,14 @@ class ForemanSourceStrategy(SourceStrategy):
     in git).
     """
     def fetch(self):
-        if "jenkins_job" in self.builder.args:
-            gitrev = self._fetch_jenkins()
+        if "source_files" in self.builder.args:
+            gitrev = self._fetch_prebuilt_local()
         elif "source_dir" in self.builder.args:
             gitrev = self._fetch_local()
+        elif "jenkins_job" in self.builder.args:
+            gitrev = self._fetch_jenkins()
         else:
-            raise Exception("Specify either '--arg jenkins_job=...' or '--arg source_dir=...'")
+            raise Exception("Specify either '--arg jenkins_job=...', '--arg source_dir=...', or '--arg source_files=...[,...]")
 
         # Copy the live spec from our starting location. Unlike most builders,
         # we are not using a copy from a past git commit.
@@ -83,17 +85,10 @@ class ForemanSourceStrategy(SourceStrategy):
             new_line = "Source%s: %s\n" % (i, base_name)
             replacements.append((source_regex, new_line))
 
-        # Replace version in spec:
-        version_regex = re.compile("^(version:\s*)(.+)$", re.IGNORECASE)
-        self.version = self._get_version()
-        print("Building version: %s" % self.version)
-        replacements.append((version_regex, "Version: %s\n" % self.version))
-        self.replace_in_spec(replacements)
-
         rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
         self.release = rel_date + gitrev
         print("Building release: %s" % self.release)
-        run_command("sed -i '/^Release:/ s/%%/.%s%%/' %s" % (self.release, self.spec_file))
+        run_command("sed -i '/^Release:/ s/\s\+/ 0.%s/' %s" % (self.release, self.spec_file))
 
     """
     Downloads the source files from Jenkins, from a job that produces them as
@@ -107,7 +102,7 @@ class ForemanSourceStrategy(SourceStrategy):
     in git).
 
     Takes the following arguments:
-      jenkins_url: base URL of Jenkins ("http://ci.theforeman.org")
+      jenkins_url: base URL of Jenkins ("https://ci.theforeman.org")
       jenkins_job: name of job ("test_develop")
       jenkins_job_id: job number or alias ("123", "lastSuccessfulBuild")
     """
@@ -194,6 +189,22 @@ class ForemanSourceStrategy(SourceStrategy):
         os.chdir(old_dir)
 
         return gitrev
+
+    def _fetch_prebuilt_local(self):
+        source_files = [os.path.expanduser(source_file) for source_file in self.builder.args['source_files']]
+        try:
+            gitsha = self.builder.args['git_hash'][0]
+        except (KeyError, IndexError):
+            raise Exception("Specify '--arg git_hash=...' when using '--arg source_files=...[,...]")
+        dest_dir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
+        if not os.path.exists(dest_dir):
+            os.mkdir(dest_dir)
+
+        for src in source_files:
+            debug("Copying %s to %s" % (src, os.path.join(dest_dir, os.path.basename(src))))
+            shutil.copy(src, os.path.join(dest_dir, os.path.basename(src)))
+
+        return "git%s" % gitsha[0:7]
 
     def _get_version(self):
         """

@@ -4,8 +4,8 @@
 %global gem_name roadie-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.1
-Release: 1%{?dist}
+Version: 1.3.0
+Release: 2%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
@@ -14,7 +14,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.2
 Requires: %{?scl_prefix}rubygem(roadie) >= 3.1
 Requires: %{?scl_prefix}rubygem(roadie) < 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -83,6 +82,12 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
+* Wed Aug 15 2018 Eric D. Helms <ericdhelms@gmail.com> 1.3.0-1
+- Bump to 1.3.0
+
 * Thu Jan 04 2018 Eric D. Helms <ericdhelms@gmail.com> 1.2.1-1
 - Bump roadie-rails to 1.2.1 (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

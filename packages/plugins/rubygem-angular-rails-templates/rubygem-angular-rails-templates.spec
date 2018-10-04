@@ -8,13 +8,14 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.0.2
-Release:   2%{?dist}
+Release:   4%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
 License:   MIT
 URL:       https://github.com/pitr/angular-rails-templates
 Source0:   https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0:    enable-fips.patch
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -51,6 +52,10 @@ This package contains documentation for %{pkg_name}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
+pushd .%{gem_instdir}
+%patch0 -p1
+popd
+
 %build
 
 %install
@@ -70,6 +75,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Oct 01 2018 Ivan Necas <inecas@gmail.com> - 1.0.2-4
+- Add patch to enable running in FIPS mode
+
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.0.2-3
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.2-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

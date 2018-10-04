@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -107,6 +107,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-2
+- Rebuild for Rails 5.2 and Ruby 2.5
+
 * Fri Jun 29 2018 Timo Goebel <mail@timogoebel.name> - 2.0.0-1
 - Update foreman_omaha to 2.0.0
 

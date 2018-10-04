@@ -6,14 +6,17 @@
 %global gem_name hammer_cli_katello
 %global confdir hammer
 
+%global release 3
+%global prerelease .pre.master
+
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.4
-Release: 1%{?dist}
+Version: 0.15
+Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Group:   Development/Languages
 License: GPLv3
 URL:     https://github.com/theforeman/hammer-cli-katello
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -25,7 +28,7 @@ Obsoletes: rubygem-hammer_cli_gutterball
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.13.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
@@ -48,13 +51,27 @@ BuildArch: noarch
 Documentation for %{pkg_name}
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
-# empty, but rpmlint prefers it to be present nevertheless
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
@@ -77,6 +94,21 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.3.pre.master
+- Change hammer_cli_foreman requirement to match version
+
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.2.pre.master
+- Add prerelease support
+
+* Wed Sep 12 2018 Andrew Kofink <akofink@redhat.com> 0.15.0-1
+- Bump to 0.15.0
+
+* Wed Aug 29 2018 Andrew Kofink <akofink@redhat.com> 0.14.1-1
+- Bump to 0.14.1
+
+* Tue Aug 07 2018 Adam Price <komidore64@gmail.com> 0.13.4-2
+- bump release due to spec change
+
 * Thu Jul 19 2018 Andrew Kofink <akofink@redhat.com> 0.13.4-1
 - Update to 0.13.4
 

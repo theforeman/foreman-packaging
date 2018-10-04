@@ -2,9 +2,9 @@
 
 Name: nodejs-%{npm_name}
 Version: 3.48.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This reference implementation of PatternFly is based on [Bootstrap v3](http://getbootstrap
-License: Apache-2.0
+License: ASL 2.0
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly
 Source0: https://registry.npmjs.org/patternfly/-/patternfly-3.48.3.tgz
@@ -103,6 +103,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 3.48.3-2
+- Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
+
 * Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.48.3-1
 - Update to 3.48.3
 

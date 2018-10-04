@@ -1,0 +1,5 @@
+[subscription-manager]
+name=Subscription manager repository from Candlepin
+baseurl=https://copr-be.cloud.fedoraproject.org/results/dgoodwin/subscription-manager/epel-6-x86_64/
+gpgcheck=0
+enabled=1

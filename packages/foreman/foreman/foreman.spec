@@ -8,34 +8,29 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
+%global release 9
+%global prerelease develop
 
-Name:   foreman
+Name:    foreman
 Version: 1.20.0
-Release: 0.develop%{?dotalphatag}%{?dist}
-Summary:Systems Management web application
+Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
+Summary: Systems Management web application
 
 Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
-Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?dashalphatag}.tar.bz2
+Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1: %{name}.service
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
-Source6: %{name}.repo
-Source7: %{name}-plugins.repo
-Source8: %{name}.gpg
-Source9: message_encryptor_extensions.rb
 Source10: %{executor_service_name}.sysconfig
 Source11: %{executor_service_name}.service
 BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
+Conflicts: foreman-release-scl < 7-1
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -43,8 +38,8 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 4
-Requires: %{scl}-runtime < 5
+Requires: %{scl}-runtime >= 5
+Requires: %{scl}-runtime < 6
 %endif
 
 Requires: wget
@@ -60,7 +55,7 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
+Requires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
@@ -155,7 +150,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.1.6
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
@@ -229,8 +224,8 @@ BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 4
-BuildRequires: %{scl}-runtime-assets < 5
+BuildRequires: %{scl}-runtime-assets >= 5
+BuildRequires: %{scl}-runtime-assets < 6
 %endif
 BuildRequires: nodejs >= 6.10
 BuildRequires: http-parser
@@ -283,9 +278,9 @@ BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 5.0.0
 BuildRequires: npm(dotenv) < 6.0.0
-#BuildRequires: npm(enzyme) >= 3.1.1
+#BuildRequires: npm(enzyme) >= 3.4.0
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.0.4
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
 #BuildRequires: npm(enzyme-to-json) >= 3.2.1
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
@@ -303,6 +298,8 @@ BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(file-loader) < 1.0.0
+#BuildRequires: npm(highlight.js) >= 9.12.0
+#BuildRequires: npm(highlight.js) < 10.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 #BuildRequires: npm(jest-cli) >= 20.0.0
@@ -315,6 +312,10 @@ BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
+#BuildRequires: npm(raw-loader) >= 0.5.1
+#BuildRequires: npm(raw-loader) < 1.0.0
+#BuildRequires: npm(react-remarkable) >= 1.1.3
+#BuildRequires: npm(react-remarkable) < 2.0.0
 #BuildRequires: npm(react-test-renderer) >= 16.2.0
 #BuildRequires: npm(react-test-renderer) < 17.0.0
 #BuildRequires: npm(redux-mock-store) >= 1.2.2
@@ -333,6 +334,8 @@ BuildRequires: npm(url-loader) >= 1.0.1
 BuildRequires: npm(url-loader) < 2.0.0
 BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
+#BuildRequires: npm(webpack-bundle-analyzer) >= 2.13.1
+#BuildRequires: npm(webpack-bundle-analyzer) < 3.0.0
 #BuildRequires: npm(webpack-dev-server) >= 2.5.1
 #BuildRequires: npm(webpack-dev-server) < 3.0.0
 BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
@@ -344,6 +347,8 @@ BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
+BuildRequires: npm(bootstrap-sass) >= 3.3.7
+BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(brace) >= 0.10.0
 BuildRequires: npm(brace) < 1.0.0
 BuildRequires: npm(datatables.net) >= 1.10.12
@@ -375,13 +380,12 @@ BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) = 2.5.1
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.3.1
+BuildRequires: npm(react) >= 16.4.0
 BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
-BuildRequires: npm(react-bootstrap) < 1.0.0
+BuildRequires: npm(react-bootstrap) = 0.32.1
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
-BuildRequires: npm(react-dom) >= 16.3.1
+BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -457,21 +461,6 @@ Useful utilities for debug info collection
 %{_sbindir}/%{name}-debug
 %{_datadir}/%{name}/script/%{name}-debug.d
 
-%package release
-Summary:        Foreman repository files
-Group:          Applications/System
-
-
-%description release
-Foreman repository contains open source and other distributable software for
-distributions in RPM format. This package contains the repository configuration
-for Yum.
-
-%files release
-%config %{_sysconfdir}/yum.repos.d/*
-/etc/pki/rpm-gpg/*
-%{_sysconfdir}/rpm/macros.%{name}-dist
-
 %package libvirt
 Summary: Foreman libvirt support
 Group:  Applications/System
@@ -511,7 +500,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.2
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -609,8 +598,8 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 4
-Requires: %{scl}-runtime-assets < 5
+Requires: %{scl}-runtime-assets >= 5
+Requires: %{scl}-runtime-assets < 6
 %endif
 Requires: nodejs >= 6.10
 # Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
@@ -660,9 +649,9 @@ Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(dotenv) >= 5.0.0
 Requires: npm(dotenv) < 6.0.0
-#Requires: npm(enzyme) >= 3.1.1
+#Requires: npm(enzyme) >= 3.4.0
 #Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.0.4
+#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
 #Requires: npm(enzyme-adapter-react-16) < 2.0.0
 #Requires: npm(enzyme-to-json) >= 3.2.1
 #Requires: npm(enzyme-to-json) < 4.0.0
@@ -680,6 +669,8 @@ Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(file-loader) < 1.0.0
+#Requires: npm(highlight.js) >= 9.12.0
+#Requires: npm(highlight.js) < 10.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
 #Requires: npm(jest-cli) >= 20.0.0
@@ -692,6 +683,10 @@ Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
 Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
+#Requires: npm(raw-loader) >= 0.5.1
+#Requires: npm(raw-loader) < 1.0.0
+#Requires: npm(react-remarkable) >= 1.1.3
+#Requires: npm(react-remarkable) < 2.0.0
 #Requires: npm(react-test-renderer) >= 16.2.0
 #Requires: npm(react-test-renderer) < 17.0.0
 #Requires: npm(redux-mock-store) >= 1.2.2
@@ -710,6 +705,8 @@ Requires: npm(url-loader) >= 1.0.1
 Requires: npm(url-loader) < 2.0.0
 Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
+#Requires: npm(webpack-bundle-analyzer) >= 2.13.1
+#Requires: npm(webpack-bundle-analyzer) < 3.0.0
 #Requires: npm(webpack-dev-server) >= 2.5.1
 #Requires: npm(webpack-dev-server) < 3.0.0
 Requires: npm(webpack-stats-plugin) >= 0.1.5
@@ -721,6 +718,8 @@ Requires: npm(axios) >= 0.17.1
 Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
+Requires: npm(bootstrap-sass) >= 3.3.7
+Requires: npm(bootstrap-sass) < 4.0.0
 Requires: npm(brace) >= 0.10.0
 Requires: npm(brace) < 1.0.0
 Requires: npm(datatables.net) >= 1.10.12
@@ -752,13 +751,12 @@ Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) = 2.5.1
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.3.1
+Requires: npm(react) >= 16.4.0
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-bootstrap) = 0.32.1
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
-Requires: npm(react-dom) >= 16.3.1
+Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
@@ -819,7 +817,7 @@ Meta package to install asset pipeline support.
 Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
-Requires: %{name}-release = %{version}-%{release}
+Requires: %{name}-build = %{version}-%{release}
 Requires: %{name}-sqlite = %{version}-%{release}
 
 %description plugin
@@ -829,6 +827,15 @@ Meta package with support for plugins.
 %{_sysconfdir}/rpm/macros.%{name}-plugin
 %{_datadir}/%{name}/schema_plugin.rb
 
+%package build
+Summary: Foreman package RPM support
+Group: Development/Libraries
+
+%description build
+Meta package with support for building RPMs in the Foreman release cycle.
+
+%files build
+%{_sysconfdir}/rpm/macros.%{name}-dist
 
 %package console
 Summary: Foreman console support
@@ -853,7 +860,7 @@ Meta Package to install requirements for console support
 Summary: Foreman mysql2 support
 Group:  Applications/System
 # start specfile mysql2 Requires
-Requires: %{?scl_prefix}rubygem(mysql2) >= 0.3.18
+Requires: %{?scl_prefix}rubygem(mysql2) >= 0.4.4
 Requires: %{?scl_prefix}rubygem(mysql2) < 0.6.0
 # end specfile mysql2 Requires
 Requires: %{name} = %{version}-%{release}
@@ -932,10 +939,7 @@ Foreman is based on Ruby on Rails, and this package bundles Rails and all
 plugins required for Foreman to work.
 
 %prep
-%setup -q -n %{name}-%{version}%{?dashalphatag}
-
-# Apply Rails 4.2.5.1 to .8 compatibility patch
-[ -e lib/core_extensions.rb ] && cat %{SOURCE9} >> lib/core_extensions.rb || exit 1
+%setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 #build man pages
@@ -1010,15 +1014,6 @@ install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
-install -Dpm0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}.repo
-install -Dpm0644 %{SOURCE7} %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}-plugins.repo
-sed "s/\$DIST/$(echo %{?dist} | cut -d. -f2)/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
-if [[ '%{release}' != *"develop"* ]];then
-	VERSION="%{version}"
-	sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/%{name}*.repo
-fi
-install -Dpm0644 %{SOURCE8} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
-
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
@@ -1034,7 +1029,7 @@ rm -f %{buildroot}%{_datadir}/%{name}/bin/spring
 mv %{buildroot}%{_datadir}/%{name}/config/database.yml.example %{buildroot}%{_datadir}/%{name}/config/database.yml
 mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_datadir}/%{name}/config/settings.yaml
 
-for i in database.yml logging.yaml settings.yaml foreman-debug.conf; do
+for i in database.yml settings.yaml foreman-debug.conf; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
@@ -1128,16 +1123,16 @@ ln -s %{nodejs_sitelib} node_modules \\
 sed -i 's/:locations_enabled: false/:locations_enabled: true/' \`pwd\`/config/settings.yaml \\
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/config/settings.yaml \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
-cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 unlink tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 export NODE_ENV=production \\
-%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create db:schema:load SCHEMA=%{_datadir}/%{name}/schema_plugin.rb RAILS_ENV=development --trace} \\
+cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create RAILS_ENV=development --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
+%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
 %%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} --trace} \\
 \\
 popd \\
@@ -1263,6 +1258,33 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Sep 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.9.develop
+- Treat logging.yaml as non-config
+
+* Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 1.20.0-0.8.develop
+- remove rails 4 message encryptor extensions patch
+
+* Tue Sep 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.7.develop
+- Update Gem and NPM dependencies
+
+* Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.6.develop
+- Drop schema loading for plugin builds
+
+* Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> 1.20.0-0.5.develop
+- Updates for Rails 5.2 and Ruby 2.5
+
+* Mon Aug 20 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.4.develop
+- Remove foreman-release as a subpackage
+
+* Mon Aug 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.develop
+- Handle GPG checking after branching
+
+* Wed Aug 01 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.2.develop
+- Move the foreman-rails repository definition from foreman-release-scl to foreman-release
+
+* Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.1.develop
+- Add prerelease macro
+
 * Tue Jul 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.develop
 - Bump version to 1.20-develop
 

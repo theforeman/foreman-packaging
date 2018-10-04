@@ -8,7 +8,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
+Version: 0.2.11
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -56,28 +56,35 @@ Documentation for %{pkg_name}
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
+sed -i '1s@/.*ruby.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
 mkdir -p %{buildroot}%{_root_bindir}
 cp -pa .%{_bindir}/* \
         %{buildroot}%{_root_bindir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
+mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
+mv %{buildroot}%{gem_instdir}/config/foreman-maintain.completion %{buildroot}%{_sysconfdir}/bash_completion.d/%{gem_name}
+
 install -d -m0750 %{buildroot}%{_localstatedir}/lib/%{directory_name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{directory_name}
 install -d -m0750 %{buildroot}%{_sysconfdir}/%{directory_name}
 install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packaging %{buildroot}%{_sysconfdir}/%{directory_name}/foreman_maintain.yml
+install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{buildroot}%{_sysconfdir}/passenger-recycler.yaml
 
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-maintain
+%{_root_bindir}/foreman-maintain-complete
 %{_root_bindir}/foreman-maintain-rotate-tar
 %{_root_bindir}/passenger-recycler
+%{_sysconfdir}/bash_completion.d/%{gem_name}
 %{gem_instdir}/bin
 %{gem_instdir}/definitions
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %config(noreplace) %{_sysconfdir}/%{directory_name}
+%config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %{_localstatedir}/log/%{directory_name}
 %{_localstatedir}/lib/%{directory_name}
 %license %{gem_instdir}/LICENSE
@@ -89,6 +96,29 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packagi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Sep 25 2018 Ivan Nečas <inecas@redhat.com> 0.2.11-1
+- Update to 0.2.11
+
+* Wed Sep 19 2018 Ivan Nečas <inecas@redhat.com> 0.2.9-2
+- Ship /etc/passenger-recycler.yaml
+
+* Fri Sep 07 2018 Ivan Nečas <inecas@redhat.com> 0.2.9-1
+- Update to 0.2.9
+
+* Mon Aug 20 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.2.8-1
+- Update to 0.2.8
+- Added bash completion
+- Update shebang only in ruby scripts
+
+* Wed Aug 15 2018 Ivan Nečas <inecas@redhat.com> 0.2.7-1
+- Update to 0.2.7
+
+* Tue Jul 31 2018 Ivan Nečas <inecas@redhat.com> 0.2.6-1
+- Update to 0.2.6
+
+* Thu Jul 26 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.2.5-1
+- Update to 0.2.5
+
 * Thu Jul 12 2018 Ivan Nečas <inecas@redhat.com> 0.2.4-1
 - Update to 0.2.4
 
