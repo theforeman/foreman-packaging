@@ -1,7 +1,3 @@
-# FIXME:
-#   1. Edit foreman requirement(s) and specify minimum version
-#   2. Delete these lines
-#
 # Generated from foreman_fog_proxmox-0.5.2.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
@@ -9,15 +5,15 @@
 
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
-%global foreman_min_version FIXME
+%global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
-License: GPL-3.0
-URL: https://github.com/tristanrobert/foreman_proxmox
+License: GPLv3
+URL: https://github.com/tristanrobert/foreman_fog_proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
