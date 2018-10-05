@@ -602,6 +602,7 @@ plugin_scl_packages:
     rubygem-foreman_dlm: {}
     rubygem-foreman_docker: {}
     rubygem-foreman_expire_hosts: {}
+    rubygem-foreman_fog_proxmox: {}
     rubygem-foreman_graphite: {}
     rubygem-foreman_hooks: {}
     rubygem-foreman_host_extra_validator: {}
