@@ -1,0 +1,13 @@
+Source: ruby-foreman-fog-proxmox
+Section: ruby
+Priority: extra
+Maintainer: Tristan Robert <tristan.robert.44@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.17.0), foreman (>= 1.17.0), foreman-sqlite3 (>= 1.17.0), foreman-compute (>= 1.17.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/tristanrobert/foreman_fog_proxmox
+
+Package: ruby-foreman-fog-proxmox
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.17.0), foreman-compute (>= 1.17.0)
+Description: Foreman Fog Proxmox Plugin
+ Foreman plugin that adds Proxmox VE compute resource using fog-proxmox gem
