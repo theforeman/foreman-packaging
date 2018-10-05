@@ -5,8 +5,8 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.1.1
+Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -31,6 +31,7 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.3.0
 Requires: %{?scl_prefix_ror}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem-sequel >= 4.0.0
+Requires: %{?scl_prefix}rubygem-statsd-instrument
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
@@ -67,6 +68,7 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %{gem_libdir}
 %{gem_instdir}/web
+%{gem_instdir}/extras
 %exclude %{gem_cache}
 %{gem_spec}
 %exclude %{gem_instdir}/.gitignore
@@ -86,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Fri Oct 05 2018 Ivan Nečas <inecas@redhat.com> 1.1.1-1
+- Update to 1.1.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
