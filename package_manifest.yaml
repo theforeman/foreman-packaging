@@ -108,8 +108,6 @@ foreman_scl_packages:
     rubygem-hoe: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
-    rubygem-journald-logger: {}
-    rubygem-journald-native: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
     rubygem-launchy: {}
@@ -366,6 +364,8 @@ foreman_scl_and_nonscl_packages:
     rubygem-clamp: {}
     rubygem-hashie: {}
     rubygem-highline: {}
+    rubygem-journald-logger: {}
+    rubygem-journald-native: {}
     rubygem-jwt: {}
     rubygem-little-plugger: {}
     rubygem-logging: {}

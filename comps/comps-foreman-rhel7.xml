@@ -290,6 +290,8 @@
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
+      <packagereq type="default">rubygem-journald-logger</packagereq>
+      <packagereq type="default">rubygem-journald-native</packagereq>
       <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
@@ -322,6 +324,8 @@
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
+      <packagereq type="default">rubygem-journald-logger-doc</packagereq>
+      <packagereq type="default">rubygem-journald-native-doc</packagereq>
       <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-kafo-doc</packagereq>
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
