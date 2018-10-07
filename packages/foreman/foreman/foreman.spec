@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prerelease develop
 
 Name:    foreman
@@ -80,8 +80,8 @@ Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
-Requires: %{?scl_prefix}rubygem(secure_headers) < 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(safemode) < 2
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
@@ -175,8 +175,8 @@ BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
@@ -1258,6 +1258,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+Thu Oct 04 2018 Michael Moll <mmoll@mmoll.at> - 1.20.0-0.10.develop
+- update update secure_headers dependency to 6.x
+
 * Fri Sep 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.9.develop
 - Treat logging.yaml as non-config
 
