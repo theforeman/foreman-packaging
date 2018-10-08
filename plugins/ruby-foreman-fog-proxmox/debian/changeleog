@@ -1,0 +1,5 @@
+ruby-foreman-fog-proxmox (0.5.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Mon, 08 Oct 2018 15:37:58 +0200

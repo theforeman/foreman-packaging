@@ -1,0 +1,13 @@
+Source: ruby-foreman-fog-proxmox
+Section: ruby
+Priority: extra
+Maintainer: Tristan Robert <tristan.robert.44@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.17.0), foreman (>= 1.17.0), ruby-foreman-deface
+Standards-Version: 3.9.3
+Homepage: https://github.com/tristanrobert/foreman_fog_proxmox
+
+Package: ruby-foreman-fog-proxmox
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 1.17.0), ruby-foreman-deface
+Description: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
+ Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is compatible with Foreman 1.17+
