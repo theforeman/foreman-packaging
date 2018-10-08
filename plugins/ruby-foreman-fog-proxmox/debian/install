@@ -1,0 +1,3 @@
+foreman_fog_proxmox.rb           usr/share/foreman/bundler.d
+cache                            usr/share/foreman/vendor
+foreman_fog_proxmox              var/lib/foreman/public/assets
