@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prerelease develop
 
 Name:    foreman
@@ -80,8 +80,8 @@ Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
-Requires: %{?scl_prefix}rubygem(secure_headers) < 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(safemode) < 2
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
@@ -175,8 +175,8 @@ BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
@@ -343,6 +343,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
+BuildRequires: npm(@novnc/novnc) >= 1.0.0
+BuildRequires: npm(@novnc/novnc) < 2.0.0
 BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
@@ -351,6 +353,8 @@ BuildRequires: npm(bootstrap-sass) >= 3.3.7
 BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(brace) >= 0.10.0
 BuildRequires: npm(brace) < 1.0.0
+BuildRequires: npm(classnames) >= 2.2.5
+BuildRequires: npm(classnames) < 3.0.0
 BuildRequires: npm(datatables.net) >= 1.10.12
 BuildRequires: npm(datatables.net) < 1.11.0
 BuildRequires: npm(datatables.net-bs) >= 1.10.12
@@ -361,6 +365,8 @@ BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
 BuildRequires: npm(isomorphic-fetch) >= 2.2.1
 BuildRequires: npm(isomorphic-fetch) < 3.0.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
 BuildRequires: npm(jquery) >= 2.2.4
 BuildRequires: npm(jquery) < 2.3.0
 BuildRequires: npm(jquery-flot) >= 0.8.3
@@ -377,7 +383,8 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(patternfly) >= 3.42.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) = 2.5.1
+BuildRequires: npm(patternfly-react) >= 2.19.1
+BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.4.0
@@ -406,6 +413,8 @@ BuildRequires: npm(redux-logger) >= 2.8.1
 BuildRequires: npm(redux-logger) < 3.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
+BuildRequires: npm(reselect) >= 3.0.1
+BuildRequires: npm(reselect) < 4.0.0
 BuildRequires: npm(seamless-immutable) >= 7.1.2
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
@@ -714,6 +723,8 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
+Requires: npm(@novnc/novnc) >= 1.0.0
+Requires: npm(@novnc/novnc) < 2.0.0
 Requires: npm(axios) >= 0.17.1
 Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
@@ -722,6 +733,8 @@ Requires: npm(bootstrap-sass) >= 3.3.7
 Requires: npm(bootstrap-sass) < 4.0.0
 Requires: npm(brace) >= 0.10.0
 Requires: npm(brace) < 1.0.0
+Requires: npm(classnames) >= 2.2.5
+Requires: npm(classnames) < 3.0.0
 Requires: npm(datatables.net) >= 1.10.12
 Requires: npm(datatables.net) < 1.11.0
 Requires: npm(datatables.net-bs) >= 1.10.12
@@ -732,6 +745,8 @@ Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
 Requires: npm(isomorphic-fetch) >= 2.2.1
 Requires: npm(isomorphic-fetch) < 3.0.0
+Requires: npm(jed) >= 1.1.1
+Requires: npm(jed) < 2.0.0
 Requires: npm(jquery) >= 2.2.4
 Requires: npm(jquery) < 2.3.0
 Requires: npm(jquery-flot) >= 0.8.3
@@ -748,7 +763,8 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(patternfly) >= 3.42.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) = 2.5.1
+Requires: npm(patternfly-react) >= 2.19.1
+Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.4.0
@@ -777,6 +793,8 @@ Requires: npm(redux-logger) >= 2.8.1
 Requires: npm(redux-logger) < 3.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
+Requires: npm(reselect) >= 3.0.1
+Requires: npm(reselect) < 4.0.0
 Requires: npm(seamless-immutable) >= 7.1.2
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
@@ -1258,6 +1276,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Oct 08 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.10.develop
+- Update Gem and NPM dependencies
+
 * Fri Sep 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.9.develop
 - Treat logging.yaml as non-config
 
