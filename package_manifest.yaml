@@ -791,12 +791,14 @@ repoclosures:
       repoclosure_target_repo: f28-foreman-client-nightly
       repoclosure_lookaside_repos:
         - f28-base
+        - f28-updates
         - f28-puppet-5
     foreman-client-repoclosure-f27:
       repoclosure_config: repoclosure/yum_f27.conf
       repoclosure_target_repo: f27-foreman-client-nightly
       repoclosure_lookaside_repos:
         - f27-base
+        - f27-updates
         - f27-puppet-5
     katello-client-repoclosure-el7:
       repoclosure_target_repo: el7-katello-client-nightly
