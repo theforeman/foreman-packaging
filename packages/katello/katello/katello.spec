@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 9
+%global release 10
 
 Name:       katello
 Version:    3.9.0
@@ -58,8 +58,6 @@ Requires: mod_xsendfile
 Requires(post): candlepin >= 2.0
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: candlepin-selinux >= 2.0
-Requires: java-openjdk >= 1:1.7.0
-Requires: java-openjdk < 1:1.8.0.45
 Requires: /usr/bin/psql
 Requires: /usr/bin/pg_dump
 Requires: /usr/bin/pg_dumpall
@@ -203,6 +201,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Oct 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-10
+- Drop java requirement
+
 * Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-9
 - Drop hammer requirement from katello-debug
 
