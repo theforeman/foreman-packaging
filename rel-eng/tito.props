@@ -56,6 +56,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-diff
   nodejs-dom-helpers
   nodejs-dotenv
+  nodejs-escape-string-regexp
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-fbjs
