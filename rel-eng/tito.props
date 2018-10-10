@@ -103,6 +103,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
   nodejs-react-fontawesome
+  nodejs-react-lifecycles-compat
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
   nodejs-react-password-strength
