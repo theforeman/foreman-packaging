@@ -120,6 +120,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-style-loader
   nodejs-symbol-observable
   nodejs-table-resolver
+  nodejs-typed-styles
   nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
