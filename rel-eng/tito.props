@@ -111,6 +111,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-fontawesome
   nodejs-react-is
   nodejs-react-lifecycles-compat
+  nodejs-react-motion
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
   nodejs-react-overlays

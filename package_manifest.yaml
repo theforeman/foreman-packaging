@@ -310,6 +310,7 @@ foreman_nonscl_packages:
     nodejs-react-fontawesome: {}
     nodejs-react-is: {}
     nodejs-react-lifecycles-compat: {}
+    nodejs-react-motion: {}
     nodejs-react-numeric-input: {}
     nodejs-react-onclickoutside: {}
     nodejs-react-overlays: {}

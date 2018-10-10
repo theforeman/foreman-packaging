@@ -265,6 +265,7 @@
       <packagereq type="default">nodejs-react-fontawesome</packagereq>
       <packagereq type="default">nodejs-react-is</packagereq>
       <packagereq type="default">nodejs-react-lifecycles-compat</packagereq>
+      <packagereq type="default">nodejs-react-motion</packagereq>
       <packagereq type="default">nodejs-react-numeric-input</packagereq>
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-overlays</packagereq>
