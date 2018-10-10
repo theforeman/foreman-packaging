@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 10
+%global release 11
 
 Name:       katello
 Version:    3.9.0
@@ -55,12 +55,9 @@ Requires: createrepo >= 0.9.9-18%{?dist}
 Requires: squid
 Requires: mod_xsendfile
 
-Requires(post): candlepin >= 2.0
-Requires: rubygem-foreman_maintain >= 0.2.2
+Requires: candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
-Requires: /usr/bin/psql
-Requires: /usr/bin/pg_dump
-Requires: /usr/bin/pg_dumpall
+Requires: rubygem-foreman_maintain >= 0.2.2
 
 %description
 Provides a package for managing application life-cycle for Linux systems.
@@ -157,6 +154,7 @@ Requires: qpid-tools
 Requires: /bin/ps
 Requires: rh-mongodb34
 Requires: %{name}-service
+Requires: /usr/bin/psql
 
 %description debug
 Useful utilities for debug info collecting
@@ -201,6 +199,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Oct 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-11
+- Cleanup spec requires
+
 * Tue Oct 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-10
 - Drop java requirement
 
