@@ -201,6 +201,7 @@
       <packagereq type="default">nodejs-classnames</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-core-js</packagereq>
+      <packagereq type="default">nodejs-create-react-context</packagereq>
       <packagereq type="default">nodejs-css-element-queries</packagereq>
       <packagereq type="default">nodejs-css-loader</packagereq>
       <packagereq type="default">nodejs-d3</packagereq>

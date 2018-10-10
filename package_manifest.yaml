@@ -247,6 +247,7 @@ foreman_nonscl_packages:
     nodejs-classnames: {}
     nodejs-compression-webpack-plugin: {}
     nodejs-core-js: {}
+    nodejs-create-react-context: {}
     nodejs-css-element-queries: {}
     nodejs-css-loader: {}
     nodejs-d3: {}
