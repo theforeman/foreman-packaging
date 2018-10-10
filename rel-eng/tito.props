@@ -106,6 +106,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
   nodejs-react-password-strength
+  nodejs-react-popper
   nodejs-react-redux
   nodejs-recompose
   nodejs-redux

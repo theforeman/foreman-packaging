@@ -260,6 +260,7 @@
       <packagereq type="default">nodejs-react-numeric-input</packagereq>
       <packagereq type="default">nodejs-react-onclickoutside</packagereq>
       <packagereq type="default">nodejs-react-password-strength</packagereq>
+      <packagereq type="default">nodejs-react-popper</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
       <packagereq type="default">nodejs-reactabular-table</packagereq>
       <packagereq type="default">nodejs-recompose</packagereq>
