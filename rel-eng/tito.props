@@ -54,6 +54,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-datatables.net-bs
   nodejs-debug
   nodejs-diff
+  nodejs-dom-helpers
   nodejs-dotenv
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin

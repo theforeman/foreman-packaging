@@ -209,6 +209,7 @@
       <packagereq type="default">nodejs-datatables.net-bs</packagereq>
       <packagereq type="default">nodejs-debug</packagereq>
       <packagereq type="default">nodejs-diff</packagereq>
+      <packagereq type="default">nodejs-dom-helpers</packagereq>
       <packagereq type="default">nodejs-dotenv</packagereq>
       <packagereq type="default">nodejs-expose-loader</packagereq>
       <packagereq type="default">nodejs-extract-text-webpack-plugin</packagereq>
