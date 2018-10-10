@@ -16,39 +16,55 @@ optparse = OptionParser.new do |opts|
   opts.parse!
 end
 
+# Define colors we can use for stdout messages
+def important(message)
+  "\033[31m#{message}\033[0m"
+end
+
+def info(message)
+  "\033[32m#{message}\033[0m"
+end
+
+def warn(message)
+  "\033[33m#{message}\33[0m"
+end
+
 CONFIG_FILES = [
-  '/etc/pulp',
-  '/etc/opt/rh/rh-mongodb34/mongod.conf',
   '/etc/candlepin',
-  '/etc/katello',
-  '/etc/httpd',
-  '/etc/foreman',
-  '/etc/tomcat',
+  '/etc/default/pulp_workers.rpmsave',
   '/etc/foreman-installer',
   '/etc/foreman-proxy',
-  '/etc/pki/katello-certs-tools',
-  '/etc/sudoers.d/foreman-proxy',
+  '/etc/foreman',
   '/etc/hammer',
-  '/etc/tomcat',
-  '/etc/squid',
+  '/etc/httpd',
+  '/etc/opt/rh/rh-mongodb34/mongod.conf',
+  '/etc/opt/theforeman',
+  '/etc/pki/katello-certs-tools',
+  '/etc/pulp',
   '/etc/puppetlabs',
-  '/etc/qpid',
   '/etc/qpid-dispatch',
-  '/etc/sysconfig/foreman.rpmsave'
+  '/etc/qpid',
+  '/etc/squid',
+  '/etc/sudoers.d/foreman-proxy',
+  '/etc/sysconfig/foreman.rpmsave',
+  '/etc/sysconfig/puppetserver.rpmsave',
+  '/etc/tomcat'
 ]
 
 LOG_FILES = [
-  '/var/log/katello',
-  '/var/log/pulp',
   '/var/log/candlepin',
+  '/var/log/capsule-certs-generate*',
+  '/var/log/foreman-installer',
+  '/var/log/foreman-maintain',
+  '/var/log/foreman-proxy',
+  '/var/log/foreman-selinux-install.log',
+  '/var/log/foreman',
   '/var/log/httpd',
   '/var/log/mongodb',
-  '/var/log/foreman',
-  '/var/log/foreman-proxy',
-  '/var/log/foreman-installer',
-  '/var/log/tomcat',
+  '/var/log/pulp',
+  '/var/log/puppetlabs',
   '/var/log/squid',
-  '/var/log/capsule-certs-generate*'
+  '/var/log/tomcat'
 ]
 
 RPMS = [
@@ -92,44 +108,50 @@ RPMS = [
 ]
 
 CERT_FILES = [
-  '/etc/pki/pulp',
-  '/etc/pki/content/*',
+  '/etc/pki/ca-trust/source/anchors/katello_server-host-cert.crt',
   '/etc/pki/katello',
+  '/etc/pki/pulp',
   '/root/ssl-build',
-  '/etc/pki/tls/certs/katello-node.crt',
-  '/etc/pki/tls/private/katello-node.key',
-  '/etc/pki/tls/certs/pulp_consumers_ca.crt',
-  '/etc/pki/tls/certs/pulp_ssl_cert.crt',
-  '/var/www/html/pub/katello-ca*.rpm',
-  '/etc/pki/ca-trust/source/anchors/katello_server-host-cert.crt'
+  '/var/www/html/pub/katello-ca*',
+  '/var/www/html/pub/katello-rhsm-consumer',
+  '/var/www/html/pub/katello-server-ca.crt'
 ]
 
 CONTENT = [
-  '/usr/share/foreman-proxy',
-  '/usr/share/foreman-installer-katello',
-  '/var/www/html/pub/katello-server-ca.crt',
-  '/usr/share/foreman',
-  '/var/lib/candlepin',
-  '/usr/share/katello',
-  '/var/lib/puppet',
-  '/opt/puppetlabs/puppet',
-  '/var/lib/pgsql',
-  '/var/lib/mongodb',
-  '/var/lib/katello',
-  '/var/lib/pulp',
-  '/var/lib/foreman',
-  '/usr/share/pulp',
-  '/var/lib/tomcat',
-  '/var/lib/qpidd',
-  '/usr/share/candlepin',
-  '/usr/share/tomcat',
-  '/usr/share/katello-installer-base',
-  '/usr/share/qpid',
-  '/usr/share/qpid-tools',
-  '/var/cache/',
+  '/opt/puppetlabs',
   '/opt/theforeman',
-  '/var/www/html/pub/katello-rhsm-consumer',
+  '/root/.cache/apipie_bindings',
+  '/root/.hammer',
+  '/usr/lib/pulp',
+  '/usr/libexec/foreman-proxy',
+  '/usr/share/candlepin',
+  '/usr/share/foreman-installer-katello',
+  '/usr/share/foreman-installer',
+  '/usr/share/foreman-proxy',
+  '/usr/share/foreman',
+  '/usr/share/katello-installer-base',
+  '/usr/share/katello',
+  '/usr/share/pulp',
+  '/usr/share/puppet',
+  '/usr/share/qpid-tools',
+  '/usr/share/qpid',
+  '/usr/share/tomcat',
+  '/var/cache/',
+  '/var/lib/candlepin',
+  '/var/lib/foreman-maintain',
+  '/var/lib/foreman',
+  '/var/lib/katello',
+  '/var/lib/puppet',
+  '/var/lib/qpidd',
+  '/var/lib/tomcat',
+  '/var/opt/theforeman',
   '/var/tmp/foreman-proxy'
+]
+
+MOUNTS = [
+  '/var/lib/mongodb',
+  '/var/lib/pgsql',
+  '/var/lib/pulp'
 ]
 
 CONTENT.map! do |dir|
@@ -141,10 +163,10 @@ CONTENT.map! do |dir|
 end
 
 def remove
-  puts 'Stopping services'
-  `katello-service stop`
+  puts warn("\nStopping services")
+  `foreman-maintain service stop`
 
-  puts 'Removing RPMs'
+  puts warn("\nRemoving RPMs")
   packages = []
   RPMS.each do |rpm|
     rpmpackages = `rpm -qa | grep "#{rpm}"`
@@ -152,27 +174,38 @@ def remove
   end
   `yum erase -y #{packages.join(' ')} > /dev/null 2>&1`
 
-  puts 'Cleaning up configuration files'
-  FileUtils.rm_rf CONFIG_FILES
+  puts warn("\nCleaning up configuration files")
+  FileUtils.rm_r Dir.glob(CONFIG_FILES)
 
-  puts 'Cleaning up log files'
-  # logs
-  FileUtils.rm_rf LOG_FILES
+  puts warn("\nCleaning up log files")
+  # Logs
+  FileUtils.rm_r Dir.glob(LOG_FILES)
 
-  puts 'Cleaning up certs'
-  # pulp cert stuff
-  FileUtils.rm_rf CERT_FILES
+  puts warn("\nCleaning up certs")
+  # Cert stuff
+  FileUtils.rm_r Dir.glob(CERT_FILES)
 
-  puts 'Cleaning up content'
-  # content
-  FileUtils.rm_rf CONTENT
+  puts warn("\nCleaning up content")
+  # Content
+  FileUtils.rm_r Dir.glob(CONTENT)
 
-  puts 'Finished'
+  puts warn("\nRemoving Databases and Pulp storage on Filesystem")
+  # Check and see if MOUNTS are mounted filesystems.
+  MOUNTS.each do |mount|
+    `mountpoint -q #{mount}`
+    if $?.success?
+      puts important("\n #{mount} is part of a mounted filesystem, skipping. You will need to remove #{mount} manually.")
+    else
+      FileUtils.rm_r Dir.glob(mount)
+    end
+  end
+
+  puts info("\nFinished")
 end
 
 def confirmed?
   puts "\nARE YOU SURE?: This script permanently deletes data and configurations."
-  puts "\nRead the source at /usr/sbin/katello-remove for a list of what is removed.  Type [remove] to continue "
+  puts important("\nType [remove] to continue ")
   gets.chomp == 'remove'
 end
 
@@ -189,15 +222,15 @@ def check?
   puts 'Once these packages and configuration files are removed there is no going back.'
   puts 'If you use this system for anything other than Katello and Foreman you probably'
   puts "do not want to execute this script.\n"
-  puts "\nRead the source at /usr/sbin/katello-remove for a list of what is removed.  Are you sure(Y/N) "
+  puts important("\nRead the source at /usr/sbin/katello-remove for a list of what is removed.  Are you sure(Y/N) ")
 
   response = gets.chomp
   /[Y]/i.match(response)
 end
 
 if options[:unattended] || (check? && confirmed?)
-  puts "\nStarting removal"
+  puts warn("\nStarting removal")
   remove
 else
-   puts "**cancelled**"
+  puts important('**cancelled**')
 end
