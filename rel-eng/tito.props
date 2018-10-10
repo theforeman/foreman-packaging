@@ -108,6 +108,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-lifecycles-compat
   nodejs-react-numeric-input
   nodejs-react-onclickoutside
+  nodejs-react-overlays
   nodejs-react-password-strength
   nodejs-react-popper
   nodejs-react-redux
