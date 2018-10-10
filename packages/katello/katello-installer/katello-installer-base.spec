@@ -5,7 +5,7 @@
 #%%global prever .rc2
 
 Name:    katello-installer-base
-Version: 3.7.0
+Version: 3.7.1
 Release: 1%{?prever}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
@@ -117,6 +117,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Wed Oct 10 2018 Jonathon Turel <jturel@gmail.com> 3.7.1-1
+- Rev for 3.7.1 GA
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
 - Rev for 3.7 GA
 
