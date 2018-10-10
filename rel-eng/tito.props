@@ -93,6 +93,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-performance-now
   nodejs-popper.js
   nodejs-prop-types
+  nodejs-prop-types-extra
   nodejs-raf
   nodejs-react
   nodejs-reactabular-table

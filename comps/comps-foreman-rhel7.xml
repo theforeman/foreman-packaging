@@ -248,6 +248,7 @@
       <packagereq type="default">nodejs-performance-now</packagereq>
       <packagereq type="default">nodejs-popper.js</packagereq>
       <packagereq type="default">nodejs-prop-types</packagereq>
+      <packagereq type="default">nodejs-prop-types-extra</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
