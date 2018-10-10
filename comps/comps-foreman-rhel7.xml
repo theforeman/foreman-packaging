@@ -258,6 +258,7 @@
       <packagereq type="default">nodejs-react-bootstrap-typeahead</packagereq>
       <packagereq type="default">nodejs-react-c3js</packagereq>
       <packagereq type="default">nodejs-react-click-outside</packagereq>
+      <packagereq type="default">nodejs-react-collapse</packagereq>
       <packagereq type="default">nodejs-react-debounce-input</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
