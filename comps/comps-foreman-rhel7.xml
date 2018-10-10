@@ -281,6 +281,7 @@
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
+      <packagereq type="default">nodejs-warning</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">nodejs-zxcvbn</packagereq>

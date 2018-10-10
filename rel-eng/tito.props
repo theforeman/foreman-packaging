@@ -126,6 +126,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
+  nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
   nodejs-zxcvbn
