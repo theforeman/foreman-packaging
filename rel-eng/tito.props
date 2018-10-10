@@ -59,6 +59,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-fbjs
   nodejs-file-loader
   nodejs-follow-redirects
+  nodejs-gud
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
