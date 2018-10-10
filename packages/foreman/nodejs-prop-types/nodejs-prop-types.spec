@@ -1,8 +1,7 @@
 %global npm_name prop-types
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 15.6.1
+Name: nodejs-prop-types
+Version: 15.6.2
 Release: 1%{?dist}
 Summary: Runtime type checking for React props and similar objects
 License: MIT
@@ -10,8 +9,6 @@ Group: Development/Libraries
 URL: https://facebook.github.io/react/
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-Requires: npm(fbjs) >= 0.8.16
-Requires: npm(fbjs) < 1.0.0
 Requires: npm(loose-envify) >= 1.3.1
 Requires: npm(loose-envify) < 2.0.0
 Requires: npm(object-assign) >= 4.1.1
@@ -39,10 +36,8 @@ cp -pfr prop-types.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -51,6 +46,9 @@ cp -pfr prop-types.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Oct 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 15.6.2-1
+- Update to 15.6.2
+
 * Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 15.6.1-1
 - Update to 15.6.1
 
