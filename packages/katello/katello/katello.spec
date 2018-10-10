@@ -6,8 +6,8 @@
 #%%global prever .rc2
 
 Name:       katello
-Version:    3.7.0
-Release:    4%{?prever}%{?dist}
+Version:    3.7.1
+Release:    1%{?prever}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -204,6 +204,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Oct 10 2018 Jonathon Turel <jturel@gmail.com> 3.7.1-1
+- Rev for 3.7.1 GA
+
 * Wed Jul 25 2018 Jonathon Turel <jturel@gmail.com> - 3.7.0-4
 - Obsolete the python-gofer-qpid obsolete
 

@@ -5,7 +5,7 @@
 %global plugin_name katello
 %global gem_name katello
 #%%global prever .rc2
-%global mainver 3.7.0
+%global mainver 3.7.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -237,6 +237,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 10 2018 Jonathon Turel <jturel@gmail.com> 3.7.1-1
+- Rev for 3.7.1 GA
+
 * Tue Jul 24 2018 Jonathon Turel <jturel@gmail.com> 3.7.0-1
 - Rev for 3.7 GA
 
