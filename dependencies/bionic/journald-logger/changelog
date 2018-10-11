@@ -1,0 +1,5 @@
+ruby-journald-logger (2.0.4-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 11 Oct 2018 20:56:03 +0000
