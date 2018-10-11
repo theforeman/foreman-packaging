@@ -1,0 +1,22 @@
+Source: ruby-journald-native
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Uploaders: <>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               git,
+               libsystemd-dev
+Standards-Version: 3.9.7
+Homepage: https://github.com/sandfoxme/journald-native
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-journald-native
+Architecture: any
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: systemd-journal logging native lib wrapper
+ systemd-journal logging native lib wrapper
