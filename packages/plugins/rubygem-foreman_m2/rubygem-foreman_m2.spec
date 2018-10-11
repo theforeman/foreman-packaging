@@ -96,5 +96,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Oct 11 2018 Ian Ballou <ianballou67@gmail.com> 0.0.2-1
+Smart proxy now queried from url, testing updates
+
 * Tue Sep 18 2018 Ian Ballou <ianballou67@gmail.com> 0.0.1-1
 initial release
