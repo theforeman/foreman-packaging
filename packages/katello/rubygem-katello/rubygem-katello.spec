@@ -6,7 +6,7 @@
 %global gem_name katello
 # %%global prerelease .rc1
 %global mainver 3.9.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -94,9 +94,9 @@ BuildRequires: npm(babel-preset-env) >= 1.6.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
-#BuildRequires: npm(enzyme) >= 3.2.0
+#BuildRequires: npm(enzyme) >= 3.4.0
 #BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.1.0
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
 #BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
 #BuildRequires: npm(enzyme-to-json) >= 3.1.2
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
@@ -147,20 +147,20 @@ BuildRequires: npm(patternfly-react) >= 2.5.1
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.3.1
+BuildRequires: npm(query-string) >= 6.1.0
+BuildRequires: npm(query-string) < 7.0.0
+BuildRequires: npm(react) >= 16.4.0
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
 BuildRequires: npm(react-bootstrap-tooltip-button) >= 1.0.6
 BuildRequires: npm(react-bootstrap-tooltip-button) < 2.0.0
-BuildRequires: npm(react-dom) >= 16.3.1
+BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-helmet) >= 5.2.0
 BuildRequires: npm(react-helmet) < 6.0.0
-BuildRequires: npm(query-string) >= 6.1.0
-BuildRequires: npm(query-string) < 7.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(react-router) >= 4.2.0
@@ -214,9 +214,9 @@ Requires: npm(babel-preset-env) >= 1.6.0
 Requires: npm(babel-preset-env) < 2.0.0
 Requires: npm(babel-preset-react) >= 6.24.1
 Requires: npm(babel-preset-react) < 7.0.0
-#Requires: npm(enzyme) >= 3.2.0
+#Requires: npm(enzyme) >= 3.4.0
 #Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.1.0
+#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
 #Requires: npm(enzyme-adapter-react-16) < 2.0.0
 #Requires: npm(enzyme-to-json) >= 3.1.2
 #Requires: npm(enzyme-to-json) < 4.0.0
@@ -267,20 +267,20 @@ Requires: npm(patternfly-react) >= 2.5.1
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.3.1
+Requires: npm(query-string) >= 6.1.0
+Requires: npm(query-string) < 7.0.0
+Requires: npm(react) >= 16.4.0
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
 Requires: npm(react-bootstrap-tooltip-button) >= 1.0.6
 Requires: npm(react-bootstrap-tooltip-button) < 2.0.0
-Requires: npm(react-dom) >= 16.3.1
+Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-helmet) >= 5.2.0
 Requires: npm(react-helmet) < 6.0.0
-Requires: npm(query-string) >= 6.1.0
-Requires: npm(query-string) < 7.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(react-router) >= 4.2.0
@@ -327,6 +327,7 @@ cp -pa .%{gem_dir}/* \
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
+rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %files
 %dir %{gem_instdir}
@@ -358,6 +359,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Oct 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-6
+- Update NPM dependencies
+- Exclude Javascript source maps
+
 * Mon Sep 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-5
 - Add nodejs-query-string as a dependency
 
