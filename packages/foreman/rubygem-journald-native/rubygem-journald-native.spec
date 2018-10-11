@@ -4,8 +4,8 @@
 %global gem_name journald-native
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.10
-Release: 3%{?dist}
+Version: 1.0.11
+Release: 1%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPLv2
@@ -62,19 +62,20 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+%if 0%{?scl:1}
+  cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+%else
+  cp -a .%{gem_instdir}/ext/journald_native/journald_native.so %{buildroot}%{gem_extdir_mri}/
+%endif
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
-%license %{gem_instdir}/COPYING.md
-%license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/CHANGELOG.md
+%exclude %{gem_instdir}/gems.rb
 %exclude %{gem_instdir}/journald-native.gemspec
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -82,12 +83,13 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/spec
 
 %changelog
+* Fri Oct 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.11-1
+- Bump version to the latest upstream version
+
 * Thu Sep 13 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.10-3
 - Use LGPLv2 for versions 2 and 2.1 of the license
 
