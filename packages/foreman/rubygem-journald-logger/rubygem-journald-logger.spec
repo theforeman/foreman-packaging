@@ -4,20 +4,18 @@
 %global gem_name journald-logger
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.3
-Release: 2%{?dist}
+Version: 2.0.4
+Release: 1%{?dist}
 Summary: systemd-journal native logger
 Group: Development/Languages
 License: MIT
 URL: https://github.com/sandfox-im/journald-logger
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.1.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(journald-native) >= 1.0
 Requires: %{?scl_prefix}rubygem(journald-native) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -66,8 +64,10 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/journald-logger.gemspec
+%exclude %{gem_instdir}/spec
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -76,9 +76,13 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Oct 11 2018 Lukas Zapletal <lzap+rpm@redhat.com> 2.0.4-1
+- Bumped version for Ruby 2.0 support
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

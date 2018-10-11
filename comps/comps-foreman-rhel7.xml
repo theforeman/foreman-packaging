@@ -316,6 +316,7 @@
       <packagereq type="default">rubygem-kafo_wizards</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
+      <packagereq type="default">rubygem-logging-journald</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
@@ -350,6 +351,7 @@
       <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
+      <packagereq type="default">rubygem-logging-journald-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>

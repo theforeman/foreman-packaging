@@ -4,20 +4,18 @@
 %global gem_name logging-journald
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 2.0.0
+Release: 1%{?dist}
 Summary: Journald appender for logging gem
 Group: Development/Languages
 License: MIT
 URL: https://github.com/lzap/logging-journald
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.1.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(journald-logger)
 Requires: %{?scl_prefix}rubygem(logging)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -84,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 2.0.0-1
+- Upstream version 2.0.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

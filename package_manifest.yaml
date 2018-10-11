@@ -113,7 +113,6 @@ foreman_scl_packages:
     rubygem-launchy: {}
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
-    rubygem-logging-journald: {}
     rubygem-multipart-post: {}
     rubygem-mysql2:
       releasers:
@@ -387,6 +386,7 @@ foreman_scl_and_nonscl_packages:
     rubygem-jwt: {}
     rubygem-little-plugger: {}
     rubygem-logging: {}
+    rubygem-logging-journald: {}
     rubygem-multi_json: {}
     rubygem-passenger: {}
     rubygem-powerbar: {}

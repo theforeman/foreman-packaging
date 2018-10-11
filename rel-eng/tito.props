@@ -154,12 +154,15 @@ whitelist = foreman-bootloaders-redhat
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
+  rubygem-journald-logger
+  rubygem-journald-native
   rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
   rubygem-little-plugger
   rubygem-logging
+  rubygem-logging-journald
   rubygem-multi_json
   rubygem-passenger
   rubygem-powerbar
