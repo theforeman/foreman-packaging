@@ -77,6 +77,7 @@ rm %{buildroot}%{gem_instdir}/.babelrc
 
 %{foreman_bundlerd_file}
 %foreman_precompile_plugin -a -s
+rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %posttrans
 %{foreman_db_migrate}
