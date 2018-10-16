@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 11
+%global release 12
 %global prerelease develop
 
 Name:    foreman
@@ -1285,6 +1285,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Oct 16 2018 Evgeni Golov - 1.20.0-0.12.develop
+- ignore JS maps in webpack requires/provides
+
 * Fri Oct 12 2018 Evgeni Golov - 1.20.0-0.11.develop
 - Add automatic Provides and Requires for Foreman's webpack bundles.
   This should ensure that plugins can depend on a specific bundle version and
