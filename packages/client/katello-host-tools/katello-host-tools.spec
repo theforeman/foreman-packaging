@@ -158,6 +158,8 @@ rm -rf %{buildroot}
 %if %{zypper_install}
 %global katello_libdir %{python_sitelib}/katello
 %global plugins_dir %{_usr}/lib/zypp/plugins/commit/
+# Deploy yum plugin config to control reports
+%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
 %endif
 
 mkdir -p %{buildroot}%{katello_libdir}
