@@ -27,6 +27,7 @@
       <packagereq type="default">foreman-plugin</packagereq>
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
+      <packagereq type="default">foreman-proxy-journald</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-rackspace</packagereq>
       <packagereq type="default">foreman-release</packagereq>
