@@ -1,0 +1,28 @@
+Description: Remove some development dependencies from tests
+Author: Lucas Kanashiro <kanashiro@debian.org>
+Last-Updated: 2016-06-21
+
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -1,21 +1,4 @@
+ require 'rspec'
+-require 'simplecov'
+-require 'simplecov-json'
+-require 'codeclimate-test-reporter'
+-
+-SimpleCov.configure do
+-  root File.join(File.dirname(__FILE__), '..')
+-  project_name 'Ruby JWT - Ruby JSON Web Token implementation'
+-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+-    SimpleCov::Formatter::HTMLFormatter,
+-    SimpleCov::Formatter::JSONFormatter
+-  ])
+-
+-  add_filter 'spec'
+-end
+-
+-SimpleCov.start if ENV['COVERAGE']
+-CodeClimate::TestReporter.start if ENV['CODECLIMATE_REPO_TOKEN']
+ 
+ CERT_PATH = File.join(File.dirname(__FILE__), 'fixtures', 'certs')
+ 

@@ -1,0 +1,72 @@
+ruby-jwt (1.5.6-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream releaase
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 18 Aug 2017 20:32:57 +0530
+
+ruby-jwt (1.5.4-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Cédric Boutillier ]
+  * Bump debhelper compatibility level to 9
+  * Remove version in the gem2deb build-dependency
+  * Use https:// in Vcs-* fields
+  * Use https:// in Vcs-* fields
+  * Bump Standards-Version to 3.9.7 (no changes needed)
+  * Run wrap-and-sort on packaging files
+
+  [ Lucas Kanashiro ]
+  * Imported Upstream version 1.5.4
+  * debian/rules: export GEM2DEB_TEST_RUNNER = --check-dependencies
+  * Drop rspec3 patch, upstream fixed it in other way
+  * Update Debian packaging copyright
+  * Declare compliance with Debian policy 3.9.8
+  * debian/control: remove dependency on ruby-multi-json
+  * Create patch to remove some unnecessary build dependencies
+
+ -- Lucas Kanashiro <kanashiro@debian.org>  Tue, 21 Jun 2016 13:00:10 -0300
+
+ruby-jwt (1.0.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Port tests to RSpec3 (Closes: #794259)
+
+ -- Balasankar C <balasankarc@autistici.org>  Wed, 02 Sep 2015 18:18:57 +0530
+
+ruby-jwt (1.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Reupload to unstable. 
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 29 Apr 2015 12:38:53 +0530
+
+ruby-jwt (1.0.0-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 24 Nov 2014 01:23:17 +0530
+
+ruby-jwt (0.1.8-2) unstable; urgency=medium
+
+  * Team upload.
+  * Rebuild for ruby 2.1 compatibility.
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 21 Nov 2014 19:58:36 +0530
+
+ruby-jwt (0.1.8-1) unstable; urgency=low
+
+  * New upstream Release
+
+  [ Cédric Boutillier ]
+  * use of canonical URI in Vcs-* fields
+
+ -- Markus Tornow <tornow@riseup.net>  Tue, 08 Oct 2013 23:42:19 +0200
+
+ruby-jwt (0.1.5-1) unstable; urgency=low
+
+  * Initial release (Closes: #695059)
+
+ -- Markus Tornow <tornow@riseup.net>  Tue, 27 Nov 2012 18:25:50 +0100

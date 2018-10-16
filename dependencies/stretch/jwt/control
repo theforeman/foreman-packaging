@@ -1,0 +1,32 @@
+Source: ruby-jwt
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Markus Tornow <tornow@riseup.net>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               rake (>= 0.9.2.2),
+               ruby-rspec (>= 2.10.0)
+Standards-Version: 4.0.0
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-jwt.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-jwt.git
+Homepage: http://github.com/progrium/ruby-jwt
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-jwt
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: JSON Web Token implementation in Ruby
+ A JSON Web Token (JWT) is a compact token format intended for space
+ constrained environments such as HTTP Authorization headers and URI query
+ parameters, and used as a means of representing claims to be transferred
+ between two parties. The claims in a JWT are encoded as a JSON object that is
+ digitally signed.
+ .
+ The JWT specification supports several algorithms for cryptographic signing.
+ This library currently supports HMAC (HS256, HS384, HS512) and RSA
+ (RS256, RS256, RS512). Unsigned plaintext JWT's are supported too.
