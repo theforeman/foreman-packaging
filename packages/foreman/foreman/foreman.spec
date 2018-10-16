@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 12
+%global release 13
 %global prerelease develop
 
 Name:    foreman
@@ -1285,6 +1285,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Oct 16 2018 Evgeni Golov - 1.20.0-0.13.develop
+- ignore JS maps in webpack requires/provides
+
 * Tue Oct 16 2018 Lukas Zapletal <lzap+rpm@redhat.com> - 1.20.0-0.12.develop
 - Updated logging-journald dependency to 2.0 series
 

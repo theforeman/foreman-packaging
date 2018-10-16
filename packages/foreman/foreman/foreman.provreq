@@ -43,7 +43,8 @@ def parse_manifest(manifest_path):
         if isinstance(content, basestring):
             content = [content]
         for chunk in content:
-            webpack_chunks.add(foreman_webpack(name, chunk))
+            if not chunk.endswith('.map'):
+                webpack_chunks.add(foreman_webpack(name, chunk))
     except KeyError:
         pass
 
