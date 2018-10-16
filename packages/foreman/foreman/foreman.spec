@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 11
+%global release 12
 %global prerelease develop
 
 Name:    foreman
@@ -944,8 +944,8 @@ Meta Package to install requirements for telemetry support
 Summary: Foreman journald logging support
 Group:  Applications/System
 # start specfile journald Requires
-Requires: %{?scl_prefix}rubygem(logging-journald) >= 1.0
-Requires: %{?scl_prefix}rubygem(logging-journald) < 2.0
+Requires: %{?scl_prefix}rubygem(logging-journald) >= 2.0
+Requires: %{?scl_prefix}rubygem(logging-journald) < 3.0
 # end specfile journald Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1285,6 +1285,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Oct 16 2018 Lukas Zapletal <lzap+rpm@redhat.com> - 1.20.0-0.12.develop
+- Updated logging-journald dependency to 2.0 series
+
 * Fri Oct 12 2018 Evgeni Golov - 1.20.0-0.11.develop
 - Add automatic Provides and Requires for Foreman's webpack bundles.
   This should ensure that plugins can depend on a specific bundle version and
