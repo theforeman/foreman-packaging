@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.5
-Release: 3%{?dist}
+Version: 3.3.6
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -158,6 +158,8 @@ rm -rf %{buildroot}
 %if %{zypper_install}
 %global katello_libdir %{python_sitelib}/katello
 %global plugins_dir %{_usr}/lib/zypp/plugins/commit/
+# Deploy yum plugin config to control reports
+%global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
 %endif
 
 mkdir -p %{buildroot}%{katello_libdir}
@@ -179,7 +181,7 @@ rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
 %endif
 %endif
 
-%if %{dnf_install} || %{yum_install}
+%if %{dnf_install} || %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{plugins_confdir}
 cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
 %endif
@@ -211,6 +213,7 @@ cp bin/* %{buildroot}%{_sbindir}/
 %else
 rm %{buildroot}%{katello_libdir}/tracer.py
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
+rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
 
 
@@ -296,7 +299,7 @@ exit 0
 %doc LICENSE
 %dir %{_localstatedir}/cache/katello-agent/
 
-%if %{dnf_install} || %{yum_install}
+%if %{dnf_install} || %{yum_install} || %{zypper_install}
 %config(noreplace) %{plugins_confdir}/package_upload.conf
 %config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
 %endif
@@ -307,6 +310,7 @@ exit 0
 %{katello_libdir}/packages.py*
 %{katello_libdir}/repos.py*
 %{katello_libdir}/uep.py*
+%{katello_libdir}/utils.py*
 %{katello_libdir}/__init__.py*
 %{plugins_dir}/enabled_repos_upload.py*
 %{plugins_dir}/package_upload.py*
@@ -317,6 +321,7 @@ exit 0
 %{katello_libdir}/__pycache__/packages.*
 %{katello_libdir}/__pycache__/repos.*
 %{katello_libdir}/__pycache__/uep.*
+%{katello_libdir}/__pycache__/utils.*
 %{katello_libdir}/__pycache__/__init__.*
 %{plugins_dir}/__pycache__/enabled_repos_upload.*
 %{plugins_dir}/__pycache__/package_upload.*
@@ -359,6 +364,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Wed Oct 17 2018 Justin Sherrill <jlsherrill@gmail.com> - 3.3.6-1
+- 3.3.6 release
+
 * Fri Sep 21 2018 Patrick Creech <pcreech@redhat.com> - 3.3.5-3
 - Decrease Obsolete version for python-pulp-rpm-common
 
