@@ -13,11 +13,11 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 8
+%global release 1
 %global prerelease develop
 
 Name:     foreman-release
-Version:  1.20.0
+Version:  1.21.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -110,6 +110,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.21.0-0.1.develop
+- Bump version to 1.21 and reset release
+
 * Wed Oct 03 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.8.develop
 - EL6 needs different sub-man repo
 

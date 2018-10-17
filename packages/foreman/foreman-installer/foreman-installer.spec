@@ -3,7 +3,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.20.0
+Version:    1.21.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -73,6 +73,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.21.0-0.1.develop
+- Bump version to 1.21 and reset release
+
 * Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.20.0-0.1.develop
 - Add prerelease macro
 

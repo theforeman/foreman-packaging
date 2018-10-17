@@ -22,11 +22,11 @@
 
 %define moduletype apps
 
-%global release 2
+%global release 1
 %global prerelease develop
 
 Name:           foreman-selinux
-Version:        1.20.0
+Version:        1.21.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -165,6 +165,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.21.0-0.1.develop
+- Bump version to 1.21 and reset release
+
 * Wed Sep 05 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.20.0-0.2.develop
 - Updated selinux_policy_ver macro
 
