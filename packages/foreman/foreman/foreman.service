@@ -14,4 +14,3 @@ EnvironmentFile=-/etc/sysconfig/foreman
 
 [Install]
 WantedBy=multi-user.target
-Alias=foreman-tasks.service
