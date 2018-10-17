@@ -23,7 +23,7 @@
 %define moduletype apps
 
 %global release 2
-%global prerelease develop
+%global prerelease RC1
 
 Name:           foreman-selinux
 Version:        1.20.0

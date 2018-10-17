@@ -14,7 +14,7 @@
 %endif
 
 %global release 8
-%global prerelease develop
+%global prerelease RC1
 
 Name:     foreman-release
 Version:  1.20.0

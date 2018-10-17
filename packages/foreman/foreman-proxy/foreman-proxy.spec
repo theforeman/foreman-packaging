@@ -5,7 +5,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prerelease develop
+%global prerelease RC1
 
 Name:           foreman-proxy
 Version:        1.20.0

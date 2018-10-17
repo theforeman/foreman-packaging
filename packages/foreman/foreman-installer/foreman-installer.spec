@@ -1,5 +1,5 @@
 %global release 1
-%global prerelease develop
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
