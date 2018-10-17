@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 13
+%global release 14
 %global prerelease develop
 
 Name:    foreman
@@ -1285,6 +1285,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Oct 17 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.14.develop
+- Remove incorrect systemd service alias
+
 * Tue Oct 16 2018 Evgeni Golov - 1.20.0-0.13.develop
 - ignore JS maps in webpack requires/provides
 
