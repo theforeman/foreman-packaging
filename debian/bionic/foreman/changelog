@@ -1,3 +1,9 @@
+foreman (1.20.0~rc1-1) stable; urgency=low
+
+  * 1.20.0-RC1 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Wed, 17 Oct 2018 09:55:43 -0400
+
 foreman (1.20.0-1) stable; urgency=low
 
   * Bump changelog to 1.20.0 to match VERSION
