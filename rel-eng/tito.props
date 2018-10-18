@@ -9,13 +9,13 @@ tito=0.6.1
 builder = obal.tito_extensions.git_annex_spec_builder.GitAnnexSpecBuilder
 tagger = tito.tagger.ReleaseTagger
 lib_dir = rel-eng/custom/
-tag_suffix = .fm1_19
+tag_suffix = .fm1_20
 
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.20-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -170,7 +170,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.20-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-activerecord-session_store
@@ -302,7 +302,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.20-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -389,7 +389,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.20-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-insights-client
   foreman-discovery-image-service
@@ -430,32 +430,32 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
-[foreman-client-nightly-rhel7]
+[foreman-client-1.20-rhel7]
 disttag = .el7
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-rhel6]
+[foreman-client-1.20-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-rhel5]
+[foreman-client-1.20-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora27]
+[foreman-client-1.20-fedora27]
 disttag = .fc27
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora28]
+[foreman-client-1.20-fedora28]
 disttag = .fc28
 whitelist = foreman-release
   katello-host-tools
 
-[katello-nightly-rhel7]
+[katello-3.9-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
