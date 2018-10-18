@@ -6,7 +6,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: M2 bare metal provisioning plugin for Foreman
 Group: Applications/Systems
@@ -96,8 +96,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
-* Tue Oct 16 2018 Ian Ballou <ianballou67@gmail.com> 0.0.3-1
-Now supporting official M2 commit after split-api PR
+* Thu Oct 18 2018 Ian Ballou <ianballou67@gmail.com> 0.0.4-1
+Now supporting official M2 commit after split-api PR;
+Now can select smart proxy from drop-down during CR creation;
+Removed leftover plugin template page
 
 * Thu Oct 11 2018 Ian Ballou <ianballou67@gmail.com> 0.0.2-1
 Smart proxy now queried from url, testing updates
