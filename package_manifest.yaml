@@ -5,7 +5,6 @@ packages:
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
-    katello_client_packages: {}
 
 foreman_packages:
   children:
@@ -506,52 +505,6 @@ katello_packages:
     rubygem-robotex: {}
     rubygem-runcible: {}
 
-katello_client_packages:
-  vars:
-    package_base_dir: 'packages/katello/'
-    diff_package_skip: false
-    diff_package_tags:
-      - katello-nightly-rhel7
-      - katello-nightly-rhel6
-      - katello-nightly-rhel5
-      - katello-nightly-fedora27
-      - katello-nightly-fedora28
-    repoclosure_config: repoclosure/yum.conf
-    repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-puppet-5
-      - el7-katello-client-nightly
-      - el6-base
-      - el6-updates
-      - el6-epel
-      - el6-extras
-      - el6-puppet-5
-      - el6-qpid
-      - el6-pulp
-      - el6-subscription-manager
-      - el6-katello-client-nightly
-      - el5-base
-      - el5-updates
-      - el5-epel
-      - el5-extras
-      - el5-puppet-5
-      - el5-subscription-manager
-      - el5-qpid
-      - el5-katello-client-nightly
-      - f28-base
-      - f28-updates
-      - f28-puppet-5
-      - f28-katello-client-nightly
-      - f27-base
-      - f27-updates
-      - f27-puppet-5
-      - f27-katello-client-nightly
-  hosts:
-    katello-repos: {}
-
 plugins_packages:
   children:
     plugin_scl_packages: {}
@@ -798,51 +751,6 @@ repoclosures:
     foreman-client-repoclosure-f27:
       repoclosure_config: repoclosure/yum_f27.conf
       repoclosure_target_repo: f27-foreman-client-nightly
-      repoclosure_lookaside_repos:
-        - f27-base
-        - f27-updates
-        - f27-puppet-5
-    katello-client-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-5
-    katello-client-repoclosure-el6:
-      repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el6-base
-        - el6-updates
-        - el6-epel
-        - el6-extras
-        - el6-puppet-5
-        - el6-qpid
-        - el6-pulp
-        - el6-subscription-manager
-    katello-client-repoclosure-el5:
-      repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el5-base
-        - el5-updates
-        - el5-epel
-        - el5-extras
-        - el5-puppet-5
-        - el5-subscription-manager
-        - el5-qpid
-    katello-client-repoclosure-f28:
-      repoclosure_config: repoclosure/yum_f28.conf
-      repoclosure_target_repo: f28-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - f28-base
-        - f28-updates
-        - f28-puppet-5
-    katello-client-repoclosure-f27:
-      repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-katello-client-nightly
       repoclosure_lookaside_repos:
         - f27-base
         - f27-updates

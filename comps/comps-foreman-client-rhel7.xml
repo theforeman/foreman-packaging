@@ -14,7 +14,6 @@
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">gofer</packagereq>
       <packagereq type="default">katello-agent</packagereq>
-      <packagereq type="default">katello-client-repos</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools-tracer</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
