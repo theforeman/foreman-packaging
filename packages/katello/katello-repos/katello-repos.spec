@@ -1,23 +1,11 @@
-%global pulp_release beta
+%global pulp_release stable
 %global pulp_version 2.17
 
-%if 0%{?suse_version}
-%define dist suse%{?suse_version}
-%define repo_dir %{_sysconfdir}/zypp/repos.d
-
-%if 0%{?suse_version} < 1300
-%define repo_dist sles11
-%else
-%define repo_dist sles12
-%endif
-
-%else
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
-%endif
 
 %global prerelease .rc1
-%global release 4
+%global release 5
 
 Name:           katello-repos
 Version:        3.9.0
@@ -28,34 +16,14 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        katello-client.repo
-Source2:        RPM-GPG-KEY-katello-2015
-Source3:        qpid-copr.repo
+Source1:        RPM-GPG-KEY-katello-2015
 
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires: sed
 
 %description
 Defines yum repositories for Katello and its sub projects, Candlepin and Pulp.
-
-%package -n katello-client-repos
-Summary:   Definition of yum repositories for Katello clients
-Group:     Applications/System
-Conflicts: katello-repos
-
-%description -n katello-client-repos
-Defines yum repositories for Katello clients.
-
-%files -n katello-client-repos
-%defattr(-, root, root)
-%config %{repo_dir}/katello-client.repo
-%if 0%{?rhel} == 6
-%config %{repo_dir}/qpid-copr.repo
-%endif
-
-%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %prep
 
@@ -69,13 +37,7 @@ install -d -m 0755 %{buildroot}%{repo_dir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
 install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
-install -m 644 %{SOURCE1} %{buildroot}%{repo_dir}/
-
-%if 0%{?rhel} == 6
-install -m 644 %{SOURCE3} %{buildroot}%{repo_dir}/
-%endif
-
-install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
+install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
@@ -104,14 +66,10 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
-%if 0%{?suse_version}
-%dir /etc/pki
-%dir /etc/pki/rpm-gpg
-%dir /etc/zypp
-%dir %{repo_dir}
-%endif
-
 %changelog
+* Fri Oct 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.5.rc1
+- Drop client repos
+
 * Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.4.rc1
 - Release RC1
 
