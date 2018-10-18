@@ -2,7 +2,7 @@
 %undefine scl_prefix
 %global scl_ruby /usr/bin/ruby
 
-# %%global prerelease .rc1
+%global prerelease .rc1
 %global release 2
 
 Name:    katello-installer-base
@@ -118,6 +118,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.2.rc1
+- Release RC1
+
 * Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-2
 - Add prerelease macro support
 
