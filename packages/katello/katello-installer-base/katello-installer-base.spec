@@ -3,10 +3,10 @@
 %global scl_ruby /usr/bin/ruby
 
 # %%global prerelease .rc1
-%global release 2
+%global release 1
 
 Name:    katello-installer-base
-Version: 3.9.0
+Version: 3.10.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
@@ -118,6 +118,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
+- Bump version to 3.10
+
 * Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-2
 - Add prerelease macro support
 
