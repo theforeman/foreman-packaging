@@ -16,7 +16,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global prerelease .nightly
+%global prerelease .rc1
 %global release 4
 
 Name:           katello-repos
@@ -112,6 +112,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.4.rc1
+- Release RC1
+
 * Fri Aug 17 2018 Partha Aji <paji@redhat.com> - 3.9.0-0.4.nightly
 - Switch to Pulp 2.17 beta
 

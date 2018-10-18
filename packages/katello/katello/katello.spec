@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-# %%global prerelease .rc1
+%global prerelease .rc1
 %global release 11
 
 Name:       katello
@@ -199,6 +199,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.11.rc1
+- Release RC1
+
 * Wed Oct 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-11
 - Cleanup spec requires
 
