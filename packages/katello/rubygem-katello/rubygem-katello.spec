@@ -5,8 +5,8 @@
 %global plugin_name katello
 %global gem_name katello
 # %%global prerelease .rc1
-%global mainver 3.9.0
-%global release 6
+%global mainver 3.10.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -359,6 +359,9 @@ rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
+- Bump version to 3.10
+
 * Thu Oct 11 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.9.0-6
 - Update NPM dependencies
 - Exclude Javascript source maps

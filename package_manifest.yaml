@@ -471,6 +471,7 @@ katello_packages:
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=katello-installer-nightly-release"
+    katello-repos: {}
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
@@ -515,8 +516,6 @@ katello_client_packages:
       - katello-nightly-rhel5
       - katello-nightly-fedora27
       - katello-nightly-fedora28
-    releasers:
-      - koji-katello-client
     repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
       - el7-base
