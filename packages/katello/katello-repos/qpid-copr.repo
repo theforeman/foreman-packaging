@@ -1,8 +1,0 @@
-[group_qpid-qpid]
-name=Copr repo for qpid owned by @qpid
-baseurl=https://copr-be.cloud.fedoraproject.org/results/@qpid/qpid/epel-6-$basearch/
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/@qpid/qpid/pubkey.gpg
-enabled=1
-enabled_metadata=1
