@@ -9,10 +9,10 @@ gpgcheck=0
 
 [pulp]
 name=Pulp Community Release
-baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_RELEASE@/@PULP_VERSION@/$releasever/$basearch
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releasever/$basearch
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=1
-gpgcheck=1
+gpgcheck=@PULP_GPG_CHECK@
 
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
@@ -35,10 +35,10 @@ gpgcheck=0
 
 [pulp-source]
 name=Pulp Community Release Source
-baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_RELEASE@/@PULP_VERSION@/$releasever/src/
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releasever/src/
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=0
-gpgcheck=1
+gpgcheck=@PULP_GPG_CHECK@
 
 [katello-candlepin-source]
 name=Katello Candlepin source
