@@ -5,7 +5,6 @@ packages:
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
-    katello_client_packages: {}
 
 foreman_packages:
   children:
@@ -18,7 +17,7 @@ foreman_scl_packages:
     package_base_dir: 'packages/foreman/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-nightly-rhel7
+      - foreman-1.20-rhel7
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -29,15 +28,12 @@ foreman_scl_packages:
       - el7-epel
       - el7-extras
       - el7-scl
-      - el7-foreman-rails-nightly
-      - el7-foreman-nightly
+      - el7-foreman-rails-1.20
+      - el7-foreman-1.20
   hosts:
     foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=test_develop"
+        - "--arg jenkins_job=test_1_20_stable"
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
@@ -91,18 +87,8 @@ foreman_scl_packages:
     rubygem-gettext_i18n_rails_js: {}
     rubygem-google-api-client: {}
     rubygem-gridster-rails: {}
-    rubygem-hammer_cli:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli"
-    rubygem-hammer_cli_foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=test_hammer_cli_foreman"
+    rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hoe: {}
@@ -179,7 +165,7 @@ foreman_nonscl_packages:
     package_base_dir: 'packages/foreman/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-nightly-nonscl-rhel7
+      - foreman-1.20-nonscl-rhel7
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -190,39 +176,26 @@ foreman_nonscl_packages:
       - el7-epel
       - el7-extras
       - el7-puppet-5
-      - el7-foreman-nightly
+      - el7-foreman-1.20
   hosts:
     foreman-bootloaders-redhat: {}
-    foreman-installer:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=packaging_trigger_installer_develop"
+    foreman-installer: {}
     foreman-proxy:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=test_proxy_develop"
+        - "--arg jenkins_job=test_proxy_1_20_stable"
     foreman-release:
       diff_package_tags:
-        - foreman-nightly-nonscl-rhel7
-        - foreman-client-nightly-rhel7
-        - foreman-client-nightly-rhel6
-        - foreman-client-nightly-rhel5
-        - foreman-client-nightly-fedora27
-        - foreman-client-nightly-fedora28
+        - foreman-1.20-nonscl-rhel7
+        - foreman-client-1.20-rhel7
+        - foreman-client-1.20-rhel6
+        - foreman-client-1.20-rhel5
+        - foreman-client-1.20-fedora27
+        - foreman-client-1.20-fedora28
       releasers:
         - koji-foreman
         - koji-foreman-client
     foreman-release-scl: {}
-    foreman-selinux:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=packaging_trigger_selinux_develop"
+    foreman-selinux: {}
     nodejs-axios: {}
     nodejs-babel-cli: {}
     nodejs-babel-core: {}
@@ -362,8 +335,8 @@ foreman_scl_and_nonscl_packages:
     package_base_dir: 'packages/foreman/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-nightly-rhel7
-      - foreman-nightly-nonscl-rhel7
+      - foreman-1.20-rhel7
+      - foreman-1.20-nonscl-rhel7
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -374,8 +347,8 @@ foreman_scl_and_nonscl_packages:
       - el7-epel
       - el7-extras
       - el7-scl
-      - el7-foreman-rails-nightly
-      - el7-foreman-nightly
+      - el7-foreman-rails-1.20
+      - el7-foreman-1.20
   hosts:
     rubygem-bundler_ext: {}
     rubygem-clamp: {}
@@ -397,11 +370,11 @@ foreman_client_packages:
     releasers:
       - koji-foreman-client
     diff_package_tags:
-      - foreman-client-nightly-rhel7
-      - foreman-client-nightly-rhel6
-      - foreman-client-nightly-rhel5
-      - foreman-client-nightly-fedora27
-      - foreman-client-nightly-fedora28
+      - foreman-client-1.20-rhel7
+      - foreman-client-1.20-rhel6
+      - foreman-client-1.20-rhel5
+      - foreman-client-1.20-fedora27
+      - foreman-client-1.20-fedora28
     repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -409,7 +382,7 @@ foreman_client_packages:
       - el7-epel
       - el7-extras
       - el7-puppet-5
-      - el7-foreman-client-nightly
+      - el7-foreman-client-1.20
       - el6-base
       - el6-updates
       - el6-epel
@@ -418,7 +391,7 @@ foreman_client_packages:
       - el6-qpid
       - el6-subscription-manager
       - el6-pulp
-      - el6-foreman-client-nightly
+      - el6-foreman-client-1.20
       - el5-base
       - el5-updates
       - el5-epel
@@ -426,15 +399,15 @@ foreman_client_packages:
       - el5-puppet-5
       - el5-subscription-manager
       - el5-qpid
-      - el5-foreman-client-nightly
+      - el5-foreman-client-1.20
       - f28-base
       - f28-updates
       - f28-puppet-5
-      - f28-foreman-client-nightly
+      - f28-foreman-client-1.20
       - f27-base
       - f27-updates
       - f27-puppet-5
-      - f27-foreman-client-nightly
+      - f27-foreman-client-1.20
   hosts:
     katello-host-tools: {}
 
@@ -443,7 +416,7 @@ katello_packages:
     package_base_dir: 'packages/katello/'
     diff_package_skip: false
     diff_package_tags:
-      - katello-nightly-rhel7
+      - katello-3.9-rhel7
     releasers:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
@@ -455,22 +428,17 @@ katello_packages:
       - el7-extras
       - el7-scl
       - el7-puppet-5
-      - el7-foreman-rails-nightly
-      - el7-foreman-nightly
-      - el7-foreman-plugins-nightly
-      - el7-katello-pulp-nightly
-      - el7-katello-candlepin-nightly
-      - el7-katello-nightly
+      - el7-foreman-rails-1.20
+      - el7-foreman-1.20
+      - el7-foreman-plugins-1.20
+      - el7-katello-pulp-3.9
+      - el7-katello-candlepin-3.9
+      - el7-katello-3.9
   hosts:
     katello: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer-base:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=katello-installer-nightly-release"
+    katello-installer-base: {}
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
@@ -487,71 +455,13 @@ katello_packages:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=hammer-cli-katello-master-release"
-    rubygem-katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=katello-master-release"
+    rubygem-hammer_cli_katello: {}
+    rubygem-katello: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
-
-katello_client_packages:
-  vars:
-    package_base_dir: 'packages/katello/'
-    diff_package_skip: false
-    diff_package_tags:
-      - katello-nightly-rhel7
-      - katello-nightly-rhel6
-      - katello-nightly-rhel5
-      - katello-nightly-fedora27
-      - katello-nightly-fedora28
-    releasers:
-      - koji-katello-client
-    repoclosure_config: repoclosure/yum.conf
-    repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-puppet-5
-      - el7-katello-client-nightly
-      - el6-base
-      - el6-updates
-      - el6-epel
-      - el6-extras
-      - el6-puppet-5
-      - el6-qpid
-      - el6-pulp
-      - el6-subscription-manager
-      - el6-katello-client-nightly
-      - el5-base
-      - el5-updates
-      - el5-epel
-      - el5-extras
-      - el5-puppet-5
-      - el5-subscription-manager
-      - el5-qpid
-      - el5-katello-client-nightly
-      - f28-base
-      - f28-updates
-      - f28-puppet-5
-      - f28-katello-client-nightly
-      - f27-base
-      - f27-updates
-      - f27-puppet-5
-      - f27-katello-client-nightly
-  hosts:
-    katello-repos: {}
 
 plugins_packages:
   children:
@@ -563,7 +473,7 @@ plugin_scl_packages:
     package_base_dir: 'packages/plugins/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-plugins-nightly-rhel7
+      - foreman-plugins-1.20-rhel7
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -575,9 +485,9 @@ plugin_scl_packages:
       - el7-extras
       - el7-scl
       - el7-puppet-5
-      - el7-foreman-rails-nightly
-      - el7-foreman-nightly
-      - el7-foreman-plugins-nightly
+      - el7-foreman-rails-1.20
+      - el7-foreman-1.20
+      - el7-foreman-plugins-1.20
   hosts:
     rubygem-angular-rails-templates: {}
     rubygem-bastion: {}
@@ -668,7 +578,7 @@ plugin_nonscl_packages:
     package_base_dir: 'packages/plugins/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-plugins-nightly-nonscl-rhel7
+      - foreman-plugins-1.20-nonscl-rhel7
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -679,8 +589,8 @@ plugin_nonscl_packages:
       - el7-epel
       - el7-extras
       - el7-puppet-5
-      - el7-foreman-nightly
-      - el7-foreman-plugins-nightly
+      - el7-foreman-1.20
+      - el7-foreman-plugins-1.20
   hosts:
     ansiblerole-insights-client: {}
     foreman-discovery-image-service: {}
@@ -723,7 +633,7 @@ repoclosures:
     repoclosure_config: repoclosure/yum_el7.conf
   hosts:
     foreman-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-nightly
+      repoclosure_target_repo: el7-foreman-1.20
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -731,9 +641,9 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-puppet-5
-        - el7-foreman-rails-nightly
+        - el7-foreman-rails-1.20
     plugins-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-plugins-nightly
+      repoclosure_target_repo: el7-foreman-plugins-1.20
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -741,10 +651,10 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-puppet-5
-        - el7-foreman-rails-nightly
-        - el7-foreman-nightly
+        - el7-foreman-rails-1.20
+        - el7-foreman-1.20
     katello-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-nightly
+      repoclosure_target_repo: el7-katello-3.9
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -752,14 +662,14 @@ repoclosures:
         - el7-extras
         - el7-scl
         - el7-puppet-5
-        - el7-foreman-rails-nightly
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
-        - el7-katello-pulp-nightly
-        - el7-katello-candlepin-nightly
+        - el7-foreman-rails-1.20
+        - el7-foreman-1.20
+        - el7-foreman-plugins-1.20
+        - el7-katello-pulp-3.9
+        - el7-katello-candlepin-3.9
     foreman-client-repoclosure-el7:
       repoclosure_config: repoclosure/yum_el7.conf
-      repoclosure_target_repo: el7-foreman-client-nightly
+      repoclosure_target_repo: el7-foreman-client-1.20
       repoclosure_lookaside_repos:
         - el7-base
         - el7-updates
@@ -768,7 +678,7 @@ repoclosures:
         - el7-puppet-5
     foreman-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-foreman-client-nightly
+      repoclosure_target_repo: el6-foreman-client-1.20
       repoclosure_lookaside_repos:
         - el6-base
         - el6-updates
@@ -780,7 +690,7 @@ repoclosures:
         - el6-subscription-manager
     foreman-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-foreman-client-nightly
+      repoclosure_target_repo: el5-foreman-client-1.20
       repoclosure_lookaside_repos:
         - el5-base
         - el5-updates
@@ -791,59 +701,14 @@ repoclosures:
         - el5-qpid
     foreman-client-repoclosure-f28:
       repoclosure_config: repoclosure/yum_f28.conf
-      repoclosure_target_repo: f28-foreman-client-nightly
+      repoclosure_target_repo: f28-foreman-client-1.20
       repoclosure_lookaside_repos:
         - f28-base
         - f28-updates
         - f28-puppet-5
     foreman-client-repoclosure-f27:
       repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-foreman-client-nightly
-      repoclosure_lookaside_repos:
-        - f27-base
-        - f27-updates
-        - f27-puppet-5
-    katello-client-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-5
-    katello-client-repoclosure-el6:
-      repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el6-base
-        - el6-updates
-        - el6-epel
-        - el6-extras
-        - el6-puppet-5
-        - el6-qpid
-        - el6-pulp
-        - el6-subscription-manager
-    katello-client-repoclosure-el5:
-      repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - el5-base
-        - el5-updates
-        - el5-epel
-        - el5-extras
-        - el5-puppet-5
-        - el5-subscription-manager
-        - el5-qpid
-    katello-client-repoclosure-f28:
-      repoclosure_config: repoclosure/yum_f28.conf
-      repoclosure_target_repo: f28-katello-client-nightly
-      repoclosure_lookaside_repos:
-        - f28-base
-        - f28-updates
-        - f28-puppet-5
-    katello-client-repoclosure-f27:
-      repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-katello-client-nightly
+      repoclosure_target_repo: f27-foreman-client-1.20
       repoclosure_lookaside_repos:
         - f27-base
         - f27-updates
