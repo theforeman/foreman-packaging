@@ -1,11 +1,12 @@
 %global pulp_release stable
 %global pulp_version 2.17
+%global use_pulp_nightly true
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        3.10.0
@@ -56,6 +57,15 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
     sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
+    if [ "%{use_pulp_nightly}" = true ] ; then
+        PULP_URL_MIDDLE="testing\/automation\/2-master\/stage"
+        PULP_GPG_CHECK=0
+    else
+        PULP_URL_MIDDLE="%{pulp_release}\/%{pulp_version}"
+        PULP_GPG_CHECK=1
+    fi
+    sed -i "s/@PULP_URL_MIDDLE@/${PULP_URL_MIDDLE}/" $repofile
+    sed -i "s/@PULP_GPG_CHECK@/${PULP_GPG_CHECK}/" $repofile
 done
 
 %clean
@@ -67,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Wed Oct 24 2018 John Mitsch <jomitsch@redhat.com> - 3.10.0-0.3.nightly
+- Switch to Pulp nightly
+
 * Mon Oct 22 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.2.nightly
 - Drop client repos
 
