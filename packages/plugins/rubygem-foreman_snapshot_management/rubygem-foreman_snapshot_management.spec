@@ -7,8 +7,8 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.5.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.5.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPLv3
@@ -100,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Oct 19 2018 Matthias Dellweg <dellweg@atix.de> 1.5.1-1
+- Update to 1.5.1
+
 * Mon May 28 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.5.0-2
 - Regenerate spec file based on the current template
 
