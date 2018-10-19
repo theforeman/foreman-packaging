@@ -4,8 +4,8 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
-%global prerelease develop
+%global release 3
+%global prerelease RC1
 
 Name:           foreman-proxy
 Version:        1.20.0
@@ -195,6 +195,9 @@ fi
 
 
 %changelog
+* Fri Oct 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.RC1
+- Release 1.20.0-RC1
+
 * Thu Sep 13 2018 Timo Goebel <mail@timogoebel.name> - 1.20.0-0.2.develop
 - add puppetca_token_whitelisting provider helper script
 

@@ -1,5 +1,5 @@
-%global release 1
-%global prerelease develop
+%global release 2
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
@@ -73,6 +73,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Oct 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.20.0-0.2.RC1
+- Release 1.20.0-RC1
+
 * Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.20.0-0.1.develop
 - Add prerelease macro
 
