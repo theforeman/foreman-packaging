@@ -12,7 +12,6 @@ build:
 	/usr/bin/gem install -f minitest -v '5.10.3'
 	/usr/bin/gem install -f thor -v '0.19.4'
 	BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
-	/bin/rm -rf node_modules
 	/usr/bin/npm install --no-optional --unsafe-perm
 	/usr/bin/bundle exec rake locale:pack assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
