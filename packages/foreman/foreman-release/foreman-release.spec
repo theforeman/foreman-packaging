@@ -13,8 +13,8 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 8
-%global prerelease develop
+%global release 9
+%global prerelease RC1
 
 Name:     foreman-release
 Version:  1.20.0
@@ -28,7 +28,6 @@ Source0:  foreman.repo
 Source1:  foreman-plugins.repo
 Source2:  foreman.gpg
 Source3:  foreman-rails.repo
-Source4:  foreman-rails.gpg
 Source5:  foreman-client.repo
 Source6:  qpid-copr.repo
 Source7:  subscription-manager-el5.repo
@@ -101,7 +100,6 @@ if [[ '%{release}' != *"develop"* ]];then
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
-install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %files
 %config %{repo_dir}/foreman.repo
@@ -110,6 +108,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Mon Oct 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.9.RC1
+- Release 1.20.0-RC1
+
 * Wed Oct 03 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.20.0-0.8.develop
 - EL6 needs different sub-man repo
 
