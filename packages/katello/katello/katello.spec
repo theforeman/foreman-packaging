@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.10.0
@@ -28,6 +28,7 @@ Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
 Source18:   katello.cron
+Source19:   foreman-proxy-content.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -82,6 +83,7 @@ mkdir -p %{buildroot}/%{_mandir}/man8
 #copy cron scripts to be scheduled
 install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
 install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
+install -m 644 %{SOURCE19} %{buildroot}%{_sysconfdir}/cron.d/foreman-proxy-content
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
@@ -176,7 +178,7 @@ Obsoletes: katello-capsule
 Provides a federation of katello services
 
 %files -n foreman-proxy-content
-%config(missingok) %{_sysconfdir}/cron.d/katello
+%config(missingok) %{_sysconfdir}/cron.d/foreman-proxy-content
 %{_sbindir}/katello-backup
 %{_sbindir}/katello-restore
 %{_sbindir}/katello-change-hostname
@@ -199,6 +201,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Oct 23 2018 sokeeffe <sokeeffe@redhat.com> - 3.10.0-3
+- Split out Katello and Smart Proxy Cron 
+
 * Mon Oct 22 2018 Chris Roberts <chrobert@redhat.com> - 3.10.0-2
 - Change katello-remove to support wildcards and cleanup
 
