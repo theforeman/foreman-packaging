@@ -4,8 +4,8 @@
 %global gem_name fog-vsphere
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
-Release: 2%{?dist}
+Version: 2.4.0
+Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Oct 23 2018 Daniel Lobato Garcia <me@daniellobato.me> 2.4.0-1
+- Update to 2.4.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
