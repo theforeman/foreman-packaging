@@ -7,7 +7,7 @@
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.9
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -76,6 +76,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
+rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %files
 %dir %{gem_instdir}
@@ -111,6 +112,9 @@ exit 0
 
 
 %changelog
+* Tue Oct 23 2018 Evgeni Golov - 2.2.9-2
+- Remove *.js.map file after asset precompile
+
 * Tue Sep 25 2018 Marek Hulan <mhulan@redhat.com> 2.2.9-1
 - Update to 2.2.9
 
