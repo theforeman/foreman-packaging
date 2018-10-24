@@ -17,19 +17,19 @@ Source1: foreman_scap_client.gemspec
 
 Requires: bzip2
 Requires: ruby(rubygems)
-%if 0%{?rhel} < 7
-Requires: ruby(abi)
-%else
+%if (0%{?rhel} >= 7) || (0%{?fedora} >= 27)
 Requires: ruby(release)
+%else
+Requires: ruby(abi)
 %endif
 Requires: openscap-scanner
-%if 0%{?rhel} < 7
-BuildRequires: ruby(abi)
-%else
+%if (0%{?rhel} >= 7) || (0%{?fedora} >= 27)
 BuildRequires: ruby(release)
+%else
+BuildRequires: ruby(abi)
 %endif
 BuildRequires: ruby(rubygems)
-%if 0%{?rhel} > 5
+%if (0%{?rhel} >= 6) || (0%{?fedora} >= 27)
 BuildRequires: rubygems-devel
 %endif
 BuildRequires: ruby
