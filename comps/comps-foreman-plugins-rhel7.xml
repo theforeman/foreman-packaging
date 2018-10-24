@@ -18,7 +18,6 @@
       <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-faraday_middleware</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
-      <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-infoblox</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
@@ -142,7 +141,6 @@
       <packagereq type="default">rubygem-faraday-doc</packagereq>
       <packagereq type="default">rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <packagereq type="default">rubygem-infoblox-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
