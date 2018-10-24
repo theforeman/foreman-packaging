@@ -8,12 +8,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:    foreman
 Version: 1.21.0
-Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
+Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
 Group:  Applications/System
@@ -1285,6 +1285,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1.21.0-0.2.develop
+- add nightly macro
+
 * Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.21.0-0.1.develop
 - Bump version to 1.21 and reset release
 
