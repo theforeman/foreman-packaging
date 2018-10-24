@@ -437,6 +437,7 @@ foreman_client_packages:
       - f27-foreman-client-nightly
   hosts:
     katello-host-tools: {}
+    rubygem-foreman_scap_client: {}
 
 katello_packages:
   vars:
@@ -687,7 +688,6 @@ plugin_nonscl_packages:
     puppet-foreman_scap_client: {}
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
-    rubygem-foreman_scap_client: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
     rubygem-newt: {}
