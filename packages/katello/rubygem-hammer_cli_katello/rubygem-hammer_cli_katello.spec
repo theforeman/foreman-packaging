@@ -6,12 +6,11 @@
 %global gem_name hammer_cli_katello
 %global confdir hammer
 
-%global release 3
-%global prerelease .pre.master
+%global release 1
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15
+Version: 0.15.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -28,7 +27,7 @@ Obsoletes: rubygem-hammer_cli_gutterball
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
@@ -94,10 +93,13 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
-* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.3.pre.master
+* Wed Oct 24 2018 Andrew Kofink <ajkofink@gmail.com> - 0.15.0-1
+- Bump to 0.15.0 (released version)
+
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15.0-3.pre.master
 - Change hammer_cli_foreman requirement to match version
 
-* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.2.pre.master
+* Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15.0-2.pre.master
 - Add prerelease support
 
 * Wed Sep 12 2018 Andrew Kofink <akofink@redhat.com> 0.15.0-1
