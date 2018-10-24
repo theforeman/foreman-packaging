@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.15.0-1) stable; urgency=low
+
+  * 0.15.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 24 Oct 2018 14:18:32 +0200
+
 ruby-hammer-cli (0.14.0-1) stable; urgency=low
 
   * 0.14.0 released
