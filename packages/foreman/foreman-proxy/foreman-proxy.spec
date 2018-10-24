@@ -4,12 +4,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:           foreman-proxy
 Version:        1.21.0
-Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
+Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
 Group:          Applications/System
@@ -213,6 +213,9 @@ fi
 
 
 %changelog
+* Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1.21.0-0.3.develop
+- add nightly macro
+
 * Wed Oct 24 2018 Lukas Zapletal <lzap+rpm@redhat.com> - 1.21.0-0.2.develop
 - Added logging and logging-journald dependencies
 
