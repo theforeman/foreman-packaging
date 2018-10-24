@@ -1,10 +1,10 @@
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:       foreman-installer
 Epoch:      1
 Version:    1.21.0
-Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
+Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
@@ -73,7 +73,10 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
-* Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.21.0-0.1.develop
+* Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1:1.21.0-0.2.develop
+- add nightly macro
+
+* Wed Oct 17 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.21.0-0.1.develop
 - Bump version to 1.21 and reset release
 
 * Wed Jul 25 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:1.20.0-0.1.develop
