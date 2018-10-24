@@ -11,7 +11,7 @@ Package: ruby-hammer-cli
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-clamp (>= 1.0.0), ruby-clamp (<< 1.2.0),
+         ruby-clamp (>= 1.1.0), ruby-clamp (<< 1.2.0),
          ruby-logging,
          ruby-awesome-print,
          ruby-highline,
