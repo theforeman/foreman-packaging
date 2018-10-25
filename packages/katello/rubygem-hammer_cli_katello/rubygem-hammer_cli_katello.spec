@@ -6,12 +6,12 @@
 %global gem_name hammer_cli_katello
 %global confdir hammer
 
-%global release 3
+%global release 1
 %global prerelease .pre.master
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15
+Version: 0.16
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 0.16-0.1.pre.master
+- bump version to 0.16
+
 * Wed Sep 12 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15-0.3.pre.master
 - Change hammer_cli_foreman requirement to match version
 
