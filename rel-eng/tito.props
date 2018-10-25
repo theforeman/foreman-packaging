@@ -399,7 +399,6 @@ whitelist = ansiblerole-insights-client
   rubygem-faraday
   rubygem-faraday_middleware
   rubygem-fast_gettext
-  rubygem-foreman_scap_client
   rubygem-infoblox
   rubygem-logify
   rubygem-mysql2
@@ -434,26 +433,31 @@ whitelist = ansiblerole-insights-client
 disttag = .el7
 whitelist = foreman-release
   katello-host-tools
+  rubygem-foreman_scap_client
 
 [foreman-client-nightly-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
+  rubygem-foreman_scap_client
 
 [foreman-client-nightly-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
+  rubygem-foreman_scap_client
 
 [foreman-client-nightly-fedora27]
 disttag = .fc27
 whitelist = foreman-release
   katello-host-tools
+  rubygem-foreman_scap_client
 
 [foreman-client-nightly-fedora28]
 disttag = .fc28
 whitelist = foreman-release
   katello-host-tools
+  rubygem-foreman_scap_client
 
 [katello-nightly-rhel7]
 disttag = .el7

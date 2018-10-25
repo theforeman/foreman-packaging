@@ -20,6 +20,13 @@
       <packagereq type="default">python-gofer-proton</packagereq>
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">qpid-proton-c</packagereq>
+      <packagereq type="default">rubygem-foreman_scap_client</packagereq>
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <!--RGD-END-->
     </packagelist>
   </group>
 </comps>
