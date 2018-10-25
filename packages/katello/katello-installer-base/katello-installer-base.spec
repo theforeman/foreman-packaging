@@ -2,17 +2,17 @@
 %undefine scl_prefix
 %global scl_ruby /usr/bin/ruby
 
-# %%global prerelease .rc1
-%global release 1
+%global prerelease master
+%global release 2
 
 Name:    katello-installer-base
 Version: 3.10.0
-Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
+Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
 License: GPLv3+ and ASL 2.0
 URL:     https://theforeman.org/plugins/katello
-Source0: https://fedorapeople.org/groups/katello/releases/source/tarball/katello-installer-%{version}%{?prerelease}.tar.gz
+Source0: https://fedorapeople.org/groups/katello/releases/source/tarball/katello-installer-%{version}%{?prerelease:-}%{?prerelease}.tar.gz
 
 BuildArch: noarch
 Obsoletes: katello-installer < 2.1.0
@@ -65,7 +65,7 @@ A set of tools for installation of Katello and Katello Capsule,
 including Foreman and Foreman Proxy.
 
 %prep
-%setup -q -n katello-installer-%{version}%{?prerelease}
+%setup -q -n katello-installer-%{version}%{?prerelease:-}%{?prerelease}
 
 %build
 #replace shebangs
@@ -118,7 +118,11 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
-* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
+* Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.2.master
+- breakout period and hyphen from prerelease macro
+- set prerelease to master
+
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.1.master
 - Bump version to 3.10
 
 * Tue Jul 24 2018 Eric D. Helms <ericdhelms@gmail.com> 3.9.0-2
