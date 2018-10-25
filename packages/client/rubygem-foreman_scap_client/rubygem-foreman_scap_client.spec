@@ -114,7 +114,11 @@ mkdir -p %{buildroot}%{config_dir}
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%if (0%{?rhel} >= 7) || (0%{?fedora} >= 27)
+%license %{gem_instdir}/LICENSE
+%else
 %doc %{gem_instdir}/LICENSE
+%endif
 %doc %{gem_instdir}/config
 
 %files doc
