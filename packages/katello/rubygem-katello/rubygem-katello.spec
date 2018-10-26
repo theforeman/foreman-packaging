@@ -6,13 +6,13 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.10.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
 
 Version: %{mainver}
-Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
+Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Applications/Systems
 License: GPLv2
 URL:     https://theforeman.org/plugins/katello
@@ -359,6 +359,9 @@ rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.3.pre.master
+- add nightly macro
+
 * Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.2.pre.master
 - set prerelease to .pre.master
 
