@@ -8,8 +8,8 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.14
-Release:    3%{?foremandist}%{?dist}
+Version:    0.3.15
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_hooks
@@ -107,6 +107,9 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 exit 0
 
 %changelog
+* Fri Oct 26 2018 Evgeni Golov - 0.3.15-1
+- Release rubygem-foreman_hooks 0.3.15
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.3.14-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
