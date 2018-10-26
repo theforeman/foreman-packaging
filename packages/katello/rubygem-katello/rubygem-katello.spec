@@ -4,9 +4,9 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-# %%global prerelease .rc1
+%global prerelease .pre.master
 %global mainver 3.10.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -359,6 +359,9 @@ rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.2.pre.master
+- set prerelease to .pre.master
+
 * Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
 - Bump version to 3.10
 
