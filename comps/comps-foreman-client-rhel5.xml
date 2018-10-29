@@ -14,12 +14,10 @@
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
-      <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
   </group>
