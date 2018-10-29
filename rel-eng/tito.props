@@ -445,7 +445,6 @@ whitelist = foreman-release
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
-  rubygem-foreman_scap_client
 
 [foreman-client-nightly-fedora27]
 disttag = .fc27
