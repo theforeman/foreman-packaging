@@ -7,7 +7,7 @@
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.9
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -111,6 +111,9 @@ exit 0
 
 
 %changelog
+* Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.9-3
+- Revbump to correct source map handling
+
 * Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.9-2
 - Use the license macro
 - Remove rpmlint warnings

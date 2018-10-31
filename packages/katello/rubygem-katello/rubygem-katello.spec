@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.10.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -327,7 +327,6 @@ cp -pa .%{gem_dir}/* \
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
-rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %files
 %dir %{gem_instdir}
@@ -359,6 +358,9 @@ rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.10.0-0.4.pre.master
+- Stop removing JS source maps
+
 * Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.3.pre.master
 - add nightly macro
 

@@ -14,7 +14,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.6.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -77,7 +77,6 @@ rm %{buildroot}%{gem_instdir}/.babelrc
 
 %{foreman_bundlerd_file}
 %foreman_precompile_plugin -a -s
-rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %posttrans
 %{foreman_db_migrate}
@@ -116,6 +115,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.6.4-2
+- Stop removing JS source maps
+
 * Tue Oct 09 2018 Ivan Nečas <inecas@redhat.com> 1.6.4-1
 - Update to 1.6.4
 
