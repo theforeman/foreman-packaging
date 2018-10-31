@@ -106,6 +106,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-click-outside
   nodejs-react-collapse
   nodejs-react-debounce-input
+  nodejs-react-diff-view
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
   nodejs-react-fontawesome
