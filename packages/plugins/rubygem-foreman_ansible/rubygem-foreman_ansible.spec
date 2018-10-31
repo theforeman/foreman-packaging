@@ -7,7 +7,7 @@
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.9
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -41,12 +41,12 @@ BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: npm(react-json-tree) >= 0.1.1
 BuildRequires: npm(react-json-tree) < 1.0
 BuildRequires: foreman-plugin >= 1.17.0
-BuildRequires: foreman-assets
+BuildRequires: foreman-assets >= 1.17.0
 
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
@@ -79,7 +79,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
@@ -111,6 +111,10 @@ exit 0
 
 
 %changelog
+* Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.9-2
+- Use the license macro
+- Remove rpmlint warnings
+
 * Tue Sep 25 2018 Marek Hulan <mhulan@redhat.com> 2.2.9-1
 - Update to 2.2.9
 
