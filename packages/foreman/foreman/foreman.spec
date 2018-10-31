@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:    foreman
@@ -1162,7 +1162,8 @@ rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
 %%{?-a:ln -s %%{%{name}_apipie_cache_plugin} %%{buildroot}%%{%{name}_apipie_cache_foreman}} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
-%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}}
+%%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}} \\
+%%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map}
 EOF
 
 #copy rpm config
@@ -1285,6 +1286,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.3.develop
+- Remove *.js.map file after asset precompile
+
 * Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1.21.0-0.2.develop
 - add nightly macro
 
