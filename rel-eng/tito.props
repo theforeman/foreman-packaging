@@ -137,6 +137,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-table-resolver
   nodejs-typed-styles
   nodejs-uglifyjs-webpack-plugin
+  nodejs-unidiff
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid

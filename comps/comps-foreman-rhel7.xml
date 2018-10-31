@@ -293,6 +293,7 @@
       <packagereq type="default">nodejs-table-resolver</packagereq>
       <packagereq type="default">nodejs-typed-styles</packagereq>
       <packagereq type="default">nodejs-uglifyjs-webpack-plugin</packagereq>
+      <packagereq type="default">nodejs-unidiff</packagereq>
       <packagereq type="default">nodejs-urijs</packagereq>
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
