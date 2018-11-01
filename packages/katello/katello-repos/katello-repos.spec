@@ -4,7 +4,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .rc1
+%global prerelease .rc2
 %global release 5
 
 Name:           katello-repos
@@ -67,6 +67,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Thu Nov 01 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.5.rc2
+- Releaes RC2
+
 * Fri Oct 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.5.rc1
 - Drop client repos
 
