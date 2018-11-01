@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .rc1
+%global prerelease .rc2
 %global mainver 3.9.0
 %global release 6
 
@@ -359,6 +359,9 @@ rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Nov 01 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.6.rc2
+- Release rubygem-katello 3.9.0.rc2
+
 * Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.6.rc1
 - Release RC1
 
