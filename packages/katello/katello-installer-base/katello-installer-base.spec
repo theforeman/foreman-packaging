@@ -3,12 +3,12 @@
 %global scl_ruby /usr/bin/ruby
 
 %global prerelease master
-%global release 3
+%global release 4
 
 Name:    katello-installer-base
 Version: 3.10.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
-Summary: Puppet-based installer for the Katello and Katello Capsule
+Summary: Puppet-based installer for the Katello and Foreman proxies with content
 Group:   Applications/System
 License: GPLv3+ and ASL 2.0
 URL:     https://theforeman.org/plugins/katello
@@ -27,9 +27,8 @@ Requires: /bin/readlink
 
 %package -n foreman-installer-katello
 Summary: Foreman-installer scenarios for Katello and Foreman proxies with content
-Group:	 Applications/System
+Group: Applications/System
 Obsoletes: katello-installer
-Obsoletes: capsule-installer
 Requires: %{name} = %{version}-%{release}
 Requires: katello-service >= 3.0.0
 
@@ -37,13 +36,6 @@ Requires: katello-service >= 3.0.0
 A set of tools for installation of Katello and Foreman proxies with content
 
 %posttrans -n foreman-installer-katello
-# See if the currently selected scenario is capsule - and migrate it to be foreman-proxy-content
-if [[ "`/bin/readlink -f /etc/foreman-installer/scenarios.d/last_scenario.yaml`" == "/etc/foreman-installer/scenarios.d/capsule.yaml" ]];
-then
-  mv /etc/foreman-installer/scenarios.d/capsule-answers.yaml /etc/foreman-installer/scenarios.d/foreman-proxy-content-answers.yaml
-  ln -snf /etc/foreman-installer/scenarios.d/foreman-proxy-content.yaml /etc/foreman-installer/scenarios.d/last_scenario.yaml
-fi
-
 foreman-installer --scenario katello --migrations-only > /dev/null
 foreman-installer --scenario foreman-proxy-content --migrations-only > /dev/null
 
@@ -61,8 +53,8 @@ foreman-installer --scenario foreman-proxy-content --migrations-only > /dev/null
 %{_sbindir}/katello-certs-check
 
 %description
-A set of tools for installation of Katello and Katello Capsule,
-including Foreman and Foreman Proxy.
+A set of tools for installation of Foreman with Katello and Foreman proxies with
+content.
 
 %prep
 %setup -q -n katello-installer-%{version}%{?prerelease:-}%{?prerelease}
@@ -118,6 +110,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Fri Nov 02 2018 Evgeni Golov - 3.10.0-0.4.master
+- Don't obsolete/migrate old Capsule setups anymore
+
 * Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 3.10.0-0.3.master
 - add nightly macro
 
