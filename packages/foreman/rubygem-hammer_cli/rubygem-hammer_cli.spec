@@ -12,7 +12,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.0
+Version: 0.15.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -126,6 +126,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Nov 07 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.15.1-1
+- Update to 0.15.1
+
 * Wed Oct 24 2018 Martin Bacovsky <mbacovsk@redhat.com> 0.15.0-1
 - Update to 0.15.0
 
