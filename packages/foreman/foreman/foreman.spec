@@ -14,7 +14,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:   foreman
-Version: 1.18.2
+Version: 1.18.3
 Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -1278,6 +1278,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Nov 06 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.3-1
+- Release 1.18.3
+
 * Tue Sep 04 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.2-1
 - Release 1.18.2
 

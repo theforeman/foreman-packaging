@@ -28,8 +28,8 @@
 #global dashalphatag -%{alphatag}
 
 Name:           foreman-selinux
-Version:        1.18.2
-Release:        2%{?dotalphatag}%{?dist}
+Version:        1.18.3
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
@@ -165,6 +165,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Nov 06 2018 Ondrej Prazak <oprazak@redhat.com> - 1.18.3-1
+- Release 1.18.3
+
 * Wed Sep 05 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.18.2-2
 - Updated selinux_policy_ver macro
 
