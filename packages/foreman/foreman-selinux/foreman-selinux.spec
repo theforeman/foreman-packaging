@@ -23,8 +23,8 @@
 %define moduletype apps
 
 Name:           foreman-selinux
-Version:        1.19.0
-Release:        2%{?dotalphatag}%{?dist}
+Version:        1.19.1
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for Foreman
 
 Group:          System Environment/Base
@@ -162,6 +162,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Nov 07 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.1-1
+- Release 1.19.1
+
 * Wed Sep 05 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.19.0-2
 - Updated selinux_policy_ver macro
 

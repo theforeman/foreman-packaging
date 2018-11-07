@@ -9,7 +9,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 Name:   foreman
-Version: 1.19.0
+Version: 1.19.1
 Release: 1%{?dotalphatag}%{?dist}
 Summary:Systems Management web application
 
@@ -1263,6 +1263,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Nov 07 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.19.1-1
+- Release 1.19.1
+
 * Thu Aug 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.19.0-1
 - Release 1.19.0
 
