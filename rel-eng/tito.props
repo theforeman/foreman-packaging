@@ -89,6 +89,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-novnc
+  nodejs-number_helpers
   nodejs-object-assign
   nodejs-patternfly
   nodejs-patternfly-react
