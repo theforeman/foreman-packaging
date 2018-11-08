@@ -59,6 +59,16 @@ than mock (above).
 
     obal scratch PACKAGE
 
+However, `scratch` will not work for nightly packages (i.e. - packages that
+don't have sources tracked in foreman-packages). The process for these is a bit
+different. Build the source files externally, then point `obal nightly` at
+them.
+
+    obal nightly foreman-installer \
+        --scratch \
+        --source ~/workspace/foreman-installer/pkg/foreman-installer-1.20.0-develop.tar.bz2 \
+        --githash 3ff078d12560c3f7ec55dad6bc70dd87dd7855a0
+
 Using a local git checkout, change `source_dir` as appropriate:
 
 * Core packages: `obal scratch foreman -e "{'releasers':['koji-foreman-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
