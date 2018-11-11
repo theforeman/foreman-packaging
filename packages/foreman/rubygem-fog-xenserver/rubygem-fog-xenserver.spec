@@ -6,15 +6,16 @@
 Summary: Module for the 'fog' gem to support XENSERVER
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.2.3
-Release: 3%{?dist}
-Group: Development/Ruby
+Version: 1.0.0
+Release: 1%{?dist}
+Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-xenserver
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(fog-xml)
+Requires: %{?scl_prefix}rubygem(xmlrpc)
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -68,6 +69,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Sun Dec 02 2018 Michael Moll <mmoll@mmoll.at> - 1.0.0-1
+- Update fog-xenserver to 1.0.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
