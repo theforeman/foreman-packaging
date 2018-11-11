@@ -301,6 +301,7 @@ whitelist = foreman
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
+  rubygem-xmlrpc
   tfm
   tfm-rubygem-rest-client
 scl = tfm
