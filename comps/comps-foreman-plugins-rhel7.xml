@@ -132,6 +132,7 @@
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
       <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
+      <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
@@ -252,6 +253,7 @@
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
