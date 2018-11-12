@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.10.0
@@ -114,6 +114,7 @@ install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/m
 %{__rm} -rf %{buildroot}
 
 %files
+%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Common ------------------
 
@@ -141,7 +142,6 @@ Common runtime components of %{name}
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
 %{_datarootdir}/katello/helper.rb
-%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Debug ----------------
 %package debug
@@ -172,6 +172,7 @@ Requires: rh-mongodb34
 Requires: foreman-installer-%{name}
 Requires: rubygem-highline
 Requires: rubygem-foreman_maintain >= 0.2.2
+Requires: %{name}-common = %{version}-%{release}
 Obsoletes: katello-capsule
 
 %description -n foreman-proxy-content
@@ -179,12 +180,6 @@ Provides a federation of katello services
 
 %files -n foreman-proxy-content
 %config(missingok) %{_sysconfdir}/cron.d/foreman-proxy-content
-%{_sbindir}/katello-backup
-%{_sbindir}/katello-restore
-%{_sbindir}/katello-change-hostname
-%{_sbindir}/katello-remove
-%{_datarootdir}/katello/hostname-change.rb
-%{_datarootdir}/katello/helper.rb
 
 # ------ Service ----------------
 %package service
@@ -201,6 +196,10 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Nov 12 2018 Evgeni Golov - 3.10.0-4
+- Make katello-common truly common and move specific files to katello itself.
+  This allows foreman-proxy-content to depend on k-common.
+
 * Tue Oct 23 2018 sokeeffe <sokeeffe@redhat.com> - 3.10.0-3
 - Split out Katello and Smart Proxy Cron 
 
