@@ -15,7 +15,7 @@
 
 Name: katello-host-tools
 Version: 3.3.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -89,7 +89,7 @@ Requires: python-gofer-proton >= 2.5
 %endif
 
 Requires: subscription-manager
-Requires: katello-host-tools
+Requires: katello-host-tools = %{version}-%{release}
 
 %if 0%{?rhel} == 6
 Requires: yum-plugin-security
@@ -364,6 +364,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Nov 12 2018 Jonathon Turel <jturel@gmail.com> - 3.3.6-2
+- Fix katello-agent upgrades from old versions
+
 * Wed Oct 17 2018 Justin Sherrill <jlsherrill@gmail.com> - 3.3.6-1
 - 3.3.6 release
 
