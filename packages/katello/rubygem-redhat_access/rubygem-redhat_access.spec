@@ -5,8 +5,8 @@
 %global plugin_name redhat_access
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.6
-Release: 3%{?foremandist}%{?dist}
+Version: 2.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -125,6 +125,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 exit 0
 
 %changelog
+* Tue Nov 13 2018 Marek Hulan <mhulan@redhat.com> 2.2.0-1
+- Update to 2.2.0
+
 * Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.6-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
