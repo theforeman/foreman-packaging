@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.11.0
@@ -196,6 +196,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Nov 14 2018 Evgeni Golov - 3.11.0-2
+- Add back Puppet clean cron to Katello
+
 * Fri Nov 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-1
 - Bump version to 3.11
 
