@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 # %%global prerelease .rc1
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    3.10.0
@@ -170,7 +170,6 @@ BuildArch: noarch
 Requires: findutils
 Requires: rh-mongodb34
 Requires: foreman-installer-%{name}
-Requires: rubygem-highline
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: %{name}-common = %{version}-%{release}
 Obsoletes: katello-capsule
@@ -196,6 +195,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Nov 13 2018 Evgeni Golov - 3.10.0-5
+- Drop rubygem-highline from foreman-proxy-content requires
+
 * Mon Nov 12 2018 Evgeni Golov - 3.10.0-4
 - Make katello-common truly common and move specific files to katello itself.
   This allows foreman-proxy-content to depend on k-common.
