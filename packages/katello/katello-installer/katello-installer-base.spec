@@ -5,7 +5,7 @@
 #%%global prerelease .rc3
 
 Name:    katello-installer-base
-Version: 3.8.0
+Version: 3.8.1
 Release: 1%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
@@ -117,6 +117,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Tue Nov 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.1-1
+- Release 3.8.1
+
 * Thu Aug 30 2018 Eric D. Helms <ericdhelms@gmail.com> 3.8.0-1
 - Release 3.8.0
 

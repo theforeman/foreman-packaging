@@ -19,8 +19,8 @@
 #%%global prerelease .rc3
 
 Name:           katello-repos
-Version:        3.8.0
-Release:        4%{?prerelease}%{?dist}
+Version:        3.8.1
+Release:        1%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -111,6 +111,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Tue Nov 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.1-1
+- Release 3.8.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.0-4
 - Add proper 3.8 GPG key
 
