@@ -6,6 +6,3 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # Script for publishing unpublished repositories
 00 23 * * *     root    foreman-rake katello:publish_unpublished_repositories RAILS_ENV=production >/dev/null 2>&1
-
-# cronjob to clean puppet envs for puppet
-15 22 * * 0	root	[ -d /etc/puppetlabs/code/environments ] &&  find /etc/puppetlabs/code/environments/KT* -maxdepth 0 -type d -empty -delete > /dev/null 2>&1

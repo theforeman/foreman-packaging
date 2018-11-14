@@ -7,11 +7,12 @@
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 1.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart-proxy-pulp
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: %{name}.cron
 
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.6.0
@@ -60,6 +61,10 @@ mkdir -p  %{buildroot}%{_sysconfdir}/foreman-proxy/settings.d/
 cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
 cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
+#copy cron scripts to be scheduled
+install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
+install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{name}
+
 %files
 %dir %{gem_instdir}
 %{gem_instdir}/lib
@@ -74,11 +79,16 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 %exclude %{gem_instdir}/Gemfile
 %{gem_spec}
 
+%config(missingok) %{_sysconfdir}/cron.d/%{name}
+
 %files doc
 %doc %{gem_docdir}
 
 
 %changelog
+* Wed Nov 14 2018 Evgeni Golov - 1.3.0-2
+- Move Puppet/Pulp related cron files from katello to smart_proxy_pulp
+
 * Tue Sep 06 2016 Dominic Cleal <dominic@cleal.org> 1.3.0-1
 - Updated smart_proxy_pulp to version 1.3.0 (dmitri@appliedlogic.ca)
 

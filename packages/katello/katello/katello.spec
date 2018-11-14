@@ -28,7 +28,6 @@ Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
 Source18:   katello.cron
-Source19:   foreman-proxy-content.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -88,7 +87,6 @@ mkdir -p %{buildroot}/%{_mandir}/man8
 #copy cron scripts to be scheduled
 install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
 install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
-install -m 644 %{SOURCE19} %{buildroot}%{_sysconfdir}/cron.d/foreman-proxy-content
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
@@ -179,7 +177,6 @@ Obsoletes: katello-capsule
 Provides a federation of katello services
 
 %files -n foreman-proxy-content
-%config(missingok) %{_sysconfdir}/cron.d/foreman-proxy-content
 
 # ------ Service ----------------
 %package service
@@ -197,7 +194,7 @@ Useful utilities for managing Katello services
 
 %changelog
 * Wed Nov 14 2018 Evgeni Golov - 3.11.0-2
-- Add back Puppet clean cron to Katello
+- Move Puppet/Pulp related cron files to rubygem-smart_proxy_pulp
 
 * Fri Nov 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-1
 - Bump version to 3.11
