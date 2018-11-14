@@ -15,7 +15,7 @@
 
 Name: katello-host-tools
 Version: 3.3.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -89,7 +89,7 @@ Requires: python-gofer-proton >= 2.5
 %endif
 
 Requires: subscription-manager
-Requires: katello-host-tools
+Requires: katello-host-tools = %{version}-%{release}
 
 %if 0%{?rhel} == 6
 Requires: yum-plugin-security
@@ -359,6 +359,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Tue Nov 13 2018 Jonathon Turel <jturel@gmail.com> - 3.3.5-4
+- Fix katello-agent upgrades from old versions
+
 * Fri Sep 21 2018 Patrick Creech <pcreech@redhat.com> - 3.3.5-3
 - Decrease Obsolete version for python-pulp-rpm-common
 
