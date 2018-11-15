@@ -85,8 +85,7 @@ popd
 mkdir -p %{buildroot}/%{_mandir}/man8
 
 #copy cron scripts to be scheduled
-install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
-install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
+install -D -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello

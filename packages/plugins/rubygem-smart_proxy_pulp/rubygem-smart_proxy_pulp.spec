@@ -62,8 +62,7 @@ cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_s
 cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
 #copy cron scripts to be scheduled
-install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
-install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{name}
+install -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 
 %files
 %dir %{gem_instdir}
