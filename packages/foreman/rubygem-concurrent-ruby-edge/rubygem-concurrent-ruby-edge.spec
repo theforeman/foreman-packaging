@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.4
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Nov 15 2018 Evgeni Golov - 1:0.2.4-3
+- Drop foremandist from the release
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:0.2.4-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -6,7 +6,7 @@
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.3
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Nov 15 2018 Evgeni Golov - 1:1.0.3-7
+- Drop foremandist from the release
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.3-6
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)

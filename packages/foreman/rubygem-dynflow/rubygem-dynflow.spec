@@ -6,7 +6,7 @@
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Dynflow/dynflow
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Thu Nov 15 2018 Evgeni Golov - 1.1.2-2
+- Drop foremandist from the release
+
 * Thu Nov 15 2018 Evgeni Golov - 1.1.2-1
 - Release rubygem-dynflow 1.1.2
 
