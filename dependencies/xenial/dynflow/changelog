@@ -1,3 +1,9 @@
+ruby-dynflow (1.1.2-1) stable; urgency=low
+
+  * 1.1.2 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 15 Nov 2018 09:53:00 +0200
+
 ruby-dynflow (1.1.0-1) stable; urgency=low
 
   * 1.1.0 released
