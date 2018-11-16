@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:    foreman
@@ -577,7 +577,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.3.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.5.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
@@ -1286,6 +1286,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Nov 16 2018 Chris Roberts <chrobert@redhat.com - 1.21.0-0.4.develop
+- Update fog-vsphere to v2.5.0
+
 * Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.3.develop
 - Remove *.js.map file after asset precompile
 
