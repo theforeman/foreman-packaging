@@ -42,6 +42,8 @@ Requires:       %{?scl_prefix}rubygem(rsec)
 Requires:       %{?scl_prefix}rubygem(jwt)
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
+Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
@@ -148,11 +150,27 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %exclude %{_datadir}/%{name}/bundler.d/test.rb
 %exclude %{_datadir}/%{name}/bundler.d/windows.rb
+%exclude %{_datadir}/%{name}/bundler.d/journald.rb
 %{_sbindir}/foreman-prepare-realm
 %{_mandir}/man8
 %{_unitdir}/%{name}.service
 %{_tmpfilesdir}/%{name}.conf
 %{_datadir}/foreman/script/foreman-debug.d/75-foreman-proxy
+
+%package journald
+Summary:  Foreman Proxy journald logging dependencies
+Group:    Applications/System
+# start specfile journald Requires
+Requires: %{?scl_prefix}rubygem(logging-journald) >= 2.0
+Requires: %{?scl_prefix}rubygem(logging-journald) < 3.0
+# end specfile journald Requires
+Requires: %{name} = %{version}-%{release}
+
+%description journald
+Additional dependencies required to configure journald logging.
+
+%files journald
+%{_datadir}/%{name}/bundler.d/journald.rb
 
 %pre
 # Add the "foreman-proxy" user and group
