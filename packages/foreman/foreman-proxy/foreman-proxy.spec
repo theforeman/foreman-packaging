@@ -4,7 +4,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:           foreman-proxy
@@ -15,7 +15,7 @@ Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://theforeman.org/projects/smart-proxy
-Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{prerelease}.tar.bz2
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
 
@@ -213,6 +213,9 @@ fi
 
 
 %changelog
+* Fri Nov 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.develop
+- Handle a missing prerelease macro
+
 * Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1.21.0-0.3.develop
 - add nightly macro
 
