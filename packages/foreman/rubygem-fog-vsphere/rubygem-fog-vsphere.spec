@@ -4,7 +4,7 @@
 %global gem_name fog-vsphere
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
+Version: 2.5.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Mon Nov 19 2018 Chris Roberts <chrobert@redhat.com> - 2.5.0-1
+- Update fog-vsphere to 2.5.0
+
 * Tue Oct 16 2018 Timo Goebel <mail@timogoebel.name> - 2.4.0-1
 - Update fog-vsphere to 2.4.0
 
