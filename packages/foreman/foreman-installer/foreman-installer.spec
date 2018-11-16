@@ -1,5 +1,4 @@
-%global release 2
-%global prerelease RC2
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
@@ -73,6 +72,9 @@ foreman-installer --scenario foreman --migrations-only > /dev/null
 %{_mandir}/man8
 
 %changelog
+* Fri Nov 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.20.0-1
+- Release 1.20.0
+
 * Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.20.0-0.2.RC2
 - Release 1.20.0-RC2
 

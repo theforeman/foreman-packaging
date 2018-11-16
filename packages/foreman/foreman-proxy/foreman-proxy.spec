@@ -4,8 +4,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
-%global prerelease RC2
+%global release 1
 
 Name:           foreman-proxy
 Version:        1.20.0
@@ -15,7 +14,7 @@ Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://theforeman.org/projects/smart-proxy
-Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{prerelease}.tar.bz2
+Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
 
@@ -213,6 +212,10 @@ fi
 
 
 %changelog
+* Fri Nov 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-1
+- Release 1.20.0
+- Added logging and logging-journald dependencies
+
 * Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-0.3.RC2
 - Release 1.20.0-RC2
 
