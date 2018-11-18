@@ -277,6 +277,7 @@
       <packagereq type="default">nodejs-prop-types-extra</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
+      <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-switch</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-typeahead</packagereq>

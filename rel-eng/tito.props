@@ -110,6 +110,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-raf
   nodejs-react
   nodejs-reactabular-table
+  nodejs-react-ace
   nodejs-react-bootstrap
   nodejs-react-bootstrap-switch
   nodejs-react-bootstrap-typeahead
