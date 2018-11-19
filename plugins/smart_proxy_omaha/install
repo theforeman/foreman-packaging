@@ -1,0 +1,3 @@
+debian/omaha.rb usr/share/foreman-proxy/bundler.d
+settings.d/omaha.yml etc/foreman-proxy/settings.d
+extra/foreman-proxy-omaha-sync.cron /etc/cron.daily/foreman-proxy-omaha-sync
