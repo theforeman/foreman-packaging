@@ -3,7 +3,7 @@ Upstream-Name: ruby-foreman-omaha
 Source: https://github.com/theforeman/foreman_omaha
 
 Files: *
-Copyright: 2017-2018 Timo Göbel
+Copyright: 2017-2018 Timo Goebel
 License: GPL-3.0+
 
 Files: debian/*
