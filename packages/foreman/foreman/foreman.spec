@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:    foreman
@@ -1296,6 +1296,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Nov 19 2018 Chris Roberts <chrobert@redhat.com - 1.21.0-0.5.develop
+- Update fog-vsphere to 2.5.0
+
 * Mon Nov 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.develop
 - Update Gem and NPM dependencies
 
