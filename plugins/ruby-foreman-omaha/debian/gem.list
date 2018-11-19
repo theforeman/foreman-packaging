@@ -1,0 +1,3 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_omaha-3.0.0.gem"
+GEMS="$GEMS https://rubygems.org/downloads/jquery-matchheight-rails-0.7.2.gem"
