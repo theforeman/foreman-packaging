@@ -1,0 +1,5 @@
+ruby-foreman-omaha (3.0.0-1) stable; urgency=medium
+
+  * Initial release.
+
+ -- Lennart Weller <lennart.weller@hansemerkur.de>  Mon, 28 Jan 2019 17:34:54 +0100

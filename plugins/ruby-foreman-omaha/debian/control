@@ -1,0 +1,17 @@
+Source: ruby-foreman-omaha
+Section: ruby
+Priority: extra
+Maintainer: Lennart Weller <lennart.weller@hansemerkur.de>
+Build-Depends: debhelper,
+               foreman (>= 1.18.0~rc1),
+               foreman-assets (>= 1.18.0~rc1),
+               foreman-sqlite3 (>= 1.18.0~rc1)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_omaha
+
+Package: ruby-foreman-omaha
+Architecture: all
+Depends: bundler, foreman (>= 1.18.0~rc1), ${misc:Depends}
+Description: Foreman Omaha Plugin
+ This plug-in adds support for the Omaha procotol to The Foreman.
+ It allows you to better manage and update your CoreOS servers
