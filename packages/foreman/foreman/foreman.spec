@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:    foreman
@@ -254,8 +254,8 @@ BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-eslint) >= 6.1.2
 #BuildRequires: npm(babel-eslint) < 7.0.0
-#BuildRequires: npm(babel-jest) >= 15.0.0
-#BuildRequires: npm(babel-jest) < 16.0.0
+#BuildRequires: npm(babel-jest) >= 23.6.0
+#BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
@@ -304,10 +304,10 @@ BuildRequires: npm(file-loader) < 1.0.0
 #BuildRequires: npm(highlight.js) < 10.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-#BuildRequires: npm(jest-cli) >= 20.0.0
-#BuildRequires: npm(jest-cli) < 21.0.0
-BuildRequires: npm(jsdom) >= 9.5.0
-BuildRequires: npm(jsdom) < 10.0.0
+#BuildRequires: npm(jest-cli) >= 23.6.0
+#BuildRequires: npm(jest-cli) < 24.0.0
+#BuildRequires: npm(jest-prop-type-error) >= 1.1.0
+#BuildRequires: npm(jest-prop-type-error) < 2.0.0
 BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
 BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
@@ -383,6 +383,8 @@ BuildRequires: npm(lodash) >= 4.17.10
 BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
+BuildRequires: npm(number_helpers) >= 0.1.1
+BuildRequires: npm(number_helpers) < 1.0.0
 BuildRequires: npm(patternfly) >= 3.42.0
 BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) >= 2.19.1
@@ -394,6 +396,8 @@ BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) = 0.32.1
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
+BuildRequires: npm(react-diff-view) >= 1.8.1
+BuildRequires: npm(react-diff-view) < 2.0.0
 BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
@@ -421,6 +425,7 @@ BuildRequires: npm(seamless-immutable) >= 7.1.2
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
+BuildRequires: npm(unidiff) = 0.0.4
 BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(urijs) < 2.0.0
 BuildRequires: npm(uuid) >= 3.0.1
@@ -634,8 +639,8 @@ Requires: npm(babel-core) >= 6.26.3
 Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-eslint) >= 6.1.2
 #Requires: npm(babel-eslint) < 7.0.0
-#Requires: npm(babel-jest) >= 15.0.0
-#Requires: npm(babel-jest) < 16.0.0
+#Requires: npm(babel-jest) >= 23.6.0
+#Requires: npm(babel-jest) < 24.0.0
 Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-loader) < 8.0.0
 Requires: npm(babel-plugin-lodash) >= 3.3.4
@@ -684,10 +689,10 @@ Requires: npm(file-loader) < 1.0.0
 #Requires: npm(highlight.js) < 10.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
-#Requires: npm(jest-cli) >= 20.0.0
-#Requires: npm(jest-cli) < 21.0.0
-Requires: npm(jsdom) >= 9.5.0
-Requires: npm(jsdom) < 10.0.0
+#Requires: npm(jest-cli) >= 23.6.0
+#Requires: npm(jest-cli) < 24.0.0
+#Requires: npm(jest-prop-type-error) >= 1.1.0
+#Requires: npm(jest-prop-type-error) < 2.0.0
 Requires: npm(lodash-webpack-plugin) >= 0.11.4
 Requires: npm(lodash-webpack-plugin) < 1.0.0
 Requires: npm(node-sass) >= 4.5.0
@@ -763,6 +768,8 @@ Requires: npm(lodash) >= 4.17.10
 Requires: npm(lodash) < 5.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
+Requires: npm(number_helpers) >= 0.1.1
+Requires: npm(number_helpers) < 1.0.0
 Requires: npm(patternfly) >= 3.42.0
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) >= 2.19.1
@@ -774,6 +781,8 @@ Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) = 0.32.1
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
+Requires: npm(react-diff-view) >= 1.8.1
+Requires: npm(react-diff-view) < 2.0.0
 Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
@@ -801,6 +810,7 @@ Requires: npm(seamless-immutable) >= 7.1.2
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
+Requires: npm(unidiff) = 0.0.4
 Requires: npm(urijs) >= 1.18.10
 Requires: npm(urijs) < 2.0.0
 Requires: npm(uuid) >= 3.0.1
@@ -1286,6 +1296,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Nov 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.develop
+- Update Gem and NPM dependencies
+
 * Wed Oct 31 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.3.develop
 - Remove *.js.map file after asset precompile
 
