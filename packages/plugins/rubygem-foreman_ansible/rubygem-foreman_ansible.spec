@@ -76,6 +76,7 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
+rm -f %{buildroot}%{foreman_webpack_plugin}/*.js.map
 
 %files
 %dir %{gem_instdir}
