@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:     foreman-release
@@ -95,9 +95,9 @@ sed "s/\$DIST/${trimmed_dist}/g" -i %{buildroot}%{repo_dir}/*.repo
 
 if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
-  sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/%{repo_dir}/*.repo
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/%{repo_dir}/foreman.repo
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/%{repo_dir}/foreman-rails.repo
+  sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{repo_dir}/*.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-rails.repo
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -110,6 +110,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Nov 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.3.develop
+- Remove duplicated sysconfdir macro
+
 * Wed Nov 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.2.develop
 - Use the correct yum repo dir in non-EL releases
 
