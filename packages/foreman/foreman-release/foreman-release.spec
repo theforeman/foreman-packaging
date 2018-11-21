@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 
 Name:     foreman-release
 Version:  1.20.0
@@ -93,9 +93,9 @@ sed "s/\$DIST/${trimmed_dist}/g" -i %{buildroot}%{repo_dir}/*.repo
 
 if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
-  sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*.repo
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/foreman.repo
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/foreman-rails.repo
+  sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{repo_dir}/*.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-rails.repo
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -107,6 +107,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Nov 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-2
+- Use the correct yum repo dir in non-EL releases
+
 * Fri Nov 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-1
 - Release 1.20.0
 
