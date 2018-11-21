@@ -1,0 +1,9 @@
+/var/log/foreman/dynflow_executor.output {
+  daily
+  missingok
+  rotate 14
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+}

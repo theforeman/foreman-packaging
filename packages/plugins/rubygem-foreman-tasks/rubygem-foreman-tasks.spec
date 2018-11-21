@@ -8,11 +8,12 @@
 Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.15.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: %{gem_name}.logrotate
 Requires: foreman >= 1.17.0
 
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
@@ -84,6 +85,9 @@ chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 %{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
 ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
+# Logrotate script
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
+
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
 
@@ -117,6 +121,7 @@ exit 0
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/LICENSE
 
 %exclude %{gem_instdir}/test
@@ -128,6 +133,9 @@ exit 0
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Tue Feb 26 2019 Lukas Zapletal <lzap+rpm@redhat.com> 0.15.0-2
+- Added logrotate script for output log file
+
 * Fri Feb 08 2019 Ivan Nečas <inecas@redhat.com> 0.15.0-1
 - Update to 0.15.0
 
