@@ -3,12 +3,12 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-# %%global prerelease .rc1
-%global release 6
+%global prerelease master
+%global release 7
 
 Name:       katello
 Version:    3.10.0
-Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
+Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
 
@@ -196,6 +196,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Nov 22 2018 Evgeni Golov - 3.10.0-0.7.master
+- Set the prerelease to master
+
 * Mon Nov 19 2018 Evgeni Golov - 3.10.0-6
 - Move rubygem-katello and rubygem-hammer* requires to katello
 
@@ -207,7 +210,7 @@ Useful utilities for managing Katello services
   This allows foreman-proxy-content to depend on k-common.
 
 * Tue Oct 23 2018 sokeeffe <sokeeffe@redhat.com> - 3.10.0-3
-- Split out Katello and Smart Proxy Cron 
+- Split out Katello and Smart Proxy Cron
 
 * Mon Oct 22 2018 Chris Roberts <chrobert@redhat.com> - 3.10.0-2
 - Change katello-remove to support wildcards and cleanup
