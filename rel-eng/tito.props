@@ -435,7 +435,8 @@ whitelist = ansiblerole-insights-client
 
 [foreman-client-nightly-rhel7]
 disttag = .el7
-whitelist = foreman-release
+whitelist =
+  # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
   katello-host-tools
   rubygem-foreman_scap_client
 
