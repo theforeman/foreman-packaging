@@ -14,8 +14,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: bzip2
 Requires: ruby(rubygems)
+Requires: rubygem(posix-spawn) >= 0.3.13
+Requires: rubygem(posix-spawn) < 0.4.0
 %if 0%{?el6}
 Requires: ruby(abi)
+Requires: rubygem(json) >= 1.4.6
+Requires: rubygem(json) < 2.0.0
 %else
 Requires: ruby(release)
 %endif
