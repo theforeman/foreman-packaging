@@ -440,6 +440,7 @@ foreman_client_packages:
   hosts:
     katello-host-tools: {}
     rubygem-foreman_scap_client: {}
+    rubygem-posix-spawn: {}
 
 katello_packages:
   vars:

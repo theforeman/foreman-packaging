@@ -17,11 +17,13 @@
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
+      <packagereq type="default">rubygem-posix-spawn</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-foreman_scap_client-doc</packagereq>
+      <packagereq type="default">rubygem-posix-spawn-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
   </group>

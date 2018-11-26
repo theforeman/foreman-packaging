@@ -445,6 +445,7 @@ disttag = .el6
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
+  rubygem-posix-spawn
 
 [foreman-client-nightly-rhel5]
 disttag = .el5
