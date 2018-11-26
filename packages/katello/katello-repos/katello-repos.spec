@@ -1,12 +1,12 @@
-%global pulp_release stable
-%global pulp_version 2.17
-%global use_pulp_nightly true
+%global pulp_release beta
+%global pulp_version 2.18
+%global use_pulp_nightly false
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        3.10.0
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Mon Nov 26 2018 John Mitsch <parthaa@redhat.com> - 3.10.0-0.4.nightly
+- Switch to Pulp 2-18 beta
+
 * Wed Oct 24 2018 John Mitsch <jomitsch@redhat.com> - 3.10.0-0.3.nightly
 - Switch to Pulp nightly
 
