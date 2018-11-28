@@ -7,7 +7,7 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.1
+Version: 0.11.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Nov 28 2018 Marek Hulan <mhulan@redhat.com> 0.11.2-1
+- Update to 0.11.2
+
 * Tue Nov 13 2018 Marek Hulan <mhulan@redhat.com> 0.11.1-1
 - Update to 0.11.1
 
