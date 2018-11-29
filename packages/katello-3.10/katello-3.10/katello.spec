@@ -3,10 +3,11 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 1
+%global prerelease .rc1
+%global release 6
 
 Name:       katello
-Version:    3.9.0
+Version:    3.10.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -27,6 +28,7 @@ Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
 Source18:   katello.cron
+Source19:   foreman-proxy-content.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -34,6 +36,11 @@ BuildRequires: util-linux
 Requires: %{name}-common = %{version}-%{release}
 
 Requires: foreman-installer-%{name}
+
+Requires: %{?scl_prefix}rubygem-katello
+Requires: %{?scl_prefix}rubygem-hammer_cli
+Requires: %{?scl_prefix}rubygem-hammer_cli_foreman
+Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 
 #Pulp Requirements
 Requires: pulp-katello
@@ -81,6 +88,7 @@ mkdir -p %{buildroot}/%{_mandir}/man8
 #copy cron scripts to be scheduled
 install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
 install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
+install -m 644 %{SOURCE19} %{buildroot}%{_sysconfdir}/cron.d/foreman-proxy-content
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
@@ -111,6 +119,7 @@ install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/m
 %{__rm} -rf %{buildroot}
 
 %files
+%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Common ------------------
 
@@ -118,10 +127,6 @@ install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/m
 BuildArch:  noarch
 Summary:    Common runtime components of %{name}
 
-Requires:       %{?scl_prefix}rubygem-katello
-Requires:       %{?scl_prefix}rubygem-hammer_cli
-Requires:       %{?scl_prefix}rubygem-hammer_cli_foreman
-Requires:       %{?scl_prefix}rubygem-hammer_cli_katello
 Requires:       rubygem-highline
 Requires:       %{name}-debug
 Requires:       %{name}-service
@@ -138,7 +143,6 @@ Common runtime components of %{name}
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
 %{_datarootdir}/katello/helper.rb
-%config(missingok) %{_sysconfdir}/cron.d/katello
 
 # ------ Debug ----------------
 %package debug
@@ -167,21 +171,15 @@ BuildArch: noarch
 Requires: findutils
 Requires: rh-mongodb34
 Requires: foreman-installer-%{name}
-Requires: rubygem-highline
 Requires: rubygem-foreman_maintain >= 0.2.2
+Requires: %{name}-common = %{version}-%{release}
 Obsoletes: katello-capsule
 
 %description -n foreman-proxy-content
 Provides a federation of katello services
 
 %files -n foreman-proxy-content
-%config(missingok) %{_sysconfdir}/cron.d/katello
-%{_sbindir}/katello-backup
-%{_sbindir}/katello-restore
-%{_sbindir}/katello-change-hostname
-%{_sbindir}/katello-remove
-%{_datarootdir}/katello/hostname-change.rb
-%{_datarootdir}/katello/helper.rb
+%config(missingok) %{_sysconfdir}/cron.d/foreman-proxy-content
 
 # ------ Service ----------------
 %package service
@@ -198,14 +196,27 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
-* Fri Nov 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-1
-- Release 3.9.0
+* Thu Nov 29 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-0.6.rc1
+- Release 3.10.0 RC1
 
-* Thu Nov 01 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.11.rc2
-- Releaes RC2
+* Mon Nov 19 2018 Evgeni Golov - 3.10.0-6
+- Move rubygem-katello and rubygem-hammer* requires to katello
 
-* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.11.rc1
-- Release RC1
+* Tue Nov 13 2018 Evgeni Golov - 3.10.0-5
+- Drop rubygem-highline from foreman-proxy-content requires
+
+* Mon Nov 12 2018 Evgeni Golov - 3.10.0-4
+- Make katello-common truly common and move specific files to katello itself.
+  This allows foreman-proxy-content to depend on k-common.
+
+* Tue Oct 23 2018 sokeeffe <sokeeffe@redhat.com> - 3.10.0-3
+- Split out Katello and Smart Proxy Cron
+
+* Mon Oct 22 2018 Chris Roberts <chrobert@redhat.com> - 3.10.0-2
+- Change katello-remove to support wildcards and cleanup
+
+* Thu Oct 18 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
+- Bump version to 3.10
 
 * Wed Oct 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-11
 - Cleanup spec requires
