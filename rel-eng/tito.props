@@ -485,3 +485,34 @@ whitelist = katello
   rubygem-redhat_access_lib
   rubygem-robotex
   rubygem-runcible
+
+[katello-3.10-rhel7]
+disttag = .el7
+scl = tfm
+whitelist = katello
+  katello-certs-tools
+  katello-client-bootstrap
+  katello-installer-base
+  katello-repos
+  katello-selinux
+  nodejs-bootstrap-select
+  nodejs-downshift
+  nodejs-query-string
+  nodejs-react-bootstrap-tooltip-button
+  nodejs-react-helmet
+  nodejs-react-router
+  nodejs-react-router-bootstrap
+  nodejs-react-router-dom
+  pulp-katello
+  rubygem-anemone
+  rubygem-foreman_scc_manager
+  rubygem-foreman_virt_who_configure
+  rubygem-hammer_cli_csv
+  rubygem-hammer_cli_foreman_virt_who_configure
+  rubygem-hammer_cli_katello
+  rubygem-katello
+  rubygem-qpid_messaging
+  rubygem-redhat_access
+  rubygem-redhat_access_lib
+  rubygem-robotex
+  rubygem-runcible

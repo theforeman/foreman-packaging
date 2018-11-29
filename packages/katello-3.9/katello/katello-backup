@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MESSAGE="
+IMPORTANT: katello-backup has been removed in favor of 'foreman-maintain backup'.
+This change happened in order to support remote databases and a newer mongo version.
+Please update your scripts and/or cron jobs.
+"
+
+echo "$MESSAGE"
+exit 1

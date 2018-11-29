@@ -4,7 +4,8 @@ packages:
     foreman_packages: {}
     plugins_packages: {}
     foreman_client_packages: {}
-    katello_packages: {}
+    katello_packages_39: {}
+    katello_packages_310: {}
 
 foreman_packages:
   children:
@@ -411,15 +412,15 @@ foreman_client_packages:
   hosts:
     katello-host-tools: {}
 
-katello_packages:
+katello_packages_39:
   vars:
-    package_base_dir: 'packages/katello/'
+    package_base_dir: 'packages/katello-3.9/'
     diff_package_skip: false
     diff_package_tags:
       - katello-3.9-rhel7
     releasers:
-      - koji-katello
-    nightly_releaser: koji-katello-jenkins
+      - koji-katello-3.9
+    nightly_releaser: koji-katello-jenkins-3.9
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       - el7-base
@@ -434,6 +435,59 @@ katello_packages:
       - el7-katello-pulp-3.9
       - el7-katello-candlepin-3.9
       - el7-katello-3.9
+  hosts:
+    katello: {}
+    katello-certs-tools: {}
+    katello-client-bootstrap: {}
+    katello-installer-base: {}
+    katello-repos: {}
+    katello-selinux: {}
+    nodejs-bootstrap-select: {}
+    nodejs-downshift: {}
+    nodejs-jed: {}
+    nodejs-query-string: {}
+    nodejs-react-bootstrap-tooltip-button: {}
+    nodejs-react-router-bootstrap: {}
+    nodejs-react-helmet: {}
+    nodejs-react-router-dom: {}
+    nodejs-react-router: {}
+    pulp-katello: {}
+    rubygem-anemone: {}
+    rubygem-foreman_scc_manager: {}
+    rubygem-foreman_virt_who_configure: {}
+    rubygem-hammer_cli_csv: {}
+    rubygem-hammer_cli_foreman_virt_who_configure: {}
+    rubygem-hammer_cli_katello: {}
+    rubygem-katello: {}
+    rubygem-qpid_messaging: {}
+    rubygem-redhat_access: {}
+    rubygem-redhat_access_lib: {}
+    rubygem-robotex: {}
+    rubygem-runcible: {}
+
+katello_packages_310:
+  vars:
+    package_base_dir: 'packages/katello-3.10/'
+    diff_package_skip: false
+    diff_package_tags:
+      - katello-3.10-rhel7
+    releasers:
+      - koji-katello-3.10
+    nightly_releaser: koji-katello-jenkins-3.10
+    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_lookaside_repos:
+      - el7-base
+      - el7-updates
+      - el7-epel
+      - el7-extras
+      - el7-scl
+      - el7-puppet-5
+      - el7-foreman-rails-1.20
+      - el7-foreman-1.20
+      - el7-foreman-plugins-1.20
+      - el7-katello-pulp-3.10
+      - el7-katello-candlepin-3.10
+      - el7-katello-3.10
   hosts:
     katello: {}
     katello-certs-tools: {}

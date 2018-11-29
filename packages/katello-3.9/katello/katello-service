@@ -1,0 +1,7 @@
+#!/bin/sh
+
+REDIRECT_MESSAGE="Redirecting to 'foreman-maintain service'"
+
+echo "$REDIRECT_MESSAGE"
+foreman-maintain service $*
+
