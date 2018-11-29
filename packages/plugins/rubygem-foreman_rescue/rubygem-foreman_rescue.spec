@@ -3,11 +3,11 @@
 
 %global gem_name foreman_rescue
 %global plugin_name rescue
-%global foreman_min_version 1.17
+%global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 3%{?foremandist}%{?dist}
+Version: 2.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 Group: Applications/Systems
 License: GPLv3+
@@ -95,6 +95,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Nov 29 2018 Timo Goebel <mail@timogoebel.name> - 2.0.0-1
+- Update foreman_rescue to 2.0.0
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.0-3
 - Move licenes which are GPL-* to GPLv3
 
