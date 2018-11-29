@@ -436,11 +436,11 @@ katello_packages_39:
       - el7-katello-candlepin-3.9
       - el7-katello-3.9
   hosts:
-    katello: {}
+    katello-3.9: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer-base: {}
-    katello-repos: {}
+    katello-installer-base-3.9: {}
+    katello-repos-3.9: {}
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
@@ -458,7 +458,7 @@ katello_packages_39:
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello: {}
-    rubygem-katello: {}
+    rubygem-katello-3.9: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
@@ -489,11 +489,11 @@ katello_packages_310:
       - el7-katello-candlepin-3.10
       - el7-katello-3.10
   hosts:
-    katello: {}
+    katello-3.10: {}
     katello-certs-tools: {}
     katello-client-bootstrap: {}
-    katello-installer-base: {}
-    katello-repos: {}
+    katello-installer-base-3.10: {}
+    katello-repos-3.10: {}
     katello-selinux: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
@@ -511,7 +511,7 @@ katello_packages_310:
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello: {}
-    rubygem-katello: {}
+    rubygem-katello-3.10: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}

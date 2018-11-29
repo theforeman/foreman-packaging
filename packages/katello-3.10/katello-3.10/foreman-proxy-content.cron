@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# cronjob to clean puppet envs for puppet
+15 22 * * 0	root	[ -d /etc/puppetlabs/code/environments ] &&  find /etc/puppetlabs/code/environments/KT* -maxdepth 0 -type d -empty -delete > /dev/null 2>&1

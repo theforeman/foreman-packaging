@@ -1,9 +1,10 @@
-%global pulp_release stable
-%global pulp_version 2.17
+%global pulp_release beta
+%global pulp_version 2.18
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
+%global prerelease .rc1
 %global release 1
 
 Name:           katello-repos
@@ -15,7 +16,7 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        RPM-GPG-KEY-katello-2015
+Source1:        RPM-GPG-KEY-katello
 
 BuildArch:      noarch
 
@@ -66,6 +67,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Thu Nov 29 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-0.1.rc1
+- Release 3.10.0 RC1
+
 * Fri Nov 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-1
 - Release 3.9.0
 
