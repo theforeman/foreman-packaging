@@ -1,0 +1,30 @@
+katello-change-hostname(8)
+==========================
+:man source:  katello
+:man manual:  Katello User Manual
+
+NAME
+----
+katello-change-hostname - Script to change the hostname on katello systems
+
+SYNOPSIS
+--------
+
+*katello-change-hostname* [options] [hostname]
+
+DESCRIPTION
+-----------
+
+This script will update a system's hostname and properly update katello to be configured with the 
+new hostname. Permanent modifications will be made to a system, so it is important to take the necessary 
+precautions before using this tool.
+
+OPTIONS
+-------
+
+For the best resource on all available options run *katello-change-hostname --help*
+
+SEE ALSO
+--------
+
+*hostnamectl*(8)

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+MESSAGE="
+IMPORTANT: katello-restore has been removed in favor of 'foreman-maintain restore'.
+This change happened in order to support remote databases and a newer mongo version.
+Please update your scripts and/or cron jobs.
+"
+
+echo "$MESSAGE"
+exit 1
+
