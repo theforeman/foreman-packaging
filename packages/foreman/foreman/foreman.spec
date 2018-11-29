@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:    foreman
@@ -252,8 +252,8 @@ BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
 BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
-#BuildRequires: npm(babel-eslint) >= 6.1.2
-#BuildRequires: npm(babel-eslint) < 7.0.0
+#BuildRequires: npm(babel-eslint) >= 8.2.3
+#BuildRequires: npm(babel-eslint) < 9.0.0
 #BuildRequires: npm(babel-jest) >= 23.6.0
 #BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
@@ -288,12 +288,7 @@ BuildRequires: npm(dotenv) < 6.0.0
 #BuildRequires: npm(enzyme-to-json) < 4.0.0
 #BuildRequires: npm(eslint) >= 4.10.0
 #BuildRequires: npm(eslint) < 5.0.0
-#BuildRequires: npm(eslint-config-airbnb-base) >= 12.1.0
-#BuildRequires: npm(eslint-config-airbnb-base) < 13.0.0
-#BuildRequires: npm(eslint-plugin-import) >= 2.8.0
-#BuildRequires: npm(eslint-plugin-import) < 3.0.0
-#BuildRequires: npm(eslint-plugin-react) >= 7.4.0
-#BuildRequires: npm(eslint-plugin-react) < 8.0.0
+#BuildRequires: npm(eslint-plugin-patternfly-react) = 0.2.0
 BuildRequires: npm(expose-loader) >= 0.6.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
@@ -312,6 +307,8 @@ BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
 BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
+#BuildRequires: npm(prettier) >= 1.13.5
+#BuildRequires: npm(prettier) < 2.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
 #BuildRequires: npm(raw-loader) >= 0.5.1
@@ -582,7 +579,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.3.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.5.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
@@ -637,8 +634,8 @@ Requires: npm(babel-cli) >= 6.10.1
 Requires: npm(babel-cli) < 7.0.0
 Requires: npm(babel-core) >= 6.26.3
 Requires: npm(babel-core) < 7.0.0
-#Requires: npm(babel-eslint) >= 6.1.2
-#Requires: npm(babel-eslint) < 7.0.0
+#Requires: npm(babel-eslint) >= 8.2.3
+#Requires: npm(babel-eslint) < 9.0.0
 #Requires: npm(babel-jest) >= 23.6.0
 #Requires: npm(babel-jest) < 24.0.0
 Requires: npm(babel-loader) >= 7.1.1
@@ -673,12 +670,7 @@ Requires: npm(dotenv) < 6.0.0
 #Requires: npm(enzyme-to-json) < 4.0.0
 #Requires: npm(eslint) >= 4.10.0
 #Requires: npm(eslint) < 5.0.0
-#Requires: npm(eslint-config-airbnb-base) >= 12.1.0
-#Requires: npm(eslint-config-airbnb-base) < 13.0.0
-#Requires: npm(eslint-plugin-import) >= 2.8.0
-#Requires: npm(eslint-plugin-import) < 3.0.0
-#Requires: npm(eslint-plugin-react) >= 7.4.0
-#Requires: npm(eslint-plugin-react) < 8.0.0
+#Requires: npm(eslint-plugin-patternfly-react) = 0.2.0
 Requires: npm(expose-loader) >= 0.6.0
 Requires: npm(expose-loader) < 0.7.0
 Requires: npm(extract-text-webpack-plugin) >= 3.0.0
@@ -697,6 +689,8 @@ Requires: npm(lodash-webpack-plugin) >= 0.11.4
 Requires: npm(lodash-webpack-plugin) < 1.0.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
+#Requires: npm(prettier) >= 1.13.5
+#Requires: npm(prettier) < 2.0.0
 Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
 #Requires: npm(raw-loader) >= 0.5.1
@@ -875,8 +869,6 @@ Group:  Applications/System
 # start specfile console Requires
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
 Requires: %{?scl_prefix}rubygem(wirb) < 3.0
-Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) >= 0.0.7
-Requires: %{?scl_prefix}rubygem(hirb-unicode-steakknife) < 0.1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
 Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
 # end specfile console Requires
@@ -1296,6 +1288,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Nov 29 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.5.develop
+- Update Gem and NPM dependencies
+
 * Mon Nov 19 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.develop
 - Update Gem and NPM dependencies
 
