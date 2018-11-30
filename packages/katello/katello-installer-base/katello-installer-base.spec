@@ -3,10 +3,10 @@
 %global scl_ruby /usr/bin/ruby
 
 %global prerelease master
-%global release 4
+%global release 1
 
 Name:    katello-installer-base
-Version: 3.10.0
+Version: 3.11.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Puppet-based installer for the Katello and Foreman proxies with content
 Group:   Applications/System
@@ -110,6 +110,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Fri Nov 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.1.master
+- Bump version to 3.11
+
 * Fri Nov 02 2018 Evgeni Golov - 3.10.0-0.4.master
 - Don't obsolete/migrate old Capsule setups anymore
 
