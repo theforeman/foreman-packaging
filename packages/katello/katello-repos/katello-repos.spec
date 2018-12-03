@@ -7,7 +7,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        3.9.0
+Version:        3.9.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -66,6 +66,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Mon Dec 03 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.1-1
+- Release Katello 3.9.1
+
 * Fri Nov 16 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-1
 - Release 3.9.0
 
