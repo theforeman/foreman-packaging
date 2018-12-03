@@ -15,7 +15,7 @@
 
 Name: katello-host-tools
 Version: 3.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -30,7 +30,7 @@ ExclusiveArch: x86_64
 BuildArch: noarch
 %endif
 
-Requires: subscription-manager >= 1.23
+Requires: subscription-manager >= 1.21
 Requires: %{name}-fact-plugin
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
@@ -360,6 +360,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Dec 3 2018 Jonathon Turel <jturel@gmail.com> - 3.4.0-2
+- Downgrade subscription-manager dependency until it's in centos7 repos
+
 * Wed Nov 28 2018 John Mitsch <jomitsch@redhat.com> - 3.4.0-1
 - Update katello-host-tools to 3.4.0 and specify subscription-manager version
 
