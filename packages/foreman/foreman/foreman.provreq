@@ -34,6 +34,9 @@ def foreman_webpack(name, chunk):
 def parse_manifest(manifest_path):
     webpack_chunks = set()
 
+    if not os.path.exists(manifest_path):
+        return webpack_chunks
+
     with open(manifest_path) as fh:
         manifest = json.load(fh)
 
