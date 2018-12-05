@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -1288,6 +1288,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Dec 05 2018 Evgeni Golov - 1.21.0-0.6.develop
+- Make the Requires script more robust if the manifest.json cannot be found
+
 * Thu Nov 29 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.5.develop
 - Update Gem and NPM dependencies
 
