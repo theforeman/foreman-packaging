@@ -13,10 +13,10 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 1
 
 Name:     foreman-release
-Version:  1.20.0
+Version:  1.20.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -107,6 +107,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
+- Release 1.20.1
+
 * Wed Nov 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-2
 - Use the correct yum repo dir in non-EL releases
 

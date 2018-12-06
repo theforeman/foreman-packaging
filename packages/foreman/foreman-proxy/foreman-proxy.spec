@@ -7,7 +7,7 @@
 %global release 1
 
 Name:           foreman-proxy
-Version:        1.20.0
+Version:        1.20.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -212,6 +212,9 @@ fi
 
 
 %changelog
+* Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
+- Release 1.20.1
+
 * Fri Nov 16 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.0-1
 - Release 1.20.0
 - Added logging and logging-journald dependencies
