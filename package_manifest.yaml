@@ -457,7 +457,7 @@ katello_packages_39:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello: {}
+    rubygem-hammer_cli_katello-3.9: {}
     rubygem-katello-3.9: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
@@ -510,7 +510,7 @@ katello_packages_310:
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello: {}
+    rubygem-hammer_cli_katello-3.10: {}
     rubygem-katello-3.10: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
