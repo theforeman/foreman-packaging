@@ -18,7 +18,7 @@ Summary: Systems Management web application
 Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
-Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+Source0: https://people.redhat.com/egolov/foreman-1.20.1.tar.bz2
 Source1: %{name}.service
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
@@ -1285,7 +1285,7 @@ exit 0
 
 %changelog
 * Sun Dec 09 2018 Tomer Brisker <tbrisker@redhat.com> - 1.20.1-2
-- Release 1.20.1
+- try rereleasing 1.20.1
 
 * Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
 - Release 1.20.1
