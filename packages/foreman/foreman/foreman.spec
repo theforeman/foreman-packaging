@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 1.20.1
@@ -1284,6 +1284,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Sun Dec 09 2018 Tomer Brisker <tbrisker@redhat.com> - 1.20.1-2
+- Release 1.20.1
+
 * Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
 - Release 1.20.1
 
