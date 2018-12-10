@@ -14,7 +14,6 @@ build:
 	rename 's/.example//' foreman-proxy/* foreman-proxy/settings.d/*
 	touch foreman-proxy/migration_state
 	mv Gemfile Gemfile.in
-	rm -f bundler.d/development.rb bundler.d/test.rb bundler.d/windows.rb
 	dh $@
 
 %:
