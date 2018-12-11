@@ -1,9 +1,9 @@
 %global npm_name patternfly-react
 
-Name: nodejs-patternfly-react
-Version: 2.19.1
-Release: 2%{?dist}
-Summary: Common React components for use with the PatternFly reference implementation
+Name: nodejs-%{npm_name}
+Version: 2.25.5
+Release: 1%{?dist}
+Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: ASL 2.0
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
@@ -17,7 +17,7 @@ Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
 Requires: npm(css-element-queries) >= 1.0.1
 Requires: npm(css-element-queries) < 2.0.0
-Requires: npm(patternfly) >= 3.52.4
+Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
@@ -70,6 +70,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Dec 11 2018 Ondrej Prazak <oprazak@redhat.com> 2.25.5-1
+- Update to 2.25.5
+
 * Wed Oct 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.19.1-2
 - Unbundle dependencies
 
