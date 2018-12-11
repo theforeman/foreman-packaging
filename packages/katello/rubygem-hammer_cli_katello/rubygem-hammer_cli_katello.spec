@@ -11,7 +11,7 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.16
+Version: 0.17
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Tue Dec 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.17-0.2.pre.master
+- Bump version to 0.17
+
 * Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 0.16-0.2.pre.master
 - add nightly macro
 
