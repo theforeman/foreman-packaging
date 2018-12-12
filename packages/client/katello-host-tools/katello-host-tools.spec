@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.4.0
-Release: 3%{?dist}
+Version: 3.4.1
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -145,6 +145,8 @@ rm -rf %{buildroot}
 
 %if %{dnf_install}
 %global katello_libdir %{python3_sitelib}/katello
+%global plugins_dir %{python3_sitelib}/dnf-plugins
+%global plugins_confdir %{_sysconfdir}/dnf/plugins
 %endif
 
 %if %{yum_install}
@@ -179,9 +181,18 @@ rm %{buildroot}%{katello_libdir}/agent/goferd/legacy_plugin.py
 %endif
 %endif
 
-%if %{yum_install} || %{zypper_install}
+%if %{dnf_install} || %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{plugins_confdir}
+%if %{dnf_install}
+cp etc/yum/pluginconf.d/tracer_upload.conf %{buildroot}%{plugins_confdir}/
+%else
 cp etc/yum/pluginconf.d/*.conf %{buildroot}%{plugins_confdir}/
+%endif
+%endif
+
+%if %{dnf_install}
+cp src/dnf_plugins/*.py %{buildroot}%{plugins_dir}/
+rm %{buildroot}%{plugins_dir}/__init__.py
 %endif
 
 %if %{yum_install}
@@ -205,9 +216,7 @@ cp bin/* %{buildroot}%{_sbindir}/
 %else
 rm %{buildroot}%{katello_libdir}/tracer.py
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
-%if %{yum_install} || %{zypper_install}
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
-%endif
 %endif
 
 
@@ -307,11 +316,6 @@ exit 0
 %{katello_libdir}/utils.py*
 %{katello_libdir}/__init__.py*
 
-%if %{yum_install} || %{zypper_install}
-%{plugins_dir}/enabled_repos_upload.py*
-%{plugins_dir}/package_upload.py*
-%endif
-
 %if %{dnf_install}
 %{katello_libdir}/__pycache__/constants.*
 %{katello_libdir}/__pycache__/enabled_report.*
@@ -323,6 +327,9 @@ exit 0
 %else
 %attr(750, root, root) %{_sbindir}/katello-package-upload
 %attr(750, root, root) %{_sbindir}/katello-enabled-repos-upload
+
+%{plugins_dir}/enabled_repos_upload.py*
+%{plugins_dir}/package_upload.py*
 %endif
 
 %if %{zypper_install}
@@ -346,20 +353,22 @@ exit 0
 %if %{build_tracer}
 %files tracer
 %defattr(-,root,root,-)
-%if %{yum_install} || %{zypper_install}
 %{plugins_dir}/tracer_upload.py*
-%{plugins_confdir}/tracer_upload.conf
-%endif
 %{katello_libdir}/tracer.py*
+%{plugins_confdir}/tracer_upload.conf
 
 %if %{dnf_install}
 %{katello_libdir}/__pycache__/tracer.*
+%{plugins_dir}/__pycache__/tracer_upload.*
 %else
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
 %endif #build_tracer
 
 %changelog
+* Tue Dec 11 2018 Jonathon Turel <jturel@gmail.com> - 3.4.1-1
+- Restore DNF tracer plugin
+
 * Mon Dec 3 2018 Jonathon Turel <jturel@gmail.com> - 3.4.0-3
 - Don't specify subman minimum version for now
 
