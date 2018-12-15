@@ -1,3 +1,9 @@
+ruby-smart-proxy-dns-infoblox (0.0.7-1) stable; urgency=low
+
+  * 0.0.7 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 15 Dec 2018 21:01:11 +0100
+
 ruby-smart-proxy-dns-infoblox (0.0.4-1) stable; urgency=low
 
   * 0.0.4 released
