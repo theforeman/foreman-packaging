@@ -3,7 +3,7 @@
 Name: nodejs-patternfly
 Version: 3.58.0
 Release: 1%{?dist}
-Summary: This reference implementation of PatternFly is based on [Bootstrap v3](http://getbootstrap
+Summary: A reference implementation of PatternFly based on Bootstrap v3
 License: ASL 2.0
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly
