@@ -10,6 +10,6 @@ XS-Ruby-Versions: all
 Package: ruby-smart-proxy-dhcp-infoblox
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.13.0~rc1), ruby-infoblox
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.17.0~rc1), ruby-infoblox (>= 2.0.4), ruby-infoblox (<< 3)
 Description: Infoblox DHCP provider plugin for Foreman's smart proxy
  Infoblox DHCP provider plugin for Foreman's smart proxy

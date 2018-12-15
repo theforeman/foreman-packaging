@@ -1,3 +1,9 @@
+ruby-smart-proxy-dhcp-infoblox (0.0.14-1) stable; urgency=low
+
+  * 0.0.14 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 15 Dec 2018 20:48:41 +0100
+
 ruby-smart-proxy-dhcp-infoblox (0.0.5-1) stable; urgency=low
 
   * 0.0.5 released
