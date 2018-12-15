@@ -1,3 +1,9 @@
+ruby-infoblox (2.0.5-1) stable; urgency=low
+
+  * 2.0.5 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 15 Dec 2018 20:57:21 +0100
+
 ruby-infoblox (2.0.0-1) stable; urgency=low
 
   * Initial release for Ubuntu/bionic
