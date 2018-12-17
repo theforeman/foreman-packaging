@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prerelease develop
 
 Name:    foreman
@@ -20,7 +20,6 @@ Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
-Source1: %{name}.service
 Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
@@ -983,6 +982,19 @@ Meta Package to install requirements for journald logging support
 %files journald
 %{_datadir}/%{name}/bundler.d/journald.rb
 
+%package service
+Summary: Foreman systemd service support
+Group:  Applications/System
+Requires: %{?scl_prefix}rubygem(puma)
+Requires: %{name} = %{version}-%{release}
+
+%description service
+Meta Package to install requirements for Foreman service
+
+%files service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%{_unitdir}/%{name}.service
+
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
 Foreman is based on Ruby on Rails, and this package bundles Rails and all
@@ -1058,11 +1070,13 @@ install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{exe
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
+install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
+
+sed -i '/^ExecStart/a EnvironmentFile=-%{_sysconfdir}/sysconfig/%{name}' %{buildroot}%{_unitdir}/%{name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
@@ -1252,8 +1266,6 @@ rm -rf %{buildroot}
 %{_tmpfilesdir}/%{name}.conf
 
 # Service
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
-%{_unitdir}/%{name}.service
 %{_sbindir}/%{executor_service_name}
 %config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
 %{_unitdir}/%{executor_service_name}.service
@@ -1314,6 +1326,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Apr 1 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.22.0-0.10.develop
+- Add foreman-puma service
+
 * Fri Mar 29 2019 Tomer Brisker <tbrisker@redhat.com> - 1.22.0-0.9.develop
 - Obsolete foreman-compute
 
