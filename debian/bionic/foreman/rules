@@ -26,7 +26,7 @@ build:
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
 	/bin/mkdir -p .ssh
-	dh $@
+	/usr/bin/touch build
 
 %:
 	dh $@ --with=systemd
