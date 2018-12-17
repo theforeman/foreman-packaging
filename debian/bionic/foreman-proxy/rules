@@ -17,4 +17,4 @@ build:
 	dh $@
 
 %:
-	dh $@ --with=systemd
+	dh $@

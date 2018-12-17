@@ -2,7 +2,7 @@ Source: foreman-proxy
 Section: net
 Priority: extra
 Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
-Build-Depends: debhelper (>= 7.0.50~), dh-systemd (>= 1.5), rename
+Build-Depends: debhelper (>= 11), dh-systemd (>= 1.5), rename
 Standards-Version: 3.9.1
 Homepage: http://theforeman.org/projects/smart-proxy
 Vcs-Git: git://github.com/theforeman/smart-proxy.git

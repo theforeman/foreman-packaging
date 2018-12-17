@@ -28,7 +28,7 @@ build:
 	/usr/bin/touch build
 
 %:
-	dh $@ --with=systemd
+	dh $@
 
 override_dh_installinit:
 	dh_installinit
