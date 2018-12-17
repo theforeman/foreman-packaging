@@ -3,7 +3,7 @@ Maintainer: Greg Sutcliffe <greg.sutcliffe@gmail.com>
 Section: web
 Priority: extra
 Standards-Version: 3.9.1
-Build-Depends: debhelper (>= 9.20160709), bundler (>= 1.3), ruby2.5-dev, git | git-core,
+Build-Depends: debhelper (>= 11), bundler (>= 1.3), ruby2.5-dev, git | git-core,
                zlib1g-dev, default-libmysqlclient-dev, libpq-dev, pkg-config, libvirt-dev,
                libsqlite3-dev, build-essential, curl, nodejs (>= 8.9),
                python, libsystemd-dev, libcurl4-openssl-dev, libxml2-dev, tzdata,
