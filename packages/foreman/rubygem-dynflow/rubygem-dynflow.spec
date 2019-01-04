@@ -5,7 +5,7 @@
 
 Summary: DYNamic workFLOW engine
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.6
+Version: 1.2.0
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: MIT
@@ -24,10 +24,10 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8.0
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 2.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.2.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.3.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.1.3
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
+Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5.0
 Requires: %{?scl_prefix_ror}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem-sequel >= 4.0.0
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/examples
 
 %changelog
+* Fri Jan 04 2019 Ivan Nečas <inecas@redhat.com> 1.2.0-1
+- Update to 1.2.0
+
 * Thu Dec 13 2018 Ivan Nečas <inecas@redhat.com> 1.1.6-1
 - Update to 1.1.6
 
