@@ -5,8 +5,8 @@
 
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
-Release: 2%{?foremandist}%{?dist}
+Version: 0.4.1
+Release: 1%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,8 +16,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0.3
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.1.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.1.1
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2.0
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -61,11 +61,13 @@ Documentation for %{pkg_name}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+%define gem_libdir_edge %{gem_libdir}-edge
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE.txt
-%{gem_libdir}
+%license %{gem_instdir}/LICENSE.md
+%doc %{gem_instdir}/CHANGELOG.md
+%{gem_libdir_edge}
 
 %exclude %{gem_cache}
 %{gem_spec}
@@ -75,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 04 2019 Ivan Nečas <inecas@redhat.com> 1:0.4.1-1
+- Update to 0.4.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1:0.2.4-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
