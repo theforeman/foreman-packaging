@@ -5,8 +5,8 @@
 
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 6%{?foremandist}%{?dist}
+Version: 1.1.4
+Release: 1%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -63,10 +63,13 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE.txt
+%license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
 
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/ext
+%exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Rakefile
 %{gem_spec}
 
 %files doc
@@ -75,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 04 2019 Ivan Nečas <inecas@redhat.com> 1:1.1.4-1
+- Update to 1.1.4
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 1.0.3-6
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
