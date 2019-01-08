@@ -11,6 +11,8 @@ fi
 SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
 
 cd $1
+
+ROOT=$(git rev-parse --show-toplevel)
 PACKAGE_NAME=$(basename $1)
 SPEC_FILE=*.spec
 GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
@@ -30,7 +32,7 @@ ensure_program() {
 }
 
 if [[ -z $2 ]] ; then
-	if echo $PACKAGE_NAME | grep -q rubygem; then
+	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
 		ensure_program curl
 		ensure_program jq
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
@@ -65,11 +67,11 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	git annex add *.gem
 	git add $SPEC_FILE
 
-	if [[ $PACKAGE_NAME == rubygem-* ]] || [[ $PACKAGE_NAME == tfm-rubygem-* ]]; then
+	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
 		if [[ -n $TEMPLATE ]] ; then
 			echo "* Updating requirements"
-			gem2rpm -t $SCRIPT_DIR/gem2rpm/$TEMPLATE.spec.erb *.gem | $SCRIPT_DIR/update-requirements specfile - $SPEC_FILE
+			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $SCRIPT_DIR/update-requirements specfile - $SPEC_FILE
 			git add $SPEC_FILE
 		fi
 
