@@ -1,12 +1,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%define gem_name gettext_i18n_rails
+%global gem_name gettext_i18n_rails
 
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.1
-Release: 5%{?dist}
+Version: 1.8.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/grosser/gettext_i18n_rails
@@ -56,6 +56,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 08 2019 Ondřej Ezr <oezr@redhat.com> 1.8.0-1
+- Update to 1.8.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.1-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 
