@@ -6,7 +6,7 @@
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 08 2019 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.4-2
+- Drop foremandist
+
 * Fri Jan 04 2019 Ivan Nečas <inecas@redhat.com> 1:1.1.4-1
 - Update to 1.1.4
 
