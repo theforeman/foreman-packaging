@@ -229,6 +229,7 @@ foreman_nonscl_packages:
     nodejs-babel-core: {}
     nodejs-babel-loader: {}
     nodejs-babel-plugin-lodash: {}
+    nodejs-babel-plugin-syntax-dynamic-import: {}
     nodejs-babel-plugin-syntax-object-rest-spread: {}
     nodejs-babel-plugin-transform-class-properties: {}
     nodejs-babel-plugin-transform-object-assign: {}
