@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:    foreman
@@ -92,6 +92,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
+Requires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
+Requires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
@@ -187,6 +189,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
+BuildRequires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
+BuildRequires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
@@ -246,6 +250,8 @@ BuildRequires: systemd
 #BuildRequires: npm(@storybook/react) < 4.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
+BuildRequires: npm(argv-parse) >= 1.0.1
+BuildRequires: npm(argv-parse) < 2.0.0
 #BuildRequires: npm(axios-mock-adapter) >= 1.10.0
 #BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
@@ -258,8 +264,12 @@ BuildRequires: npm(babel-core) < 7.0.0
 #BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
+#BuildRequires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
+#BuildRequires: npm(babel-plugin-dynamic-import-node) < 3.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
+BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+BuildRequires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
@@ -313,6 +323,8 @@ BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
 #BuildRequires: npm(raw-loader) >= 0.5.1
 #BuildRequires: npm(raw-loader) < 1.0.0
+#BuildRequires: npm(react-redux-test-utils) >= 0.1.1
+#BuildRequires: npm(react-redux-test-utils) < 1.0.0
 #BuildRequires: npm(react-remarkable) >= 1.1.3
 #BuildRequires: npm(react-remarkable) < 2.0.0
 #BuildRequires: npm(react-test-renderer) >= 16.2.0
@@ -360,6 +372,8 @@ BuildRequires: npm(datatables.net-bs) >= 1.10.12
 BuildRequires: npm(datatables.net-bs) < 1.11.0
 BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
+BuildRequires: npm(intl) >= 1.2.5
+BuildRequires: npm(intl) < 1.3.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
 BuildRequires: npm(ipaddr.js) < 1.3.0
 BuildRequires: npm(isomorphic-fetch) >= 2.2.1
@@ -382,9 +396,9 @@ BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
 BuildRequires: npm(number_helpers) >= 0.1.1
 BuildRequires: npm(number_helpers) < 1.0.0
-BuildRequires: npm(patternfly) >= 3.42.0
+BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.19.1
+BuildRequires: npm(patternfly-react) >= 2.25.5
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -399,6 +413,8 @@ BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
+BuildRequires: npm(react-intl) >= 2.7.0
+BuildRequires: npm(react-intl) < 3.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
 BuildRequires: npm(react-onclickoutside) >= 6.6.2
@@ -628,6 +644,8 @@ Requires: libuv
 #Requires: npm(@storybook/react) < 4.0.0
 #Requires: npm(@storybook/storybook-deployer) >= 2.0.0
 #Requires: npm(@storybook/storybook-deployer) < 3.0.0
+Requires: npm(argv-parse) >= 1.0.1
+Requires: npm(argv-parse) < 2.0.0
 #Requires: npm(axios-mock-adapter) >= 1.10.0
 #Requires: npm(axios-mock-adapter) < 2.0.0
 Requires: npm(babel-cli) >= 6.10.1
@@ -640,8 +658,12 @@ Requires: npm(babel-core) < 7.0.0
 #Requires: npm(babel-jest) < 24.0.0
 Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-loader) < 8.0.0
+#Requires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
+#Requires: npm(babel-plugin-dynamic-import-node) < 3.0.0
 Requires: npm(babel-plugin-lodash) >= 3.3.4
 Requires: npm(babel-plugin-lodash) < 4.0.0
+Requires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+Requires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
 Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
 Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
@@ -695,6 +717,8 @@ Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
 #Requires: npm(raw-loader) >= 0.5.1
 #Requires: npm(raw-loader) < 1.0.0
+#Requires: npm(react-redux-test-utils) >= 0.1.1
+#Requires: npm(react-redux-test-utils) < 1.0.0
 #Requires: npm(react-remarkable) >= 1.1.3
 #Requires: npm(react-remarkable) < 2.0.0
 #Requires: npm(react-test-renderer) >= 16.2.0
@@ -742,6 +766,8 @@ Requires: npm(datatables.net-bs) >= 1.10.12
 Requires: npm(datatables.net-bs) < 1.11.0
 Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
+Requires: npm(intl) >= 1.2.5
+Requires: npm(intl) < 1.3.0
 Requires: npm(ipaddr.js) >= 1.2.0
 Requires: npm(ipaddr.js) < 1.3.0
 Requires: npm(isomorphic-fetch) >= 2.2.1
@@ -764,9 +790,9 @@ Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
 Requires: npm(number_helpers) >= 0.1.1
 Requires: npm(number_helpers) < 1.0.0
-Requires: npm(patternfly) >= 3.42.0
+Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.19.1
+Requires: npm(patternfly-react) >= 2.25.5
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -781,6 +807,8 @@ Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
+Requires: npm(react-intl) >= 2.7.0
+Requires: npm(react-intl) < 3.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
 Requires: npm(react-onclickoutside) >= 6.6.2
@@ -1288,6 +1316,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jan 09 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.7.develop
+- Update Gem and NPM dependencies
+
 * Wed Dec 05 2018 Evgeni Golov - 1.21.0-0.6.develop
 - Make the Requires script more robust if the manifest.json cannot be found
 
