@@ -480,6 +480,7 @@ whitelist = katello
   katello-client-bootstrap
   katello-repos
   katello-selinux
+  nodejs-angular
   nodejs-bootstrap-select
   nodejs-downshift
   nodejs-query-string
