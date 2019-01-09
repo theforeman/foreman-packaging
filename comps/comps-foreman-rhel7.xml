@@ -274,6 +274,7 @@
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-fontawesome</packagereq>
+      <packagereq type="default">nodejs-react-intl</packagereq>
       <packagereq type="default">nodejs-react-is</packagereq>
       <packagereq type="default">nodejs-react-lifecycles-compat</packagereq>
       <packagereq type="default">nodejs-react-motion</packagereq>
