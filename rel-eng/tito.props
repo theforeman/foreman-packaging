@@ -68,6 +68,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
+  nodejs-intl
   nodejs-invariant
   nodejs-ipaddr.js
   nodejs-is-buffer
