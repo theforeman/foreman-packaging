@@ -479,6 +479,7 @@ katello_packages:
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
+    nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
     nodejs-jed: {}
