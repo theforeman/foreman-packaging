@@ -23,6 +23,7 @@ whitelist = foreman-bootloaders-redhat
   foreman-release
   foreman-release-scl
   foreman-selinux
+  nodejs-argv-parse
   nodejs-axios
   nodejs-babel-cli
   nodejs-babel-core
