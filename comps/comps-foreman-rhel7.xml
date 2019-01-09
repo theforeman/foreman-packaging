@@ -226,6 +226,7 @@
       <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
+      <packagereq type="default">nodejs-intl-format-cache</packagereq>
       <packagereq type="default">nodejs-intl-messageformat</packagereq>
       <packagereq type="default">nodejs-intl-messageformat-parser</packagereq>
       <packagereq type="default">nodejs-intl-relativeformat</packagereq>
