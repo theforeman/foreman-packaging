@@ -483,6 +483,7 @@ whitelist = katello
   nodejs-angular
   nodejs-bootstrap-select
   nodejs-downshift
+  nodejs-ngreact
   nodejs-query-string
   nodejs-react-bootstrap-tooltip-button
   nodejs-react-helmet

@@ -39,6 +39,7 @@
       <packagereq type="default">nodejs-angular</packagereq>
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
       <packagereq type="default">nodejs-downshift</packagereq>
+      <packagereq type="default">nodejs-ngreact</packagereq>
       <packagereq type="default">nodejs-query-string</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-tooltip-button</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
