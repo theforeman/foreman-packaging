@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.11.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -94,6 +94,8 @@ BuildRequires: npm(babel-preset-env) >= 1.6.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
+#BuildRequires: npm(coveralls) >= 3.0.0
+#BuildRequires: npm(coveralls) < 4.0.0
 #BuildRequires: npm(enzyme) >= 3.4.0
 #BuildRequires: npm(enzyme) < 4.0.0
 #BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
@@ -128,6 +130,7 @@ BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
+BuildRequires: npm(angular) = 1.5.5
 BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 #BuildRequires: npm(axios-mock-adapter) >= 1.10.0
@@ -141,6 +144,8 @@ BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
 BuildRequires: npm(lodash) >= 4.17.5
 BuildRequires: npm(lodash) < 5.0.0
+BuildRequires: npm(ngreact) >= 0.5.0
+BuildRequires: npm(ngreact) < 1.0.0
 BuildRequires: npm(patternfly) >= 3.41.1
 BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) >= 2.5.1
@@ -214,6 +219,8 @@ Requires: npm(babel-preset-env) >= 1.6.0
 Requires: npm(babel-preset-env) < 2.0.0
 Requires: npm(babel-preset-react) >= 6.24.1
 Requires: npm(babel-preset-react) < 7.0.0
+#Requires: npm(coveralls) >= 3.0.0
+#Requires: npm(coveralls) < 4.0.0
 #Requires: npm(enzyme) >= 3.4.0
 #Requires: npm(enzyme) < 4.0.0
 #Requires: npm(enzyme-adapter-react-16) >= 1.4.0
@@ -248,6 +255,7 @@ Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
+Requires: npm(angular) = 1.5.5
 Requires: npm(axios) >= 0.17.1
 Requires: npm(axios) < 1.0.0
 #Requires: npm(axios-mock-adapter) >= 1.10.0
@@ -261,6 +269,8 @@ Requires: npm(jed) >= 1.1.1
 Requires: npm(jed) < 2.0.0
 Requires: npm(lodash) >= 4.17.5
 Requires: npm(lodash) < 5.0.0
+Requires: npm(ngreact) >= 0.5.0
+Requires: npm(ngreact) < 1.0.0
 Requires: npm(patternfly) >= 3.41.1
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) >= 2.5.1
@@ -358,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jan 09 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.11.0-0.2.pre.master
+- Update NPM dependencies
+
 * Fri Nov 30 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.1.pre.master
 - Bump version to 3.11
 
