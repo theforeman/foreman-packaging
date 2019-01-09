@@ -486,8 +486,8 @@ katello_packages:
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-react-bootstrap-tooltip-button: {}
-    nodejs-react-router-bootstrap: {}
     nodejs-react-helmet: {}
+    nodejs-react-router-bootstrap: {}
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
     pulp-katello: {}
