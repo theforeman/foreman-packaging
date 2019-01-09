@@ -90,6 +90,14 @@ add_npm_to_comps() {
   git add comps/
 }
 
+add_npm_to_manifest() {
+  local package="${PACKAGE_NAME}"
+  local section="foreman_nonscl_packages"
+
+  ./add_host.py "$section" "$package"
+  git add package_manifest.yaml
+}
+
 npm_info() {
   local name=$(python2 -c "import urllib ; print(urllib.quote('$NPM_MODULE_NAME', safe=''))")
   curl -s https://api.npms.io/v2/package/$name
@@ -148,6 +156,9 @@ else
   echo "FINISHED"
   echo -e "Updating comps... - "
   add_npm_to_comps
+  echo "FINISHED"
+  echo -e "Updating manifest... - "
+  add_npm_to_manifest
   echo "FINISHED"
   git commit -m "Add $PACKAGE_NAME package"
 fi
