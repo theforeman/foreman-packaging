@@ -5,14 +5,15 @@
 
 Summary:        A package for using Git in Ruby code
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        1.2.5
-Release:        9%{?dist}
+Version:        1.5.0
+Release:        1%{?dist}
 Group:          Development/Languages
 License:        MIT
-URL:            http://rubyforge.org/projects/git/
-Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
+URL:            https://github.com/ruby-git/ruby-git
+Source0:        https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 Requires:       %{?scl_prefix_ruby}ruby(rubygems)
 Requires:       %{?scl_prefix_ruby}ruby(release)
+Requires:       git >= 1.6.0.0
 BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -37,13 +38,20 @@ cp -a .%{gem_dir}/* \
 %files
 %defattr(-, root, root, -)
 %dir %{gem_instdir}
-%doc %{gem_instdir}/README
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%license %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/MAINTAINERS.md
 %doc %{gem_docdir}
 %{gem_libdir}
 %{gem_cache}
 %{gem_spec}
 
 %changelog
+* Fri Jan 11 2019 Marek Hulan <mhulan@redhat.com> - 1.5.0-1
+- Update git to 1.5.0
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.5-9
 - Rebuild for Rails 5.2 and Ruby 2.5
 
