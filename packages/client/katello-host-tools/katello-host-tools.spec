@@ -14,7 +14,7 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.4.1
+Version: 3.4.2
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -366,6 +366,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Mon Jan 14 2019 Jonathon Turel <jturel@gmail.com> - 3.4.2-1
+- Fixes #25725 - disable plugins if we have subman profiles
+
 * Tue Dec 11 2018 Jonathon Turel <jturel@gmail.com> - 3.4.1-1
 - Restore DNF tracer plugin
 
