@@ -1,11 +1,11 @@
-%global pulp_release beta
+%global pulp_release stable
 %global pulp_version 2.18
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 #global prerelease .rc1
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.10.0
@@ -67,6 +67,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Jan 15 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.10.0-2
+- Use pulp 2.18 stable repo
+
 * Sat Dec 15 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
 - Release 3.10.0
 
