@@ -4,14 +4,13 @@
 %global gem_name hammer_cli_foreman
 %global confdir hammer
 
-%global release 2
-%global prerelease .pre.develop
+%global release 1
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.16
+Version: 0.16.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -20,7 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.14.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.16.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.2
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
@@ -101,6 +100,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jan 17 2019 Martin Bacovsky <mbacovsk@redhat.com> 0.16.0-1
+- Update to 0.16.0
+
 * Thu Oct 25 2018 Adam Price <komidore64@gmail.com> - 0.16-0.2.pre.develop
 - add nightly macro
 
