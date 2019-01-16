@@ -22,11 +22,11 @@
 
 %define moduletype apps
 
-%global release 2
+%global release 1
 %global prerelease develop
 
 Name:           foreman-selinux
-Version:        1.21.0
+Version:        1.22.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -165,6 +165,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Jan 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.1.develop
+- Bump to 1.22
+
 * Wed Oct 24 2018 Adam Price <komidore64@gmail.com> - 1.21.0-0.2.develop
 - add nightly macro
 
