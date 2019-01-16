@@ -15,7 +15,7 @@ tag_suffix = .fm1_21
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.21-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -181,7 +181,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.21-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-activerecord-session_store
@@ -314,7 +314,7 @@ whitelist = foreman
   tfm-rubygem-rest-client
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.21-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -402,7 +402,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.21-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-insights-client
   foreman-discovery-image-service
@@ -442,37 +442,37 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
-[foreman-client-nightly-rhel7]
+[foreman-client-1.21-rhel7]
 disttag = .el7
 whitelist =
-  # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
+  # don't whitelist foreman-release here, it's already in foreman-1.21-nonscl-rhel7
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel6]
+[foreman-client-1.21-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel5]
+[foreman-client-1.21-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora27]
+[foreman-client-1.21-fedora27]
 disttag = .fc27
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-fedora28]
+[foreman-client-1.21-fedora28]
 disttag = .fc28
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[katello-nightly-rhel7]
+[katello-3.11-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
