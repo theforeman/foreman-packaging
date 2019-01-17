@@ -5,8 +5,8 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .nightly
-%global release 2
+%global prerelease .rc1
+%global release 3
 
 Name:           katello-repos
 Version:        3.11.0
@@ -17,7 +17,7 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        RPM-GPG-KEY-katello-2015
+Source1:        RPM-GPG-KEY-katello-3.11
 
 BuildArch:      noarch
 
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Thu Jan 17 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.3.rc1
+- Release 3.11 RC1
+
 * Tue Jan 15 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.11.0-0.2.nightly
 - use stable pulp 2.18 repository
 

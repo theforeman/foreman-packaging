@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .pre.master
+%global prerelease .rc1
 %global mainver 3.11.0
 %global release 2
 
@@ -368,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Jan 17 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.2.rc1
+- Release 3.11 RC1
+
 * Wed Jan 09 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.11.0-0.2.pre.master
 - Update NPM dependencies
 
