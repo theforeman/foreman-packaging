@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.2.3-1) stable; urgency=low
+
+  * 0.2.3 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 17 Jan 2019 00:59:17 +0100
+
 ruby-apipie-bindings (0.2.2-1) stable; urgency=low
 
   * 0.2.2 released
