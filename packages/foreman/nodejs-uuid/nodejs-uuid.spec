@@ -1,8 +1,7 @@
 %global npm_name uuid
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 3.2.1
+Name: nodejs-uuid
+Version: 3.3.2
 Release: 1%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
@@ -36,10 +35,8 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -51,6 +48,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %doc README_js.md
 
 %changelog
+* Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 3.3.2-1
+- Update to 3.3.2
+
 * Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.2.1-1
 - Update to 3.2.1
 
