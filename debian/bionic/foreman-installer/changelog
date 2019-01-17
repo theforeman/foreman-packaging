@@ -1,3 +1,9 @@
+foreman-installer (1.22.0-1) stable; urgency=low
+
+  * Bump changelog to 1.22.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 17 Jan 2019 01:16:09 +0100
+
 foreman-installer (1.21.0-1) stable; urgency=low
 
   * Bump changelog to 1.21.0 to match VERSION
