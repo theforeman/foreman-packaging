@@ -1,8 +1,7 @@
 %global npm_name lodash
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 4.17.10
+Name: nodejs-lodash
+Version: 4.17.11
 Release: 1%{?dist}
 Summary: Lodash modular utilities
 License: MIT
@@ -12,7 +11,6 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Obsoletes: %{name}-doc < 4.17.10
 
 %description
 %{summary}
@@ -658,10 +656,8 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -669,6 +665,9 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 4.17.11-1
+- Update to 4.17.11
+
 * Thu Apr 26 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.17.10-1
 - Update to 4.17.10
 
