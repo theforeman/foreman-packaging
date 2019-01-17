@@ -1,10 +1,10 @@
 %global npm_name patternfly-react
 
-Name: nodejs-%{npm_name}
-Version: 2.25.5
+Name: nodejs-patternfly-react
+Version: 2.29.0
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
-License: ASL 2.0
+License: Apache-2.0
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -17,16 +17,18 @@ Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
 Requires: npm(css-element-queries) >= 1.0.1
 Requires: npm(css-element-queries) < 2.0.0
+Requires: npm(lodash) >= 4.17.11
+Requires: npm(lodash) < 5.0.0
 Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(react-bootstrap) < 0.33.0
 Requires: npm(react-bootstrap-switch) >= 15.5.3
 Requires: npm(react-bootstrap-switch) < 16.0.0
 Requires: npm(react-bootstrap-typeahead) >= 3.1.3
 Requires: npm(react-bootstrap-typeahead) < 4.0.0
 Requires: npm(react-c3js) >= 0.1.20
-Requires: npm(react-c3js) < 1.0.0
+Requires: npm(react-c3js) < 0.2.0
 Requires: npm(react-click-outside) >= 3.0.1
 Requires: npm(react-click-outside) < 4.0.0
 Requires: npm(react-collapse) >= 4.0.3
@@ -34,15 +36,17 @@ Requires: npm(react-collapse) < 5.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
 Requires: npm(react-motion) >= 0.5.2
-Requires: npm(react-motion) < 1.0.0
+Requires: npm(react-motion) < 0.6.0
 Requires: npm(reactabular-table) >= 8.14.0
 Requires: npm(reactabular-table) < 9.0.0
 Requires: npm(recompose) >= 0.26.0
-Requires: npm(recompose) < 1.0.0
+Requires: npm(recompose) < 0.27.0
 Requires: npm(sortabular) >= 1.5.1
 Requires: npm(sortabular) < 2.0.0
 Requires: npm(table-resolver) >= 3.2.0
 Requires: npm(table-resolver) < 4.0.0
+Requires: npm(uuid) >= 3.3.2
+Requires: npm(uuid) < 4.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -70,6 +74,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 2.29.0-1
+- Update to 2.29.0
+
 * Tue Dec 11 2018 Ondrej Prazak <oprazak@redhat.com> 2.25.5-1
 - Update to 2.25.5
 
