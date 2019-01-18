@@ -13,8 +13,8 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
-%global prerelease develop
+%global release 4
+%global prerelease RC1
 
 Name:     foreman-release
 Version:  1.21.0
@@ -110,6 +110,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.RC1
+- Release 1.21.0-RC1
+
 * Wed Nov 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.3.develop
 - Remove duplicated sysconfdir macro
 
