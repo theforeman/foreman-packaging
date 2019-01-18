@@ -32,9 +32,6 @@ foreman_scl_packages:
       - el7-foreman-1.21
   hosts:
     foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_1_21"
     rubygem-activerecord-session_store: {}
@@ -185,9 +182,6 @@ foreman_nonscl_packages:
     foreman-bootloaders-redhat: {}
     foreman-installer: {}
     foreman-proxy:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=test_proxy_1_21"
     foreman-release:

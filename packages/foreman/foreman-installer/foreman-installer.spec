@@ -1,5 +1,5 @@
-%global release 3
-%global prerelease develop
+%global release 4
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.21.0-0.4.RC1
+- Release 1.21.0-RC1
+
 * Wed Dec 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.21.0-0.3.develop
 - Add Katello installer subpackage
 
