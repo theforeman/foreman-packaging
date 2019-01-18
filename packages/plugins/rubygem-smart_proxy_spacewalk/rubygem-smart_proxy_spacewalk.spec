@@ -15,7 +15,7 @@ License: GPLv3
 URL: https://github.com/dm-drogeriemarkt/smart_proxy_spacewalk
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
@@ -27,7 +27,7 @@ BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 This plug-in adds support for managing hosts registered at a spacewalk server

@@ -17,7 +17,7 @@ Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1:    %{gem_name}.cron.d
 
 Requires:   %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
@@ -34,7 +34,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 A Foreman plugin that allows hosts to expire at a configurable date.

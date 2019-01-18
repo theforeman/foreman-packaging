@@ -16,7 +16,7 @@ License: GPLv3
 URL: https://github.com/tristanrobert/foreman_fog_proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
@@ -36,7 +36,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 Provides: foreman-%{plugin_name} = %{version}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is

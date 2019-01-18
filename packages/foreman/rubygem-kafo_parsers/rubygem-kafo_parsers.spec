@@ -14,7 +14,7 @@ License: GPLv3+
 URL: https://github.com/theforeman/kafo_parsers
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -25,7 +25,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 This gem can parse values, validations, documentation, types, groups and

@@ -46,7 +46,7 @@ URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
@@ -86,7 +86,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 <% if has_compute -%>
 Provides: foreman-%{plugin_name} = %{version}
 <% end -%>
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 <%= spec.description %>

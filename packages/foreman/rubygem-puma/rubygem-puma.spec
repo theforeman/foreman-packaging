@@ -14,7 +14,7 @@ License: BSD-3-Clause
 URL: http://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -23,7 +23,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for

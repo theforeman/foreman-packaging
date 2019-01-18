@@ -25,7 +25,7 @@ URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: %{?scl_prefix_ruby}ruby <%= req %>
@@ -49,7 +49,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel <%= req %>
 BuildArch: noarch
 <% end -%>
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 <%= spec.description %>
