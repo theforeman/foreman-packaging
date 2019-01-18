@@ -8,8 +8,8 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.6.1
-Release:    3%{?foremandist}%{?dist}
+Version:    0.7.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-xen
@@ -20,19 +20,19 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-xenserver) >= 0.2
-Requires: %{?scl_prefix}rubygem(fog-xenserver) < 1
+Requires: %{?scl_prefix}rubygem(fog-xenserver) >= 1.0
+Requires: %{?scl_prefix}rubygem(fog-xenserver) < 2
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) >= 0.2
-BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) < 1
+BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(fog-xenserver) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
-Provides: foreman-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+Provides: foreman-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.1-1
+- Update to 0.7.1
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.6.1-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
