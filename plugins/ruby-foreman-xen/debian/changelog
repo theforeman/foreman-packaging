@@ -1,3 +1,9 @@
+ruby-foreman-xen (0.7.1-1) stable; urgency=low
+
+  * 0.7.1 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 19 Jan 2019 02:38:17 +0100
+
 ruby-foreman-xen (0.7.0-1) stable; urgency=low
 
   * 0.7.0 released
