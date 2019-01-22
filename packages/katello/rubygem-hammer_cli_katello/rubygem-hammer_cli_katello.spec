@@ -7,7 +7,7 @@
 %global confdir hammer
 
 %global release 1
-%global prerelease .pre.master
+#%global prerelease .pre.master
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Mon Jan 21 2019 Jonathon Turel <jturel@gmail.com> - 0.17-0.1
+- 0.17 final
+
 * Fri Dec 14 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.17-0.1.pre.master
 - Bump to 0.17 to match git master
 
