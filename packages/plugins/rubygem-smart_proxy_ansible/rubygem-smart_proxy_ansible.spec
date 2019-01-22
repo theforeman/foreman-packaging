@@ -8,8 +8,8 @@
 
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 2.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 2.1.1
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
@@ -116,6 +116,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Tue Jan 22 2019 Marek Hulan <mhulan@redhat.com> 2.1.1-1
+- Update to 2.1.1
+
 * Thu Sep 13 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.3-2
 - Require foreman_ansible_core to be installed (#24857)
 
