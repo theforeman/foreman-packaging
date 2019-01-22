@@ -9,7 +9,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 8
-%global prerelease RC1
+%global prerelease RC2
 
 Name:    foreman
 Version: 1.21.0
@@ -1316,6 +1316,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jan 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.8.RC2
+- Release 1.21.0-RC2
+
 * Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.8.RC1
 - Release 1.21.0-RC1
 
