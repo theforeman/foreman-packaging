@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (2.1.1-1) stable; urgency=low
+
+  * Update smart_proxy_ansible to 2.1.1
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 22 Jan 2019 17:07:27 +0100
+
 ruby-smart-proxy-ansible (2.1.0-1) stable; urgency=low
 
   * 2.1.0 released
