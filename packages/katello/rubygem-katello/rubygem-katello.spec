@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .rc1
+%global prerelease .rc2
 %global mainver 3.11.0
 %global release 2
 
@@ -368,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jan 23 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.2.rc2
+- Release RC2
+
 * Thu Jan 17 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.2.rc1
 - Release 3.11 RC1
 
