@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:    foreman
@@ -88,7 +88,7 @@ Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(safemode) < 2
 Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
@@ -185,7 +185,7 @@ BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.0
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
@@ -1316,6 +1316,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jan 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.2.develop
+- Update Gem and NPM dependencies
+
 * Wed Jan 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.1.develop
 - Bump to 1.22
 
