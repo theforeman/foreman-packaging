@@ -8,8 +8,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.1
-Release: 3%{?foremandist}%{?dist}
+Version: 3.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Jan 24 2019 Timo Goebel <mail@timogoebel.name> - 3.2.0-1
+- Update foreman_wreckingball to 3.2.0
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 3.0.1-3
 - Move licenes which are GPL-* to GPLv3
 
