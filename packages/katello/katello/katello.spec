@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.12.0
@@ -28,7 +28,6 @@ Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
 Source17:   helper.rb
 Source18:   katello.cron
-Source19:   foreman-proxy-content.cron
 
 BuildRequires: asciidoc
 BuildRequires: util-linux
@@ -88,7 +87,6 @@ mkdir -p %{buildroot}/%{_mandir}/man8
 #copy cron scripts to be scheduled
 install -d -m0755 %{buildroot}%{_sysconfdir}/cron.d
 install -m 644 %{SOURCE18} %{buildroot}%{_sysconfdir}/cron.d/katello
-install -m 644 %{SOURCE19} %{buildroot}%{_sysconfdir}/cron.d/foreman-proxy-content
 
 # symlink script libraries
 mkdir -p %{buildroot}%{_datarootdir}/katello
@@ -178,9 +176,6 @@ Obsoletes: katello-capsule
 %description -n foreman-proxy-content
 Provides a federation of katello services
 
-%files -n foreman-proxy-content
-%config(missingok) %{_sysconfdir}/cron.d/foreman-proxy-content
-
 # ------ Service ----------------
 %package service
 Summary: Katello Service utilities
@@ -196,6 +191,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Fri Jan 25 2019 Evgeni Golov - 3.12.0-0.2.master
+- Refs #25576 - drop the Puppet cleanup cron, this is done inside Pulp now
+
 * Wed Jan 16 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-0.1.master
 - Bump version to 3.12
 
