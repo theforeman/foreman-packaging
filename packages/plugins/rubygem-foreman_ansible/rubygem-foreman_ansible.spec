@@ -6,8 +6,8 @@
 
 Summary: Ansible integration with Foreman (theforeman.org)
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
-Release: 5%{?foremandist}%{?dist}
+Version: 2.3.1
+Release: 1%{?foremandist}%{?dist}
 Group:   Applications/System
 License: GPLv3
 URL:     https://github.com/theforeman/foreman_ansible
@@ -20,7 +20,7 @@ Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.6.3
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
@@ -32,7 +32,7 @@ BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.6.3
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
@@ -109,6 +109,9 @@ exit 0
 
 
 %changelog
+* Fri Jan 25 2019 Marek Hulan <mhulan@redhat.com> 2.3.1-1
+- Update to 2.3.1
+
 * Thu Jan 24 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-5
 - Rebuild rubygem-foreman_ansible for webpack
 
