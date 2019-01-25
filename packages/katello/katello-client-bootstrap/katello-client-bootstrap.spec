@@ -17,8 +17,8 @@
 #
 
 Name:           katello-client-bootstrap
-Version:        1.6.0
-Release:        2%{?dist}
+Version:        1.7.0
+Release:        1%{?dist}
 Summary:        Client bootstrap utility for Foreman and Katello
 
 Group:          System Environment/Base
@@ -50,6 +50,9 @@ cp bootstrap.py %{buildroot}%{_var}/www/html/pub/bootstrap.py
 %{_var}/www/html/pub/bootstrap.py
 
 %changelog
+* Fri Jan 25 2019 Evgeni Golov - 1.7.0-1
+- Release katello-client-bootstrap 1.7.0
+
 * Mon Jan 07 2019 Evgeni Golov - 1.6.0-2
 - Include the Ansible playbook as part of katello-client-bootstrap documentation.
 
