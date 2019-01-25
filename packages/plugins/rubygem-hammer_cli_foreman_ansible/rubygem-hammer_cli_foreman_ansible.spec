@@ -8,8 +8,8 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.1
-Release: 3%{?foremandist}%{?dist}
+Version: 0.1.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Ansible plugin for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -85,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 25 2019 Marek Hulan <mhulan@redhat.com> 0.1.2-1
+- Update to 0.1.2
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.1.1-3
 - Move licenes which are GPL-* to GPLv3
 
