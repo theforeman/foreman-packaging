@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.12.0
@@ -176,6 +176,9 @@ Obsoletes: katello-capsule
 %description -n foreman-proxy-content
 Provides a federation of katello services
 
+%files -n foreman-proxy-content
+# the files section is empty, but without it no RPM will be generated
+
 # ------ Service ----------------
 %package service
 Summary: Katello Service utilities
@@ -191,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Jan 28 2019 Evgeni Golov - 3.12.0-0.3.master
+- Refs #25576 - add an empty files section to make foreman-proxy-content build
+
 * Fri Jan 25 2019 Evgeni Golov - 3.12.0-0.2.master
 - Refs #25576 - drop the Puppet cleanup cron, this is done inside Pulp now
 
