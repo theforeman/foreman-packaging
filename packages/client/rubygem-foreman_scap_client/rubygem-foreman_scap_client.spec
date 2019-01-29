@@ -4,8 +4,8 @@
 %define rubyabi 1.8
 
 Name: rubygem-%{gem_name}
-Version: 0.4.0
-Release: 3%{?dist}
+Version: 0.4.1
+Release: 1%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -16,6 +16,8 @@ Requires: bzip2
 Requires: ruby(rubygems)
 %if 0%{?el6}
 Requires: ruby(abi)
+Requires: rubygem(json) >= 1.4
+Requires: rubygem(json) < 2.0
 %else
 Requires: ruby(release)
 %endif
@@ -94,6 +96,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 29 2019 Marek Hulan <mhulan@redhat.com> 0.4.1-1
+- Update to 0.4.1
+
 * Mon Oct 29 2018 Evgeni Golov - 0.4.0-3
 - build on EL6+ and Fedora only
 
