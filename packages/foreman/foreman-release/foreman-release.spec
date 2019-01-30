@@ -14,7 +14,7 @@
 %endif
 
 %global release 4
-%global prerelease RC3
+%global prerelease RC4
 
 Name:     foreman-release
 Version:  1.21.0
@@ -110,6 +110,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Wed Jan 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.RC4
+- Release 1.21.0-RC4
+
 * Wed Jan 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.4.RC3
 - Release 1.21.0-RC3
 
