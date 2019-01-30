@@ -15,7 +15,7 @@
 
 Name: katello-host-tools
 Version: 3.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -56,8 +56,11 @@ BuildRequires: %{?suse_version:python-devel >= 2.6} %{!?suse_version:python2-dev
 %endif
 %endif
 
+%if %{dnf_install}
+BuildRequires: python3-setuptools
+%else
 BuildRequires: python-setuptools
-BuildRequires: rpm-python
+%endif
 
 %description
 A set of commands and yum plugins that support a Katello host including faster package profile uploading and bound repository reporting.  This is required for errata and package applicability reporting.
@@ -137,7 +140,11 @@ Adds Tracer functionality to a client managed by katello-host-tools
 
 %build
 pushd src
+%if %{dnf_install}
+%{__python3} setup.py build
+%else
 %{__python} setup.py build
+%endif
 popd
 
 %install
@@ -366,6 +373,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Wed Jan 30 2019 Evgeni Golov - 3.4.2-2
+- Explicitly build using Python3 on Python3 distibutions
+
 * Mon Jan 14 2019 Jonathon Turel <jturel@gmail.com> - 3.4.2-1
 - Fixes #25725 - disable plugins if we have subman profiles
 
