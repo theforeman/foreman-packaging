@@ -491,6 +491,7 @@ whitelist = katello
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
   pulp-katello
+  rubygem-activerecord-import
   rubygem-anemone
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
