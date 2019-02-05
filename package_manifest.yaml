@@ -491,6 +491,7 @@ katello_packages:
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
     pulp-katello: {}
+    rubygem-activerecord-import: {}
     rubygem-anemone: {}
     rubygem-foreman_scc_manager: {}
     rubygem-foreman_virt_who_configure: {}
