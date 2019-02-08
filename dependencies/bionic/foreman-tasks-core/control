@@ -12,5 +12,5 @@ XS-Ruby-Versions: all
 Package: ruby-foreman-tasks-core
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake,
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake, ruby-dynflow (>= 1.2.0),
 Description: Foreman tasks - core bits
