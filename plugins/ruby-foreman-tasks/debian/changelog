@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.15.0-1) stable; urgency=low
+
+  * 0.15.0 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Fri, 08 Feb 2019 12:03:12 +0100
+
 ruby-foreman-tasks (0.14.5-1) stable; urgency=low
 
   * 0.14.5 released
