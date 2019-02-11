@@ -20,6 +20,8 @@ Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0
+Requires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0
+Requires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
@@ -30,7 +32,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
