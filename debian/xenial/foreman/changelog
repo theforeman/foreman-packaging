@@ -1,3 +1,9 @@
+foreman (1.20.2-1) stable; urgency=low
+
+  * 1.20.2 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 12 Feb 2019 17:52:19 +0100
+
 foreman (1.20.1-1) stable; urgency=low
 
   * 1.20.1 released
