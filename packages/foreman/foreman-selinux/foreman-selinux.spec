@@ -25,7 +25,7 @@
 %global release 1
 
 Name:           foreman-selinux
-Version:        1.20.1
+Version:        1.20.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -164,6 +164,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Feb 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.2-1
+- Release 1.20.2
+
 * Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
 - Release 1.20.1
 

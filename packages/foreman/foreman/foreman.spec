@@ -11,7 +11,7 @@
 %global release 1
 
 Name:    foreman
-Version: 1.20.1
+Version: 1.20.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 Summary: Systems Management web application
 
@@ -1284,6 +1284,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Feb 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.2-1
+- Release 1.20.2
+
 * Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.20.1-1
 - Release 1.20.1
 
