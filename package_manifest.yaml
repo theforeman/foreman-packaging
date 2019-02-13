@@ -90,6 +90,7 @@ foreman_scl_packages:
     rubygem-gettext_i18n_rails_js: {}
     rubygem-google-api-client: {}
     rubygem-graphql: {}
+    rubygem-graphql-batch: {}
     rubygem-gridster-rails: {}
     rubygem-hammer_cli:
       releasers:

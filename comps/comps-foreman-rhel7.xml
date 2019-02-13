@@ -89,6 +89,7 @@
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails_js</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client</packagereq>
       <packagereq type="default">tfm-rubygem-graphql</packagereq>
+      <packagereq type="default">tfm-rubygem-graphql-batch</packagereq>
       <packagereq type="default">tfm-rubygem-gridster-rails</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman</packagereq>
@@ -423,6 +424,7 @@
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gridster-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman-doc</packagereq>
