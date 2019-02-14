@@ -645,6 +645,7 @@ plugin_nonscl_packages:
       - el7-foreman-nightly
       - el7-foreman-plugins-nightly
   hosts:
+    ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     foreman-discovery-image-service: {}
     nodejs-react-json-tree: {}
