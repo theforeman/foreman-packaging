@@ -4,8 +4,8 @@
 %global gem_name roadie
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.2
-Release: 2%{?dist}
+Version: 3.4.0
+Release: 1%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 Group: Development/Languages
 License: MIT
@@ -77,12 +77,14 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/spec
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Fri Feb 15 2019 Michael Moll <mmoll@mmoll.at> - 3.4.0-1
+- Bump rubygem-roadie to 3.4.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.2-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
