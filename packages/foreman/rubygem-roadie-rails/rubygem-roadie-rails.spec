@@ -4,8 +4,8 @@
 %global gem_name roadie-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.0
-Release: 2%{?dist}
+Version: 2.0.0
+Release: 1%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
@@ -13,7 +13,8 @@ URL: https://github.com/Mange/roadie-rails
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(railties) >= 5.1
+Requires: %{?scl_prefix_ror}rubygem(railties) < 5.3
 Requires: %{?scl_prefix}rubygem(roadie) >= 3.1
 Requires: %{?scl_prefix}rubygem(roadie) < 4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -77,11 +78,13 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/setup.sh
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Guardfile
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Feb 15 2019 Michael Moll <mmoll@mmoll.at> - 2.0.0-1
+- Bump rubygem-roadie-rails to 2.0.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
