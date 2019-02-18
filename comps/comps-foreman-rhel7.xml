@@ -131,6 +131,7 @@
       <packagereq type="default">tfm-rubygem-puma</packagereq>
       <packagereq type="default">tfm-rubygem-quantile</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
+      <packagereq type="default">tfm-rubygem-rack-cors</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
@@ -460,6 +461,7 @@
       <packagereq type="default">tfm-rubygem-puma-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rack-cors-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>

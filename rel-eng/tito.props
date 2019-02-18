@@ -273,6 +273,7 @@ whitelist = foreman
   rubygem-puma
   rubygem-quantile
   rubygem-rabl
+  rubygem-rack-cors
   rubygem-rack-jsonp
   rubygem-rails-i18n
   rubygem-rbovirt
