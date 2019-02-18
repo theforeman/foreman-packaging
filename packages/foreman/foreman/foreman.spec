@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:    foreman
@@ -129,6 +129,8 @@ Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
+Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
+Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
 # end specfile main Requires
 
 # start specfile facter Requires
@@ -226,6 +228,8 @@ BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
+BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
+BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
 # end specfile main BuildRequires
 
 # assets
@@ -327,7 +331,7 @@ BuildRequires: npm(raf) < 4.0.0
 #BuildRequires: npm(react-redux-test-utils) < 1.0.0
 #BuildRequires: npm(react-remarkable) >= 1.1.3
 #BuildRequires: npm(react-remarkable) < 2.0.0
-#BuildRequires: npm(react-test-renderer) >= 16.2.0
+#BuildRequires: npm(react-test-renderer) >= 16.8.1
 #BuildRequires: npm(react-test-renderer) < 17.0.0
 #BuildRequires: npm(redux-mock-store) >= 1.2.2
 #BuildRequires: npm(redux-mock-store) < 2.0.0
@@ -390,7 +394,7 @@ BuildRequires: npm(jquery.cookie) >= 1.4.1
 BuildRequires: npm(jquery.cookie) < 1.5.0
 BuildRequires: npm(jstz) >= 1.0.7
 BuildRequires: npm(jstz) < 1.1.0
-BuildRequires: npm(lodash) >= 4.17.10
+BuildRequires: npm(lodash) >= 4.17.11
 BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(multiselect) >= 0.9.12
 BuildRequires: npm(multiselect) < 0.10.0
@@ -398,22 +402,22 @@ BuildRequires: npm(number_helpers) >= 0.1.1
 BuildRequires: npm(number_helpers) < 1.0.0
 BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.25.5
+BuildRequires: npm(patternfly-react) >= 2.29.0
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.4.0
+BuildRequires: npm(react) >= 16.8.1
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) = 0.32.1
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
 BuildRequires: npm(react-diff-view) >= 1.8.1
 BuildRequires: npm(react-diff-view) < 2.0.0
-BuildRequires: npm(react-dom) >= 16.4.0
+BuildRequires: npm(react-dom) >= 16.8.1
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
-BuildRequires: npm(react-intl) >= 2.7.0
+BuildRequires: npm(react-intl) >= 2.8.0
 BuildRequires: npm(react-intl) < 3.0.0
 BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
@@ -441,7 +445,7 @@ BuildRequires: npm(select2) < 3.6.0
 BuildRequires: npm(unidiff) = 0.0.4
 BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(urijs) < 2.0.0
-BuildRequires: npm(uuid) >= 3.0.1
+BuildRequires: npm(uuid) >= 3.3.2
 BuildRequires: npm(uuid) < 4.0.0
 # end package.json dependencies BuildRequires
 
@@ -494,8 +498,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.4.1
-Requires: %{?scl_prefix}rubygem(fog-libvirt) < 1.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.6.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
@@ -529,7 +532,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.2
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.5
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
 Requires: foreman-compute = %{version}-%{release}
@@ -721,7 +724,7 @@ Requires: npm(raf) < 4.0.0
 #Requires: npm(react-redux-test-utils) < 1.0.0
 #Requires: npm(react-remarkable) >= 1.1.3
 #Requires: npm(react-remarkable) < 2.0.0
-#Requires: npm(react-test-renderer) >= 16.2.0
+#Requires: npm(react-test-renderer) >= 16.8.1
 #Requires: npm(react-test-renderer) < 17.0.0
 #Requires: npm(redux-mock-store) >= 1.2.2
 #Requires: npm(redux-mock-store) < 2.0.0
@@ -784,7 +787,7 @@ Requires: npm(jquery.cookie) >= 1.4.1
 Requires: npm(jquery.cookie) < 1.5.0
 Requires: npm(jstz) >= 1.0.7
 Requires: npm(jstz) < 1.1.0
-Requires: npm(lodash) >= 4.17.10
+Requires: npm(lodash) >= 4.17.11
 Requires: npm(lodash) < 5.0.0
 Requires: npm(multiselect) >= 0.9.12
 Requires: npm(multiselect) < 0.10.0
@@ -792,22 +795,22 @@ Requires: npm(number_helpers) >= 0.1.1
 Requires: npm(number_helpers) < 1.0.0
 Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.25.5
+Requires: npm(patternfly-react) >= 2.29.0
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
-Requires: npm(react) >= 16.4.0
+Requires: npm(react) >= 16.8.1
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) = 0.32.1
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
 Requires: npm(react-diff-view) >= 1.8.1
 Requires: npm(react-diff-view) < 2.0.0
-Requires: npm(react-dom) >= 16.4.0
+Requires: npm(react-dom) >= 16.8.1
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
 Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
-Requires: npm(react-intl) >= 2.7.0
+Requires: npm(react-intl) >= 2.8.0
 Requires: npm(react-intl) < 3.0.0
 Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
@@ -835,7 +838,7 @@ Requires: npm(select2) < 3.6.0
 Requires: npm(unidiff) = 0.0.4
 Requires: npm(urijs) >= 1.18.10
 Requires: npm(urijs) < 2.0.0
-Requires: npm(uuid) >= 3.0.1
+Requires: npm(uuid) >= 3.3.2
 Requires: npm(uuid) < 4.0.0
 # end package.json dependencies Requires
 
@@ -1316,6 +1319,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Feb 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Wed Jan 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.2.develop
 - Update Gem and NPM dependencies
 
