@@ -36,6 +36,7 @@
       <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+      <packagereq type="default">foreman-webpack-helper</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
