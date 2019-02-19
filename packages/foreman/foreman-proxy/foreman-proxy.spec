@@ -5,7 +5,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 5
-%global prerelease RC4
+%global prerelease RC5
 
 Name:           foreman-proxy
 Version:        1.21.0
@@ -213,6 +213,9 @@ fi
 
 
 %changelog
+* Tue Feb 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.5.RC5
+- Release 1.21.0-RC5
+
 * Wed Jan 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-0.5.RC4
 - Release 1.21.0-RC4
 

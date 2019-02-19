@@ -1,5 +1,5 @@
 %global release 4
-%global prerelease RC4
+%global prerelease RC5
 
 Name:       foreman-installer
 Epoch:      1
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Feb 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.21.0-0.4.RC5
+- Release 1.21.0-RC5
+
 * Wed Jan 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.21.0-0.4.RC4
 - Release 1.21.0-RC4
 
