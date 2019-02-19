@@ -1,3 +1,9 @@
+foreman-installer (1.21.0~rc5-1) stable; urgency=low
+
+  * 1.21.0-RC5 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 19 Feb 2019 16:32:39 +0100
+
 foreman-installer (1.21.0~rc4-1) stable; urgency=low
 
   * 1.21.0-RC4 released
