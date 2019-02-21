@@ -6,16 +6,16 @@
 Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.3.0
-Release: 3%{?dist}
+Version: 3.3.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-aws
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.38
-Requires: %{?scl_prefix}rubygem(fog-core) < 2
-Requires: %{?scl_prefix}rubygem(fog-json) >= 1
+Requires: %{?scl_prefix}rubygem(fog-core) >= 2.1
+Requires: %{?scl_prefix}rubygem(fog-core) < 3
+Requires: %{?scl_prefix}rubygem(fog-json) >= 1.1
 Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1
 Requires: %{?scl_prefix}rubygem(fog-xml) < 1
@@ -73,8 +73,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/stale.yml
 
 %changelog
+* Thu Feb 21 2019 Marek Hulan <mhulan@redhat.com> 3.3.0-1
+- Update to 3.3.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
