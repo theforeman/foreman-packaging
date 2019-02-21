@@ -6,8 +6,8 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.45.0
-Release: 3%{?dist}
+Version: 2.1.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-core
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Thu Feb 21 2019 Marek Hulan <mhulan@redhat.com> 2.1.0-1
+- Update to 2.1.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.45.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
