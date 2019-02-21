@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:    foreman
@@ -1126,7 +1126,7 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_rake         %{foreman_rake}
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_restart      (/bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
+%%%{name}_restart      (touch %{homedir}/tmp/restart.txt ; /bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 EOF
 
 # Keep a copy of the schema for quick initialisation of plugin builds
@@ -1307,7 +1307,7 @@ exit 0
 %{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
 %{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
 %{foreman_rake} tmp:clear >> %{_localstatedir}/log/%{name}/tmp_clear.log 2>&1 || :
-(/bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
+%{foreman_restart} || :
 exit 0
 
 %preun
@@ -1319,6 +1319,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Feb 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.5.develop
+- #26084 Restart the passenger service
+
 * Mon Feb 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.4.develop
 - Update roadie-rails dependency
 
