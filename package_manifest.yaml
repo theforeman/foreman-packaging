@@ -129,6 +129,7 @@ foreman_scl_packages:
     rubygem-pg: {}
     rubygem-po_to_json: {}
     rubygem-prometheus-client: {}
+    rubygem-promise.rb: {}
     rubygem-puma: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
