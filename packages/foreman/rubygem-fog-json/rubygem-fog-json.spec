@@ -6,8 +6,8 @@
 Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 1.0.2
-Release: 6%{?dist}
+Version: 1.2.0
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-json
@@ -15,8 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
 Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1
-Requires: %{?scl_prefix}rubygem(fog-core) < 2
+Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -57,7 +56,6 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_cache}
 %{gem_spec}
 %{gem_instdir}/LICENSE.md
-%{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/.*
 
 %files doc
@@ -68,11 +66,13 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %{gem_instdir}/README.md
 %{gem_instdir}/test
 %{gem_instdir}/Gemfile*
-%{gem_instdir}/gemfiles
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-json.gemspec
 
 %changelog
+* Thu Feb 21 2019 Marek Hulan <mhulan@redhat.com> 1.2.0-1
+- Update to 1.2.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 
