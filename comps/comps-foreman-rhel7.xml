@@ -183,6 +183,7 @@
         <packagereq type="default">foreman-*-nonscl-rhel7</packagereq>
       -->
       <packagereq type="default">foreman-installer</packagereq>
+      <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
       <packagereq type="default">nodejs-axios</packagereq>

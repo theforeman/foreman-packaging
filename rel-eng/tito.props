@@ -23,6 +23,7 @@ whitelist = foreman-bootloaders-redhat
   foreman-release
   foreman-release-scl
   foreman-selinux
+  katello-certs-tools
   nodejs-argv-parse
   nodejs-axios
   nodejs-babel-cli
@@ -480,7 +481,6 @@ whitelist = foreman-release
 disttag = .el7
 scl = tfm
 whitelist = katello
-  katello-certs-tools
   katello-client-bootstrap
   katello-repos
   katello-selinux

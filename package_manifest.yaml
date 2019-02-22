@@ -227,6 +227,7 @@ foreman_nonscl_packages:
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
         - "--arg jenkins_job=foreman-selinux-develop-release"
+    katello-certs-tools: {}
     nodejs-argv-parse: {}
     nodejs-axios: {}
     nodejs-babel-cli: {}
@@ -479,7 +480,6 @@ katello_packages:
       - el7-katello-nightly
   hosts:
     katello: {}
-    katello-certs-tools: {}
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
