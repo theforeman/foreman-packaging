@@ -12,7 +12,6 @@
     <uservisible>true</uservisible>
     <packagelist>
       <!-- katello core packages -->
-      <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">foreman-proxy-content</packagereq>
       <packagereq type="default">katello</packagereq>
       <packagereq type="default">katello-client-bootstrap</packagereq>
