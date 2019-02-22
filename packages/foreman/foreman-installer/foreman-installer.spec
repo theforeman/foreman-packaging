@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:       foreman-installer
@@ -40,7 +40,7 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-selinux
 Requires: katello-certs-tools
-Requires: katello-service >= 3.0.0
+Requires: foreman-maintain
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Feb 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.2.develop
+- Remove katello-service dependency (#26111)
+
 * Wed Jan 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.1.develop
 - Bump to 1.22
 
