@@ -6,14 +6,12 @@
 
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
-Release: 6%{?dist}
+Version: 4.2.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-# Fixes #20018
-Patch0: 0001-Close-transport-on-proxy-error.patch
 Requires: %{?scl_prefix_ruby}ruby(release) >= 2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
@@ -45,10 +43,6 @@ mkdir -p .%{gem_dir}
 %{?scl:scl enable %{scl} - <<EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
-
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
 
 %build
 
@@ -94,6 +88,9 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
+* Mon Mar 18 2019 Marek Hulan <mhulan@redhat.com> 4.2.0-1
+- Update to 4.2.0
+
 * Thu Feb 28 2019 Evgeni Golov - 4.0.1-6
 - Also build rubygem-net-ssh for non-SCL
 
