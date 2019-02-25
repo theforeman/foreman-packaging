@@ -250,7 +250,6 @@ whitelist = foreman
   rubygem-journald-native
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
-  rubygem-jwt
   rubygem-launchy
   rubygem-ldap_fluff
   rubygem-little-plugger
@@ -318,6 +317,7 @@ whitelist = foreman
   rubygem-xmlrpc
   tfm
   tfm-rubygem-rest-client
+  tfm-rubygem-jwt
 scl = tfm
 
 [foreman-plugins-nightly-rhel7]
