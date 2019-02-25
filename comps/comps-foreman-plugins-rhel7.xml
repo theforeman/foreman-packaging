@@ -87,6 +87,7 @@
       <packagereq type="default">tfm-rubygem-foreman_omaha</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_one</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_probing_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_rescue</packagereq>
@@ -126,7 +127,9 @@
       <packagereq type="default">tfm-rubygem-prawn</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
+      <packagereq type="default">tfm-rubygem-rprogram</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
+      <packagereq type="default">tfm-rubygem-ruby-nmap</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
@@ -207,6 +210,7 @@
       <packagereq type="default">tfm-rubygem-foreman_omaha-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_probing_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_rescue-doc</packagereq>
@@ -247,7 +251,9 @@
       <packagereq type="default">tfm-rubygem-prawn-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rprogram-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>

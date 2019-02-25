@@ -359,6 +359,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
+  rubygem-foreman_probing_core
   rubygem-foreman_remote_execution
   rubygem-foreman_remote_execution_core
   rubygem-foreman_rescue
@@ -400,7 +401,9 @@ whitelist = rubygem-angular-rails-templates
   rubygem-prawn
   rubygem-puppetdb_foreman
   rubygem-rainbow
+  rubygem-rprogram
   rubygem-rqrcode
+  rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
   rubygem-systemu
