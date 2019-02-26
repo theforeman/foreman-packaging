@@ -445,6 +445,7 @@ whitelist = ansiblerole-insights-client
   rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_omaha
   rubygem-smart_proxy_openscap
+  rubygem-smart-proxy-probing
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
