@@ -20,7 +20,7 @@
 
 Name:           katello-repos
 Version:        3.8.1
-Release:        1%{?prerelease}%{?dist}
+Release:        2%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
 Group:          Applications/Internet
@@ -95,6 +95,10 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
 done
 
+%if 0%{?rhel} == 5
+  sed -i "/gpgcheck/ s/1/0/" %{buildroot}%{repo_dir}/katello-client.repo
+%endif
+
 %clean
 rm -rf %{buildroot}
 
@@ -111,6 +115,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Fri Feb 15 2019 Jonathon Turel <jturel@gmail.com> - 3.8.1-2
+- Disable gpgcheck on EL5 client repos
+
 * Tue Nov 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.8.1-1
 - Release 3.8.1
 
