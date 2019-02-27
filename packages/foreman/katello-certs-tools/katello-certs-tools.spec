@@ -2,19 +2,22 @@ Name:      katello-certs-tools
 Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
-Version:   2.4.0
+Version:   2.5.0
 Release:   1%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
-Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}
+Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 BuildArch: noarch
 
-#BZ 1022017
-Requires: openssl >= 1.0.1e-16
-
+Requires: openssl
 Requires: rpm-build
 
 BuildRequires: docbook-utils
-BuildRequires: python
+BuildRequires: /usr/bin/pathfix.py
+%if 0%{?rhel} == 7
+BuildRequires: python-devel >= 2.6
+%else
+BuildRequires: python3-devel
+%endif
 
 %description
 This package contains tools to generate the SSL certificates required by
@@ -22,20 +25,40 @@ Katello.
 
 %prep
 %setup -q
+%if 0%{?rhel} == 7
+pathfix.py -pni "%{__python2} %{py2_shbang_opts}" . katello-ssl-tool
+%else
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" . katello-ssl-tool
+%endif
 
 %build
 /usr/bin/docbook2man katello-ssl-tool.sgml
-%{__python} setup.py build
+%if 0%{?rhel} == 7
+%{py2_build}
+%else
+%{py3_build}
+%endif
 
 %install
-%{__python} setup.py install --skip-build --root $RPM_BUILD_ROOT
+%if 0%{?rhel} == 7
+%{__python2} setup.py install --skip-build --root $RPM_BUILD_ROOT
 chmod +x $RPM_BUILD_ROOT/%{python_sitelib}/katello_certs_tools/katello_ssl_tool.py
+%else
+%{__python3} setup.py install --skip-build --root $RPM_BUILD_ROOT
+chmod +x $RPM_BUILD_ROOT/%{python3_sitelib}/katello_certs_tools/katello_ssl_tool.py
+%endif
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/certs
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 
 %files
-%{python_sitelib}/*
+%if 0%{?rhel} == 7
+%{python2_sitelib}/katello_certs_tools
+%{python2_sitelib}/*.egg-info
+%else
+%{python3_sitelib}/katello_certs_tools
+%{python3_sitelib}/*.egg-info
+%endif
 %dir %{_sysconfdir}/pki/%{name}
 %dir %{_sysconfdir}/pki/%{name}/certs
 %dir %{_sysconfdir}/pki/%{name}/private
@@ -47,6 +70,9 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Wed Feb 27 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-1
+- Release 2.5.0 with python3 support
+
 * Wed Jul 29 2015 Eric D. Helms <ericdhelms@gmail.com> 2.4.0-1
 - new package built with tito
 
