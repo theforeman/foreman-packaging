@@ -8,8 +8,8 @@
 
 Summary:    Provision and manage Docker containers and images from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.1.0
-Release:    2%{?foremandist}%{?dist}
+Version:    4.1.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_docker
@@ -43,7 +43,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 Provides: foreman-docker
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -122,6 +122,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Feb 27 2019 Sebastian Gräßl <mail@bastilian.me> 4.1.1-1
+- Update to 4.1.1
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
