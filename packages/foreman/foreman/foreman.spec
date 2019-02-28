@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -131,6 +131,11 @@ Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
+Requires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
+Requires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
+Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
+Requires: %{?scl_prefix}rubygem(graphql-batch)
 # end specfile main Requires
 
 # start specfile facter Requires
@@ -230,6 +235,11 @@ BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
+BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
+BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
+BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
 # end specfile main BuildRequires
 
 # assets
@@ -246,12 +256,12 @@ BuildRequires: nodejs-packaging
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/addon-actions) >= 3.2.12
-#BuildRequires: npm(@storybook/addon-actions) < 4.0.0
-#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.3
-#BuildRequires: npm(@storybook/addon-knobs) < 4.0.0
-#BuildRequires: npm(@storybook/react) >= 3.2.12
-#BuildRequires: npm(@storybook/react) < 4.0.0
+#BuildRequires: npm(@storybook/addon-actions) >= 3.4.11
+#BuildRequires: npm(@storybook/addon-actions) < 3.5.0
+#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.11
+#BuildRequires: npm(@storybook/addon-knobs) < 3.5.0
+#BuildRequires: npm(@storybook/react) >= 3.4.11
+#BuildRequires: npm(@storybook/react) < 3.5.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
 BuildRequires: npm(argv-parse) >= 1.0.1
@@ -309,8 +319,8 @@ BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(file-loader) < 1.0.0
-#BuildRequires: npm(highlight.js) >= 9.12.0
-#BuildRequires: npm(highlight.js) < 10.0.0
+#BuildRequires: npm(highlight.js) >= 9.14.0
+#BuildRequires: npm(highlight.js) < 9.15.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 #BuildRequires: npm(jest-cli) >= 23.6.0
@@ -568,8 +578,7 @@ preference to this package.
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 # start specfile ec2 Requires
-Requires: %{?scl_prefix}rubygem(fog-aws) >= 0.1
-Requires: %{?scl_prefix}rubygem(fog-aws) < 2
+Requires: %{?scl_prefix}rubygem(fog-aws) < 4
 # end specfile ec2 Requires
 Requires:  %{name} = %{version}-%{release}
 
@@ -639,12 +648,12 @@ Requires: nodejs >= 6.10
 Requires: libuv
 
 # start package.json devDependencies Requires
-#Requires: npm(@storybook/addon-actions) >= 3.2.12
-#Requires: npm(@storybook/addon-actions) < 4.0.0
-#Requires: npm(@storybook/addon-knobs) >= 3.4.3
-#Requires: npm(@storybook/addon-knobs) < 4.0.0
-#Requires: npm(@storybook/react) >= 3.2.12
-#Requires: npm(@storybook/react) < 4.0.0
+#Requires: npm(@storybook/addon-actions) >= 3.4.11
+#Requires: npm(@storybook/addon-actions) < 3.5.0
+#Requires: npm(@storybook/addon-knobs) >= 3.4.11
+#Requires: npm(@storybook/addon-knobs) < 3.5.0
+#Requires: npm(@storybook/react) >= 3.4.11
+#Requires: npm(@storybook/react) < 3.5.0
 #Requires: npm(@storybook/storybook-deployer) >= 2.0.0
 #Requires: npm(@storybook/storybook-deployer) < 3.0.0
 Requires: npm(argv-parse) >= 1.0.1
@@ -702,8 +711,8 @@ Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(file-loader) < 1.0.0
-#Requires: npm(highlight.js) >= 9.12.0
-#Requires: npm(highlight.js) < 10.0.0
+#Requires: npm(highlight.js) >= 9.14.0
+#Requires: npm(highlight.js) < 9.15.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
 #Requires: npm(jest-cli) >= 23.6.0
@@ -1319,6 +1328,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Feb 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Tue Feb 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.5.develop
 - #26084 Restart the passenger service
 
