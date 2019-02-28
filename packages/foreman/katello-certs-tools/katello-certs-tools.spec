@@ -2,7 +2,7 @@ Name:      katello-certs-tools
 Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
-Version:   2.5.0
+Version:   2.5.1
 Release:   1%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
 Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
@@ -12,7 +12,6 @@ Requires: openssl
 Requires: rpm-build
 
 BuildRequires: docbook-utils
-BuildRequires: /usr/bin/pathfix.py
 %if 0%{?rhel} == 7
 BuildRequires: python-devel >= 2.6
 %else
@@ -25,11 +24,6 @@ Katello.
 
 %prep
 %setup -q
-%if 0%{?rhel} == 7
-pathfix.py -pni "%{__python2} %{py2_shbang_opts}" . katello-ssl-tool
-%else
-pathfix.py -pni "%{__python3} %{py3_shbang_opts}" . katello-ssl-tool
-%endif
 
 %build
 /usr/bin/docbook2man katello-ssl-tool.sgml
@@ -42,10 +36,8 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" . katello-ssl-tool
 %install
 %if 0%{?rhel} == 7
 %{__python2} setup.py install --skip-build --root $RPM_BUILD_ROOT
-chmod +x $RPM_BUILD_ROOT/%{python_sitelib}/katello_certs_tools/katello_ssl_tool.py
 %else
 %{__python3} setup.py install --skip-build --root $RPM_BUILD_ROOT
-chmod +x $RPM_BUILD_ROOT/%{python3_sitelib}/katello_certs_tools/katello_ssl_tool.py
 %endif
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/certs
@@ -70,6 +62,10 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Thu Feb 28 2019 Evgeni Golov - 2.5.1-1
+- Release 2.5.1
+- Fixes #26188 - don't duplicate -s in the python shebang
+
 * Wed Feb 27 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-1
 - Release 2.5.0 with python3 support
 
