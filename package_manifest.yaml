@@ -122,7 +122,10 @@ foreman_scl_packages:
     rubygem-net-ldap: {}
     rubygem-net-ping: {}
     rubygem-net-scp: {}
-    rubygem-net-ssh: {}
+    rubygem-net-ssh:
+      releasers:
+        - koji-foreman
+        - koji-foreman-plugins
     rubygem-netrc: {}
     rubygem-oauth: {}
     rubygem-ovirt-engine-sdk: {}

@@ -22,6 +22,7 @@
       <packagereq type="default">rubygem-infoblox</packagereq>
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-mysql2</packagereq>
+      <packagereq type="default">rubygem-net-ssh</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-radcli</packagereq>
