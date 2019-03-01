@@ -5,10 +5,10 @@
 
 %global gem_name foreman_wreckingball
 %global plugin_name wreckingball
-%global foreman_min_version 1.17
+%global foreman_min_version 1.18
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Mar 01 2019 Timo Goebel <mail@timogoebel.name> - 3.3.0-1
+- Update foreman_wreckingball to 3.3.0
+
 * Thu Jan 24 2019 Timo Goebel <mail@timogoebel.name> - 3.2.0-1
 - Update foreman_wreckingball to 3.2.0
 
