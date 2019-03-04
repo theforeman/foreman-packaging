@@ -314,6 +314,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-deface
   rubygem-diffy
   rubygem-docker-api
+  rubygem-down
   rubygem-ffi
   rubygem-fog-proxmox
   rubygem-foreman_ansible
