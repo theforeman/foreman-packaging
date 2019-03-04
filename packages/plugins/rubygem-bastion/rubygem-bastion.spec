@@ -8,7 +8,7 @@
 
 Summary:    UI plugin for Foreman providing AngularJS structure
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.1.16
+Version:    6.1.20
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv2+
@@ -123,6 +123,9 @@ cp -pa .%{gem_dir}/* \
 %files devel
 
 %changelog
+* Mon Mar 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.1.20-1
+- Release rubygem-bastion 6.1.20
+
 * Fri Oct 12 2018 Justin Sherrill <jlsherrill@gmail.com> 6.1.16-1
 - Release rubygem-bastion 6.1.16
 
