@@ -1,5 +1,3 @@
-# Generated from bcrypt-3.1.12.gem by gem2rpm -*- rpm-spec -*-
-# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,9 +6,9 @@
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.12
 Release: 1%{?dist}
-Summary: OpenBSD's bcrypt() password hashing algorithm
+Summary: Wrapper around bcrypt() password hashing algorithm
 Group: Development/Languages
-License: MIT
+License: MIT and Public Domain and ISC
 URL: https://github.com/codahale/bcrypt-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -21,16 +19,14 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: gcc
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
 bcrypt() is a sophisticated and secure hash algorithm designed by The
-OpenBSD project
-for hashing passwords. The bcrypt Ruby gem provides a simple wrapper for
-safely handling
-passwords.
-
+OpenBSD project for hashing passwords. bcrypt-ruby provides a simple,
+humane wrapper for safely handling passwords.
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -77,13 +73,11 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/COPYING
-%{gem_instdir}/appveyor.yml
-%{gem_instdir}/ext
+%exclude %{gem_instdir}/appveyor.yml
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -93,7 +87,7 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/bcrypt.gemspec

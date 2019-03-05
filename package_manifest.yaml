@@ -48,6 +48,7 @@ foreman_scl_packages:
     rubygem-autoparse: {}
     rubygem-autoprefixer-rails: {}
     rubygem-awesome_print: {}
+    rubygem-bcrypt: {}
     rubygem-bootstrap-sass: {}
     rubygem-concurrent-ruby-edge: {}
     rubygem-css_parser: {}
