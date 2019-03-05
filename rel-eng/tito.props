@@ -197,6 +197,7 @@ whitelist = foreman
   rubygem-autoparse
   rubygem-autoprefixer-rails
   rubygem-awesome_print
+  rubygem-bcrypt
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
@@ -316,8 +317,8 @@ whitelist = foreman
   rubygem-x-editable-rails
   rubygem-xmlrpc
   tfm
-  tfm-rubygem-rest-client
   tfm-rubygem-jwt
+  tfm-rubygem-rest-client
 scl = tfm
 
 [foreman-plugins-nightly-rhel7]

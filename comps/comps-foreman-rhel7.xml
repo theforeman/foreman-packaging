@@ -51,6 +51,7 @@
       <packagereq type="default">tfm-rubygem-autoparse</packagereq>
       <packagereq type="default">tfm-rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
+      <packagereq type="default">tfm-rubygem-bcrypt</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
@@ -389,6 +390,7 @@
       <packagereq type="default">tfm-rubygem-autoparse-doc</packagereq>
       <packagereq type="default">tfm-rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-bcrypt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
@@ -426,8 +428,8 @@
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails_js-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gridster-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman-doc</packagereq>
