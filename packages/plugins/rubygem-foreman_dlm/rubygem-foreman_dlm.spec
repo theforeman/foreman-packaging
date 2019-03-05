@@ -6,10 +6,11 @@
 %global gem_name foreman_dlm
 %global plugin_name dlm
 %global foreman_min_version 1.17
+%global service_name foreman-dlm-expire-events
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 4%{?foremandist}%{?dist}
+Version: 1.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -27,8 +28,13 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+Requires(post): systemd-sysv
+Requires(post): systemd-units
+Requires(preun): systemd-units
+BuildRequires: systemd
 
 %description
 Adds a Distributed Lock Manager to Foreman. This enables painless system
@@ -75,6 +81,17 @@ cp -pa .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a
 
+#copy init scripts, sysconfigs and logrotate config
+install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
+install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.timer %{buildroot}%{_unitdir}/%{service_name}.timer
+
+%post
+%systemd_post %{service_name}.timer
+%preun
+%systemd_preun %{service_name}.timer
+%postun
+%systemd_postun_with_restart %{service_name}.timer
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -88,6 +105,10 @@ cp -pa .%{gem_dir}/* \
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{_unitdir}/%{service_name}.service
+%{_unitdir}/%{service_name}.timer
+
+%exclude %{gem_instdir}/contrib
 
 %files doc
 %doc %{gem_docdir}
@@ -102,6 +123,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Mar 05 2019 Dirk Goetz <dirk.goetz@netways.de> - 1.1.0-1
+- Update to 1.1.0
+- Add systemd service and timer
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.0-4
 - Move licenes which are GPL-* to GPLv3
 
