@@ -506,6 +506,7 @@ whitelist = katello
   pulp-katello
   rubygem-activerecord-import
   rubygem-anemone
+  rubygem-ethon
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
   rubygem-hammer_cli_csv
