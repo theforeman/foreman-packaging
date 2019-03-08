@@ -1,4 +1,4 @@
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:       foreman-installer
@@ -14,8 +14,8 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   %{?scl_prefix}puppet-agent >= 1.9.0
-Requires:   %{?scl_prefix}rubygem-kafo >= 1.0.5
+Requires:   %{?scl_prefix}puppet-agent >= 5.5.8
+Requires:   %{?scl_prefix}rubygem-kafo >= 3.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
 Requires:   %{?scl_prefix}rubygem-highline
@@ -23,9 +23,9 @@ Requires:   %{?scl_prefix}rubygem-highline
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet-agent >= 1.9.0
-BuildRequires: %{?scl_prefix}rubygem-kafo >= 1.0.5
-BuildRequires: puppet-agent-puppet-strings >= 0.99
-BuildRequires: puppet-agent-puppet-strings < 2
+BuildRequires: %{?scl_prefix}rubygem-kafo >= 2.1.0
+BuildRequires: puppet-agent-puppet-strings >= 1.2.0
+BuildRequires: puppet-agent-puppet-strings < 3
 
 %description
 Complete installer for The Foreman life-cycle management system based on Puppet.
@@ -138,6 +138,11 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Mar 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.3.develop
+- Update to Kafo 3 (#26282)
+- Require Puppet >= 5.5.8 (#26339)
+- Require puppet-agent-puppet-strings >= 1.2.0
+
 * Fri Feb 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.2.develop
 - Remove katello-service dependency (#26111)
 
