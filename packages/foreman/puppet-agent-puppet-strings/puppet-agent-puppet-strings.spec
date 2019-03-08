@@ -3,7 +3,7 @@
 
 Summary: Puppet documentation via YARD
 Name: puppet-agent-%{gem_name}
-Version: 1.2.1
+Version: 2.1.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL-2.0
@@ -50,6 +50,9 @@ else  # upgrade
 fi
 
 %changelog
+* Fri Mar 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-1
+- Update to 2.1.0
+
 * Mon Jan 16 2017 Dominic Cleal <dominic@cleal.org> 1.0.0-1
 - new package built with tito
 
