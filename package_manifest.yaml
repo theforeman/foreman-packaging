@@ -523,6 +523,7 @@ katello_packages:
     rubygem-redhat_access_lib: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
+    rubygem-typhoeus: {}
 
 plugins_packages:
   children:

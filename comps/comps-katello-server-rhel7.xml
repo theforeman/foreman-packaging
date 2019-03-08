@@ -32,6 +32,7 @@
       <packagereq type="default">tfm-rubygem-katello</packagereq>
       <packagereq type="default">tfm-rubygem-katello-assets</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
+      <packagereq type="default">tfm-rubygem-typhoeus</packagereq>
 
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-angular</packagereq>
