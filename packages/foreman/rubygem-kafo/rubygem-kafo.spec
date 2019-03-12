@@ -1,98 +1,108 @@
+# Generated from kafo-3.0.0.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name kafo
 
-Summary: A gem for making installations based on puppet user friendly
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
+Version: 3.0.0
 Release: 1%{?dist}
-Group: Development/Libraries
-License: GPLv3+
+Summary: A gem for making installations based on puppet user friendly
+Group: Development/Languages
+License: GPL-3.0+
 URL: https://github.com/theforeman/kafo
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix}ruby(abi)
-%else
-Requires: %{?scl_prefix}ruby(release)
-%endif
-Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
-Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
-Requires: %{?scl_prefix}rubygem(highline) >= 1.6.21
-Requires: %{?scl_prefix}rubygem(highline) < 2.0
-Requires: %{?scl_prefix}rubygem(kafo_parsers) >= 0.1.6
+
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(kafo_wizards)
 Requires: %{?scl_prefix}rubygem(ansi)
+Requires: %{?scl_prefix}rubygem(kafo_parsers) >= 0.1.6
+Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
+Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
+Requires: %{?scl_prefix_ruby}rubygem(highline) >= 1.6.21
+Requires: %{?scl_prefix_ruby}rubygem(highline) < 2.0
 Requires: %{?scl_prefix}rubygem(powerbar)
-Requires: %{?scl_prefix}rubygems
-
-BuildRequires: %{?scl_prefix}rubygems-devel
-%if 0%{?el6} && 0%{!?scl:1}
-BuildRequires: %{?scl_prefix}ruby(abi)
-%else
-BuildRequires: %{?scl_prefix}ruby(release)
-%endif
-BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-If you write puppet modules for installing your software, you can use kafo to create powerful installer
+If you write puppet modules for installing your software, you can use kafo to
+create powerful installer.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
-sed -i "/add_runtime_dependency.*puppet/d" ./%{gem_spec}
-sed -i "/add_dependency.*puppet/d" ./%{gem_spec}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -a .%{_bindir}/* \
+cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/bin
-%{gem_instdir}/config
-%{gem_instdir}/lib
-%{gem_instdir}/modules
 %{_bindir}/kafo-configure
 %{_bindir}/kafo-export-params
 %{_bindir}/kafofy
-
-%doc %{gem_instdir}/LICENSE.txt
-
-%exclude %{gem_instdir}/README.md
+%license %{gem_instdir}/LICENSE.txt
+%{gem_instdir}/bin
+%{gem_instdir}/config
+%{gem_libdir}
+%{gem_instdir}/modules
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/Rakefile
-# add once tests are added (maybe spec dir instead)
-#%exclude %{gem_instdir}/test
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc/kafo_run.png
-%doc %{gem_instdir}/doc/kafo_run.uml
-%doc %{gem_instdir}/LICENSE.txt
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/doc
 
 %changelog
+* Tue Mar 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-1
+- Update to 3.0.0-1
+
 * Mon Jan 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.0-1
 - Update kafo to 2.1.0 (mhulan@redhat.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
