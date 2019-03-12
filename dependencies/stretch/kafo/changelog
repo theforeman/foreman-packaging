@@ -1,3 +1,9 @@
+ruby-kafo (3.0.0-1) stable; urgency=low
+
+  * Update to Kafo 3.0.0
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 12 Mar 2019 18:14:04 +0100
+
 ruby-kafo (2.1.0-1) stable; urgency=low
 
   * Update kafo to 2.1.0
