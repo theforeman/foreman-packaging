@@ -2,7 +2,7 @@
 %global gem_name rsec
 
 Name: rubygem-%{gem_name}
-Version: 0.4.2
+Version: 0.4.3
 Release: 1%{?dist}
 Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 13 2019 Evgeni Golov 0.4.3-1
+- Update to 0.4.3
+
 * Thu May 25 2017 Dominic Cleal <dominic@cleal.org> 0.4.2-1
 - new package built with tito
 
