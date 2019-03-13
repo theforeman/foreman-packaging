@@ -309,6 +309,7 @@
       <packagereq type="default">nodejs-style-loader</packagereq>
       <packagereq type="default">nodejs-symbol-observable</packagereq>
       <packagereq type="default">nodejs-table-resolver</packagereq>
+      <packagereq type="default">nodejs-theforeman-vendor</packagereq>
       <packagereq type="default">nodejs-typed-styles</packagereq>
       <packagereq type="default">nodejs-uglifyjs-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-unidiff</packagereq>
