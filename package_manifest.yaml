@@ -274,6 +274,7 @@ foreman_nonscl_packages:
     nodejs-extract-text-webpack-plugin: {}
     nodejs-fbjs: {}
     nodejs-file-loader: {}
+    nodejs-file-saver: {}
     nodejs-follow-redirects: {}
     nodejs-gud: {}
     nodejs-harmony-reflect: {}
