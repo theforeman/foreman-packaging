@@ -97,7 +97,7 @@ add_gem_to_comps() {
 
 # Main script
 
-if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ -z $TITO_TAG ]]; then
+if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $TITO_TAG ]]; then
 	usage
 fi
 
