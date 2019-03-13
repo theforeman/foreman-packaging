@@ -5,38 +5,35 @@
 
 Summary: Google API Ruby Client makes it trivial to access supported APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.2
-Release: 7%{?dist}
+Version: 0.23.9
+Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/google/google-api-ruby-client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 3.2
-Requires: %{?scl_prefix}rubygem(addressable) >= 2.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.0
+Requires: %{?scl_prefix_ruby}ruby < 3
+Requires: %{?scl_prefix}rubygem(addressable) >= 2.5.1
 Requires: %{?scl_prefix}rubygem(addressable) < 3.0
-Requires: %{?scl_prefix}rubygem(autoparse) >= 0.3
-Requires: %{?scl_prefix}rubygem(autoparse) < 1.0
-Requires: %{?scl_prefix}rubygem(extlib) >= 0.9
-Requires: %{?scl_prefix}rubygem(extlib) < 1.0
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
-Requires: %{?scl_prefix}rubygem(faraday) < 1.0
-Requires: %{?scl_prefix}rubygem(launchy) >= 2.4
-Requires: %{?scl_prefix}rubygem(launchy) < 3.0
-Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2.0
-Requires: %{?scl_prefix}rubygem(retriable) >= 1.4
-Requires: %{?scl_prefix}rubygem(retriable) < 2.0
-Requires: %{?scl_prefix}rubygem(signet) >= 0.6
+Requires: %{?scl_prefix}rubygem(retriable) >= 2.0
+Requires: %{?scl_prefix}rubygem(retriable) < 4
+Requires: %{?scl_prefix}rubygem(signet) >= 0.9
 Requires: %{?scl_prefix}rubygem(signet) < 1.0
+Requires: %{?scl_prefix}rubygem(representable) >= 3.0
+Requires: %{?scl_prefix}rubygem(representable) < 4
+Requires: %{?scl_prefix}rubygem(mime-types) >= 3.0
+Requires: %{?scl_prefix}rubygem(mime-types) < 4
+Requires: %{?scl_prefix}rubygem(googleauth) >= 0.5
+Requires: %{?scl_prefix}rubygem(googleauth) < 0.7
+Requires: %{?scl_prefix}rubygem(httpclient) >= 2.8.1
+Requires: %{?scl_prefix}rubygem(httpclient) < 3
 Requires: ca-certificates
-
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
+BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -91,6 +88,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 13 2019 kgaikwad <kavitagaikwad103@gmail.com> 0.23.9-1
+- Update to 0.23.9
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.8.2-7
 - Rebuild for Rails 5.2 and Ruby 2.5
 
