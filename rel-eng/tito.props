@@ -285,6 +285,7 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
+  rubygem-representable
   rubygem-responders
   rubygem-retriable
   rubygem-roadie

@@ -145,6 +145,7 @@ foreman_scl_packages:
     rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
+    rubygem-representable: {}
     rubygem-responders: {}
     rubygem-retriable: {}
     rubygem-roadie-rails: {}
