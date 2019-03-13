@@ -4,9 +4,8 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .rc2
 %global mainver 3.11.0
-%global release 2
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -368,6 +367,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Mar 13 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-1
+- Release 3.11.0
+
 * Wed Jan 23 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-0.2.rc2
 - Release RC2
 
