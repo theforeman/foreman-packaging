@@ -1,97 +1,103 @@
+# Generated from ruby2ruby-2.4.2.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from ruby2ruby-1.2.4.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby2ruby
 
-Summary: Generate pure ruby from RubyParser compatible Sexps
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
-Release: 2%{?dist}
+Version: 2.4.2
+Release: 1%{?dist}
+Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 Group: Development/Languages
 License: MIT
-URL: http://seattlerb.rubyforge.org/ruby2ruby/
-Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
-Requires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
-Requires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+URL: https://github.com/seattlerb/ruby2ruby
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
+Requires: %{?scl_prefix}rubygem(sexp_processor) < 5
+Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
+Requires: %{?scl_prefix}rubygem(ruby_parser) < 4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
-BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
-BuildRequires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
-BuildRequires: %{?scl_prefix}rubygem(ruby_parser) < 4.0
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 ruby2ruby provides a means of generating pure ruby code easily from
 RubyParser compatible Sexps. This makes making dynamic language
 processors in ruby easier than ever!
 
+
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{pkg_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
 %{?scl:EOF}
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}/%{_bindir}
-mv .%{_bindir}/* %{buildroot}/%{_bindir}
-find %{buildroot}%{_bindir} -type f | xargs chmod a+x
-
-# Drop the standalone mode for tests - won't run that way due to missing
-# rubygems require anyway.
-find %{buildroot}%{gem_instdir}/test -type f | \
-  xargs -n 1 sed -i  -e '/^#!\/usr\/.*\/ruby.*/d'
-find %{buildroot}%{gem_libdir} -type f | \
-  xargs -n 1 sed -i  -e '/^#!\/usr\/bin\/env.*/d'
-# Ships with extremely tight permissions, bring them inline with other gems
-find %{buildroot}%{gem_instdir} -type f | \
-  xargs chmod 0644
-sed -i '1,$s/<ruby_parser>, \["~> 3.0.0"]/<ruby_parser>/g' %{buildroot}/%{gem_spec}
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
-%{_bindir}/r2r_show
-%doc %{gem_instdir}/History.rdoc
-%doc %{gem_instdir}/Manifest.txt
-%doc %{gem_instdir}/README.rdoc
 %dir %{gem_instdir}
+%{_bindir}/r2r_show
+%exclude %{gem_instdir}/Manifest.txt
 %{gem_instdir}/bin
 %{gem_libdir}
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%{gem_instdir}/Rakefile
+%doc %{gem_docdir}
+%doc %{gem_instdir}/History.rdoc
+%doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/.autotest
+%{gem_instdir}/Rakefile
 %{gem_instdir}/test
-%{gem_docdir}
 
 %changelog
+* Wed Mar 13 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.2-1
+- Update to 2.4.2-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
