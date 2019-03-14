@@ -102,6 +102,7 @@
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
+      <packagereq type="default">tfm-rubygem-httpclient</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native</packagereq>
@@ -446,6 +447,7 @@
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-httpclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
