@@ -248,6 +248,7 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-hoe
+  rubygem-httpclient
   rubygem-http-cookie
   rubygem-ipaddress
   rubygem-journald-logger
