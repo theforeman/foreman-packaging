@@ -45,7 +45,6 @@ foreman_scl_packages:
     rubygem-apipie-params: {}
     rubygem-apipie-rails: {}
     rubygem-audited: {}
-    rubygem-autoparse: {}
     rubygem-autoprefixer-rails: {}
     rubygem-awesome_print: {}
     rubygem-bcrypt: {}
@@ -61,7 +60,6 @@ foreman_scl_packages:
     rubygem-dynflow: {}
     rubygem-eventmachine: {}
     rubygem-excon: {}
-    rubygem-extlib: {}
     rubygem-facter: {}
     rubygem-faraday:
       releasers:
@@ -116,7 +114,6 @@ foreman_scl_packages:
     rubygem-ipaddress: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
-    rubygem-launchy: {}
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
     rubygem-memoist: {}
