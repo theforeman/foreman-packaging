@@ -48,7 +48,6 @@
       <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-audited</packagereq>
-      <packagereq type="default">tfm-rubygem-autoparse</packagereq>
       <packagereq type="default">tfm-rubygem-autoprefixer-rails</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print</packagereq>
       <packagereq type="default">tfm-rubygem-bcrypt</packagereq>
@@ -397,7 +396,6 @@
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-audited-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-autoparse-doc</packagereq>
       <packagereq type="default">tfm-rubygem-autoprefixer-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-awesome_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bcrypt-doc</packagereq>
