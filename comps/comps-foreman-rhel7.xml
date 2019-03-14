@@ -65,7 +65,6 @@
       <packagereq type="default">tfm-rubygem-dynflow</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine</packagereq>
       <packagereq type="default">tfm-rubygem-excon</packagereq>
-      <packagereq type="default">tfm-rubygem-extlib</packagereq>
       <packagereq type="default">tfm-rubygem-facter</packagereq>
       <packagereq type="default">tfm-rubygem-faraday</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext</packagereq>
@@ -411,7 +410,6 @@
       <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-eventmachine-doc</packagereq>
       <packagereq type="default">tfm-rubygem-excon-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-extlib-doc</packagereq>
       <packagereq type="default">tfm-rubygem-facter-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext-doc</packagereq>
