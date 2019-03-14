@@ -205,6 +205,7 @@ whitelist = foreman
   rubygem-css_parser
   rubygem-daemons
   rubygem-deacon
+  rubygem-declarative
   rubygem-deep_cloneable
   rubygem-domain_name
   rubygem-dynflow
