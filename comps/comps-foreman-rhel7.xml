@@ -128,6 +128,7 @@
       <packagereq type="default">tfm-rubygem-net-ssh</packagereq>
       <packagereq type="default">tfm-rubygem-netrc</packagereq>
       <packagereq type="default">tfm-rubygem-oauth</packagereq>
+      <packagereq type="default">tfm-rubygem-os</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
       <packagereq type="default">tfm-rubygem-passenger</packagereq>
@@ -476,6 +477,7 @@
       <packagereq type="default">tfm-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-oauth-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-os-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
