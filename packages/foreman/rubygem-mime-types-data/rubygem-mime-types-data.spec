@@ -71,7 +71,6 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/Code-of-Conduct.md
 %license %{gem_instdir}/Licence.md
 %{gem_instdir}/Manifest.txt
 %{gem_instdir}/data
@@ -85,6 +84,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/Contributing.md
 %doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/Code-of-Conduct.md
 %{gem_instdir}/Rakefile
 
 %changelog

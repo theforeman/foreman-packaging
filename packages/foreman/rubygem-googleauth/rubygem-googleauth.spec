@@ -86,7 +86,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/.kokoro
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/CODE_OF_CONDUCT.md
 %license %{gem_instdir}/COPYING
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -99,6 +98,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/googleauth.gemspec
 %{gem_instdir}/spec
