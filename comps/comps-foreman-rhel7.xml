@@ -109,7 +109,6 @@
       <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
-      <packagereq type="default">tfm-rubygem-launchy</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff</packagereq>
       <packagereq type="default">tfm-rubygem-little-plugger</packagereq>
       <packagereq type="default">tfm-rubygem-locale</packagereq>
@@ -455,7 +454,6 @@
       <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-launchy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff-doc</packagereq>
       <packagereq type="default">tfm-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-locale-doc</packagereq>

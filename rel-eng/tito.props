@@ -254,7 +254,6 @@ whitelist = foreman
   rubygem-journald-native
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
-  rubygem-launchy
   rubygem-ldap_fluff
   rubygem-little-plugger
   rubygem-locale
