@@ -238,6 +238,7 @@ whitelist = foreman
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
   rubygem-google-api-client
+  rubygem-googleauth
   rubygem-graphql
   rubygem-graphql-batch
   rubygem-gridster-rails
