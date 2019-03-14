@@ -26,8 +26,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Use with Net::HTTP to do multipart form posts.  IO values that have
-#content_type, #original_filename, and #local_path will be posted as a binary
+Use with Net::HTTP to do multipart form posts. IO values that have
+content_type, original_filename, and local_path will be posted as a binary
 file.
 
 
