@@ -307,6 +307,7 @@ whitelist = foreman
   rubygem-syntax
   rubygem-text
   rubygem-trollop
+  rubygem-uber
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode
