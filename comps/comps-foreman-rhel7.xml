@@ -60,6 +60,7 @@
       <packagereq type="default">tfm-rubygem-daemons</packagereq>
       <packagereq type="default">tfm-rubygem-deacon</packagereq>
       <packagereq type="default">tfm-rubygem-declarative</packagereq>
+      <packagereq type="default">tfm-rubygem-declarative-option</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable</packagereq>
       <packagereq type="default">tfm-rubygem-domain_name</packagereq>
       <packagereq type="default">tfm-rubygem-dynflow</packagereq>
@@ -403,6 +404,7 @@
       <packagereq type="default">tfm-rubygem-daemons-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deacon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-declarative-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-declarative-option-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deep_cloneable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-domain_name-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dynflow-doc</packagereq>
