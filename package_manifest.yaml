@@ -110,6 +110,7 @@ foreman_scl_packages:
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hoe: {}
+    rubygem-httpclient: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
     rubygem-jquery-turbolinks: {}
