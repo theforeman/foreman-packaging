@@ -106,6 +106,7 @@ Obsoletes: %{scl_prefix}rubygem-uuid < 2.3.8-2
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 Obsoletes: %{scl_prefix}rubygem-quiet_assets
 Obsoletes: %{scl_prefix}rubygem-autoparse < 0.3.3-9
+Obsoletes: %{scl_prefix}rubygem-launchy < 2.4.3-7
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
