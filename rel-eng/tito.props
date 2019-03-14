@@ -261,6 +261,7 @@ whitelist = foreman
   rubygem-locale
   rubygem-logging
   rubygem-logging-journald
+  rubygem-memoist
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mysql2

@@ -119,6 +119,9 @@ foreman_scl_packages:
     rubygem-launchy: {}
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
+    rubygem-memoist: {}
+    rubygem-mime-types: {}
+    rubygem-mime-types-data: {}
     rubygem-multipart-post: {}
     rubygem-mysql2:
       releasers:
