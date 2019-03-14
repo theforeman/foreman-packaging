@@ -211,7 +211,6 @@ whitelist = foreman
   rubygem-dynflow
   rubygem-eventmachine
   rubygem-excon
-  rubygem-extlib
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
