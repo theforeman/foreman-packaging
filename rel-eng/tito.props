@@ -260,6 +260,7 @@ whitelist = foreman
   rubygem-logging
   rubygem-logging-journald
   rubygem-mime-types
+  rubygem-mime-types-data
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mysql2
