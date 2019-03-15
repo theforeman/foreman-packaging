@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -303,6 +303,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Mar 15 2019 kgaikwad <kavitagaikwad103@gmail.com> - 5.0-3
+- Obsolete rubygem-autoparse and rubygem-launchy
+
 * Thu Sep 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.0-2
 - Obsolete rubygem-faraday_middleware
 
