@@ -10,8 +10,8 @@ Version: 1.0.0
 Release: 1%{?dist}
 Summary: Simple and easy way to know if you're on windows or not (reliably), as well as how many bits the OS is, etc
 Group: Development/Languages
-License: FIXME
-URL: http://github.com/rdp/os
+License: MIT
+URL: https://github.com/rdp/os
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -69,10 +69,8 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/.autotest
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/VERSION
-%{gem_instdir}/autotest
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -82,11 +80,13 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/.document
 %doc %{gem_instdir}/ChangeLog
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/os.gemspec
 %{gem_instdir}/spec
+%{gem_instdir}/autotest
+%{gem_instdir}/.autotest
 
 %changelog
 * Thu Mar 14 2019 kgaikwad <kavitagaikwad103@gmail.com> 1.0.0-1

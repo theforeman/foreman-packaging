@@ -70,7 +70,6 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/CHANGES.md
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -80,6 +79,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGES.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 %{gem_instdir}/uber.gemspec

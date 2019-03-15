@@ -104,7 +104,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/fog-google.gemspec
 %{gem_instdir}/test
 %{gem_instdir}/ci
-%{gem_instdir}/MIGRATING.md
+%doc %{gem_instdir}/MIGRATING.md
 
 %changelog
 

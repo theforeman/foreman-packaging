@@ -8,7 +8,7 @@
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.4
 Release: 1%{?dist}
-Summary: Renders and parses JSON/XML/YAML documents from and to Ruby objects. Includes plain properties, collections, nesting, coercion and more
+Summary: Renders and parses JSON/XML/YAML documents from and to Ruby objects
 Group: Development/Languages
 License: MIT
 URL: https://github.com/trailblazer/representable/
@@ -74,16 +74,16 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/CHANGES.md
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/TODO
-%{gem_instdir}/TODO-4.0.md
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGES.md
+%doc %{gem_instdir}/TODO
+%doc %{gem_instdir}/TODO-4.0.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
