@@ -11,7 +11,7 @@ Release: 1%{?dist}
 Summary: Retriable is a simple DSL to retry failed code blocks with randomized exponential backoff
 Group: Development/Languages
 License: MIT
-URL: http://github.com/kamui/retriable
+URL: https://github.com/kamui/retriable
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
