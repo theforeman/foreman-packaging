@@ -1,3 +1,9 @@
+ruby-foreman-tasks-core (0.2.6-1) stable; urgency=low
+
+  * 0.2.6 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Fri, 15 Mar 2019 11:59:03 +0100
+
 ruby-foreman-tasks-core (0.2.5-1) stable; urgency=low
 
   * Initial release for Ubuntu/bionic
