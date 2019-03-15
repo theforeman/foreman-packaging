@@ -76,13 +76,13 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{_bindir}/httpclient
 %{gem_instdir}/bin
 %{gem_libdir}
-%{gem_instdir}/sample
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/sample
 %{gem_instdir}/test
 
 %changelog

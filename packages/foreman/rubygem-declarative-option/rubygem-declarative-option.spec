@@ -79,7 +79,7 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/declarative-option.gemspec

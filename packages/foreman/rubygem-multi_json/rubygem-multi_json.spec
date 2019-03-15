@@ -35,6 +35,9 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # https://fedorahosted.org/fpc/ticket/113
 Provides: bundled(%{?scl_prefix}okjson) = 20110719
 
+# OkJson is allowed to be bundled:
+# https://fedorahosted.org/fpc/ticket/113
+
 %description
 A gem to provide swappable JSON backends utilizing Yajl::Ruby, the JSON gem,
 JSON pure, or a vendored version of okjson.
