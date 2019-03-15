@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.12.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -29,14 +29,14 @@ Requires: %{?scl_prefix_ror}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.4
-Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.13
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
+Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.22
 Requires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(foreman_docker) >= 0.2.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(oauth)
@@ -51,14 +51,14 @@ BuildRequires: %{?scl_prefix_ror}rubygem(rails)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.4
-BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.13
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
+BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.22
 BuildRequires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_docker) >= 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
@@ -162,8 +162,6 @@ BuildRequires: npm(react) >= 16.4.0
 BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-bootstrap-tooltip-button) >= 1.0.6
-BuildRequires: npm(react-bootstrap-tooltip-button) < 2.0.0
 BuildRequires: npm(react-dom) >= 16.4.0
 BuildRequires: npm(react-dom) < 17.0.0
 BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
@@ -287,8 +285,6 @@ Requires: npm(react) >= 16.4.0
 Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-bootstrap-tooltip-button) >= 1.0.6
-Requires: npm(react-bootstrap-tooltip-button) < 2.0.0
 Requires: npm(react-dom) >= 16.4.0
 Requires: npm(react-dom) < 17.0.0
 Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
@@ -372,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Mar 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.12.0-0.4.pre.master
+- Update gem and NPM dependencies
+
 * Thu Feb 7 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.12.0-0.3.pre.master
 - Require activerecord-import
 
