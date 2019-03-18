@@ -142,6 +142,7 @@
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
       <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
+      <packagereq type="default">tfm-rubygem-vault</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
