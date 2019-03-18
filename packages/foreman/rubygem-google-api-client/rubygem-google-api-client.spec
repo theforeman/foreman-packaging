@@ -1,91 +1,122 @@
+# Generated from google-api-client-0.23.9.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name google-api-client
 
-Summary: Google API Ruby Client makes it trivial to access supported APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.23.9
 Release: 1%{?dist}
+Summary: Client for accessing Google APIs
 Group: Development/Languages
-License: ASL 2.0
+License: Apache-2.0
 URL: https://github.com/google/google-api-ruby-client
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.0
 Requires: %{?scl_prefix_ruby}ruby < 3
-Requires: %{?scl_prefix}rubygem(addressable) >= 2.5.1
-Requires: %{?scl_prefix}rubygem(addressable) < 3.0
-Requires: %{?scl_prefix}rubygem(retriable) >= 2.0
-Requires: %{?scl_prefix}rubygem(retriable) < 4
-Requires: %{?scl_prefix}rubygem(signet) >= 0.9
-Requires: %{?scl_prefix}rubygem(signet) < 1.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(representable) >= 3.0
 Requires: %{?scl_prefix}rubygem(representable) < 4
-Requires: %{?scl_prefix}rubygem(mime-types) >= 3.0
-Requires: %{?scl_prefix}rubygem(mime-types) < 4
+Requires: %{?scl_prefix}rubygem(retriable) >= 2.0
+Requires: %{?scl_prefix}rubygem(retriable) < 4.0
+Requires: %{?scl_prefix}rubygem(addressable) >= 2.5
+Requires: %{?scl_prefix}rubygem(addressable) < 3
+Requires: %{?scl_prefix}rubygem(addressable) >= 2.5.1
+Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 3.0
+Requires: %{?scl_prefix_ror}rubygem(mime-types) < 4
+Requires: %{?scl_prefix}rubygem(signet) >= 0.9
+Requires: %{?scl_prefix}rubygem(signet) < 1
 Requires: %{?scl_prefix}rubygem(googleauth) >= 0.5
-Requires: %{?scl_prefix}rubygem(googleauth) < 0.7
+Requires: %{?scl_prefix}rubygem(googleauth) < 0.7.0
 Requires: %{?scl_prefix}rubygem(httpclient) >= 2.8.1
-Requires: %{?scl_prefix}rubygem(httpclient) < 3
-Requires: ca-certificates
+Requires: %{?scl_prefix}rubygem(httpclient) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-The Google API Ruby Client makes it trivial to discover and access supported
-APIs.
+Client for accessing Google APIs.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-# kill bundled cacert.pem
-ln -sf /etc/pki/tls/cert.pem \
-  %{buildroot}%{gem_libdir}/cacert.pem
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
+%{_bindir}/generate-api
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.yardopts
+%license %{gem_instdir}/LICENSE
+%{gem_instdir}/api_names.yaml
+%{gem_instdir}/bin
+%{gem_instdir}/generated
 %{gem_libdir}
+%{gem_instdir}/rakelib
+%{gem_instdir}/samples
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/google-api-client.gemspec
-%exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/spec
 
 %files doc
 %doc %{gem_docdir}
+%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/MIGRATING.md
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/google-api-client.gemspec
 
 %changelog
 * Wed Mar 13 2019 kgaikwad <kavitagaikwad103@gmail.com> 0.23.9-1
