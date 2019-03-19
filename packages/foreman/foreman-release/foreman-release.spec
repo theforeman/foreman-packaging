@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 
 Name:     foreman-release
 Version:  1.21.0
@@ -54,7 +54,6 @@ Defines yum repositories for Foreman clients.
 
 %files -n foreman-client-release
 %config %{repo_dir}/foreman-client.repo
-%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %if 0%{?rhel} == 6
 %config %{repo_dir}/pulp.repo
@@ -109,6 +108,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Tue Mar 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-2
+- Remove GPG key from -client package
+
 * Tue Feb 26 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-1
 - Release 1.21.0
 
