@@ -3,11 +3,11 @@ name=Foreman client nightly
 baseurl=https://yum.theforeman.org/client/nightly/$DIST/$basearch
 enabled=1
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
 
 [foreman-client-source]
 name=Foreman client nightly - source
 baseurl=https://yum.theforeman.org/client/nightly/$DIST/source
 enabled=0
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
