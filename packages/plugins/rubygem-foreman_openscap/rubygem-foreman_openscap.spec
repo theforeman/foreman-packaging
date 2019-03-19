@@ -7,7 +7,7 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.4
+Version: 0.12.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -16,7 +16,7 @@ URL: https://github.com/theforeman/foreman_openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: scap-security-guide
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
@@ -30,8 +30,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
-# end generated dependencies
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
 
@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Mar 19 2019 Marek Hulan <mhulan@redhat.com> 0.12.1-1
+- Update to 0.12.1
+
 * Wed Jan 16 2019 Marek Hulan <mhulan@redhat.com> 0.11.4-1
 - Update to 0.11.4
 
