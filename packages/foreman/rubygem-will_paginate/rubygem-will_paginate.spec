@@ -6,8 +6,8 @@
 
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       3.1.5
-Release:       3%{?dist}
+Version:       3.1.7
+Release:       1%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           https://github.com/mislav/will_paginate
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/spec
 
 %changelog
+* Tue Mar 19 2019 Michael Moll <mmoll@mmoll.at> - 3.1.7-1
+- Update will_paginate to 3.1.7
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.1.5-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
