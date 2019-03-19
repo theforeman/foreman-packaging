@@ -325,6 +325,7 @@ scl = tfm
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
+  rubygem-aws-eventstream
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
@@ -336,6 +337,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-down
   rubygem-ffi
   rubygem-fog-proxmox
+  rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
@@ -361,8 +364,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_omaha
   rubygem-foreman_one
   rubygem-foreman_openscap
-  rubygem-foreman_probing_core
   rubygem-foreman_probing
+  rubygem-foreman_probing_core
   rubygem-foreman_remote_execution
   rubygem-foreman_remote_execution_core
   rubygem-foreman_rescue
@@ -370,8 +373,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
-  rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_templates
   rubygem-foreman_userdata
   rubygem-foreman_vmwareannotations
