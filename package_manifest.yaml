@@ -552,6 +552,7 @@ plugin_scl_packages:
       - el7-foreman-plugins-nightly
   hosts:
     rubygem-angular-rails-templates: {}
+    rubygem-aws-eventstream: {}
     rubygem-bastion: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
