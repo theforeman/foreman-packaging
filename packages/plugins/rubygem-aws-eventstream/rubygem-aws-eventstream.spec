@@ -10,8 +10,8 @@ Version: 1.0.2
 Release: 1%{?dist}
 Summary: AWS Event Stream Library
 Group: Development/Languages
-License: Apache-2.0
-URL: http://github.com/aws/aws-sdk-ruby
+License: ASL 2.0
+URL: https://github.com/aws/aws-sdk-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
