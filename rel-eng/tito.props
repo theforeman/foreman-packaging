@@ -318,6 +318,7 @@ scl = tfm
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
+  rubygem-aws-eventstream
   rubygem-bastion
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
