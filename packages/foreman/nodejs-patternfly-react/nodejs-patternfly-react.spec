@@ -1,10 +1,10 @@
 %global npm_name patternfly-react
 
 Name: nodejs-patternfly-react
-Version: 2.29.0
+Version: 2.31.0
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
-License: Apache-2.0
+License: MIT
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -25,7 +25,7 @@ Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 0.33.0
 Requires: npm(react-bootstrap-switch) >= 15.5.3
 Requires: npm(react-bootstrap-switch) < 16.0.0
-Requires: npm(react-bootstrap-typeahead) >= 3.1.3
+Requires: npm(react-bootstrap-typeahead) >= 3.4.1
 Requires: npm(react-bootstrap-typeahead) < 4.0.0
 Requires: npm(react-c3js) >= 0.1.20
 Requires: npm(react-c3js) < 0.2.0
@@ -59,6 +59,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr __mocks__ %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -69,11 +70,15 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
+%license LICENSE
 %doc CHANGELOG.md
 %doc CONTRIBUTING.md
 %doc README.md
 
 %changelog
+* Tue Mar 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.31.0-1
+- Update to 2.31.0
+
 * Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 2.29.0-1
 - Update to 2.29.0
 
