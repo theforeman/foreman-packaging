@@ -11,3 +11,4 @@ Architecture: all
 Depends: ${misc:Depends}, bundler, foreman-compute (>= 1.15.0~rc1), ruby-foreman-deface (<<2.0.0)
 Description: Foreman Docker compute resource
  Docker compute resource plugin for Foreman
+ This version does not provide any functionality and only makes plugin removal easier.
