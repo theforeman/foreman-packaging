@@ -8,7 +8,7 @@
 
 Summary:    Provision and manage Docker containers and images from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.1.1
+Version:    5.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -22,19 +22,11 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(docker-api) >= 1.18
-Requires: %{?scl_prefix}rubygem(docker-api) < 2
-Requires: %{?scl_prefix}rubygem(excon) >= 0.46
-Requires: %{?scl_prefix}rubygem(excon) < 1
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(wicked) >= 1.1
 Requires: %{?scl_prefix}rubygem(wicked) < 2
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(docker-api) >= 1.18
-BuildRequires: %{?scl_prefix}rubygem(docker-api) < 2
-BuildRequires: %{?scl_prefix}rubygem(excon) >= 0.46
-BuildRequires: %{?scl_prefix}rubygem(excon) < 1
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(wicked) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(wicked) < 2
@@ -50,6 +42,7 @@ Provides: foreman-docker
 
 %description
 Provision and manage Docker containers and images from Foreman.
+This version does not provide any functionality and only makes plugin removal easier.
 
 
 %package doc
@@ -106,7 +99,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
@@ -117,11 +109,13 @@ cp -pa .%{gem_dir}/* \
 
 %posttrans
 %{foreman_db_migrate}
-%{foreman_apipie_cache}
 %{foreman_restart}
 exit 0
 
 %changelog
+* Wed Mar 20 2019 Marek Hulan <mhulan@redhat.com> 5.0.0-1
+- Update to 5.0.0
+
 * Wed Feb 27 2019 Sebastian Gräßl <mail@bastilian.me> 4.1.1-1
 - Update to 4.1.1
 
