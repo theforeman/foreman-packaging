@@ -561,7 +561,6 @@ plugin_scl_packages:
     rubygem-dalli: {}
     rubygem-deface: {}
     rubygem-diffy: {}
-    rubygem-docker-api: {}
     rubygem-down: {}
     rubygem-ffi: {}
     rubygem-fog-proxmox: {}

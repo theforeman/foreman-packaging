@@ -62,7 +62,6 @@
       <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
-      <packagereq type="default">tfm-rubygem-docker-api</packagereq>
       <packagereq type="default">tfm-rubygem-down</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
@@ -195,7 +194,6 @@
       <packagereq type="default">tfm-rubygem-dalli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-docker-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
