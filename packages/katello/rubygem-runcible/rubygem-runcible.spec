@@ -4,7 +4,7 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.11.0
+Version:        2.11.1
 Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Tue Mar 19 2019 Justin Sherrill 2.11.1-1
+- Update to 2.11.1
+
 * Mon Jan 21 2019 Evgeni Golov 2.11.0-1
 - Update to 2.11.0
 
