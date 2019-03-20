@@ -6,8 +6,8 @@
 Summary: Module for the 'fog' gem to support OpenStack clouds
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 0.1.25
-Release: 2%{?dist}
+Version: 1.0.8
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-openstack
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Mar 20 2019 Marek Hulan <mhulan@redhat.com> 1.0.8-1
+- Update to 1.0.8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.25-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
