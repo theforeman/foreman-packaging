@@ -168,7 +168,6 @@
       <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
       <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
-      <packagereq type="default">tfm-rubygem-trollop</packagereq>
       <packagereq type="default">tfm-rubygem-uber</packagereq>
       <packagereq type="default">tfm-rubygem-unf</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
@@ -510,7 +509,6 @@
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-trollop-doc</packagereq>
       <packagereq type="default">tfm-rubygem-uber-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
