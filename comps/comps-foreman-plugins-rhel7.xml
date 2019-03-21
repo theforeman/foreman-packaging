@@ -163,6 +163,7 @@
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">rubygem-sequel-doc</packagereq>
+      <packagereq type="default">rubygem-smart-proxy-probing-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42-doc</packagereq>
@@ -178,7 +179,6 @@
       <packagereq type="default">rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_omaha-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_openscap-doc</packagereq>
-      <packagereq type="default">rubygem-smart-proxy-probing-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_pulp-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_realm_ad_plugin-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
@@ -196,8 +196,10 @@
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>
@@ -222,17 +224,15 @@
       <packagereq type="default">tfm-rubygem-foreman_omaha-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_probing_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_probing-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_remote_execution_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_probing_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_remote_execution-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_remote_execution_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_rescue-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_salt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot_management-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_spacewalk-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_userdata-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations-doc</packagereq>

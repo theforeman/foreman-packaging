@@ -247,8 +247,8 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-hoe
-  rubygem-httpclient
   rubygem-http-cookie
+  rubygem-httpclient
   rubygem-ipaddress
   rubygem-journald-logger
   rubygem-journald-native
@@ -265,10 +265,11 @@ whitelist = foreman
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-ping
-  rubygem-netrc
   rubygem-net-scp
   rubygem-net-ssh
+  rubygem-netrc
   rubygem-oauth
+  rubygem-optimist
   rubygem-os
   rubygem-ovirt-engine-sdk
   rubygem-paint
@@ -294,10 +295,10 @@ whitelist = foreman
   rubygem-retriable
   rubygem-roadie
   rubygem-roadie-rails
-  rubygem-ruby2ruby
-  rubygem-rubyforge
   rubygem-ruby-libvirt
+  rubygem-ruby2ruby
   rubygem-ruby_parser
+  rubygem-rubyforge
   rubygem-safemode
   rubygem-scoped_search
   rubygem-secure_headers
