@@ -133,6 +133,7 @@ foreman_scl_packages:
         - koji-foreman-plugins
     rubygem-netrc: {}
     rubygem-oauth: {}
+    rubygem-optimist: {}
     rubygem-os: {}
     rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
