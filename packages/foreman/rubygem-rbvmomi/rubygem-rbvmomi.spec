@@ -5,8 +5,8 @@
 
 Summary: Ruby interface to the VMware vSphere API
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.10.0
-Release: 3%{?dist}
+Version: 2.0.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vmware/rbvmomi
@@ -23,8 +23,8 @@ Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5
 Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(builder) >= 3.0
 Requires: %{?scl_prefix_ror}rubygem(builder) < 4.0
-Requires: %{?scl_prefix}rubygem(trollop) >= 2.1
-Requires: %{?scl_prefix}rubygem(trollop) < 3.0
+Requires: %{?scl_prefix}rubygem(optimist) >= 3.0
+Requires: %{?scl_prefix}rubygem(optimist) < 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
 BuildRequires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5
@@ -106,6 +106,9 @@ popd
 %exclude %{gem_instdir}/*.gemspec
 
 %changelog
+* Thu Mar 21 2019 Marek Hulan <mhulan@redhat.com> 2.0.1-1
+- Update to 2.0.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.10.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
