@@ -175,7 +175,6 @@ foreman_scl_packages:
     rubygem-statsd-instrument: {}
     rubygem-syntax: {}
     rubygem-text: {}
-    rubygem-trollop: {}
     rubygem-uber: {}
     rubygem-unf: {}
     rubygem-unf_ext: {}
