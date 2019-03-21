@@ -6,7 +6,7 @@
 Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 3.3.0
+Version: 3.4.0
 Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/stale.yml
 
 %changelog
+* Thu Mar 21 2019 Marek Hulan <mhulan@redhat.com> 3.4.0-1
+- Update to 3.4.0
+
 * Thu Feb 21 2019 Marek Hulan <mhulan@redhat.com> 3.3.0-1
 - Update to 3.3.0
 
