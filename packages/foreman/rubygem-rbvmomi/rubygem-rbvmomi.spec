@@ -96,14 +96,8 @@ popd
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CONTRIBUTORS.md
-%doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/devel
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/test
-%doc %{gem_instdir}/examples
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/*.gemspec
 
 %changelog
 * Thu Mar 21 2019 Marek Hulan <mhulan@redhat.com> 2.0.1-1
