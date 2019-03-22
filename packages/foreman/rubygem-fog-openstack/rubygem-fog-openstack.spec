@@ -65,6 +65,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/supported.md
 %doc %{gem_instdir}/docs
 %doc %{gem_instdir}/examples
+%doc %{gem_instdir}/playbooks
+%doc %{gem_instdir}/unit
 %{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/docker-compose.yml
