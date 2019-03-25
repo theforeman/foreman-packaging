@@ -75,7 +75,18 @@ gem build %{gem_name}.gemspec
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
 %{?scl:scl enable %{scl} - << \EOF}
-%gem_install
+#%%gem_install is not used here because building docs takes to much time
+mkdir -p .%{gem_dir}
+
+CONFIGURE_ARGS="--with-cflags='%{optflags}' $CONFIGURE_ARGS" \
+gem install \
+        -V \
+        --local \
+        --build-root . \
+        --force \
+        --no-document \
+        --bindir %{_bindir} \
+        %{gem_name}-%{version}.gem 
 %{?scl:EOF}
 
 %install
@@ -107,7 +118,8 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_spec}
 
 %files doc
-%doc %{gem_docdir}
+#%%gem_docdir is not populated because building docs takes to much time
+#%%doc %%{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
