@@ -6,7 +6,7 @@
 
 Name: ansiblerole-foreman_scap_client
 Summary: Packaging of the foreman_scap_client Ansible role
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?dist}
 License: GPLv3
 
@@ -36,5 +36,7 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %doc %{repo_name}-%{version}/README.md
 
 %changelog
+* Mon Mar 25 2019 Ondrej Prazak <oprazak@redhat.com> - 0.0.2-1
+- Update to version 0.0.2
 * Thu Feb 14 2019 Ondrej Prazak <oprazak@redhat.com> - 0.0.1-1
 - Initial release.
