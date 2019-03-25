@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.4.2
-Release: 2%{?dist}
+Version: 3.4.3
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -212,9 +212,12 @@ rm %{buildroot}%{plugins_dir}/__init__.py
 %endif
 
 # executables
-%if %{yum_install} || %{zypper_install}
 mkdir -p %{buildroot}%{_sbindir}
+%if %{yum_install} || %{zypper_install}
 cp bin/* %{buildroot}%{_sbindir}/
+%endif
+%if %{dnf_install}
+cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
 
 #clean up tracer if its not being built
@@ -367,12 +370,15 @@ exit 0
 %if %{dnf_install}
 %{katello_libdir}/__pycache__/tracer.*
 %{plugins_dir}/__pycache__/tracer_upload.*
-%else
-%attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
+%attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif #build_tracer
 
 %changelog
+* Mon Mar 25 2019 Evgeni Golov - 3.4.3-1
+- Update to 3.4.3
+- Install katello-tracer-upload wrapper on DNF platforms
+
 * Wed Jan 30 2019 Evgeni Golov - 3.4.2-2
 - Explicitly build using Python3 on Python3 distibutions
 
