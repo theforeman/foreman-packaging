@@ -8,7 +8,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.2
+Version: 0.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Ansible plugin for Hammer CLI
 Group: Development/Languages
@@ -85,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 26 2019 Oleh Fedorenko <ofedoren@redhat.com> 0.2.0-1
+- Update to 0.2.0
+
 * Fri Jan 25 2019 Marek Hulan <mhulan@redhat.com> 0.1.2-1
 - Update to 0.1.2
 
