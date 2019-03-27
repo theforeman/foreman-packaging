@@ -98,9 +98,9 @@ Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
-Requires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
+Requires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
 Requires: %{?scl_prefix}rubygem(net-scp)
-Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(net-ping)
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
@@ -125,7 +125,7 @@ Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
@@ -166,7 +166,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
 BuildRequires: %{?scl_prefix}rubygem(audited) < 5
-BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
@@ -527,8 +527,8 @@ Meta package to install requirements for libvirt compute resource support.
 Summary: Foreman OpenStack support
 Group:  Applications/System
 # start specfile openstack Requires
-Requires: %{?scl_prefix}rubygem(fog-openstack) >= 0.1.25
-Requires: %{?scl_prefix}rubygem(fog-openstack) < 1.0
+Requires: %{?scl_prefix}rubygem(fog-openstack) >= 1.0.8
+Requires: %{?scl_prefix}rubygem(fog-openstack) < 2.0
 # end specfile openstack Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -553,26 +553,6 @@ Meta package to install requirements for oVirt compute resource support.
 
 %files ovirt
 %{_datadir}/%{name}/bundler.d/ovirt.rb
-
-%package compute
-Summary: Foreman compute resource Fog dependencies
-Group:  Applications/System
-# start specfile fog Requires
-Requires: %{?scl_prefix}rubygem(fog) = 1.42.1
-# end specfile fog Requires
-Requires: %{name} = %{version}-%{release}
-Obsoletes: foreman-compute < 1.8.0
-Obsoletes: foreman-fog < 1.0.0
-Provides: foreman-fog = 1.0.0
-Obsoletes: foreman-ec2 < 1.3.0
-
-%description compute
-Meta package to install dependencies to support some compute resources. Most
-compute resources have a more specific package which should be installed in
-preference to this package.
-
-%files compute
-%{_datadir}/%{name}/bundler.d/fog.rb
 
 %package ec2
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
@@ -607,8 +587,10 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 2.5.0
-Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
+Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
+Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -622,9 +604,7 @@ Meta package to install requirements for VMware compute resource support.
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 # start specfile gce Requires
-Requires: %{?scl_prefix}rubygem(fog-google) <= 0.1.0
-Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.8.2
-Requires: %{?scl_prefix}rubygem(google-api-client) < 0.9.0
+Requires: %{?scl_prefix}rubygem(fog-google) >= 1.8.2
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
