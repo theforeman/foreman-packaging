@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:    foreman
@@ -62,8 +62,8 @@ Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
 Requires: %{?scl_prefix}rubygem(audited) < 5
-Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.0
-Requires: %{?scl_prefix}rubygem(will_paginate) < 4.0
+Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
+Requires: %{?scl_prefix}rubygem(will_paginate) < 4
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.3
@@ -167,7 +167,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
 BuildRequires: %{?scl_prefix}rubygem(audited) < 5
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
-BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.3
@@ -202,9 +202,9 @@ BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
 BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(fog-core) = 1.45.0
+BuildRequires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
-BuildRequires: %{?scl_prefix}rubygem(net-ssh)
+BuildRequires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(net-ping)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
@@ -229,7 +229,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
@@ -256,11 +256,11 @@ BuildRequires: nodejs-packaging
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/addon-actions) >= 3.4.11
+#BuildRequires: npm(@storybook/addon-actions) >= 3.4.12
 #BuildRequires: npm(@storybook/addon-actions) < 3.5.0
-#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.11
+#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.12
 #BuildRequires: npm(@storybook/addon-knobs) < 3.5.0
-#BuildRequires: npm(@storybook/react) >= 3.4.11
+#BuildRequires: npm(@storybook/react) >= 3.4.12
 #BuildRequires: npm(@storybook/react) < 3.5.0
 #BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
 #BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
@@ -386,6 +386,8 @@ BuildRequires: npm(datatables.net-bs) >= 1.10.12
 BuildRequires: npm(datatables.net-bs) < 1.11.0
 BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
+BuildRequires: npm(file-saver) >= 2.0.1
+BuildRequires: npm(file-saver) < 3.0.0
 BuildRequires: npm(intl) >= 1.2.5
 BuildRequires: npm(intl) < 1.3.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
@@ -412,7 +414,7 @@ BuildRequires: npm(number_helpers) >= 0.1.1
 BuildRequires: npm(number_helpers) < 1.0.0
 BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.29.0
+BuildRequires: npm(patternfly-react) >= 2.30.6
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -528,7 +530,7 @@ Summary: Foreman OpenStack support
 Group:  Applications/System
 # start specfile openstack Requires
 Requires: %{?scl_prefix}rubygem(fog-openstack) >= 1.0.8
-Requires: %{?scl_prefix}rubygem(fog-openstack) < 2.0
+Requires: %{?scl_prefix}rubygem(fog-openstack) < 2.0.0
 # end specfile openstack Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -605,6 +607,7 @@ Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 # start specfile gce Requires
 Requires: %{?scl_prefix}rubygem(fog-google) >= 1.8.2
+Requires: %{?scl_prefix}rubygem(fog-google) < 1.9.0
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -628,11 +631,11 @@ Requires: nodejs >= 6.10
 Requires: libuv
 
 # start package.json devDependencies Requires
-#Requires: npm(@storybook/addon-actions) >= 3.4.11
+#Requires: npm(@storybook/addon-actions) >= 3.4.12
 #Requires: npm(@storybook/addon-actions) < 3.5.0
-#Requires: npm(@storybook/addon-knobs) >= 3.4.11
+#Requires: npm(@storybook/addon-knobs) >= 3.4.12
 #Requires: npm(@storybook/addon-knobs) < 3.5.0
-#Requires: npm(@storybook/react) >= 3.4.11
+#Requires: npm(@storybook/react) >= 3.4.12
 #Requires: npm(@storybook/react) < 3.5.0
 #Requires: npm(@storybook/storybook-deployer) >= 2.0.0
 #Requires: npm(@storybook/storybook-deployer) < 3.0.0
@@ -758,6 +761,8 @@ Requires: npm(datatables.net-bs) >= 1.10.12
 Requires: npm(datatables.net-bs) < 1.11.0
 Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
+Requires: npm(file-saver) >= 2.0.1
+Requires: npm(file-saver) < 3.0.0
 Requires: npm(intl) >= 1.2.5
 Requires: npm(intl) < 1.3.0
 Requires: npm(ipaddr.js) >= 1.2.0
@@ -784,7 +789,7 @@ Requires: npm(number_helpers) >= 0.1.1
 Requires: npm(number_helpers) < 1.0.0
 Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.29.0
+Requires: npm(patternfly-react) >= 2.30.6
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -1308,6 +1313,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Mar 27 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.7.develop
+- Update Gem and NPM dependencies
+
 * Thu Feb 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.6.develop
 - Update Gem and NPM dependencies
 
