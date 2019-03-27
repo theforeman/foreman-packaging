@@ -85,19 +85,6 @@ Description: metapackage providing development dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
-Package: foreman-compute
-Architecture: all
-Section: web
-Priority: extra
-Recommends: foreman-ec2
-Depends: foreman (= ${binary:Version}), libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
-Description: metapackage providing fog dependencies for Foreman,
- adding OpenStack and Rackspace compute resource support.
- This package provides fog dependencies for Foreman, a
- flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
 Package: foreman-ec2
 Architecture: all
 Section: web
@@ -150,7 +137,7 @@ Package: foreman-ovirt
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman (= ${binary:Version}), foreman-compute (= ${binary:Version}), libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), libcurl4-openssl-dev, libxml2-dev, ${misc:Depends}
 Description: metapackage providing ovirt dependencies for Foreman
  This package provides ovirt dependencies for Foreman, a
  flexible systems management web application.
