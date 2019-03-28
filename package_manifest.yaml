@@ -36,7 +36,7 @@ foreman_scl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=test_develop"
+        - "--arg jenkins_job=foreman-develop-release"
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
