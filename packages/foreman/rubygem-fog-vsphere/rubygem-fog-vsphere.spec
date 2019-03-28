@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
 License: MIT
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 1.9
-Requires: %{?scl_prefix}rubygem(rbvmomi) < 2
+Requires: %{?scl_prefix}rubygem(rbvmomi) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 28 2019 Marek Hulan <mhulan@redhat.com> 3.0.0-2
+- Update dependencies
+
 * Thu Mar 21 2019 Marek Hulan <mhulan@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
