@@ -1,80 +1,109 @@
+# Generated from fog-openstack-1.0.8.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name fog-openstack
 
-Summary: Module for the 'fog' gem to support OpenStack clouds
 Name: %{?scl_prefix}rubygem-%{gem_name}
-
 Version: 1.0.8
-Release: 1%{?dist}
-Group: Development/Ruby
+Release: 2%{?dist}
+Summary: OpenStack fog provider gem
+Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-openstack
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.40
-Requires: %{?scl_prefix}rubygem(fog-core) < 2.0
+
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(fog-core) >= 2.1
+Requires: %{?scl_prefix}rubygem(fog-core) < 3
 Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
-Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-
-%define gembuilddir %{buildroot}%{gem_dir}
+# end specfile generated dependencies
 
 %description
-This is the plugin Gem to talk to OpenStack clouds via fog.
+OpenStack fog provider gem.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.hound.yml
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.ruby-gemset
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.zuul.yaml
+%license %{gem_instdir}/LICENSE.md
+%{gem_instdir}/bin
 %{gem_libdir}
+%{gem_instdir}/playbooks
+%{gem_instdir}/supported.md
+%{gem_instdir}/unit
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.md
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %doc %{gem_instdir}/CONTRIBUTING.md
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/supported.md
-%doc %{gem_instdir}/docs
-%doc %{gem_instdir}/examples
-%doc %{gem_instdir}/playbooks
-%doc %{gem_instdir}/unit
-%{gem_instdir}/Gemfile*
 %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/docker-compose.yml
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/bin
-%exclude %{gem_instdir}/%{gem_name}.gemspec
+%doc %{gem_instdir}/docker-compose.yml
+%doc %{gem_instdir}/docs
+%{gem_instdir}/examples
+%{gem_instdir}/fog-openstack.gemspec
 
 %changelog
+* Thu Mar 28 2019 Evgeni Golov 1.0.8-2
+- Regen SPEC based on GEM and new template
+
 * Wed Mar 20 2019 Marek Hulan <mhulan@redhat.com> 1.0.8-1
 - Update to 1.0.8
 
