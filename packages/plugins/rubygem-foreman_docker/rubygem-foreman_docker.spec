@@ -9,14 +9,12 @@
 Summary:    Provision and manage Docker containers and images from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_docker
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: foreman-compute >= %{foreman_min_version}
-BuildRequires: foreman-compute >= %{foreman_min_version}
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -113,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Mar 28 2019 Evgeni Golov - 5.0.0-2
+- Drop foreman-compute requirement
+
 * Wed Mar 20 2019 Marek Hulan <mhulan@redhat.com> 5.0.0-1
 - Update to 5.0.0
 
