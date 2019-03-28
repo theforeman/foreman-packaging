@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.12.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -29,9 +29,8 @@ Requires: %{?scl_prefix_ror}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(anemone)
+Requires: %{?scl_prefix}rubygem(angular-rails-templates)
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-Requires: %{?scl_prefix}rubygem(bastion) >= 6.1.22
-Requires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
@@ -51,9 +50,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(rails)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(anemone)
+BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates)
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-BuildRequires: %{?scl_prefix}rubygem(bastion) >= 6.1.22
-BuildRequires: %{?scl_prefix}rubygem(bastion) < 7.0.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
@@ -75,6 +73,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
+Obsoletes: %{?scl_prefix}rubygem(bastion)
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
@@ -348,6 +347,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/engines
 %{gem_libdir}
 %{gem_instdir}/locale
+%{gem_instdir}/public/assets/bastion
 %{gem_instdir}/public/assets/bastion_katello
 %{gem_instdir}/vendor
 %exclude %{gem_cache}
@@ -368,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Mar 29 2019 Justin Sherrill - 3.12.0-0.5.pre.master
+- Remove bastion
+
 * Fri Mar 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.12.0-0.4.pre.master
 - Update gem and NPM dependencies
 
