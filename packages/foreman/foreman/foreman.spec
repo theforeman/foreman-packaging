@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prerelease develop
 
 Name:    foreman
@@ -547,7 +547,6 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.5
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
 # end specfile ovirt Requires
-Requires: foreman-compute = %{version}-%{release}
 Requires: %{name} = %{version}-%{release}
 
 %description ovirt
@@ -1313,6 +1312,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Mar 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.8.develop
+- Drop foreman-compute requirement
+
 * Wed Mar 27 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.7.develop
 - Update Gem and NPM dependencies
 
