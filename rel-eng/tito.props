@@ -512,6 +512,7 @@ whitelist = katello
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
   pulp-katello
+  rhel8-kickstart-setup
   rubygem-activerecord-import
   rubygem-anemone
   rubygem-ethon

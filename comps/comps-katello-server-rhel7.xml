@@ -65,6 +65,9 @@
       <!-- temporary qpid packages -->
       <packagereq type="default">qpid-dispatch-router</packagereq>
       <packagereq type="default">qpid-dispatch-tools</packagereq>
+
+      <!-- other katello related packages -->
+      <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
   </group>
   <group>

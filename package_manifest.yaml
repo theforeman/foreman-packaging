@@ -508,6 +508,7 @@ katello_packages:
     nodejs-react-router-dom: {}
     nodejs-react-router: {}
     pulp-katello: {}
+    rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
     rubygem-ethon: {}
