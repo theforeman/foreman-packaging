@@ -81,7 +81,6 @@ foreman_scl_packages:
     rubygem-fog-vsphere: {}
     rubygem-fog-xenserver: {}
     rubygem-fog-xml: {}
-    rubygem-fog: {}
     rubygem-font-awesome-sass: {}
     rubygem-formatador: {}
     rubygem-friendly_id: {}

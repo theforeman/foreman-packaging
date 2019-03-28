@@ -215,7 +215,6 @@ whitelist = foreman
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
-  rubygem-fog
   rubygem-fog-aws
   rubygem-fog-core
   rubygem-fog-digitalocean
