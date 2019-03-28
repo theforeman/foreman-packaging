@@ -9,7 +9,7 @@
 Summary:    Provision and manage OpenNebula VMs from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.4
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-one
@@ -17,7 +17,6 @@ Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: foreman-compute >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -100,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Mar 28 2019 Evgeni Golov - 0.4-4
+- Drop foreman-compute requirement
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
