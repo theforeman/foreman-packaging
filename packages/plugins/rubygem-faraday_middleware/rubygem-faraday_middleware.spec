@@ -5,8 +5,8 @@
 %global gem_name faraday_middleware
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.0
-Release: 2%{?dist}
+Version: 0.13.1
+Release: 1%{?dist}
 Summary: Various middleware for Faraday
 Group: Development/Languages
 License: MIT
@@ -16,7 +16,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(faraday) < 0.10
+Requires: %{?scl_prefix}rubygem(faraday) < 1.0
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.7.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -72,12 +72,12 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/faraday_middleware.gemspec
 
 %changelog
+* Thu Mar 28 2019 Marek Hulan <mhulan@redhat.com> 0.13.1-1
+- Update to 0.13.1
+
 * Tue Jan 09 2018 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-2
 - Bump releases for base foreman plugins packages (ericdhelms@gmail.com)
 - Use HTTPS URLs for github and rubygems (ewoud@kohlvanwijngaarden.nl)
