@@ -6,7 +6,7 @@
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
-%global build_agent (0%{?suse_version} == 0)
+%global build_agent (0%{?suse_version} == 0) && ((0%{?fedora} > 28) || (0%{?rhel} > 0))
 %global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
 
 %if 0%{?suse_version}
@@ -14,7 +14,7 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.4.3
+Version: 3.5.0
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -87,6 +87,8 @@ Obsoletes: python-pulp-rpm-common < 2.16.4
 
 %if %{dnf_install}
 Requires: python3-gofer-proton
+Requires: dnf >= 4.0.9
+Requires: python3-libdnf
 %else
 Requires: python-gofer-proton >= 2.5
 %endif
@@ -375,8 +377,8 @@ exit 0
 %endif #build_tracer
 
 %changelog
-* Mon Mar 25 2019 Evgeni Golov - 3.4.3-1
-- Update to 3.4.3
+* Thu Mar 28 2019 Justin Sherrill - 3.5.0-1
+- Update to 3.5.0, drop support for agent on f27 and f28
 - Install katello-tracer-upload wrapper on DNF platforms
 
 * Wed Jan 30 2019 Evgeni Golov - 3.4.2-2
