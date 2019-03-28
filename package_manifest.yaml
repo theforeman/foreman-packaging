@@ -599,7 +599,6 @@ plugin_scl_packages:
     rubygem-foreman_monitoring: {}
     rubygem-foreman_noenv: {}
     rubygem-foreman_omaha: {}
-    rubygem-foreman_one: {}
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing_core: {}
     rubygem-foreman_probing: {}
@@ -634,7 +633,6 @@ plugin_scl_packages:
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
-    rubygem-opennebula: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
