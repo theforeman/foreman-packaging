@@ -1,29 +1,33 @@
+# Generated from fog-digitalocean-0.4.0.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name fog-digitalocean
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 3%{?dist}
+Version: 0.4.0
+Release: 1%{?dist}
 Summary: DigitalOcean fog provider gem
 Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-digitalocean
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-core) >= 1.42
-Requires: %{?scl_prefix}rubygem(fog-core) < 2
-Requires: %{?scl_prefix}rubygem(fog-json) >= 1.0
-Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1
+Requires: %{?scl_prefix}rubygem(fog-core)
+Requires: %{?scl_prefix}rubygem(fog-json)
+Requires: %{?scl_prefix}rubygem(fog-xml)
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 DigitalOcean fog provider gem.
@@ -68,14 +72,21 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%{gem_instdir}/.coveralls.yml
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.irbrc
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.md
+%{gem_instdir}/gemfiles
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%exclude %{gem_instdir}/.*
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/.document
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
@@ -83,11 +94,13 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/RELEASE.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/gemfiles
+%{gem_instdir}/fog-digitalocean.gemspec
 %{gem_instdir}/tests
-%exclude %{gem_instdir}/fog-digitalocean.gemspec
 
 %changelog
+* Thu Mar 28 2019 Evgeni Golov 0.4.0-1
+- Update to 0.4.0-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
