@@ -91,7 +91,6 @@
       <packagereq type="default">tfm-rubygem-foreman_monitoring</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_omaha</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_one</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_probing</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_probing_core</packagereq>
@@ -126,7 +125,6 @@
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
-      <packagereq type="default">tfm-rubygem-opennebula</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron</packagereq>
       <packagereq type="default">tfm-rubygem-pdf-core</packagereq>
@@ -222,7 +220,6 @@
       <packagereq type="default">tfm-rubygem-foreman_monitoring-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_omaha-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_one-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_probing-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_probing_core-doc</packagereq>
@@ -256,7 +253,6 @@
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-opennebula-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parse-cron-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pdf-core-doc</packagereq>

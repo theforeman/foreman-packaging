@@ -369,7 +369,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_monitoring
   rubygem-foreman_noenv
   rubygem-foreman_omaha
-  rubygem-foreman_one
   rubygem-foreman_openscap
   rubygem-foreman_probing
   rubygem-foreman_probing_core
@@ -404,7 +403,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
-  rubygem-opennebula
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-pdf-core
