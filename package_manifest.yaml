@@ -572,7 +572,6 @@ plugin_scl_packages:
     rubygem-diffy: {}
     rubygem-down: {}
     rubygem-ffi: {}
-    rubygem-fog-proxmox: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
@@ -589,7 +588,6 @@ plugin_scl_packages:
     rubygem-foreman_dlm: {}
     rubygem-foreman_docker: {}
     rubygem-foreman_expire_hosts: {}
-    rubygem-foreman_fog_proxmox: {}
     rubygem-foreman_git_templates: {}
     rubygem-foreman_graphite: {}
     rubygem-foreman_hooks: {}
