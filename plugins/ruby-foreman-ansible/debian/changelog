@@ -1,3 +1,9 @@
+ruby-foreman-ansible (2.3.3-1) stable; urgency=low
+
+  * Update foreman-ansible to 2.3.3
+
+ -- Marek Hulan <mhulan@redhat.com>  Fri, 29 Mar 2019 17:37:44 +0100
+
 ruby-foreman-ansible (2.3.2-1) stable; urgency=low
 
   * Update foreman-ansible to 2.3.2
