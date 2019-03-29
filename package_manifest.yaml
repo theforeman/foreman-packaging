@@ -590,6 +590,7 @@ plugin_scl_packages:
     rubygem-smart_proxy_dynflow_core: {}
     rubygem-systemu: {}
     rubygem-ttfunk: {}
+    rubygem-vault: {}
     rubygem-wicked: {}
     rubygem-zscheduler: {}
 
