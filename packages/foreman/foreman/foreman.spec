@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 9
 %global prerelease develop
 
 Name:    foreman
@@ -33,6 +33,8 @@ BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
 Conflicts: foreman-release-scl < 7-1
+
+Obsoletes: foreman-compute < %{version}-%{release}
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -1312,6 +1314,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Mar 29 2019 Tomer Brisker <tbrisker@redhat.com> - 1.22.0-0.9.develop
+- Obsolete foreman-compute
+
 * Thu Mar 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.8.develop
 - Drop foreman-compute requirement
 
