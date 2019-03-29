@@ -1,4 +1,4 @@
-# Generated from foreman_wreckingball-2.0.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from foreman_wreckingball-3.3.0.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -22,14 +22,16 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.1
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
-# end generated dependencies
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Adds status checks of the VMWare VMs to Foreman.
@@ -73,6 +75,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -85,6 +88,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_assets_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -98,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Mar 19 2019 Timo Goebel <mail@timogoebel.name> - 3.3.0-2
+- Add asset precompilation
+
 * Fri Mar 01 2019 Timo Goebel <mail@timogoebel.name> - 3.3.0-1
 - Update foreman_wreckingball to 3.3.0
 
