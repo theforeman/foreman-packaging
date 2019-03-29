@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-ansible (0.2.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/stretch
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Fir, 29 Mar 2019 19:29:29 +0000
