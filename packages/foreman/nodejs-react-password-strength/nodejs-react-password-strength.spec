@@ -1,8 +1,7 @@
 %global npm_name react-password-strength
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 2.3.1
+Name: nodejs-react-password-strength
+Version: 2.4.0
 Release: 1%{?dist}
 Summary: A password strength indicator field for use in React projects
 License: MIT
@@ -35,18 +34,18 @@ cp -pfr webpack.universal.config.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
 %doc README.md
-%doc changelog.md
 
 %changelog
+* Sun Mar 31 2019 Ohad Levy <ohadlevy@gmail.com> 2.4.0-1
+- Update to 2.4.0
+
 * Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.3.1-1
 - new package built with tito
 
