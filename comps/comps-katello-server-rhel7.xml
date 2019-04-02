@@ -61,6 +61,8 @@
       <packagereq type="default">tfm-rubygem-robotex</packagereq>
       <packagereq type="default">tfm-rubygem-runcible</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
+      <packagereq type="default">tfm-rubygem-typhoeus</packagereq>
+      <packagereq type="default">tfm-rubygem-zest</packagereq>
 
       <!-- temporary qpid packages -->
       <packagereq type="default">qpid-dispatch-router</packagereq>
@@ -83,6 +85,8 @@
       <packagereq type="optional">tfm-rubygem-redhat_access_lib-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-typhoeus-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-zest-doc</packagereq>
     </packagelist>
   </group>
 </comps>
