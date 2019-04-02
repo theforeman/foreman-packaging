@@ -13,6 +13,7 @@ NPM_BLACKLIST = [
     'babel-jest',
     'babel-plugin-dynamic-import-node',
     'coveralls',
+    'cross-env',
     'highlight.js',
     'jest',
     'prettier',
