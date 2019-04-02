@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.12.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -44,6 +44,7 @@ Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
+Requires: %{?scl_prefix}rubygem(zest)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ror}rubygem(rails)
@@ -65,6 +66,7 @@ BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(zest)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -368,6 +370,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Apr 2 2019 Tomer Brisker- 3.12.0-0.6.pre.master
+- Add zest dependency
+
 * Fri Mar 29 2019 Justin Sherrill - 3.12.0-0.5.pre.master
 - Remove bastion
 
