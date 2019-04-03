@@ -36,7 +36,7 @@
 #global dashalphatag -%{alphatag}
 
 Name:           katello-selinux
-Version:        3.0.3
+Version:        3.1.0
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -127,6 +127,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Wed Apr 03 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.1.0-1
+- Release katello-selinux 3.1.0
+
 * Thu Jul 27 2017 Justin Sherrill <jsherril@redhat.com> 3.0.3-1
 - Upgrade katello-selinux to 3.0.3 (akofink@redhat.com)
 
