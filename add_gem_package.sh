@@ -95,6 +95,33 @@ add_gem_to_comps() {
 	git add comps/
 }
 
+add_to_manifest() {
+	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] ; then
+		local section="foreman_scl_packages"
+	elif [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
+		local section="foreman_nonscl_packages"
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] ; then
+		local section="plugin_scl_packages"
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
+		local section="plugin_nonscl_packages"
+	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
+		local section="katello_packages"
+	else
+		# TODO: client packages
+		local section=""
+	fi
+
+	if [[ -n $section ]] ; then
+		./add_host.py "$section" "$PACKAGE_NAME"
+		git add package_manifest.yaml
+	else
+		echo "TODO: Add the package into the right section"
+		echo "./add_host.py SECTION '$PACKAGE_NAME'"
+		echo "git add package_manifest.yaml"
+		echo "git commit --amend --no-edit"
+	fi
+}
+
 # Main script
 
 if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $TITO_TAG ]]; then
@@ -112,6 +139,7 @@ if [[ $UPDATE == true ]] ; then
 	VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $PACKAGE_DIR/$PACKAGE_NAME.spec)
 	git commit -m "Bump $PACKAGE_NAME to $VERSION"
 else
+	add_to_manifest
 	add_to_tito_props
 	add_gem_to_comps
 	git commit -m "Add $PACKAGE_NAME package"
