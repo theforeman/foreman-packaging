@@ -10,7 +10,7 @@ Version: 3.0.0
 Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
-License: GPL-3.0+
+License: GPLv3+
 URL: https://github.com/theforeman/kafo
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 

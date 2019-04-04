@@ -4,7 +4,7 @@ Release:  1%{?dist}
 Summary:  Adjust RHEL8 Kickstart ISOs for Katello/Satellite
 
 Group:    Applications/System
-License:  GPL-3
+License:  GPLv3
 URL:      https://github.com/RedHatSatellite/rhel8-kickstart-setup
 Source0:  https://codeload.github.com/RedHatSatellite/rhel8-kickstart-setup/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
