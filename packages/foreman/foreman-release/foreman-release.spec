@@ -13,10 +13,10 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 1
 
 Name:     foreman-release
-Version:  1.21.0
+Version:  1.21.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -108,6 +108,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Thu Apr 04 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.1-1
+- Release 1.21.1
+
 * Tue Mar 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.0-2
 - Remove GPG key from -client package
 
