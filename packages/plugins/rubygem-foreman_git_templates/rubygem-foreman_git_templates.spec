@@ -12,7 +12,7 @@ Version: 1.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3
 URL: https://github.com/dm-drogeriemarkt-de/foreman_git_templates
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
