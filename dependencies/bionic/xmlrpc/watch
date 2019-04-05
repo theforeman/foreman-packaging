@@ -1,0 +1,2 @@
+version=3
+https://github.com/ruby/xmlrpc/releases .*/v(.*).tar.gz
