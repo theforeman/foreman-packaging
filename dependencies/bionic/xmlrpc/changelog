@@ -1,0 +1,14 @@
+ruby-xmlrpc (0.3.0-2) unstable; urgency=medium
+
+  * Mark ruby-xmlrpc as M-A: foreign, for libruby2.5 M-A
+  * Bump Standards-Version to 4.1.5
+  * Add myself to Uploaders:
+  * d/copyright: trim trailing whitespace
+
+ -- Chris Hofstaedtler <zeha@debian.org>  Sun, 22 Jul 2018 11:28:27 +0000
+
+ruby-xmlrpc (0.3.0-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 31 Mar 2018 15:03:47 -0300
