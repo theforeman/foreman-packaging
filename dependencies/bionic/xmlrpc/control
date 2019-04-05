@@ -1,0 +1,30 @@
+Source: ruby-xmlrpc
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>,
+           Chris Hofstaedtler <zeha@debian.org>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               rake
+Standards-Version: 4.1.5
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-xmlrpc.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-xmlrpc
+Homepage: https://github.com/ruby/xmlrpc
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-xmlrpc
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Multi-Arch: foreign
+# XXX no dependency on ruby, on purpose
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: XMLRPC library for Ruby
+ XMLRPC is a lightweight protocol that enables remote procedure calls over
+ HTTP.  It is defined at http://www.xmlrpc.com.
+ .
+ This package enables you to create a server that implements remote procedures
+ and a client that calls them.  Very little code is required to achieve either
+ of these.
