@@ -169,17 +169,6 @@ Description: metapackage providing Rackspace dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
-Package: foreman-test
-Architecture: all
-Section: web
-Priority: extra
-Depends: foreman (= ${binary:Version}), ${misc:Depends}
-Description: metapackage providing test dependencies for Foreman
- This package provides test dependencies for Foreman, a
- flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
 Package: foreman-assets
 Architecture: any
 Section: web
