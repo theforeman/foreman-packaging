@@ -69,25 +69,19 @@ Using a local git checkout, change `source_dir` as appropriate:
 
 ### Adding gem packages
 
-1. Check if it's available in Fedora:
-   * https://apps.fedoraproject.org/packages/NAME
-   * http://www.isitfedoraruby.com/fedorarpms/NAME
-   * If only building non-SCL and it's in both Fedora and EPEL, stop now
-1. If available in Fedora, copy the spec from the SCM link on the left
+1. When building to non-SCL, check if it's available in EPEL
+1. When building to SCL, check if it's not in an existing SCL. See `scl_prefixes.json`.
 1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
   `./add_gem_package.sh GEM_NAME TEMPLATE TITO_TAG`
-1. Add the package to `package_manifest.yaml`
-1. Amend the commit
+   Running without arguments will list the templates and tito tags.
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
    * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
    * Ensure summary is under 72 characters
    * Verify everything is added properly
    * Amend any changes to the existing commit
-1. Follow the "test a package" section above until it builds for all
-   targeted platforms and required SCL + non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
 ### Adding npm packages
