@@ -8,6 +8,6 @@ Homepage: https://github.com/cloudevelops/foreman_datacenter
 
 Package: ruby-foreman-datacenter
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.20.0), foreman-compute (>= 1.20.0), ruby-foreman-deface (<<2.0.0)
+Depends: ${misc:Depends}, bundler, foreman (>= 1.20.0), ruby-foreman-deface (<<2.0.0)
 Description: Foreman Datacenter for managing physical servers
  Foreman Datacenter lets you document your physical servers across multiple datacenters
