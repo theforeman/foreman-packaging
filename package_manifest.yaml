@@ -747,6 +747,7 @@ repoclosures:
     foreman-repoclosure-el7:
       repoclosure_target_repos:
         - el7-foreman-nightly
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
           - el7-base
@@ -759,6 +760,7 @@ repoclosures:
     plugins-repoclosure-el7:
       repoclosure_target_repos:
         - el7-foreman-plugins-nightly
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
           - el7-base
@@ -772,6 +774,7 @@ repoclosures:
     katello-repoclosure-el7:
       repoclosure_target_repos:
         - el7-katello-nightly
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
           - el7-base
@@ -789,6 +792,7 @@ repoclosures:
       repoclosure_config: repoclosure/yum_el7.conf
       repoclosure_target_repos:
         - el7-foreman-client-nightly
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
           - el7-base
@@ -800,6 +804,7 @@ repoclosures:
       repoclosure_config: repoclosure/yum_el6.conf
       repoclosure_target_repos:
         - el6-foreman-client-nightly
+      repoclosure_target_dist: rhel6
       repoclosure_lookaside_repos:
         rhel6:
           - el6-base
@@ -814,6 +819,7 @@ repoclosures:
       repoclosure_config: repoclosure/yum_el5.conf
       repoclosure_target_repos:
         - el5-foreman-client-nightly
+      repoclosure_target_dist: rhel5
       repoclosure_lookaside_repos:
         rhel5:
           - el5-base
@@ -827,6 +833,7 @@ repoclosures:
       repoclosure_config: repoclosure/yum_f28.conf
       repoclosure_target_repos:
         - f28-foreman-client-nightly
+      repoclosure_target_dist: fedora28
       repoclosure_lookaside_repos:
         fedora28:
           - f28-base
@@ -836,6 +843,7 @@ repoclosures:
       repoclosure_config: repoclosure/yum_f29.conf
       repoclosure_target_repos:
         - f29-foreman-client-nightly
+      repoclosure_target_dist: fedora29
       repoclosure_lookaside_repos:
         fedora29:
           - f29-base
