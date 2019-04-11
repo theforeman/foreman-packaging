@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -110,6 +110,8 @@ Obsoletes: %{scl_prefix}rubygem-launchy < 2.4.3-7
 Obsoletes: %{scl_prefix}rubygem-foreman_one < 0.4-4
 Obsoletes: %{scl_prefix}rubygem-foreman-opennebula < 4.8.0-7
 Obsoletes: %{scl_prefix}rubygem-fog < 1.42.1-3
+Obsoletes: %{scl_prefix}rubygem-extlib < 0.9.16-7
+Obsoletes: %{scl_prefix}rubygem-docker-api < 1.28.0-5
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -306,6 +308,10 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Apr 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-6
+- Obsolete tfm-rubygem-extlib
+- Obsolete tfm-rubygem-docker-api
+
 * Thu Mar 28 2019 Marek Hulan <mhulan@redhat.com> - 5.0-5
 - Obsolete fog
 
