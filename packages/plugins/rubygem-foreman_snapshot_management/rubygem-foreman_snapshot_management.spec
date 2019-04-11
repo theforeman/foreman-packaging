@@ -4,10 +4,10 @@
 
 %global gem_name foreman_snapshot_management
 %global plugin_name snapshot_management
-%global foreman_min_version 1.17.0
+%global foreman_min_version 1.20.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.5.1
+Version: 1.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
@@ -28,7 +28,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -100,6 +100,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 11 2019 Matthias Dellweg <dellweg@atix.de> 1.6.0-1
+- Update to 1.6.0
+- Add compatibility workaround for foreman-1.22 (timogoebel)
+
 * Fri Oct 19 2018 Matthias Dellweg <dellweg@atix.de> 1.5.1-1
 - Update to 1.5.1
 
