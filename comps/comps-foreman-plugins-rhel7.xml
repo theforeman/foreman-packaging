@@ -60,6 +60,7 @@
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
+      <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
