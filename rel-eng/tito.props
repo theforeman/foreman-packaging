@@ -352,6 +352,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
   rubygem-commonjs
+  rubygem-elastic-apm
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
