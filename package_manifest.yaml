@@ -225,7 +225,7 @@ foreman_nonscl_packages:
         - foreman-client-nightly-rhel7
         - foreman-client-nightly-rhel6
         - foreman-client-nightly-rhel5
-        - foreman-client-nightly-fedora27
+        - foreman-client-nightly-fedora29
         - foreman-client-nightly-fedora28
       releasers:
         - koji-foreman
@@ -428,7 +428,7 @@ foreman_client_packages:
       - foreman-client-nightly-rhel7
       - foreman-client-nightly-rhel6
       - foreman-client-nightly-rhel5
-      - foreman-client-nightly-fedora27
+      - foreman-client-nightly-fedora29
       - foreman-client-nightly-fedora28
     repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
@@ -459,10 +459,10 @@ foreman_client_packages:
       - f28-updates
       - f28-puppet-5
       - f28-foreman-client-nightly
-      - f27-base
-      - f27-updates
-      - f27-puppet-5
-      - f27-foreman-client-nightly
+      - f29-base
+      - f29-updates
+      - f29-puppet-5
+      - f29-foreman-client-nightly
   hosts:
     katello-host-tools: {}
     rubygem-foreman_scap_client: {}
@@ -782,10 +782,10 @@ repoclosures:
         - f28-base
         - f28-updates
         - f28-puppet-5
-    foreman-client-repoclosure-f27:
-      repoclosure_config: repoclosure/yum_f27.conf
-      repoclosure_target_repo: f27-foreman-client-nightly
+    foreman-client-repoclosure-f29:
+      repoclosure_config: repoclosure/yum_f29.conf
+      repoclosure_target_repo: f29-foreman-client-nightly
       repoclosure_lookaside_repos:
-        - f27-base
-        - f27-updates
-        - f27-puppet-5
+        - f29-base
+        - f29-updates
+        - f29-puppet-5
