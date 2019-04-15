@@ -1,49 +1,51 @@
+# Generated from foreman-tasks-0.15.1.gem by gem2rpm -*- rpm-spec -*-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman-tasks
+%global plugin_name foreman-tasks
+%global foreman_min_version 1.17.0
 
-%global foreman_bundlerd_dir /usr/share/foreman/bundler.d
-
-Summary: Tasks support for Foreman with Dynflow integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.0
-Release: 3%{?foremandist}%{?dist}
-Group: Development/Libraries
+Version: 0.15.1
+Release: 1%{?foremandist}%{?dist}
+Summary: Foreman plugin for showing tasks information for resoruces and users
+Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Source1: %{gem_name}.logrotate
-Requires: foreman >= 1.17.0
 
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.1
-Requires: %{?scl_prefix}rubygem(dynflow) < 2.0
-Requires: %{?scl_prefix}rubygem(get_process_mem)
-Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
-Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
-Requires: %{?scl_prefix_ror}rubygem(sinatra)
+# start specfile generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
+Requires: %{?scl_prefix_ror}rubygem(sinatra)
+Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
+Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
+Requires: %{?scl_prefix}rubygem(get_process_mem)
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.1
-BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
-BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
-BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
 BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
-BuildRequires: foreman-plugin >= 1.17.0
-BuildRequires: foreman-assets
-
+BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
+BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
+BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 The goal of this plugin is to unify the way of showing task statuses across
@@ -54,25 +56,41 @@ same resource. It also optionally provides Dynflow infrastructure for using
 it for managing the tasks.
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+BuildArch: noarch
 
 %description doc
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
+cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -88,33 +106,38 @@ chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
 # Logrotate script
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_root_sysconfdir}/logrotate.d/%{gem_name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
 
-%posttrans
-# We need to run the db:migrate after the install transaction
-%foreman_db_migrate
-%foreman_db_seed
-%foreman_apipie_cache
-%foreman_restart
-exit 0
-
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/script
+%exclude %{gem_instdir}/.babelrc
+%exclude %{gem_instdir}/.eslintrc
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.prettierrc
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.storybook
+%exclude %{gem_instdir}/.stylelintrc
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.tx
+%exclude %{gem_instdir}/.yo-rc.json
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %exclude %{gem_instdir}/Gemfile
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/bin
-%{gem_libdir}
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/deploy
-%{gem_instdir}/locale
 %{gem_instdir}/extra
+%{gem_libdir}
+%{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%{gem_instdir}/script
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
@@ -123,18 +146,28 @@ exit 0
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
-%config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
-%doc %{gem_instdir}/LICENSE
-
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{gem_name}
 %exclude %{gem_instdir}/test
+%{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
+%posttrans
+%{foreman_db_migrate}
+%{foreman_db_seed}
+%{foreman_apipie_cache}
+%{foreman_restart}
+exit 0
+
 %changelog
+* Mon Apr 15 2019 Adam Ruzicka <aruzicka@redhat.com> 0.15.1-1
+- Update to 0.15.1
+
 * Thu Mar 21 2019 Lukas Zapletal <lzap+rpm@redhat.com> 0.15.0-3
 - Fixed logrotate script for output log file
 
