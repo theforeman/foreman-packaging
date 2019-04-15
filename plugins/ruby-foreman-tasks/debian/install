@@ -1,5 +1,6 @@
 foreman-tasks.rb                  usr/share/foreman/bundler.d
 cache                             usr/share/foreman/vendor
 foreman-tasks.yaml                etc/foreman/plugins
+webpack                           var/lib/foreman/public
 apipie-cache/foreman-tasks        var/lib/foreman/public/apipie-cache/plugin
 assets                            var/lib/foreman/public
