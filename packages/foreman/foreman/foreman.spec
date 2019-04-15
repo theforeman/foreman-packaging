@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prerelease develop
 
 Name:    foreman
@@ -994,6 +994,7 @@ Meta Package to install requirements for Foreman service
 %files service
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_unitdir}/%{name}.service
+%{_datadir}/%{name}/bundler.d/service.rb
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
@@ -1076,7 +1077,7 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 
-sed -i '/^ExecStart/a EnvironmentFile=-%{_sysconfdir}/sysconfig/%{name}' %{buildroot}%{_unitdir}/%{name}.service
+sed -i '/^ExecStart/ s|/usr/bin/rails \(.\+\)$|/usr/bin/scl enable tfm "rails \1"|' %{buildroot}%{_unitdir}/%{name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
@@ -1326,6 +1327,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Apr 15 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.22.0-0.11.develop
+- Replace foreman-ruby with tfm-ruby
+
 * Mon Apr 1 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.22.0-0.10.develop
 - Add foreman-puma service
 
