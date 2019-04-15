@@ -46,7 +46,6 @@
 	"sass": "_ror",
 	"sass-rails": "_ror",
 	"sinatra": "_ror",
-	"sinatra": "_ruby",
 	"sprockets": "_ror",
 	"sprockets-rails": "_ror",
 	"sqlite3": "_ror",
