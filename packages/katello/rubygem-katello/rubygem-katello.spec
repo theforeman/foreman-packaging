@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.12.0
-%global release 7
+%global release 8
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -34,7 +34,6 @@ Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
-Requires: %{?scl_prefix}rubygem(foreman_docker) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
@@ -56,7 +55,6 @@ BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_docker) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
@@ -370,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Apr 15 2019 Ondrej Prazak <oprazak@redhat.com> - 3.12.0-0.8.pre.master
+- Remove foreman_docker as a dependency
+
 * Tue Apr 02 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-0.7.pre.master
 - Properly obsolete bastion
 
