@@ -5,15 +5,15 @@
 
 %global gem_name foreman_fog_proxmox
 %global plugin_name fog_proxmox
-%global foreman_min_version 1.17
+%global foreman_min_version 1.21
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.5
+Version: 0.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
-URL: https://github.com/tristanrobert/foreman_fog_proxmox
+URL: https://github.com/theforeman/foreman_fog_proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start generated dependencies
@@ -21,12 +21,12 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.5
+Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.6
 Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 Requires: %{?scl_prefix}rubygem(deface)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.5
+BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.6
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -40,7 +40,7 @@ Provides: foreman-%{plugin_name} = %{version}
 
 %description
 Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is
-compatible with Foreman 1.17+.
+compatible with Foreman 1.21+.
 
 
 %package doc
@@ -106,6 +106,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Apr 16 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.6.0-1
+- Update to 0.6.0
+
 * Thu Jan 03 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.5.5-1
 - Update to 0.5.5
 
