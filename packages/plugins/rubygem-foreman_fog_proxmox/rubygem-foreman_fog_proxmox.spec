@@ -40,7 +40,7 @@ Provides: foreman-%{plugin_name} = %{version}
 
 %description
 Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is
-compatible with Foreman 1.21+.
+compatible with Foreman %{foreman_min_version}+.
 
 
 %package doc
