@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ruby-foreman-fog-proxmox
-Source: https://github.com/tristanrobert/foreman_fog_proxmox
+Source: https://github.com/theforeman/foreman_fog_proxmox
 
 Files: *
 Copyright: 2018 Tristan Robert <tristan.robert.44@gmail.com>

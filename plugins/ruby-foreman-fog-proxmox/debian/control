@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Tristan Robert <tristan.robert.44@gmail.com>
 Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.17.0), foreman (>= 1.17.0), ruby-foreman-deface, foreman-sqlite3
 Standards-Version: 3.9.3
-Homepage: https://github.com/tristanrobert/foreman_fog_proxmox
+Homepage: https://github.com/theforeman/foreman_fog_proxmox
 
 Package: ruby-foreman-fog-proxmox
 Architecture: all
