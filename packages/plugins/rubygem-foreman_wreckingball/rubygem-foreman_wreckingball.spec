@@ -8,8 +8,8 @@
 %global foreman_min_version 1.18
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.3.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.4.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Apr 17 2019 Timo Goebel <mail@timogoebel.name> - 3.4.0-1
+- Update foreman_wreckingball to 3.4.0
+
 * Tue Mar 19 2019 Timo Goebel <mail@timogoebel.name> - 3.3.0-2
 - Add asset precompilation
 
