@@ -8,7 +8,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
@@ -96,5 +96,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Apr 17 2019 Timo Goebel <mail@timogoebel.name> - 1.0.1-1
+- Update foreman_git_templates to 1.0.1
+
 * Mon Mar 04 2019 Timo Goebel <mail@timogoebel.name> - 1.0.0-1
 - Add foreman_git_templates plugin
