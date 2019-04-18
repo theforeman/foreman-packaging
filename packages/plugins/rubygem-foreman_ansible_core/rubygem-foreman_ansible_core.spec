@@ -1,29 +1,34 @@
+# Generated from foreman_ansible_core-3.0.0.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.1
-Release: 1%{?foremandist}%{?dist}
+Version: 3.0.0
+Release: 1%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 1.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.2
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 0.4
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) >= 1.1
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) < 2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) < 2
 Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 Ansible integration with Foreman - core parts for dealing with Ansible
@@ -66,11 +71,10 @@ gem build %{gem_name}.gemspec
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -79,7 +83,11 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files doc
 %doc %{gem_docdir}
 
+
 %changelog
+* Thu Apr 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-1
+- Update to 3.0.0-1
+
 * Fri Jan 25 2019 Marek Hulan <mhulan@redhat.com> 2.2.1-1
 - Update to 2.2.1
 
