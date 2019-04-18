@@ -149,6 +149,7 @@ foreman_scl_packages:
     rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
+    rubygem-recursive-open-struct: {}
     rubygem-representable: {}
     rubygem-responders: {}
     rubygem-retriable: {}
