@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.0.0-1) stable; urgency=low
+
+  * Update smart_proxy_ansible to 3.0.0
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 18 Apr 2019 20:35:03 +0200
+
 ruby-smart-proxy-ansible (2.1.2-1) stable; urgency=low
 
   * Update smart_proxy_ansible to 2.1.2
