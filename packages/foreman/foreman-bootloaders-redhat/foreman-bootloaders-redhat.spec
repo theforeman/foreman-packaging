@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 201801241201
-Release: 2%{?dist}
+Release: 4%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -67,6 +67,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Wed Mar 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 201801241201-4
+- Fix BZ#1672498
+
 * Fri Feb 02 2018 Eric D. Helms <ericdhelms@gmail.com> 201801241201-2
 - Fixes #22499 - fixed bootloader generator (lzap+git@redhat.com)
 
