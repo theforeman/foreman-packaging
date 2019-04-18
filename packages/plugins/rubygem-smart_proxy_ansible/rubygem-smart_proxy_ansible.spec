@@ -8,7 +8,7 @@
 
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 2.1.2
+Version: 3.0.0
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -116,6 +116,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Thu Apr 18 2019 Marek Hulan <mhulan@redhat.com> 3.0.0-1
+- Update to 3.0.0
+
 * Thu Mar 07 2019 Marek Hulan <mhulan@redhat.com> 2.1.2-1
 - Update to 2.1.2
 
