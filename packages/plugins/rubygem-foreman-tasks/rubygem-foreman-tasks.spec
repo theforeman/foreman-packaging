@@ -47,6 +47,119 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+# start package.json devDependencies BuildRequires
+#BuildRequires: npm(@storybook/addon-actions) >= 5.0.1
+#BuildRequires: npm(@storybook/addon-actions) < 6.0.0
+#BuildRequires: npm(@storybook/addon-knobs) >= 5.0.1
+#BuildRequires: npm(@storybook/addon-knobs) < 6.0.0
+#BuildRequires: npm(@storybook/react) >= 5.0.1
+#BuildRequires: npm(@storybook/react) < 6.0.0
+BuildRequires: npm(babel-cli) >= 6.10.1
+BuildRequires: npm(babel-cli) < 7.0.0
+BuildRequires: npm(babel-core) >= 6.26.3
+BuildRequires: npm(babel-core) < 7.0.0
+#BuildRequires: npm(babel-eslint) >= 8.2.3
+#BuildRequires: npm(babel-eslint) < 9.0.0
+#BuildRequires: npm(babel-jest) >= 23.6.0
+#BuildRequires: npm(babel-jest) < 24.0.0
+BuildRequires: npm(babel-loader) >= 7.1.1
+BuildRequires: npm(babel-loader) < 8.0.0
+#BuildRequires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
+#BuildRequires: npm(babel-plugin-dynamic-import-node) < 3.0.0
+BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
+BuildRequires: npm(babel-plugin-lodash) < 4.0.0
+BuildRequires: npm(babel-plugin-module-resolver) >= 3.2.0
+BuildRequires: npm(babel-plugin-module-resolver) < 4.0.0
+BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+BuildRequires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
+BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
+BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
+BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: npm(babel-preset-env) >= 1.7.0
+BuildRequires: npm(babel-preset-env) < 2.0.0
+BuildRequires: npm(babel-preset-react) >= 6.5.0
+BuildRequires: npm(babel-preset-react) < 7.0.0
+#BuildRequires: npm(coveralls) >= 3.0.0
+#BuildRequires: npm(coveralls) < 4.0.0
+#BuildRequires: npm(enzyme) >= 3.4.0
+#BuildRequires: npm(enzyme) < 4.0.0
+#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
+#BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
+#BuildRequires: npm(enzyme-to-json) >= 3.2.1
+#BuildRequires: npm(enzyme-to-json) < 4.0.0
+#BuildRequires: npm(eslint) >= 4.10.0
+#BuildRequires: npm(eslint) < 5.0.0
+#BuildRequires: npm(eslint-import-resolver-babel-module) >= 4.0.0
+#BuildRequires: npm(eslint-import-resolver-babel-module) < 5.0.0
+#BuildRequires: npm(eslint-plugin-patternfly-react) = 0.2.0
+BuildRequires: npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: npm(identity-obj-proxy) < 4.0.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
+#BuildRequires: npm(jest-cli) >= 23.6.0
+#BuildRequires: npm(jest-cli) < 24.0.0
+#BuildRequires: npm(jest-prop-type-error) >= 1.1.0
+#BuildRequires: npm(jest-prop-type-error) < 2.0.0
+BuildRequires: npm(node-sass) >= 4.11.0
+BuildRequires: npm(node-sass) < 5.0.0
+BuildRequires: npm(patternfly) >= 3.59.1
+BuildRequires: npm(patternfly) < 4.0.0
+#BuildRequires: npm(prettier) >= 1.13.5
+#BuildRequires: npm(prettier) < 2.0.0
+BuildRequires: npm(raf) >= 3.4.0
+BuildRequires: npm(raf) < 4.0.0
+#BuildRequires: npm(react-redux-test-utils) >= 0.1.1
+#BuildRequires: npm(react-redux-test-utils) < 1.0.0
+#BuildRequires: npm(react-remarkable) >= 1.1.3
+#BuildRequires: npm(react-remarkable) < 2.0.0
+BuildRequires: npm(sass-loader) >= 7.1.0
+BuildRequires: npm(sass-loader) < 8.0.0
+#BuildRequires: npm(stylelint) >= 9.3.0
+#BuildRequires: npm(stylelint) < 10.0.0
+#BuildRequires: npm(stylelint-config-standard) >= 18.0.0
+#BuildRequires: npm(stylelint-config-standard) < 19.0.0
+BuildRequires: npm(surge) >= 0.20.3
+BuildRequires: npm(surge) < 1.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: npm(babel-polyfill) >= 6.26.0
+BuildRequires: npm(babel-polyfill) < 7.0.0
+BuildRequires: npm(classnames) >= 2.2.5
+BuildRequires: npm(classnames) < 3.0.0
+BuildRequires: npm(lodash) >= 4.17.11
+BuildRequires: npm(lodash) < 5.0.0
+BuildRequires: npm(patternfly-react) >= 2.29.0
+BuildRequires: npm(patternfly-react) < 3.0.0
+BuildRequires: npm(prop-types) >= 15.6.0
+BuildRequires: npm(prop-types) < 16.0.0
+BuildRequires: npm(react) >= 16.8.1
+BuildRequires: npm(react) < 17.0.0
+BuildRequires: npm(react-dom) >= 16.8.1
+BuildRequires: npm(react-dom) < 17.0.0
+BuildRequires: npm(react-redux) >= 5.0.6
+BuildRequires: npm(react-redux) < 6.0.0
+BuildRequires: npm(react-router) >= 4.3.1
+BuildRequires: npm(react-router) < 5.0.0
+BuildRequires: npm(react-router-bootstrap) >= 0.24.4
+BuildRequires: npm(react-router-bootstrap) < 1.0.0
+BuildRequires: npm(react-router-dom) >= 4.3.1
+BuildRequires: npm(react-router-dom) < 5.0.0
+BuildRequires: npm(redux) >= 3.6.0
+BuildRequires: npm(redux) < 4.0.0
+BuildRequires: npm(redux-thunk) >= 2.3.0
+BuildRequires: npm(redux-thunk) < 3.0.0
+BuildRequires: npm(reselect) >= 3.0.1
+BuildRequires: npm(reselect) < 4.0.0
+BuildRequires: npm(seamless-immutable) >= 7.1.2
+BuildRequires: npm(seamless-immutable) < 8.0.0
+BuildRequires: npm(uuid) >= 3.3.2
+BuildRequires: npm(uuid) < 4.0.0
+# end package.json dependencies BuildRequires
+
 %description
 The goal of this plugin is to unify the way of showing task statuses across
 the Foreman instance.  It defines Task model for keeping the information
