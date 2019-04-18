@@ -220,6 +220,7 @@ whitelist = foreman
   rubygem-fog-digitalocean
   rubygem-fog-google
   rubygem-fog-json
+  rubygem-fog-kubevirt
   rubygem-fog-libvirt
   rubygem-fog-openstack
   rubygem-fog-ovirt
