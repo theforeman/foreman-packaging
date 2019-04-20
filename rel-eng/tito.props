@@ -341,8 +341,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-diffy
   rubygem-down
   rubygem-ffi
-  rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
+  rubygem-fog-proxmox
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
@@ -376,6 +375,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
+  rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_templates
   rubygem-foreman_userdata
   rubygem-foreman_vmwareannotations
