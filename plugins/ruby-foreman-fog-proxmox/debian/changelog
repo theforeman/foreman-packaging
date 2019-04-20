@@ -1,3 +1,9 @@
+ruby-foreman-fog-proxmox (0.7.0-1) stable; urgency=low
+
+  * 0.7.0 released
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Sat, 20 Apr 2019 18:01:19 +0200
+
 ruby-foreman-fog-proxmox (0.5.5-2) stable; urgency=low
 
   * 0.5.5-2 released. Update fog-proxmox dependency to 0.5.5.
