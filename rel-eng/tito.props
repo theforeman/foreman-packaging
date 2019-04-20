@@ -525,3 +525,8 @@ whitelist = katello
   rubygem-runcible
   rubygem-typhoeus
   rubygem-zest
+
+
+[rhel7]
+whitelist =
+        rubygem-fog-proxmox
