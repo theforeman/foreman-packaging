@@ -23,6 +23,7 @@ NPM_BLACKLIST = [
     'react-test-renderer',
     'react-redux-test-utils',
     'redux-mock-store',
+    'surge',
     'webpack-bundle-analyzer',
     'webpack-dev-server',
 ]
