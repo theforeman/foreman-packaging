@@ -92,7 +92,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/.travis.yml
 %{gem_instdir}/.vscode
 %{gem_instdir}/CODE_OF_CONDUCT.md
-%{gem_instdir}/ISSUE_TEMPLATE.md
+%exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/SUPPORT.md
 %{gem_instdir}/bin
