@@ -81,7 +81,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %dir %{gem_instdir}
 %{_bindir}/console
 %{_bindir}/setup
-%{gem_instdir}/.bundle
+%exclude %{gem_instdir}/.bundle
 %{gem_instdir}/.codeclimate.yml
 %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
