@@ -1,9 +1,9 @@
-%global release 3
+%global release 1
 %global prerelease develop
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.22.0
+Version:    1.23.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Apr 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.1.develop
+- Bump version to 1.23-develop
+
 * Fri Mar 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.3.develop
 - Update to Kafo 3 (#26282)
 - Require Puppet >= 5.5.8 (#26339)
@@ -146,7 +149,7 @@ done
 * Fri Feb 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.2.develop
 - Remove katello-service dependency (#26111)
 
-* Wed Jan 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.1.develop
+* Wed Jan 16 2019 Evgeni Golov <evgeni@golov.de> - 1:1.22.0-0.1.develop
 - Bump to 1.22
 
 * Wed Dec 12 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.21.0-0.3.develop

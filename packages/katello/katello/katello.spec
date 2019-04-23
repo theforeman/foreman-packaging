@@ -4,10 +4,10 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 3
+%global release 1
 
 Name:       katello
-Version:    3.12.0
+Version:    3.13.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 3.13.0-0.1.master
+- Bump version to 3.13-master
+
 * Mon Jan 28 2019 Evgeni Golov - 3.12.0-0.3.master
 - Refs #25576 - add an empty files section to make foreman-proxy-content build
 
