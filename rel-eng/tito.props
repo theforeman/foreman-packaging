@@ -70,6 +70,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-gridster
   nodejs-gud
   nodejs-harmony-reflect
+  nodejs-history
   nodejs-hoist-non-react-statics
   nodejs-identity-obj-proxy
   nodejs-intl
