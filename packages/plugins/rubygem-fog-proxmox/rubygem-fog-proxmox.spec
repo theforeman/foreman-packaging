@@ -10,7 +10,7 @@ Version: 0.7.0
 Release: 1%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 Group: Development/Languages
-License: GPL-3.0
+License: GPLv3
 URL: http://github.com/fog/fog-proxmox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
