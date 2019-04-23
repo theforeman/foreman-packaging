@@ -1,6 +1,7 @@
 For plugin updates, please indicate which repos this should be built into:
 
 * [x] Nightly
+* [ ] 1.22
 * [ ] 1.21
 * [ ] 1.20
 
