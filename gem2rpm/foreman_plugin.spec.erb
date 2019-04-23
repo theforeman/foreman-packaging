@@ -20,6 +20,7 @@ has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/api/} }
 has_db_migrations = spec.files.any? { |f| f.start_with?('db/migrate/') }
 has_db_seeds = spec.files.any? { |f| f.start_with?('db/seeds.d/') }
 has_webpack = spec.files.any? { |f| f.start_with?('webpack/') }
+has_package_json = spec.files.any? { |f| f == 'package.json' }
 
 precompile_flags = ''
 precompile_flags << ' -a' if has_apidoc
@@ -87,6 +88,14 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+<% if has_package_json -%>
+
+# start package.json devDependencies BuildRequires
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+# end package.json dependencies BuildRequires
+<% end -%>
 
 %description
 <%= spec.description %>
