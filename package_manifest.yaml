@@ -36,7 +36,7 @@ foreman_scl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=foreman-1.22-source-release"
+        - "--arg jenkins_job=test_1_22_stable"
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
@@ -203,7 +203,7 @@ foreman_nonscl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=smart-proxy-1.22-release"
+        - "--arg jenkins_job=test_proxy_1_22_stable"
     foreman-release:
       diff_package_tags:
         - foreman-1.22-nonscl-rhel7
