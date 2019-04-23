@@ -82,21 +82,21 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{_bindir}/console
 %{_bindir}/setup
 %exclude %{gem_instdir}/.bundle
-%{gem_instdir}/.codeclimate.yml
-%{gem_instdir}/.github
+%exclude %{gem_instdir}/.codeclimate.yml
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.gitlab-ci.yml
+%exclude %{gem_instdir}/.gitlab-ci.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %{gem_instdir}/.ruby-gemset
-%{gem_instdir}/.solargraph.yml
+%exclude %{gem_instdir}/.solargraph.yml
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/.vscode
-%{gem_instdir}/CODE_OF_CONDUCT.md
+%exclude %{gem_instdir}/.vscode
+%doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/SUPPORT.md
 %{gem_instdir}/bin
-%{gem_instdir}/fogproxmox.png
+%doc %{gem_instdir}/fogproxmox.png
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
