@@ -8,6 +8,7 @@
 
 %global build_agent (0%{?suse_version} == 0) && ((0%{?fedora} > 28) || (0%{?rhel} > 0))
 %global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
+%global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -15,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -31,7 +32,11 @@ BuildArch: noarch
 %endif
 
 Requires: subscription-manager
+%if %{build_fact_plugin}
 Requires: %{name}-fact-plugin
+%else
+Obsoletes: %{name}-fact-plugin < %{version}-%{release}
+%endif
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
 %if %{dnf_install}
@@ -109,6 +114,7 @@ Provides plugin for gofer, which allows communicating with Katello server
 and execute scheduled actions.
 %endif
 
+%if %{build_fact_plugin}
 %package fact-plugin
 BuildArch:  noarch
 Summary:    Adds an fqdn fact plugin for subscription-manager
@@ -119,6 +125,7 @@ Obsoletes:  katello-agent-fact-plugin <= 3.0.0
 
 %description fact-plugin
 A subscription-manager plugin to add an additional fact 'network.fqdn' if not present
+%endif
 
 %if %{build_tracer}
 %package tracer
@@ -231,12 +238,13 @@ rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
 
-
+%if %{build_fact_plugin}
 # RHSM plugin
 mkdir -p %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/
 mkdir -p %{buildroot}%{_datadir}/rhsm-plugins/
 cp etc/rhsm/pluginconf.d/fqdn.FactsPlugin.conf %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
 cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
+%endif
 
 # cache directory
 mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
@@ -354,6 +362,7 @@ exit 0
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
 %endif
 
+%if %{build_fact_plugin}
 %files fact-plugin
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}/rhsm/
@@ -361,6 +370,7 @@ exit 0
 %config %{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
 %dir %{_datadir}/rhsm-plugins/
 %{_datadir}/rhsm-plugins/fqdn.*
+%endif
 
 %if %{build_tracer}
 %files tracer
@@ -377,6 +387,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Tue Apr 23 2019 Evgeni Golov - 3.5.0-2
+- Don't ship fact-plugin on modern Fedora and EL
+
 * Thu Mar 28 2019 Justin Sherrill - 3.5.0-1
 - Update to 3.5.0, drop support for agent on f27 and f28
 - Install katello-tracer-upload wrapper on DNF platforms
