@@ -6,10 +6,10 @@
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        3.12.0
+Version:        3.13.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 3.13.0-0.1.nightly
+- Bump version to 3.13-nightly
+
 * Sat Apr 06 2019 Partha Aji <paji@redhat.com> - 3.12.0-0.2.nightly
 - use stable pulp 2.19 repository
 
