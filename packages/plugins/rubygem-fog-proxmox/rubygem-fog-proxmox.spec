@@ -94,7 +94,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/CODE_OF_CONDUCT.md
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/SUPPORT.md
+%doc %{gem_instdir}/SUPPORT.md
 %{gem_instdir}/bin
 %{gem_instdir}/fogproxmox.png
 %{gem_libdir}
