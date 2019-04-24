@@ -14,8 +14,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.3.5
-Release: 4%{?dist}
+Version: 3.4.2
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -359,6 +359,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Wed Apr 24 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.2-1
+- Release katello-host-tools 3.4.2
+
 * Tue Nov 13 2018 Jonathon Turel <jturel@gmail.com> - 3.3.5-4
 - Fix katello-agent upgrades from old versions
 
