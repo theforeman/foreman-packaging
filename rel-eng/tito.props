@@ -396,6 +396,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
+  rubygem-http
   rubygem-http-form_data
   rubygem-http_parser.rb
   rubygem-jgrep
