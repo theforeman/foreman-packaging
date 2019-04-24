@@ -4,7 +4,7 @@
 %global foreman_min_version 1.18.0
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.11.0
+%global mainver 3.11.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -367,6 +367,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Apr 24 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.1-1
+- Release rubygem-katello 3.11.1
+
 * Wed Mar 13 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.0-1
 - Release 3.11.0
 
