@@ -571,6 +571,7 @@ plugin_scl_packages:
     rubygem-diffy: {}
     rubygem-down: {}
     rubygem-ffi: {}
+    rubygem-fog-kubevirt: {}
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}

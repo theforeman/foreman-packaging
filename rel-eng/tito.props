@@ -341,6 +341,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-diffy
   rubygem-down
   rubygem-ffi
+  rubygem-fog-kubevirt
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
   rubygem-foreman_ansible
