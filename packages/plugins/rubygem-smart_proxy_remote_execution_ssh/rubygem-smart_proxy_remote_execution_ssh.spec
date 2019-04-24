@@ -7,8 +7,8 @@
 
 Summary: SSH remote execution provider for Foreman smart proxy
 Name: rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?dist}
+Version: 0.2.1
+Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
@@ -19,6 +19,7 @@ Requires: %{?rhel:tfm-}rubygem(foreman_remote_execution_core)
 Requires: foreman-proxy >= 1.11.0
 Requires: rubygem(smart_proxy_dynflow) >= 0.1.0
 Requires: rubygem(smart_proxy_dynflow) < 0.3.0
+Requires: rubygem(net-ssh)
 
 Requires: ruby
 Requires: ruby(rubygems)
@@ -95,6 +96,9 @@ EOF
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 24 2019 Ivan Nečas <inecas@redhat.com> 0.2.1-1
+- Update to 0.2.1
+
 * Tue May 29 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.2.0-2
 - Handle .ssh symlinks
 
