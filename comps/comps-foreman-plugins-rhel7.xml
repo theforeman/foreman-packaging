@@ -128,6 +128,7 @@
       <packagereq type="default">tfm-rubygem-prawn</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
+      <packagereq type="default">tfm-rubygem-recursive-open-struct</packagereq>
       <packagereq type="default">tfm-rubygem-rprogram</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-nmap</packagereq>
@@ -254,6 +255,7 @@
       <packagereq type="default">tfm-rubygem-prawn-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppetdb_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-recursive-open-struct-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rprogram-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-nmap-doc</packagereq>

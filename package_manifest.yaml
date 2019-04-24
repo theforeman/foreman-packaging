@@ -637,6 +637,7 @@ plugin_scl_packages:
     rubygem-prawn: {}
     rubygem-puppetdb_foreman: {}
     rubygem-rainbow: {}
+    rubygem-recursive-open-struct: {}
     rubygem-rprogram: {}
     rubygem-rqrcode: {}
     rubygem-ruby-nmap: {}

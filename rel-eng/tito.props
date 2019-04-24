@@ -407,6 +407,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-prawn
   rubygem-puppetdb_foreman
   rubygem-rainbow
+  rubygem-recursive-open-struct
   rubygem-rprogram
   rubygem-rqrcode
   rubygem-ruby-nmap
