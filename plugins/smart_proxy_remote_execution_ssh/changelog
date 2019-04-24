@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.2.1-1) stable; urgency=low
+
+  * 0.2.1 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Wed, 24 Apr 2019 14:32:02 +0200
+
 ruby-smart-proxy-remote-execution-ssh (0.2.0-2) stable; urgency=low
 
   * Move .ssh to /var/lib/foreman-proxy
