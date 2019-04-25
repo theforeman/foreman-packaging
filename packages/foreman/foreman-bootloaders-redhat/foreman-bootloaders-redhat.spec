@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
-Version: 201801241201
-Release: 2%{?dist}
+Version: 201901011200
+Release: 1%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -44,22 +44,22 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 %{_bindir}/foreman-generate-bootloaders
 
 %files tftpboot
-%ghost %{_sharedstatedir}/tftpboot/grub2
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubaa64.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubia32.0
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubia32.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc64.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc64.elf
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc64le.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc64le.elf
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubppc.elf
-%ghost %{_sharedstatedir}/tftpboot/grub2/grubx64.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/shim.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/shimx64.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/shimx64-redhat.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/shimaa64.efi
-%ghost %{_sharedstatedir}/tftpboot/grub2/shimaa64-redhat.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubaa64.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.0
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.elf
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.elf
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.elf
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubx64.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shim.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimx64.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimx64-redhat.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64-redhat.efi
 
 
 %post tftpboot
@@ -67,6 +67,12 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Wed Apr 24 2019 Lukas Zapletal <lzap+rpm@redhat.com> 201901011200-1
+- Fix BZ#1702434
+
+* Wed Mar 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 201801241201-4
+- Fix BZ#1672498
+
 * Fri Feb 02 2018 Eric D. Helms <ericdhelms@gmail.com> 201801241201-2
 - Fixes #22499 - fixed bootloader generator (lzap+git@redhat.com)
 
