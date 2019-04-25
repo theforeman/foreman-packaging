@@ -22,8 +22,8 @@
 
 %define moduletype apps
 
-%global release 1
-%global prerelease develop
+%global release 2
+%global prerelease RC1
 
 Name:           foreman-selinux
 Version:        1.22.0
@@ -165,6 +165,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.2.RC1
+- Release 1.22.0-RC1
+
 * Wed Jan 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.1.develop
 - Bump to 1.22
 

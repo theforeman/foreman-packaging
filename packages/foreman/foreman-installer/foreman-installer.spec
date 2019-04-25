@@ -1,5 +1,5 @@
-%global release 3
-%global prerelease develop
+%global release 4
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.4.RC1
+- Release 1.22.0-RC1
+
 * Fri Mar 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-0.3.develop
 - Update to Kafo 3 (#26282)
 - Require Puppet >= 5.5.8 (#26339)
