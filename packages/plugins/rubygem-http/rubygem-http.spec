@@ -77,7 +77,7 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %gem_instdir}/.coveralls.yml
+%exclude %{gem_instdir}/.coveralls.yml
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
