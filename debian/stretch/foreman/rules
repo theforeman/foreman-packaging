@@ -21,6 +21,7 @@ build:
 	/bin/rm db/production.sqlite3
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
+	/bin/sed -ri '/^ExecStart/ s#/usr/bin/rails#/usr/bin/bundle exec rails#' extras/systemd/foreman.service
 	/bin/mkdir -p .ssh
 	dh $@
 

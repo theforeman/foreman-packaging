@@ -229,3 +229,14 @@ Description: metapackage providing journald dependencies for Foreman
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-service
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman, ${misc:Depends}
+Description: package providing Foreman services running via puma
+ This package provides Foreman systemd service for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
