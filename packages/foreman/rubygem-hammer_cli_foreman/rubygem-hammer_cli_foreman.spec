@@ -11,7 +11,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.17
+Version: 0.18
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -101,6 +101,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.1.pre.develop
+- Bump to 0.18-develop
+
 * Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.17-0.1.pre.develop
 - Bump to 0.17-develop
 
