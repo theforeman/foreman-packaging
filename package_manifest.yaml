@@ -212,13 +212,13 @@ foreman_nonscl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=foreman-installer-develop-release"
+        - "--arg jenkins_job=foreman-installer-develop-source-release"
     foreman-proxy:
       releasers:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=smart-proxy-develop-release"
+        - "--arg jenkins_job=smart-proxy-develop-source-release"
     foreman-release:
       diff_package_tags:
         - foreman-nightly-nonscl-rhel7
@@ -236,7 +236,7 @@ foreman_nonscl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=foreman-selinux-develop-release"
+        - "--arg jenkins_job=foreman-selinux-develop-source-release"
     katello-certs-tools: {}
     katello-selinux: {}
     nodejs-argv-parse: {}
