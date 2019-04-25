@@ -4,12 +4,12 @@
 
 %global gem_name foreman_salt
 %global plugin_name salt
-%global foreman_min_version 1.17.0
+%global foreman_min_version 1.21.0
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    10.1.0
-Release:    2%{?foremandist}%{?dist}
+Version:    10.2.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_salt
@@ -110,6 +110,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 25 2019 Bernhard Suttner <suttner@atix.de> 10.2.0-1
+- Update to 10.2.0
+
 * Mon Sep 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 10.1.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
