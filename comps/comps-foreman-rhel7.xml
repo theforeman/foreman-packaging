@@ -359,9 +359,9 @@
       <packagereq type="default">nodejs-expose-loader-doc</packagereq>
       <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-ipaddr.js-doc</packagereq>
+      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-jquery-doc</packagereq>
       <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
-      <packagereq type="default">nodejs-jquery.cookie-doc</packagereq>
       <packagereq type="default">nodejs-multiselect-doc</packagereq>
       <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
@@ -444,8 +444,8 @@
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
@@ -463,9 +463,9 @@
       <packagereq type="default">tfm-rubygem-mysql2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ping-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-netrc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-scp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-netrc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-oauth-doc</packagereq>
       <packagereq type="default">tfm-rubygem-optimist-doc</packagereq>
       <packagereq type="default">tfm-rubygem-os-doc</packagereq>
@@ -494,8 +494,8 @@
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safemode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
