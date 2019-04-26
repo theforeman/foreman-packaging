@@ -297,6 +297,7 @@ whitelist = foreman
   rubygem-record_tag_helper
   rubygem-representable
   rubygem-responders
+  rubygem-rest-client
   rubygem-retriable
   rubygem-roadie
   rubygem-roadie-rails
@@ -330,7 +331,6 @@ whitelist = foreman
   rubygem-xmlrpc
   tfm
   tfm-rubygem-jwt
-  tfm-rubygem-rest-client
 scl = tfm
 
 [foreman-plugins-nightly-rhel7]
