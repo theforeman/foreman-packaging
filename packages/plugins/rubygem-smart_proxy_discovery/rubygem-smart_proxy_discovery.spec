@@ -94,8 +94,6 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %changelog
 * Fri Apr 26 2019 Evgeni Golov 1.0.5-1
 - Update to 1.0.5-1
-
-* Fri Apr 26 2019 Evgeni Golov 1.0.4-2
 - Regenerate RPM spec based on latest template
 
 * Fri Apr 29 2016 Dominic Cleal <dominic@cleal.org> 1.0.4-1
