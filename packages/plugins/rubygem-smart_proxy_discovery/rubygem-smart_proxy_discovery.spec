@@ -80,9 +80,7 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/discovery.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bundler.d
 %{gem_libdir}
-%{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
