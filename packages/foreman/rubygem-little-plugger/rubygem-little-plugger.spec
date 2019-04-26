@@ -1,83 +1,92 @@
+# Generated from little-plugger-1.1.4.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name little-plugger
 
-Summary: LittlePlugger is a module that provides Gem based plugin management
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.3
-Release: 23%{?dist}
+Version: 1.1.4
+Release: 1%{?dist}
+Summary: LittlePlugger is a module that provides Gem based plugin management
 Group: Development/Languages
 License: MIT
 URL: https://rubygems.org/gems/little-plugger
-Source0: http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%else
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-#BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 LittlePlugger is a module that provides Gem based plugin management.
 By extending your own class or module with LittlePlugger you can easily
 manage the loading and initializing of plugins provided by other gems.
 
+
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for %{pkg_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
 
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
-
-# Workaround for rubygems being able to parse a timestamp in a date
-find %{buildroot}/%{gem_spec} -name %{gem_name}-%{version}.gemspec -exec sed -i 's/ 00:00:00.000000000Z//' {} +
-
-%check
+cp -pa .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/lib
-%{gem_instdir}/spec
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 # contains licensing information
 %doc %{gem_instdir}/README.rdoc
 
 %files doc
-%{gem_instdir}/spec
-%{gem_instdir}/Rakefile
-%doc %{gem_docdir}/ri
-%doc %{gem_docdir}/rdoc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/History.txt
+%{gem_instdir}/Rakefile
+%{gem_instdir}/spec
 
 %changelog
+* Fri Apr 26 2019 Evgeni Golov 1.1.4-1
+- Update to 1.1.4-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.3-23
 - Rebuild for Rails 5.2 and Ruby 2.5
 
