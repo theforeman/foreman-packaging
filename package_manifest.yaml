@@ -151,7 +151,10 @@ foreman_scl_packages:
     rubygem-record_tag_helper: {}
     rubygem-representable: {}
     rubygem-responders: {}
-    rubygem-rest-client: {}
+    rubygem-rest-client:
+      releasers:
+        - koji-foreman
+        - koji-foreman-plugins
     rubygem-retriable: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
