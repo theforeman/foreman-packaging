@@ -1,6 +1,0 @@
-We used to ship two different versions of rubygem-rest-client in SCL and
-non-SCL tags, so to do this with tito it was split into two directories.
-
-The SCL version in tfm-rest-client/ has the prefix hardcoded into the Name
-field so tito always refers to it as tfm-rest-client and versions it
-separately.
