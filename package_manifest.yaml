@@ -154,6 +154,7 @@ foreman_scl_packages:
     rubygem-record_tag_helper: {}
     rubygem-representable: {}
     rubygem-responders: {}
+    rubygem-rest-client: {}
     rubygem-retriable: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
@@ -188,7 +189,6 @@ foreman_scl_packages:
     rubygem-x-editable-rails: {}
     rubygem-xmlrpc: {}
     tfm: {}
-    tfm-rubygem-rest-client: {}
     tfm-rubygem-jwt: {}
 
 foreman_nonscl_packages:
