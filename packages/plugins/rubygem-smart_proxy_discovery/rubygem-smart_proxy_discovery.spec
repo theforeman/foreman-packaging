@@ -1,4 +1,4 @@
-# Generated from smart_proxy_discovery-1.0.4.gem by gem2rpm -*- rpm-spec -*-
+# Generated from smart_proxy_discovery-1.0.5.gem by gem2rpm -*- rpm-spec -*-
 # template: smart_proxy_plugin
 %global gem_name smart_proxy_discovery
 %global plugin_name discovery
@@ -9,8 +9,8 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 1.0.4
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.5
+Release: 1%{?foremandist}%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -22,8 +22,7 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(rest-client) > 1.6.2
-Requires: rubygem(rest-client) < 2
+Requires: rubygem(rest-client)
 BuildRequires: ruby(release)
 BuildRequires: ruby
 BuildRequires: rubygems-devel
@@ -36,6 +35,7 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 This smart proxy plugin, together with a Foreman plugin, add the capability to
 discover unknown bare-metal. This plugin provides proxy API for nodes to
 communicate with Foreman instance and vice versa.
+
 
 %package doc
 Summary: Documentation for %{name}
@@ -92,6 +92,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Apr 26 2019 Evgeni Golov 1.0.5-1
+- Update to 1.0.5-1
+
 * Fri Apr 26 2019 Evgeni Golov 1.0.4-2
 - Regenerate RPM spec based on latest template
 
