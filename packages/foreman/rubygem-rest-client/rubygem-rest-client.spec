@@ -4,7 +4,7 @@
 %define gem_name rest-client
 
 Summary: Simple REST client for Ruby, inspired by microframework syntax for specifying actions
-Name: tfm-rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
 Release: 3%{?dist}
 Group: Development/Languages
