@@ -281,6 +281,7 @@ foreman_nonscl_packages:
     nodejs-file-loader: {}
     nodejs-file-saver: {}
     nodejs-follow-redirects: {}
+    nodejs-gridster: {}
     nodejs-gud: {}
     nodejs-harmony-reflect: {}
     nodejs-hoist-non-react-statics: {}
