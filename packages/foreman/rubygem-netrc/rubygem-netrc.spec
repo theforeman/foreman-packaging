@@ -7,7 +7,7 @@
 Summary: Library to read and write netrc files
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/netrc
@@ -71,6 +71,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 29 2019 Evgeni Golov - 0.11.0-4
+- rebuilt
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

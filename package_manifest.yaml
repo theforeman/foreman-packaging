@@ -128,7 +128,10 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
-    rubygem-netrc: {}
+    rubygem-netrc:
+      releasers:
+        - koji-foreman
+        - koji-foreman-plugins
     rubygem-oauth: {}
     rubygem-optimist: {}
     rubygem-os: {}
