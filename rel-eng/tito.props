@@ -433,6 +433,7 @@ whitelist = ansiblerole-insights-client
   rubygem-logify
   rubygem-mysql2
   rubygem-net-ssh
+  rubygem-netrc
   rubygem-newt
   rubygem-openscap
   rubygem-radcli
