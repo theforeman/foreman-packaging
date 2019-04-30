@@ -10,9 +10,9 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.1
+Version: 0.15.5
 Release: 1%{?foremandist}%{?dist}
-Summary: Foreman plugin for showing tasks information for resoruces and users
+Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman-tasks
@@ -25,7 +25,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
 Requires: %{?scl_prefix_ror}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
@@ -33,7 +33,7 @@ Requires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
 BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
@@ -103,9 +103,9 @@ BuildRequires: npm(jed) < 2.0.0
 #BuildRequires: npm(jest-cli) < 24.0.0
 #BuildRequires: npm(jest-prop-type-error) >= 1.1.0
 #BuildRequires: npm(jest-prop-type-error) < 2.0.0
-BuildRequires: npm(node-sass) >= 4.11.0
+BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
-BuildRequires: npm(patternfly) >= 3.59.1
+BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
 #BuildRequires: npm(prettier) >= 1.13.5
 #BuildRequires: npm(prettier) < 2.0.0
@@ -115,14 +115,12 @@ BuildRequires: npm(raf) < 4.0.0
 #BuildRequires: npm(react-redux-test-utils) < 1.0.0
 #BuildRequires: npm(react-remarkable) >= 1.1.3
 #BuildRequires: npm(react-remarkable) < 2.0.0
-BuildRequires: npm(sass-loader) >= 7.1.0
-BuildRequires: npm(sass-loader) < 8.0.0
+BuildRequires: npm(sass-loader) >= 6.0.7
+BuildRequires: npm(sass-loader) < 7.0.0
 #BuildRequires: npm(stylelint) >= 9.3.0
 #BuildRequires: npm(stylelint) < 10.0.0
 #BuildRequires: npm(stylelint-config-standard) >= 18.0.0
 #BuildRequires: npm(stylelint-config-standard) < 19.0.0
-BuildRequires: npm(surge) >= 0.20.3
-BuildRequires: npm(surge) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -156,6 +154,8 @@ BuildRequires: npm(reselect) >= 3.0.1
 BuildRequires: npm(reselect) < 4.0.0
 BuildRequires: npm(seamless-immutable) >= 7.1.2
 BuildRequires: npm(seamless-immutable) < 8.0.0
+BuildRequires: npm(urijs) >= 1.19.1
+BuildRequires: npm(urijs) < 2.0.0
 BuildRequires: npm(uuid) >= 3.3.2
 BuildRequires: npm(uuid) < 4.0.0
 # end package.json dependencies BuildRequires
@@ -179,32 +179,18 @@ BuildArch: noarch
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%setup -n %{pkg_name}-%{version} -q -c -T
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
 %{?scl:EOF}
 
 %build
-# Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
-
-# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
-# by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
-%gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
+rm %{buildroot}/%{gem_instdir}/.babelrc
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
@@ -219,7 +205,7 @@ chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
 # Logrotate script
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_root_sysconfdir}/logrotate.d/%{gem_name}
 
 %post
 type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/dev/null || true
@@ -259,7 +245,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{gem_name}
+%config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
 %exclude %{gem_instdir}/test
 %{foreman_assets_plugin}
 %{foreman_webpack_plugin}
@@ -278,8 +264,8 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
-* Mon Apr 15 2019 Adam Ruzicka <aruzicka@redhat.com> 0.15.1-1
-- Update to 0.15.1
+* Mon Apr 15 2019 Adam Ruzicka <aruzicka@redhat.com> 0.15.5-1
+- Update to 0.15.5
 
 * Thu Mar 21 2019 Lukas Zapletal <lzap+rpm@redhat.com> 0.15.0-3
 - Fixed logrotate script for output log file
