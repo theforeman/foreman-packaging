@@ -15,4 +15,4 @@ fi
 read MESSAGE
 
 sed -i -e "/%changelog/a \
-* $(LANG=en_US.UTF-8 date +"%a %b %d %Y") $(rpmdev-packager) $VERSION\n$MESSAGE\n" $SPEC_FILE
+* $(LC_TIME=en_US.UTF-8 date +"%a %b %d %Y") $(rpmdev-packager) $VERSION\n$MESSAGE\n" $SPEC_FILE
