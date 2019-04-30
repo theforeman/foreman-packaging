@@ -60,6 +60,19 @@ generate_gem_package() {
 	fi
 	echo "$CHANGELOG" | $ROOT/add_changelog.sh $SPEC_FILE
 
+	if grep -q "# start package.json" $SPEC_FILE ; then
+		GEM_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" --undefine=dist $SPEC_FILE)
+		UNPACKED_GEM_DIR=$(mktemp -d)
+		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
+		PACKAGE_JSON="${UNPACKED_GEM_DIR}/${GEM_NAME}-${GEM_VERSION}/package.json"
+		if [[ -f $PACKAGE_JSON ]] ; then
+			$ROOT/update-requirements npm $PACKAGE_JSON $SPEC_FILE
+		else
+			echo "Unable to find package.json in gem: $PACKAGE_JSON"
+		fi
+		rm -rf "$UNPACKED_GEM_DIR"
+	fi
+
 	git add $SPEC_FILE
 	popd
 }

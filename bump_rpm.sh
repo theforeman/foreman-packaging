@@ -83,6 +83,19 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 		echo "* Verify the dependencies"
 	fi
 
+	if grep -q "# start package.json" $SPEC_FILE ; then
+		UNPACKED_GEM_DIR=$(mktemp -d)
+		gem unpack --target "$UNPACKED_GEM_DIR" *.gem
+		PACKAGE_JSON="${UNPACKED_GEM_DIR}/${GEM_NAME}-${NEW_VERSION}/package.json"
+		if [[ -f $PACKAGE_JSON ]] ; then
+			$ROOT/update-requirements npm $PACKAGE_JSON $SPEC_FILE
+			git add $SPEC_FILE
+		else
+			echo "Unable to find package.json in gem"
+		fi
+		rm -rf "$UNPACKED_GEM_DIR"
+	fi
+
 	git commit -m "Update $PACKAGE_NAME to $NEW_VERSION"
 else
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION == $NEW_VERSION ; skipping"
