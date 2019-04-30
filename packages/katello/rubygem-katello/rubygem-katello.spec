@@ -4,9 +4,9 @@
 %global foreman_min_version 1.22.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .pre.master
+%global prerelease .rc1
 %global mainver 3.12.0
-%global release 8
+%global release 9
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -368,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Apr 30 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-0.9.rc1
+- Releaes 3.12 RC1
+
 * Mon Apr 15 2019 Ondrej Prazak <oprazak@redhat.com> - 3.12.0-0.8.pre.master
 - Remove foreman_docker as a dependency
 
