@@ -14,7 +14,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.7.0
-Release:    12%{?foremandist}%{?dist}
+Release:    13%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -115,6 +115,9 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 30 2019 Evgeni Golov - 1.7.0-13
+- Rebuild REX for webpack
+
 * Fri Apr 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.0-12
 - Rebuild rubygem-foreman_remote_execution for webpack
 
