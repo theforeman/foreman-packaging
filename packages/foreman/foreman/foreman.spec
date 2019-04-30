@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:    foreman
@@ -129,6 +129,8 @@ Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
+Requires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
+Requires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
@@ -233,6 +235,8 @@ BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
+BuildRequires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
+BuildRequires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
@@ -301,6 +305,8 @@ BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: npm(compression-webpack-plugin) < 1.2.0
 #BuildRequires: npm(coveralls) >= 3.0.0
 #BuildRequires: npm(coveralls) < 4.0.0
+#BuildRequires: npm(cross-env) >= 5.2.0
+#BuildRequires: npm(cross-env) < 6.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 5.0.0
@@ -389,6 +395,8 @@ BuildRequires: npm(diff) >= 3.0.0
 BuildRequires: npm(diff) < 3.1.0
 BuildRequires: npm(file-saver) >= 2.0.1
 BuildRequires: npm(file-saver) < 3.0.0
+BuildRequires: npm(gridster) >= 0.5.6
+BuildRequires: npm(gridster) < 1.0.0
 BuildRequires: npm(intl) >= 1.2.5
 BuildRequires: npm(intl) < 1.3.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
@@ -436,7 +444,7 @@ BuildRequires: npm(react-numeric-input) >= 2.0.7
 BuildRequires: npm(react-numeric-input) < 3.0.0
 BuildRequires: npm(react-onclickoutside) >= 6.6.2
 BuildRequires: npm(react-onclickoutside) < 7.0.0
-BuildRequires: npm(react-password-strength) >= 2.1.0
+BuildRequires: npm(react-password-strength) >= 2.4.0
 BuildRequires: npm(react-password-strength) < 3.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
@@ -468,8 +476,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
-BuildRequires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
-BuildRequires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
@@ -675,6 +681,8 @@ Requires: npm(compression-webpack-plugin) >= 1.1.11
 Requires: npm(compression-webpack-plugin) < 1.2.0
 #Requires: npm(coveralls) >= 3.0.0
 #Requires: npm(coveralls) < 4.0.0
+#Requires: npm(cross-env) >= 5.2.0
+#Requires: npm(cross-env) < 6.0.0
 Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(dotenv) >= 5.0.0
@@ -763,6 +771,8 @@ Requires: npm(diff) >= 3.0.0
 Requires: npm(diff) < 3.1.0
 Requires: npm(file-saver) >= 2.0.1
 Requires: npm(file-saver) < 3.0.0
+Requires: npm(gridster) >= 0.5.6
+Requires: npm(gridster) < 1.0.0
 Requires: npm(intl) >= 1.2.5
 Requires: npm(intl) < 1.3.0
 Requires: npm(ipaddr.js) >= 1.2.0
@@ -810,7 +820,7 @@ Requires: npm(react-numeric-input) >= 2.0.7
 Requires: npm(react-numeric-input) < 3.0.0
 Requires: npm(react-onclickoutside) >= 6.6.2
 Requires: npm(react-onclickoutside) < 7.0.0
-Requires: npm(react-password-strength) >= 2.1.0
+Requires: npm(react-password-strength) >= 2.4.0
 Requires: npm(react-password-strength) < 3.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
@@ -842,8 +852,6 @@ Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
-Requires: %{?scl_prefix}rubygem(gridster-rails) >= 0.5
-Requires: %{?scl_prefix}rubygem(gridster-rails) < 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
@@ -1327,6 +1335,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Apr 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.2.develop
+- Update Gem and NPM dependencies
+
 * Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 1.23.0-0.1.develop
 - Bump version to 1.23-develop
 
