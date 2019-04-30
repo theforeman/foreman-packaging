@@ -50,11 +50,13 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %check
+%if 0%{?scl:1}
 pushd .%{gem_instdir}
 %{?scl:scl enable %{scl} - << \EOS}
 ruby -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
 %{?scl:EOS}
 popd
+%endif
 
 %files
 %dir %{gem_instdir}
@@ -72,7 +74,8 @@ popd
 
 %changelog
 * Mon Apr 29 2019 Evgeni Golov - 0.11.0-4
-- rebuilt
+- Build for both SCL and non-SCL
+- Disable tests for non-SCL due to too old MiniTest
 
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
