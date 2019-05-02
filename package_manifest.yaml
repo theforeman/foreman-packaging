@@ -680,6 +680,7 @@ plugin_nonscl_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     foreman-discovery-image-service: {}
+    nodejs-babel-plugin-module-resolver: {}
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
     rubygem-chef-api: {}
