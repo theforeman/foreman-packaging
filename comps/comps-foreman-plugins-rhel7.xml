@@ -158,8 +158,8 @@
       <packagereq type="default">rubygem-infoblox-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-mysql2-doc</packagereq>
-      <packagereq type="default">rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>
+      <packagereq type="default">rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-radcli-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>

@@ -278,6 +278,7 @@
       <packagereq type="default">nodejs-prop-types-extra</packagereq>
       <packagereq type="default">nodejs-raf</packagereq>
       <packagereq type="default">nodejs-react</packagereq>
+      <packagereq type="default">nodejs-react-ace</packagereq>
       <packagereq type="default">nodejs-react-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-switch</packagereq>
       <packagereq type="default">nodejs-react-bootstrap-typeahead</packagereq>
@@ -299,9 +300,9 @@
       <packagereq type="default">nodejs-react-password-strength</packagereq>
       <packagereq type="default">nodejs-react-popper</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-react-router</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-router-dom</packagereq>
-      <packagereq type="default">nodejs-react-router</packagereq>
       <packagereq type="default">nodejs-react-transition-group</packagereq>
       <packagereq type="default">nodejs-reactabular-table</packagereq>
       <packagereq type="default">nodejs-recompose</packagereq>
