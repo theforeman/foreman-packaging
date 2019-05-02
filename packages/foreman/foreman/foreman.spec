@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:    foreman
@@ -34,6 +34,7 @@ Conflicts: foreman-tasks < 0.11.0-2
 Conflicts: foreman-release-scl < 7-1
 
 Obsoletes: foreman-compute < %{version}-%{release}
+Obsoletes: %{?scl_prefix}rubygem-foreman_userdata
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -1343,6 +1344,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue May 7 2019 Timo Goebel <mail@timogoebel.name> - 1.23.0-0.4.develop
+- Obsolete foreman_userdata
+
 * Fri May 03 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.3.develop
 - Update Gem and NPM dependencies
 
