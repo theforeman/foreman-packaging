@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:    foreman
@@ -397,6 +397,8 @@ BuildRequires: npm(file-saver) >= 2.0.1
 BuildRequires: npm(file-saver) < 3.0.0
 BuildRequires: npm(gridster) >= 0.5.6
 BuildRequires: npm(gridster) < 1.0.0
+BuildRequires: npm(history) >= 4.7.2
+BuildRequires: npm(history) < 5.0.0
 BuildRequires: npm(intl) >= 1.2.5
 BuildRequires: npm(intl) < 1.3.0
 BuildRequires: npm(ipaddr.js) >= 1.2.0
@@ -448,6 +450,8 @@ BuildRequires: npm(react-password-strength) >= 2.4.0
 BuildRequires: npm(react-password-strength) < 3.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
+BuildRequires: npm(react-router-dom) >= 4.3.1
+BuildRequires: npm(react-router-dom) < 5.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
 BuildRequires: npm(redux-form) = 7.2.0
@@ -773,6 +777,8 @@ Requires: npm(file-saver) >= 2.0.1
 Requires: npm(file-saver) < 3.0.0
 Requires: npm(gridster) >= 0.5.6
 Requires: npm(gridster) < 1.0.0
+Requires: npm(history) >= 4.7.2
+Requires: npm(history) < 5.0.0
 Requires: npm(intl) >= 1.2.5
 Requires: npm(intl) < 1.3.0
 Requires: npm(ipaddr.js) >= 1.2.0
@@ -824,6 +830,8 @@ Requires: npm(react-password-strength) >= 2.4.0
 Requires: npm(react-password-strength) < 3.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
+Requires: npm(react-router-dom) >= 4.3.1
+Requires: npm(react-router-dom) < 5.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
 Requires: npm(redux-form) = 7.2.0
@@ -1335,6 +1343,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri May 03 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Tue Apr 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.2.develop
 - Update Gem and NPM dependencies
 
