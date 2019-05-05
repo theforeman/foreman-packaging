@@ -300,9 +300,9 @@
       <packagereq type="default">nodejs-react-password-strength</packagereq>
       <packagereq type="default">nodejs-react-popper</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-react-router</packagereq>
       <packagereq type="default">nodejs-react-router-bootstrap</packagereq>
       <packagereq type="default">nodejs-react-router-dom</packagereq>
-      <packagereq type="default">nodejs-react-router</packagereq>
       <packagereq type="default">nodejs-react-transition-group</packagereq>
       <packagereq type="default">nodejs-reactabular-table</packagereq>
       <packagereq type="default">nodejs-recompose</packagereq>
@@ -327,6 +327,7 @@
       <packagereq type="default">nodejs-url-loader</packagereq>
       <packagereq type="default">nodejs-uuid</packagereq>
       <packagereq type="default">nodejs-warning</packagereq>
+      <packagereq type="default">nodejs-webcomponentsjs</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">nodejs-zxcvbn</packagereq>
