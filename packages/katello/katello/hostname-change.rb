@@ -326,6 +326,8 @@ module KatelloUtilities
 
       unless @foreman_proxy_content
         self.run_cmd("rm -rf /etc/candlepin/certs/amqp{,.bak}")
+        self.run_cmd("rm -f /etc/candlepin/certs/candlepin-ca.crt /etc/candlepin/certs/candlepin-ca.key")
+        self.run_cmd("rm -f /etc/candlepin/certs/keystore")
         self.run_cmd("rm -f /etc/tomcat/keystore")
         self.run_cmd("rm -rf /etc/foreman/old-certs")
         self.run_cmd("rm -f /etc/pki/katello/keystore")
