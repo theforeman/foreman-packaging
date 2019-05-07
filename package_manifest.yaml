@@ -614,7 +614,6 @@ plugin_scl_packages:
     rubygem-foreman_snapshot_management: {}
     rubygem-foreman_spacewalk: {}
     rubygem-foreman_templates: {}
-    rubygem-foreman_userdata: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-foreman_xen: {}
