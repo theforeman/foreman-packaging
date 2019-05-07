@@ -1,8 +1,10 @@
 If your package needs to be released within one or more release streams, and/or distributions, please open PRs to each of those branches respectively. The easiest way to do this is to make the initial commit for the mainline branch (e.g. rpm/develop or deb/develop) and then cherry pick the commit hash onto each subsequent branch.
 
 Supported Versions:
+=======
 
  * Nightly
+ * 1.22
  * 1.21
  * 1.20
 
