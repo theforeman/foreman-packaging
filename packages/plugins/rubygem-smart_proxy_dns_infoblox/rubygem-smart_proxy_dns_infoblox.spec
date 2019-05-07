@@ -7,7 +7,7 @@
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.7
+Version: 0.0.9
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
@@ -94,6 +94,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 07 2019 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.9-1
+- Updated to 0.0.9 upstream version
+
 * Wed Dec 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.7-1
 - Bumped to match upstream version
 
