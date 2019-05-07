@@ -6,7 +6,7 @@
 Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 4.1.6
+Version: 4.1.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -110,6 +110,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Tue May 07 2019 Marek Hulan <mhulan@redhat.com> 4.1.7-1
+- Update to 4.1.7
+
 * Wed Nov 21 2018 Marek Hulan <mhulan@redhat.com> 4.1.6-1
 - Update to 4.1.6
 
