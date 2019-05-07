@@ -6,7 +6,7 @@
 %global release 1
 
 Name:    katello-installer-base
-Version: 3.10.0
+Version: 3.10.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary: Puppet-based installer for the Katello and Katello Capsule
 Group:   Applications/System
@@ -118,6 +118,9 @@ ln -sf %{_datadir}/foreman-installer-katello/bin/katello-certs-check %{buildroot
 %doc README.*
 
 %changelog
+* Tue May 07 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.10.1-1
+- Release katello-installer-base-3.10 3.10.1
+
 * Sat Dec 15 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.0-1
 - Release 3.10.0
 
