@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:    foreman
@@ -455,7 +455,7 @@ BuildRequires: npm(react-router-dom) >= 4.3.1
 BuildRequires: npm(react-router-dom) < 5.0.0
 BuildRequires: npm(redux) >= 3.6.0
 BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(redux-form) = 7.2.0
+BuildRequires: npm(redux-form) = 8.2.0
 BuildRequires: npm(redux-form-validators) >= 2.1.2
 BuildRequires: npm(redux-form-validators) < 3.0.0
 BuildRequires: npm(redux-logger) >= 2.8.1
@@ -835,7 +835,7 @@ Requires: npm(react-router-dom) >= 4.3.1
 Requires: npm(react-router-dom) < 5.0.0
 Requires: npm(redux) >= 3.6.0
 Requires: npm(redux) < 4.0.0
-Requires: npm(redux-form) = 7.2.0
+Requires: npm(redux-form) = 8.2.0
 Requires: npm(redux-form-validators) >= 2.1.2
 Requires: npm(redux-form-validators) < 3.0.0
 Requires: npm(redux-logger) >= 2.8.1
@@ -1344,6 +1344,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed May 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.5.develop
+- Update Gem and NPM dependencies
+
 * Tue May 7 2019 Timo Goebel <mail@timogoebel.name> - 1.23.0-0.4.develop
 - Obsolete foreman_userdata
 
