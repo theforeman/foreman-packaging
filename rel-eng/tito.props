@@ -423,6 +423,7 @@ disttag = .el7
 whitelist = ansiblerole-insights-client
   ansiblerole-foreman_scap_client
   foreman-discovery-image-service
+  nodejs-babel-plugin-module-resolver
   nodejs-react-json-tree
   puppet-foreman_scap_client
   rubygem-chef-api
