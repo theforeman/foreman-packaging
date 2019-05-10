@@ -98,13 +98,13 @@ foreman_scl_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=hammer-cli-master-release"
+        - "--arg jenkins_job=hammer-cli-master-source-release"
     rubygem-hammer_cli_foreman:
       releasers:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=hammer-cli-foreman-master-release"
+        - "--arg jenkins_job=hammer-cli-foreman-master-source-release"
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hoe: {}
@@ -524,13 +524,13 @@ katello_packages:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=hammer-cli-katello-master-release"
+        - "--arg jenkins_job=hammer-cli-katello-master-source-release"
     rubygem-katello:
       releasers:
         - "{{ nightly_releaser }}"
       build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
       nightly_package_tito_releaser_args:
-        - "--arg jenkins_job=katello-master-release"
+        - "--arg jenkins_job=katello-master-source-release"
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
