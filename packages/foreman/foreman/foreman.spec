@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -378,6 +378,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # start package.json dependencies BuildRequires
 BuildRequires: npm(@novnc/novnc) >= 1.0.0
 BuildRequires: npm(@novnc/novnc) < 2.0.0
+BuildRequires: npm(@spice-project/spice-html5) >= 0.2.1
+BuildRequires: npm(@spice-project/spice-html5) < 1.0.0
 BuildRequires: npm(axios) >= 0.17.1
 BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
@@ -488,8 +490,6 @@ BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
-BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
-BuildRequires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -758,6 +758,8 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # start package.json dependencies Requires
 Requires: npm(@novnc/novnc) >= 1.0.0
 Requires: npm(@novnc/novnc) < 2.0.0
+Requires: npm(@spice-project/spice-html5) >= 0.2.1
+Requires: npm(@spice-project/spice-html5) < 1.0.0
 Requires: npm(axios) >= 0.17.1
 Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
@@ -868,8 +870,6 @@ Requires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
-Requires: %{?scl_prefix}rubygem(spice-html5-rails) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(spice-html5-rails) < 0.2.0
 # end specfile assets Requires
 
 %description assets
@@ -1344,6 +1344,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon May 13 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Wed May 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.5.develop
 - Update Gem and NPM dependencies
 
