@@ -4,9 +4,9 @@
 
 %global gem_name foreman_discovery
 %global plugin_name discovery
-%global foreman_min_version 1.20.0
+%global foreman_min_version 1.22.0
 
-%global mainver 14.0.1
+%global mainver 15.0.0
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -112,6 +112,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 13 2019 Lukas Zapletal <lzap+rpm@redhat.com> 15.0.0-1
+- Update to version 15.0.0
+
 * Wed Jan 30 2019 Lukas Zapletal <lzap+rpm@redhat.com> 14.0.1-1
 - Update to version 14.0.1
 
