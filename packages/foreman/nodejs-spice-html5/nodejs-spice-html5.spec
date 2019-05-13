@@ -4,7 +4,7 @@ Name: nodejs-spice-html5
 Version: 0.2.1
 Release: 1%{?dist}
 Summary: Spice Javascript client
-License: LGPL-3.0-or-later
+License: LGPLv3+
 Group: Development/Libraries
 URL: https://www.spice-space.org
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
