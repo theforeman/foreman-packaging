@@ -1,3 +1,4 @@
+<!--
 If your package needs to be released within one or more release streams, and/or distributions, please open PRs to each of those branches respectively. The easiest way to do this is to make the initial commit for the mainline branch (e.g. rpm/develop or deb/develop) and then cherry pick the commit hash onto each subsequent branch.
 
 Supported Versions:
@@ -32,3 +33,4 @@ DEB Example:
     git cherry-pick -x $COMMIT
 
 See Foreman's [plugin maintainer documentation](https://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin#Release-strategies) for more information.
+-->
