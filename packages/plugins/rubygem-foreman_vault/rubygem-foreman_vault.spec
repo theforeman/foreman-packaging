@@ -12,7 +12,7 @@ Version: 0.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
-License: GPL-3.0
+License: GPLv3
 URL: https://github.com/dm-drogeriemarkt/foreman_vault
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
