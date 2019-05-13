@@ -20,12 +20,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr Makefile %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr TODO %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr apache.conf.sample %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr package.json.in %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr spice-html5.spec.in %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr spice.css %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr spice.html %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr spice_auto.html %{buildroot}%{nodejs_sitelib}/%{npm_name}
