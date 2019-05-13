@@ -384,6 +384,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
   rubygem-foreman_templates
+  rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
   rubygem-foreman_wreckingball
   rubygem-foreman_xen
