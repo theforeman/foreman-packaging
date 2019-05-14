@@ -3,12 +3,16 @@
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global executor_service_name dynflowd
 
+# Do not check files in public for requires or provides
+%global __requires_exclude_from ^%{homedir}/public/.*$
+%global __provides_exclude_from ^%{homedir}/public/.*$
+
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:    foreman
@@ -1344,6 +1348,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue May 14 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.7.develop
+- Disable auto-requires/provides from public
+
 * Mon May 13 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.6.develop
 - Update Gem and NPM dependencies
 
