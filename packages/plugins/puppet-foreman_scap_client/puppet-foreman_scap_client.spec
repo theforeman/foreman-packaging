@@ -42,6 +42,7 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/lib
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
+%exclude {puppet_foreman_scap_client_dir}/spec
 
 %changelog
 * Tue Mar 26 2019 Marek Hulan <mhulan@redhat.com> 0.3.20-1
