@@ -53,6 +53,8 @@
       <packagereq type="default">tfm-rubygem-hpricot</packagereq>
       <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
       <packagereq type="default">tfm-rubygem-justified</packagereq>
+      <packagereq type="default">tfm-rubygem-pulpcore_client</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_file_client</packagereq>
       <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
       <packagereq type="default">tfm-rubygem-robotex</packagereq>
@@ -78,6 +80,8 @@
       <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-pulpcore_client-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_file_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access_lib-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
