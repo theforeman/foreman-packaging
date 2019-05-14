@@ -4,11 +4,11 @@
 
 %global gem_name foreman_bootdisk
 %global plugin_name bootdisk
-%global foreman_min_version 1.20.0
+%global foreman_min_version 1.22.0
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    14.0.0
+Version:    15.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -91,6 +91,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/release-gem
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
@@ -101,6 +102,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/AUTHORS
 %{gem_instdir}/test
 
 %posttrans
@@ -111,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 13 2019 Lukas Zapletal <lzap+rpm@redhat.com> 15.0.0-1
+- Update to 15.0.0
+
 * Tue Nov 06 2018 Lukas Zapletal <lzap+rpm@redhat.com> 14.0.0-1
 - Update to 14.0.0
 
