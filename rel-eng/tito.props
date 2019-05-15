@@ -348,8 +348,6 @@ whitelist = rubygem-angular-rails-templates
   rubygem-down
   rubygem-ffi
   rubygem-fog-kubevirt
-  rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
@@ -384,6 +382,8 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
+  rubygem-foreman-tasks
+  rubygem-foreman-tasks-core
   rubygem-foreman_templates
   rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
@@ -397,6 +397,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
   rubygem-hammer_cli_foreman_docker
+  rubygem-hammer_cli_foreman_kubevirt
   rubygem-hammer_cli_foreman_openscap
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt

@@ -627,6 +627,7 @@ plugin_scl_packages:
     rubygem-hammer_cli_foreman_bootdisk: {}
     rubygem-hammer_cli_foreman_discovery: {}
     rubygem-hammer_cli_foreman_docker: {}
+    rubygem-hammer_cli_foreman_kubevirt: {}
     rubygem-hammer_cli_foreman_openscap: {}
     rubygem-hammer_cli_foreman_remote_execution: {}
     rubygem-hammer_cli_foreman_salt: {}
