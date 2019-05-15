@@ -11,7 +11,7 @@
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.18
+Version: 0.19
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Wed May 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.19-0.1.pre.master
+- Bump to 0.19-master to match git
+
 * Mon Jan 21 2019 Jonathon Turel <jturel@gmail.com> - 0.18-0.1.pre.master
 - Bump to 0.18 to match git master
 
