@@ -31,8 +31,6 @@ Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) >= 2.0.2
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible_core) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
