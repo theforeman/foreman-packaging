@@ -58,6 +58,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-datatables.net-bs
   nodejs-debug
   nodejs-diff
+  nodejs-diff-match-patch
   nodejs-dom-helpers
   nodejs-dotenv
   nodejs-escape-string-regexp
