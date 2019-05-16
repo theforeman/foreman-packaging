@@ -143,6 +143,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-router-bootstrap
   nodejs-react-router-dom
   nodejs-react-transition-group
+  nodejs-react-virtualized
   nodejs-recompose
   nodejs-redux
   nodejs-redux-form
