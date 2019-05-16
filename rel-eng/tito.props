@@ -107,6 +107,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-object-assign
   nodejs-patternfly
   nodejs-patternfly-react
+  nodejs-patternfly-react-extensions
   nodejs-performance-now
   nodejs-popper.js
   nodejs-prop-types
