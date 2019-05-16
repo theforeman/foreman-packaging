@@ -216,6 +216,7 @@
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-change-emitter</packagereq>
       <packagereq type="default">nodejs-classnames</packagereq>
+      <packagereq type="default">nodejs-clsx</packagereq>
       <packagereq type="default">nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">nodejs-core-js</packagereq>
       <packagereq type="default">nodejs-create-react-context</packagereq>
