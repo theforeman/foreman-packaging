@@ -9,14 +9,19 @@
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
 Version: 2.1.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?rhel:tfm-}rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: %{?rhel:tfm-}rubygem(foreman_ansible_core)
+%if 0%{?rhel} == 7
+Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.1.5
+Requires: tfm-rubygem(foreman_ansible_core)
+%else
+Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.5
+Requires: rubygem(foreman_ansible_core)
+%endif
 Requires: foreman-proxy >= 1.11.0
 Requires: rubygem(smart_proxy_dynflow) >= 0.1
 Requires: rubygem(smart_proxy_dynflow) < 1.0
@@ -116,6 +121,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Thu May 16 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-2
+- Require SCL prefix only on EL7
+
 * Thu Mar 07 2019 Marek Hulan <mhulan@redhat.com> 2.1.2-1
 - Update to 2.1.2
 
