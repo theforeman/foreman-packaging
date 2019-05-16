@@ -48,6 +48,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-c3
   nodejs-change-emitter
   nodejs-classnames
+  nodejs-clsx
   nodejs-compression-webpack-plugin
   nodejs-core-js
   nodejs-create-react-context
