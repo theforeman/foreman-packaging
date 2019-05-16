@@ -1,7 +1,7 @@
 %global npm_name patternfly-react
 
 Name: nodejs-patternfly-react
-Version: 2.31.0
+Version: 2.34.1
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
@@ -33,6 +33,10 @@ Requires: npm(react-click-outside) >= 3.0.1
 Requires: npm(react-click-outside) < 4.0.0
 Requires: npm(react-collapse) >= 4.0.3
 Requires: npm(react-collapse) < 5.0.0
+Requires: npm(react-debounce-input) >= 3.2.0
+Requires: npm(react-debounce-input) < 4.0.0
+Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
+Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-fontawesome) >= 1.6.1
 Requires: npm(react-fontawesome) < 2.0.0
 Requires: npm(react-motion) >= 0.5.2
@@ -76,6 +80,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.34.1-1
+- Update to 2.34.1
+
 * Tue Mar 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.31.0-1
 - Update to 2.31.0
 
