@@ -94,6 +94,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-lodash.get
+  nodejs-lodash.isequal
   nodejs-lodash.orderby
   nodejs-lodash-webpack-plugin
   nodejs-loose-envify
