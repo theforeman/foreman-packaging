@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -200,6 +200,10 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.0.2-2
+- Rebuild rubygem-foreman_ansible to drop the generated webpack vendor.js
+  dependency
+
 * Fri May 10 2019 Marek Hulan <mhulan@redhat.com> 3.0.2-1
 - Update to 3.0.2
 
