@@ -15,6 +15,7 @@ def source(url)
 end
 
 def gem(name, *requirements)
+  return if ['strscan', 'stringio'].include?(name)
   requirements.pop if requirements.last.kind_of?(Hash)
   if requirements.empty?
       puts "#{$require}: #{package(name)}"
