@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prerelease develop
 
 Name:    foreman
@@ -66,7 +66,7 @@ Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.3
+Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
@@ -172,7 +172,7 @@ BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.3
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
@@ -426,7 +426,7 @@ BuildRequires: npm(number_helpers) >= 0.1.1
 BuildRequires: npm(number_helpers) < 1.0.0
 BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.30.6
+BuildRequires: npm(patternfly-react) >= 2.34.1
 BuildRequires: npm(patternfly-react) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
@@ -806,7 +806,7 @@ Requires: npm(number_helpers) >= 0.1.1
 Requires: npm(number_helpers) < 1.0.0
 Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.30.6
+Requires: npm(patternfly-react) >= 2.34.1
 Requires: npm(patternfly-react) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
@@ -1335,6 +1335,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.8.develop
+- Update Gem and NPM dependencies
+
 * Tue May 14 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.7.develop
 - Remove webpack provides/requires
 
