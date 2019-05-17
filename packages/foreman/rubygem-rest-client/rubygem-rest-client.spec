@@ -100,7 +100,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/history.md
 %{gem_instdir}/rest-client.gemspec
-%{gem_instdir}/rest-client.windows.gemspec
+%exclude %{gem_instdir}/rest-client.windows.gemspec
 %{gem_instdir}/spec
 
 %changelog
