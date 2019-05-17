@@ -107,7 +107,9 @@ npm_info() {
 
 if [[ -z $NPM_MODULE_NAME ]]; then
   echo "This script adds a new npm package based on the module found on npmjs.org"
-  echo -e "\nUsage:\n$0 NPM_MODULE_NAME VERSION STRATEGY \n"
+  echo -e "\nUsage:\n$0 NPM_MODULE_NAME [VERSION [STRATEGY]] \n"
+  echo "VERSION is optional but can be an exact version number or auto to use the latest version"
+  echo "STRATEGY is optional but can be bundle or single"
   exit 1
 fi
 
