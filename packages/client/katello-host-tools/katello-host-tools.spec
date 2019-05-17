@@ -262,7 +262,7 @@ rm -rf %{buildroot}
 %if %{build_agent}
 %post -n katello-agent
 %if %{dnf_install}
-sed 's/bin\/python/bin\/python3/' /etc/sysconfig/goferd -i
+sed 's/bin\/python$/bin\/python3/' /etc/sysconfig/goferd -i
 %endif
 
 %if 0%{?fedora} > 18 || 0%{?rhel} > 6
