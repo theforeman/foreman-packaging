@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 9
 %global prerelease develop
 
 Name:    foreman
@@ -384,7 +384,7 @@ BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
 BuildRequires: npm(bootstrap-sass) >= 3.3.7
 BuildRequires: npm(bootstrap-sass) < 4.0.0
-BuildRequires: npm(brace) >= 0.10.0
+BuildRequires: npm(brace) >= 0.11.1
 BuildRequires: npm(brace) < 1.0.0
 BuildRequires: npm(classnames) >= 2.2.5
 BuildRequires: npm(classnames) < 3.0.0
@@ -428,11 +428,14 @@ BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
 BuildRequires: npm(patternfly-react) >= 2.34.1
 BuildRequires: npm(patternfly-react) < 3.0.0
+BuildRequires: npm(patternfly-react-extensions) >= 2.18.8
+BuildRequires: npm(patternfly-react-extensions) < 3.0.0
 BuildRequires: npm(prop-types) >= 15.6.0
 BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(react) >= 16.8.1
 BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) = 0.32.1
+BuildRequires: npm(react-ace) >= 6.3.2
+BuildRequires: npm(react-ace) < 7.0.0
 BuildRequires: npm(react-debounce-input) >= 3.2.0
 BuildRequires: npm(react-debounce-input) < 4.0.0
 BuildRequires: npm(react-diff-view) >= 1.8.1
@@ -449,7 +452,7 @@ BuildRequires: npm(react-onclickoutside) >= 6.6.2
 BuildRequires: npm(react-onclickoutside) < 7.0.0
 BuildRequires: npm(react-password-strength) >= 2.4.0
 BuildRequires: npm(react-password-strength) < 3.0.0
-BuildRequires: npm(react-redux) >= 5.0.6
+BuildRequires: npm(react-redux) >= 5.1.1
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(react-router-dom) >= 4.3.1
 BuildRequires: npm(react-router-dom) < 5.0.0
@@ -468,7 +471,8 @@ BuildRequires: npm(seamless-immutable) >= 7.1.2
 BuildRequires: npm(seamless-immutable) < 8.0.0
 BuildRequires: npm(select2) >= 3.5.2
 BuildRequires: npm(select2) < 3.6.0
-BuildRequires: npm(unidiff) = 0.0.4
+BuildRequires: npm(unidiff) >= 1.0.0
+BuildRequires: npm(unidiff) < 2.0.0
 BuildRequires: npm(urijs) >= 1.18.10
 BuildRequires: npm(urijs) < 2.0.0
 BuildRequires: npm(uuid) >= 3.3.2
@@ -764,7 +768,7 @@ Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
 Requires: npm(bootstrap-sass) >= 3.3.7
 Requires: npm(bootstrap-sass) < 4.0.0
-Requires: npm(brace) >= 0.10.0
+Requires: npm(brace) >= 0.11.1
 Requires: npm(brace) < 1.0.0
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
@@ -808,11 +812,14 @@ Requires: npm(patternfly) >= 3.58.0
 Requires: npm(patternfly) < 4.0.0
 Requires: npm(patternfly-react) >= 2.34.1
 Requires: npm(patternfly-react) < 3.0.0
+Requires: npm(patternfly-react-extensions) >= 2.18.8
+Requires: npm(patternfly-react-extensions) < 3.0.0
 Requires: npm(prop-types) >= 15.6.0
 Requires: npm(prop-types) < 16.0.0
 Requires: npm(react) >= 16.8.1
 Requires: npm(react) < 17.0.0
-Requires: npm(react-bootstrap) = 0.32.1
+Requires: npm(react-ace) >= 6.3.2
+Requires: npm(react-ace) < 7.0.0
 Requires: npm(react-debounce-input) >= 3.2.0
 Requires: npm(react-debounce-input) < 4.0.0
 Requires: npm(react-diff-view) >= 1.8.1
@@ -829,7 +836,7 @@ Requires: npm(react-onclickoutside) >= 6.6.2
 Requires: npm(react-onclickoutside) < 7.0.0
 Requires: npm(react-password-strength) >= 2.4.0
 Requires: npm(react-password-strength) < 3.0.0
-Requires: npm(react-redux) >= 5.0.6
+Requires: npm(react-redux) >= 5.1.1
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(react-router-dom) >= 4.3.1
 Requires: npm(react-router-dom) < 5.0.0
@@ -848,7 +855,8 @@ Requires: npm(seamless-immutable) >= 7.1.2
 Requires: npm(seamless-immutable) < 8.0.0
 Requires: npm(select2) >= 3.5.2
 Requires: npm(select2) < 3.6.0
-Requires: npm(unidiff) = 0.0.4
+Requires: npm(unidiff) >= 1.0.0
+Requires: npm(unidiff) < 2.0.0
 Requires: npm(urijs) >= 1.18.10
 Requires: npm(urijs) < 2.0.0
 Requires: npm(uuid) >= 3.3.2
@@ -1335,6 +1343,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri May 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.9.develop
+- Update Gem and NPM dependencies
+
 * Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.8.develop
 - Update Gem and NPM dependencies
 
