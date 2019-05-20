@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    10.3.1
+Version:    11.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -111,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon May 20 2019 Bernhard Suttner <suttner@atix.de> 11.0.0-1
+- Update to 11.0.0
+
 * Mon May 06 2019 Bernhard Suttner <suttner@atix.de> 10.3.1-1
 - Update to 10.3.1
 
