@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.13.0
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Fri Jun 07 2019 Lukas Zapletal <lzap+rpm@redhat.com> 3.13.0-0.3.master
+- BZ#1710625 - updated qpidd debug paths
+
 * Tue May 07 2019 Evgeni Golov - 3.13.0-0.2.master
 - delete new candlepin keystore paths in katello-change-hostname
 
