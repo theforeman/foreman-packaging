@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:       foreman-installer
@@ -14,7 +14,7 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   %{?scl_prefix}puppet-agent >= 5.5.8
+Requires:   %{?scl_prefix}puppet-agent >= 5.5.10
 Requires:   %{?scl_prefix}rubygem-kafo >= 3.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue May 21 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.2.develop
+- Require at least Puppet 5.5.10 (#26844)
+
 * Tue Apr 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.1.develop
 - Bump version to 1.23-develop
 
