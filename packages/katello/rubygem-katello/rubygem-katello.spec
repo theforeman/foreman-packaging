@@ -6,7 +6,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -38,6 +38,8 @@ Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(oauth)
+Requires: %{?scl_prefix}rubygem(pulpcore_client)
+Requires: %{?scl_prefix}rubygem(pulp_file_client)
 Requires: %{?scl_prefix}rubygem(qpid_messaging)
 Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(rest-client)
@@ -64,6 +66,8 @@ BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client)
 BuildRequires: %{?scl_prefix}rubygem(zest)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -368,6 +372,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue May 14 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.13.0-0.2.pre.master
+- pull in new pulp3 gem dependencies 
+
 * Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.1.pre.master
 - Bump version to 3.13
 
