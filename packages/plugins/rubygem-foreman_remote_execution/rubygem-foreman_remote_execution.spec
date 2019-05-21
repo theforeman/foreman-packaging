@@ -13,8 +13,8 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.7.0
-Release:    12%{?foremandist}%{?dist}
+Version:    1.8.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -26,7 +26,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(deface)
@@ -38,7 +38,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(deface)
@@ -95,6 +95,7 @@ exit 0
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
+%{gem_instdir}/extra
 %{gem_instdir}/locale
 %{gem_instdir}/lib
 %{gem_instdir}/public
@@ -115,6 +116,27 @@ exit 0
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 21 2019 Ivan Nečas <inecas@redhat.com> 1.8.0-1
+- Update to 1.8.0
+
+* Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.0-18
+- Rebuild rubygem-foreman_remote_execution for webpack
+
+* Wed May 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.0-17
+- Rebuild rubygem-foreman_remote_execution for webpack
+
+* Thu May 09 2019 Marek Hulan - 1.7.0-16
+- Rebuild REX for webpack
+
+* Mon May 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.0-15
+- Rebuild rubygem-foreman_remote_execution for webpack
+
+* Thu May 02 2019 Marek Hulan - 1.7.0-14
+- Rebuild REX for webpack
+
+* Tue Apr 30 2019 Evgeni Golov - 1.7.0-13
+- Rebuild REX for webpack
+
 * Fri Apr 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.7.0-12
 - Rebuild rubygem-foreman_remote_execution for webpack
 
