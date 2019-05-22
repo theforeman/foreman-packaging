@@ -9,7 +9,7 @@
 Summary: Ansible support for Foreman smart proxy
 Name: rubygem-%{gem_name}
 Version: 2.1.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
@@ -30,6 +30,11 @@ Requires: ruby
 Requires: ruby(rubygems)
 
 Requires: ansible >= 2.2
+%if 0%{?rhel} == 7
+Requires: python-requests
+%else
+Requires: python3-requests
+%endif
 
 Requires: ruby(release)
 BuildRequires: ruby(release)
@@ -121,6 +126,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 
 %changelog
+* Wed May 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-3
+- Require python-requests
+
 * Thu May 16 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-2
 - Require SCL prefix only on EL7
 
