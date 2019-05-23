@@ -1,3 +1,15 @@
+ruby-foreman-salt (11.0.0-1) stable; urgency=low
+
+  * Compatible with Foreman 1.21 / 1.22
+  * Use foreman remote execution to run salt `state.highstate` and other Salt functions
+  * Config Report and Facts should show Salt as origin
+  * Translations for german available
+  * Added bulk actions to change Salt Master and Salt Environment on the host overview page
+  * Show Salt Actions in Smart Proxy
+  * Bug fixes and more test automation
+
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 20 May 2019 09:14:04 +0100
+
 ruby-foreman-salt (10.1.0-1) stable; urgency=low
 
   * Fix bugs in plugin integration in 1.17
