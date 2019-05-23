@@ -22,14 +22,17 @@ foreman_scl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-scl
-      - el7-foreman-rails-1.22
-      - el7-foreman-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-foreman-rails-1.22
   hosts:
     foreman:
       nightly_package_tito_releaser_args:
@@ -185,13 +188,16 @@ foreman_nonscl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-puppet-5
-      - el7-foreman-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-5
   hosts:
     foreman-bootloaders-redhat: {}
     foreman-installer: {}
@@ -374,14 +380,17 @@ foreman_scl_and_nonscl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-scl
-      - el7-foreman-rails-1.22
-      - el7-foreman-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-foreman-rails-1.22
   hosts:
     rubygem-bundler_ext: {}
     rubygem-clamp: {}
@@ -408,38 +417,49 @@ foreman_client_packages:
       - foreman-client-1.22-fedora28
       - foreman-client-1.22-fedora29
     repoclosure_config: repoclosure/yum.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-client-1.22
+      rhel6:
+        - el6-foreman-client-1.22
+      rhel5:
+        - el5-foreman-client-1.22
+      fedora28:
+        - f28-foreman-client-1.22
+      fedora29:
+        - f29-foreman-client-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-puppet-5
-      - el7-foreman-client-1.22
-      - el6-base
-      - el6-updates
-      - el6-epel
-      - el6-extras
-      - el6-puppet-5
-      - el6-qpid
-      - el6-subscription-manager
-      - el6-pulp
-      - el6-foreman-client-1.22
-      - el5-base
-      - el5-updates
-      - el5-epel
-      - el5-extras
-      - el5-puppet-5
-      - el5-subscription-manager
-      - el5-qpid
-      - el5-foreman-client-1.22
-      - f28-base
-      - f28-updates
-      - f28-puppet-5
-      - f28-foreman-client-1.22
-      - f29-base
-      - f29-updates
-      - f29-puppet-5
-      - f29-foreman-client-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-5
+      rhel6:
+        - el6-base
+        - el6-updates
+        - el6-epel
+        - el6-extras
+        - el6-puppet-5
+        - el6-qpid
+        - el6-subscription-manager
+        - el6-pulp
+      rhel5:
+        - el5-base
+        - el5-updates
+        - el5-epel
+        - el5-extras
+        - el5-puppet-5
+        - el5-subscription-manager
+        - el5-qpid
+      fedora28:
+        - f28-base
+        - f28-updates
+        - f28-puppet-5
+      fedora29:
+        - f29-base
+        - f29-updates
+        - f29-puppet-5
   hosts:
     katello-host-tools: {}
     rubygem-foreman_scap_client: {}
@@ -454,19 +474,22 @@ katello_packages:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-katello-3.12
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-scl
-      - el7-puppet-5
-      - el7-foreman-rails-1.22
-      - el7-foreman-1.22
-      - el7-foreman-plugins-1.22
-      - el7-katello-pulp-3.12
-      - el7-katello-candlepin-3.12
-      - el7-katello-3.12
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-puppet-5
+        - el7-foreman-rails-1.22
+        - el7-foreman-1.22
+        - el7-foreman-plugins-1.22
+        - el7-katello-pulp-3.12
+        - el7-katello-candlepin-3.12
   hosts:
     katello: {}
     katello-client-bootstrap: {}
@@ -513,16 +536,19 @@ plugin_scl_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-plugins-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-scl
-      - el7-puppet-5
-      - el7-foreman-rails-1.22
-      - el7-foreman-1.22
-      - el7-foreman-plugins-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-puppet-5
+        - el7-foreman-rails-1.22
+        - el7-foreman-1.22
   hosts:
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
@@ -622,14 +648,17 @@ plugin_nonscl_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-plugins-1.22
     repoclosure_lookaside_repos:
-      - el7-base
-      - el7-updates
-      - el7-epel
-      - el7-extras
-      - el7-puppet-5
-      - el7-foreman-1.22
-      - el7-foreman-plugins-1.22
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-5
+        - el7-foreman-1.22
   hosts:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
@@ -674,83 +703,115 @@ repoclosures:
     repoclosure_config: repoclosure/yum_el7.conf
   hosts:
     foreman-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-1.22
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-1.22
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-5
-        - el7-foreman-rails-1.22
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-5
+          - el7-foreman-rails-1.22
     plugins-repoclosure-el7:
-      repoclosure_target_repo: el7-foreman-plugins-1.22
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-plugins-1.22
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-5
-        - el7-foreman-rails-1.22
-        - el7-foreman-1.22
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-5
+          - el7-foreman-rails-1.22
+          - el7-foreman-1.22
     katello-repoclosure-el7:
-      repoclosure_target_repo: el7-katello-3.12
+      repoclosure_target_repos:
+        rhel7:
+          - el7-katello-3.12
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-5
-        - el7-foreman-rails-1.22
-        - el7-foreman-1.22
-        - el7-foreman-plugins-1.22
-        - el7-katello-pulp-3.12
-        - el7-katello-candlepin-3.12
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-5
+          - el7-foreman-rails-1.22
+          - el7-foreman-1.22
+          - el7-foreman-plugins-1.22
+          - el7-katello-pulp-3.12
+          - el7-katello-candlepin-3.12
     foreman-client-repoclosure-el7:
       repoclosure_config: repoclosure/yum_el7.conf
-      repoclosure_target_repo: el7-foreman-client-1.22
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-client-1.22
+      repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-5
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-puppet-5
     foreman-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
-      repoclosure_target_repo: el6-foreman-client-1.22
+      repoclosure_target_repos:
+        rhel6:
+          - el6-foreman-client-1.22
+      repoclosure_target_dist: rhel6
       repoclosure_lookaside_repos:
-        - el6-base
-        - el6-updates
-        - el6-epel
-        - el6-extras
-        - el6-puppet-5
-        - el6-qpid
-        - el6-pulp
-        - el6-subscription-manager
+        rhel6:
+          - el6-base
+          - el6-updates
+          - el6-epel
+          - el6-extras
+          - el6-puppet-5
+          - el6-qpid
+          - el6-pulp
+          - el6-subscription-manager
     foreman-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
-      repoclosure_target_repo: el5-foreman-client-1.22
+      repoclosure_target_repos:
+        rhel5:
+          - el5-foreman-client-1.22
+      repoclosure_target_dist: rhel5
       repoclosure_lookaside_repos:
-        - el5-base
-        - el5-updates
-        - el5-epel
-        - el5-extras
-        - el5-puppet-5
-        - el5-subscription-manager
-        - el5-qpid
+        rhel5:
+          - el5-base
+          - el5-updates
+          - el5-epel
+          - el5-extras
+          - el5-puppet-5
+          - el5-subscription-manager
+          - el5-qpid
     foreman-client-repoclosure-f28:
       repoclosure_config: repoclosure/yum_f28.conf
-      repoclosure_target_repo: f28-foreman-client-1.22
+      repoclosure_target_repos:
+        fedora28:
+          - f28-foreman-client-1.22
+      repoclosure_target_dist: fedora28
       repoclosure_lookaside_repos:
-        - f28-base
-        - f28-updates
-        - f28-puppet-5
+        fedora28:
+          - f28-base
+          - f28-updates
+          - f28-puppet-5
     foreman-client-repoclosure-f29:
       repoclosure_config: repoclosure/yum_f29.conf
-      repoclosure_target_repo: f29-foreman-client-1.22
+      repoclosure_target_repos:
+        fedora29:
+          - f29-foreman-client-1.22
+      repoclosure_target_dist: fedora29
       repoclosure_lookaside_repos:
-        - f29-base
-        - f29-updates
-        - f29-puppet-5
+        fedora29:
+          - f29-base
+          - f29-updates
+          - f29-puppet-5
