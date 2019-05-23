@@ -8,7 +8,7 @@
 
 Summary: Foreman OpenSCAP commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.7
+Version: 0.1.8
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -65,6 +65,9 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu May 23 2019 Ondrej Prazak <oprazak@redhat.com> 0.1.8-1
+- Update to 0.1.8
+
 * Tue Mar 19 2019 Marek Hulan <mhulan@redhat.com> 0.1.7-1
 - Update to 0.1.7
 
