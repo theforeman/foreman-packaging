@@ -23,7 +23,8 @@ foreman_scl_packages:
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-foreman-nightly
+      rhel7:
+        - el7-foreman-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -204,7 +205,8 @@ foreman_nonscl_packages:
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-foreman-nightly
+      rhel7:
+        - el7-foreman-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -419,7 +421,8 @@ foreman_scl_and_nonscl_packages:
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-foreman-nightly
+      rhel7:
+        - el7-foreman-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -455,11 +458,16 @@ foreman_client_packages:
       - foreman-client-nightly-fedora28
     repoclosure_config: repoclosure/yum.conf
     repoclosure_target_repos:
-      - el7-foreman-client-nightly
-      - el6-foreman-client-nightly
-      - el5-foreman-client-nightly
-      - f28-foreman-client-nightly
-      - f29-foreman-client-nightly
+      rhel7:
+        - el7-foreman-client-nightly
+      rhel6:
+        - el6-foreman-client-nightly
+      rhel5:
+        - el5-foreman-client-nightly
+      fedora28:
+        - f28-foreman-client-nightly
+      fedora29:
+        - f29-foreman-client-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -507,7 +515,8 @@ katello_packages:
     nightly_releaser: koji-katello-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-katello-nightly
+      rhel7:
+        - el7-katello-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -580,7 +589,8 @@ plugin_scl_packages:
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-foreman-plugins-nightly
+      rhel7:
+        - el7-foreman-plugins-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -699,7 +709,8 @@ plugin_nonscl_packages:
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
-      - el7-foreman-plugins-nightly
+      rhel7:
+        - el7-foreman-plugins-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -753,7 +764,8 @@ repoclosures:
   hosts:
     foreman-repoclosure-el7:
       repoclosure_target_repos:
-        - el7-foreman-nightly
+        rhel7:
+          - el7-foreman-nightly
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -766,7 +778,8 @@ repoclosures:
           - el7-foreman-rails-nightly
     plugins-repoclosure-el7:
       repoclosure_target_repos:
-        - el7-foreman-plugins-nightly
+        rhel7:
+          - el7-foreman-plugins-nightly
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -780,7 +793,8 @@ repoclosures:
           - el7-foreman-nightly
     katello-repoclosure-el7:
       repoclosure_target_repos:
-        - el7-katello-nightly
+        rhel7:
+          - el7-katello-nightly
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -798,7 +812,8 @@ repoclosures:
     foreman-client-repoclosure-el7:
       repoclosure_config: repoclosure/yum_el7.conf
       repoclosure_target_repos:
-        - el7-foreman-client-nightly
+        rhel7:
+          - el7-foreman-client-nightly
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -810,7 +825,8 @@ repoclosures:
     foreman-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
       repoclosure_target_repos:
-        - el6-foreman-client-nightly
+        rhel6:
+          - el6-foreman-client-nightly
       repoclosure_target_dist: rhel6
       repoclosure_lookaside_repos:
         rhel6:
@@ -825,7 +841,8 @@ repoclosures:
     foreman-client-repoclosure-el5:
       repoclosure_config: repoclosure/yum_el5.conf
       repoclosure_target_repos:
-        - el5-foreman-client-nightly
+        rhel5:
+          - el5-foreman-client-nightly
       repoclosure_target_dist: rhel5
       repoclosure_lookaside_repos:
         rhel5:
@@ -839,7 +856,8 @@ repoclosures:
     foreman-client-repoclosure-f28:
       repoclosure_config: repoclosure/yum_f28.conf
       repoclosure_target_repos:
-        - f28-foreman-client-nightly
+        fedora28:
+          - f28-foreman-client-nightly
       repoclosure_target_dist: fedora28
       repoclosure_lookaside_repos:
         fedora28:
@@ -849,7 +867,8 @@ repoclosures:
     foreman-client-repoclosure-f29:
       repoclosure_config: repoclosure/yum_f29.conf
       repoclosure_target_repos:
-        - f29-foreman-client-nightly
+        fedora29:
+          - f29-foreman-client-nightly
       repoclosure_target_dist: fedora29
       repoclosure_lookaside_repos:
         fedora29:
