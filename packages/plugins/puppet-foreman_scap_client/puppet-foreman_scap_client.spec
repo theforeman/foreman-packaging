@@ -5,7 +5,7 @@
 %global puppet_foreman_scap_client_dir %{puppet_modules_dir}/%{puppet_module}
 
 Name:       puppet-%{puppet_module}
-Version:    0.3.20
+Version:    0.3.21
 Release:    1%{?dist}
 Summary:    Puppet module to configure foreman_scap_client
 License:    GPLv2
@@ -36,15 +36,21 @@ cp -rp . %{buildroot}/%{puppet_foreman_scap_client_dir}/
 %{puppet_foreman_scap_client_dir}/README.md
 %{puppet_foreman_scap_client_dir}/NEWS
 %{puppet_foreman_scap_client_dir}/metadata.json
-%{puppet_foreman_scap_client_dir}/checksums.json
 %{puppet_foreman_scap_client_dir}/Gemfile
 %{puppet_foreman_scap_client_dir}/Rakefile
 %{puppet_foreman_scap_client_dir}/lib
 %{puppet_foreman_scap_client_dir}/manifests
 %{puppet_foreman_scap_client_dir}/templates
 %exclude %{puppet_foreman_scap_client_dir}/spec
+%exclude %{puppet_foreman_scap_client_dir}/.travis.yml
+%exclude %{puppet_foreman_scap_client_dir}/.fixtures.yml
+%exclude %{puppet_foreman_scap_client_dir}/.git
+%exclude %{puppet_foreman_scap_client_dir}/.gitignore
 
 %changelog
+* Thu May 23 2019 Ondrej Prazak <oprazak@redhat.com> 0.3.21-1
+- Update puppet-foreman_scap_client to 0.3.21 (oprazak@redhat.com)
+
 * Tue Mar 26 2019 Marek Hulan <mhulan@redhat.com> 0.3.20-1
 - Update puppet-foreman_scap_client to 0.3.20 (mhulan@redhat.com)
 
