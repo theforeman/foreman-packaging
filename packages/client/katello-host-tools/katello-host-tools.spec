@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -388,11 +388,11 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu May 23 2019 Garret Rumohr - 3.5.0-4
+- Fixes #26837 - Corrects string replacement in /etc/sysconfig/goferd by RPM script
+
 * Thu May 23 2019 Evgeni Golov - 3.5.0-3
 - don't build the tracer plugin on RHEL < 7
-
-* Mon May 20 2019 Garret Rumohr - 3.5.0-3
-- Fixes #26837 - Corrects string replacement in /etc/sysconfig/goferd by RPM script
 
 * Tue Apr 23 2019 Evgeni Golov - 3.5.0-2
 - Don't ship fact-plugin on modern Fedora and EL
