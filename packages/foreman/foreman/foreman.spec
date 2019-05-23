@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prerelease develop
 
 Name:    foreman
@@ -558,8 +558,8 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.1.5
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.2.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1343,6 +1343,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu May 23 2019 Shira Maximov <shiramaximov@gmail.com> 1.23.0-0.10.develop
+- Update for-ovirt deps
+
 * Fri May 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.9.develop
 - Update Gem and NPM dependencies
 
