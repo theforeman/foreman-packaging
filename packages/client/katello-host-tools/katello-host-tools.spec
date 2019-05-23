@@ -2,7 +2,7 @@
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
 
-%global build_tracer (0%{?suse_version} == 0)
+%global build_tracer 0%{?rhel} >= 7 || 0%{?fedora}
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -233,6 +233,7 @@ cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %if %{build_tracer}
 #do nothing
 %else
+rm %{buildroot}%{plugins_dir}/tracer_upload.py*
 rm %{buildroot}%{katello_libdir}/tracer.py
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
@@ -387,6 +388,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu May 23 2019 Evgeni Golov - 3.5.0-3
+- don't build the tracer plugin on RHEL < 7
+
 * Tue Apr 23 2019 Evgeni Golov - 3.5.0-2
 - Don't ship fact-plugin on modern Fedora and EL
 
