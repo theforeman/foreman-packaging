@@ -1,3 +1,9 @@
+foreman (1.22.0~rc2-1) stable; urgency=low
+
+  * 1.22.0-RC2 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 23 May 2019 13:51:40 +0200
+
 foreman (1.22.0~rc1-1) stable; urgency=low
 
   * 1.22.0-RC1 released
