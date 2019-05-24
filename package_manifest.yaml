@@ -491,7 +491,7 @@ foreman_client_packages:
         - el5-extras
         - el5-puppet-6
         - el5-subscription-manager
-        - el5-qpid
+        - el5-pulp
       fedora28:
         - f28-base
         - f28-updates
@@ -852,7 +852,7 @@ repoclosures:
           - el5-extras
           - el5-puppet-6
           - el5-subscription-manager
-          - el5-qpid
+          - el5-pulp
     foreman-client-repoclosure-f28:
       repoclosure_config: repoclosure/yum_f28.conf
       repoclosure_target_repos:
