@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:     foreman-release
@@ -63,6 +63,7 @@ Defines yum repositories for Foreman clients.
 %endif
 
 %if 0%{?rhel} == 5
+%config %{repo_dir}/pulp.repo
 %config %{repo_dir}/subscription-manager.repo
 %endif
 
@@ -86,6 +87,7 @@ install -m 644 %{SOURCE9} %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 %if 0%{?rhel} == 5
+install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
 install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
@@ -109,6 +111,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/*
 
 %changelog
+* Fri May 24 2019 Evgeni Golov - 1.23.0-0.2.develop
+- Include Pulp repo for EL5 clients
+
 * Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 1.23.0-0.1.develop
 - Bump version to 1.23-develop
 
