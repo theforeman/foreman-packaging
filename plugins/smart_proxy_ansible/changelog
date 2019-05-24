@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.0.0-2) stable; urgency=low
+
+  * Require python-requests for the Ansible Foreman callback
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 07 Jun 2019 08:32:41 -0400
+
 ruby-smart-proxy-ansible (3.0.0-1) stable; urgency=low
 
   * Update smart_proxy_ansible to 3.0.0
