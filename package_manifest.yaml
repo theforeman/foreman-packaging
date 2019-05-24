@@ -816,7 +816,7 @@ repoclosures:
           - el5-qpid
     foreman-client-repoclosure-f28:
       repoclosure_config: repoclosure/yum_f28.conf
-      repoclosure_target_dist: fedora29
+      repoclosure_target_dist: fedora28
       repoclosure_target_repos:
         fedora28:
           - f28-foreman-client-1.20
