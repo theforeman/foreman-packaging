@@ -1,8 +1,7 @@
 %global npm_name recompose
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 0.26.0
+Name: nodejs-recompose
+Version: 0.30.0
 Release: 1%{?dist}
 Summary: A React utility belt for function components and higher-order components
 License: MIT
@@ -10,12 +9,16 @@ Group: Development/Libraries
 URL: https://github.com/acdlite/recompose
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
+Requires: npm(@babel/runtime) >= 7.0.0
+Requires: npm(@babel/runtime) < 8.0.0
 Requires: npm(change-emitter) >= 0.1.2
-Requires: npm(change-emitter) < 1.0.0
+Requires: npm(change-emitter) < 0.2.0
 Requires: npm(fbjs) >= 0.8.1
-Requires: npm(fbjs) < 1.0.0
+Requires: npm(fbjs) < 0.9.0
 Requires: npm(hoist-non-react-statics) >= 2.3.1
 Requires: npm(hoist-non-react-statics) < 3.0.0
+Requires: npm(react-lifecycles-compat) >= 3.0.2
+Requires: npm(react-lifecycles-compat) < 4.0.0
 Requires: npm(symbol-observable) >= 1.0.4
 Requires: npm(symbol-observable) < 2.0.0
 BuildArch: noarch
@@ -31,17 +34,16 @@ ExclusiveArch: %{nodejs_arches} noarch
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr baconObservableConfig.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr branch.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr cjs %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr componentFromProp.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr componentFromStream.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr compose.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr createEventHandler.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr createSink.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr defaultProps.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr es %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flattenProp.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flydObservableConfig.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr fromRenderProps.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr getContext.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr getDisplayName.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr hoistStatics.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -70,6 +72,7 @@ cp -pfr setStatic.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr shallowEqual.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr shouldUpdate.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr toClass.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr toRenderProps.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr utils %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr withContext.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr withHandlers.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -83,16 +86,18 @@ cp -pfr xstreamObservableConfig.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
+%license LICENSE.md
 %doc README.md
 
 %changelog
+* Mon May 27 2019 Gilad Lekner <gilad215@gmail.com> 0.30.0-1
+- Update to 0.30.0
+
 * Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.26.0-1
 - new package built with tito
 
