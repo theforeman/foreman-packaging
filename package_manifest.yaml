@@ -273,6 +273,7 @@ foreman_nonscl_packages:
     nodejs-classnames: {}
     nodejs-clsx: {}
     nodejs-compression-webpack-plugin: {}
+    nodejs-copy-webpack-plugin: {}
     nodejs-core-js: {}
     nodejs-create-react-context: {}
     nodejs-css-element-queries: {}
