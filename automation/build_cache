@@ -3,25 +3,24 @@ import argparse
 import configparser
 import json
 import logging
-import os
 import subprocess
 from collections import defaultdict
-from glob import glob
 from pathlib import Path
+from typing import Dict, Generator, Tuple
 
 from ansible.inventory.manager import InventoryManager
 from ansible.parsing.dataloader import DataLoader
 from ansible.vars.manager import VariableManager
 
 
-def parse_props(tito_props_path):
-    if not os.path.isfile(tito_props_path):
+def parse_props(tito_props_path: Path) -> Dict[str, Dict[str, set]]:
+    if not tito_props_path.exists():
         raise ValueError('Tito file {} not found'.format(tito_props_path))
 
     parser = configparser.ConfigParser()
     parser.read(tito_props_path)
 
-    result = defaultdict(lambda: defaultdict(set))
+    result: Dict[str, Dict[str, set]] = defaultdict(lambda: defaultdict(set))
 
     sections = [section for tag, section in parser.items() if 'whitelist' in section]
 
@@ -39,26 +38,29 @@ def parse_props(tito_props_path):
     return result
 
 
-def get_packages_manifest(manifest_path: Path) -> (str, Path):
+def get_packages_manifest(manifest_path: Path) -> Generator[Tuple[str, Path], None, None]:
     data_loader = DataLoader()
     manifest = InventoryManager(data_loader, manifest_path.as_posix())
     variable_manager = VariableManager(data_loader, manifest)
 
     for host in manifest.hosts.values():
         package_vars = variable_manager.get_vars(host=host)
-        if 'package_base_dir' in package_vars:
-            spec_file = glob(os.path.join(package_vars['inventory_dir'],
-                                          package_vars['package_base_dir'], host.name,
-                                          '*.spec'))[0]
-            yield (host.name, Path(spec_file))
+        inventory = Path(package_vars['inventory_dir'])
+        try:
+            directory = inventory / package_vars['package_base_dir'] / host.name
+        except KeyError:
+            pass
+        else:
+            spec_file = list(directory.glob('*.spec'))[0]
+            yield (host.name, spec_file)
 
 
-def get_packages(repository: Path) -> (str, str, str):
+def get_packages(repository: Path) -> Generator[Tuple[str, str, str], None, None]:
     manifest_path = repository / 'package_manifest.yaml'
     packages = get_packages_manifest(manifest_path)
 
     for name, spec_file in packages:
-        command = ['rpmspec', '--srpm', '-q', '--queryformat', '%{version}', spec_file]
+        command = ['rpmspec', '--srpm', '-q', '--queryformat', '%{version}', spec_file.as_posix()]
         try:
             version = subprocess.check_output(command).decode()
         except subprocess.CalledProcessError as ex:
@@ -79,7 +81,7 @@ def build_cache(repository: Path, dist: str):
 
 
 def get_repo_ref(git_dir: Path):
-    command = ['git', '--git-dir', git_dir.absolute(), 'rev-parse', 'HEAD']
+    command = ['git', '--git-dir', git_dir.absolute().as_posix(), 'rev-parse', 'HEAD']
     return subprocess.check_output(command, universal_newlines=True).strip()
 
 
