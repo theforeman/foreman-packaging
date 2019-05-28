@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prerelease .rc1
+%global prerelease .rc2
 %global release 5
 
 Name:       katello
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue May 28 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-0.5.rc2
+- Release 3.12 RC2
+
 * Tue May 07 2019 Evgeni Golov - 3.12.0-0.5.rc1
 - delete new candlepin keystore paths in katello-change-hostname
 
