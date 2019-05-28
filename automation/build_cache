@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+import argparse
+import configparser
+import json
+import logging
+import os
+import subprocess
+from collections import defaultdict
+from glob import glob
+from pathlib import Path
+
+from ansible.inventory.manager import InventoryManager
+from ansible.parsing.dataloader import DataLoader
+from ansible.vars.manager import VariableManager
+
+
+def parse_props(tito_props_path):
+    if not os.path.isfile(tito_props_path):
+        raise ValueError('Tito file {} not found'.format(tito_props_path))
+
+    parser = configparser.ConfigParser()
+    parser.read(tito_props_path)
+
+    result = defaultdict(lambda: defaultdict(set))
+
+    sections = [section for tag, section in parser.items() if 'whitelist' in section]
+
+    for section in sections:
+        dist = section['disttag'].lstrip('.')
+
+        for short_package_name in section['whitelist'].split():
+            if 'scl' in section and short_package_name.startswith('rubygem-'):
+                prefix = section['scl'] + '-'
+            else:
+                prefix = ''
+
+            result[short_package_name][dist].add(prefix + short_package_name)
+
+    return result
+
+
+def get_packages_manifest(manifest_path: Path) -> (str, Path):
+    data_loader = DataLoader()
+    manifest = InventoryManager(data_loader, manifest_path.as_posix())
+    variable_manager = VariableManager(data_loader, manifest)
+
+    for host in manifest.hosts.values():
+        package_vars = variable_manager.get_vars(host=host)
+        if 'package_base_dir' in package_vars:
+            spec_file = glob(os.path.join(package_vars['inventory_dir'],
+                                          package_vars['package_base_dir'], host.name,
+                                          '*.spec'))[0]
+            yield (host.name, Path(spec_file))
+
+
+def get_packages(repository: Path) -> (str, str, str):
+    manifest_path = repository / 'package_manifest.yaml'
+    packages = get_packages_manifest(manifest_path)
+
+    for name, spec_file in packages:
+        command = ['rpmspec', '--srpm', '-q', '--queryformat', '%{version}', spec_file]
+        try:
+            version = subprocess.check_output(command).decode()
+        except subprocess.CalledProcessError as ex:
+            logging.exception(ex)
+            version = None
+
+        yield name, spec_file.relative_to(repository).as_posix(), version
+
+
+def build_cache(repository: Path, dist: str):
+    tito_file = repository / 'rel-eng' / 'tito.props'
+
+    package_map = parse_props(tito_file)
+
+    return {pkg: {'version': version, 'spec_file': spec_file}
+            for name, spec_file, version in get_packages(repository)
+            for pkg in package_map[name].get(dist, [])}
+
+
+def get_repo_ref(git_dir: Path):
+    command = ['git', '--git-dir', git_dir.absolute(), 'rev-parse', 'HEAD']
+    return subprocess.check_output(command, universal_newlines=True).strip()
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dist', default='el7')
+    args = parser.parse_args()
+
+    dist = args.dist
+
+    directory = Path(__file__).absolute().parent
+    repository = directory.parent
+
+    git_ref = get_repo_ref(repository / '.git')
+    cache_filename = directory / 'cache' / 'packages-{}-{}.json'.format(git_ref, dist)
+
+    try:
+        with cache_filename.open() as cache_fp:
+            packages = json.load(cache_fp)
+    except FileNotFoundError:
+        packages = build_cache(repository, dist)
+        with cache_filename.open('w') as cache_fp:
+            json.dump(packages, cache_fp)
+
+    print(json.dumps(packages))
+
+
+if __name__ == '__main__':
+    main()

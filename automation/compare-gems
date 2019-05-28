@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+require 'bundler'
+require 'json'
+require 'open3'
+
+EXCLUDED_GROUPS = [:test, :development]
+SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, '..', 'scl_prefixes.json')))
+
+def package_name(gem_name)
+  # TODO: EL8 has no SCL
+  "tfm-rubygem-#{gem_name}"
+end
+
+def get_upstream_versions(filename)
+  Bundler.settings.set_local(:without,  EXCLUDED_GROUPS)
+  Bundler.settings.set_local(:with, [])
+
+  definition = Bundler::Dsl.evaluate(filename, nil, true)
+  definition.resolve_remotely!
+
+  Hash[definition.requested_specs.map do |spec|
+    unless SCL_PREFIXES.include?(spec.name)
+      [package_name(spec.name), spec.version.to_s]
+    end
+  end.compact]
+end
+
+def get_packaging_versions
+  stdout, _, status = Open3.capture3(File.join(__dir__, 'build_cache'))
+  raise Exception('Failed to build cache') unless status.success?
+  JSON.load(stdout)
+end
+
+def main
+  filename = ARGV.shift || 'Gemfile'
+
+  upstream_versions = get_upstream_versions(filename)
+  packaging_versions = get_packaging_versions
+
+  upstream_versions.each do |package, upstream_version|
+    packaging = packaging_versions[package]
+    if packaging.nil?
+      puts "#{package} is unpackaged but may be provided by an SCL - should be #{upstream_version}"
+    elsif upstream_version != packaging['version']
+      puts "#{package} is packaged as #{packaging['version']} != #{upstream_version} from bundler"
+    else
+      puts "#{package} is up to date (#{packaging['version']})"
+    end
+  end
+end
+
+
+main
