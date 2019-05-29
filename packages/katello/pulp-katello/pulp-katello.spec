@@ -15,13 +15,13 @@
 
 
 Name: pulp-katello
-Version: 1.0.2
+Version: 1.0.3
 Release: 1%{?dist}
 Summary: Plugins useful for katello interactions with pulp
 Group: Development/Languages
 License: GPLv2
 URL: https://github.com/katello/pulp-katello
-Source0: https://codeload.github.com/Katello/pulp-katello/tar.gz/%{version}
+Source0: https://codeload.github.com/Katello/pulp-katello/tar.gz/%{version}#/%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  python2-devel
@@ -62,6 +62,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed May 29 2019 Justin Sherrill <jsherril@redhat.com> 1.0.3-1
+- Rebuild pulp-katello to 1.0.3 (jsherril@redhat.com)
+
 * Mon Aug 01 2016 Justin Sherrill <jsherril@redhat.com> 1.0.2-1
 - Rebuild pulp-katello to 1.0.2 (jsherril@redhat.com)
 
