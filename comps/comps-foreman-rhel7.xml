@@ -145,6 +145,7 @@
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
+      <packagereq type="default">tfm-rubygem-redis</packagereq>
       <packagereq type="default">tfm-rubygem-representable</packagereq>
       <packagereq type="default">tfm-rubygem-responders</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
@@ -502,6 +503,7 @@
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-redis-doc</packagereq>
       <packagereq type="default">tfm-rubygem-representable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client-doc</packagereq>

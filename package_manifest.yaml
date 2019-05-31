@@ -155,6 +155,7 @@ foreman_scl_packages:
     rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
+    rubygem-redis: {}
     rubygem-representable: {}
     rubygem-responders: {}
     rubygem-rest-client: {}
