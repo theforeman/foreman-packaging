@@ -214,6 +214,7 @@
       <packagereq type="default">nodejs-bootstrap-slider-without-jquery</packagereq>
       <packagereq type="default">nodejs-brace</packagereq>
       <packagereq type="default">nodejs-breakjs</packagereq>
+      <packagereq type="default">nodejs-browser-update</packagereq>
       <packagereq type="default">nodejs-c3</packagereq>
       <packagereq type="default">nodejs-change-emitter</packagereq>
       <packagereq type="default">nodejs-classnames</packagereq>
