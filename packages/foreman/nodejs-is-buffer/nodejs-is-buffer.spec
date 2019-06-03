@@ -1,8 +1,7 @@
 %global npm_name is-buffer
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 1.1.6
+Name: nodejs-is-buffer
+Version: 2.0.3
 Release: 1%{?dist}
 Summary: Determine if an object is a Buffer
 License: MIT
@@ -23,14 +22,11 @@ ExclusiveArch: %{nodejs_arches} noarch
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -38,6 +34,9 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Jun 03 2019 Ohad Levy <ohadlevy@gmail.com> 2.0.3-1
+- Update to 2.0.3
+
 * Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.6-1
 - new package built with tito
 
