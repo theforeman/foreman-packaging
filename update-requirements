@@ -65,10 +65,8 @@ def get_requirement(version):
 
 def get_requirements(dependencies, fmt):
     for package, version in sorted(dependencies.items()):
-        for requirement in get_requirement(version):
-            if is_blacklisted(package):
-                yield '#' + fmt.format(package, requirement)
-            else:
+        if not is_blacklisted(package):
+            for requirement in get_requirement(version):
                 yield fmt.format(package, requirement)
 
 
