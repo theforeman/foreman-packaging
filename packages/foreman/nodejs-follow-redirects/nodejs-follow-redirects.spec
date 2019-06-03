@@ -1,17 +1,15 @@
 %global npm_name follow-redirects
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 1.4.1
+Name: nodejs-follow-redirects
+Version: 1.5.10
 Release: 1%{?dist}
 Summary: HTTP and HTTPS modules that follow redirects
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/olalonde/follow-redirects
+URL: https://github.com/follow-redirects/follow-redirects
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
-Requires: npm(debug) >= 3.1.0
-Requires: npm(debug) < 4.0.0
+Requires: npm(debug) = 3.1.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -30,10 +28,8 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -41,6 +37,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Jun 03 2019 Ohad Levy <ohadlevy@gmail.com> 1.5.10-1
+- Update to 1.5.10
+
 * Tue Jan 30 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.1-1
 - new package built with tito
 
