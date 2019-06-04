@@ -1,3 +1,9 @@
+foreman-installer (1.22.0-1) stable; urgency=low
+
+  * 1.22.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 04 Jun 2019 15:36:35 +0200
+
 foreman-installer (1.22.0~rc2-1) stable; urgency=low
 
   * 1.22.0-RC2 released
