@@ -8,8 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 12
-%global prerelease RC2
+%global release 1
 
 Name:    foreman
 Version: 1.22.0
@@ -1327,6 +1326,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jun 04 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-1
+- Release 1.22.0
+
 * Thu May 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-0.12.RC2
 - Release 1.22.0-RC2
 
