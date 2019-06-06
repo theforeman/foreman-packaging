@@ -3,8 +3,8 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prerelease .rc2
-%global release 5
+#global prerelease .rc2
+%global release 1
 
 Name:       katello
 Version:    3.12.0
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Thu Jun 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-1
+- Release 3.12.0
+
 * Tue May 28 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-0.5.rc2
 - Release 3.12 RC2
 
