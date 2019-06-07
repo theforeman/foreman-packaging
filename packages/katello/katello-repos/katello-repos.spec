@@ -6,7 +6,7 @@
 %define repo_dist %{dist}
 
 #global prerelease .rc2
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.12.0
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Fri Jun 07 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-2
+- Add proper public GPG key
+
 * Thu Jun 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-1
 - Release 3.12.0
 
