@@ -231,6 +231,17 @@ Description: metapackage providing journald dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
+Package: foreman-redis
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
+Description: metapackage providing redis dependencies for Foreman
+ This package provides redis dependencies for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
+
 Package: foreman-service
 Architecture: all
 Section: web
