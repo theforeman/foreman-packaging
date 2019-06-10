@@ -8,7 +8,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prerelease develop
 
 Name:    foreman
@@ -260,30 +260,14 @@ BuildRequires: nodejs-packaging
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/addon-actions) >= 3.4.12
-#BuildRequires: npm(@storybook/addon-actions) < 3.5.0
-#BuildRequires: npm(@storybook/addon-knobs) >= 3.4.12
-#BuildRequires: npm(@storybook/addon-knobs) < 3.5.0
-#BuildRequires: npm(@storybook/react) >= 3.4.12
-#BuildRequires: npm(@storybook/react) < 3.5.0
-#BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
-#BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
 BuildRequires: npm(argv-parse) >= 1.0.1
 BuildRequires: npm(argv-parse) < 2.0.0
-#BuildRequires: npm(axios-mock-adapter) >= 1.10.0
-#BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
 BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
-#BuildRequires: npm(babel-eslint) >= 8.2.3
-#BuildRequires: npm(babel-eslint) < 9.0.0
-#BuildRequires: npm(babel-jest) >= 23.6.0
-#BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
-#BuildRequires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
-#BuildRequires: npm(babel-plugin-dynamic-import-node) < 3.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
@@ -302,73 +286,34 @@ BuildRequires: npm(babel-register) >= 6.9.0
 BuildRequires: npm(babel-register) < 7.0.0
 BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: npm(compression-webpack-plugin) < 1.2.0
-#BuildRequires: npm(coveralls) >= 3.0.0
-#BuildRequires: npm(coveralls) < 4.0.0
-#BuildRequires: npm(cross-env) >= 5.2.0
-#BuildRequires: npm(cross-env) < 6.0.0
 BuildRequires: npm(css-loader) >= 0.23.1
 BuildRequires: npm(css-loader) < 1.0.0
 BuildRequires: npm(dotenv) >= 5.0.0
 BuildRequires: npm(dotenv) < 6.0.0
-#BuildRequires: npm(enzyme) >= 3.4.0
-#BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
-#BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.2.1
-#BuildRequires: npm(enzyme-to-json) < 4.0.0
-#BuildRequires: npm(eslint) >= 4.10.0
-#BuildRequires: npm(eslint) < 5.0.0
-#BuildRequires: npm(eslint-plugin-patternfly-react) = 0.2.0
 BuildRequires: npm(expose-loader) >= 0.6.0
 BuildRequires: npm(expose-loader) < 0.7.0
 BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: npm(file-loader) >= 0.9.0
 BuildRequires: npm(file-loader) < 1.0.0
-#BuildRequires: npm(highlight.js) >= 9.14.0
-#BuildRequires: npm(highlight.js) < 9.15.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-#BuildRequires: npm(jest-cli) >= 23.6.0
-#BuildRequires: npm(jest-cli) < 24.0.0
-#BuildRequires: npm(jest-prop-type-error) >= 1.1.0
-#BuildRequires: npm(jest-prop-type-error) < 2.0.0
 BuildRequires: npm(lodash-webpack-plugin) >= 0.11.4
 BuildRequires: npm(lodash-webpack-plugin) < 1.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
-#BuildRequires: npm(prettier) >= 1.13.5
-#BuildRequires: npm(prettier) < 2.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
-#BuildRequires: npm(raw-loader) >= 0.5.1
-#BuildRequires: npm(raw-loader) < 1.0.0
-#BuildRequires: npm(react-redux-test-utils) >= 0.1.1
-#BuildRequires: npm(react-redux-test-utils) < 1.0.0
-#BuildRequires: npm(react-remarkable) >= 1.1.3
-#BuildRequires: npm(react-remarkable) < 2.0.0
-#BuildRequires: npm(react-test-renderer) >= 16.8.1
-#BuildRequires: npm(react-test-renderer) < 17.0.0
-#BuildRequires: npm(redux-mock-store) >= 1.2.2
-#BuildRequires: npm(redux-mock-store) < 2.0.0
 BuildRequires: npm(sass-loader) >= 6.0.6
 BuildRequires: npm(sass-loader) < 6.1.0
 BuildRequires: npm(style-loader) >= 0.13.1
 BuildRequires: npm(style-loader) < 1.0.0
-#BuildRequires: npm(stylelint) >= 9.3.0
-#BuildRequires: npm(stylelint) < 10.0.0
-#BuildRequires: npm(stylelint-config-standard) >= 18.0.0
-#BuildRequires: npm(stylelint-config-standard) < 19.0.0
 BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
 BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
 BuildRequires: npm(url-loader) >= 1.0.1
 BuildRequires: npm(url-loader) < 2.0.0
 BuildRequires: npm(webpack) >= 3.4.1
 BuildRequires: npm(webpack) < 4.0.0
-#BuildRequires: npm(webpack-bundle-analyzer) >= 2.13.1
-#BuildRequires: npm(webpack-bundle-analyzer) < 3.0.0
-#BuildRequires: npm(webpack-dev-server) >= 2.5.1
-#BuildRequires: npm(webpack-dev-server) < 3.0.0
 BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
 BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
@@ -378,7 +323,7 @@ BuildRequires: npm(@novnc/novnc) >= 1.0.0
 BuildRequires: npm(@novnc/novnc) < 2.0.0
 BuildRequires: npm(@spice-project/spice-html5) >= 0.2.1
 BuildRequires: npm(@spice-project/spice-html5) < 1.0.0
-BuildRequires: npm(axios) >= 0.17.1
+BuildRequires: npm(axios) >= 0.19.0
 BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(babel-polyfill) >= 6.26.0
 BuildRequires: npm(babel-polyfill) < 7.0.0
@@ -644,30 +589,14 @@ Requires: nodejs >= 6.10
 Requires: libuv
 
 # start package.json devDependencies Requires
-#Requires: npm(@storybook/addon-actions) >= 3.4.12
-#Requires: npm(@storybook/addon-actions) < 3.5.0
-#Requires: npm(@storybook/addon-knobs) >= 3.4.12
-#Requires: npm(@storybook/addon-knobs) < 3.5.0
-#Requires: npm(@storybook/react) >= 3.4.12
-#Requires: npm(@storybook/react) < 3.5.0
-#Requires: npm(@storybook/storybook-deployer) >= 2.0.0
-#Requires: npm(@storybook/storybook-deployer) < 3.0.0
 Requires: npm(argv-parse) >= 1.0.1
 Requires: npm(argv-parse) < 2.0.0
-#Requires: npm(axios-mock-adapter) >= 1.10.0
-#Requires: npm(axios-mock-adapter) < 2.0.0
 Requires: npm(babel-cli) >= 6.10.1
 Requires: npm(babel-cli) < 7.0.0
 Requires: npm(babel-core) >= 6.26.3
 Requires: npm(babel-core) < 7.0.0
-#Requires: npm(babel-eslint) >= 8.2.3
-#Requires: npm(babel-eslint) < 9.0.0
-#Requires: npm(babel-jest) >= 23.6.0
-#Requires: npm(babel-jest) < 24.0.0
 Requires: npm(babel-loader) >= 7.1.1
 Requires: npm(babel-loader) < 8.0.0
-#Requires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
-#Requires: npm(babel-plugin-dynamic-import-node) < 3.0.0
 Requires: npm(babel-plugin-lodash) >= 3.3.4
 Requires: npm(babel-plugin-lodash) < 4.0.0
 Requires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
@@ -686,73 +615,34 @@ Requires: npm(babel-register) >= 6.9.0
 Requires: npm(babel-register) < 7.0.0
 Requires: npm(compression-webpack-plugin) >= 1.1.11
 Requires: npm(compression-webpack-plugin) < 1.2.0
-#Requires: npm(coveralls) >= 3.0.0
-#Requires: npm(coveralls) < 4.0.0
-#Requires: npm(cross-env) >= 5.2.0
-#Requires: npm(cross-env) < 6.0.0
 Requires: npm(css-loader) >= 0.23.1
 Requires: npm(css-loader) < 1.0.0
 Requires: npm(dotenv) >= 5.0.0
 Requires: npm(dotenv) < 6.0.0
-#Requires: npm(enzyme) >= 3.4.0
-#Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
-#Requires: npm(enzyme-adapter-react-16) < 2.0.0
-#Requires: npm(enzyme-to-json) >= 3.2.1
-#Requires: npm(enzyme-to-json) < 4.0.0
-#Requires: npm(eslint) >= 4.10.0
-#Requires: npm(eslint) < 5.0.0
-#Requires: npm(eslint-plugin-patternfly-react) = 0.2.0
 Requires: npm(expose-loader) >= 0.6.0
 Requires: npm(expose-loader) < 0.7.0
 Requires: npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: npm(extract-text-webpack-plugin) < 4.0.0
 Requires: npm(file-loader) >= 0.9.0
 Requires: npm(file-loader) < 1.0.0
-#Requires: npm(highlight.js) >= 9.14.0
-#Requires: npm(highlight.js) < 9.15.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
-#Requires: npm(jest-cli) >= 23.6.0
-#Requires: npm(jest-cli) < 24.0.0
-#Requires: npm(jest-prop-type-error) >= 1.1.0
-#Requires: npm(jest-prop-type-error) < 2.0.0
 Requires: npm(lodash-webpack-plugin) >= 0.11.4
 Requires: npm(lodash-webpack-plugin) < 1.0.0
 Requires: npm(node-sass) >= 4.5.0
 Requires: npm(node-sass) < 5.0.0
-#Requires: npm(prettier) >= 1.13.5
-#Requires: npm(prettier) < 2.0.0
 Requires: npm(raf) >= 3.4.0
 Requires: npm(raf) < 4.0.0
-#Requires: npm(raw-loader) >= 0.5.1
-#Requires: npm(raw-loader) < 1.0.0
-#Requires: npm(react-redux-test-utils) >= 0.1.1
-#Requires: npm(react-redux-test-utils) < 1.0.0
-#Requires: npm(react-remarkable) >= 1.1.3
-#Requires: npm(react-remarkable) < 2.0.0
-#Requires: npm(react-test-renderer) >= 16.8.1
-#Requires: npm(react-test-renderer) < 17.0.0
-#Requires: npm(redux-mock-store) >= 1.2.2
-#Requires: npm(redux-mock-store) < 2.0.0
 Requires: npm(sass-loader) >= 6.0.6
 Requires: npm(sass-loader) < 6.1.0
 Requires: npm(style-loader) >= 0.13.1
 Requires: npm(style-loader) < 1.0.0
-#Requires: npm(stylelint) >= 9.3.0
-#Requires: npm(stylelint) < 10.0.0
-#Requires: npm(stylelint-config-standard) >= 18.0.0
-#Requires: npm(stylelint-config-standard) < 19.0.0
 Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
 Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
 Requires: npm(url-loader) >= 1.0.1
 Requires: npm(url-loader) < 2.0.0
 Requires: npm(webpack) >= 3.4.1
 Requires: npm(webpack) < 4.0.0
-#Requires: npm(webpack-bundle-analyzer) >= 2.13.1
-#Requires: npm(webpack-bundle-analyzer) < 3.0.0
-#Requires: npm(webpack-dev-server) >= 2.5.1
-#Requires: npm(webpack-dev-server) < 3.0.0
 Requires: npm(webpack-stats-plugin) >= 0.1.5
 Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
@@ -762,7 +652,7 @@ Requires: npm(@novnc/novnc) >= 1.0.0
 Requires: npm(@novnc/novnc) < 2.0.0
 Requires: npm(@spice-project/spice-html5) >= 0.2.1
 Requires: npm(@spice-project/spice-html5) < 1.0.0
-Requires: npm(axios) >= 0.17.1
+Requires: npm(axios) >= 0.19.0
 Requires: npm(axios) < 1.0.0
 Requires: npm(babel-polyfill) >= 6.26.0
 Requires: npm(babel-polyfill) < 7.0.0
@@ -1002,6 +892,21 @@ Meta Package to install requirements for journald logging support
 
 %files journald
 %{_datadir}/%{name}/bundler.d/journald.rb
+
+%package redis
+Summary: Foreman Redis caching support
+Group:  Applications/System
+# start specfile redis Requires
+Requires: %{?scl_prefix}rubygem(redis) >= 4.0
+Requires: %{?scl_prefix}rubygem(redis) < 5.0
+# end specfile redis Requires
+Requires: %{name} = %{version}-%{release}
+
+%description redis
+Meta Package to install requirements for Redis caching support
+
+%files redis
+%{_datadir}/%{name}/bundler.d/redis.rb
 
 %package service
 Summary: Foreman systemd service support
@@ -1343,6 +1248,10 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jun 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.11.develop
+- Update Gem and NPM dependencies
+- Add a redis subpackage
+
 * Thu May 23 2019 Shira Maximov <shiramaximov@gmail.com> 1.23.0-0.10.develop
 - Update for-ovirt deps
 
