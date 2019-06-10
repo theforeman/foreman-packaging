@@ -1,3 +1,4 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -6,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -24,54 +25,56 @@ Requires: foreman-postgresql
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 Requires: %{?scl_prefix_ror}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix}rubygem(activerecord-import)
-Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(angular-rails-templates)
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
-Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(oauth)
-Requires: %{?scl_prefix}rubygem(pulpcore_client)
-Requires: %{?scl_prefix}rubygem(pulp_file_client)
-Requires: %{?scl_prefix}rubygem(qpid_messaging)
-Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(rest-client)
+Requires: %{?scl_prefix}rubygem(rabl)
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
+Requires: %{?scl_prefix}rubygem(activerecord-import)
+Requires: %{?scl_prefix}rubygem(qpid_messaging)
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
-Requires: %{?scl_prefix}rubygem(zest)
+Requires: %{?scl_prefix}rubygem(anemone)
+Requires: %{?scl_prefix}rubygem(pulpcore_client)
+Requires: %{?scl_prefix}rubygem(pulp_file_client) = 3.0.0rc2.dev.1558441126
+Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
+Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
+Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
+Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ror}rubygem(rails)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json)
-BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
-BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates)
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
-BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
-BuildRequires: %{?scl_prefix}rubygem(qpid_messaging)
-BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
+BuildRequires: %{?scl_prefix}rubygem(rabl)
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.13
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
+BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
+BuildRequires: %{?scl_prefix}rubygem(qpid_messaging)
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client)
-BuildRequires: %{?scl_prefix}rubygem(zest)
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) = 3.0.0rc2.dev.1558441126
+BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
+BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
+BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -81,16 +84,8 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/react) >= 3.2.17
-#BuildRequires: npm(@storybook/react) < 4.0.0
-#BuildRequires: npm(@storybook/storybook-deployer) >= 2.0.0
-#BuildRequires: npm(@storybook/storybook-deployer) < 3.0.0
 BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
-#BuildRequires: npm(babel-eslint) >= 8.2.6
-#BuildRequires: npm(babel-eslint) < 9.0.0
-#BuildRequires: npm(babel-jest) >= 23.4.0
-#BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
@@ -101,47 +96,15 @@ BuildRequires: npm(babel-preset-env) >= 1.6.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
-#BuildRequires: npm(coveralls) >= 3.0.0
-#BuildRequires: npm(coveralls) < 4.0.0
-#BuildRequires: npm(enzyme) >= 3.4.0
-#BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
-#BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.1.2
-#BuildRequires: npm(enzyme-to-json) < 4.0.0
-#BuildRequires: npm(eslint) >= 4.19.1
-#BuildRequires: npm(eslint) < 5.0.0
-#BuildRequires: npm(eslint-config-airbnb) >= 16.0.0
-#BuildRequires: npm(eslint-config-airbnb) < 17.0.0
-#BuildRequires: npm(eslint-plugin-babel) >= 5.1.0
-#BuildRequires: npm(eslint-plugin-babel) < 6.0.0
-#BuildRequires: npm(eslint-plugin-import) >= 2.7.0
-#BuildRequires: npm(eslint-plugin-import) < 3.0.0
-#BuildRequires: npm(eslint-plugin-jest) >= 21.18.0
-#BuildRequires: npm(eslint-plugin-jest) < 22.0.0
-#BuildRequires: npm(eslint-plugin-jsx-a11y) >= 6.0.2
-#BuildRequires: npm(eslint-plugin-jsx-a11y) < 7.0.0
-#BuildRequires: npm(eslint-plugin-react) >= 7.4.0
-#BuildRequires: npm(eslint-plugin-react) < 8.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-#BuildRequires: npm(jest) >= 23.4.1
-#BuildRequires: npm(jest) < 24.0.0
-#BuildRequires: npm(prettier) >= 1.7.4
-#BuildRequires: npm(prettier) < 2.0.0
-#BuildRequires: npm(react-test-renderer) >= 16.0.0
-#BuildRequires: npm(react-test-renderer) < 17.0.0
-#BuildRequires: npm(redux-mock-store) >= 1.3.0
-#BuildRequires: npm(redux-mock-store) < 2.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
 BuildRequires: npm(angular) = 1.5.5
-BuildRequires: npm(axios) >= 0.17.1
+BuildRequires: npm(axios) >= 0.19.0
 BuildRequires: npm(axios) < 1.0.0
-#BuildRequires: npm(axios-mock-adapter) >= 1.10.0
-#BuildRequires: npm(axios-mock-adapter) < 2.0.0
 BuildRequires: npm(bootstrap-select) = 1.12.4
 BuildRequires: npm(classnames) >= 2.2.5
 BuildRequires: npm(classnames) < 3.0.0
@@ -173,8 +136,6 @@ BuildRequires: npm(react-helmet) >= 5.2.0
 BuildRequires: npm(react-helmet) < 6.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
-BuildRequires: npm(react-router) >= 4.2.0
-BuildRequires: npm(react-router) < 5.0.0
 BuildRequires: npm(react-router-bootstrap) = 0.24.4
 BuildRequires: npm(react-router-dom) >= 4.2.2
 BuildRequires: npm(react-router-dom) < 5.0.0
@@ -204,16 +165,8 @@ Summary:    Rebuild the assets for %{pkg_name}
 
 Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
-#Requires: npm(@storybook/react) >= 3.2.17
-#Requires: npm(@storybook/react) < 4.0.0
-#Requires: npm(@storybook/storybook-deployer) >= 2.0.0
-#Requires: npm(@storybook/storybook-deployer) < 3.0.0
 Requires: npm(babel-core) >= 6.26.3
 Requires: npm(babel-core) < 7.0.0
-#Requires: npm(babel-eslint) >= 8.2.6
-#Requires: npm(babel-eslint) < 9.0.0
-#Requires: npm(babel-jest) >= 23.4.0
-#Requires: npm(babel-jest) < 24.0.0
 Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
 Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
 Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
@@ -224,47 +177,15 @@ Requires: npm(babel-preset-env) >= 1.6.0
 Requires: npm(babel-preset-env) < 2.0.0
 Requires: npm(babel-preset-react) >= 6.24.1
 Requires: npm(babel-preset-react) < 7.0.0
-#Requires: npm(coveralls) >= 3.0.0
-#Requires: npm(coveralls) < 4.0.0
-#Requires: npm(enzyme) >= 3.4.0
-#Requires: npm(enzyme) < 4.0.0
-#Requires: npm(enzyme-adapter-react-16) >= 1.4.0
-#Requires: npm(enzyme-adapter-react-16) < 2.0.0
-#Requires: npm(enzyme-to-json) >= 3.1.2
-#Requires: npm(enzyme-to-json) < 4.0.0
-#Requires: npm(eslint) >= 4.19.1
-#Requires: npm(eslint) < 5.0.0
-#Requires: npm(eslint-config-airbnb) >= 16.0.0
-#Requires: npm(eslint-config-airbnb) < 17.0.0
-#Requires: npm(eslint-plugin-babel) >= 5.1.0
-#Requires: npm(eslint-plugin-babel) < 6.0.0
-#Requires: npm(eslint-plugin-import) >= 2.7.0
-#Requires: npm(eslint-plugin-import) < 3.0.0
-#Requires: npm(eslint-plugin-jest) >= 21.18.0
-#Requires: npm(eslint-plugin-jest) < 22.0.0
-#Requires: npm(eslint-plugin-jsx-a11y) >= 6.0.2
-#Requires: npm(eslint-plugin-jsx-a11y) < 7.0.0
-#Requires: npm(eslint-plugin-react) >= 7.4.0
-#Requires: npm(eslint-plugin-react) < 8.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
-#Requires: npm(jest) >= 23.4.1
-#Requires: npm(jest) < 24.0.0
-#Requires: npm(prettier) >= 1.7.4
-#Requires: npm(prettier) < 2.0.0
-#Requires: npm(react-test-renderer) >= 16.0.0
-#Requires: npm(react-test-renderer) < 17.0.0
-#Requires: npm(redux-mock-store) >= 1.3.0
-#Requires: npm(redux-mock-store) < 2.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
 Requires: npm(angular) = 1.5.5
-Requires: npm(axios) >= 0.17.1
+Requires: npm(axios) >= 0.19.0
 Requires: npm(axios) < 1.0.0
-#Requires: npm(axios-mock-adapter) >= 1.10.0
-#Requires: npm(axios-mock-adapter) < 2.0.0
 Requires: npm(bootstrap-select) = 1.12.4
 Requires: npm(classnames) >= 2.2.5
 Requires: npm(classnames) < 3.0.0
@@ -296,8 +217,6 @@ Requires: npm(react-helmet) >= 5.2.0
 Requires: npm(react-helmet) < 6.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
-Requires: npm(react-router) >= 4.2.0
-Requires: npm(react-router) < 5.0.0
 Requires: npm(react-router-bootstrap) = 0.24.4
 Requires: npm(react-router-dom) >= 4.2.2
 Requires: npm(react-router-dom) < 5.0.0
@@ -372,6 +291,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Jun 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.3.pre.master
+- Update gem and NPM dependencies
+
 * Tue May 14 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.13.0-0.2.pre.master
 - pull in new pulp3 gem dependencies 
 
