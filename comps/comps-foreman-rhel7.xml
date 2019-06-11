@@ -296,6 +296,7 @@
       <packagereq type="default">nodejs-react-debounce-input</packagereq>
       <packagereq type="default">nodejs-react-diff-view</packagereq>
       <packagereq type="default">nodejs-react-dnd</packagereq>
+      <packagereq type="default">nodejs-react-dnd-html5-backend</packagereq>
       <packagereq type="default">nodejs-react-dom</packagereq>
       <packagereq type="default">nodejs-react-ellipsis-with-tooltip</packagereq>
       <packagereq type="default">nodejs-react-fontawesome</packagereq>
