@@ -43,7 +43,7 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client)
-Requires: %{?scl_prefix}rubygem(pulp_file_client) = 3.0.0rc2.dev.1558441126
+Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -67,7 +67,7 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) = 3.0.0rc2.dev.1558441126
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -291,6 +291,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jun 12 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.13.0-0.4.pre.master
+- update pulp_file_client requirement
+
 * Mon Jun 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.3.pre.master
 - Update gem and NPM dependencies
 
