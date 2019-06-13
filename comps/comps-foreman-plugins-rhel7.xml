@@ -152,6 +152,7 @@
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
+      <packagereq type="default">rubygem-openscap_parser</packagereq>
       <!--RGD-START-->
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
@@ -164,6 +165,7 @@
       <packagereq type="default">rubygem-netrc-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-openscap_parser-doc</packagereq>
       <packagereq type="default">rubygem-radcli-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>

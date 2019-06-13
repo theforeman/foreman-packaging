@@ -733,6 +733,7 @@ plugin_nonscl_packages:
     rubygem-logify: {}
     rubygem-newt: {}
     rubygem-openscap: {}
+    rubygem-openscap_parser: {}
     rubygem-radcli: {}
     rubygem-route53: {}
     rubygem-ruby-hmac: {}
