@@ -1,7 +1,7 @@
 %global npm_name patternfly-react
 
 Name: nodejs-patternfly-react
-Version: 2.34.1
+Version: 2.36.6
 Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
@@ -63,7 +63,6 @@ ExclusiveArch: %{nodejs_arches} noarch
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr __mocks__ %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -80,6 +79,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Jul 11 2019 Ondrej Prazak <oprazak@redhat.com> 2.36.6-1
+- Update to 2.36.6
+
 * Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.34.1-1
 - Update to 2.34.1
 
