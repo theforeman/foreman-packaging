@@ -1,1 +1,2 @@
 debian/dynflow_core.rb usr/share/foreman-proxy/bundler.d
+deploy/smart_proxy_dynflow_core.service lib/systemd/system
