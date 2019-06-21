@@ -15,8 +15,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.0
-Release: 4%{?dist}
+Version: 3.5.1
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -388,6 +388,10 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Fri Jun 21 2019 Jonathon Turel - 3.5.1-1
+- Fixes #26920 - Install errata via libdnf
+- Fixes #26375 - zypper plugin for tracer upload
+
 * Thu May 23 2019 Garret Rumohr - 3.5.0-4
 - Fixes #26837 - Corrects string replacement in /etc/sysconfig/goferd by RPM script
 
