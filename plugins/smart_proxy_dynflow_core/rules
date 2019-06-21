@@ -13,6 +13,7 @@ export DH_RUBY_IGNORE_TESTS=require-rubygems
 
 build:
 	/bin/sed -ri '/^ExecStart/ s#/usr/bin/smart_proxy_dynflow_core#/usr/bin/bundle exec smart_proxy_dynflow_core#' deploy/smart_proxy_dynflow_core.service
+	/bin/sed -ri '/^EnvironmentFile/ s#sysconfig#default#'
 
 %:
 	dh $@ --buildsystem=ruby --with ruby
