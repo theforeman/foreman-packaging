@@ -1,8 +1,7 @@
 %global npm_name diff
-%global enable_tests 1
 
-Name: nodejs-%{npm_name}
-Version: 3.0.1
+Name: nodejs-diff
+Version: 4.0.1
 Release: 1%{?dist}
 Summary: A javascript text diff implementation
 License: BSD-3-Clause
@@ -22,18 +21,16 @@ ExclusiveArch: %{nodejs_arches} noarch
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr examples %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr images %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr rollup.config.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr yarn-error.log %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -43,6 +40,9 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc release-notes.md
 
 %changelog
+* Sun Jun 23 2019 Ohad Levy <ohadlevy@gmail.com> 4.0.1-1
+- Update to 4.0.1
+
 * Wed Jun 06 2018 Eric D. Helms <ericdhelms@gmail.com> 3.0.1-1
 - Update to 3.0.1
 
