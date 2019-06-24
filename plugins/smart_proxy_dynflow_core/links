@@ -1,0 +1,2 @@
+etc/smart_proxy_dynflow_core                          usr/share/smart_proxy_dynflow_core/config
+usr/bin/smart_proxy_dynflow_core                      usr/share/smart_proxy_dynflow_core/bin/smart_proxy_dynflow_core

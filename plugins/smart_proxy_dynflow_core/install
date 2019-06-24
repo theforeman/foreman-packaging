@@ -1,2 +1,7 @@
-debian/dynflow_core.rb usr/share/foreman-proxy/bundler.d
-deploy/smart_proxy_dynflow_core.service lib/systemd/system
+smart_proxy_dynflow_core                 etc
+deploy/smart_proxy_dynflow_core.service  lib/systemd/system
+debian/dynflow_core.rb                   usr/share/foreman-proxy/bundler.d
+bin                                      usr/share/smart_proxy_dynflow_core
+Gemfile.in                               usr/share/smart_proxy_dynflow_core
+smart_proxy_dynflow_core.gemspec         usr/share/smart_proxy_dynflow_core
+lib_copy/*                               usr/share/smart_proxy_dynflow_core/lib
