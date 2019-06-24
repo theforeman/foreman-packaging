@@ -8,11 +8,19 @@ set -e
 USERNAME="foreman-proxy"
 GROUPNAME="foreman-proxy"
 DYNFLOW_DB_DIR="/var/lib/foreman-proxy/dynflow"
+FOREMAN_HOME="/usr/share/foreman-proxy"
 
 case "$1" in
   configure)
-    mkdir -p $DYNFLOW_DB_DIR
-    chown $USERNAME:$GROUPNAME $DYNFLOW_DB_DIR
+    getent group $GROUPNAME >/dev/null || groupadd -r $GROUPNAME
+    getent passwd $USERNAME >/dev/null || \
+      useradd -r -g $GROUPNAME -d $FOREMAN_HOME -s /usr/sbin/nologin -c "Foreman Proxy daemon user" $USERNAME
+
+    for dir in /var/{log,run}/foreman-proxy $DYNFLOW_DB_DIR; do
+        mkdir -p "$dir"
+	chown $USERNAME:$GROUPNAME "$dir"
+    done
+
     chmod 750 $DYNFLOW_DB_DIR
   ;;
   abort-upgrade|abort-remove|abort-deconfigure)

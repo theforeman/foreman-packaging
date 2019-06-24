@@ -12,7 +12,11 @@ export DH_RUBY_IGNORE_TESTS=require-rubygems
 #export DH_RUBY_GEMSPEC=gem.gemspec
 
 build:
-	/bin/sed -ri '/^ExecStart/ s#/usr/bin/smart_proxy_dynflow_core#/usr/bin/bundle exec smart_proxy_dynflow_core#' deploy/smart_proxy_dynflow_core.service
+	cp -a config smart_proxy_dynflow_core
+	rename 's/.example//' smart_proxy_dynflow_core/* smart_proxy_dynflow_core/settings.d/*
+	mv Gemfile Gemfile.in
+	cp -ar lib lib_copy
+	/bin/sed -ri '/^ExecStart/ s#/usr/bin/smart_proxy_dynflow_core#/usr/bin/ruby -I /usr/share/smart_proxy_dynflow_core/lib /usr/bin/smart_proxy_dynflow_core#' deploy/smart_proxy_dynflow_core.service
 	/bin/sed -ri '/^EnvironmentFile/ s#sysconfig#default#' deploy/smart_proxy_dynflow_core.service
 
 %:
