@@ -5,8 +5,8 @@
 
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.0
-Release: 3%{?dist}
+Version: 0.16.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/ruby-ldap/ruby-net-ldap
@@ -94,6 +94,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Wed Jun 26 2019 Marek Hulan <mhulan@redhat.com> 0.16.1-1
+- Update to 0.16.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.15.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
