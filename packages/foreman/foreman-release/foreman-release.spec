@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 
 Name:     foreman-release
 Version:  1.21.3
@@ -54,6 +54,7 @@ Defines yum repositories for Foreman clients.
 
 %files -n foreman-client-release
 %config %{repo_dir}/foreman-client.repo
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
 
 %if 0%{?rhel} == 6
 %config %{repo_dir}/pulp.repo
@@ -95,19 +96,25 @@ if [[ '%{release}' != *"develop"* ]];then
   VERSION="%{version}"
   sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{repo_dir}/*.repo
   sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman.repo
+  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-client.repo
   sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-rails.repo
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
+install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
 install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %files
 %config %{repo_dir}/foreman.repo
 %config %{repo_dir}/foreman-plugins.repo
 %config %{repo_dir}/foreman-rails.repo
-%{_sysconfdir}/pki/rpm-gpg/*
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Thu Jun 27 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.3-2
+- GPG sign foreman-client repository
+
 * Tue Apr 23 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.21.3-1
 - Release 1.21.3
 
