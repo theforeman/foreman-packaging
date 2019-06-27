@@ -1,3 +1,9 @@
+ruby-foreman-datacenter (1.20.4) stable; urgency=low
+
+  * 1.20.4 released
+
+ -- Eugene Loginov <foreman@cloudevelops.com>  Tue, 25 Jun 2019 21:11:22 +0200
+
 ruby-foreman-datacenter (1.20.0) stable; urgency=low
 
   * 1.20.0 released
