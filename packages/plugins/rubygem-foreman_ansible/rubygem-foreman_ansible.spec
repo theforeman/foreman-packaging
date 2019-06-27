@@ -8,8 +8,8 @@
 %global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.2
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -46,8 +46,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(babel-eslint) >= 8.2.1
-#BuildRequires: npm(babel-eslint) < 9.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.2
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
@@ -60,36 +58,10 @@ BuildRequires: npm(babel-preset-env) >= 1.6.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
-#BuildRequires: npm(enzyme) >= 3.7.0
-#BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.7.0
-#BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.3.5
-#BuildRequires: npm(enzyme-to-json) < 4.0.0
-#BuildRequires: npm(eslint) >= 4.18.1
-#BuildRequires: npm(eslint) < 5.0.0
-#BuildRequires: npm(eslint-config-airbnb) >= 16.0.0
-#BuildRequires: npm(eslint-config-airbnb) < 17.0.0
-#BuildRequires: npm(eslint-plugin-import) >= 2.8.0
-#BuildRequires: npm(eslint-plugin-import) < 3.0.0
-#BuildRequires: npm(eslint-plugin-jest) >= 21.2.0
-#BuildRequires: npm(eslint-plugin-jest) < 22.0.0
-#BuildRequires: npm(eslint-plugin-jsx-a11y) >= 6.0.2
-#BuildRequires: npm(eslint-plugin-jsx-a11y) < 7.0.0
-#BuildRequires: npm(eslint-plugin-patternfly-react) >= 0.2.1
-#BuildRequires: npm(eslint-plugin-patternfly-react) < 1.0.0
-#BuildRequires: npm(eslint-plugin-react) >= 7.4.0
-#BuildRequires: npm(eslint-plugin-react) < 8.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-#BuildRequires: npm(jest) >= 23.6.0
-#BuildRequires: npm(jest) < 24.0.0
-#BuildRequires: npm(prettier) >= 1.16.4
-#BuildRequires: npm(prettier) < 2.0.0
 BuildRequires: npm(react-redux) >= 5.0.7
 BuildRequires: npm(react-redux) < 6.0.0
-#BuildRequires: npm(react-redux-test-utils) >= 0.1.1
-#BuildRequires: npm(react-redux-test-utils) < 1.0.0
 BuildRequires: npm(redux) >= 3.7.2
 BuildRequires: npm(redux) < 4.0.0
 BuildRequires: npm(redux-thunk) >= 2.3.0
@@ -200,6 +172,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Jun 27 2019 Marek Hulan <mhulan@redhat.com> 3.0.3-1
+- Update to 3.0.3
+
 * Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.0.2-2
 - Rebuild rubygem-foreman_ansible to drop the generated webpack vendor.js
   dependency
