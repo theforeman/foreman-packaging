@@ -31,6 +31,7 @@ end
 
 CONFIG_FILES = [
   '/etc/candlepin',
+  '/etc/cron.d/foreman-tasks',
   '/etc/default/pulp_workers.rpmsave',
   '/etc/foreman-installer',
   '/etc/foreman-proxy',
@@ -44,10 +45,16 @@ CONFIG_FILES = [
   '/etc/puppetlabs',
   '/etc/qpid-dispatch',
   '/etc/qpid',
+  '/etc/smart_proxy_dynflow_core',
   '/etc/squid',
   '/etc/sudoers.d/foreman-proxy',
-  '/etc/sysconfig/foreman.rpmsave',
-  '/etc/sysconfig/puppetserver.rpmsave',
+  # https://pulp.plan.io/issues/5195
+  '/etc/systemd/system/multi-user.target.wants/pulp_celerybeat.service',
+  '/etc/systemd/system/multi-user.target.wants/pulp_resource_manager.service',
+  '/etc/systemd/system/multi-user.target.wants/pulp_streamer.service',
+  '/etc/systemd/system/multi-user.target.wants/pulp_workers.service',
+  '/etc/systemd/system/qpidd.service.d',
+  '/etc/systemd/system/smart_proxy_dynflow_core.service.d',
   '/etc/tomcat'
 ]
 
@@ -68,43 +75,39 @@ LOG_FILES = [
 ]
 
 RPMS = [
-  'puppetlabs-release',
-  'foreman-release',
-  'foreman-client',
-  'foreman-proxy',
-  'candlepin',
-  'katello',
-  '^pulp',
-  '^python-pulp',
-  '^pulp-',
-  'mongo',
-  'postgre',
-  '^mod_',
-  '^rubygem',
-  '^tfm',
+  '$HOSTNAME',
   '^foreman',
-  '^qpid',
-  '^python-crane',
-  '^python-celery',
-  '^python-gofer',
-  '^python-qpid',
-  '^python-kombu',
-  '^python-webpy',
-  '^python-nectar',
-  '^python-saslwrapper',
+  '^mod_',
+  '^pulp',
+  '^pulp-',
   '^python-amqp',
   '^python-billiard',
-  '^python-semantic_version',
-  '^python-requests',
+  '^python-celery',
+  '^python-crane',
+  '^python-gofer',
   '^python-isodate',
-  '$HOSTNAME',
-  'saslwrapper',
+  '^python-kombu',
+  '^python-nectar',
+  '^python-pulp',
+  '^python-qpid',
+  '^python-requests',
+  '^python-saslwrapper',
+  '^python-semantic_version',
+  '^python-webpy',
+  '^qpid',
+  '^rubygem',
+  '^tfm',
+  'candlepin',
+  'httpd',
+  'katello',
+  'mongo',
+  'postgresql',
+  'puppet',
   'ruby',
   'rubygems',
-  'httpd',
-  'puppet',
-  'tomcat',
-  'squid'
+  'saslwrapper',
+  'squid',
+  'tomcat'
 ]
 
 CERT_FILES = [
@@ -120,47 +123,40 @@ CERT_FILES = [
 CONTENT = [
   '/opt/puppetlabs',
   '/opt/theforeman',
-  '/root/.cache/apipie_bindings',
   '/root/.hammer',
   '/usr/lib/pulp',
   '/usr/libexec/foreman-proxy',
+  '/usr/libexec/qpid',
   '/usr/share/candlepin',
-  '/usr/share/foreman-installer-katello',
+  '/usr/share/foreman',
   '/usr/share/foreman-installer',
   '/usr/share/foreman-proxy',
-  '/usr/share/foreman',
-  '/usr/share/katello-installer-base',
   '/usr/share/katello',
   '/usr/share/pulp',
   '/usr/share/puppet',
-  '/usr/share/qpid-tools',
   '/usr/share/qpid',
+  '/usr/share/qpid-tools',
   '/usr/share/tomcat',
-  '/var/cache/',
+  '/var/cache/candlepin',
+  '/var/cache/foreman-proxy',
+  '/var/cache/httpd',
+  '/var/cache/pulp',
+  '/var/cache/tomcat',
   '/var/lib/candlepin',
-  '/var/lib/foreman-maintain',
   '/var/lib/foreman',
+  '/var/lib/foreman-maintain',
+  '/var/lib/foreman-proxy',
   '/var/lib/katello',
+  '/var/lib/mongodb',
+  '/var/lib/pgsql',
+  '/var/lib/pulp',
   '/var/lib/puppet',
   '/var/lib/qpidd',
   '/var/lib/tomcat',
   '/var/opt/theforeman',
+  '/var/spool/squid',
   '/var/tmp/foreman-proxy'
 ]
-
-MOUNTS = [
-  '/var/lib/mongodb',
-  '/var/lib/pgsql',
-  '/var/lib/pulp'
-]
-
-CONTENT.map! do |dir|
-  if File.readlines('/proc/mounts').any? { |line| line.split(' ')[1] =~ /#{dir}$/ }
-    dir + '/*'
-  else
-    dir
-  end
-end
 
 def remove
   puts warn("\nStopping services")
@@ -187,11 +183,7 @@ def remove
 
   puts warn("\nCleaning up content")
   # Content
-  FileUtils.rm_r Dir.glob(CONTENT)
-
-  puts warn("\nRemoving Databases and Pulp storage on Filesystem")
-  # Check and see if MOUNTS are mounted filesystems.
-  MOUNTS.each do |mount|
+  CONTENT.each do |mount|
     `mountpoint -q #{mount}`
     if $?.success?
       puts important("\n #{mount} is part of a mounted filesystem, skipping. You will need to remove #{mount} manually.")
