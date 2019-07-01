@@ -8,7 +8,7 @@
 
 Summary:    Foreman plugin for limiting host lifetime
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.0
+Version:    6.0.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -116,6 +116,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 exit 0
 
 %changelog
+* Mon Jul 01 2019 Timo Goebel <mail@timogoebel.name> - 6.0.1-1
+- Update foreman_expire_hosts to 6.0.1
+
 * Fri Mar 08 2019 Timo Goebel <mail@timogoebel.name> - 6.0.0-1
 - Update foreman_expire_hosts to 6.0.0
 
