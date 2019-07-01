@@ -713,7 +713,8 @@ repoclosures:
     katello-repoclosure-el7:
       repoclosure_target_dist: rhel7
       repoclosure_target_repos:
-        - el7-katello-3.11
+        rhel7:
+          - el7-katello-3.11
       repoclosure_lookaside_repos:
         rhel7:
           - el7-base
