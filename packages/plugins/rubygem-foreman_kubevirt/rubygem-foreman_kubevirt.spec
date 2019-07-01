@@ -8,7 +8,7 @@
 %global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
+Version: 0.1.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 Group: Applications/Systems
@@ -105,6 +105,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Jul 01 2019 Shira Maximov <shiramaximov@gmail.com> 0.1.4-1
+- Update to 0.1.4
+
 * Wed May 15 2019 Moti Asayag <masayag@redhat.com> 0.1.3-1
 - Update to 0.1.3
 
