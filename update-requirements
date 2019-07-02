@@ -8,6 +8,7 @@ import semver
 
 # We need a blacklist of packages that are devDependencies but not needed to build
 NPM_BLACKLIST = [
+    '@theforeman/vendor-dev',
     'axios-mock-adapter',
     'babel-eslint',
     'babel-jest',
