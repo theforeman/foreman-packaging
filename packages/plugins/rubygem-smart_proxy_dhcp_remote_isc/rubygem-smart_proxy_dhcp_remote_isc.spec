@@ -1,28 +1,33 @@
-# Generated from smart_proxy_dhcp_remote_isc-0.0.1.gem by gem2rpm -*- rpm-spec -*-
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_dhcp_remote_isc
 %global plugin_name dhcp_remote_isc
 
+%global foreman_proxy_min_version 1.16.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
 Version: 0.0.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dhcp_remote_isc
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.16.0
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
 BuildRequires: ruby(release)
+BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations.
@@ -84,6 +89,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Mon Jan 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.4-1
 - Updated dhcp_remote_isc to 0.0.4 (dmitri@appliedlogic.ca)
 
