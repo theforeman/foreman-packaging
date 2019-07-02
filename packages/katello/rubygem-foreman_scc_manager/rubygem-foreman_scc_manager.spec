@@ -1,32 +1,42 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_scc_manager
 %global plugin_name scc_manager
+%global foreman_min_version 1.18.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
-License: GPLv3+
+License: GPLv3
 URL: https://www.orcharhino.com/
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.18.0
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
+Requires: foreman >= %{foreman_min_version}
+Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks)
-Requires: %{?scl_prefix}rubygem(katello) >= 3.7
-BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.18
-BuildRequires: %{?scl_prefix}rubygem(katello) >= 3.7
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
+Requires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
+Requires: %{?scl_prefix_ror}rubygem(rails) < 6
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
+BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Foreman plugin to sync SUSE Customer Center products and repositories into
@@ -95,10 +105,12 @@ cp -pa .%{gem_dir}/* \
 %posttrans
 %{foreman_db_migrate}
 %{foreman_restart}
-/usr/bin/systemctl restart foreman-tasks
 exit 0
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.2-2
+- Regenerate spec file based on the current template
+
 * Mon May 06 2019 Markus Bucher <bucher@atix.de> 1.6.2-1
 - Update to 1.6.2
 - Add recurring-sync of repositories
