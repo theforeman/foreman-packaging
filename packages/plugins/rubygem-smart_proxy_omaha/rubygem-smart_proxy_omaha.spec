@@ -1,22 +1,27 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_omaha
 %global plugin_name omaha
 
+%global foreman_proxy_min_version 1.12.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
-%global content_dir %{_var}/lib/foreman-proxy/omaha/content
-%global proxy_user foreman-proxy
+%global content_dir %{_sharedstatedir}/foreman-proxy/omaha/content
 
 Name: rubygem-%{gem_name}
 Version: 0.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_omaha
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.12
+
 Requires: crontabs
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
+Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
 Requires: rubygem(nokogiri) >= 1.5.11
@@ -26,7 +31,8 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 This plug-in adds support for the Omaha Procotol to Foreman's Smart Proxy.
@@ -86,29 +92,32 @@ mkdir -p %{buildroot}%{content_dir}
 
 %files
 %dir %{gem_instdir}
-%config(noreplace) %attr(0640, root, %{proxy_user}) %{foreman_proxy_settingsd_dir}/omaha.yml
-%attr(-,%{proxy_user},%{proxy_user}) %{content_dir}
-%doc %{gem_instdir}/LICENSE
-%{gem_instdir}/bin
-%{gem_instdir}/bundler.d
-%{gem_libdir}
-%{gem_instdir}/settings.d
 %{_bindir}/smart-proxy-omaha-sync
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/omaha.yml
+%dir %attr(-, foreman-proxy, foreman-proxy) %{content_dir}
+%license %{gem_instdir}/LICENSE
+%{gem_instdir}/bin
+%exclude %{gem_instdir}/bundler.d
+%exclude %{gem_instdir}/extra
+%exclude %{gem_instdir}/settings.d
+%{gem_libdir}
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/extra
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/test
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/smart_proxy_omaha.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.5-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Fri Aug 24 2018 Timo Goebel <mail@timogoebel.name> - 0.0.5-1
 - Update smart_proxy_omaha to 0.0.5
 
