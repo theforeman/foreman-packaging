@@ -1,20 +1,23 @@
-# Generated from smart_proxy_dns_route53-2.0.0.gem by gem2rpm -*- rpm-spec -*-
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_dns_route53
 %global plugin_name dns_route53
 
+%global foreman_proxy_min_version 1.16.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
 Version: 3.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Route 53 DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dns_route53
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.13
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
@@ -24,7 +27,8 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Route 53 DNS provider plugin for Foreman's smart proxy.
@@ -71,7 +75,7 @@ mv %{buildroot}%{gem_instdir}/config/%{plugin_name}.yml \
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/bundler.d
 %{gem_instdir}/config
 %{gem_libdir}
@@ -86,6 +90,9 @@ mv %{buildroot}%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.1-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Thu Feb 09 2017 Dominic Cleal <dominic@cleal.org> 3.0.1-1
 - Update smart_proxy_dns_route53 to 3.0.1 (dominic@cleal.org)
 
