@@ -1,96 +1,114 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_salt
+%global plugin_name salt
 
-%global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_min_version 1.8.0
+%global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 %global salt_config_dir %{_sysconfdir}/salt
 
-Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 2.1.9
-Release: 1%{?dist}
-Group: Applications/System
+Release: 2%{?foremandist}%{?dist}
+Summary: SaltStack Plug-In for Foreman's Smart Proxy
+Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.8.0
 Requires: salt-master
 Requires: python
 Requires: /etc/cron.d
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
+Requires: ruby
+Requires: ruby(rubygems)
 BuildRequires: ruby(release)
-%endif
+BuildRequires: ruby
 BuildRequires: rubygems-devel
-
-BuildRequires: ruby(rubygems)
 BuildArch: noarch
-
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-salt
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
-SaltStack support for Foreman Smart-Proxy.
+SaltStack Plug-In for Foreman's Smart Proxy.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
+gem unpack %{SOURCE0}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build %{gem_name}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{_sbindir}
-mkdir -p %{buildroot}%{_sysconfdir}/cron.d
-
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -pa .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+
+mkdir -p %{buildroot}%{_sbindir}
+cp -pa .%{gem_instdir}/sbin/upload-salt-reports \
+        %{buildroot}%{_sbindir}/upload-salt-reports
+
+# bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.d/salt.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
-mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
-cp -pa .%{gem_instdir}/settings.d/salt.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/salt.yml
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
+   %{buildroot}%{foreman_proxy_bundlerd_dir}
+
+# sample config
+mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
+mv %{buildroot}%{gem_instdir}/settings.d/salt.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/salt.yml
+
 mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
-mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
-cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
+
+mkdir -p %{buildroot}%{_sysconfdir}/cron.d
 install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/bin
-%{gem_instdir}/sbin
-%{gem_instdir}/cron
-%{gem_instdir}/lib
-%{gem_instdir}/bundler.d
-%{gem_instdir}/settings.d
-%{foreman_proxy_bundlerd_dir}/salt.rb
-%config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/salt.yml
+%{_bindir}/foreman-node
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
+%license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/bin
+%exclude %{gem_instdir}/bundler.d
+%exclude %{gem_instdir}/cron
+%{gem_instdir}/etc
+%{gem_libdir}
+%exclude %{gem_instdir}/sbin
+%exclude %{gem_instdir}/settings.d
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %config(noreplace) %{salt_config_dir}/foreman.yaml
 %config %{_sysconfdir}/cron.d/%{gem_name}
-%{_bindir}/foreman-node
-%{_sbindir}/upload-salt-reports
-%doc %{gem_instdir}/LICENSE
-
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/etc
 %{gem_spec}
 
 %files doc
@@ -98,6 +116,9 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.1.9-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Tue May 08 2018 Michael Moll <kvedulv@kvedulv.de> 2.1.9-1
 - update smart_proxy_salt to 2.1.9 (kvedulv@kvedulv.de)
 
