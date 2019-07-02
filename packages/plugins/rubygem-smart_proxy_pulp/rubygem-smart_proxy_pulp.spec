@@ -1,81 +1,102 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_pulp
+%global plugin_name pulp
 
-%global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_min_version 1.22.0
+%global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 1.4.1
-Release: 1%{?dist}
-Group: Applications/System
+Release: 2%{?foremandist}%{?dist}
+Summary: Basic Pulp support for Foreman Smart-Proxy
+Group: Applications/Internet
 License: GPLv3
-URL: https://github.com/theforeman/smart_proxy_pulp
+URL: https://github.com/theforeman/smart-proxy-pulp-plugin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.22.0
-
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
+Requires: ruby
+Requires: ruby(rubygems)
 BuildRequires: ruby(release)
+BuildRequires: ruby
 BuildRequires: rubygems-devel
-
-BuildRequires: ruby(rubygems)
 BuildArch: noarch
-
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-pulp
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Basic Pulp support for Foreman Smart-Proxy.
 
+
 %package doc
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
+gem unpack %{SOURCE0}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build %{gem_name}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.d/pulp.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
-mkdir -p  %{buildroot}%{_sysconfdir}/foreman-proxy/settings.d/
-cp -pa .%{gem_instdir}/settings.d/pulp3.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulp3.yml
-cp -pa .%{gem_instdir}/settings.d/pulp.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
-cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
+   %{buildroot}%{foreman_proxy_bundlerd_dir}
+
+# sample config
+mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
+mv %{buildroot}%{gem_instdir}/settings.d/pulp.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
+mv %{buildroot}%{gem_instdir}/settings.d/pulp3.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/pulp3.yml
+mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
-%{gem_instdir}/bundler.d
-%{gem_instdir}/settings.d
-%{foreman_proxy_bundlerd_dir}/pulp.rb
-%config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/pulp3.yml
-%config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/pulp.yml
-%config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/pulpnode.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulp.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulp3.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulpnode.yml
 %license %{gem_instdir}/LICENSE
-
+%exclude %{gem_instdir}/bundler.d
+%{gem_libdir}
+%exclude %{gem_instdir}/settings.d
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/Gemfile
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-
+%{gem_instdir}/Gemfile
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.4.1-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Fri Mar 08 2019 Justin Sherrill <jsherril@redhat.com> 1.4.1-1
 - Updated samrt_proxy_pulp to version 1.4.1
  
