@@ -8,8 +8,9 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.3
+Version: 0.4.4
 Release: 1%{?dist}
+Epoch: 1
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_maintain
@@ -38,7 +39,7 @@ version.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -96,6 +97,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 02 2019 Evgeni Golov 1:0.4.4-1
+- Update to 0.4.4
+
 * Mon Jun 10 2019 Martin Bacovsky <mbacovsk@redhat.com> 0.4.3-1
 - Update to 0.4.3
 
