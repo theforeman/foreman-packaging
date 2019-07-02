@@ -1,19 +1,23 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_dhcp_device42
 %global plugin_name dhcp_device42
 
+%global foreman_proxy_min_version 1.16.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
 Version: 1.0.7
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Device42 DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://www.device42.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.16
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
@@ -24,7 +28,8 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Device42 DHCP provider plugin for Foreman's smart proxy.
@@ -85,6 +90,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_device42.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.7-3
+- Regenerate spec file based on the current template
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.0.7-2
 - Move licenes which are GPL-* to GPLv3
 
