@@ -1,84 +1,97 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_dns_powerdns
+%global plugin_name dns_powerdns
 
-%global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_min_version 1.16.0
+%global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Summary: PowerDNS support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
-Group: Applications/System
+Release: 2%{?foremandist}%{?dist}
+Summary: PowerDNS DNS provider plugin for Foreman's smart proxy
+Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dns_powerdns
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
-BuildRequires: ruby(release)
-%endif
-Requires: foreman-proxy >= 1.13.0
+Requires: ruby
 Requires: ruby(rubygems)
 Requires: rubygem(mysql2)
 Requires: rubygem(pg)
-BuildRequires: ruby(rubygems)
+BuildRequires: ruby(release)
+BuildRequires: ruby
 BuildRequires: rubygems-devel
-
 BuildArch: noarch
-
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-dns_powerdns
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
-PowerDNS support for Foreman Smart-Proxy.
+PowerDNS DNS provider plugin for Foreman's smart proxy.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
+gem unpack %{SOURCE0}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build %{gem_name}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.d/dns_powerdns.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
-mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
-cp -pa .%{gem_instdir}/config/dns_powerdns.yml %{buildroot}%{foreman_proxy_settingsd_dir}/dns_powerdns.yml
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
+   %{buildroot}%{foreman_proxy_bundlerd_dir}
+
+# sample config
+mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
+mv %{buildroot}%{gem_instdir}/config/dns_powerdns.yml \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/dns_powerdns.yml
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/bundler.d
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/dns_powerdns.yml
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%{gem_instdir}/config
-%{foreman_proxy_bundlerd_dir}/dns_powerdns.rb
-%config(noreplace) %{foreman_proxy_settingsd_dir}/dns_powerdns.yml
-%attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/dns_powerdns.yml
-%doc %{gem_instdir}/LICENSE
-
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/test
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.3.0-2
+- Regenerate spec file based on smart_proxy_plugin
+
 * Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 0.3.0-1
 - Bump rubygem-smart_proxy_dns_powerdns to 0.3.0 (ewoud@kohlvanwijngaarden.nl)
 
