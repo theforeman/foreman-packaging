@@ -170,7 +170,7 @@ class ForemanSourceStrategy(SourceStrategy):
           subprocess.call(["gem", "build", gemspecs[0]])
           sources = glob.glob("./*.gem")
         else:
-          subprocess.call(["/bin/bash", "-l", "-c", "rake pkg:generate_source"])
+          subprocess.call(["/bin/bash", "-l", "-c", "bundle exec rake pkg:generate_source"])
           sources = glob.glob("./pkg/*")
 
         fetchdir = os.path.join(self.builder.rpmbuild_sourcedir, 'archive')
