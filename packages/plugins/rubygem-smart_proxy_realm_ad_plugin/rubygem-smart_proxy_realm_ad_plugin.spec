@@ -1,19 +1,23 @@
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_realm_ad_plugin
 %global plugin_name realm_ad_plugin
 
+%global foreman_proxy_min_version 1.15.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
 Version: 0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: A realm ad provider plugin for Foreman's smart proxy
 Group: Applications/Internet
-License: GPLv3+
+License: GPLv3
 URL: https://github.com/martencassel/smart_proxy_realm_ad_plugin
-Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.15
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
 Requires: ruby
 Requires: ruby(rubygems)
@@ -24,7 +28,8 @@ BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 A realm ad provider plugin for Foreman's smart proxy.
@@ -86,6 +91,9 @@ mv %{buildroot}%{gem_instdir}/config/realm_ad.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1-3
+- Regenerate spec file based on smart_proxy_plugin
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.1-2
 - Move licenes which are GPL-* to GPLv3
 
