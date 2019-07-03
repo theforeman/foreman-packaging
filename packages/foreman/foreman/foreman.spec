@@ -762,9 +762,6 @@ make -C locale all-mo
 mv Gemfile Gemfile.in
 cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
-#we need to allow taxonomies so apipie cache renders documentation with them
-sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.yaml
-sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
 export NODE_ENV=production
