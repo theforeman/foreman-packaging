@@ -738,6 +738,7 @@ plugin_nonscl_packages:
     rubygem-satyr: {}
     rubygem-smart_proxy_ansible: {}
     rubygem-smart_proxy_chef: {}
+    rubygem-smart_proxy_dhcp_dnsmasq: {}
     rubygem-smart_proxy_dhcp_infoblox: {}
     rubygem-smart_proxy_dhcp_remote_isc: {}
     rubygem-smart_proxy_dhcp_device42: {}
