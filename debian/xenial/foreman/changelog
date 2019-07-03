@@ -1,3 +1,9 @@
+foreman (1.20.3-2) stable; urgency=low
+
+  * 1.20.3-2 released
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Wed, 03 Jul 2019 20:29:05 +0300
+
 foreman (1.20.3-1) stable; urgency=low
 
   * 1.20.3 released
