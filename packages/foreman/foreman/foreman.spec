@@ -764,6 +764,8 @@ cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{nodejs_sitelib} node_modules
+# Calls webpack manually since webpack:compile uses the config which uses
+# node_modules/.bin/webpack and that doesn't exist in our setup
 export NODE_ENV=production
 %{?scl:scl enable %{scl} "}
 webpack --bail --config config/webpack.config.js
