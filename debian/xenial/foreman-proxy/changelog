@@ -1,3 +1,9 @@
+foreman-proxy (1.20.3-1) stable; urgency=low
+
+  * 1.20.3 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 03 Jul 2019 16:28:38 +0200
+
 foreman-proxy (1.20.2-1) stable; urgency=low
 
   * 1.20.2 released
