@@ -1,34 +1,5 @@
 #!/bin/bash -e
 
-GEM_NAME=$1
-PACKAGE_NAME=rubygem-$GEM_NAME
-TEMPLATE_NAME=$2
-TEMPLATE=$(pwd)/gem2rpm/$TEMPLATE_NAME.spec.erb
-TITO_TAG=$3
-DISTRO=${TITO_TAG##*-}
-PACKAGE_SUBDIR=$4
-ROOT=$(git rev-parse --show-toplevel)
-
-if [[ -z $PACKAGE_DIR ]] ; then
-	if [[ $TITO_TAG == foreman-plugins-* ]] ; then
-		PACKAGE_SUBDIR="plugins"
-	elif [[ $TITO_TAG == katello-* ]] ; then
-		PACKAGE_SUBDIR="katello"
-	else
-		PACKAGE_SUBDIR="foreman"
-	fi
-fi
-
-PACKAGE_DIR=packages/$PACKAGE_SUBDIR/$PACKAGE_NAME
-SPEC_FILE="${PACKAGE_NAME}.spec"
-
-if [[ -f "${PACKAGE_DIR}/${SPEC_FILE}" ]]; then
-	echo "Detected update..."
-	UPDATE=true
-else
-	UPDATE=false
-fi
-
 usage() {
 	echo "Usage: $0 GEM_NAME TEMPLATE TITO_TAG [PACKAGE_SUBDIR]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
@@ -138,9 +109,64 @@ add_to_manifest() {
 
 # Main script
 
+GEM_NAME=$1
+PACKAGE_NAME=rubygem-$GEM_NAME
+TEMPLATE_NAME=$2
+TITO_TAG=$3
+PACKAGE_SUBDIR=$4
+ROOT=$(git rev-parse --show-toplevel)
+
+if [[ -z $TEMPLATE_NAME ]] ; then
+	if [[ $GEM_NAME == smart_proxy_*_core ]] ; then
+		TEMPLATE_NAME="scl"
+	elif [[ $GEM_NAME == smart_proxy_* ]] ; then
+		TEMPLATE_NAME="smart_proxy_plugin"
+	elif [[ $GEM_NAME == foreman_* ]] ; then
+		TEMPLATE_NAME="foreman_plugin"
+	elif [[ $GEM_NAME == hammer_* ]] ; then
+		TEMPLATE_NAME="hammer_plugin"
+	fi
+fi
+
+if [[ -z $TITO_TAG ]] ; then
+	if [[ $TEMPLATE_NAME == smart_proxy_plugin ]] ; then
+		TITO_TAG="foreman-plugins-nightly-nonscl-rhel7"
+	elif [[ $TEMPLATE_NAME == *_plugin ]] ; then
+		TITO_TAG="foreman-plugins-nightly-rhel7"
+	elif [[ $GEM_NAME == smart_proxy_*_core ]] ; then
+		TITO_TAG="foreman-plugins-nightly-rhel7"
+	fi
+fi
+
+if [[ -z $PACKAGE_SUBDIR ]] ; then
+	if [[ $TITO_TAG == foreman-plugins-* ]] ; then
+		PACKAGE_SUBDIR="plugins"
+	elif [[ $TITO_TAG == katello-* ]] ; then
+		PACKAGE_SUBDIR="katello"
+	else
+		PACKAGE_SUBDIR="foreman"
+	fi
+fi
+
+PACKAGE_DIR=packages/$PACKAGE_SUBDIR/$PACKAGE_NAME
+SPEC_FILE="${PACKAGE_NAME}.spec"
+
+if [[ -f "${PACKAGE_DIR}/${SPEC_FILE}" ]]; then
+	echo "Detected update..."
+	UPDATE=true
+	if [[ -z $TEMPLATE_NAME ]] ; then
+		TEMPLATE_NAME="$(awk '/^# template: / { print $3 }' "${PACKAGE_DIR}/${SPEC_FILE}")"
+	fi
+else
+	UPDATE=false
+fi
+
 if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $TITO_TAG ]]; then
 	usage
 fi
+
+DISTRO=${TITO_TAG##*-}
+TEMPLATE=$(pwd)/gem2rpm/$TEMPLATE_NAME.spec.erb
 
 if [[ ! -e $TEMPLATE ]] ; then
 	echo "Template $TEMPLATE does not exist."
