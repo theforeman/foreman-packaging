@@ -2,13 +2,14 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global executor_service_name dynflowd
+%global foreman_restart (touch %{homedir}/tmp/restart.txt ; /bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 11
+%global release 12
 %global prerelease develop
 
 Name:    foreman
@@ -1062,7 +1063,7 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 %%%{name}_rake         %{foreman_rake}
 %%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
 %%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_restart      (touch %{homedir}/tmp/restart.txt ; /bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
+%%%{name}_restart      %{foreman_restart}
 EOF
 
 # Keep a copy of the schema for quick initialisation of plugin builds
@@ -1248,6 +1249,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jul 03 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.12.develop
+- Define foreman_restart macro
+
 * Mon Jun 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.11.develop
 - Update Gem and NPM dependencies
 - Add a redis subpackage
