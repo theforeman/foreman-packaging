@@ -77,17 +77,6 @@ Description: metapackage providing console dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
-Package: foreman-devel
-Architecture: all
-Section: web
-Priority: extra
-Depends: foreman (= ${binary:Version}), ${misc:Depends}
-Description: metapackage providing development dependencies for Foreman
- This package provides development dependencies for Foreman, a
- flexible systems management web application.
- .
- The foreman package should be installed along with this package.
-
 Package: foreman-ec2
 Architecture: all
 Section: web
