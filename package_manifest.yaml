@@ -197,7 +197,7 @@ foreman_nonscl_packages:
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-5
+        - el7-puppet-6
   hosts:
     foreman-bootloaders-redhat: {}
     foreman-installer: {}
@@ -434,13 +434,13 @@ foreman_client_packages:
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-5
+        - el7-puppet-6
       rhel6:
         - el6-base
         - el6-updates
         - el6-epel
         - el6-extras
-        - el6-puppet-5
+        - el6-puppet-6
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
@@ -449,17 +449,17 @@ foreman_client_packages:
         - el5-updates
         - el5-epel
         - el5-extras
-        - el5-puppet-5
+        - el5-puppet-6
         - el5-subscription-manager
         - el5-qpid
       fedora28:
         - f28-base
         - f28-updates
-        - f28-puppet-5
+        - f28-puppet-6
       fedora29:
         - f29-base
         - f29-updates
-        - f29-puppet-5
+        - f29-puppet-6
   hosts:
     katello-host-tools: {}
     rubygem-foreman_scap_client: {}
@@ -484,7 +484,7 @@ katello_packages:
         - el7-epel
         - el7-extras
         - el7-scl
-        - el7-puppet-5
+        - el7-puppet-6
         - el7-foreman-rails-1.22
         - el7-foreman-1.22
         - el7-foreman-plugins-1.22
@@ -546,7 +546,7 @@ plugin_scl_packages:
         - el7-epel
         - el7-extras
         - el7-scl
-        - el7-puppet-5
+        - el7-puppet-6
         - el7-foreman-rails-1.22
         - el7-foreman-1.22
   hosts:
@@ -665,7 +665,7 @@ plugin_nonscl_packages:
         - el7-updates
         - el7-epel
         - el7-extras
-        - el7-puppet-5
+        - el7-puppet-6
         - el7-foreman-1.22
   hosts:
     ansiblerole-foreman_scap_client: {}
@@ -722,7 +722,7 @@ repoclosures:
           - el7-epel
           - el7-extras
           - el7-scl
-          - el7-puppet-5
+          - el7-puppet-6
           - el7-foreman-rails-1.22
     plugins-repoclosure-el7:
       repoclosure_target_repos:
@@ -736,7 +736,7 @@ repoclosures:
           - el7-epel
           - el7-extras
           - el7-scl
-          - el7-puppet-5
+          - el7-puppet-6
           - el7-foreman-rails-1.22
           - el7-foreman-1.22
     katello-repoclosure-el7:
@@ -751,7 +751,7 @@ repoclosures:
           - el7-epel
           - el7-extras
           - el7-scl
-          - el7-puppet-5
+          - el7-puppet-6
           - el7-foreman-rails-1.22
           - el7-foreman-1.22
           - el7-foreman-plugins-1.22
@@ -769,7 +769,7 @@ repoclosures:
           - el7-updates
           - el7-epel
           - el7-extras
-          - el7-puppet-5
+          - el7-puppet-6
     foreman-client-repoclosure-el6:
       repoclosure_config: repoclosure/yum_el6.conf
       repoclosure_target_repos:
@@ -782,7 +782,7 @@ repoclosures:
           - el6-updates
           - el6-epel
           - el6-extras
-          - el6-puppet-5
+          - el6-puppet-6
           - el6-qpid
           - el6-pulp
           - el6-subscription-manager
@@ -798,7 +798,7 @@ repoclosures:
           - el5-updates
           - el5-epel
           - el5-extras
-          - el5-puppet-5
+          - el5-puppet-6
           - el5-subscription-manager
           - el5-qpid
     foreman-client-repoclosure-f28:
@@ -811,7 +811,7 @@ repoclosures:
         fedora28:
           - f28-base
           - f28-updates
-          - f28-puppet-5
+          - f28-puppet-6
     foreman-client-repoclosure-f29:
       repoclosure_config: repoclosure/yum_f29.conf
       repoclosure_target_repos:
@@ -822,4 +822,4 @@ repoclosures:
         fedora29:
           - f29-base
           - f29-updates
-          - f29-puppet-5
+          - f29-puppet-6
