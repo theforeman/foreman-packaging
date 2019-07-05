@@ -567,6 +567,7 @@ katello_packages:
         - "--arg jenkins_job=katello-master-source-release"
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
+    rubygem-pulp_docker_client: {}
     rubygem-pulp_file_client: {}
     rubygem-qpid_messaging: {}
     rubygem-redhat_access: {}
