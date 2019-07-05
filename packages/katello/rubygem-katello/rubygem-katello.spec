@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -44,6 +44,7 @@ Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client)
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 1.0
+Requires: %{?scl_prefix}rubygem(pulp_docker_client)
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -69,6 +70,7 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client)
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -293,6 +295,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Jul 05 2019 Justin Sherrill <jlsherrill@gmail.com> 3.13.0-0.6.pre.master
+- add pulp_docker_client requirement
+
 * Mon Jul 01 2019 Justin Sherrill <jlsherrill@gmail.com> 3.13.0-0.5.pre.master
 - add pulp_ansible_client requirement
 
