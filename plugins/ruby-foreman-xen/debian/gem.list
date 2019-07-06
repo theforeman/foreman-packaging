@@ -1,2 +1,4 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_xen-0.7.1.gem"
+GEMS="https://rubygems.org/downloads/foreman_xen-1.0.0.gem"
+GEMS="$GEMS https://rubygems.org/downloads/fog-xenserver-1.0.0.gem"
+GEMS="$GEMS https://rubygems.org/downloads/xmlrpc-0.3.0.gem"
