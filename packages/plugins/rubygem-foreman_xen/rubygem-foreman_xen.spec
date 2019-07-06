@@ -4,11 +4,11 @@
 
 %global gem_name foreman_xen
 %global plugin_name xen
-%global foreman_min_version 1.17.0
+%global foreman_min_version 1.20.0
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.7.1
+Version:    1.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Sat Jul 06 2019 Michael Moll <mmoll@mmoll.at> 1.0.0-1
+- Update to 1.0.0
+
 * Fri Jan 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.1-1
 - Update to 0.7.1
 
