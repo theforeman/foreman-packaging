@@ -2,7 +2,7 @@
 
 Name: nodejs-unidiff
 Version: 1.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: diff with unified diff format handling
 License: MIT
 Group: Development/Libraries
@@ -10,7 +10,7 @@ URL: https://github.com/mvoss9000/unidiff#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: nodejs-packaging
 Requires: npm(diff) >= 2.2.2
-Requires: npm(diff) < 4.0.0
+Requires: npm(diff) < 5.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -19,7 +19,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 
 %prep
 %setup -q -n package
-%nodejs_fixdep diff '>= 2.2.2 < 4.0.0'
+%nodejs_fixdep diff '>= 2.2.2 < 5.0.0'
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -39,6 +39,9 @@ cp -pfr unidiff.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Wed Jul 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.2-2
+- Allow diff 4.x
+
 * Fri May 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.2-1
 - Update to 1.0.2
 
