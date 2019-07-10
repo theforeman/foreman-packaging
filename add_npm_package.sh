@@ -7,7 +7,14 @@ TITO_TAG=foreman-nightly-nonscl-rhel7
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
-PACKAGE_NAME=nodejs-${NPM_MODULE_NAME##*/}
+PACKAGE_MODULE=${NPM_MODULE_NAME##*/}
+PACKAGE_VENDOR=${NPM_MODULE_NAME%%/*}
+PACKAGE_VENDOR=${PACKAGE_VENDOR##@}
+if [[ $NPM_MODULE_NAME == */* ]]; then
+  PACKAGE_NAME=nodejs-${PACKAGE_VENDOR}-${PACKAGE_MODULE}
+else
+  PACKAGE_NAME=nodejs-${PACKAGE_MODULE}
+fi
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
