@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -43,8 +43,9 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client)
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 1.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client)
+Requires: %{?scl_prefix}rubygem(pulp_docker_client)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -68,8 +69,9 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client)
+BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -100,6 +102,8 @@ BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
+BuildRequires: npm(react-router-dom) >= 4.2.2
+BuildRequires: npm(react-router-dom) < 5.0.0
 BuildRequires: npm(redux-thunk) >= 2.2.0
 BuildRequires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
@@ -139,8 +143,6 @@ BuildRequires: npm(react-helmet) < 6.0.0
 BuildRequires: npm(react-redux) >= 5.0.6
 BuildRequires: npm(react-redux) < 6.0.0
 BuildRequires: npm(react-router-bootstrap) = 0.24.4
-BuildRequires: npm(react-router-dom) >= 4.2.2
-BuildRequires: npm(react-router-dom) < 5.0.0
 BuildRequires: npm(redux) >= 3.7.2
 BuildRequires: npm(redux) < 4.0.0
 BuildRequires: npm(seamless-immutable) >= 7.1.2
@@ -181,6 +183,8 @@ Requires: npm(babel-preset-react) >= 6.24.1
 Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
+Requires: npm(react-router-dom) >= 4.2.2
+Requires: npm(react-router-dom) < 5.0.0
 Requires: npm(redux-thunk) >= 2.2.0
 Requires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies Requires
@@ -220,8 +224,6 @@ Requires: npm(react-helmet) < 6.0.0
 Requires: npm(react-redux) >= 5.0.6
 Requires: npm(react-redux) < 6.0.0
 Requires: npm(react-router-bootstrap) = 0.24.4
-Requires: npm(react-router-dom) >= 4.2.2
-Requires: npm(react-router-dom) < 5.0.0
 Requires: npm(redux) >= 3.7.2
 Requires: npm(redux) < 4.0.0
 Requires: npm(seamless-immutable) >= 7.1.2
@@ -293,6 +295,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Jul 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.6.pre.master
+- Update Gem and NPM dependencies
+
 * Mon Jul 01 2019 Justin Sherrill <jlsherrill@gmail.com> 3.13.0-0.5.pre.master
 - add pulp_ansible_client requirement
 
