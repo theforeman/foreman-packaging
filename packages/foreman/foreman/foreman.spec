@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 12
+%global release 13
 %global prerelease develop
 
 Name:    foreman
@@ -102,7 +102,7 @@ Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
 Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
-Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 Requires: %{?scl_prefix}rubygem(net-ping)
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
@@ -208,7 +208,7 @@ BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
 BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
-BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 BuildRequires: %{?scl_prefix}rubygem(net-ping)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
@@ -338,8 +338,8 @@ BuildRequires: npm(datatables.net) >= 1.10.12
 BuildRequires: npm(datatables.net) < 1.11.0
 BuildRequires: npm(datatables.net-bs) >= 1.10.12
 BuildRequires: npm(datatables.net-bs) < 1.11.0
-BuildRequires: npm(diff) >= 3.0.0
-BuildRequires: npm(diff) < 3.1.0
+BuildRequires: npm(diff) >= 4.0.1
+BuildRequires: npm(diff) < 5.0.0
 BuildRequires: npm(file-saver) >= 2.0.1
 BuildRequires: npm(file-saver) < 3.0.0
 BuildRequires: npm(gridster) >= 0.5.6
@@ -667,8 +667,8 @@ Requires: npm(datatables.net) >= 1.10.12
 Requires: npm(datatables.net) < 1.11.0
 Requires: npm(datatables.net-bs) >= 1.10.12
 Requires: npm(datatables.net-bs) < 1.11.0
-Requires: npm(diff) >= 3.0.0
-Requires: npm(diff) < 3.1.0
+Requires: npm(diff) >= 4.0.1
+Requires: npm(diff) < 5.0.0
 Requires: npm(file-saver) >= 2.0.1
 Requires: npm(file-saver) < 3.0.0
 Requires: npm(gridster) >= 0.5.6
@@ -1249,6 +1249,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jul 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.13.develop
+- Update Gem and NPM dependencies
+
 * Wed Jul 03 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.12.develop
 - Define foreman_restart macro
 
