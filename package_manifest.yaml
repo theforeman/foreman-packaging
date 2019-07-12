@@ -710,9 +710,6 @@ plugin_nonscl_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-plugins-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -721,6 +718,7 @@ plugin_nonscl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-foreman-nightly
+        - el7-foreman-plugins-nightly
   hosts:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
