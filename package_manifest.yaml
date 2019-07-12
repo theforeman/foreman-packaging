@@ -206,11 +206,9 @@ foreman_nonscl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
     repoclosure_lookaside_repos:
       rhel7:
+        - el7-foreman-nightly
         - el7-base
         - el7-updates
         - el7-epel
