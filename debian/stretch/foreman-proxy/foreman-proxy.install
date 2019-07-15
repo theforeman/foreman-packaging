@@ -5,7 +5,6 @@ bundler.d/dhcp_isc.rb                     usr/share/foreman-proxy/bundler.d
 bundler.d/krb5.rb                         usr/share/foreman-proxy/bundler.d
 bundler.d/libvirt.rb                      usr/share/foreman-proxy/bundler.d
 bundler.d/puppetca_token_whitelisting.rb  usr/share/foreman-proxy/bundler.d
-bundler.d/puppet.rb                       usr/share/foreman-proxy/bundler.d
 bundler.d/realm_freeipa.rb                usr/share/foreman-proxy/bundler.d
 config.ru                                 usr/share/foreman-proxy
 extra/migrate_settings.rb                 usr/share/foreman-proxy/extra
