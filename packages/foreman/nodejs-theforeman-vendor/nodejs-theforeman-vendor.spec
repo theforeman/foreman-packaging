@@ -32,7 +32,7 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
-* Tue Jul 16 2019 Evgeni Golov 0.1.0-alpha.11-1
+* Tue Jul 16 2019 Evgeni Golov 0.1.0-0.1.alpha.11
 - Update to 0.1.0-alpha.11
 
 * Mon Jul 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.0-0.1.alpha.10
