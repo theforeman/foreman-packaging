@@ -10,8 +10,8 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.5
-Release: 3%{?foremandist}%{?dist}
+Version: 0.16.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -42,30 +42,17 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-#BuildRequires: npm(@storybook/addon-actions) >= 5.0.1
-#BuildRequires: npm(@storybook/addon-actions) < 6.0.0
-#BuildRequires: npm(@storybook/addon-knobs) >= 5.0.1
-#BuildRequires: npm(@storybook/addon-knobs) < 6.0.0
-#BuildRequires: npm(@storybook/react) >= 5.0.1
-#BuildRequires: npm(@storybook/react) < 6.0.0
 BuildRequires: npm(babel-cli) >= 6.10.1
 BuildRequires: npm(babel-cli) < 7.0.0
 BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
-#BuildRequires: npm(babel-eslint) >= 8.2.3
-#BuildRequires: npm(babel-eslint) < 9.0.0
-#BuildRequires: npm(babel-jest) >= 23.6.0
-#BuildRequires: npm(babel-jest) < 24.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
-#BuildRequires: npm(babel-plugin-dynamic-import-node) >= 2.0.0
-#BuildRequires: npm(babel-plugin-dynamic-import-node) < 3.0.0
 BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
 BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-module-resolver) >= 3.2.0
@@ -82,45 +69,18 @@ BuildRequires: npm(babel-preset-env) >= 1.7.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
-#BuildRequires: npm(coveralls) >= 3.0.0
-#BuildRequires: npm(coveralls) < 4.0.0
-#BuildRequires: npm(enzyme) >= 3.4.0
-#BuildRequires: npm(enzyme) < 4.0.0
-#BuildRequires: npm(enzyme-adapter-react-16) >= 1.4.0
-#BuildRequires: npm(enzyme-adapter-react-16) < 2.0.0
-#BuildRequires: npm(enzyme-to-json) >= 3.2.1
-#BuildRequires: npm(enzyme-to-json) < 4.0.0
-#BuildRequires: npm(eslint) >= 4.10.0
-#BuildRequires: npm(eslint) < 5.0.0
-#BuildRequires: npm(eslint-import-resolver-babel-module) >= 4.0.0
-#BuildRequires: npm(eslint-import-resolver-babel-module) < 5.0.0
-#BuildRequires: npm(eslint-plugin-patternfly-react) = 0.2.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
-#BuildRequires: npm(jest-cli) >= 23.6.0
-#BuildRequires: npm(jest-cli) < 24.0.0
-#BuildRequires: npm(jest-prop-type-error) >= 1.1.0
-#BuildRequires: npm(jest-prop-type-error) < 2.0.0
 BuildRequires: npm(node-sass) >= 4.5.0
 BuildRequires: npm(node-sass) < 5.0.0
 BuildRequires: npm(patternfly) >= 3.58.0
 BuildRequires: npm(patternfly) < 4.0.0
-#BuildRequires: npm(prettier) >= 1.13.5
-#BuildRequires: npm(prettier) < 2.0.0
 BuildRequires: npm(raf) >= 3.4.0
 BuildRequires: npm(raf) < 4.0.0
-#BuildRequires: npm(react-redux-test-utils) >= 0.1.1
-#BuildRequires: npm(react-redux-test-utils) < 1.0.0
-#BuildRequires: npm(react-remarkable) >= 1.1.3
-#BuildRequires: npm(react-remarkable) < 2.0.0
 BuildRequires: npm(sass-loader) >= 6.0.7
 BuildRequires: npm(sass-loader) < 7.0.0
-#BuildRequires: npm(stylelint) >= 9.3.0
-#BuildRequires: npm(stylelint) < 10.0.0
-#BuildRequires: npm(stylelint-config-standard) >= 18.0.0
-#BuildRequires: npm(stylelint-config-standard) < 19.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -264,6 +224,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Tue Jul 16 2019 Adam Ruzicka <aruzicka@redhat.com> 0.16.0-1
+- Update to 0.16.0
+
 * Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.15.5-3
 - Rebuild rubygem-foreman-tasks to drop the webpack vendor.js requires
 
