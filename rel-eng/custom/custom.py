@@ -85,7 +85,7 @@ class ForemanSourceStrategy(SourceStrategy):
             new_line = "Source%s: %s\n" % (i, base_name)
             replacements.append((source_regex, new_line))
 
-        rel_date = datetime.utcnow().strftime("%Y%m%d%H%M")
+        rel_date = datetime.utcnow().strftime("%Y%m%d%H%M%S")
         self.release = rel_date + gitrev
         print("Building release: %s" % self.release)
         run_command("sed -i '1i %%global nightly .%s' %s" % (self.release, self.spec_file))
