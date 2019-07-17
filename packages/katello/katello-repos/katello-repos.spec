@@ -6,10 +6,10 @@
 %define repo_dist %{dist}
 
 #global prerelease .rc2
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        3.12.0
+Version:        3.12.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Wed Jul 17 2019 Evgeni Golov - 3.12.1-1
+- Release 3.12.1
+
 * Fri Jun 07 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.12.0-2
 - Add proper public GPG key
 
