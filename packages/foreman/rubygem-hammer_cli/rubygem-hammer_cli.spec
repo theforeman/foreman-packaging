@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 1
+%global release 2
 %global prerelease .pre.develop
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
@@ -102,7 +102,7 @@ mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_root_mandir}/man1/
 rm -f %{buildroot}%{gem_instdir}/man/*.asciidoc
 
 mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
+install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
                %{buildroot}%{_root_sysconfdir}/%{confdir}/cli_config.yml
 
 %files
@@ -127,6 +127,9 @@ install -m 755 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.2.pre.develop
+- Do not install configs as executable files (#27326)
+
 * Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.1.pre.develop
 - Bump to 0.18-develop
 

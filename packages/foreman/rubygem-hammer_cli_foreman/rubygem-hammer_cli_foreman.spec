@@ -4,7 +4,7 @@
 %global gem_name hammer_cli_foreman
 %global confdir hammer
 
-%global release 1
+%global release 2
 %global prerelease .pre.develop
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
@@ -81,7 +81,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 .%{gem_instdir}/config/foreman.yml \
+install -m 644 .%{gem_instdir}/config/foreman.yml \
                %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 
 %files
@@ -101,6 +101,9 @@ install -m 755 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.2.pre.develop
+- Do not install configs as executable files (#27326)
+
 * Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.1.pre.develop
 - Bump to 0.18-develop
 
