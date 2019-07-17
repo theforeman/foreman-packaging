@@ -11,7 +11,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.16.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -69,6 +69,8 @@ BuildRequires: npm(babel-preset-env) >= 1.7.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
+BuildRequires: npm(bootstrap-sass) >= 3.3.7
+BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 BuildRequires: npm(jed) >= 1.1.1
@@ -224,6 +226,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Wed Jul 17 2019 Evgeni Golov - 0.16.0-2
+- Rebuild to use @theforeman/vendor
+
 * Tue Jul 16 2019 Adam Ruzicka <aruzicka@redhat.com> 0.16.0-1
 - Update to 0.16.0
 
