@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 14
+%global release 15
 %global prerelease develop
 
 Name:    foreman
@@ -934,7 +934,8 @@ rm -rf ./usr \\
 %%{?-a:ln -s %%{%{name}_apipie_cache_plugin} %%{buildroot}%%{%{name}_apipie_cache_foreman}} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}} \\
-%%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map}
+%%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map} \\
+%%{?-s:rm -f %%{buildroot}%%{gem_instdir}/public/webpack/foreman-vendor.*}
 EOF
 
 %clean
@@ -1050,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jul 17 2019 Evgeni Golov - 1.23.0-0.15.develop
+- Remove foreman-vendor artifacts from plugin builds
+
 * Tue Jul 16 2019 Evgeni Golov - 1.23.0-0.14.develop
 - use @theforeman/vendor
 
