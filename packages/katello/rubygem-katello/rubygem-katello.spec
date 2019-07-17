@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 6
+%global release 7
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -285,6 +285,7 @@ cp -pa .%{gem_dir}/* \
 %{foreman_assets_plugin}
 %{foreman_webpack_foreman}
 %{foreman_webpack_plugin}
+%exclude %{gem_instdir}/public/webpack/foreman-vendor.*
 
 %files doc
 %doc %{gem_docdir}
@@ -295,6 +296,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jul 17 2019 Evgeni Golov - 3.13.0-0.7.pre.master
+- Rebuild to use @theforeman/vendor
+
 * Thu Jul 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.6.pre.master
 - Update Gem and NPM dependencies
 
