@@ -8,8 +8,8 @@
 %global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 3.0.5
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -172,6 +172,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Jul 18 2019 Ondrej Prazak <oprazak@redhat.com> 3.0.5-1
+- Update to 3.0.5
+
 * Wed Jul 17 2019 Evgeni Golov - 3.0.3-2
 - Rebuild to use @theforeman/vendor
 
