@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 7
+%global release 8
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -240,7 +240,14 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/package.json
 %{gem_instdir}/webpack
 
+%posttrans
+%{foreman_db_seed}
+exit 0
+
 %changelog
+* Wed Jul 24 2019 Jonathon Turel <jturel@gmail.com> - 3.13.0-0.8.pre.master
+- Seed the database after transaction to ensure upgrade steps will run
+
 * Tue Jul 23 2019 Evgeni Golov - 3.13.0-0.7.pre.master
 - Update katello packaging to @theforeman/vendor bundle
 
