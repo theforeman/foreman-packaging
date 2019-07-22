@@ -1,3 +1,10 @@
+ruby-foreman-salt (11.0.1-1) stable; urgency=low
+
+  * highstate uploader fails if pchanges doesn't have a diff (#105)
+  * Update translations (#108)
+
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 22 Jul 2019 22:47:04 +0100
+
 ruby-foreman-salt (11.0.0-1) stable; urgency=low
 
   * Compatible with Foreman 1.21 / 1.22
