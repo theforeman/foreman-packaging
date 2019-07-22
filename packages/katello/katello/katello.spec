@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 #global prerelease .rc2
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.12.1
@@ -194,6 +194,10 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Sun Jul 21 2019 Jonathon Turel <jturel@gmail.com> 3.12.1-2
+- katello-change-hostname: clean puppet certs
+- katello-change-hostname: s/foreman-proxy-content-certs-tar/certs-tar-file/
+
 * Wed Jul 17 2019 Evgeni Golov - 3.12.1-1
 - Release 3.12.1
 
