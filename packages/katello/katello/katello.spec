@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.13.0
@@ -194,6 +194,10 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Sun Jul 21 2019 Jonathon Turel <jturel@gmail.com> 3.13.0-0.4.master
+- katello-change-hostname: clean puppet certs
+- katello-change-hostname: s/foreman-proxy-content-certs-tar/certs-tar-file/
+
 * Fri Jun 07 2019 Lukas Zapletal <lzap+rpm@redhat.com> 3.13.0-0.3.master
 - BZ#1710625 - updated qpidd debug paths
 
