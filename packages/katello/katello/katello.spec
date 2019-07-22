@@ -196,6 +196,8 @@ Useful utilities for managing Katello services
 %changelog
 * Thu Aug 08 2019 Evgeni Golov - 3.12.2-1
 - Release 3.12.2
+- katello-change-hostname: clean puppet certs
+- katello-change-hostname: s/foreman-proxy-content-certs-tar/certs-tar-file/
 
 * Wed Jul 17 2019 Evgeni Golov - 3.12.1-1
 - Release 3.12.1
