@@ -63,7 +63,7 @@ module KatelloUtilities
     def get_fpc_answers
       register_in_foreman = false
       certs_tar = @options[:certs_tar]
-      " --foreman-proxy-register-in-foreman #{register_in_foreman} --foreman-proxy-content-certs-tar #{certs_tar}"
+      " --foreman-proxy-register-in-foreman #{register_in_foreman} --certs-tar-file #{certs_tar}"
     end
 
     def precheck
@@ -165,6 +165,12 @@ module KatelloUtilities
       scenario_answers["certs"]["server_cert"] &&
       scenario_answers["certs"]["server_key"] &&
       scenario_answers["certs"]["server_cert_req"]
+    end
+
+    def delete_puppet_certs
+      puppet_ssldir = @scenario_answers['puppet']['ssldir']
+
+      run_cmd("rm -rf '#{puppet_ssldir}'")
     end
 
     def all_custom_cert_options_present?
@@ -334,6 +340,8 @@ module KatelloUtilities
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_cert"]}")
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_key"]}")
       end
+
+      delete_puppet_certs
 
       STDOUT.puts "backed up #{public_dir} to #{public_backup_dir}"
       STDOUT.puts "updating hostname in /etc/hosts"
