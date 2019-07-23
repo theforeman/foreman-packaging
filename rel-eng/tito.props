@@ -395,6 +395,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
+  rubygem-foreman_supervisory_authority
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
   rubygem-foreman_templates
