@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.13.0
-%global release 6
+%global release 7
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -102,51 +102,24 @@ BuildRequires: npm(babel-preset-react) >= 6.24.1
 BuildRequires: npm(babel-preset-react) < 7.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
-BuildRequires: npm(react-router-dom) >= 4.2.2
-BuildRequires: npm(react-router-dom) < 5.0.0
-BuildRequires: npm(redux-thunk) >= 2.2.0
-BuildRequires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
+BuildRequires: npm(@theforeman/vendor) >= 0.1.1
+BuildRequires: npm(@theforeman/vendor) < 1.0.0
 BuildRequires: npm(angular) = 1.5.5
-BuildRequires: npm(axios) >= 0.19.0
-BuildRequires: npm(axios) < 1.0.0
 BuildRequires: npm(bootstrap-select) = 1.12.4
-BuildRequires: npm(classnames) >= 2.2.5
-BuildRequires: npm(classnames) < 3.0.0
 BuildRequires: npm(downshift) >= 1.28.0
 BuildRequires: npm(downshift) < 2.0.0
 BuildRequires: npm(jed) >= 1.1.1
 BuildRequires: npm(jed) < 2.0.0
-BuildRequires: npm(lodash) >= 4.17.5
-BuildRequires: npm(lodash) < 5.0.0
 BuildRequires: npm(ngreact) >= 0.5.0
 BuildRequires: npm(ngreact) < 1.0.0
-BuildRequires: npm(patternfly) >= 3.41.1
-BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.5.1
-BuildRequires: npm(patternfly-react) < 3.0.0
-BuildRequires: npm(prop-types) >= 15.6.0
-BuildRequires: npm(prop-types) < 16.0.0
 BuildRequires: npm(query-string) >= 6.1.0
 BuildRequires: npm(query-string) < 7.0.0
-BuildRequires: npm(react) >= 16.4.0
-BuildRequires: npm(react) < 17.0.0
 BuildRequires: npm(react-bootstrap) >= 0.32.1
 BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-dom) >= 16.4.0
-BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-ellipsis-with-tooltip) >= 1.0.7
-BuildRequires: npm(react-ellipsis-with-tooltip) < 2.0.0
 BuildRequires: npm(react-helmet) >= 5.2.0
 BuildRequires: npm(react-helmet) < 6.0.0
-BuildRequires: npm(react-redux) >= 5.0.6
-BuildRequires: npm(react-redux) < 6.0.0
-BuildRequires: npm(react-router-bootstrap) = 0.24.4
-BuildRequires: npm(redux) >= 3.7.2
-BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(seamless-immutable) >= 7.1.2
-BuildRequires: npm(seamless-immutable) < 8.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -183,51 +156,24 @@ Requires: npm(babel-preset-react) >= 6.24.1
 Requires: npm(babel-preset-react) < 7.0.0
 Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
-Requires: npm(react-router-dom) >= 4.2.2
-Requires: npm(react-router-dom) < 5.0.0
-Requires: npm(redux-thunk) >= 2.2.0
-Requires: npm(redux-thunk) < 3.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
+Requires: npm(@theforeman/vendor) >= 0.1.1
+Requires: npm(@theforeman/vendor) < 1.0.0
 Requires: npm(angular) = 1.5.5
-Requires: npm(axios) >= 0.19.0
-Requires: npm(axios) < 1.0.0
 Requires: npm(bootstrap-select) = 1.12.4
-Requires: npm(classnames) >= 2.2.5
-Requires: npm(classnames) < 3.0.0
 Requires: npm(downshift) >= 1.28.0
 Requires: npm(downshift) < 2.0.0
 Requires: npm(jed) >= 1.1.1
 Requires: npm(jed) < 2.0.0
-Requires: npm(lodash) >= 4.17.5
-Requires: npm(lodash) < 5.0.0
 Requires: npm(ngreact) >= 0.5.0
 Requires: npm(ngreact) < 1.0.0
-Requires: npm(patternfly) >= 3.41.1
-Requires: npm(patternfly) < 4.0.0
-Requires: npm(patternfly-react) >= 2.5.1
-Requires: npm(patternfly-react) < 3.0.0
-Requires: npm(prop-types) >= 15.6.0
-Requires: npm(prop-types) < 16.0.0
 Requires: npm(query-string) >= 6.1.0
 Requires: npm(query-string) < 7.0.0
-Requires: npm(react) >= 16.4.0
-Requires: npm(react) < 17.0.0
 Requires: npm(react-bootstrap) >= 0.32.1
 Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-dom) >= 16.4.0
-Requires: npm(react-dom) < 17.0.0
-Requires: npm(react-ellipsis-with-tooltip) >= 1.0.7
-Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
 Requires: npm(react-helmet) >= 5.2.0
 Requires: npm(react-helmet) < 6.0.0
-Requires: npm(react-redux) >= 5.0.6
-Requires: npm(react-redux) < 6.0.0
-Requires: npm(react-router-bootstrap) = 0.24.4
-Requires: npm(redux) >= 3.7.2
-Requires: npm(redux) < 4.0.0
-Requires: npm(seamless-immutable) >= 7.1.2
-Requires: npm(seamless-immutable) < 8.0.0
 # end package.json dependencies Requires
 
 %description assets
@@ -295,6 +241,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Jul 23 2019 Evgeni Golov - 3.13.0-0.7.pre.master
+- Update katello packaging to @theforeman/vendor bundle
+
 * Thu Jul 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.6.pre.master
 - Update Gem and NPM dependencies
 
