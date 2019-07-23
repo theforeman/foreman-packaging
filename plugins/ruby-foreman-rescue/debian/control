@@ -1,0 +1,13 @@
+Source: ruby-foreman-rescue
+Section: ruby
+Priority: extra
+Maintainer: Marc Deop <marc.deop@erasys.de>
+Build-Depends: debhelper
+Standards-Version: 3.9.3
+Homepage: https://github.com/dm-drogeriemarkt/foreman_rescue
+
+Package: ruby-foreman-rescue
+Architecture: all
+Depends: ${misc:Depends}, bundler
+Description: Foreman Rescue Plugin
+ This plugin allows a user to boot a Foreman host into a rescue system via PXE.
