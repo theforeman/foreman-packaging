@@ -1,0 +1,5 @@
+ruby-foreman-rescue (2.0.0-1) stable; urgency=low
+
+  * Initial Release.
+
+ -- Marc Deop <marc.deop@erasys.de>  Tue, 23 Jul 2019 09:19:47 +0100
