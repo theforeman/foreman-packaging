@@ -430,6 +430,7 @@ foreman_scl_and_nonscl_packages:
         - el7-updates
         - el7-epel
         - el7-extras
+        - el7-puppet-6
         - el7-scl
         - el7-foreman-rails-nightly
   hosts:
