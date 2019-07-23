@@ -31,6 +31,7 @@ foreman_scl_packages:
         - el7-updates
         - el7-epel
         - el7-extras
+        - el7-puppet-6
         - el7-scl
         - el7-foreman-rails-1.22
   hosts:
@@ -389,6 +390,7 @@ foreman_scl_and_nonscl_packages:
         - el7-updates
         - el7-epel
         - el7-extras
+        - el7-puppet6
         - el7-scl
         - el7-foreman-rails-1.22
   hosts:
