@@ -105,6 +105,7 @@
       <packagereq type="default">tfm-rubygem-foreman_setup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot_management</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_spacewalk</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_supervisory_authority</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vault</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations</packagereq>

@@ -656,6 +656,7 @@ plugin_scl_packages:
     rubygem-foreman_setup: {}
     rubygem-foreman_snapshot_management: {}
     rubygem-foreman_spacewalk: {}
+    rubygem-foreman_supervisory_authority: {}
     rubygem-foreman_templates: {}
     rubygem-foreman_vault: {}
     rubygem-foreman_vmwareannotations: {}
