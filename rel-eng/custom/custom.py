@@ -182,7 +182,7 @@ class ForemanSourceStrategy(SourceStrategy):
           shutil.move(srcfile, os.path.join(fetchdir, os.path.basename(srcfile)))
 
         gitrev = "local"
-        gitsha = subprocess.check_output(["git", "rev-parse", "HEAD"])
+        gitsha = subprocess.check_output(["git", "rev-parse", "HEAD"], universal_newlines=True)
         if gitsha:
           gitrev = "git%s" % gitsha[0:7]
 
