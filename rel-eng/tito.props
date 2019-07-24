@@ -495,6 +495,7 @@ disttag = .el7
 whitelist =
   # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
   katello-host-tools
+  python-apypie
   rubygem-foreman_scap_client
 
 [foreman-client-nightly-rhel6]
@@ -512,12 +513,14 @@ whitelist = foreman-release
 disttag = .fc29
 whitelist = foreman-release
   katello-host-tools
+  python-apypie
   rubygem-foreman_scap_client
 
 [foreman-client-nightly-fedora28]
 disttag = .fc28
 whitelist = foreman-release
   katello-host-tools
+  python-apypie
   rubygem-foreman_scap_client
 
 [katello-nightly-rhel7]

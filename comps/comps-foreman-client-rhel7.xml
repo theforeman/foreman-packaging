@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <!--  <meta> -->
   <!-- Meta information will go here eventually -->
@@ -14,11 +13,12 @@
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">gofer</packagereq>
       <packagereq type="default">katello-agent</packagereq>
+      <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools-tracer</packagereq>
-      <packagereq type="default">katello-host-tools</packagereq>
-      <packagereq type="default">python-gofer-proton</packagereq>
+      <packagereq type="default">python-apypie</packagereq>
       <packagereq type="default">python-gofer</packagereq>
+      <packagereq type="default">python-gofer-proton</packagereq>
       <packagereq type="default">qpid-proton-c</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <!--

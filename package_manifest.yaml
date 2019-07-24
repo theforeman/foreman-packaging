@@ -503,6 +503,7 @@ foreman_client_packages:
         - f29-puppet-6
   hosts:
     katello-host-tools: {}
+    python-apypie: {}
     rubygem-foreman_scap_client: {}
 
 katello_packages:

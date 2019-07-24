@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <!--  <meta> -->
   <!-- Meta information will go here eventually -->
@@ -13,9 +12,10 @@
     <packagelist>
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">katello-agent</packagereq>
+      <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools-tracer</packagereq>
-      <packagereq type="default">katello-host-tools</packagereq>
+      <packagereq type="default">python-apypie</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
