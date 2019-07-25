@@ -4,7 +4,7 @@ Source: https://github.com/dm-drogeriemarkt/foreman_rescue
 
 
 Files: *
-Copyright: 2019 Marc Deop <marc.deop@erasys.de>
+Copyright: 2018 dmTECH GmbH, dmtech.de
 License: GPL-3.0+
 
 Files: debian/*
