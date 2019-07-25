@@ -2,7 +2,7 @@
 %global gem_name infoblox
 
 Name: rubygem-%{gem_name}
-Version: 2.0.4
+Version: 3.0.0
 Release: 1%{?dist}
 Summary: A Ruby wrapper to the Infoblox WAPI
 Group: Development/Languages
@@ -79,6 +79,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jul 25 2019 Lukas Zapletal <lzap+rpm@redhat.com> 3.0.0-1
+- Update infoblox to 3.0.0
+
 * Mon Aug 14 2017 Eric D. Helms <ericdhelms@gmail.com> 2.0.4-1
 - Update infoblox to 2.0.4 (ericdhelms@gmail.com)
 
