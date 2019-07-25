@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -35,6 +35,13 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+%if 0%{?fedora} >= 27 || 0%{?rhel} >= 8
+Requires(post):   policycoreutils-python-utils
+Requires(postun): policycoreutils-python-utils
+%else
+Requires(post):   policycoreutils-python
+Requires(postun): policycoreutils-python
+%endif
 
 %description
 Foreman plugin adds Proxmox VE compute resource using fog-proxmox. It is
@@ -103,7 +110,18 @@ cp -pa .%{gem_dir}/* \
 %{foreman_restart}
 exit 0
 
+%post
+/sbin/semanage port -a -t http_port_t -p tcp 8006 &> /dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+  /sbin/semanage port -d -t http_port_t -p tcp 8006 &> /dev/null || :
+fi
+
 %changelog
+* Tue Jul 23 2019 Matthias Dellweg <dellweg@atix.de> 0.8.0-2
+- Manage selinux permissions for proxmox access
+
 * Fri Jul 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.0-1
 - Update to 0.8.0-1
 
