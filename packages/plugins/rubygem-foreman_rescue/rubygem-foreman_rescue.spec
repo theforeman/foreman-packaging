@@ -6,7 +6,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 Group: Applications/Systems
@@ -95,6 +95,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Jul 29 2019 Timo Goebel <mail@timogoebel.name> - 2.0.1-1
+- Update foreman_rescue to 2.0.1
+
 * Thu Nov 29 2018 Timo Goebel <mail@timogoebel.name> - 2.0.0-1
 - Update foreman_rescue to 2.0.0
 
