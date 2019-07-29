@@ -45,7 +45,7 @@ Requires:       python-requests
 Apipie bindings for Python2
 %endif
 
-%if %{with python2}
+%if %{with python3}
 %package -n     python%{python3_pkgversion}-%{pypi_name}
 Summary:        Apipie bindings for Python
 Requires:       python%{python3_pkgversion}-requests
