@@ -26,7 +26,7 @@
 %global prerelease develop
 
 Name:           foreman-selinux
-Version:        1.23.0
+Version:        1.24.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -165,6 +165,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
+- Bump version to 1.24-develop
+
 * Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 1.23.0-0.1.develop
 - Bump version to 1.23-develop
 

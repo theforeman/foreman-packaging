@@ -9,11 +9,11 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 1
 %global prerelease develop
 
 Name:    foreman
-Version: 1.23.0
+Version: 1.24.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
+- Bump version to 1.24-develop
+
 * Wed Jul 17 2019 Evgeni Golov - 1.23.0-0.15.develop
 - Remove foreman-vendor artifacts from plugin builds
 
