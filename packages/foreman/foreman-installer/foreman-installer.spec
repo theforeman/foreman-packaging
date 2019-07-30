@@ -1,9 +1,9 @@
-%global release 2
+%global release 1
 %global prerelease develop
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.23.0
+Version:    1.24.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Jul 30 2019 Evgeni Golov - 1:1.24.0-0.1.develop
+- Bump version to 1.24-develop
+
 * Tue May 21 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.2.develop
 - Require at least Puppet 5.5.10 (#26844)
 
