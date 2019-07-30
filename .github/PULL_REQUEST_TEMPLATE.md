@@ -4,9 +4,9 @@ If your package needs to be released within one or more release streams, and/or 
 Supported Versions:
 
  * Nightly
+ * 1.23
  * 1.22
  * 1.21
- * 1.20
 
 RPM Example:
 
