@@ -15,7 +15,7 @@ tag_suffix = .fm1_23
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-1.23-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -199,7 +199,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-rsec
   rubygem-rubyipmi
 
-[foreman-nightly-rhel7]
+[foreman-1.23-rhel7]
 disttag = .el7
 whitelist = foreman
   rubygem-activerecord-session_store
@@ -343,7 +343,7 @@ whitelist = foreman
   tfm-rubygem-jwt
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-1.23-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = rubygem-angular-rails-templates
@@ -444,7 +444,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-1.23-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
@@ -490,40 +490,40 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
-[foreman-client-nightly-rhel7]
+[foreman-client-1.23-rhel7]
 disttag = .el7
 whitelist =
-  # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
+  # don't whitelist foreman-release here, it's already in foreman-1.23-nonscl-rhel7
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel6]
+[foreman-client-1.23-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel5]
+[foreman-client-1.23-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora29]
+[foreman-client-1.23-fedora29]
 disttag = .fc29
 whitelist = foreman-release
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-fedora28]
+[foreman-client-1.23-fedora28]
 disttag = .fc28
 whitelist = foreman-release
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
 
-[katello-nightly-rhel7]
+[katello-3.13-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
