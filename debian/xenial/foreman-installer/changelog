@@ -1,3 +1,9 @@
+foreman-installer (1.24.0-1) stable; urgency=low
+
+  * Bump changelog to 1.24.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 30 Jul 2019 12:34:08 +0200
+
 foreman-installer (1.23.0-1) stable; urgency=medium
 
   * Bump changelog to 1.23.0 to match VERSION
