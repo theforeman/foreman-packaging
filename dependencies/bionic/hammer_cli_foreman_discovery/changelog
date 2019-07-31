@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-discovery (1.0.1-1) stable; urgency=low
+
+  * 1.0.1 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Wed, 31 Jul 2019 15:05:22 +0200
+
 ruby-hammer-cli-foreman-discovery (1.0.0-1) stable; urgency=low
 
   * Initial release for Ubuntu/bionic
