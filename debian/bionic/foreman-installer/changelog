@@ -1,3 +1,9 @@
+foreman-installer (1.23.0~rc1-1) stable; urgency=low
+
+  * 1.23.0-RC1 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Wed, 31 Jul 2019 17:31:01 +0200
+
 foreman-installer (1.23.0-1) stable; urgency=medium
 
   * Bump changelog to 1.23.0 to match VERSION
