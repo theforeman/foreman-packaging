@@ -9,8 +9,8 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
-%global prerelease develop
+%global release 16
+%global prerelease RC1
 
 Name:    foreman
 Version: 1.23.0
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jul 31 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.16.RC1
+- Release 1.23.0-RC1
+
 * Wed Jul 17 2019 Evgeni Golov - 1.23.0-0.15.develop
 - Remove foreman-vendor artifacts from plugin builds
 

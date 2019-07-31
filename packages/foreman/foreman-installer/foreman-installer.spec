@@ -1,5 +1,5 @@
-%global release 2
-%global prerelease develop
+%global release 3
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Jul 31 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.3.RC1
+- Release 1.23.0-RC1
+
 * Tue May 21 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.23.0-0.2.develop
 - Require at least Puppet 5.5.10 (#26844)
 
