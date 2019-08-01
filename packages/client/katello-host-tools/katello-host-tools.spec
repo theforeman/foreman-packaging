@@ -2,7 +2,7 @@
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
 
-%global build_tracer 0%{?rhel} >= 7 || 0%{?fedora}
+%global build_tracer (0%{?suse_version} > 0 ) || ((0%{?fedora}) || (0%{?rhel} >= 7))
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -26,6 +26,8 @@ Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?suse_version} && 0%{?suse_version} < 1200
+# this needs to be BuildArch for Suse but
+# keeping it as ExclusiveArch to avoid lint errors
 ExclusiveArch: x86_64
 %else
 BuildArch: noarch
@@ -137,7 +139,9 @@ Requires: katello-host-tools
 %if %{dnf_install}
 Requires: python3-tracer
 %else
+%if 0%{?suse_version} == 0
 Requires: python2-tracer >= 0.6.12
+%endif
 %endif
 
 %description tracer
@@ -323,6 +327,11 @@ exit 0
 %doc LICENSE
 %dir %{_localstatedir}/cache/katello-agent/
 
+%if %{zypper_install}
+%dir %{_sysconfdir}/yum
+%dir %{plugins_confdir}
+%endif
+
 %if %{yum_install} || %{zypper_install}
 %config(noreplace) %{plugins_confdir}/package_upload.conf
 %config(noreplace) %{plugins_confdir}/enabled_repos_upload.conf
@@ -388,6 +397,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu Aug 1 2019 Jonathon Turel - 3.5.1-2
+- Updates from SLES builds
+
 * Fri Jun 21 2019 Jonathon Turel - 3.5.1-1
 - Fixes #26920 - Install errata via libdnf
 - Fixes #26375 - zypper plugin for tracer upload
