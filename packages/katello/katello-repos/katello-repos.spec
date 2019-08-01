@@ -1,12 +1,12 @@
 %global pulp_release stable
-%global pulp_version 2.19
+%global pulp_version 2.20
 %global use_pulp_nightly false
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.13.0
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Thu Aug 1 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.13.0-0.2.nightly
+- use pulp 2.20
+
 * Tue Apr 23 2019 Evgeni Golov <evgeni@golov.de> - 3.13.0-0.1.nightly
 - Bump version to 3.13-nightly
 
