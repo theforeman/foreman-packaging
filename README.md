@@ -256,7 +256,7 @@ Update any files as needed. If you're syncing from the foreman-packaging repo, b
 Release:        <CI_CNT>.<B_CNT>.%{?dist}
 ```
 
-Add and commit the changes.  OBS packages will be built automatically, and once complete, you can download them and import into koji.  You need to include the SRPM when importing to Koji.
+Add and commit the changes. OBS packages will be built automatically, and once complete, you can download them and import into koji. You need to include the SRPM when importing to Koji.
 
 ```
 koji import /tmp/packages/*.*rpm
@@ -265,8 +265,8 @@ koji import /tmp/packages/*.*rpm
 Once the packages are in Koji, tag them appropriately:
 
 ```
-koji tag-build katello-nightly-sles12 katello-repos-3.7.0-18.1.nightly.suse131
-koji tag-build katello-nightly-sles11 katello-repos-3.7.0-18.1.nightly.suse1110
+koji tag-build foreman-client-nightly-sles12 katello-repos-3.7.0-18.1.nightly.suse131
+koji tag-build foreman-client-nightly-sles11 katello-repos-3.7.0-18.1.nightly.suse1110
 ```
 
 ## License
