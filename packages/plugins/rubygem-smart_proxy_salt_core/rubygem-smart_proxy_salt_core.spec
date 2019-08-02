@@ -10,7 +10,7 @@ Version: 0.0.1
 Release: 1%{?dist}
 Summary: Smart Proxy Salt - core bits
 Group: Development/Languages
-License: GPL-3.0
+License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
