@@ -85,7 +85,7 @@ mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
 cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 gem 'smart_proxy_salt_core'
 EOF
-cp -pa %{gem_instdir}/settings.d/salt.saltfile.example %{foreman_proxy_dir}/Saltfile
+cp -pa .%{gem_instdir}/settings.d/salt.saltfile.example %{foreman_proxy_dir}/Saltfile
 
 %files
 %dir %{gem_instdir}
