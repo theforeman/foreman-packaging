@@ -81,7 +81,8 @@ mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
 cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
 install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_ansible_core.rb
+mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
+cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 gem 'smart_proxy_salt_core'
 EOF
 cp -pa %{gem_instdir}/settings.d/salt.saltfile.example ${foreman_proxy_dir}/Saltfile
@@ -95,7 +96,7 @@ cp -pa %{gem_instdir}/settings.d/salt.saltfile.example ${foreman_proxy_dir}/Salt
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/salt.rb
-%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_ansible_core.rb
+%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 %config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/salt.yml
 %config(noreplace) %{salt_config_dir}/foreman.yaml
 %config(noreplace) %{foreman_proxy_dir}/Saltfile
