@@ -24,7 +24,7 @@ Requires: /etc/cron.d
 
 %if 0%{?rhel} == 7
 Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.2.2
-requires: tfm-rubygem(smart_proxy_salt_core)
+Requires: tfm-rubygem(smart_proxy_salt_core)
 %else
 Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.2
 Requires: rubygem(smart_proxy_salt_core)
