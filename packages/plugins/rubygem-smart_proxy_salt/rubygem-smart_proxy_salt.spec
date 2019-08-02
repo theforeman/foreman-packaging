@@ -3,6 +3,7 @@
 %global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
+%global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 %global salt_config_dir %{_sysconfdir}/salt
 
@@ -20,6 +21,14 @@ Requires: foreman-proxy >= 1.8.0
 Requires: salt-master
 Requires: python
 Requires: /etc/cron.d
+
+%if 0%{?rhel} == 7
+requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.2.2
+requires: tfm-rubygem(smart_proxy_salt_core)
+%else
+Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.2
+Requires: rubygem(smart_proxy_salt_core)
+%endif
 
 %if 0%{?rhel} == 6
 Requires: ruby(abi)
@@ -72,6 +81,10 @@ mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_bindir}/foreman-node
 cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
 install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
+cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_ansible_core.rb
+gem 'smart_proxy_salt_core'
+EOF
+cp -pa %{gem_instdir}/settings.d/salt.saltfile.example ${foreman_proxy_dir}/Saltfile
 
 %files
 %dir %{gem_instdir}
@@ -82,8 +95,10 @@ install -Dp -m0644 .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_sysconfd
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/salt.rb
+%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_ansible_core.rb
 %config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/salt.yml
 %config(noreplace) %{salt_config_dir}/foreman.yaml
+%config(noreplace) %{foreman_proxy_dir}/Saltfile
 %config %{_sysconfdir}/cron.d/%{gem_name}
 %{_bindir}/foreman-node
 %{_sbindir}/upload-salt-reports
