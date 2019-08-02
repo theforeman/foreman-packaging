@@ -699,6 +699,7 @@ plugin_scl_packages:
     rubygem-ruby-nmap: {}
     rubygem-safe_yaml: {}
     rubygem-smart_proxy_dynflow_core: {}
+    rubygem-smart_proxy_salt_core: {}
     rubygem-systemu: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}

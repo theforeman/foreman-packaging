@@ -146,6 +146,7 @@
       <packagereq type="default">tfm-rubygem-ruby-nmap</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_salt_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
       <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
       <packagereq type="default">tfm-rubygem-vault</packagereq>
@@ -284,6 +285,7 @@
       <packagereq type="default">tfm-rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_salt_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-vault-doc</packagereq>
