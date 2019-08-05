@@ -4,14 +4,14 @@
 %global gem_name hammer_cli_foreman
 %global confdir hammer
 
-%global release 2
+%global release 1
 %global prerelease .pre.develop
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.18
+Version: 0.19
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -101,6 +101,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 05 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.19-0.1.pre.develop
+- Bump to 0.19-develop
+
 * Wed Jul 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.18-0.2.pre.develop
 - Do not install configs as executable files (#27326)
 
