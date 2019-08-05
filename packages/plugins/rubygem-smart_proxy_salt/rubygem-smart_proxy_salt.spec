@@ -75,6 +75,7 @@ mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
 cp -pa .%{gem_instdir}/bundler.d/salt.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
 mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
 cp -pa .%{gem_instdir}/settings.d/salt.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/salt.yml
+cp -pa .%{gem_instdir}/settings.d/salt.saltfile.example %{buildroot}%{foreman_proxy_settingsd_dir}/salt.saltfile
 mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
 mkdir -p %{buildroot}%{_bindir}
@@ -85,8 +86,6 @@ mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
 cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 gem 'smart_proxy_salt_core'
 EOF
-mkdir -p %{buildroot}%{foreman_proxy_dir}
-cp -pa .%{gem_instdir}/settings.d/salt.saltfile.example %{buildroot}%{foreman_proxy_dir}/Saltfile
 
 %files
 %dir %{gem_instdir}
@@ -100,7 +99,7 @@ cp -pa .%{gem_instdir}/settings.d/salt.saltfile.example %{buildroot}%{foreman_pr
 %{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 %config(noreplace) %{_sysconfdir}/foreman-proxy/settings.d/salt.yml
 %config(noreplace) %{salt_config_dir}/foreman.yaml
-%config(noreplace) %{foreman_proxy_dir}/Saltfile
+%config(noreplace) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config %{_sysconfdir}/cron.d/%{gem_name}
 %{_bindir}/foreman-node
 %{_sbindir}/upload-salt-reports
