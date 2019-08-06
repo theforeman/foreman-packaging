@@ -1,0 +1,11 @@
+ruby-foreman-rescue (2.0.1-1) stable; urgency=low
+
+  * Update foreman-rescue to 2.0.1
+
+ -- Marc Deop <marc.deop@erasys.de>  Mon, 29 Jul 2019 10:12:47 +0100
+
+ruby-foreman-rescue (2.0.0-1) stable; urgency=low
+
+  * Initial Release.
+
+ -- Marc Deop <marc.deop@erasys.de>  Tue, 23 Jul 2019 09:19:47 +0100
