@@ -4,10 +4,10 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 4
+%global release 1
 
 Name:       katello
-Version:    3.13.0
+Version:    3.14.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Aug 07 2019 Evgeni Golov - 3.14.0-0.1.master
+- Bump version to 3.14
+
 * Sun Jul 21 2019 Jonathon Turel <jturel@gmail.com> 3.13.0-0.4.master
 - katello-change-hostname: clean puppet certs
 - katello-change-hostname: s/foreman-proxy-content-certs-tar/certs-tar-file/
