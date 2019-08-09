@@ -1,54 +1,55 @@
+# Generated from hammer_cli_katello-0.19.0.gem by gem2rpm -*- rpm-spec -*-
+# template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name hammer_cli_katello
-%global confdir hammer
+%global plugin_name katello
 
-%global release 1
+%global release 2
 %global prerelease .pre.master
 
-Summary: Katello command plugin for the Hammer CLI
-Name:    %{?scl_prefix}rubygem-%{gem_name}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global hammer_confdir %{_root_sysconfdir}/hammer
+
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.19
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
-Group:   Development/Languages
+Summary: Katello commands for Hammer
+Group: Development/Languages
 License: GPLv3
-URL:     https://github.com/theforeman/hammer-cli-katello
+URL: https://github.com/Katello/hammer-cli-katello
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
-BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name} < 0.0.17-3
-Obsoletes: rubygem-hammer_cli_gutterball
-%endif
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.18.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
-
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Katello command plugin for the Hammer CLI.
+Hammer-CLI-Katello is a plugin for Hammer to provide connectivity to a Katello
+server.
+
 
 %package doc
-Summary:   Documentation for %{pkg_name}
-Group:     Documentation
-Requires:  %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
@@ -74,26 +75,31 @@ gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
 %install
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 755 .%{gem_instdir}/config/katello.yml %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/katello.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%{gem_libdir}
 %{gem_instdir}/locale
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/katello.yml
 %exclude %{gem_cache}
 %{gem_spec}
+%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/config
-%doc %{gem_instdir}/test
+%{gem_instdir}/test
 
 %changelog
+* Fri Aug 09 2019 Evgeni Golov 0.19-0.2.pre.master
+- Regenerate spec based on template
+
 * Wed May 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.19-0.1.pre.master
 - Bump to 0.19-master to match git
 
