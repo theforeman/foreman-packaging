@@ -7,11 +7,10 @@
 %global confdir hammer
 
 %global release 1
-%global prerelease .pre.master
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.19
+Version: 0.19.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -28,8 +27,8 @@ Obsoletes: rubygem-hammer_cli_gutterball
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.15
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.18.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 0.19
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.12
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
@@ -94,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Fri Aug 09 2019 Evgeni Golov - 0.19.0-1
+- Release 0.19.0
+
 * Wed May 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.19-0.1.pre.master
 - Bump to 0.19-master to match git
 
