@@ -7,11 +7,10 @@
 %global confdir hammer
 
 %global release 1
-%global prerelease .pre.master
 
 Summary: Katello command plugin for the Hammer CLI
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.19
+Version: 0.19.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -94,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/test
 
 %changelog
+* Fri Aug 09 2019 Evgeni Golov - 0.19.0-1
+- Release 0.19.0
+
 * Wed May 15 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.19-0.1.pre.master
 - Bump to 0.19-master to match git
 
