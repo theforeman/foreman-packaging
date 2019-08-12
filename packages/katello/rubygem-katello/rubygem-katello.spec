@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.14.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -44,7 +44,7 @@ Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client)
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client)
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) = 0.2.0b2.dev01565187947
 Requires: %{?scl_prefix}rubygem(pulp_docker_client)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -70,7 +70,7 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client)
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) = 0.2.0b2.dev01565187947
 BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -241,6 +241,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.2.pre.master
+- Update Gem and NPM dependencies
+
 * Wed Aug 07 2019 Evgeni Golov - 3.14.0-0.1.pre.master
 - Bump version to 3.14
 
