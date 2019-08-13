@@ -6,7 +6,7 @@
 
 Summary: PowerDNS support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -79,6 +79,9 @@ cp -pa .%{gem_instdir}/config/dns_powerdns.yml %{buildroot}%{foreman_proxy_setti
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Aug 13 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.0-1
+- Update to 0.4.0
+
 * Tue Jan 03 2017 Dominic Cleal <dominic@cleal.org> 0.3.0-1
 - Bump rubygem-smart_proxy_dns_powerdns to 0.3.0 (ewoud@kohlvanwijngaarden.nl)
 
