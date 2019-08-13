@@ -5,7 +5,7 @@ name=Katello @REPO_NAME@
 baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/katello/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=1
-gpgcheck=0
+gpgcheck=1
 
 [pulp]
 name=Pulp Community Release
@@ -22,7 +22,7 @@ name=Candlepin: an open source entitlement management system.
 baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/candlepin/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=1
-gpgcheck=0
+gpgcheck=1
 
 # source repositories
 
@@ -31,7 +31,7 @@ name=Katello @REPO_NAME@ Source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/katello/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=0
-gpgcheck=0
+gpgcheck=1
 
 [pulp-source]
 name=Pulp Community Release Source
@@ -45,4 +45,4 @@ name=Katello Candlepin source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/candlepin/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-katello
 enabled=0
-gpgcheck=0
+gpgcheck=1

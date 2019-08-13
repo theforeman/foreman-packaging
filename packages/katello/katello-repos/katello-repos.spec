@@ -17,7 +17,7 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        RPM-GPG-KEY-katello-2015
+Source1:        RPM-GPG-KEY-katello
 
 BuildArch:      noarch
 
