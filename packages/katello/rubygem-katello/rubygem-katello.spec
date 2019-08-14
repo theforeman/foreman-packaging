@@ -5,9 +5,9 @@
 %global foreman_min_version 1.23.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .pre.master
+%global prerelease .rc1
 %global mainver 3.13.0
-%global release 7
+%global release 8
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -241,6 +241,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Aug 09 2019 Evgeni Golov - 3.13.0-0.8.rc1
+- Release 3.13.0 RC1
+
 * Tue Jul 23 2019 Evgeni Golov - 3.13.0-0.7.pre.master
 - Update katello packaging to @theforeman/vendor bundle
 
@@ -257,7 +260,7 @@ cp -pa .%{gem_dir}/* \
 - Update gem and NPM dependencies
 
 * Tue May 14 2019 Justin Sherrill <jlsherrill@gmail.com> - 3.13.0-0.2.pre.master
-- pull in new pulp3 gem dependencies 
+- pull in new pulp3 gem dependencies
 
 * Thu Apr 25 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.13.0-0.1.pre.master
 - Bump version to 3.13
