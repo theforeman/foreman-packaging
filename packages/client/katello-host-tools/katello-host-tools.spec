@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -84,7 +84,7 @@ Requires: gofer < 2.12
 Requires: python-pulp-agent-lib >= 2.6
 Requires: pulp-rpm-handlers >= 2.6
 %else
-Requires: gofer >= 2.12.1
+Requires: gofer >= 2.12.3
 Obsoletes: python-pulp-agent-lib < 3.0
 Obsoletes: pulp-rpm-handlers < 3.0
 Obsoletes: python-pulp-rpm-common < 2.16.4
@@ -388,6 +388,9 @@ exit 0
 %endif #build_tracer
 
 %changelog
+* Thu Aug 15 2019 Justin Sherrill - 3.5.1-2
+- Stricter gofer requirement
+
 * Fri Jun 21 2019 Jonathon Turel - 3.5.1-1
 - Fixes #26920 - Install errata via libdnf
 - Fixes #26375 - zypper plugin for tracer upload
