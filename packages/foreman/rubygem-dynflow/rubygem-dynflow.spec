@@ -21,7 +21,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 %endif
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8.0
 Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.1.3
