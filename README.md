@@ -12,6 +12,8 @@ If you're submitting a patch which adds/updates a gem package, you will need:
 * [gem2rpm](https://rubygems.org/gems/gem2rpm) or rubygem-gem2rpm
 * [gem-compare](https://rubygems.org/gems/gem-compare)
 * [git-annex](http://git-annex.branchable.com/)
+* crudini: for fedora use `dnf install crudini`
+* ruamel: for fedora use `dnf install python3-ruamel-yaml`
 
 For npm modules (nodejs- packages) you will need:
 
