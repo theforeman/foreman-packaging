@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.14.0
@@ -194,6 +194,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Aug 13 2019 Lukas Zapletal <lzap+rpm@redhat.com> - 3.14.0-0.2.master
+- Updated katello-debug.sh
+
 * Wed Aug 07 2019 Evgeni Golov - 3.14.0-0.1.master
 - Bump version to 3.14
 

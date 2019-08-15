@@ -129,7 +129,7 @@ add_cmd "mongo pulp_database --eval \"DBQuery.shellBatchSize = ${FOREMAN_DEBUG_M
 echo "db.task_status.find({state:{\$ne: \"finished\"}}).pretty().shellPrint()" > $TEMP_DIR/pulp_running_tasks.js
 add_cmd "mongo pulp_database $TEMP_DIR/pulp_running_tasks.js" "pulp-running_tasks"
 
-add_cmd "echo \"select id, name, checksum_type, updated_at from katello_repositories\" | su postgres -c 'psql foreman'" "katello_repositories"
+add_cmd "echo 'select id, name, checksum_type, updated_at from katello_root_repositories' | su postgres -c 'psql foreman'" katello_repositories
 add_cmd "echo \"SELECT table_name, pg_size_pretty(total_bytes) AS total, pg_size_pretty(index_bytes) AS INDEX , pg_size_pretty(toast_bytes) AS toast, pg_size_pretty(table_bytes) AS TABLE FROM ( SELECT *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (SELECT c.oid,nspname AS table_schema, relname AS TABLE_NAME, c.reltuples AS row_estimate, pg_total_relation_size(c.oid) AS total_bytes, pg_indexes_size(c.oid) AS index_bytes, pg_total_relation_size(reltoastrelid) AS toast_bytes FROM pg_class c LEFT JOIN pg_namespace n ON n.oid = c.relnamespace WHERE relkind = 'r') a) a order by total_bytes DESC\" | su postgres -c 'psql foreman'" "db_table_size"
 
 add_cmd "hammer ping" "hammer-ping"
