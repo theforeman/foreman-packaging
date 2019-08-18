@@ -42,6 +42,7 @@ BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(deface)
+BuildRequires: systemd
 
 BuildArch: noarch
 
@@ -52,6 +53,17 @@ Provides: foreman-plugin-remote_execution
 %description
 A plugin bringing remote execution to the Foreman, completing the config
 management functionality with remote management functionality
+
+%package cockpit
+BuildArch:  noarch
+Requires:   cockpit
+Requires(post): systemd-units
+Requires(preun): systemd-units
+Summary:    Cockpit integration using remote execution connection
+
+%description cockpit
+This package contains files related to Cockpit, mainly foreman-cockpit service
+and corresponding configuration files.
 
 %package doc
 BuildArch:  noarch
@@ -72,11 +84,17 @@ This package contains documentation for rubygem-%{gem_name}.
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
+mkdir -p %{buildroot}%{_root_sbindir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 rm %{buildroot}%{gem_instdir}/.babelrc
 
 %{foreman_bundlerd_file}
 %foreman_precompile_plugin -a -s
+
+ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_root_sbindir}/foreman-cockpit-session
+install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.service %{buildroot}%{_unitdir}/foreman-cockpit.service
+install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/cockpit.conf
+install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 
 %posttrans
 %{foreman_db_migrate}
@@ -84,6 +102,17 @@ rm %{buildroot}%{gem_instdir}/.babelrc
 %{foreman_apipie_cache}
 %{foreman_restart}
 exit 0
+
+%post cockpit
+%systemd_postun_with_restart foreman-cockpit.service
+%systemd_post foreman-cockpit.service
+
+%preun cockpit
+%systemd_preun foreman-cockpit.service
+
+%postun cockpit
+%systemd_postun_with_restart foreman-cockpit.service
+%systemd_post foreman-cockpit.service
 
 %files
 %dir %{gem_instdir}
@@ -114,6 +143,12 @@ exit 0
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+
+%files cockpit
+%{_root_sbindir}/foreman-cockpit-session
+%config(noreplace) %{_root_sysconfdir}/foreman/cockpit/cockpit.conf
+%config(noreplace) %{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
+%{_unitdir}/foreman-cockpit.service
 
 %changelog
 * Sun Aug 18 2019 Ivan Nečas <inecas@redhat.com> 1.8.3-1
