@@ -5,7 +5,7 @@
 %global plugin_name katello
 %global gem_name katello
 #global prerelease .rc2
-%global mainver 3.12.2
+%global mainver 3.12.3
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -368,6 +368,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 19 2019 Evgeni Golov - 3.12.3-1
+- Release 3.12.3
+
 * Thu Aug 08 2019 Evgeni Golov - 3.12.2-1
 - Release 3.12.2
 
