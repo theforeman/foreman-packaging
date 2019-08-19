@@ -541,14 +541,15 @@ whitelist = katello
   rubygem-activerecord-import
   rubygem-anemone
   rubygem-ethon
+  rubygem-foreman_inventory_upload
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
   rubygem-hammer_cli_csv
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
   rubygem-katello
-  rubygem-pulpcore_client
   rubygem-pulp_ansible_client
+  rubygem-pulpcore_client
   rubygem-pulp_docker_client
   rubygem-pulp_file_client
   rubygem-qpid_messaging

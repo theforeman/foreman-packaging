@@ -550,6 +550,7 @@ katello_packages:
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
     rubygem-ethon: {}
+    rubygem-foreman_inventory_upload: {}
     rubygem-foreman_scc_manager: {}
     rubygem-foreman_virt_who_configure: {}
     rubygem-hammer_cli_csv: {}
