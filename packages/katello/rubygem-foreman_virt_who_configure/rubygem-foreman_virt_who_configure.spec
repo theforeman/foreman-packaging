@@ -5,7 +5,7 @@
 %global plugin_name virt_who_configure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
+Version: 0.4.3
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Aug 20 2019 Marek Hulan <mhulan@redhat.com> 0.4.3-1
+- Update to 0.4.3
+
 * Thu May 23 2019 Marek Hulan <mhulan@redhat.com> 0.4.1-1
 - Update to 0.4.1
 
