@@ -1,4 +1,4 @@
-ruby-foreman-ansible (3.0.2-2) stable; urgency=low
+ruby-foreman-ansible (3.0.6-2) stable; urgency=low
 
   * Copy only plugin webpack assets into the package.
 
