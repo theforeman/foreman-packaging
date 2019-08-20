@@ -128,7 +128,14 @@ required non-SCL modes.
 ### Updating npm packages
 
 1. Run the update script
-   * `./add_npm_package.sh PACKAGE`
+  ```sh
+  ./add_npm_package.sh PACKAGE
+
+  # to update @theforeman/vendor to latest
+  ./add_npm_package.sh @theforeman/vendor
+  # to update @theforeman/vendor to version 1.0.0
+  ./add_npm_package.sh @theforeman/vendor 1.0.0
+  ```
 1. Verify the changes
 1. Amend the commit if needed
 1. Follow the "test a package" section above until it builds for all
