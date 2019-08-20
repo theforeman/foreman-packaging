@@ -1,5 +1,5 @@
-foreman_ansible.rb  usr/share/foreman/bundler.d
-cache               usr/share/foreman/vendor
-foreman_ansible     var/lib/foreman/public/assets
-webpack             var/lib/foreman/public
+foreman_ansible.rb           usr/share/foreman/bundler.d
+cache                        usr/share/foreman/vendor
+foreman_ansible              var/lib/foreman/public/assets
+webpack/foreman_ansible      var/lib/foreman/public/webpack
 apipie-cache/foreman_ansible var/lib/foreman/public/apipie-cache/plugin
