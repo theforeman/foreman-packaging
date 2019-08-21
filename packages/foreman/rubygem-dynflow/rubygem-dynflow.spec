@@ -34,6 +34,9 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
+# Optional dependency that we always pull in
+Requires: %{?scl_prefix}rubygem(statsd-instrument)
+
 %description
 Ruby workflow/orchestration engine.
 
