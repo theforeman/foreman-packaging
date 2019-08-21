@@ -2,7 +2,7 @@
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
 
-%global build_tracer (0%{?suse_version} > 0 ) || ((0%{?fedora}) || (0%{?rhel} >= 7))
+%global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
