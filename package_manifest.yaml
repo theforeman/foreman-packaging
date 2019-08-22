@@ -626,6 +626,7 @@ plugin_scl_packages:
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_ansible_core: {}
+    rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
     rubygem-foreman_cockpit: {}

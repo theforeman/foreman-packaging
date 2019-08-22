@@ -72,6 +72,7 @@
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure_rm</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit</packagereq>
@@ -213,6 +214,7 @@
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure_rm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>
