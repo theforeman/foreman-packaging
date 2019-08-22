@@ -356,6 +356,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-faraday-cookie_jar
   rubygem-ffi
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
