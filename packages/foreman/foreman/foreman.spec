@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:    foreman
@@ -62,7 +62,7 @@ Requires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
-Requires: %{?scl_prefix}rubygem(audited) < 5
+Requires: %{?scl_prefix}rubygem(audited) < 4.9.0
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -168,7 +168,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
-BuildRequires: %{?scl_prefix}rubygem(audited) < 5
+BuildRequires: %{?scl_prefix}rubygem(audited) < 4.9.0
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -316,8 +316,8 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 0.1.0
-BuildRequires: npm(@theforeman/vendor) < 1.0.0
+BuildRequires: npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: npm(@theforeman/vendor) < 2.0.0
 BuildRequires: npm(intl) >= 1.2.5
 BuildRequires: npm(intl) < 1.3.0
 BuildRequires: npm(jed) >= 1.1.1
@@ -449,7 +449,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.0
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.2
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -546,8 +546,8 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 0.1.0
-Requires: npm(@theforeman/vendor) < 1.0.0
+Requires: npm(@theforeman/vendor) >= 1.4.0
+Requires: npm(@theforeman/vendor) < 2.0.0
 Requires: npm(intl) >= 1.2.5
 Requires: npm(intl) < 1.3.0
 Requires: npm(jed) >= 1.1.1
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Aug 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.2.develop
+- Update Gem and NPM dependencies
+
 * Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
 - Bump version to 1.24-develop
 
