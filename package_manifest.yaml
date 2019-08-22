@@ -684,6 +684,7 @@ plugin_scl_packages:
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-kubeclient: {}
+    rubygem-ms_rest: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
