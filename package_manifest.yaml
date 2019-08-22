@@ -613,6 +613,7 @@ plugin_scl_packages:
     rubygem-aws-sigv4: {}
     rubygem-azure_mgmt_network: {}
     rubygem-azure_mgmt_resources: {}
+    rubygem-azure_mgmt_storage: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
     rubygem-commonjs: {}
