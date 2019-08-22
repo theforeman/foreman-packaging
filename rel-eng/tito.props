@@ -349,6 +349,7 @@ scl = tfm
 whitelist = rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
+  rubygem-azure_mgmt_compute
   rubygem-azure_mgmt_network
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
