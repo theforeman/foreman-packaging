@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:       foreman-installer
@@ -81,7 +81,7 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 # https://bugzilla.redhat.com/show_bug.cgi?id=447156
 for scenario in foreman-proxy-content katello ; do
 	MIGRATIONS=%{_sysconfdir}/%{name}/scenarios.d/$scenario.migrations
-	if [ -d $MIGRATIONS ] ; then
+	if [ -d $MIGRATIONS ] && [ ! -L $MIGRATIONS ] ; then
 		mv $MIGRATIONS/.applied %{_sysconfdir}/%{name}/scenarios.d/$scenario-migrations-applied
 		rm -rf $MIGRATIONS
 	fi
@@ -138,6 +138,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Aug 23 2019 Evgeni Golov - 1:1.24.0-0.2.develop
+- don't move katello migrations when they point to a symlink
+
 * Tue Jul 30 2019 Evgeni Golov - 1:1.24.0-0.1.develop
 - Bump version to 1.24-develop
 
