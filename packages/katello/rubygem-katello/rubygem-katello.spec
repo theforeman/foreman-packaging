@@ -104,8 +104,8 @@ BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 0.1.1
-BuildRequires: npm(@theforeman/vendor) < 1.0.0
+BuildRequires: npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: npm(@theforeman/vendor) < 2.0.0
 BuildRequires: npm(angular) = 1.5.5
 BuildRequires: npm(bootstrap-select) = 1.12.4
 BuildRequires: npm(downshift) >= 1.28.0
@@ -158,8 +158,8 @@ Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 0.1.1
-Requires: npm(@theforeman/vendor) < 1.0.0
+Requires: npm(@theforeman/vendor) >= 1.4.0
+Requires: npm(@theforeman/vendor) < 2.0.0
 Requires: npm(angular) = 1.5.5
 Requires: npm(bootstrap-select) = 1.12.4
 Requires: npm(downshift) >= 1.28.0
