@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.14.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -42,10 +42,10 @@ Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(pulpcore_client)
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client)
-Requires: %{?scl_prefix}rubygem(pulp_docker_client)
+Requires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc5.dev01566405557
+Requires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b2.dev01566325827
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01566484022
+Requires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b6.dev01566480729
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -68,10 +68,10 @@ BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client)
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client)
-BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client)
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc5.dev01566405557
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b2.dev01566325827
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01566484022
+BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b6.dev01566480729
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -104,8 +104,8 @@ BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 0.1.1
-BuildRequires: npm(@theforeman/vendor) < 1.0.0
+BuildRequires: npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: npm(@theforeman/vendor) < 2.0.0
 BuildRequires: npm(angular) = 1.5.5
 BuildRequires: npm(bootstrap-select) = 1.12.4
 BuildRequires: npm(downshift) >= 1.28.0
@@ -158,8 +158,8 @@ Requires: npm(identity-obj-proxy) >= 3.0.0
 Requires: npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 0.1.1
-Requires: npm(@theforeman/vendor) < 1.0.0
+Requires: npm(@theforeman/vendor) >= 1.4.0
+Requires: npm(@theforeman/vendor) < 2.0.0
 Requires: npm(angular) = 1.5.5
 Requires: npm(bootstrap-select) = 1.12.4
 Requires: npm(downshift) >= 1.28.0
@@ -241,6 +241,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 26 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.2.pre.master
+- Update Gem and NPM dependencies
+
 * Wed Aug 07 2019 Evgeni Golov - 3.14.0-0.1.pre.master
 - Bump version to 3.14
 
