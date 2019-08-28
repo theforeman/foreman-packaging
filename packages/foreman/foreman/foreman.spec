@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:    foreman
@@ -61,8 +61,8 @@ Requires: %{name}-debug
 Requires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
-Requires: %{?scl_prefix}rubygem(audited) >= 4.7.1
-Requires: %{?scl_prefix}rubygem(audited) < 4.9.0
+Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
+Requires: %{?scl_prefix}rubygem(audited) < 5
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -167,8 +167,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
-BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.7.1
-BuildRequires: %{?scl_prefix}rubygem(audited) < 4.9.0
+BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
+BuildRequires: %{?scl_prefix}rubygem(audited) < 5
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Aug 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Thu Aug 22 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.2.develop
 - Update Gem and NPM dependencies
 
