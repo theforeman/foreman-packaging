@@ -13,10 +13,10 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 1
 
 Name:     foreman-release
-Version:  1.22.0
+Version:  1.22.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -112,6 +112,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Thu Aug 29 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.1-1
+- Release 1.22.1
+
 * Thu Jun 27 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.22.0-2
 - GPG sign foreman-client repository
 

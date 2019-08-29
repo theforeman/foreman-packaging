@@ -2,7 +2,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    1.22.0
+Version:    1.22.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -137,6 +137,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Aug 29 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.1-1
+- Release 1.22.1
+
 * Tue Jun 04 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.22.0-1
 - Release 1.22.0
 
