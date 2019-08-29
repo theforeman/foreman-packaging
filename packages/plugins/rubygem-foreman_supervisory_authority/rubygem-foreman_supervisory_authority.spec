@@ -8,7 +8,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
 Group: Applications/Systems
@@ -96,5 +96,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Aug 29 2019 Timo Goebel <mail@timogoebel.name> - 0.0.2-1
+- Update foreman_supervisory_authority to 0.0.2
+
 * Fri Jul 19 2019 Timo Goebel <mail@timogoebel.name> 0.0.1-1
 - Add rubygem-foreman_supervisory_authority
