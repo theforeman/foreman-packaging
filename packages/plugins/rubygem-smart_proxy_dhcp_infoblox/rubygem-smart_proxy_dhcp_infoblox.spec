@@ -1,38 +1,36 @@
-# Generated from smart_proxy_dhcp_infoblox-0.0.3.gem by gem2rpm -*- rpm-spec -*-
+# Generated from smart_proxy_dhcp_infoblox-0.0.15.gem by gem2rpm -*- rpm-spec -*-
+# template: smart_proxy_plugin
 %global gem_name smart_proxy_dhcp_infoblox
 %global plugin_name dhcp_infoblox
 
+%global foreman_proxy_min_version 1.17.0
 %global foreman_proxy_dir %{_datarootdir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
 Name: rubygem-%{gem_name}
-Version: 0.0.14
+Version: 0.0.15
 Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dhcp_infoblox
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman-proxy >= 1.17.0
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-%else
+
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: ruby(release)
-%endif
 Requires: ruby
 Requires: ruby(rubygems)
-Requires: rubygem(infoblox) >= 2.0.4
-%if 0%{?rhel} == 6
-BuildRequires: ruby(abi)
-%else
+Requires: rubygem(infoblox) >= 3.0
+Requires: rubygem(infoblox) < 4
 BuildRequires: ruby(release)
-%endif
 BuildRequires: ruby
 BuildRequires: rubygems-devel
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Infoblox DHCP provider plugin for Foreman's smart proxy.
@@ -80,7 +78,7 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/dhcp_infoblox.yml
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/bundler.d
 %{gem_instdir}/config
 %{gem_libdir}
@@ -94,6 +92,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Fri Aug 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.0.15-1
+- Update to 0.0.15-1
+
 * Wed Dec 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.14-1
 - New upstream version
 
