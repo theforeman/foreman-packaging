@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.14.0
@@ -17,7 +17,6 @@ License:    GPLv2
 URL:        https://theforeman.org/plugins/katello
 Source0:    katello-service.8.asciidoc
 Source1:    katello-debug.sh
-Source2:    katello-remove
 Source4:    katello-service
 Source6:    katello-restore
 Source7:    katello-backup
@@ -101,7 +100,6 @@ install -Dp -m0755 %{SOURCE9} %{buildroot}%{_sbindir}/qpid-core-dump
 install -Dp -m0755 %{SOURCE7} %{buildroot}%{_sbindir}/katello-backup
 install -Dp -m0755 %{SOURCE6} %{buildroot}%{_sbindir}/katello-restore
 install -Dp -m0755 %{SOURCE4} %{buildroot}%{_sbindir}/katello-service
-install -Dp -m0755 %{SOURCE2} %{buildroot}%{_sbindir}/katello-remove
 install -Dp -m0755 %{SOURCE1} %{buildroot}/usr/share/foreman/script/foreman-debug.d/katello-debug.sh
 
 # install tab completion scripts
@@ -133,7 +131,6 @@ Requires:       %{name}-service
 Common runtime components of %{name}
 
 %files common
-%{_sbindir}/katello-remove
 %{_sbindir}/katello-backup
 %{_sbindir}/katello-restore
 %{_sbindir}/qpid-core-dump
@@ -194,6 +191,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Tue Sep 03 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.3.master
+- Drop katello-remove
+
 * Tue Aug 13 2019 Lukas Zapletal <lzap+rpm@redhat.com> - 3.14.0-0.2.master
 - Updated katello-debug.sh
 
