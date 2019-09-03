@@ -3,7 +3,7 @@
 
 Summary: Puppet documentation via YARD
 Name: puppet-agent-%{gem_name}
-Version: 2.1.0
+Version: 2.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL-2.0
@@ -50,6 +50,9 @@ else  # upgrade
 fi
 
 %changelog
+* Tue Sep 03 2019 Dirk Goetz <dirk.goetz@netways.de> 2.3.0-1
+- Update to 2.3.0
+
 * Fri Mar 08 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-1
 - Update to 2.1.0
 
