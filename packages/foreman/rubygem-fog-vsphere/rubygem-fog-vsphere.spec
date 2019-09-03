@@ -4,7 +4,7 @@
 %global gem_name fog-vsphere
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.2.1
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
@@ -73,6 +73,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %license %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/fog-vsphere.gemspec
+%exclude %{gem_instdir}/Jenkinsfile
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -87,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Aug 29 2019 Ondřej Ezr <oezr@redhat.com> 3.2.1-1
+- Update to 3.2.1
+
 * Thu Jul 18 2019 Ondřej Ezr <oezr@redhat.com> 3.2.0-1
 - Update to 3.2.0
 
