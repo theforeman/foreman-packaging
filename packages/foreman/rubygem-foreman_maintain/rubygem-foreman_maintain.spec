@@ -3,12 +3,13 @@
 
 %global gem_name foreman_maintain
 %global directory_name foreman-maintain
+%global yumplugindir %{_prefix}/lib%{nil}/yum-plugins
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.5
+Version: 0.4.8
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -73,6 +74,10 @@ install -d -m0750 %{buildroot}%{_sysconfdir}/%{directory_name}
 install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packaging %{buildroot}%{_sysconfdir}/%{directory_name}/foreman_maintain.yml
 install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{buildroot}%{_sysconfdir}/passenger-recycler.yaml
 
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py 
+
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-maintain
@@ -84,8 +89,12 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 %{gem_instdir}/definitions
 %{gem_instdir}/lib
 %{gem_instdir}/config
+%{gem_instdir}/extras
+%{yumplugindir}/foreman-protector.py
 %config(noreplace) %{_sysconfdir}/%{directory_name}
 %config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
+%config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
+%config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
 %{_localstatedir}/log/%{directory_name}
 %{_localstatedir}/lib/%{directory_name}
 %license %{gem_instdir}/LICENSE
@@ -97,6 +106,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 05 2019 Martin Bacovsky <mbacovsk@redhat.com> 1:0.4.8-1
+- Update to 0.4.8
+
 * Fri Jul 12 2019 Evgeni Golov - 1:0.4.5-1
 - Update to 0.4.5
 
