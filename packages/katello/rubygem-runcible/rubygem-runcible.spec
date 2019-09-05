@@ -4,7 +4,7 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.12.0
+Version:        2.12.1
 Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Thu Sep 05 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.12.1-1
+- Release rubygem-runcible 2.12.1
+
 * Fri Aug 30 2019  Justin Sherrill 2.12.0-1
 - Update to 2.12.0
 
