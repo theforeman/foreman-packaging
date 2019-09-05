@@ -10,8 +10,8 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.16.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.16.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -53,8 +53,6 @@ BuildRequires: npm(babel-core) >= 6.26.3
 BuildRequires: npm(babel-core) < 7.0.0
 BuildRequires: npm(babel-loader) >= 7.1.1
 BuildRequires: npm(babel-loader) < 8.0.0
-BuildRequires: npm(babel-plugin-lodash) >= 3.3.4
-BuildRequires: npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: npm(babel-plugin-module-resolver) >= 3.2.0
 BuildRequires: npm(babel-plugin-module-resolver) < 4.0.0
 BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
@@ -69,8 +67,6 @@ BuildRequires: npm(babel-preset-env) >= 1.7.0
 BuildRequires: npm(babel-preset-env) < 2.0.0
 BuildRequires: npm(babel-preset-react) >= 6.5.0
 BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(bootstrap-sass) >= 3.3.7
-BuildRequires: npm(bootstrap-sass) < 4.0.0
 BuildRequires: npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: npm(identity-obj-proxy) < 4.0.0
 BuildRequires: npm(jed) >= 1.1.1
@@ -86,40 +82,12 @@ BuildRequires: npm(sass-loader) < 7.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(babel-polyfill) >= 6.26.0
-BuildRequires: npm(babel-polyfill) < 7.0.0
-BuildRequires: npm(classnames) >= 2.2.5
-BuildRequires: npm(classnames) < 3.0.0
-BuildRequires: npm(lodash) >= 4.17.11
-BuildRequires: npm(lodash) < 5.0.0
-BuildRequires: npm(patternfly-react) >= 2.29.0
-BuildRequires: npm(patternfly-react) < 3.0.0
-BuildRequires: npm(prop-types) >= 15.6.0
-BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.8.1
-BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-dom) >= 16.8.1
-BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-redux) >= 5.0.6
-BuildRequires: npm(react-redux) < 6.0.0
-BuildRequires: npm(react-router) >= 4.3.1
-BuildRequires: npm(react-router) < 5.0.0
-BuildRequires: npm(react-router-bootstrap) >= 0.24.4
-BuildRequires: npm(react-router-bootstrap) < 1.0.0
-BuildRequires: npm(react-router-dom) >= 4.3.1
-BuildRequires: npm(react-router-dom) < 5.0.0
-BuildRequires: npm(redux) >= 3.6.0
-BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(redux-thunk) >= 2.3.0
-BuildRequires: npm(redux-thunk) < 3.0.0
-BuildRequires: npm(reselect) >= 3.0.1
-BuildRequires: npm(reselect) < 4.0.0
-BuildRequires: npm(seamless-immutable) >= 7.1.2
-BuildRequires: npm(seamless-immutable) < 8.0.0
-BuildRequires: npm(urijs) >= 1.19.1
-BuildRequires: npm(urijs) < 2.0.0
-BuildRequires: npm(uuid) >= 3.3.2
-BuildRequires: npm(uuid) < 4.0.0
+BuildRequires: npm(@theforeman/vendor) >= 0.1.1
+BuildRequires: npm(@theforeman/vendor) < 1.0.0
+BuildRequires: npm(humanize-duration) >= 3.20.1
+BuildRequires: npm(humanize-duration) < 4.0.0
+BuildRequires: npm(react-intl) >= 2.8.0
+BuildRequires: npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -226,6 +194,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Thu Sep 05 2019 Adam Ruzicka <aruzicka@redhat.com> 0.16.1-1
+- Update to 0.16.1
+
 * Wed Jul 17 2019 Evgeni Golov - 0.16.0-2
 - Rebuild to use @theforeman/vendor
 
