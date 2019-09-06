@@ -1,20 +1,24 @@
-# Generated from rsec-0.4.2.gem by gem2rpm -*- rpm-spec -*-
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name rsec
 
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
-License: Ruby or BSD 
+License: Ruby or BSD
 URL: http://rsec.herokuapp.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(release)
-Requires: ruby(rubygems) 
-BuildRequires: ruby(release)
-BuildRequires: rubygems-devel 
+
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 Easy and extreme fast dynamic PEG parser combinator.
@@ -23,26 +27,20 @@ Easy and extreme fast dynamic PEG parser combinator.
 %package doc
 Summary: Documentation for %{name}
 Group: Documentation
-Requires: %{name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
 Documentation for %{name}.
 
 %prep
-gem unpack %{SOURCE0}
+%setup -n %{pkg_name}-%{version} -q -c -T
 
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:scl enable %{scl} - <<EOF}
+%gem_install -n %{SOURCE0}
+%{?scl:EOF}
 
 %build
-# Create the gem as gem install only works on a gem file
-gem build %{gem_name}.gemspec
-
-# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
-# by default, so that we can move it into the buildroot in %%install
-%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -64,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.3-2
+- Updates to build for SCL
+
 * Wed Mar 13 2019 Evgeni Golov 0.4.3-1
 - Update to 0.4.3
 

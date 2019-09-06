@@ -1,10 +1,11 @@
 %global homedir %{_datadir}/%{name}
 %global confdir config
 
+%{?scl:%global scl_prefix %{scl}-}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:           foreman-proxy
@@ -25,13 +26,13 @@ BuildRequires:  asciidoc
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-Requires:      %{?scl_prefix_ruby}ruby(release)
 
 Requires:       foreman-debug
+Requires:       %{?scl_prefix_ruby}ruby(release)
 Requires:       %{?scl_prefix_ruby}rubygems
 Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires:       %{?scl_prefix_ruby}rubygem(sinatra)
-Requires:       %{?scl_prefix_ruby}rubygem(rack) >= 1.1.0
+Requires:       %{?scl_prefix_ror}rubygem(sinatra)
+Requires:       %{?scl_prefix_ror}rubygem(rack) >= 1.1.0
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
 Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
@@ -213,6 +214,9 @@ fi
 
 
 %changelog
+* Fri Sep 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-0.2.develop
+- Updates to build for SCL
+
 * Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
 - Bump version to 1.24-develop
 

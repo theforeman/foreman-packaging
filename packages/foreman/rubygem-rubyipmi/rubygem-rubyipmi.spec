@@ -6,23 +6,17 @@
 Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv2
 URL: https://github.com/logicminds/rubyipmi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+
 Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: ipmitool
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -45,6 +39,7 @@ Documentation for %{pkg_name}
 
 %prep
 %setup -n %{pkg_name}-%{version} -q -c -T
+
 %{?scl:scl enable %{scl} - <<EOF}
 %gem_install -n %{SOURCE0}
 %{?scl:EOF}
@@ -65,7 +60,7 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/LICENSE.txt
+%license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/README.md
 %{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
@@ -75,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Fri Sep 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.10.0-4
+- Updates to build for SCL
+
 * Thu Sep 13 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.10.0-3
 - Use LGPLv2 for versions 2 and 2.1 of the license
 
