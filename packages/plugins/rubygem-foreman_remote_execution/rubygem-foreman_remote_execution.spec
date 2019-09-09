@@ -104,7 +104,6 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 exit 0
 
 %post cockpit
-%systemd_postun_with_restart foreman-cockpit.service
 %systemd_post foreman-cockpit.service
 
 %preun cockpit
@@ -112,7 +111,6 @@ exit 0
 
 %postun cockpit
 %systemd_postun_with_restart foreman-cockpit.service
-%systemd_post foreman-cockpit.service
 
 %files
 %dir %{gem_instdir}
