@@ -206,6 +206,7 @@
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
@@ -243,6 +244,7 @@
       <packagereq type="default">tfm-rubygem-foreman_setup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_snapshot_management-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_spacewalk-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_supervisory_authority-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>

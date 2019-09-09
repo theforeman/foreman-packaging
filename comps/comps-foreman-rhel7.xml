@@ -243,6 +243,7 @@
       <packagereq type="default">nodejs-harmony-reflect</packagereq>
       <packagereq type="default">nodejs-history</packagereq>
       <packagereq type="default">nodejs-hoist-non-react-statics</packagereq>
+      <packagereq type="default">nodejs-humanize-duration</packagereq>
       <packagereq type="default">nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">nodejs-intl</packagereq>
       <packagereq type="default">nodejs-intl-format-cache</packagereq>

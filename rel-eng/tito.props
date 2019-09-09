@@ -74,6 +74,7 @@ whitelist = foreman-bootloaders-redhat
   nodejs-harmony-reflect
   nodejs-history
   nodejs-hoist-non-react-statics
+  nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
   nodejs-intl-format-cache
