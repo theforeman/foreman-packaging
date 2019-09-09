@@ -1,39 +1,46 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name redhat_access
 %global plugin_name redhat_access
+%global foreman_min_version 1.18.0
+
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.6
+Version: 2.2.8
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
-License: GPLv3+
+License: GPLv3
 URL: https://github.com/redhataccess/foreman-plugin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: foreman >= 1.18.0
+
+# start specfile generated dependencies
+Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.1.0
+Requires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.1.5
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
-Requires: %{?scl_prefix}rubygem(katello) >= 3.4.0
-BuildRequires: foreman-assets
-BuildRequires: foreman-plugin >= 1.18.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
-BuildRequires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.1.0
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.1.5
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 0.0.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(redhat_access_lib) >= 1.0.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
-Provides: %{?scl_prefix}rubygem-foreman-%{gem_name} = %{version}
-Provides: %{?scl_prefix}rubygem(foreman-%{gem_name}) = %{version}
-Obsoletes: %{?scl_prefix}rubygem-foreman-%{gem_name} < %{version}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
+
+# https://github.com/redhataccess/foreman-plugin/pull/44
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
+BuildRequires: %{?scl_prefix}rubygem(katello)
+Requires: %{?scl_prefix}rubygem(foreman-tasks)
+Requires: %{?scl_prefix}rubygem(katello)
 
 %description
 This plugin adds Red Hat Access knowledge base search, case management and
@@ -74,14 +81,11 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{foreman_bundlerd_dir}
-mkdir -p %{buildroot}/etc/redhat_access
-
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-# Copy config file
-cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildroot}/etc/redhat_access/config.yml
+mkdir -p %{buildroot}%{_root_sysconfdir}/redhat_access
+mv %{buildroot}/%{gem_instdir}/config/config.yml.example %{buildroot}%{_root_sysconfdir}/redhat_access/config.yml
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
@@ -100,14 +104,17 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
-%{gem_instdir}/public
 %{gem_instdir}/script
 %{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-
-%config(noreplace) /etc/redhat_access/config.yml
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
+# The next line is foreman_assets_plugin if the gem name was insights
+%{gem_instdir}/public/assets/insights
+%config(noreplace) %{_root_sysconfdir}/redhat_access/config.yml
 
 %files doc
 %doc %{gem_docdir}
@@ -125,6 +132,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 exit 0
 
 %changelog
+* Mon Sep 09 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.8-1
+- Update to 2.2.8-1
+
 * Fri May 17 2019 Marek Hulan <mhulan@redhat.com> 2.2.6-1
 - Update to 2.2.6
 
