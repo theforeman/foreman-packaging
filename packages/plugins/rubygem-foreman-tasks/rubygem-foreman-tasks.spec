@@ -88,6 +88,8 @@ BuildRequires: npm(humanize-duration) >= 3.20.1
 BuildRequires: npm(humanize-duration) < 4.0.0
 BuildRequires: npm(react-intl) >= 2.8.0
 BuildRequires: npm(react-intl) < 3.0.0
+BuildRequires: npm(c3) >= 0.4.11
+BuildRequires: npm(c3) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
