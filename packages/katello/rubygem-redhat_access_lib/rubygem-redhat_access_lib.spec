@@ -1,25 +1,29 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name redhat_access_lib
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.4
-Release: 2%{?dist}
+Version: 1.1.5
+Release: 1%{?dist}
 Summary: Rest Client for accessing Red Hat Support
 Group: Development/Languages
 License: MIT
 URL: http://rubygems.org/gems/redhat_access_lib
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby 
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby 
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 Rest Client for accessing Red Hat Support.
@@ -74,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/redhat_access_lib.gemspec
 
 %changelog
+* Mon Sep 09 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.5-1
+- Update to 1.1.5-1
+
 * Tue Sep 11 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.1.4-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
