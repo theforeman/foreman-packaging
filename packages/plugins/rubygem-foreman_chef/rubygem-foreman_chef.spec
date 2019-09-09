@@ -4,11 +4,11 @@
 
 %global gem_name foreman_chef
 %global plugin_name chef
-%global foreman_min_version 1.17.0
+%global foreman_min_version 1.24.0
 
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.8.1
+Version:    0.9.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -31,7 +31,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -102,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Sep 09 2019 Marek Hulan <mhulan@redhat.com> 0.9.0-1
+- Update to 0.9.0
+
 * Tue Sep 11 2018 Marek Hulan <mhulan@redhat.com> 0.8.1-1
 - Update to 0.8.1
 
