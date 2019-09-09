@@ -1,3 +1,9 @@
+ruby-foreman-ansible (3.0.7-1) stable; urgency=low
+
+  * Update foreman_ansible to 3.0.7
+
+ -- Marek Hulan <mhulan@redhat.com>  Mon, 09 Sep 2019 16:27:52 +0200
+
 ruby-foreman-ansible (3.0.6-2) stable; urgency=low
 
   * Copy only plugin webpack assets into the package.
