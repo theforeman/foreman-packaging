@@ -13,8 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 4
-%global prerelease RC2
+%global release 1
 
 Name:     foreman-release
 Version:  1.23.0
@@ -115,6 +114,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Tue Sep 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-1
+- Release 1.23.0
+
 * Mon Aug 26 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.23.0-0.4.RC2
 - Release 1.23.0-RC2
 
