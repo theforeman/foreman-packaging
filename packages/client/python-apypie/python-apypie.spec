@@ -14,7 +14,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.0.5
+Version:        0.1.0
 Release:        1%{?dist}
 Summary:        Apipie bindings for Python
 
@@ -39,7 +39,7 @@ Apipie bindings for Python
 %if %{with python2}
 %package -n     python2-%{pypi_name}
 Summary:        Apipie bindings for Python
-Requires:       python-requests
+Requires:       python-requests >= 2.4.2
 
 %description -n python2-%{pypi_name}
 Apipie bindings for Python2
@@ -48,7 +48,7 @@ Apipie bindings for Python2
 %if %{with python3}
 %package -n     python%{python3_pkgversion}-%{pypi_name}
 Summary:        Apipie bindings for Python
-Requires:       python%{python3_pkgversion}-requests
+Requires:       python%{python3_pkgversion}-requests >= 2.4.2
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
 Apipie bindings for Python3
@@ -90,6 +90,9 @@ rm -rf %{pypi_name}.egg-info
 %endif
 
 %changelog
+* Tue Sep 10 2019 Evgeni Golov - 0.1.0-1
+- Update to apypie 0.1.0
+
 * Thu Aug 15 2019 Evgeni Golov - 0.0.5-1
 - Update to apypie 0.0.5
 
