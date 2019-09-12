@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.8
+Version: 0.4.9
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -106,6 +106,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 12 2019 Martin Bacovsky <mbacovsk@redhat.com> 1:0.4.9-1
+- Update to 0.4.9
+
 * Thu Sep 05 2019 Martin Bacovsky <mbacovsk@redhat.com> 1:0.4.8-1
 - Update to 0.4.8
 
