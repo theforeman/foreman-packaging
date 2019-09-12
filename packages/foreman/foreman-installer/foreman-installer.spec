@@ -1,4 +1,4 @@
-%global release 2
+%global release 3
 %global prerelease develop
 
 Name:       foreman-installer
@@ -41,6 +41,7 @@ Requires: openssl
 Requires: katello-selinux
 Requires: katello-certs-tools
 Requires: foreman-maintain
+Requires: which
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -138,6 +139,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Sep 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.24.0-0.3.develop
+- Add which as a dependency since it's used in a hook
+
 * Fri Aug 23 2019 Evgeni Golov - 1:1.24.0-0.2.develop
 - don't move katello migrations when they point to a symlink
 
