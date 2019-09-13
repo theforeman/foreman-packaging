@@ -37,7 +37,8 @@ if [[ -z $2 ]] ; then
 		ensure_program jq
 		NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
 	else
-		echo "Unknown package type for $1"
+		echo "Unknown package type for $1; a version must be specified"
+		echo "Usage: $0 $1 VERSION"
 		exit 2
 	fi
 else
@@ -48,6 +49,9 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	ensure_program rpmspec rpm-build
 
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
+
+	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
+
 	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
 
 	RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
@@ -61,10 +65,8 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 	- Update to $NEW_VERSION
 	EOF
 
-	git rm *.gem
-
 	spectool --get-files $SPEC_FILE
-	git annex add *.gem
+	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git annex add
 	git add $SPEC_FILE
 
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
