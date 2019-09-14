@@ -311,6 +311,7 @@ whitelist = foreman
   rubygem-responders
   rubygem-rest-client
   rubygem-retriable
+  rubygem-rkerberos
   rubygem-roadie
   rubygem-roadie-rails
   rubygem-ruby2ruby

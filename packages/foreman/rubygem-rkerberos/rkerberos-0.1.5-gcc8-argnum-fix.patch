@@ -1,0 +1,11 @@
+--- rkerberos-0.1.5/ext/rkerberos/policy.c.gcc8	2018-02-18 21:46:03.540309315 +0900
++++ rkerberos-0.1.5/ext/rkerberos/policy.c	2018-02-18 21:47:03.031183592 +0900
+@@ -49,7 +49,7 @@ static VALUE rkadm5_policy_init(VALUE se
+ 
+   Check_Type(v_options, T_HASH);
+ 
+-  if(RTEST(rb_funcall(v_options, rb_intern("empty?"), 0, 0)))
++  if(RTEST(rb_funcall(v_options, rb_intern("empty?"), 0)))
+     rb_raise(rb_eArgError, "no policy options provided");
+ 
+   v_name       = rb_hash_aref2(v_options, "name");

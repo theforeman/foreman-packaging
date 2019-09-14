@@ -151,6 +151,7 @@
       <packagereq type="default">tfm-rubygem-responders</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client</packagereq>
       <packagereq type="default">tfm-rubygem-retriable</packagereq>
+      <packagereq type="default">tfm-rubygem-rkerberos</packagereq>
       <packagereq type="default">tfm-rubygem-roadie</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
@@ -512,6 +513,7 @@
       <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rest-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-retriable-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
