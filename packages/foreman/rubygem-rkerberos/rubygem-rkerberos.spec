@@ -77,7 +77,7 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
-%{gem_instdir}/CHANGES
+%doc %{gem_instdir}/CHANGES
 %license %{gem_instdir}/LICENSE
 %doc %{gem_instdir}/MANIFEST
 %exclude %{gem_cache}
