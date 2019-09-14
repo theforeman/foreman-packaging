@@ -10,7 +10,7 @@ Release: 1%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 Group: Development/Languages
 License: Artistic 2.0
-URL: http://github.com/domcleal/rkerberos
+URL: https://github.com/domcleal/rkerberos
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
