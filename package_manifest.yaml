@@ -171,6 +171,7 @@ foreman_scl_packages:
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
+    rubygem-rkerberos: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
     rubygem-ruby-libvirt: {}
