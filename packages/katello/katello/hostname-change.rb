@@ -151,7 +151,7 @@ module KatelloUtilities
     end
 
     def hammer_cmd(cmd, exit_codes=[0], message=nil)
-      run_cmd("hammer -u #{@options[:username].shellescape} -p #{@options[:password].shellescape} #{cmd}", exit_codes, message)
+      run_cmd("LANG=en_US.UTF-8 hammer -u #{@options[:username].shellescape} -p #{@options[:password].shellescape} #{cmd}", exit_codes, message)
     end
 
     def get_default_proxy_id
