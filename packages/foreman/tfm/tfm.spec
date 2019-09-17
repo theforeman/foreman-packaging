@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -234,28 +234,14 @@ cp %{SOURCE2} %{buildroot}%{_rpmconfigdir}/fileattrs/
 %{__mkdir_p} %{buildroot}%{_root_bindir}
 cat >> %{buildroot}%{_root_bindir}/%{scl_name}-ruby << EOF
 #!/bin/bash
-# Execute a single script with no arguments with 'scl', else it fails to
-# pass spaces/quotes in arguments through correctly (RHBZ#1248418).
-TMP=\$(mktemp)
-trap "rm -f \$TMP" EXIT
-echo -n ruby > \$TMP
-for arg in "\$@"; do
-  printf " %q" "\$arg" >> \$TMP
-done
-scl enable %{scl_name} "bash \$TMP"
+source scl_source enable %{scl_name}
+exec ruby "$@"
 EOF
 
 cat >> %{buildroot}%{_root_bindir}/%{scl_name}-rake << EOF
 #!/bin/bash
-# Execute a single script with no arguments with 'scl', else it fails to
-# pass spaces/quotes in arguments through correctly (RHBZ#1248418).
-TMP=\$(mktemp)
-trap "rm -f \$TMP" EXIT
-echo -n rake > \$TMP
-for arg in "\$@"; do
-  printf " %q" "\$arg" >> \$TMP
-done
-scl enable %{scl_name} "bash \$TMP"
+source scl_source enable %{scl_name}
+exec rake "$@"
 EOF
 
 scl enable %{scl_ror} - << \EOF
@@ -308,6 +294,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue Sep 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-7
+- Optimize SCL wrapper scripts
+
 * Thu Apr 11 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-6
 - Obsolete tfm-rubygem-extlib
 - Obsolete tfm-rubygem-docker-api
