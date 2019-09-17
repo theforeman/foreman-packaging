@@ -60,11 +60,11 @@
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
-      <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-dalli</packagereq>
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-down</packagereq>
+      <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
@@ -129,6 +129,7 @@
       <packagereq type="default">tfm-rubygem-http</packagereq>
       <packagereq type="default">tfm-rubygem-http-form_data</packagereq>
       <packagereq type="default">tfm-rubygem-http_parser.rb</packagereq>
+      <packagereq type="default">tfm-rubygem-httparty</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient</packagereq>
@@ -266,6 +267,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_templates-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-httparty-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-form_data-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http_parser.rb-doc</packagereq>

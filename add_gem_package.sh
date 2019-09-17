@@ -177,10 +177,10 @@ fi
 generate_gem_package
 if [[ $UPDATE == true ]] ; then
 	VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $PACKAGE_DIR/$SPEC_FILE)
-	git commit -m "Bump $PACKAGE_NAME to $VERSION"
+	#git commit -m "Bump $PACKAGE_NAME to $VERSION"
 else
 	add_to_manifest
 	add_to_tito_props
 	add_gem_to_comps
-	git commit -m "Add $PACKAGE_NAME package"
+	#git commit -m "Add $PACKAGE_NAME package"
 fi

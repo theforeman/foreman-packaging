@@ -354,11 +354,11 @@ whitelist = rubygem-angular-rails-templates
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
   rubygem-commonjs
-  rubygem-elastic-apm
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-elastic-apm
   rubygem-ffi
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
@@ -421,6 +421,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
   rubygem-http
+  rubygem-httparty
   rubygem-http-form_data
   rubygem-http_parser.rb
   rubygem-jgrep

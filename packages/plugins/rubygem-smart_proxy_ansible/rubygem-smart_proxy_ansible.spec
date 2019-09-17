@@ -1,3 +1,6 @@
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name smart_proxy_ansible
 
 %global foreman_proxy_dir /usr/share/foreman-proxy
@@ -7,7 +10,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Summary: Ansible support for Foreman smart proxy
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
@@ -23,11 +26,11 @@ Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.5
 Requires: rubygem(foreman_ansible_core)
 %endif
 Requires: foreman-proxy >= 1.11.0
-Requires: rubygem(smart_proxy_dynflow) >= 0.1
-Requires: rubygem(smart_proxy_dynflow) < 1.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1.0
 
-Requires: ruby
-Requires: ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 
 Requires: ansible >= 2.2
 %if 0%{?rhel} == 7
@@ -36,12 +39,12 @@ Requires: python-requests
 Requires: python3-requests
 %endif
 
-Requires: ruby(release)
-BuildRequires: ruby(release)
-BuildRequires: rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-ansible
 
 %description
@@ -56,11 +59,27 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %pre
 for i in ansible ansible_galaxy; do
@@ -75,7 +94,6 @@ fi
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 

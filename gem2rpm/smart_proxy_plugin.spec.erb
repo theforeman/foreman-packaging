@@ -1,18 +1,18 @@
-# FIXME:
-#   1. Edit foreman-proxy requirement and specify minimum version
-#   2. Delete these lines
-#
 # Generated from <%= package.spec.file_name %> by gem2rpm -*- rpm-spec -*-
 # template: smart_proxy_plugin
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name <%= spec.name %>
 %global plugin_name <%= spec.name.sub(/\Asmart_proxy_/, '') %>
 
-%global foreman_proxy_min_version FIXME
-%global foreman_proxy_dir %{_datarootdir}/foreman-proxy
+%global foreman_proxy_min_version 1.24
+%global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
+%global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: <%= spec.version %>
 Release: 1%{?foremandist}%{?dist}
 Summary: <%= spec.summary.gsub(/\.$/, "") %>
@@ -25,29 +25,29 @@ Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby(release)
+Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
-Requires: ruby <%= req %>
+Requires: %{?scl_prefix_ruby}ruby <%= req %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-Requires: ruby(rubygems) <%= req %>
+Requires: %{?scl_prefix_ruby}ruby(rubygems) <%= req %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: rubygem(<%= d.name %>) <%= req  %>
+Requires: %{?scl_prefix}rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
-BuildRequires: ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
-BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %> <%= req %>
+BuildRequires: %{?scl_prefix_ruby}ruby<%= "-devel" unless spec.extensions.empty? %> <%= req %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-BuildRequires: rubygems-devel <%= req %>
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel <%= req %>
 <% end -%>
 <% if spec.extensions.empty? -%>
 BuildArch: noarch
 <% end -%>
-Provides: rubygem(%{gem_name}) = %{version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -66,19 +66,27 @@ Documentation for %{name}.
 <% end # if doc_subpackage -%>
 
 %prep
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
+%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
 # Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
+%{?scl:EOF}
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}

@@ -1,86 +1,111 @@
-%global gem_name smart_proxy_dynflow
+# Generated from smart_proxy_dynflow-0.2.3.gem by gem2rpm -*- rpm-spec -*-
+# template: smart_proxy_plugin
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
 
+%global gem_name smart_proxy_dynflow
+%global plugin_name dynflow
+
+%global foreman_proxy_min_version 1.24
 %global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
+%global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
-Summary: Dynflow runtime for Foreman smart proxy
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.3
-Release: 1%{?dist}
-Group: Applications/System
-License: GPLv3
+Release: 1%{?foremandist}%{?dist}
+Summary: Dynflow runtime for Foreman smart proxy
+Group: Applications/Internet
+License: GPL-3.0
 URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ruby(release)
-Requires: ruby(rubygems)
-Requires: foreman-proxy >= 1.12.0
-
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.2.0
-Requires: tfm-rubygem(smart_proxy_dynflow_core) < 0.3.0
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.0
-Requires: rubygem(smart_proxy_dynflow_core) < 0.3.0
-%endif
-
-BuildRequires: ruby(release)
-BuildRequires: rubygems-devel
+# start specfile generated dependencies
+Requires: foreman-proxy >= %{foreman_proxy_min_version}
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-
-Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-dynflow
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
-Dynflow runtime for Foreman smart proxy
+Use the Dynflow inside Foreman smart proxy.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Group: Documentation
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
-mkdir -p %{buildroot}%{gem_dir}
-
 mkdir -p %{buildroot}%{_localstatedir}/lib/foreman-proxy/dynflow
 
-cp -pa .%{gem_dir}/* \
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-cp -pa .%{gem_instdir}/bundler.plugins.d/dynflow.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
-mkdir -p  %{buildroot}%{foreman_proxy_settingsd_dir}
-cp -pa .%{gem_instdir}/settings.d/dynflow.yml.example %{buildroot}%{foreman_proxy_settingsd_dir}/dynflow.yml
+mv .%{gem_instdir}/bundler.plugins.d/dynflow.rb %{buildroot}%{foreman_proxy_bundlerd_dir}
+
+# sample config
+mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
+mv %{buildroot}%{gem_instdir}/settings.d/dynflow.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/dynflow.yml
 
 %files
 %dir %{gem_instdir}
 %dir %attr(750, foreman-proxy, foreman-proxy) %{_localstatedir}/lib/foreman-proxy/dynflow
-%{gem_instdir}/lib
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/dynflow.yml
+%license %{gem_instdir}/LICENSE
+%{gem_instdir}/bundler.plugins.d
+%{gem_libdir}
 %{gem_instdir}/settings.d
-%{foreman_proxy_bundlerd_dir}/dynflow.rb
-%config %{foreman_proxy_settingsd_dir}/dynflow.yml
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/bundler.plugins.d
-%exclude %{gem_instdir}/Gemfile
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 
 %changelog
+* Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.2.3-1
+- Update to 0.2.3-1
+
 * Tue Jun 11 2019 Ivan Nečas <inecas@redhat.com> 0.2.3-1
 - Update to 0.2.3
 

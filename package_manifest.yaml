@@ -12,6 +12,7 @@ foreman_packages:
     foreman_nonscl_packages: {}
     foreman_scl_and_nonscl_packages: {}
     foreman_proxy_packages: {}
+    foreman_proxy_plugin_packages: {}
 
 foreman_proxy_packages:
   vars:
@@ -53,6 +54,63 @@ foreman_proxy_packages:
     rubygem-rubyipmi: {}
     rubygem-rb-inotify: {}
     rubygem-rsec: {}
+
+foreman_proxy_plugin_packages:
+  vars:
+    package_base_dir: 'packages/plugins/'
+    mock_config: 'mock/el7-scl.cfg'
+    diff_package_skip: false
+    diff_package_tags:
+      - foreman-nightly-rhel7
+    releasers:
+      - koji-foreman
+    nightly_releaser: koji-foreman-jenkins
+    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-nightly
+    repoclosure_lookaside_repos:
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-6
+        - el7-scl
+        - el7-foreman-rails-nightly
+  hosts:
+    rubygem-chef-api: {}
+    rubygem-foreman_ansible_core: {}
+    rubygem-foreman_probing_core: {}
+    rubygem-foreman_remote_execution_core: {}
+    rubygem-smart_proxy_dynflow_core: {}
+    rubygem-infoblox: {}
+    rubygem-httparty: {}
+    rubygem-openscap: {}
+    rubygem-radcli: {}
+    rubygem-route53: {}
+    rubygem-smart_proxy_ansible: {}
+    rubygem-smart_proxy_chef: {}
+    rubygem-smart_proxy_dhcp_dnsmasq: {}
+    rubygem-smart_proxy_dhcp_infoblox: {}
+    rubygem-smart_proxy_dhcp_remote_isc: {}
+    rubygem-smart_proxy_dhcp_device42: {}
+    rubygem-smart_proxy_discovery: {}
+    rubygem-smart_proxy_discovery_image: {}
+    rubygem-smart_proxy_dns_infoblox: {}
+    rubygem-smart_proxy_dns_powerdns: {}
+    rubygem-smart_proxy_dns_route53: {}
+    rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_m2: {}
+    rubygem-smart_proxy_monitoring: {}
+    rubygem-smart_proxy_omaha: {}
+    rubygem-smart_proxy_openscap: {}
+    rubygem-smart-proxy-probing: {}
+    rubygem-smart_proxy_pulp: {}
+    rubygem-smart_proxy_realm_ad_plugin: {}
+    rubygem-smart_proxy_remote_execution_ssh: {}
+    rubygem-smart_proxy_salt: {}
+    rubygem-smart_proxy_spacewalk: {}
 
 foreman_scl_packages:
   vars:
@@ -654,7 +712,6 @@ plugin_scl_packages:
     rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
-    rubygem-foreman_ansible_core: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
     rubygem-foreman_cockpit: {}
@@ -679,10 +736,8 @@ plugin_scl_packages:
     rubygem-foreman_noenv: {}
     rubygem-foreman_omaha: {}
     rubygem-foreman_openscap: {}
-    rubygem-foreman_probing_core: {}
     rubygem-foreman_probing: {}
     rubygem-foreman_remote_execution: {}
-    rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
@@ -729,7 +784,6 @@ plugin_scl_packages:
     rubygem-rqrcode: {}
     rubygem-ruby-nmap: {}
     rubygem-safe_yaml: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-systemu: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}
@@ -762,38 +816,11 @@ plugin_nonscl_packages:
     nodejs-babel-plugin-module-resolver: {}
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
-    rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
-    rubygem-infoblox: {}
     rubygem-logify: {}
     rubygem-newt: {}
-    rubygem-openscap: {}
-    rubygem-radcli: {}
-    rubygem-route53: {}
     rubygem-ruby-hmac: {}
     rubygem-satyr: {}
-    rubygem-smart_proxy_ansible: {}
-    rubygem-smart_proxy_chef: {}
-    rubygem-smart_proxy_dhcp_dnsmasq: {}
-    rubygem-smart_proxy_dhcp_infoblox: {}
-    rubygem-smart_proxy_dhcp_remote_isc: {}
-    rubygem-smart_proxy_dhcp_device42: {}
-    rubygem-smart_proxy_discovery: {}
-    rubygem-smart_proxy_discovery_image: {}
-    rubygem-smart_proxy_dns_infoblox: {}
-    rubygem-smart_proxy_dns_powerdns: {}
-    rubygem-smart_proxy_dns_route53: {}
-    rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_m2: {}
-    rubygem-smart_proxy_monitoring: {}
-    rubygem-smart_proxy_omaha: {}
-    rubygem-smart_proxy_openscap: {}
-    rubygem-smart-proxy-probing: {}
-    rubygem-smart_proxy_pulp: {}
-    rubygem-smart_proxy_realm_ad_plugin: {}
-    rubygem-smart_proxy_remote_execution_ssh: {}
-    rubygem-smart_proxy_salt: {}
-    rubygem-smart_proxy_spacewalk: {}
 
 repoclosures:
   vars:

@@ -1,43 +1,41 @@
 # Generated from smart-proxy-probing-0.0.2.gem by gem2rpm -*- rpm-spec -*-
 # template: smart_proxy_plugin
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name smart-proxy-probing
 %global plugin_name smart-proxy-probing
 
-%global foreman_proxy_min_version 1.17
-%global foreman_proxy_dir %{_datarootdir}/foreman-proxy
+%global foreman_proxy_min_version 1.24
+%global foreman_proxy_dir /usr/share/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
-Name: rubygem-%{gem_name}
+Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 2%{?foremandist}%{?dist}
+Release: 1%{?foremandist}%{?dist}
 Summary: Gem to allow probing through smart-proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/adamruzicka/smart-proxy-probing
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby(release)
-Requires: ruby
-Requires: ruby(rubygems)
-Requires: rubygem(smart_proxy_dynflow) < 0.3.0
-Requires: rubygem(smart_proxy_dynflow) >= 0.1.0
-BuildRequires: ruby(release)
-BuildRequires: ruby
-BuildRequires: rubygems-devel
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 0.3.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
+Requires: %{?scl_prefix}rubygem(foreman_probing_core)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
-Provides: foreman-proxy-plugin-%{plugin_name}
-# end generated dependencies
-
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(foreman_probing_core)
-%else
-Requires: rubygem(foreman_probing_core)
-%endif
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
 
 %description
 Gem to allow probing through smart-proxy.
@@ -53,19 +51,27 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
+%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
 # Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
+%{?scl:EOF}
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -96,15 +102,18 @@ mv %{buildroot}%{gem_instdir}/settings.d/probing.yml.example \
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
 %exclude %{gem_cache}
 %{gem_spec}
+%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
 
 %files doc
 %doc %{gem_docdir}
 
 
 %changelog
+* Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.0.2-1
+- Update to 0.0.2-1
+
 * Thu May 16 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-2
 - Require SCL prefix only on EL7
 
