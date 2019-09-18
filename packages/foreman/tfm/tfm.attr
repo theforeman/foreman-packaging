@@ -1,2 +1,3 @@
 %__tfm_requires	echo -n "%{?scl_runtime}"
 %__tfm_path			%{?scl:^%{_scl_prefix}/.*$}
+%nodejs_symlink_deps %{_rpmconfigdir}/nodejs-symlink-deps %{nodejs_sitelib}

@@ -10,6 +10,8 @@
 %global scl_prefix_ror %{scl_ror}-
 %global scl_ruby rh-ruby25
 %global scl_prefix_ruby %{scl_ruby}-
+%global scl_nodejs rh-nodejs10
+%global scl_prefix_nodejs %{scl_nodejs}-
 
 # Do not produce empty debuginfo package.
 %global debug_package %{nil}
@@ -19,12 +21,13 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
 Source1: LICENSE
 Source2: tfm.attr
+Source3: nodejs-symlink-deps
 # This should be removed as soon as scl-utils automatically generate
 # dependencies on scl -runtime (rhbz#1054711).
 Requires: %{scl_runtime}
@@ -38,6 +41,8 @@ BuildRequires: %{scl_prefix_ror}scldevel
 BuildRequires: %{scl_prefix_ror}runtime
 BuildRequires: %{scl_prefix_ruby}scldevel
 BuildRequires: %{scl_prefix_ruby}rubygems-devel
+BuildRequires: %{scl_prefix_nodejs}scldevel
+BuildRequires: %{scl_prefix_nodejs}runtime
 
 %description
 This is the main package for %scl Software Collection.
@@ -122,6 +127,7 @@ Provides dependencies for Foreman (http://theforeman.org/).
 Summary: Package that adds asset compilation for %scl Software Collection.
 Group: Applications/File
 Requires: %{scl_prefix}runtime
+Requires: %{scl_prefix_nodejs}runtime
 
 %description runtime-assets
 Package shipping additional scripts to work with %scl Software Collection.
@@ -137,6 +143,8 @@ Requires: %{scl_runtime}
 Requires: %{scl_runtime}-assets
 Requires: %{scl_prefix_ror}scldevel
 Requires: %{scl_prefix_ruby}scldevel
+Requires: %{scl_prefix_nodejs}scldevel
+Requires: %{scl_prefix_nodejs}build
 
 %description build
 Package shipping essential configuration macros to build %scl Software Collection.
@@ -197,7 +205,7 @@ EOF
 # enable asset compilation collections optionally, only if -runtime-assets is
 # installed, to reduce deps for -runtime
 cat >> %{buildroot}%{_scl_scripts}/enable_assets << EOF
-# noop
+. scl_source enable %{scl_nodejs}
 EOF
 
 # additional rpm macros for builds in the collection to set the vendor correctly
@@ -258,6 +266,8 @@ ruby -rfileutils > rubygems_filesystem.list << \EOR
 EOR
 EOF
 
+install -pm0755 %{SOURCE3} %{buildroot}%{_rpmconfigdir}/nodejs-symlink-deps
+
 %post runtime
 # Simple copy of context from system root to DSC root.
 # In case new version needs some additional rules or context definition,
@@ -288,12 +298,16 @@ selinuxenabled && load_policy || :
 %license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl}-config
 %{_rpmconfigdir}/fileattrs
+%{_rpmconfigdir}/nodejs-symlink-deps
 
 %files scldevel
 %license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Sep 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 5.0-9
+- Add NodeJS SCL
+
 * Wed Sep 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-8
 - Quote a variable in the tfm- wrappers
 
