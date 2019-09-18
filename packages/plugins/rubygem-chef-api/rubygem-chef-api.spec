@@ -1,41 +1,56 @@
+# template: nonscl
 %global gem_name chef-api
 
 Name: rubygem-%{gem_name}
-Summary: A tiny Chef API client with minimal dependencies
-Version: 0.6.0
+Version: 0.9.0
 Release: 1%{?dist}
+Summary: A Chef API client in Ruby
 Group: Development/Languages
-License: ASL 2.0
+License: Apache-2.0
 URL: https://github.com/sethvargo/chef-api
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
 Requires: ruby(release)
+Requires: ruby >= 2.2
+Requires: ruby(rubygems)
+Requires: rubygem(logify) >= 0.1
+Requires: rubygem(logify) < 1
+Requires: rubygem(mime-types)
 BuildRequires: ruby(release)
-Requires:      rubygem(logify) >= 0.1.0
-Requires:      rubygem(logify) < 1.0.0
-Requires:      rubygem(mime-types)
+BuildRequires: ruby >= 2.2
 BuildRequires: rubygems-devel
-
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-A tiny Chef API client with minimal dependencies
+A tiny Chef API client with minimal dependencies.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
+Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
+Documentation for %{name}.
 
 %prep
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+gem unpack %{SOURCE0}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build %{gem_name}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -44,25 +59,19 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%{gem_instdir}/templates
 %exclude %{gem_cache}
 %{gem_spec}
-%exclude %{gem_instdir}/spec
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile*
 
 %changelog
+* Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.9.0-1
+- Update to 0.9.0-1
+
 * Wed Jun 22 2016 Dominic Cleal <dominic@cleal.org> 0.6.0-1
 - Update chef-api to 0.6.0 (dominic@cleal.org)
 
