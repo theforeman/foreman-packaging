@@ -1,55 +1,66 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rubyipmi
 
-Summary: A ruby wrapper for ipmi command line tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 3%{?dist}
+Release: 4%{?dist}
+Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 Group: Development/Languages
 License: LGPLv2
 URL: https://github.com/logicminds/rubyipmi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
-Requires: %{?scl_prefix_ruby}ruby(release)
-%else
-Requires: %{?scl_prefix_ruby}ruby(abi)
-%endif
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+
 Requires: ipmitool
-%if 0%{?fedora} > 18 || 0%{?rhel} >= 7
+
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%else
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%endif
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-This gem is a ruby wrapper for the freeipmi and ipmitool command line tools. It
-provides a ruby implementation of ipmi commands that will make it simple to
-connect to BMC devices from ruby.
+Provides a library for controlling IPMI devices using pure ruby code.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -58,23 +69,25 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%license %{gem_instdir}/LICENSE.txt
+%{gem_instdir}/VERSION
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%exclude %{gem_instdir}/spec
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/LICENSE.txt
-%{gem_instdir}/README.md
-%{gem_instdir}/RELEASE_NOTES.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/VERSION
-
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile*
+%{gem_instdir}/rubyipmi.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.10.0-4
+- Update to handle building for SCL
+
 * Thu Sep 13 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.10.0-3
 - Use LGPLv2 for versions 2 and 2.1 of the license
 
