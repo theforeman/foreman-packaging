@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name history
 
-Name: nodejs-history
+Name: %{?scl_prefix}nodejs-history
 Version: 4.9.0
 Release: 1%{?dist}
 Summary: Manage session history with JavaScript
@@ -16,38 +19,56 @@ Source5: https://registry.npmjs.org/value-equal/-/value-equal-0.4.0.tgz
 Source6: https://registry.npmjs.org/resolve-pathname/-/resolve-pathname-2.2.0.tgz
 Source7: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz
 Source8: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source9: %{name}-%{version}-registry.npmjs.org.tgz
+Source9: nodejs-%{npm_name}-%{version}-registry.npmjs.org.tgz
+
+Requires:       %{?scl_prefix_nodejs}nodejs
+%if 0%{?scl:1}
+BuildRequires:  %{?scl_prefix_nodejs}build
+BuildRequires:  %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
+
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: npm(%{npm_name}) = %{version}
-Provides: bundled(npm(@babel/runtime)) = 7.4.3
-Provides: bundled(npm(history)) = 4.9.0
-Provides: bundled(npm(js-tokens)) = 4.0.0
-Provides: bundled(npm(loose-envify)) = 1.4.0
-Provides: bundled(npm(regenerator-runtime)) = 0.13.2
-Provides: bundled(npm(resolve-pathname)) = 2.2.0
-Provides: bundled(npm(tiny-invariant)) = 1.0.4
-Provides: bundled(npm(tiny-warning)) = 1.0.2
-Provides: bundled(npm(value-equal)) = 0.4.0
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: bundled(%{?scl_prefix}npm(@babel/runtime)) = 7.4.3
+Provides: bundled(%{?scl_prefix}npm(history)) = 4.9.0
+Provides: bundled(%{?scl_prefix}npm(js-tokens)) = 4.0.0
+Provides: bundled(%{?scl_prefix}npm(loose-envify)) = 1.4.0
+Provides: bundled(%{?scl_prefix}npm(regenerator-runtime)) = 0.13.2
+Provides: bundled(%{?scl_prefix}npm(resolve-pathname)) = 2.2.0
+Provides: bundled(%{?scl_prefix}npm(tiny-invariant)) = 1.0.4
+Provides: bundled(%{?scl_prefix}npm(tiny-warning)) = 1.0.2
+Provides: bundled(%{?scl_prefix}npm(value-equal)) = 0.4.0
 AutoReq: no
 AutoProv: no
 
+%if 0%{?scl:1}
+%define npm_cache_dir npm_cache
+%else
 %define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
+%endif
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
+%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
+%{?scl:end_of_scl}
+
 %setup -T -q -a 9 -D -n %{npm_cache_dir}
 
 %build
-npm install --cache-min Infinity --cache %{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
+npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+
+%{?scl:end_of_scl}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
