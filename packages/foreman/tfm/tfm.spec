@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -235,13 +235,13 @@ cp %{SOURCE2} %{buildroot}%{_rpmconfigdir}/fileattrs/
 cat >> %{buildroot}%{_root_bindir}/%{scl_name}-ruby << EOF
 #!/bin/bash
 source scl_source enable %{scl_name}
-exec ruby "$@"
+exec ruby "\$@"
 EOF
 
 cat >> %{buildroot}%{_root_bindir}/%{scl_name}-rake << EOF
 #!/bin/bash
 source scl_source enable %{scl_name}
-exec rake "$@"
+exec rake "\$@"
 EOF
 
 scl enable %{scl_ror} - << \EOF
@@ -294,6 +294,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Sep 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-8
+- Quote a variable in the tfm- wrappers
+
 * Tue Sep 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-7
 - Optimize SCL wrapper scripts
 
