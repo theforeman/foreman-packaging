@@ -1,103 +1,92 @@
+# template: scl
+%{?scl:%scl_package rubygem-%{gem_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global gem_name openscap
 
-Name: rubygem-%{gem_name}
-Version: 0.4.7
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 0.4.9
 Release: 1%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
-License: GPLv2+
+License: GPLv2
 URL: https://github.com/OpenSCAP/ruby-openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ruby(rubygems)
-Requires: rubygem(ffi) >= 1.0.9
-# require libopenscap.so.8 in an arch neutral way
 Requires: openscap >= 1.2.9
 Requires: openscap < 1.3.0
-BuildRequires: rubygems-devel
 
-# For tests we need:
-BuildRequires: openscap >= 1.2.9
-BuildRequires: openscap < 1.3.0
-BuildRequires: bzip2
-
-BuildRequires: rubygem(rake)
-BuildRequires: rubygem(bundler)
-BuildRequires: rubygem(ffi) >= 1.0.9
-BuildRequires: openscap-devel
-# End (for the tests we needed)
-
-%if 0%{?rhel} == 6
-Requires: ruby(abi)
-BuildRequires: ruby(abi)
-%else
-Requires: ruby(release)
-BuildRequires: ruby(release)
-%endif
-
-# For the tests we need
-%if 0%{?fedora} > 18
-BuildRequires: rubygem(test-unit)
-%else
-BuildRequires: rubygem(minitest)
-%endif
-
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
-Provides: rubygem(%{gem_name}) = %{version}
-Obsoletes: ruby193-rubygem-%{gem_name}
-Obsoletes: tfm-rubygem-%{gem_name} < 0.4.3-1
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-A FFI wrapper around the OpenSCAP library. The %{name}
-provides only a subset of openscap functionality.
+A FFI wrapper around the OpenSCAP library.
+Currently it provides only subset of libopenscap functionality.
 
-%package devel
-Summary: Development for %{name}
-Requires: %{name} = %{version}-%{release}
-Requires: rubygems
-Obsoletes: ruby193-rubygem-%{gem_name}-devel
-Obsoletes: tfm-rubygem-%{gem_name}-devel < 0.4.3-1
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
-%description devel
-Development files for %{name}
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
+%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
+%{?scl:EOF}
 
-%gem_install -n %{gem_name}-%{version}.gem
-
-%check
-rake test
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
-%doc %{gem_instdir}/COPYING
-%doc %{gem_instdir}/README.md
 %dir %{gem_instdir}
+%license %{gem_instdir}/COPYING
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
-%files devel
-%{gem_docdir}
-%{gem_instdir}/test/
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %changelog
+* Mon Sep 23 2019 Eric D. Helms <ericdhelms@gmail.com> 0.4.9-1
+- Update to 0.4.9-1 and add SCL support
+
 * Tue Feb 14 2017 Dominic Cleal <dominic@cleal.org> 0.4.7-1
 - Update openscap to 0.4.7 (mhulan@redhat.com)
 
