@@ -6,7 +6,7 @@
 
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 1.4.1
+Version: 1.5.0
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -76,6 +76,9 @@ cp -pa .%{gem_instdir}/settings.d/pulpnode.yml.example %{buildroot}%{foreman_pro
 
 
 %changelog
+* Wed Sep 18 2019 Justin Sherrill <jsherril@redhat.com> 1.5.0-1
+- Update to 1.5.0
+
 * Fri Mar 08 2019 Justin Sherrill <jsherril@redhat.com> 1.4.1-1
 - Updated samrt_proxy_pulp to version 1.4.1
  
