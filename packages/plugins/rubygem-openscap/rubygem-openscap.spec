@@ -19,9 +19,15 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.9
+Requires: openscap >= 1.2.9
+Requires: openscap < 1.3.0
+BuildRequires: openscap >= 1.2.9
+BuildRequires: openscap < 1.3.0
+BuildRequires: bzip2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: openscap-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies

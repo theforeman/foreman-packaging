@@ -19,6 +19,9 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rake-compiler)
+BuildRequires: krb5-devel
+BuildRequires: openldap-devel
+BuildRequires: cyrus-sasl-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -81,7 +84,6 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/MANIFEST
 %{gem_instdir}/build_adcli.sh
-%{gem_instdir}/ext
 %{gem_instdir}/scripts
 %exclude %{gem_cache}
 %{gem_spec}

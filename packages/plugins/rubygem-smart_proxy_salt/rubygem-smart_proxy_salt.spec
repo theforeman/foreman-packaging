@@ -26,8 +26,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_rails}rubygem(rack) >= 1.1
-Requires: %{?scl_prefix_rails}rubygem(sinatra)
+Requires: %{?scl_prefix_ror}rubygem(rack) >= 1.1
+Requires: %{?scl_prefix_ror}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(logging)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby

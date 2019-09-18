@@ -80,15 +80,21 @@ foreman_proxy_plugin_packages:
         - el7-foreman-rails-nightly
   hosts:
     rubygem-chef-api: {}
+    rubygem-faraday_middleware: {}
     rubygem-foreman_ansible_core: {}
     rubygem-foreman_probing_core: {}
     rubygem-foreman_remote_execution_core: {}
-    rubygem-smart_proxy_dynflow_core: {}
-    rubygem-infoblox: {}
+    rubygem-foreman-tasks-core: {}
     rubygem-httparty: {}
+    rubygem-infoblox: {}
+    rubygem-logify: {}
+    rubygem-multi_xml: {}
     rubygem-openscap: {}
     rubygem-radcli: {}
     rubygem-route53: {}
+    rubygem-rprogram: {}
+    rubygem-ruby-hmac: {}
+    rubygem-ruby-nmap: {}
     rubygem-smart_proxy_ansible: {}
     rubygem-smart_proxy_chef: {}
     rubygem-smart_proxy_dhcp_dnsmasq: {}
@@ -101,6 +107,7 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
@@ -709,7 +716,6 @@ plugin_scl_packages:
     rubygem-down: {}
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
-    rubygem-foreman-tasks-core: {}
     rubygem-foreman-tasks: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_bootdisk: {}
@@ -780,9 +786,7 @@ plugin_scl_packages:
     rubygem-puppetdb_foreman: {}
     rubygem-rainbow: {}
     rubygem-recursive-open-struct: {}
-    rubygem-rprogram: {}
     rubygem-rqrcode: {}
-    rubygem-ruby-nmap: {}
     rubygem-safe_yaml: {}
     rubygem-systemu: {}
     rubygem-ttfunk: {}
@@ -816,10 +820,7 @@ plugin_nonscl_packages:
     nodejs-babel-plugin-module-resolver: {}
     nodejs-react-json-tree: {}
     puppet-foreman_scap_client: {}
-    rubygem-faraday_middleware: {}
-    rubygem-logify: {}
     rubygem-newt: {}
-    rubygem-ruby-hmac: {}
     rubygem-satyr: {}
 
 repoclosures:

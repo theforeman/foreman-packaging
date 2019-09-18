@@ -133,6 +133,7 @@
       <packagereq type="default">tfm-rubygem-jgrep</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient</packagereq>
+      <packagereq type="default">tfm-rubygem-multi_xml</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
@@ -170,6 +171,7 @@
       <packagereq type="default">rubygem-netrc-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
+      <packagereq type="default">rubygem-openscap-doc</packagereq>
       <packagereq type="default">rubygem-radcli-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
@@ -274,6 +276,7 @@
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-multi_xml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>

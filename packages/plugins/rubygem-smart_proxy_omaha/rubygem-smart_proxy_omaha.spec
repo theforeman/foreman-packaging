@@ -25,7 +25,7 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_rails}rubygem(nokogiri) >= 1.5.11
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.11
 Requires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
