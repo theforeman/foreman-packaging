@@ -142,6 +142,7 @@
       <packagereq type="default">tfm-rubygem-rack-cors</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
+      <packagereq type="default">tfm-rubygem-rake-compiler</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
@@ -502,6 +503,7 @@
       <packagereq type="default">tfm-rubygem-rack-cors-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rake-compiler-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>

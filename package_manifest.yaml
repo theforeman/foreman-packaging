@@ -153,6 +153,7 @@ foreman_scl_packages:
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
     rubygem-rails-i18n: {}
+    rubygem-rake-compiler: {}
     rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
