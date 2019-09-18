@@ -522,7 +522,6 @@ whitelist = foreman-release
 [foreman-client-nightly-fedora28]
 disttag = .fc28
 whitelist = foreman-release
-  katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
 
