@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -100,6 +100,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Sep 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-2
+- Corrected the license format
+
 * Tue Mar 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.0-1
 - Update to 3.0.0-1
 
