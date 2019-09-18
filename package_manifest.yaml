@@ -504,6 +504,7 @@ foreman_client_packages:
         - f29-updates
         - f29-puppet-6
   hosts:
+    ansible-collection-theforeman-foreman: {}
     katello-host-tools: {}
     python-apypie: {}
     rubygem-foreman_scap_client: {}
