@@ -96,7 +96,7 @@ rm -rf %{buildroot}%{gem_instdir}/<%= ext.split(File::SEPARATOR).first %>/
 <% end -%>
 <% unless spec.executables.nil? or spec.executables.empty? -%>
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 
