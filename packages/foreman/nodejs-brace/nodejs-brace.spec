@@ -1,6 +1,9 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name brace
 
-Name: nodejs-brace
+Name: %{?scl_prefix}nodejs-brace
 Version: 0.11.1
 Release: 1%{?dist}
 Summary: browserify compatible version of the ace editor
@@ -8,9 +11,14 @@ License: MIT
 Group: Development/Libraries
 URL: https://github.com/thlorenz/brace
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -35,7 +43,7 @@ cp -pfr worker %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %nodejs_symlink_deps
 
 %check
-%{nodejs_symlink_deps} --check
+%nodejs_symlink_deps --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}

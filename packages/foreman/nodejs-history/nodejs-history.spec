@@ -67,7 +67,6 @@ done
 %build
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
-
 %{?scl:end_of_scl}
 
 %install
