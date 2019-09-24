@@ -1,72 +1,100 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name unicode
 
-Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        0.4.4.1
-Release:        5%{?dist}
-Summary:        Unicode normalization library for Ruby
-License:        Ruby
-URL:            http://www.yoshidam.net/Ruby.html#unicode
-Source0:        https://rubygems.org/gems/%{gem_name}-%{version}.gem
-# https://github.com/blackwinter/unicode/issues/7
-Source1:        https://www.ruby-lang.org/en/about/license.txt
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 0.4.4.4
+Release: 1%{?dist}
+Summary: Unicode normalization library
+Group: Development/Languages
+License: Ruby
+URL: http://www.yoshidam.net/Ruby.html#unicode
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: https://www.ruby-lang.org/en/about/license.txt
+
 # This is a C extension linked against MRI, it's not compatible with other
 # interpreters. So we require MRI specifically instead of ruby(release).
-Requires:       %{?scl_prefix_ruby}ruby
 %{?scl:Requires: %{scl}-runtime}
 %{?scl:BuildRequires: %{scl}-runtime}
-BuildRequires:  %{?scl_prefix_ruby}ruby-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Unicode normalization library for Ruby.
+Unicode normalization library.
 
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
+%{?scl:EOF}
+
 %setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 cp -p %{SOURCE1} .
 %{?scl:EOF}
 
-
 %build
+# Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
-
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/specifications %{buildroot}%{gem_dir}/
-mkdir -p %{buildroot}%{gem_instdir}
-cp -pa .%{gem_instdir}/lib %{buildroot}%{gem_instdir}/
-mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -pa .%{gem_extdir_mri}/%{gem_name} %{buildroot}%{gem_extdir_mri}/
-touch %{buildroot}%{gem_extdir_mri}/gem.build_complete
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-
-%check
-%{?scl:scl enable %{scl} - << \EOF}
-ruby -I.%{gem_instdir}/lib:.%{gem_extdir_mri} test/test.rb
-%{?scl:EOF}
-
+mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
+cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
+cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}
 
 %files
-%doc README
-%license license.txt
-%{gem_instdir}
+%dir %{gem_instdir}
+%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
+%{gem_libdir}
+%{gem_instdir}/tools
+%exclude %{gem_cache}
 %{gem_spec}
 
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
+%{gem_instdir}/unicode.gemspec
 
 %changelog
+* Tue Sep 24 2019 Eric D. Helms <ericdhelms@gmail.com> 0.4.4.4-1
+- Update to 0.4.4.4-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4.4.1-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 
