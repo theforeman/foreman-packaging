@@ -3,7 +3,7 @@
 usage() {
 	echo "Usage: $0 GEM_NAME TEMPLATE TITO_TAG [PACKAGE_SUBDIR]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
-	python -c "import ConfigParser ; c = ConfigParser.ConfigParser() ; c.read('rel-eng/tito.props') ; print 'Tito tags: ' + ' '.join(s for s in c.sections() if s not in ('requirements', 'buildconfig', 'builder'))"
+	python3 -c "import configparser ; c = configparser.ConfigParser() ; c.read('rel-eng/tito.props') ; print('Tito tags: ' + ' '.join(s for s in c.sections() if s not in ('requirements', 'buildconfig', 'builder')))"
 	exit 1
 }
 
