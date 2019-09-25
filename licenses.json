@@ -1,5 +1,6 @@
 {
-	"GPL-2.0-or-later": "GPLv2+",
-	"GPL-3.0": "GPLv3",
-	"GPL-3.0+": "GPLv3+"
+  "GPL-2.0-or-later": "GPLv2+",
+  "GPL-3.0": "GPLv3",
+  "GPL-3.0+": "GPLv3+",
+  "GPLv3-or-later": "GPLv3+"
 }
