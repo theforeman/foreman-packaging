@@ -7,7 +7,7 @@
 Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.21.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -61,7 +61,7 @@ mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{gem.build_complete,%{gem_name}/*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
@@ -115,6 +115,9 @@ done
 %{gem_instdir}/spec
 
 %changelog
+* Wed Sep 25 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.21.0-4
+- rebuilt
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.21.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

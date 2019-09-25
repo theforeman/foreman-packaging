@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.23.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -82,11 +82,10 @@ CONFIGURE_ARGS="--with-cflags='%{optflags}' $CONFIGURE_ARGS" \
 gem install \
         -V \
         --local \
-        --build-root . \
         --force \
         --no-document \
         --bindir %{_bindir} \
-        %{gem_name}-%{version}.gem 
+        %{gem_name}-%{version}.gem
 %{?scl:EOF}
 
 %install
@@ -131,6 +130,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Wed Sep 25 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.23.9-2
+- rebuilt
+
 * Wed Mar 13 2019 kgaikwad <kavitagaikwad103@gmail.com> 0.23.9-1
 - Update to 0.23.9
 

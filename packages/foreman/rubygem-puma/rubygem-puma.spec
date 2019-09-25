@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.11.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -70,9 +70,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/puma
-cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/puma/*.so %{buildroot}%{gem_extdir_mri}/puma
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/{gem.build_complete,%{gem_name}/*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
@@ -101,6 +100,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/docs
 
 %changelog
+* Wed Sep 25 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.11.4-4
+- rebuilt
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.4-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -7,7 +7,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -56,7 +56,7 @@ find -type f -name '*.rb' -print | xargs sed -i '/#!\/usr\/bin\/ruby/d'
 popd
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{gem.build_complete,%{gem_name}/*.so} %{buildroot}%{gem_extdir_mri}/
 
 # Remove the binary extension sources and build leftovers.
 rm -rf %{buildroot}%{gem_instdir}/ext
@@ -75,6 +75,7 @@ popd
 %doc %{gem_instdir}/COPYING
 %{gem_libdir}
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/ext
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -87,6 +88,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Wed Sep 25 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-4
+- rebuilt
+
 * Thu Sep 06 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

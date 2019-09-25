@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.6
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -60,16 +60,13 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_dir}/* \
-        %{buildroot}%{gem_dir}/
-
 cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
 %files
 %dir %{gem_instdir}
+%{gem_extdir_mri}
 %{gem_libdir}
 %doc %{gem_instdir}/LICENSE.txt
-%{gem_extdir_mri}
 %exclude %{gem_instdir}/ext
 %exclude %{gem_cache}
 %{gem_spec}
@@ -84,6 +81,9 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Sep 25 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.0.6-9
+- rebuilt
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.6-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
