@@ -224,19 +224,28 @@ foreman_nodejs_packages:
   hosts:
     nodejs-argv-parse: {}
     nodejs-axios: {}
-    nodejs-babel-cli: {}
-    nodejs-babel-core: {}
-    nodejs-babel-loader: {}
-    nodejs-babel-plugin-lodash: {}
-    nodejs-babel-plugin-syntax-dynamic-import: {}
+    nodejs-babel-cli:
+      strategy: bundle
+    nodejs-babel-core:
+      strategy: bundle
+    nodejs-babel-loader:
+      strategy: bundle
+    nodejs-babel-plugin-lodash:
+      strategy: bundle
+    #nodejs-babel-plugin-syntax-dynamic-import: {}
     nodejs-babel-plugin-syntax-object-rest-spread: {}
-    nodejs-babel-plugin-transform-class-properties: {}
+    nodejs-babel-plugin-transform-class-properties:
+      strategy: bundle
     nodejs-babel-plugin-transform-object-assign: {}
     nodejs-babel-plugin-transform-object-rest-spread: {}
-    nodejs-babel-polyfill: {}
-    nodejs-babel-preset-env: {}
-    nodejs-babel-preset-react: {}
-    nodejs-babel-register: {}
+    nodejs-babel-polyfill:
+      strategy: bundle
+    nodejs-babel-preset-env:
+      strategy: bundle
+    nodejs-babel-preset-react:
+      strategy: bundle
+    nodejs-babel-register:
+      strategy: bundle
     nodejs-babel-runtime: {}
     nodejs-bootstrap-sass: {}
     nodejs-bootstrap-slider-without-jquery: {}
@@ -246,11 +255,13 @@ foreman_nodejs_packages:
     nodejs-change-emitter: {}
     nodejs-classnames: {}
     nodejs-clsx: {}
-    nodejs-compression-webpack-plugin: {}
+    nodejs-compression-webpack-plugin:
+      strategy: bundle
     nodejs-core-js: {}
     nodejs-create-react-context: {}
     nodejs-css-element-queries: {}
-    nodejs-css-loader: {}
+    nodejs-css-loader:
+      strategy: bundle
     nodejs-d3: {}
     nodejs-datatables.net-bs: {}
     nodejs-datatables.net: {}
@@ -261,15 +272,19 @@ foreman_nodejs_packages:
     nodejs-dotenv: {}
     nodejs-escape-string-regexp: {}
     nodejs-expose-loader: {}
-    nodejs-extract-text-webpack-plugin: {}
-    nodejs-fbjs: {}
-    nodejs-file-loader: {}
+    nodejs-extract-text-webpack-plugin:
+      strategy: bundle
+    nodejs-fbjs:
+      strategy: bundle
+    nodejs-file-loader:
+      strategy: bundle
     nodejs-file-saver: {}
     nodejs-follow-redirects: {}
     nodejs-gridster: {}
     nodejs-gud: {}
     nodejs-harmony-reflect: {}
-    nodejs-history: {}
+    nodejs-history:
+      strategy: bundle
     nodejs-hoist-non-react-statics: {}
     nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
@@ -281,18 +296,20 @@ foreman_nodejs_packages:
     nodejs-invariant: {}
     nodejs-ipaddr.js: {}
     nodejs-is-buffer: {}
-    nodejs-isomorphic-fetch: {}
+    nodejs-isomorphic-fetch:
+      strategy: bundle
     nodejs-jed: {}
-    nodejs-jquery-flot: {}
     nodejs-jquery-ujs: {}
     nodejs-jquery.cookie: {}
     nodejs-jquery: {}
     nodejs-js-tokens: {}
-    nodejs-jsdom: {}
+    nodejs-jsdom:
+      strategy: bundle
     nodejs-jstz: {}
     nodejs-linear-layout-vector: {}
     nodejs-lodash-es: {}
-    nodejs-lodash-webpack-plugin: {}
+    nodejs-lodash-webpack-plugin:
+      strategy: bundle
     nodejs-lodash.debounce: {}
     nodejs-lodash.get: {}
     nodejs-lodash.isequal: {}
@@ -301,13 +318,16 @@ foreman_nodejs_packages:
     nodejs-loose-envify: {}
     nodejs-ms: {}
     nodejs-multiselect: {}
-    nodejs-node-gyp: {}
-    nodejs-node-sass: {}
-    nodejs-novnc: {}
-    nodejs-number_helpers: {}
+    nodejs-node-gyp:
+      strategy: bundle
+    nodejs-node-sass:
+      strategy: bundle
+    nodejs-novnc:
+      name: "@novnc/novnc"
     nodejs-object-assign: {}
     nodejs-patternfly-react: {}
-    nodejs-patternfly: {}
+    nodejs-patternfly:
+      strategy: bundle
     nodejs-patternfly-react-extensions: {}
     nodejs-performance-now: {}
     nodejs-popper.js: {}
@@ -316,17 +336,21 @@ foreman_nodejs_packages:
     nodejs-raf: {}
     nodejs-react-ace: {}
     nodejs-react-bootstrap-switch: {}
-    nodejs-react-bootstrap: {}
+    nodejs-react-bootstrap:
+      strategy: bundle
     nodejs-react-bootstrap-typeahead: {}
     nodejs-react-c3js: {}
     nodejs-react-click-outside: {}
     nodejs-react-collapse: {}
     nodejs-react-debounce-input: {}
-    nodejs-react-diff-view: {}
-    nodejs-react-dom: {}
+    nodejs-react-diff-view:
+      strategy: bundle
+    nodejs-react-dom:
+      strategy: bundle
     nodejs-react-ellipsis-with-tooltip: {}
     nodejs-react-fontawesome: {}
-    nodejs-react-intl: {}
+    nodejs-react-intl:
+      strategy: bundle
     nodejs-react-is: {}
     nodejs-react-lifecycles-compat: {}
     nodejs-react-motion: {}
@@ -335,40 +359,52 @@ foreman_nodejs_packages:
     nodejs-react-overlays: {}
     nodejs-react-password-strength: {}
     nodejs-react-popper: {}
-    nodejs-react-redux: {}
+    nodejs-react-redux:
+      strategy: bundle
     nodejs-react-router-bootstrap: {}
-    nodejs-react-router-dom: {}
-    nodejs-react-router: {}
+    nodejs-react-router-dom:
+      strategy: bundle
+    nodejs-react-router:
+      strategy: bundle
     nodejs-react-transition-group: {}
-    nodejs-react: {}
+    nodejs-react:
+      strategy: bundle
     nodejs-react-virtualized: {}
     nodejs-reactabular-table: {}
     nodejs-recompose: {}
     nodejs-redux-form-validators: {}
-    nodejs-redux-form: {}
-    nodejs-redux-logger: {}
+    nodejs-redux-form:
+      strategy: bundle
+    nodejs-redux-logger:
+      strategy: bundle
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}
     nodejs-reselect: {}
-    nodejs-sass-loader: {}
+    nodejs-sass-loader:
+      strategy: bundle
     nodejs-seamless-immutable: {}
-    nodejs-select2: {}
     nodejs-sortabular: {}
-    nodejs-spice-html5: {}
-    nodejs-style-loader: {}
+    nodejs-spice-html5:
+      name: "@spice-project/spice-html5"
+    nodejs-style-loader:
+      strategy: bundle
     nodejs-symbol-observable: {}
     nodejs-table-resolver: {}
-    nodejs-theforeman-vendor: {}
+    nodejs-theforeman-vendor:
+      name: "@theforeman/vendor"
     nodejs-typed-styles: {}
-    nodejs-uglifyjs-webpack-plugin: {}
+    nodejs-uglifyjs-webpack-plugin:
+      strategy: bundle
     nodejs-unidiff: {}
     nodejs-urijs: {}
-    nodejs-url-loader: {}
+    nodejs-url-loader:
+      strategy: bundle
     nodejs-uuid: {}
     nodejs-warning: {}
     nodejs-webpack-stats-plugin: {}
-    nodejs-webpack: {}
+    nodejs-webpack:
+      strategy: bundle
     nodejs-zxcvbn: {}
 
 foreman_nonscl_packages:
