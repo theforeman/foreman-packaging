@@ -1,4 +1,3 @@
-# Generated from httparty-0.17.0.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -66,30 +65,30 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
 %{_bindir}/httparty
-%{gem_instdir}/.editorconfig
+%exclude %{gem_instdir}/.editorconfig
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%{gem_instdir}/.simplecov
+%exclude %{gem_instdir}/.simplecov
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/Guardfile
+%exclude %{gem_instdir}/Guardfile
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
-%{gem_instdir}/script
-%{gem_instdir}/website
+%exclude %{gem_instdir}/script
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/httparty.gemspec
 %{gem_spec}
 
 %files doc
@@ -99,12 +98,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/cucumber.yml
+%exclude %{gem_instdir}/cucumber.yml
 %doc %{gem_instdir}/docs
 %{gem_instdir}/examples
 %{gem_instdir}/features
-%{gem_instdir}/httparty.gemspec
-%{gem_instdir}/spec
+%exclude %{gem_instdir}/spec
+%{gem_instdir}/website
 
 %changelog
 * Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.17.0-1
