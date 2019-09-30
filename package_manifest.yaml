@@ -808,9 +808,11 @@ plugin_scl_packages:
     rubygem-http: {}
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
+    rubygem-httparty: {}
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-kubeclient: {}
+    rubygem-multi_xml: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
