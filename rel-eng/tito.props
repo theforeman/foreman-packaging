@@ -527,12 +527,6 @@ whitelist =
   python-apypie
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-fedora28]
-disttag = .fc28
-whitelist = foreman-release
-  python-apypie
-  rubygem-foreman_scap_client
-
 [katello-nightly-rhel7]
 disttag = .el7
 scl = tfm
