@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Extreme Fast Parser Combinator for Ruby
 Group: Development/Languages
 License: Ruby or BSD
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.3-3
+- Update and rebuild into SCL
+
 * Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.4.3-2
 - Update to add SCL build support
 

@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -43,8 +43,8 @@ Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       %{?scl_prefix}rubygem(rb-inotify)
 Requires:       %{?scl_prefix}rubygem(rsec)
 Requires:       %{?scl_prefix}rubygem(jwt)
-Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
-Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+Requires:       %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0
+Requires:       %{?scl_prefix_ror}rubygem(concurrent-ruby) < 2.0
 Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       sudo
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Wed Jan 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.2.develop
+- Update and rebuild into SCL
+
 * Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.develop
 - Bump version to 2.0-develop
 

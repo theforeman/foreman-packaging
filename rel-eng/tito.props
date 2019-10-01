@@ -19,7 +19,6 @@ fetch_strategy = custom.ForemanSourceStrategy
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
-  foreman-proxy
   foreman-release
   foreman-release-scl
   foreman-selinux
@@ -33,7 +32,6 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-yard
   rubygem-bundler_ext
   rubygem-clamp
-  rubygem-concurrent-ruby
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
@@ -50,12 +48,12 @@ whitelist = foreman-bootloaders-redhat
   rubygem-passenger
   rubygem-powerbar
   rubygem-rb-inotify
-  rubygem-rsec
   rubygem-rubyipmi
 
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  foreman-proxy
   nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
@@ -186,6 +184,7 @@ whitelist = foreman
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
+  rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-connection_pool
   rubygem-crass
@@ -204,6 +203,7 @@ whitelist = foreman
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
+  rubygem-ffi
   rubygem-fog-aws
   rubygem-fog-core
   rubygem-fog-digitalocean
@@ -230,6 +230,7 @@ whitelist = foreman
   rubygem-graphql
   rubygem-graphql-batch
   rubygem-gridster-rails
+  rubygem-gssapi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-hashie
@@ -299,6 +300,7 @@ whitelist = foreman
   rubygem-rake-compiler
   rubygem-rbovirt
   rubygem-rbvmomi
+  rubygem-rb-inotify
   rubygem-record_tag_helper
   rubygem-redis
   rubygem-representable
@@ -308,8 +310,10 @@ whitelist = foreman
   rubygem-rkerberos
   rubygem-roadie
   rubygem-roadie-rails
+  rubygem-rsec
   rubygem-ruby2ruby
   rubygem-rubyforge
+  rubygem-rubyipmi
   rubygem-ruby-libvirt
   rubygem-ruby_parser
   rubygem-safemode
@@ -375,7 +379,6 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-down
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
-  rubygem-ffi
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
   rubygem-foreman_ansible
@@ -422,7 +425,6 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_xen
   rubygem-git
   rubygem-graphite-api
-  rubygem-gssapi
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_ansible
   rubygem-hammer_cli_foreman_azure_rm

@@ -154,6 +154,7 @@
       <packagereq type="default">tfm-rubygem-bootstrap-sass</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext</packagereq>
       <packagereq type="default">tfm-rubygem-clamp</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">tfm-rubygem-connection_pool</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser</packagereq>
@@ -169,6 +170,7 @@
       <packagereq type="default">tfm-rubygem-facter</packagereq>
       <packagereq type="default">tfm-rubygem-faraday</packagereq>
       <packagereq type="default">tfm-rubygem-fast_gettext</packagereq>
+      <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core</packagereq>
       <packagereq type="default">tfm-rubygem-fog-digitalocean</packagereq>
@@ -194,6 +196,7 @@
       <packagereq type="default">tfm-rubygem-graphql</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch</packagereq>
       <packagereq type="default">tfm-rubygem-gridster-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-gssapi</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">tfm-rubygem-hashie</packagereq>
@@ -245,6 +248,7 @@
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler</packagereq>
+      <packagereq type="default">tfm-rubygem-rb-inotify</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
@@ -256,10 +260,12 @@
       <packagereq type="default">tfm-rubygem-rkerberos</packagereq>
       <packagereq type="default">tfm-rubygem-roadie</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
+      <packagereq type="default">tfm-rubygem-rsec</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
       <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
+      <packagereq type="default">tfm-rubygem-rubyipmi</packagereq>
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
@@ -298,7 +304,7 @@
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">katello-selinux</packagereq>
-      <packagereq type="default">keycloak-httpd-client-install</packagereq>	      
+      <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
@@ -308,7 +314,6 @@
       <packagereq type="default">python2-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
-      <packagereq type="default">rubygem-concurrent-ruby</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
@@ -326,9 +331,6 @@
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">rubygem-powerbar</packagereq>
-      <packagereq type="default">rubygem-rb-inotify</packagereq>
-      <packagereq type="default">rubygem-rsec</packagereq>
-      <packagereq type="default">rubygem-rubyipmi</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -351,9 +353,6 @@
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
-      <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
-      <packagereq type="default">rubygem-rsec-doc</packagereq>
-      <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
@@ -368,6 +367,7 @@
       <packagereq type="default">tfm-rubygem-bootstrap-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-concurrent-ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-connection_pool-doc</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser-doc</packagereq>
@@ -408,6 +408,7 @@
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gridster-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-gssapi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hashie-doc</packagereq>
@@ -457,6 +458,7 @@
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rails-i18n-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rb-inotify-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>
@@ -468,9 +470,11 @@
       <packagereq type="default">tfm-rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rsec-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safemode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>

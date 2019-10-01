@@ -120,7 +120,6 @@
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
-      <packagereq type="default">tfm-rubygem-gssapi</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm</packagereq>
@@ -274,7 +273,6 @@
       <packagereq type="default">tfm-rubygem-foreman_wreckingball-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-gssapi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm-doc</packagereq>
