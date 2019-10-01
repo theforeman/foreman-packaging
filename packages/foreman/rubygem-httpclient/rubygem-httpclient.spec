@@ -10,7 +10,7 @@ Version: 2.8.3
 Release: 1%{?dist}
 Summary: gives something like the functionality of libwww-perl (LWP) in Ruby
 Group: Development/Languages
-License: ruby
+License: Ruby
 URL: https://github.com/nahi/httpclient
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
