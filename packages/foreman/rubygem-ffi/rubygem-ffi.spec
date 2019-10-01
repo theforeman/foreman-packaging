@@ -1,97 +1,104 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name ffi
-%{!?enable_test: %global enable_test 0}
 
-Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        1.4.0
-Release:        8%{?dist}
-Summary:        FFI Extensions for Ruby
-Group:          Development/Languages
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 1.11.3
+Release: 1%{?dist}
+Summary: Ruby FFI
+Group: Development/Languages
+License: BSD-3-Clause
+URL: https://github.com/ffi/ffi/wiki
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-License:        LGPLv3
-URL:            http://wiki.github.com/ffi/ffi
-Source0:        https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-BuildRequires:  %{?scl_prefix_ruby}ruby-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildRequires:	libffi-devel
-%if 0%{enable_test} > 0
-BuildRequires:	%{?scl_prefix_ror}rubygem(rspec)
-%endif
-
-Requires: %{?scl_prefix_ruby}rubygems
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-
-Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Requires: %{?scl_prefix_ruby}ruby >= 2.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.0
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Ruby-FFI is a ruby extension for programmatically loading dynamic
-libraries, binding functions within them, and calling those functions
-from Ruby code. Moreover, a Ruby-FFI extension works without changes
-on Ruby and JRuby. Discover why should you write your next extension
-using Ruby-FFI here[http://wiki.github.com/ffi/ffi/why-use-ffi].
+Ruby FFI library.
+
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a ./%{gem_extdir_mri}/* %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
-pushd %{buildroot}
-rm -f .%{gem_extdir_mri}/{gem_make.out,mkmf.log}
-popd
-
-%if 0%{enable_test} > 0
-%check
-pushd .%{gem_instdir}
-make -f libtest/GNUmakefile
-rspec spec
-popd
-%endif
+# Prevent dangling symlink in -debuginfo (rhbz#878863).
+rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %files
-%doc %{gem_instdir}/COPYING
-%doc %{gem_instdir}/COPYING.LESSER
-%doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/History.txt
-%doc %{gem_instdir}/LICENSE
-%doc %{gem_docdir}
-
 %dir %{gem_instdir}
-%{gem_instdir}/Rakefile
-%{gem_instdir}/gen
 %exclude %{gem_instdir}/ext
-%exclude %{gem_instdir}/libtest
-%{gem_instdir}/ffi.gemspec
+%{gem_extdir_mri}
+%exclude %{gem_instdir}/.appveyor.yml
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.gitmodules
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.yardopts
+%license %{gem_instdir}/COPYING
+%license %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE.SPECS
 %{gem_libdir}
-%{gem_instdir}/spec
-%{gem_extdir_mri}/
+%exclude %{gem_instdir}/samples
 %exclude %{gem_cache}
 %{gem_spec}
 
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/ffi.gemspec
 
 %changelog
+* Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.11.3-1
+- Update and rebuild into SCL
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.0-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
