@@ -5,8 +5,8 @@
 
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.2
-Release: 2%{?dist}
+Version: 3.0.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/moiristo/deep_cloneable
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 3.1.0
-Requires: %{?scl_prefix_ror}rubygem(activerecord) < 6
+Requires: %{?scl_prefix_ror}rubygem(activerecord) < 7
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -60,6 +60,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/*
 %{gem_instdir}/lib
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.document
 %{gem_spec}
@@ -71,6 +72,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Tue Oct 01 2019 Michael Moll <mmoll@mmoll.at> 3.0.0-1
+- Update to 3.0.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.3.2-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
