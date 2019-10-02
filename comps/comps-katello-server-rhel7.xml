@@ -40,7 +40,6 @@
       <packagereq type="default">nodejs-downshift</packagereq>
       <packagereq type="default">nodejs-ngreact</packagereq>
       <packagereq type="default">nodejs-query-string</packagereq>
-      <packagereq type="default">nodejs-react-bootstrap-tooltip-button</packagereq>
       <packagereq type="default">nodejs-react-helmet</packagereq>
 
       <!-- katello thirdparty rubygem packages -->
