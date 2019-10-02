@@ -26,7 +26,6 @@ whitelist = foreman-bootloaders-redhat
   katello-certs-tools
   katello-selinux
   nodejs-argv-parse
-  nodejs-axios
   nodejs-babel-cli
   nodejs-babel-core
   nodejs-babel-loader
@@ -41,25 +40,17 @@ whitelist = foreman-bootloaders-redhat
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
-  nodejs-bootstrap-sass
   nodejs-bootstrap-slider-without-jquery
-  nodejs-brace
   nodejs-breakjs
   nodejs-c3
   nodejs-change-emitter
   nodejs-classnames
-  nodejs-clsx
   nodejs-compression-webpack-plugin
   nodejs-core-js
   nodejs-create-react-context
   nodejs-css-element-queries
   nodejs-css-loader
   nodejs-d3
-  nodejs-datatables.net
-  nodejs-datatables.net-bs
-  nodejs-debug
-  nodejs-diff
-  nodejs-diff-match-patch
   nodejs-dom-helpers
   nodejs-dotenv
   nodejs-escape-string-regexp
@@ -67,51 +58,27 @@ whitelist = foreman-bootloaders-redhat
   nodejs-extract-text-webpack-plugin
   nodejs-fbjs
   nodejs-file-loader
-  nodejs-file-saver
-  nodejs-follow-redirects
-  nodejs-gridster
   nodejs-gud
   nodejs-harmony-reflect
-  nodejs-history
   nodejs-hoist-non-react-statics
   nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
-  nodejs-intl-format-cache
-  nodejs-intl-messageformat
-  nodejs-intl-messageformat-parser
-  nodejs-intl-relativeformat
   nodejs-invariant
-  nodejs-ipaddr.js
-  nodejs-is-buffer
-  nodejs-isomorphic-fetch
   nodejs-jed
   nodejs-jquery
-  nodejs-jquery.cookie
   nodejs-jquery-flot
-  nodejs-jquery-ujs
-  nodejs-jsdom
   nodejs-js-tokens
-  nodejs-jstz
-  nodejs-linear-layout-vector
   nodejs-lodash
   nodejs-lodash.debounce
   nodejs-lodash-es
-  nodejs-lodash.get
-  nodejs-lodash.isequal
-  nodejs-lodash.orderby
-  nodejs-lodash-webpack-plugin
   nodejs-loose-envify
-  nodejs-ms
-  nodejs-multiselect
   nodejs-node-gyp
   nodejs-node-sass
-  nodejs-novnc
   nodejs-number_helpers
   nodejs-object-assign
   nodejs-patternfly
   nodejs-patternfly-react
-  nodejs-patternfly-react-extensions
   nodejs-performance-now
   nodejs-popper.js
   nodejs-prop-types
@@ -119,7 +86,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-raf
   nodejs-react
   nodejs-reactabular-table
-  nodejs-react-ace
   nodejs-react-bootstrap
   nodejs-react-bootstrap-switch
   nodejs-react-bootstrap-typeahead
@@ -127,7 +93,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-click-outside
   nodejs-react-collapse
   nodejs-react-debounce-input
-  nodejs-react-diff-view
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
   nodejs-react-fontawesome
@@ -135,22 +100,12 @@ whitelist = foreman-bootloaders-redhat
   nodejs-react-is
   nodejs-react-lifecycles-compat
   nodejs-react-motion
-  nodejs-react-numeric-input
-  nodejs-react-onclickoutside
   nodejs-react-overlays
-  nodejs-react-password-strength
   nodejs-react-popper
   nodejs-react-redux
-  nodejs-react-router
-  nodejs-react-router-bootstrap
-  nodejs-react-router-dom
   nodejs-react-transition-group
-  nodejs-react-virtualized
   nodejs-recompose
   nodejs-redux
-  nodejs-redux-form
-  nodejs-redux-form-validators
-  nodejs-redux-logger
   nodejs-redux-thunk
   nodejs-regenerator-runtime
   nodejs-reselect
@@ -158,21 +113,18 @@ whitelist = foreman-bootloaders-redhat
   nodejs-seamless-immutable
   nodejs-select2
   nodejs-sortabular
-  nodejs-spice-html5
   nodejs-style-loader
   nodejs-symbol-observable
   nodejs-table-resolver
   nodejs-theforeman-vendor
   nodejs-typed-styles
   nodejs-uglifyjs-webpack-plugin
-  nodejs-unidiff
   nodejs-urijs
   nodejs-url-loader
   nodejs-uuid
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
-  nodejs-zxcvbn
   pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
@@ -538,7 +490,6 @@ whitelist = katello
   nodejs-downshift
   nodejs-ngreact
   nodejs-query-string
-  nodejs-react-bootstrap-tooltip-button
   nodejs-react-helmet
   pulp-katello
   rhel8-kickstart-setup
