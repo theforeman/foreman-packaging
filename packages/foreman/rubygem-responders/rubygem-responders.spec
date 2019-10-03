@@ -4,8 +4,8 @@
 %global gem_name responders
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
-Release: 2%{?dist}
+Version: 3.0.0
+Release: 1%{?dist}
 Summary: A set of Rails responders to dry up your application
 Group: Development/Languages
 License: MIT
@@ -13,10 +13,8 @@ URL: https://github.com/plataformatec/responders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.2.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) < 5.3
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 4.2.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 5.3
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 5.0
+Requires: %{?scl_prefix_ror}rubygem(railties) >= 5.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -25,7 +23,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
-A set of responders modules to dry up your Rails 4.2+ app.
+A set of Rails responders to dry up your application
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -62,6 +60,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Oct 03 2019 Michael Moll <mmoll@mmoll.at> - 3.0.0-1
+- Update responders to 3.0.0
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
