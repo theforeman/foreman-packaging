@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prerelease develop
 
 Name:    foreman
@@ -112,8 +112,8 @@ Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
 Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
-Requires: %{?scl_prefix}rubygem(responders) >= 2.0
-Requires: %{?scl_prefix}rubygem(responders) < 3.0
+Requires: %{?scl_prefix}rubygem(responders) >= 3.0
+Requires: %{?scl_prefix}rubygem(responders) < 4.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
 Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
@@ -218,8 +218,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(responders) >= 2.0
-BuildRequires: %{?scl_prefix}rubygem(responders) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(responders) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(responders) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Oct 03 2019 Michael Moll <mmoll@mmoll.at> - 1.24.0-0.5.develop
+- Update responders gem dependency
+
 * Tue Oct 01 2019 Michael Moll <mmoll@mmoll.at> - 1.24.0-0.4.develop
 - Update deep_cloneable gem dependency
 
