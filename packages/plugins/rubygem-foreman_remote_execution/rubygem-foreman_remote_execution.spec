@@ -13,14 +13,14 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.8.4
+Version:    2.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.20.0
+Requires:   foreman >= 1.24.0
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -149,6 +149,9 @@ exit 0
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Fri Oct 04 2019 Adam Ruzicka <aruzicka@redhat.com> 2.0.0-1
+- Update to 2.0.0
+
 * Tue Aug 20 2019 Adam Ruzicka <aruzicka@redhat.com> 1.8.4-1
 - Update to 1.8.4
 
