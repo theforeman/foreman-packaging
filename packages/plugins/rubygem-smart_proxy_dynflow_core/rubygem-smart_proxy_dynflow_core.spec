@@ -14,7 +14,7 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.2
+Version: 0.2.3
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -26,7 +26,7 @@ Requires: foreman-proxy >= 1.12.0
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.1.7
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.3
 Requires: %{?scl_prefix}rubygem(sequel)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix_ror}rubygem(sinatra)
@@ -119,6 +119,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Oct 04 2019 Adam Ruzicka <aruzicka@redhat.com> 0.2.3-1
+- Update to 0.2.3
+
 * Mon Jan 14 2019 Ivan Nečas <inecas@redhat.com> 0.2.2-1
 - Update to 0.2.2
 
