@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow-core (0.2.3-1) stable; urgency=low
+
+  * 0.2.3 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Fri, 04 Oct 2019 18:07:56 +0200
+
 ruby-smart-proxy-dynflow-core (0.2.2-1) stable; urgency=low
 
   * 0.2.2 released
