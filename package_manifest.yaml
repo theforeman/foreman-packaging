@@ -245,7 +245,6 @@ foreman_nodejs_packages:
     nodejs-babel-register:
       strategy: bundle
     nodejs-babel-runtime: {}
-    nodejs-bootstrap-sass: {}
     nodejs-bootstrap-slider-without-jquery: {}
     nodejs-breakjs: {}
     nodejs-c3: {}

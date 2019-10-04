@@ -1,17 +1,24 @@
-%global npm_name d3
-%global enable_tests 1
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
 
-Name: nodejs-%{npm_name}
+%global npm_name d3
+
+Name: %{?scl_prefix}nodejs-d3
 Version: 3.5.17
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A JavaScript visualization library for HTML and SVG
 License: BSD-3-Clause
 Group: Development/Libraries
 URL: http://d3js.org
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -30,10 +37,8 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -42,6 +47,8 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.5.17-2
+- Update specs to handle SCL
+
 * Thu Feb 22 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.5.17-1
 - new package built with tito
-
