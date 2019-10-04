@@ -634,7 +634,6 @@ katello_packages:
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-downshift: {}
-    nodejs-jed: {}
     nodejs-ngreact: {}
     nodejs-query-string: {}
     nodejs-react-helmet: {}

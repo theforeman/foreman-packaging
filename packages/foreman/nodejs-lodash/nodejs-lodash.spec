@@ -1,16 +1,24 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name lodash
 
-Name: nodejs-lodash
+Name: %{?scl_prefix}nodejs-lodash
 Version: 4.17.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Lodash modular utilities
 License: MIT
 Group: Development/Libraries
 URL: https://lodash.com/
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -665,6 +673,9 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.17.11-2
+- Update specs to handle SCL
+
 * Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 4.17.11-1
 - Update to 4.17.11
 
@@ -679,4 +690,3 @@ cp -pfr zipWith.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 2.4.2-1
 - new package built with tito
-

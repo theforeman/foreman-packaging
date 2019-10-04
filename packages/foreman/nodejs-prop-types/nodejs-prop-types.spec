@@ -1,20 +1,28 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name prop-types
 
-Name: nodejs-prop-types
+Name: %{?scl_prefix}nodejs-prop-types
 Version: 15.6.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Runtime type checking for React props and similar objects
 License: MIT
 Group: Development/Libraries
 URL: https://facebook.github.io/react/
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-Requires: npm(loose-envify) >= 1.3.1
-Requires: npm(loose-envify) < 2.0.0
-Requires: npm(object-assign) >= 4.1.1
-Requires: npm(object-assign) < 5.0.0
+%endif
+Requires: %{?scl_prefix}npm(loose-envify) >= 1.3.1
+Requires: %{?scl_prefix}npm(loose-envify) < 2.0.0
+Requires: %{?scl_prefix}npm(object-assign) >= 4.1.1
+Requires: %{?scl_prefix}npm(object-assign) < 5.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -46,6 +54,9 @@ cp -pfr prop-types.min.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 15.6.2-2
+- Update specs to handle SCL
+
 * Wed Oct 10 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 15.6.2-1
 - Update to 15.6.2
 

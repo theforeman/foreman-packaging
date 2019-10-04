@@ -1,17 +1,24 @@
-%global npm_name symbol-observable
-%global enable_tests 1
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
 
-Name: nodejs-%{npm_name}
+%global npm_name symbol-observable
+
+Name: %{?scl_prefix}nodejs-symbol-observable
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Symbol
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/blesh/symbol-observable#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -29,10 +36,8 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -41,6 +46,8 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
+- Update specs to handle SCL
+
 * Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 1.1.0-1
 - new package built with tito
-
