@@ -1,16 +1,24 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name @theforeman/vendor
 
-Name: nodejs-theforeman-vendor
+Name: %{?scl_prefix}nodejs-theforeman-vendor
 Version: 1.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/theforeman/foreman-js#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -33,6 +41,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-2
+- Update specs to handle SCL
+
 * Tue Sep 24 2019 Ondřej Ezr <oezr@redhat.com> 1.7.0-1
 - Update to 1.7.0
 

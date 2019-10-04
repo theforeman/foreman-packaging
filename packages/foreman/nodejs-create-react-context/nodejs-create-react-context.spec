@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-create-react-context
 Version: 0.2.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Polyfill for the proposed React context API
 License: SEE LICENSE IN LICENSE
 Group: Development/Libraries
@@ -16,10 +16,10 @@ BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(fbjs) >= 0.8.0
-Requires: npm(fbjs) < 0.9.0
-Requires: npm(gud) >= 1.0.0
-Requires: npm(gud) < 2.0.0
+Requires: %{?scl_prefix}npm(fbjs) >= 0.8.0
+Requires: %{?scl_prefix}npm(fbjs) < 0.9.0
+Requires: %{?scl_prefix}npm(gud) >= 1.0.0
+Requires: %{?scl_prefix}npm(gud) < 2.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -46,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-3
+- Update requires for SCL prefix
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-2
 - Update specs to handle SCL
 

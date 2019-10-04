@@ -1,49 +1,65 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name react-dom
 
-Name: nodejs-react-dom
+Name: %{?scl_prefix}nodejs-react-dom
 Version: 16.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: React package for working with the DOM
 License: MIT
 Group: Development/Libraries
 URL: https://reactjs.org/
-Source0: https://registry.npmjs.org/react-dom/-/react-dom-16.8.1.tgz
+Source0: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source1: https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz
-Source2: https://registry.npmjs.org/prop-types/-/prop-types-15.7.1.tgz
-Source3: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
-Source4: https://registry.npmjs.org/scheduler/-/scheduler-0.13.1.tgz
-Source5: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
-Source6: https://registry.npmjs.org/react-is/-/react-is-16.8.1.tgz
-Source7: %{name}-%{version}-registry.npmjs.org.tgz
+Source2: https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz
+Source3: https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz
+Source4: https://registry.npmjs.org/react-dom/-/react-dom-16.8.1.tgz
+Source5: https://registry.npmjs.org/react-is/-/react-is-16.10.2.tgz
+Source6: https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz
+Source7: nodejs-react-dom-%{version}-registry.npmjs.org.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
-Provides: npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(loose-envify)) = 1.4.0
 Provides: bundled(npm(object-assign)) = 4.1.1
-Provides: bundled(npm(prop-types)) = 15.7.1
+Provides: bundled(npm(prop-types)) = 15.7.2
 Provides: bundled(npm(react-dom)) = 16.8.1
-Provides: bundled(npm(react-is)) = 16.8.1
-Provides: bundled(npm(scheduler)) = 0.13.1
+Provides: bundled(npm(react-is)) = 16.10.2
+Provides: bundled(npm(scheduler)) = 0.13.6
 AutoReq: no
 AutoProv: no
 
+%if 0%{?scl:1}
+%define npm_cache_dir npm_cache
+%else
 %define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
+%endif
 
 %description
 %{summary}
 
 %prep
 mkdir -p %{npm_cache_dir}
+%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
   echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
 done
+%{?scl:end_of_scl}
+
 %setup -T -q -a 7 -D -n %{npm_cache_dir}
 
 %build
-npm install --cache-min Infinity --cache %{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+%{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
+npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
+%{?scl:end_of_scl}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -72,6 +88,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 16.8.1-2
+- Update specs to handle SCL
+
 * Mon Feb 11 2019 Ohad Levy <ohadlevy@gmail.com> 16.8.1-1
 - Update to 16.8.1
 

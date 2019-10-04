@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-runtime
 Version: 6.26.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: babel selfContained runtime
 License: MIT
 Group: Development/Libraries
@@ -16,10 +16,10 @@ BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(core-js) >= 2.4.0
-Requires: npm(core-js) < 3.0.0
-Requires: npm(regenerator-runtime) >= 0.11.0
-Requires: npm(regenerator-runtime) < 0.12.0
+Requires: %{?scl_prefix}npm(core-js) >= 2.4.0
+Requires: %{?scl_prefix}npm(core-js) < 3.0.0
+Requires: %{?scl_prefix}npm(regenerator-runtime) >= 0.11.0
+Requires: %{?scl_prefix}npm(regenerator-runtime) < 0.12.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -48,6 +48,9 @@ cp -pfr regenerator %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.26.0-3
+- Update requires for SCL prefix
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.26.0-2
 - Update specs to handle SCL
 

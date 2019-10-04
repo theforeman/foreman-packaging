@@ -1,23 +1,24 @@
-# FIXME
-# Remove nodejs_symlink_deps if installing bundled module with NPM
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
 
 %global npm_name webpack-stats-plugin
-%global enable_tests 0
 
-%{?nodejs_find_provides_and_requires}
-
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-webpack-stats-plugin
 Version: 0.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Webpack stats plugin
 License: MIT
-URL: https://github.com/FormidableLabs/webpack-stats-plugin/issues
-Source0: http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+Group: Development/Libraries
+URL: https://github.com/FormidableLabs/webpack-stats-plugin#readme
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
+%endif
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-
-%{?nodejs_find_provides_and_requires}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -25,32 +26,26 @@ ExclusiveArch: %{nodejs_arches} noarch
 %prep
 %setup -q -n package
 
-%build
-%nodejs_symlink_deps --build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr HISTORY.md LICENSE.txt README.md index.js lib package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-# If any binaries are included, symlink them to bindir here
-
+cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-#$CHECK
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
-%doc LICENSE.txt
+%license LICENSE.txt
 %doc HISTORY.md
-%doc LICENSE.txt
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-2
+- Update specs to handle SCL
+
 * Tue Jul 18 2017 Michael Moll <kvedulv@kvedulv.de> 0.1.5-1
 - Replace nodejs-stats-webpack-plugin with nodejs-webpack-stats-plugin
-

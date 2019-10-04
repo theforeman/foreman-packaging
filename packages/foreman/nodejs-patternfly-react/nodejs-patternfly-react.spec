@@ -1,58 +1,66 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name patternfly-react
 
-Name: nodejs-patternfly-react
+Name: %{?scl_prefix}nodejs-patternfly-react
 Version: 2.34.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/patternfly/patternfly-react#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-Requires: npm(bootstrap-slider-without-jquery) >= 10.0.0
-Requires: npm(bootstrap-slider-without-jquery) < 11.0.0
-Requires: npm(breakjs) >= 1.0.0
-Requires: npm(breakjs) < 2.0.0
-Requires: npm(classnames) >= 2.2.5
-Requires: npm(classnames) < 3.0.0
-Requires: npm(css-element-queries) >= 1.0.1
-Requires: npm(css-element-queries) < 2.0.0
-Requires: npm(lodash) >= 4.17.11
-Requires: npm(lodash) < 5.0.0
-Requires: npm(patternfly) >= 3.58.0
-Requires: npm(patternfly) < 4.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 0.33.0
-Requires: npm(react-bootstrap-switch) >= 15.5.3
-Requires: npm(react-bootstrap-switch) < 16.0.0
-Requires: npm(react-bootstrap-typeahead) >= 3.4.1
-Requires: npm(react-bootstrap-typeahead) < 4.0.0
-Requires: npm(react-c3js) >= 0.1.20
-Requires: npm(react-c3js) < 0.2.0
-Requires: npm(react-click-outside) >= 3.0.1
-Requires: npm(react-click-outside) < 4.0.0
-Requires: npm(react-collapse) >= 4.0.3
-Requires: npm(react-collapse) < 5.0.0
-Requires: npm(react-debounce-input) >= 3.2.0
-Requires: npm(react-debounce-input) < 4.0.0
-Requires: npm(react-ellipsis-with-tooltip) >= 1.0.8
-Requires: npm(react-ellipsis-with-tooltip) < 2.0.0
-Requires: npm(react-fontawesome) >= 1.6.1
-Requires: npm(react-fontawesome) < 2.0.0
-Requires: npm(react-motion) >= 0.5.2
-Requires: npm(react-motion) < 0.6.0
-Requires: npm(reactabular-table) >= 8.14.0
-Requires: npm(reactabular-table) < 9.0.0
-Requires: npm(recompose) >= 0.26.0
-Requires: npm(recompose) < 0.27.0
-Requires: npm(sortabular) >= 1.5.1
-Requires: npm(sortabular) < 2.0.0
-Requires: npm(table-resolver) >= 3.2.0
-Requires: npm(table-resolver) < 4.0.0
-Requires: npm(uuid) >= 3.3.2
-Requires: npm(uuid) < 4.0.0
+%endif
+Requires: %{?scl_prefix}npm(bootstrap-slider-without-jquery) >= 10.0.0
+Requires: %{?scl_prefix}npm(bootstrap-slider-without-jquery) < 11.0.0
+Requires: %{?scl_prefix}npm(breakjs) >= 1.0.0
+Requires: %{?scl_prefix}npm(breakjs) < 2.0.0
+Requires: %{?scl_prefix}npm(classnames) >= 2.2.5
+Requires: %{?scl_prefix}npm(classnames) < 3.0.0
+Requires: %{?scl_prefix}npm(css-element-queries) >= 1.0.1
+Requires: %{?scl_prefix}npm(css-element-queries) < 2.0.0
+Requires: %{?scl_prefix}npm(lodash) >= 4.17.11
+Requires: %{?scl_prefix}npm(lodash) < 5.0.0
+Requires: %{?scl_prefix}npm(patternfly) >= 3.58.0
+Requires: %{?scl_prefix}npm(patternfly) < 4.0.0
+Requires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
+Requires: %{?scl_prefix}npm(react-bootstrap) < 0.33.0
+Requires: %{?scl_prefix}npm(react-bootstrap-switch) >= 15.5.3
+Requires: %{?scl_prefix}npm(react-bootstrap-switch) < 16.0.0
+Requires: %{?scl_prefix}npm(react-bootstrap-typeahead) >= 3.4.1
+Requires: %{?scl_prefix}npm(react-bootstrap-typeahead) < 4.0.0
+Requires: %{?scl_prefix}npm(react-c3js) >= 0.1.20
+Requires: %{?scl_prefix}npm(react-c3js) < 0.2.0
+Requires: %{?scl_prefix}npm(react-click-outside) >= 3.0.1
+Requires: %{?scl_prefix}npm(react-click-outside) < 4.0.0
+Requires: %{?scl_prefix}npm(react-collapse) >= 4.0.3
+Requires: %{?scl_prefix}npm(react-collapse) < 5.0.0
+Requires: %{?scl_prefix}npm(react-debounce-input) >= 3.2.0
+Requires: %{?scl_prefix}npm(react-debounce-input) < 4.0.0
+Requires: %{?scl_prefix}npm(react-ellipsis-with-tooltip) >= 1.0.8
+Requires: %{?scl_prefix}npm(react-ellipsis-with-tooltip) < 2.0.0
+Requires: %{?scl_prefix}npm(react-fontawesome) >= 1.6.1
+Requires: %{?scl_prefix}npm(react-fontawesome) < 2.0.0
+Requires: %{?scl_prefix}npm(react-motion) >= 0.5.2
+Requires: %{?scl_prefix}npm(react-motion) < 0.6.0
+Requires: %{?scl_prefix}npm(reactabular-table) >= 8.14.0
+Requires: %{?scl_prefix}npm(reactabular-table) < 9.0.0
+Requires: %{?scl_prefix}npm(recompose) >= 0.26.0
+Requires: %{?scl_prefix}npm(recompose) < 0.27.0
+Requires: %{?scl_prefix}npm(sortabular) >= 1.5.1
+Requires: %{?scl_prefix}npm(sortabular) < 2.0.0
+Requires: %{?scl_prefix}npm(table-resolver) >= 3.2.0
+Requires: %{?scl_prefix}npm(table-resolver) < 4.0.0
+Requires: %{?scl_prefix}npm(uuid) >= 3.3.2
+Requires: %{?scl_prefix}npm(uuid) < 4.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -80,6 +88,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.34.1-2
+- Update specs to handle SCL
+
 * Thu May 16 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.34.1-1
 - Update to 2.34.1
 

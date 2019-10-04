@@ -1,22 +1,26 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name loose-envify
-%global enable_tests 0
 
-%{?nodejs_find_provides_and_requires}
-
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-loose-envify
 Version: 1.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Fast (and loose) selective `process
 License: MIT
+Group: Development/Libraries
 URL: https://github.com/zertosh/loose-envify
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
+%endif
+Requires: %{?scl_prefix}npm(js-tokens) >= 3.0.0
+Requires: %{?scl_prefix}npm(js-tokens) < 4.0.0
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Requires: npm(js-tokens) >= 3.0.0
-Requires: npm(js-tokens) < 4.0.0
-
-%{?nodejs_find_provides_and_requires}
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -24,38 +28,33 @@ Requires: npm(js-tokens) < 4.0.0
 %prep
 %setup -q -n package
 
-%build
-$BUILD
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr .npmignore LICENSE README.md cli.js custom.js index.js loose-envify.js package.json replace.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr cli.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr custom.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr loose-envify.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr replace.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-# Handle binaries
 mkdir -p %{buildroot}%{_bindir}
-install -p -D -m0755 cli.js %{buildroot}%{nodejs_sitelib}/%{npm_name}/cli.js
-ln -sf %{nodejs_sitelib}/%{npm_name}/cli.js %{buildroot}%{_bindir}/%{npm_name}.js
-
+chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/cli.js
+ln -sf %{nodejs_sitelib}/%{npm_name}/cli.js %{buildroot}%{_bindir}/loose-envify
 
 %nodejs_symlink_deps
 
-%clean
-rm -rf %{buildroot} npm_cache
-
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-#$CHECK
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%{_bindir}/%{npm_name}.js
-
+%{_bindir}/loose-envify
 %license LICENSE
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.3.1-2
+- Update specs to handle SCL
+
 * Wed Oct 18 2017 Eric D. Helms <ericdhelms@gmail.com> 1.3.1-1
 - new package built with tito
-

@@ -1,59 +1,53 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name jquery
 
-Name: nodejs-%{npm_name}
+Name: %{?scl_prefix}nodejs-jquery
 Version: 2.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: JavaScript library for DOM operations
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/jquery/jquery.git
-Source0: http://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz
-Requires: nodejs(engine)
-BuildRequires: nodejs-devel
-BuildRequires: nodejs-packaging
-BuildArch: noarch
-%if 0%{?fedora} >= 19
-ExclusiveArch: %{nodejs_arches} noarch
+URL: http://jquery.com
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
 %else
-ExclusiveArch: %{ix86} x86_64 %{arm} noarch
+BuildRequires: nodejs-packaging
 %endif
-Provides: npm(%{npm_name}) = %{version}
+BuildArch: noarch
+ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
-JavaScript library for DOM operations
-
-%package doc
-Summary: Documentation for nodejs-%{npm_name}
-Group: Documentation
-Requires: nodejs-%{npm_name} = %{version}-%{release}
-BuildArch: noarch
-
-%description doc
-This package contains documentation for nodejs-%{npm_name}.
+%{summary}
 
 %prep
 %setup -q -n package
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr dist external src *.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr external %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
-%build
+%nodejs_symlink_deps
 
 %check
-%nodejs_symlink_deps --check
+%{nodejs_symlink_deps} --check
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%doc LICENSE.txt
-
-%files doc
-%doc *.md
-%doc *.txt
-%exclude %{nodejs_sitelib}/%{npm_name}/.*
-%exclude %{nodejs_sitelib}/%{npm_name}/bower.json
+%license LICENSE.txt
+%doc AUTHORS.txt
+%doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.2.4-2
+- Update specs to handle SCL
+
 * Thu Jan 26 2017 Dominic Cleal <dominic@cleal.org> 2.2.4-1
 - Update nodejs-jquery to 2.2.4 (dominic@cleal.org)
 
@@ -65,4 +59,3 @@ cp -pfr dist external src *.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 * Thu Aug 11 2016 Dominic Cleal <dominic@cleal.org> 1.11.3-1
 - new package built with tito
-

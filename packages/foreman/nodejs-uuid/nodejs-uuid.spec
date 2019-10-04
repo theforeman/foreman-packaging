@@ -1,16 +1,24 @@
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
+
 %global npm_name uuid
 
-Name: nodejs-uuid
+Name: %{?scl_prefix}nodejs-uuid
 Version: 3.3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: RFC4122 (v1, v4, and v5) UUIDs
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/kelektiv/node-uuid#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
+%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -48,6 +56,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 %doc README_js.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.2-2
+- Update specs to handle SCL
+
 * Thu Jan 17 2019 Avi Sharvit <asharvit@redhat.com> 3.3.2-1
 - Update to 3.3.2
 
@@ -59,4 +70,3 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/bin/uuid %{buildroot}%{_bindir}/uuid
 
 * Mon May 08 2017 Dominic Cleal <dominic@cleal.org> 3.0.1-1
 - new package built with tito
-

@@ -1,19 +1,26 @@
-%global npm_name react-c3js
-%global enable_tests 1
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
 
-Name: nodejs-%{npm_name}
+%global npm_name react-c3js
+
+Name: %{?scl_prefix}nodejs-react-c3js
 Version: 0.1.20
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: React component for C3
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/bcbcarl/react-c3js#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-Requires: npm(c3) >= 0.4.11
-Requires: npm(c3) < 1.0.0
+%endif
+Requires: %{?scl_prefix}npm(c3) >= 0.4.11
+Requires: %{?scl_prefix}npm(c3) < 0.5.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -29,10 +36,8 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
@@ -40,6 +45,8 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.20-2
+- Update specs to handle SCL
+
 * Tue Dec 19 2017 Daniel Lobato Garcia <me@daniellobato.me> 0.1.20-1
 - new package built with tito
-
