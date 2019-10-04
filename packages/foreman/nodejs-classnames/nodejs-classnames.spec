@@ -1,51 +1,53 @@
-%global npm_name classnames
-%global enable_tests 0
+%{?scl:%scl_package nodejs-%{npm_name}}
+%{!?scl:%global pkg_name %{name}}
 
-Name: nodejs-%{npm_name}
+%global npm_name classnames
+
+Name: %{?scl_prefix}nodejs-classnames
 Version: 2.2.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple utility for conditionally joining classNames together
 License: MIT
-URL: https://github.com/JedWatson/classnames.git
+Group: Development/Libraries
+URL: https://github.com/JedWatson/classnames#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
-BuildArch:  noarch
+%endif
+BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
+Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
-%{?nodejs_find_provides_and_requires}
-
-%define npm_cache_dir /tmp/npm_cache_%{name}-%{version}-%{release}
 %description
 %{summary}
 
 %prep
 %setup -q -n package
 
-%build
-
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr CONTRIBUTING.md HISTORY.md LICENSE README.md bind.js bower.json dedupe.js index.js package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr bind.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr dedupe.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr index.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
-%clean
-rm -rf %{buildroot} %{npm_cache_dir}
-
-%if 0%{?enable_tests}
 %check
 %{nodejs_symlink_deps} --check
-%endif
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-
 %license LICENSE
 %doc CONTRIBUTING.md
 %doc HISTORY.md
 %doc README.md
 
 %changelog
+* Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.2.5-2
+- Update specs to handle SCL
+
 * Wed Nov 08 2017 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.5-1
 - new package built with tito
-
