@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prerelease develop
 
 Name:    foreman
@@ -316,7 +316,7 @@ BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: npm(@theforeman/vendor) >= 1.7.0
 BuildRequires: npm(@theforeman/vendor) < 2.0.0
 BuildRequires: npm(intl) >= 1.2.5
 BuildRequires: npm(intl) < 1.3.0
@@ -449,7 +449,7 @@ Meta package to install requirements for Rackspace compute resource support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.2
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.2.1
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -546,7 +546,7 @@ Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 1.4.0
+Requires: npm(@theforeman/vendor) >= 1.7.0
 Requires: npm(@theforeman/vendor) < 2.0.0
 Requires: npm(intl) >= 1.2.5
 Requires: npm(intl) < 1.3.0
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Sun Oct 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Thu Oct 03 2019 Michael Moll <mmoll@mmoll.at> - 1.24.0-0.5.develop
 - Update responders gem dependency
 
