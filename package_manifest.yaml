@@ -822,8 +822,10 @@ plugin_nonscl_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     foreman-discovery-image-service: {}
-    nodejs-babel-plugin-module-resolver: {}
-    nodejs-react-json-tree: {}
+    nodejs-babel-plugin-module-resolver:
+      strategy: bundle
+    nodejs-react-json-tree:
+      strategy: bundle
     puppet-foreman_scap_client: {}
     rubygem-newt: {}
     rubygem-satyr: {}
