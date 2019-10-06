@@ -1,4 +1,7 @@
-%global release 1
+%{?scl:%global scl_prefix %{scl}-}
+%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
+
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -15,17 +18,17 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   %{?scl_prefix}puppet-agent >= 5.5.10
-Requires:   %{?scl_prefix}rubygem(kafo) >= 4.0.0
+Requires:   puppet-agent >= 5.5.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
 Requires:   foreman-maintain
 
 BuildRequires: asciidoc
-BuildRequires: rubygem(rake)
-BuildRequires: %{?scl_prefix}puppet-agent >= 1.9.0
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 4.0.0
+BuildRequires: puppet-agent >= 5.5.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 4.1.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 5.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
@@ -53,10 +56,11 @@ Various scenarios and tools for the Katello ecosystem
 
 %build
 #replace shebangs for SCL
-%if %{?scl:1}%{!?scl:0}
+%if 0%{?scl:1}
   sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X/usr/bin/%{?scl:%{scl_prefix}}rubyX' bin/foreman-installer bin/foreman-proxy-certs-generate bin/katello-certs-check
 %endif
-rake build \
+
+%{scl_rake} build \
   VERSION=%{version} \
   LOCALSTATEDIR=%{_localstatedir} \
   PREFIX=%{_prefix} \
@@ -65,7 +69,7 @@ rake build \
   --trace
 
 %install
-rake install \
+%{scl_rake} install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
   SBINDIR=%{buildroot}%{_sbindir} \
@@ -141,6 +145,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Apr 01 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-0.2.develop
+- Build foreman-installer for SCL
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 1:2.1.0-0.1.develop
 - Bump version to 2.1-develop
 

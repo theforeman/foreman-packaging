@@ -18,7 +18,6 @@ fetch_strategy = custom.ForemanSourceStrategy
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
-  foreman-installer
   foreman-release
   foreman-release-scl
   foreman-selinux
@@ -42,6 +41,7 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  foreman-installer
   foreman-proxy
   nodejs-argv-parse
   nodejs-babel-cli
