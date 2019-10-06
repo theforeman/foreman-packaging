@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.14.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -39,13 +39,13 @@ Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(qpid_messaging)
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-Requires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
+Requires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc5.dev01566405557
-Requires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b2.dev01566325827
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01566484022
-Requires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b6.dev01566480729
+Requires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+Requires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
+Requires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -65,13 +65,13 @@ BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(qpid_messaging)
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.11.0
+BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc5.dev01566405557
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b2.dev01566325827
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01566484022
-BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b6.dev01566480729
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
+BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -241,6 +241,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Sun Oct 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.3.pre.master
+- Update Gem and NPM dependencies
+
 * Mon Aug 26 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.2.pre.master
 - Update Gem and NPM dependencies
 
