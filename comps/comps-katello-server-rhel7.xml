@@ -35,12 +35,14 @@
       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
 
       <!-- katello thirdparty nodejs packages -->
-      <packagereq type="default">nodejs-angular</packagereq>
-      <packagereq type="default">nodejs-bootstrap-select</packagereq>
-      <packagereq type="default">nodejs-downshift</packagereq>
-      <packagereq type="default">nodejs-ngreact</packagereq>
-      <packagereq type="default">nodejs-query-string</packagereq>
-      <packagereq type="default">nodejs-react-helmet</packagereq>
+      <packagereq type="default">tfm-nodejs-angular</packagereq>
+      <packagereq type="default">tfm-nodejs-bootstrap-select</packagereq>
+      <packagereq type="default">tfm-nodejs-decode-uri-component</packagereq>
+      <packagereq type="default">tfm-nodejs-downshift</packagereq>
+      <packagereq type="default">tfm-nodejs-ngreact</packagereq>
+      <packagereq type="default">tfm-nodejs-query-string</packagereq>
+      <packagereq type="default">tfm-nodejs-react-helmet</packagereq>
+      <packagereq type="default">tfm-nodejs-strict-uri-encode</packagereq>
 
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">tfm-rubygem-anemone</packagereq>

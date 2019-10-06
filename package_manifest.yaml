@@ -637,10 +637,13 @@ katello_packages:
     katello-repos: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
+    nodejs-decode-uri-component: {}
     nodejs-downshift: {}
     nodejs-ngreact: {}
     nodejs-query-string: {}
-    nodejs-react-helmet: {}
+    nodejs-react-helmet:
+      strategy: bundle
+    nodejs-strict-uri-encode: {}
     pulp-katello: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
