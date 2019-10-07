@@ -5,7 +5,7 @@
 
 Summary: Code used both at Forman and Foreman proxy regarding tasks
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.2
+Version: 0.3.3
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -61,6 +61,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Mon Oct 07 2019 Adam Ruzicka <aruzicka@redhat.com> 0.3.3-1
+- Update to 0.3.3
+
 * Mon Apr 15 2019 Adam Ruzicka <aruzicka@redhat.com> 0.3.2-1
 - Update to 0.3.2
 
