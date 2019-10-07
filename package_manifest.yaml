@@ -721,6 +721,7 @@ plugin_scl_packages:
     rubygem-deface: {}
     rubygem-diffy: {}
     rubygem-down: {}
+    rubygem-faraday-cookie_jar: {}
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
