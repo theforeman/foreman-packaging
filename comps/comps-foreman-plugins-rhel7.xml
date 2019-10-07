@@ -65,6 +65,7 @@
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-down</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday-cookie_jar</packagereq>
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
@@ -213,6 +214,7 @@
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday-cookie_jar-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
