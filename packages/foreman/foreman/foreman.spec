@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prerelease develop
 
 Name:    foreman
@@ -744,7 +744,7 @@ plugins required for Foreman to work.
 #replace shebangs and binaries in scripts for SCL
 %if %{?scl:1}%{!?scl:0}
   # shebangs
-  for f in bin/* script/performance/profiler script/performance/benchmarker script/foreman-config script/dynflowd ; do
+  for f in bin/* script/performance/profiler script/performance/benchmarker script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   # script content
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Oct 07 2019 Tomer Brisker <tbrisker@gmail.com> 1.24.0-0.7.develop
+- remove foreman-config
+
 * Sun Oct 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.6.develop
 - Update Gem and NPM dependencies
 
