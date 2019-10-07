@@ -782,6 +782,7 @@ plugin_scl_packages:
     rubygem-jquery-matchheight-rails: {}
     rubygem-kubeclient: {}
     rubygem-multi_xml: {}
+    rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
