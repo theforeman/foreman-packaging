@@ -137,6 +137,7 @@
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient</packagereq>
       <packagereq type="default">tfm-rubygem-multi_xml</packagereq>
+      <packagereq type="default">tfm-rubygem-ms_rest</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest_azure</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
@@ -284,6 +285,7 @@
       <packagereq type="default">tfm-rubygem-kubeclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_xml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest_azure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ms_rest-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
