@@ -310,11 +310,11 @@ whitelist = rubygem-angular-rails-templates
   rubygem-bootstrap-datepicker-rails
   rubygem-chunky_png
   rubygem-commonjs
-  rubygem-elastic-apm
   rubygem-dalli
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-elastic-apm
   rubygem-ffi
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
@@ -384,6 +384,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-multi_xml
+  rubygem-ms_rest_azure
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
