@@ -5,8 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .rc2
-%global release 4
+%global release 1
 
 Name:           katello-repos
 Version:        3.13.0
@@ -77,6 +76,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Mon Oct 07 2019 Evgeni Golov - 3.13.0-1
+- Release 3.13.0
+
 * Tue Sep 10 2019 Evgeni Golov - 3.13.0-0.4.rc2
 - Release 3.13.0 RC2
 
