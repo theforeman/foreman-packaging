@@ -22,7 +22,7 @@ Summary: <%= spec.summary.gsub(/\.$/, "") %>
 Group: Development/Languages
 License: <%= spec.licenses.empty? ? 'FIXME' : spec.licenses.map { |l| LICENSES.fetch(l, l) }.join(" and ") %>
 <% if spec.homepage -%>
-URL: <%= spec.homepage %>
+URL: <%= spec.homepage.include?('http://github.com') ? spec.homepage.gsub('http://', 'https://') : spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
