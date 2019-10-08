@@ -6,7 +6,7 @@
 %global gem_name jwt
 
 Name: tfm-rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.2.1
 Release: 1%{?dist}
 Summary: JSON Web Token implementation in Ruby
 Group: Development/Languages
@@ -69,29 +69,31 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/.codeclimate.yml
-%{gem_instdir}/.ebert.yml
+%exclude %{gem_instdir}/.codeclimate.yml
+%exclude %{gem_instdir}/.ebert.yml
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.reek.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/Manifest
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/AUTHORS
+%doc %{gem_instdir}/Appraisals
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/ruby-jwt.gemspec
-%{gem_instdir}/spec
 
 %changelog
+* Tue Oct 08 2019 Rahul Bajaj <rahulrb0509@gmail.com> 2.2.1-1
+- Update to 2.2.1
+
 * Sat Feb 23 2019 Timo Goebel <mail@timogoebel.name> 2.1.0-1
 - Update jwt to 2.1.0
 
