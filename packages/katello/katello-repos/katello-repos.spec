@@ -1,12 +1,12 @@
 %global pulp_release stable
-%global pulp_version 2.20
+%global pulp_version 2.21
 %global use_pulp_nightly false
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.14.0
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Oct 08 2019 Partha Aji <paji@redhat.com> - 3.14.0-0.2.nightly
+- Adding pulp 2.21 GA
+
 * Wed Aug 07 2019 Evgeni Golov - 3.14.0-0.1.nightly
 - Bump version to 3.14
 
