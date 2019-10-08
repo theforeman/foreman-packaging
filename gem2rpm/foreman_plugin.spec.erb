@@ -5,7 +5,9 @@
 # template: foreman_plugin
 <%-
 require 'json'
-SCL_PREFIXES = JSON.load(File.read(File.join(`git rev-parse --show-toplevel`.strip, 'scl_prefixes.json')))
+root = `git rev-parse --show-toplevel`.strip
+SCL_PREFIXES = JSON.load(File.read(File.join(root, 'scl_prefixes.json')))
+LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
 -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -44,7 +46,7 @@ Version: <%= spec.version %>
 Release: 1%{?foremandist}%{?dist}
 Summary: <%= spec.summary.gsub(/\.$/, "") %>
 Group: Applications/Systems
-License: <%= spec.licenses.empty? ? 'FIXME' : spec.licenses.join(" and ") %>
+License: <%= spec.licenses.empty? ? 'FIXME' : spec.licenses.map { |l| LICENSES.fetch(l, l) }.join(" and ") %>
 <% if spec.homepage -%>
 URL: <%= spec.homepage %>
 <% end -%>
