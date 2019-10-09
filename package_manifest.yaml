@@ -798,6 +798,7 @@ plugin_scl_packages:
     rubygem-rqrcode: {}
     rubygem-safe_yaml: {}
     rubygem-systemu: {}
+    rubygem-timeliness: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}
     rubygem-wicked: {}
