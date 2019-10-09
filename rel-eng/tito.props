@@ -378,15 +378,15 @@ whitelist = rubygem-angular-rails-templates
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
   rubygem-http
+  rubygem-httparty
   rubygem-http-form_data
   rubygem-http_parser.rb
-  rubygem-httparty
   rubygem-jgrep
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
-  rubygem-multi_xml
   rubygem-ms_rest
   rubygem-ms_rest_azure
+  rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
@@ -405,6 +405,7 @@ whitelist = rubygem-angular-rails-templates
   rubygem-smart_proxy_dynflow_core
   rubygem-smart_proxy_salt_core
   rubygem-systemu
+  rubygem-timeliness
   rubygem-ttfunk
   rubygem-vault
   rubygem-wicked
