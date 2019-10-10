@@ -73,7 +73,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
-  nodejs-node-gyp
   nodejs-node-sass
   nodejs-number_helpers
   nodejs-object-assign
@@ -155,6 +154,7 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  nodejs-node-gyp
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick

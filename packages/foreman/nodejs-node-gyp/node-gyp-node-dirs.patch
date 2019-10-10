@@ -1,0 +1,46 @@
+diff --git a/lib/configure.js b/lib/configure.js
+index 2ff476d..7a69e1c 100644
+--- a/lib/configure.js
++++ b/lib/configure.js
+@@ -62,7 +62,9 @@ function configure (gyp, argv, callback) {
+         log.verbose('get node dir', 'compiling against --target node version: %s', release.version)
+       } else {
+         // if no --target was specified then use the current host node version
++        // if no --target was specified then use RPM installed headers
+         log.verbose('get node dir', 'no --target version specified, falling back to host node version: %s', release.version)
++        log.verbose('get node dir', 'no --target version specified, falling back to RPM installed headers')
+       }
+
+       if (!release.semver) {
+@@ -75,7 +77,7 @@ function configure (gyp, argv, callback) {
+       gyp.commands.install([ release.version ], function (err, version) {
+         if (err) return callback(err)
+         log.verbose('get node dir', 'target node version installed:', release.versionDir)
+-        nodeDir = path.resolve(gyp.devDir, release.versionDir)
++        nodeDir = '/opt/rh/rh-nodejs10/root/usr/share/node'
+         createBuildDir()
+       })
+     }
+@@ -247,9 +249,10 @@ function configure (gyp, argv, callback) {
+     }
+
+     // this logic ported from the old `gyp_addon` python file
+-    var gyp_script = path.resolve(__dirname, '..', 'gyp', 'gyp_main.py')
+-    var addon_gypi = path.resolve(__dirname, '..', 'addon.gypi')
+-    var common_gypi = path.resolve(nodeDir, 'include/node/common.gypi')
++    var gyp_script = '/usr/bin/gyp'
++    var addon_gypi_file = gyp.opts.target || gyp.opts.nodeDir ? 'addon.gypi' : 'addon-rpm.gypi'
++    var addon_gypi = path.resolve(__dirname, '..', addon_gypi_file)
++    var common_gypi = path.resolve(nodeDir, '/opt/rh/rh-nodejs10/root/usr/include/node/common.gypi')
+     fs.stat(common_gypi, function (err, stat) {
+       if (err)
+         common_gypi = path.resolve(nodeDir, 'common.gypi')
+@@ -273,7 +276,7 @@ function configure (gyp, argv, callback) {
+       argv.push('-Dnode_lib_file=' + release.name + '.lib')
+       argv.push('-Dmodule_root_dir=' + process.cwd())
+       argv.push('--depth=.')
+-      argv.push('--no-parallel')
++      //argv.push('--no-parallel')
+
+       // tell gyp to write the Makefile/Solution files into output_dir
+       argv.push('--generator-output', output_dir)

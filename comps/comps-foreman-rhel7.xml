@@ -247,7 +247,7 @@
       <packagereq type="default">nodejs-lodash-es</packagereq>
       <packagereq type="default">nodejs-lodash.debounce</packagereq>
       <packagereq type="default">nodejs-loose-envify</packagereq>
-      <packagereq type="default">nodejs-node-gyp</packagereq>
+      <packagereq type="default">tfm-nodejs-node-gyp</packagereq>
       <packagereq type="default">nodejs-node-sass</packagereq>
       <packagereq type="default">nodejs-number_helpers</packagereq>
       <packagereq type="default">nodejs-object-assign</packagereq>
