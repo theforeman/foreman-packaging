@@ -213,9 +213,9 @@ foreman_nodejs_packages:
     diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-nonscl-rhel7
+      - foreman-nightly-rhel7
     releasers:
       - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_lookaside_repos:
       rhel7:
@@ -223,6 +223,7 @@ foreman_nodejs_packages:
         - el7-base
         - el7-updates
         - el7-epel
+        - el7-scl
         - el7-extras
   hosts:
     nodejs-argv-parse: {}

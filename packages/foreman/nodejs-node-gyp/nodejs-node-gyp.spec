@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-node-gyp
 Version: 3.3.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Node
 License: MIT
 Group: Development/Libraries
@@ -117,11 +117,23 @@ Source103: https://registry.npmjs.org/verror/-/verror-1.10.0.tgz
 Source104: https://registry.npmjs.org/which/-/which-1.3.1.tgz
 Source105: https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz
 Source106: nodejs-node-gyp-%{version}-registry.npmjs.org.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+Source107: addon-rpm.gypi
+
+Patch1: node-gyp-node-dirs.patch
+
+Requires:   gyp
+Requires:   %{?scl_prefix_nodejs}nodejs-devel
+Requires:   libuv-devel
+Requires:   http-parser-devel
+Requires:   gcc-c++
+Requires:   python-devel
+Requires:   make
+
+BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
+%if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
 %endif
+
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -248,7 +260,7 @@ AutoProv: no
 mkdir -p %{npm_cache_dir}
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 for tgz in %{sources}; do
-  echo $tgz | grep -q registry.npmjs.org || npm cache add --cache %{npm_cache_dir} $tgz
+  echo $tgz | grep -q -E "registry.npmjs.org|\.gypi" || npm cache add --cache %{npm_cache_dir} $tgz
 done
 %{?scl:end_of_scl}
 
@@ -258,6 +270,10 @@ done
 %{?scl:scl enable %{?scl_nodejs} - << \end_of_scl}
 npm install --cache-min Infinity --cache %{?scl:../}%{npm_cache_dir} --no-shrinkwrap --no-optional --global-style true %{npm_name}@%{version}
 %{?scl:end_of_scl}
+
+pushd node_modules/%{npm_name}
+%__patch -p1 < %PATCH1
+popd
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -272,6 +288,7 @@ cp -pfr node_modules/%{npm_name}/lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/test %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -p %{SOURCE107} %{buildroot}%{nodejs_sitelib}/node-gyp/addon-rpm.gypi
 
 mkdir -p %{buildroot}%{_bindir}/
 chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/node-gyp.js
@@ -289,6 +306,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-2
 - Update specs to handle SCL
 
