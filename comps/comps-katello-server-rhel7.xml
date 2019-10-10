@@ -57,6 +57,8 @@
       <packagereq type="default">tfm-rubygem-pulp_ansible_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_docker_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_file_client</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_pulp_2to3_migration_client</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
       <packagereq type="default">tfm-rubygem-robotex</packagereq>
