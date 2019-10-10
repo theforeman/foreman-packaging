@@ -135,7 +135,7 @@ Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+Requires: %{?scl_prefix}rubygem(jwt) = 2.2.1
 Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 Requires: %{?scl_prefix}rubygem(graphql-batch)
@@ -241,7 +241,7 @@ BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
-BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+BuildRequires: %{?scl_prefix}rubygem(jwt) = 2.2.1
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
