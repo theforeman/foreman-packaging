@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prerelease develop
 
 Name:    foreman
@@ -134,8 +134,8 @@ Requires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-Requires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+Requires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 Requires: %{?scl_prefix}rubygem(graphql-batch)
@@ -240,8 +240,8 @@ BuildRequires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.1.0
-BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.2.0
+BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Oct 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.8.develop
+- Update JWT dependencies (#25809)
+
 * Mon Oct 07 2019 Tomer Brisker <tbrisker@gmail.com> 1.24.0-0.7.develop
 - remove foreman-config
 
