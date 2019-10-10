@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 9
 %global prerelease develop
 
 Name:    foreman
@@ -1051,6 +1051,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-0.9.develop
+- Update MALLOC_ARENA_MAX in dynflowd sysconfig
+
 * Thu Oct 10 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.24.0-0.8.develop
 - Update JWT dependencies (#25809)
 
