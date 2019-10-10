@@ -183,6 +183,7 @@ foreman_scl_packages:
     rubygem-secure_headers: {}
     rubygem-sequel: {}
     rubygem-sexp_processor: {}
+    rubygem-sidekiq: {}
     rubygem-signet: {}
     rubygem-spice-html5-rails: {}
     rubygem-sprockets-rails: {}
