@@ -6,10 +6,11 @@
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
+%{?scl:%global _scl_root /opt/theforeman/%{scl}/root}
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prerelease develop
 
 Name:    foreman
@@ -251,79 +252,77 @@ BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
 %if 0%{?scl:1}
 BuildRequires: %{scl}-runtime-assets >= 5
 BuildRequires: %{scl}-runtime-assets < 6
-%endif
-BuildRequires: nodejs >= 6.10
-BuildRequires: http-parser
-# Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
-# is resolved
-BuildRequires: libuv
+%else
 BuildRequires: nodejs-packaging
+%endif
+BuildRequires: %{?scl_prefix_nodejs}nodejs >= 6.10
+BuildRequires: http-parser
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(argv-parse) >= 1.0.1
-BuildRequires: npm(argv-parse) < 2.0.0
-BuildRequires: npm(babel-cli) >= 6.10.1
-BuildRequires: npm(babel-cli) < 7.0.0
-BuildRequires: npm(babel-core) >= 6.26.3
-BuildRequires: npm(babel-core) < 7.0.0
-BuildRequires: npm(babel-loader) >= 7.1.1
-BuildRequires: npm(babel-loader) < 8.0.0
-BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-BuildRequires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
-BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.7.0
-BuildRequires: npm(babel-preset-env) < 2.0.0
-BuildRequires: npm(babel-preset-react) >= 6.5.0
-BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(babel-register) >= 6.9.0
-BuildRequires: npm(babel-register) < 7.0.0
-BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
-BuildRequires: npm(compression-webpack-plugin) < 1.2.0
-BuildRequires: npm(css-loader) >= 0.23.1
-BuildRequires: npm(css-loader) < 1.0.0
-BuildRequires: npm(dotenv) >= 5.0.0
-BuildRequires: npm(dotenv) < 6.0.0
-BuildRequires: npm(expose-loader) >= 0.6.0
-BuildRequires: npm(expose-loader) < 0.7.0
-BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
-BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
-BuildRequires: npm(file-loader) >= 0.9.0
-BuildRequires: npm(file-loader) < 1.0.0
-BuildRequires: npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: npm(identity-obj-proxy) < 4.0.0
-BuildRequires: npm(node-sass) >= 4.5.0
-BuildRequires: npm(node-sass) < 5.0.0
-BuildRequires: npm(raf) >= 3.4.0
-BuildRequires: npm(raf) < 4.0.0
-BuildRequires: npm(sass-loader) >= 6.0.6
-BuildRequires: npm(sass-loader) < 6.1.0
-BuildRequires: npm(style-loader) >= 0.13.1
-BuildRequires: npm(style-loader) < 1.0.0
-BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
-BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
-BuildRequires: npm(url-loader) >= 1.0.1
-BuildRequires: npm(url-loader) < 2.0.0
-BuildRequires: npm(webpack) >= 3.4.1
-BuildRequires: npm(webpack) < 4.0.0
-BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
-BuildRequires: npm(webpack-stats-plugin) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
+BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
+BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
+BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-register) >= 6.9.0
+BuildRequires: %{?scl_prefix}npm(babel-register) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
+BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
+BuildRequires: %{?scl_prefix}npm(css-loader) >= 0.23.1
+BuildRequires: %{?scl_prefix}npm(css-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(dotenv) >= 5.0.0
+BuildRequires: %{?scl_prefix}npm(dotenv) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
+BuildRequires: %{?scl_prefix}npm(expose-loader) < 0.7.0
+BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
+BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
+BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
+BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
+BuildRequires: %{?scl_prefix}npm(sass-loader) < 6.1.0
+BuildRequires: %{?scl_prefix}npm(style-loader) >= 0.13.1
+BuildRequires: %{?scl_prefix}npm(style-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(url-loader) >= 1.0.1
+BuildRequires: %{?scl_prefix}npm(url-loader) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(webpack) >= 3.4.1
+BuildRequires: %{?scl_prefix}npm(webpack) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) >= 0.1.5
+BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 1.7.0
-BuildRequires: npm(@theforeman/vendor) < 2.0.0
-BuildRequires: npm(intl) >= 1.2.5
-BuildRequires: npm(intl) < 1.3.0
-BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 2.0.0
-BuildRequires: npm(react-intl) >= 2.8.0
-BuildRequires: npm(react-intl) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
+BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
@@ -485,75 +484,72 @@ Requires: %{name} = %{version}-%{release}
 Requires: %{scl}-runtime-assets >= 5
 Requires: %{scl}-runtime-assets < 6
 %endif
-Requires: nodejs >= 6.10
-# Temporary dep on libuv until https://bugs.centos.org/view.php?id=10606
-# is resolved
-Requires: libuv
+Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 
 # start package.json devDependencies Requires
-Requires: npm(argv-parse) >= 1.0.1
-Requires: npm(argv-parse) < 2.0.0
-Requires: npm(babel-cli) >= 6.10.1
-Requires: npm(babel-cli) < 7.0.0
-Requires: npm(babel-core) >= 6.26.3
-Requires: npm(babel-core) < 7.0.0
-Requires: npm(babel-loader) >= 7.1.1
-Requires: npm(babel-loader) < 8.0.0
-Requires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-Requires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
-Requires: npm(babel-plugin-transform-object-assign) >= 6.8.0
-Requires: npm(babel-plugin-transform-object-assign) < 7.0.0
-Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-Requires: npm(babel-preset-env) >= 1.7.0
-Requires: npm(babel-preset-env) < 2.0.0
-Requires: npm(babel-preset-react) >= 6.5.0
-Requires: npm(babel-preset-react) < 7.0.0
-Requires: npm(babel-register) >= 6.9.0
-Requires: npm(babel-register) < 7.0.0
-Requires: npm(compression-webpack-plugin) >= 1.1.11
-Requires: npm(compression-webpack-plugin) < 1.2.0
-Requires: npm(css-loader) >= 0.23.1
-Requires: npm(css-loader) < 1.0.0
-Requires: npm(dotenv) >= 5.0.0
-Requires: npm(dotenv) < 6.0.0
-Requires: npm(expose-loader) >= 0.6.0
-Requires: npm(expose-loader) < 0.7.0
-Requires: npm(extract-text-webpack-plugin) >= 3.0.0
-Requires: npm(extract-text-webpack-plugin) < 4.0.0
-Requires: npm(file-loader) >= 0.9.0
-Requires: npm(file-loader) < 1.0.0
-Requires: npm(identity-obj-proxy) >= 3.0.0
-Requires: npm(identity-obj-proxy) < 4.0.0
-Requires: npm(node-sass) >= 4.5.0
-Requires: npm(node-sass) < 5.0.0
-Requires: npm(raf) >= 3.4.0
-Requires: npm(raf) < 4.0.0
-Requires: npm(sass-loader) >= 6.0.6
-Requires: npm(sass-loader) < 6.1.0
-Requires: npm(style-loader) >= 0.13.1
-Requires: npm(style-loader) < 1.0.0
-Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
-Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
-Requires: npm(url-loader) >= 1.0.1
-Requires: npm(url-loader) < 2.0.0
-Requires: npm(webpack) >= 3.4.1
-Requires: npm(webpack) < 4.0.0
-Requires: npm(webpack-stats-plugin) >= 0.1.5
-Requires: npm(webpack-stats-plugin) < 1.0.0
+Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
+Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
+Requires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
+Requires: %{?scl_prefix}npm(babel-cli) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+Requires: %{?scl_prefix}npm(babel-core) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
+Requires: %{?scl_prefix}npm(babel-loader) < 8.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+Requires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
+Requires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+Requires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
+Requires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-register) >= 6.9.0
+Requires: %{?scl_prefix}npm(babel-register) < 7.0.0
+Requires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
+Requires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
+Requires: %{?scl_prefix}npm(css-loader) >= 0.23.1
+Requires: %{?scl_prefix}npm(css-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(dotenv) >= 5.0.0
+Requires: %{?scl_prefix}npm(dotenv) < 6.0.0
+Requires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
+Requires: %{?scl_prefix}npm(expose-loader) < 0.7.0
+Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
+Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
+Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
+Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
+Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
+Requires: %{?scl_prefix}npm(raf) >= 3.4.0
+Requires: %{?scl_prefix}npm(raf) < 4.0.0
+Requires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
+Requires: %{?scl_prefix}npm(sass-loader) < 6.1.0
+Requires: %{?scl_prefix}npm(style-loader) >= 0.13.1
+Requires: %{?scl_prefix}npm(style-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) >= 1.2.2
+Requires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) < 2.0.0
+Requires: %{?scl_prefix}npm(url-loader) >= 1.0.1
+Requires: %{?scl_prefix}npm(url-loader) < 2.0.0
+Requires: %{?scl_prefix}npm(webpack) >= 3.4.1
+Requires: %{?scl_prefix}npm(webpack) < 4.0.0
+Requires: %{?scl_prefix}npm(webpack-stats-plugin) >= 0.1.5
+Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 1.7.0
-Requires: npm(@theforeman/vendor) < 2.0.0
-Requires: npm(intl) >= 1.2.5
-Requires: npm(intl) < 1.3.0
-Requires: npm(jed) >= 1.1.1
-Requires: npm(jed) < 2.0.0
-Requires: npm(react-intl) >= 2.8.0
-Requires: npm(react-intl) < 3.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+Requires: %{?scl_prefix}npm(intl) >= 1.2.5
+Requires: %{?scl_prefix}npm(intl) < 1.3.0
+Requires: %{?scl_prefix}npm(jed) >= 1.1.1
+Requires: %{?scl_prefix}npm(jed) < 2.0.0
+Requires: %{?scl_prefix}npm(react-intl) >= 2.8.0
+Requires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies Requires
 
 # start specfile assets Requires
@@ -759,7 +755,7 @@ mv Gemfile Gemfile.in
 cp config/database.yml.example config/database.yml
 cp config/settings.yaml.example config/settings.yaml
 export BUNDLER_EXT_GROUPS="default assets"
-ln -s %{nodejs_sitelib} node_modules
+ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules
 # Calls webpack manually since webpack:compile uses the config which uses
 # node_modules/.bin/webpack and that doesn't exist in our setup
 export NODE_ENV=production
@@ -912,7 +908,7 @@ unlink ./%{_datadir}/%{name}/db \\
 ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
 pushd ./%%{%{name}_dir} \\
 \\
-ln -s %{nodejs_sitelib} node_modules \\
+ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules \\
 sed -i 's/:locations_enabled: false/:locations_enabled: true/' \`pwd\`/config/settings.yaml \\
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/config/settings.yaml \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
@@ -1051,6 +1047,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Oct 11 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-0.10.develop
+- Updates to support NodeJS packages built into SCL
+
 * Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-0.9.develop
 - Update MALLOC_ARENA_MAX in dynflowd sysconfig
 
