@@ -4,12 +4,12 @@
 
 %global gem_name foreman_templates
 %global plugin_name templates
-%global foreman_min_version 1.18.0
+%global foreman_min_version 1.24.0
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.3
-Release:    2%{?foremandist}%{?dist}
+Version:    7.0.4
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -24,6 +24,7 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(diffy)
 Requires: %{?scl_prefix}rubygem(git)
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(diffy)
 BuildRequires: %{?scl_prefix}rubygem(git)
@@ -32,9 +33,37 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
+BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
+BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+# end package.json dependencies BuildRequires
 
 %description
 Engine to synchronise provisioning templates from GitHub.
@@ -79,7 +108,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -87,11 +116,17 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_libdir}
+%exclude %{gem_instdir}/webpack
+%exclude %{gem_instdir}/package.json
+
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -104,6 +139,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 15 2019 Ondrej Prazak <oprazak@redhat.com> 7.0.4-1
+- Update to 7.0.4
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
