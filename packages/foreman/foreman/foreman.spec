@@ -2,6 +2,7 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global executor_service_name dynflowd
+%global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global foreman_restart (touch %{homedir}/tmp/restart.txt ; /bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
@@ -706,6 +707,43 @@ Meta Package to install requirements for Redis caching support
 
 %files redis
 %{_datadir}/%{name}/bundler.d/redis.rb
+
+%package dynflow-sidekiq
+Summary: Foreman Redis caching support
+Group:  Applications/System
+# start specfile redis Requires
+Requires: %{?scl_prefix}rubygem(sidekiq) >= 5.0
+Requires: %{?scl_prefix}rubygem(sidekiq) < 6
+Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
+# end specfile redis Requires
+Requires: %{name} = %{version}-%{release}
+
+%description dynflow-sidekiq
+Meta Package to install dynflow sidekiq executor support
+
+%files dynflow-sidekiq
+%{_datadir}/%{name}/bundler.d/sidekiq.rb
+%{_unitdir}/%{dynflow_sidekiq_service_name}.service
+%{_datadir}/%{name}/extras/dynflow-sidekiq.rb
+
+%install dynflow-sidekiq
+install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
+
+sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
+
+for i in orchestrator.yml worker.yml; do
+  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i %{buildroot}%{_sysconfdir}/%{name}/dynflow/
+  ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
+done
+
+%post dynflow-sidekiq
+%systemd_post %{dynflow_sidekiq_service_name}.service
+
+%preun dynflow-sidekiq
+%systemd_preun %{dynflow_sidekiq_service_name}.service
+
+%postun dynflow-sidekiq
+%systemd_postun_with_restart %{dynflow_sidekiq_service_name}.service
 
 %package service
 Summary: Foreman systemd service support
