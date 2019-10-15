@@ -203,6 +203,7 @@ whitelist = foreman
   rubygem-gettext
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
+  rubygem-gitlab-reliable-fetcher
   rubygem-google-api-client
   rubygem-googleauth
   rubygem-graphql
@@ -276,6 +277,7 @@ whitelist = foreman
   rubygem-secure_headers
   rubygem-sequel
   rubygem-sexp_processor
+  rubygem-sidekiq
   rubygem-signet
   rubygem-spice-html5-rails
   rubygem-sprockets-rails

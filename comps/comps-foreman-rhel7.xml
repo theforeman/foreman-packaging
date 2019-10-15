@@ -88,6 +88,7 @@
       <packagereq type="default">tfm-rubygem-gettext</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails_js</packagereq>
+      <packagereq type="default">tfm-rubygem-gitlab-reliable-fetcher</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth</packagereq>
       <packagereq type="default">tfm-rubygem-graphql</packagereq>
@@ -164,6 +165,7 @@
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
+      <packagereq type="default">tfm-rubygem-sidekiq</packagereq>
       <packagereq type="default">tfm-rubygem-signet</packagereq>
       <packagereq type="default">tfm-rubygem-spice-html5-rails</packagereq>
       <packagereq type="default">tfm-rubygem-sprockets-rails</packagereq>
@@ -470,6 +472,7 @@
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-sidekiq-doc</packagereq>
       <packagereq type="default">tfm-rubygem-signet-doc</packagereq>
       <packagereq type="default">tfm-rubygem-spice-html5-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sprockets-rails-doc</packagereq>
