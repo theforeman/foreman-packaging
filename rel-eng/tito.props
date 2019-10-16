@@ -170,6 +170,7 @@ whitelist = foreman
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-concurrent-ruby-edge
+  rubygem-connection_pool
   rubygem-css_parser
   rubygem-daemons
   rubygem-deacon
