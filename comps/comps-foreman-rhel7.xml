@@ -399,6 +399,7 @@
       <packagereq type="default">tfm-rubygem-gettext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails_js-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-gitlab-sidekiq-fetcher-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
