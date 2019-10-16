@@ -271,10 +271,10 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_templates-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-httparty-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-form_data-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http_parser.rb-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-httparty-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jgrep-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient-doc</packagereq>

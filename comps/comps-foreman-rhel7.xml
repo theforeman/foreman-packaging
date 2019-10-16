@@ -327,11 +327,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">nodejs-expose-loader-doc</packagereq>
-      <packagereq type="default">nodejs-file-loader-doc</packagereq>
       <packagereq type="default">nodejs-jquery-doc</packagereq>
-      <packagereq type="default">nodejs-jquery-flot-doc</packagereq>
-      <packagereq type="default">nodejs-select2-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
@@ -483,6 +479,7 @@
       <packagereq type="default">tfm-rubygem-unf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-unicode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-useragent-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
