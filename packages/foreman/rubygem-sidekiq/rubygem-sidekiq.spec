@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}rubygem(redis) < 5
 Requires: %{?scl_prefix}rubygem(connection_pool) >= 2.2
 Requires: %{?scl_prefix}rubygem(connection_pool) < 3
 Requires: %{?scl_prefix}rubygem(connection_pool) >= 2.2.2
-Requires: %{?scl_prefix_ruby}rubygem(rack) >= 1.5.0
+Requires: %{?scl_prefix_ror}rubygem(rack) >= 1.5.0
 Requires: %{?scl_prefix_ror}rubygem(rack-protection) >= 1.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
