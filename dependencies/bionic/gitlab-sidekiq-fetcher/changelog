@@ -1,0 +1,5 @@
+ruby-gitlab-sidekiq-fetcher (0.5.2-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Wed, 16 Oct 2019 12:44:17 +0200

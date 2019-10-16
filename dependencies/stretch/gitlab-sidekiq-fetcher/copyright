@@ -1,0 +1,26 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gitlab-sidekiq-fetcher
+Upstream-Contact: Valery Sizov <valery@gitlab.com>
+Source: https://gitlab.com/gitlab-org/sidekiq-reliable-fetch
+
+Files: *
+Copyright: 2016, Rémi Bauzac
+License: LGPL-3.0
+
+Files: debian/*
+Copyright: 2008, Ryan Niebur <ryanryan52@gmail.com>
+           2012, Paul van Tilburg <paulvt@debian.org>
+	   2013, Greg Sutcliffe <gsutclif@redhat.com>
+License: GPL-3
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 3 can be found in the file `/usr/share/common-licenses/GPL-3'.
