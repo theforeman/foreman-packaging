@@ -433,6 +433,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_dhcp_dnsmasq
   rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_dhcp_remote_isc
+  rubygem-smart_proxy_dhcp_bluecat
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_infoblox

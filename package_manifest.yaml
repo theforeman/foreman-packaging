@@ -490,13 +490,13 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dhcp_infoblox: {}
     rubygem-smart_proxy_dhcp_remote_isc: {}
     rubygem-smart_proxy_dhcp_device42: {}
+    rubygem-smart_proxy_dhcp_bluecat: {}
     rubygem-smart_proxy_discovery: {}
     rubygem-smart_proxy_discovery_image: {}
     rubygem-smart_proxy_dns_infoblox: {}
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
