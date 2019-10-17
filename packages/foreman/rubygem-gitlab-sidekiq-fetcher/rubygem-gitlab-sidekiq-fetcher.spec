@@ -70,7 +70,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.gitlab-ci.yml
+%exclude %{gem_instdir}/.gitlab-ci.yml
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -84,8 +84,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/RELEASE-GITLAB.md
 %{gem_instdir}/gitlab-sidekiq-fetcher.gemspec
-%{gem_instdir}/spec
-%{gem_instdir}/tests
+%exclude %{gem_instdir}/spec
+%exclude %{gem_instdir}/tests
 
 %changelog
 * Tue Oct 15 2019 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-1
