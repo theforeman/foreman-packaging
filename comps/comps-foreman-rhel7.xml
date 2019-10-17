@@ -352,6 +352,7 @@
       <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
       <packagereq type="default">rubygem-rsec-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
