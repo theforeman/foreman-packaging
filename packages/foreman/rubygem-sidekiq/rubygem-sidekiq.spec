@@ -81,23 +81,23 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %dir %{gem_instdir}
 %{_bindir}/sidekiq
 %{_bindir}/sidekiqctl
-%{gem_instdir}/.circleci
-%{gem_instdir}/.github
+%exclude %{gem_instdir}/.circleci
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/3.0-Upgrade.md
-%{gem_instdir}/4.0-Upgrade.md
-%{gem_instdir}/5.0-Upgrade.md
+%doc %{gem_instdir}/3.0-Upgrade.md
+%doc %{gem_instdir}/4.0-Upgrade.md
+%doc %{gem_instdir}/5.0-Upgrade.md
 %license %{gem_instdir}/COMM-LICENSE
-%{gem_instdir}/Changes.md
-%{gem_instdir}/Ent-Changes.md
+%doc %{gem_instdir}/Changes.md
+%doc %{gem_instdir}/Ent-Changes.md
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/Pro-2.0-Upgrade.md
-%{gem_instdir}/Pro-3.0-Upgrade.md
-%{gem_instdir}/Pro-4.0-Upgrade.md
-%{gem_instdir}/Pro-Changes.md
+%doc %{gem_instdir}/Pro-2.0-Upgrade.md
+%doc %{gem_instdir}/Pro-3.0-Upgrade.md
+%doc %{gem_instdir}/Pro-4.0-Upgrade.md
+%doc %{gem_instdir}/Pro-Changes.md
 %{gem_instdir}/bin
-%{gem_instdir}/code_of_conduct.md
+%doc %{gem_instdir}/code_of_conduct.md
 %{gem_libdir}
 %{gem_instdir}/web
 %exclude %{gem_cache}
