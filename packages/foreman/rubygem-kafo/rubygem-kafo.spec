@@ -6,8 +6,8 @@
 %global gem_name kafo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 2%{?dist}
+Version: 4.0.0
+Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -23,6 +23,7 @@ Requires: %{?scl_prefix}rubygem(ansi)
 Requires: %{?scl_prefix}rubygem(kafo_parsers) >= 0.1.6
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
+Requires: %{?scl_prefix}rubygem(clamp) < 1.3.1
 Requires: %{?scl_prefix_ruby}rubygem(highline) >= 1.6.21
 Requires: %{?scl_prefix_ruby}rubygem(highline) < 2.0
 Requires: %{?scl_prefix}rubygem(powerbar)
@@ -100,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Oct 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
+- Update to 4.0.0
+
 * Wed Sep 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-2
 - Corrected the license format
 
