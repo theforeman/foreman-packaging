@@ -500,7 +500,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
     rubygem-smart_proxy_dynflow_core: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
