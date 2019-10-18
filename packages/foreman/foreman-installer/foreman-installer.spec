@@ -1,4 +1,4 @@
-%global release 3
+%global release 4
 %global prerelease develop
 
 Name:       foreman-installer
@@ -15,15 +15,16 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   %{?scl_prefix}puppet-agent >= 5.5.10
-Requires:   %{?scl_prefix}rubygem-kafo >= 3.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 4.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
-Requires:   %{?scl_prefix}rubygem-highline
 
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
 BuildRequires: %{?scl_prefix}puppet-agent >= 1.9.0
-BuildRequires: %{?scl_prefix}rubygem-kafo >= 2.1.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 4.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) < 5.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
 
@@ -139,6 +140,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Oct 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.24.0-0.4.develop
+- Update package dependencies
+
 * Thu Sep 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.24.0-0.3.develop
 - Add which as a dependency since it's used in a hook
 
