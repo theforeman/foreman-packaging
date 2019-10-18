@@ -4,8 +4,8 @@
 %global gem_name unf_ext
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.6
-Release: 8%{?dist}
+Version: 0.0.7.2
+Release: 1%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -77,6 +77,7 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/%{gem_name}.gemspec
 %{gem_instdir}/test
 %{gem_instdir}/Gemfile
@@ -84,6 +85,9 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Oct 18 2019 Aditi Puntambekar <apuntamb@redhat.com> 0.0.7.2-1
+- Update to 0.0.7.2
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.6-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
