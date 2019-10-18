@@ -367,6 +367,7 @@
       <packagereq type="default">tfm-rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-clamp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-concurrent-ruby-edge-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-connection_pool-doc</packagereq>
       <packagereq type="default">tfm-rubygem-css_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-daemons-doc</packagereq>
       <packagereq type="default">tfm-rubygem-deacon-doc</packagereq>
