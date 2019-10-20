@@ -1,0 +1,15 @@
+--- a/lib/route53.rb
++++ b/lib/route53.rb
+@@ -1,4 +1,3 @@
+-require 'rubygems'
+ require 'hmac'
+ require 'hmac-sha2'
+ require 'base64'
+--- a/lib/route53/cli.rb
++++ b/lib/route53/cli.rb
+@@ -1,5 +1,3 @@
+-
+-require 'rubygems'
+ require 'optparse'
+ require 'ostruct'
+ require 'date'

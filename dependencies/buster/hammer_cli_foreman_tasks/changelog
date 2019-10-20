@@ -1,0 +1,11 @@
+ruby-hammer-cli-foreman-tasks (0.0.13-1) stable; urgency=low
+
+  * 0.0.13 released
+
+ -- Ivan Nečas <inecas@redhat.com>  Tue, 18 Sep 2018 17:40:10 +0200
+
+ruby-hammer-cli-foreman-tasks (0.0.12-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200

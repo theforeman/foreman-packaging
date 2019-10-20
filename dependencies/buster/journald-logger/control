@@ -1,0 +1,26 @@
+Source: ruby-journald-logger
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Uploaders: <>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               git,
+               rake,
+               ruby-journald-native (>= 1.0),
+               ruby-rspec,
+               ruby-simplecov
+Standards-Version: 3.9.7
+Homepage: https://github.com/sandfoxme/journald-logger
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-journald-logger
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-journald-native (>= 1.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: systemd-journal native logger
+ systemd-journal native logger

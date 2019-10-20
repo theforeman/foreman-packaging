@@ -1,0 +1,53 @@
+ruby-hammer-cli (0.18.0-1) stable; urgency=low
+
+  * 0.18.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Fri, 02 Aug 2019 00:19:41 +0200
+
+ruby-hammer-cli (0.17.1-1) stable; urgency=low
+
+  * 0.17.1 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 02 May 2019 12:59:11 +0200
+
+ruby-hammer-cli (0.17.0-1) stable; urgency=low
+
+  * 0.17.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 24 Apr 2019 13:43:02 +0200
+
+ruby-hammer-cli (0.16.0-1) stable; urgency=low
+
+  * 0.16.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 17 Jan 2019 01:02:50 +0100
+
+ruby-hammer-cli (0.15.1-1) stable; urgency=low
+
+  * 0.15.1 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 07 Nov 2018 01:09:45 +0100
+
+ruby-hammer-cli (0.15.0-1) stable; urgency=low
+
+  * 0.15.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Wed, 24 Oct 2018 14:18:32 +0200
+
+ruby-hammer-cli (0.14.0-1) stable; urgency=low
+
+  * 0.14.0 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Mon, 27 Aug 2018 18:42:50 +0200
+
+ruby-hammer-cli (0.13.1-1) stable; urgency=low
+
+  * 0.13.1 released
+
+ -- Martin Bačovský <martin.bacovsky@gmail.com>  Thu, 16 Aug 2018 13:50:39 +0200
+
+ruby-hammer-cli (0.13.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200

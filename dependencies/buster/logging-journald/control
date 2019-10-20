@@ -1,0 +1,26 @@
+Source: ruby-logging-journald
+Section: ruby
+Priority: optional
+Maintainer: Foreman developers <foreman-dev@googlegroups.com>
+Uploaders: <>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               rake,
+               ruby-journald-logger (>= 2.0),
+               ruby-logging,
+               ruby-mocha
+Standards-Version: 3.9.7
+Homepage: https://github.com/lzap/logging-journald
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-logging-journald
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-journald-logger (>= 2.0),
+         ruby-logging,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Journald appender for logging gem
+ Plugin for logging gem providing journald appender
