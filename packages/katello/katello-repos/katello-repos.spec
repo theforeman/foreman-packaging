@@ -6,7 +6,7 @@
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        3.14.0
@@ -17,11 +17,12 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            https://theforeman.org/plugins/katello/
 Source0:        katello.repo
-Source1:        RPM-GPG-KEY-katello-2015
 
 BuildArch:      noarch
 
-BuildRequires: sed
+BuildRequires:  sed
+
+Requires:       foreman-release
 
 %description
 Defines yum repositories for Katello and its sub projects, Candlepin and Pulp.
@@ -38,7 +39,6 @@ install -d -m 0755 %{buildroot}%{repo_dir}
 install -d -m 0755 %{buildroot}%{_sysconfdir}/pki/rpm-gpg/
 
 install -m 644 %{SOURCE0} %{buildroot}%{repo_dir}/
-install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
@@ -77,9 +77,11 @@ rm -rf %{buildroot}
 %files
 %defattr(-, root, root)
 %config %{repo_dir}/*.repo
-%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Mon Oct 21 2019 Evgeni Golov - 3.14.0-0.4.nightly
+- Use RPM-GPG-KEY-foreman from foreman-release
+
 * Mon Oct 21 2019 Evgeni Golov - 3.14.0-0.3.nightly
 - Automatically set gpgcheck=1 for release versions
 
