@@ -1,0 +1,5 @@
+bundler.d/assets.rb /usr/share/foreman/bundler.d
+package.json /usr/share/foreman
+package-lock.json /usr/share/foreman
+node_modules /usr/share/foreman
+webpack /usr/share/foreman

@@ -1,0 +1,25 @@
+FOREMAN_USER=foreman
+BUNDLER_EXT_HOME=/usr/share/foreman
+RAILS_ENV=production
+FOREMAN_LOGGING=warn
+FOREMAN_LOGGING_SQL=warn
+FOREMAN_TASK_PARAMS="-p foreman"
+FOREMAN_LOG_DIR=/var/log/foreman
+
+RUBY_GC_MALLOC_LIMIT=4000100
+RUBY_GC_MALLOC_LIMIT_MAX=16000100
+RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.1
+RUBY_GC_OLDMALLOC_LIMIT=16000100
+RUBY_GC_OLDMALLOC_LIMIT_MAX=16000100
+
+#Set the number of executors you want to run
+#EXECUTORS_COUNT=1
+
+#Set memory limit for executor process, before it's restarted automatically
+#EXECUTOR_MEMORY_LIMIT=2gb
+
+#Set delay before first memory polling to let executor initialize (in sec)
+#EXECUTOR_MEMORY_MONITOR_DELAY=7200 #default: 2 hours
+
+#Set memory polling interval, process memory will be checked every N seconds.
+#EXECUTOR_MEMORY_MONITOR_INTERVAL=60

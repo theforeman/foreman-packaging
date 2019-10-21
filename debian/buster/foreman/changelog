@@ -1,0 +1,35 @@
+foreman (1.24.0-1) stable; urgency=low
+
+  * Bump changelog to 1.24.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 30 Jul 2019 12:34:08 +0200
+
+foreman (1.23.0-1) stable; urgency=medium
+
+  * Bump changelog to 1.23.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 23 Apr 2019 15:05:04 +0200
+
+foreman (1.22.0-1) stable; urgency=low
+
+  * Bump changelog to 1.22.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 17 Jan 2019 01:16:09 +0100
+
+foreman (1.21.0-1) stable; urgency=low
+
+  * Bump changelog to 1.21.0 to match VERSION
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 21 Oct 2018 02:08:17 +0200
+
+foreman (1.20.0-1) stable; urgency=low
+
+  * Bump changelog to 1.20.0 to match VERSION
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 17 Jul 2018 18:26:17 +0200
+
+foreman (1.19.0-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
