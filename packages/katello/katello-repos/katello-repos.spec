@@ -6,7 +6,7 @@
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        3.14.0
@@ -43,10 +43,12 @@ install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-kat
 if [[ '%{release}' == *"nightly"* ]];then
     REPO_VERSION='nightly'
     REPO_NAME='Nightly'
+    REPO_GPGCHECK=0
 else
     # Get major.minor from the version
     REPO_VERSION="$(echo '%{version}' | sed 's/\([^\.]\+\.[^\.]\+\)\..\+/\1/')"
     REPO_NAME=$REPO_VERSION
+    REPO_GPGCHECK=1
 fi
 
 for repofile in %{buildroot}%{repo_dir}/*.repo; do
@@ -55,6 +57,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@RHEL@/%{rhel}/" $repofile
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
+    sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
     sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
     sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
     if [ "%{use_pulp_nightly}" = true ] ; then
@@ -77,6 +80,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Mon Oct 21 2019 Evgeni Golov - 3.14.0-0.3.nightly
+- Automatically set gpgcheck=1 for release versions
+
 * Tue Oct 08 2019 Partha Aji <paji@redhat.com> - 3.14.0-0.2.nightly
 - Adding pulp 2.21 GA
 
