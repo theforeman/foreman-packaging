@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-escape-string-regexp
 Version: 1.0.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Escape RegExp special characters
 License: MIT
 Group: Development/Libraries
@@ -42,6 +42,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-2
 - Update specs to handle SCL
 

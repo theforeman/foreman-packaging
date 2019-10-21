@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-change-emitter
 Version: 0.1.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Listen for changes
 License: MIT
 Group: Development/Libraries
@@ -41,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.6-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.6-2
 - Update specs to handle SCL
 

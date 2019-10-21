@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-core-js
 Version: 2.5.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Standard library
 License: MIT
 Group: Development/Libraries
@@ -55,6 +55,9 @@ cp -pfr web %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.5-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.5-2
 - Update specs to handle SCL
 

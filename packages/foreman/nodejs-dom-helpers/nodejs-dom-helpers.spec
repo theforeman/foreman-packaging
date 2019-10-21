@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-dom-helpers
 Version: 3.3.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: tiny modular DOM lib for ie8+
 License: MIT
 Group: Development/Libraries
@@ -50,6 +50,9 @@ cp -pfr util %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-2
 - Update specs to handle SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-transform-class-properties
 Version: 6.24.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: This plugin transforms static class properties as well as properties declared with the property initializer syntax
 License: MIT
 Group: Development/Libraries
@@ -121,6 +121,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.24.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.24.1-2
 - Update specs to handle SCL
 

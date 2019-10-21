@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-transform-object-assign
 Version: 6.22.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Replace Object
 License: MIT
 Group: Development/Libraries
@@ -44,6 +44,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.22.0-4
+- Build for SCL
+
 * Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.22.0-3
 - Update requires for SCL prefix
 

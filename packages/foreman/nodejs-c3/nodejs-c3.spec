@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-c3
 Version: 0.4.11
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: D3-based reusable chart library
 License: MIT
 Group: Development/Libraries
@@ -54,6 +54,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc htdocs
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.11-5
+- Build for SCL
+
 * Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.11-4
 - Update requires for SCL prefix
 

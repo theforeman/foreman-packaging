@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-create-react-context
 Version: 0.2.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Polyfill for the proposed React context API
 License: SEE LICENSE IN LICENSE
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-4
+- Build for SCL
+
 * Thu Oct 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-3
 - Update requires for SCL prefix
 

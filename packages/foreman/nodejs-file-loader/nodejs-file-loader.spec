@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-file-loader
 Version: 0.9.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: file loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -73,6 +73,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.9.0-5
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.9.0-4
 - Update specs to handle SCL
 

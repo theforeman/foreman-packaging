@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-expose-loader
 Version: 0.6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: expose loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -41,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-3
 - Update specs to handle SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-breakjs
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Responsive breakpoints in Javascript made simple
 License: MIT
 Group: Development/Libraries
@@ -43,6 +43,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
 - Update specs to handle SCL
 

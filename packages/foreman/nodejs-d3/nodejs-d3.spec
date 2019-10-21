@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-d3
 Version: 3.5.17
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A JavaScript visualization library for HTML and SVG
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -47,6 +47,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.5.17-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.5.17-2
 - Update specs to handle SCL
 
