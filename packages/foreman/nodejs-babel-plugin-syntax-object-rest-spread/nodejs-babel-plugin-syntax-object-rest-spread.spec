@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-syntax-object-rest-spread
 Version: 6.13.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Allow parsing of object rest/spread
 License: MIT
 Group: Development/Libraries
@@ -41,6 +41,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.13.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.13.0-2
 - Update specs to handle SCL
 

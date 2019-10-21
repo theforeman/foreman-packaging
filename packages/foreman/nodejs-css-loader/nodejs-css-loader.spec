@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-css-loader
 Version: 0.23.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: css loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -319,6 +319,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.23.1-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.23.1-3
 - Update specs to handle SCL
 

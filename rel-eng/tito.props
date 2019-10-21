@@ -25,40 +25,6 @@ whitelist = foreman-bootloaders-redhat
   foreman-selinux
   katello-certs-tools
   katello-selinux
-  nodejs-argv-parse
-  nodejs-babel-cli
-  nodejs-babel-core
-  nodejs-babel-loader
-  nodejs-babel-plugin-lodash
-  nodejs-babel-plugin-syntax-dynamic-import
-  nodejs-babel-plugin-syntax-object-rest-spread
-  nodejs-babel-plugin-transform-class-properties
-  nodejs-babel-plugin-transform-object-assign
-  nodejs-babel-plugin-transform-object-rest-spread
-  nodejs-babel-polyfill
-  nodejs-babel-preset-env
-  nodejs-babel-preset-react
-  nodejs-babel-register
-  nodejs-babel-runtime
-  nodejs-bootstrap-slider-without-jquery
-  nodejs-breakjs
-  nodejs-c3
-  nodejs-change-emitter
-  nodejs-classnames
-  nodejs-compression-webpack-plugin
-  nodejs-core-js
-  nodejs-create-react-context
-  nodejs-css-element-queries
-  nodejs-css-loader
-  nodejs-d3
-  nodejs-dom-helpers
-  nodejs-dotenv
-  nodejs-escape-string-regexp
-  nodejs-expose-loader
-  nodejs-extract-text-webpack-plugin
-  nodejs-fbjs
-  nodejs-file-loader
-  nodejs-gud
   nodejs-node-sass
   nodejs-number_helpers
   nodejs-object-assign
@@ -92,7 +58,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-recompose
   nodejs-redux
   nodejs-redux-thunk
-  nodejs-regenerator-runtime
   nodejs-reselect
   nodejs-sass-loader
   nodejs-seamless-immutable
@@ -140,6 +105,40 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  nodejs-argv-parse
+  nodejs-babel-cli
+  nodejs-babel-core
+  nodejs-babel-loader
+  nodejs-babel-plugin-lodash
+  nodejs-babel-plugin-syntax-dynamic-import
+  nodejs-babel-plugin-syntax-object-rest-spread
+  nodejs-babel-plugin-transform-class-properties
+  nodejs-babel-plugin-transform-object-assign
+  nodejs-babel-plugin-transform-object-rest-spread
+  nodejs-babel-polyfill
+  nodejs-babel-preset-env
+  nodejs-babel-preset-react
+  nodejs-babel-register
+  nodejs-babel-runtime
+  nodejs-bootstrap-slider-without-jquery
+  nodejs-breakjs
+  nodejs-c3
+  nodejs-change-emitter
+  nodejs-classnames
+  nodejs-compression-webpack-plugin
+  nodejs-core-js
+  nodejs-create-react-context
+  nodejs-css-element-queries
+  nodejs-css-loader
+  nodejs-d3
+  nodejs-dom-helpers
+  nodejs-dotenv
+  nodejs-escape-string-regexp
+  nodejs-expose-loader
+  nodejs-extract-text-webpack-plugin
+  nodejs-fbjs
+  nodejs-file-loader
+  nodejs-gud
   nodejs-node-gyp
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
@@ -155,6 +154,7 @@ whitelist = foreman
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
+  nodejs-regenerator-runtime
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick

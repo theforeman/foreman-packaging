@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-register
 Version: 6.26.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: babel require hook
 License: MIT
 Group: Development/Libraries
@@ -167,6 +167,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.26.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.26.0-2
 - Update specs to handle SCL
 

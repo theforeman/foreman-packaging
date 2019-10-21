@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-regenerator-runtime
 Version: 0.11.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Runtime for Regenerator-compiled generator and async functions
 License: MIT
 Group: Development/Libraries
@@ -43,6 +43,9 @@ cp -pfr runtime.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.11.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.11.1-2
 - Update specs to handle SCL
 

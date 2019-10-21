@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-extract-text-webpack-plugin
 Version: 3.0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Extract text from bundle into a file
 License: MIT
 Group: Development/Libraries
@@ -98,6 +98,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.2-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.2-2
 - Update specs to handle SCL
 
