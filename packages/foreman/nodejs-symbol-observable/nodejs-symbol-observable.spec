@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-symbol-observable
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Symbol
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Update specs to handle SCL
 

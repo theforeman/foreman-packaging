@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-sass-loader
 Version: 6.0.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Sass loader for webpack
 License: MIT
 Group: Development/Libraries
@@ -103,6 +103,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.0.7-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.0.7-2
 - Update specs to handle SCL
 

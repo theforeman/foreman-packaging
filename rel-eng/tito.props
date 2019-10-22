@@ -25,32 +25,6 @@ whitelist = foreman-bootloaders-redhat
   foreman-selinux
   katello-certs-tools
   katello-selinux
-  nodejs-number_helpers
-  nodejs-object-assign
-  nodejs-patternfly
-  nodejs-patternfly-react
-  nodejs-performance-now
-  nodejs-popper.js
-  nodejs-prop-types
-  nodejs-prop-types-extra
-  nodejs-raf
-  nodejs-reselect
-  nodejs-sass-loader
-  nodejs-seamless-immutable
-  nodejs-select2
-  nodejs-sortabular
-  nodejs-style-loader
-  nodejs-symbol-observable
-  nodejs-table-resolver
-  nodejs-theforeman-vendor
-  nodejs-typed-styles
-  nodejs-uglifyjs-webpack-plugin
-  nodejs-urijs
-  nodejs-url-loader
-  nodejs-uuid
-  nodejs-warning
-  nodejs-webpack
-  nodejs-webpack-stats-plugin
   pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
@@ -130,6 +104,15 @@ whitelist = foreman
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
+  nodejs-node-sass
+  nodejs-object-assign
+  nodejs-patternfly
+  nodejs-patternfly-react
+  nodejs-performance-now
+  nodejs-popper.js
+  nodejs-prop-types
+  nodejs-prop-types-extra
+  nodejs-raf
   nodejs-react
   nodejs-reactabular-table
   nodejs-react-bootstrap
@@ -154,7 +137,24 @@ whitelist = foreman
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
-  nodejs-node-sass
+  nodejs-regenerator-runtime
+  nodejs-reselect
+  nodejs-sass-loader
+  nodejs-seamless-immutable
+  nodejs-select2
+  nodejs-sortabular
+  nodejs-style-loader
+  nodejs-symbol-observable
+  nodejs-table-resolver
+  nodejs-theforeman-vendor
+  nodejs-typed-styles
+  nodejs-uglifyjs-webpack-plugin
+  nodejs-urijs
+  nodejs-url-loader
+  nodejs-uuid
+  nodejs-warning
+  nodejs-webpack
+  nodejs-webpack-stats-plugin
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick

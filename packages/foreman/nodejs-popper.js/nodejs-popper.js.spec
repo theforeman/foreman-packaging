@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-popper.js
 Version: 1.14.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A kickass library to manage your poppers
 License: MIT
 Group: Development/Libraries
@@ -43,6 +43,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.14.4-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.14.4-2
 - Update specs to handle SCL
 
