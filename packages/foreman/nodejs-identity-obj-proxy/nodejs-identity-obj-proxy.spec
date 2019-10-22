@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-identity-obj-proxy
 Version: 3.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: an identity object using ES6 proxies
 License: MIT
 Group: Development/Libraries
@@ -44,6 +44,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-3
 - Update specs to handle SCL
 

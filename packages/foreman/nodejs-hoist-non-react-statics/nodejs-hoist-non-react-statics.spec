@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-hoist-non-react-statics
 Version: 2.5.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Copies non-react specific statics from a child component to a parent component
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -44,6 +44,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.5-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.5.5-2
 - Update specs to handle SCL
 
