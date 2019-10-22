@@ -35,11 +35,11 @@
       <packagereq type="default">rubygem-smart-proxy-probing</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_dnsmasq</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_infoblox</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_remote_isc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery</packagereq>
       <packagereq type="default">rubygem-smart_proxy_discovery_image</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dns_infoblox</packagereq>
@@ -58,6 +58,7 @@
       <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4</packagereq>
+      <packagereq type="default">tfm-rubygem-azure_mgmt_compute</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs</packagereq>
@@ -186,6 +187,7 @@
       <packagereq type="default">rubygem-sequel-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_device42-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_dnsmasq-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_dhcp_infoblox-doc</packagereq>
@@ -209,6 +211,7 @@
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure_mgmt_compute-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png-doc</packagereq>
       <packagereq type="default">tfm-rubygem-commonjs-doc</packagereq>
