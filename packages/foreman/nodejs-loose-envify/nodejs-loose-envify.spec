@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-loose-envify
 Version: 1.3.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Fast (and loose) selective `process
 License: MIT
 Group: Development/Libraries
@@ -53,6 +53,9 @@ ln -sf %{nodejs_sitelib}/%{npm_name}/cli.js %{buildroot}%{_bindir}/loose-envify
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.3.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.3.1-2
 - Update specs to handle SCL
 

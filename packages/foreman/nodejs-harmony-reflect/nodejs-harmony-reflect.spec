@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-harmony-reflect
 Version: 1.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: ES5 shim for ES6 (ECMAScript 6) Reflect and Proxy objects
 License: (Apache-2.0 OR MPL-1.1)
 Group: Development/Libraries
@@ -42,6 +42,9 @@ cp -pfr reflect.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.5.1-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.5.1-3
 - Update specs to handle SCL
 

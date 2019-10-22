@@ -59,20 +59,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-fbjs
   nodejs-file-loader
   nodejs-gud
-  nodejs-harmony-reflect
-  nodejs-hoist-non-react-statics
-  nodejs-humanize-duration
-  nodejs-identity-obj-proxy
-  nodejs-intl
-  nodejs-invariant
-  nodejs-jed
-  nodejs-jquery
-  nodejs-jquery-flot
-  nodejs-js-tokens
-  nodejs-lodash
-  nodejs-lodash.debounce
-  nodejs-lodash-es
-  nodejs-loose-envify
   nodejs-node-sass
   nodejs-number_helpers
   nodejs-object-assign
@@ -155,6 +141,20 @@ whitelist = foreman-bootloaders-redhat
 disttag = .el7
 whitelist = foreman
   nodejs-node-gyp
+  nodejs-harmony-reflect
+  nodejs-hoist-non-react-statics
+  nodejs-humanize-duration
+  nodejs-identity-obj-proxy
+  nodejs-intl
+  nodejs-invariant
+  nodejs-jed
+  nodejs-jquery
+  nodejs-jquery-flot
+  nodejs-js-tokens
+  nodejs-lodash
+  nodejs-lodash.debounce
+  nodejs-lodash-es
+  nodejs-loose-envify
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick
