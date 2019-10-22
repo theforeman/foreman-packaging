@@ -241,3 +241,14 @@ Description: package providing Foreman services running via puma
  a flexible systems management web application.
  .
  The foreman package should be installed along with this package.
+
+Package: foreman-dynflow-sidekiq
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
+Description: package providing dynflow sidekiq services for Foreman
+ This package provides dynflow executor systemd services for Foreman,
+ a flexible systems management web application.
+ .
+ The foreman package should be installed along with this package.
