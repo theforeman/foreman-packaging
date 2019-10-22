@@ -25,7 +25,6 @@ whitelist = foreman-bootloaders-redhat
   foreman-selinux
   katello-certs-tools
   katello-selinux
-  nodejs-node-sass
   nodejs-number_helpers
   nodejs-object-assign
   nodejs-patternfly
@@ -155,6 +154,7 @@ whitelist = foreman
   nodejs-lodash-es
   nodejs-loose-envify
   nodejs-regenerator-runtime
+  nodejs-node-sass
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick
