@@ -6,7 +6,7 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.0
+Version: 1.4.0
 Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
@@ -27,6 +27,8 @@ Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5
 Requires: %{?scl_prefix}rubygem(sequel) >= 4.0.0
+Requires: %{?scl_prefix}rubygem(sidekiq)
+Requires: %{?scl_prefix}rubygem(sidekiq-reliable-fetch)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -84,6 +86,8 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/Dockefile
+%exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_instdir}/extras
 %{gem_libdir}
@@ -102,6 +106,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Oct 22 2019 Adam Ruzicka <aruzicka@redhat.com> 1.4.0-1
+- Update to 1.4.0
+
 * Wed Aug 21 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.0-1
 - Update to 1.3.0-1
 
