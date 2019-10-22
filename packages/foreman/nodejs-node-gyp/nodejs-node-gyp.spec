@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-node-gyp
 Version: 3.3.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Node
 License: MIT
 Group: Development/Libraries
@@ -306,6 +306,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-4
+- Fix broken SCL include directories
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-3
 - Build for SCL
 
