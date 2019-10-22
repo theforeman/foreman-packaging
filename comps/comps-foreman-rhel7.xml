@@ -330,7 +330,6 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">nodejs-jquery-doc</packagereq>
       <packagereq type="default">rubygem-bundler_ext-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-doc</packagereq>
@@ -352,7 +351,6 @@
       <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
       <packagereq type="default">rubygem-rsec-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
-      <packagereq type="default">rubygem-smart_proxy_dhcp_bluecat-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
