@@ -304,7 +304,9 @@ scl = tfm
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = rubygem-angular-rails-templates
+whitelist = nodejs-babel-plugin-module-resolver
+  nodejs-react-json-tree
+  rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
   rubygem-azure_mgmt_compute
@@ -420,8 +422,6 @@ disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   foreman-discovery-image-service
-  nodejs-babel-plugin-module-resolver
-  nodejs-react-json-tree
   puppet-foreman_scap_client
   rubygem-chef-api
   rubygem-faraday

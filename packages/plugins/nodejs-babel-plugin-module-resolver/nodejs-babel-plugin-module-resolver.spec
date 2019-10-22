@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-module-resolver
 Version: 3.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Module resolver plugin for Babel
 License: MIT
 Group: Development/Libraries
@@ -111,6 +111,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-3
+- Build for SCL
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-2
 - Update to allow building for SCL
 

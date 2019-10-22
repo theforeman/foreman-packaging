@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-json-tree
 Version: 0.11.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: React JSON Viewer Component, Extracted from redux-devtools
 License: MIT
 Group: Development/Libraries
@@ -92,6 +92,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-3
+- Build for SCL
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-2
 - Update to allow building for SCL
 
