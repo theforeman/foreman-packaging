@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-collapse
 Version: 4.0.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Component-wrapper for collapse animation with react-motion for elements with variable (and dynamic) height
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.0.3-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.0.3-2
 - Update specs to handle SCL
 
