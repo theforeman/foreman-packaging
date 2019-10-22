@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-seamless-immutable
 Version: 7.1.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Immutable data structures for JavaScript which are backwards-compatible with normal JS Arrays and Objects
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -45,6 +45,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 7.1.3-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 7.1.3-2
 - Update specs to handle SCL
 

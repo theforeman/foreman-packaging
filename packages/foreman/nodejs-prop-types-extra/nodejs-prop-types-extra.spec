@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-prop-types-extra
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: React PropType Utilities
 License: MIT
 Group: Development/Libraries
@@ -49,6 +49,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Update specs to handle SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-raf
 Version: 3.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: requestAnimationFrame polyfill for node and the browser
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr window.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-3
 - Update specs to handle SCL
 

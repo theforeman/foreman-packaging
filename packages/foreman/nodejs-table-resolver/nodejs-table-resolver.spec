@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-table-resolver
 Version: 3.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Table resolution utilities
 License: MIT
 Group: Development/Libraries
@@ -43,6 +43,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-2
 - Update specs to handle SCL
 

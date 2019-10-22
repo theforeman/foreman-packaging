@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-warning
 Version: 4.0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A mirror of Facebook's Warning
 License: MIT
 Group: Development/Libraries
@@ -45,6 +45,9 @@ cp -pfr warning.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-2
 - Update specs to handle SCL
 
