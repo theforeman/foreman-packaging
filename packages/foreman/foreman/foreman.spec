@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prerelease develop
 
 Name:    foreman
@@ -722,19 +722,9 @@ Requires: %{name} = %{version}-%{release}
 Meta Package to install dynflow sidekiq executor support
 
 %files dynflow-sidekiq
-%{_datadir}/%{name}/bundler.d/sidekiq.rb
+%{_datadir}/%{name}/bundler.d/dynflow_sidekiq.rb
 %{_unitdir}/%{dynflow_sidekiq_service_name}.service
 %{_datadir}/%{name}/extras/dynflow-sidekiq.rb
-
-%install dynflow-sidekiq
-install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
-
-sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
-
-for i in orchestrator.yml worker.yml; do
-  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i %{buildroot}%{_sysconfdir}/%{name}/dynflow/
-  ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
-done
 
 %post dynflow-sidekiq
 %systemd_post %{dynflow_sidekiq_service_name}.service
@@ -820,6 +810,7 @@ install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/plugins
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/plugins
+install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/dynflow
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
@@ -829,6 +820,7 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
 #Copy init scripts and sysconfigs
 install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/sysconfig/%{executor_service_name}
 install -Dp -m0644 %{SOURCE11} %{buildroot}%{_unitdir}/%{executor_service_name}.service
+install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
 install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{executor_service_name}
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
@@ -839,6 +831,7 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 
+sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
 sed -i '/^ExecStart/ s|/usr/bin/rails \(.\+\)$|/usr/bin/scl enable tfm "rails \1"|' %{buildroot}%{_unitdir}/%{name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
@@ -859,6 +852,12 @@ mv %{buildroot}%{_datadir}/%{name}/config/settings.yaml.example %{buildroot}%{_d
 for i in database.yml settings.yaml foreman-debug.conf; do
 mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
+done
+
+for i in orchestrator worker; do
+  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml.example %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml
+  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml %{buildroot}%{_sysconfdir}/%{name}/dynflow/
+  ln -sv %{_sysconfdir}/%{name}/dynflow/$i.yml %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml
 done
 
 # Put db in %{_localstatedir}/lib/%{name}/db
@@ -1085,6 +1084,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Oct 22 2019 Ondrej Ezr <ezrik12@gmail.com> - 1.24.0-0.11.develop
+- Add dynflow-sidekiq package providing services for running dynflow on sidekiq
+
 * Fri Oct 11 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-0.10.develop
 - Updates to support NodeJS packages built into SCL
 
