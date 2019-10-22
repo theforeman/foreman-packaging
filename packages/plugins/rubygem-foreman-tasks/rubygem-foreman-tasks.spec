@@ -11,7 +11,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.17.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -47,49 +47,49 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(babel-cli) >= 6.10.1
-BuildRequires: npm(babel-cli) < 7.0.0
-BuildRequires: npm(babel-core) >= 6.26.3
-BuildRequires: npm(babel-core) < 7.0.0
-BuildRequires: npm(babel-loader) >= 7.1.1
-BuildRequires: npm(babel-loader) < 8.0.0
-BuildRequires: npm(babel-plugin-module-resolver) >= 3.2.0
-BuildRequires: npm(babel-plugin-module-resolver) < 4.0.0
-BuildRequires: npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-BuildRequires: npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.8.0
-BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.7.0
-BuildRequires: npm(babel-preset-env) < 2.0.0
-BuildRequires: npm(babel-preset-react) >= 6.5.0
-BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: npm(identity-obj-proxy) < 4.0.0
-BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 2.0.0
-BuildRequires: npm(node-sass) >= 4.5.0
-BuildRequires: npm(node-sass) < 5.0.0
-BuildRequires: npm(patternfly) >= 3.58.0
-BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(raf) >= 3.4.0
-BuildRequires: npm(raf) < 4.0.0
-BuildRequires: npm(sass-loader) >= 6.0.7
-BuildRequires: npm(sass-loader) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
+BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
+BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-module-resolver) >= 3.2.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-module-resolver) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
+BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(patternfly) >= 3.58.0
+BuildRequires: %{?scl_prefix}npm(patternfly) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
+BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.7
+BuildRequires: %{?scl_prefix}npm(sass-loader) < 7.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 1.4.0
-BuildRequires: npm(@theforeman/vendor) < 2.0.0
-BuildRequires: npm(humanize-duration) >= 3.20.1
-BuildRequires: npm(humanize-duration) < 4.0.0
-BuildRequires: npm(react-intl) >= 2.8.0
-BuildRequires: npm(react-intl) < 3.0.0
-BuildRequires: npm(c3) >= 0.4.11
-BuildRequires: npm(c3) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
+BuildRequires: %{?scl_prefix}npm(humanize-duration) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
+BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -196,6 +196,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.17.0-2
+- Rebuild for SCL nodejs
+
 * Thu Sep 05 2019 Adam Ruzicka <aruzicka@redhat.com> 0.17.0-1
 - Update to 0.17.0
 
