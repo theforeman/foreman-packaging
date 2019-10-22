@@ -28,7 +28,7 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5
 Requires: %{?scl_prefix}rubygem(sequel) >= 4.0.0
 Requires: %{?scl_prefix}rubygem(sidekiq)
-Requires: %{?scl_prefix}rubygem(sidekiq-reliable-fetch)
+Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
