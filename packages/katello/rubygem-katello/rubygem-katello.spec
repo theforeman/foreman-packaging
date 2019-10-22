@@ -5,7 +5,7 @@
 %global foreman_min_version 1.23.0
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.13.0
+%global mainver 3.13.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -240,6 +240,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Oct 22 2019 Patrick Creech <pcreech@redhat.com> - 3.13.1-1
+- Release rubygem-katello 3.13.1
+
 * Mon Oct 07 2019 Evgeni Golov - 3.13.0-1
 - Release 3.13.0
 

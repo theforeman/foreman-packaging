@@ -8,7 +8,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        3.13.0
+Version:        3.13.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -76,6 +76,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-katello
 
 %changelog
+* Tue Oct 22 2019 Patrick Creech <pcreech@redhat.com> - 3.13.1-1
+- Release katello-repos 3.13.1
+
 * Mon Oct 07 2019 Evgeni Golov - 3.13.0-1
 - Release 3.13.0
 
