@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.14.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -43,9 +43,11 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1a1.dev01571770150
 Requires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
 Requires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.0.0b71571763860
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -69,9 +71,11 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1a1.dev01571770150
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
 BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.0.0b71571763860
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -88,38 +92,38 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(babel-core) >= 6.26.3
-BuildRequires: npm(babel-core) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-polyfill) >= 6.26.0
-BuildRequires: npm(babel-polyfill) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.6.0
-BuildRequires: npm(babel-preset-env) < 2.0.0
-BuildRequires: npm(babel-preset-react) >= 6.24.1
-BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-polyfill) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-polyfill) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
-BuildRequires: npm(@theforeman/vendor) >= 1.4.0
-BuildRequires: npm(@theforeman/vendor) < 2.0.0
-BuildRequires: npm(angular) = 1.5.5
-BuildRequires: npm(bootstrap-select) = 1.12.4
-BuildRequires: npm(downshift) >= 1.28.0
-BuildRequires: npm(downshift) < 2.0.0
-BuildRequires: npm(jed) >= 1.1.1
-BuildRequires: npm(jed) < 2.0.0
-BuildRequires: npm(ngreact) >= 0.5.0
-BuildRequires: npm(ngreact) < 1.0.0
-BuildRequires: npm(query-string) >= 6.1.0
-BuildRequires: npm(query-string) < 7.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
-BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-helmet) >= 5.2.0
-BuildRequires: npm(react-helmet) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(angular) = 1.5.5
+BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
+BuildRequires: %{?scl_prefix}npm(downshift) >= 1.28.0
+BuildRequires: %{?scl_prefix}npm(downshift) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(ngreact) >= 0.5.0
+BuildRequires: %{?scl_prefix}npm(ngreact) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(query-string) >= 6.1.0
+BuildRequires: %{?scl_prefix}npm(query-string) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
+BuildRequires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(react-helmet) >= 5.2.0
+BuildRequires: %{?scl_prefix}npm(react-helmet) < 6.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -142,38 +146,38 @@ Summary:    Rebuild the assets for %{pkg_name}
 
 Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
-Requires: npm(babel-core) >= 6.26.3
-Requires: npm(babel-core) < 7.0.0
-Requires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-Requires: npm(babel-plugin-transform-class-properties) < 7.0.0
-Requires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-Requires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-Requires: npm(babel-polyfill) >= 6.26.0
-Requires: npm(babel-polyfill) < 7.0.0
-Requires: npm(babel-preset-env) >= 1.6.0
-Requires: npm(babel-preset-env) < 2.0.0
-Requires: npm(babel-preset-react) >= 6.24.1
-Requires: npm(babel-preset-react) < 7.0.0
-Requires: npm(identity-obj-proxy) >= 3.0.0
-Requires: npm(identity-obj-proxy) < 4.0.0
+Requires: %{?scl_prefix}npm(babel-core) >= 6.26.3
+Requires: %{?scl_prefix}npm(babel-core) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-polyfill) >= 6.26.0
+Requires: %{?scl_prefix}npm(babel-polyfill) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+Requires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+Requires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+Requires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
-Requires: npm(@theforeman/vendor) >= 1.4.0
-Requires: npm(@theforeman/vendor) < 2.0.0
-Requires: npm(angular) = 1.5.5
-Requires: npm(bootstrap-select) = 1.12.4
-Requires: npm(downshift) >= 1.28.0
-Requires: npm(downshift) < 2.0.0
-Requires: npm(jed) >= 1.1.1
-Requires: npm(jed) < 2.0.0
-Requires: npm(ngreact) >= 0.5.0
-Requires: npm(ngreact) < 1.0.0
-Requires: npm(query-string) >= 6.1.0
-Requires: npm(query-string) < 7.0.0
-Requires: npm(react-bootstrap) >= 0.32.1
-Requires: npm(react-bootstrap) < 1.0.0
-Requires: npm(react-helmet) >= 5.2.0
-Requires: npm(react-helmet) < 6.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+Requires: %{?scl_prefix}npm(angular) = 1.5.5
+Requires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
+Requires: %{?scl_prefix}npm(downshift) >= 1.28.0
+Requires: %{?scl_prefix}npm(downshift) < 2.0.0
+Requires: %{?scl_prefix}npm(jed) >= 1.1.1
+Requires: %{?scl_prefix}npm(jed) < 2.0.0
+Requires: %{?scl_prefix}npm(ngreact) >= 0.5.0
+Requires: %{?scl_prefix}npm(ngreact) < 1.0.0
+Requires: %{?scl_prefix}npm(query-string) >= 6.1.0
+Requires: %{?scl_prefix}npm(query-string) < 7.0.0
+Requires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
+Requires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
+Requires: %{?scl_prefix}npm(react-helmet) >= 5.2.0
+Requires: %{?scl_prefix}npm(react-helmet) < 6.0.0
 # end package.json dependencies Requires
 
 %description assets
@@ -241,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.4.pre.master
+- Update requires on nodejs packages
+
 * Sun Oct 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.3.pre.master
 - Update Gem and NPM dependencies
 
