@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.7
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -46,53 +46,53 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: npm(babel-plugin-lodash) >= 3.3.2
-BuildRequires: npm(babel-plugin-lodash) < 4.0.0
-BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-assign) >= 6.22.0
-BuildRequires: npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-BuildRequires: npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: npm(babel-preset-env) >= 1.6.0
-BuildRequires: npm(babel-preset-env) < 2.0.0
-BuildRequires: npm(babel-preset-react) >= 6.24.1
-BuildRequires: npm(babel-preset-react) < 7.0.0
-BuildRequires: npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: npm(identity-obj-proxy) < 4.0.0
-BuildRequires: npm(react-redux) >= 5.0.7
-BuildRequires: npm(react-redux) < 6.0.0
-BuildRequires: npm(redux) >= 3.7.2
-BuildRequires: npm(redux) < 4.0.0
-BuildRequires: npm(redux-thunk) >= 2.3.0
-BuildRequires: npm(redux-thunk) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
+BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
+BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: npm(babel-polyfill) >= 6.26.0
-BuildRequires: npm(babel-polyfill) < 7.0.0
-BuildRequires: npm(classnames) >= 2.2.5
-BuildRequires: npm(classnames) < 3.0.0
-BuildRequires: npm(lodash) >= 4.17.11
-BuildRequires: npm(lodash) < 5.0.0
-BuildRequires: npm(patternfly) >= 3.58.0
-BuildRequires: npm(patternfly) < 4.0.0
-BuildRequires: npm(patternfly-react) >= 2.25.4
-BuildRequires: npm(patternfly-react) < 3.0.0
-BuildRequires: npm(prop-types) >= 15.6.2
-BuildRequires: npm(prop-types) < 16.0.0
-BuildRequires: npm(react) >= 16.6.3
-BuildRequires: npm(react) < 17.0.0
-BuildRequires: npm(react-bootstrap) >= 0.32.1
-BuildRequires: npm(react-bootstrap) < 1.0.0
-BuildRequires: npm(react-dom) >= 16.6.3
-BuildRequires: npm(react-dom) < 17.0.0
-BuildRequires: npm(react-json-tree) >= 0.11.0
-BuildRequires: npm(react-json-tree) < 1.0.0
-BuildRequires: npm(reselect) >= 3.0.1
-BuildRequires: npm(reselect) < 4.0.0
-BuildRequires: npm(seamless-immutable) >= 7.1.3
-BuildRequires: npm(seamless-immutable) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(babel-polyfill) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-polyfill) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(classnames) >= 2.2.5
+BuildRequires: %{?scl_prefix}npm(classnames) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
+BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(patternfly) >= 3.58.0
+BuildRequires: %{?scl_prefix}npm(patternfly) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(patternfly-react) >= 2.25.4
+BuildRequires: %{?scl_prefix}npm(patternfly-react) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(prop-types) >= 15.6.2
+BuildRequires: %{?scl_prefix}npm(prop-types) < 16.0.0
+BuildRequires: %{?scl_prefix}npm(react) >= 16.6.3
+BuildRequires: %{?scl_prefix}npm(react) < 17.0.0
+BuildRequires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
+BuildRequires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(react-dom) >= 16.6.3
+BuildRequires: %{?scl_prefix}npm(react-dom) < 17.0.0
+BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
+BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(reselect) >= 3.0.1
+BuildRequires: %{?scl_prefix}npm(reselect) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(seamless-immutable) >= 7.1.3
+BuildRequires: %{?scl_prefix}npm(seamless-immutable) < 8.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -172,6 +172,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.7-2
+- Rebuild for SCL nodejs
+
 * Mon Sep 09 2019 Marek Hulan <mhulan@redhat.com> 3.0.7-1
 - Update to 3.0.7
 
