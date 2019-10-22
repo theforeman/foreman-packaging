@@ -59,6 +59,7 @@
       <packagereq type="default">tfm-rubygem-aws-eventstream</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_compute</packagereq>
+      <packagereq type="default">tfm-rubygem-azure_mgmt_network</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_resources</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_storage</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
@@ -214,6 +215,7 @@
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4-doc</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_compute-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-azure_mgmt_network-doc</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_resources-doc</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_storage-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
