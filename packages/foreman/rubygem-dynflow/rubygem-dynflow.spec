@@ -86,7 +86,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/Dockefile
+%exclude %{gem_instdir}/Dockerfile
 %exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_instdir}/extras
