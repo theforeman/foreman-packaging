@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-fontawesome
 Version: 1.6.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A React component for the font-awesome icon library
 License: MIT
 Group: Development/Libraries
@@ -47,6 +47,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.6.1-4
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.6.1-3
 - Update specs to handle SCL
 

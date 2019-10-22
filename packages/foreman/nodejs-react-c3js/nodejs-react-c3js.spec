@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-c3js
 Version: 0.1.20
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: React component for C3
 License: MIT
 Group: Development/Libraries
@@ -45,6 +45,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.20-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.20-2
 - Update specs to handle SCL
 

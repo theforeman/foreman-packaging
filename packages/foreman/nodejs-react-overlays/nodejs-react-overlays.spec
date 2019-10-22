@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-overlays
 Version: 0.8.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Utilities for creating robust overlay components
 License: MIT
 Group: Development/Libraries
@@ -57,6 +57,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.8.3-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.8.3-2
 - Update specs to handle SCL
 

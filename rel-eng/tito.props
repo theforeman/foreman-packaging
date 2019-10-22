@@ -34,29 +34,6 @@ whitelist = foreman-bootloaders-redhat
   nodejs-prop-types
   nodejs-prop-types-extra
   nodejs-raf
-  nodejs-react
-  nodejs-reactabular-table
-  nodejs-react-bootstrap
-  nodejs-react-bootstrap-switch
-  nodejs-react-bootstrap-typeahead
-  nodejs-react-c3js
-  nodejs-react-click-outside
-  nodejs-react-collapse
-  nodejs-react-debounce-input
-  nodejs-react-dom
-  nodejs-react-ellipsis-with-tooltip
-  nodejs-react-fontawesome
-  nodejs-react-intl
-  nodejs-react-is
-  nodejs-react-lifecycles-compat
-  nodejs-react-motion
-  nodejs-react-overlays
-  nodejs-react-popper
-  nodejs-react-redux
-  nodejs-react-transition-group
-  nodejs-recompose
-  nodejs-redux
-  nodejs-redux-thunk
   nodejs-reselect
   nodejs-sass-loader
   nodejs-seamless-immutable
@@ -153,6 +130,29 @@ whitelist = foreman
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
+  nodejs-react
+  nodejs-reactabular-table
+  nodejs-react-bootstrap
+  nodejs-react-bootstrap-switch
+  nodejs-react-bootstrap-typeahead
+  nodejs-react-c3js
+  nodejs-react-click-outside
+  nodejs-react-collapse
+  nodejs-react-debounce-input
+  nodejs-react-dom
+  nodejs-react-ellipsis-with-tooltip
+  nodejs-react-fontawesome
+  nodejs-react-intl
+  nodejs-react-is
+  nodejs-react-lifecycles-compat
+  nodejs-react-motion
+  nodejs-react-overlays
+  nodejs-react-popper
+  nodejs-react-redux
+  nodejs-react-transition-group
+  nodejs-recompose
+  nodejs-redux
+  nodejs-redux-thunk
   nodejs-regenerator-runtime
   nodejs-node-sass
   rubygem-activerecord-session_store

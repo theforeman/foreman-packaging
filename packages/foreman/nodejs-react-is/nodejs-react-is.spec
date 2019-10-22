@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-is
 Version: 16.5.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Brand checking of React Elements
 License: MIT
 Group: Development/Libraries
@@ -44,6 +44,9 @@ cp -pfr umd %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 16.5.2-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 16.5.2-2
 - Update specs to handle SCL
 

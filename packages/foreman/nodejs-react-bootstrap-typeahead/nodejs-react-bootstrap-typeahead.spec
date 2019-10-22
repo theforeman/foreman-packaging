@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-bootstrap-typeahead
 Version: 3.4.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: React typeahead with Bootstrap styling
 License: MIT
 Group: Development/Libraries
@@ -66,6 +66,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc docs
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.1-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.1-2
 - Update specs to handle SCL
 

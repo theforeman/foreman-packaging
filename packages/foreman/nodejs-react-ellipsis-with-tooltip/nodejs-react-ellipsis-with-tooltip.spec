@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-ellipsis-with-tooltip
 Version: 1.0.8
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.8-3
+- Build for SCL
+
 * Fri Oct 04 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.8-2
 - Update specs to handle SCL
 
