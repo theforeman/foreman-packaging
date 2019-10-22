@@ -7,8 +7,8 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.4
-Release: 2%{?foremandist}%{?dist}
+Version: 0.4.5
+Release: 1%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
 License: GPLv3
@@ -104,6 +104,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Oct 22 2019 Marek Hulan <mhulan@redhat.com> 0.4.5-1
+- Update to 0.4.5
+
 * Thu Sep 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.4-2
 - Regenerate the spec file based on the latest foreman_plugin template
 
