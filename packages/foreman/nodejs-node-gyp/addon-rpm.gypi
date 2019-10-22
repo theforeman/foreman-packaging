@@ -5,8 +5,8 @@
     'product_prefix': '',
 
     'include_dirs': [
-      '/usr/include/node',
-      '/usr/include'
+      '/opt/rh/rh-nodejs10/root/usr/include/node',
+      '/opt/rh/rh-nodejs10/root/usr/include'
     ],
     'defines': [
       'NODE_GYP_MODULE_NAME=>(_target_name)'
