@@ -12,8 +12,8 @@
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">ipxe-bootimgs</packagereq>
-      <packagereq type="default">nodejs-babel-plugin-module-resolver</packagereq>
-      <packagereq type="default">nodejs-react-json-tree</packagereq>
+      <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
+      <packagereq type="default">tfm-nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>

@@ -710,6 +710,10 @@ plugin_scl_packages:
         - el7-foreman-rails-nightly
         - el7-foreman-nightly
   hosts:
+    nodejs-babel-plugin-module-resolver:
+      strategy: bundle
+    nodejs-react-json-tree:
+      strategy: bundle
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
     rubygem-aws-sigv4: {}
@@ -834,10 +838,6 @@ plugin_nonscl_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     foreman-discovery-image-service: {}
-    nodejs-babel-plugin-module-resolver:
-      strategy: bundle
-    nodejs-react-json-tree:
-      strategy: bundle
     puppet-foreman_scap_client: {}
     rubygem-newt: {}
     rubygem-satyr: {}
