@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-node-sass
 Version: 4.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Wrapper around libsass
 License: MIT
 Group: Development/Libraries
@@ -429,6 +429,7 @@ cp -pfr node_modules/%{npm_name}/package.json %{buildroot}%{nodejs_sitelib}/%{np
 cp -pfr node_modules/%{npm_name}/scripts %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/test %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr node_modules/%{npm_name}/vendor %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 mkdir -p %{buildroot}%{_bindir}/
 chmod 0755 %{buildroot}%{nodejs_sitelib}/%{npm_name}/bin/node-sass
@@ -443,8 +444,12 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %license node_modules/%{npm_name}/LICENSE
 %doc node_modules/%{npm_name}/CHANGELOG.md
 %doc node_modules/%{npm_name}/README.md
+%exclude %{_root_libdir}/debug
 
 %changelog
+* Wed Oct 23 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.12.0-2
+- Fix missing vendor
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 4.12.0-1
 - Build for SCL
 
