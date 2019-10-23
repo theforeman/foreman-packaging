@@ -7,7 +7,7 @@
 %global gem_name katello
 %global prerelease .pre.master
 %global mainver 3.14.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -43,9 +43,11 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1a1.dev01571770150
 Requires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
 Requires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.0.0b71571763860
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -69,9 +71,11 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.0.0rc6.dev01568814705
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1a1.dev01571770150
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.1.0b21568401409
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b3.dev01568826778
 BuildRequires: %{?scl_prefix}rubygem(pulp_docker_client) <= 4.0.0b7.dev01569333539
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.0.0b71571763860
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -241,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Oct 23 2019 Justin Sherrill - 3.14.0-0.4.pre.master
+- Add pulp_rpm and pulp_2to3_migration gem clients
+
 * Sun Oct 06 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.14.0-0.3.pre.master
 - Update Gem and NPM dependencies
 
