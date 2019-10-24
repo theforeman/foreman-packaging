@@ -4,7 +4,7 @@ SPEC_FILE=$1
 VERSION=$2
 
 if [[ -z $SPEC_FILE ]] || [[ ! -e $SPEC_FILE ]] ; then
-	echo "Usage: $0 SPEC_FILE"
+	echo "Usage: $0 SPEC_FILE [VERSION]"
 	exit 1
 fi
 
