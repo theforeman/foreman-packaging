@@ -8,7 +8,7 @@ Build-Depends: debhelper, gem2deb
 Standards-Version: 3.9.3
 XS-Ruby-Versions: all
 
-Package: ruby-dynflow
+Package: ruby-gitlab-sidekiq-fetcher
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-sidekiq (>= 5.0.0), ruby-sidekiq (<< 6.0.0)
