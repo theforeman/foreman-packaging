@@ -241,7 +241,6 @@
       <packagereq type="default">tfm-nodejs-invariant</packagereq>
       <packagereq type="default">tfm-nodejs-jed</packagereq>
       <packagereq type="default">tfm-nodejs-jquery</packagereq>
-      <packagereq type="default">tfm-nodejs-jquery-flot</packagereq>
       <packagereq type="default">tfm-nodejs-js-tokens</packagereq>
       <packagereq type="default">tfm-nodejs-lodash</packagereq>
       <packagereq type="default">tfm-nodejs-lodash-es</packagereq>
@@ -286,7 +285,6 @@
       <packagereq type="default">tfm-nodejs-reselect</packagereq>
       <packagereq type="default">tfm-nodejs-sass-loader</packagereq>
       <packagereq type="default">tfm-nodejs-seamless-immutable</packagereq>
-      <packagereq type="default">tfm-nodejs-select2</packagereq>
       <packagereq type="default">tfm-nodejs-sortabular</packagereq>
       <packagereq type="default">tfm-nodejs-style-loader</packagereq>
       <packagereq type="default">tfm-nodejs-symbol-observable</packagereq>
