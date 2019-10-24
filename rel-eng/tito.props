@@ -329,7 +329,6 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_ansible_core
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
-  rubygem-foreman_cockpit
   rubygem-foreman_column_view
   rubygem-foreman_custom_parameters
   rubygem-foreman_default_hostgroup
