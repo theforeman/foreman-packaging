@@ -80,7 +80,6 @@
       <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_cockpit</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_custom_parameters</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_default_hostgroup</packagereq>
