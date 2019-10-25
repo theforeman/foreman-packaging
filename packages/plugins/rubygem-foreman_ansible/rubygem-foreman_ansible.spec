@@ -5,11 +5,11 @@
 
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 1.22.0
+%global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.7
-Release: 2%{?foremandist}%{?dist}
+Version: 4.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -24,8 +24,8 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
@@ -33,8 +33,8 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.7.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -46,8 +46,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
@@ -60,39 +58,13 @@ BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
 BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
-BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
-BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-polyfill) >= 6.26.0
-BuildRequires: %{?scl_prefix}npm(babel-polyfill) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(classnames) >= 2.2.5
-BuildRequires: %{?scl_prefix}npm(classnames) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
-BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(patternfly) >= 3.58.0
-BuildRequires: %{?scl_prefix}npm(patternfly) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(patternfly-react) >= 2.25.4
-BuildRequires: %{?scl_prefix}npm(patternfly-react) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(prop-types) >= 15.6.2
-BuildRequires: %{?scl_prefix}npm(prop-types) < 16.0.0
-BuildRequires: %{?scl_prefix}npm(react) >= 16.6.3
-BuildRequires: %{?scl_prefix}npm(react) < 17.0.0
-BuildRequires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
-BuildRequires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(react-dom) >= 16.6.3
-BuildRequires: %{?scl_prefix}npm(react-dom) < 17.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
 BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(reselect) >= 3.0.1
-BuildRequires: %{?scl_prefix}npm(reselect) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(seamless-immutable) >= 7.1.3
-BuildRequires: %{?scl_prefix}npm(seamless-immutable) < 8.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -172,6 +144,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Oct 25 2019 Ondrej Prazak <oprazak@redhat.com> - 4.0.0-1
+- Update to 4.0.0
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.7-2
 - Rebuild for SCL nodejs
 
