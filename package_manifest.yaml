@@ -644,6 +644,7 @@ katello_packages:
     nodejs-react-helmet:
       strategy: bundle
     nodejs-strict-uri-encode: {}
+    postgresql-debversion: {}
     pulp-katello: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}

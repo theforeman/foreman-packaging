@@ -69,6 +69,7 @@
       <packagereq type="default">qpid-dispatch-tools</packagereq>
       <!-- other katello related packages -->
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
+      <packagereq type="default">postgresql-debversion</packagereq>
     </packagelist>
   </group>
   <group>
