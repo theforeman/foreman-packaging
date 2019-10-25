@@ -11,7 +11,7 @@ cfg.each do |tag, entry|
   next unless entry.has_key?('whitelist')
   comp_pkgs = entry['whitelist'].split
   if entry['scl']
-    comp_pkgs.map!{ |x| x =~ /^rubygem-/ ? "#{entry['scl']}-#{x}" : x }
+    comp_pkgs.map!{ |x| x =~ /^(rubygem|nodejs)-/ ? "#{entry['scl']}-#{x}" : x }
   end
   koji_pkgs = []
   `koji list-pkgs --tag=#{tag} --quiet`.each_line do |line|
