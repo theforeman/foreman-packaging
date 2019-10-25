@@ -1028,6 +1028,7 @@ pulpcore_packages:
         - el7-base
         - el7-updates
   hosts:
+    postgresql-debversion: {}
     pulpcore-selinux: {}
     python-aiofiles: {}
     python-aiohttp: {}

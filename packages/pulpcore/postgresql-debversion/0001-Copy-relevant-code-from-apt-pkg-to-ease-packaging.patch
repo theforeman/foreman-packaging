@@ -1,0 +1,228 @@
+From 47b0fef28a76bc4c125beffdad28dcb7aca0e8af Mon Sep 17 00:00:00 2001
+From: Matthias Dellweg <dellweg@atix.de>
+Date: Fri, 25 Oct 2019 14:09:29 +0200
+Subject: [PATCH] Copy relevant code from apt-pkg to ease packaging
+
+---
+ Makefile       |   1 -
+ debversion.cpp | 179 +++++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 172 insertions(+), 8 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 9ebec8a..850584b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -15,4 +15,3 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
+ include $(PGXS)
+ 
+ CXXFLAGS += -fPIC # needed for 9.x-10
+-LDFLAGS += -lapt-pkg
+diff --git a/debversion.cpp b/debversion.cpp
+index 6dd540d..a6c74a6 100644
+--- a/debversion.cpp
++++ b/debversion.cpp
+@@ -24,6 +24,8 @@ extern "C"
+ #include <access/hash.h>
+ #include <utils/builtins.h>
+ 
++#include <ctype.h>
++
+ #ifdef PG_MODULE_MAGIC
+   PG_MODULE_MAGIC;
+ #endif
+@@ -40,14 +42,177 @@ extern "C"
+   extern Datum debversion_larger (PG_FUNCTION_ARGS);
+ }
+ 
+-// apt's apt-pkg/macros.h and PostgreSQL's server/c.h (10+) both define these:
+-#undef likely
+-#undef unlikely
+-
+-#include <apt-pkg/debversion.h>
+-
+ namespace
+ {
++  // -------------------------------------------------------------------------
++  // This code has been copied from the apt project and slightly adjusted.
++  static int
++  order(char c)
++  {
++    if (isdigit(c))
++      return 0;
++    else if (isalpha(c))
++      return c;
++    else if (c == '~')
++      return -1;
++    else if (c)
++      return c + 256;
++    else
++      return 0;
++  }
++
++  int
++  CmpFragment(const char *A,const char *AEnd,
++    const char *B,const char *BEnd)
++  {
++    /* Iterate over the whole string
++       What this does is to split the whole string into groups of
++       numeric and non numeric portions. For instance:
++       a67bhgs89
++       Has 4 portions 'a', '67', 'bhgs', '89'. A more normal:
++       2.7.2-linux-1
++       Has '2', '.', '7', '.', '2', '-linux-', '1' */
++    const char *lhs = A;
++    const char *rhs = B;
++    while (lhs != AEnd && rhs != BEnd)
++    {
++      int first_diff = 0;
++
++      while (lhs != AEnd && rhs != BEnd &&
++          (!isdigit(*lhs) || !isdigit(*rhs)))
++      {
++        int vc = order(*lhs);
++        int rc = order(*rhs);
++        if (vc != rc)
++          return vc - rc;
++        ++lhs; ++rhs;
++      }
++
++      while (*lhs == '0')
++        ++lhs;
++      while (*rhs == '0')
++        ++rhs;
++      while (isdigit(*lhs) && isdigit(*rhs))
++      {
++        if (!first_diff)
++          first_diff = *lhs - *rhs;
++        ++lhs;
++        ++rhs;
++      }
++
++      if (isdigit(*lhs))
++        return 1;
++      if (isdigit(*rhs))
++        return -1;
++      if (first_diff)
++        return first_diff;
++    }
++
++    // The strings must be equal
++    if (lhs == AEnd && rhs == BEnd)
++      return 0;
++
++    // lhs is shorter
++    if (lhs == AEnd)
++    {
++      if (*rhs == '~') return 1;
++      return -1;
++    }
++
++    // rhs is shorter
++    if (rhs == BEnd)
++    {
++      if (*lhs == '~') return -1;
++      return 1;
++    }
++
++    // Shouldn't happen
++    return 1;
++  }
++
++  /* This fragments the version into E:V-R triples and compares each
++     portion separately. */
++  int
++  CmpVersion(const char *A,const char *AEnd,
++    const char *B,const char *BEnd)
++  {
++    // Strip off the epoch and compare it
++    const char *lhs = (const char*) memchr(A, ':', AEnd - A);
++    const char *rhs = (const char*) memchr(B, ':', BEnd - B);
++    if (lhs == NULL)
++      lhs = A;
++    if (rhs == NULL)
++      rhs = B;
++
++    // Special case: a zero epoch is the same as no epoch,
++    // so remove it.
++    if (lhs != A)
++    {
++      for (; *A == '0'; ++A);
++      if (A == lhs)
++      {
++        ++A;
++        ++lhs;
++      }
++    }
++    if (rhs != B)
++    {
++      for (; *B == '0'; ++B);
++      if (B == rhs)
++      {
++        ++B;
++        ++rhs;
++      }
++    }
++
++    // Compare the epoch
++    int Res = CmpFragment(A,lhs,B,rhs);
++    if (Res != 0)
++      return Res;
++
++    // Skip the :
++    if (lhs != A)
++      lhs++;
++    if (rhs != B)
++      rhs++;
++
++    // Find the last -
++    const char *dlhs = (const char*) memrchr(lhs, '-', AEnd - lhs);
++    const char *drhs = (const char*) memrchr(rhs, '-', BEnd - rhs);
++    if (dlhs == NULL)
++      dlhs = AEnd;
++    if (drhs == NULL)
++      drhs = BEnd;
++
++    // Compare the main version
++    Res = CmpFragment(lhs,dlhs,rhs,drhs);
++    if (Res != 0)
++      return Res;
++
++    // Skip the -
++    if (dlhs != lhs)
++      dlhs++;
++    if (drhs != rhs)
++      drhs++;
++
++    // no debian revision need to be treated like -0
++    if (*(dlhs-1) == '-' && *(drhs-1) == '-')
++      return CmpFragment(dlhs,AEnd,drhs,BEnd);
++    else if (*(dlhs-1) == '-')
++    {
++      const char* null = "0";
++      return CmpFragment(dlhs,AEnd,null, null+1);
++    }
++    else if (*(drhs-1) == '-')
++    {
++      const char* null = "0";
++      return CmpFragment(null, null+1, drhs, BEnd);
++    }
++    else
++      return 0;
++  }
++  // -------------------------------------------------------------------------
++
+   int32
+   debversioncmp (text *left,
+ 		 text *right)
+@@ -58,7 +223,7 @@ namespace
+     lstr = text_to_cstring(left);
+     rstr = text_to_cstring(right);
+ 
+-    result = debVS.CmpVersion (lstr, rstr);
++    result = CmpVersion(lstr, lstr + strlen(lstr), rstr, rstr + strlen(rstr));
+ 
+     pfree (lstr);
+     pfree (rstr);
+-- 
+2.25.0.rc0
+
