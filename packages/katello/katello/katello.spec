@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.14.0
@@ -152,7 +152,6 @@ Requires: qpid-tools
 Requires: /bin/ps
 Requires: rh-mongodb34
 Requires: %{name}-service
-Requires: /usr/bin/psql
 
 %description debug
 Useful utilities for debug info collecting
@@ -191,6 +190,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Oct 28 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.4.master
+- Drop psql requirement on -debug and let foreman-debug handle
+
 * Tue Sep 03 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.3.master
 - Drop katello-remove
 
