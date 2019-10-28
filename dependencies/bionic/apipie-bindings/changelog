@@ -1,3 +1,9 @@
+ruby-apipie-bindings (0.3.0-1) stable; urgency=low
+
+  * 0.3.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Mon, 28 Oct 2019 13:23:16 +0100
+
 ruby-apipie-bindings (0.2.3-1) stable; urgency=low
 
   * 0.2.3 released
