@@ -299,11 +299,11 @@ module KatelloUtilities
       end
 
       STDOUT.puts "stopping services"
-      self.run_cmd("katello-service stop")
+      self.run_cmd("foreman-maintain service stop")
 
       public_dir = "/var/www/html/pub"
       public_backup_dir = "#{public_dir}/#{@old_hostname}-#{self.timestamp}.backup"
-      
+
       STDOUT.puts "removing old cert rpms"
       cert_packages = [
         "apache",
@@ -371,7 +371,7 @@ module KatelloUtilities
       else
         if using_custom_certs?(@scenario_answers)
           # The CA must be the same one used for the original certs
-          installer << " --certs-server-ca-cert #{@scenario_answers["certs"]["server_ca_cert"]}" 
+          installer << " --certs-server-ca-cert #{@scenario_answers["certs"]["server_ca_cert"]}"
           installer << " --certs-server-cert #{@options[:custom_cert]}"
           installer << " --certs-server-key #{@options[:custom_key]}"
           installer << " --certs-server-cert-req #{@options[:custom_cert_req]}"
@@ -400,8 +400,8 @@ module KatelloUtilities
         if success
           STDOUT.puts result
           STDOUT.puts 'Restarting puppet services'
-          run_cmd('/sbin/service puppet restart')
-          run_cmd('katello-service restart --only puppetserver')
+          run_cmd('/bin/systemctl try-restart puppet')
+          run_cmd('foreman-maintain service restart --only puppetserver')
 
           STDOUT.puts "**** Hostname change complete! ****".green
           STDOUT.puts "IMPORTANT:"
