@@ -1,2 +1,2 @@
 version=3
-http://pkg-ruby-extras.alioth.debian.org/cgi-bin/gemwatch/jwt .*/jwt-(.*).tar.gz
+https://gemwatch.debian.net/jwt .*/jwt-(.*).tar.gz

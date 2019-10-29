@@ -2,14 +2,18 @@ Source: ruby-jwt
 Section: ruby
 Priority: optional
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
-Uploaders: Markus Tornow <tornow@riseup.net>
+Uploaders: Markus Tornow <tornow@riseup.net>,
+ Pirate Praveen <praveen@debian.org>
 Build-Depends: debhelper (>= 9~),
                gem2deb,
                rake (>= 0.9.2.2),
-               ruby-rspec (>= 2.10.0)
-Standards-Version: 4.0.0
-Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-jwt.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-jwt.git
+               ruby-rspec (>= 2.10.0),
+               ruby-rbnacl,
+               ruby-openssl (>= 2.1),
+               ruby-openssl (<< 3)
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-jwt.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-jwt
 Homepage: http://github.com/progrium/ruby-jwt
 Testsuite: autopkgtest-pkg-ruby
 XS-Ruby-Versions: all
@@ -20,6 +24,9 @@ XB-Ruby-Versions: ${ruby:Versions}
 Depends: ruby | ruby-interpreter,
          ${misc:Depends},
          ${shlibs:Depends}
+Breaks: ruby-oauth2 (<< 1.4.1~),
+        ruby-omniauth-azure-oauth2 (<< 0.0.10~),
+        ruby-googleauth (<< 0.6~)
 Description: JSON Web Token implementation in Ruby
  A JSON Web Token (JWT) is a compact token format intended for space
  constrained environments such as HTTP Authorization headers and URI query

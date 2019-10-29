@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
 Uploaders: Markus Tornow <tornow@riseup.net>,
  Pirate Praveen <praveen@debian.org>
-Build-Depends: debhelper (>= 9~),
+Build-Depends: debhelper (>= 11~),
                gem2deb,
                rake (>= 0.9.2.2),
                ruby-rspec (>= 2.10.0),
