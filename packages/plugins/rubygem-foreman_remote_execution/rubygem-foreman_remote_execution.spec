@@ -10,41 +10,67 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_remote_execution
+%global foreman_min_version 1.24.0
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.8.4
-Release:    2%{?foremandist}%{?dist}
+Version:    2.0.2
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.20.0
+Requires:   foreman >= 1.24.0
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
-Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-Requires: %{?scl_prefix}rubygem(deface)
-
-BuildRequires: foreman-plugin >= 1.20.0
-BuildRequires: foreman-assets
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
-BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: systemd
 
+# start specfile generated dependencies
 BuildArch: noarch
+Requires: foreman >= %{foreman_min_version}
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
+BuildRequires: foreman-assets >= %{foreman_min_version}
+BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(deface)
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: foreman-plugin-%{plugin_name} = %{version}
+# end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+# end package.json dependencies BuildRequires
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-remote_execution
@@ -149,6 +175,9 @@ exit 0
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Tue Oct 29 2019 Lukas Zapletal <lzap+rpm@redhat.com> 2.0.2-1
+- Update to 2.0.2
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.8.4-2
 - Rebuild for SCL nodejs
 
