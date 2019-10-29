@@ -1,0 +1,39 @@
+From: Unit 193 <unit193@ubuntu.com>
+Date: Sat, 8 Jul 2017 23:04:03 +0200
+Subject: Provide rbnacl-libsodium
+
+Last-Update: 2017-01-03
+---
+ lib/rbnacl/libsodium.rb | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 lib/rbnacl/libsodium.rb
+
+diff --git a/lib/rbnacl/libsodium.rb b/lib/rbnacl/libsodium.rb
+new file mode 100644
+index 0000000..94d04a7
+--- /dev/null
++++ b/lib/rbnacl/libsodium.rb
+@@ -0,0 +1,8 @@
++require 'rbnacl'
++
++module RbNaCl
++  module Libsodium
++    send(:remove_const, :VERSION) if const_defined?(:VERSION)
++    VERSION = RbNaCl::Sodium::Version::STRING
++  end
++end
+diff --git a/lib/rbnacl/libsodium/version.rb b/lib/rbnacl/libsodium/version.rb
+new file mode 100644
+index 0000000..94d04a7
+--- /dev/null
++++ b/lib/rbnacl/libsodium/version.rb
+@@ -0,0 +1,9 @@
++module RbNaCl
++  module Libsodium
++    if defined?(RbNaCl::Sodium::Version::STRING)
++      VERSION = RbNaCl::Sodium::Version::STRING
++    elsif system('pkg-config --exists libsodium')
++      VERSION = `pkg-config --modversion libsodium`
++    end
++  end
++end

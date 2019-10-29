@@ -1,0 +1,21 @@
+From: Lucas Nussbaum <lucas@debian.org>
+Date: Sun, 9 Jul 2017 08:42:20 +0200
+Subject: Drop gem dependency on rbnacl-libsodium
+
+We depend on libsodium-dev directly in the debian package.
+---
+ Gemfile | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Gemfile b/Gemfile
+index 087c123..c372645 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -8,7 +8,6 @@ end
+ group :test do
+   gem "rspec"
+   gem "coveralls", require: false
+-  gem "rbnacl-libsodium", ENV["LIBSODIUM_VERSION"]
+ end
+ 
+ group :development, :test do

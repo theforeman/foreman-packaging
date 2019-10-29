@@ -1,0 +1,35 @@
+Source: ruby-rbnacl
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Unit 193 <unit193@ubuntu.com>, Pirate Praveen <praveen@debian.org>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               libsodium-dev,
+               rake,
+               ruby-coveralls,
+               ruby-ffi,
+               ruby-rspec
+Standards-Version: 4.3.0
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-rbnacl.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-rbnacl.git
+Homepage: https://github.com/cryptosphere/rbnacl
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-rbnacl
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: libsodium-dev,
+         ruby | ruby-interpreter,
+         ruby-ffi,
+         pkg-config,
+         ${misc:Depends},
+         ${shlibs:Depends}
+# That provides is a hack: rbnacl-libsodium is another gem that provides
+# rbnacl with a bundled libsodium. Given that we depend on libsodium, this
+# package is equivalent.
+Provides: ruby-rbnacl-libsodium
+Description: Ruby binding to the Networking and Cryptography (NaCl) library
+ The Networking and Cryptography (NaCl) library provides a high-level
+ toolkit for building cryptographic systems and protocols

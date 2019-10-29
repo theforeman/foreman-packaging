@@ -1,0 +1,6 @@
+provide_libsodium.patch
+disable-devel-gems
+0003-Drop-usage-of-git-in-gemspec.patch
+0004-Drop-gem-dependency-on-rbnacl-libsodium.patch
+0005-Drop-development-dependency-on-bundler.patch
+0006-fix-blake2b_state-struct-size.patch

@@ -1,0 +1,32 @@
+From: Lucas Nussbaum <lucas@debian.org>
+Date: Sun, 9 Jul 2017 08:57:11 +0200
+Subject: Drop development dependency on bundler
+
+---
+ rbnacl.gemspec      | 2 --
+ spec/spec_helper.rb | 1 -
+ 2 files changed, 3 deletions(-)
+
+diff --git a/rbnacl.gemspec b/rbnacl.gemspec
+index 55f79de..0d5d1c3 100644
+--- a/rbnacl.gemspec
++++ b/rbnacl.gemspec
+@@ -25,6 +25,4 @@ Gem::Specification.new do |spec|
+   spec.platform = "jruby" if defined? JRUBY_VERSION
+ 
+   spec.add_runtime_dependency "ffi"
+-
+-  spec.add_development_dependency "bundler"
+ end
+diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
+index ef9649e..93005c6 100644
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -8,7 +8,6 @@ Coveralls.wear!
+ # Run the specs prior to running the self-test
+ $RBNACL_SELF_TEST = false
+ 
+-require "bundler/setup"
+ require "rbnacl/libsodium"
+ require "shared/box"
+ require "shared/authenticator"

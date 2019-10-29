@@ -1,0 +1,30 @@
+Description: pad blake2b_state struct declaration for libsodium 1.0.13
+ libsodium 1.0.13 includes a bugfix to the alignment of the
+ crypto_generichash_blake2b_state struct, which was supposed to be declared
+ CRYPTO_ALIGN(64).  Non-obviously, this refers to 64 *byte* alignment, not
+ 64 *bit* alignment, and accordingly, initialization functions that try to
+ zero out a struct will walk off the end and scribble on memory if the struct
+ they're passed isn't padded out to a multiple of 64.
+ .
+ The size of this struct rounds up to 384 bytes (6*64).  On a 32-bit system
+ (where sizeof(size_t) == 4), the declared members of the struct only add
+ up to 357 bytes.  Add 27 bytes of padding to our allocated struct, so that
+ we allocate enough memory for either 32-bit or 64-bit architectures.
+ (Ideally we would just declare an alignment for the struct the same as we do
+ in GCC, but this doesn't appear to be supported in ffi.)
+Author: Steve Langasek <steve.langasek@ubuntu.com>
+
+Index: ruby-rbnacl-5.0.0/lib/rbnacl/hash/blake2b.rb
+===================================================================
+--- ruby-rbnacl-5.0.0.orig/lib/rbnacl/hash/blake2b.rb
++++ ruby-rbnacl-5.0.0/lib/rbnacl/hash/blake2b.rb
+@@ -175,7 +175,8 @@
+                :f, [:uint64, 2],
+                :buf, [:uint8, 2 * 128],
+                :buflen, :size_t,
+-               :last_node, :uint8
++               :last_node, :uint8,
++               :padding, [:uint8, 27]
+       end
+     end
+   end

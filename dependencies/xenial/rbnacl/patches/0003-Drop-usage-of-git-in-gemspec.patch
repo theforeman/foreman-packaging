@@ -1,0 +1,21 @@
+From: Lucas Nussbaum <lucas@debian.org>
+Date: Sat, 8 Jul 2017 23:04:31 +0200
+Subject: Drop usage of git in gemspec
+
+---
+ rbnacl.gemspec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rbnacl.gemspec b/rbnacl.gemspec
+index c666a29..55f79de 100644
+--- a/rbnacl.gemspec
++++ b/rbnacl.gemspec
+@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
+     cryptographic systems and protocols
+   DESCRIPTION
+ 
+-  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
++  spec.files         = []
+   spec.executables   = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+   spec.require_paths = ["lib"]
