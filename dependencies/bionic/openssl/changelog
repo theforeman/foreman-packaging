@@ -1,0 +1,51 @@
+ruby-openssl (2.1.2-2) UNRELEASED; urgency=medium
+
+  * Add salsa-ci.yml
+
+ -- Utkarsh Gupta <guptautkarsh2102@gmail.com>  Tue, 13 Aug 2019 06:19:08 +0530
+
+ruby-openssl (2.1.2-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 2.1.2 (Fixes: CVE-2018-16395) (Closes: #911918)
+  * Bump Standards-Version to 4.3.0 (no changes needed)
+  * Fix insecure URL
+
+ -- Utkarsh Gupta <guptautkarsh2102@gmail.com>  Tue, 26 Mar 2019 06:19:25 +0530
+
+ruby-openssl (2.1.1-2) unstable; urgency=medium
+
+  * debian/ruby-tests.rake: test against default openssl policy, instead of
+    excluding tests that fail under Debian's openssl policy.
+
+ -- Antonio Terceiro <terceiro@debian.org>  Mon, 08 Oct 2018 11:45:21 -0300
+
+ruby-openssl (2.1.1-1) unstable; urgency=medium
+
+  * New upstream version 2.1.1
+    - Drop patches, not applicable anymore
+  * Bump debhelper compatibility level to 11
+  * Bump Standards-Version to 4.2.1; no changed needed otherwise
+  * Update Vcs-* fields to point to salsa.debian.org
+  * debian/rules: install upstream changelog
+  * Fix building against openssl 1.1.1 (Closes: #900161)
+    - Apply patches from upstream pull request #217
+      https://github.com/ruby/openssl/pull/217/commits
+    - debian/ruby-tests.rake: Add $TESTOPTS to ignore two tests that still
+      crash against openssl 1.1.1
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 06 Oct 2018 10:24:43 -0300
+
+ruby-openssl (2.0.5-1) unstable; urgency=medium
+
+  * New upstream version 2.0.5
+  * Add patch to make tests work against OpenSSL with TLS < 1.2 disabled by
+    default. See https://github.com/ruby/openssl/pull/140
+
+ -- Antonio Terceiro <terceiro@debian.org>  Fri, 25 Aug 2017 14:39:14 -0300
+
+ruby-openssl (2.0.4-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sun, 02 Jul 2017 15:51:28 -0300

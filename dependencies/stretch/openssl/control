@@ -1,0 +1,26 @@
+Source: ruby-openssl
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>
+Build-Depends: debhelper (>= 9~),
+               gem2deb,
+               libssl-dev,
+               rake
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-openssl.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-openssl
+Homepage: https://github.com/ruby/openssl
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-openssl
+Architecture: any
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Ruby bindings for OpenSSL
+ This package provides SSL, TLS and general purpose cryptography for Ruby by
+ wrapping the OpenSSL library. It used to be bundled with the Ruby interpreter,
+ but has been extracted to a standalone package.

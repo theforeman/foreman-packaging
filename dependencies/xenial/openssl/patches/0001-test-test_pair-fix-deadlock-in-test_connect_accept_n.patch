@@ -1,0 +1,92 @@
+From: Kazuki Yamaguchi <k@rhe.jp>
+Date: Thu, 16 Aug 2018 20:54:47 +0900
+Subject: test/test_pair: fix deadlock in test_connect_accept_nonblock
+
+Call IO.select with a timeout value and limit the number of retries to
+prevent stacking forever.
+
+Reference: https://github.com/ruby/openssl/issues/214
+---
+ test/test_pair.rb | 51 ++++++++++++++++++++++-----------------------------
+ 1 file changed, 22 insertions(+), 29 deletions(-)
+
+diff --git a/test/test_pair.rb b/test/test_pair.rb
+index 29d5c9b..d26aafa 100644
+--- a/test/test_pair.rb
++++ b/test/test_pair.rb
+@@ -442,7 +442,7 @@ module OpenSSL::TestPairM
+   end
+ 
+   def test_connect_accept_nonblock
+-    ctx = OpenSSL::SSL::SSLContext.new()
++    ctx = OpenSSL::SSL::SSLContext.new
+     ctx.cert = @svr_cert
+     ctx.key = @svr_key
+     ctx.tmp_dh_callback = proc { OpenSSL::TestUtils::Fixtures.pkey_dh("dh1024") }
+@@ -451,45 +451,38 @@ module OpenSSL::TestPairM
+ 
+     th = Thread.new {
+       s2 = OpenSSL::SSL::SSLSocket.new(sock2, ctx)
+-      s2.sync_close = true
+-      begin
++      5.times {
++        begin
++          break s2.accept_nonblock
++        rescue IO::WaitReadable
++          IO.select([s2], nil, nil, 1)
++        rescue IO::WaitWritable
++          IO.select(nil, [s2], nil, 1)
++        end
+         sleep 0.2
+-        s2.accept_nonblock
++      }
++    }
++
++    s1 = OpenSSL::SSL::SSLSocket.new(sock1)
++    5.times {
++      begin
++        break s1.connect_nonblock
+       rescue IO::WaitReadable
+-        IO.select([s2])
+-        retry
++        IO.select([s1], nil, nil, 1)
+       rescue IO::WaitWritable
+-        IO.select(nil, [s2])
+-        retry
++        IO.select(nil, [s1], nil, 1)
+       end
+-      s2
+-    }
+-
+-    sleep 0.1
+-    ctx = OpenSSL::SSL::SSLContext.new()
+-    s1 = OpenSSL::SSL::SSLSocket.new(sock1, ctx)
+-    begin
+       sleep 0.2
+-      s1.connect_nonblock
+-    rescue IO::WaitReadable
+-      IO.select([s1])
+-      retry
+-    rescue IO::WaitWritable
+-      IO.select(nil, [s1])
+-      retry
+-    end
+-    s1.sync_close = true
++    }
+ 
+     s2 = th.value
+ 
+     s1.print "a\ndef"
+     assert_equal("a\n", s2.gets)
+   ensure
+-    th.join if th
+-    s1.close if s1 && !s1.closed?
+-    s2.close if s2 && !s2.closed?
+-    sock1.close if sock1 && !sock1.closed?
+-    sock2.close if sock2 && !sock2.closed?
++    sock1&.close
++    sock2&.close
++    th&.join
+   end
+ end
+ 
