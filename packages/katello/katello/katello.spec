@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    3.14.0
@@ -15,12 +15,9 @@ BuildArch:  noarch
 Group:      Applications/Internet
 License:    GPLv2
 URL:        https://theforeman.org/plugins/katello
-Source0:    katello-service.8.asciidoc
 Source1:    katello-debug.sh
-Source4:    katello-service
 Source6:    katello-restore
 Source7:    katello-backup
-Source8:    katello-service-bash_completion.sh
 Source9:    qpid-core-dump
 Source11:   katello-change-hostname
 Source13:   katello-change-hostname.8.asciidoc
@@ -71,12 +68,9 @@ Provides a package for managing application life-cycle for Linux systems.
 %build
 #man pages
 mkdir -p ./manpages
-cp %{SOURCE0} ./manpages
 cp %{SOURCE13} ./manpages
 pushd ./manpages
-a2x -d manpage -f manpage katello-service.8.asciidoc
 a2x -d manpage -f manpage katello-change-hostname.8.asciidoc
-gzip -f9 katello-service.8
 gzip -f9 katello-change-hostname.8
 popd
 
@@ -99,15 +93,12 @@ install -Dp -m0755 %{SOURCE11} %{buildroot}%{_sbindir}/katello-change-hostname
 install -Dp -m0755 %{SOURCE9} %{buildroot}%{_sbindir}/qpid-core-dump
 install -Dp -m0755 %{SOURCE7} %{buildroot}%{_sbindir}/katello-backup
 install -Dp -m0755 %{SOURCE6} %{buildroot}%{_sbindir}/katello-restore
-install -Dp -m0755 %{SOURCE4} %{buildroot}%{_sbindir}/katello-service
 install -Dp -m0755 %{SOURCE1} %{buildroot}/usr/share/foreman/script/foreman-debug.d/katello-debug.sh
 
 # install tab completion scripts
 install -d %{buildroot}/etc/bash_completion.d
-install -m 644 %{SOURCE8} %{buildroot}/etc/bash_completion.d/katello-service
 
 # install man page
-install -m 644 ./manpages/katello-service.8.gz %{buildroot}/%{_mandir}/man8
 install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/man8
 
 %clean
@@ -125,7 +116,6 @@ Summary:    Common runtime components of %{name}
 
 Requires:       rubygem-highline
 Requires:       %{name}-debug
-Requires:       %{name}-service
 
 %description common
 Common runtime components of %{name}
@@ -151,7 +141,6 @@ Requires: coreutils
 Requires: qpid-tools
 Requires: /bin/ps
 Requires: rh-mongodb34
-Requires: %{name}-service
 
 %description debug
 Useful utilities for debug info collecting
@@ -175,21 +164,10 @@ Provides a federation of katello services
 %files -n foreman-proxy-content
 # the files section is empty, but without it no RPM will be generated
 
-# ------ Service ----------------
-%package service
-Summary: Katello Service utilities
-Group: Applications/System
-Requires: rubygem-foreman_maintain >= 0.2.2
-
-%description service
-Useful utilities for managing Katello services
-
-%files service
-%{_sbindir}/katello-service
-%{_mandir}/man8/katello-service.8*
-%{_sysconfdir}/bash_completion.d/katello-service
-
 %changelog
+* Tue Oct 29 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.5.master
+- Drop katello-service subpackage in favor of foreman-maintain
+
 * Mon Oct 28 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.4.master
 - Drop psql requirement on -debug and let foreman-debug handle
 
