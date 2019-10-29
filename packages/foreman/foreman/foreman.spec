@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prerelease develop
 
 Name:    foreman
@@ -371,7 +371,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.6.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
@@ -1084,6 +1084,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Oct 30 2019 Michael Moll <mmoll@mmoll.at> - 1.25.0-0.2.develop
+- Update fog-libvirt gem dependency
+
 * Wed Oct 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.25.0-0.1.develop
 - Bump version to 1.25-develop
 
