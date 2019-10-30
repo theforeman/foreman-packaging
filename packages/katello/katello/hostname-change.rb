@@ -163,8 +163,7 @@ module KatelloUtilities
 
     def using_custom_certs?(scenario_answers)
       scenario_answers["certs"]["server_cert"] &&
-      scenario_answers["certs"]["server_key"] &&
-      scenario_answers["certs"]["server_cert_req"]
+      scenario_answers["certs"]["server_key"]
     end
 
     def delete_puppet_certs
@@ -174,7 +173,7 @@ module KatelloUtilities
     end
 
     def all_custom_cert_options_present?
-      @options[:custom_cert] && @options[:custom_key] && @options[:custom_cert_req]
+      @options[:custom_cert] && @options[:custom_key]
     end
 
     def custom_certs_check(scenario_answers)
@@ -229,10 +228,6 @@ module KatelloUtilities
             opt.on("-k","--custom-key KEY","If you are using custom certificates, please provide a server key with the new hostname") do |custom_key|
               @options[:custom_key] = File.expand_path(custom_key)
             end
-
-            opt.on("-r","--custom-cert-req CERTREQ","If you are using custom certificates, please provide a certificate request with the new hostname") do |custom_cert_req|
-              @options[:custom_cert_req] = File.expand_path(custom_cert_req)
-            end
           end
         end
 
@@ -253,9 +248,9 @@ module KatelloUtilities
 
       if using_custom_certs?(@scenario_answers) && !@foreman_proxy_content
         STDOUT.puts "\nChecking custom certificates"
-        fail_if_file_not_found([@options[:custom_cert], @options[:custom_key], @options[:custom_cert_req]])
+        fail_if_file_not_found([@options[:custom_cert], @options[:custom_key]])
         run_cmd("katello-certs-check -c #{@options[:custom_cert]} -k #{@options[:custom_key]} " \
-                "-r #{@options[:custom_cert_req]} -b #{@scenario_answers["certs"]["server_ca_cert"]}")
+                "-b #{@scenario_answers["certs"]["server_ca_cert"]}")
       end
 
       if @foreman_proxy_content
@@ -374,7 +369,6 @@ module KatelloUtilities
           installer << " --certs-server-ca-cert #{@scenario_answers["certs"]["server_ca_cert"]}"
           installer << " --certs-server-cert #{@options[:custom_cert]}"
           installer << " --certs-server-key #{@options[:custom_key]}"
-          installer << " --certs-server-cert-req #{@options[:custom_cert_req]}"
         end
         installer << " --certs-regenerate=true --foreman-proxy-register-in-foreman true"
       end
