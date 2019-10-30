@@ -17,7 +17,7 @@
 %global prerelease develop
 
 Name:     foreman-release
-Version:  1.24.0
+Version:  1.25.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -115,6 +115,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Wed Oct 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.25.0-0.1.develop
+- Bump version to 1.25-develop
+
 * Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
 - Bump version to 1.24-develop
 
