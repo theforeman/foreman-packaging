@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.18.1-1) stable; urgency=low
+
+  * 0.18.1 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Thu, 31 Oct 2019 18:33:43 +0000
+
 ruby-hammer-cli-foreman (0.18.0-1) stable; urgency=low
 
   * 0.18.0 released
