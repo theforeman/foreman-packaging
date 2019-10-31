@@ -1,5 +1,5 @@
-%global release 4
-%global prerelease develop
+%global release 5
+%global prerelease RC1
 
 Name:       foreman-installer
 Epoch:      1
@@ -140,6 +140,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Oct 31 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.24.0-0.5.RC1
+- Release 1.24.0-RC1
+
 * Fri Oct 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.24.0-0.4.develop
 - Update package dependencies
 

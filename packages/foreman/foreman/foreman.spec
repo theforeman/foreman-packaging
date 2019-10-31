@@ -11,8 +11,8 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 11
-%global prerelease develop
+%global release 12
+%global prerelease RC1
 
 Name:    foreman
 Version: 1.24.0
@@ -1084,6 +1084,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Oct 31 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.24.0-0.12.RC1
+- Release 1.24.0-RC1
+
 * Tue Oct 22 2019 Ondrej Ezr <ezrik12@gmail.com> - 1.24.0-0.11.develop
 - Add dynflow-sidekiq package providing services for running dynflow on sidekiq
 

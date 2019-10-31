@@ -13,8 +13,8 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
-%global prerelease develop
+%global release 2
+%global prerelease RC1
 
 Name:     foreman-release
 Version:  1.24.0
@@ -115,6 +115,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Thu Oct 31 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.24.0-0.2.RC1
+- Release 1.24.0-RC1
+
 * Tue Jul 30 2019 Evgeni Golov - 1.24.0-0.1.develop
 - Bump version to 1.24-develop
 
