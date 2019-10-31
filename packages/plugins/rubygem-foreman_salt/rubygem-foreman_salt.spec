@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    12.0.0
+Version:    13.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -23,15 +23,15 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 1.9
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 1.9
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -115,6 +115,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Oct 31 2019 Bernhard Suttner <suttner@atix.de> 13.1.0-1
+- Update to 13.1.0
+
 * Fri Aug 02 2019 Adam Ruzicka <aruzicka@redhat.com> 12.0.0-1
 - Update to 12.0.0
 
