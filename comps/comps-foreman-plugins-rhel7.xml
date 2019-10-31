@@ -12,8 +12,6 @@
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">ipxe-bootimgs</packagereq>
-      <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
-      <packagereq type="default">tfm-nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
@@ -55,6 +53,8 @@
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_spacewalk</packagereq>
+      <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
+      <packagereq type="default">tfm-nodejs-react-json-tree</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4</packagereq>
@@ -78,6 +78,7 @@
       <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure_rm</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
@@ -230,9 +231,9 @@
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_azure_rm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_cockpit-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_custom_parameters-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_default_hostgroup-doc</packagereq>
