@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.18.1-1) stable; urgency=low
+
+  * 0.18.1 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Thu, 31 Oct 2019 18:30:42 +0000
+
 ruby-hammer-cli (0.18.0-1) stable; urgency=low
 
   * 0.18.0 released
