@@ -779,6 +779,7 @@ plugin_scl_packages:
     rubygem-graphite-api: {}
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
+    rubygem-hammer_cli_foreman_azure_rm: {}
     rubygem-hammer_cli_foreman_bootdisk: {}
     rubygem-hammer_cli_foreman_discovery: {}
     rubygem-hammer_cli_foreman_docker: {}
