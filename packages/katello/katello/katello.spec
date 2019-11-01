@@ -4,10 +4,10 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 5
+%global release 1
 
 Name:       katello
-Version:    3.14.0
+Version:    3.15.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -165,6 +165,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Nov 01 2019 Jonathon Turel <jturel@gmail.com> - 3.15.0-0.1.master
+- Bump to 3.15.0
+
 * Tue Oct 29 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.5.master
 - Drop katello-service subpackage in favor of foreman-maintain
 

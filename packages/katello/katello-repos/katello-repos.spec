@@ -6,10 +6,10 @@
 %define repo_dist %{dist}
 
 %global prerelease .nightly
-%global release 4
+%global release 1
 
 Name:           katello-repos
-Version:        3.14.0
+Version:        3.15.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Fri Nov 01 2019 Jonathon Turel <jturel@gmail.com> - 3.15.0-0.1.nightly
+- Bump version to 3.15.0
+
 * Mon Oct 21 2019 Evgeni Golov - 3.14.0-0.4.nightly
 - Use RPM-GPG-KEY-foreman from foreman-release
 
