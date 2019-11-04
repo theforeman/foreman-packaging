@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -27,8 +27,6 @@ Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5
 Requires: %{?scl_prefix}rubygem(sequel) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(sidekiq)
-Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -106,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 04 2019 Patrick Creech <pcreech@redhat.com> - 1.4.1-2
+- Remove sidekiq
+
 * Fri Oct 25 2019 Adam Ruzicka <aruzicka@redhat.com> 1.4.1-1
 - Update to 1.4.1
 
