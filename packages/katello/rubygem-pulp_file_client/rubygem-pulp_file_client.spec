@@ -6,7 +6,7 @@
 %global gem_name pulp_file_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0rc2.dev.1558441126
+Version: 0.1.0b5.dev01571253617
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -81,7 +81,6 @@ rm %{buildroot}/%{gem_instdir}/git_push.sh
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/docs
@@ -89,6 +88,9 @@ rm %{buildroot}/%{gem_instdir}/git_push.sh
 %{gem_instdir}/spec
 
 %changelog
+* Mon Nov 04 2019 Justin Sherrill <jsherril@redhat.com> 0.1.0b5.dev01571253617-1
+- Update to a newer release
+
 * Mon Jun 10 2019 Justin Sherrill <jlsherrill@gmail.com> 3.0.0rc2.dev.1558441126-1
 - Update to a recent rc2 release
 
