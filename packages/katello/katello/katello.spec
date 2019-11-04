@@ -4,7 +4,7 @@
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
 %global prerelease .master
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.15.0
@@ -165,6 +165,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Nov 04 2019 Chris Roberts <chrobert@redhat.com> 3.15.0-0.2.master
+- Remove CSR reference from hostname-change
+
 * Fri Nov 01 2019 Jonathon Turel <jturel@gmail.com> - 3.15.0-0.1.master
 - Bump to 3.15.0
 
