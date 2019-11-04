@@ -11,8 +11,8 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 12
-%global prerelease RC1
+%global release 13
+%global prerelease RC2
 
 Name:    foreman
 Version: 1.24.0
@@ -1084,6 +1084,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Nov 04 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.24.0-0.13.RC2
+- Release 1.24.0-RC2
+
 * Thu Oct 31 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.24.0-0.12.RC1
 - Release 1.24.0-RC1
 
