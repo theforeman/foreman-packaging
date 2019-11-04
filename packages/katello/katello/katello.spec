@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prerelease .master
+%global prerelease .rc1
 %global release 3
 
 Name:       katello
@@ -191,6 +191,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Mon Nov 04 2019 Evgeni Golov - 3.14.0-0.3.rc1
+- Release katello 3.14.0
+
 * Tue Sep 03 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-0.3.master
 - Drop katello-remove
 
