@@ -9,7 +9,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.1.1
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -92,6 +92,7 @@ EOF
 %{gem_instdir}/bin
 %{gem_instdir}/sbin
 %{gem_instdir}/cron
+%{gem_instdir}/salt
 %{gem_instdir}/lib
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
@@ -114,6 +115,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 05 2019 Bernhard Suttner <suttner@atix.de> 3.1.1-1
+- Update to 3.1.1
+
 * Thu Oct 31 2019 Bernhard Suttner <suttner@atix.de> 3.1.0-1
 - Update to 3.1.0
 
