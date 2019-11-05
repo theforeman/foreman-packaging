@@ -15,9 +15,6 @@ build:
 	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
 	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
-	# we need to allow taxonomies so apipie cache renders documentation with them
-	/bin/sed -i 's/:locations_enabled: false/:locations_enabled: true/' config/settings.yaml
-	/bin/sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
 	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
 	/bin/rm db/production.sqlite3
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
