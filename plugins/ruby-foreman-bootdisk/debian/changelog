@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (16.0.0-1) stable; urgency=low
+
+  * Update foreman_bootdisk to 16.0.0
+
+ -- Marek Hulan <mhulan@redhat.com>  Tue, 05 Nov 2019 08:48:38 +0100
+
 ruby-foreman-bootdisk (15.1.0-1) stable; urgency=low
 
   * 15.1.0 released
