@@ -1,4 +1,3 @@
-# Generated from hammer_cli_katello-0.19.0.gem by gem2rpm -*- rpm-spec -*-
 # template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -7,13 +6,12 @@
 %global plugin_name katello
 
 %global release 1
-%global prerelease .pre.master
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.20
+Version: 0.20.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -25,8 +23,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.18.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.19.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 0.20
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
@@ -76,7 +74,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
@@ -97,6 +95,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 05 2019 Evgeni Golov - 0.20.0-1
+- Release rubygem-hammer_cli_katello 0.20.0
+
 * Fri Aug 09 2019 Evgeni Golov 0.20-0.1.pre.master
 - Bump to 0.20 to match git
 - Regenerate spec based on template
