@@ -4,9 +4,9 @@
 
 %global gem_name foreman_discovery
 %global plugin_name discovery
-%global foreman_min_version 1.22.0
+%global foreman_min_version 1.24.0
 
-%global mainver 15.1.0
+%global mainver 16.0.0
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -35,7 +35,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -112,6 +112,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Nov 05 2019 Marek Hulan <mhulan@redhat.com> 16.0.0-1
+- Update to 16.0.0
+
 * Fri Aug 09 2019 Lukas Zapletal <lzap+rpm@redhat.com> 15.1.0-1
 - Update to version 15.1.0
 
