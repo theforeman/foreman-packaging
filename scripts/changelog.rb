@@ -6,7 +6,7 @@ require 'time'
 options = {:message => []}
 
 author_name = `git config --get user.name`.chomp
-author_email = `git config --get user.email`.chomp
+author_email = ENV['DEBEMAIL'] || ENV['EMAIL'] || `git config --get user.email`.chomp
 options[:author] = "#{author_name} <#{author_email}>" if !author_name.nil? && !author_email.nil?
 
 OptionParser.new do |opts|
