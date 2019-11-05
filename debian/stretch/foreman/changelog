@@ -1,3 +1,9 @@
+foreman (1.24.0~rc2-1) stable; urgency=low
+
+  * 1.24.0-RC2 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 05 Nov 2019 10:32:18 +0100
+
 foreman (1.24.0-1) stable; urgency=low
 
   * Bump changelog to 1.24.0 to match VERSION
