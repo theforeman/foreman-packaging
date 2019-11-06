@@ -1,3 +1,9 @@
+foreman-installer (1.22.2-1) stable; urgency=low
+
+  * 1.22.2 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 06 Nov 2019 13:48:03 -0500
+
 foreman-installer (1.22.1-1) stable; urgency=low
 
   * 1.22.1 released
