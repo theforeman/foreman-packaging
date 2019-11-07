@@ -13,7 +13,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.20
+Version: 0.21
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -97,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Nov 07 2019 Jonathon Turel <jturel@gmail.com> 0.21-0.1.pre.master
+- Bump to 0.21 to match git
+
 * Fri Aug 09 2019 Evgeni Golov 0.20-0.1.pre.master
 - Bump to 0.20 to match git
 - Regenerate spec based on template
