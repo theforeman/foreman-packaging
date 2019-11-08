@@ -98,6 +98,8 @@ if [ ! -f config/initializers/local_secret_token.rb ]; then
   chmod 0640 config/initializers/local_secret_token.rb
 fi
 
+chmod 755 /usr/share/foreman/script/npm_install_plugins.js
+
 # Own all the core files
 chown -Rf foreman:foreman '/usr/share/foreman'
 
