@@ -7,7 +7,7 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.0
+Version: 0.8.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
@@ -20,14 +20,14 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
 Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
-Requires: %{?scl_prefix}rubygem(deface)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
-BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Fri Nov 08 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.8.2-1
+- Update to 0.8.2
+
 * Fri Jul 12 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.0-1
 - Update to 0.8.0-1
 
