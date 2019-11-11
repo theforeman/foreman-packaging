@@ -5,6 +5,7 @@ packages:
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
+    pulp_packages: {}
 
 foreman_packages:
   children:
@@ -953,3 +954,30 @@ repoclosures:
           - f29-base
           - f29-updates
           - f29-puppet-6
+
+pulp_packages:
+  vars:
+    package_base_dir: 'packages/pulp/'
+    diff_package_skip: false
+    diff_package_tags:
+      - katello-nightly-pulp3-rhel7
+    releasers:
+      - koji-katello-pulp3
+    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_target_repos:
+      rhel7:
+        - el7-katello-nightly
+    repoclosure_lookaside_repos:
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-puppet-6
+        - el7-foreman-rails-nightly
+        - el7-foreman-nightly
+        - el7-foreman-plugins-nightly
+        - el7-katello-pulp-nightly
+        - el7-katello-candlepin-nightly
+  hosts: []
