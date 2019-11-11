@@ -8,7 +8,7 @@
 %global foreman_min_version 1.22.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
+Version: 0.1.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 Group: Applications/Systems
@@ -21,12 +21,12 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3
-Requires: %{?scl_prefix}rubygem(fog-kubevirt) < 2
+Requires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
+Requires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3
-BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) < 2
+BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
+BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -105,6 +105,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Nov 11 2019 Shira Maximov <shiramaximov@gmail.com> 0.1.7-1
+- Update to 0.1.7
+
 * Mon Jul 01 2019 Shira Maximov <shiramaximov@gmail.com> 0.1.4-1
 - Update to 0.1.4
 
