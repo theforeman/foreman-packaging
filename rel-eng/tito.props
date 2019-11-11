@@ -529,3 +529,7 @@ whitelist = katello
   rubygem-runcible
   rubygem-typhoeus
   rubygem-zest
+
+[katello-nightly-pulp3-rhel7]
+disttag = .el7
+whitelist =
