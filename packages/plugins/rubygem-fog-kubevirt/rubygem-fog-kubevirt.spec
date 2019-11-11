@@ -6,7 +6,7 @@
 %global gem_name fog-kubevirt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.1
+Version: 1.3.3
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Kubevirt
 Group: Development/Languages
@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Nov 11 2019 Shira Maximov <shiramaximov@gmail.com> 1.3.3-1
+- Update to 1.3.3
+
 * Mon Jul 08 2019 Shira Maximov <shiramaximov@gmail.com> 1.3.1-1
 - Update to 1.3.1
 
