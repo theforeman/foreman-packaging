@@ -6,7 +6,8 @@ TITO_TAG=${3:-foreman-nightly-nonscl-rhel7}
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
-PACKAGE_NAME=python-${PYPI_NAME}
+# the package name will contain the downcased PYPI_NAME
+PACKAGE_NAME=python-${PYPI_NAME,,}
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
@@ -32,7 +33,13 @@ generate_pypi_package() {
   mkdir $PACKAGE_DIR
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
-  pyp2rpm --no-autonc -s -d $PACKAGE_DIR -v $VERSION $PYPI_NAME
+  # pass -r $PACKAGE_NAME to pyp2rpm if we had to downcase the name
+  if [[ $PACKAGE_NAME != "python-${PYPI_NAME}" ]]; then
+    RPM_NAME_ARG="-r ${PACKAGE_NAME}"
+  else
+    RPM_NAME_ARG=""
+  fi
+  pyp2rpm --no-autonc -s -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
