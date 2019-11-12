@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.17.1-2) stable; urgency=low
+
+  * Remove rack-protection, as sidekiq pulls it in now,.
+
+ -- Michael Moll <mmoll@mmoll.at>  Tue, 12 Nov 2019 14:28:27 +0100
+
 ruby-foreman-tasks (0.17.1-1) stable; urgency=low
 
   * 0.17.1 released
