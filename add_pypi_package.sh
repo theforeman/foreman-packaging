@@ -75,7 +75,11 @@ add_to_tito_props() {
 add_pypi_to_comps() {
   local comps_scl="nonscl"
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  local comps_file="foreman"
+  if [[ $TITO_TAG == katello-* ]]; then
+    local comps_file="katello-server"
+  else
+    local comps_file="foreman"
+  fi
 
   for comps_package in ${comps_packages}; do
     ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
