@@ -95,7 +95,7 @@ add_pypi_to_manifest() {
 		local section="plugin_nonscl_packages"
 	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
 		local section="katello_packages"
-	elif [[ $TITO_TAG == "katello-nightly-pulp3-rhel7" ]] ; then
+	elif [[ $TITO_TAG == "katello-nightly-pulpcore-el7" ]] ; then
 		local section="pulp_packages"
 	else
 		# TODO: client packages

@@ -530,6 +530,6 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-nightly-pulp3-rhel7]
+[katello-nightly-pulpcore-el7]
 disttag = .el7
 whitelist =
