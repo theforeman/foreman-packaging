@@ -16,13 +16,4 @@
       <packagereq type="default">candlepin-selinux</packagereq>
     </packagelist>
   </group>
-  <group>
-    <id>Katello-candlepin-server-debuginfo</id>
-    <name>Candlepin for Katello Server Debuginfo</name>
-    <description>Candlepin Server Debuginfo Packages</description>
-    <uservisible>true</uservisible>
-    <packagelist>
-      <packagereq type="optional">akuma-debuginfo</packagereq>
-    </packagelist>
-  </group>
 </comps>
