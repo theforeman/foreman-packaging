@@ -52,9 +52,6 @@ generate_pypi_package() {
   fi
   echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec ${VERSION}-1
   echo "FINISHED"
-  echo -n "Downloading sources..."
-  spectool --list-files $PACKAGE_DIR/*.spec | awk '/https?:/ { print $2 }' | xargs --no-run-if-empty wget --directory-prefix=$PACKAGE_DIR --no-verbose
-  echo "FINISHED"
 
   echo -e "Adding spec to git... - "
   git add $PACKAGE_DIR/*.spec
