@@ -8,8 +8,8 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.3
-Release: 2%{?foremandist}%{?dist}
+Version: 1.7.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -112,6 +112,10 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Nov 12 2019 Markus Bucher <bucher@atix.de> 1.7.0-1
+- Update to 1.7.0
+- Add API
+
 * Thu Sep 19 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.6.3-2
 - Regenerate spec based on the latest foreman_plugin gem2rpm template
 
