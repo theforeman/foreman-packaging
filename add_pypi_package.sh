@@ -77,10 +77,12 @@ add_to_tito_props() {
 
 add_pypi_to_comps() {
   local comps_scl="nonscl"
-  local comps_package="${PACKAGE_NAME}"
+  local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
   local comps_file="foreman"
 
-  ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+  for comps_package in ${comps_packages}; do
+    ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+  done
   ./comps_doc.sh
   git add comps/
 }
