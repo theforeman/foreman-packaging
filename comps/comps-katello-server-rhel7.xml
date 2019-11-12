@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <!--  <meta> -->
   <!-- Meta information will go here eventually -->
@@ -32,7 +31,6 @@
       <packagereq type="default">tfm-rubygem-katello</packagereq>
       <packagereq type="default">tfm-rubygem-katello-assets</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access</packagereq>
-
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">tfm-nodejs-angular</packagereq>
       <packagereq type="default">tfm-nodejs-bootstrap-select</packagereq>
@@ -42,7 +40,6 @@
       <packagereq type="default">tfm-nodejs-query-string</packagereq>
       <packagereq type="default">tfm-nodejs-react-helmet</packagereq>
       <packagereq type="default">tfm-nodejs-strict-uri-encode</packagereq>
-
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">tfm-rubygem-anemone</packagereq>
       <packagereq type="default">tfm-rubygem-ansi</packagereq>
@@ -67,11 +64,9 @@
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-typhoeus</packagereq>
       <packagereq type="default">tfm-rubygem-zest</packagereq>
-
       <!-- temporary qpid packages -->
       <packagereq type="default">qpid-dispatch-router</packagereq>
       <packagereq type="default">qpid-dispatch-tools</packagereq>
-
       <!-- other katello related packages -->
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
