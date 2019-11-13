@@ -6,7 +6,7 @@
 %global release 1
 
 Name:       katello
-Version:    3.13.1
+Version:    3.13.2
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -193,6 +193,9 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Nov 13 2019 Evgeni Golov - 3.13.2-1
+- Release katello 3.13.2
+
 * Tue Oct 22 2019 Patrick Creech <pcreech@redhat.com> - 3.13.1-1
 - Release katello 3.13.1
 
