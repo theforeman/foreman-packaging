@@ -10,8 +10,8 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.17.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.17.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -84,12 +84,12 @@ BuildRequires: %{?scl_prefix}npm(sass-loader) < 7.0.0
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
+BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
 BuildRequires: %{?scl_prefix}npm(humanize-duration) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
 BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
-BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -196,6 +196,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Thu Nov 14 2019 Adam Ruzicka <aruzicka@redhat.com> 0.17.1-1
+- Update to 0.17.1
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.17.0-2
 - Rebuild for SCL nodejs
 
