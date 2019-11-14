@@ -75,7 +75,7 @@ def get_npm_sections(packages):
     for section in ('devDependencies', 'dependencies'):
         for requires in ('BuildRequires', 'Requires'):
             trigger = '{} {}\n'.format(section, requires)
-            requirements = list(get_requirements(packages[section], requires + ': npm({}) {}\n'))
+            requirements = list(get_requirements(packages[section], requires + ': %{{?scl_prefix}}npm({}) {}\n'))
             yield trigger, requirements
 
 
