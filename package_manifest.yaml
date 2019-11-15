@@ -971,13 +971,4 @@ pulp_packages:
       rhel7:
         - el7-base
         - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-6
-        - el7-foreman-rails-nightly
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
-        - el7-katello-pulp-nightly
-        - el7-katello-candlepin-nightly
   hosts: []
