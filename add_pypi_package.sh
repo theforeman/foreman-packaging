@@ -6,6 +6,7 @@ TITO_TAG=${3:-foreman-nightly-nonscl-rhel7}
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
+BASE_PYTHON=3
 
 # the package name will contain the downcased PYPI_NAME
 PACKAGE_NAME=python-${PYPI_NAME,,}
@@ -40,7 +41,7 @@ generate_pypi_package() {
   else
     RPM_NAME_ARG=""
   fi
-  pyp2rpm --no-autonc -s -t $TEMPLATE -b 3 -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  pyp2rpm --no-autonc -s -t $TEMPLATE -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
