@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
-
 <comps>
   <!--  <meta> -->
   <!-- Meta information will go here eventually -->
@@ -11,6 +10,6 @@
     <description>pulpcore Server Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-    </packagelist>
+    <packagereq type="default">python3-setuptools-scm</packagereq></packagelist>
   </group>
 </comps>
