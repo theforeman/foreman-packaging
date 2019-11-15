@@ -477,10 +477,6 @@ foreman_proxy_plugin_packages:
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
-    rubygem-foreman_ansible_core: {}
-    rubygem-foreman_probing_core: {}
-    rubygem-foreman_remote_execution_core: {}
-    rubygem-foreman-tasks-core: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
     rubygem-openscap: {}
@@ -737,7 +733,9 @@ plugin_scl_packages:
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
+    rubygem-foreman-tasks-core: {}
     rubygem-foreman_ansible: {}
+    rubygem-foreman_ansible_core: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
@@ -763,7 +761,9 @@ plugin_scl_packages:
     rubygem-foreman_omaha: {}
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing: {}
+    rubygem-foreman_probing_core: {}
     rubygem-foreman_remote_execution: {}
+    rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
