@@ -5,6 +5,7 @@ VERSION=${2:-auto}
 TITO_TAG=${3:-foreman-nightly-nonscl-rhel7}
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
+TEMPLATE=${5:-fedora}
 
 # the package name will contain the downcased PYPI_NAME
 PACKAGE_NAME=python-${PYPI_NAME,,}
@@ -39,7 +40,7 @@ generate_pypi_package() {
   else
     RPM_NAME_ARG=""
   fi
-  pyp2rpm --no-autonc -s -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  pyp2rpm --no-autonc -s -t $TEMPLATE -b 3 -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
@@ -125,7 +126,7 @@ pypi_info() {
 
 if [[ -z $PYPI_NAME ]]; then
   echo "This script adds a new python package based on the module found on pypi.org"
-  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [TITO_TAG [PACKAGE_SUBDIR]] \n"
+  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [TITO_TAG [PACKAGE_SUBDIR [TEMPLATE]]] \n"
   echo "VERSION is optional but can be an exact version number or auto to use the latest version"
   exit 1
 fi
