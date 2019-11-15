@@ -45,7 +45,11 @@ end
 
 def prepend_packagereqs(packagelist, packagereqs)
   packagereqs.each do |packagereq|
-    packagelist.children.before(packagereq)
+    if packagelist.children.empty?
+      packagelist.add_child(packagereq)
+    else
+      packagelist.children.before(packagereq)
+    end
   end
 end
 
