@@ -159,6 +159,7 @@
       <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-nmap</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml</packagereq>
+      <packagereq type="default">tfm-rubygem-sentry-raven</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_salt_core</packagereq>
       <packagereq type="default">tfm-rubygem-systemu</packagereq>
@@ -313,6 +314,7 @@
       <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-sentry-raven-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_salt_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-systemu-doc</packagereq>
