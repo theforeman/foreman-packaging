@@ -968,7 +968,7 @@ pulp_packages:
       rhel7:
         - el7-katello-nightly
     repoclosure_lookaside_repos:
-      rhel7:
+      el7:
         - el7-base
         - el7-updates
   hosts:
