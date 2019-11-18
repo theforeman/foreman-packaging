@@ -1014,3 +1014,4 @@ pulp_packages:
     python-sqlparse: {}
     python-toml: {}
     python-typing-extensions: {}
+    python-uritemplate: {}
