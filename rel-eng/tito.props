@@ -557,4 +557,5 @@ whitelist =
   python-markupsafe
   python-multidict
   python-packaging
+  python-psycopg2
   python-setuptools-scm

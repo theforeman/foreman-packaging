@@ -16,6 +16,8 @@
       <packagereq type="default">python-markupsafe-debugsource</packagereq>
       <packagereq type="default">python-multidict-debuginfo</packagereq>
       <packagereq type="default">python-multidict-debugsource</packagereq>
+      <packagereq type="default">python-psycopg2-debuginfo</packagereq>
+      <packagereq type="default">python-psycopg2-debugsource</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
@@ -41,6 +43,7 @@
       <packagereq type="default">python3-markupsafe</packagereq>
       <packagereq type="default">python3-multidict</packagereq>
       <packagereq type="default">python3-packaging</packagereq>
+      <packagereq type="default">python3-psycopg2</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
