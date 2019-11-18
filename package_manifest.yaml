@@ -983,4 +983,5 @@ pulp_packages:
     python-django: {}
     python-django-filter: {}
     python-djangorestframework: {}
+    python-djangorestframework-queryfields: {}
     python-setuptools-scm: {}
