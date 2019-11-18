@@ -10,6 +10,8 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-    <packagereq type="default">python3-setuptools-scm</packagereq></packagelist>
+      <packagereq type="default">python3-aiofiles</packagereq>
+      <packagereq type="default">python3-setuptools-scm</packagereq>
+    </packagelist>
   </group>
 </comps>
