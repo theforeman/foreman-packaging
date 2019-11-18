@@ -64,6 +64,7 @@
       <packagereq type="default">python3-six</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>
       <packagereq type="default">python3-toml</packagereq>
+      <packagereq type="default">python3-typing-extensions</packagereq>
     </packagelist>
   </group>
 </comps>
