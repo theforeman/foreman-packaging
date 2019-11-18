@@ -15,7 +15,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-%{summary}
+A Pulp plugin to support hosting arbitrary files.
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
@@ -25,7 +25,7 @@ Requires:       python3-pulpcore >= 3.0rc8
 Requires:       python3-setuptools
 
 %description -n python3-%{pypi_name}
-%{summary}
+A Pulp plugin to support hosting arbitrary files.
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
