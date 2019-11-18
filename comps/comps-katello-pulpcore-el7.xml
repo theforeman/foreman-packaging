@@ -18,6 +18,8 @@
       <packagereq type="default">python-multidict-debugsource</packagereq>
       <packagereq type="default">python-psycopg2-debuginfo</packagereq>
       <packagereq type="default">python-psycopg2-debugsource</packagereq>
+      <packagereq type="default">python-pyyaml-debuginfo</packagereq>
+      <packagereq type="default">python-pyyaml-debugsource</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
@@ -50,6 +52,7 @@
       <packagereq type="default">python3-pulpcore</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pytz</packagereq>
+      <packagereq type="default">python3-pyyaml</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>

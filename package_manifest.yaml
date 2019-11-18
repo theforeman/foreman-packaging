@@ -1003,4 +1003,5 @@ pulp_packages:
     python-pulpcore: {}
     python-pyparsing: {}
     python-pytz: {}
+    python-pyyaml: {}
     python-setuptools-scm: {}
