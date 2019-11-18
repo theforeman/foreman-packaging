@@ -974,4 +974,5 @@ pulp_packages:
     python-aiofiles: {}
     python-aiohttp: {}
     python-async-timeout: {}
+    python-attrs: {}
     python-setuptools-scm: {}

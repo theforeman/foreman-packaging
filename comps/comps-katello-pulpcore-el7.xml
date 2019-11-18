@@ -15,6 +15,7 @@
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
+      <packagereq type="default">python3-attrs</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
