@@ -1012,3 +1012,4 @@ pulp_packages:
     python-setuptools-scm: {}
     python-six: {}
     python-sqlparse: {}
+    python-toml: {}
