@@ -4,8 +4,9 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 1
-%global prerelease .pre.develop
+%global release 2
+%global prereleasesource pre.develop
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -127,6 +128,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 0.20-0.2.pre.develop
+- Unify prerelease macro handling
+
 * Mon Oct 28 2019 Evgeni Golov - 0.20-0.1.pre.develop
 - Bump to 0.20-develop
 

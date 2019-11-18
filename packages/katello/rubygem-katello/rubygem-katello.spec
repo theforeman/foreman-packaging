@@ -5,9 +5,10 @@
 %global foreman_min_version 1.24.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .pre.master
+%global prereleasesource pre.master
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -245,6 +246,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 3.15.0-0.2.pre.master
+- Unify prerelease macro handling
+
 * Fri Nov 01 2019 Jonathon Turel <jturel@gmail.com> - 3.15.0-0.1.pre.master
 - Bump to 3.15.0
 

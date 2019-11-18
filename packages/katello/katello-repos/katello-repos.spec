@@ -5,8 +5,9 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .nightly
-%global release 1
+%global prereleasesource nightly
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 2
 
 Name:           katello-repos
 Version:        3.15.0
@@ -79,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 3.15.0-0.2.nightly
+- Unify prerelease macro handling
+
 * Fri Nov 01 2019 Jonathon Turel <jturel@gmail.com> - 3.15.0-0.1.nightly
 - Bump version to 3.15.0
 
