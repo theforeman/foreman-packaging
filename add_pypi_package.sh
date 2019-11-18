@@ -8,8 +8,8 @@ BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
 BASE_PYTHON=3
 
-# the package name will contain the downcased PYPI_NAME
-PACKAGE_NAME=python-${PYPI_NAME,,}
+# the package name will contain the downcased PYPI_NAME, with dots replaced by hyphens
+PACKAGE_NAME=python-$(echo ${PYPI_NAME} |tr '[A-Z]' '[a-z]' | tr '.' '-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
