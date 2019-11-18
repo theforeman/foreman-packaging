@@ -576,3 +576,4 @@ whitelist =
   python-toml
   python-typing-extensions
   python-uritemplate
+  python-urllib3
