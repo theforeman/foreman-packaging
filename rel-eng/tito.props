@@ -533,4 +533,5 @@ whitelist = katello
 disttag = .el7
 whitelist =
   python-aiofiles
+  python-aiohttp
   python-setuptools-scm
