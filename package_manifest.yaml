@@ -976,4 +976,5 @@ pulp_packages:
     python-async-timeout: {}
     python-attrs: {}
     python-backoff: {}
+    python-chardet: {}
     python-setuptools-scm: {}
