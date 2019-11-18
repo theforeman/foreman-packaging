@@ -972,4 +972,5 @@ pulp_packages:
         - el7-updates
   hosts:
     python-aiofiles: {}
+    python-aiohttp: {}
     python-setuptools-scm: {}
