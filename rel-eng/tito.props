@@ -560,4 +560,5 @@ whitelist =
   python-psycopg2
   python-pulpcore
   python-pulp-file
+  python-pyparsing
   python-setuptools-scm
