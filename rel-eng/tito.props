@@ -548,4 +548,5 @@ whitelist =
   python-drf-nested-routers
   python-drf-yasg
   python-dynaconf
+  python-gunicorn
   python-setuptools-scm
