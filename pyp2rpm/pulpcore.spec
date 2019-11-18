@@ -27,7 +27,8 @@ BuildArch:      noarch
 %package -n     {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True) }}
 Summary:        %{summary}
 %{?python_provide:%python_provide {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True)}}}
-{{ dependencies(data.runtime_deps, True, pv, pv) }}
+{{- dependencies(data.runtime_deps, True, pv, pv) }}
+
 %description -n {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True) }}
 %{summary}
 {%- endfor %}
