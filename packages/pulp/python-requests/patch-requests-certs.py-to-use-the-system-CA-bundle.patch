@@ -1,0 +1,25 @@
+diff -Nrwu requests-2.22.0.orig/requests/certs.py requests-2.22.0/requests/certs.py
+--- requests-2.22.0.orig/requests/certs.py	2019-05-16 16:18:16.000000000 +0200
++++ requests-2.22.0/requests/certs.py	2019-11-13 15:09:59.874960499 +0100
+@@ -12,7 +12,9 @@
+ environment, you can change the definition of where() to return a separately
+ packaged CA bundle.
+ """
+-from certifi import where
++def where():
++    """Return the absolute path to the system CA bundle."""
++    return '/etc/pki/tls/certs/ca-bundle.crt'
+ 
+ if __name__ == '__main__':
+     print(where())
+diff -Nrwu requests-2.22.0.orig/setup.py requests-2.22.0/setup.py
+--- requests-2.22.0.orig/setup.py	2019-05-16 16:22:45.000000000 +0200
++++ requests-2.22.0/setup.py	2019-11-13 15:07:40.317189883 +0100
+@@ -45,7 +45,6 @@
+     'chardet>=3.0.2,<3.1.0',
+     'idna>=2.5,<2.9',
+     'urllib3>=1.21.1,<1.26,!=1.25.0,!=1.25.1',
+-    'certifi>=2017.4.17'
+ 
+ ]
+ test_requirements = [
