@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 9%{?dist}
+Release: 10%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -81,6 +81,7 @@ Obsoletes: %{scl_prefix}rubygem-fog-azure < 0.0.8-9
 Obsoletes: %{scl_prefix}rubygem-foreigner < 1.7.1-4
 Obsoletes: %{scl_prefix}rubygem-foreman_abrt < 0.0.7-3
 Obsoletes: %{scl_prefix}rubygem-foreman_azure < 1.3.1-2
+Obsoletes: %{scl_prefix}rubygem-foreman_custom_parameters < 0.0.2-7
 Obsoletes: %{scl_prefix}rubygem-foreman_param_lookup < 0.3.0-3
 Obsoletes: %{scl_prefix}rubygem-foreman_reserve < 0.1.8.3-6
 Obsoletes: %{scl_prefix}rubygem-foreman_snapshot < 0.1.0-5
@@ -305,6 +306,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Nov 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-10
+- Obsolete foreman_custom_parameters
+
 * Wed Sep 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 5.0-9
 - Add NodeJS SCL
 
