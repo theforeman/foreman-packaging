@@ -993,4 +993,5 @@ pulp_packages:
     python-inflection: {}
     python-itypes: {}
     python-jinja2: {}
+    python-markupsafe: {}
     python-setuptools-scm: {}

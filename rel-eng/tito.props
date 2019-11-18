@@ -554,4 +554,5 @@ whitelist =
   python-inflection
   python-itypes
   python-jinja2
+  python-markupsafe
   python-setuptools-scm
