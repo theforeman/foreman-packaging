@@ -32,6 +32,7 @@
       <packagereq type="default">python3-django-filter</packagereq>
       <packagereq type="default">python3-djangorestframework</packagereq>
       <packagereq type="default">python3-djangorestframework-queryfields</packagereq>
+      <packagereq type="default">python3-dotenv</packagereq>
       <packagereq type="default">python3-drf-nested-routers</packagereq>
       <packagereq type="default">python3-drf-yasg</packagereq>
       <packagereq type="default">python3-dynaconf</packagereq>
