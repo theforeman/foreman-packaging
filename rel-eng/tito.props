@@ -563,4 +563,5 @@ whitelist =
   python-pulpcore
   python-pulp-file
   python-pyparsing
+  python-pytz
   python-setuptools-scm
