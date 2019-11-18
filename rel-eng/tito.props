@@ -540,4 +540,5 @@ whitelist =
   python-chardet
   python-click
   python-coreapi
+  python-coreschema
   python-setuptools-scm
