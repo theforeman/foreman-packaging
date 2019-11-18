@@ -998,4 +998,5 @@ pulp_packages:
     python-packaging: {}
     python-psycopg2: {}
     python-pulp-file: {}
+    python-pulpcore: {}
     python-setuptools-scm: {}
