@@ -556,4 +556,5 @@ whitelist =
   python-jinja2
   python-markupsafe
   python-multidict
+  python-packaging
   python-setuptools-scm
