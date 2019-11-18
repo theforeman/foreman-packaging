@@ -14,16 +14,16 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
- :target: :target:
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-idna >= 2.0
 Requires:       python3-multidict >= 4.0
+
 %description -n python3-%{pypi_name}
- :target: :target:
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

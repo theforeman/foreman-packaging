@@ -15,22 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
- **Function decoration for backoff and retry**This module provides function
-decorators which can be used to wrap a function such that it will be retried
-until some condition is met. It is meant to be of use when accessing unreliable
-resources with the potential for intermittent failures i.e. network resources
-and external
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
- **Function decoration for backoff and retry**This module provides function
-decorators which can be used to wrap a function such that it will be retried
-until some condition is met. It is meant to be of use when accessing unreliable
-resources with the potential for intermittent failures i.e. network resources
-and external
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

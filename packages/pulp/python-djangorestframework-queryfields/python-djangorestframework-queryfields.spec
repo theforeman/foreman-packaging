@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Django REST Framework QueryFields Installation .. code-block:: bash pip install
-djangorestframework-queryfields Quickstart -Specify your base model serializer
-like this:.. code-block:: python from rest_framework.serializers import
-ModelSerializer from drf_queryfields import QueryFieldsMixin class
-MyModelSerializer(QueryFieldsMixin, ModelSerializer): pass--.. code-block::
-bash GET...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-Django REST Framework QueryFields Installation .. code-block:: bash pip install
-djangorestframework-queryfields Quickstart -Specify your base model serializer
-like this:.. code-block:: python from rest_framework.serializers import
-ModelSerializer from drf_queryfields import QueryFieldsMixin class
-MyModelSerializer(QueryFieldsMixin, ModelSerializer): pass--.. code-block::
-bash GET...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

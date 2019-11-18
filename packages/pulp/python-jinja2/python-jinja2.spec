@@ -16,24 +16,16 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Jinja is a fast, expressive, extensible templating engine. Special placeholders
-in the template allow writing code similar to Python syntax. Then the template
-is passed data to render the final document.It includes:- Template inheritance
-and inclusion. - Define and import macros within templates. - HTML templates
-can use autoescaping to prevent XSS from untrusted user input. - A sandboxed...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
-
 Requires:       python3-markupsafe >= 0.23
 Requires:       python3-setuptools
+
 %description -n python3-%{srcname}
-Jinja is a fast, expressive, extensible templating engine. Special placeholders
-in the template allow writing code similar to Python syntax. Then the template
-is passed data to render the final document.It includes:- Template inheritance
-and inclusion. - Define and import macros within templates. - HTML templates
-can use autoescaping to prevent XSS from untrusted user input. - A sandboxed...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

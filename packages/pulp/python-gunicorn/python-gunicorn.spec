@@ -15,21 +15,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
--- Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's a pre-
-fork worker model ported from Ruby's Unicorn_ project. The Gunicorn server is
-broadly compatible with various web frameworks, simply implemented, light on
-server
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-setuptools >= 3.0
+
 %description -n python3-%{pypi_name}
--- Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's a pre-
-fork worker model ported from Ruby's Unicorn_ project. The Gunicorn server is
-broadly compatible with various web frameworks, simply implemented, light on
-server
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,16 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-async-timeout asyncio-compatible timeout context manager. Usage example - The
-context manager is useful in cases when you want to apply timeout
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-async-timeout asyncio-compatible timeout context manager. Usage example - The
-context manager is useful in cases when you want to apply timeout
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

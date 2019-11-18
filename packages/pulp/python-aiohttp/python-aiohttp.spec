@@ -14,13 +14,11 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
- Async http client/server framework :height: 64px :width: 64px| :alt: AppVeyor
-status for master branch
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-async-timeout < 4.0
 Requires:       python3-async-timeout >= 3.0
 Requires:       python3-attrs >= 17.3.0
@@ -32,9 +30,9 @@ Requires:       python3-multidict >= 4.5
 Requires:       python3-typing-extensions
 Requires:       python3-yarl < 2.0
 Requires:       python3-yarl >= 1.0
+
 %description -n python3-%{pypi_name}
- Async http client/server framework :height: 64px :width: 64px| :alt: AppVeyor
-status for master branch
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,19 +15,17 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-rq is a simple, lightweight, library for creating background jobs, and
-processing them.
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-click >= 5.0
 Requires:       python3-redis >= 3.0.0
 Requires:       python3-setuptools
+
 %description -n python3-%{pypi_name}
-rq is a simple, lightweight, library for creating background jobs, and
-processing them.
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

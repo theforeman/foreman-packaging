@@ -15,19 +15,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Django Filter Django-filter is a reusable Django application allowing users to
-declaratively add dynamic QuerySet filtering from URL parameters.Full
-documentation on read the docs_. :target:
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-django >= 1.11
+
 %description -n python3-%{pypi_name}
-Django Filter Django-filter is a reusable Django application allowing users to
-declaratively add dynamic QuerySet filtering from URL parameters.Full
-documentation on read the docs_. :target:
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

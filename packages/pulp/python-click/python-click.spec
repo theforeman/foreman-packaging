@@ -16,24 +16,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-\$ click\_ Click is a Python package for creating beautiful command line
-interfaces in a composable way with as little code as necessary. It's the
-"Command Line Interface Creation Kit". It's highly configurable but comes with
-sensible defaults out of the box.It aims to make the process of writing command
-line tools quick and fun while also preventing any frustration caused by the
-inability to...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
-\$ click\_ Click is a Python package for creating beautiful command line
-interfaces in a composable way with as little code as necessary. It's the
-"Command Line Interface Creation Kit". It's highly configurable but comes with
-sensible defaults out of the box.It aims to make the process of writing command
-line tools quick and fun while also preventing any frustration caused by the
-inability to...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

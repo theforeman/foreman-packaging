@@ -15,22 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Typing Extensions -- Backported and Experimental Type Hints for PythonThe
-typing module was added to the standard library in Python 3.5 on a provisional
-basis and will no longer be provisional in Python 3.7. However, this means
-users of Python 3.5 - 3.6 who are unable to upgrade will not be able to take
-advantage of new types added to the typing module, such as typing.Text or...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-Typing Extensions -- Backported and Experimental Type Hints for PythonThe
-typing module was added to the standard library in Python 3.5 on a provisional
-basis and will no longer be provisional in Python 3.7. However, this means
-users of Python 3.5 - 3.6 who are unable to upgrade will not be able to take
-advantage of new types added to the typing module, such as typing.Text or...
+%{summary}
 
 %prep
 %autosetup -n typing_extensions-%{version}

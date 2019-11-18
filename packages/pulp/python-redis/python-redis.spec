@@ -15,20 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-The Python interface to the Redis key-value store. Installation redis-py
-requires a running Redis server. See Redis's quickstart < for installation
-instructions.redis-py can be installed using pip similar to other Python
-packages. Do not use sudo
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-The Python interface to the Redis key-value store. Installation redis-py
-requires a running Redis server. See Redis's quickstart < for installation
-instructions.redis-py can be installed using pip similar to other Python
-packages. Do not use sudo
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,26 +15,16 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-packaging Core utilities for Python packages.The packaging project includes the
-following: version handling, specifiers, markers, requirements, tags,
-utilities.Documentation -The documentation_ provides information and the API
-for the following:- Version Handling - Specifiers - Markers - Requirements-
-UtilitiesInstallation Use pip to install these utilities:: pip install
-packagingDiscussion...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-pyparsing >= 2.0.2
 Requires:       python3-six
+
 %description -n python3-%{pypi_name}
-packaging Core utilities for Python packages.The packaging project includes the
-following: version handling, specifiers, markers, requirements, tags,
-utilities.Documentation -The documentation_ provides information and the API
-for the following:- Version Handling - Specifiers - Markers - Requirements-
-UtilitiesInstallation Use pip to install these utilities:: pip install
-packagingDiscussion...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

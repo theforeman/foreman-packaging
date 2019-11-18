@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-PyParsing -- A Python Parsing Module |Build Status|Introduction The pyparsing
-module is an alternative approach to creating and executing simple grammars,
-vs. the traditional lex/yacc approach, or the use of regular expressions. The
-pyparsing module provides a library of classes that client code uses to
-construct the grammar directly in Python code.*[Since first writing this
-description of...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-PyParsing -- A Python Parsing Module |Build Status|Introduction The pyparsing
-module is an alternative approach to creating and executing simple grammars,
-vs. the traditional lex/yacc approach, or the use of regular expressions. The
-pyparsing module provides a library of classes that client code uses to
-construct the grammar directly in Python code.*[Since first writing this
-description of...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

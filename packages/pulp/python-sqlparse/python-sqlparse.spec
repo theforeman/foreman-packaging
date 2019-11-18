@@ -15,25 +15,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-sqlparse is a non-validating SQL parser module. It provides support for
-parsing, splitting and formatting SQL statements.Visit the project page < for
-additional information and documentation.**Example Usage** Splitting SQL
-statements:: >>> import sqlparse >>> sqlparse.split('select * from foo; select
-* from bar;') [u'select * from foo; ', u'select * from bar;'] Formatting
-statements:: >>> sql...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-setuptools
+
 %description -n python3-%{pypi_name}
-sqlparse is a non-validating SQL parser module. It provides support for
-parsing, splitting and formatting SQL statements.Visit the project page < for
-additional information and documentation.**Example Usage** Splitting SQL
-statements:: >>> import sqlparse >>> sqlparse.split('select * from foo; select
-* from bar;') [u'select * from foo; ', u'select * from bar;'] Formatting
-statements:: >>> sql...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
