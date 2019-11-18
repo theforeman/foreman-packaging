@@ -545,4 +545,5 @@ whitelist =
   python-django-filter
   python-djangorestframework
   python-djangorestframework-queryfields
+  python-drf-nested-routers
   python-setuptools-scm
