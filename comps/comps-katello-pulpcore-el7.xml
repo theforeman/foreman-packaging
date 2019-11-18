@@ -44,6 +44,7 @@
       <packagereq type="default">python3-multidict</packagereq>
       <packagereq type="default">python3-packaging</packagereq>
       <packagereq type="default">python3-psycopg2</packagereq>
+      <packagereq type="default">python3-pulp-file</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
