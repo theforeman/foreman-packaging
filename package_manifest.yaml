@@ -1004,4 +1004,5 @@ pulp_packages:
     python-pyparsing: {}
     python-pytz: {}
     python-pyyaml: {}
+    python-redis: {}
     python-setuptools-scm: {}
