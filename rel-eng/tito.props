@@ -539,4 +539,5 @@ whitelist =
   python-backoff
   python-chardet
   python-click
+  python-coreapi
   python-setuptools-scm
