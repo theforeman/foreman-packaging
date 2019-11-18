@@ -10,6 +10,7 @@ TimeoutSec=90
 WorkingDirectory=/usr/share/foreman
 ExecStart=/usr/sbin/dynflowd start
 ExecStop=/usr/sbin/dynflowd stop
+Environment=MALLOC_ARENA_MAX=2
 EnvironmentFile=-/etc/sysconfig/dynflowd
 
 [Install]
