@@ -29,6 +29,7 @@
       <packagereq type="default">python3-drf-yasg</packagereq>
       <packagereq type="default">python3-dynaconf</packagereq>
       <packagereq type="default">python3-gunicorn</packagereq>
+      <packagereq type="default">python3-idna</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>

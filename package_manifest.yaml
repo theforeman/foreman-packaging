@@ -988,4 +988,5 @@ pulp_packages:
     python-drf-yasg: {}
     python-dynaconf: {}
     python-gunicorn: {}
+    python-idna: {}
     python-setuptools-scm: {}
