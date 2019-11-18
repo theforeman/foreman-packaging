@@ -14,6 +14,8 @@
       <packagereq type="default">python-aiohttp-debugsource</packagereq>
       <packagereq type="default">python-markupsafe-debuginfo</packagereq>
       <packagereq type="default">python-markupsafe-debugsource</packagereq>
+      <packagereq type="default">python-multidict-debuginfo</packagereq>
+      <packagereq type="default">python-multidict-debugsource</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
@@ -37,6 +39,7 @@
       <packagereq type="default">python3-itypes</packagereq>
       <packagereq type="default">python3-jinja2</packagereq>
       <packagereq type="default">python3-markupsafe</packagereq>
+      <packagereq type="default">python3-multidict</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
