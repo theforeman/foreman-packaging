@@ -575,3 +575,4 @@ whitelist =
   python-sqlparse
   python-toml
   python-typing-extensions
+  python-uritemplate
