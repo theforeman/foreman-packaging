@@ -61,6 +61,7 @@
       <packagereq type="default">python3-ruamel-yaml</packagereq>
       <packagereq type="default">python3-ruamel-yaml-clib</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
+      <packagereq type="default">python3-six</packagereq>
     </packagelist>
   </group>
 </comps>

@@ -571,3 +571,4 @@ whitelist =
   python-ruamel-yaml
   python-ruamel-yaml-clib
   python-setuptools-scm
+  python-six
