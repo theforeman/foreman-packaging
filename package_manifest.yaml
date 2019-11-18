@@ -980,4 +980,5 @@ pulp_packages:
     python-click: {}
     python-coreapi: {}
     python-coreschema: {}
+    python-django: {}
     python-setuptools-scm: {}
