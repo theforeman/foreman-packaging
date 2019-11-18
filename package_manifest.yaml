@@ -985,6 +985,7 @@ pulp_packages:
     python-django-filter: {}
     python-djangorestframework: {}
     python-djangorestframework-queryfields: {}
+    python-dotenv: {}
     python-drf-nested-routers: {}
     python-drf-yasg: {}
     python-dynaconf: {}
