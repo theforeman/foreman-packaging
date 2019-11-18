@@ -6,8 +6,9 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
-%global prerelease develop
+%global release 2
+%global prereleasesource develop
+%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
 Version:        1.25.0
@@ -215,6 +216,9 @@ fi
 
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 1.25.0-0.2.develop
+- Unify prerelease macro handling
+
 * Wed Oct 30 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.25.0-0.1.develop
 - Bump version to 1.25-develop
 

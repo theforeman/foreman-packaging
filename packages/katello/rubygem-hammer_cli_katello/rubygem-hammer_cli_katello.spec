@@ -6,8 +6,9 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 1
-%global prerelease .pre.master
+%global release 2
+%global prereleasesource pre.master
+%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -97,6 +98,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 0.21-0.2.pre.master
+- Unify prerelease macro handling
+
 * Thu Nov 07 2019 Jonathon Turel <jturel@gmail.com> 0.21-0.1.pre.master
 - Bump to 0.21 to match git
 

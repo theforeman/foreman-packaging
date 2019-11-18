@@ -11,8 +11,9 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
-%global prerelease develop
+%global release 3
+%global prereleasesource develop
+%global prerelease %{?prereleasesource}
 
 Name:    foreman
 Version: 1.25.0
@@ -1084,6 +1085,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Nov 18 2019 Evgeni Golov - 1.25.0-0.3.develop
+- Unify prerelease macro handling
+
 * Wed Oct 30 2019 Michael Moll <mmoll@mmoll.at> - 1.25.0-0.2.develop
 - Update fog-libvirt gem dependency
 
