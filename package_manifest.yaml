@@ -989,4 +989,5 @@ pulp_packages:
     python-dynaconf: {}
     python-gunicorn: {}
     python-idna: {}
+    python-idna-ssl: {}
     python-setuptools-scm: {}
