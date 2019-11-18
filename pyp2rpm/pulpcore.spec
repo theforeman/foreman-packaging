@@ -22,14 +22,14 @@ BuildArch:      noarch
 {%- endfor %}
 
 %description
-{{ data.description|truncate(400)|wordwrap }}
+%{summary}
 {% for pv in data.sorted_python_versions %}
 %package -n     {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True) }}
 Summary:        %{summary}
 %{?python_provide:%python_provide {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True)}}}
 {{ dependencies(data.runtime_deps, True, pv, pv) }}
 %description -n {{data.pkg_name|macroed_pkg_name(data.srcname)|name_for_python_version(pv, True) }}
-{{ data.description|truncate(400)|wordwrap }}
+%{summary}
 {%- endfor %}
 
 %prep
