@@ -569,4 +569,5 @@ whitelist =
   python-requests
   python-rq
   python-ruamel-yaml
+  python-ruamel-yaml-clib
   python-setuptools-scm
