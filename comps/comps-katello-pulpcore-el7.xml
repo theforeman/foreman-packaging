@@ -22,6 +22,8 @@
       <packagereq type="default">python-pyyaml-debugsource</packagereq>
       <packagereq type="default">python-ruamel-yaml-clib-debuginfo</packagereq>
       <packagereq type="default">python-ruamel-yaml-clib-debugsource</packagereq>
+      <packagereq type="default">python-yarl-debuginfo</packagereq>
+      <packagereq type="default">python-yarl-debugsource</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
@@ -68,6 +70,7 @@
       <packagereq type="default">python3-uritemplate</packagereq>
       <packagereq type="default">python3-urllib3</packagereq>
       <packagereq type="default">python3-whitenoise</packagereq>
+      <packagereq type="default">python3-yarl</packagereq>
     </packagelist>
   </group>
 </comps>
