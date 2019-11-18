@@ -528,3 +528,8 @@ whitelist = katello
   rubygem-runcible
   rubygem-typhoeus
   rubygem-zest
+
+[katello-nightly-pulpcore-el7]
+disttag = .el7
+whitelist =
+  python-setuptools-scm
