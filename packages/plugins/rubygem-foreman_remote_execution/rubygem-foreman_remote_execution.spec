@@ -1,32 +1,23 @@
-# This package contains macros that provide functionality relating to
-# Software Collections. These macros are not used in default
-# Fedora builds, and should not be blindly copied or enabled.
-# Specifically, the "scl" macro must not be defined in official Fedora
-# builds. For more information, see:
-# http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation
-# /1/html/Software_Collections_Guide/index.html
-
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_remote_execution
+%global plugin_name remote_execution
 %global foreman_min_version 1.24.0
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    2.0.4
+Version:    3.0.3
 Release:    1%{?foremandist}%{?dist}
-Group:      Applications/System
+Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires:   foreman >= 1.24.0
-
 BuildRequires: systemd
 
 # start specfile generated dependencies
-BuildArch: noarch
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
@@ -36,7 +27,6 @@ Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
@@ -44,41 +34,27 @@ BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
 # end package.json dependencies BuildRequires
-
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-remote_execution
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A plugin bringing remote execution to the Foreman, completing the config
-management functionality with remote management functionality
+management functionality with remote management functionality.
 
 %package cockpit
 BuildArch:  noarch
@@ -92,42 +68,50 @@ This package contains files related to Cockpit, mainly foreman-cockpit service
 and corresponding configuration files.
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{_root_sbindir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
-rm %{buildroot}%{gem_instdir}/.babelrc
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-%{foreman_bundlerd_file}
+%foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
+mkdir -p %{buildroot}%{_root_sbindir}
 ln -sv %{gem_instdir}/extra/cockpit/foreman-cockpit-session %{buildroot}%{_root_sbindir}/foreman-cockpit-session
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.service %{buildroot}%{_unitdir}/foreman-cockpit.service
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/cockpit.conf
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
-
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
 
 %post cockpit
 %systemd_post foreman-cockpit.service
@@ -141,17 +125,14 @@ exit 0
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/package.json
 %exclude %{gem_instdir}/webpack
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/extra
+%{gem_libdir}
 %{gem_instdir}/locale
-%{gem_instdir}/lib
-%{gem_instdir}/public
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
@@ -159,14 +140,16 @@ exit 0
 %{foreman_assets_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
-%{gem_instdir}/Rakefile
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/test
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/foreman_remote_execution.gemspec
+%{gem_instdir}/test
 
 %files cockpit
 %{_root_sbindir}/foreman-cockpit-session
@@ -175,6 +158,10 @@ exit 0
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Wed Jan 22 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.3-1
+- Update to 3.0.3
+- Update spec to closer match the foreman_plugin template
+
 * Fri Nov 29 2019 Adam Ruzicka <aruzicka@redhat.com> 2.0.4-1
 - Update to 2.0.4
 
