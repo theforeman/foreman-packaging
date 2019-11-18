@@ -77,7 +77,7 @@ add_to_tito_props() {
 add_pypi_to_comps() {
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
   if [[ $TITO_TAG == katello-*-pulpcore-* ]]; then
-    local comps_file="katello-pulpcore-server"
+    local comps_file="katello-pulpcore"
     local comps_scl=""
   elif [[ $TITO_TAG == katello-* ]]; then
     local comps_file="katello-server"
