@@ -578,3 +578,4 @@ whitelist =
   python-uritemplate
   python-urllib3
   python-whitenoise
+  python-yarl
