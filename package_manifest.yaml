@@ -1005,4 +1005,5 @@ pulp_packages:
     python-pytz: {}
     python-pyyaml: {}
     python-redis: {}
+    python-requests: {}
     python-setuptools-scm: {}
