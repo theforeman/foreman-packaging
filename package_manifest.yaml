@@ -990,4 +990,5 @@ pulp_packages:
     python-gunicorn: {}
     python-idna: {}
     python-idna-ssl: {}
+    python-inflection: {}
     python-setuptools-scm: {}
