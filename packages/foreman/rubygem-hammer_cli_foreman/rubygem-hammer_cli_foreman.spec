@@ -10,7 +10,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.18.1
+Version: 0.18.2
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -100,6 +100,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 18 2019 Shira Maximov <shiramaximov@gmail.com> 0.18.2-1
+- Update to 0.18.2
+
 * Thu Oct 31 2019 Oleh Fedorenko <ofedoren@redhat.com> 0.18.1-1
 - Update to 0.18.1
 
