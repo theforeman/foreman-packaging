@@ -542,4 +542,5 @@ whitelist =
   python-coreapi
   python-coreschema
   python-django
+  python-django-filter
   python-setuptools-scm
