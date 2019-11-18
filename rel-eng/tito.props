@@ -567,4 +567,5 @@ whitelist =
   python-pyyaml
   python-redis
   python-requests
+  python-rq
   python-setuptools-scm
