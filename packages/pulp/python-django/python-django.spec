@@ -16,27 +16,17 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Django is a high-level Python Web framework that encourages rapid development
-and clean, pragmatic design. Thanks for checking it out.All documentation is in
-the "docs" directory and online at If you're just getting started, here's how
-we recommend you read the docs:* First, read docs/intro/install.txt for
-instructions on installing Django.* Next, work through the tutorials in
-order...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
-
 Requires:       python3-pytz
 Requires:       python3-setuptools
 Requires:       python3-sqlparse
+
 %description -n python3-%{srcname}
-Django is a high-level Python Web framework that encourages rapid development
-and clean, pragmatic design. Thanks for checking it out.All documentation is in
-the "docs" directory and online at If you're just getting started, here's how
-we recommend you read the docs:* First, read docs/intro/install.txt for
-instructions on installing Django.* Next, work through the tutorials in
-order...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

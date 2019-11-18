@@ -15,22 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-aiofiles: file support for asyncio **aiofiles** is an Apache2 licensed library,
-written in Python, for handling local disk files in asyncio
-applications.Ordinary local file IO is blocking, and cannot easily and portably
-made asynchronous. This means doing file IO may interfere with asyncio
-applications,
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-aiofiles: file support for asyncio **aiofiles** is an Apache2 licensed library,
-written in Python, for handling local disk files in asyncio
-applications.Ordinary local file IO is blocking, and cannot easily and portably
-made asynchronous. This means doing file IO may interfere with asyncio
-applications,
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

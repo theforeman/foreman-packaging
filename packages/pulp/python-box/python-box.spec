@@ -16,24 +16,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-|BuildStatus| |CoverageStatus| |License| |PyPi| |DocStatus||BoxImage|Python
-dictionaries with advanced dot notation access... code:: python from box import
-Box movie_data { "movies": { "Spaceballs": { "imdb stars": 7.1, "rating": "PG",
-"length": 96, "director": "Mel Brooks", "stars": [{"name": "Mel Brooks",
-"imdb": "nm0000316", "role": "President Skroob"}, {"name": "John
-Candy","imdb":...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
-|BuildStatus| |CoverageStatus| |License| |PyPi| |DocStatus||BoxImage|Python
-dictionaries with advanced dot notation access... code:: python from box import
-Box movie_data { "movies": { "Spaceballs": { "imdb stars": 7.1, "rating": "PG",
-"length": 96, "director": "Mel Brooks", "stars": [{"name": "Mel Brooks",
-"imdb": "nm0000316", "role": "President Skroob"}, {"name": "John
-Candy","imdb":...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

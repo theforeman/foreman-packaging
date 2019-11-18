@@ -16,12 +16,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-ruamel.yaml ruamel.yaml is a YAML 1.2 loader/dumper package for
-Python.:version: 0.16.5 :updated: 2019-08-18 :documentation: :repository:
-:pypi: Starting with version 0.15.0 the way YAML files are loaded and dumped is
-changing. See the API doc for details. Currently existing functionality will
-throw a warning before being changed/removed. **For production systems you
-should pin the version...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
@@ -29,12 +24,7 @@ Requires:       python3-ruamel-yaml-clib
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
-ruamel.yaml ruamel.yaml is a YAML 1.2 loader/dumper package for
-Python.:version: 0.16.5 :updated: 2019-08-18 :documentation: :repository:
-:pypi: Starting with version 0.15.0 the way YAML files are loaded and dumped is
-changing. See the API doc for details. Currently existing functionality will
-throw a warning before being changed/removed. **For production systems you
-should pin the version...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

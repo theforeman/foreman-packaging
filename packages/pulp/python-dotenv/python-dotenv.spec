@@ -16,18 +16,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
- _______ .__ __. ____ ____ | ____|| \ | | \ \ / / | |__ | \| | \ \/ / | __| | .
-| \ / __ | |____ | |\ | \ / (__)|_______||__| \__| \__/python-dotenv | [![Build
-Status]( [![Coverage Status]( [![PyPI version]( [![Say Thanks!](
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
- _______ .__ __. ____ ____ | ____|| \ | | \ \ / / | |__ | \| | \ \/ / | __| | .
-| \ / __ | |____ | |\ | \ / (__)|_______||__| \__| \__/python-dotenv | [![Build
-Status]( [![Coverage Status]( [![PyPI version]( [![Say Thanks!](
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

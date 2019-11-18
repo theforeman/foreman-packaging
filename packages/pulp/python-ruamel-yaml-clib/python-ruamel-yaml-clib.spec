@@ -18,24 +18,14 @@ BuildRequires:  gcc
 BuildRequires:  libyaml-devel
 
 %description
-ruamel.yaml.clib ruamel.yaml.clib is the C based reader/scanner and emitter for
-ruamel.yaml:version: 0.2.0 :updated: 2019-09-26 :documentation: :repository:
-:pypi: package was split of from ruamel.yaml, so that ruamel.yaml can be build
-as a universal wheel. Apart from the C code seldom changing, and taking a long
-time to compile for all platforms, this allows installation of the .so on
-Linux...
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
-ruamel.yaml.clib ruamel.yaml.clib is the C based reader/scanner and emitter for
-ruamel.yaml:version: 0.2.0 :updated: 2019-09-26 :documentation: :repository:
-:pypi: package was split of from ruamel.yaml, so that ruamel.yaml can be build
-as a universal wheel. Apart from the C code seldom changing, and taking a long
-time to compile for all platforms, this allows installation of the .so on
-Linux...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,22 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Inflection |build status|_.. |build statu .. _build status: is a string
-transformation library. It singularizes and pluralizes English words, and
-transforms strings from CamelCase to underscored string. Inflection is a port
-of Ruby on Rails_' inflector_ to Python... _Ruby on Rails: .. _inflector: -
-Documentation < - Issue Tracker <
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-Inflection |build status|_.. |build statu .. _build status: is a string
-transformation library. It singularizes and pluralizes English words, and
-transforms strings from CamelCase to underscored string. Inflection is a port
-of Ruby on Rails_' inflector_ to Python... _Ruby on Rails: .. _inflector: -
-Documentation < - Issue Tracker <
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

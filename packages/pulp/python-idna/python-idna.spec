@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Internationalized Domain Names in Applications (IDNA) Support for the
-Internationalised Domain Names in Applications (IDNA) protocol as specified in
-RFC 5891 < This is the latest version of the protocol and is sometimes referred
-to as “IDNA 2008”.This library also provides support for Unicode Technical
-Standard 46, Unicode IDNA Compatibility Processing < acts as a suitable
-replacement for the...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-Internationalized Domain Names in Applications (IDNA) Support for the
-Internationalised Domain Names in Applications (IDNA) protocol as specified in
-RFC 5891 < This is the latest version of the protocol and is sometimes referred
-to as “IDNA 2008”.This library also provides support for Unicode Technical
-Standard 46, Unicode IDNA Compatibility Processing < acts as a suitable
-replacement for the...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

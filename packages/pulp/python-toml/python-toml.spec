@@ -15,18 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-TOML A Python library for parsing and creating TOML < module passes the TOML
-test suite < also:* The TOML Standard < * The currently supported TOML
-specification <
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-TOML A Python library for parsing and creating TOML < module passes the TOML
-test suite < also:* The TOML Standard < * The currently supported TOML
-specification <
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

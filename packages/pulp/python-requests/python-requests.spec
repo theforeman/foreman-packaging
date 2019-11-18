@@ -16,13 +16,11 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Requests: HTTP for Humans™ [![image]( [![image]( [![image]( [![codecov.io](
-[![image]( [![image](
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Conflicts:      python3-urllib3 = 1.25.0
 Conflicts:      python3-urllib3 = 1.25.1
 Requires:       python3-chardet < 3.1.0
@@ -31,9 +29,9 @@ Requires:       python3-idna < 2.9
 Requires:       python3-idna >= 2.5
 Requires:       python3-urllib3 < 1.26
 Requires:       python3-urllib3 >= 1.21.1
+
 %description -n python3-%{pypi_name}
-Requests: HTTP for Humans™ [![image]( [![image]( [![image]( [![codecov.io](
-[![image]( [![image](
+%{summary}
 
 %prep
 %autosetup -p1 -n %{pypi_name}-%{version}

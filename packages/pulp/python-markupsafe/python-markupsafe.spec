@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-MarkupSafe MarkupSafe implements a text object that escapes characters so it is
-safe to use in HTML and XML. Characters that have special meanings are replaced
-so that they display as the actual characters. This mitigates injection
-attacks, meaning untrusted user input can safely be displayed on a page.
-Installing -Install and update using pip_:.. code-block:: text pip install -U
-MarkupSafe.....
+%{summary}
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 
 %description -n python3-%{srcname}
-MarkupSafe MarkupSafe implements a text object that escapes characters so it is
-safe to use in HTML and XML. Characters that have special meanings are replaced
-so that they display as the actual characters. This mitigates injection
-attacks, meaning untrusted user input can safely be displayed on a page.
-Installing -Install and update using pip_:.. code-block:: text pip install -U
-MarkupSafe.....
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

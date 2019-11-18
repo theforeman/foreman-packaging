@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-uritemplate Documentation_ -- GitHub_ -- BitBucket_ -- Travis-CI_Simple python
-library to deal with URI Templates_. The API looks like.. code-block:: python
-from uritemplate import URITemplate, expand NOTE: URI params must be strings
-not integers gist_uri ' t URITemplate(gist_uri)
-print(t.expand(gist_id'123456')) > or print(expand(gist_uri, gist_id'123456'))
-also t.expand({'gist_id':...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-uritemplate Documentation_ -- GitHub_ -- BitBucket_ -- Travis-CI_Simple python
-library to deal with URI Templates_. The API looks like.. code-block:: python
-from uritemplate import URITemplate, expand NOTE: URI params must be strings
-not integers gist_uri ' t URITemplate(gist_uri)
-print(t.expand(gist_id'123456')) > or print(expand(gist_uri, gist_id'123456'))
-also t.expand({'gist_id':...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

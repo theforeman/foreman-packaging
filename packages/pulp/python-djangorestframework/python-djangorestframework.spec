@@ -15,12 +15,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
- [Django REST framework][docs][![build-status-image]][travis] [![coverage-
-status-image]][codecov] [![pypi-version]][pypi]**Awesome web-browsable Web
-APIs.**Full documentation for the project is available at [ FundingREST
-framework is a *collaboratively funded project*. If you use REST framework
-commercially we strongly encourage you to invest in its continued development
-by [signing up for a...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
@@ -28,12 +23,7 @@ Provides:       python3-django-rest-framework = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
- [Django REST framework][docs][![build-status-image]][travis] [![coverage-
-status-image]][codecov] [![pypi-version]][pypi]**Awesome web-browsable Web
-APIs.**Full documentation for the project is available at [ FundingREST
-framework is a *collaboratively funded project*. If you use REST framework
-commercially we strongly encourage you to invest in its continued development
-by [signing up for a...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

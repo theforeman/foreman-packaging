@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-pytz - World Timezone Definitions for Python :Author: Stuart Bishop
-<stuart@stuartbishop.net>Introduction pytz brings the Olson tz database into
-Python. This library allows accurate and cross platform timezone calculations
-using Python 2.4 or higher. It also solves the issue of ambiguous times at the
-end of daylight saving time, which you can read more about in the Python
-Library Reference...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-pytz - World Timezone Definitions for Python :Author: Stuart Bishop
-<stuart@stuartbishop.net>Introduction pytz brings the Olson tz database into
-Python. This library allows accurate and cross platform timezone calculations
-using Python 2.4 or higher. It also solves the issue of ambiguous times at the
-end of daylight saving time, which you can read more about in the Python
-Library Reference...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

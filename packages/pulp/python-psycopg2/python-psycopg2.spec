@@ -15,24 +15,14 @@ BuildRequires:  python3-setuptools
 BuildRequires:  postgresql-devel
 
 %description
-Psycopg is the most popular PostgreSQL database adapter for the Python
-programming language. Its main features are the complete implementation of the
-Python DB API 2.0 specification and the thread safety (several threads can
-share the same connection). It was designed for heavily multi-threaded
-applications that create and destroy lots of cursors and make a large number of
-concurrent "INSERT"s...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-Psycopg is the most popular PostgreSQL database adapter for the Python
-programming language. Its main features are the complete implementation of the
-Python DB API 2.0 specification and the thread safety (several threads can
-share the same connection). It was designed for heavily multi-threaded
-applications that create and destroy lots of cursors and make a large number of
-concurrent "INSERT"s...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

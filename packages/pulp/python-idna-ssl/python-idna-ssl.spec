@@ -15,21 +15,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-:info: Patch ssl.match_hostname for Unicode(idna) domains support Installation
-.. code-block:: shell pip install idna-sslUsage .. code-block:: python from
-idna_ssl import patch_match_hostname noqa isort:skip patch_match_hostname()
-noqa isort:skip
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-idna >= 2.0
+
 %description -n python3-%{pypi_name}
-:info: Patch ssl.match_hostname for Unicode(idna) domains support Installation
-.. code-block:: shell pip install idna-sslUsage .. code-block:: python from
-idna_ssl import patch_match_hostname noqa isort:skip patch_match_hostname()
-noqa isort:skip
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

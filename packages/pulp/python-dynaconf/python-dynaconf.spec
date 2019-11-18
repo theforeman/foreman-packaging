@@ -16,29 +16,19 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools >= 38.6.0
 
 %description
-[![Dynaconf]( **dynaconf** - The **dyna**mic **conf**igurator for your Python
-Project[![MIT License]( [![PyPI]( [![PyPI]( ![PyPI - Downloads]( [![Build
-Status]( ![Azure DevOps builds (branch)]( ![Azure DevOps builds (branch)](
-[![codecov]( [![Codacy Badge]( ![GitHub issues]( ![GitHub stars]( ![GitHub
-Release Date]( ![GitHub commits since latest release]( ![GitHub last commit](
-[![Code Style Black](
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-box
 Requires:       python3-click
 Requires:       python3-dotenv
 Requires:       python3-setuptools
 Requires:       python3-toml
+
 %description -n python3-%{pypi_name}
-[![Dynaconf]( **dynaconf** - The **dyna**mic **conf**igurator for your Python
-Project[![MIT License]( [![PyPI]( [![PyPI]( ![PyPI - Downloads]( [![Build
-Status]( ![Azure DevOps builds (branch)]( ![Azure DevOps builds (branch)](
-[![codecov]( [![Codacy Badge]( ![GitHub issues]( ![GitHub stars]( ![GitHub
-Release Date]( ![GitHub commits since latest release]( ![GitHub last commit](
-[![Code Style Black](
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

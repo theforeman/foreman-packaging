@@ -16,17 +16,11 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools-scm
 
 %description
-.. role:: python(code) :language: python drf-yasg - Yet another Swagger
-generator |travis| |nbsp| |codecov| |nbsp| |rtd-badge| |nbsp| |pypi-
-version||bmac-button|Generate **real** Swagger/OpenAPI 2.0 specifications from
-a Django Rest Framework API.Compatible with- **Django Rest Framework**: 3.8,
-3.9, 3.10 - **Django**: 1.11, 2.1, 2.2 - **Python**: 2.7, 3.5, 3.6, 3.7Only the
-latest patch...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-coreapi >= 2.3.3
 Requires:       python3-coreschema >= 0.0.4
 Requires:       python3-inflection >= 0.3.1
@@ -36,13 +30,9 @@ Requires:       python3-packaging
 Requires:       python3-ruamel-yaml >= 0.15.34
 Requires:       python3-six >= 1.10.0
 Requires:       python3-uritemplate >= 3.0.0
+
 %description -n python3-%{pypi_name}
-.. role:: python(code) :language: python drf-yasg - Yet another Swagger
-generator |travis| |nbsp| |codecov| |nbsp| |rtd-badge| |nbsp| |pypi-
-version||bmac-button|Generate **real** Swagger/OpenAPI 2.0 specifications from
-a Django Rest Framework API.Compatible with- **Django Rest Framework**: 3.8,
-3.9, 3.10 - **Django**: 1.11, 2.1, 2.2 - **Python**: 2.7, 3.5, 3.6, 3.7Only the
-latest patch...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

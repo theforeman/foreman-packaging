@@ -15,24 +15,14 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-urllib3 is a powerful, *sanity-friendly* HTTP client for Python. Much of the
-Python ecosystem already uses urllib3 and you should too. urllib3 brings many
-critical features that are missing from the Python standard libraries:- Thread
-safety. - Connection pooling. - Client-side SSL/TLS verification. - File
-uploads with multipart encoding. - Helpers for retrying requests and dealing
-with HTTP...
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
 %description -n python3-%{pypi_name}
-urllib3 is a powerful, *sanity-friendly* HTTP client for Python. Much of the
-Python ecosystem already uses urllib3 and you should too. urllib3 brings many
-critical features that are missing from the Python standard libraries:- Thread
-safety. - Connection pooling. - Client-side SSL/TLS verification. - File
-uploads with multipart encoding. - Helpers for retrying requests and dealing
-with HTTP...
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

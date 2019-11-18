@@ -15,13 +15,11 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-[![Build Status]( [![PyPI]( [![codecov]( [![Code Quality: Python]( [![Total
-Alerts](
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-coreapi >= 2.3.3
 Conflicts:      python3-coreapi >= 2.4
 Requires:       python3-djangorestframework-queryfields >= 1.0.0
@@ -55,9 +53,9 @@ Requires:       python3-setuptools < 41.7.0
 Requires:       python3-setuptools >= 39.2.0
 Requires:       python3-whitenoise >= 4.1.3
 Conflicts:      python3-whitenoise >= 4.2
+
 %description -n python3-%{pypi_name}
-[![Build Status]( [![PyPI]( [![codecov]( [![Code Quality: Python]( [![Total
-Alerts](
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,20 +15,16 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-drf-nested-routers |build-status-image| |pypi-version|Overview Nested resources
-for the Django Rest FrameworkDocumentation -Please see the README on the Github
-repo page: < |build-status-imag .. |pypi-versio
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-django >= 1.11
 Requires:       python3-django-rest-framework >= 3.6.0
+
 %description -n python3-%{pypi_name}
-drf-nested-routers |build-status-image| |pypi-version|Overview Nested resources
-for the Django Rest FrameworkDocumentation -Please see the README on the Github
-repo page: < |build-status-imag .. |pypi-versio
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

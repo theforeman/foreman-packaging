@@ -15,17 +15,15 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Chardet: The Universal Character Encoding Detector -- - ASCII, UTF-8, UTF-16 (2
-variants), UTF-32 (4 variants)
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-setuptools
+
 %description -n python3-%{pypi_name}
-Chardet: The Universal Character Encoding Detector -- - ASCII, UTF-8, UTF-16 (2
-variants), UTF-32 (4 variants)
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}

@@ -15,19 +15,19 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-
+%{summary}
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python3-coreschema
 Requires:       python3-itypes
 Requires:       python3-requests
 Requires:       python3-setuptools
 Requires:       python3-uritemplate
-%description -n python3-%{pypi_name}
 
+%description -n python3-%{pypi_name}
+%{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
