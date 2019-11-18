@@ -33,6 +33,7 @@
       <packagereq type="default">python3-idna-ssl</packagereq>
       <packagereq type="default">python3-inflection</packagereq>
       <packagereq type="default">python3-itypes</packagereq>
+      <packagereq type="default">python3-jinja2</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>

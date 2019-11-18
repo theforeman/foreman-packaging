@@ -992,4 +992,5 @@ pulp_packages:
     python-idna-ssl: {}
     python-inflection: {}
     python-itypes: {}
+    python-jinja2: {}
     python-setuptools-scm: {}
