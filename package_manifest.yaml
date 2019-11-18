@@ -971,4 +971,5 @@ pulp_packages:
         - el7-base
         - el7-updates
   hosts:
+    python-aiofiles: {}
     python-setuptools-scm: {}
