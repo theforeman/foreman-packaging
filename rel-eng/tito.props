@@ -536,4 +536,5 @@ whitelist =
   python-aiohttp
   python-async-timeout
   python-attrs
+  python-backoff
   python-setuptools-scm
