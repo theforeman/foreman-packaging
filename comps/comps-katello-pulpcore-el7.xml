@@ -21,6 +21,7 @@
       <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-coreapi</packagereq>
       <packagereq type="default">python3-coreschema</packagereq>
+      <packagereq type="default">python3-django</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
