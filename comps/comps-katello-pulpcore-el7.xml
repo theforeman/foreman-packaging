@@ -46,6 +46,7 @@
       <packagereq type="default">python3-psycopg2</packagereq>
       <packagereq type="default">python3-pulp-file</packagereq>
       <packagereq type="default">python3-pulpcore</packagereq>
+      <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>

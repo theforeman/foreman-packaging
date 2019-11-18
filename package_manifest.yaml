@@ -999,4 +999,5 @@ pulp_packages:
     python-psycopg2: {}
     python-pulp-file: {}
     python-pulpcore: {}
+    python-pyparsing: {}
     python-setuptools-scm: {}
