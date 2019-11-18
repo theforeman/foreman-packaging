@@ -23,6 +23,7 @@
       <packagereq type="default">python3-async-timeout</packagereq>
       <packagereq type="default">python3-attrs</packagereq>
       <packagereq type="default">python3-backoff</packagereq>
+      <packagereq type="default">python3-box</packagereq>
       <packagereq type="default">python3-chardet</packagereq>
       <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-coreapi</packagereq>
