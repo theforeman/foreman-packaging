@@ -981,4 +981,5 @@ pulp_packages:
     python-coreapi: {}
     python-coreschema: {}
     python-django: {}
+    python-django-filter: {}
     python-setuptools-scm: {}
