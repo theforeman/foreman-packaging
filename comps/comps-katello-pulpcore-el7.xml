@@ -18,6 +18,7 @@
       <packagereq type="default">python3-attrs</packagereq>
       <packagereq type="default">python3-backoff</packagereq>
       <packagereq type="default">python3-chardet</packagereq>
+      <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
