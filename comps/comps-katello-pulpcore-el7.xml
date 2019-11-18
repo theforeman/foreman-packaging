@@ -56,6 +56,7 @@
       <packagereq type="default">python3-redis</packagereq>
       <packagereq type="default">python3-requests</packagereq>
       <packagereq type="default">python3-rq</packagereq>
+      <packagereq type="default">python3-ruamel-yaml</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
     </packagelist>
   </group>
