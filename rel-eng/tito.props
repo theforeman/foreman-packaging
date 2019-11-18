@@ -534,4 +534,5 @@ disttag = .el7
 whitelist =
   python-aiofiles
   python-aiohttp
+  python-async-timeout
   python-setuptools-scm
