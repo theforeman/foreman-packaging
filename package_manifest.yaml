@@ -985,4 +985,5 @@ pulp_packages:
     python-djangorestframework: {}
     python-djangorestframework-queryfields: {}
     python-drf-nested-routers: {}
+    python-drf-yasg: {}
     python-setuptools-scm: {}
