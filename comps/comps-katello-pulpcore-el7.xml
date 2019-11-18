@@ -62,6 +62,7 @@
       <packagereq type="default">python3-ruamel-yaml-clib</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
       <packagereq type="default">python3-six</packagereq>
+      <packagereq type="default">python3-sqlparse</packagereq>
     </packagelist>
   </group>
 </comps>
