@@ -552,4 +552,5 @@ whitelist =
   python-idna
   python-idna-ssl
   python-inflection
+  python-itypes
   python-setuptools-scm
