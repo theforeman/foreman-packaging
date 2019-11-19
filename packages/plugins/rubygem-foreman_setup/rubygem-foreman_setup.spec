@@ -8,8 +8,8 @@
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.0
-Release:    3%{?foremandist}%{?dist}
+Version:    7.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
@@ -26,7 +26,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -99,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Nov 19 2019 Lukas Zapletal <lzap@redhat.com> 7.0.0-1
+- Update to 7.0.0
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 6.0.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
