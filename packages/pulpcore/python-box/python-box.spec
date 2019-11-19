@@ -44,7 +44,7 @@ sed -i '/setup_requires/d' setup.py
 %license LICENSE
 %doc README.rst
 %{_bindir}/box.py
-%{python3_sitelib}/__pycache__/*
+%{python3_sitelib}/__pycache__/box.*
 %{python3_sitelib}/box.py
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 

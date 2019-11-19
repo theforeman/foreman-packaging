@@ -36,7 +36,7 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %files -n python3-%{pypi_name}
-%{python3_sitelib}/__pycache__/*
+%{python3_sitelib}/__pycache__/%{pypi_name}.*
 %{python3_sitelib}/%{pypi_name}.py
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
