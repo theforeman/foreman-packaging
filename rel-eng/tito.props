@@ -538,6 +538,7 @@ whitelist =
   python-attrs
   python-backoff
   python-box
+  python-cffi
   python-chardet
   python-click
   python-coreapi
