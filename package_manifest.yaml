@@ -1003,6 +1003,7 @@ pulpcore_packages:
     python-multidict: {}
     python-packaging: {}
     python-psycopg2: {}
+    python-pulp-container: {}
     python-pulp-file: {}
     python-pulpcore: {}
     python-pycparser: {}
