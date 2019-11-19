@@ -543,6 +543,7 @@ whitelist =
   python-click
   python-coreapi
   python-coreschema
+  python-cryptography
   python-django
   python-django-filter
   python-djangorestframework
