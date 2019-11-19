@@ -1008,6 +1008,7 @@ pulpcore_packages:
     python-pulpcore: {}
     python-pycparser: {}
     python-pycryptodomex: {}
+    python-pyjwkest: {}
     python-pyparsing: {}
     python-pytz: {}
     python-pyyaml: {}

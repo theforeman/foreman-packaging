@@ -68,6 +68,7 @@
       <packagereq type="default">python3-pulpcore</packagereq>
       <packagereq type="default">python3-pycparser</packagereq>
       <packagereq type="default">python3-pycryptodomex</packagereq>
+      <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pytz</packagereq>
       <packagereq type="default">python3-pyyaml</packagereq>
