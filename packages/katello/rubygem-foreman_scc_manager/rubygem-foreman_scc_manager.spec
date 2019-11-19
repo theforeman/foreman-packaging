@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -71,7 +71,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -83,6 +83,8 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
 
@@ -94,11 +96,15 @@ cp -pa .%{gem_dir}/* \
 
 %posttrans
 %{foreman_db_migrate}
+%{foreman_apipie_cache}
 %{foreman_restart}
 /usr/bin/systemctl restart foreman-tasks
 exit 0
 
 %changelog
+* Tue Nov 19 2019 Markus Bucher <bucher@atix.de> - 1.7.0-2
+- Add apipie-cache generation
+
 * Tue Nov 12 2019 Markus Bucher <bucher@atix.de> 1.7.0-1
 - Update to 1.7.0
 - Add API
