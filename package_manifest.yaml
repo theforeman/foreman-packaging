@@ -5,7 +5,7 @@ packages:
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
-    pulp_packages: {}
+    pulpcore_packages: {}
 
 foreman_packages:
   children:
@@ -954,9 +954,9 @@ repoclosures:
           - f29-updates
           - f29-puppet-6
 
-pulp_packages:
+pulpcore_packages:
   vars:
-    package_base_dir: 'packages/pulp/'
+    package_base_dir: 'packages/pulpcore/'
     diff_package_skip: false
     diff_package_tags:
       - katello-nightly-pulpcore-el7
