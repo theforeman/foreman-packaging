@@ -460,12 +460,39 @@ foreman_proxy_plugin_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     diff_package_skip: false
-    diff_package_tags:
-      - foreman-plugins-nightly-nonscl-rhel7
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_config: repoclosure/yum_el7.conf
+  children:
+    foreman_proxy_plugin_scl_packages: {}
+    foreman_proxy_plugin_nonscl_packages: {}
+
+foreman_proxy_plugin_scl_packages:
+  vars:
+    diff_package_tags:
+      - foreman-plugins-nightly-rhel7
+    repoclosure_lookaside_repos:
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-scl
+        - el7-puppet-6
+        - el7-foreman-nightly
+        - el7-foreman-plugins-nightly
+  hosts:
+    rubygem-foreman_ansible_core: {}
+    rubygem-foreman_probing_core: {}
+    rubygem-foreman_remote_execution_core: {}
+    rubygem-foreman-tasks-core: {}
+    rubygem-smart_proxy_dynflow_core: {}
+
+foreman_proxy_plugin_nonscl_packages:
+  vars:
+    diff_package_tags:
+      - foreman-plugins-nightly-nonscl-rhel7
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -478,10 +505,6 @@ foreman_proxy_plugin_packages:
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
-    rubygem-foreman_ansible_core: {}
-    rubygem-foreman_probing_core: {}
-    rubygem-foreman_remote_execution_core: {}
-    rubygem-foreman-tasks-core: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
     rubygem-openscap: {}
@@ -503,7 +526,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
