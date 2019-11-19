@@ -568,6 +568,7 @@ whitelist =
   python-pulpcore
   python-pulp-file
   python-pycparser
+  python-pycryptodomex
   python-pyparsing
   python-pytz
   python-pyyaml
