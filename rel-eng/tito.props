@@ -564,6 +564,7 @@ whitelist =
   python-multidict
   python-packaging
   python-psycopg2
+  python-pulp-container
   python-pulpcore
   python-pulp-file
   python-pycparser
