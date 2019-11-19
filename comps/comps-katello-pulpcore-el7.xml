@@ -12,6 +12,8 @@
     <packagelist>
       <packagereq type="default">python-aiohttp-debuginfo</packagereq>
       <packagereq type="default">python-aiohttp-debugsource</packagereq>
+      <packagereq type="default">python-cffi-debuginfo</packagereq>
+      <packagereq type="default">python-cffi-debugsource</packagereq>
       <packagereq type="default">python-markupsafe-debuginfo</packagereq>
       <packagereq type="default">python-markupsafe-debugsource</packagereq>
       <packagereq type="default">python-multidict-debuginfo</packagereq>
@@ -30,6 +32,7 @@
       <packagereq type="default">python3-attrs</packagereq>
       <packagereq type="default">python3-backoff</packagereq>
       <packagereq type="default">python3-box</packagereq>
+      <packagereq type="default">python3-cffi</packagereq>
       <packagereq type="default">python3-chardet</packagereq>
       <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-coreapi</packagereq>
