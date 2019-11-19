@@ -38,7 +38,7 @@ rm -rf %{pypi_name}.egg-info
 %files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
-%{python3_sitelib}/__pycache__/*
+%{python3_sitelib}/__pycache__/typing_extensions.*
 %{python3_sitelib}/typing_extensions.py
 %{python3_sitelib}/typing_extensions-%{version}-py%{python3_version}.egg-info
 
