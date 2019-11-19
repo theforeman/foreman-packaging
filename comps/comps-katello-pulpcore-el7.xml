@@ -14,6 +14,8 @@
       <packagereq type="default">python-aiohttp-debugsource</packagereq>
       <packagereq type="default">python-cffi-debuginfo</packagereq>
       <packagereq type="default">python-cffi-debugsource</packagereq>
+      <packagereq type="default">python-cryptography-debuginfo</packagereq>
+      <packagereq type="default">python-cryptography-debugsource</packagereq>
       <packagereq type="default">python-markupsafe-debuginfo</packagereq>
       <packagereq type="default">python-markupsafe-debugsource</packagereq>
       <packagereq type="default">python-multidict-debuginfo</packagereq>
@@ -39,6 +41,7 @@
       <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-coreapi</packagereq>
       <packagereq type="default">python3-coreschema</packagereq>
+      <packagereq type="default">python3-cryptography</packagereq>
       <packagereq type="default">python3-django</packagereq>
       <packagereq type="default">python3-django-filter</packagereq>
       <packagereq type="default">python3-djangorestframework</packagereq>
