@@ -14,6 +14,7 @@ If you're submitting a patch which adds/updates a gem package, you will need:
 * [git-annex](http://git-annex.branchable.com/)
 * crudini: for fedora use `dnf install crudini`
 * ruamel: for fedora use `dnf install python3-ruamel-yaml`
+* python3-semver: for fedora use `dnf install python3-semver`
 
 For npm modules (nodejs- packages) you will need:
 
