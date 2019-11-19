@@ -14,7 +14,7 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.3
+Version: 0.2.4
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -119,6 +119,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Tue Nov 19 2019 Adam Ruzicka <aruzicka@redhat.com> 0.2.4-1
+- Update to 0.2.4
+
 * Fri Oct 04 2019 Adam Ruzicka <aruzicka@redhat.com> 0.2.3-1
 - Update to 0.2.3
 
