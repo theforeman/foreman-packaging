@@ -1002,6 +1002,7 @@ pulpcore_packages:
     python-psycopg2: {}
     python-pulp-file: {}
     python-pulpcore: {}
+    python-pycparser: {}
     python-pyparsing: {}
     python-pytz: {}
     python-pyyaml: {}

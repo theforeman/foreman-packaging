@@ -563,6 +563,7 @@ whitelist =
   python-psycopg2
   python-pulpcore
   python-pulp-file
+  python-pycparser
   python-pyparsing
   python-pytz
   python-pyyaml
