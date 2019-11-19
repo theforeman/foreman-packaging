@@ -30,6 +30,8 @@ Summary:        %{summary}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
+# setup.py contains a setup_requires for pytest-runner,
+# but we don't run tests here and don't need it, so let's remove it
 sed -i '/setup_requires/d' setup.py
 
 %build
