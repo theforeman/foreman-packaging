@@ -499,7 +499,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
     rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_m2: {}
     rubygem-smart_proxy_monitoring: {}
     rubygem-smart_proxy_omaha: {}
@@ -509,7 +508,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_realm_ad_plugin: {}
     rubygem-smart_proxy_remote_execution_ssh: {}
     rubygem-smart_proxy_salt: {}
-    rubygem-smart_proxy_salt_core: {}
     rubygem-smart_proxy_spacewalk: {}
 
 foreman_scl_and_nonscl_packages:
@@ -813,6 +811,8 @@ plugin_scl_packages:
     rubygem-recursive-open-struct: {}
     rubygem-rqrcode: {}
     rubygem-safe_yaml: {}
+    rubygem-smart_proxy_dynflow_core: {}
+    rubygem-smart_proxy_salt_core: {}
     rubygem-systemu: {}
     rubygem-timeliness: {}
     rubygem-ttfunk: {}
