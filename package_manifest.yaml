@@ -992,6 +992,7 @@ pulpcore_packages:
     python-drf-yasg: {}
     python-dynaconf: {}
     python-ecdsa: {}
+    python-future: {}
     python-gunicorn: {}
     python-idna: {}
     python-idna-ssl: {}
