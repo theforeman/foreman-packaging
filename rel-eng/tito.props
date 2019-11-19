@@ -552,6 +552,7 @@ whitelist =
   python-drf-nested-routers
   python-drf-yasg
   python-dynaconf
+  python-ecdsa
   python-gunicorn
   python-idna
   python-idna-ssl

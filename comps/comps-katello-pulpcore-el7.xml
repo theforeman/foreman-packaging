@@ -50,6 +50,7 @@
       <packagereq type="default">python3-drf-nested-routers</packagereq>
       <packagereq type="default">python3-drf-yasg</packagereq>
       <packagereq type="default">python3-dynaconf</packagereq>
+      <packagereq type="default">python3-ecdsa</packagereq>
       <packagereq type="default">python3-gunicorn</packagereq>
       <packagereq type="default">python3-idna</packagereq>
       <packagereq type="default">python3-idna-ssl</packagereq>
