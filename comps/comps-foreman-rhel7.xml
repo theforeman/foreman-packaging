@@ -199,6 +199,7 @@
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">katello-selinux</packagereq>
+      <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">tfm-nodejs-argv-parse</packagereq>
       <packagereq type="default">tfm-nodejs-babel-cli</packagereq>
@@ -304,6 +305,7 @@
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
+      <packagereq type="default">python2-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">rubygem-bundler_ext</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby</packagereq>
