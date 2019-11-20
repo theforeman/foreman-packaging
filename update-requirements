@@ -20,6 +20,8 @@ NPM_BLACKLIST = [
     'prettier',
     'raw-loader',
     'react-addons-test-utils',
+    'react-dnd-test-backend',
+    'react-dnd-test-utils',
     'react-remarkable',
     'react-test-renderer',
     'react-redux-test-utils',
