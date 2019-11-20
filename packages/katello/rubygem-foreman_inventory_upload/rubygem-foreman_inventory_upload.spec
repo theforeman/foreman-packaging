@@ -7,8 +7,8 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0.beta7
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds ability to upload hosts managed in Foreman to Red Hat cloud inventory
 Group: Applications/Systems
 License: GPLv3
@@ -19,7 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(katello)
 Requires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: foreman-assets >= %{foreman_min_version}
@@ -28,7 +28,7 @@ BuildRequires: %{?scl_prefix}rubygem(katello)
 BuildRequires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -173,6 +173,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Nov 20 2019 Shimon Shtein <sshtein@redhat.com> 1.0.0-1
+- Update to 1.0.0-1
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0.beta7-2
 - Rebuild for SCL nodejs
 
