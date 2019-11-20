@@ -4,8 +4,8 @@
 %global gem_name patternfly-sass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.37.0
-Release: 4%{?dist}
+Version: 3.59.4
+Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
@@ -14,8 +14,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.7
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
+Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.4.0
+Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.5.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.7.0
 Requires: %{?scl_prefix}rubygem(sass) >= 3.4.15
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 23 2020 Ondřej Ezr <oezr@redhat.com> 3.59.4-1
+- Update patternfly-sass to 3.59.4
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.37.0-4
 - Bump to release for EL8
 
