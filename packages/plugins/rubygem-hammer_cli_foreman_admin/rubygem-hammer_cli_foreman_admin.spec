@@ -1,3 +1,4 @@
+# template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -8,21 +9,26 @@
 
 Summary: Foreman admin commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.8
-Release: 2%{?dist}
+Version: 0.0.9
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-admin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.2
+Requires: %{?scl_prefix}rubygem(hammer_cli)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 This Hammer CLI plugin contains set of administrative Foreman server commands.
@@ -60,7 +66,7 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %config %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_admin_logging_katello.yml
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
@@ -68,6 +74,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 21 2019 Evgeni Golov 0.0.9-1
+- Update to 0.0.9-1
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.8-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
