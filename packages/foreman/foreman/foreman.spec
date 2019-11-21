@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -617,23 +617,6 @@ Meta Package to install requirements for console support
 %files console
 %{_datadir}/%{name}/bundler.d/console.rb
 
-%package mysql2
-Summary: Foreman mysql2 support
-Group:  Applications/System
-# start specfile mysql2 Requires
-Requires: %{?scl_prefix}rubygem(mysql2) >= 0.4.4
-Requires: %{?scl_prefix}rubygem(mysql2) < 0.6.0
-# end specfile mysql2 Requires
-Requires: %{name} = %{version}-%{release}
-Obsoletes: %{name}-mysql < 1.4.0
-Provides: %{name}-mysql = %{version}
-
-%description mysql2
-Meta Package to install requirements for mysql2 support
-
-%files mysql2
-%{_datadir}/%{name}/bundler.d/mysql2.rb
-
 %package postgresql
 Summary: Foreman Postgresql support
 Group:  Applications/System
@@ -1085,6 +1068,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Nov 21 2019 Tomer Brisker <tbrisker@gmail.com> - 1.25.0-0.4.develop
+- drop mysql package
+
 * Mon Nov 18 2019 Evgeni Golov - 1.25.0-0.3.develop
 - Unify prerelease macro handling
 
