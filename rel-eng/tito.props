@@ -271,6 +271,7 @@ whitelist = foreman
   rubygem-ruby-libvirt
   rubygem-ruby_parser
   rubygem-safemode
+  rubygem-sassc
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-sequel

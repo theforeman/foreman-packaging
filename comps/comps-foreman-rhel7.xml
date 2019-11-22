@@ -260,6 +260,7 @@
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
       <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
+      <packagereq type="default">tfm-rubygem-sassc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
@@ -469,6 +470,7 @@
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safemode-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-sassc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>

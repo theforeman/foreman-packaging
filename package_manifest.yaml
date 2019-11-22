@@ -181,6 +181,7 @@ foreman_scl_packages:
     rubygem-ruby_parser: {}
     rubygem-rubyforge: {}
     rubygem-safemode: {}
+    rubygem-sassc: {}
     rubygem-scoped_search: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
