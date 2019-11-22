@@ -727,6 +727,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-faraday_middleware
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
+  rubygem-foreman_acd
   rubygem-foreman_ansible
   rubygem-foreman_ansible_core
   rubygem-foreman_azure_rm
