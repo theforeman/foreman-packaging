@@ -14,7 +14,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.2.0
+Version:        0.2.1
 Release:        1%{?dist}
 Summary:        Apipie bindings for Python
 
@@ -90,6 +90,9 @@ rm -rf %{pypi_name}.egg-info
 %endif
 
 %changelog
+* Mon Nov 25 2019 Evgeni Golov - 0.2.1-1
+- Release python-apypie 0.2.1
+
 * Mon Nov 04 2019 Evgeni Golov - 0.2.0-1
 - Release python-apypie 0.2.0
 
