@@ -510,6 +510,7 @@ whitelist = katello
   nodejs-react-router-dom
   pulp-katello
   rubygem-anemone
+  rubygem-foreman_inventory_upload
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
   rubygem-hammer_cli_csv
