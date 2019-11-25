@@ -1,6 +1,0 @@
-0001-fix-rspec-requires.patch
-0002-skip-safe-mode-test.patch
-0003-fix-tests-with-ruby-calls.patch
-0005-remove-bogus-tests.patch
-0006-Use-IO-each_line-instead-of-IO-lines-in-poparser.patch
-0007-Add-metadata.yml-from-upstream-gem.patch

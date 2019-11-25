@@ -1,2 +1,0 @@
-Test-Command: rake -f debian/gemspec.rake gemspec && gem2deb-test-runner --autopkgtest --check-dependencies 2>&1
-Depends: @, libvirt-dev,pkg-config,rake,libvirt-daemon, gem2deb-test-runner
