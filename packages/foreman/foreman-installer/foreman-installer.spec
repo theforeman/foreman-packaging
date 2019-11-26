@@ -1,5 +1,5 @@
 %global release 6
-%global prerelease RC2
+%global prerelease RC3
 
 Name:       foreman-installer
 Epoch:      1
@@ -140,6 +140,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Nov 26 2019 Evgeni Golov - 1:1.24.0-0.6.RC3
+- Release foreman-installer 1.24.0
+
 * Mon Nov 04 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.24.0-0.6.RC2
 - Release 1.24.0-RC2
 
