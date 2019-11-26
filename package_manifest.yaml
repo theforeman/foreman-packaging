@@ -125,6 +125,7 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
+    rubygem-ffi: {}
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
     rubygem-fog-digitalocean: {}
@@ -599,7 +600,6 @@ foreman_proxy_packages:
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
     rubygem-concurrent-ruby: {}
-    rubygem-ffi: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
     rubygem-rubyipmi: {}
