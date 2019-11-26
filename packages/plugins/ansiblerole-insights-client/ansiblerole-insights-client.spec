@@ -6,7 +6,7 @@
 
 Name: ansiblerole-insights-client
 Summary: Packaging of the insights-client Ansible role
-Version: 1.6
+Version: 1.7.1
 Release: 1%{?dist}
 License: ASL 2.0
 
@@ -38,6 +38,9 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %license %{repo_name}-%{version}/LICENSE
 
 %changelog
+* Tue Nov 26 2019 Marek Hulan <mhulan@redhat.com> - 1.7.1-1
+- Update to 1.7.1
+
 * Mon Sep 17 2018 Marek Hulan <mhulan@redhat.com> - 1.6-1
 - Update to 1.6
 
