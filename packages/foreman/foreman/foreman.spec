@@ -12,7 +12,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 14
-%global prerelease RC2
+%global prerelease RC3
 
 Name:    foreman
 Version: 1.24.0
@@ -1084,6 +1084,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Nov 26 2019 Evgeni Golov - 1.24.0-0.14.RC3
+- Release foreman 1.24.0
+
 * Mon Nov 04 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.24.0-0.14.RC2
 - Update fog-libvirt gem dependency
 
