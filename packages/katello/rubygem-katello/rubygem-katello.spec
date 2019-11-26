@@ -5,7 +5,7 @@
 %global foreman_min_version 1.23.0
 %global plugin_name katello
 %global gem_name katello
-%global prerelease .rc1
+%global prerelease .rc2
 %global mainver 3.14.0
 %global release 4
 
@@ -245,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Nov 26 2019 Evgeni Golov - 3.14.0-0.4.rc2
+- Release rubygem-katello 3.14.0
+
 * Mon Nov 04 2019 Evgeni Golov - 3.14.0-0.4.rc1
 - Release rubygem-katello 3.14.0
 
