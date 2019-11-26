@@ -1,3 +1,9 @@
+foreman-installer (1.24.0~rc3-1) stable; urgency=low
+
+  * 1.24.0-RC3 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 26 Nov 2019 13:05:28 +0100
+
 foreman-installer (1.24.0~rc2-1) stable; urgency=low
 
   * 1.24.0-RC2 released
