@@ -7,8 +7,8 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.9.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -20,14 +20,12 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
-Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 Requires: %{?scl_prefix}rubygem(deface)
+Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: %{?scl_prefix}rubygem(deface)
+BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -119,6 +117,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Tue Nov 26 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.9.1-1
+- Update to 0.9.1
+
 * Tue Jul 23 2019 Matthias Dellweg <dellweg@atix.de> 0.8.0-2
 - Manage selinux permissions for proxmox access
 
