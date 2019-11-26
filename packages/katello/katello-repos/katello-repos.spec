@@ -5,7 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .rc1
+%global prerelease .rc2
 %global release 4
 
 Name:           katello-repos
@@ -79,6 +79,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Nov 26 2019 Evgeni Golov - 3.14.0-0.4.rc2
+- Release katello-repos 3.14.0
+
 * Mon Nov 04 2019 Evgeni Golov - 3.14.0-0.4.rc1
 - Release katello-repos 3.14.0
 
