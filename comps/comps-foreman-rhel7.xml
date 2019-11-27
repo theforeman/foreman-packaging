@@ -130,6 +130,7 @@
       <packagereq type="default">tfm-nodejs-style-loader</packagereq>
       <packagereq type="default">tfm-nodejs-symbol-observable</packagereq>
       <packagereq type="default">tfm-nodejs-table-resolver</packagereq>
+      <packagereq type="default">tfm-nodejs-theforeman-builder</packagereq>
       <packagereq type="default">tfm-nodejs-theforeman-vendor</packagereq>
       <packagereq type="default">tfm-nodejs-typed-styles</packagereq>
       <packagereq type="default">tfm-nodejs-uglifyjs-webpack-plugin</packagereq>
