@@ -432,17 +432,18 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-net-ssh
   rubygem-newt
   rubygem-openscap
+  rubygem-openscap_parser
   rubygem-radcli
   rubygem-route53
   rubygem-ruby-hmac
   rubygem-satyr
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_dhcp_bluecat
   rubygem-smart_proxy_dhcp_device42
   rubygem-smart_proxy_dhcp_dnsmasq
   rubygem-smart_proxy_dhcp_infoblox
   rubygem-smart_proxy_dhcp_remote_isc
-  rubygem-smart_proxy_dhcp_bluecat
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
   rubygem-smart_proxy_dns_infoblox
