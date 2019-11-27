@@ -4,8 +4,8 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 1.7.0
-Release: 3%{?dist}
+Version: 3.3.2
+Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
@@ -41,6 +41,15 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Mon Dec 02 2019 Evgeni Golov 3.3.2-1
+- Update to 3.3.2
+
+* Mon Dec 02 2019 Evgeni Golov 3.3.1-1
+- Update to 3.3.1
+
+* Wed Nov 27 2019 Evgeni Golov 3.3.0-1
+- Update to 3.3.0
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-3
 - Build for SCL
 
