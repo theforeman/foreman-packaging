@@ -339,6 +339,9 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-symbol-observable: {}
     nodejs-table-resolver: {}
+    nodejs-theforeman-builder:
+      name: "@theforeman/builder"
+      strategy: bundle
     nodejs-theforeman-vendor:
       name: "@theforeman/vendor"
     nodejs-typed-styles: {}

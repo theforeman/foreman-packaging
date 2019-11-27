@@ -145,6 +145,7 @@ whitelist = foreman
   nodejs-style-loader
   nodejs-symbol-observable
   nodejs-table-resolver
+  nodejs-theforeman-builder
   nodejs-theforeman-vendor
   nodejs-typed-styles
   nodejs-uglifyjs-webpack-plugin
