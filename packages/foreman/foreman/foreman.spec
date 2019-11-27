@@ -83,7 +83,7 @@ Requires: %{?scl_prefix}rubygem(oauth) < 1
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
@@ -129,7 +129,7 @@ Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -189,7 +189,7 @@ BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
-BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
@@ -235,7 +235,7 @@ BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.2
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -665,13 +665,13 @@ Meta Package to install requirements for Redis caching support
 %{_datadir}/%{name}/bundler.d/redis.rb
 
 %package dynflow-sidekiq
-Summary: Foreman Redis caching support
+Summary: Foreman Dynflow's Sidekiq executor
 Group:  Applications/System
-# start specfile redis Requires
+# start specfile dynflow_sidekiq Requires
 Requires: %{?scl_prefix}rubygem(sidekiq) >= 5.0
-Requires: %{?scl_prefix}rubygem(sidekiq) < 6
+Requires: %{?scl_prefix}rubygem(sidekiq) < 6.0
 Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
-# end specfile redis Requires
+# end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
 
 %description dynflow-sidekiq
@@ -1041,7 +1041,7 @@ exit 0
 
 %changelog
 * Mon Dec 02 2019 Evgeni Golov - 1.25.0-0.5.develop
-- Update foreman NPM requirements for new vendor/builder
+- Update Gem and NPM dependencies
 
 * Thu Nov 21 2019 Tomer Brisker <tbrisker@gmail.com> - 1.25.0-0.4.develop
 - drop mysql package
