@@ -25,6 +25,7 @@
       <packagereq type="default">rubygem-netrc</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
+      <packagereq type="default">rubygem-openscap_parser</packagereq>
       <packagereq type="default">rubygem-radcli</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
       <packagereq type="default">rubygem-ruby-hmac</packagereq>
@@ -183,6 +184,7 @@
       <packagereq type="default">rubygem-net-ssh-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-openscap-doc</packagereq>
+      <packagereq type="default">rubygem-openscap_parser-doc</packagereq>
       <packagereq type="default">rubygem-radcli-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
