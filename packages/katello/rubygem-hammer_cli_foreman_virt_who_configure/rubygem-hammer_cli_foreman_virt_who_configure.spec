@@ -8,7 +8,7 @@
 
 Summary: Hammer CLI commands for configuring Virt Who for Katello
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?dist}
 Group:   Development/Languages
 License: GPLv3
@@ -68,6 +68,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 27 2019 Marek Hulan <mhulan@redhat.com> 0.0.5-1
+- Update to 0.0.5
+
 * Wed Sep 04 2019 Marek Hulan <mhulan@redhat.com> 0.0.4-1
 - Update to 0.0.4
 
