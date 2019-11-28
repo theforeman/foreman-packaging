@@ -1,3 +1,9 @@
+ruby-foreman-ansible (4.0.0-1) stable; urgency=low
+
+  * 4.0.0 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 28 Nov 2019 16:04:42 +0100
+
 ruby-foreman-ansible (3.0.7-1) stable; urgency=low
 
   * Update foreman_ansible to 3.0.7
