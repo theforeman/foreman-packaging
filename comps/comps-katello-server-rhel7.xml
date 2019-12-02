@@ -53,7 +53,7 @@
       <packagereq type="default">tfm-rubygem-justified</packagereq>
       <packagereq type="default">tfm-rubygem-pulpcore_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_ansible_client</packagereq>
-      <packagereq type="default">tfm-rubygem-pulp_docker_client</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_container_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_file_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_2to3_migration_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_rpm_client</packagereq>
@@ -83,7 +83,7 @@
       <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulpcore_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_ansible_client-doc</packagereq>
-      <packagereq type="optional">tfm-rubygem-pulp_docker_client-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_file_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access_lib-doc</packagereq>
