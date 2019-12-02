@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -262,28 +262,14 @@ BuildRequires: http-parser
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
-BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
-BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-register) >= 6.9.0
-BuildRequires: %{?scl_prefix}npm(babel-register) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
+BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(css-loader) >= 0.23.1
@@ -317,8 +303,8 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -489,28 +475,14 @@ Requires: %{scl}-runtime-assets < 6
 Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 
 # start package.json devDependencies Requires
+Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
-Requires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
-Requires: %{?scl_prefix}npm(babel-cli) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-core) >= 6.26.3
-Requires: %{?scl_prefix}npm(babel-core) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
-Requires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-Requires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-Requires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-Requires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
-Requires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-Requires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
-Requires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-Requires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
-Requires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
-Requires: %{?scl_prefix}npm(babel-register) >= 6.9.0
-Requires: %{?scl_prefix}npm(babel-register) < 7.0.0
+Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
+Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 Requires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 Requires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 Requires: %{?scl_prefix}npm(css-loader) >= 0.23.1
@@ -544,8 +516,8 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
 Requires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -1068,6 +1040,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Dec 02 2019 Evgeni Golov - 1.25.0-0.5.develop
+- Update foreman NPM requirements for new vendor/builder
+
 * Thu Nov 21 2019 Tomer Brisker <tbrisker@gmail.com> - 1.25.0-0.4.develop
 - drop mysql package
 
