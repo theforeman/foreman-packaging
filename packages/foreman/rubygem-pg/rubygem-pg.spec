@@ -1,13 +1,13 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from pg-0.11.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name pg
 
-Summary: A Ruby interface to the PostgreSQL RDBMS
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.21.0
-Release: 3%{?dist}
+Version: 1.1.4
+Release: 1%{?dist}
+Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
 #
@@ -15,87 +15,75 @@ Group: Development/Languages
 # the BSD 3-Clause license; the contents of the BSD file are incorrect.
 #
 License: (GPLv2 or Ruby) and PostgreSQL
-URL: http://bitbucket.org/ged/ruby-pg/
+URL: https://bitbucket.org/ged/ruby-pg
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: postgresql-server postgresql-devel
-# Introduced in F17.
-Obsoletes: %{?scl_prefix}ruby(postgres) <= 0.7.9-2010.01.28.2
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
+BuildRequires: postgresql-devel
 
 %description
-This is the extension library to access a PostgreSQL database from Ruby.
-This library works with PostgreSQL 7.4 and later.
+Pg is the Ruby interface to the PostgreSQL RDBMS.
+It works with PostgreSQL 9.2 and later.
 
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
 Documentation for %{pkg_name}.
 
-
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
-# Remove the binary extension sources and build leftovers.
-rm -rf %{buildroot}%{gem_instdir}/ext
-
-# Remove useless shebangs.
-sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile
-sed -i -e '/^#!\/usr\/bin\/env/d' %{buildroot}%{gem_instdir}/Rakefile.cross
-
-# Files under %%{gem_libdir} are not executable.
-for file in `find %{buildroot}%{gem_libdir} -type f -name "*.rb"`; do
-    sed -i '/^#!\/usr\/bin\/env/ d' $file \
-    && chmod -v 644 $file
-done
-
-# Fix executable bits of samples.
-for file in `find %{buildroot}%{gem_instdir}/sample -type f -name "*.rb"`; do
-    chmod -v 755 $file
-done
-
-# Fix spec shebangs.
-# https://bitbucket.org/ged/ruby-pg/issue/74/
-for file in `find %{buildroot}%{gem_instdir}/spec -type f ! -perm /a+x -name "*.rb"`; do
-    [ ! -z "`head -n 1 $file | grep \"^#!/\"`" ] \
-        && sed -i -e 's/^#!\/usr\/bin\/env spec/#!\/usr\/bin\/env rspec/' $file \
-        && chmod -v 755 $file
-done
+# Prevent dangling symlink in -debuginfo (rhbz#878863).
+rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %files
-%exclude %{gem_instdir}/.gemtest
-%{gem_extdir_mri}
 %dir %{gem_instdir}
-%doc %{gem_instdir}/BSDL
-%doc %{gem_instdir}/POSTGRES
-%doc %{gem_instdir}/LICENSE
+%{gem_extdir_mri}
+%exclude %{gem_instdir}/.gemtest
+%license %{gem_instdir}/BSDL
+%license %{gem_instdir}/LICENSE
+%license %{gem_instdir}/POSTGRES
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -105,16 +93,19 @@ done
 %doc %{gem_instdir}/ChangeLog
 %doc %{gem_instdir}/Contributors.rdoc
 %doc %{gem_instdir}/History.rdoc
+%doc %{gem_instdir}/README-OS_X.rdoc
+%doc %{gem_instdir}/README-Windows.rdoc
+%doc %{gem_instdir}/README.ja.rdoc
+%doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/Manifest.txt
 %{gem_instdir}/Rakefile
 %{gem_instdir}/Rakefile.cross
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/README.ja.rdoc
-%doc %{gem_instdir}/README-OS_X.rdoc
-%doc %{gem_instdir}/README-Windows.rdoc
 %{gem_instdir}/spec
 
 %changelog
+* Mon Dec 02 2019 Evgeni Golov 1.1.4-1
+- Update to 1.1.4-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.21.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
