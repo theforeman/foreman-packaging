@@ -1,50 +1,69 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name deface
 
-Summary: Deface is a library that allows you to customize views in Rails
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.2
+Version: 1.5.3
 Release: 1%{?dist}
-Group: Development/Libraries
+Summary: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
+Group: Development/Languages
 License: MIT
 URL: https://github.com/spree/deface
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(rainbow) >= 2.1.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6.0
-Requires: %{?scl_prefix}rubygem(polyglot)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
+Requires: %{?scl_prefix}rubygem(rainbow) >= 2.1.0
+Requires: %{?scl_prefix}rubygem(polyglot)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Deface is a library that allows you to customize ERB, Haml and Slim
-views in a Rails application without editing the underlying view.
+Deface is a library that allows you to customize ERB, Haml and Slim views in a
+Rails application without editing the underlying view.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -53,28 +72,31 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/Appraisals
+%license %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/gemfiles
 %{gem_instdir}/init.rb
+%{gem_libdir}
 %{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/MIT-LICENSE
-
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/Appraisals
-%exclude %{gem_instdir}/gemfiles
-%exclude %{gem_instdir}/spec
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.markdown
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
-%{gem_instdir}/Gemfile
-%{gem_instdir}/%{gem_name}.gemspec
+%{gem_instdir}/deface.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Mon Dec 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.3-1
+- Update to 1.5.3-1
+
 * Mon Oct 01 2018 Ivan Nečas <inecas@redhat.com> 1.3.2-1
 - Update to 1.3.2
 
