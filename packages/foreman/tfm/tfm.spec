@@ -21,7 +21,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 5.0
-Release: 10%{?dist}
+Release: 11%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -61,10 +61,10 @@ Obsoletes: ruby193-ruby-wrapper
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
-Obsoletes: %{scl_prefix}npm(babel-preset-es2015) < 6.6.0-4
-Obsoletes: %{scl_prefix}npm(flux) < 2.1.1-2
-Obsoletes: %{scl_prefix}npm(intl) < 1.2.5-2
-Obsoletes: %{scl_prefix}npm(moment) < 2.17.1-2
+Obsoletes: %{scl_prefix}nodejs-babel-preset-es2015 < 6.6.0-4
+Obsoletes: %{scl_prefix}nodejs-flux < 2.1.1-2
+Obsoletes: %{scl_prefix}nodejs-intl < 1.2.5-2
+Obsoletes: %{scl_prefix}nodejs-moment < 2.17.1-2
 Obsoletes: %{scl_prefix}rubygem-ace-rails-ap < 4.1.1-2
 Obsoletes: %{scl_prefix}rubygem-ansi < 1.4.3-7
 Obsoletes: %{scl_prefix}rubygem-archive-tar-minitar < 0.5.2-12
@@ -306,6 +306,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Dec 02 2019 Evgeni Golov - 5.0-11
+- Use package names, not provides in Obsoletes
+
 * Mon Nov 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 5.0-10
 - Obsolete foreman_custom_parameters
 
