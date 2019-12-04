@@ -1,7 +1,6 @@
 %global homedir %{_datadir}/%{name}
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
-%global executor_service_name dynflowd
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
@@ -10,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -27,8 +26,6 @@ Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
-Source10: %{executor_service_name}.sysconfig
-Source11: %{executor_service_name}.service
 BuildArch:  noarch
 
 Conflicts: foreman-tasks < 0.11.0-2
@@ -762,10 +759,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
 #Copy init scripts and sysconfigs
-install -Dp -m0644 %{SOURCE10} %{buildroot}%{_sysconfdir}/sysconfig/%{executor_service_name}
-install -Dp -m0644 %{SOURCE11} %{buildroot}%{_unitdir}/%{executor_service_name}.service
 install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
-install -Dp -m0755 script/%{executor_service_name} %{buildroot}%{_sbindir}/%{executor_service_name}
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
@@ -964,11 +958,6 @@ rm -rf %{buildroot}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
 
-# Service
-%{_sbindir}/%{executor_service_name}
-%config(noreplace) %{_sysconfdir}/sysconfig/%{executor_service_name}
-%{_unitdir}/%{executor_service_name}.service
-
 %pre
 # Add the "foreman" user and group
 getent group %{name} >/dev/null || groupadd -r %{name}
@@ -1003,18 +992,18 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
 fi
 
 %systemd_postun_with_restart %{name}.service
-%systemd_post %{executor_service_name}.service
 exit 0
 
 %preun
-%systemd_preun %{executor_service_name}.service
 %systemd_preun %{name}.service
 
 %postun
-%systemd_postun_with_restart %{executor_service_name}.service
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jan 21 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.0.0-0.5.develop
+- drop dynflowd service and leave only dynflow-sidekiq
+
 * Thu Jan 16 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.4.develop
 - Remove database action macros and restart
 
