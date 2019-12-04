@@ -4,8 +4,8 @@
 %global gem_name prometheus-client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.1
-Release: 3%{?dist}
+Version: 1.0.0
+Release: 1%{?dist}
 Summary: A suite of instrumentation metric primitivesthat can be exposed through a web services interface
 Group: Development/Languages
 License: ASL 2.0
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 04 2019 Lukas Zapletal <lzap@redhat.com> 1.0.0-1
+- Update to 1.0.0
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.7.1-3
 - Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
 
