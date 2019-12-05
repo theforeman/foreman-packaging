@@ -17,7 +17,7 @@
 #
 
 Name:           katello-client-bootstrap
-Version:        1.7.3
+Version:        1.7.4
 Release:        1%{?dist}
 Summary:        Client bootstrap utility for Foreman and Katello
 
@@ -48,6 +48,9 @@ install -m644 -D bootstrap.py %{buildroot}%{_var}/www/html/pub/bootstrap.py
 %{_var}/www/html/pub/bootstrap.py
 
 %changelog
+* Thu Dec 05 2019 Evgeni Golov - 1.7.4-1
+- Release katello-client-bootstrap 1.7.4
+
 * Mon Sep 09 2019 Evgeni Golov - 1.7.3-1
 - Release katello-client-boostrap 1.7.3
 
