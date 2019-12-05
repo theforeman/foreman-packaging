@@ -8,7 +8,7 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
+Version: 4.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -24,7 +24,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
@@ -33,7 +33,7 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
@@ -58,6 +58,12 @@ BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
 BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
+BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
+BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -144,6 +150,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Dec 05 2019 Adam Ruzicka <aruzicka@redhat.com> 4.0.2-1
+- Update to 4.0.2
+
 * Fri Oct 25 2019 Ondrej Prazak <oprazak@redhat.com> - 4.0.0-1
 - Update to 4.0.0
 
