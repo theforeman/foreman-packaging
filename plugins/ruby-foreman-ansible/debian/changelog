@@ -1,3 +1,9 @@
+ruby-foreman-ansible (4.0.2-1) stable; urgency=low
+
+  * 4.0.2 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 05 Dec 2019 22:05:33 +0100
+
 ruby-foreman-ansible (4.0.0-1) stable; urgency=low
 
   * 4.0.0 released
