@@ -7,7 +7,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds ability to upload hosts managed in Foreman to Red Hat cloud inventory
 Group: Applications/Systems
@@ -173,6 +173,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Dec 05 2019 Shimon Shtein <sshtein@redhat.com> 1.0.2-1
+- Update to 1.0.2-1
+
 * Wed Nov 27 2019 Shimon Shtein <sshtein@redhat.com> 1.0.1-1
 - Update to 1.0.1-1
 
