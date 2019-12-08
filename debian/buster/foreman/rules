@@ -10,7 +10,7 @@ build:
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
-	/usr/bin/npm install --no-optional --unsafe-perm
+	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
 	/usr/bin/bundle exec rake locale:pack RAILS_ENV=production
 	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production
 	/usr/bin/bundle exec rake webpack:compile
