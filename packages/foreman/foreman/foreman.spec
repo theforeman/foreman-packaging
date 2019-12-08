@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -264,7 +264,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.5.2
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -303,7 +303,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.5.2
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -477,7 +477,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.5.2
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -516,7 +516,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.5.2
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -1040,6 +1040,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Sun Dec 08 2019 Michael Moll <mmoll@mmoll.at> - 1.25.0-0.6.develop
+- Update NPM dependencies
+
 * Mon Dec 02 2019 Evgeni Golov - 1.25.0-0.5.develop
 - Update Gem and NPM dependencies
 
