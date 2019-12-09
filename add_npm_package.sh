@@ -106,7 +106,7 @@ add_npm_to_manifest() {
 }
 
 npm_info() {
-  local name=$(python2 -c "import urllib ; print(urllib.quote('$NPM_MODULE_NAME', safe=''))")
+  local name=$(python3 -c "import urllib.parse ; print(urllib.parse.quote('$NPM_MODULE_NAME', safe=''))")
   curl -s https://api.npms.io/v2/package/$name
 }
 
