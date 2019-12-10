@@ -1,51 +1,46 @@
-# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
-%global foreman_min_version 1.18.0
+%global foreman_min_version 1.24
 
-Summary:    Foreman plugin for limiting host lifetime
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.2
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/Systems
-License:    GPLv3
-URL:        https://github.com/theforeman/foreman_expire_hosts
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Source1:    %{gem_name}.cron.d
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 7.0.0
+Release: 1%{?foremandist}%{?dist}
+Summary: Foreman plugin for limiting host lifetime
+Group: Applications/Systems
+License: GPLv3
+URL: https://github.com/theforeman/foreman_expire_hosts
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: %{gem_name}.cron.d
 
-Requires:   %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(bootstrap-datepicker-rails)
 Requires: %{?scl_prefix}rubygem(deface)
-BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(bootstrap-datepicker-rails)
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
-A Foreman plugin that allows hosts to expire at a configurable date.
-Hosts will be shut down and automatically deleted after a grace
-period.
+This Plugin will add new column expired_on to hosts to limit the lifetime of a
+host.
+
 
 %package doc
-BuildArch:  noarch
-Group:      Documentation
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for %{pkg_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
 Documentation for %{pkg_name}.
@@ -75,13 +70,13 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -92,7 +87,6 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%exclude %{gem_instdir}/foreman_expire_hosts.gemspec
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -100,12 +94,12 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
-%{foreman_assets_plugin}
 
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/foreman_expire_hosts.gemspec
 %{gem_instdir}/test
 
 %posttrans
@@ -116,6 +110,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 exit 0
 
 %changelog
+* Tue Dec 10 2019 Timo Goebel <mail@timogoebel.name> - 7.0.0-1
+- Update foreman_expire_hosts to 7.0.0
+
 * Fri Aug 30 2019 Timo Goebel <mail@timogoebel.name> - 6.0.2-1
 - Update foreman_expire_hosts to 6.0.2
 
