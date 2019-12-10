@@ -22,8 +22,7 @@
 
 %define moduletype apps
 
-%global release 3
-%global prerelease RC3
+%global release 4
 
 Name:           foreman-selinux
 Version:        1.24.0
@@ -165,6 +164,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-4
+- Release 1.24.0
+
 * Tue Nov 26 2019 Evgeni Golov - 1.24.0-0.3.RC3
 - Release foreman-selinux 1.24.0
 
