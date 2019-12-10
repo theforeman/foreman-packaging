@@ -8,8 +8,8 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
 License: GPLv3
@@ -96,6 +96,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Dec 10 2019 Timo Goebel <mail@timogoebel.name> - 1.0.3-1
+- Update foreman_git_templates to 1.0.3
+
 * Wed Sep 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-2
 - Corrected the license format
 
