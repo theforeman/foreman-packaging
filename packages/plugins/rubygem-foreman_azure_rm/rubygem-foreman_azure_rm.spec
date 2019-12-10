@@ -7,7 +7,7 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.2
+Version: 2.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
@@ -103,6 +103,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Dec 10 2019 Aditi Puntambekar <apuntamb@redhat.com> 2.0.3-1
+- Update to 2.0.3
+
 * Tue Nov 26 2019 Aditi Puntambekar <apuntamb@redhat.com> 2.0.2-1
 - Update to 2.0.2
 
