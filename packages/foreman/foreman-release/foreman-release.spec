@@ -13,8 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
-%global prerelease RC3
+%global release 4
 
 Name:     foreman-release
 Version:  1.24.0
@@ -115,6 +114,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-4
+Release 1.24.0
+
 * Tue Nov 26 2019 Evgeni Golov - 1.24.0-0.3.RC3
 - Release foreman-release 1.24.0
 
