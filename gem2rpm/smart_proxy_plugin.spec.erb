@@ -4,6 +4,7 @@ require 'json'
 root = `git rev-parse --show-toplevel`.strip
 SCL_PREFIXES = JSON.load(File.read(File.join(root, 'scl_prefixes.json')))
 LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
+has_cronjob = spec.files.any? { |f| f =~ %r{\Aextra/.*\.cron\z }
 -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -133,6 +134,10 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 <% config_file = config_file_path.split('/').last -%>
 mv %{buildroot}%{gem_instdir}/<%= config_file_path %> \
    %{buildroot}%{foreman_proxy_settingsd_dir}/<%= config_file.chomp('.example') %>
+<% if has_cronjob -%>
+mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d/
+mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
+<% end -%>
 <% end -%>
 
 %files
@@ -148,6 +153,9 @@ mv %{buildroot}%{gem_instdir}/<%= config_file_path %> \
 <% config_file_paths = config_file_paths.map { |path| path.split('/').last.chomp('.example') } -%>
 <% config_file_paths.each do |config_file_path| -%>
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/<%= config_file_path %>
+<% if has_cronjob -%>
+%config(noreplace) %{_root_sysconfdir}/cron.d/%{gem_name}
+<% end -%>
 <% end -%>
 <%= main_file_entries(spec) %>
 <% unless doc_subpackage -%>
