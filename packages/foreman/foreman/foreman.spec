@@ -11,8 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 14
-%global prerelease RC3
+%global release 15
 
 Name:    foreman
 Version: 1.24.0
@@ -1084,6 +1083,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-15
+Release 1.24.0
+
 * Tue Nov 26 2019 Evgeni Golov - 1.24.0-0.14.RC3
 - Release foreman 1.24.0
 

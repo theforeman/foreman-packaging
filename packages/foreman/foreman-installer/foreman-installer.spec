@@ -1,5 +1,4 @@
-%global release 6
-%global prerelease RC3
+%global release 7
 
 Name:       foreman-installer
 Epoch:      1
@@ -140,6 +139,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1:1.24.0-7
+- Release 1.24.0
+
 * Tue Nov 26 2019 Evgeni Golov - 1:1.24.0-0.6.RC3
 - Release foreman-installer 1.24.0
 
