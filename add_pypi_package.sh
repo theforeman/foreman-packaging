@@ -42,6 +42,8 @@ generate_pypi_package() {
     RPM_NAME_ARG=""
   fi
   pyp2rpm --no-autonc -s -t $TEMPLATE -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  # pyp2rpm does not create a newline at the end of the file, which breaks our changelog append script
+  echo >> $PACKAGE_DIR/*.spec
   sed -i '/BuildRequires:.*sphinx/d' $PACKAGE_DIR/*.spec
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
@@ -49,6 +51,8 @@ generate_pypi_package() {
     cat OLD_CHANGELOG >> $PACKAGE_DIR/*.spec
     sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_DIR/*.spec
     rm OLD_CHANGELOG
+    CHANGELOG="- Update to $VERSION"
+    echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec
   fi
   echo "FINISHED"
 
