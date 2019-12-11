@@ -151,14 +151,20 @@ fi
 if [ -f "$PACKAGE_DIR"/*.spec ]; then
   echo -n "Detected update..."
   UPDATE=true
+  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' $PACKAGE_DIR/*.spec)
 else
   UPDATE=false
 fi
 
-generate_pypi_package
 if [[ $UPDATE == true ]] ; then
-  git commit -m "Bump $PACKAGE_NAME to $VERSION"
+  if [[ $VERSION != $EXISTING_VERSION ]]; then
+    generate_pypi_package
+    git commit -m "Bump $PACKAGE_NAME to $VERSION"
+  else
+    echo "$PACKAGE_NAME is already at version $VERSION"
+  fi
 else
+  generate_pypi_package
   echo -n "Setting tito props..."
   add_to_tito_props
   echo "FINISHED"
