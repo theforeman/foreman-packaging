@@ -42,6 +42,7 @@ generate_pypi_package() {
     RPM_NAME_ARG=""
   fi
   pyp2rpm --no-autonc -s -t $TEMPLATE -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  sed -i '/BuildRequires:.*sphinx/d' $PACKAGE_DIR/*.spec
   echo "FINISHED"
   if [[ $UPDATE == true ]]; then
     echo "Restoring changelogs..."
