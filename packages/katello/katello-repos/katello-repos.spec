@@ -5,8 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prerelease .rc2
-%global release 4
+%global release 5
 
 Name:           katello-repos
 Version:        3.14.0
@@ -79,6 +78,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Dec 11 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-5
+- Release 3.14.0
+
 * Tue Nov 26 2019 Evgeni Golov - 3.14.0-0.4.rc2
 - Release katello-repos 3.14.0
 
