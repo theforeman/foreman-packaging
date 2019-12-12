@@ -17,7 +17,7 @@ LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
 %global foreman_min_version FIXME
 <%
 has_assets = spec.files.any? { |f| f.start_with?('app/assets/') }
-has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/api/} }
+has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/(api|concerns)/} }
 has_db_migrations = spec.files.any? { |f| f.start_with?('db/migrate/') }
 has_db_seeds = spec.files.any? { |f| f.start_with?('db/seeds.d/') }
 has_webpack = spec.files.any? { |f| f.start_with?('webpack/') }
