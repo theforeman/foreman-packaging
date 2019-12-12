@@ -8,6 +8,8 @@ BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
 BASE_PYTHON=3
 
+REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
+
 # the package name will contain the downcased PYPI_NAME, with dots replaced by hyphens
 PACKAGE_NAME=python-$(echo ${PYPI_NAME} |tr '[A-Z]' '[a-z]' | tr '.' '-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
@@ -151,13 +153,13 @@ fi
 if [ -f "$PACKAGE_DIR"/*.spec ]; then
   echo -n "Detected update..."
   UPDATE=true
-  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' $PACKAGE_DIR/*.spec)
 else
   UPDATE=false
 fi
 
 if [[ $UPDATE == true ]] ; then
-  if [[ $VERSION != $EXISTING_VERSION ]]; then
+  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' $PACKAGE_DIR/*.spec)
+  if [[ $REWRITE_ON_SAME_VERSION == true ]] || [[ $VERSION != $EXISTING_VERSION ]]; then
     generate_pypi_package
     git commit -m "Bump $PACKAGE_NAME to $VERSION"
   else
