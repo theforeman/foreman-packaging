@@ -5,8 +5,8 @@
 %global gem_name record_tag_helper
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: ActionView Record Tag Helpers
 Group:   Development/Languages
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 12 2019 Tomer Brisker <tbrisker@gmail.com> 1.0.1-1
+- Update to 1.0.1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
