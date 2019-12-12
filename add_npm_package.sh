@@ -7,6 +7,8 @@ TITO_TAG=foreman-nightly-nonscl-rhel7
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
+REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
+
 PACKAGE_MODULE=${NPM_MODULE_NAME##*/}
 PACKAGE_VENDOR=${NPM_MODULE_NAME%%/*}
 PACKAGE_VENDOR=${PACKAGE_VENDOR##@}
@@ -156,10 +158,16 @@ else
   UPDATE=false
 fi
 
-generate_npm_package
 if [[ $UPDATE == true ]] ; then
-  git commit -m "Bump $PACKAGE_NAME to $VERSION"
+  EXISTING_VERSION=$(rpmspec --query --srpm --queryformat '%{VERSION}' $PACKAGE_DIR/*.spec)
+  if [[ $REWRITE_ON_SAME_VERSION == true ]] || [[ $VERSION != $EXISTING_VERSION ]]; then
+    generate_npm_package
+    git commit -m "Bump $PACKAGE_NAME to $VERSION"
+  else
+    echo "$PACKAGE_NAME is already at version $VERSION"
+  fi
 else
+  generate_npm_package
   echo -n "Setting tito props..."
   add_to_tito_props
   echo "FINISHED"
