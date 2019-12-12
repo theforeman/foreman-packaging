@@ -1,3 +1,9 @@
+ruby-foreman-tasks (0.17.5-1) stable; urgency=low
+
+  * Update foreman-tasks to 0.17.5
+
+ -- Marek Hulan <mhulan@redhat.com>  Thu, 12 Dec 2019 11:59:36 +0100
+
 ruby-foreman-tasks (0.17.4-1) stable; urgency=low
 
   * 0.17.4 released
