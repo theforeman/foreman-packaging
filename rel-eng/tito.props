@@ -464,8 +464,8 @@ whitelist = ansiblerole-foreman_scap_client
 
 [foreman-client-1.24-rhel7]
 disttag = .el7
+# don't whitelist foreman-release here, it's already in foreman-1.24-nonscl-rhel7
 whitelist =
-  # don't whitelist foreman-release here, it's already in foreman-1.24-nonscl-rhel7
   ansible-collection-theforeman-foreman
   katello-host-tools
   python-apypie
