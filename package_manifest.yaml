@@ -903,6 +903,7 @@ repoclosures:
           - el7-foreman-plugins-nightly
           - el7-katello-pulp-nightly
           - el7-katello-candlepin-nightly
+          - el7-katello-nightly-pulpcore
     foreman-client-repoclosure-el7:
       repoclosure_config: repoclosure/yum_el7.conf
       repoclosure_target_repos:
@@ -970,7 +971,7 @@ pulpcore_packages:
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
       rhel7:
-        - el7-katello-nightly
+        - el7-katello-nightly-pulpcore
     repoclosure_lookaside_repos:
       el7:
         - el7-base
