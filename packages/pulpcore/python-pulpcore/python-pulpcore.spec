@@ -2,12 +2,12 @@
 %global pypi_name pulpcore
 
 Name:           python-%{pypi_name}
-Version:        3.0.0rc8
+Version:        3.0.0
 Release:        1%{?dist}
 Summary:        Pulp Django Application and Related Modules
 
 License:        GPLv2+
-URL:            http://www.pulpproject.org
+URL:            https://pulpproject.org
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
@@ -53,10 +53,12 @@ Requires:       python3-gunicorn >= 19.9
 Requires:       python3-psycopg2 < 2.9
 Requires:       python3-psycopg2 >= 2.7
 Requires:       python3-pyyaml >= 5.1.1
-Conflicts:      python3-pyyaml >= 5.2
+Conflicts:      python3-pyyaml >= 5.3
+Requires:       python3-pygtrie >= 2.3.2
+Conflicts:      python3-pygtrie >= 2.4
 Requires:       python3-redis >= 3.1.0
 Conflicts:      python3-redis >= 3.2
-Requires:       python3-setuptools < 41.7.0
+Requires:       python3-setuptools < 42.1.0
 Requires:       python3-setuptools >= 39.2.0
 Requires:       python3-whitenoise >= 4.1.3
 Conflicts:      python3-whitenoise >= 4.2
@@ -90,5 +92,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov 3.0.0-1
+- Update to 3.0.0
+
 * Mon Nov 18 2019 Evgeni Golov - 3.0.0rc8-1
 - Initial package.
