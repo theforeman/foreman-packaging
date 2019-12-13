@@ -116,6 +116,8 @@ TITO_TAG=$3
 PACKAGE_SUBDIR=$4
 ROOT=$(git rev-parse --show-toplevel)
 
+REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
+
 if [[ -z $TEMPLATE_NAME ]] ; then
 	if [[ $GEM_NAME == smart_proxy_*_core ]] ; then
 		TEMPLATE_NAME="scl"
@@ -174,11 +176,18 @@ if [[ ! -e $TEMPLATE ]] ; then
 	exit 1
 fi
 
-generate_gem_package
 if [[ $UPDATE == true ]] ; then
-	VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $PACKAGE_DIR/$SPEC_FILE)
-	git commit -m "Bump $PACKAGE_NAME to $VERSION"
+	EXISTING_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $PACKAGE_DIR/$SPEC_FILE)
+	NEW_VERSION=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json | jq -r .version)
+	if [[ $REWRITE_ON_SAME_VERSION == true ]] || [[ $NEW_VERSION != $EXISTING_VERSION ]]; then
+		generate_gem_package
+		VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $PACKAGE_DIR/$SPEC_FILE)
+		git commit -m "Bump $PACKAGE_NAME to $VERSION"
+	else
+		echo "$PACKAGE_NAME is already at version $VERSION"
+	fi
 else
+	generate_gem_package
 	add_to_manifest
 	add_to_tito_props
 	add_gem_to_comps
