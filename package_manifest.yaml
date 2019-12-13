@@ -1014,6 +1014,7 @@ pulpcore_packages:
     python-pulpcore: {}
     python-pycparser: {}
     python-pycryptodomex: {}
+    python-pygtrie: {}
     python-pyjwkest: {}
     python-pyjwt: {}
     python-pyparsing: {}

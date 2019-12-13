@@ -572,6 +572,7 @@ whitelist =
   python-pulp-file
   python-pycparser
   python-pycryptodomex
+  python-pygtrie
   python-pyjwkest
   python-pyjwt
   python-pyparsing
