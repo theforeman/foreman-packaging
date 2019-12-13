@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 3.5.2
+Version: 3.8.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Fri Dec 13 2019 vagrant 3.8.0-1
+- Update to 3.8.0
+
 * Sat Dec 07 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.5.2-1
 - Update to 3.5.2
 
