@@ -2,7 +2,7 @@
 %global pypi_name yarl
 
 Name:           python-%{pypi_name}
-Version:        1.3.0
+Version:        1.4.2
 Release:        1%{?dist}
 Summary:        Yet another URL library
 
@@ -43,5 +43,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov 1.4.2-1
+- Update to 1.4.2
+
 * Mon Nov 18 2019 Evgeni Golov - 1.3.0-1
 - Initial package.
