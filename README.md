@@ -16,7 +16,7 @@ If you're submitting a patch which adds/updates a gem package, you will need:
 * ruamel: for fedora use `dnf install python3-ruamel-yaml`
 * python3-semver: for fedora use `dnf install python3-semver`
 
-For npm modules (nodejs- packages) you will need:
+If you're submitting a patch which adds/updates npm modules (nodejs- packages) you will need:
 
 * [npm2rpm](https://www.npmjs.com/package/npm2rpm)
 * [git-annex](http://git-annex.branchable.com/)
@@ -87,6 +87,21 @@ Using a local git checkout, change `source_dir` as appropriate:
    * Amend any changes to the existing commit
 1. Submit a pull request against `rpm/develop`
 
+### npm2rpm instructions
+
+In order to add or update npm dependencies, you will need [npm2rpm](https://www.npmjs.com/package/npm2rpm).
+
+1. Until npm2rpm is released, you will need to install it from source (git clone).
+1. In your `npm2rpm` directory, run `npm install`.
+1. Make a symlink from `npm2rpm.js` to `npm2rpm` (with no extension).  This is so the update script, `add_npm_package.sh`, can find it. 
+  ```
+  ln -s ~/npm2rpm/bin/npm2rpm.js ~/npm2rpm/bin/npm2rpm
+  ```
+1. Make sure that `npm2rpm` is in your $PATH
+1. Before you run the update script, make sure the following are installed:
+  * nokogiri - `gem install nokogiri`
+  * python3 - `yum install python3`
+
 ### Adding npm packages
 
 First, you need to decide if your package will include bundled dependencies or not.
@@ -127,6 +142,8 @@ required non-SCL modes.
 1. Submit a pull request against `rpm/develop`
 
 ### Updating npm packages
+
+In order to update npm packages, first you will need to follow the [npm2rpm instructions](https://github.com/theforeman/foreman-packaging/tree/rpm/develop#npm2rpm-instructions) above.  Once that's done,
 
 1. Run the update script
   ```sh
