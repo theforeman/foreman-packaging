@@ -3,7 +3,7 @@
 %global srcname pyyaml
 
 Name:           python-%{srcname}
-Version:        5.1.2
+Version:        5.2
 Release:        1%{?dist}
 Summary:        YAML parser and emitter for Python
 
@@ -41,5 +41,8 @@ Summary:        %{summary}
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov 5.2-1
+- Update to 5.2
+
 * Mon Nov 18 2019 Evgeni Golov - 5.1.2-1
 - Initial package.
