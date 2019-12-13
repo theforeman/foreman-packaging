@@ -24,6 +24,13 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
 
+[katello-pulpcore]
+name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
+baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulpcore/@DIST@/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+enabled=1
+gpgcheck=@REPO_GPGCHECK@
+
 # source repositories
 
 [katello-source]
@@ -43,6 +50,13 @@ gpgcheck=@PULP_GPG_CHECK@
 [katello-candlepin-source]
 name=Katello Candlepin source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/candlepin/@DIST@/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+enabled=0
+gpgcheck=@REPO_GPGCHECK@
+
+[katello-pulpcore-source]
+name=Katello pulpcore source
+baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/pulpcore/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
