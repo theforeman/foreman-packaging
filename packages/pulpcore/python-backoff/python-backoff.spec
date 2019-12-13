@@ -2,7 +2,7 @@
 %global pypi_name backoff
 
 Name:           python-%{pypi_name}
-Version:        1.9.0
+Version:        1.10.0
 Release:        1%{?dist}
 Summary:        Function decoration for backoff and retry
 
@@ -34,11 +34,14 @@ Summary:        %{summary}
 %py3_install
 
 %files -n python3-%{pypi_name}
-%license LICENSE LICENSE
-%doc README.rst README.rst
+%license LICENSE
+%doc README.rst
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov 1.10.0-1
+- Update to 1.10.0
+
 * Mon Nov 18 2019 Evgeni Golov - 1.9.0-1
 - Initial package.
