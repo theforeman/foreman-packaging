@@ -2,12 +2,12 @@
 %global pypi_name pulp-file
 
 Name:           python-%{pypi_name}
-Version:        0.1.0rc1
+Version:        0.1.0
 Release:        1%{?dist}
 Summary:        File plugin for the Pulp Project
 
 License:        GPLv2+
-URL:            http://www.pulpproject.org/
+URL:            https://pulpproject.org/
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
@@ -21,7 +21,7 @@ A Pulp plugin to support hosting arbitrary files.
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-pulpcore < 3.1
-Requires:       python3-pulpcore >= 3.0rc8
+Requires:       python3-pulpcore >= 3.0.0
 Requires:       python3-setuptools
 
 %description -n python3-%{pypi_name}
@@ -45,5 +45,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_file-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov 0.1.0-1
+- Update to 0.1.0
+
 * Mon Nov 18 2019 Evgeni Golov - 0.1.0rc1-1
 - Initial package.
