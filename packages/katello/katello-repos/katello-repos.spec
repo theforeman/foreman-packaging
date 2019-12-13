@@ -7,7 +7,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        3.15.0
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Fri Dec 13 2019 Evgeni Golov - 3.15.0-0.3.nightly
+- Add pulpcore repository
+
 * Mon Nov 18 2019 Evgeni Golov - 3.15.0-0.2.nightly
 - Unify prerelease macro handling
 
