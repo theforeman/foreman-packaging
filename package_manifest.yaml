@@ -964,7 +964,7 @@ pulpcore_packages:
     package_base_dir: 'packages/pulpcore/'
     diff_package_skip: false
     diff_package_tags:
-      - katello-pulpcore-nightly-el7
+      - katello-nightly-pulpcore-el7
     releasers:
       - koji-katello-pulpcore
     repoclosure_config: repoclosure/yum_el7.conf

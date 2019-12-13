@@ -532,7 +532,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-pulpcore-nightly-el7]
+[katello-nightly-pulpcore-el7]
 disttag = .el7
 whitelist =
   python-aiofiles
