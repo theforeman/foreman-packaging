@@ -1,22 +1,16 @@
-%{?scl:%scl_package nodejs-%{npm_name}}
-%{!?scl:%global pkg_name %{name}}
-
 %global npm_name @theforeman/vendor
 
-Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 3.5.2
+Name: nodejs-theforeman-vendor
+Version: 3.8.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/theforeman/foreman-js#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-%endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
 %{summary}
@@ -39,6 +33,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Mon Dec 16 2019 laviro <1ronlavi@gmail.com> 3.8.0-1
+- Update to 3.8.0
+
 * Sat Dec 07 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.5.2-1
 - Update to 3.5.2
 
