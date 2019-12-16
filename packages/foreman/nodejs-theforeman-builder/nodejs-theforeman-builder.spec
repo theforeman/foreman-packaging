@@ -4,7 +4,7 @@
 %global npm_name @theforeman/builder
 
 Name: %{?scl_prefix}nodejs-theforeman-builder
-Version: 3.5.2
+Version: 3.8.0
 Release: 1%{?dist}
 Summary: Build production and development bundle files for foreman core and plugins
 License: MIT
@@ -88,21 +88,21 @@ Source74: https://registry.npmjs.org/@babel/plugin-transform-sticky-regex/-/@bab
 Source75: https://registry.npmjs.org/@babel/plugin-transform-template-literals/-/@babel/plugin-transform-template-literals-7.7.4.tgz
 Source76: https://registry.npmjs.org/@babel/plugin-transform-typeof-symbol/-/@babel/plugin-transform-typeof-symbol-7.7.4.tgz
 Source77: https://registry.npmjs.org/@babel/plugin-transform-unicode-regex/-/@babel/plugin-transform-unicode-regex-7.7.4.tgz
-Source78: https://registry.npmjs.org/@babel/preset-env/-/@babel/preset-env-7.7.5.tgz
+Source78: https://registry.npmjs.org/@babel/preset-env/-/@babel/preset-env-7.7.6.tgz
 Source79: https://registry.npmjs.org/@babel/preset-react/-/@babel/preset-react-7.7.4.tgz
 Source80: https://registry.npmjs.org/@babel/template/-/@babel/template-7.7.4.tgz
 Source81: https://registry.npmjs.org/@babel/traverse/-/@babel/traverse-7.7.4.tgz
 Source82: https://registry.npmjs.org/@babel/types/-/@babel/types-7.7.4.tgz
-Source83: https://registry.npmjs.org/@theforeman/builder/-/@theforeman/builder-3.5.2.tgz
+Source83: https://registry.npmjs.org/@theforeman/builder/-/@theforeman/builder-3.8.0.tgz
 Source84: https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz
 Source85: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz
 Source86: https://registry.npmjs.org/browserslist/-/browserslist-4.8.2.tgz
-Source87: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001015.tgz
+Source87: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001016.tgz
 Source88: https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz
 Source89: https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz
 Source90: https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz
 Source91: https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.7.0.tgz
-Source92: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.4.7.tgz
+Source92: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.5.0.tgz
 Source93: https://registry.npmjs.org/debug/-/debug-4.1.1.tgz
 Source94: https://registry.npmjs.org/define-properties/-/define-properties-1.1.3.tgz
 Source95: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.322.tgz
@@ -132,7 +132,7 @@ Source118: https://registry.npmjs.org/regenerate-unicode-properties/-/regenerate
 Source119: https://registry.npmjs.org/regenerator-transform/-/regenerator-transform-0.14.1.tgz
 Source120: https://registry.npmjs.org/regexpu-core/-/regexpu-core-4.6.0.tgz
 Source121: https://registry.npmjs.org/regjsgen/-/regjsgen-0.5.1.tgz
-Source122: https://registry.npmjs.org/regjsparser/-/regjsparser-0.6.0.tgz
+Source122: https://registry.npmjs.org/regjsparser/-/regjsparser-0.6.1.tgz
 Source123: https://registry.npmjs.org/resolve/-/resolve-1.13.1.tgz
 Source124: https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz
 Source125: https://registry.npmjs.org/semver/-/semver-5.7.1.tgz
@@ -232,21 +232,21 @@ Provides: bundled(npm(@babel/plugin-transform-sticky-regex)) = 7.7.4
 Provides: bundled(npm(@babel/plugin-transform-template-literals)) = 7.7.4
 Provides: bundled(npm(@babel/plugin-transform-typeof-symbol)) = 7.7.4
 Provides: bundled(npm(@babel/plugin-transform-unicode-regex)) = 7.7.4
-Provides: bundled(npm(@babel/preset-env)) = 7.7.5
+Provides: bundled(npm(@babel/preset-env)) = 7.7.6
 Provides: bundled(npm(@babel/preset-react)) = 7.7.4
 Provides: bundled(npm(@babel/template)) = 7.7.4
 Provides: bundled(npm(@babel/traverse)) = 7.7.4
 Provides: bundled(npm(@babel/types)) = 7.7.4
-Provides: bundled(npm(@theforeman/builder)) = 3.5.2
+Provides: bundled(npm(@theforeman/builder)) = 3.8.0
 Provides: bundled(npm(ansi-styles)) = 3.2.1
 Provides: bundled(npm(babel-plugin-dynamic-import-node)) = 2.3.0
 Provides: bundled(npm(browserslist)) = 4.8.2
-Provides: bundled(npm(caniuse-lite)) = 1.0.30001015
+Provides: bundled(npm(caniuse-lite)) = 1.0.30001016
 Provides: bundled(npm(chalk)) = 2.4.2
 Provides: bundled(npm(color-convert)) = 1.9.3
 Provides: bundled(npm(color-name)) = 1.1.3
 Provides: bundled(npm(convert-source-map)) = 1.7.0
-Provides: bundled(npm(core-js-compat)) = 3.4.7
+Provides: bundled(npm(core-js-compat)) = 3.5.0
 Provides: bundled(npm(debug)) = 4.1.1
 Provides: bundled(npm(define-properties)) = 1.1.3
 Provides: bundled(npm(electron-to-chromium)) = 1.3.322
@@ -276,7 +276,7 @@ Provides: bundled(npm(regenerate-unicode-properties)) = 8.1.0
 Provides: bundled(npm(regenerator-transform)) = 0.14.1
 Provides: bundled(npm(regexpu-core)) = 4.6.0
 Provides: bundled(npm(regjsgen)) = 0.5.1
-Provides: bundled(npm(regjsparser)) = 0.6.0
+Provides: bundled(npm(regjsparser)) = 0.6.1
 Provides: bundled(npm(resolve)) = 1.13.1
 Provides: bundled(npm(safe-buffer)) = 5.1.2
 Provides: bundled(npm(semver)) = 5.7.1
@@ -346,6 +346,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Dec 16 2019 vagrant 3.8.0-1
+- Update to 3.8.0
+
 * Sat Dec 07 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.5.2-1
 - Update to 3.5.2
 
