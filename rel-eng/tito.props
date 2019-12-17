@@ -155,22 +155,40 @@ whitelist = foreman
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
+  rubygem-actioncable
+  rubygem-actionmailer
+  rubygem-activejob
+  rubygem-activemodel
+  rubygem-activerecord
   rubygem-activerecord-session_store
+  rubygem-activestorage
+  rubygem-actionpack
+  rubygem-actionview
+  rubygem-activepack
+  rubygem-activesupport
+  rubygem-activeview
   rubygem-addressable
   rubygem-algebrick
   rubygem-ancestry
   rubygem-apipie-bindings
   rubygem-apipie-params
   rubygem-apipie-rails
+  rubygem-arel
   rubygem-audited
   rubygem-autoprefixer-rails
   rubygem-awesome_print
   rubygem-bcrypt
+  rubygem-builder
+  rubygem-coffee-script
+  rubygem-coffee-script-source
+  rubygem-coffee-rails
+  rubygem-concurrent-ruby
   rubygem-bootstrap-sass
   rubygem-bundler_ext
   rubygem-clamp
   rubygem-concurrent-ruby-edge
   rubygem-connection_pool
+  rubygem-crass
   rubygem-css_parser
   rubygem-daemons
   rubygem-deacon
@@ -179,7 +197,9 @@ whitelist = foreman
   rubygem-deep_cloneable
   rubygem-domain_name
   rubygem-dynflow
+  rubygem-erubi
   rubygem-eventmachine
+  rubygem-execjs
   rubygem-excon
   rubygem-facter
   rubygem-faraday
@@ -204,6 +224,7 @@ whitelist = foreman
   rubygem-gettext_i18n_rails
   rubygem-gettext_i18n_rails_js
   rubygem-gitlab-sidekiq-fetcher
+  rubygem-globalid
   rubygem-google-api-client
   rubygem-googleauth
   rubygem-graphql
@@ -219,6 +240,7 @@ whitelist = foreman
   rubygem-httpclient
   rubygem-http-cookie
   rubygem-ipaddress
+  rubygem-i18n
   rubygem-journald-logger
   rubygem-journald-native
   rubygem-jquery-turbolinks
@@ -226,6 +248,9 @@ whitelist = foreman
   rubygem-ldap_fluff
   rubygem-little-plugger
   rubygem-locale
+  rubygem-loofah
+  rubygem-mail
+  rubygem-marcel
   rubygem-logging
   rubygem-logging-journald
   rubygem-memoist
