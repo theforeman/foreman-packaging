@@ -2,35 +2,30 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name thor
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 0.20.0
+Release: 4%{?dist}
+Summary: Thor is a toolkit for building powerful command-line interfaces
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: http://whatisthor.com/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
+Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+Thor is a toolkit for building powerful command-line interfaces.
 
 
 %package doc
@@ -70,17 +65,37 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/MIT-LICENSE
+%{_bindir}/thor
+%license %{gem_instdir}/LICENSE.md
+%{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/.document
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/thor.gemspec
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.20.0-4
+- Bump for moving over to foreman-packaging
+
+* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.20.0-3
+- Add missing gem_docdir
+
+* Wed Aug 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.20.0-2
+- Update for new gem_install
+
+* Thu Jul 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.20.0-1
 - Initial package

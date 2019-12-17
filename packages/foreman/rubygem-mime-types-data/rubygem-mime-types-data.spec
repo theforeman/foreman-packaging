@@ -2,35 +2,33 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name mime-types-data
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 3.2018.0812
+Release: 2%{?dist}
+Summary: mime-types-data provides a registry for information about MIME media type definitions
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: https://github.com/mime-types/mime-types-data/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+mime-types-data provides a registry for information about MIME media type
+definitions. It can be used with the Ruby mime-types library or other software
+to determine defined filename extensions for MIME types, or to use filename
+extensions to look up the likely MIME type definitions.
 
 
 %package doc
@@ -72,15 +70,25 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/MIT-LICENSE
+%{gem_instdir}/Code-of-Conduct.md
+%license %{gem_instdir}/Licence.md
+%{gem_instdir}/Manifest.txt
+%{gem_instdir}/data
 %{gem_libdir}
+%{gem_instdir}/types
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/Contributing.md
+%doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 3.2018.0812-2
+- Bump for moving over to foreman-packaging
+
+* Mon Aug 13 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2018.0812-1
 - Initial package

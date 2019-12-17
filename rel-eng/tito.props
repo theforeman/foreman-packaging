@@ -227,14 +227,22 @@ whitelist = foreman
   rubygem-logging
   rubygem-logging-journald
   rubygem-memoist
+  rubygem-method_source
+  rubygem-mime-types
+  rubygem-mime-types-data
+  rubygem-mimemagic
+  rubygem-mini_mime
+  rubygem-mini_portile2
   rubygem-multi_json
   rubygem-multipart-post
+  rubygem-mustermann
   rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-ping
   rubygem-netrc
   rubygem-net-scp
   rubygem-net-ssh
+  rubygem-nio4r
   rubygem-oauth
   rubygem-optimist
   rubygem-os
@@ -251,8 +259,15 @@ whitelist = foreman
   rubygem-puma
   rubygem-quantile
   rubygem-rabl
+  rubygem-rack
   rubygem-rack-cors
   rubygem-rack-jsonp
+  rubygem-rack-protection
+  rubygem-rack-test
+  rubygem-rails-dom-testing
+  rubygem-rails-html-sanitizer
+  rubygem-rails
+  rubygem-railties
   rubygem-rails-i18n
   rubygem-rake-compiler
   rubygem-rbovirt
@@ -271,19 +286,30 @@ whitelist = foreman
   rubygem-ruby-libvirt
   rubygem-ruby_parser
   rubygem-safemode
+  rubygem-sass
+  rubygem-sass-rails
   rubygem-scoped_search
   rubygem-secure_headers
   rubygem-sequel
   rubygem-sexp_processor
   rubygem-sidekiq
   rubygem-signet
+  rubygem-sinatra
   rubygem-spice-html5-rails
+  rubygem-sprockets
   rubygem-sprockets-rails
   rubygem-sshkey
   rubygem-statsd-instrument
+  rubygem-sqlite3
   rubygem-syntax
   rubygem-text
+  rubygem-tilt
+  rubygem-thor
+  rubygem-thread_safe
+  rubygem-turbolinks
+  rubygem-tzinfo
   rubygem-uber
+  rubygem-uglifier
   rubygem-unf
   rubygem-unf_ext
   rubygem-unicode
@@ -291,6 +317,8 @@ whitelist = foreman
   rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
+  rubygem-websocket-driver
+  rubygem-websocket-extensions
   rubygem-will_paginate
   rubygem-wirb
   rubygem-x-editable-rails
