@@ -8,7 +8,7 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.15
+Version:    0.3.16
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -26,7 +26,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -107,6 +107,9 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 exit 0
 
 %changelog
+* Tue Dec 17 2019 Lukas Zapletal <lzap@redhat.com> 0.3.16-1
+- Update to 0.3.16
+
 * Fri Oct 26 2018 Evgeni Golov - 0.3.15-1
 - Release rubygem-foreman_hooks 0.3.15
 
