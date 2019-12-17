@@ -6,8 +6,8 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.1
-Release: 2%{?foremandist}%{?dist}
+Version: 1.4.2
+Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 17 2019 Adam Ruzicka <aruzicka@redhat.com> 1.4.2-1
+- Update to 1.4.2
+
 * Mon Nov 04 2019 Patrick Creech <pcreech@redhat.com> - 1.4.1-2
 - Remove sidekiq
 
