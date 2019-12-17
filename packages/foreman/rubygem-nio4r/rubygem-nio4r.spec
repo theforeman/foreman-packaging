@@ -2,35 +2,30 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name nio4r
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 2.3.1
+Release: 2%{?dist}
+Summary: New IO for Ruby
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: https://github.com/socketry/nio4r
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+Cross-platform asynchronous I/O primitives for scalable network clients and
+servers. Inspired by the Java NIO API, but simplified for ease-of-use.
 
 
 %package doc
@@ -70,17 +65,42 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+
+# Prevent dangling symlink in -debuginfo (rhbz#878863).
+rm -rf %{buildroot}%{gem_instdir}/ext/
+
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/ext
+%{gem_extdir_mri}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
+%{gem_instdir}/CHANGES.md
+%{gem_instdir}/Guardfile
+%license %{gem_instdir}/LICENSE.txt
+%{gem_instdir}/appveyor.yml
 %{gem_libdir}
+%{gem_instdir}/logo.png
+%{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%exclude %{gem_instdir}/.rspec
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/examples
+%{gem_instdir}/nio4r.gemspec
+%{gem_instdir}/spec
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.3.1-2
+- Bump for moving over to foreman-packaging
+
+* Thu Jul 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.3.1-1
 - Initial package

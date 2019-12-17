@@ -131,7 +131,15 @@ foreman_scl_packages:
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
     rubygem-memoist: {}
+    rubygem-method_source: {}
+    rubygem-mime-types: {}
+    rubygem-mime-types-data: {}
+    rubygem-mimemagic: {}
+    rubygem-mini_mime: {}
+    rubygem-mini_portile2: {}
     rubygem-multipart-post: {}
+    rubygem-multi_json: {}
+    rubygem-mustermann: {}
     rubygem-mysql2:
       releasers:
         - koji-foreman-plugins
@@ -147,6 +155,7 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
+    rubygem-nio4r: {}
     rubygem-oauth: {}
     rubygem-optimist: {}
     rubygem-os: {}
@@ -161,8 +170,15 @@ foreman_scl_packages:
     rubygem-puma: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
+    rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
+    rubygem-rack-protection: {}
+    rubygem-rack-test: {}
+    rubygem-rails-dom-testing: {}
+    rubygem-rails-html-sanitizer: {}
+    rubygem-rails: {}
+    rubygem-railties: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
     rubygem-rbovirt: {}
@@ -181,19 +197,30 @@ foreman_scl_packages:
     rubygem-ruby_parser: {}
     rubygem-rubyforge: {}
     rubygem-safemode: {}
+    rubygem-sass: {}
+    rubygem-sass-rails: {}
     rubygem-scoped_search: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
     rubygem-sexp_processor: {}
     rubygem-sidekiq: {}
     rubygem-signet: {}
+    rubygem-sinatra: {}
     rubygem-spice-html5-rails: {}
+    rubygem-sprockets: {}
     rubygem-sprockets-rails: {}
     rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
+    rubygem-sqlite3: {}
     rubygem-syntax: {}
     rubygem-text: {}
+    rubygem-tilt: {}
+    rubygem-thor: {}
+    rubygem-thread_safe: {}
+    rubygem-turbolinks: {}
+    rubygem-tzinfo: {}
     rubygem-uber: {}
+    rubygem-uglifier: {}
     rubygem-unf: {}
     rubygem-unf_ext: {}
     rubygem-unicode: {}
@@ -201,6 +228,8 @@ foreman_scl_packages:
     rubygem-useragent: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-webpack-rails: {}
+    rubygem-websocket-driver: {}
+    rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}
     rubygem-x-editable-rails: {}

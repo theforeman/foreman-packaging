@@ -2,35 +2,30 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name method_source
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 0.9.0
+Release: 2%{?dist}
+Summary: retrieve the sourcecode for a method
 Group: Development/Languages
-License: MIT
-URL: https://github.com/rails/sprockets-rails
+License: FIXME
+URL: http://banisterfiend.wordpress.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+retrieve the sourcecode for a method.
 
 
 %package doc
@@ -72,15 +67,25 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/.gemtest
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.yardopts
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.markdown
+%{gem_instdir}/Rakefile
+%{gem_instdir}/method_source.gemspec
+%{gem_instdir}/spec
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.9.0-2
+- Bump for moving over to foreman-packaging
+
+* Thu Jul 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.9.0-1
 - Initial package
