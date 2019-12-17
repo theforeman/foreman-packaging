@@ -6,7 +6,7 @@
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -15,6 +15,8 @@ URL: https://github.com/ruby-concurrency/concurrent-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+
+Obsoletes: tfm-ror52-%{gem_name} <= 1.1.4
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -78,6 +80,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Jan 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.4-3
 * Tue Jan 08 2019 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.4-2
 - Drop foremandist
 

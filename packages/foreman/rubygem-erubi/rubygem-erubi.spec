@@ -2,35 +2,32 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name erubi
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 1.7.1
+Release: 2%{?dist}
+Summary: Small ERB Implementation
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: https://github.com/jeremyevans/erubi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.7.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby 
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+Erubi is a ERB template engine for ruby. It is a simplified fork of Erubis.
 
 
 %package doc
@@ -79,8 +76,14 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG
+%doc %{gem_instdir}/README.rdoc
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 1.7.1-2
+- Bump for moving over to foreman-packaging
+
+* Thu Jul 26 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.7.1-1
 - Initial package

@@ -2,35 +2,35 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name tzinfo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 1.2.5
+Release: 2%{?dist}
+Summary: Daylight savings aware timezone library
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: http://tzinfo.github.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.2.5
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(thread_safe) >= 0.1
+Requires: %{?scl_prefix_ror}rubygem(thread_safe) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+TZInfo provides daylight savings aware transformations between times in
+different time zones.
 
 
 %package doc
@@ -72,7 +72,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/MIT-LICENSE
+%exclude %{gem_instdir}/.yardopts
+%{gem_instdir}/CHANGES.md
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -80,7 +82,13 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
+%{gem_instdir}/tzinfo.gemspec
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 1.2.5-2
+- Bump for moving over to foreman-packaging
+
+* Mon Aug 06 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.5-1
 - Initial package

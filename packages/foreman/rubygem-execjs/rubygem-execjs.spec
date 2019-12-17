@@ -2,26 +2,23 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name execjs
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 2.7.0
+Release: 2%{?dist}
+Summary: Run JavaScript code from Ruby
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: https://github.com/rails/execjs
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.7.0
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
@@ -30,7 +27,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+ExecJS lets you run JavaScript code from Ruby.
 
 
 %package doc
@@ -82,5 +79,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.7.0-2
+- Bump for moving over to foreman-packaging
+
+* Tue Aug 14 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.7.0-1
 - Initial package

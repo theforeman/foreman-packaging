@@ -5,11 +5,13 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.12.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/intridea/multi_json
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Obsoletes: tfm-ror52-%{gem_name} <= 1.12.2
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -80,6 +82,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Wed Jan 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.12.2-4
+- Obsolete the rails scl version for moving rails to foreman-packaging
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.12.2-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

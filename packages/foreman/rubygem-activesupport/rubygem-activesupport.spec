@@ -2,35 +2,43 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name activesupport
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 5.2.1
+Release: 2%{?dist}
+Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: http://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(i18n) >= 0.7
+Requires: %{?scl_prefix_ror}rubygem(i18n) < 2
+Requires: %{?scl_prefix_ror}rubygem(tzinfo) >= 1.1
+Requires: %{?scl_prefix_ror}rubygem(tzinfo) < 2
+Requires: %{?scl_prefix_ruby}rubygem(minitest) >= 5.1
+Requires: %{?scl_prefix_ruby}rubygem(minitest) < 6
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 2
+Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+A toolkit of support libraries and Ruby core extensions extracted from the
+Rails framework. Rich support for multibyte strings, internationalization,
+time zones, and testing.
 
 
 %package doc
@@ -79,8 +87,24 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.rdoc
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 5.2.1-2
+- Bump for moving over to foreman-packaging
+
+* Wed Aug 22 2018 Eric D. Helms <ericdhelms@gmail.com> 5.2.1-1
+- Release tfm-ror52-rubygem-activesupport 5.2.1
+
+* Fri Aug 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-4
+- rebuilt
+
+* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-3
+- Fix minitest requires
+
+* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-2
+- Add missing gem_docdir
+
+* Wed Aug 08 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-1
 - Initial package

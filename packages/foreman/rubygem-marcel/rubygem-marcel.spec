@@ -2,35 +2,34 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name marcel
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 0.3.2
+Release: 2%{?dist}
+Summary: Simple mime type detection using magic numbers, filenames, and extensions
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: https://github.com/basecamp/marcel
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.3.2
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix}rubygem(mimemagic) >= 0.3.2
+Requires: %{?scl_prefix}rubygem(mimemagic) < 0.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+Simple mime type detection using magic numbers, filenames, and extensions.
 
 
 %package doc
@@ -72,6 +71,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -79,8 +80,16 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/marcel.gemspec
+%{gem_instdir}/test
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.3.2-2
+- Bump for moving over to foreman-packaging
+
+* Mon Aug 06 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.3.2-1
 - Initial package

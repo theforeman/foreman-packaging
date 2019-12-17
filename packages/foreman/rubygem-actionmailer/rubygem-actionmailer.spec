@@ -2,35 +2,42 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global gem_name sprockets-rails
+%global gem_name actionmailer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.1
-Release: 1%{?dist}
-Summary: Sprockets Rails integration
+Version: 5.2.1
+Release: 2%{?dist}
+Summary: Email composition, delivery, and receiving framework (part of Rails)
 Group: Development/Languages
 License: MIT
-URL: https://github.com/rails/sprockets-rails
+URL: http://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(actionpack) = 5.2.1
+Requires: %{?scl_prefix_ror}rubygem(actionview) = 5.2.1
+Requires: %{?scl_prefix_ror}rubygem(activejob) = 5.2.1
+Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.5
+Requires: %{?scl_prefix_ror}rubygem(mail) < 3
+Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.5.4
+Requires: %{?scl_prefix_ror}rubygem(rails-dom-testing) >= 2.0
+Requires: %{?scl_prefix_ror}rubygem(rails-dom-testing) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Sprockets Rails integration.
+Email on Rails. Compose, deliver, receive, and test emails using the familiar
+controller/view pattern. First-class support for multipart email and
+attachments.
 
 
 %package doc
@@ -79,8 +86,18 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.rdoc
 
 %changelog
-* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 5.2.1-2
+- Bump for moving over to foreman-packaging
+
+* Wed Aug 22 2018 Eric D. Helms <ericdhelms@gmail.com> 5.2.1-1
+- Release tfm-ror52-rubygem-actionmailer 5.2.1
+
+* Fri Aug 10 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-2
+- rebuilt
+
+* Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.0-1
 - Initial package

@@ -6,7 +6,7 @@
 Summary: jQuery plugin for binded events problem caused by Turbolinks
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kossnocorp/jquery.turbolinks
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.1.0-8
+- Bump for moving over to foreman-packaging
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-7
 - Rebuild for Rails 5.2 and Ruby 2.5
 

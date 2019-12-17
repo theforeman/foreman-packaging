@@ -46,19 +46,37 @@ foreman_scl_packages:
         - "jenkins_job=foreman-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+    rubygem-actioncable: {}
+    rubygem-actionmailer: {}
+    rubygem-activejob: {}
+    rubygem-activemodel: {}
+    rubygem-activerecord: {}
     rubygem-activerecord-session_store: {}
+    rubygem-activestorage: {}
+    rubygem-actionpack: {}
+    rubygem-actionview: {}
+    rubygem-activepack: {}
+    rubygem-activesupport: {}
+    rubygem-activeview: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
     rubygem-ancestry: {}
     rubygem-apipie-bindings: {}
     rubygem-apipie-params: {}
     rubygem-apipie-rails: {}
+    rubygem-arel: {}
     rubygem-audited: {}
     rubygem-autoprefixer-rails: {}
     rubygem-awesome_print: {}
     rubygem-bcrypt: {}
+    rubygem-builder: {}
+    rubygem-coffee-script: {}
+    rubygem-coffee-script-source: {}
+    rubygem-coffee-rails: {}
+    rubygem-concurrent-ruby: {}
     rubygem-concurrent-ruby-edge: {}
     rubygem-connection_pool: {}
+    rubygem-crass: {}
     rubygem-css_parser: {}
     rubygem-daemons: {}
     rubygem-deacon: {}
@@ -67,7 +85,9 @@ foreman_scl_packages:
     rubygem-deep_cloneable: {}
     rubygem-domain_name: {}
     rubygem-dynflow: {}
+    rubygem-erubi: {}
     rubygem-eventmachine: {}
+    rubygem-execjs: {}
     rubygem-excon: {}
     rubygem-facter: {}
     rubygem-faraday:
@@ -98,6 +118,7 @@ foreman_scl_packages:
     rubygem-gettext_i18n_rails: {}
     rubygem-gettext_i18n_rails_js: {}
     rubygem-gitlab-sidekiq-fetcher: {}
+    rubygem-globalid: {}
     rubygem-google-api-client: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
@@ -125,12 +146,24 @@ foreman_scl_packages:
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
+    rubygem-i18n: {}
     rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
     rubygem-ldap_fluff: {}
     rubygem-locale: {}
+    rubygem-loofah: {}
+    rubygem-mail: {}
+    rubygem-marcel: {}
     rubygem-memoist: {}
+    rubygem-method_source: {}
+    rubygem-mime-types: {}
+    rubygem-mime-types-data: {}
+    rubygem-mimemagic: {}
+    rubygem-mini_mime: {}
+    rubygem-mini_portile2: {}
     rubygem-multipart-post: {}
+    rubygem-multi_json: {}
+    rubygem-mustermann: {}
     rubygem-mysql2:
       releasers:
         - koji-foreman-plugins
@@ -146,6 +179,7 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
+    rubygem-nio4r: {}
     rubygem-oauth: {}
     rubygem-optimist: {}
     rubygem-os: {}
@@ -160,8 +194,15 @@ foreman_scl_packages:
     rubygem-puma: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
+    rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
+    rubygem-rack-protection: {}
+    rubygem-rack-test: {}
+    rubygem-rails-dom-testing: {}
+    rubygem-rails-html-sanitizer: {}
+    rubygem-rails: {}
+    rubygem-railties: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
     rubygem-rbovirt: {}
@@ -180,19 +221,30 @@ foreman_scl_packages:
     rubygem-ruby_parser: {}
     rubygem-rubyforge: {}
     rubygem-safemode: {}
+    rubygem-sass: {}
+    rubygem-sass-rails: {}
     rubygem-scoped_search: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
     rubygem-sexp_processor: {}
     rubygem-sidekiq: {}
     rubygem-signet: {}
+    rubygem-sinatra: {}
     rubygem-spice-html5-rails: {}
+    rubygem-sprockets: {}
     rubygem-sprockets-rails: {}
     rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
+    rubygem-sqlite3: {}
     rubygem-syntax: {}
     rubygem-text: {}
+    rubygem-tilt: {}
+    rubygem-thor: {}
+    rubygem-thread_safe: {}
+    rubygem-turbolinks: {}
+    rubygem-tzinfo: {}
     rubygem-uber: {}
+    rubygem-uglifier: {}
     rubygem-unf: {}
     rubygem-unf_ext: {}
     rubygem-unicode: {}
@@ -200,6 +252,8 @@ foreman_scl_packages:
     rubygem-useragent: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-webpack-rails: {}
+    rubygem-websocket-driver: {}
+    rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}
     rubygem-x-editable-rails: {}
