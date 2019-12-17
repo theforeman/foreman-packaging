@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.16-1) stable; urgency=low
+
+  * 0.3.16 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Tue, 17 Dec 2019 14:28:20 +0100
+
 ruby-foreman-hooks (0.3.14-1) stable; urgency=low
 
   * 0.3.14 released
