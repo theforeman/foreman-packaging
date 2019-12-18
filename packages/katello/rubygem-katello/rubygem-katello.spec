@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -95,7 +95,7 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.8.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -103,8 +103,6 @@ BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(angular) = 1.5.5
 BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
 BuildRequires: %{?scl_prefix}npm(downshift) >= 1.28.0
@@ -143,7 +141,7 @@ Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.3.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.8.0
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -151,8 +149,6 @@ Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.3.2
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
 Requires: %{?scl_prefix}npm(angular) = 1.5.5
 Requires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
 Requires: %{?scl_prefix}npm(downshift) >= 1.28.0
@@ -234,6 +230,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Dec 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.4.pre.master
+- Update Gem and NPM dependencies
+
 * Wed Nov 27 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.3.pre.master
 - Update Gem and NPM dependencies
 
