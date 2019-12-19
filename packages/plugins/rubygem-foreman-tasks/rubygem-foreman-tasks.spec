@@ -7,10 +7,10 @@
 
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 1.17.0
+%global foreman_min_version 2.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.17.3
+Version: 1.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -47,43 +47,22 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
-BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
-BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-module-resolver) >= 3.2.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-module-resolver) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/eslint-plugin-foreman) = 4.0.5
+BuildRequires: %{?scl_prefix}npm(@theforeman/stories) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/stories) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/test) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/test) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
-BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(patternfly) >= 3.58.0
-BuildRequires: %{?scl_prefix}npm(patternfly) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
-BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.7
-BuildRequires: %{?scl_prefix}npm(sass-loader) < 7.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.4.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
 BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
@@ -122,7 +101,6 @@ This package contains documentation for rubygem-%{gem_name}.
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-rm %{buildroot}/%{gem_instdir}/.babelrc
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
@@ -196,6 +174,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Thu Jan 16 2020 Marek Hulan <mhulan@redhat.com> 1.0.1-1
+- Update to 1.0.1
+
 * Thu Nov 21 2019 Adam Ruzicka <aruzicka@redhat.com> 0.17.3-1
 - Update to 0.17.3
 
