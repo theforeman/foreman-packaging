@@ -463,6 +463,15 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
 
+[foreman-client-nightly-el8]
+disttag = .el8
+whitelist =
+  ansible-collection-theforeman-foreman
+  foreman-release
+  katello-host-tools
+  python-apypie
+  rubygem-foreman_scap_client
+
 [foreman-client-nightly-rhel7]
 disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
