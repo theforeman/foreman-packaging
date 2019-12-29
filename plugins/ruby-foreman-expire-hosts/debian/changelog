@@ -1,0 +1,5 @@
+ruby-foreman-expire-hosts (7.0.0-1) stable; urgency=low
+
+  * Initial release.
+
+ -- Michael Moll <mmoll@mmoll.at>  Sun, 29 Dec 2019 17:39:49 +0100
