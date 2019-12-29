@@ -1,0 +1,3 @@
+foreman_expire_hosts.rb           usr/share/foreman/bundler.d
+cache                             usr/share/foreman/vendor
+apipie-cache/foreman_expire_hosts var/lib/foreman/public/apipie-cache/plugin

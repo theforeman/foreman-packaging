@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ruby-foreman-expire-hosts
+Source: https://github.com/theforeman/foreman_expire_hosts
+
+Files: *
+Copyright: 2016 The Foreman developers
+License: GPL-3.0+
