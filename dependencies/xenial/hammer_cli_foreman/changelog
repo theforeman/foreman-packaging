@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (0.19.5-1) stable; urgency=low
+
+  * 0.19.5 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Tue, 31 Dec 2019 17:23:06 +0200
+
 ruby-hammer-cli-foreman (0.19.4-1) stable; urgency=low
 
   * 0.19.4 released
