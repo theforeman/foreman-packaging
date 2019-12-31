@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 2
+%global release 1
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -12,7 +12,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.19.0
+Version: 0.19.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -126,6 +126,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 31 2019 Shira Maximov <shiramaximov@gmail.com> 0.19.1-1
+- Update to 0.19.1
+
 * Mon Nov 04 2019 Martin Bacovsky <mbacovsk@redhat.com> 0.19.0-2
 - Returned dist back to release
 
