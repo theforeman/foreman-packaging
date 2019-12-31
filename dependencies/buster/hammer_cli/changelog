@@ -1,3 +1,9 @@
+ruby-hammer-cli (0.19.1-1) stable; urgency=low
+
+  * 0.19.1 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Tue, 31 Dec 2019 17:26:30 +0200
+
 ruby-hammer-cli (0.19.0-1) stable; urgency=low
 
   * 0.19.0 released
