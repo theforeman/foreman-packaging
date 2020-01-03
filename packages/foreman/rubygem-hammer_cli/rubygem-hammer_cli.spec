@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 2
+%global release 3
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -96,7 +96,7 @@ cp -pa .%{_bindir}/* \
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 mkdir -p %{buildroot}%{_root_sysconfdir}/bash_completion.d
-mv %{buildroot}%{gem_instdir}/hammer_cli_complete %{buildroot}%{_root_sysconfdir}/bash_completion.d/%{gem_name}
+mv %{buildroot}%{gem_instdir}/config/hammer.completion %{buildroot}%{_root_sysconfdir}/bash_completion.d/%{gem_name}
 
 mkdir -p %{buildroot}%{_root_mandir}/man1
 mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_root_mandir}/man1/
@@ -109,6 +109,7 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/hammer
+%{_root_bindir}/hammer-complete
 %doc %{_root_mandir}/man1/hammer.1.gz
 %{_root_sysconfdir}/bash_completion.d/%{gem_name}
 %{_root_sysconfdir}/%{confdir}/cli.modules.d
@@ -128,6 +129,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 03 2020 Ondrej Prazak - 0.20-0.3.pre.develop
+- Fix path to autocomplete script
+
 * Mon Nov 18 2019 Evgeni Golov - 0.20-0.2.pre.develop
 - Unify prerelease macro handling
 
