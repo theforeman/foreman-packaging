@@ -35,6 +35,11 @@ These are built as regular full Debian packages.  Foreman itself ships its
 dependencies via a bundler cache stored inside the binary deb and uses the cache
 to install them during postinst.
 
+To quickly bump version in all core projects, run e.g.:
+```
+scripts/changelog.rb -v 2.0.0 -m "Bump changelog to 2.0.0 to match VERSION" debian/{bionic,buster}/foreman{,-installer,-proxy}/changelog
+```
+
 ### Foreman plugins
 
 Foreman plugins are shipped as debs containing additional gems to add into the
