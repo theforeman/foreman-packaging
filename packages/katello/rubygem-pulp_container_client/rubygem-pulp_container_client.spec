@@ -5,8 +5,8 @@
 %global gem_name pulp_container_client
 
 %global release 1
-%global prerelease rc1
-%global prereleaserpm %{?prerelease:.}%{?prerelease}
+# %%global prerelease rc1
+# %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
@@ -92,5 +92,8 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Dec 02 2019 Justin Sherrill <jlsherrill@gmail.com> 1.0.0-1
+- 1.0.0 build
+
 * Mon Dec 02 2019 Justin Sherrill <jlsherrill@gmail.com> 1.0.0-0.1.rc1
 - Initial build
