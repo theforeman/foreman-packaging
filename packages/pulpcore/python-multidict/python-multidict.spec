@@ -2,7 +2,7 @@
 %global pypi_name multidict
 
 Name:           python-%{pypi_name}
-Version:        4.7.1
+Version:        4.7.3
 Release:        1%{?dist}
 Summary:        multidict implementation
 
@@ -41,6 +41,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jan 06 2020 Evgeni Golov 4.7.3-1
+- Update to 4.7.3
+
 * Fri Dec 13 2019 Evgeni Golov 4.7.1-1
 - Update to 4.7.1
 

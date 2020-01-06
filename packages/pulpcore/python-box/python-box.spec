@@ -3,7 +3,7 @@
 %global srcname box
 
 Name:           python-%{srcname}
-Version:        3.4.5
+Version:        3.4.6
 Release:        1%{?dist}
 Summary:        Advanced Python dictionaries with dot notation access
 
@@ -49,5 +49,8 @@ sed -i '/setup_requires/d' setup.py
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jan 06 2020 Evgeni Golov 3.4.6-1
+- Update to 3.4.6
+
 * Mon Nov 18 2019 Evgeni Golov - 3.4.5-1
 - Initial package.
