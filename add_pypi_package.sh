@@ -16,7 +16,7 @@ else
   PACKAGE_PREFIX="python-"
 fi
 # the package name will contain the downcased PYPI_NAME, with dots replaced by hyphens
-PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z]' '[a-z]' | tr '.' '-')
+PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
