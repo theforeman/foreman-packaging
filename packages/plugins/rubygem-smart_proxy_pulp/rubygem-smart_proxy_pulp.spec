@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.5.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.6.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jan 06 2020 Justin Sherrill <jsherril@redhat.com> 1.6.0-1
+- Update to 1.6.0
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.5.0-2
 - Update to SCL based template
 
