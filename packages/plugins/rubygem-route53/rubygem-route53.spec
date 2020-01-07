@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Library for Amazon's Route 53 service
 Group: Development/Languages
 License: GPLv3
@@ -97,6 +97,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-3
+- Build for SCL
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-2
 - Update for SCL building
 

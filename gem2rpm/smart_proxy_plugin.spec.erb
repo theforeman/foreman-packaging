@@ -63,6 +63,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 <%= spec.description %>
 
@@ -72,6 +74,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.

@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -49,6 +49,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 Ssh remote execution provider for Foreman Smart-Proxy.
 
@@ -58,6 +60,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -131,6 +135,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-4
+- Build for SCL
+
 * Thu May 16 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-3
 - Require SCL prefix only on EL7
 

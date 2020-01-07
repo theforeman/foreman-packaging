@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A Ruby interface for the adcli library
 Group: Development/Languages
 License: Artistic-2.0
@@ -103,6 +103,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Build for SCL
+
 * Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-2
 - Update to support building for SCL
 

@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.9
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -38,6 +38,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 Smart Proxy plugin providing Image API on discovered nodes. This plugin is
 only
@@ -49,6 +51,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -106,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.9-3
+- Build for SCL
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.9-2
 - Update to SCL based template
 

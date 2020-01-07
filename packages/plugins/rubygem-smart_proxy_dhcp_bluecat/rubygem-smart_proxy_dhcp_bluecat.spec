@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: BlueCat DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -40,6 +40,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 BlueCat DHCP provider plugin for Foreman's smart proxy.
 
@@ -49,6 +51,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -107,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_bluecat.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-3
+- Build for SCL
+
 * Wed Dec 18 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-2
 - Bump minimum foreman proxy version
 

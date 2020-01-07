@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Spacewalk integration support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -39,6 +39,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 This plug-in adds support for managing hosts registered at a spacewalk server
 to Foreman's Smart Proxy.
@@ -49,6 +51,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -110,6 +114,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/spacewalk.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-3
+- Build for SCL
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-2
 - Update to SCL based template
 

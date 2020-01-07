@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Logify is a lightweight logging library for Ruby!
 Group: Development/Languages
 License: ASL 2.0
@@ -86,6 +86,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-3
+- Build for SCL
+
 * Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 0.2.0-2
 - Add SCL build support
 

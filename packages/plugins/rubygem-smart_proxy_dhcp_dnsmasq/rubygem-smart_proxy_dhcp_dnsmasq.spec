@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: dnsmasq DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -38,6 +38,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 dnamasq DHCP provider plugin for Foreman's smart proxy.
 
@@ -47,6 +49,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -105,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7-3
+- Build for SCL
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.7-2
 - Update to SCL based template
 
