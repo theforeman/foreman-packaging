@@ -21,7 +21,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -43,6 +43,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 This plug-in adds support for the Omaha Procotol to Foreman's Smart Proxy.
 
@@ -52,6 +54,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -85,7 +89,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_root_bindir}
-cp -a .%{_root_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_root_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
@@ -129,6 +133,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-3
+- Build for SCL
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-2
 - Update to SCL based template
 

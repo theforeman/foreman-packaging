@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -38,6 +38,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 Basic Pulp support for Foreman Smart-Proxy.
 
@@ -47,6 +49,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -109,6 +113,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Wed Jan 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-2
+- Build for SCL
+
 * Tue Jan 07 2020 Justin Sherrill <jsherril@redhat.com> 2.0.0-1
 - Update to 2.0.0
 

@@ -515,7 +515,7 @@ foreman_proxy_plugin_packages:
     package_base_dir: 'packages/plugins/'
     diff_package_skip: false
     diff_package_tags:
-      - foreman-plugins-nightly-nonscl-rhel7
+      - foreman-plugins-nightly-rhel7
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -524,17 +524,19 @@ foreman_proxy_plugin_packages:
       rhel7:
         - el7-base
         - el7-updates
+        - el7-scl
         - el7-epel
         - el7-extras
-        - el7-puppet-6
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
+        - el7-foreman-rails-nightly
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
     rubygem-infoblox: {}
     rubygem-logify: {}
     rubygem-openscap: {}
+    rubygem-openscap_parser: {}
     rubygem-radcli: {}
     rubygem-route53: {}
     rubygem-rprogram: {}
@@ -908,7 +910,6 @@ plugin_nonscl_packages:
     foreman-discovery-image-service: {}
     puppet-foreman_scap_client: {}
     rubygem-newt: {}
-    rubygem-openscap_parser: {}
     rubygem-satyr: {}
 
 repoclosures:

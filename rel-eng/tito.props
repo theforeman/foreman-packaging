@@ -371,6 +371,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
   rubygem-bootstrap-datepicker-rails
+  rubygem-chef-api
   rubygem-chunky_png
   rubygem-commonjs
   rubygem-dalli
@@ -379,6 +380,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-down
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
+  rubygem-faraday_middleware
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
   rubygem-foreman_ansible
@@ -442,58 +444,36 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-httparty
   rubygem-http-form_data
   rubygem-http_parser.rb
+  rubygem-infoblox
   rubygem-jgrep
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
+  rubygem-logify
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
+  rubygem-openscap
+  rubygem-openscap_parser
   rubygem-ovirt_provision_plugin
   rubygem-parse-cron
   rubygem-pdf-core
   rubygem-polyglot
   rubygem-prawn
   rubygem-puppetdb_foreman
+  rubygem-radcli
   rubygem-rainbow
   rubygem-recursive-open-struct
+  rubygem-route53
   rubygem-rprogram
   rubygem-rqrcode
+  rubygem-ruby-hmac
   rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-smart_proxy_dynflow_core
   rubygem-smart_proxy_salt_core
-  rubygem-systemu
-  rubygem-timeliness
-  rubygem-ttfunk
-  rubygem-vault
-  rubygem-wicked
-  rubygem-zscheduler
-
-[foreman-plugins-nightly-nonscl-rhel7]
-disttag = .el7
-whitelist = ansiblerole-foreman_scap_client
-  ansiblerole-insights-client
-  foreman-discovery-image-service
-  puppet-foreman_scap_client
-  rubygem-chef-api
-  rubygem-faraday
-  rubygem-faraday_middleware
-  rubygem-fast_gettext
-  rubygem-infoblox
-  rubygem-logify
-  rubygem-mysql2
-  rubygem-netrc
-  rubygem-net-ssh
-  rubygem-newt
-  rubygem-openscap
-  rubygem-openscap_parser
-  rubygem-radcli
-  rubygem-route53
-  rubygem-ruby-hmac
-  rubygem-satyr
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_dhcp_bluecat
@@ -517,6 +497,22 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_spacewalk
+  rubygem-systemu
+  rubygem-timeliness
+  rubygem-ttfunk
+  rubygem-vault
+  rubygem-wicked
+  rubygem-zscheduler
+
+[foreman-plugins-nightly-nonscl-rhel7]
+disttag = .el7
+whitelist = ansiblerole-foreman_scap_client
+  ansiblerole-insights-client
+  foreman-discovery-image-service
+  puppet-foreman_scap_client
+  rubygem-fast_gettext
+  rubygem-newt
+  rubygem-satyr
 
 [foreman-client-nightly-el8]
 disttag = .el8

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 Summary: A Ruby wrapper to the Infoblox WAPI.
 License: MIT
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-3
+- Build for SCL
+
 * Tue Sep 17 2019 Eric D. Helms <ericdhelms@gmail.com> 3.0.0-2
 - Update to 3.0.0-2 for SCL
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.13.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Various middleware for Faraday
 Group: Development/Languages
 License: MIT
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.13.1-2
+- Build for SCL
+
 * Thu Mar 28 2019 Marek Hulan <mhulan@redhat.com> 0.13.1-1
 - Update to 0.13.1
 

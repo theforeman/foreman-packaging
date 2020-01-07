@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.5
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -39,6 +39,8 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+%{?scl:Obsoletes: rubygem-%{gem_name}}
+
 %description
 This smart proxy plugin, together with a Foreman plugin, add the capability to
 discover unknown bare-metal. This plugin provides proxy API for nodes to
@@ -50,6 +52,8 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
+
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -106,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-3
+- Build for SCL
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-2
 - Update to SCL based template
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A Chef API client in Ruby
 Group: Development/Languages
 License: ASL 2.0
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-3
+- Build for SCL
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-2
 - Update for SCL building
 
