@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Spacewalk integration for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -88,13 +88,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-4
+- Drop migrate, seed and restart posttans
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 2.0.0-3
 - Move licenes which are GPL-* to GPLv3
 

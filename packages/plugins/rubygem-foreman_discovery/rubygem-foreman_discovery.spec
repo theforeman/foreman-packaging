@@ -7,7 +7,7 @@
 %global foreman_min_version 1.24.0
 
 %global mainver 16.0.1
-%global release 1
+%global release 2
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{mainver}%{?prever}
@@ -104,14 +104,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 16.0.1-2
+- Drop migrate, seed and restart posttans
+
 * Tue Nov 26 2019 Lukas Zapletal <lzap@redhat.com> 16.0.1-1
 - Update to 16.0.1
 

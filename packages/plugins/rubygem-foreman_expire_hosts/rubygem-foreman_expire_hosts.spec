@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 7.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
 License: GPLv3
@@ -102,14 +102,10 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 %{gem_instdir}/foreman_expire_hosts.gemspec
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 7.0.0-2
+- Drop migrate, seed and restart posttans
+
 * Tue Dec 10 2019 Timo Goebel <mail@timogoebel.name> - 7.0.0-1
 - Update foreman_expire_hosts to 7.0.0
 

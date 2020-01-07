@@ -9,7 +9,7 @@
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    7.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
@@ -93,12 +93,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 7.0.0-2
+- Drop migrate, seed and restart posttans
+
 * Tue Nov 19 2019 Lukas Zapletal <lzap@redhat.com> 7.0.0-1
 - Update to 7.0.0
 

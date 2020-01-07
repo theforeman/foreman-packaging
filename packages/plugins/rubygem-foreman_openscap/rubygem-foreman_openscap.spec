@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
 License: GPLv3
@@ -96,14 +96,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.2-3
+- Drop migrate, seed and restart posttans
+
 * Mon Dec 02 2019 Evgeni Golov - 2.0.2-2
 - Use package names, not provides in Obsoletes
 

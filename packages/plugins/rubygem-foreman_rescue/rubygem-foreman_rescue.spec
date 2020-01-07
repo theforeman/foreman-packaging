@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 Group: Applications/Systems
 License: GPLv3+
@@ -89,12 +89,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-2
+- Drop migrate, seed and restart posttans
+
 * Mon Jul 29 2019 Timo Goebel <mail@timogoebel.name> - 2.0.1-1
 - Update foreman_rescue to 2.0.1
 
