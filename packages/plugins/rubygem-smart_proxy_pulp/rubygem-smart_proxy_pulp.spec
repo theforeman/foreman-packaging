@@ -17,7 +17,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.0
+Version: 2.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
@@ -88,15 +88,15 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/pulp.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
-mv %{buildroot}%{gem_instdir}/settings.d/pulp3.yml.example \
-   %{buildroot}%{foreman_proxy_settingsd_dir}/pulp3.yml
+mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
+   %{buildroot}%{foreman_proxy_settingsd_dir}/pulpcore.yml
 mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulp.yml
-%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulp3.yml
+%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulpcore.yml
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulpnode.yml
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Jan 07 2020 Justin Sherrill <jsherril@redhat.com> 2.0.0-1
+- Update to 2.0.0
+
 * Mon Jan 06 2020 Justin Sherrill <jsherril@redhat.com> 1.6.0-1
 - Update to 1.6.0
 
