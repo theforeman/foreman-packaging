@@ -2,5 +2,6 @@
 GEMS="https://rubygems.org/downloads/foreman-tasks-1.0.0.gem"
 GEMS="$GEMS https://rubygems.org/downloads/foreman-tasks-core-0.3.3.gem"
 GEMS="$GEMS https://rubygems.org/downloads/parse-cron-0.1.4.gem"
-GEMS="$GEMS https://rubygems.org/downloads/sinatra-2.0.7.gem"
-GEMS="$GEMS https://rubygems.org/downloads/mustermann-1.0.3.gem"
+GEMS="$GEMS https://rubygems.org/downloads/sinatra-2.0.8.1.gem"
+GEMS="$GEMS https://rubygems.org/downloads/mustermann-1.1.1.gem"
+GEMS="$GEMS https://rubygems.org/downloads/ruby2_keywords-0.0.1.gem"
