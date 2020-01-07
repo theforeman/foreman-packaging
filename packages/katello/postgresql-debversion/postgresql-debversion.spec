@@ -9,9 +9,9 @@ URL:      https://salsa.debian.org/postgresql/postgresql-debversion
 Source0:  https://salsa.debian.org/postgresql/postgresql-debversion/-/archive/%{version}/postgresql-debversion-%{version}.tar.gz
 Patch0:   0001-Copy-relevant-code-from-apt-pkg-to-ease-packaging.patch
 
-BuildRequires: g++
+# BuildRequires: g++
 BuildRequires: postgresql-devel
-BuildRequires: postgresql-server-devel
+# BuildRequires: postgresql-server-devel
 
 ExclusiveArch: x86_64
 
