@@ -9,7 +9,7 @@
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.7
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -99,12 +99,10 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-5
+- Drop migrate, seed and restart posttans
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-4
 - Rebuild for Rails 5.2 and Ruby 2.5
 

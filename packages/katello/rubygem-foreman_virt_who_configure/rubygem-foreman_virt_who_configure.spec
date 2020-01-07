@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A plugin to make virt-who configuration easy
 Group: Applications/Systems
 License: GPLv3
@@ -97,13 +97,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.5.0-2
+- Drop migrate, seed and restart posttans
+
 * Tue Nov 19 2019 Marek Hulan <mhulan@redhat.com> 0.5.0-1
 - Update to 0.5.0
 

@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -116,13 +116,10 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
+- Drop migrate, seed and restart posttans
+
 * Tue Mar 05 2019 Dirk Goetz <dirk.goetz@netways.de> - 1.1.0-1
 - Update to 1.1.0
 - Add systemd service and timer

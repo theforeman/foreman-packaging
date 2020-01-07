@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
 License: GPLv3
@@ -95,14 +95,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-4
+- Drop migrate, seed and restart posttans
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -117,14 +117,10 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{gem_instdir}/redhat_access.gemspec
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.6-2
+- Drop migrate, seed and restart posttans
+
 * Fri May 17 2019 Marek Hulan <mhulan@redhat.com> 2.2.6-1
 - Update to 2.2.6
 

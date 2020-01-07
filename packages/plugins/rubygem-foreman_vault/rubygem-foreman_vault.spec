@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
 License: GPLv3
@@ -98,12 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-2
+- Drop migrate, seed and restart posttans
+
 * Sat Mar 09 2019 Timo Goebel <mail@timogoebel.name> - 0.0.1-1
 - Add foreman_vault plugin

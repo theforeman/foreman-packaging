@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -128,14 +128,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Wed Jan 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-2
+- Drop migrate, seed and restart posttans
+
 * Wed Jan 15 2020 Marek Hulan <mhulan@redhat.com> 5.0.0-1
 - Update to 5.0.0
 

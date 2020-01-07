@@ -9,7 +9,7 @@
 Summary:    Provision and manage Docker containers and images from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.0.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_docker
@@ -105,12 +105,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-3
+- Drop migrate, seed and restart posttans
+
 * Thu Mar 28 2019 Evgeni Golov - 5.0.0-2
 - Drop foreman-compute requirement
 

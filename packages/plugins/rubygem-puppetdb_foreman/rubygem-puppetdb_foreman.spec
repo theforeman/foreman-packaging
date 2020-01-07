@@ -17,7 +17,7 @@
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/puppetdb_foreman
@@ -102,13 +102,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-2
+- Drop migrate, seed and restart posttans
+
 * Mon Apr 08 2019 Timo Goebel <mail@timogoebel.name> - 5.0.0-1
 - Update puppetdb_foreman to 5.0.0
 
