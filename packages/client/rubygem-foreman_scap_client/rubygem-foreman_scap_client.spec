@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.4.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client script that runs OpenSCAP scan and uploads the result to foreman proxy
 Group: Development/Languages
 License: GPLv3
@@ -96,6 +96,9 @@ mkdir -p %{buildroot}%{config_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 08 2020 Evgeni Golov - 0.4.6-2
+- Rebuild for EL8 client repository
+
 * Thu May 09 2019 Marek Hulan <mhulan@redhat.com> 0.4.6-1
 - Update to 0.4.6
 
