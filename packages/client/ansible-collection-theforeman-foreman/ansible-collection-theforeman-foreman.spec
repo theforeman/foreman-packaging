@@ -12,7 +12,7 @@
 %global pyyaml PyYAML
 %endif
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    0.4.0
@@ -54,6 +54,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Mon Jan 13 2020 Evgeni Golov - 0.4.0-2
+- Rebuild for EL8 client repository
+
 * Thu Jan 09 2020 Evgeni Golov - 0.4.0-1
 - Release ansible-collection-theforeman-foreman 0.4.0
 

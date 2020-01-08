@@ -15,7 +15,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Apipie bindings for Python
 
 License:        MIT
@@ -90,6 +90,9 @@ rm -rf %{pypi_name}.egg-info
 %endif
 
 %changelog
+* Wed Jan 08 2020 Evgeni Golov - 0.2.1-2
+- Rebuild for EL8 client repository
+
 * Mon Nov 25 2019 Evgeni Golov - 0.2.1-1
 - Release python-apypie 0.2.1
 
