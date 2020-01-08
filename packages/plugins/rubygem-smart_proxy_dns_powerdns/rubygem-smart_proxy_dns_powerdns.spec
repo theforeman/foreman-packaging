@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: PowerDNS DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -30,8 +30,6 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(mysql2)
-Requires: %{?scl_prefix}rubygem(pg)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -107,6 +105,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_powerdns.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 08 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
+- Update to 1.0.0
+
 * Thu Sep 26 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-2
 - Update to SCL based template
 
