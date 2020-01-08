@@ -1,3 +1,9 @@
+ruby-smart-proxy-omaha (0.0.5-2) stable; urgency=medium
+
+  * Fix update script installation directory
+
+ -- Lennart Weller <lennart.weller@hansemerkur.de>  Wed, 08 Jan 2020 12:55:40 +0100
+
 ruby-smart-proxy-omaha (0.0.5-1) stable; urgency=medium
 
   * Initial release.
