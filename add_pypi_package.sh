@@ -10,8 +10,13 @@ BASE_PYTHON=3
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
 
+if [[ ${PYPI_NAME} == python-* ]]; then
+  PACKAGE_PREFIX=""
+else
+  PACKAGE_PREFIX="python-"
+fi
 # the package name will contain the downcased PYPI_NAME, with dots replaced by hyphens
-PACKAGE_NAME=python-$(echo ${PYPI_NAME} |tr '[A-Z]' '[a-z]' | tr '.' '-')
+PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
@@ -38,7 +43,7 @@ generate_pypi_package() {
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
   # pass -r $PACKAGE_NAME to pyp2rpm if we had to downcase the name
-  if [[ $PACKAGE_NAME != "python-${PYPI_NAME}" ]]; then
+  if [[ $PACKAGE_NAME != "${PACKAGE_PREFIX}${PYPI_NAME}" ]]; then
     RPM_NAME_ARG="-r ${PACKAGE_NAME}"
   else
     RPM_NAME_ARG=""

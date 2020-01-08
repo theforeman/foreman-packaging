@@ -1,30 +1,38 @@
 #!/usr/bin/env python3
 
-import click
+import argparse
+from pathlib import Path
+
 from ruamel.yaml import YAML
 
 
-@click.command()
-@click.argument('section', nargs=1)
-@click.argument('packages', nargs=-1)
-@click.option('--filename', help='Path to the manifest', default='package_manifest.yaml',
-              type=click.Path(exists=True, dir_okay=False, writable=True))
-def cli(section, packages, filename):
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('section', help='Add packages to this section within the manifest')
+    parser.add_argument('package', nargs='+', help='Name of the package(s) to add')
+    parser.add_argument('--filename', help='Path to the manifest', default='package_manifest.yaml')
+
+    args = parser.parse_args()
+
+    manifest_path = Path(args.filename)
+
     yaml = YAML(typ='rt')
     yaml.default_flow_style = False
     yaml.explicit_start = True
     yaml.preserve_quotes = True
     yaml.indent(sequence=4, offset=2)
 
-    with open(filename) as manifest_fp:
-        manifest = yaml.load(manifest_fp)
+    try:
+        manifest = yaml.load(manifest_path.read_text())
+    except FileNotFoundError:
+        raise parser.error(f'Manifest {manifest_path} was not found')
 
     try:
-        hosts = manifest[section]['hosts']
+        hosts = manifest[args.section]['hosts']
     except KeyError:
-        raise click.ClickException('Section {} not found'.format(section))
+        raise parser.error(f'Section {args.section} was not found')
 
-    for package in packages:
+    for package in args.package:
         if package not in hosts:
             for i, host in enumerate(hosts.keys()):
                 if package < host:
@@ -33,9 +41,9 @@ def cli(section, packages, filename):
             else:
                 hosts[package] = {}
 
-    with open(filename, 'w') as manifest_fp:
+    with manifest_path.open('w') as manifest_fp:
         yaml.dump(manifest, manifest_fp)
 
 
 if __name__ == '__main__':
-    cli()  # pylint: disable=no-value-for-parameter
+    main()

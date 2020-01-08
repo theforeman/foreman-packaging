@@ -11,12 +11,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 1.25.0
+Version: 2.0.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -264,8 +264,8 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.9.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -282,12 +282,8 @@ BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
-BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 BuildRequires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 BuildRequires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -303,8 +299,8 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.9.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -477,8 +473,8 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.9.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -495,12 +491,8 @@ Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
 Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
-Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
-Requires: %{?scl_prefix}npm(raf) >= 3.4.0
-Requires: %{?scl_prefix}npm(raf) < 4.0.0
 Requires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 Requires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 Requires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -516,8 +508,8 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 3.9.0
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 4.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.2
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
 Requires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -1041,8 +1033,8 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
-* Wed Dec 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.25.0-0.7.develop
-- Update Gem and NPM dependencies
+* Wed Jan 08 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.2.develop
+- Update Gem dependencies
 
 * Sun Dec 08 2019 Michael Moll <mmoll@mmoll.at> - 1.25.0-0.6.develop
 - Update NPM dependencies
