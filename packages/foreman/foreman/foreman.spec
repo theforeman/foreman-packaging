@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -388,7 +388,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.3
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -615,7 +615,8 @@ Meta Package to install requirements for sqlite support
 Summary: Foreman telemetry support
 Group:  Applications/System
 # start specfile telemetry Requires
-Requires: %{?scl_prefix}rubygem(prometheus-client)
+Requires: %{?scl_prefix}rubygem(prometheus-client) >= 1.0
+Requires: %{?scl_prefix}rubygem(prometheus-client) < 2.0
 Requires: %{?scl_prefix}rubygem(statsd-instrument)
 # end specfile telemetry Requires
 Requires: %{name} = %{version}-%{release}
@@ -1032,6 +1033,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jan 08 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.2.develop
+- Update Gem dependencies
+
 * Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.develop
 - Bump version to 2.0-develop
 
