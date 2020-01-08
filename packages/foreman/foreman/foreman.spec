@@ -1036,6 +1036,9 @@ exit 0
 * Wed Jan 08 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.2.develop
 - Update Gem dependencies
 
+* Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.develop
+- Bump version to 2.0-develop
+
 * Sun Dec 08 2019 Michael Moll <mmoll@mmoll.at> - 1.25.0-0.6.develop
 - Update NPM dependencies
 
