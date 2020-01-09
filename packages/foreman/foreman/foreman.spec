@@ -11,10 +11,10 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 1
 
 Name:    foreman
-Version: 1.24.0
+Version: 1.24.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1083,6 +1083,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jan 09 2020 b'Patrick Creech <pcreech@redhat.com>' - b'1.24.1-1'
+- Release foreman 1.24.1
+
 * Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-15
 Release 1.24.0
 
