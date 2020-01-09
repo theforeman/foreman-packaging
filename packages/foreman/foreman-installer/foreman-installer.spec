@@ -139,7 +139,7 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
-* Thu Jan 09 2020 b'Patrick Creech <pcreech@redhat.com>' - b'1:1.24.1-1'
+* Thu Jan 09 2020 Patrick Creech <pcreech@redhat.com> - 1:1.24.1-1
 - Release foreman-installer 1.24.1
 
 * Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1:1.24.0-7

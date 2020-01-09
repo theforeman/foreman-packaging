@@ -114,7 +114,7 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
-* Thu Jan 09 2020 b'Patrick Creech <pcreech@redhat.com>' - b'1.24.1-1'
+* Thu Jan 09 2020 Patrick Creech <pcreech@redhat.com> - 1.24.1-1
 - Release foreman-release 1.24.1
 
 * Tue Dec 10 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.24.0-4
