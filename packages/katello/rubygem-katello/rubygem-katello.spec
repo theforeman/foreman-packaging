@@ -91,8 +91,8 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 3.8.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
@@ -137,8 +137,8 @@ Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 3.8.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 4.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
