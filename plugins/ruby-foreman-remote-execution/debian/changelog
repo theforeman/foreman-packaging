@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (2.0.7-1) stable; urgency=low
+
+  * 2.0.7 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Fri, 10 Jan 2020 10:24:54 +0100
+
 ruby-foreman-remote-execution (2.0.6-1) stable; urgency=low
 
   * Update foreman-remote-execution to 2.0.6
