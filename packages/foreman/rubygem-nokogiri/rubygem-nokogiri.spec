@@ -78,7 +78,6 @@ mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
 cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
 
-
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
@@ -117,8 +116,10 @@ rm -rf gem_ext_test
 %{gem_instdir}/bin
 %{gem_instdir}/build_all
 %{gem_instdir}/dependencies.yml
+%{gem_instdir}/ext
 %{gem_libdir}
 %{gem_instdir}/patches
+%{gem_instdir}/ports
 %{gem_instdir}/suppressions
 %{gem_instdir}/tasks
 %exclude %{gem_cache}
