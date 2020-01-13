@@ -150,7 +150,6 @@ foreman_scl_packages:
     rubygem-i18n: {}
     rubygem-journald-logger: {}
     rubygem-journald-native: {}
-    rubygem-jquery-turbolinks: {}
     rubygem-jquery-ui-rails: {}
     rubygem-jwt: {}
     rubygem-ldap_fluff: {}
@@ -244,7 +243,6 @@ foreman_scl_packages:
     rubygem-tilt: {}
     rubygem-thor: {}
     rubygem-thread_safe: {}
-    rubygem-turbolinks: {}
     rubygem-tzinfo: {}
     rubygem-uber: {}
     rubygem-uglifier: {}

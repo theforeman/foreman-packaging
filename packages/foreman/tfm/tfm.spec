@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -85,6 +85,8 @@ Obsoletes: %{scl_prefix}rubygem-i18n < 0.7.0-3
 Obsoletes: %{scl_prefix}rubygem-ipaddrjs-rails < 1.1.1-2
 Obsoletes: %{scl_prefix}rubygem-jquery_pwstrength_bootstrap_4 < 1.2.2-5
 Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
+Obsoletes: %{scl_prefix}rubygem-jquery-turbolinks < 2.1.0-10
+Obsoletes: %{scl_prefix}rubygem-jquery-turbolinks-doc < 2.1.0-10
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
 Obsoletes: %{scl_prefix}rubygem-macaddr < 1.7.1-2
@@ -100,7 +102,8 @@ Obsoletes: %{scl_prefix}rubygem-smart_proxy_abrt < 0.0.8-4
 Obsoletes: %{scl_prefix}rubygem-sprockets < 3.5.2-2
 Obsoletes: %{scl_prefix}rubygem-sprockets-rails < 2.3.3-2
 Obsoletes: %{scl_prefix}rubygem-table_print < 1.5.1-7
-Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.3-4
+Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.4-3
+Obsoletes: %{scl_prefix}rubygem-turbolinks-doc < 2.5.4-3
 Obsoletes: %{scl_prefix}rubygem-underscore-rails < 1.8.3-5
 Obsoletes: %{scl_prefix}rubygem-uuid < 2.3.8-2
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
@@ -299,6 +302,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue Feb 11 2020 Ondrej Ezr - 6.0-2
+- Obsoletes tfm-rubygem-jquery-turbolinks
+
 * Mon Feb 03 2020 Zach Huntington-Meath - 6.0-1
 - Remove ror_scl from tfm
 

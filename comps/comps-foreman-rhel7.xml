@@ -229,7 +229,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff</packagereq>
@@ -327,7 +326,6 @@
       <packagereq type="default">tfm-rubygem-thor</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe</packagereq>
       <packagereq type="default">tfm-rubygem-tilt</packagereq>
-      <packagereq type="default">tfm-rubygem-turbolinks</packagereq>
       <packagereq type="default">tfm-rubygem-tzinfo</packagereq>
       <packagereq type="default">tfm-rubygem-uber</packagereq>
       <packagereq type="default">tfm-rubygem-uglifier</packagereq>
@@ -494,7 +492,6 @@
       <packagereq type="default">tfm-rubygem-ipaddress-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-logger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-jquery-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff-doc</packagereq>
@@ -587,7 +584,6 @@
       <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe-doc</packagereq>
       <packagereq type="default">tfm-rubygem-tilt-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-turbolinks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-tzinfo-doc</packagereq>
       <packagereq type="default">tfm-rubygem-uber-doc</packagereq>
       <packagereq type="default">tfm-rubygem-uglifier-doc</packagereq>
