@@ -236,7 +236,6 @@ whitelist = foreman
   rubygem-i18n
   rubygem-journald-logger
   rubygem-journald-native
-  rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
   rubygem-jwt
   rubygem-ldap_fluff
@@ -330,7 +329,6 @@ whitelist = foreman
   rubygem-tilt
   rubygem-thor
   rubygem-thread_safe
-  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
