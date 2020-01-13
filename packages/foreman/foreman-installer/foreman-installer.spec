@@ -1,4 +1,4 @@
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -20,6 +20,7 @@ Requires:   %{?scl_prefix}rubygem(kafo) >= 4.0.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
+Requires:   foreman-maintain
 
 BuildRequires: asciidoc
 BuildRequires: rubygem(rake)
@@ -42,7 +43,6 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-selinux
 Requires: katello-certs-tools
-Requires: foreman-maintain
 Requires: which
 
 %description katello
@@ -141,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Jan 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.0.0-0.2.develop
+- Add requires on foreman-maintain
+
 * Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 1:2.0.0-0.1.develop
 - Bump version to 2.0-develop
 
