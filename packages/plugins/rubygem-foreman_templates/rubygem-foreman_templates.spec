@@ -8,7 +8,7 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    7.0.5
+Version:    7.0.6
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -44,8 +44,6 @@ BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
 BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
@@ -139,6 +137,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jan 14 2020 Ondrej Prazak <oprazak@redhat.com> 7.0.6-1
+- Update to 7.0.6
+
 * Wed Dec 11 2019 Ondrej Prazak <oprazak@redhat.com> 7.0.5-1
 - Update to 7.0.5
 
