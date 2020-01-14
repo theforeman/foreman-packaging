@@ -18,6 +18,7 @@ foreman_packages:
 
 foreman_scl_packages:
   vars:
+    scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     diff_package_skip: false
     diff_package_tags:
@@ -239,6 +240,7 @@ foreman_scl_packages:
 
 foreman_nodejs_packages:
   vars:
+    scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     diff_package_skip: false
     diff_package_tags:
