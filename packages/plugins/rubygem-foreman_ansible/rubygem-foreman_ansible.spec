@@ -8,7 +8,7 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
+Version: 5.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -22,19 +22,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -46,23 +40,21 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
+BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
+BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
 BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
 # end package.json dependencies BuildRequires
@@ -144,6 +136,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 15 2020 Marek Hulan <mhulan@redhat.com> 5.0.0-1
+- Update to 5.0.0
+
 * Fri Oct 25 2019 Ondrej Prazak <oprazak@redhat.com> - 4.0.0-1
 - Update to 4.0.0
 
