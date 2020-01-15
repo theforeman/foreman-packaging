@@ -78,7 +78,7 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
-* Wed Jan 15 2020 b'Patrick Creech <pcreech@redhat.com>' - b'3.14.1-1'
+* Wed Jan 15 2020 Patrick Creech <pcreech@redhat.com> - 3.14.1-1
 - Release katello-repos 3.14.1
 
 * Wed Dec 11 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-5
