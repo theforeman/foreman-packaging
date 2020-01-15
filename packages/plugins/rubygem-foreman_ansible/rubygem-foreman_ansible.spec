@@ -8,7 +8,7 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.3
+Version: 4.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -22,19 +22,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -150,6 +144,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Wed Jan 15 2020 Marek Hulan <mhulan@redhat.com> 4.0.4-1
+- Update to 4.0.4
+
 * Mon Dec 16 2019 Marek Hulan <mhulan@redhat.com> 4.0.3-1
 - Update to 4.0.3
 
