@@ -5,8 +5,8 @@
 %global gem_name erubi
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.7.1
-Release: 4%{?dist}
+Version: 1.9.0
+Release: 1%{?dist}
 Summary: Small ERB Implementation
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.9.0-1
+- Release rubygem-erubi 1.9.0
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.1-4
 - Update all rails packages for el8
 

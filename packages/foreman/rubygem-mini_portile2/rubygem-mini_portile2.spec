@@ -5,8 +5,8 @@
 %global gem_name mini_portile2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
-Release: 4%{?dist}
+Version: 2.4.0
+Release: 1%{?dist}
 Summary: Simplistic port-like solution for developers
 Group: Development/Languages
 License: MIT
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-1
+- Release rubygem-mini_portile2 2.4.0
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.0-4
 - Update all rails packages for el8
 

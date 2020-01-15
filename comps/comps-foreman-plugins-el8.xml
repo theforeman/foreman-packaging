@@ -210,6 +210,7 @@
       <packagereq type="default">rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">rubygem-foreman_host_extra_validator-doc</packagereq>
       <packagereq type="default">rubygem-foreman_kubevirt-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_leapp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_m2-doc</packagereq>
       <packagereq type="default">rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">rubygem-foreman_monitoring-doc</packagereq>

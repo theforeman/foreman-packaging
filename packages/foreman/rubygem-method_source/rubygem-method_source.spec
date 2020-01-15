@@ -5,8 +5,8 @@
 %global gem_name method_source
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
-Release: 4%{?dist}
+Version: 0.9.2
+Release: 1%{?dist}
 Summary: retrieve the sourcecode for a method
 Group: Development/Languages
 License: FIXME
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.2-1
+- Release rubygem-method_source 0.9.2
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-4
 - Update all rails packages for el8
 

@@ -5,8 +5,8 @@
 %global gem_name activestorage
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.1
-Release: 4%{?dist}
+Version: 6.0.2.1
+Release: 1%{?dist}
 Summary: Local and cloud file storage framework
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-1
+- Release rubygem-activestorage 6.0.2.1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-4
 - Update all rails packages for el8
 

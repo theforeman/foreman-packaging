@@ -5,8 +5,8 @@
 %global gem_name tzinfo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.5
-Release: 4%{?dist}
+Version: 1.2.6
+Release: 1%{?dist}
 Summary: Daylight savings aware timezone library
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tzinfo.gemspec
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.6-1
+- Release rubygem-tzinfo 1.2.6
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.5-4
 - Bump packages to build for el8
 

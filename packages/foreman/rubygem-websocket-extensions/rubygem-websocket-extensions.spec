@@ -5,8 +5,8 @@
 %global gem_name websocket-extensions
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
-Release: 4%{?dist}
+Version: 0.1.4
+Release: 1%{?dist}
 Summary: Generic extension manager for WebSocket connections
 Group: Development/Languages
 License: MIT
@@ -80,12 +80,14 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.4-1
+- Release rubygem-websocket-extensions 0.1.4
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-4
 - Bump packages to build for el8
 
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-3
 - Update spec to include Obsoletes of rails-packaging version
-
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.1.3-2
 - Bump for moving over to foreman-packaging
 

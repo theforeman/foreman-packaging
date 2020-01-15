@@ -65,7 +65,9 @@ foreman_scl_packages:
       build_package_tito_builder: "tito.builder.FetchBuilder"
     gyp: {}
     rubygem-actioncable: {}
+    rubygem-actionmailbox: {}
     rubygem-actionmailer: {}
+    rubygem-actiontext: {}
     rubygem-activejob: {}
     rubygem-activemodel: {}
     rubygem-activerecord: {}
@@ -286,6 +288,7 @@ foreman_scl_packages:
     rubygem-wirb: {}
     rubygem-x-editable-rails: {}
     rubygem-xmlrpc: {}
+    rubygem-zeitwerk: {}
     tfm:
       koji_tags:
         - name: foreman-nightly-rhel7

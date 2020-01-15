@@ -6,8 +6,8 @@
 %global gem_require_name websocket/driver
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
-Release: 5%{?dist}
+Version: 0.7.1
+Release: 1%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 Group: Development/Languages
 License: MIT
@@ -103,6 +103,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.1-1
+- Release rubygem-websocket-driver 0.7.1
+
 * Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.7.0-5
 - Add check section to test native library
 
