@@ -1028,6 +1028,7 @@ pulpcore_packages:
         - el7-base
         - el7-updates
   hosts:
+    pulpcore-selinux: {}
     python-aiofiles: {}
     python-aiohttp: {}
     python-async-timeout: {}

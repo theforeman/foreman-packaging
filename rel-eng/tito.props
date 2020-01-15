@@ -590,6 +590,7 @@ whitelist = katello
 [katello-pulpcore-nightly-el7]
 disttag = .el7
 whitelist =
+  pulpcore-selinux
   python-aiofiles
   python-aiohttp
   python-async-timeout
