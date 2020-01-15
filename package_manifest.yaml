@@ -943,6 +943,19 @@ repoclosures:
           - el7-katello-pulp-nightly
           - el7-katello-candlepin-nightly
           - el7-katello-nightly-pulpcore
+    foreman-client-repoclosure-el8:
+      repoclosure_config: repoclosure/yum.conf
+      repoclosure_target_repos:
+        el8:
+          - el8-foreman-client-nightly
+      repoclosure_target_dist: el8
+      repoclosure_lookaside_repos:
+        el8:
+          - el8-baseos
+          - el8-appstream
+          - el8-epel
+          - el8-extras
+          - el8-puppet-6
     foreman-client-repoclosure-el7:
       repoclosure_config: repoclosure/yum_el7.conf
       repoclosure_target_repos:
