@@ -182,6 +182,7 @@ foreman_scl_packages:
         - koji-foreman
         - koji-foreman-plugins
     rubygem-nio4r: {}
+    rubygem-nokogiri: {}
     rubygem-oauth: {}
     rubygem-optimist: {}
     rubygem-os: {}

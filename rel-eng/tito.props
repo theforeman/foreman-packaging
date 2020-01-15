@@ -271,6 +271,7 @@ whitelist = foreman
   rubygem-net-scp
   rubygem-net-ssh
   rubygem-nio4r
+  rubygem-nokogiri
   rubygem-oauth
   rubygem-optimist
   rubygem-os
