@@ -12,7 +12,6 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">candlepin</packagereq>
-      <packagereq type="default">candlepin-common</packagereq>
       <packagereq type="default">candlepin-selinux</packagereq>
     </packagelist>
   </group>
