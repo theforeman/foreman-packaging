@@ -11,7 +11,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -83,7 +83,7 @@ Requires: %{?scl_prefix}rubygem(oauth) < 1
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
-Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1
+Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
@@ -98,8 +98,6 @@ Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
 Requires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
 Requires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
-Requires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
-Requires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
@@ -189,7 +187,7 @@ BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
-BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1
+BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
@@ -204,8 +202,6 @@ BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
 BuildRequires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
 BuildRequires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
-BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) >= 2.5.4
-BuildRequires: %{?scl_prefix_ror}rubygem(turbolinks) < 3
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
@@ -310,8 +306,6 @@ BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
-BuildRequires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
@@ -322,6 +316,8 @@ BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
+BuildRequires: %{?scl_prefix_ror}rubygem(coffee-rails) >= 4.2.2
+BuildRequires: %{?scl_prefix_ror}rubygem(coffee-rails) < 4.3.0
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -519,8 +515,6 @@ Requires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) >= 2.1
-Requires: %{?scl_prefix_ror}rubygem(jquery-turbolinks) < 3.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
@@ -531,6 +525,8 @@ Requires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
 Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
+Requires: %{?scl_prefix_ror}rubygem(coffee-rails) >= 4.2.2
+Requires: %{?scl_prefix_ror}rubygem(coffee-rails) < 4.3.0
 # end specfile assets Requires
 
 %description assets
@@ -1033,6 +1029,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jan 15 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Wed Jan 08 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.2.develop
 - Update Gem dependencies
 
