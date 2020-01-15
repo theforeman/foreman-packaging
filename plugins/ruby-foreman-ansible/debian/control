@@ -2,10 +2,10 @@ Source: ruby-foreman-ansible
 Section: ruby
 Priority: extra
 Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
-Build-Depends: debhelper, foreman (>= 1.24.0~rc1), ruby-foreman-deface (<<2.0.0),
-  foreman-assets(>= 1.24.0~rc1), ruby-foreman-tasks (>= 0.8.2-2), ruby-foreman-tasks (<<1.0.0),
-  ruby-foreman-remote-execution (>= 2.0.0-1), ruby-foreman-remote-execution (<<3.0.0),
-  foreman-sqlite3 (>= 1.24.0~rc1)
+Build-Depends: debhelper, foreman (>= 2.0.0~rc1), ruby-foreman-deface (<<2.0.0),
+  foreman-assets(>= 2.0.0~rc1),
+  ruby-foreman-remote-execution (>= 2.0.0-1),
+  foreman-sqlite3 (>= 2.0.0~rc1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_ansible
 
@@ -13,7 +13,6 @@ Package: ruby-foreman-ansible
 Architecture: all
 Depends: ${misc:Depends}, bundler, foreman (>= 1.24.0~rc1),
   ruby-foreman-deface (<<2.0.0),
-  ruby-foreman-tasks (>= 0.8.2-2), ruby-foreman-tasks (<<1.0.0),
-  ruby-foreman-remote-execution (>= 2.0.0-1), ruby-foreman-remote-execution (<<3.0.0)
+  ruby-foreman-remote-execution (>= 2.0.0-1)
 Description: Foreman Ansible plugin
  Integration with Ansible in Foreman.
