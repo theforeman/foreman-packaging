@@ -3,10 +3,10 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global release 4
+%global release 1
 
 Name:       katello
-Version:    3.14.0
+Version:    3.14.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -190,6 +190,12 @@ Useful utilities for managing Katello services
 %{_sysconfdir}/bash_completion.d/katello-service
 
 %changelog
+* Wed Jan 15 2020 b'Patrick Creech <pcreech@redhat.com>' - b'3.14.1-1'
+- Release katello 3.14.1
+
+* Wed Jan 15 2020 b'Patrick Creech <pcreech@redhat.com>' - b'3.14.1-1'
+- Release katello 3.14.1
+
 * Wed Dec 11 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.14.0-4
 - Release 3.14.0
 
