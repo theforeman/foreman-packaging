@@ -5,8 +5,8 @@
 %global gem_name i18n
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.0
-Release: 4%{?dist}
+Version: 1.8.2
+Release: 1%{?dist}
 Summary: New wave Internationalization support for Ruby
 Group: Development/Languages
 License: MIT
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.2-1
+- Release rubygem-i18n 1.8.2
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-4
 - Update all rails packages for el8
 

@@ -5,8 +5,8 @@
 %global gem_name mail
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.7.0
-Release: 4%{?dist}
+Version: 2.7.1
+Release: 1%{?dist}
 Summary: Mail provides a nice Ruby DSL for making, sending and reading emails
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.7.1-1
+- Release rubygem-mail 2.7.1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.7.0-4
 - Update all rails packages for el8
 

@@ -5,8 +5,8 @@
 %global gem_name loofah
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.2
-Release: 5%{?dist}
+Version: 2.4.0
+Release: 1%{?dist}
 Summary: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments
 Group: Development/Languages
 License: MIT
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-1
+- Release rubygem-loofah 2.4.0
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-5
 - Update all rails packages for el8
 

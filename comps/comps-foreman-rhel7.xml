@@ -141,8 +141,10 @@
       <packagereq type="default">tfm-nodejs-webpack</packagereq>
       <packagereq type="default">tfm-nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable</packagereq>
+      <packagereq type="default">tfm-rubygem-actionmailbox</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer</packagereq>
       <packagereq type="default">tfm-rubygem-actionpack</packagereq>
+      <packagereq type="default">tfm-rubygem-actiontext</packagereq>
       <packagereq type="default">tfm-rubygem-actionview</packagereq>
       <packagereq type="default">tfm-rubygem-activejob</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel</packagereq>
@@ -351,6 +353,7 @@
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
+      <packagereq type="default">tfm-rubygem-zeitwerk</packagereq>
       <packagereq type="default">tfm-runtime</packagereq>
       <packagereq type="default">tfm-runtime-assets</packagereq>
       <packagereq type="default">tfm-scldevel</packagereq>
@@ -387,8 +390,10 @@
       <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-actionmailbox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionpack-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-actiontext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionview-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activejob-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel-doc</packagereq>
@@ -595,6 +600,7 @@
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
   </group>

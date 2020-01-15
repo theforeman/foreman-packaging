@@ -5,8 +5,8 @@
 %global gem_name globalid
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
-Release: 6%{?dist}
+Version: 0.4.2
+Release: 1%{?dist}
 Summary: Refer to any model with a URI: gid://app/class/id
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.2-1
+- Release rubygem-globalid 0.4.2
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-6
 - Update all rails packages for el8
 

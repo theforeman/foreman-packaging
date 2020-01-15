@@ -143,11 +143,14 @@ whitelist = foreman
   nodejs-webpack
   nodejs-webpack-stats-plugin
   rubygem-actioncable
+  rubygem-actionmailbox
   rubygem-actionmailer
   rubygem-actionpack
+  rubygem-actiontext
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
+  rubygem-activepack
   rubygem-activerecord
   rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
@@ -335,6 +338,7 @@ whitelist = foreman
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
+  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
@@ -351,6 +355,7 @@ whitelist = foreman
   rubygem-wirb
   rubygem-x-editable-rails
   rubygem-xmlrpc
+  rubygem-zeitwerk
   tfm
 scl = tfm
 
@@ -470,8 +475,10 @@ whitelist = foreman
   puppet-agent-rgen
   puppet-agent-yard
   rubygem-actioncable
+  rubygem-actionmailbox
   rubygem-actionmailer
   rubygem-actionpack
+  rubygem-actiontext
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
@@ -681,6 +688,7 @@ whitelist = foreman
   rubygem-wirb
   rubygem-x-editable-rails
   rubygem-xmlrpc
+  rubygem-zeitwerk
 
 [foreman-plugins-nightly-el8]
 disttag = .el8

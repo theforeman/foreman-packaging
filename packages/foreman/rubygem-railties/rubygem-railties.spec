@@ -5,8 +5,8 @@
 %global gem_name railties
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.1
-Release: 4%{?dist}
+Version: 6.0.2.1
+Release: 1%{?dist}
 Summary: Tools for creating, working with, and running Rails applications
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-1
+- Release rubygem-railties 6.0.2.1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-4
 - Update all rails packages for el8
 

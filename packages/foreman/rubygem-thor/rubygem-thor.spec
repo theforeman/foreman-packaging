@@ -5,8 +5,8 @@
 %global gem_name thor
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.20.0
-Release: 6%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/thor.gemspec
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-1
+- Release rubygem-thor 1.0.1
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.20.0-6
 - Bump packages to build for el8
 

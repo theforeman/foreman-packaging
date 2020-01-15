@@ -150,8 +150,10 @@
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
+      <packagereq type="default">rubygem-actionmailbox</packagereq>
       <packagereq type="default">rubygem-actionmailer</packagereq>
       <packagereq type="default">rubygem-actionpack</packagereq>
+      <packagereq type="default">rubygem-actiontext</packagereq>
       <packagereq type="default">rubygem-actionview</packagereq>
       <packagereq type="default">rubygem-activejob</packagereq>
       <packagereq type="default">rubygem-activemodel</packagereq>
@@ -362,13 +364,16 @@
       <packagereq type="default">rubygem-wirb</packagereq>
       <packagereq type="default">rubygem-x-editable-rails</packagereq>
       <packagereq type="default">rubygem-xmlrpc</packagereq>
+      <packagereq type="default">rubygem-zeitwerk</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-actioncable-doc</packagereq>
+      <packagereq type="default">rubygem-actionmailbox-doc</packagereq>
       <packagereq type="default">rubygem-actionmailer-doc</packagereq>
       <packagereq type="default">rubygem-actionpack-doc</packagereq>
+      <packagereq type="default">rubygem-actiontext-doc</packagereq>
       <packagereq type="default">rubygem-actionview-doc</packagereq>
       <packagereq type="default">rubygem-activejob-doc</packagereq>
       <packagereq type="default">rubygem-activemodel-doc</packagereq>
@@ -574,6 +579,7 @@
       <packagereq type="default">rubygem-wirb-doc</packagereq>
       <packagereq type="default">rubygem-x-editable-rails-doc</packagereq>
       <packagereq type="default">rubygem-xmlrpc-doc</packagereq>
+      <packagereq type="default">rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
   </group>
