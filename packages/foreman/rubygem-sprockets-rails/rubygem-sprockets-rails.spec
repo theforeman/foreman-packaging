@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
@@ -19,9 +19,9 @@ Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sprockets) >= 3.0.0
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activesupport) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3.0.0
+Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 4.0
+Requires: %{?scl_prefix_ror}rubygem(activesupport) >= 4.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -82,5 +82,8 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jan 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-2
+- Revert sprockets rails back to using ROR SCL dependencies
+
 * Thu Aug 09 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-1
 - Initial package
