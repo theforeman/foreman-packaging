@@ -10,6 +10,7 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">pulpcore-selinux</packagereq>
       <packagereq type="default">python-aiohttp-debuginfo</packagereq>
       <packagereq type="default">python-aiohttp-debugsource</packagereq>
       <packagereq type="default">python-cffi-debuginfo</packagereq>
