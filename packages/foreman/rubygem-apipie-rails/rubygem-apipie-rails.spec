@@ -5,7 +5,7 @@
 
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.14
+Version: 0.5.17
 Release: 1%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Jan 15 2020 Oleh Fedorenko <ofedoren@redhat.com> 0.5.17-1
+- Update to 0.5.17
+
 * Mon Nov 19 2018 Ivan Nečas <inecas@redhat.com> 0.5.14-1
 - Update to 0.5.14
 
