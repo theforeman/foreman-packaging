@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.15.0
@@ -166,6 +166,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Jan 20 2020 Samir Jha <sjha4@ncsu.edu> - 3.15.0-0.4.master
+- Add pulp3 debug info to katello-debug
+
 * Mon Nov 18 2019 Evgeni Golov - 3.15.0-0.3.master
 - Unify prerelease macro handling
 

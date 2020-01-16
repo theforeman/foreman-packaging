@@ -65,6 +65,11 @@ add_files /var/log/httpd/pulp-http{s,}_access_ssl.log*
 add_files /var/log/httpd/pulp-http{s,}_error_ssl.log*
 add_files /etc/default/pulp*
 
+# Pulp3
+add_files /etc/pulp/settings.py
+add_cmd "systemctl list-units -t service --full  | grep pulpcore" "pulpcore-services"
+add_cmd "systemctl cat pulpcore*" "pulpcore service files"
+
 # MongoDB (*)
 if [ $NOGENERIC -eq 0 ]; then
   add_files /var/log/mongodb/*
