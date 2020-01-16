@@ -35,20 +35,14 @@ whitelist = foreman-bootloaders-redhat
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
-  rubygem-journald-logger
-  rubygem-journald-native
-  rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
   rubygem-little-plugger
   rubygem-logging
-  rubygem-logging-journald
   rubygem-multi_json
   rubygem-passenger
   rubygem-powerbar
-  rubygem-rb-inotify
-  rubygem-rubyipmi
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -246,6 +240,7 @@ whitelist = foreman
   rubygem-journald-native
   rubygem-jquery-turbolinks
   rubygem-jquery-ui-rails
+  rubygem-jwt
   rubygem-ldap_fluff
   rubygem-little-plugger
   rubygem-locale
@@ -264,7 +259,6 @@ whitelist = foreman
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
-  rubygem-mysql2
   rubygem-net-ldap
   rubygem-net-ping
   rubygem-netrc
@@ -356,7 +350,6 @@ whitelist = foreman
   rubygem-x-editable-rails
   rubygem-xmlrpc
   tfm
-  tfm-rubygem-jwt
 scl = tfm
 
 [foreman-plugins-nightly-rhel7]
