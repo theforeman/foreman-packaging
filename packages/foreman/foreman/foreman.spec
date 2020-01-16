@@ -3,7 +3,6 @@
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global executor_service_name dynflowd
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
-%global foreman_restart (touch %{homedir}/tmp/restart.txt ; /bin/systemctl try-restart %{name}.service) >/dev/null 2>&1
 
 # explicitly define, as we build on top of an scl, not inside with scl_package
 %{?scl:%global scl_prefix %{scl}-}
@@ -11,7 +10,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -840,9 +839,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 
 # Common commands
 %%%{name}_rake         %{foreman_rake}
-%%%{name}_db_migrate   %%{%{name}_rake} db:migrate >> %%{%{name}_log_dir}/db_migrate.log 2>&1 || :
-%%%{name}_db_seed      %%{%{name}_rake} db:seed >> %%{%{name}_log_dir}/db_seed.log 2>&1 || :
-%%%{name}_restart      %{foreman_restart}
 EOF
 
 # Keep a copy of the schema for quick initialisation of plugin builds
@@ -1010,16 +1006,6 @@ fi
 %systemd_post %{executor_service_name}.service
 exit 0
 
-%posttrans
-# We need to run the db:migrate after the install transaction
-# always attempt to reencrypt after update in case new fields can be encrypted
-%{foreman_rake} db:migrate db:encrypt_all >> %{_localstatedir}/log/%{name}/db_migrate.log 2>&1 || :
-%{foreman_rake} db:seed >> %{_localstatedir}/log/%{name}/db_seed.log 2>&1 || :
-%{foreman_rake} apipie:cache:index >> %{_localstatedir}/log/%{name}/apipie_cache.log 2>&1 || :
-%{foreman_rake} tmp:clear >> %{_localstatedir}/log/%{name}/tmp_clear.log 2>&1 || :
-%{foreman_restart} || :
-exit 0
-
 %preun
 %systemd_preun %{executor_service_name}.service
 %systemd_preun %{name}.service
@@ -1029,6 +1015,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jan 16 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.4.develop
+- Remove database action macros and restart
+
 * Wed Jan 15 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.3.develop
 - Update Gem and NPM dependencies
 
