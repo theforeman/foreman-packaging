@@ -1,6 +1,6 @@
 Name: foreman-discovery-image-service
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Metapackage with dependencies for FDI
 
 Group: Applications/System
@@ -8,7 +8,7 @@ License: GPLv2+
 URL: https://github.com/theforeman/foreman-discovery-image
 
 Requires:	foreman-proxy
-Requires:	rubygem-smart_proxy_discovery_image
+Requires:	tfm-rubygem-smart_proxy_discovery_image
 
 %description
 Metapackage with dependencies for FDI
@@ -33,5 +33,8 @@ Metapackage with dependencies for FDI text-user interface
 %files tui
 
 %changelog
+* Thu Jan 16 2020 Evgeni Golov - 1.0.0-2
+- Depend on SCL'ed FDI plugin package
+
 * Wed Aug 15 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.0-1
 - Initial version
