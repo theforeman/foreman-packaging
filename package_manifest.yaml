@@ -226,6 +226,7 @@ foreman_scl_packages:
     rubygem-rkerberos: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
+    rubygem-ruby-augeas: {}
     rubygem-ruby-libvirt: {}
     rubygem-ruby2ruby: {}
     rubygem-ruby_parser: {}

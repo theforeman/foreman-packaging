@@ -318,6 +318,7 @@ whitelist = foreman
   rubygem-roadie-rails
   rubygem-rsec
   rubygem-ruby2ruby
+  rubygem-ruby-augeas
   rubygem-rubyforge
   rubygem-rubyipmi
   rubygem-ruby-libvirt
