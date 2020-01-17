@@ -145,6 +145,7 @@ foreman_scl_packages:
       build_package_tito_builder: "tito.builder.FetchBuilder"
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
+    rubygem-hocon: {}
     rubygem-hoe: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}

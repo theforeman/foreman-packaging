@@ -224,6 +224,7 @@
       <packagereq type="default">tfm-rubygem-highline</packagereq>
       <packagereq type="default">tfm-rubygem-hirb</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
+      <packagereq type="default">tfm-rubygem-hocon</packagereq>
       <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient</packagereq>
@@ -493,6 +494,7 @@
       <packagereq type="default">tfm-rubygem-highline-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hocon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
