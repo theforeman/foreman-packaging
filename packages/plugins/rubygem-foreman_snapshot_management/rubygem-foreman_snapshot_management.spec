@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.6.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPLv3
@@ -94,12 +94,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.6.0-2
+- Drop posttrans macros
+
 * Thu Apr 11 2019 Matthias Dellweg <dellweg@atix.de> 1.6.0-1
 - Update to 1.6.0
 - Add compatibility workaround for foreman-1.22 (timogoebel)
