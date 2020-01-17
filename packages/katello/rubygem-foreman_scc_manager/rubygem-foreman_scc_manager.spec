@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -106,6 +106,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 22 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.0-2
+- Update spec to remove the ror scl
+
 * Wed Jan 22 2020 Markus Bucher <bucher@atix.de> 1.8.0-1
 - Update to 1.8.0
 

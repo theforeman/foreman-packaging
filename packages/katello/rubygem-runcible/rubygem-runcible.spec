@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        2.12.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
 License:        MIT
@@ -18,8 +18,8 @@ Provides:   %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires:  %{?scl_prefix}rubygem(oauth)
-Requires:  %{?scl_prefix_ror}rubygem(i18n) >= 0.5.0
-Requires:  %{?scl_prefix_ror}rubygem(activesupport) >= 3.0.10
+Requires:  %{?scl_prefix}rubygem(i18n) >= 0.5.0
+Requires:  %{?scl_prefix}rubygem(activesupport) >= 3.0.10
 Requires:  %{?scl_prefix_ruby}rubygem(json)
 Requires:  %{?scl_prefix_ruby}ruby(release)
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.12.1-2
+- Update spec to remove the ror scl
+
 * Thu Sep 05 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.12.1-1
 - Release rubygem-runcible 2.12.1
 

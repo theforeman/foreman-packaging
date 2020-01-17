@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Bulk insert extension for ActiveRecord
 Group: Development/Languages
 License: Ruby
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 3.2
+Requires: %{?scl_prefix}rubygem(activerecord) >= 3.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
@@ -91,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Update spec to remove the ror scl
+
 * Mon Feb 04 2019 Justin Sherrill <jlsherrill@redhat.com> - 1.0.0-1
 - Initial package
 
