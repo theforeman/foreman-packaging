@@ -51,13 +51,6 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/eslint-plugin-foreman) = 4.0.5
-BuildRequires: %{?scl_prefix}npm(@theforeman/stories) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/stories) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/test) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/test) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -122,19 +115,18 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.babelrc
 %exclude %{gem_instdir}/.eslintrc
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.prettierrc
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.storybook
 %exclude %{gem_instdir}/.stylelintrc
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.tx
 %exclude %{gem_instdir}/.yo-rc.json
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/babel.config.js
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/bin
@@ -165,13 +157,6 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/extra/dynflow-executor.example
-
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
 
 %changelog
 * Thu Jan 16 2020 Marek Hulan <mhulan@redhat.com> 1.0.1-1
