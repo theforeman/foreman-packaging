@@ -68,6 +68,12 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
+%if %{?scl:1}%{!?scl:0}
+  # shebangs
+  for f in .%{_bindir}/* ; do
+    sed -ri '1sX(^#!.*)X#!%{scl_ruby_bin}X' $f
+  done
+%endif
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 

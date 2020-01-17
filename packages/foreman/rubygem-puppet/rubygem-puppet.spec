@@ -2,6 +2,8 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
+
 %global gem_name puppet
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -86,6 +88,12 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
+%if %{?scl:1}%{!?scl:0}
+  # shebangs
+  for f in .%{_bindir}/* ; do
+    sed -ri '1sX(^#!.*)X#!%{scl_ruby_bin}X' $f
+  done
+%endif
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
