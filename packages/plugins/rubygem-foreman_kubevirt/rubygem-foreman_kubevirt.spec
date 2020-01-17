@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.7
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -99,12 +99,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-2
+- Drop posttrans macros
+
 * Mon Nov 11 2019 Shira Maximov <shiramaximov@gmail.com> 0.1.7-1
 - Update to 0.1.7
 

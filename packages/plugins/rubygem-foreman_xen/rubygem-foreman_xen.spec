@@ -9,7 +9,7 @@
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-xen
@@ -99,11 +99,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
+- Drop posttrans macros
+
 * Sat Jul 06 2019 Michael Moll <mmoll@mmoll.at> 1.0.0-1
 - Update to 1.0.0
 

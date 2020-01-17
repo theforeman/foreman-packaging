@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -107,14 +107,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_apipie_cache}
-%{foreman_restart}
-/usr/bin/systemctl restart dynflowd.service
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-3
+- Drop posttrans macros
+
 * Tue Nov 19 2019 Markus Bucher <bucher@atix.de> - 1.7.0-2
 - Add apipie-cache generation
 

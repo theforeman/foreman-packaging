@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: M2 bare metal provisioning plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -17,13 +17,13 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby 
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix}rubygem(deface) 
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(deface)
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby 
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name}
@@ -90,12 +90,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_seed}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.4-2
+- Drop posttrans macros
+
 * Thu Oct 18 2018 Ian Ballou <ianballou67@gmail.com> 0.0.4-1
 Now supporting official M2 commit after split-api PR;
 Now can select smart proxy from drop-down during CR creation;

@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -104,10 +104,6 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_restart}
-exit 0
-
 %post
 /sbin/semanage port -a -t http_port_t -p tcp 8006 &> /dev/null || :
 
@@ -117,6 +113,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.9.3-2
+- Drop posttrans macros
+
 * Fri Dec 13 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.9.3-1
 - Update to 0.9.3
 
