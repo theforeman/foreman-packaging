@@ -18,10 +18,7 @@ LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
 %global foreman_min_version FIXME
 <%
 has_assets = spec.files.any? { |f| f.start_with?('app/assets/') }
-has_apidoc = spec.files.any? { |f| f =~ %r{\Aapp/controllers/?.*/(api|concerns)/} }
 has_cronjob = spec.files.any? { |f| f =~ %r{\Aextra/.*\.cron\z} }
-has_db_migrations = spec.files.any? { |f| f.start_with?('db/migrate/') }
-has_db_seeds = spec.files.any? { |f| f.start_with?('db/seeds.d/') }
 has_webpack = spec.files.any? { |f| f.start_with?('webpack/') }
 has_package_json = spec.files.any? { |f| f == 'package.json' }
 
@@ -208,18 +205,5 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 %doc %{gem_docdir}
 <%= doc_file_entries(spec) %>
 <% end # if doc_subpackage -%>
-
-%posttrans
-<% if has_db_migrations -%>
-%{foreman_db_migrate}
-<% end -%>
-<% if has_db_seeds -%>
-%{foreman_db_seed}
-<% end -%>
-<% if has_apidoc -%>
-%{foreman_apipie_cache}
-<% end -%>
-%{foreman_restart}
-exit 0
 
 %changelog
