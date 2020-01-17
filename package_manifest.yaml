@@ -959,7 +959,7 @@ repoclosures:
           - el7-foreman-plugins-nightly
           - el7-katello-pulp-nightly
           - el7-katello-candlepin-nightly
-          - el7-katello-nightly-pulpcore
+          - el7-katello-pulpcore-nightly
     foreman-client-repoclosure-el8:
       repoclosure_config: repoclosure/yum.conf
       repoclosure_target_repos:
@@ -1034,13 +1034,13 @@ pulpcore_packages:
     package_base_dir: 'packages/pulpcore/'
     diff_package_skip: false
     diff_package_tags:
-      - katello-nightly-pulpcore-el7
+      - katello-pulpcore-nightly-el7
     releasers:
       - koji-katello-pulpcore
     repoclosure_config: repoclosure/yum_el7.conf
     repoclosure_target_repos:
       el7:
-        - el7-katello-nightly-pulpcore
+        - el7-katello-pulpcore-nightly
     repoclosure_lookaside_repos:
       el7:
         - el7-base
