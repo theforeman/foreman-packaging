@@ -321,6 +321,7 @@ whitelist = foreman
   rubygem-sass-rails
   rubygem-scoped_search
   rubygem-secure_headers
+  rubygem-semantic_puppet
   rubygem-sequel
   rubygem-sexp_processor
   rubygem-sidekiq

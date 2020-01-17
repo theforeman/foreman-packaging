@@ -312,6 +312,7 @@
       <packagereq type="default">tfm-rubygem-sass-rails</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
+      <packagereq type="default">tfm-rubygem-semantic_puppet</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq</packagereq>
@@ -575,6 +576,7 @@
       <packagereq type="default">tfm-rubygem-sass-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-semantic_puppet-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq-doc</packagereq>
