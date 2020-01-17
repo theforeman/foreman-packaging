@@ -7,14 +7,14 @@
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       3.1.7
-Release:       1%{?dist}
+Release:       2%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           https://github.com/mislav/will_paginate
 Source0:       https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires:      %{?scl_prefix_ruby}ruby(release)
 Requires:      %{?scl_prefix_ruby}ruby(rubygems)
-Requires:      %{?scl_prefix_ror}rubygem(activerecord)
+Requires:      %{?scl_prefix}rubygem(activerecord)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch:     noarch
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.7-2
+- Update spec to remove the ror scl
+
 * Tue Mar 19 2019 Michael Moll <mmoll@mmoll.at> - 3.1.7-1
 - Update will_paginate to 3.1.7
 

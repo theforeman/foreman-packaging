@@ -7,14 +7,14 @@ Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 4.1.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2.0
+Requires: %{?scl_prefix}rubygem(activerecord) >= 4.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -24,11 +24,11 @@ Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
 
 # for check section
 %if 0%{?fedora} > 21
-BuildRequires: %{?scl_prefix_ror}rubygem(rspec) >= 3.0
-BuildRequires: %{?scl_prefix_ror}rubygem(rspec) < 4.0
-BuildRequires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2.0
-BuildRequires: %{?scl_prefix_ror}rubygem(actionview) >= 4.2.0
-BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3)
+BuildRequires: %{?scl_prefix}rubygem(rspec) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(rspec) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(activerecord) >= 4.2.0
+BuildRequires: %{?scl_prefix}rubygem(actionview) >= 4.2.0
+BuildRequires: %{?scl_prefix}rubygem(sqlite3)
 %endif
 
 %description
@@ -110,6 +110,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.7-2
+- Update spec to remove the ror scl
+
 * Tue May 07 2019 Marek Hulan <mhulan@redhat.com> 4.1.7-1
 - Update to 4.1.7
 

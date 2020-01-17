@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of Rails responders to dry up your application
 Group: Development/Languages
 License: MIT
@@ -13,8 +13,8 @@ URL: https://github.com/plataformatec/responders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(actionpack) >= 5.0
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 5.0
+Requires: %{?scl_prefix}rubygem(actionpack) >= 5.0
+Requires: %{?scl_prefix}rubygem(railties) >= 5.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -60,6 +60,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-2
+- Update spec to remove the ror scl
+
 * Thu Oct 03 2019 Michael Moll <mmoll@mmoll.at> - 3.0.0-1
 - Update responders to 3.0.0
 

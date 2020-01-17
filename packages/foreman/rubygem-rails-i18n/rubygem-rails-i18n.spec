@@ -7,16 +7,16 @@ Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 5.1.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ror}rubygem(i18n) >= 0.7
-Requires: %{?scl_prefix_ror}rubygem(i18n) < 2
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 5.0
-Requires: %{?scl_prefix_ror}rubygem(railties) < 6.0
+Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
+Requires: %{?scl_prefix}rubygem(i18n) < 2
+Requires: %{?scl_prefix}rubygem(railties) >= 5.0
+Requires: %{?scl_prefix}rubygem(railties) < 6.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.1-3
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.1.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
