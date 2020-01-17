@@ -222,6 +222,7 @@ foreman_scl_packages:
     rubygem-responders: {}
     rubygem-rest-client: {}
     rubygem-retriable: {}
+    rubygem-rgen: {}
     rubygem-rkerberos: {}
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
