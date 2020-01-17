@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -27,7 +27,7 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
-Requires: %{?scl_prefix_ror}rubygem(rails)
+Requires: %{?scl_prefix}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(rest-client)
@@ -53,7 +53,7 @@ Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ror}rubygem(rails)
+BuildRequires: %{?scl_prefix}rubygem(rails)
 BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
@@ -226,6 +226,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.15.0-0.5.pre.master
+- Update spec to remove the ror scl
+
 * Wed Dec 18 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.15.0-0.4.pre.master
 - Update Gem and NPM dependencies
 
