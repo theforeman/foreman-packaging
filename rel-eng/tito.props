@@ -286,6 +286,7 @@ whitelist = foreman
   rubygem-public_suffix
   rubygem-puma
   rubygem-puppet
+  rubygem-puppet-resource_api
   rubygem-quantile
   rubygem-rabl
   rubygem-rack
