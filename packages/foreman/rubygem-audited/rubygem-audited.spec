@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Log all changes to your models
 Group: Development/Languages
 License: MIT
@@ -18,8 +18,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(activerecord) >= 4.2
-Requires: %{?scl_prefix_ror}rubygem(activerecord) < 6.1
+Requires: %{?scl_prefix}rubygem(activerecord) >= 4.2
+Requires: %{?scl_prefix}rubygem(activerecord) < 6.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.9.0-2
+- Update spec to remove the ror scl
+
 * Wed Aug 28 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.9.0-1
 - Update to 4.9.0-1
 

@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.58.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -17,11 +17,11 @@ Requires: ca-certificates
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: ca-certificates
 # For the tests
-#BuildRequires: %{?scl_prefix_ror}rubygem(activesupport)
+#BuildRequires: %{?scl_prefix}rubygem(activesupport)
 #BuildRequires: %{?scl_prefix}rubygem(delorean)
 #BuildRequires: %{?scl_prefix}rubygem(open4)
 #BuildRequires: %{?scl_prefix}rubygem(shindo)
-#BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
+#BuildRequires: %{?scl_prefix}rubygem(sinatra)
 #BuildRequires: %{?scl_prefix}rubygem(eventmachine)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -91,6 +91,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.58.0-4
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.58.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

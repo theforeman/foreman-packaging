@@ -6,7 +6,7 @@
 Summary: jQuery plugin for binded events problem caused by Turbolinks
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/kossnocorp/jquery.turbolinks
@@ -15,8 +15,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.1.0
-Requires: %{?scl_prefix_ror}rubygem(turbolinks)
+Requires: %{?scl_prefix}rubygem(railties) >= 3.1.0
+Requires: %{?scl_prefix}rubygem(turbolinks)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-9
+- Update spec to remove the ror scl
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.1.0-8
 - Bump for moving over to foreman-packaging
 

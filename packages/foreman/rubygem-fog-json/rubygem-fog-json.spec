@@ -7,14 +7,14 @@ Summary: JSON parsing for fog providers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-json
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ror}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix_ror}rubygem(multi_json) < 2
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix}rubygem(multi_json) < 2
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/fog-json.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-2
+- Update spec to remove the ror scl
+
 * Thu Feb 21 2019 Marek Hulan <mhulan@redhat.com> 1.2.0-1
 - Update to 1.2.0
 

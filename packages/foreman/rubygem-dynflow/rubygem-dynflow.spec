@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -18,12 +18,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(multi_json)
+Requires: %{?scl_prefix}rubygem(multi_json)
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.1.3
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.3
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
 Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5
 Requires: %{?scl_prefix}rubygem(sequel) >= 4.0.0
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.2-2
+- Update spec to remove the ror scl
+
 * Tue Dec 17 2019 Adam Ruzicka <aruzicka@redhat.com> 1.4.2-1
 - Update to 1.4.2
 

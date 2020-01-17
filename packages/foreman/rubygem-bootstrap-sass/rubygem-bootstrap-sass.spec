@@ -6,7 +6,7 @@
 Summary: bootstrap-sass is a Sass-powered version of Bootstrap 3
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/twbs/bootstrap-sass
@@ -15,7 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.3.4
+Requires: %{?scl_prefix}rubygem(sass) >= 3.3.4
 Requires: %{?scl_prefix}rubygem(autoprefixer-rails) >= 5.2.1
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.7-4
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.3.7-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

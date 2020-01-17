@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.23.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -26,8 +26,8 @@ Requires: %{?scl_prefix}rubygem(retriable) < 4.0
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.5
 Requires: %{?scl_prefix}rubygem(addressable) < 3
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.5.1
-Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(mime-types) < 4
+Requires: %{?scl_prefix}rubygem(mime-types) >= 3.0
+Requires: %{?scl_prefix}rubygem(mime-types) < 4
 Requires: %{?scl_prefix}rubygem(signet) >= 0.9
 Requires: %{?scl_prefix}rubygem(signet) < 1
 Requires: %{?scl_prefix}rubygem(googleauth) >= 0.5
@@ -131,6 +131,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.23.9-2
+- Update spec to remove the ror scl
+
 * Wed Mar 13 2019 kgaikwad <kavitagaikwad103@gmail.com> 0.23.9-1
 - Update to 0.23.9
 
