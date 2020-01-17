@@ -11,7 +11,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -26,7 +26,7 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
-Requires: %{?scl_prefix_ror}rubygem(sinatra)
+Requires: %{?scl_prefix}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
 Requires: %{?scl_prefix}rubygem(get_process_mem)
@@ -34,7 +34,7 @@ BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
-BuildRequires: %{?scl_prefix_ror}rubygem(sinatra)
+BuildRequires: %{?scl_prefix}rubygem(sinatra)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
@@ -159,6 +159,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
+- Update spec to remove the ror scl
+
 * Thu Jan 16 2020 Marek Hulan <mhulan@redhat.com> 1.0.1-1
 - Update to 1.0.1
 

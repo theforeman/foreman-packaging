@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
 Group: Development/Languages
 License: MIT
@@ -17,8 +17,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6
+Requires: %{?scl_prefix}rubygem(rails) >= 4.1
 Requires: %{?scl_prefix}rubygem(rainbow) >= 2.1.0
 Requires: %{?scl_prefix}rubygem(polyglot)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.3-2
+- Update spec to remove the ror scl
+
 * Mon Dec 02 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.5.3-1
 - Update to 1.5.3-1
 

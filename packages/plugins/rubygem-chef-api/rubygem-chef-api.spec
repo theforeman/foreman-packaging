@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A Chef API client in Ruby
 Group: Development/Languages
 License: ASL 2.0
@@ -19,7 +19,7 @@ Requires: %{?scl_prefix_ruby}ruby >= 2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(logify) >= 0.1
 Requires: %{?scl_prefix}rubygem(logify) < 1
-Requires: %{?scl_prefix_ror}rubygem(mime-types)
+Requires: %{?scl_prefix}rubygem(mime-types)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-4
+- Update spec to remove the ror scl
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-3
 - Build for SCL
 

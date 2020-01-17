@@ -21,7 +21,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -33,7 +33,7 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.11
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
 Requires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -133,6 +133,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-4
+- Update spec to remove the ror scl
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-3
 - Build for SCL
 
