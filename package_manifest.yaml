@@ -200,6 +200,7 @@ foreman_scl_packages:
     rubygem-puma: {}
     rubygem-puppet: {}
     rubygem-puppet-resource_api: {}
+    rubygem-puppet-strings: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
     rubygem-rack: {}

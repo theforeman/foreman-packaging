@@ -280,6 +280,7 @@
       <packagereq type="default">tfm-rubygem-puma</packagereq>
       <packagereq type="default">tfm-rubygem-puppet</packagereq>
       <packagereq type="default">tfm-rubygem-puppet-resource_api</packagereq>
+      <packagereq type="default">tfm-rubygem-puppet-strings</packagereq>
       <packagereq type="default">tfm-rubygem-quantile</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
       <packagereq type="default">tfm-rubygem-rack</packagereq>
@@ -549,6 +550,7 @@
       <packagereq type="default">tfm-rubygem-puma-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppet-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puppet-resource_api-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-puppet-strings-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-cors-doc</packagereq>
