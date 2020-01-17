@@ -360,6 +360,7 @@ whitelist = foreman
   rubygem-wirb
   rubygem-x-editable-rails
   rubygem-xmlrpc
+  rubygem-yard
   tfm
   tfm-rubygem-jwt
 scl = tfm
