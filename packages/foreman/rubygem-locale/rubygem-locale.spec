@@ -1,154 +1,94 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from locale-2.0.0.gem by gem2rpm -*- rpm-spec -*-
+%global gem_name locale
 
-%global	gem_name   locale
-
-%global	repoid		67114
-
-Summary:	Pure ruby library which provides basic APIs for localization
-Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	2.0.9
-Release:	13%{?dist}
-Group:		Development/Languages
-License:	GPLv2 or Ruby
-URL:		http://locale.rubyforge.org/
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 2.1.2
+Release: 1%{?dist}
+Summary: Ruby-Locale is the pure ruby library which provides basic APIs for localization
+Group: Development/Languages
+License: Ruby and LGPLv3+
+URL: https://github.com/ruby-gettext/locale
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildArch:	noarch
+BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Ruby-Locale is the pure ruby library which provides basic and general purpose
-APIs for localization.
-It aims to support all environments which ruby works and all kind of programs
-(GUI, WWW, library, etc), and becomes the hub of other i18n/l10n libs/apps to
-handle major locale ID standards.
+Ruby-Locale is the pure ruby library which provides basic APIs for
+localization.
 
-%package	doc
-Summary:	Documentation for %{pkg_name}
-Group:		Documentation
-Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
-%description	doc
-This package contains documentation for %{pkg_name}.
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
-%package	-n %{?scl_prefix}ruby-%{gem_name}
-Summary:	Non-Gem support package for %{gem_name}
-Group:		Development/Languages
-Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Provides:	%{?scl_prefix}ruby(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-ruby-%{gem_name}}
-
-%description	-n %{?scl_prefix}ruby-%{gem_name}
-This package provides non-Gem support for %{gem_name}.
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-# rm -f .%{gem_instdir}/Rakefile
-find . -name \*gem | xargs chmod 0644
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
-rm -rf %{buildroot}
-
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
-
-# The following method is completely copied from rubygem-gettext
-# spec file
-#
-# Create symlinks
-
-create_symlink_rec(){
-
-ORIGBASEDIR=$1
-TARGETBASEDIR=$2
-
-## First calculate relative path of ORIGBASEDIR
-## from TARGETBASEDIR
-TMPDIR=$TARGETBASEDIR
-BACKDIR=
-DOWNDIR=
-num=0
-nnum=0
-while true
-do
-	num=$((num+1))
-	TMPDIR=$(echo $TMPDIR | sed -e 's|/[^/][^/]*$||')
-	DOWNDIR=$(echo $ORIGBASEDIR | sed -e "s|^$TMPDIR||")
-	if [ x$DOWNDIR != x$ORIGBASEDIR ]
-	then
-		nnum=0
-		while [ $nnum -lt $num ]
-		do
-			BACKDIR="../$BACKDIR"
-			nnum=$((nnum+1))
-		done
-		break
-	fi
-done
-
-RELBASEDIR=$( echo $BACKDIR/$DOWNDIR | sed -e 's|//*|/|g' )
-
-## Next actually create symlink
-pushd %{buildroot}/$ORIGBASEDIR
-find . -type f | while read f
-do
-	DIRNAME=$(dirname $f)
-	BACK2DIR=$(echo $DIRNAME | sed -e 's|/[^/][^/]*|/..|g')
-	mkdir -p %{buildroot}${TARGETBASEDIR}/$DIRNAME
-	LNNAME=$(echo $BACK2DIR/$RELBASEDIR/$f | \
-		sed -e 's|^\./||' | sed -e 's|//|/|g' | \
-		sed -e 's|/\./|/|' )
-	ln -s -f $LNNAME %{buildroot}${TARGETBASEDIR}/$f
-done
-popd
-
-}
-
-%if 0%{?ruby19} < 1
-#create_symlink_rec %{gem_instdir}/lib %{ruby_sitelib}
-%endif
-
-# Clean up unneeded files
-rm -f %{buildroot}%{gem_instdir}/.yardopts
-
-%check
-
-%clean
-rm -rf %{buildroot}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%defattr(-,root,root,-)
-%dir %{gem_instdir}/
-%doc %{gem_instdir}/[A-Z]*
-%doc %{gem_instdir}/doc/
-%exclude %{gem_instdir}/Rakefile
-%{gem_instdir}/lib/
-#%%{gem_instdir}/*.rb
-%{gem_cache}
+%dir %{gem_instdir}
+%exclude %{gem_instdir}/.yardopts
+%license %{gem_instdir}/COPYING
+%{gem_libdir}
+%{gem_instdir}/samples
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%defattr(-,root,root,-)
-%{gem_docdir}/
-%{gem_instdir}/samples/
-%{gem_instdir}/test/
-%{gem_instdir}/*.gemspec
+%doc %{gem_docdir}
+%doc %{gem_instdir}/ChangeLog
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.rdoc
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/doc
+%{gem_instdir}/locale.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Thu Jan 16 2020 Eric D. Helms <ericdhelms@gmail.com> 2.1.2-1
+- Update to 2.1.2-1
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.9-13
 - Rebuild for Rails 5.2 and Ruby 2.5
 
