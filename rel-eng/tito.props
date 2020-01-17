@@ -192,6 +192,7 @@ whitelist = foreman
   rubygem-declarative
   rubygem-declarative-option
   rubygem-deep_cloneable
+  rubygem-deep_merge
   rubygem-domain_name
   rubygem-dynflow
   rubygem-erubi
