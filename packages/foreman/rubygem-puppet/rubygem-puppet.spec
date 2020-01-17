@@ -99,9 +99,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/Guardfile.example
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
-%{gem_instdir}/conf
-%{gem_instdir}/ext
-%{gem_instdir}/install.rb
+%exclude %{gem_instdir}/conf
+%exclude %{gem_instdir}/ext
+%exclude %{gem_instdir}/install.rb
 %{gem_libdir}
 %{gem_instdir}/locales
 %{gem_instdir}/man
