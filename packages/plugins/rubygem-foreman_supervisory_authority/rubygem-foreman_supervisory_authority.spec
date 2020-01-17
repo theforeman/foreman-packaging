@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
 Group: Applications/Systems
 License: GPLv3+
@@ -91,11 +91,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-2
+- Drop posttrans macros
+
 * Thu Aug 29 2019 Timo Goebel <mail@timogoebel.name> - 0.0.2-1
 - Update foreman_supervisory_authority to 0.0.2
 

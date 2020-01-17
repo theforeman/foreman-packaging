@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds ability to upload hosts managed in Foreman to Red Hat cloud inventory
 Group: Applications/Systems
 License: GPLv3
@@ -168,11 +168,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-2
+- Drop posttrans macros
+
 * Wed Nov 27 2019 Shimon Shtein <sshtein@redhat.com> 1.0.1-1
 - Update to 1.0.1-1
 

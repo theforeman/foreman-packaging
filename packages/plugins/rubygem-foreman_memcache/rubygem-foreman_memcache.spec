@@ -9,7 +9,7 @@
 Summary:    Adds memcache integration to foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.1
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_memcache
@@ -89,11 +89,10 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
-%posttrans
-%{foreman_restart}
-exit 0
-
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.1-3
+- Drop posttrans macros
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

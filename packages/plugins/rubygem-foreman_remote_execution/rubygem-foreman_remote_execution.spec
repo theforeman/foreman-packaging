@@ -15,7 +15,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -122,13 +122,6 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/foreman-cockpit.serv
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/cockpit.conf.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/cockpit.conf
 install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example %{buildroot}%{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %post cockpit
 %systemd_post foreman-cockpit.service
 
@@ -175,6 +168,9 @@ exit 0
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.4-2
+- Drop posttrans macros
+
 * Fri Nov 29 2019 Adam Ruzicka <aruzicka@redhat.com> 2.0.4-1
 - Update to 2.0.4
 
