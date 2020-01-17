@@ -7,15 +7,15 @@ Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-xml
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(fog-core)
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.11
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.2-7
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.2-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -33,8 +33,8 @@ Requires:      %{?scl_prefix_ruby}ruby(release)
 Requires:       foreman-debug
 Requires:       %{?scl_prefix_ruby}rubygems
 Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires:       %{?scl_prefix_ror}rubygem(sinatra)
-Requires:       %{?scl_prefix_ror}rubygem(rack) >= 1.1.0
+Requires:       %{?scl_prefix}rubygem(sinatra)
+Requires:       %{?scl_prefix}rubygem(rack) >= 1.1.0
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
 Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
@@ -43,8 +43,8 @@ Requires:       %{?scl_prefix}rubygem(bundler_ext)
 Requires:       %{?scl_prefix}rubygem(rb-inotify)
 Requires:       %{?scl_prefix}rubygem(rsec)
 Requires:       %{?scl_prefix}rubygem(jwt)
-Requires:       %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.0
-Requires:       %{?scl_prefix_ror}rubygem(concurrent-ruby) < 2.0
+Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
+Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       sudo
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.3.develop
+- Update spec to remove the ror scl
+
 * Wed Jan 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.2.develop
 - Update and rebuild into SCL
 

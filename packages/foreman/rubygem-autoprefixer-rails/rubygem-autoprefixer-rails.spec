@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Add vendor prefixes to CSS rules using values from caniuse.com
 Group: Development/Languages
 License: MIT
@@ -15,7 +15,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_ror}rubygem(execjs)
+Requires: %{?scl_prefix}rubygem(execjs)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1.3-5
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.2.1.3-4
 - Rebuild for Rails 5.2 and Ruby 2.5
 

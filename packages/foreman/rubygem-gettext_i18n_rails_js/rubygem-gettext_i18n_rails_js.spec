@@ -6,7 +6,7 @@
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nubis/gettext_i18n_rails_js
@@ -16,7 +16,7 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix}rubygem(gettext) >= 3.0.2
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 0.7.1
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 3.2.0
+Requires: %{?scl_prefix}rubygem(rails) >= 3.2.0
 Requires: %{?scl_prefix}rubygem(po_to_json) >= 1.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.3-6
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 

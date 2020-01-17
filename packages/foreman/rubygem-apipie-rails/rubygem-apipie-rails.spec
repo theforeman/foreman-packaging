@@ -6,7 +6,7 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.17
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -19,7 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 4.1
+Requires: %{?scl_prefix}rubygem(rails) >= 4.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.17-2
+- Update spec to remove the ror scl
+
 * Wed Jan 15 2020 Oleh Fedorenko <ofedoren@redhat.com> 0.5.17-1
 - Update to 0.5.17
 

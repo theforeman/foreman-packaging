@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -57,7 +57,7 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
+Requires: %{?scl_prefix}rubygem(rails) = 5.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -92,8 +92,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
-Requires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
-Requires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
+Requires: %{?scl_prefix}rubygem(i18n) >= 1.1
+Requires: %{?scl_prefix}rubygem(i18n) < 2.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
@@ -103,10 +103,10 @@ Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 Requires: %{?scl_prefix}rubygem(net-ping)
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
-Requires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
-Requires: %{?scl_prefix_ror}rubygem(sprockets) < 4.0
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
+Requires: %{?scl_prefix}rubygem(sprockets) >= 3
+Requires: %{?scl_prefix}rubygem(sprockets) < 4.0
+Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
+Requires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 Requires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 Requires: %{?scl_prefix}rubygem(responders) >= 3.0
@@ -119,8 +119,8 @@ Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
 Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
 Requires: %{?scl_prefix}rubygem(webpack-rails) < 0.10.0
-Requires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
-Requires: %{?scl_prefix_ror}rubygem(mail) < 3.0
+Requires: %{?scl_prefix}rubygem(mail) >= 2.7
+Requires: %{?scl_prefix}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
@@ -156,12 +156,12 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 # start specfile sqlite BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
-BuildRequires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
+BuildRequires: %{?scl_prefix}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) = 5.2.1
+BuildRequires: %{?scl_prefix}rubygem(rails) = 5.2.1
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -196,8 +196,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
-BuildRequires: %{?scl_prefix_ror}rubygem(i18n) >= 1.1
-BuildRequires: %{?scl_prefix_ror}rubygem(i18n) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(i18n) >= 1.1
+BuildRequires: %{?scl_prefix}rubygem(i18n) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(logging) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(fog-core) = 2.1.0
@@ -207,10 +207,10 @@ BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 BuildRequires: %{?scl_prefix}rubygem(net-ping)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) >= 3
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets) < 4.0
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) >= 3.0
-BuildRequires: %{?scl_prefix_ror}rubygem(sprockets-rails) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(sprockets) >= 3
+BuildRequires: %{?scl_prefix}rubygem(sprockets) < 4.0
+BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
+BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 3.0
@@ -223,8 +223,8 @@ BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) < 0.10.0
-BuildRequires: %{?scl_prefix_ror}rubygem(mail) >= 2.7
-BuildRequires: %{?scl_prefix_ror}rubygem(mail) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(mail) >= 2.7
+BuildRequires: %{?scl_prefix}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
@@ -307,13 +307,13 @@ BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
-BuildRequires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
-BuildRequires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
-BuildRequires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
-BuildRequires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
-BuildRequires: %{?scl_prefix_ror}rubygem(coffee-rails) >= 4.2.2
-BuildRequires: %{?scl_prefix_ror}rubygem(coffee-rails) < 4.3.0
+BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
+BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
+BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -516,13 +516,13 @@ Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
-Requires: %{?scl_prefix_ror}rubygem(execjs) >= 1.4.0
-Requires: %{?scl_prefix_ror}rubygem(execjs) < 3.0
-Requires: %{?scl_prefix_ror}rubygem(uglifier) >= 1.0.3
-Requires: %{?scl_prefix_ror}rubygem(sass-rails) >= 5.0
-Requires: %{?scl_prefix_ror}rubygem(sass-rails) < 6.0
-Requires: %{?scl_prefix_ror}rubygem(coffee-rails) >= 4.2.2
-Requires: %{?scl_prefix_ror}rubygem(coffee-rails) < 4.3.0
+Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
+Requires: %{?scl_prefix}rubygem(execjs) < 3.0
+Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
+Requires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
+Requires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+Requires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
+Requires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets Requires
 
 %description assets
@@ -592,8 +592,8 @@ Meta Package to install requirements for postgresql support
 Summary: Foreman sqlite support
 Group:  Applications/System
 # start specfile sqlite Requires
-Requires: %{?scl_prefix_ror}rubygem(sqlite3) >= 1.3.6
-Requires: %{?scl_prefix_ror}rubygem(sqlite3) < 1.4.0
+Requires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
+Requires: %{?scl_prefix}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -883,7 +883,7 @@ pushd ./%%{%{name}_dir} \\
 ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules \\
 sed -i 's/:locations_enabled: false/:locations_enabled: true/' \`pwd\`/config/settings.yaml \\
 sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' \`pwd\`/config/settings.yaml \\
-export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl_ror} -- }ruby -e "print Gem.path.join(':')"\`} \\
+export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl} -- }ruby -e "print Gem.path.join(':')"\`} \\
 unlink tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
@@ -1001,6 +1001,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.6.develop
+- Update spec to remove the ror scl
+
 * Tue Jan 21 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.0.0-0.5.develop
 - drop dynflowd service and leave only dynflow-sidekiq
 

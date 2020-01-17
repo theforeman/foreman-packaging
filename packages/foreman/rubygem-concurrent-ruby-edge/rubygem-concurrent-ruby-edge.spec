@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,8 +16,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) >= 1.1.1
-Requires: %{?scl_prefix_ror}rubygem(concurrent-ruby) < 1.2.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.2.0
 
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:0.4.1-2
+- Update spec to remove the ror scl
+
 * Fri Jan 04 2019 Ivan Nečas <inecas@redhat.com> 1:0.4.1-1
 - Update to 0.4.1
 
