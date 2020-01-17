@@ -143,6 +143,7 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-foreman-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+    rubygem-hiera: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hocon: {}

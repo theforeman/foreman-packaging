@@ -233,6 +233,7 @@ whitelist = foreman
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
   rubygem-hashie
+  rubygem-hiera
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
