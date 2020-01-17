@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Parse OpenSCAP content
 Group: Development/Languages
 License: MIT
@@ -17,8 +17,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.6
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.6
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -96,6 +96,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/openscap_parser.gemspec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-3
+- Update spec to remove the ror scl
+
 * Wed Jan 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
 - Rebuild into SCL
 

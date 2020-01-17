@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A Ruby interface to Nmap
 Group: Development/Languages
 License: MIT
@@ -18,8 +18,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 2.0.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.3
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.3
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2
 Requires: %{?scl_prefix}rubygem(rprogram) >= 0.3
 Requires: %{?scl_prefix}rubygem(rprogram) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.3-3
+- Update spec to remove the ror scl
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.9.3-2
 - Build for SCL
 

@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.0.2
-Release:   4%{?dist}
+Release:   5%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -22,11 +22,11 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
-Requires:  %{?scl_prefix_ror}rubygem(railties) >= 4.2
-Requires:  %{?scl_prefix_ror}rubygem(railties) < 6
-Requires:  %{?scl_prefix_ror}rubygem(sprockets) >= 3.0
-Requires:  %{?scl_prefix_ror}rubygem(sprockets) < 5
-Requires:  %{?scl_prefix_ror}rubygem(tilt)
+Requires:  %{?scl_prefix}rubygem(railties) >= 4.2
+Requires:  %{?scl_prefix}rubygem(railties) < 6
+Requires:  %{?scl_prefix}rubygem(sprockets) >= 3.0
+Requires:  %{?scl_prefix}rubygem(sprockets) < 5
+Requires:  %{?scl_prefix}rubygem(tilt)
 Requires:  %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.0.2-5
+- Update spec to remove the ror scl
+
 * Mon Oct 01 2018 Ivan Necas <inecas@gmail.com> - 1.0.2-4
 - Add patch to enable running in FIPS mode
 

@@ -22,7 +22,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.1
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -46,8 +46,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix_ror}rubygem(rack) >= 1.1
-Requires: %{?scl_prefix_ror}rubygem(sinatra)
+Requires: %{?scl_prefix}rubygem(rack) >= 1.1
+Requires: %{?scl_prefix}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(logging)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -163,6 +163,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.1-4
+- Update spec to remove the ror scl
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.1.1-3
 - Build for SCL
 

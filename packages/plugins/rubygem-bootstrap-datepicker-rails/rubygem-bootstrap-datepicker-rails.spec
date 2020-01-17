@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.1.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A date picker for Twitter Bootstrap
 Group: Development/Languages
 License: MIT
@@ -13,7 +13,7 @@ URL: https://github.com/Nerian/bootstrap-datepicker-rails
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(railties) >= 3.0
+Requires: %{?scl_prefix}rubygem(railties) >= 3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.1.1-3
+- Update spec to remove the ror scl
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.7.1.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

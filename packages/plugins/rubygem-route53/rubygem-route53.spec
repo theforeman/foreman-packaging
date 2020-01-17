@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Library for Amazon's Route 53 service
 Group: Development/Languages
 License: GPLv3
@@ -18,8 +18,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(ruby-hmac)
-Requires: %{?scl_prefix_ror}rubygem(nokogiri)
-Requires: %{?scl_prefix_ror}rubygem(builder)
+Requires: %{?scl_prefix}rubygem(nokogiri)
+Requires: %{?scl_prefix}rubygem(builder)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
@@ -97,6 +97,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.0-4
+- Update spec to remove the ror scl
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-3
 - Build for SCL
 
