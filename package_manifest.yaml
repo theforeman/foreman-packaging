@@ -195,6 +195,7 @@ foreman_scl_packages:
     rubygem-promise.rb: {}
     rubygem-public_suffix: {}
     rubygem-puma: {}
+    rubygem-puppet: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
     rubygem-rack: {}
