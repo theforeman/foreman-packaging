@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby interface to the VMware vSphere API
 Group: Development/Languages
 License: MIT
@@ -18,11 +18,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(builder) >= 3.0
-Requires: %{?scl_prefix_ror}rubygem(builder) < 4
+Requires: %{?scl_prefix}rubygem(builder) >= 3.0
+Requires: %{?scl_prefix}rubygem(builder) < 4
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.8
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2
 Requires: %{?scl_prefix}rubygem(optimist) >= 3.0
 Requires: %{?scl_prefix}rubygem(optimist) < 4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -94,6 +94,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-2
+- Update spec to remove the ror scl
+
 * Wed Aug 21 2019 Evgeni Golov 2.2.0-1
 - Update to 2.2.0-1
 

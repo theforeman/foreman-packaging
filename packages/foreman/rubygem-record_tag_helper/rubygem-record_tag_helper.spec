@@ -6,7 +6,7 @@
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: ActionView Record Tag Helpers
 Group:   Development/Languages
 License: MIT
@@ -15,7 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ror}rubygem(actionview)
+Requires: %{?scl_prefix}rubygem(actionview)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
+- Update spec to remove the ror scl
+
 * Thu Dec 12 2019 Tomer Brisker <tbrisker@gmail.com> 1.0.1-1
 - Update to 1.0.1
 

@@ -7,14 +7,14 @@ Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/abenari/rbovirt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-Requires: %{?scl_prefix_ror}rubygem-nokogiri
+Requires: %{?scl_prefix}rubygem-nokogiri
 
 Requires: %{?scl_prefix}rubygem-rest-client > 1.7.0
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.7-3
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

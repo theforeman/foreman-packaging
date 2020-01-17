@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 Group: Development/Languages
 License: MIT
@@ -15,8 +15,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(css_parser) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(css_parser) < 2.0.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) >= 1.5.0
-Requires: %{?scl_prefix_ror}rubygem(nokogiri) < 2.0.0
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.0
+Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.0-2
+- Update spec to remove the ror scl
+
 * Fri Feb 15 2019 Michael Moll <mmoll@mmoll.at> - 3.4.0-1
 - Bump rubygem-roadie to 3.4.0
 

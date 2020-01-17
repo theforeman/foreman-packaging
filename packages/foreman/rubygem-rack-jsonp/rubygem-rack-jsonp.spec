@@ -6,7 +6,7 @@
 Summary: A Rack middleware for providing JSON-P support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.1
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/crohr/rack-jsonp
@@ -15,7 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ror}rubygem(rack)
+Requires: %{?scl_prefix}rubygem(rack)
 
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.1-8
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.1-7
 - Rebuild for Rails 5.2 and Ruby 2.5
 

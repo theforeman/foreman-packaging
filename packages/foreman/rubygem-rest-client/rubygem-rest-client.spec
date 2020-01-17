@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple HTTP and REST client for Ruby, inspired by microframework syntax for specifying actions
 Group: Development/Languages
 License: MIT
@@ -20,8 +20,8 @@ Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(http-cookie) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(http-cookie) < 2.0
-Requires: %{?scl_prefix_ror}rubygem(mime-types) >= 1.16
-Requires: %{?scl_prefix_ror}rubygem(mime-types) < 4.0
+Requires: %{?scl_prefix}rubygem(mime-types) >= 1.16
+Requires: %{?scl_prefix}rubygem(mime-types) < 4.0
 Requires: %{?scl_prefix}rubygem(netrc) >= 0.8
 Requires: %{?scl_prefix}rubygem(netrc) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -104,6 +104,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.2-2
+- Update spec to remove the ror scl
+
 * Fri Apr 26 2019 Evgeni Golov 2.0.2-1
 - Update to 2.0.2-1
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.37.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
@@ -18,8 +18,8 @@ Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.3.7
 Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.4.0
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2
 Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.7.0
-Requires: %{?scl_prefix_ror}rubygem(sass) >= 3.4.15
-Requires: %{?scl_prefix_ror}rubygem(sass) < 3.5.0
+Requires: %{?scl_prefix}rubygem(sass) >= 3.4.15
+Requires: %{?scl_prefix}rubygem(sass) < 3.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.37.0-3
+- Update spec to remove the ror scl
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.37.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
