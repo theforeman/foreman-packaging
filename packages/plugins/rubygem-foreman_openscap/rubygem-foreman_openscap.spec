@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
 License: GPLv3
@@ -31,7 +31,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem(scaptimony) < 0.3.2-3
+Obsoletes: %{?scl_prefix}rubygem-scaptimony < 0.3.2-3
 
 %description
 Foreman plug-in for managing security compliance reports.
@@ -106,6 +106,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Jan 20 2020 Patrick Creech <pcreech@redhat.com> - 2.0.2-2
+- rpm no longer likes "(" and ")" in obsoletes
+
 * Fri Jan 17 2020 Ondrej Prazak <oprazak@redhat.com> 2.0.2-1
 - Update to 2.0.2
 
