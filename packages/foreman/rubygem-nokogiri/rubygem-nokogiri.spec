@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 Group: Development/Languages
 License: MIT
@@ -72,7 +72,8 @@ cp -a .%{gem_dir}/* \
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
+
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
@@ -122,6 +123,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 20 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.8.4-4
+- Bump to fix issue with nokogiri.so placement
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 1.8.4-3
 - Bump for moving over to foreman-packaging
 
