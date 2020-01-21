@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -24,13 +24,11 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
 Requires: %{?scl_prefix_ror}rubygem(rails) < 6
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
 BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -108,6 +106,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.0-4
+- Update foreman-tasks version requirement
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-3
 - Drop posttrans macros
 
