@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    13.2.0
+Version:    13.2.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -22,14 +22,12 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 2.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -115,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jan 21 2020 Bernhard Suttner <suttner@atix.de> 13.2.1-1
+- Update to 13.2.1
+
 * Tue Nov 19 2019 Bernhard Suttner <suttner@atix.de> 13.2.0-1
 - Update to 13.2.0
 
