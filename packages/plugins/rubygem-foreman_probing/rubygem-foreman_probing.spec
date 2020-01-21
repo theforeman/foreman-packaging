@@ -8,8 +8,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
-Release: 2%{?foremandist}%{?dist}
+Version: 0.0.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for detecting network devices
 Group: Applications/Systems
 License: GPLv3
@@ -23,13 +23,11 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.9
-Requires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0
 Requires: %{?scl_prefix}rubygem(dynflow) < 2
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.9
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 1
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -102,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 21 2020 Adam Ruzicka <aruzicka@redhat.com> 0.0.3-1
+- Update to 0.0.3
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-2
 - Drop migrate, seed and restart posttans
 
