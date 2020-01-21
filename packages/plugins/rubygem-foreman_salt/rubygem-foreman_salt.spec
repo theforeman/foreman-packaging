@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    13.2.1
+Version:    13.2.2
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -113,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jan 21 2020 Bernhard Suttner <suttner@atix.de> 13.2.2-1
+- Update to 13.2.2
+
 * Tue Jan 21 2020 Bernhard Suttner <suttner@atix.de> 13.2.1-1
 - Update to 13.2.1
 
