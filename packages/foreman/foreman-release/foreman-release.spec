@@ -16,7 +16,7 @@
 %global release 1
 
 Name:     foreman-release
-Version:  1.24.1
+Version:  1.24.2
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -114,6 +114,9 @@ install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Tue Jan 21 2020 Patrick Creech <pcreech@redhat.com> - 1.24.2-1
+- Release foreman-release 1.24.2
+
 * Thu Jan 09 2020 Patrick Creech <pcreech@redhat.com> - 1.24.1-1
 - Release foreman-release 1.24.1
 
