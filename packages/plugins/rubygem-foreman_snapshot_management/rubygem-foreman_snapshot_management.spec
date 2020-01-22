@@ -7,8 +7,8 @@
 %global foreman_min_version 1.20.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.7.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
 License: GPLv3
@@ -20,9 +20,7 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(deface)
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -95,6 +93,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jan 22 2020 Matthias Dellweg <dellweg@atix.de> 1.7.0-1
+- Update to 1.7.0
+- Remove dependency on deface
+- Update translations
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.6.0-2
 - Drop posttrans macros
 
