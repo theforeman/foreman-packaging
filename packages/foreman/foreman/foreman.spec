@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -531,6 +531,7 @@ Meta package to install asset pipeline support.
 %files assets
 %{_datadir}/%{name}/bundler.d/assets.rb
 %{_datadir}/%{name}/webpack
+%{_datadir}/%{name}/.babelrc.js
 
 %package plugin
 Summary: Foreman plugin support
@@ -773,7 +774,7 @@ sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sideki
 sed -i '/^ExecStart/ s|/usr/bin/rails \(.\+\)$|/usr/bin/scl enable tfm "rails \1"|' %{buildroot}%{_unitdir}/%{name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
-cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack %{buildroot}%{_datadir}/%{name}
+cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_datadir}/%{name}/extras/{jumpstart,spec}
 find %{buildroot}%{_datadir}/%{name}/script/%{name}-tail.d/* -type d |xargs rm -rf
 
@@ -1001,6 +1002,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jan 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.7.develop
+- Include .babelrc.js in foreman-assets
+
 * Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.6.develop
 - Update spec to remove the ror scl
 
