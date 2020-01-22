@@ -6,7 +6,7 @@
 %global gem_name kafo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
+Version: 4.0.1
 Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Jan 22 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.1-1
+- Update to 4.0.1
+
 * Thu Oct 17 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.0.0-1
 - Update to 4.0.0
 
