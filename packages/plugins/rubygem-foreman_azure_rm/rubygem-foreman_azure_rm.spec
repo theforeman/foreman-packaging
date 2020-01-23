@@ -7,8 +7,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.5
-Release: 2%{?foremandist}%{?dist}
+Version: 2.0.6
+Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jan 23 2020 Aditi Puntambekar <apuntamb@redhat.com> 2.0.6-1
+- Update to 2.0.6
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.5-2
 - Drop posttrans macros
 
