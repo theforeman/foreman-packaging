@@ -84,7 +84,7 @@ add_to_tito_props() {
 
 add_pypi_to_comps() {
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $TITO_TAG == katello-*-pulpcore-* ]]; then
+  if [[ $TITO_TAG == katello-pulpcore-* ]]; then
     local comps_file="katello-pulpcore"
     local comps_scl=""
   elif [[ $TITO_TAG == katello-* ]]; then
@@ -109,7 +109,7 @@ add_pypi_to_manifest() {
 		local section="plugin_nonscl_packages"
 	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
 		local section="katello_packages"
-	elif [[ $TITO_TAG == "katello-pulpcore-pulpcore-el7" ]] ; then
+	elif [[ $TITO_TAG == "katello-pulpcore-nightly-el7" ]] ; then
 		local section="pulpcore_packages"
 	else
 		# TODO: client packages
