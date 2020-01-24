@@ -81,6 +81,7 @@
       <packagereq type="default">tfm-rubygem-foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_concrete</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_default_hostgroup</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_dhcp_browser</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_digitalocean</packagereq>
@@ -235,6 +236,7 @@
       <packagereq type="default">tfm-rubygem-foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_column_view-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_concrete-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_dhcp_browser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_digitalocean-doc</packagereq>
