@@ -383,6 +383,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
+  rubygem-foreman_concrete
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
   rubygem-foreman_digitalocean
