@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments
 Group: Development/Languages
 License: MIT
@@ -26,6 +26,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.2.2
 
 %description
 Loofah is a general library for manipulating and transforming HTML/XML
@@ -97,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-4
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.2.2-3
 - Bump for moving over to foreman-packaging
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Dom and Selector assertions for Rails applications
 Group: Development/Languages
 License: MIT
@@ -25,6 +25,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.0.3
 
 %description
 This gem can compare doms and assert certain elements exists in doms using
@@ -81,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.3-5
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 2.0.3-4
 - Bump for moving over to foreman-packaging
 

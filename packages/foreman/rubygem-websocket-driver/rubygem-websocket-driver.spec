@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 Group: Development/Languages
 License: MIT
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.7.0
 
 %description
 WebSocket protocol handler with pluggable I/O.
@@ -86,6 +88,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-3
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.7.0-2
 - Bump for moving over to foreman-packaging
 

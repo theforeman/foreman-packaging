@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: CoffeeScript adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-3
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 4.2.2-2
 - Bump for moving over to foreman-packaging
 

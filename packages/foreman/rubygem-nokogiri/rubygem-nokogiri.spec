@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.4
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 Group: Development/Languages
 License: MIT
@@ -15,17 +15,19 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.1.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.3.0
 Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.1.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem-mini_portile2
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.8.4
 
 %description
 Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser.  Among
@@ -123,6 +125,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.8.4-6
+- Bump to Obsolete the ror_52 version of Nokogiri
+
 * Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.8.4-5
 - Bump to fix issue with nokogiri.so placement
 

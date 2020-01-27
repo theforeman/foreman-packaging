@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.20.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/thor.gemspec
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.20.0-5
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.20.0-4
 - Bump for moving over to foreman-packaging
 

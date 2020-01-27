@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -33,6 +33,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 %description
 Simple, battle-tested conventions and helpers for building web pages.
@@ -88,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Wed Feb 05 2020  Zach Huntington-Meath <zhunting@redhat.com> 5.2.1-3
+- Obsolete the ror-52 version of this package
+
 * Wed Jan 08 2020  Zach Huntington-Meath <zhunting@redhat.com> 5.2.1-2
 - Move from rails-packaging into foreman-packaging
 

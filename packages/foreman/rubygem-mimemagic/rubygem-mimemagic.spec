@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Fast mime detection by extension or content
 Group: Development/Languages
 License: MIT
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.3.2
 
 %description
 Fast mime detection by extension or content in pure ruby (Uses
@@ -86,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.2-3
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.3.2-2
 - Bump for moving over to foreman-packaging
 

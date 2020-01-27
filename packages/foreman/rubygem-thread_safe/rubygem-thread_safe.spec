@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Thread-safe collections and utilities for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/thread_safe.gemspec
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.6-3
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.3.6-2
 - Bump for moving over to foreman-packaging
 

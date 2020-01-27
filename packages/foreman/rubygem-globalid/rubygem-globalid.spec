@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Refer to any model with a URI: gid://app/class/id
 Group: Development/Languages
 License: MIT
@@ -24,6 +24,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.4.1
 
 %description
 URIs for your models makes it easy to pass references around.
@@ -78,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-5
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 0.4.1-4
 - Bump for moving over to foreman-packaging
 
