@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.13
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
 Group: Development/Languages
 License: BSD-3
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
 BuildRequires: sqlite-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.3.13
 
 %description
 This module allows Ruby programs to interface with the SQLite3
@@ -99,6 +101,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.13-4
+- Update spec to include Obsoletes of rails-packaging version
+
 * Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.3.13-3
 - Bump to move the .so file to the proper place
 

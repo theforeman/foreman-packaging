@@ -57,9 +57,7 @@ foreman_scl_packages:
     rubygem-activestorage: {}
     rubygem-actionpack: {}
     rubygem-actionview: {}
-    rubygem-activepack: {}
     rubygem-activesupport: {}
-    rubygem-activeview: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
     rubygem-ancestry: {}

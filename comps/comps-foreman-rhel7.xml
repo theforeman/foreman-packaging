@@ -151,7 +151,6 @@
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage</packagereq>
       <packagereq type="default">tfm-rubygem-activesupport</packagereq>
-      <packagereq type="default">tfm-rubygem-activeview</packagereq>
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
@@ -417,7 +416,6 @@
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activesupport-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-activeview-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>

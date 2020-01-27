@@ -6,7 +6,7 @@
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -29,6 +29,8 @@ BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.1.4
 
 %description
 Modern concurrency tools including agents, futures,
@@ -78,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.4-4
+- Update spec to include Obsoletes of rails-packaging version
+
 * Wed Jan 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.4-3
 - Bump for moving from rails-packaging to foreman-packging
 

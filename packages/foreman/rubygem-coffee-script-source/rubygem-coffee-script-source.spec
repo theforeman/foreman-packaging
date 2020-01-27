@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.12.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: The CoffeeScript Compiler
 Group: Development/Languages
 License: MIT
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.12.2
 
 %description
 CoffeeScript is a little language that compiles into JavaScript.
@@ -80,6 +82,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.12.2-3
+- Update spec to include Obsoletes of rails-packaging version
+
 * Thu Dec 19 2019 Zach Huntington-Meath <zhunting@redhat.com> 1.12.2-2
 - Bump for moving over to foreman-packaging
 
