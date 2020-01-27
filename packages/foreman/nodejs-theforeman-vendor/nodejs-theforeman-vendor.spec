@@ -4,13 +4,13 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 4.0.2
+Version: 4.0.7
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/theforeman/foreman-js#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Mon Jan 27 2020 Tomer Brisker <tbrisker@gmail.com> 4.0.7-1
+- Update to 4.0.7
+
 * Tue Jan 07 2020 Avi Sharvit <sharvita@gmail.com> 4.0.2-1
 - Update to 4.0.2
 
