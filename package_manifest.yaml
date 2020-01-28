@@ -226,6 +226,8 @@ foreman_scl_packages:
     rubygem-safemode: {}
     rubygem-sass: {}
     rubygem-sass-rails: {}
+    rubygem-sassc: {}
+    rubygem-sassc-rails: {}
     rubygem-scoped_search: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
