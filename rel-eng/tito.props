@@ -310,6 +310,7 @@ whitelist = foreman
   rubygem-safemode
   rubygem-sass
   rubygem-sassc
+  rubygem-sassc-rails
   rubygem-sass-rails
   rubygem-scoped_search
   rubygem-secure_headers
