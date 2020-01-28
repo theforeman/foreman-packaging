@@ -5,7 +5,7 @@
 
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.0
+Version: 6.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: ASL 2.0
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jan 28 2020 Michael Moll <mmoll@mmoll.at> 6.3.0-1
+- Update secure_headers to 6.3.0
+
 * Mon Sep 10 2018 Michael Moll <mmoll@mmoll.at> 6.0.0-1
 - Update secure_headers to 6.0.0
 
