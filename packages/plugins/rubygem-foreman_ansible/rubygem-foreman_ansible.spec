@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -129,6 +129,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 28 2020 Tomer Brisker <tbrisker@gmail.com> - 5.0.0-3
+- rebuild for webpack change
+
 * Wed Jan 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-2
 - Drop migrate, seed and restart posttans
 
