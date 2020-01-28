@@ -626,6 +626,7 @@ whitelist =
   python-multidict
   python-packaging
   python-psycopg2
+  python-pulp-2to3-migration
   python-pulp-container
   python-pulpcore
   python-pulp-file
