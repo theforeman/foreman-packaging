@@ -616,6 +616,7 @@ whitelist =
   python-gunicorn
   python-idna
   python-idna-ssl
+  python-importlib-metadata
   python-inflection
   python-itypes
   python-jinja2
