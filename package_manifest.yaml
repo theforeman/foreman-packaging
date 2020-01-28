@@ -1112,3 +1112,4 @@ pulpcore_packages:
     python-urllib3: {}
     python-whitenoise: {}
     python-yarl: {}
+    python-zipp: {}
