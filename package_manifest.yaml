@@ -1078,6 +1078,7 @@ pulpcore_packages:
     python-inflection: {}
     python-itypes: {}
     python-jinja2: {}
+    python-jsonschema: {}
     python-markupsafe: {}
     python-multidict: {}
     python-packaging: {}
