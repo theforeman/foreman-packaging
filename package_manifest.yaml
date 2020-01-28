@@ -1080,6 +1080,7 @@ pulpcore_packages:
     python-jinja2: {}
     python-jsonschema: {}
     python-markupsafe: {}
+    python-mongoengine: {}
     python-multidict: {}
     python-packaging: {}
     python-psycopg2: {}
