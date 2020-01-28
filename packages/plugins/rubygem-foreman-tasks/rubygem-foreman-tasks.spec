@@ -11,7 +11,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -159,6 +159,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Tue Jan 28 2020 Tomer Brisker <tbrisker@gmail.com> - 1.0.1-3
+- rebuild for webpack change
+
 * Tue Jan 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
 - Update spec to remove the ror scl
 
