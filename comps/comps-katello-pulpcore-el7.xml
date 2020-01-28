@@ -57,13 +57,17 @@
       <packagereq type="default">python3-gunicorn</packagereq>
       <packagereq type="default">python3-idna</packagereq>
       <packagereq type="default">python3-idna-ssl</packagereq>
+      <packagereq type="default">python3-importlib-metadata</packagereq>
       <packagereq type="default">python3-inflection</packagereq>
       <packagereq type="default">python3-itypes</packagereq>
       <packagereq type="default">python3-jinja2</packagereq>
+      <packagereq type="default">python3-jsonschema</packagereq>
       <packagereq type="default">python3-markupsafe</packagereq>
+      <packagereq type="default">python3-mongoengine</packagereq>
       <packagereq type="default">python3-multidict</packagereq>
       <packagereq type="default">python3-packaging</packagereq>
       <packagereq type="default">python3-psycopg2</packagereq>
+      <packagereq type="default">python3-pulp-2to3-migration</packagereq>
       <packagereq type="default">python3-pulp-container</packagereq>
       <packagereq type="default">python3-pulp-file</packagereq>
       <packagereq type="default">python3-pulpcore</packagereq>
@@ -72,7 +76,9 @@
       <packagereq type="default">python3-pygtrie</packagereq>
       <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyjwt</packagereq>
+      <packagereq type="default">python3-pymongo</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
+      <packagereq type="default">python3-pyrsistent</packagereq>
       <packagereq type="default">python3-pytz</packagereq>
       <packagereq type="default">python3-pyyaml</packagereq>
       <packagereq type="default">python3-redis</packagereq>
@@ -80,6 +86,7 @@
       <packagereq type="default">python3-rq</packagereq>
       <packagereq type="default">python3-ruamel-yaml</packagereq>
       <packagereq type="default">python3-ruamel-yaml-clib</packagereq>
+      <packagereq type="default">python3-semantic-version</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
       <packagereq type="default">python3-six</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>
@@ -89,6 +96,7 @@
       <packagereq type="default">python3-urllib3</packagereq>
       <packagereq type="default">python3-whitenoise</packagereq>
       <packagereq type="default">python3-yarl</packagereq>
+      <packagereq type="default">python3-zipp</packagereq>
     </packagelist>
   </group>
 </comps>
