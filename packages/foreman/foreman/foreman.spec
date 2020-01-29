@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -310,8 +310,8 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets BuildRequires
@@ -519,8 +519,8 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
-Requires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+Requires: %{?scl_prefix}rubygem(sass-rails) >= 6.0
+Requires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
 Requires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets Requires
@@ -1000,6 +1000,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Mar 09 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.1.0-0.4.develop
+- Move from sass to sassc via bump to sass-rails 6.0
+
 * Thu Mar 05 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.3.develop
 - Update Gem and NPM dependencies
 
