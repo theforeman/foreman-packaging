@@ -2,7 +2,7 @@
 %global pypi_name setuptools-scm
 
 Name:           python-%{pypi_name}
-Version:        3.3.3
+Version:        3.4.3
 Release:        1%{?dist}
 Summary:        the blessed package to manage your versions by scm tags
 
@@ -25,6 +25,8 @@ use_scm_version...
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
+
+Requires:       python3-toml
 
 %description -n python3-%{pypi_name}
 setuptools_scm setuptools_scm handles managing your Python package versions in
@@ -52,5 +54,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/setuptools_scm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Jan 29 2020 Evgeni Golov 3.4.3-1
+- Update to 3.4.3
+
 * Fri Nov 15 2019 Evgeni Golov - 3.3.3-1
 - Initial package.
