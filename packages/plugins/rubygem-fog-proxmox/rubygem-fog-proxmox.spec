@@ -6,7 +6,7 @@
 %global gem_name fog-proxmox
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
+Version: 0.10.0
 Release: 1%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 Group: Development/Languages
@@ -16,7 +16,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-core) >= 2.1
 Requires: %{?scl_prefix}rubygem(fog-core) < 3
@@ -25,7 +25,7 @@ Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -110,6 +110,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jan 30 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.10.0-1
+- Update to 0.10.0
+
 * Tue Nov 26 2019 Tristan Robert <tristan.robert.44@gmail.com> 0.9.0-1
 - Update to 0.9.0
 
