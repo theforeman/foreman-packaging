@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -36,7 +36,7 @@ Pulp3 api library for core functionality.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -87,6 +87,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jan 30 2020 Justin Sherrill <jsherril@redhat.com> 1:3.0.0-3
+- Handle epoch -doc requirement
+
 * Thu Jan 30 2020 Justin Sherrill <jsherril@redhat.com> 1:3.0.0-2
 - bump epoch, as rc2 has higher evr
 
