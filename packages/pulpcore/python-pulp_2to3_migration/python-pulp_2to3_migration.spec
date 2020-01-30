@@ -1,7 +1,9 @@
 # Created by pyp2rpm-3.3.3
 %global pypi_name pulp-2to3-migration
 
-Name:           python-%{pypi_name}
+# We use a wrong source RPM name here, as the original one triggers a bug in tito
+# See https://github.com/dgoodwin/tito/pull/333
+Name:           python-pulp_2to3_migration
 Version:        0.0.1b1
 Release:        1%{?dist}
 Summary:        Pulp 2 to Pulp 3 migration tool
