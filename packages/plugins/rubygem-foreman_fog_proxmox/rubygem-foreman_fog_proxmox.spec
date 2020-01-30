@@ -7,8 +7,8 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.9.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -21,11 +21,11 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
+Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.10
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.8
+BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.10
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -113,6 +113,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Thu Jan 30 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.9.4-1
+- Update to 0.9.4
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.9.3-2
 - Drop posttrans macros
 
