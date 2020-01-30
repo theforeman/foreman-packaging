@@ -7,7 +7,8 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
+Epoch: 1
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
 License: GPLv2
@@ -86,6 +87,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jan 30 2020 Justin Sherrill <jsherril@redhat.com> 1:3.0.0-2
+- bump epoch, as rc2 has higher evr
+
 * Mon Jan 06 2020 Justin Sherrill <jsherril@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
