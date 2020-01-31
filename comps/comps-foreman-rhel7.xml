@@ -516,7 +516,6 @@
       <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-mysql2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ping-doc</packagereq>
       <packagereq type="default">tfm-rubygem-netrc-doc</packagereq>
