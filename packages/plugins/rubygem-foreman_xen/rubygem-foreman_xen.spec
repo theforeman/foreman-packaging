@@ -8,7 +8,7 @@
 
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    1.0.0
+Version:    1.0.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Sun Feb 02 2020 Michael Moll <mmoll@mmoll.at> 1.0.1-1
+- Update to 1.0.1
+
 * Sat Jul 06 2019 Michael Moll <mmoll@mmoll.at> 1.0.0-1
 - Update to 1.0.0
 
