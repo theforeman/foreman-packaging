@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An implementation of JSON Schema validation for Python
 
 License:        None
@@ -22,6 +22,7 @@ BuildRequires:  python3-setuptools-scm
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-attrs >= 17.4.0
+Requires:       python3-importlib-metadata
 Requires:       python3-pyrsistent >= 0.14.0
 Requires:       python3-setuptools
 Requires:       python3-six >= 1.11.0
@@ -48,5 +49,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Sun Feb 02 2020 Evgeni Golov - 3.2.0-2
+- correct jsonschema requires
+
 * Tue Jan 28 2020 Evgeni Golov - 3.2.0-1
 - Initial package.
