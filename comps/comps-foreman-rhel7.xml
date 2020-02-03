@@ -322,6 +322,7 @@
       <packagereq type="default">tfm-rubygem-sqlite3</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
+      <packagereq type="default">tfm-rubygem-stomp</packagereq>
       <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-thor</packagereq>
@@ -583,6 +584,7 @@
       <packagereq type="default">tfm-rubygem-sqlite3-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-stomp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe-doc</packagereq>

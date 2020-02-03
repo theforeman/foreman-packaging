@@ -739,6 +739,7 @@ katello_packages:
     rubygem-redhat_access_lib: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
+    rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
 

@@ -574,17 +574,18 @@ whitelist = katello
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
   rubygem-katello
-  rubygem-pulp_ansible_client
-  rubygem-pulpcore_client
-  rubygem-pulp_container_client
-  rubygem-pulp_file_client
   rubygem-pulp_2to3_migration_client
+  rubygem-pulp_ansible_client
+  rubygem-pulp_container_client
+  rubygem-pulpcore_client
+  rubygem-pulp_file_client
   rubygem-pulp_rpm_client
   rubygem-qpid_messaging
   rubygem-redhat_access
   rubygem-redhat_access_lib
   rubygem-robotex
   rubygem-runcible
+  rubygem-stomp
   rubygem-typhoeus
   rubygem-zest
 
