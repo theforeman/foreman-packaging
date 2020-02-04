@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 9
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -244,8 +244,8 @@ BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
 
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 5
-BuildRequires: %{scl}-runtime-assets < 6
+BuildRequires: %{scl}-runtime-assets >= 6
+BuildRequires: %{scl}-runtime-assets < 7
 %else
 BuildRequires: nodejs-packaging
 %endif
@@ -457,8 +457,8 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 5
-Requires: %{scl}-runtime-assets < 6
+Requires: %{scl}-runtime-assets >= 6
+Requires: %{scl}-runtime-assets < 7
 %endif
 Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 
@@ -1002,6 +1002,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.9.develop
+- Update the rest of the tfm-runtime requirements
+
 * Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.8.develop
 - Update tfm-runtime requirement
 
