@@ -25,7 +25,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 10.12%{?dist}
+Release: 10.13%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -84,7 +84,7 @@ Patch206:       rubygem-passenger-4.0.18-sigkill-trap.patch
 Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
 #Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
-Requires: %{?scl_prefix_ror}rubygem(rack)
+Requires: %{?scl_prefix}rubygem(rack)
 Requires: %{?scl_prefix_ruby}rubygem(rake)
 %if 0%{?el6} && 0%{!?scl:1}
 Requires: %{?scl_prefix_ruby}ruby(abi)
@@ -98,11 +98,6 @@ BuildRequires:  libcurl-devel
 BuildRequires:  curl-devel
 %endif
 
-# %if 0%{?rhel} <= 6 && 0%{?fedora} <= 16
-# Requires: rubygem(fastthread) >= 1.0.1
-# BuildRequires:  rubygem(fastthread) >= 1.0.1
-# %endif
-
 BuildRequires: asciidoc
 BuildRequires: boost-devel
 BuildRequires: doxygen
@@ -114,11 +109,11 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.1
-BuildRequires: %{?scl_prefix_ror}rubygem(rack)
+BuildRequires: %{?scl_prefix}rubygem(rack)
 %if %{enable_check}
-BuildRequires: %{?scl_prefix_ror}rubygem(rspec)
+BuildRequires: %{?scl_prefix}rubygem(rspec)
 %endif
-BuildRequires: %{?scl_prefix_ror}rubygem(mime-types)
+BuildRequires: %{?scl_prefix}rubygem(mime-types)
 # BuildRequires: source-highlight
 
 # XXX
@@ -203,10 +198,7 @@ rebuilding this package.
 %patch100 -p1 -b .autofoo
 %patch102 -p1 -b .threadtest
 
-# remove fastthread checking
-# %if 0%{?fedora} >= 17
 %patch104 -p1 -b .fastthread
-# %endif
 
 # fix passenger boost for glibc >= 2.18
 %if 0%{?fedora} >= 20
@@ -226,9 +218,6 @@ rebuilding this package.
 
 # Fix trap setup on Ruby 2.2
 %patch206 -p1 -b .sigkill
-
-# Don't use bundled libev
-# %{__rm} -rf ext/libev
 
 # asciidoc 8.4.x doesn't have an html5 backend
 %{__sed} -i 's/-b html5/-b html4/' build/documentation.rb
@@ -345,8 +334,8 @@ sed -i 's|\$localstatedir|%{_localstatedir}|' \
 
 # # tmpfiles.d
 %if 0%{?rhel} > 6
-  %{__mkdir_p} %{buildroot}%{_prefix}/lib/tmpfiles.d
-  install -m 0644 %{SOURCE2} %{buildroot}%{_prefix}/lib/tmpfiles.d/%{pkg_name}.conf
+  %{__mkdir_p} %{buildroot}%{_prefix}/%{_lib}/tmpfiles.d
+  install -m 0644 %{SOURCE2} %{buildroot}%{_prefix}/%{_lib}/tmpfiles.d/%{pkg_name}.conf
 %endif
 %{__mkdir_p} %{buildroot}%{_localstatedir}/run/%{pkg_name}
 
@@ -416,7 +405,7 @@ rake test --trace ||:
 %{_mandir}/man1/%{gem_name}-*
 %{_mandir}/man8/%{gem_name}-*
 %if 0%{?rhel} > 6
-%{_prefix}/lib/tmpfiles.d/%{pkg_name}.conf
+%{_prefix}/%{_lib}/tmpfiles.d/%{pkg_name}.conf
 %endif
 %dir %{_localstatedir}/run/%{pkg_name}
 %exclude %{gem_instdir}/configure
@@ -453,6 +442,9 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> 4.0.18-10.13
+- Rebuild without ror scl
+
 * Thu Sep 06 2018 Eric D. Helms <ericdhelms@gmail.com>
 - Rebuild for Rails 5.2 and Ruby 2.5
 
