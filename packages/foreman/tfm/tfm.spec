@@ -6,8 +6,6 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%global scl_ror tfm-ror52
-%global scl_prefix_ror %{scl_ror}-
 %global scl_ruby rh-ruby25
 %global scl_prefix_ruby %{scl_ruby}-
 %global scl_nodejs rh-nodejs10
@@ -20,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 5.0
-Release: 11%{?dist}
+Version: 6.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -33,12 +31,9 @@ Source3: nodejs-symlink-deps
 Requires: %{scl_runtime}
 Requires: %{scl_runtime}-assets
 %if 0%{?install_scl}
-Requires: %{scl_ror}
 Requires: %{scl_ruby}
 %endif
 BuildRequires: scl-utils-build help2man
-BuildRequires: %{scl_prefix_ror}scldevel
-BuildRequires: %{scl_prefix_ror}runtime
 BuildRequires: %{scl_prefix_ruby}scldevel
 BuildRequires: %{scl_prefix_ruby}rubygems-devel
 BuildRequires: %{scl_prefix_nodejs}scldevel
@@ -53,7 +48,6 @@ Provides dependencies for Foreman (http://theforeman.org/).
 Summary: Package that handles %scl Software Collection.
 Group: Applications/File
 Requires: scl-utils
-Requires: %{scl_prefix_ror}runtime
 Requires: %{scl_prefix_ruby}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
@@ -142,7 +136,6 @@ Group: Applications/File
 Requires: scl-utils-build
 Requires: %{scl_runtime}
 Requires: %{scl_runtime}-assets
-Requires: %{scl_prefix_ror}scldevel
 Requires: %{scl_prefix_ruby}scldevel
 Requires: %{scl_prefix_nodejs}scldevel
 Requires: %{scl_prefix_nodejs}build
@@ -188,7 +181,7 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 %scl_install
 
 cat >> %{buildroot}%{_scl_scripts}/enable << EOF
-. scl_source enable %{scl_ror}
+. scl_source enable %{scl_ruby}
 if [ -e %{_scl_scripts}/enable_assets ]; then
   . %{_scl_scripts}/enable_assets
 fi
@@ -199,7 +192,7 @@ export LD_LIBRARY_PATH=%{_libdir}\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
 export MANPATH=%{_mandir}:\${MANPATH}
 export CPATH=%{_includedir}\${CPATH:+:\${CPATH}}
 export PKG_CONFIG_PATH=%{_libdir}/pkgconfig\${PKG_CONFIG_PATH:+:\${PKG_CONFIG_PATH}}
-export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ror} -- ruby -e "print Gem.path.join(':')"\`}
+export GEM_PATH=%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`scl enable %{scl_ruby} -- ruby -e "print Gem.path.join(':')"\`}
 export GEM_HOME="%{gem_dir}"
 EOF
 
@@ -253,7 +246,7 @@ source scl_source enable %{scl_name}
 exec rake "\$@"
 EOF
 
-scl enable %{scl_ror} - << \EOF
+scl enable %{scl_ruby} - << \EOF
 # Fake tfm SCL environment.
 GEM_PATH=%{gem_dir}:${GEM_PATH:+${GEM_PATH}}${GEM_PATH:-`ruby -e "print Gem.path.join(':')"`} \
 X_SCLS=%{scl} \
@@ -306,6 +299,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Feb 03 2020 Zach Huntington-Meath - 6.0-1
+- Remove ror_scl from tfm
+
 * Mon Dec 02 2019 Evgeni Golov - 5.0-11
 - Use package names, not provides in Obsoletes
 
