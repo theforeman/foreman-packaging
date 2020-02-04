@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -40,8 +40,8 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 5
-Requires: %{scl}-runtime < 6
+Requires: %{scl}-runtime >= 6
+Requires: %{scl}-runtime < 7
 %endif
 
 Requires: wget
@@ -1002,6 +1002,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.8.develop
+- Update tfm-runtime requirement
+
 * Wed Jan 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.7.develop
 - Include .babelrc.js in foreman-assets
 
