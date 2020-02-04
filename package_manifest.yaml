@@ -189,6 +189,7 @@ foreman_scl_packages:
     rubygem-os: {}
     rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
+    rubygem-passenger: {}
     rubygem-patternfly-sass: {}
     rubygem-pg: {}
     rubygem-po_to_json: {}
@@ -597,7 +598,6 @@ foreman_scl_and_nonscl_packages:
     rubygem-little-plugger: {}
     rubygem-logging: {}
     rubygem-multi_json: {}
-    rubygem-passenger: {}
     rubygem-powerbar: {}
 
 foreman_client_packages:

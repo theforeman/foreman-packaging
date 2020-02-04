@@ -41,7 +41,6 @@ whitelist = foreman-bootloaders-redhat
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
-  rubygem-passenger
   rubygem-powerbar
 
 [foreman-nightly-rhel7]
