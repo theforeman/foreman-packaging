@@ -3,7 +3,7 @@
 %global srcname jinja2
 
 Name:           python-%{srcname}
-Version:        2.10.3
+Version:        2.11.1
 Release:        1%{?dist}
 Summary:        A very fast and expressive template engine
 
@@ -45,5 +45,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Feb 05 2020 Evgeni Golov 2.11.1-1
+- Update to 2.11.1
+
 * Mon Nov 18 2019 Evgeni Golov - 2.10.3-1
 - Initial package.
