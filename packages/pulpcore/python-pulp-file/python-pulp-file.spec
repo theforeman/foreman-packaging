@@ -2,7 +2,7 @@
 %global pypi_name pulp-file
 
 Name:           python-%{pypi_name}
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        File plugin for the Pulp Project
 
@@ -20,8 +20,8 @@ A Pulp plugin to support hosting arbitrary files.
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-pulpcore < 3.1
-Requires:       python3-pulpcore >= 3.0.0
+Requires:       python3-pulpcore < 3.2
+Requires:       python3-pulpcore >= 3.0
 Requires:       python3-setuptools
 
 %description -n python3-%{pypi_name}
@@ -45,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_file-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Feb 05 2020 Evgeni Golov 0.1.1-1
+- Update to 0.1.1
+
 * Fri Dec 13 2019 Evgeni Golov 0.1.0-1
 - Update to 0.1.0
 
