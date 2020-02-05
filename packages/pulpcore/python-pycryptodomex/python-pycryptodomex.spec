@@ -2,7 +2,7 @@
 %global pypi_name pycryptodomex
 
 Name:           python-%{pypi_name}
-Version:        3.9.4
+Version:        3.9.6
 Release:        1%{?dist}
 Summary:        Cryptographic library for Python
 
@@ -35,11 +35,14 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %files -n python3-%{pypi_name}
-%license LICENSE.rst Doc/src/license.rst Doc/ocb/license1.pdf Doc/ocb/license3.pdf Doc/ocb/license2.pdf Doc/LEGAL/copy/LICENSE.orig Doc/LEGAL/copy/LICENSE.python-2.2 Doc/LEGAL/copy/LICENSE.libtom
-%doc README.rst lib/Cryptodome/SelfTest/Hash/test_vectors/keccak/readme.txt lib/Cryptodome/SelfTest/Signature/test_vectors/ECDSA/README.txt lib/Cryptodome/SelfTest/Cipher/test_vectors/TDES/README.txt lib/Cryptodome/SelfTest/Cipher/test_vectors/AES/README.txt Doc/ocb/README.txt
+%license Doc/LEGAL/copy/LICENSE.libtom Doc/LEGAL/copy/LICENSE.orig Doc/LEGAL/copy/LICENSE.python-2.2 Doc/ocb/license1.pdf Doc/ocb/license2.pdf Doc/ocb/license3.pdf Doc/src/license.rst LICENSE.rst
+%doc Doc/ocb/README.txt README.rst lib/Cryptodome/SelfTest/Cipher/test_vectors/AES/README.txt lib/Cryptodome/SelfTest/Cipher/test_vectors/TDES/README.txt lib/Cryptodome/SelfTest/Hash/test_vectors/keccak/readme.txt lib/Cryptodome/SelfTest/Signature/test_vectors/ECDSA/README.txt
 %{python3_sitearch}/Cryptodome
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Feb 05 2020 Evgeni Golov 3.9.6-1
+- Update to 3.9.6
+
 * Tue Nov 19 2019 Evgeni Golov - 3.9.4-1
 - Initial package.
