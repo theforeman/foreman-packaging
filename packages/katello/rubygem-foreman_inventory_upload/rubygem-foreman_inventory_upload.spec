@@ -7,7 +7,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 2.0.4.pre.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds ability to upload hosts managed in Foreman to Red Hat cloud inventory
 Group: Applications/Systems
@@ -19,7 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 Requires: %{?scl_prefix}rubygem(katello)
 Requires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: foreman-assets >= %{foreman_min_version}
@@ -28,78 +28,26 @@ BuildRequires: %{?scl_prefix}rubygem(katello)
 BuildRequires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
-BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
-BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.4
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) >= 6.18.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-syntax-dynamic-import) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.8.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.5.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
-BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(patternfly) >= 3.58.0
-BuildRequires: %{?scl_prefix}npm(patternfly) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
 BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.7
-BuildRequires: %{?scl_prefix}npm(sass-loader) < 7.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-polyfill) >= 6.26.0
-BuildRequires: %{?scl_prefix}npm(babel-polyfill) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(classnames) >= 2.2.5
-BuildRequires: %{?scl_prefix}npm(classnames) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.10
-BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(patternfly-react) >= 2.19.1
-BuildRequires: %{?scl_prefix}npm(patternfly-react) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(prop-types) >= 15.6.0
-BuildRequires: %{?scl_prefix}npm(prop-types) < 16.0.0
-BuildRequires: %{?scl_prefix}npm(react) >= 16.4.0
-BuildRequires: %{?scl_prefix}npm(react) < 17.0.0
-BuildRequires: %{?scl_prefix}npm(react-dom) >= 16.4.0
-BuildRequires: %{?scl_prefix}npm(react-dom) < 17.0.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
 BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.6
-BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(redux) >= 3.6.0
-BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.2.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(reselect) >= 3.0.1
-BuildRequires: %{?scl_prefix}npm(reselect) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(seamless-immutable) >= 7.1.2
-BuildRequires: %{?scl_prefix}npm(seamless-immutable) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(urijs) >= 1.18.10
-BuildRequires: %{?scl_prefix}npm(urijs) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(uuid) >= 3.0.1
-BuildRequires: %{?scl_prefix}npm(uuid) < 4.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -173,6 +121,9 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Feb 06 2020 laviro <1ronlavi@gmail.com> 2.0.4.pre.2-1
+- Update to 2.0.4.pre.2
+
 * Wed Nov 27 2019 Shimon Shtein <sshtein@redhat.com> 1.0.1-1
 - Update to 1.0.1-1
 
