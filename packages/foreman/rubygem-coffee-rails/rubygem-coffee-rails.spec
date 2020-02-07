@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.2
-Release: 3%{?dist}
+Release: 5%{?dist}
 Summary: CoffeeScript adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -25,6 +25,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 4.2.2
 
 %description
 CoffeeScript adapter for the Rails asset pipeline.
@@ -80,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.2.2-5
+- Fix Obsoletes of tfm-ror52
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-3
 - Update spec to include Obsoletes of rails-packaging version
 

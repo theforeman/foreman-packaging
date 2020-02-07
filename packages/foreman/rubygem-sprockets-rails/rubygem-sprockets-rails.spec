@@ -6,14 +6,14 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.1
-Release: 3%{?dist}
+Release: 5%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rails/sprockets-rails
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Obsoletes: tfm-ror52-%{gem_name} <= 3.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 3.2.1
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Feb 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-5
+- Fix Obsoletes of tfm-ror52
+
 * Mon Jan 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.1-3
 - Update spec to remove the ror scl
 
