@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -34,7 +34,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
+Obsoletes: tfm-ror52-rubygem-%{gem_name} < 5.2.2
 
 %description
 Web apps on Rails. Simple, battle-tested conventions for building and testing
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Fri Feb 07 2020 Zach Huntington-Meath <zhunting@redhat.com> 5.2.1-4
+- Bump for obsoleteing ror scl version
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-3
 - Update spec to include Obsoletes of rails-packaging version
 

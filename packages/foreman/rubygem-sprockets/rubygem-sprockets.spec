@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.7.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
 License: MIT
@@ -28,7 +28,7 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 3.7.2
+Obsoletes: tfm-ror52-rubygem-%{gem_name} < 3.7.3
 
 %description
 Sprockets is a Rack-based asset packaging system that concatenates and serves
@@ -92,6 +92,10 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+
+* Fri Feb 07 2020 Zach Huntington-Meath <zhunting@redhat.com> 3.7.2-6
+- Bump for obsoleteing ror scl version
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.2-5
 - Update spec to include Obsoletes of rails-packaging version
 
