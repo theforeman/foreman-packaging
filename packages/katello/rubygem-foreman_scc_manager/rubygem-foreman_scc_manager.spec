@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -24,13 +24,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-Requires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
-Requires: %{?scl_prefix_ror}rubygem(rails) < 6
+Requires: %{?scl_prefix}rubygem(rails) >= 5.1
+Requires: %{?scl_prefix}rubygem(rails) < 6
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) >= 5.1
-BuildRequires: %{?scl_prefix_ror}rubygem(rails) < 6
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 5.1
+BuildRequires: %{?scl_prefix}rubygem(rails) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -106,6 +106,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Feb 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.0-3
+- Update spec to remove missed ror scl
+
 * Wed Jan 22 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.0-2
 - Update spec to remove the ror scl
 
