@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -28,8 +28,6 @@ URL:      https://theforeman.org
 Source0:  foreman.repo
 Source1:  foreman-plugins.repo
 Source2:  foreman.gpg
-Source3:  foreman-rails.repo
-Source4:  foreman-rails.gpg
 Source5:  foreman-client.repo
 Source6:  qpid-copr.repo
 Source7:  subscription-manager-el5.repo
@@ -79,7 +77,6 @@ Defines yum repositories for Foreman clients.
 %install
 install -Dpm0644 %{SOURCE0} %{buildroot}%{repo_dir}/foreman.repo
 install -Dpm0644 %{SOURCE1} %{buildroot}%{repo_dir}/foreman-plugins.repo
-install -Dpm0644 %{SOURCE3} %{buildroot}%{repo_dir}/foreman-rails.repo
 install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 
 %if 0%{?rhel} == 6
@@ -101,21 +98,20 @@ if [[ '%{release}' != *"develop"* ]];then
   sed "s/nightly/${VERSION%.*}/g" -i %{buildroot}%{repo_dir}/*.repo
   sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman.repo
   sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-client.repo
-  sed "s/gpgcheck=0/gpgcheck=1/g" -i %{buildroot}%{repo_dir}/foreman-rails.repo
 fi
 
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-client
-install -Dpm0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %files
 %config %{repo_dir}/foreman.repo
 %config %{repo_dir}/foreman-plugins.repo
-%config %{repo_dir}/foreman-rails.repo
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
-%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman-rails
 
 %changelog
+* Tue Feb 11 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.3.develop
+- Remove foreman-rails repository (#28979)
+
 * Wed Jan 08 2020 Evgeni Golov - 2.0.0-0.2.develop
 - Rebuild for EL8 client repository
 

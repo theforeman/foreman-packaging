@@ -39,7 +39,6 @@ foreman_scl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
-        - el7-foreman-rails-nightly
   hosts:
     foreman:
       releasers:
@@ -480,7 +479,6 @@ foreman_proxy_packages:
         - el7-extras
         - el7-scl
         - el7-foreman-nightly
-        - el7-foreman-rails-nightly
   hosts:
     foreman-proxy:
       releasers:
@@ -517,7 +515,6 @@ foreman_proxy_plugin_packages:
         - el7-extras
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
-        - el7-foreman-rails-nightly
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
@@ -576,7 +573,6 @@ foreman_scl_and_nonscl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
-        - el7-foreman-rails-nightly
   hosts:
     rubygem-clamp: {}
     rubygem-hashie: {}
@@ -670,7 +666,6 @@ katello_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-rails-nightly
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
         - el7-katello-pulp-nightly
@@ -755,7 +750,6 @@ plugin_scl_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-rails-nightly
         - el7-foreman-nightly
   hosts:
     nodejs-babel-plugin-module-resolver:
@@ -915,7 +909,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
     plugins-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
@@ -929,7 +922,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
           - el7-foreman-nightly
     katello-repoclosure-el7:
       repoclosure_target_repos:
@@ -944,7 +936,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
           - el7-foreman-nightly
           - el7-foreman-plugins-nightly
           - el7-katello-pulp-nightly
