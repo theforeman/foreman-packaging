@@ -6,6 +6,7 @@ packages:
     foreman_client_packages: {}
     katello_packages: {}
     pulpcore_packages: {}
+    foreman_release_packages: {}
 
 foreman_packages:
   children:
@@ -38,7 +39,6 @@ foreman_scl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
-        - el7-foreman-rails-nightly
   hosts:
     foreman:
       releasers:
@@ -439,17 +439,6 @@ foreman_nonscl_packages:
         - "jenkins_job=foreman-installer-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
-    foreman-release:
-      diff_package_tags:
-        - foreman-nightly-nonscl-rhel7
-        - foreman-client-nightly-el8
-        - foreman-client-nightly-rhel7
-        - foreman-client-nightly-rhel6
-        - foreman-client-nightly-rhel5
-        - foreman-client-nightly-fedora29
-      releasers:
-        - koji-foreman
-        - koji-foreman-client
     foreman-release-scl: {}
     foreman-selinux:
       releasers:
@@ -490,7 +479,6 @@ foreman_proxy_packages:
         - el7-extras
         - el7-scl
         - el7-foreman-nightly
-        - el7-foreman-rails-nightly
   hosts:
     foreman-proxy:
       releasers:
@@ -527,7 +515,6 @@ foreman_proxy_plugin_packages:
         - el7-extras
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
-        - el7-foreman-rails-nightly
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
@@ -586,7 +573,6 @@ foreman_scl_and_nonscl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
-        - el7-foreman-rails-nightly
   hosts:
     rubygem-clamp: {}
     rubygem-hashie: {}
@@ -680,7 +666,6 @@ katello_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-rails-nightly
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
         - el7-katello-pulp-nightly
@@ -765,7 +750,6 @@ plugin_scl_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-rails-nightly
         - el7-foreman-nightly
   hosts:
     nodejs-babel-plugin-module-resolver:
@@ -925,7 +909,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
     plugins-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
@@ -939,7 +922,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
           - el7-foreman-nightly
     katello-repoclosure-el7:
       repoclosure_target_repos:
@@ -954,7 +936,6 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-rails-nightly
           - el7-foreman-nightly
           - el7-foreman-plugins-nightly
           - el7-katello-pulp-nightly
@@ -1111,3 +1092,66 @@ pulpcore_packages:
     python-whitenoise: {}
     python-yarl: {}
     python-zipp: {}
+
+foreman_release_packages:
+  vars:
+    diff_package_tags:
+      - foreman-nightly-nonscl-rhel7
+      - foreman-client-nightly-el8
+      - foreman-client-nightly-rhel7
+      - foreman-client-nightly-rhel6
+      - foreman-client-nightly-rhel5
+      - foreman-client-nightly-fedora29
+    releasers:
+      - koji-foreman
+      - koji-foreman-client
+    package_base_dir: 'packages/foreman/'
+    repoclosure_config: repoclosure/yum.conf
+    repoclosure_target_repos:
+      el8:
+        - el8-foreman-client-nightly
+      rhel7:
+        - el7-foreman-client-nightly
+      rhel6:
+        - el6-foreman-client-nightly
+      rhel5:
+        - el5-foreman-client-nightly
+      fedora29:
+        - f29-foreman-client-nightly
+    repoclosure_lookaside_repos:
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-6
+        - el7-foreman-nightly
+      rhel6:
+        - el6-base
+        - el6-updates
+        - el6-epel
+        - el6-extras
+        - el6-puppet-6
+        - el6-qpid
+        - el6-subscription-manager
+        - el6-pulp
+      rhel5:
+        - el5-base
+        - el5-updates
+        - el5-epel
+        - el5-extras
+        - el5-puppet-6
+        - el5-subscription-manager
+        - el5-pulp
+      fedora29:
+        - f29-base
+        - f29-updates
+        - f29-puppet-6
+  hosts:
+    foreman-release: {}
