@@ -71,6 +71,7 @@ foreman_scl_packages:
     rubygem-bcrypt: {}
     rubygem-bootstrap-sass: {}
     rubygem-builder: {}
+    rubygem-bundler_ext: {}
     rubygem-coffee-script: {}
     rubygem-coffee-script-source: {}
     rubygem-coffee-rails: {}
@@ -587,7 +588,6 @@ foreman_scl_and_nonscl_packages:
         - el7-scl
         - el7-foreman-rails-nightly
   hosts:
-    rubygem-bundler_ext: {}
     rubygem-clamp: {}
     rubygem-hashie: {}
     rubygem-highline: {}

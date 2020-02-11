@@ -30,7 +30,6 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-puppet-strings
   puppet-agent-rgen
   puppet-agent-yard
-  rubygem-bundler_ext
   rubygem-clamp
   rubygem-foreman_maintain
   rubygem-hashie
