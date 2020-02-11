@@ -12,6 +12,14 @@ module KatelloUtilities
       '/etc/foreman-installer/scenarios.d'
     end
 
+    def hammer_root_config_path
+      '/root/.hammer/cli.modules.d'
+    end
+
+    def hammer_config_path
+      '/etc/hammer/cli.modules.d'
+    end
+
     def last_scenario_yaml
       "#{scenarios_path}/last_scenario.yaml"
     end

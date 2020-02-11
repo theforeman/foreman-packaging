@@ -8,6 +8,8 @@ require "uri"
 require "fileutils"
 require "highline/import"
 require "tempfile"
+require "resolv"
+require "ostruct"
 require_relative "helper.rb"
 
 module KatelloUtilities
@@ -87,27 +89,49 @@ module KatelloUtilities
       # Taken from https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch08s15.html
       hostname_regex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/
       unless hostname_regex === @new_hostname
-        self.fail_with_message("#{@new_hostname} is not a valid fully qualified domain name, please use a valid FQDN and try again. " \
+        self.fail_with_message("#{@new_hostname} is not a valid fully qualified domain name. Please use a valid FQDN and try again. " \
                           "No changes have been made to your system.");
       end
 
       unless @foreman_proxy_content
         STDOUT.puts "\nChecking overall health of server"
-        self.run_cmd("hammer ping", [0], "There is a problem with the server, please check 'hammer ping'")
+        self.run_cmd("hammer ping", [0], "There is a problem with the server; please check 'hammer ping'")
         STDOUT.puts "\nChecking credentials"
-        self.hammer_cmd("capsule list", [0], "There is a problem with the credentials, please retry")
+        self.hammer_cmd("capsule list", [0], "There is a problem with the credentials; please retry")
       end
 
-      if @options[:confirm]
-        response = true
-      else
-        STDOUT.print(self.warning_message)
-        response = agree('Proceed with changing your hostname? [y/n]')
+      if should_update_dns?
+        begin
+          STDOUT.puts "\nAssembling data for DNS update"
+          @new_dns_values = new_dns_values
+        rescue StandardError => e # could not reach the DNS server, or something broke while assembling the data
+          fail_with_message("Error querying local DNS server for #{@old_hostname}. Make sure the 'named' service is running, or re-run with the --skip-dns option.")
+        end
+
+        %w[dns_server zone reverse_zone soa_admin_domain key_file old_fqdn new_fqdn ip new_serial new_reverse_serial].each do |field|
+          next if @new_dns_values[field]
+
+          fail_with_message """
+    Error gathering DNS data: couldn't find value for '#{field}'.
+    Make sure /etc/foreman-installer/scenarios.d/#{@options[:scenario]}-answers.yaml
+    'foreman-proxy' section has values for dns_zone, dns_reverse, and keyfile.
+    Make sure A and SOA records are present for #{@old_hostname}.
+"""
+        end
       end
 
-      unless response
-        self.fail_with_message("Hostname change aborted, no changes have been made to your system")
+      return if @options[:confirm]
+      questions = []
+      questions << dns_skip_warning if @options[:skip_dns]
+      questions << warning
+      questions.each do |q|
+        STDOUT.puts
+        STDOUT.puts q[:message]
+        unless agree(q[:question])
+          self.fail_with_message("Hostname change aborted; no changes have been made to your system")
+        end
       end
+      STDOUT.puts "Precheck passed"
     end
 
     def next_steps_message
@@ -140,14 +164,37 @@ module KatelloUtilities
       end
     end
 
-    def warning_message
-      STDOUT.print("***WARNING*** This script will modify your system. " \
-                   "You will need to re-register any #{@options[:program]} clients registered to this system after script completion.")
+    def warning
+      msg = <<-HEREDOC
+***WARNING*** This script will modify your system.
+You will need to re-register any #{@options[:program]} clients registered to this system after script completion.
+      HEREDOC
       unless @foreman_proxy_content
-        STDOUT.print(" #{ @plural_proxy } will have to be re-registered and reinstalled. If you are using custom certificates, you " \
-                     "will have to run the #{@options[:program]}-installer again with custom certificate options after this script completes.")
+        msg << "#{@plural_proxy} will have to be re-registered and reinstalled. If you are using custom certificates,\n" \
+                     "you will have to run the #{@options[:program]}-installer again with custom certificate options after this script completes.\n"
       end
-      STDOUT.print(" Have you taken the necessary precautions (backups, snapshots, etc...)?\n")
+      msg << " Have you taken the necessary precautions (backups, snapshots, etc...)?\n"
+      {
+        message: msg,
+        question: 'Proceed with changing your hostname? [y/n]'
+      }
+    end
+
+    def dns_skip_warning
+      msg = <<-HEREDOC
+***WARNING*** Since the --skip-dns option was specified, nsupdate will NOT be run and
+DNS records will NOT be created for #{@new_hostname}. You will need to do the following manually:
+
+- Remove the A and NS records for #{@old_hostname}
+- Update the SOA record for #{@new_hostname}
+- Create new A and NS records for #{@new_hostname}
+
+If not done, all hosts will lose connection to #{@options[:scenario]} and discovery may not work.
+      HEREDOC
+      {
+        message: msg,
+        question: 'Proceed without updating DNS? [y/n]'
+      }
     end
 
     def hammer_cmd(cmd, exit_codes=[0], message=nil)
@@ -197,7 +244,7 @@ module KatelloUtilities
         opt.banner = "usage: #{@command_prefix}-change-hostname hostname [options]"
         opt.separator  ""
         opt.separator  "example:"
-        opt.separator  "#{@command_prefix}-change-hostname foo.example.com -u admin -p changeme"
+        opt.separator  "#{@command_prefix}-change-hostname newhost.example.com -u admin -p changeme"
         opt.separator  ""
         opt.separator  "options"
 
@@ -211,6 +258,10 @@ module KatelloUtilities
 
         opt.on("-y", "--assumeyes", "answer yes for all questions") do |confirm|
           @options[:confirm] = confirm
+        end
+
+        opt.on("--skip-dns", "skip updating DNS records even if they are managed by #{@options[:scenario]}") do |skip_dns|
+          @options[:skip_dns] = skip_dns
         end
 
         if @foreman_proxy_content
@@ -239,6 +290,102 @@ module KatelloUtilities
       @opt_parser.parse!
     end
 
+    def dns_managed?
+      @scenario_answers['foreman_proxy']['dns'] &&
+        @scenario_answers['foreman_proxy']['dns_managed']
+    end
+
+    def should_update_dns?
+      dns_managed? && !@options[:skip_dns]
+    end
+
+    def query_dns_server(fqdn, zone, nameserver_ip)
+      query_dns = Resolv::DNS.new(nameserver: [nameserver_ip], search: [zone], ndots: 1)
+      a_record = query_dns.getresource(fqdn, Resolv::DNS::Resource::IN::A)
+      ip = a_record.address.to_s if a_record
+      soa_record = query_dns.getresource(zone, Resolv::DNS::Resource::IN::SOA)
+      serial = soa_record.serial if soa_record
+      {
+        ip: ip,
+        serial: serial
+      }
+    end
+
+    def new_dns_values
+      new_vals = OpenStruct.new
+
+      new_vals.dns_server = @scenario_answers['foreman_proxy']['dns_server']
+      new_vals.zone = @scenario_answers['foreman_proxy']['dns_zone']
+      new_vals.reverse_zone = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten.first
+      new_vals.soa_admin_domain = "root.#{new_vals.zone}"
+      new_vals.key_file = @scenario_answers['foreman_proxy']['keyfile']
+      new_vals.old_fqdn = @old_hostname
+      new_vals.new_fqdn = @new_hostname
+
+      ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
+      new_vals.ip = ip_serial_data[:ip]
+      serial = ip_serial_data[:serial]
+      new_vals.new_serial = serial + 1
+
+      reverse_serial = query_dns_server(@old_hostname, new_vals.reverse_zone, new_vals.dns_server)[:serial]
+      new_vals.new_reverse_serial = reverse_serial + 1
+      run_cmd('rndc thaw')
+
+      new_vals
+    end
+
+    def nsupdate_command(dns_entries, key_file)
+      "echo -e \"#{dns_entries}\" | nsupdate -l -k #{key_file}"
+    end
+
+    def update_dns_records(d)
+      STDOUT.puts 'updating DNS records:'
+      # Use nsupdate to update DNS records
+      # Update SOA record to new hostname; add new A and NS records; delete old A and NS records.
+      # Multi-line strings are not indented because Ruby 2.0 doesn't support <<~ heredocs
+
+      forward_dns_command = <<-HEREDOC
+local #{d.dns_server}
+zone #{d.zone}
+update add #{d.zone} 10800 SOA #{d.new_fqdn} #{d.soa_admin_domain}. #{d.new_serial} 86400 3600 604800 3600
+update add #{d.zone}. 3600 IN NS #{d.new_fqdn}.
+update delete #{d.zone}. IN NS #{d.old_fqdn}
+update delete #{d.old_fqdn} A
+update add #{d.new_fqdn} 86400 A #{d.ip}
+send
+      HEREDOC
+
+      reverse_dns_command = <<-HEREDOC
+local #{d.dns_server}
+zone #{d.reverse_zone}
+update add #{d.reverse_zone} 10800 SOA #{d.new_fqdn} root.#{d.reverse_zone}. #{d.new_reverse_serial} 86400 3600 604800 3600
+update add #{d.reverse_zone} 3600 IN NS #{d.new_fqdn}
+update delete #{d.reverse_zone} IN NS #{d.old_fqdn}
+send
+      HEREDOC
+
+      STDOUT.puts 'forward...'
+      run_cmd nsupdate_command(forward_dns_command, d.key_file)
+      STDOUT.puts 'reverse...'
+      run_cmd nsupdate_command(reverse_dns_command, d.key_file)
+      STDOUT.puts 'updating dynamic zone files...'
+      run_cmd('rndc freeze')
+      run_cmd('rndc thaw')
+      STDOUT.puts 'DNS records updated'
+    end
+
+    def restore_last_scenario_yaml
+      STDOUT.puts 'restoring last_scenario.yaml'
+      if File.exist?(last_scenario_yaml)
+        run_cmd("cp #{temp_last_scenario_yaml.path} #{last_scenario_yaml}")
+      else
+        # if the installer failed early the last_scenario symlink won't exist
+        scenario_path = "#{scenarios_path}/#{@options[:scenario]}.yaml"
+        run_cmd("cp #{temp_last_scenario_yaml.path} #{scenario_path}")
+        File.symlink(scenario_path, last_scenario_yaml)
+      end
+    end
+
     def run
       raise 'Must run as root' unless Process.uid == 0
 
@@ -263,6 +410,23 @@ module KatelloUtilities
 
       self.precheck
 
+      if should_update_dns?
+        update_dns_records(@new_dns_values)
+      end
+
+      STDOUT.puts "updating hostname in /etc/hostname"
+      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/hostname")
+      STDOUT.puts "setting hostname"
+      self.run_cmd("hostnamectl set-hostname #{@new_hostname}")
+
+      # override environment variable (won't be updated until bash login)
+      ENV['HOSTNAME'] = @new_hostname
+
+      STDOUT.puts "checking if hostname was changed"
+      if self.get_hostname != @new_hostname
+        self.fail_with_message("The new hostname was not changed successfully, exiting script")
+      end
+
       unless @foreman_proxy_content
         STDOUT.puts "\nUpdating default #{@proxy}"
         proxy_id = self.get_default_proxy_id
@@ -278,19 +442,6 @@ module KatelloUtilities
           new_path = new_path.to_s
           hammer_cmd("medium update --id #{medium['Id']} --path #{new_path}")
         end
-      end
-
-      STDOUT.puts "updating hostname in /etc/hostname"
-      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/hostname")
-      STDOUT.puts "setting hostname"
-      self.run_cmd("hostnamectl set-hostname #{@new_hostname}")
-
-      # override environment variable (won't be updated until bash login)
-      ENV['HOSTNAME'] = @new_hostname
-
-      STDOUT.puts "checking if hostname was changed"
-      if self.get_hostname != @new_hostname
-        self.fail_with_message("The new hostname was not changed successfully, exiting script")
       end
 
       STDOUT.puts "stopping services"
@@ -345,6 +496,10 @@ module KatelloUtilities
       STDOUT.puts "updating hostname in foreman installer scenarios"
       self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' #{scenarios_path}/*.yaml")
 
+      STDOUT.puts "updating hostname in hammer configuration"
+      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/g' #{hammer_root_config_path}/*.yml")
+      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/g' #{hammer_config_path}/*.yml")
+
       if File.exist?(last_scenario_yaml)
         STDOUT.puts 'backing up last_scenario.yaml'
         temp_last_scenario_yaml = Tempfile.new('last_scenario')
@@ -377,15 +532,7 @@ module KatelloUtilities
       run_cmd(installer, [0], installer_failure_message) do |result, success|
         if temp_last_scenario_yaml && temp_last_scenario_yaml.path
           unless success
-            STDOUT.puts 'restoring last_scenario.yaml'
-            if File.exist?(last_scenario_yaml)
-              run_cmd("cp #{temp_last_scenario_yaml.path} #{last_scenario_yaml}")
-            else
-              # if the installer failed early the last_scenario symlink won't exist
-              scenario_path = "#{scenarios_path}/#{@options[:scenario]}.yaml"
-              run_cmd("cp #{temp_last_scenario_yaml.path} #{scenario_path}")
-              File.symlink(scenario_path, last_scenario_yaml)
-            end
+            restore_last_scenario_yaml
           end
           STDOUT.puts 'cleaning up temporary files'
           temp_last_scenario_yaml.unlink
