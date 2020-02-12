@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
-%global release 6
+%global release 7
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -49,7 +49,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b7.dev01574717759
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.1.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.1.0b1.dev01576187357
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1a1.dev01573066581
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) <= 0.0.1rc1
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jan 29 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.15.0-0.7.pre.master
+- Bump Pulp_2to3_migration version requirement
+
 * Wed Jan 29 2020 Justin Sherrill <jlsherrill@gmail.com> - 3.15.0-0.6.pre.master
 - Restrict pulp client gems
 
