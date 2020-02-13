@@ -6,7 +6,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 2
+%global release 3
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -26,8 +26,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.18.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
@@ -98,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 13 2020 Zach Huntington-Meath - 0.21-0.3.pre.master
+- Remove hammer_cli_foreman version requirement
+
 * Mon Nov 18 2019 Evgeni Golov - 0.21-0.2.pre.master
 - Unify prerelease macro handling
 
