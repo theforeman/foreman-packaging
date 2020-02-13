@@ -6,12 +6,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        2.0.0
+Version:        2.1.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.develop
+- Bump version to 2.1-develop
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.3.develop
 - Update spec to remove the ror scl
 

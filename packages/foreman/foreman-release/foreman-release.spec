@@ -13,12 +13,12 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  2.0.0
+Version:  2.1.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.develop
+- Bump version to 2.1-develop
+
 * Tue Feb 11 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.3.develop
 - Remove foreman-rails repository (#28979)
 
