@@ -13,7 +13,6 @@
 
 build:
 	cp config/cli_config.template.yml config/cli_config.yml
-	cp hammer_cli_complete debian/ruby-hammer-cli.bash-completion
 
 %:
 	dh $@ --buildsystem=ruby --with ruby,bash-completion
