@@ -4,10 +4,10 @@ If your package needs to be released within one or more release streams, and/or 
 Supported Versions:
 
  * Nightly
+ * 2.0
  * 1.24
  * 1.23
- * 1.22
-
+ 
 RPM Example:
 
     git checkout -b rpm/develop-foreman-tasks-1.0.1 rpm/develop
