@@ -5,8 +5,6 @@
 %global confdir hammer
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
@@ -103,6 +101,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-1
+- Release 2.0.0
+
 * Sun Feb 09 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.pre.develop
 - bump to 2.0-develop
 
