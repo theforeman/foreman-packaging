@@ -27,7 +27,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        2.0.0
+Version:        2.1.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -166,6 +166,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.develop
+- Bump version to 2.1-develop
+
 * Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.develop
 - Bump version to 2.0-develop
 
