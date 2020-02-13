@@ -15,7 +15,7 @@ tag_suffix = .fm2_0
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-2.0-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-installer
@@ -42,7 +42,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-multi_json
   rubygem-powerbar
 
-[foreman-nightly-rhel7]
+[foreman-2.0-rhel7]
 disttag = .el7
 whitelist = foreman
   foreman-proxy
@@ -347,7 +347,7 @@ whitelist = foreman
   tfm
 scl = tfm
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-2.0-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = nodejs-babel-plugin-module-resolver
@@ -495,7 +495,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-2.0-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
@@ -505,7 +505,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-newt
   rubygem-satyr
 
-[foreman-client-nightly-el8]
+[foreman-client-2.0-el8]
 disttag = .el8
 whitelist =
   ansible-collection-theforeman-foreman
@@ -514,27 +514,27 @@ whitelist =
   python-apypie
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel7]
+[foreman-client-2.0-rhel7]
 disttag = .el7
-# don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
+# don't whitelist foreman-release here, it's already in foreman-2.0-nonscl-rhel7
 whitelist =
   ansible-collection-theforeman-foreman
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel6]
+[foreman-client-2.0-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel5]
+[foreman-client-2.0-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora29]
+[foreman-client-2.0-fedora29]
 disttag = .fc29
 whitelist =
   ansible-collection-theforeman-foreman
@@ -543,7 +543,7 @@ whitelist =
   python-apypie
   rubygem-foreman_scap_client
 
-[katello-nightly-rhel7]
+[katello-3.15-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -584,7 +584,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-pulpcore-nightly-el7]
+[katello-pulpcore-2.0-el7]
 disttag = .el7
 whitelist =
   python-aiofiles
