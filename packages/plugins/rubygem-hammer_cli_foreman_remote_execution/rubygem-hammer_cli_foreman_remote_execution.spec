@@ -8,8 +8,8 @@
 
 Summary: Foreman Remote Execution commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.1
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_remote_execution
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.3
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.3
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) < 0.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -71,6 +71,9 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 18 2020 Ondrej Prazak <oprazak@redhat.com> 0.1.1-1
+- Update to 0.1.1
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
