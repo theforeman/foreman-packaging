@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-tasks (0.0.14-1) stable; urgency=low
+
+  * 0.0.14 released
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Tue, 18 Feb 2020 16:42:18 +0200
+
 ruby-hammer-cli-foreman-tasks (0.0.13-1) stable; urgency=low
 
   * 0.0.13 released
