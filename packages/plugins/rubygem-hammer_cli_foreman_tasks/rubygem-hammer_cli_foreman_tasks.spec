@@ -8,7 +8,7 @@
 
 Summary: Foreman CLI plugin for showing task information for resources and users
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.13
+Version: 0.0.14
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/Systems
 License: GPLv3+
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) > 0.1.1
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 1.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
 Requires: %{?scl_prefix}rubygem(powerbar) >= 1.0.11
 Requires: %{?scl_prefix}rubygem(powerbar) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -77,6 +77,9 @@ install -m 755 .%{gem_instdir}/config/foreman_tasks.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 18 2020 Ondrej Prazak <oprazak@redhat.com> 0.0.14-1
+- Update to 0.0.14
+
 * Tue Sep 18 2018 Ivan Nečas <inecas@redhat.com> 0.0.13-1
 - Update to 0.0.13
 
