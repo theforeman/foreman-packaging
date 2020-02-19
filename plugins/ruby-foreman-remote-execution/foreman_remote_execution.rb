@@ -1,1 +1,1 @@
-gem 'foreman_remote_execution', '2.0.7'
+gem 'foreman_remote_execution', '2.0.8'
