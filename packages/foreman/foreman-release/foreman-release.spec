@@ -14,7 +14,7 @@
 %endif
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Feb 19 2020 Evgeni Golov - 2.0.0-0.3.rc1
+- Release foreman-release 2.0.0
+
 * Tue Feb 11 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.0-0.3.develop
 - Remove foreman-rails repository (#28979)
 
