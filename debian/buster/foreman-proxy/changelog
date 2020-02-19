@@ -1,3 +1,9 @@
+foreman-proxy (2.0.0~rc1-1) stable; urgency=low
+
+  * 2.0.0-rc1 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 19 Feb 2020 16:09:00 +0100
+
 foreman-proxy (2.0.0-1) stable; urgency=low
 
   * Bump changelog to 2.0.0 to match VERSION
