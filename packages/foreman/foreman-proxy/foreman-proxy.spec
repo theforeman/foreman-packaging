@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Wed Feb 19 2020 Evgeni Golov - 2.0.0-0.3.rc1
+- Release foreman-proxy 2.0.0
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-0.3.develop
 - Update spec to remove the ror scl
 
