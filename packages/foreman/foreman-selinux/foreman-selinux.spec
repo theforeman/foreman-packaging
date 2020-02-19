@@ -23,7 +23,7 @@
 %define moduletype apps
 
 %global release 1
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -166,6 +166,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Feb 19 2020 Evgeni Golov - 2.0.0-0.1.rc1
+- Release foreman-selinux 2.0.0
+
 * Mon Jan 06 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-0.1.develop
 - Bump version to 2.0-develop
 
