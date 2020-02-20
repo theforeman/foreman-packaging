@@ -8,7 +8,7 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    7.0.4
+Version:    8.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -38,31 +38,15 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(babel-cli) >= 6.10.1
-BuildRequires: %{?scl_prefix}npm(babel-cli) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-core) >= 6.26.3
-BuildRequires: %{?scl_prefix}npm(babel-core) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 7.1.1
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) >= 3.3.2
-BuildRequires: %{?scl_prefix}npm(babel-plugin-lodash) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) >= 6.22.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-assign) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) >= 6.26.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-object-rest-spread) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 1.7.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 2.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -115,6 +99,8 @@ cp -pa .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
+
 %{gem_libdir}
 %exclude %{gem_instdir}/webpack
 %exclude %{gem_instdir}/package.json
@@ -139,6 +125,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Feb 20 2020 Ondrej Prazak <oprazak@redhat.com> 8.0.0-1
+- Update to 8.0.0
+
 * Tue Oct 15 2019 Ondrej Prazak <oprazak@redhat.com> 7.0.4-1
 - Update to 7.0.4
 
