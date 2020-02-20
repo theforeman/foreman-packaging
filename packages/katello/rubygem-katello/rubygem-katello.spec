@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -70,10 +70,13 @@ BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) <= 3.1.0.dev01574423031
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.2.0.dev01574442231
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.0.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.1.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.1.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b7.dev01574717759
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) <= 1.1.0.dev01574357179
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.1.0b1.dev01576187357
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -94,7 +97,7 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -140,7 +143,7 @@ Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -229,6 +232,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Feb 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.3.pre.master
+- Update Gem and NPM dependencies
+
 * Wed Feb 19 2020 Justin Sherrill <jsherril@redhat.com> 3.16.0-0.2.pre.master
 - Update pulp_2to3_migration requirement
 
