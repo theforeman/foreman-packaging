@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        5.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        YAML parser and emitter for Python
 
 License:        MIT
@@ -41,6 +41,9 @@ Summary:        %{summary}
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2-2
+- Bump release to build for el8
+
 * Fri Dec 13 2019 Evgeni Golov 5.2-1
 - Update to 5.2
 

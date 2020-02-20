@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pulp Django Application and Related Modules
 
 License:        GPLv2+
@@ -94,6 +94,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.1-2
+- Bump release to build for el8
+
 * Fri Jan 17 2020 Evgeni Golov 3.0.1-1
 - Update to 3.0.1
 

@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Read metadata from Python packages
 
 License:        Apache Software License
@@ -44,5 +44,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/importlib_metadata-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
+- Bump release to build for el8
+
 * Tue Jan 28 2020 Evgeni Golov - 1.4.0-1
 - Initial package.

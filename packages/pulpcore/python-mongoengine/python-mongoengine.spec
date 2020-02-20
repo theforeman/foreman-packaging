@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.19.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        MongoEngine is a Python Object-Document Mapper for working with MongoDB
 
 License:        MIT
@@ -44,5 +44,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.19.1-2
+- Bump release to build for el8
+
 * Tue Jan 28 2020 Evgeni Golov - 0.19.1-1
 - Initial package.

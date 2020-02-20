@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        cryptography is a package which provides cryptographic recipes and primitives to Python developers
 
 License:        BSD or Apache License, Version 2.0
@@ -49,5 +49,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8-2
+- Bump release to build for el8
+
 * Tue Nov 19 2019 Evgeni Golov - 2.8-1
 - Initial package.

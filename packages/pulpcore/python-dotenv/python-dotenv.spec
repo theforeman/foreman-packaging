@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        0.10.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Add .env support to your django/flask apps in development and deployments
 
 License:        None
@@ -49,5 +49,8 @@ sed -i 's/long_description = f.read.*/long_description = "dotenv"/' setup.py
 %{python3_sitelib}/python_dotenv-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.10.3-2
+- Bump release to build for el8
+
 * Mon Nov 18 2019 Evgeni Golov - 0.10.3-1
 - Initial package.

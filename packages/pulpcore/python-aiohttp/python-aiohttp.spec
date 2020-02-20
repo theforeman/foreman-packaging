@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.6.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Async http client/server framework (asyncio)
 
 License:        Apache 2
@@ -52,5 +52,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.6.2-2
+- Bump release to build for el8
+
 * Mon Nov 18 2019 Evgeni Golov - 3.6.2-1
 - Initial package.
