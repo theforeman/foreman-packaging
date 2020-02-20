@@ -1,0 +1,13 @@
+%gem_install(d:n:) \
+mkdir -p %{-d*}%{!?-d:.%{gem_dir}} \
+\
+CONFIGURE_ARGS="--with-cflags='%{optflags}' $CONFIGURE_ARGS" \\\
+gem install \\\
+        -V \\\
+        --local \\\
+        --build-root %{-d*}%{!?-d:.} \\\
+        --force \\\
+        --document=ri,rdoc \\\
+        --bindir %{_bindir} \\\
+        %{-n*}%{!?-n:%{gem_name}-%{version}%{?prerelease}.gem} \
+%{nil}
