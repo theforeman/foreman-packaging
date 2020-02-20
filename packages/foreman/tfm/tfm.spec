@@ -19,13 +19,14 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
 Source1: LICENSE
 Source2: tfm.attr
 Source3: nodejs-symlink-deps
+Source4: macros.tfm
 # This should be removed as soon as scl-utils automatically generate
 # dependencies on scl -runtime (rhbz#1054711).
 Requires: %{scl_runtime}
@@ -264,6 +265,7 @@ EOR
 EOF
 
 install -pm0755 %{SOURCE3} %{buildroot}%{_rpmconfigdir}/nodejs-symlink-deps
+install -m 644 %{SOURCE4} %{buildroot}%{_root_sysconfdir}/rpm/macros.tfm
 
 %post runtime
 # Simple copy of context from system root to DSC root.
@@ -294,6 +296,7 @@ selinuxenabled && load_policy || :
 %files build
 %license LICENSE
 %{_root_sysconfdir}/rpm/macros.%{scl}-config
+%{_root_sysconfdir}/rpm/macros.tfm
 %{_rpmconfigdir}/fileattrs
 %{_rpmconfigdir}/nodejs-symlink-deps
 
@@ -302,6 +305,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Feb 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0-3
+- Include gem install macro
+
 * Tue Feb 11 2020 Ondrej Ezr - 6.0-2
 - Obsoletes tfm-rubygem-jquery-turbolinks
 
