@@ -513,6 +513,7 @@ whitelist =
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
+  tracer
 
 [foreman-client-nightly-rhel7]
 disttag = .el7
@@ -522,6 +523,7 @@ whitelist =
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
+  tracer
 
 [foreman-client-nightly-rhel6]
 disttag = .el6
@@ -542,6 +544,7 @@ whitelist =
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
+  tracer
 
 [katello-nightly-rhel7]
 disttag = .el7
