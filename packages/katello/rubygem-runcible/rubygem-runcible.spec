@@ -4,8 +4,8 @@
 %global gem_name runcible
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        2.12.1
-Release:        2%{?dist}
+Version:        2.13.0
+Release:        1%{?dist}
 Summary:        A gem exposing Pulp's juiciest parts
 Group:          Applications/System
 License:        MIT
@@ -68,6 +68,9 @@ mkdir -p %{buildroot}%{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 
 %changelog
+* Fri Feb 21 2020 Partha Aji <paji@redhat.com> 2.13.0-1
+- Update to 2.13.0
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.12.1-2
 - Update spec to remove the ror scl
 
