@@ -644,6 +644,7 @@ foreman_client_packages:
     katello-host-tools: {}
     python-apypie: {}
     rubygem-foreman_scap_client: {}
+    tracer: {}
 
 katello_packages:
   vars:
