@@ -88,7 +88,9 @@ Python 2 version.
 %package -n python3-%{name}
 Summary:        %{summary}
 BuildRequires:  python3-devel
+%if 0%{?rhel} != 8
 BuildRequires:  python3-sphinx
+%endif
 Requires:       python3-rpm
 Requires:       python3-beautifulsoup4
 Requires:       python3-psutil
@@ -129,7 +131,9 @@ sed -i -e '1s|^#!.*$|#!%{__python3}|' bin/%{name}.py
 %if %{with python3}
 %py3_build
 %endif
+%if 0%{?rhel} != 8
 make %{?_smp_mflags} man
+%endif
 
 %install
 # @TODO use following macros
@@ -150,7 +154,9 @@ cp -ar %{name}/* tests %{buildroot}%{python3_sitelib}/%{name}/
 %endif
 
 install -Dpm0755 bin/%{name}.py %{buildroot}%{_bindir}/%{name}
+%if 0%{?rhel} != 8
 install -Dpm0644 doc/build/man/%{name}.8 %{buildroot}%{_mandir}/man8/%{name}.8
+%endif
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 install -pm 644 scripts/tracer.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/tracer
@@ -175,7 +181,9 @@ make DESTDIR=%{buildroot}%{_datadir} mo
 %endif
 
 %{_bindir}/%{name}
+%if 0%{?rhel} != 8
 %{_mandir}/man8/%{name}.8*
+%endif
 
 
 %changelog
