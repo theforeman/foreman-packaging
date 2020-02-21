@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 5
 
@@ -166,6 +166,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Feb 21 2020 Evgeni Golov - 3.15.0-0.5.rc1
+- Release katello 3.15.0
+
 * Wed Jan 29 2020 Samir Jha <sjha4@ncsu.edu> 3.15.0-0.5.master
 - Rename pulp_service_files
 
