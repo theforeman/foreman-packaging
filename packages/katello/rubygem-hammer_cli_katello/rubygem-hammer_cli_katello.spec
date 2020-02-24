@@ -6,7 +6,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 3
+%global release 1
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -14,7 +14,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.21
+Version: 0.22
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -97,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Feb 24 2020 Jonathon Turel <jturel@gmail.com> 0.22-0.1.pre.master
+- Bump to 0.22 to match git master
+
 * Thu Feb 13 2020 Zach Huntington-Meath - 0.21-0.3.pre.master
 - Remove hammer_cli_foreman version requirement
 
