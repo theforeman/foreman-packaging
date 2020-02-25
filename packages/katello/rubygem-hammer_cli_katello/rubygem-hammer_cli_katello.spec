@@ -6,15 +6,13 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 2
-%global prereleasesource pre.master
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.21
+Version: 0.21.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -98,6 +96,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 25 2020 Jonathon Turel <jturel@gmail.com> - 0.21.0-1
+- Remove prerelease
+
 * Mon Nov 18 2019 Evgeni Golov - 0.21-0.2.pre.master
 - Unify prerelease macro handling
 
