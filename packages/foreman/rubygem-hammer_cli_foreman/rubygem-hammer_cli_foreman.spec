@@ -10,7 +10,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -19,7 +19,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.18.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
@@ -101,6 +101,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 25 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.0.1-1
+- Update to 2.0.1
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.0.0-1
 - Release 2.0.0
 
