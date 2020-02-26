@@ -99,6 +99,7 @@
       <packagereq type="default">python3-yarl</packagereq>
       <packagereq type="default">python3-zipp</packagereq>
       <packagereq type="default">rh-postgresql12-postgresql-debversion</packagereq>
+      <packagereq type="default">rh-postgresql12-postgresql-evr</packagereq>
     </packagelist>
   </group>
 </comps>

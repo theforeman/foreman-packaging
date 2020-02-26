@@ -1035,6 +1035,7 @@ pulpcore_packages:
         - el8-appstream
   hosts:
     postgresql-debversion: {}
+    postgresql-evr: {}
     pulpcore-selinux: {}
     python-aiofiles: {}
     python-aiohttp: {}
