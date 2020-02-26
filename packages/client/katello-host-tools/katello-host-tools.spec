@@ -6,7 +6,7 @@
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
-%global build_agent (0%{?suse_version} == 0) && ((0%{?fedora} > 28) || (0%{?rhel} > 0))
+%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 8))
 %global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
 %global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
@@ -15,8 +15,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.2
-Release: 2%{?dist}
+Version: 3.5.3
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -146,7 +146,7 @@ Requires: python2-tracer >= 0.6.12
 
 %description tracer
 Adds Tracer functionality to a client managed by katello-host-tools
-%endif #build tracer
+%endif
 
 %prep
 %setup -q
@@ -394,9 +394,12 @@ exit 0
 %{plugins_dir}/__pycache__/tracer_upload.*
 %endif
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
-%endif #build_tracer
+%endif
 
 %changelog
+* Mon Feb 17 2020 Jonathon Turel - 3.5.3-1
+- Release 3.5.3
+
 * Tue Jan 14 2020 Evgeni Golov - 3.5.2-2
 - Rebuild for EL8 client repository
 
