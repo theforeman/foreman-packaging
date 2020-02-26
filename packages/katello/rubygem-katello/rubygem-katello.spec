@@ -5,7 +5,7 @@
 %global foreman_min_version 1.24.0
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1
+%global prereleasesource rc1.1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
 %global release 7
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Feb 26 2020 Evgeni Golov - 3.15.0-0.7.rc1.1
+- Release rubygem-katello 3.15.0rc1.1
+
 * Sun Feb 23 2020 Justin Sherrill <jsherril@redhat.com> 3.15.0-0.7.rc1
 - Update pulp_2to3_migration requirement
 
