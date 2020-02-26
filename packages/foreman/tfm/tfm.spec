@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -116,6 +116,10 @@ Obsoletes: %{scl_prefix}rubygem-foreman-opennebula < 4.8.0-7
 Obsoletes: %{scl_prefix}rubygem-fog < 1.42.1-3
 Obsoletes: %{scl_prefix}rubygem-extlib < 0.9.16-7
 Obsoletes: %{scl_prefix}rubygem-docker-api < 1.28.0-5
+
+# turbolinks isn't there to obsolete the tfm-ror52 package so this is explicit
+Obsoletes: tfm-ror52-rubygem-turbolinks < 2.5.4-3
+Obsoletes: tfm-ror52-rubygem-turbolinks-doc < 2.5.4-3
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -305,6 +309,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Feb 26 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.0-4
+- Obsolete tfm-ror52-rubygem-turbolinks (#29181)
+
 * Thu Feb 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0-3
 - Include gem install macro
 
