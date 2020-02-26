@@ -591,6 +591,7 @@ whitelist = katello
 disttag = .el7
 whitelist =
   rh-postgresql12-postgresql-debversion
+  rh-postgresql12-postgresql-evr
   pulpcore-selinux
   python-aiofiles
   python-aiohttp
