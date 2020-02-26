@@ -79,13 +79,13 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}/etc/redhat_access
+mkdir -p %{buildroot}%{_root_sysconfdir}/%{plugin_name}
 
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 # Copy config file
-cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildroot}/etc/redhat_access/config.yml
+cp -pa $RPM_BUILD_DIR/%{gem_name}-%{version}/config/config.yml.example %{buildroot}%{_root_sysconfdir}/%{plugin_name}/config.yml
 
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
@@ -114,7 +114,7 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
-%config(noreplace) /etc/redhat_access/config.yml
+%config(noreplace) %{_root_sysconfdir}/%{plugin_name}/config.yml
 
 %files doc
 %doc %{gem_docdir}
