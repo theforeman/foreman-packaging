@@ -510,6 +510,7 @@ disttag = .el8
 whitelist =
   ansible-collection-theforeman-foreman
   foreman-release
+  gofer
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
@@ -520,6 +521,7 @@ disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
   ansible-collection-theforeman-foreman
+  gofer
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
@@ -541,6 +543,7 @@ disttag = .fc29
 whitelist =
   ansible-collection-theforeman-foreman
   foreman-release
+  gofer
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
