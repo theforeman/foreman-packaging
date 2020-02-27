@@ -10,7 +10,7 @@
 %global foreman_min_version 1.17.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.17.5
+Version: 0.17.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -88,6 +88,8 @@ BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
 BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
 BuildRequires: %{?scl_prefix}npm(humanize-duration) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-html-parser) >= 2.0.2
+BuildRequires: %{?scl_prefix}npm(react-html-parser) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
 BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
@@ -196,6 +198,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 exit 0
 
 %changelog
+* Thu Feb 27 2020 Adam Ruzicka <aruzicka@redhat.com> 0.17.6-1
+- Update to 0.17.6
+
 * Thu Dec 12 2019 Marek Hulan <mhulan@redhat.com> 0.17.5-1
 - Update to 0.17.5
 
