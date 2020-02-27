@@ -351,6 +351,7 @@ scl = tfm
 disttag = .el7
 scl = tfm
 whitelist = nodejs-babel-plugin-module-resolver
+  nodejs-react-html-parser
   nodejs-react-json-tree
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
@@ -463,8 +464,6 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-sentry-raven
-  rubygem-smart_proxy_dynflow_core
-  rubygem-smart_proxy_salt_core
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_dhcp_bluecat
@@ -478,6 +477,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
+  rubygem-smart_proxy_dynflow_core
   rubygem-smart_proxy_m2
   rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_omaha
@@ -487,6 +487,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
+  rubygem-smart_proxy_salt_core
   rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-timeliness
