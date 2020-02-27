@@ -304,6 +304,7 @@ scl = tfm
 disttag = .el7
 scl = tfm
 whitelist = nodejs-babel-plugin-module-resolver
+  nodejs-react-html-parser
   nodejs-react-json-tree
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
