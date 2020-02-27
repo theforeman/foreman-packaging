@@ -359,6 +359,7 @@
       <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">tfm-nodejs-react-html-parser</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
@@ -409,7 +410,6 @@
       <packagereq type="default">tfm-rubygem-actionview-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activejob-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-activepack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage-doc</packagereq>
