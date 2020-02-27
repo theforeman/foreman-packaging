@@ -1,3 +1,9 @@
+ruby-foreman-tasks-core (0.3.3-1) stable; urgency=low
+
+  * 0.3.3 released.
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 26 Feb 2020 23:19:21 +0100
+
 ruby-foreman-tasks-core (0.2.5-1) stable; urgency=low
 
   * Initial release for Ubuntu/bionic
