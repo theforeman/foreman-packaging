@@ -453,6 +453,7 @@ foreman_nonscl_packages:
     katello-certs-tools: {}
     katello-selinux: {}
     keycloak-httpd-client-install: {}
+    nodejs-htmlparser2: {}
     pcp-mmvstatsd: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -756,6 +757,8 @@ plugin_scl_packages:
         - el7-foreman-nightly
   hosts:
     nodejs-babel-plugin-module-resolver:
+      strategy: bundle
+    nodejs-htmlparser2:
       strategy: bundle
     nodejs-react-html-parser:
       strategy: bundle
