@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.4.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python parsing module
 
 License:        MIT License
@@ -43,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.6-2
+- Bump release to build for el8
+
 * Mon Jan 06 2020 Evgeni Golov 2.4.6-1
 - Update to 2.4.6
 

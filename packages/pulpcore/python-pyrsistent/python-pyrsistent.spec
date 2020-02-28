@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.15.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Persistent/Functional/Immutable data structures
 
 License:        MIT
@@ -44,5 +44,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/pvectorc.cpython-3*m-x86_64-linux-gnu.so
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.15.7-2
+- Bump release to build for el8
+
 * Tue Jan 28 2020 Evgeni Golov - 0.15.7-1
 - Initial package.

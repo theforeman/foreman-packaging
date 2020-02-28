@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.8.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A library implementing the 'SemVer' scheme
 
 License:        BSD
@@ -43,5 +43,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/semantic_version-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8.4-2
+- Bump release to build for el8
+
 * Tue Jan 28 2020 Evgeni Golov - 2.8.4-1
 - Initial package.

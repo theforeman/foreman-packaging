@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.14.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python 2 and 3 compatibility utilities
 
 License:        MIT
@@ -43,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.14.0-2
+- Bump release to build for el8
+
 * Fri Jan 17 2020 Evgeni Golov 1.14.0-1
 - Update to 1.14.0
 
