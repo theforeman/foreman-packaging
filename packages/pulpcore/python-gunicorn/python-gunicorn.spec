@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        20.0.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        WSGI HTTP Server for UNIX
 
 License:        MIT
@@ -44,6 +44,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 20.0.4-2
+- Bump release to build for el8
+
 * Fri Dec 13 2019 Evgeni Golov 20.0.4-1
 - Update to 20.0.4
 

@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.2.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        An implementation of JSON Schema validation for Python
 
 License:        None
@@ -49,6 +49,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-3
+- Bump release to build for el8
+
 * Sun Feb 02 2020 Evgeni Golov - 3.2.0-2
 - correct jsonschema requires
 

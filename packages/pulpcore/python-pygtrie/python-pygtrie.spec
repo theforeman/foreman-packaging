@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Trie data structure implementation
 
 License:        Apache-2.0
@@ -40,5 +40,8 @@ Summary:        %{summary}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.2-2
+- Bump release to build for el8
+
 * Fri Dec 13 2019 Evgeni Golov - 2.3.2-1
 - Initial package.
