@@ -501,6 +501,7 @@ whitelist = nodejs-babel-plugin-module-resolver
 disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
+  ansiblerole-satellite-receptor-installer
   foreman-discovery-image-service
   puppet-foreman_scap_client
   rubygem-fast_gettext
