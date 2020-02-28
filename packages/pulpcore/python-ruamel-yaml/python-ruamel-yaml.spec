@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        0.16.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order
 
 License:        MIT license
@@ -45,5 +45,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.16.5-2
+- Bump release to build for el8
+
 * Mon Nov 18 2019 Evgeni Golov - 0.16.5-1
 - Initial package.

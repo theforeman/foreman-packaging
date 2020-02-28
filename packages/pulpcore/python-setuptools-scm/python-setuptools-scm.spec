@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.4.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        the blessed package to manage your versions by scm tags
 
 License:        MIT
@@ -54,6 +54,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/setuptools_scm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.3-2
+- Bump release to build for el8
+
 * Wed Jan 29 2020 Evgeni Golov 3.4.3-1
 - Update to 3.4.3
 
