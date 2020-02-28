@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        2.2.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A high-level Python Web framework that encourages rapid development and clean, pragmatic design
 
 License:        BSD
@@ -58,6 +58,9 @@ mv %{buildroot}%{_bindir}/django-admin %{buildroot}%{_bindir}/python3-django-adm
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.10-2
+- Bump release to build for el8
+
 * Wed Feb 05 2020 Evgeni Golov - 2.2.10-1
 - Release python-django 2.2.10
 

@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The dynamic configurator for your Python Project
 
 License:        MIT
@@ -49,6 +49,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-2
+- Bump release to build for el8
+
 * Mon Jan 06 2020 Evgeni Golov 2.2.2-1
 - Update to 2.2.2
 

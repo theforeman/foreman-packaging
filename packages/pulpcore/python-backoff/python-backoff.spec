@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.10.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Function decoration for backoff and retry
 
 License:        None
@@ -40,6 +40,9 @@ Summary:        %{summary}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.10.0-2
+- Bump release to build for el8
+
 * Fri Dec 13 2019 Evgeni Golov 1.10.0-1
 - Update to 1.10.0
 
