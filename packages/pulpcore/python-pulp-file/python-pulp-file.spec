@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        File plugin for the Pulp Project
 
 License:        GPLv2+
@@ -45,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_file-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.1-2
+- Bump release to build for el8
+
 * Wed Feb 05 2020 Evgeni Golov 0.1.1-1
 - Update to 0.1.1
 

@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.19
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C parser in Python
 
 License:        BSD
@@ -43,5 +43,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.19-2
+- Bump release to build for el8
+
 * Tue Nov 19 2019 Evgeni Golov - 2.19-1
 - Initial package.
