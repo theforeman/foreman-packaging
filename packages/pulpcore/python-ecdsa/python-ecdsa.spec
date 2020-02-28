@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.13.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        ECDSA cryptographic signature library (pure python)
 
 License:        MIT
@@ -40,5 +40,8 @@ Summary:        %{summary}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.13.3-2
+- Bump release to build for el8
+
 * Tue Nov 19 2019 Evgeni Golov - 0.13.3-1
 - Initial package.

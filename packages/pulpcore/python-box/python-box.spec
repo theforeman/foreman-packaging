@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        3.4.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Advanced Python dictionaries with dot notation access
 
 License:        MIT
@@ -49,6 +49,9 @@ sed -i '/setup_requires/d' setup.py
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.6-2
+- Bump release to build for el8
+
 * Mon Jan 06 2020 Evgeni Golov 3.4.6-1
 - Update to 3.4.6
 
