@@ -9,6 +9,7 @@
     <packagelist>
       <packagereq type="default">ansiblerole-foreman_scap_client</packagereq>
       <packagereq type="default">ansiblerole-insights-client</packagereq>
+      <packagereq type="default">ansiblerole-satellite-receptor-installer</packagereq>
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">ipxe-bootimgs</packagereq>
