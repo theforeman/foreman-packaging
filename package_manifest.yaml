@@ -1017,16 +1017,23 @@ pulpcore_packages:
     diff_package_skip: false
     diff_package_tags:
       - katello-pulpcore-nightly-el7
+      - katello-pulpcore-nightly-el8
     releasers:
       - koji-katello-pulpcore
-    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_config: repoclosure/yum.conf
     repoclosure_target_repos:
       el7:
         - el7-katello-pulpcore-nightly
+      el8:
+        - el8-katello-pulpcore-nightly
     repoclosure_lookaside_repos:
       el7:
         - el7-base
         - el7-updates
+      el8:
+        - el8-base
+        - el8-updates
+        - appstream
   hosts:
     python-aiofiles: {}
     python-aiohttp: {}
