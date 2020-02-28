@@ -1031,9 +1031,8 @@ pulpcore_packages:
         - el7-base
         - el7-updates
       el8:
-        - el8-base
-        - el8-updates
-        - appstream
+        - el8-baseos
+        - el8-appstream
   hosts:
     python-aiofiles: {}
     python-aiohttp: {}
