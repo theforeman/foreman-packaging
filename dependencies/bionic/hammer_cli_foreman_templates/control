@@ -11,6 +11,6 @@ Package: ruby-hammer-cli-foreman-templates
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter,
-         ruby-hammer-cli-foreman (>= 0.1.1), ruby-hammer-cli-foreman (<< 1.0.0)
+         ruby-hammer-cli-foreman (>= 0.1.1), ruby-hammer-cli-foreman (<< 3.0.0)
 Description: foreman_templates commands for Hammer CLI
  This Hammer CLI plugin contains the commands for foreman_templates
