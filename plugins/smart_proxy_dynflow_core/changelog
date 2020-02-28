@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow-core (0.2.4-1) stable; urgency=low
+
+  * 0.2.4 released
+
+ -- Michael Moll <mmoll@mmoll.at>  Fri, 28 Feb 2020 01:13:15 +0100
+
 ruby-smart-proxy-dynflow-core (0.2.2-1) stable; urgency=low
 
   * 0.2.2 released
