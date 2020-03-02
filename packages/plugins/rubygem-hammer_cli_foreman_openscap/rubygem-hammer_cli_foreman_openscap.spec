@@ -65,7 +65,7 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Mon Mar 02 2020 vagrant 0.1.10-1
+* Mon Mar 02 2020 Ondrej Prazak <oprazak@redhat.com> 0.1.10-1
 - Update to 0.1.10
 
 * Tue Feb 18 2020 Ondrej Prazak <oprazak@redhat.com> 0.1.9-1
