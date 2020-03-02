@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: CoffeeScript adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-6
+- Update all rails packages for el8
+
 * Fri Feb 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.2.2-5
 - Fix Obsoletes of tfm-ror52
 

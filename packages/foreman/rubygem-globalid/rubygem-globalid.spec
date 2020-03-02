@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Refer to any model with a URI: gid://app/class/id
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-6
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-5
 - Update spec to include Obsoletes of rails-packaging version
 

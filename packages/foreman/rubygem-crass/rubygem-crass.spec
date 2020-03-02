@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: CSS parser based on the CSS Syntax Level 3 spec
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.4-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.4-3
 - Update spec to include Obsoletes of rails-packaging version
 

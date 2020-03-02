@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 9.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Arel Really Exasperates Logicians  Arel is a SQL AST manager for Ruby
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 9.0.0-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 9.0.0-3
 - Update spec to include Obsoletes of rails-packaging version
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
 License: MIT
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-3
 - Update spec to include Obsoletes of rails-packaging version
 
