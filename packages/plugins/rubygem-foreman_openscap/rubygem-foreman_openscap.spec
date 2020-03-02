@@ -97,7 +97,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
-* Mon Mar 02 2020 vagrant 3.0.0-1
+* Mon Mar 02 2020 Ondrej Prazak <oprazak@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.2-3
