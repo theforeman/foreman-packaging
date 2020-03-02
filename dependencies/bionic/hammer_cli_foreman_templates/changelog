@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-templates (0.2.0-1) stable; urgency=low
+
+  * 0.2.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Mon, 02 Mar 2020 11:37:53 +0000
+
 ruby-hammer-cli-foreman-templates (0.1.2-1) stable; urgency=low
 
   * 0.1.2 released
