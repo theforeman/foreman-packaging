@@ -24,13 +24,16 @@ foreman_scl_packages:
     diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-rhel7
+      - foreman-nightly-rhel8
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_config: repoclosure/yum.conf
     repoclosure_target_repos:
       rhel7:
         - el7-foreman-nightly
+      el8:
+        - el8-foreman-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -39,6 +42,12 @@ foreman_scl_packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
   hosts:
     foreman:
       releasers:
