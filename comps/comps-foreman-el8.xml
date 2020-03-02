@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+<comps>
+  <group>
+    <id>foreman</id>
+    <name>Foreman</name>
+    <description>Packages for the Foreman</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+      <!--
+        Do not edit this section manually and use ./comps_doc.sh script
+      -->
+      <!--RGD-START-->
+      <!--RGD-END-->
+    </packagelist>
+  </group>
+</comps>
