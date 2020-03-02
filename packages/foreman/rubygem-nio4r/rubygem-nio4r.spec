@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: New IO for Ruby
 Group: Development/Languages
 License: MIT
@@ -101,6 +101,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.1-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.1-3
 - Update spec to include Obsoletes of rails-packaging version
 
