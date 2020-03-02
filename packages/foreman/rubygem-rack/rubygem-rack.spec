@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.6
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: a modular Ruby webserver interface
 Group: Development/Languages
 License: MIT
@@ -68,6 +68,7 @@ gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
 %install
+rm -rf .%{gem_dir}/gems/%{gem_name}-%{version}/test
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -95,9 +96,11 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/rack.gemspec
-%{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.6-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.6-3
 - Update spec to include Obsoletes of rails-packaging version
 

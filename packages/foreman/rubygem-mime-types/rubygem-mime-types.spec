@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 Group: Development/Languages
 License: MIT
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.2-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.2-3
 - Update spec to include Obsoletes of rails-packaging version
 

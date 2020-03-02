@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: retrieve the sourcecode for a method
 Group: Development/Languages
 License: FIXME
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-4
+- Update all rails packages for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-3
 - Update spec to include Obsoletes of rails-packaging version
 
