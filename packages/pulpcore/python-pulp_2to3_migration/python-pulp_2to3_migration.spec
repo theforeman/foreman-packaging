@@ -4,8 +4,8 @@
 # We use a wrong source RPM name here, as the original one triggers a bug in tito
 # See https://github.com/dgoodwin/tito/pull/333
 Name:           python-pulp_2to3_migration
-Version:        0.0.1
-Release:        0.2.rc1%{?dist}
+Version:        0.1.0
+Release:        0.1.rc1%{?dist}
 Summary:        Pulp 2 to Pulp 3 migration tool
 
 License:        GPLv2+
@@ -48,6 +48,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_2to3_migration-%{version}rc1-py%{python3_version}.egg-info
 
 %changelog
+* Tue Mar 03 2020 Evgeni Golov - 0.1.0-0.1.rc1
+- Update to 0.1.0-rc1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.1-0.2.rc1
 - Bump release to build for el8
 
