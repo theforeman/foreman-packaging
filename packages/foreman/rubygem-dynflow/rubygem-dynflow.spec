@@ -6,8 +6,8 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.2
-Release: 2%{?foremandist}%{?dist}
+Version: 1.4.3
+Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -24,8 +24,8 @@ Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.3
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.2
-Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.4.1
-Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.5
+Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) >= 0.6.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby-edge) < 0.7
 Requires: %{?scl_prefix}rubygem(sequel) >= 4.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 04 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.3-1
+- Update to 1.4.3
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.2-2
 - Update spec to remove the ror scl
 
