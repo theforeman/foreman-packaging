@@ -292,15 +292,17 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
     def dns_managed?
       @scenario_answers['foreman_proxy']['dns'] &&
-        @scenario_answers['foreman_proxy']['dns_managed']
+        @scenario_answers['foreman_proxy']['dns_managed'] &&
+        %w[nsupdate nsupdate_gss]
+          .include?(@scenario_answers['foreman_proxy']['dns_provider'])
     end
 
     def should_update_dns?
       dns_managed? && !@options[:skip_dns]
     end
 
-    def query_dns_server(fqdn, zone, nameserver_ip)
-      query_dns = Resolv::DNS.new(nameserver: [nameserver_ip], search: [zone], ndots: 1)
+    def query_dns_server(fqdn, nameserver_ip)
+      query_dns = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
       a_record = query_dns.getresource(fqdn, Resolv::DNS::Resource::IN::A)
       ip = a_record.address.to_s if a_record
       soa_record = query_dns.getresource(zone, Resolv::DNS::Resource::IN::SOA)
@@ -322,12 +324,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       new_vals.old_fqdn = @old_hostname
       new_vals.new_fqdn = @new_hostname
 
-      ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
+      ip_serial_data = query_dns_server(@old_hostname, new_vals.dns_server)
       new_vals.ip = ip_serial_data[:ip]
       serial = ip_serial_data[:serial]
       new_vals.new_serial = serial + 1
 
-      reverse_serial = query_dns_server(@old_hostname, new_vals.reverse_zone, new_vals.dns_server)[:serial]
+      reverse_serial = query_dns_server(@old_hostname, new_vals.dns_server)[:serial]
       new_vals.new_reverse_serial = reverse_serial + 1
       run_cmd('rndc thaw')
 
