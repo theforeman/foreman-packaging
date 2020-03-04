@@ -293,8 +293,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     def dns_managed?
       @scenario_answers['foreman_proxy']['dns'] &&
         @scenario_answers['foreman_proxy']['dns_managed'] &&
-        %w[nsupdate nsupdate_gss]
-          .include?(@scenario_answers['foreman_proxy']['dns_provider'])
+        @scenario_answers['foreman_proxy']['dns_provider'] == 'nsupdate'
     end
 
     def should_update_dns?
