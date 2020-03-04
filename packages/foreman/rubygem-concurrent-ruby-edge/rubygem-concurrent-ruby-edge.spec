@@ -5,8 +5,8 @@
 
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.6.0
+Release: 1%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -16,7 +16,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.1
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.1.6
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 1.2.0
 
 %if 0%{?el6} && 0%{!?scl:1}
@@ -61,13 +61,12 @@ Documentation for %{pkg_name}
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-%define gem_libdir_edge %{gem_libdir}-edge
 
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/CHANGELOG.md
-%{gem_libdir_edge}
+%{gem_libdir}/concurrent-ruby-edge
 
 %exclude %{gem_cache}
 %{gem_spec}
@@ -77,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Mar 04 2020 Adam Ruzicka <aruzicka@redhat.com> 1:0.6.0-1
+- Update to 0.6.0
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:0.4.1-2
 - Update spec to remove the ror scl
 
