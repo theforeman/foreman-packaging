@@ -108,7 +108,7 @@ module KatelloUtilities
           fail_with_message("Error querying local DNS server for #{@old_hostname}. Make sure the 'named' service is running, or re-run with the --skip-dns option.")
         end
 
-        %w[dns_server zone reverse_zones soa_admin_domain key_file old_fqdn new_fqdn ip new_serial reverse_soa_records].each do |field|
+        %w[dns_server zone soa_admin_domain key_file old_fqdn new_fqdn ip new_serial reverse_soa_records].each do |field|
           next if @new_dns_values[field]
 
           fail_with_message """
@@ -318,21 +318,20 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       new_vals.dns_server = @scenario_answers['foreman_proxy']['dns_server']
       new_vals.zone = @scenario_answers['foreman_proxy']['dns_zone']
-      new_vals.reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
       new_vals.soa_admin_domain = "root.#{new_vals.zone}"
       new_vals.key_file = @scenario_answers['foreman_proxy']['keyfile']
       new_vals.old_fqdn = @old_hostname
       new_vals.new_fqdn = @new_hostname
 
+      reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
       ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
       new_vals.ip = ip_serial_data[:ip]
       serial = ip_serial_data[:serial]
       new_vals.new_serial = serial + 1
 
-      new_vals.reverse_soa_records = []
-      new_vals.reverse_zones.each do |reverse_zone|
+      new_vals.reverse_soa_records = reverse_zones.map do |reverse_zone|
         reverse_serial = query_dns_server(@old_hostname, reverse_zone, new_vals.dns_server)[:serial]
-        new_vals.reverse_soa_records << {
+        {
           reverse_zone: reverse_zone,
           new_reverse_serial: reverse_serial + 1
         }
