@@ -103,14 +103,15 @@ module KatelloUtilities
       if should_update_dns?
         begin
           STDOUT.puts "\nAssembling data for DNS update"
-          @new_dns_values = new_dns_values
+          @answers_dns_values = answers_dns_values
+          @assembled_nsupdate_command = assembled_nsupdate_command(@answers_dns_values)
         rescue StandardError => e # could not reach the DNS server, or something broke while assembling the data
           STDOUT.puts e
           fail_with_message("Error querying local DNS server for #{@old_hostname}. Make sure the 'named' service is running, or re-run with the --skip-dns option.")
         end
 
-        %w[dns_server zone key_file ip reverse_zones].each do |field|
-          next if @new_dns_values[field]
+        %w[nameserver_ip zone key_file reverse_zones].each do |field|
+          next if @answers_dns_values[field]
 
           fail_with_message """
     Error gathering DNS data: couldn't find value for '#{field}'.
@@ -301,28 +302,14 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       dns_managed? && !@options[:skip_dns]
     end
 
-    def query_dns_server(fqdn, zone, nameserver_ip)
-      query_dns = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
-      a_record = query_dns.getresource(fqdn, Resolv::DNS::Resource::IN::A)
-      ip = a_record.address.to_s if a_record
-      soa_record = query_dns.getresource(zone, Resolv::DNS::Resource::IN::SOA)
-      serial = soa_record.serial if soa_record
-      {
-        ip: ip,
-        serial: serial
-      }
-    end
-
-    def new_dns_values
+    def answers_dns_values
       new_vals = OpenStruct.new
 
-      new_vals.dns_server = @scenario_answers['foreman_proxy']['dns_server']
+      new_vals.nameserver_ip = @scenario_answers['foreman_proxy']['dns_server']
       new_vals.zone = @scenario_answers['foreman_proxy']['dns_zone']
       new_vals.key_file = @scenario_answers['foreman_proxy']['keyfile']
 
       new_vals.reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
-      ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
-      new_vals.ip = ip_serial_data[:ip]
       run_cmd('rndc thaw')
 
       new_vals
@@ -338,8 +325,6 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
       commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
 
-      nameservers = resolver.getresources(zone, Resolv::DNS::Resource::IN::NS)
-      # TODO: replace the correct nameserver
       commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
       commands << "update delete #{zone}. IN NS #{@old_hostname}"
 
@@ -361,34 +346,35 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
       rescue Resolv::ResolvError => e
         # This is fine
-        STDOUT.puts e
-        STDOUT.puts "no AAAA record found; skipping"
+        # TODO: Following two lines commented out until IPv6 is officially supported
+        # STDOUT.puts e
+        # STDOUT.puts "no AAAA record found; skipping"
       end
 
       commands
     end
 
     def assembled_nsupdate_command(d)
-      resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
-      commands = ["local #{d.dns_server}", "zone #{d.zone}"]
-      commands += update_zone(d.zone, d.dns_server, resolver)
+      resolver = Resolv::DNS.new(nameserver: [d.nameserver_ip], search: [], ndots: 1)
+      commands = ["local #{d.nameserver_ip}", "zone #{d.zone}"]
+      commands += update_zone(d.zone, d.nameserver_ip, resolver)
       commands << "send\n"
       d.reverse_zones.each do |zone|
         commands << "zone #{zone}"
-        commands += update_zone(zone, d.dns_server, resolver)
+        commands += update_zone(zone, d.nameserver_ip, resolver)
         commands << "send\n"
       end
-      STDOUT.puts(commands.join("\n"))
       commands.join("\n")
     end
 
-    def update_dns_records(d)
-      STDOUT.puts 'updating DNS records:'
+    def update_dns_records
+      STDOUT.puts 'updating DNS records with nsupdate:'
       # Use nsupdate to update DNS records
       # Update SOA record to new hostname; add new A and NS records; delete old A and NS records.
       # Multi-line strings are not indented because Ruby 2.0 doesn't support <<~ heredocs
 
-      run_cmd nsupdate_command(assembled_nsupdate_command(d), d.key_file)
+      STDOUT.puts @assembled_nsupdate_command
+      run_cmd nsupdate_command(@assembled_nsupdate_command, @answers_dns_values.key_file)
       STDOUT.puts 'updating dynamic zone files...'
       run_cmd('rndc freeze')
       run_cmd('rndc thaw')
@@ -432,7 +418,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       self.precheck
 
       if should_update_dns?
-        update_dns_records(@new_dns_values)
+        update_dns_records
       end
 
       STDOUT.puts "updating hostname in /etc/hostname"
