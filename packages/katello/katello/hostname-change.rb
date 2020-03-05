@@ -332,8 +332,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       "echo -e \"#{dns_entries}\" | nsupdate -l -k #{key_file}"
     end
 
-    def update_zone(zone, nameserver_ip)
-      resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
+    def update_zone(zone, nameserver_ip, resolver)
       commands = []
 
       soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
@@ -370,12 +369,13 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     end
 
     def assembled_nsupdate_command(d)
+      resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
       commands = ["local #{d.dns_server}", "zone #{d.zone}"]
-      commands += update_zone(d.zone, d.dns_server)
+      commands += update_zone(d.zone, d.dns_server, resolver)
       commands << "send\n"
       d.reverse_zones.each do |zone|
         commands << "zone #{zone}"
-        commands += update_zone(zone, d.dns_server)
+        commands += update_zone(zone, d.dns_server, resolver)
         commands << "send\n"
       end
       STDOUT.puts(commands.join("\n"))
