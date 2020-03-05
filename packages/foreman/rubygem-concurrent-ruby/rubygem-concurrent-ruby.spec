@@ -5,8 +5,8 @@
 
 Summary: Modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.4
-Release: 4%{?dist}
+Version: 1.1.6
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Mar 05 2020 Adam Ruzicka <aruzicka@redhat.com> 1:1.1.6-1
+- Update to 1.1.6
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.1.4-4
 - Update spec to include Obsoletes of rails-packaging version
 
