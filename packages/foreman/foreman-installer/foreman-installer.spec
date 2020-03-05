@@ -1,5 +1,5 @@
 %global release 2
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -141,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Mar 05 2020 Evgeni Golov - 1:2.0.0-0.2.rc2
+- Release foreman-installer 2.0.0
+
 * Wed Feb 19 2020 Evgeni Golov - 1:2.0.0-0.2.rc1
 - Release foreman-installer 2.0.0
 
