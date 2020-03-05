@@ -344,6 +344,39 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       "echo -e \"#{dns_entries}\" | nsupdate -l -k #{key_file}"
     end
 
+    def update_zone(zone, nameserver_ip)
+      resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
+      commands = []
+
+      soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
+      if soa.mname.to_s == @old_hostname
+        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
+      end
+
+      nameservers = resolver.getresources(zone, Resolv::DNS::Resource::IN::NS)
+      if nameservers.any? { |ns| ns.name.to_s == @old_hostname }
+        # TODO: replace the correct nameserver
+      end
+
+      begin
+        a_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::A)
+        commands << "update delete #{@old_hostname} A"
+        commands << "update add #{@new_hostname} #{a_record.ttl} A #{a_record.address}"
+      rescue resolv.ResolvError
+        # This is fine
+      end
+
+      begin
+        aaaa_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::AAAA)
+        commands << "update delete #{@old_hostname} AAAA"
+        commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
+      rescue resolv.ResolvError
+        # This is fine
+      end
+
+      commands
+    end
+
     def forward_dns_command(d)
       <<-HEREDOC
 local #{d.dns_server}
@@ -355,6 +388,14 @@ update delete #{d.old_fqdn} A
 update add #{d.new_fqdn} 86400 A #{d.ip}
 send
       HEREDOC
+    end
+
+    def assembled_nsupdate_command(d)
+      commands = ["local #{d.dns_server}", "zone #{d.zone}"]
+      commands += update_zone(d.zone, d.dns_server)
+      commands << "send\n"
+      STDOUT.puts(commands.join("\n"))
+      commands.join("\n")
     end
 
     def reverse_dns_command(d)
@@ -379,10 +420,11 @@ update delete #{reverse_zone} IN NS #{d.old_fqdn}
       # Update SOA record to new hostname; add new A and NS records; delete old A and NS records.
       # Multi-line strings are not indented because Ruby 2.0 doesn't support <<~ heredocs
 
-      STDOUT.puts 'forward...'
-      run_cmd nsupdate_command(forward_dns_command(d), d.key_file)
-      STDOUT.puts 'reverse...'
-      run_cmd nsupdate_command(reverse_dns_command(d), d.key_file)
+      # STDOUT.puts 'forward...'
+      # run_cmd nsupdate_command(forward_dns_command(d), d.key_file)
+      # STDOUT.puts 'reverse...'
+      # run_cmd nsupdate_command(reverse_dns_command(d), d.key_file)
+      run_cmd nsupdate_command(assembled_nsupdate_command(d), d.key_file)
       STDOUT.puts 'updating dynamic zone files...'
       run_cmd('rndc freeze')
       run_cmd('rndc thaw')
