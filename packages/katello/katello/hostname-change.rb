@@ -362,7 +362,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         a_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::A)
         commands << "update delete #{@old_hostname} A"
         commands << "update add #{@new_hostname} #{a_record.ttl} A #{a_record.address}"
-      rescue resolv.ResolvError
+      rescue Resolv::ResolvError
         # This is fine
       end
 
@@ -370,7 +370,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         aaaa_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::AAAA)
         commands << "update delete #{@old_hostname} AAAA"
         commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
-      rescue resolv.ResolvError
+      rescue Resolv::ResolvError
         # This is fine
       end
 
