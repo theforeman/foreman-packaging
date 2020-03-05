@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -70,7 +70,7 @@ Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.2
+Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
@@ -82,7 +82,7 @@ Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
-Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(safemode) < 2
@@ -174,7 +174,7 @@ BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.2
+BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
@@ -186,7 +186,7 @@ BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
-BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
 BuildRequires: %{?scl_prefix}rubygem(safemode) < 2
@@ -256,7 +256,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.7
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -291,7 +291,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.7
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -380,7 +380,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.3
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.4
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -465,7 +465,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.7
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -500,7 +500,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.2
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.7
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -1000,6 +1000,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Mar 05 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Thu Feb 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.2.develop
 - Drop setting organization and location to enabled
 
