@@ -105,6 +105,7 @@ module KatelloUtilities
           STDOUT.puts "\nAssembling data for DNS update"
           @new_dns_values = new_dns_values
         rescue StandardError => e # could not reach the DNS server, or something broke while assembling the data
+          STDOUT.puts e
           fail_with_message("Error querying local DNS server for #{@old_hostname}. Make sure the 'named' service is running, or re-run with the --skip-dns option.")
         end
 
@@ -322,13 +323,13 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       new_vals.old_fqdn = @old_hostname
       new_vals.new_fqdn = @new_hostname
 
-      reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
+      new_vals.reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
       ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
       new_vals.ip = ip_serial_data[:ip]
       serial = ip_serial_data[:serial]
       new_vals.new_serial = serial + 1
 
-      new_vals.reverse_soa_records = reverse_zones.map do |reverse_zone|
+      new_vals.reverse_soa_records = new_vals.reverse_zones.map do |reverse_zone|
         reverse_serial = query_dns_server(@old_hostname, reverse_zone, new_vals.dns_server)[:serial]
         {
           reverse_zone: reverse_zone,
@@ -348,14 +349,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
       commands = []
 
-      soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
-      if soa.mname.to_s == @old_hostname
-        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
-      end
-
       nameservers = resolver.getresources(zone, Resolv::DNS::Resource::IN::NS)
       if nameservers.any? { |ns| ns.name.to_s == @old_hostname }
         # TODO: replace the correct nameserver
+        commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
+        commands << "update delete #{zone}. IN NS #{@old_hostname}"
       end
 
       begin
@@ -372,6 +370,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
       rescue Resolv::ResolvError
         # This is fine
+      end
+
+      soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
+      if soa.mname.to_s == @old_hostname
+        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
       end
 
       commands
@@ -394,6 +397,11 @@ send
       commands = ["local #{d.dns_server}", "zone #{d.zone}"]
       commands += update_zone(d.zone, d.dns_server)
       commands << "send\n"
+      d.reverse_zones.each do |zone|
+        commands << "zone #{zone}"
+        commands += update_zone(zone, d.dns_server)
+        commands << "send\n"
+      end
       STDOUT.puts(commands.join("\n"))
       commands.join("\n")
     end
@@ -421,10 +429,8 @@ update delete #{reverse_zone} IN NS #{d.old_fqdn}
       # Multi-line strings are not indented because Ruby 2.0 doesn't support <<~ heredocs
 
       # STDOUT.puts 'forward...'
-      # run_cmd nsupdate_command(forward_dns_command(d), d.key_file)
-      # STDOUT.puts 'reverse...'
-      # run_cmd nsupdate_command(reverse_dns_command(d), d.key_file)
       run_cmd nsupdate_command(assembled_nsupdate_command(d), d.key_file)
+      # run_cmd nsupdate_command(forward_dns_command(d), d.key_file)
       STDOUT.puts 'updating dynamic zone files...'
       run_cmd('rndc freeze')
       run_cmd('rndc thaw')
