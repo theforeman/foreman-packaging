@@ -349,13 +349,19 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       resolver = Resolv::DNS.new(nameserver: [nameserver_ip], search: [], ndots: 1)
       commands = []
 
+      soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
+      # if soa.mname.to_s == @old_hostname
+        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
+      # end
+
       nameservers = resolver.getresources(zone, Resolv::DNS::Resource::IN::NS)
-      if nameservers.any? { |ns| ns.name.to_s == @old_hostname }
+      # if nameservers.any? { |ns| ns.name.to_s == @old_hostname }
         # TODO: replace the correct nameserver
         commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
         commands << "update delete #{zone}. IN NS #{@old_hostname}"
-      end
+      # end
 
+      return commands if zone.include?('arpa')
       begin
         a_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::A)
         commands << "update delete #{@old_hostname} A"
@@ -370,11 +376,6 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
       rescue Resolv::ResolvError
         # This is fine
-      end
-
-      soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
-      if soa.mname.to_s == @old_hostname
-        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
       end
 
       commands
