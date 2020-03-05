@@ -343,7 +343,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
       commands << "update delete #{zone}. IN NS #{@old_hostname}"
 
-      return commands if zone.include?('arpa') # don't modify A records for reverse zones
+      return commands if zone.end_with?('arpa') # don't modify A records for reverse zones
 
       begin
         a_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::A)
