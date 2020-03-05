@@ -109,7 +109,7 @@ module KatelloUtilities
           fail_with_message("Error querying local DNS server for #{@old_hostname}. Make sure the 'named' service is running, or re-run with the --skip-dns option.")
         end
 
-        %w[dns_server zone soa_admin_domain key_file old_fqdn new_fqdn ip new_serial reverse_soa_records].each do |field|
+        %w[dns_server zone key_file ip reverse_zones].each do |field|
           next if @new_dns_values[field]
 
           fail_with_message """
@@ -318,24 +318,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       new_vals.dns_server = @scenario_answers['foreman_proxy']['dns_server']
       new_vals.zone = @scenario_answers['foreman_proxy']['dns_zone']
-      new_vals.soa_admin_domain = "root.#{new_vals.zone}"
       new_vals.key_file = @scenario_answers['foreman_proxy']['keyfile']
-      new_vals.old_fqdn = @old_hostname
-      new_vals.new_fqdn = @new_hostname
 
       new_vals.reverse_zones = [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
       ip_serial_data = query_dns_server(@old_hostname, new_vals.zone, new_vals.dns_server)
       new_vals.ip = ip_serial_data[:ip]
-      serial = ip_serial_data[:serial]
-      new_vals.new_serial = serial + 1
-
-      new_vals.reverse_soa_records = new_vals.reverse_zones.map do |reverse_zone|
-        reverse_serial = query_dns_server(@old_hostname, reverse_zone, new_vals.dns_server)[:serial]
-        {
-          reverse_zone: reverse_zone,
-          new_reverse_serial: reverse_serial + 1
-        }
-      end
       run_cmd('rndc thaw')
 
       new_vals
@@ -350,48 +337,36 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       commands = []
 
       soa = resolver.getresource(zone, Resolv::DNS::Resource::IN::SOA)
-      # if soa.mname.to_s == @old_hostname
-        commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
-      # end
+      commands << "update add #{zone} #{soa.ttl} SOA #{@new_hostname}. #{soa.rname} #{soa.serial + 1} #{soa.refresh} #{soa.retry} #{soa.expire} #{soa.minimum}"
 
       nameservers = resolver.getresources(zone, Resolv::DNS::Resource::IN::NS)
-      # if nameservers.any? { |ns| ns.name.to_s == @old_hostname }
-        # TODO: replace the correct nameserver
-        commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
-        commands << "update delete #{zone}. IN NS #{@old_hostname}"
-      # end
+      # TODO: replace the correct nameserver
+      commands << "update add #{zone}. 3600 IN NS #{@new_hostname}."
+      commands << "update delete #{zone}. IN NS #{@old_hostname}"
 
-      return commands if zone.include?('arpa')
+      return commands if zone.include?('arpa') # don't modify A records for reverse zones
+
       begin
         a_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::A)
         commands << "update delete #{@old_hostname} A"
         commands << "update add #{@new_hostname} #{a_record.ttl} A #{a_record.address}"
-      rescue Resolv::ResolvError
+      rescue Resolv::ResolvError => e
         # This is fine
+        STDOUT.puts e
+        STDOUT.puts "no A record found; skipping"
       end
 
       begin
         aaaa_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::AAAA)
         commands << "update delete #{@old_hostname} AAAA"
         commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
-      rescue Resolv::ResolvError
+      rescue Resolv::ResolvError => e
         # This is fine
+        STDOUT.puts e
+        STDOUT.puts "no AAAA record found; skipping"
       end
 
       commands
-    end
-
-    def forward_dns_command(d)
-      <<-HEREDOC
-local #{d.dns_server}
-zone #{d.zone}
-update add #{d.zone} 10800 SOA #{d.new_fqdn} #{d.soa_admin_domain}. #{d.new_serial} 86400 3600 604800 3600
-update add #{d.zone}. 3600 IN NS #{d.new_fqdn}.
-update delete #{d.zone}. IN NS #{d.old_fqdn}
-update delete #{d.old_fqdn} A
-update add #{d.new_fqdn} 86400 A #{d.ip}
-send
-      HEREDOC
     end
 
     def assembled_nsupdate_command(d)
@@ -407,31 +382,13 @@ send
       commands.join("\n")
     end
 
-    def reverse_dns_command(d)
-      result = "local #{d.dns_server}\n"
-      d.reverse_soa_records.each do |soa|
-        reverse_zone = soa[:reverse_zone]
-        new_reverse_serial = soa[:new_reverse_serial]
-        result += "zone #{reverse_zone}\n"
-        result += <<-HEREDOC
-update add #{reverse_zone} 10800 SOA #{d.new_fqdn} root.#{reverse_zone}. #{new_reverse_serial} 86400 3600 604800 3600
-update add #{reverse_zone} 3600 IN NS #{d.new_fqdn}
-update delete #{reverse_zone} IN NS #{d.old_fqdn}
-        HEREDOC
-      end
-      result += "send\n"
-      result
-    end
-
     def update_dns_records(d)
       STDOUT.puts 'updating DNS records:'
       # Use nsupdate to update DNS records
       # Update SOA record to new hostname; add new A and NS records; delete old A and NS records.
       # Multi-line strings are not indented because Ruby 2.0 doesn't support <<~ heredocs
 
-      # STDOUT.puts 'forward...'
       run_cmd nsupdate_command(assembled_nsupdate_command(d), d.key_file)
-      # run_cmd nsupdate_command(forward_dns_command(d), d.key_file)
       STDOUT.puts 'updating dynamic zone files...'
       run_cmd('rndc freeze')
       run_cmd('rndc thaw')
