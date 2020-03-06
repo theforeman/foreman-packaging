@@ -1,36 +1,43 @@
-# Generated from foreman_git_templates-1.0.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from foreman_git_templates-1.0.4.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman_git_templates
 %global plugin_name git_templates
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 1.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
 License: GPLv3
-URL: https://github.com/dm-drogeriemarkt-de/foreman_git_templates
+URL: https://github.com/dm-drogeriemarkt/foreman_git_templates
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# start generated dependencies
+# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(down) >= 4.5
 Requires: %{?scl_prefix}rubygem(down) < 5
+Requires: %{?scl_prefix}rubygem(rest-client) >= 2
+Requires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(down) >= 4.5
+BuildRequires: %{?scl_prefix}rubygem(down) < 5
+BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2
+BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
-# end generated dependencies
+# end specfile generated dependencies
 
 %description
 Adds support for using templates from Git repositories.
@@ -70,7 +77,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -92,6 +99,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Feb 10 2020 Manuel Laug <manuel.laug@dm.de> - 1.0.4-1
+- Update foreman_git_templates to 1.0.4
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-2
 - Drop posttrans macros
 
