@@ -111,13 +111,11 @@ module KatelloUtilities
 
         @answers_dns_values.each do |field, v|
           next unless v.nil?
-            fail_with_message """
-      Error gathering DNS data: couldn't find value for '#{field}'.
-      Make sure /etc/foreman-installer/scenarios.d/#{@options[:scenario]}-answers.yaml
-      'foreman-proxy' section has values for dns_zone, dns_reverse, and keyfile.
-      Make sure A and SOA records are present for #{@old_hostname}.
-  """
-          end
+          fail_with_message """
+    Error gathering DNS data: couldn't find value for '#{field}'
+    Make sure #{scenarios_path}/#{@options[:scenario]}-answers.yaml
+    has not been modified, or re-run with the --skip-dns option.
+"""
         end
 
       end
@@ -293,7 +291,8 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     end
 
     def dns_managed?
-      @scenario_answers['foreman_proxy']['dns'] &&
+      @scenario_answers['foreman_proxy'].is_a?(Hash) &&
+        @scenario_answers['foreman_proxy']['dns'] &&
         @scenario_answers['foreman_proxy']['dns_managed'] &&
         @scenario_answers['foreman_proxy']['dns_provider'] == 'nsupdate'
     end
@@ -307,7 +306,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         nameserver_ip: @scenario_answers['foreman_proxy']['dns_server'],
         zone: @scenario_answers['foreman_proxy']['dns_zone'],
         key_file: @scenario_answers['foreman_proxy']['keyfile'],
-        reverse_zones: [@scenario_answers['foreman_proxy']['dns_reverse']].flatten
+        reverse_zones: [@scenario_answers['foreman_proxy']['dns_reverse']].flatten.compact
       }
     end
 
