@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 16
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -308,8 +308,8 @@ BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # start specfile assets BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
-BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
-BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
+BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.0
+BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
@@ -1018,6 +1018,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Apr 30 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.1.0-0.16.develop
+- Bump patternfly-sass
+
 * Fri Apr 24 2020 Evgeni Golov - 2.1.0-0.15.develop
 - Regenerate GEM dependencies using new code
 
