@@ -1,9 +1,10 @@
 %define selinux_variants mls strict targeted
 %define selinux_modules pulpcore_port pulpcore
+%define debug_package %{nil}
 
 Name:           pulpcore-selinux
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        SELinux policy for Pulp 3
 
 License:        GPL2+
@@ -77,5 +78,8 @@ fi
 
 
 %changelog
+* Mon Mar 09 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Bump to build on el8 & define the debug package as null to prevent errors
+
 * Wed Jan 15 2020 Evgeni Golov - 1.0.0-1
 - Initial package
