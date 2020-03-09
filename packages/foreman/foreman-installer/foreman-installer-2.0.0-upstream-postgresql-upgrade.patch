@@ -1,0 +1,31 @@
+From f08b7849c358c93fe4a8c144183a2474dd3ff438 Mon Sep 17 00:00:00 2001
+From: Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>
+Date: Thu, 5 Mar 2020 20:11:40 +0100
+Subject: [PATCH] Refs #28903 - Swap the postgresql{,-server} removal
+
+postgresql can't be removed until postgresql-server is removed.
+72d7c3f67fd4e1b131871c946d03808c9d26a124 caused the order to be swapped.
+This ensures a correct order.
+
+(cherry picked from commit 9674a9585efc15d32a3aff4a3551e99dab3d7144)
+---
+ hooks/pre/30-el7_upgrade_postgresql.rb | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/hooks/pre/30-el7_upgrade_postgresql.rb b/hooks/pre/30-el7_upgrade_postgresql.rb
+index 0fa9931..8f0a8a8 100644
+--- a/hooks/pre/30-el7_upgrade_postgresql.rb
++++ b/hooks/pre/30-el7_upgrade_postgresql.rb
+@@ -10,7 +10,8 @@ def postgresql_12_upgrade
+   ensure_packages(server_packages, 'installed')
+ 
+   execute(%(scl enable rh-postgresql12 "PGSETUP_INITDB_OPTIONS='--lc-collate=#{collate} --lc-ctype=#{ctype} --locale=#{collate}' postgresql-setup --upgrade"))
+-  ensure_packages(['postgresql', 'postgresql-server'], 'absent')
++  ensure_packages(['postgresql-server'], 'absent')
++  ensure_packages(['postgresql'], 'absent')
+   execute('rm -f /etc/systemd/system/postgresql.service')
+   ensure_packages(['rh-postgresql12-syspaths'], 'installed')
+ end
+-- 
+2.24.1
+
