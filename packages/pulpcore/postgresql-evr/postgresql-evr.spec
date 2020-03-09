@@ -5,9 +5,11 @@
 %{?scl:%scl_package postgresql-evr}
 %{!?scl:%global pkg_name %{name}}
 
+%global debug_package %{nil}
+
 Name:		%{?scl_prefix}postgresql-evr
 Version:	0.0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	RPM evr extension for PostgreSQL
 
 Group:    	Applications/System
@@ -50,5 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Mar 09 2020 Justin Sherrill <jsherril@redhat.com> 0.0.1-2
+- do not build a debug package on el8
+
 * Mon Mar 02 2020 Ian Ballou <ianballou67@gmail.com> - 0.0.1-1
 - postgresql-evr initial creation
