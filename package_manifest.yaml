@@ -1032,6 +1032,7 @@ pulpcore_packages:
       el7:
         - el7-base
         - el7-updates
+        - el7-scl
       el8:
         - el8-baseos
         - el8-appstream
