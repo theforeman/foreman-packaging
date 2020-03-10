@@ -23,7 +23,7 @@ build:
 	/bin/sed -i 's/:organizations_enabled: false/:organizations_enabled: true/' config/settings.yaml
 	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
 	/bin/rm db/production.sqlite3
-	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
+	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/* script/dynflowd
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
 	/bin/sed -ri '/^ExecStart/ s#/usr/bin/rails#/usr/bin/bundle exec rails#' extras/systemd/foreman.service
 	/bin/mkdir -p .ssh
