@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -610,7 +610,7 @@ Group:  Applications/System
 # start specfile telemetry Requires
 Requires: %{?scl_prefix}rubygem(prometheus-client) >= 1.0
 Requires: %{?scl_prefix}rubygem(prometheus-client) < 2.0
-Requires: %{?scl_prefix}rubygem(statsd-instrument)
+Requires: %{?scl_prefix}rubygem(statsd-instrument) < 3
 # end specfile telemetry Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1000,6 +1000,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Mar 10 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.4.develop
+- Update Gem and NPM dependencies
+
 * Thu Mar 05 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.3.develop
 - Update Gem and NPM dependencies
 
