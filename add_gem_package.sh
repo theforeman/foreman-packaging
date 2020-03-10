@@ -15,7 +15,8 @@ generate_gem_package() {
 	fi
 	mkdir $PACKAGE_DIR
 	pushd $PACKAGE_DIR
-	gem2rpm -o $SPEC_FILE --fetch $GEM_NAME -t $TEMPLATE
+	GEM_FILE_NAME=( $( gem fetch $GEM_NAME -q ${GEM_VERSION:+-v $GEM_VERSION} ) ) # the output of gem fetch is "Downloaded foo-1.2.3" we need to extract only the second word
+	gem2rpm -o $SPEC_FILE "${GEM_FILE_NAME[1]}.gem" -t $TEMPLATE
 	sed -i 's/\s\+$//' $SPEC_FILE
 	git annex add *.gem
 
@@ -109,7 +110,12 @@ add_to_manifest() {
 
 # Main script
 
-GEM_NAME=$1
+GEM_FULL_NAME=$1
+OLD_IFS=$IFS
+IFS=':' read -ra GEM_NAME_ARR <<< "$GEM_FULL_NAME"
+IFS=$OLD_IFS
+GEM_NAME=${GEM_NAME_ARR[0]}
+GEM_VERSION=${GEM_NAME_ARR[1]}
 PACKAGE_NAME=rubygem-$GEM_NAME
 TEMPLATE_NAME=$2
 TITO_TAG=$3
