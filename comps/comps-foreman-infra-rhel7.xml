@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+<comps>
+  <!--  <meta> -->
+  <!-- Meta information will go here eventually -->
+  <!--  </meta> -->
+  <group>
+    <id>foreman-infra</id>
+    <name>Foreman Infrastructure Repo</name>
+    <description>Repository for infrastructure needs</description>
+    <uservisible>true</uservisible>
+    <packagelist>
+      <packagereq type="default">rh-postgresql12-postgresql</packagereq>
+    </packagelist>
+  </group>
+</comps>
