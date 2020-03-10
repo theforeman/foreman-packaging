@@ -68,7 +68,7 @@ cp -a .%{gem_dir}/* \
 
 mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_extdir_mri}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
+cp -a .%{gem_instdir}/ext/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
