@@ -48,7 +48,7 @@
       <packagereq type="default">tfm-rubygem-anemone</packagereq>
       <packagereq type="default">tfm-rubygem-ansi</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_inventory_upload</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_rh_cloud</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_scc_manager</packagereq>
       <packagereq type="default">tfm-rubygem-fssm</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_csv</packagereq>
@@ -83,7 +83,7 @@
     <description>Katello Server Documentation Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-      <packagereq type="optional">tfm-rubygem-foreman_inventory_upload-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-foreman_rh_cloud-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
