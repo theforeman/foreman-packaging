@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.16.0
@@ -166,6 +166,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Mar 10 2020 Jonathon Turel <jturel@gmail.com> 3.16.0-0.2.master
+- Bump release for satellite-change-hostname supporting DNS updates
+
 * Tue Feb 11 2020 James Jeffers <jjeffers@redhat.com> 3.16.0-0.1.master
 - Bump to 3.16.0
 
