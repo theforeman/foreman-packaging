@@ -54,7 +54,9 @@
       <packagereq type="default">tfm-rubygem-smart_proxy_salt</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_spacewalk</packagereq>
       <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
+      <packagereq type="default">tfm-nodejs-htmlparser2</packagereq>
       <packagereq type="default">tfm-nodejs-react-json-tree</packagereq>
+      <packagereq type="default">tfm-nodejs-react-html-parser</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4</packagereq>
