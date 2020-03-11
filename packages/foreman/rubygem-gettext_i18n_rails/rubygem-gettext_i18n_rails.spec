@@ -6,7 +6,7 @@
 Summary: Simple FastGettext Rails integration
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/grosser/gettext_i18n_rails
@@ -17,7 +17,6 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 0.9.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Translate via FastGettext, use any other I18n backend as extension/fallback.
@@ -26,7 +25,6 @@ Translate via FastGettext, use any other I18n backend as extension/fallback.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -56,6 +54,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.8.0-2
+- Drop references to ruby193
+
 * Tue Jan 08 2019 Ondřej Ezr <oezr@redhat.com> 1.8.0-1
 - Update to 1.8.0
 

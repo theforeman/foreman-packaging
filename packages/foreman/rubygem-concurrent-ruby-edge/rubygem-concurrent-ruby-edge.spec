@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -31,7 +31,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Edge concepts for modern concurrency tools including agents, futures,
@@ -43,7 +42,6 @@ patterns.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -76,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Mar 05 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:0.6.0-2
+- Drop references to ruby193
+
 * Wed Mar 04 2020 Adam Ruzicka <aruzicka@redhat.com> 1:0.6.0-1
 - Update to 0.6.0
 

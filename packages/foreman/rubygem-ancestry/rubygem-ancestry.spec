@@ -7,7 +7,7 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/stefankroes/ancestry
@@ -19,7 +19,6 @@ Requires: %{?scl_prefix}rubygem(activerecord) >= 3.2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(ancestry) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ancestry allows the records of a ActiveRecord model to be organised in a tree
@@ -33,7 +32,6 @@ for dealing with orphaned records.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -82,6 +80,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-4
 - Update spec to remove the ror scl
 

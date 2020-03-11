@@ -8,7 +8,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	3.1.4
-Release:	8%{?dist}
+Release:	9%{?dist}
 Summary:	RubyGem of Localization Library and Tools for Ruby
 Group:		Development/Languages
 
@@ -38,7 +38,6 @@ Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 
 Obsoletes:	%{?scl_prefix}ruby-gettext-package <= %{version}-%{release}
 Provides:	%{?scl_prefix}ruby-gettext-package = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 BuildArch:	noarch
 
@@ -53,7 +52,6 @@ This package provides gem for Ruby-Gettext-Package.
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.
@@ -176,6 +174,9 @@ rm -f %{buildroot}%{gem_instdir}/.yardopts
 %exclude	%{gem_instdir}/src/
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.1.4-9
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.1.4-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 

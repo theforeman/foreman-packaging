@@ -7,7 +7,7 @@
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 11%{?dist}
+Release: 13%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 IPAddress is a Ruby library designed to make manipulation
@@ -32,7 +31,6 @@ addressing many of its issues.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -83,6 +81,12 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.8.0-13
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.8.0-12
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.8.0-11
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -6,7 +6,7 @@
 Summary: Rails API documentation tool and client generator
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.17
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Libraries
 #This gem is released under MIT license. Copy is included in file MIT-LICENSE.
 #
@@ -26,7 +26,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This gem adds new methods to Rails controllers that can be used to describe
@@ -36,7 +35,6 @@ to generate documentation, client or to validate incoming requests.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -85,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.5.17-3
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.17-2
 - Update spec to remove the ror scl
 

@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/mdub/clamp
@@ -25,7 +25,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Clamp provides an object-model for command-line utilities.
@@ -35,7 +34,6 @@ It handles parsing of command-line options, and generation of usage help.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -81,6 +79,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.2-5
+- Drop references to ruby193
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.1.2-4
 - Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
 

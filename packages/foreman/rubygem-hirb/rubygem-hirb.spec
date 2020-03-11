@@ -7,7 +7,7 @@ Summary: A mini view framework for console/irb that's easy to use, even while un
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.7.0
-Release: 11%{?dist}
+Release: 13%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://tagaholic.me/hirb/
@@ -18,7 +18,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(hirb) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %global gembuilddir %{buildroot}%{gem_dir}
 
@@ -38,7 +37,6 @@ menus.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -74,6 +72,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-13
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-12
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-11
 - Rebuild for Rails 5.2 and Ruby 2.5
 

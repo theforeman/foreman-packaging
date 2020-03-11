@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -39,7 +39,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 %if 0%{?scl:1}
 Obsoletes: rubygem-%{gem_name} < 0.3.0-2
 %endif
@@ -51,7 +50,6 @@ Hammer cli provides universal extendable CLI interface for ruby apps
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 %if 0%{?scl:1}
 Obsoletes: rubygem-%{gem_name}-doc < 0.3.0-2
@@ -129,6 +127,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.2.pre.develop
+- Drop references to ruby193
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.pre.develop
 - bump to 2.1-develop
 

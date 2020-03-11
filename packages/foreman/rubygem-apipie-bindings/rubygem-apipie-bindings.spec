@@ -6,7 +6,7 @@
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/Apipie/apipie-bindings
@@ -24,7 +24,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildArch: noarch
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
@@ -32,7 +31,6 @@ Bindings for API calls that are documented with Apipie. Bindings are generated o
 %package doc
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for %{name}
 
 %description doc
@@ -70,6 +68,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-2
+- Drop references to ruby193
+
 * Mon Oct 28 2019 Evgeni Golov 0.3.0-1
 - Update to 0.3.0
 

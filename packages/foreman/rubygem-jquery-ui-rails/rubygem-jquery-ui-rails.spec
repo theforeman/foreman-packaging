@@ -7,7 +7,7 @@
 Summary: jQuery UI packaged for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.2
-Release: 8%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/joliss/jquery-ui-rails
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.6
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 jQuery UI's JavaScript, CSS, and image files packaged for the Rails 3.1+ asset
@@ -32,7 +31,6 @@ pipeline
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -70,6 +68,12 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.2-10
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.2-9
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2-8
 - Update spec to remove the ror scl
 

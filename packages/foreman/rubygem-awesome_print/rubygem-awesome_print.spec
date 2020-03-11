@@ -6,7 +6,7 @@
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/awesome-print/awesome_print
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Great Ruby debugging companion: pretty print Ruby objects to visualize their
@@ -32,7 +31,6 @@ structure. Supports custom object formatting via plugins.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -92,6 +90,9 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.8.0-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.0-4
 - Update spec to remove the ror scl
 

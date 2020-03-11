@@ -6,7 +6,7 @@
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -22,7 +22,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A simple, fast, memory-efficient and threadsafe implementation of GetText
@@ -31,7 +30,6 @@ A simple, fast, memory-efficient and threadsafe implementation of GetText
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -67,6 +65,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.4.1-4
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.1-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

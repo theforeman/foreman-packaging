@@ -6,7 +6,7 @@
 Summary: Algebraic types and pattern matching
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.3
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/pitr-ch/algebrick
@@ -27,7 +27,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 It's a gem providing algebraic types and pattern matching seamlessly
@@ -37,7 +36,6 @@ integrates with standard features Ruby.
 Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -70,6 +68,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7.3-7
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.3-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

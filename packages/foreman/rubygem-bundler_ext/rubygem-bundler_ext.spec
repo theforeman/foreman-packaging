@@ -7,7 +7,7 @@
 Summary: Load system gems via Bundler DSL
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/bundlerext/bundler_ext
@@ -31,7 +31,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 # BuildRequires: %{?scl_prefix_ruby}rubygem(bundler)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Simple library leveraging the Bundler Gemfile DSL to load gems already on the
@@ -42,7 +41,6 @@ system and managed by the systems package manager (like yum/apt)
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -79,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec/
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.1-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.1-4
 - Update spec to remove the ror scl
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: JSON Web Token implementation in Ruby
 Group: Development/Languages
 License: MIT
@@ -33,7 +33,6 @@ standard.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -91,6 +90,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-2
+- Drop references to ruby193
+
 * Tue Oct 08 2019 Rahul Bajaj <rahulrb0509@gmail.com> 2.2.1-1
 - Update to 2.2.1
 

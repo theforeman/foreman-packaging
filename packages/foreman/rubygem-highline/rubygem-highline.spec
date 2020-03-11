@@ -5,7 +5,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.7.8
-Release:   4%{?dist}
+Release:   6%{?dist}
 Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A high-level IO library that provides validation, type conversion, and more for
@@ -86,6 +85,12 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.7.8-6
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.7.8-5
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.7.8-4
 - Rebuild for Rails 5.2 and Ruby 2.5
 

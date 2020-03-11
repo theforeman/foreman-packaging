@@ -9,7 +9,7 @@
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
 URL: https://puppetlabs.com/%{gem_name}
@@ -32,7 +32,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
-Obsoletes: ruby193-%{gem_name}
 
 %description
 Facter is a lightweight program that gathers basic node information about the
@@ -93,6 +92,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-7
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

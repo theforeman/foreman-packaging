@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.58.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -25,7 +25,6 @@ BuildRequires: ca-certificates
 #BuildRequires: %{?scl_prefix}rubygem(eventmachine)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 EXtended http(s) CONnections
@@ -34,7 +33,6 @@ EXtended http(s) CONnections
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{pkg_name}
@@ -91,6 +89,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.58.0-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.58.0-4
 - Update spec to remove the ror scl
 

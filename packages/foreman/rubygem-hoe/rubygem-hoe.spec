@@ -6,7 +6,7 @@
 Summary:    	Hoe is a simple rake/rubygems helper for project Rakefiles
 Name:       	%{?scl_prefix}rubygem-%{gem_name}
 Version:    	2.12.3
-Release:    	10%{?dist}
+Release:    	12%{?dist}
 Group:      	Development/Languages
 License:    	MIT
 URL:        	http://rubyforge.org/projects/seattlerb/
@@ -31,7 +31,6 @@ BuildRequires:	%{?scl_prefix_ruby}rubygem(rake)
 BuildRequires:	%{?scl_prefix}rubygem(rubyforge)
 BuildArch:  	noarch
 Provides:   	%{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Hoe is a rake/rubygems helper for project Rakefiles. It helps generate
@@ -56,7 +55,6 @@ See class rdoc for help. Hint: ri Hoe
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.
@@ -132,6 +130,12 @@ popd
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.12.3-12
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.12.3-11
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.12.3-10
 - Rebuild for Rails 5.2 and Ruby 2.5
 
