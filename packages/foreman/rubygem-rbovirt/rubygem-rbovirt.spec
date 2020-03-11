@@ -7,7 +7,7 @@ Summary: A Ruby client for oVirt REST API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/abenari/rbovirt
@@ -20,7 +20,6 @@ Requires: %{?scl_prefix}rubygem-rest-client > 1.7.0
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(rbovirt) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -30,7 +29,6 @@ A Ruby client for oVirt REST API
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -70,6 +68,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-4
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.7-3
 - Update spec to remove the ror scl
 

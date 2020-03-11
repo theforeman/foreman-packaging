@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -17,7 +17,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Paint manages terminal colors and effects for you. It combines the strengths
@@ -29,7 +28,6 @@ default.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -64,6 +62,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.8.7-9
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.8.7-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 

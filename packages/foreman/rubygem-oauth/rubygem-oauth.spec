@@ -6,7 +6,7 @@
 Summary: OAuth Core Ruby implementation
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
@@ -18,7 +18,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 OAuth Core Ruby implementation
@@ -64,6 +63,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_instdir}/TODO
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.5.4-4
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.5.4-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

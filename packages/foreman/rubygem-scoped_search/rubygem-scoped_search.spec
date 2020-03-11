@@ -7,7 +7,7 @@ Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 4.1.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(scoped_search) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # for check section
 %if 0%{?fedora} > 21
@@ -47,7 +46,6 @@ or by a large user base.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -110,6 +108,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.7-3
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.7-2
 - Update spec to remove the ror scl
 

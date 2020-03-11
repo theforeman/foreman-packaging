@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	13%{?dist}
+Release:	14%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch:	noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ruby-Locale is the pure ruby library which provides basic and general purpose
@@ -34,7 +33,6 @@ handle major locale ID standards.
 Summary:	Documentation for %{pkg_name}
 Group:		Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description	doc
 This package contains documentation for %{pkg_name}.
@@ -44,7 +42,6 @@ Summary:	Non-Gem support package for %{gem_name}
 Group:		Development/Languages
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Provides:	%{?scl_prefix}ruby(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-ruby-%{gem_name}}
 
 %description	-n %{?scl_prefix}ruby-%{gem_name}
 This package provides non-Gem support for %{gem_name}.
@@ -149,6 +146,9 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.9-14
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.9-13
 - Rebuild for Rails 5.2 and Ruby 2.5
 

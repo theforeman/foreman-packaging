@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -18,7 +18,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Unicode Normalization Form support library for CRuby
@@ -27,7 +26,6 @@ Unicode Normalization Form support library for CRuby
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -85,6 +83,9 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7.2-2
+- Drop references to ruby193
+
 * Fri Oct 18 2019 Aditi Puntambekar <apuntamb@redhat.com> 0.0.7.2-1
 - Update to 0.0.7.2
 

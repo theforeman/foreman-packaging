@@ -6,7 +6,7 @@
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Add easily configured security headers to responses including content security
@@ -31,7 +30,6 @@ policy, x-frame-options, strict-transport-security and more.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -72,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.3.0-2
+- Drop references to ruby193
+
 * Tue Jan 28 2020 Michael Moll <mmoll@mmoll.at> 6.3.0-1
 - Update secure_headers to 6.3.0
 

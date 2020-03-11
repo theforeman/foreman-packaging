@@ -8,7 +8,7 @@
 Summary: A ruby parser written in pure ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.10.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby_parser
@@ -28,7 +28,6 @@ BuildRequires: %{?scl_prefix}rubygem(sexp_processor) >= 4.9
 BuildRequires: %{?scl_prefix}rubygem(sexp_processor) < 5.0
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
@@ -41,7 +40,6 @@ Summary: Documentation for %{pkg_name}
 Group: Documentation
 
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
 This package contains documentation for %{pkg_name}.
@@ -102,6 +100,9 @@ popd
 %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.10.1-3
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.10.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

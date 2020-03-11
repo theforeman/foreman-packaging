@@ -10,7 +10,7 @@
 Summary:       A script which automates a limited set of rubyforge operations
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       2.0.4
-Release:       8%{?dist}
+Release:       9%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           http://rubyforge.org/projects/codeforpeople
@@ -28,7 +28,6 @@ BuildRequires(check): rubygem(hoe)
 %endif
 BuildArch:     noarch
 Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A script which automates a limited set of rubyforge operations.
@@ -95,6 +94,9 @@ popd
 %doc %{gem_instdir}/test/
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.4-9
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.4-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 

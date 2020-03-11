@@ -6,7 +6,7 @@ Summary: Wavy IRB: Colorizes irb results.
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/wirb
@@ -19,7 +19,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(wirb) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %define gembuilddir %{buildroot}%{gem_dir}
 
@@ -32,7 +31,6 @@ details.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -70,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-6
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -52,7 +52,6 @@ Requires: scl-utils
 Requires: %{scl_prefix_ruby}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
-Obsoletes: ruby193-ruby-wrapper
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
@@ -309,6 +308,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Mar 06 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0-5
+- Drop ruby193 code
+
 * Wed Feb 26 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.0-4
 - Obsolete tfm-ror52-rubygem-turbolinks (#29181)
 

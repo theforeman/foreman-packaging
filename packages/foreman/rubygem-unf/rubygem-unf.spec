@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
@@ -19,7 +19,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A wrapper library to bring Unicode Normalization Form support to Ruby/JRuby.
@@ -28,7 +27,6 @@ A wrapper library to bring Unicode Normalization Form support to Ruby/JRuby.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -78,6 +76,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.3-8
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.3-7
 - Rebuild for Rails 5.2 and Ruby 2.5
 

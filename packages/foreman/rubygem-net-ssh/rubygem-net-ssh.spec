@@ -7,7 +7,7 @@
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
@@ -30,7 +29,6 @@ Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -88,6 +86,9 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-2
+- Drop references to ruby193
+
 * Mon Mar 18 2019 Marek Hulan <mhulan@redhat.com> 4.2.0-1
 - Update to 4.2.0
 

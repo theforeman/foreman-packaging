@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.3.0
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT
@@ -28,7 +28,6 @@ Requires:	%{?scl_prefix_ruby}ruby(rubygems)
 
 BuildArch:	noarch
 Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A collection of text algorithms: Levenshtein, Soundex, Metaphone, Double
@@ -38,7 +37,6 @@ Metaphone, Figlet, Porter Stemming
 Summary:	Documentation for %{pkg_name}
 Group:	Documentation
 Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch:	noarch
 
 %description doc
@@ -99,6 +97,9 @@ popd
 %exclude	%{gem_instdir}/test/
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-7
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

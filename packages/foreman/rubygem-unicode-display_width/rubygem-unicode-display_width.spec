@@ -7,7 +7,7 @@ Summary: Determines the monospace display width of a string in Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.0.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/janlelis/unicode-display_width
@@ -17,7 +17,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(unicode-display_width) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Determines the monospace display width of a string using EastAsianWidth.txt,
@@ -26,7 +25,6 @@ Unicode general category, and other data.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -64,6 +62,9 @@ rm -rf %{buildroot}%{gem_instdir}/.yardoc
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-4
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

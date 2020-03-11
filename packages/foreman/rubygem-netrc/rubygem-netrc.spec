@@ -7,7 +7,7 @@
 Summary: Library to read and write netrc files
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/netrc
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 This library can read and update netrc files, preserving formatting including
@@ -30,7 +29,6 @@ comments and whitespace.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -73,6 +71,9 @@ popd
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-5
+- Drop references to ruby193
+
 * Mon Apr 29 2019 Evgeni Golov - 0.11.0-4
 - Build for both SCL and non-SCL
 - Disable tests for non-SCL due to too old MiniTest

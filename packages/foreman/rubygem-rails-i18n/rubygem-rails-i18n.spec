@@ -7,7 +7,7 @@ Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 5.1.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
@@ -22,7 +22,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A set of common locale data and translations to internationalize and/or
@@ -31,7 +30,6 @@ localize your Rails applications.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -64,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.1.1-4
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.1-3
 - Update spec to remove the ror scl
 

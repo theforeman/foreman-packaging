@@ -6,7 +6,7 @@
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.7
-Release: 4%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
@@ -19,7 +19,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Provides multiple implementations of LDAP queries for various backends.
@@ -28,7 +27,6 @@ Provides multiple implementations of LDAP queries for various backends.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -72,6 +70,12 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.7-6
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.7-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.7-4
 - Update spec to remove the ror scl
 

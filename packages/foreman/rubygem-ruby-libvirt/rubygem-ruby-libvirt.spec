@@ -7,7 +7,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -20,7 +20,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: libvirt-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Ruby bindings for libvirt.
@@ -30,7 +29,6 @@ Ruby bindings for libvirt.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -87,6 +85,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-4
+- Drop references to ruby193
+
 * Thu Sep 06 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

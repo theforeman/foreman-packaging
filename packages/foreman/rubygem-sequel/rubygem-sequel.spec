@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.7.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: The Database Toolkit for Ruby
 Group: Development/Languages
 License: MIT
@@ -19,7 +19,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 The Database Toolkit for Ruby.
@@ -85,6 +84,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.7.1-3
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.7.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

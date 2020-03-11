@@ -25,7 +25,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 10.13%{?dist}
+Release: 10.14%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -121,7 +121,6 @@ BuildRequires: zlib-devel
 
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost) =  1.44
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Phusion Passenger™ — a.k.a. mod_rails or mod_rack — makes deployment
@@ -136,7 +135,6 @@ BuildRequires: httpd-devel
 Requires: httpd-mmn = %{_httpd_mmn}
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native%{?_isa} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-mod_passenger}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 
 %description -n %{?scl_prefix}mod_passenger
@@ -147,7 +145,6 @@ Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Provides: bundled(boost-devel) =  1.44
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-devel}
 License: Boost and BSD and BSD with advertising and GPL+ and MIT and zlib
 
 %description devel
@@ -157,7 +154,6 @@ This package contains development files for Phusion Passenger™.
 Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 License: CC-BY-SA and MIT and (MIT or GPL+)
 
@@ -170,7 +166,6 @@ Group: System Environment/Daemons
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native-libs%{?_isa} = %{version}-%{release}
 Requires: %{name}%{?_isa} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native
 This package contains the native code extensions for Apache & Nginx
@@ -181,7 +176,6 @@ Summary: Phusion Passenger native extensions
 Group: System Environment/Daemons
 Requires: %{name}%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix_ruby}ruby
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-native-libs}
 License: Boost and BSD and BSD with advertising and MIT and zlib
 %description native-libs
 This package contains the native shared library for Apache & Nginx
@@ -442,6 +436,9 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> 4.0.18-10.14
+- Drop references to ruby193
+
 * Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> 4.0.18-10.13
 - Rebuild without ror scl
 

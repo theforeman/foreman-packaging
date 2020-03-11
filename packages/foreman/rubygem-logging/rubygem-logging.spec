@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
 License: MIT
@@ -23,7 +23,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Logging is a flexible logging library for use in Ruby programs based on the
@@ -36,7 +35,6 @@ formatting, and more.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -90,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-5
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-4
 - Update spec to remove the ror scl
 

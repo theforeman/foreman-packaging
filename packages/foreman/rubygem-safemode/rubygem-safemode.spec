@@ -7,7 +7,7 @@ Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.3.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/safemode
@@ -25,7 +25,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(safemode) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 A library for safe evaluation of Ruby code based on RubyParser and Ruby2Ruby.
@@ -34,7 +33,6 @@ Provides Rails ActionView template handlers for ERB and Haml.
 %package doc
 BuildArch:  noarch
 Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Summary:    Documentation for rubygem-%{gem_name}
 
 %description doc
@@ -86,6 +84,9 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.3.5-3
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.5-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -6,7 +6,7 @@
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.10.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/sexp_processor
@@ -18,7 +18,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 sexp_processor branches from ParseTree bringing all the generic sexp
@@ -28,7 +27,6 @@ for your language processing pleasure.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 %description doc
 This package contains documentation for %{pkg_name}.
@@ -71,6 +69,9 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.10.0-6
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 4.10.0-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 

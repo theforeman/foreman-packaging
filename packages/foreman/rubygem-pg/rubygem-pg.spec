@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Pg is the Ruby interface to the PostgreSQL RDBMS
 Group: Development/Languages
 # Upstream license clarification (https://bitbucket.org/ged/ruby-pg/issue/72/)
@@ -103,6 +103,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.4-2
+- Drop references to ruby193
+
 * Mon Dec 02 2019 Evgeni Golov 1.1.4-1
 - Update to 1.1.4-1
 

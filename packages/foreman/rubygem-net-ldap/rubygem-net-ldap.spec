@@ -6,7 +6,7 @@
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.16.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/ruby-ldap/ruby-net-ldap
@@ -21,7 +21,6 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # this package obsoletes rubygem-ruby-net-ldap
 Provides: %{?scl_prefix}rubygem(ruby-net-ldap) = %{version}-%{release}
 Provides: %{?scl_prefix}rubygem-ruby-net-ldap = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 Obsoletes: %{?scl_prefix}rubygem-ruby-net-ldap < 0.0.4-7
 
 %description
@@ -42,7 +41,6 @@ the most recent LDAP RFCs (4510–4519, plus portions of 4520–4532).
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -94,6 +92,9 @@ popd
 %{gem_instdir}/testserver
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.16.1-2
+- Drop references to ruby193
+
 * Wed Jun 26 2019 Marek Hulan <mhulan@redhat.com> 0.16.1-1
 - Update to 0.16.1
 

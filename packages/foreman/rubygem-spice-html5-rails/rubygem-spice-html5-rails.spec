@@ -7,7 +7,7 @@
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Spice HTML5 client packed for Rails application
@@ -31,7 +30,6 @@ Spice HTML5 client packed for Rails application
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -65,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-9
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-8
 - Update spec to remove the ror scl
 

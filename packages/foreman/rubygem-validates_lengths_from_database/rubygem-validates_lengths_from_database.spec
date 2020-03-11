@@ -6,7 +6,7 @@
 Summary: Introspects your database string field maximum lengths and validates
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database
@@ -22,7 +22,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Few people add length validations to fields in their database, and when saving
@@ -34,7 +33,6 @@ automatically adds length validations to the model.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -75,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.5.0-7
+- Drop references to ruby193
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.0-6
 - Update spec to remove the ror scl
 

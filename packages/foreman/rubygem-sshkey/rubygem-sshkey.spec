@@ -6,7 +6,7 @@
 Summary: Generate private/public SSH keypairs using pure Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.9.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bensie/sshkey
@@ -21,7 +21,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Generate private and public SSH keys (RSA and DSA supported) using pure Ruby.
@@ -30,7 +29,6 @@ Generate private and public SSH keys (RSA and DSA supported) using pure Ruby.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
@@ -68,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.9.0-4
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.9.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

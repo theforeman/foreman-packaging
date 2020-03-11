@@ -6,7 +6,7 @@
 Summary:        Ruby library for performing simple syntax highlighting
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.0.0
-Release:        13%{?dist}
+Release:        14%{?dist}
 Group:          Development/Languages
 License:        Public Domain
 URL:            http://syntax.rubyforge.org/
@@ -20,7 +20,6 @@ BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
 BuildRequires:  %{?scl_prefix_ruby}rubygem(test-unit)
 BuildArch:      noarch
 Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
 Syntax is a lexical analysis framework. It supports pluggable syntax
@@ -63,6 +62,9 @@ popd
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-14
+- Drop references to ruby193
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-13
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 3%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -82,6 +82,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Drop references to ruby193
+
+* Mon Mar 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-2
+- Drop references to ruby193
+
 * Thu Nov 15 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
 - Update to 1.0.0
 - Regenerate spec file based on the current template
