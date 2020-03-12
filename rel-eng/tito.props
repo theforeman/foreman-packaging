@@ -154,7 +154,6 @@ whitelist = foreman
   rubygem-activestorage
   rubygem-actionpack
   rubygem-actionview
-  rubygem-activepack
   rubygem-activesupport
   rubygem-addressable
   rubygem-algebrick

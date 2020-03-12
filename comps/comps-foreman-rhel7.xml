@@ -21,7 +21,6 @@
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-journald</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
-      <packagereq type="default">foreman-mysql2</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>
       <packagereq type="default">foreman-ovirt</packagereq>
       <packagereq type="default">foreman-plugin</packagereq>
@@ -30,6 +29,7 @@
       <packagereq type="default">foreman-proxy-journald</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-rackspace</packagereq>
+      <packagereq type="default">foreman-redis</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-release-scl</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
@@ -146,7 +146,6 @@
       <packagereq type="default">tfm-rubygem-actionview</packagereq>
       <packagereq type="default">tfm-rubygem-activejob</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel</packagereq>
-      <packagereq type="default">tfm-rubygem-activepack</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage</packagereq>
@@ -249,7 +248,6 @@
       <packagereq type="default">tfm-rubygem-multi_json</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann</packagereq>
-      <packagereq type="default">tfm-rubygem-mysql2</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap</packagereq>
       <packagereq type="default">tfm-rubygem-net-ping</packagereq>
       <packagereq type="default">tfm-rubygem-net-scp</packagereq>
@@ -322,7 +320,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
-      <packagereq type="default">tfm-rubygem-stomp</packagereq>
       <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-thor</packagereq>
@@ -369,15 +366,11 @@
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
-      <packagereq type="default">rubygem-journald-logger</packagereq>
-      <packagereq type="default">rubygem-journald-native</packagereq>
-      <packagereq type="default">rubygem-jwt</packagereq>
       <packagereq type="default">rubygem-kafo</packagereq>
       <packagereq type="default">rubygem-kafo_parsers</packagereq>
       <packagereq type="default">rubygem-kafo_wizards</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
-      <packagereq type="default">rubygem-logging-journald</packagereq>
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
@@ -391,15 +384,11 @@
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
-      <packagereq type="default">rubygem-journald-logger-doc</packagereq>
-      <packagereq type="default">rubygem-journald-native-doc</packagereq>
-      <packagereq type="default">rubygem-jwt-doc</packagereq>
       <packagereq type="default">rubygem-kafo-doc</packagereq>
       <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
       <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
-      <packagereq type="default">rubygem-logging-journald-doc</packagereq>
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">rubygem-powerbar-doc</packagereq>
@@ -580,7 +569,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-stomp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe-doc</packagereq>
