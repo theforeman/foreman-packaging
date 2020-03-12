@@ -14,12 +14,9 @@
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
       <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
-      <packagereq type="default">rubygem-algebrick</packagereq>
-      <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
-      <packagereq type="default">rubygem-sequel</packagereq>
       <packagereq type="default">tfm-rubygem-chef-api</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-infoblox</packagereq>
@@ -72,7 +69,6 @@
       <packagereq type="default">tfm-rubygem-down</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar</packagereq>
-      <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
@@ -167,18 +163,14 @@
       <packagereq type="default">tfm-rubygem-ttfunk</packagereq>
       <packagereq type="default">tfm-rubygem-vault</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
-      <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">rubygem-algebrick-doc</packagereq>
-      <packagereq type="default">rubygem-faraday-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
-      <packagereq type="default">rubygem-sequel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4-doc</packagereq>
@@ -197,7 +189,6 @@
       <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-ffi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible_core-doc</packagereq>
@@ -320,7 +311,6 @@
       <packagereq type="default">tfm-rubygem-ttfunk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-vault-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wicked-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
