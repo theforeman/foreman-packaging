@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.2
+Version: 0.5.3
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -106,6 +106,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 12 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.5.3-1
+- Update to 0.5.3
+
 * Wed Feb 19 2020 kgaikwad <kavitagaikwad103@gmail.com> 1:0.5.2-1
 - Update to 0.5.2
 
