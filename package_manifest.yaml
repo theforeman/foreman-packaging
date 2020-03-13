@@ -24,7 +24,7 @@ foreman_scl_packages:
     diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-rhel7
-      - foreman-nightly-rhel8
+      - foreman-nightly-el8
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
