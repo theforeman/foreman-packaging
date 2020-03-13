@@ -348,7 +348,7 @@ whitelist = foreman
   tfm
 scl = tfm
 
-[foreman-nightly-rhel8]
+[foreman-nightly-el8]
 disttag = .el8
 whitelist = rubygem-concurrent-ruby
 
