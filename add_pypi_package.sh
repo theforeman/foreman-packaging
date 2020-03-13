@@ -96,7 +96,9 @@ add_pypi_to_comps() {
   fi
 
   for comps_package in ${comps_packages}; do
-    ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+    if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
+      ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+    fi
   done
   ./comps_doc.sh
   git add comps/
