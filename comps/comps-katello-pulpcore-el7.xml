@@ -11,28 +11,6 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">pulpcore-selinux</packagereq>
-      <packagereq type="default">python-aiohttp-debuginfo</packagereq>
-      <packagereq type="default">python-aiohttp-debugsource</packagereq>
-      <packagereq type="default">python-cffi-debuginfo</packagereq>
-      <packagereq type="default">python-cffi-debugsource</packagereq>
-      <packagereq type="default">python-cryptography-debuginfo</packagereq>
-      <packagereq type="default">python-cryptography-debugsource</packagereq>
-      <packagereq type="default">python-markupsafe-debuginfo</packagereq>
-      <packagereq type="default">python-markupsafe-debugsource</packagereq>
-      <packagereq type="default">python-multidict-debuginfo</packagereq>
-      <packagereq type="default">python-multidict-debugsource</packagereq>
-      <packagereq type="default">python-psycopg2-debuginfo</packagereq>
-      <packagereq type="default">python-psycopg2-debugsource</packagereq>
-      <packagereq type="default">python-pycparser-debuginfo</packagereq>
-      <packagereq type="default">python-pycparser-debugsource</packagereq>
-      <packagereq type="default">python-pycryptodomex-debuginfo</packagereq>
-      <packagereq type="default">python-pycryptodomex-debugsource</packagereq>
-      <packagereq type="default">python-pyyaml-debuginfo</packagereq>
-      <packagereq type="default">python-pyyaml-debugsource</packagereq>
-      <packagereq type="default">python-ruamel-yaml-clib-debuginfo</packagereq>
-      <packagereq type="default">python-ruamel-yaml-clib-debugsource</packagereq>
-      <packagereq type="default">python-yarl-debuginfo</packagereq>
-      <packagereq type="default">python-yarl-debugsource</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
