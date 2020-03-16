@@ -1,13 +1,15 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman_expire_hosts
 %global plugin_name expire_hosts
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 7.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
 License: GPLv3
@@ -73,8 +75,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
-
+mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d/
+mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a
 
@@ -87,13 +89,14 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
+%{gem_instdir}/extra
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%config(noreplace) %{?scl:%_root_sysconfdir}%{!?scl:%_sysconfdir}/cron.d/%{gem_name}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%config(noreplace) %{_root_sysconfdir}/cron.d/%{gem_name}
 
 %files doc
 %doc %{gem_docdir}
@@ -103,6 +106,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{?scl:%_root_sysconfdir}%{!?scl:%_sys
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 16 2020 Timo Goebel <mail@timogoebel.name> - 7.0.1-1
+- Update foreman_expire_hosts to 7.0.1
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 7.0.0-2
 - Drop migrate, seed and restart posttans
 
