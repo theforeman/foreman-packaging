@@ -80,7 +80,6 @@ whitelist = foreman
   nodejs-fbjs
   nodejs-file-loader
   nodejs-gud
-  nodejs-node-gyp
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-humanize-duration
@@ -94,6 +93,7 @@ whitelist = foreman
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
+  nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
   nodejs-patternfly
@@ -127,7 +127,6 @@ whitelist = foreman
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
-  nodejs-regenerator-runtime
   nodejs-reselect
   nodejs-sass-loader
   nodejs-seamless-immutable
@@ -147,13 +146,13 @@ whitelist = foreman
   nodejs-webpack-stats-plugin
   rubygem-actioncable
   rubygem-actionmailer
+  rubygem-actionpack
+  rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
   rubygem-activerecord
   rubygem-activerecord-session_store
   rubygem-activestorage
-  rubygem-actionpack
-  rubygem-actionview
   rubygem-activesupport
   rubygem-addressable
   rubygem-algebrick
@@ -166,14 +165,13 @@ whitelist = foreman
   rubygem-autoprefixer-rails
   rubygem-awesome_print
   rubygem-bcrypt
-  rubygem-builder
-  rubygem-coffee-script
-  rubygem-coffee-script-source
-  rubygem-coffee-rails
-  rubygem-concurrent-ruby
   rubygem-bootstrap-sass
+  rubygem-builder
   rubygem-bundler_ext
   rubygem-clamp
+  rubygem-coffee-rails
+  rubygem-coffee-script
+  rubygem-coffee-script-source
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-connection_pool
@@ -188,8 +186,8 @@ whitelist = foreman
   rubygem-dynflow
   rubygem-erubi
   rubygem-eventmachine
-  rubygem-execjs
   rubygem-excon
+  rubygem-execjs
   rubygem-facter
   rubygem-faraday
   rubygem-fast_gettext
@@ -230,8 +228,8 @@ whitelist = foreman
   rubygem-hoe
   rubygem-httpclient
   rubygem-http-cookie
-  rubygem-ipaddress
   rubygem-i18n
+  rubygem-ipaddress
   rubygem-journald-logger
   rubygem-journald-native
   rubygem-jquery-ui-rails
@@ -239,16 +237,16 @@ whitelist = foreman
   rubygem-ldap_fluff
   rubygem-little-plugger
   rubygem-locale
+  rubygem-logging
+  rubygem-logging-journald
   rubygem-loofah
   rubygem-mail
   rubygem-marcel
-  rubygem-logging
-  rubygem-logging-journald
   rubygem-memoist
   rubygem-method_source
+  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
-  rubygem-mimemagic
   rubygem-mini_mime
   rubygem-mini_portile2
   rubygem-multi_json
@@ -282,15 +280,15 @@ whitelist = foreman
   rubygem-rack-jsonp
   rubygem-rack-protection
   rubygem-rack-test
+  rubygem-rails
   rubygem-rails-dom-testing
   rubygem-rails-html-sanitizer
-  rubygem-rails
-  rubygem-railties
   rubygem-rails-i18n
+  rubygem-railties
   rubygem-rake-compiler
+  rubygem-rb-inotify
   rubygem-rbovirt
   rubygem-rbvmomi
-  rubygem-rb-inotify
   rubygem-record_tag_helper
   rubygem-redis
   rubygem-representable
@@ -321,14 +319,14 @@ whitelist = foreman
   rubygem-spice-html5-rails
   rubygem-sprockets
   rubygem-sprockets-rails
+  rubygem-sqlite3
   rubygem-sshkey
   rubygem-statsd-instrument
-  rubygem-sqlite3
   rubygem-syntax
   rubygem-text
-  rubygem-tilt
   rubygem-thor
   rubygem-thread_safe
+  rubygem-tilt
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
