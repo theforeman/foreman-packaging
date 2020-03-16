@@ -8,7 +8,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
@@ -105,5 +105,8 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Mon Mar 16 2020  0.1.0-1
+- Update to 0.1.0
+
 * Sat Mar 09 2019 Timo Goebel <mail@timogoebel.name> - 0.0.1-1
 - Add foreman_vault plugin
