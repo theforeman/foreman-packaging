@@ -48,6 +48,7 @@ foreman_scl_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
+        - el8-flattened
   hosts:
     foreman:
       releasers:
