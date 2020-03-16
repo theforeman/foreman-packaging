@@ -12,7 +12,7 @@
 %global release 1
 
 Name:    foreman
-Version: 1.23.1
+Version: 1.23.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1050,6 +1050,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Mar 16 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.23.2-1
+- Release foreman 1.23.2
+
 * Mon Nov 11 2019 Zach Huntington-Meath <zhunting@redhat.com> - 1.23.1-1
 - Release 1.23.1
 
