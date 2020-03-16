@@ -31,7 +31,7 @@ Conflicts: foreman-tasks < 0.11.0-2
 Conflicts: foreman-release-scl < 7-1
 
 Obsoletes: foreman-compute < %{version}-%{release}
-Obsoletes: %{?scl_prefix}rubygem-foreman_userdata
+Obsoletes: %{?scl_prefix}rubygem-foreman_userdata < 0.1.1
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems

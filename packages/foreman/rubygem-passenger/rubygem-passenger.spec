@@ -14,7 +14,7 @@
 
 %{!?_root_includedir:%global _root_includedir %{_includedir}}
 %{!?_httpd_apxs:       %{expand: %%global _httpd_apxs       %%{_sbindir}/apxs}}
-%{!?_httpd_mmn:        %{expand: %%global _httpd_mmn        %%(cat %{_root_includedir}/httpd/.mmn 2>/dev/null || echo missing-httpd-devel)}}
+%{!?_httpd_mmn:        %{expand: %%global _httpd_mmn        %%(cat %{_root_includedir}/httpd/.mmn 2>/dev/null)}}
 %{!?_httpd_confdir:    %{expand: %%global _httpd_confdir    %%{_sysconfdir}/httpd/conf.d}}
 # /etc/httpd/conf.d with httpd < 2.4 and defined as /etc/httpd/conf.modules.d with httpd >= 2.4
 %{!?_httpd_modconfdir: %{expand: %%global _httpd_modconfdir %%{_sysconfdir}/httpd/conf.d}}
@@ -83,7 +83,6 @@ Patch206:       rubygem-passenger-4.0.18-sigkill-trap.patch
 
 Requires: %{?scl_prefix_ruby}rubygems
 # XXX: Needed to run passenger standalone
-#Requires: %{?scl_prefix}rubygem(daemon_controller) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(rack)
 Requires: %{?scl_prefix_ruby}rubygem(rake)
 %if 0%{?el6} && 0%{!?scl:1}
@@ -133,7 +132,7 @@ Rails conventions, such as “Don’t-Repeat-Yourself”.
 Summary: Apache Module for Phusion Passenger
 Group: System Environment/Daemons
 BuildRequires: httpd-devel
-Requires: httpd-mmn = %{_httpd_mmn}
+Requires: httpd-mmn
 Requires: %{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
 Requires: %{name}-native%{?_isa} = %{version}-%{release}
 %{?scl:Obsoletes: ruby193-mod_passenger}
