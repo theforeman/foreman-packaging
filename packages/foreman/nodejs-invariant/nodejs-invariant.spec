@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-invariant
 Version: 2.2.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: invariant
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(loose-envify) >= 1.0.0
 Requires: %{?scl_prefix}npm(loose-envify) < 2.0.0
@@ -47,6 +48,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.4-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.2.4-3
 - Build for SCL
 

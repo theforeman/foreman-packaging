@@ -24,6 +24,7 @@ whitelist = foreman-bootloaders-redhat
   katello-certs-tools
   katello-selinux
   keycloak-httpd-client-install
+  nodejs-node-gyp
   pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
