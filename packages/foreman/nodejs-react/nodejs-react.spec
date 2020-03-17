@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react
 Version: 16.8.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: React is a JavaScript library for building user interfaces
 License: MIT
 Group: Development/Libraries
@@ -22,6 +22,7 @@ Source7: nodejs-react-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -79,6 +80,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 16.8.1-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 16.8.1-3
 - Build for SCL
 
