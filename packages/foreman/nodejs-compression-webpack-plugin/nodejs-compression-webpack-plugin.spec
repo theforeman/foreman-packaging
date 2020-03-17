@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-compression-webpack-plugin
 Version: 1.1.11
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Prepare compressed versions of assets to serve them with Content-Encoding
 License: MIT
 Group: Development/Libraries
@@ -89,7 +89,11 @@ Source74: nodejs-compression-webpack-plugin-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
+BuildRequires: nodejs
+BuildRequires: npm
+BuildRequires: npm
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 
@@ -211,6 +215,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.11-4
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.1.11-3
 - Build for SCL
 

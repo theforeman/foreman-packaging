@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-identity-obj-proxy
 Version: 3.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: an identity object using ES6 proxies
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(harmony-reflect) >= 1.4.6
 Requires: %{?scl_prefix}npm(harmony-reflect) < 2.0.0
@@ -44,6 +45,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-5
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-4
 - Build for SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-d3
 Version: 3.5.17
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A JavaScript visualization library for HTML and SVG
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -47,6 +48,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.5.17-4
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.5.17-3
 - Build for SCL
 
