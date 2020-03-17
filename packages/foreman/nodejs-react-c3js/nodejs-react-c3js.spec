@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-c3js
 Version: 0.1.20
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: React component for C3
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(c3) >= 0.4.11
 Requires: %{?scl_prefix}npm(c3) < 0.5.0
@@ -45,6 +46,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.20-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.1.20-3
 - Build for SCL
 

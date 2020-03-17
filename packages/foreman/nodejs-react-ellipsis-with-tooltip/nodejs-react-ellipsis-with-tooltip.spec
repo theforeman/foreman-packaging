@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-ellipsis-with-tooltip
 Version: 1.0.8
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: truncates (with ellipsis) overflowing text elements and adds a tooltip
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(uuid) >= 3.1.0
 Requires: %{?scl_prefix}npm(uuid) < 4.0.0
@@ -46,6 +47,9 @@ cp -pfr stories %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.8-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.8-3
 - Build for SCL
 
