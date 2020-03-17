@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.7.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
 License: MIT
@@ -92,6 +92,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.2-6
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.2-5
 - Update spec to include Obsoletes of rails-packaging version
 

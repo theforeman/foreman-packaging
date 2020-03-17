@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Daylight savings aware timezone library
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tzinfo.gemspec
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.5-4
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.5-3
 - Update spec to include Obsoletes of rails-packaging version
 

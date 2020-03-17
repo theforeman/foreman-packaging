@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-4
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-3
 - Update spec to include Obsoletes of rails-packaging version
 
