@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-syntax-dynamic-import
 Version: 6.18.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Allow parsing of import()
 License: MIT
 Group: Development/Libraries
@@ -13,6 +13,7 @@ URL: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-dyn
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -39,6 +40,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.18.0-3
+- Bump packages to build for el8
+
 * Wed Oct 23 2019 Eric D. Helms <ericdhelms@gmail.com> - 6.18.0-2
 - Build for SCL
 

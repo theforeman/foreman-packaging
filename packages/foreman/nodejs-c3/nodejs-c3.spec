@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-c3
 Version: 0.4.11
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: D3-based reusable chart library
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(d3) >= 3.5.0
 Requires: %{?scl_prefix}npm(d3) < 3.6.0
@@ -54,6 +55,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc htdocs
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.11-6
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.4.11-5
 - Build for SCL
 

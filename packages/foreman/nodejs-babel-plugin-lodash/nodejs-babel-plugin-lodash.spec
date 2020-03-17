@@ -5,13 +5,13 @@
 
 Name: %{?scl_prefix}nodejs-babel-plugin-lodash
 Version: 3.3.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Modular Lodash builds without the hassle
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/lodash/babel-plugin-lodash#readme
-Source0: https://registry.npmjs.org/@babel/helper-module-imports/-/@babel/helper-module-imports-7.0.0.tgz
-Source1: https://registry.npmjs.org/@babel/types/-/@babel/types-7.6.1.tgz
+Source0: https://registry.npmjs.org/@babel/helper-module-imports/-/helper-module-imports-7.0.0.tgz
+Source1: https://registry.npmjs.org/@babel/types/-/types-7.6.1.tgz
 Source2: https://registry.npmjs.org/babel-plugin-lodash/-/babel-plugin-lodash-3.3.4.tgz
 Source3: https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz
 Source4: https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz
@@ -33,6 +33,7 @@ Source18: nodejs-babel-plugin-lodash-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -98,6 +99,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.4-4
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.4-3
 - Build for SCL
 

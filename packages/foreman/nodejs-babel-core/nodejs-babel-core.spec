@@ -5,23 +5,23 @@
 
 Name: %{?scl_prefix}nodejs-babel-core
 Version: 7.7.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Babel compiler core
 License: MIT
 Group: Development/Libraries
 URL: https://babeljs.io/
-Source0: https://registry.npmjs.org/@babel/code-frame/-/@babel/code-frame-7.5.5.tgz
-Source1: https://registry.npmjs.org/@babel/core/-/@babel/core-7.7.4.tgz
-Source2: https://registry.npmjs.org/@babel/generator/-/@babel/generator-7.7.4.tgz
-Source3: https://registry.npmjs.org/@babel/helper-function-name/-/@babel/helper-function-name-7.7.4.tgz
-Source4: https://registry.npmjs.org/@babel/helper-get-function-arity/-/@babel/helper-get-function-arity-7.7.4.tgz
-Source5: https://registry.npmjs.org/@babel/helper-split-export-declaration/-/@babel/helper-split-export-declaration-7.7.4.tgz
-Source6: https://registry.npmjs.org/@babel/helpers/-/@babel/helpers-7.7.4.tgz
-Source7: https://registry.npmjs.org/@babel/highlight/-/@babel/highlight-7.5.0.tgz
-Source8: https://registry.npmjs.org/@babel/parser/-/@babel/parser-7.7.4.tgz
-Source9: https://registry.npmjs.org/@babel/template/-/@babel/template-7.7.4.tgz
-Source10: https://registry.npmjs.org/@babel/traverse/-/@babel/traverse-7.7.4.tgz
-Source11: https://registry.npmjs.org/@babel/types/-/@babel/types-7.7.4.tgz
+source0: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.5.5.tgz
+Source1: https://registry.npmjs.org/@babel/core/-/core-7.7.4.tgz
+Source2: https://registry.npmjs.org/@babel/generator/-/generator-7.7.4.tgz
+Source3: https://registry.npmjs.org/@babel/helper-function-name/-/helper-function-name-7.7.4.tgz
+Source4: https://registry.npmjs.org/@babel/helper-get-function-arity/-/helper-get-function-arity-7.7.4.tgz
+Source5: https://registry.npmjs.org/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.7.4.tgz
+Source6: https://registry.npmjs.org/@babel/helpers/-/helpers-7.7.4.tgz
+Source7: https://registry.npmjs.org/@babel/highlight/-/highlight-7.5.0.tgz
+Source8: https://registry.npmjs.org/@babel/parser/-/parser-7.7.4.tgz
+Source9: https://registry.npmjs.org/@babel/template/-/template-7.7.4.tgz
+Source10: https://registry.npmjs.org/@babel/traverse/-/traverse-7.7.4.tgz
+Source11: https://registry.npmjs.org/@babel/types/-/types-7.7.4.tgz
 Source12: https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz
 Source13: https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz
 Source14: https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz
@@ -50,6 +50,7 @@ Source35: nodejs-babel-core-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -132,6 +133,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 7.7.4-2
+- Bump packages to build for el8
+
 * Thu Nov 28 2019 Evgeni Golov 7.7.4-1
 - Update to 7.7.4
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-bootstrap-slider-without-jquery
 Version: 10.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Slider view component for Twitter Bootstrap
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -48,6 +49,9 @@ cp -pfr tpl %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 10.0.0-4
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 10.0.0-3
 - Build for SCL
 
