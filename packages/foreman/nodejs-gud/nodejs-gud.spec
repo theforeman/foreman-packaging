@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-gud
 Version: 1.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Create a 'gud nuff' (not cryptographically secure) globally unique id
 License: MIT
 Group: Development/Libraries
@@ -13,6 +13,7 @@ URL: https://github.com/jamiebuilds/global-unique-id#readme
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 %if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -39,6 +40,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
 - Build for SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-file-loader
 Version: 0.9.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: file loader module for webpack
 License: MIT
 Group: Development/Libraries
@@ -21,6 +21,7 @@ Source6: nodejs-file-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -73,6 +74,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.0-6
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.9.0-5
 - Build for SCL
 

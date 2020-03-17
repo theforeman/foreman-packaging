@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-create-react-context
 Version: 0.2.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Polyfill for the proposed React context API
 License: SEE LICENSE IN LICENSE
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(fbjs) >= 0.8.0
 Requires: %{?scl_prefix}npm(fbjs) < 0.9.0
@@ -46,6 +47,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.3-5
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.2.3-4
 - Build for SCL
 
