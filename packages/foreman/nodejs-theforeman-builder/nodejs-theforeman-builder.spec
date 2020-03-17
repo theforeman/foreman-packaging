@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-theforeman-builder
 Version: 4.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Build production and development bundle files for foreman core and plugins
 License: MIT
 Group: Development/Libraries
@@ -391,6 +391,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-2
+- Bump packages to build for el8
+
 * Fri Apr 03 2020 Evgeni Golov 4.3.0-1
 - Update to 4.3.0
 
