@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-click-outside
 Version: 3.0.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A component wrapper that provides click outside detection
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(hoist-non-react-statics) >= 2.1.1
 Requires: %{?scl_prefix}npm(hoist-non-react-statics) < 3.0.0
@@ -47,6 +48,9 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.1-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-3
 - Build for SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-is
 Version: 16.5.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Brand checking of React Elements
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -44,6 +45,9 @@ cp -pfr umd %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 16.5.2-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 16.5.2-3
 - Build for SCL
 

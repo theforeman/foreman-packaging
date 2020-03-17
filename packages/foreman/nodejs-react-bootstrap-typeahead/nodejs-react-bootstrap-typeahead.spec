@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-bootstrap-typeahead
 Version: 3.4.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: React typeahead with Bootstrap styling
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(classnames) >= 2.2.0
 Requires: %{?scl_prefix}npm(classnames) < 3.0.0
@@ -66,6 +67,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc docs
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.1-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.4.1-3
 - Build for SCL
 

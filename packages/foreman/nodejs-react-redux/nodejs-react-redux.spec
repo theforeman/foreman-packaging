@@ -5,12 +5,12 @@
 
 Name: %{?scl_prefix}nodejs-react-redux
 Version: 5.1.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Official React bindings for Redux
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/reduxjs/react-redux
-Source0: https://registry.npmjs.org/@babel/runtime/-/@babel/runtime-7.6.2.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.6.2.tgz
 Source1: https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz
 Source2: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
 Source3: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
@@ -26,6 +26,7 @@ Source11: nodejs-react-redux-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -88,6 +89,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.1.1-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 5.1.1-3
 - Build for SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-recompose
 Version: 0.26.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A React utility belt for function components and higher-order components
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(change-emitter) >= 0.1.2
 Requires: %{?scl_prefix}npm(change-emitter) < 0.2.0
@@ -98,6 +99,9 @@ cp -pfr xstreamObservableConfig.js %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.26.0-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.26.0-3
 - Build for SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-fontawesome
 Version: 1.6.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A React component for the font-awesome icon library
 License: MIT
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 Requires: %{?scl_prefix}npm(prop-types) >= 15.5.6
 Requires: %{?scl_prefix}npm(prop-types) < 16.0.0
@@ -47,6 +48,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.6.1-5
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.6.1-4
 - Build for SCL
 

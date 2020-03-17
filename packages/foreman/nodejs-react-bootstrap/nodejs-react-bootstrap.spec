@@ -5,12 +5,12 @@
 
 Name: %{?scl_prefix}nodejs-react-bootstrap
 Version: 0.32.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Bootstrap 3 components built with React
 License: MIT
 Group: Development/Libraries
 URL: https://react-bootstrap.github.io/
-Source0: https://registry.npmjs.org/@babel/runtime/-/@babel/runtime-7.6.2.tgz
+Source0: https://registry.npmjs.org/@babel/runtime/-/runtime-7.6.2.tgz
 Source1: https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz
 Source2: https://registry.npmjs.org/classnames/-/classnames-2.2.6.tgz
 Source3: https://registry.npmjs.org/core-js/-/core-js-2.6.9.tgz
@@ -37,6 +37,7 @@ Source22: nodejs-react-bootstrap-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -109,6 +110,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.32.1-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.32.1-3
 - Build for SCL
 
