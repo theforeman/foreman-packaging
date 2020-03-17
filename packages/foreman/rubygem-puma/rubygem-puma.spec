@@ -6,8 +6,8 @@
 %global gem_name puma
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.11.4
-Release: 3%{?dist}
+Version: 4.3.3
+Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -16,11 +16,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(nio4r) >= 2.0
+Requires: %{?scl_prefix}rubygem(nio4r) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
@@ -101,6 +102,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/docs
 
 %changelog
+* Tue Mar 17 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.3.3-1
+- Update to 4.3.3
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.11.4-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
