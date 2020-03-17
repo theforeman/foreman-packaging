@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
 Version: 4.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
@@ -40,6 +40,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-2
+- Bump packages to build for el8
+
 * Fri Apr 03 2020 Evgeni Golov 4.3.0-1
 - Update to 4.3.0
 

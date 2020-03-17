@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-seamless-immutable
 Version: 7.1.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Immutable data structures for JavaScript which are backwards-compatible with normal JS Arrays and Objects
 License: BSD-3-Clause
 Group: Development/Libraries
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -45,6 +46,9 @@ cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 7.1.3-4
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 7.1.3-3
 - Build for SCL
 
