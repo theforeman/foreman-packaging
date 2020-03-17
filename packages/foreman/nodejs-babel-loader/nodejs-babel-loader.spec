@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-loader
 Version: 8.0.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: babel module loader for webpack
 License: MIT
 Group: Development/Libraries
@@ -35,6 +35,7 @@ Source20: nodejs-babel-loader-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -103,6 +104,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 8.0.6-2
+- Bump packages to build for el8
+
 * Wed Nov 27 2019 Evgeni Golov 8.0.6-1
 - Update to 8.0.6
 

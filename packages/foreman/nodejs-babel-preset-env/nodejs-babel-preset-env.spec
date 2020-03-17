@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-babel-preset-env
 Version: 1.7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A Babel preset for each environment
 License: MIT
 Group: Development/Libraries
@@ -94,6 +94,7 @@ Source79: nodejs-babel-preset-env-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -223,6 +224,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.0-4
+- Bump packages to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-3
 - Build for SCL
 
