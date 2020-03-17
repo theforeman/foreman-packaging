@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.8
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Generic interface to multiple Ruby template engines
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/tilt.gemspec
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.8-4
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.8-3
 - Update spec to include Obsoletes of rails-packaging version
 

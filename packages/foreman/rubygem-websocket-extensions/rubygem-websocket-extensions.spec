@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Generic extension manager for WebSocket connections
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-4
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-3
 - Update spec to include Obsoletes of rails-packaging version
 

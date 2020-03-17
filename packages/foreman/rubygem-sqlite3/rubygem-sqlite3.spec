@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.13
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
 Group: Development/Languages
 License: BSD-3
@@ -101,6 +101,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.13-5
+- Bump packages to build for el8
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.13-4
 - Update spec to include Obsoletes of rails-packaging version
 
