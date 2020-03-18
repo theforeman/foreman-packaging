@@ -2,8 +2,8 @@
 %global pypi_name redis
 
 Name:           python-%{pypi_name}
-Version:        3.1.0
-Release:        2%{?dist}
+Version:        3.4.1
+Release:        1%{?dist}
 Summary:        Python client for Redis key-value store
 
 License:        MIT
@@ -12,6 +12,7 @@ Source0:        https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-hiredis >= 0.1.3
 BuildRequires:  python3-setuptools
 
 %description
@@ -20,6 +21,7 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
+Requires:       python3-hiredis >= 0.1.3
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -42,6 +44,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 3.4.1-1
+- Update to 3.4.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.0-2
 - Bump release to build for el8
 
