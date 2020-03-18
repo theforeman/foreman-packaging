@@ -12,7 +12,6 @@ Source0:        https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-hiredis >= 0.1.3
 BuildRequires:  python3-setuptools
 
 %description
@@ -21,7 +20,6 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-hiredis >= 0.1.3
 
 %description -n python3-%{pypi_name}
 %{summary}
