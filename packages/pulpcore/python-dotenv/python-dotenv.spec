@@ -3,8 +3,8 @@
 %global srcname dotenv
 
 Name:           python-%{srcname}
-Version:        0.10.3
-Release:        2%{?dist}
+Version:        0.12.0
+Release:        1%{?dist}
 Summary:        Add .env support to your django/flask apps in development and deployments
 
 License:        None
@@ -30,11 +30,6 @@ Summary:        %{summary}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
-# setup.py loads the contents of README.md and CHANGELOG.md into long_description
-# these files contain unicode charactes and thus fail to load in a non-unicode
-# environment like some EL7 builds
-sed -i 's/long_description = f.read.*/long_description = "dotenv"/' setup.py
-
 %build
 %py3_build
 
@@ -49,6 +44,9 @@ sed -i 's/long_description = f.read.*/long_description = "dotenv"/' setup.py
 %{python3_sitelib}/python_dotenv-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 0.12.0-1
+- Update to 0.12.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.10.3-2
 - Bump release to build for el8
 
