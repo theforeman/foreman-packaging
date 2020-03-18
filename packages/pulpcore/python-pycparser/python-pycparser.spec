@@ -2,15 +2,13 @@
 %global pypi_name pycparser
 
 Name:           python-%{pypi_name}
-Version:        2.19
-Release:        2%{?dist}
+Version:        2.20
+Release:        1%{?dist}
 Summary:        C parser in Python
 
 License:        BSD
 URL:            https://github.com/eliben/pycparser
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-
-BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
@@ -39,10 +37,13 @@ rm -rf %{pypi_name}.egg-info
 %files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
-%{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
+%{python3_sitearch}/%{pypi_name}
+%{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 2.20-1
+- Update to 2.20
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.19-2
 - Bump release to build for el8
 
