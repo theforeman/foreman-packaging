@@ -3,12 +3,12 @@
 %global srcname ruamel-yaml
 
 Name:           python-%{srcname}
-Version:        0.16.5
-Release:        2%{?dist}
+Version:        0.16.10
+Release:        1%{?dist}
 Summary:        ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order
 
 License:        MIT license
-URL:            https://bitbucket.org/ruamel/yaml
+URL:            https://sourceforge.net/p/ruamel-yaml/code/ci/default/tree
 Source0:        https://files.pythonhosted.org/packages/source/r/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
@@ -20,8 +20,11 @@ BuildRequires:  python3-setuptools
 
 %package -n     python3-%{srcname}
 Summary:        %{summary}
-Requires:       python3-ruamel-yaml-clib
 %{?python_provide:%python_provide python3-%{srcname}}
+Requires:       python3-ruamel-ordereddict
+Requires:       python3-ruamel-yaml-clib >= 0.1.2
+Requires:       python3-ruamel-yaml-jinja2 >= 0.2
+Requires:       python3-ryd
 
 %description -n python3-%{srcname}
 %{summary}
@@ -35,7 +38,7 @@ rm -rf %{pypi_name}.egg-info
 %py3_build
 
 %install
-%{__python3} setup.py install --single-version-externally-managed --skip-build --root $RPM_BUILD_ROOT
+%py3_install
 
 %files -n python3-%{srcname}
 %license LICENSE
@@ -45,6 +48,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 0.16.10-1
+- Update to 0.16.10
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.16.5-2
 - Bump release to build for el8
 
