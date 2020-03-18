@@ -1143,6 +1143,7 @@ pulpcore_packages:
     python-six: {}
     python-sqlparse: {}
     python-toml: {}
+    python-typing: {}
     python-typing-extensions: {}
     python-uritemplate: {}
     python-urllib3: {}
