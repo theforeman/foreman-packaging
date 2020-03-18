@@ -2,8 +2,8 @@
 %global pypi_name redis
 
 Name:           python-%{pypi_name}
-Version:        3.1.0
-Release:        2%{?dist}
+Version:        3.4.1
+Release:        1%{?dist}
 Summary:        Python client for Redis key-value store
 
 License:        MIT
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 3.4.1-1
+- Update to 3.4.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.0-2
 - Bump release to build for el8
 
