@@ -2,8 +2,8 @@
 %global pypi_name multidict
 
 Name:           python-%{pypi_name}
-Version:        4.7.4
-Release:        2%{?dist}
+Version:        4.7.5
+Release:        1%{?dist}
 Summary:        multidict implementation
 
 License:        Apache 2
@@ -41,6 +41,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 4.7.5-1
+- Update to 4.7.5
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.7.4-2
 - Bump release to build for el8
 
