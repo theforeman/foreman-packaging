@@ -2,8 +2,8 @@
 %global pypi_name sqlparse
 
 Name:           python-%{pypi_name}
-Version:        0.3.0
-Release:        2%{?dist}
+Version:        0.3.1
+Release:        1%{?dist}
 Summary:        Non-validating SQL parser
 
 License:        BSD
@@ -37,13 +37,16 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %files -n python3-%{pypi_name}
-%license LICENSE
+%license LICENSE docs/source/license.rst
 %doc README.rst
 %{_bindir}/sqlformat
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 0.3.1-1
+- Update to 0.3.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.0-2
 - Bump release to build for el8
 
