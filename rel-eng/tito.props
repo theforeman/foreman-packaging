@@ -751,9 +751,8 @@ whitelist = katello
 [katello-pulpcore-nightly-el7]
 disttag = .el7
 whitelist =
-  rh-postgresql12-postgresql-debversion
-  rh-postgresql12-postgresql-evr
   pulpcore-selinux
+  python-aiodns
   python-aiofiles
   python-aiohttp
   python-async-timeout
@@ -819,6 +818,8 @@ whitelist =
   python-whitenoise
   python-yarl
   python-zipp
+  rh-postgresql12-postgresql-debversion
+  rh-postgresql12-postgresql-evr
 
 [katello-pulpcore-nightly-el8]
 disttag = .el8

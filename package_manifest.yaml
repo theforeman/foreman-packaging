@@ -1063,6 +1063,7 @@ pulpcore_packages:
     postgresql-debversion: {}
     postgresql-evr: {}
     pulpcore-selinux: {}
+    python-aiodns: {}
     python-aiofiles: {}
     python-aiohttp: {}
     python-async-timeout: {}
