@@ -2,8 +2,8 @@
 %global pypi_name rq
 
 Name:           python-%{pypi_name}
-Version:        1.1.0
-Release:        2%{?dist}
+Version:        1.2.2
+Release:        1%{?dist}
 Summary:        RQ is a simple, lightweight, library for creating background jobs, and processing them
 
 License:        BSD
@@ -39,6 +39,7 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %files -n python3-%{pypi_name}
+%license LICENSE
 %doc README.md
 %{_bindir}/rq
 %{_bindir}/rqinfo
@@ -47,6 +48,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 1.2.2-1
+- Update to 1.2.2
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
 - Bump release to build for el8
 
