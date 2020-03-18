@@ -2,8 +2,8 @@
 %global pypi_name idna
 
 Name:           python-%{pypi_name}
-Version:        2.8
-Release:        2%{?dist}
+Version:        2.9
+Release:        1%{?dist}
 Summary:        Internationalized Domain Names in Applications (IDNA)
 
 License:        BSD-like
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 2.9-1
+- Update to 2.9
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8-2
 - Bump release to build for el8
 
