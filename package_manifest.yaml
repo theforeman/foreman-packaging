@@ -1087,6 +1087,7 @@ pulpcore_packages:
     python-dynaconf: {}
     python-ecdsa: {}
     python-future: {}
+    python-gnupg: {}
     python-gunicorn: {}
     python-idna: {}
     python-idna-ssl: {}
