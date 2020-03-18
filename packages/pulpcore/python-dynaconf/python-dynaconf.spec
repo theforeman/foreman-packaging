@@ -14,32 +14,8 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-box
 BuildRequires:  python3-click
-BuildRequires:  python3-codecov
-BuildRequires:  python3-configobj
-BuildRequires:  python3-configobj
-BuildRequires:  python3-configobj
 BuildRequires:  python3-dotenv
-BuildRequires:  python3-dotenv
-BuildRequires:  python3-flake8
-BuildRequires:  python3-flake8-debugger
-BuildRequires:  python3-flake8-print
-BuildRequires:  python3-flake8-todo
-BuildRequires:  python3-flask >= 0.12
-BuildRequires:  python3-hvac
-BuildRequires:  python3-hvac
-BuildRequires:  python3-pep8-naming
-BuildRequires:  python3-pytest
-BuildRequires:  python3-pytest-cov
-BuildRequires:  python3-pytest-xdist
-BuildRequires:  python3-radon
-BuildRequires:  python3-redis
-BuildRequires:  python3-redis
-BuildRequires:  python3-ruamel-yaml
-BuildRequires:  python3-ruamel-yaml
-BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools >= 38.6.0
-BuildRequires:  python3-toml
-BuildRequires:  python3-toml
 BuildRequires:  python3-toml
 
 %description
@@ -50,18 +26,8 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-box
 Requires:       python3-click
-Requires:       python3-configobj
-Requires:       python3-configobj
-Requires:       python3-configobj
 Requires:       python3-dotenv
-Requires:       python3-hvac
-Requires:       python3-hvac
-Requires:       python3-redis
-Requires:       python3-redis
-Requires:       python3-ruamel-yaml
-Requires:       python3-ruamel-yaml
 Requires:       python3-setuptools
-Requires:       python3-toml
 Requires:       python3-toml
 
 %description -n python3-%{pypi_name}
