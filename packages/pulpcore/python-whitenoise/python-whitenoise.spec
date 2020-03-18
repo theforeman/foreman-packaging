@@ -2,8 +2,8 @@
 %global pypi_name whitenoise
 
 Name:           python-%{pypi_name}
-Version:        4.1.4
-Release:        2%{?dist}
+Version:        5.0.1
+Release:        1%{?dist}
 Summary:        Radically simplified static file serving for WSGI applications
 
 License:        MIT
@@ -20,6 +20,7 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
+Requires:       python3-Brotli
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -42,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 5.0.1-1
+- Update to 5.0.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.4-2
 - Bump release to build for el8
 
