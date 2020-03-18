@@ -3,8 +3,8 @@
 %global srcname box
 
 Name:           python-%{srcname}
-Version:        3.4.6
-Release:        2%{?dist}
+Version:        4.2.2
+Release:        1%{?dist}
 Summary:        Advanced Python dictionaries with dot notation access
 
 License:        MIT
@@ -13,7 +13,9 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-ruamel-yaml
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-toml
 
 %description
 %{summary}
@@ -21,6 +23,8 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
+Requires:       python3-ruamel-yaml
+Requires:       python3-toml
 
 %description -n python3-%{srcname}
 %{summary}
@@ -29,10 +33,6 @@ Summary:        %{summary}
 %autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
-
-# setup.py contains a setup_requires for pytest-runner,
-# but we don't run tests here and don't need it, so let's remove it
-sed -i '/setup_requires/d' setup.py
 
 %build
 %py3_build
@@ -43,12 +43,15 @@ sed -i '/setup_requires/d' setup.py
 %files -n python3-%{srcname}
 %license LICENSE
 %doc README.rst
-%{_bindir}/box.py
 %{python3_sitelib}/__pycache__/box.*
 %{python3_sitelib}/box.py
+%{python3_sitelib}/box
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 4.2.2-1
+- Update to 4.2.2
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.6-2
 - Bump release to build for el8
 
