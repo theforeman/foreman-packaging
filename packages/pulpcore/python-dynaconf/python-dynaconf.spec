@@ -2,8 +2,8 @@
 %global pypi_name dynaconf
 
 Name:           python-%{pypi_name}
-Version:        2.2.2
-Release:        2%{?dist}
+Version:        3.0.0rc1
+Release:        1%{?dist}
 Summary:        The dynamic configurator for your Python Project
 
 License:        MIT
@@ -12,8 +12,11 @@ Source0:        https://files.pythonhosted.org/packages/source/d/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
+BuildRequires:  python3-box
+BuildRequires:  python3-click
+BuildRequires:  python3-dotenv
 BuildRequires:  python3-setuptools >= 38.6.0
+BuildRequires:  python3-toml
 
 %description
 %{summary}
@@ -21,11 +24,11 @@ BuildRequires:  python3-setuptools >= 38.6.0
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-box < 4.0.0
-Requires:       python3-click <= 7.0
-Requires:       python3-dotenv <= 0.10.3
+Requires:       python3-box
+Requires:       python3-click
+Requires:       python3-dotenv
 Requires:       python3-setuptools
-Requires:       python3-toml <= 0.10.0
+Requires:       python3-toml
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -49,6 +52,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 3.0.0rc1-1
+- Update to 3.0.0rc1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-2
 - Bump release to build for el8
 
