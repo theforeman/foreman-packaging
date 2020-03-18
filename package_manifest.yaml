@@ -1104,6 +1104,7 @@ pulpcore_packages:
     python-pulp-container: {}
     python-pulp-file: {}
     python-pulpcore: {}
+    python-pycares: {}
     python-pycparser: {}
     python-pycryptodomex: {}
     python-pygtrie: {}
