@@ -2,8 +2,8 @@
 %global pypi_name cffi
 
 Name:           python-%{pypi_name}
-Version:        1.13.2
-Release:        2%{?dist}
+Version:        1.14.0
+Release:        1%{?dist}
 Summary:        Foreign Function Interface for Python calling C code
 
 License:        MIT
@@ -11,10 +11,8 @@ URL:            http://cffi.readthedocs.org
 Source0:        https://files.pythonhosted.org/packages/source/c/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-pycparser
 BuildRequires:  python3-setuptools
-
-BuildRequires:  libffi-devel
-BuildRequires:  gcc
 
 %description
 %{summary}
@@ -43,10 +41,12 @@ rm -rf %{pypi_name}.egg-info
 %license LICENSE
 %doc README.md
 %{python3_sitearch}/%{pypi_name}
-%{python3_sitearch}/_cffi_backend.cpython-3*m-x86_64-linux-gnu.so
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 1.14.0-1
+- Update to 1.14.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.13.2-2
 - Bump release to build for el8
 
