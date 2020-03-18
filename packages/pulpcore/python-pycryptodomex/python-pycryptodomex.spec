@@ -2,8 +2,8 @@
 %global pypi_name pycryptodomex
 
 Name:           python-%{pypi_name}
-Version:        3.9.6
-Release:        2%{?dist}
+Version:        3.9.7
+Release:        1%{?dist}
 Summary:        Cryptographic library for Python
 
 License:        BSD, Public Domain, Apache
@@ -41,6 +41,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Mar 18 2020 Samir Jha 3.9.7-1
+- Update to 3.9.7
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.9.6-2
 - Bump release to build for el8
 
