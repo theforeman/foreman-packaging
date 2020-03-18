@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-classnames
 Version: 2.2.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A simple utility for conditionally joining classNames together
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Mar 18 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.5-4
+- Bump releases to build for el8
+
 * Mon Oct 21 2019 Eric D. Helms <ericdhelms@gmail.com> - 2.2.5-3
 - Build for SCL
 

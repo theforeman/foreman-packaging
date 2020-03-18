@@ -282,9 +282,10 @@ foreman_nodejs_packages:
     diff_package_tags:
       - foreman-nightly-nonscl-rhel7
       - foreman-nightly-rhel7
+      - foreman-nightly-el8
     releasers:
       - koji-foreman
-    repoclosure_config: repoclosure/yum_el7.conf
+    repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
       rhel7:
         - el7-foreman-nightly
@@ -293,6 +294,13 @@ foreman_nodejs_packages:
         - el7-epel
         - el7-scl
         - el7-extras
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
+        - el8-flattened
   hosts:
     nodejs-argv-parse: {}
     nodejs-babel-cli:
