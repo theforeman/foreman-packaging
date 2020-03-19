@@ -10,7 +10,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
+Version: 0.1.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman kubevirt commands for Hammer CLI
 Group: Development/Languages
@@ -92,6 +92,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 
 
 %changelog
+* Thu Mar 19 2020 Shira Maximov <shiramaximov@gmail.com> 0.1.4-1
+- Update to 0.1.4
+
 * Wed May 22 2019 Shira Maximov <shiramaximov@gmail.com> 0.1.3-1
 - Update to 0.1.3
 
