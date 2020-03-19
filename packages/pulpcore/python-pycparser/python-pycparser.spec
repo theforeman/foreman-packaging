@@ -10,6 +10,8 @@ License:        BSD
 URL:            https://github.com/eliben/pycparser
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
+BuildArch:      noarch
+
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
@@ -37,8 +39,8 @@ rm -rf %{pypi_name}.egg-info
 %files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
-%{python3_sitearch}/%{pypi_name}
-%{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
 * Wed Mar 18 2020 Samir Jha 2.20-1

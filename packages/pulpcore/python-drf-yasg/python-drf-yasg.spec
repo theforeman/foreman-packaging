@@ -12,17 +12,8 @@ Source0:        https://files.pythonhosted.org/packages/source/d/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-Django >= 1.11.7
-BuildRequires:  python3-coreapi >= 2.3.3
-BuildRequires:  python3-coreschema >= 0.0.4
-BuildRequires:  python3-djangorestframework >= 3.8
-BuildRequires:  python3-inflection >= 0.3.1
-BuildRequires:  python3-packaging
-BuildRequires:  python3-ruamel-yaml >= 0.15.34
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-six >= 1.10.0
-BuildRequires:  python3-swagger-spec-validator >= 2.1.0
-BuildRequires:  python3-uritemplate >= 3.0.0
+BuildRequires:  python3-setuptools-scm
 
 %description
 %{summary}
@@ -30,15 +21,14 @@ BuildRequires:  python3-uritemplate >= 3.0.0
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-Django >= 1.11.7
 Requires:       python3-coreapi >= 2.3.3
 Requires:       python3-coreschema >= 0.0.4
-Requires:       python3-djangorestframework >= 3.8
 Requires:       python3-inflection >= 0.3.1
+Requires:       python3-django >= 1.11.7	
+Requires:       python3-django-rest-framework >= 3.8
 Requires:       python3-packaging
 Requires:       python3-ruamel-yaml >= 0.15.34
 Requires:       python3-six >= 1.10.0
-Requires:       python3-swagger-spec-validator >= 2.1.0
 Requires:       python3-uritemplate >= 3.0.0
 
 %description -n python3-%{pypi_name}

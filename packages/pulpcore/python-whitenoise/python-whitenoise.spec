@@ -20,7 +20,6 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-Brotli
 
 %description -n python3-%{pypi_name}
 %{summary}
