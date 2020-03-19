@@ -39,7 +39,6 @@ Summary:        %{summary}
 %doc README.rst
 %{python3_sitelib}/__pycache__/gnupg.*
 %{python3_sitelib}/gnupg.py
-%{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/python_gnupg-%{version}-py%{python3_version}.egg-info
 
 %changelog
