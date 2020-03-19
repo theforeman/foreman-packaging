@@ -819,3 +819,7 @@ whitelist =
   python-whitenoise
   python-yarl
   python-zipp
+
+[katello-pulpcore-nightly-el8]
+disttag = .el8
+
