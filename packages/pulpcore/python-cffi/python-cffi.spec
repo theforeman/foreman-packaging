@@ -13,6 +13,8 @@ Source0:        https://files.pythonhosted.org/packages/source/c/%{pypi_name}/%{
 BuildRequires:  python3-devel
 BuildRequires:  python3-pycparser
 BuildRequires:  python3-setuptools
+BuildRequires:  libffi-devel
+BuildRequires:  gcc
 
 %description
 %{summary}
@@ -41,6 +43,7 @@ rm -rf %{pypi_name}.egg-info
 %license LICENSE
 %doc README.md
 %{python3_sitearch}/%{pypi_name}
+%{python3_sitearch}/_cffi_backend.cpython-3*m-x86_64-linux-gnu.so
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog

@@ -30,6 +30,11 @@ Summary:        %{summary}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
+# setup.py loads the contents of README.md and CHANGELOG.md into long_description
+# these files contain unicode charactes and thus fail to load in a non-unicode	
+# environment like some EL7 builds	
+sed -i 's/long_description = f.read.*/long_description = "dotenv"/' setup.py
+
 %build
 %py3_build
 

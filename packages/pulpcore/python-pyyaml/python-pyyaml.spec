@@ -11,6 +11,8 @@ License:        MIT
 URL:            https://github.com/yaml/pyyaml
 Source0:        https://files.pythonhosted.org/packages/source/P/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
+BuildArch:      noarch
+
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
