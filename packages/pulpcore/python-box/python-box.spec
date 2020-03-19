@@ -43,8 +43,6 @@ rm -rf %{pypi_name}.egg-info
 %files -n python3-%{srcname}
 %license LICENSE
 %doc README.rst
-%{python3_sitelib}/__pycache__/box.*
-%{python3_sitelib}/box.py
 %{python3_sitelib}/box
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 
