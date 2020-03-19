@@ -13,9 +13,7 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-click >= 5.0
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-typing
 
 %description
 %{summary}
@@ -23,8 +21,6 @@ BuildRequires:  python3-typing
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
-Requires:       python3-click >= 5.0
-Requires:       python3-typing
 
 %description -n python3-%{srcname}
 %{summary}
@@ -48,6 +44,7 @@ sed -i 's/long_description = f.read.*/long_description = "dotenv"/' setup.py
 %files -n python3-%{srcname}
 %license LICENSE
 %doc README.md
+%{_bindir}/dotenv
 %{python3_sitelib}/dotenv
 %{python3_sitelib}/python_dotenv-%{version}-py%{python3_version}.egg-info
 
