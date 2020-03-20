@@ -11,6 +11,7 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">pulpcore-selinux</packagereq>
+      <packagereq type="default">python3-aiodns</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
       <packagereq type="default">python3-async-timeout</packagereq>
@@ -33,6 +34,7 @@
       <packagereq type="default">python3-dynaconf</packagereq>
       <packagereq type="default">python3-ecdsa</packagereq>
       <packagereq type="default">python3-future</packagereq>
+      <packagereq type="default">python3-gnupg</packagereq>
       <packagereq type="default">python3-gunicorn</packagereq>
       <packagereq type="default">python3-idna</packagereq>
       <packagereq type="default">python3-idna-ssl</packagereq>
@@ -50,6 +52,7 @@
       <packagereq type="default">python3-pulp-container</packagereq>
       <packagereq type="default">python3-pulp-file</packagereq>
       <packagereq type="default">python3-pulpcore</packagereq>
+      <packagereq type="default">python3-pycares</packagereq>
       <packagereq type="default">python3-pycparser</packagereq>
       <packagereq type="default">python3-pycryptodomex</packagereq>
       <packagereq type="default">python3-pygtrie</packagereq>
