@@ -21,7 +21,7 @@ build:
 	/bin/rm db/production.sqlite3
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
-	/bin/sed -ri '/^ExecStart/ s#/usr/bin/rails#/usr/bin/bundle exec rails#' extras/systemd/foreman.service
+	/bin/sed -ri '/^ExecStart/ s#=#=/usr/bin/bundle exec --keep-file-descriptors #' extras/systemd/foreman.service
 	/bin/sed -ri '/^ExecStart/ s#/usr/bin/sidekiq#/usr/bin/bundle exec sidekiq#' extras/systemd/dynflow-sidekiq@.service
 	/bin/mkdir -p .ssh
 	/usr/bin/touch build
@@ -33,6 +33,6 @@ override_dh_installinit:
 	dh_installinit
 
 override_dh_systemd_enable:
-	dh_systemd_enable
+	dh_systemd_enable --package=foreman-service
 	dh_systemd_enable --name=dynflow-sidekiq@orchestrator --package=foreman-dynflow-sidekiq
 	dh_systemd_enable --name=dynflow-sidekiq@worker --package=foreman-dynflow-sidekiq
