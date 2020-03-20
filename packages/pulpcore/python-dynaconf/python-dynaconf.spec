@@ -1,14 +1,16 @@
 # Created by pyp2rpm-3.3.3
 %global pypi_name dynaconf
 
+%global real_version %{version}rc1
+
 Name:           python-%{pypi_name}
-Version:        3.0.0rc1
-Release:        1%{?dist}
+Version:        3.0.0
+Release:        0.1.rc1%{?dist}
 Summary:        The dynamic configurator for your Python Project
 
 License:        MIT
 URL:            https://github.com/rochacbruno/dynaconf
-Source0:        https://files.pythonhosted.org/packages/source/d/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/d/%{pypi_name}/%{pypi_name}-%{real_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -34,7 +36,7 @@ Requires:       python3-toml
 %{summary}
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%autosetup -n %{pypi_name}-%{real_version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -49,10 +51,10 @@ rm -rf %{pypi_name}.egg-info
 %doc README.md
 %{_bindir}/dynaconf
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
+%{python3_sitelib}/%{pypi_name}-%{real_version}-py%{python3_version}.egg-info
 
 %changelog
-* Wed Mar 18 2020 Samir Jha 3.0.0rc1-1
+* Wed Mar 18 2020 Samir Jha 3.0.0-0.1.rc1
 - Update to 3.0.0rc1
 
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-2
