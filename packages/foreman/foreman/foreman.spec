@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -22,7 +22,6 @@ Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
-Source2: %{name}.sysconfig
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
@@ -687,8 +686,8 @@ Requires: %{name} = %{version}-%{release}
 Meta Package to install requirements for Foreman service
 
 %files service
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_unitdir}/%{name}.service
+%{_unitdir}/%{name}.socket
 %{_datadir}/%{name}/bundler.d/service.rb
 
 %description
@@ -764,14 +763,13 @@ install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buil
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
-install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
+install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
 
 sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
-sed -i '/^ExecStart/ s|/usr/bin/rails \(.\+\)$|/usr/bin/scl enable tfm "rails \1"|' %{buildroot}%{_unitdir}/%{name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
@@ -989,17 +987,21 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
-
-%systemd_postun_with_restart %{name}.service
 exit 0
 
-%preun
+%post service
+%systemd_post %{name}.service
+
+%preun service
 %systemd_preun %{name}.service
 
-%postun
+%postun service
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Mar 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.5.develop
+- Use systemd socket activation (#29144)
+
 * Tue Mar 10 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.4.develop
 - Update Gem and NPM dependencies
 
