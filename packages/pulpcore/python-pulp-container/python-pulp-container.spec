@@ -12,14 +12,6 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-Requires:       python3-ecdsa >= 0.13.2
-Conflicts:      python3-ecdsa >= 0.14
-BuildRequires:  python3-pulpcore < 3.3
-BuildRequires:  python3-pulpcore >= 3.2.0
-Requires:       python3-pyjwkest >= 1.4.0
-Conflicts:      python3-pyjwkest >= 1.5
-Requires:       python3-pyjwt >= 1.7.1
-Conflicts:      python3-pyjwt >= 1.8
 BuildRequires:  python3-setuptools
 
 %description

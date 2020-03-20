@@ -12,12 +12,10 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-pulpcore < 3.3
-BuildRequires:  python3-pulpcore >= 3.0
 BuildRequires:  python3-setuptools
 
 %description
-%{summary}
+A Pulp plugin to support hosting arbitrary files.
 
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
@@ -27,7 +25,7 @@ Requires:       python3-pulpcore >= 3.0
 Requires:       python3-setuptools
 
 %description -n python3-%{pypi_name}
-%{summary}
+A Pulp plugin to support hosting arbitrary files.
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
