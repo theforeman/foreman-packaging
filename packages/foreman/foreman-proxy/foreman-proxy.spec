@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 3
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.3.rc3
+- Release foreman-proxy 2.0.0 rc3
+
 * Thu Mar 05 2020 Evgeni Golov - 2.0.0-0.3.rc2
 - Release foreman-proxy 2.0.0
 
