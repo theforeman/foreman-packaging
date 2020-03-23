@@ -15,7 +15,8 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 
 %description
-Pulp is a platform for managing repositories of content, such as software packages, and pushing that content out to large numbers of consumers.	
+Pulp is a platform for managing repositories of content, such as software 
+packages, and pushing that content out to large numbers of consumers.	
 
 Using Pulp you can:	
 - Locally mirror all or part of a repository	
@@ -26,10 +27,10 @@ Using Pulp you can:
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-Django >= 2.2.3
-Conflicts:      python3-Django >= 2.3
-Requires:       python3-PyYAML < 5.4.0
-Requires:       python3-PyYAML >= 5.1.1
+Requires:       python3-django >= 2.2.3
+Conflicts:      python3-django >= 2.3
+Requires:       python3-pyyaml < 5.4.0
+Requires:       python3-pyyaml >= 5.1.1
 Requires:       python3-aiodns
 Requires:       python3-aiofiles
 Requires:       python3-aiohttp
@@ -42,7 +43,7 @@ Requires:       python3-djangorestframework >= 3.10.2
 Conflicts:      python3-djangorestframework >= 3.11
 Requires:       python3-djangorestframework-queryfields >= 1.0.0
 Conflicts:      python3-djangorestframework-queryfields >= 1.1
-Requires:       python3-drf-nested-routers >= 0.91.0
+Requires:       python3-drf-nested-routers >= 0.91
 Conflicts:      python3-drf-nested-routers >= 0.92
 Requires:       python3-drf-yasg >= 1.17.0
 Conflicts:      python3-drf-yasg >= 1.18
