@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 9
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1002,6 +1002,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.9.rc3
+- Release foreman 2.0.0
+
 * Thu Mar 05 2020 Evgeni Golov - 2.0.0-0.9.rc2
 - Release foreman 2.0.0
 
