@@ -1,5 +1,5 @@
 %global release 3
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -145,6 +145,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.0.0-0.3.rc3
+- Release foreman-installer 2.0.0
+
 * Mon Mar 09 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.0.0-0.3.rc2
 - Cherry pick a PostgreSQL upgrade bug (#28903)
 
