@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-node-gyp
 Version: 3.3.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Node
 License: MIT
 Group: Development/Libraries
@@ -132,6 +132,7 @@ Requires:   make
 BuildRequires: %{?scl_prefix_nodejs}nodejs-devel
 %if 0%{!?scl:1}
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 
 BuildArch: noarch
@@ -276,6 +277,11 @@ pushd node_modules/%{npm_name}
 popd
 
 %install
+%if 0%{?fedora} || 0%{?rhel} >= 8
+grep -lr '#!/usr/bin/env python' node_modules/%{npm_name}/gyp | xargs sed -i 's/#!\/usr\/bin\/env python/#!\/usr\/bin\/env python3/g'
+grep -lr '#!/usr/bin/python' node_modules/%{npm_name}/gyp | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
+%endif
+
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/node_modules %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr node_modules/%{npm_name}/0001-gyp-always-install-into-PRODUCT_DIR.patch %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -306,6 +312,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.1-5
+- Bump packages to build for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-4
 - Fix broken SCL include directories
 
