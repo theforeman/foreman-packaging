@@ -12,8 +12,6 @@ License:    GPLv3+ and ASL 2.0
 URL:        https://theforeman.org
 Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
-Patch0:     foreman-installer-2.0.0-upstream-postgresql-upgrade.patch
-
 BuildArch:  noarch
 
 Requires:   curl
@@ -52,8 +50,6 @@ Various scenarios and tools for the Katello ecosystem
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
-
-%patch0 -p1
 
 %build
 #replace shebangs for SCL
@@ -146,7 +142,7 @@ done
 
 %changelog
 * Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.0.0-0.3.rc3
-- Release foreman-installer 2.0.0
+- Release foreman-installer 2.0.0 rc3
 
 * Mon Mar 09 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.0.0-0.3.rc2
 - Cherry pick a PostgreSQL upgrade bug (#28903)

@@ -1003,7 +1003,7 @@ exit 0
 
 %changelog
 * Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.9.rc3
-- Release foreman 2.0.0
+- Release foreman 2.0.0 rc3
 
 * Thu Mar 05 2020 Evgeni Golov - 2.0.0-0.9.rc2
 - Release foreman 2.0.0
