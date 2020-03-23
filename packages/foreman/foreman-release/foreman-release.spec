@@ -14,7 +14,7 @@
 %endif
 
 %global release 3
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.3.rc3
+- Release foreman-release 2.0.0
+
 * Thu Mar 05 2020 Evgeni Golov - 2.0.0-0.3.rc2
 - Release foreman-release 2.0.0
 
