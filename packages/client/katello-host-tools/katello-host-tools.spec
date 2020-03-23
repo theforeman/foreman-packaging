@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -35,7 +35,7 @@ BuildArch: noarch
 
 Requires: subscription-manager
 %if %{build_fact_plugin}
-Requires: %{name}-fact-plugin
+Requires: %{name}-fact-plugin = %{version}-%{release}
 %else
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 %endif
@@ -101,7 +101,7 @@ Requires: python-gofer-proton >= 2.5
 %endif
 
 Requires: subscription-manager
-Requires: katello-host-tools = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %if 0%{?rhel} == 6
 Requires: yum-plugin-security
@@ -135,7 +135,7 @@ BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
 Group:      Development/Languages
 
-Requires: katello-host-tools
+Requires: %{name} = %{version}-%{release}
 %if %{dnf_install}
 Requires: python3-tracer
 %else
@@ -397,6 +397,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Mar 23 2020 Jonathon Turel - 3.5.3-2
+- require matching katello-host-tools version in subpackages
+
 * Mon Feb 17 2020 Jonathon Turel - 3.5.3-1
 - Release 3.5.3
 
