@@ -350,7 +350,8 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = nodejs-argv-parse
+whitelist = gyp
+  nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
   nodejs-babel-loader
