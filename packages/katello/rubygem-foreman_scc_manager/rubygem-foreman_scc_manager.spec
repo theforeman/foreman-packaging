@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
+Version: 1.8.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -106,6 +106,11 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 25 2020 Markus Bucher <bucher@atix.de> 1.8.3-1
+- Update to 1.8.3
+- Fix test-connection in http-proxy-scenario
+- Improve logging
+
 * Tue Mar 17 2020 Markus Bucher <bucher@atix.de> 1.8.2-1
 - Update to 1.8.2
 - Encrypt password in foreman-tasks
