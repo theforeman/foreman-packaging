@@ -5,11 +5,11 @@
 %global gem_name pulp_2to3_migration_client
 
 %global release 1
-%global prerelease rc1
-%global prereleaserpm %{?prerelease:.}%{?prerelease}
+# %%global prerelease rc1
+# %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: 0.1.0
 Epoch: 1
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 2 to Pulp 3 API Ruby Gem
@@ -23,6 +23,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -89,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Mar 24 2020 Justin Sherrill <jsherril@redhat.com> 1:0.1.0-1
+- Update to 0.1.0
+
 * Wed Feb 19 2020 Justin Sherrill <jsherril@redhat.com> 1:0.0.1-0.1.rc1
 - Update to 0.0.1rc1
 
