@@ -21,10 +21,7 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
-Requires:       python3-ruamel-ordereddict
-Requires:       python3-ruamel-yaml-clib >= 0.1.2
-Requires:       python3-ruamel-yaml-jinja2 >= 0.2
-Requires:       python3-ryd
+Requires:       python3-ruamel-yaml-clib
 
 %description -n python3-%{srcname}
 %{summary}
@@ -38,7 +35,7 @@ rm -rf %{pypi_name}.egg-info
 %py3_build
 
 %install
-%py3_install
+%{__python3} setup.py install --single-version-externally-managed --skip-build --root $RPM_BUILD_ROOT
 
 %files -n python3-%{srcname}
 %license LICENSE
