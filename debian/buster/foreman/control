@@ -221,7 +221,7 @@ Package: foreman-service
 Architecture: all
 Section: web
 Priority: extra
-Depends: foreman, ${misc:Depends}
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
 Description: package providing Foreman services running via puma
  This package provides Foreman systemd service for Foreman,
  a flexible systems management web application.
