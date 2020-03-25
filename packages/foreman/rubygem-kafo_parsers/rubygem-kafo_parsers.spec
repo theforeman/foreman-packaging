@@ -6,7 +6,7 @@
 %global gem_name kafo_parsers
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
+Version: 1.1.0
 Release: 1%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Mar 25 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-1
+- Release rubygem-kafo_parsers 1.1.0
+
 * Thu Nov 15 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
 - Update to 1.0.0
 - Regenerate spec file based on the current template
