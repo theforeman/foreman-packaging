@@ -5,7 +5,7 @@
 %global foreman_min_version 1.24.0
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1.2
+%global prereleasesource rc1.3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
 %global release 7
@@ -49,7 +49,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b7.dev01574717759
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.1.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.1.0b1.dev01576187357
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.0.2
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -75,7 +75,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) <= 0.2.0.dev01574442231
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b7.dev01574717759
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) <= 1.1.0.dev01574357179
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.1.0b1.dev01576187357
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.0.2
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Mar 25 2020 Justin Sherrill - 3.15.0-0.7.rc1.3
+- Release rubygem-katello 3.15.0rc1.3
+
 * Fri Feb 28 2020 Jonathon Turel - 3.15.0-0.7.rc1.2
 - Release rubygem-katello 3.15.0rc1.2
 
