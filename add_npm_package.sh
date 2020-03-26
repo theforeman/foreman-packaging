@@ -45,7 +45,7 @@ generate_npm_package() {
     sed -n '/%changelog/,$p' $PACKAGE_DIR/*.spec > OLD_CHANGELOG
     git rm -r $PACKAGE_DIR
   fi
-  mkdir $PACKAGE_DIR
+  mkdir -p $PACKAGE_DIR
   echo "FINISHED"
   echo -n "Creating specs and downloading sources..."
   npm2rpm -n $NPM_MODULE_NAME -v $VERSION -s $STRATEGY -o $PACKAGE_DIR
