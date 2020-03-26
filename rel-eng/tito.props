@@ -467,11 +467,15 @@ whitelist = gyp
   rubygem-coffee-script
   rubygem-coffee-script-source
   rubygem-concurrent-ruby
+  rubygem-clamp
   rubygem-crass
   rubygem-erubi
   rubygem-execjs
   rubygem-globalid
+  rubygem-hashie
+  rubygem-highline
   rubygem-i18n
+  rubygem-little-plugger
   rubygem-loofah
   rubygem-mail
   rubygem-marcel
@@ -484,6 +488,7 @@ whitelist = gyp
   rubygem-multi_json
   rubygem-mustermann
   rubygem-nio4r
+  rubygem-powerbar
   rubygem-rack
   rubygem-rack-protection
   rubygem-rack-test
@@ -504,7 +509,6 @@ whitelist = gyp
   rubygem-uglifier
   rubygem-websocket-driver
   rubygem-websocket-extensions
-
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7

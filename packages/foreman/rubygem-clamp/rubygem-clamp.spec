@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/mdub/clamp
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.2-5
+- Rebuild for EL8
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 1.1.2-4
 - Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
 
