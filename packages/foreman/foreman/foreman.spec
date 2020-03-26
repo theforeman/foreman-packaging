@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
@@ -997,11 +997,16 @@ exit 0
 
 %preun
 %systemd_preun %{name}.service
+systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
+systemctl stop dynflowd.service > /dev/null 2>&1 || :
 
 %postun
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.10.rc3
+- Stop dynflow before its service is removed
+
 * Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.9.rc3
 - Release foreman 2.0.0 rc3
 
