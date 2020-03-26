@@ -4,25 +4,21 @@
 
 %global gem_name pulp_2to3_migration_client
 
-%global release 1
-%global prerelease rc1
-%global prereleaserpm %{?prerelease:.}%{?prerelease}
-
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Epoch: 1
-Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
-Summary: Pulp 2 to Pulp 3 API Ruby Gem
+Version: 0.2.0b1
+Release: 1%{?dist}
+Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
-License: GPLv2
+License: GPL-2.0+
 URL: https://github.com/pulp/pulp-2to3-migration
-Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -38,7 +34,7 @@ Provides a client for pulp2 to pulp3 migration support within pulp3
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -49,7 +45,7 @@ Documentation for %{pkg_name}.
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
+%setup -q -D -T -n  %{gem_name}-%{version}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -74,9 +70,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/git_push.sh
-%exclude %{gem_cache}
+%{gem_instdir}/git_push.sh
 %{gem_libdir}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
@@ -89,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 0.2.0b1-1
+- Update to 0.2.0b1-1
+
 * Wed Feb 19 2020 Justin Sherrill <jsherril@redhat.com> 1:0.0.1-0.1.rc1
 - Update to 0.0.1rc1
 
