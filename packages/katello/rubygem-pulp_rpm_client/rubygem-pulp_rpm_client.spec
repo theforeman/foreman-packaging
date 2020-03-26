@@ -5,7 +5,7 @@
 %global gem_name pulp_rpm_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.2.0
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 Group: Development/Languages
@@ -18,9 +18,9 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 3.2.0-1
+- Update to 3.2.0
+
 * Mon Jan 06 2020 Justin Sherrill <jsherril@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
