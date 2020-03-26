@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -955,6 +955,10 @@ rm -rf %{buildroot}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
 
+%preun
+systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
+systemctl stop dynflowd.service > /dev/null 2>&1 || :
+
 %pre
 # Add the "foreman" user and group
 getent group %{name} >/dev/null || groupadd -r %{name}
@@ -999,6 +1003,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.6.develop
+- Stop dynflow service before removal
+
 * Fri Mar 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.5.develop
 - Use systemd socket activation (#29144)
 
