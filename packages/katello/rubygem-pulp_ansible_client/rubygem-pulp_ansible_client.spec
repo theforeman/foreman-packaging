@@ -1,4 +1,3 @@
-# Generated from pulp_ansible_client-0.2.0b1.dev0.1560866833.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -6,11 +5,11 @@
 %global gem_name pulp_ansible_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0b1.dev0.1560866833
+Version: 0.2.0b11
 Release: 1%{?dist}
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
-License: GPLv2
+License: GPL-2.0+
 URL: https://github.com/pulp/pulp_ansible/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -18,12 +17,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
-Requires: %{?scl_prefix}rubygem(typhoeus) >= 1.0
-Requires: %{?scl_prefix}rubygem(typhoeus) < 2
-Requires: %{?scl_prefix}rubygem(typhoeus) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
@@ -89,6 +86,8 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 0.2.0b11-1
+- Update rubygem-pulp_ansible_client to 0.2.0.b11
+
 * Tue Jun 25 2019 Justin Sherrill <jlsherrill@gmail.com> - 0.2.0b1.dev0.1560866833-1
 - initial build
-
