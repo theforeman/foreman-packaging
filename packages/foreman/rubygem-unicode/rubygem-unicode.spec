@@ -3,10 +3,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name unicode
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.4.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Unicode normalization library
 Group: Development/Languages
 License: Ruby
@@ -75,6 +76,19 @@ mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/ext
@@ -92,6 +106,9 @@ cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}
 %{gem_instdir}/unicode.gemspec
 
 %changelog
+* Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.4.4.4-3
+- Add check section to test native library
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.4.4-2
 - Bump to release for EL8
 
