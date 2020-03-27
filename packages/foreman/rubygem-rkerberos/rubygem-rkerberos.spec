@@ -3,10 +3,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rkerberos
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 17%{?dist}
+Release: 18%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 Group: Development/Languages
 License: Artistic 2.0
@@ -18,7 +19,6 @@ Patch0:  rkerberos-0.1.5-gcc8-argnum-fix.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(rake-compiler)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -79,6 +79,19 @@ sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_spec}
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/ext
@@ -98,6 +111,10 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.5-18
+- Add check section to test native library
+- Remove dependency on rake-compiler
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-17
 - Bump release to build for el8
 
