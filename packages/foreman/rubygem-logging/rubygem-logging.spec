@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Mar 27 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-5
+- Build for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-4
 - Update spec to remove the ror scl
 

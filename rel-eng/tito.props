@@ -476,6 +476,7 @@ whitelist = gyp
   rubygem-highline
   rubygem-i18n
   rubygem-little-plugger
+  rubygem-logging
   rubygem-loofah
   rubygem-mail
   rubygem-marcel
