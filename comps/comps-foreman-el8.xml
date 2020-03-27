@@ -121,6 +121,7 @@
       <packagereq type="default">rubygem-activeview</packagereq>
       <packagereq type="default">rubygem-arel</packagereq>
       <packagereq type="default">rubygem-builder</packagereq>
+      <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-coffee-rails</packagereq>
       <packagereq type="default">rubygem-coffee-script</packagereq>
       <packagereq type="default">rubygem-coffee-script-source</packagereq>
@@ -128,7 +129,11 @@
       <packagereq type="default">rubygem-erubi</packagereq>
       <packagereq type="default">rubygem-execjs</packagereq>
       <packagereq type="default">rubygem-globalid</packagereq>
+      <packagereq type="default">rubygem-hashie</packagereq>
+      <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-i18n</packagereq>
+      <packagereq type="default">rubygem-little-plugger</packagereq>
+      <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-loofah</packagereq>
       <packagereq type="default">rubygem-mail</packagereq>
       <packagereq type="default">rubygem-marcel</packagereq>
@@ -141,6 +146,7 @@
       <packagereq type="default">rubygem-mustermann</packagereq>
       <packagereq type="default">rubygem-nio4r</packagereq>
       <packagereq type="default">rubygem-nokogiri</packagereq>
+      <packagereq type="default">rubygem-powerbar</packagereq>
       <packagereq type="default">rubygem-rack</packagereq>
       <packagereq type="default">rubygem-rack-protection</packagereq>
       <packagereq type="default">rubygem-rack-test</packagereq>
@@ -176,6 +182,7 @@
       <packagereq type="default">rubygem-activesupport-doc</packagereq>
       <packagereq type="default">rubygem-arel-doc</packagereq>
       <packagereq type="default">rubygem-builder-doc</packagereq>
+      <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-coffee-rails-doc</packagereq>
       <packagereq type="default">rubygem-coffee-script-doc</packagereq>
       <packagereq type="default">rubygem-coffee-script-source-doc</packagereq>
@@ -183,7 +190,11 @@
       <packagereq type="default">rubygem-erubi-doc</packagereq>
       <packagereq type="default">rubygem-execjs-doc</packagereq>
       <packagereq type="default">rubygem-globalid-doc</packagereq>
+      <packagereq type="default">rubygem-hashie-doc</packagereq>
+      <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-i18n-doc</packagereq>
+      <packagereq type="default">rubygem-little-plugger-doc</packagereq>
+      <packagereq type="default">rubygem-logging-doc</packagereq>
       <packagereq type="default">rubygem-loofah-doc</packagereq>
       <packagereq type="default">rubygem-mail-doc</packagereq>
       <packagereq type="default">rubygem-marcel-doc</packagereq>
@@ -196,6 +207,7 @@
       <packagereq type="default">rubygem-mustermann-doc</packagereq>
       <packagereq type="default">rubygem-nio4r-doc</packagereq>
       <packagereq type="default">rubygem-nokogiri-doc</packagereq>
+      <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">rubygem-rack-doc</packagereq>
       <packagereq type="default">rubygem-rack-protection-doc</packagereq>
       <packagereq type="default">rubygem-rack-test-doc</packagereq>
