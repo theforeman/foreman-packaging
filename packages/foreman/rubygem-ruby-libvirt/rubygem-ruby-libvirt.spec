@@ -1,26 +1,29 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-# Generated from ruby-libvirt-0.4.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name ruby-libvirt
 
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
-Release: 4%{?dist}
+Version: 0.7.1
+Release: 1%{?dist}
 Group: Development/Languages
 License: LGPLv2+
-URL: http://libvirt.org/ruby/
+URL: https://libvirt.org/ruby/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 1.8.1
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.8.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby-devel
-BuildRequires: libvirt-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
+
+BuildRequires: libvirt-devel
 
 %description
 Ruby bindings for libvirt.
@@ -30,20 +33,33 @@ Ruby bindings for libvirt.
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -58,21 +74,22 @@ popd
 mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 
-# Remove the binary extension sources and build leftovers.
-rm -rf %{buildroot}%{gem_instdir}/ext
+# Prevent dangling symlink in -debuginfo (rhbz#878863).
+rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
-pushd .%{gem_instdir}
+%{?scl:scl enable %{scl} - << \EOF}
+GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
 # I disabled the tests because they modify system in possibly
 # dangerous way and need to be run with root privileges
-%{?scl:scl enable %{scl} "}
-# testrb tests
-%{?scl:"}
-popd
+#pushd .%{gem_instdir}
+#testrb tests
+#popd
+%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/COPYING
+%license %{gem_instdir}/COPYING
 %{gem_libdir}
 %{gem_extdir_mri}
 %exclude %{gem_cache}
@@ -87,6 +104,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Tue Apr 21 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.7.1-1
+- Update to 0.7.1-1
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-4
 - Bump to release for EL8
 
