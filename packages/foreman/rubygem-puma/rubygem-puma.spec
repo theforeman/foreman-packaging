@@ -4,10 +4,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name puma
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.3.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -23,6 +24,8 @@ Requires: %{?scl_prefix}rubygem(nio4r) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix}rubygem(nio4r) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(nio4r) < 3
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
@@ -85,6 +88,19 @@ cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %{_bindir}/puma
@@ -104,6 +120,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/docs
 
 %changelog
+* Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.3.3-4
+- Add check section to test native library
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.3-3
 - Bump to release for EL8
 
