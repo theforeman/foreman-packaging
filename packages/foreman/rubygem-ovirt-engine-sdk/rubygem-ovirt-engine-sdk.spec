@@ -1,27 +1,35 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name ovirt-engine-sdk
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.3
-Release: 4%{?dist}
-Summary: Ruby SDK for the oVirt Engine API.
+Version: 4.3.0
+Release: 1%{?dist}
+Summary: oVirt SDK
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/oVirt/ovirt-engine-sdk-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.1
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.0
-Requires: %{?scl_prefix_ruby}rubygem(json) < 3.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1
+Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.9.2
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.1
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1
+BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 3
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
+
 BuildRequires: libcurl-devel
 BuildRequires: libxml2-devel
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 Ruby SDK for the oVirt Engine API.
@@ -61,7 +69,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri}
@@ -69,6 +77,11 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
+
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require 'ovirtsdk4'"
+%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
@@ -86,6 +99,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %doc %{gem_instdir}/CHANGES.adoc
 
 %changelog
+* Mon Apr 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.3.0-1
+- Update to 4.3.0-1
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.3-4
 - Bump to release for EL8
 
