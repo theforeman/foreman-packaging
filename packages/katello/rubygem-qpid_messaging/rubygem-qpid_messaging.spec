@@ -1,56 +1,51 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name qpid_messaging
-%global qpid_version 1.38.0
+%global qpid_version 1.39.0
 
-Summary: Ruby bindings for the Qpid messaging framework
-Name:    %{?scl_prefix}rubygem-%{gem_name}
-Version: %{qpid_version}
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 1.39.0
 Release: 1%{?dist}
+Summary: Ruby bindings for the Qpid messaging framework
+Group: Development/Languages
 License: ASL 2.0
-URL:     https://qpid.apache.org
+URL: https://qpid.apache.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: qpid-cpp-client
-
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: qpid-cpp-client-devel = %{qpid_version}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
-Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Requires: qpid-cpp-client
+BuildRequires: qpid-cpp-client-devel = %{qpid_version}
 
 %description
 Qpid is an enterprise messaging framework. This package provides Ruby
 language bindings based on that framework.
 
 %package doc
-Summary:   Documentation for %{?scl_prefix}%{name}
-Requires:  %{?scl_prefix}%{name} = %{version}-%{release}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 
 %description doc
-%{Summary}.
-
-%files doc
-%doc %{gem_docdir}
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/ChangeLog
-%{gem_instdir}/examples
-%doc %{gem_instdir}/TODO
+Documentation for %{pkg_name}.
 
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
+%setup -q -D -T -n  %{gem_name}-%{version}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -70,11 +65,20 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
-rm -rf %{buildroot}%{gem_instdir}/ext
+mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
+cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
+
+# Prevent dangling symlink in -debuginfo (rhbz#878863).
+rm -rf %{buildroot}%{gem_instdir}/ext/
+
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+%{?scl:EOF}
 
 %files
 %{gem_extdir_mri}
@@ -84,7 +88,18 @@ rm -rf %{buildroot}%{gem_instdir}/ext
 %{gem_spec}
 %license %{gem_instdir}/LICENSE
 
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/ChangeLog
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/TODO
+%{gem_instdir}/examples
+
 %changelog
+* Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.39.0-1
+- Update to 1.39.0-1
+- Regenerate spec file
+
 * Mon Aug 27 2018 Eric D. Helms <ericdhelms@gmail.com> 1.38.0-1
 - Update to qpid 1.38 stack
 
