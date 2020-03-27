@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.11
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPLv2
@@ -71,6 +71,11 @@ mkdir -p %{buildroot}%{gem_extdir_mri}
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
@@ -87,6 +92,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Apr 15 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.11-3
+- Add check section to test native library
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.11-2
 - Bump to release for EL8
 
