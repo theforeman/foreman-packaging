@@ -3,10 +3,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name radcli
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A Ruby interface for the adcli library
 Group: Development/Languages
 License: Artistic-2.0
@@ -70,7 +71,11 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%if 0%{!?scl:1}
+%if 0%{?scl:1}
+mkdir -p %{buildroot}%{gem_extdir_mri}
+cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_instdir}/ext/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/
+%else
 mkdir -p %{buildroot}%{gem_extdir_mri}/lib
 cp -a %{buildroot}%{gem_instdir}/lib/radcli.so %{buildroot}%{gem_extdir_mri}/lib/
 %endif
@@ -81,6 +86,19 @@ sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_spec}
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -90,8 +108,8 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %exclude %{gem_cache}
 %{gem_spec}
 %exclude %{gem_instdir}/radcli.gemspec
-%if 0%{!?scl:1}
 %{gem_extdir_mri}
+%if 0%{!?scl:1}
 %{gem_libdir}
 %endif
 
@@ -103,6 +121,10 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/test
 
 %changelog
+* Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-4
+- Add check section to test native library
+- Fix building of native library
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
 - Build for SCL
 
