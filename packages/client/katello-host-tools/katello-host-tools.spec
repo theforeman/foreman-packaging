@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -55,6 +55,7 @@ Requires: python-simplejson
 
 %if 0%{?sles_version}
 BuildRequires: python-devel >= 2.6
+Requires: python2-zypp-plugin
 %else
 %if %{dnf_install}
 BuildRequires: python3-devel
@@ -397,6 +398,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Mar 27 2020 Bernhard Suttner - 3.5.3-3
+- SLES requires python2-zypp-plugin
+
 * Mon Mar 23 2020 Jonathon Turel - 3.5.3-2
 - require matching katello-host-tools version in subpackages
 
