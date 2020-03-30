@@ -143,6 +143,7 @@
       <packagereq type="default">rubygem-mimemagic</packagereq>
       <packagereq type="default">rubygem-mini_mime</packagereq>
       <packagereq type="default">rubygem-mini_portile2</packagereq>
+      <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-mustermann</packagereq>
       <packagereq type="default">rubygem-nio4r</packagereq>
       <packagereq type="default">rubygem-nokogiri</packagereq>
@@ -204,6 +205,7 @@
       <packagereq type="default">rubygem-mime-types-doc</packagereq>
       <packagereq type="default">rubygem-mini_mime-doc</packagereq>
       <packagereq type="default">rubygem-mini_portile2-doc</packagereq>
+      <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-mustermann-doc</packagereq>
       <packagereq type="default">rubygem-nio4r-doc</packagereq>
       <packagereq type="default">rubygem-nokogiri-doc</packagereq>
