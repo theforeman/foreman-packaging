@@ -5,7 +5,7 @@
 %global foreman_min_version 1.24.0
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1.3
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.15.0
 %global release 7
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Mar 30 2020 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.7.rc2
+- Release rubygem-katello 3.15.0
+
 * Wed Mar 25 2020 Justin Sherrill - 3.15.0-0.7.rc1.3
 - Release rubygem-katello 3.15.0rc1.3
 
