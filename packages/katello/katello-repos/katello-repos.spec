@@ -5,7 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
 
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Mar 30 2020 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.3.rc2
+- Release katello-repos 3.15.0
+
 * Fri Feb 21 2020 Evgeni Golov - 3.15.0-0.3.rc1
 - Release katello-repos 3.15.0
 
