@@ -4,14 +4,14 @@
 
 %global gem_name pulp_2to3_migration_client
 
-%global release 1	
-%global prerelease b1	
+%global release 1
+%global prerelease b1
 %global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Epoch: 1
 Version: 0.2.0
-Release: 1%{?dist}
+Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
 License: GPL-2.0+
@@ -89,7 +89,7 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
-* Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 0.2.0b1-1
+* Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 1:0.2.0-0.1.b1
 - Update to 0.2.0b1-1
 
 * Wed Feb 19 2020 Justin Sherrill <jsherril@redhat.com> 1:0.0.1-0.1.rc1
