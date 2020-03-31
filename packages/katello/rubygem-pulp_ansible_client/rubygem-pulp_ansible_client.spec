@@ -19,7 +19,6 @@ Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
