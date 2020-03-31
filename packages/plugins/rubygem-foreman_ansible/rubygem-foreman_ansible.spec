@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -40,18 +40,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
-BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
-BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -129,6 +117,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 31 2020 Avi Sharvit <asharvit@redhat.com> - 5.0.1-2
+- Remove js dev dependencies
+
 * Mon Mar 09 2020 Marek Hulan <mhulan@redhat.com> 5.0.1-1
 - Update to 5.0.1
 

@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -97,14 +97,6 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(angular) = 1.5.5
@@ -143,14 +135,6 @@ Summary:    Rebuild the assets for %{pkg_name}
 
 Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
-Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
-Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
-Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
 Requires: %{?scl_prefix}npm(angular) = 1.5.5
@@ -234,6 +218,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Mar 31 2020 Avi Sharvit <asharvit@redhat.com> - 3.16.0-0.5.pre.master
+- Remove js dev dependencies
+
 * Thu Mar 26 2020 Samir Jha <sajha@redhat.com> 3.16.0-0.4.pre.master
 - Update pulp gem requirements
 
