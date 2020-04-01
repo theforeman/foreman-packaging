@@ -351,6 +351,7 @@ scl = tfm
 [foreman-nightly-el8]
 disttag = .el8
 whitelist = gyp
+  katello-certs-tools
   nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
