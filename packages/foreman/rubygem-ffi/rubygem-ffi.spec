@@ -5,7 +5,7 @@
 %global gem_name ffi
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.11.3
+Version: 1.12.2
 Release: 1%{?dist}
 Summary: Ruby FFI
 Group: Development/Languages
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/ffi.gemspec
 
 %changelog
+* Wed Apr 01 2020 Evgeni Golov 1.12.2-1
+- Update to 1.12.2
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.11.3-1
 - Update and rebuild into SCL
 
