@@ -4,8 +4,8 @@
 %global npm_name angular
 
 Name: %{?scl_prefix}nodejs-angular
-Version: 1.5.5
-Release: 2%{?dist}
+Version: 1.7.9
+Release: 1%{?dist}
 Summary: HTML enhanced for web apps
 License: MIT
 Group: Development/Libraries
@@ -46,6 +46,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Apr 01 2020 Justin Sherrill <jsherril@redhat.com> 1.7.9-1
+- Update to 1.7.9
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.5.5-2
 - Update to handle building for SCL
 
