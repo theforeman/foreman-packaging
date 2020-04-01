@@ -609,8 +609,8 @@ foreman_scl_and_nonscl_packages:
         - el8-appstream
         - el8-epel
         - el8-extras
+        - el8-devel
         - el8-puppet-6
-        - el8-flattened
   hosts:
     rubygem-clamp: {}
     rubygem-hashie: {}
