@@ -15,10 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # require libopenscap.so.8 in an arch neutral way
 Requires: openscap >= 1.2.9
-Requires: openscap < 1.3.0
+Requires: openscap < 1.3.1
 
 BuildRequires: openscap >= 1.2.9
-BuildRequires: openscap < 1.3.0
+BuildRequires: openscap < 1.3.1
 BuildRequires: openscap-devel
 BuildRequires: bzip2
 
