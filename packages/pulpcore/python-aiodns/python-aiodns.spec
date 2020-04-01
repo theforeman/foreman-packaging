@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple DNS resolver for asyncio
 
 License:        None
@@ -21,6 +21,7 @@ BuildRequires:  python3-setuptools
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-pycares >= 3.0.0
+Requires:       python3-typing
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -43,5 +44,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Apr 01 2020 Evgeni Golov - 2.0.0-2
+- Add python3-typing to Requires
+
 * Wed Mar 18 2020 Samir Jha - 2.0.0-1
 - Initial package.
