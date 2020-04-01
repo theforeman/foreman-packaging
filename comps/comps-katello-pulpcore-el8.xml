@@ -73,6 +73,7 @@
       <packagereq type="default">python3-six</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>
       <packagereq type="default">python3-toml</packagereq>
+      <packagereq type="default">python3-typing</packagereq>
       <packagereq type="default">python3-typing-extensions</packagereq>
       <packagereq type="default">python3-uritemplate</packagereq>
       <packagereq type="default">python3-urllib3</packagereq>
