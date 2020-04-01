@@ -561,6 +561,7 @@ foreman_proxy_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
+    repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -569,6 +570,13 @@ foreman_proxy_packages:
         - el7-extras
         - el7-scl
         - el7-foreman-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
+        - el8-foreman-nightly
   hosts:
     foreman-proxy:
       releasers:
