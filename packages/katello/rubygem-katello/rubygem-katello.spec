@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -72,15 +72,17 @@ BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.1.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.1.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 0.2.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) <= 0.2.0b7.dev01574717759
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.0.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) <= 3.1.0b1.dev01576187357
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.0.2
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.2.1
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.3.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 0.3.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.3.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
@@ -234,6 +236,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Apr 01 2020 Evgeni Golov - 3.16.0-0.5.pre.master
+- correct BuildRequires for new pulp gems
+
 * Thu Mar 26 2020 Samir Jha <sajha@redhat.com> 3.16.0-0.4.pre.master
 - Update pulp gem requirements
 
