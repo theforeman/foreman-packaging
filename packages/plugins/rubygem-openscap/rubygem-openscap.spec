@@ -5,8 +5,8 @@
 %global gem_name openscap
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.7
-Release: 3%{?dist}
+Version: 0.4.9
+Release: 1%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 01 2020 Evgeni Golov 0.4.9-1
+- Update to 0.4.9
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.7-3
 - Build for SCL
 
