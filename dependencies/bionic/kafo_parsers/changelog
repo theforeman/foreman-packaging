@@ -1,3 +1,9 @@
+ruby-kafo-parsers (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Thu, 02 Apr 2020 07:53:39 -0400
+
 ruby-kafo-parsers (1.0.0-1) stable; urgency=low
 
   * 1.0.0 released

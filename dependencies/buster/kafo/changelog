@@ -1,3 +1,9 @@
+ruby-kafo (4.1.0-1) stable; urgency=low
+
+  * 4.1.0 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Thu, 02 Apr 2020 07:53:27 -0400
+
 ruby-kafo (4.0.0-1) stable; urgency=low
 
   * Update to Kafo 4.0.0
