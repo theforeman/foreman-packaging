@@ -17,11 +17,12 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
-%global content_dir %{foreman_proxy_statedir}/openscap
+%global content_dir %{foreman_proxy_statedir}/omaha
+%global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -133,6 +134,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 02 2020 Dirk Goetz <dirk.goetz@netways.de> - 0.0.5-5
+- Fix content_dir
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-4
 - Update spec to remove the ror scl
 
