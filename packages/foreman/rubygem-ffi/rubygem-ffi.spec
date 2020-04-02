@@ -70,6 +70,11 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
+%check
+%{?scl:scl enable %{scl} - << \EOF}
+GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+%{?scl:EOF}
+
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/ext
