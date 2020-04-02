@@ -9,6 +9,13 @@ set -e
 
 #DEBHELPER#
 
+if [ -x "/usr/bin/deb-systemd-helper" ]; then
+  deb-systemd-helper stop 'dynflowd.service' >/dev/null || true
+fi
+if [ -x "/etc/init.d/dynflowd" ]; then
+  invoke-rc.d dynflowd stop || exit 1
+fi
+
 if [ -f /usr/share/foreman/config/initializers/local_secret_token.rb -a "x$1" = xremove ]; then
   rm -f /usr/share/foreman/config/initializers/local_secret_token.rb
 fi
