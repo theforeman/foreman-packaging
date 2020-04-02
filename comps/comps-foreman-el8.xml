@@ -120,6 +120,7 @@
       <packagereq type="default">rubygem-activestorage</packagereq>
       <packagereq type="default">rubygem-activesupport</packagereq>
       <packagereq type="default">rubygem-activeview</packagereq>
+      <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-arel</packagereq>
       <packagereq type="default">rubygem-builder</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
@@ -133,6 +134,9 @@
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-i18n</packagereq>
+      <packagereq type="default">rubygem-kafo</packagereq>
+      <packagereq type="default">rubygem-kafo_parsers</packagereq>
+      <packagereq type="default">rubygem-kafo_wizards</packagereq>
       <packagereq type="default">rubygem-little-plugger</packagereq>
       <packagereq type="default">rubygem-logging</packagereq>
       <packagereq type="default">rubygem-loofah</packagereq>
@@ -182,6 +186,7 @@
       <packagereq type="default">rubygem-activerecord-doc</packagereq>
       <packagereq type="default">rubygem-activestorage-doc</packagereq>
       <packagereq type="default">rubygem-activesupport-doc</packagereq>
+      <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-arel-doc</packagereq>
       <packagereq type="default">rubygem-builder-doc</packagereq>
       <packagereq type="default">rubygem-clamp-doc</packagereq>
@@ -195,6 +200,9 @@
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-i18n-doc</packagereq>
+      <packagereq type="default">rubygem-kafo-doc</packagereq>
+      <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
+      <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">rubygem-logging-doc</packagereq>
       <packagereq type="default">rubygem-loofah-doc</packagereq>

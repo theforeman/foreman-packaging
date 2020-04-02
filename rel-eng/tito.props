@@ -34,9 +34,6 @@ whitelist = foreman-bootloaders-redhat
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
-  rubygem-kafo
-  rubygem-kafo_parsers
-  rubygem-kafo_wizards
   rubygem-little-plugger
   rubygem-logging
   rubygem-multi_json
@@ -158,6 +155,7 @@ whitelist = foreman
   rubygem-addressable
   rubygem-algebrick
   rubygem-ancestry
+  rubygem-ansi
   rubygem-apipie-bindings
   rubygem-apipie-params
   rubygem-apipie-rails
@@ -236,6 +234,9 @@ whitelist = foreman
   rubygem-journald-native
   rubygem-jquery-ui-rails
   rubygem-jwt
+  rubygem-kafo
+  rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-ldap_fluff
   rubygem-little-plugger
   rubygem-locale
@@ -462,6 +463,7 @@ whitelist = gyp
   rubygem-activestorage
   rubygem-activesupport
   rubygem-activeview
+  rubygem-ansi
   rubygem-arel
   rubygem-builder
   rubygem-coffee-rails
@@ -477,6 +479,9 @@ whitelist = gyp
   rubygem-highline
   rubygem-i18n
   rubygem-little-plugger
+  rubygem-kafo
+  rubygem-kafo_parsers
+  rubygem-kafo_wizards
   rubygem-logging
   rubygem-loofah
   rubygem-mail

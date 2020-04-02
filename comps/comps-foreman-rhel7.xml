@@ -153,6 +153,7 @@
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
+      <packagereq type="default">tfm-rubygem-ansi</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails</packagereq>
@@ -230,6 +231,9 @@
       <packagereq type="default">tfm-rubygem-journald-native</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails</packagereq>
       <packagereq type="default">tfm-rubygem-jwt</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo_parsers</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo_wizards</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff</packagereq>
       <packagereq type="default">tfm-rubygem-little-plugger</packagereq>
       <packagereq type="default">tfm-rubygem-locale</packagereq>
@@ -405,6 +409,7 @@
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ansi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails-doc</packagereq>
@@ -482,6 +487,9 @@
       <packagereq type="default">tfm-rubygem-journald-native-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jquery-ui-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-jwt-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo_parsers-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-kafo_wizards-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ldap_fluff-doc</packagereq>
       <packagereq type="default">tfm-rubygem-little-plugger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-locale-doc</packagereq>

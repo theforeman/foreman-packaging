@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
+- Build for SCL
+
 * Wed Mar 25 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-1
 - Release rubygem-kafo_parsers 1.1.0
 
