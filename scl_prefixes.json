@@ -1,6 +1,5 @@
 {
 	"bundler": "_ruby",
-	"highline": "_ruby",
 	"json": "_ruby",
 	"minitest": "_ruby",
 	"rack": "_ruby",

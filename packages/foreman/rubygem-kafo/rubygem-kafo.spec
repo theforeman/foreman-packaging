@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -24,8 +24,8 @@ Requires: %{?scl_prefix}rubygem(kafo_parsers) >= 0.1.6
 Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(clamp) < 1.3.1
-Requires: %{?scl_prefix_ruby}rubygem(highline) >= 1.6.21
-Requires: %{?scl_prefix_ruby}rubygem(highline) < 2.0
+Requires: %{?scl_prefix}rubygem(highline) >= 1.6.21
+Requires: %{?scl_prefix}rubygem(highline) < 2.0
 Requires: %{?scl_prefix}rubygem(powerbar)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-2
+- Build for SCL
+
 * Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-1
 - Release rubygem-kafo 4.1.0
 
