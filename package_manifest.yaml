@@ -22,7 +22,6 @@ foreman_scl_packages:
   vars:
     scl: 'tfm'
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-rhel7
       - foreman-nightly-el8
@@ -279,7 +278,6 @@ foreman_nodejs_packages:
   vars:
     scl: 'tfm'
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-nonscl-rhel7
       - foreman-nightly-rhel7
@@ -434,7 +432,6 @@ foreman_nodejs_packages:
 foreman_installer_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-nonscl-rhel7
       - foreman-nightly-rhel7
@@ -494,7 +491,6 @@ foreman_installer_packages:
 foreman_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-nonscl-rhel7
       - foreman-nightly-el8
@@ -530,7 +526,6 @@ foreman_nonscl_packages:
 foreman_proxy_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-rhel7
     releasers:
@@ -565,7 +560,6 @@ foreman_proxy_packages:
 foreman_proxy_plugin_packages:
   vars:
     package_base_dir: 'packages/plugins/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-plugins-nightly-rhel7
     releasers:
@@ -620,7 +614,6 @@ foreman_proxy_plugin_packages:
 foreman_scl_and_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-nightly-rhel7
       - foreman-nightly-nonscl-rhel7
@@ -723,7 +716,6 @@ foreman_client_packages:
 katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
-    diff_package_skip: false
     diff_package_tags:
       - katello-nightly-rhel7
     releasers:
@@ -807,7 +799,6 @@ plugins_packages:
 plugin_scl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-plugins-nightly-rhel7
     releasers:
@@ -947,7 +938,6 @@ plugin_scl_packages:
 plugin_nonscl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
-    diff_package_skip: false
     diff_package_tags:
       - foreman-plugins-nightly-nonscl-rhel7
     releasers:
@@ -1091,7 +1081,6 @@ repoclosures:
 pulpcore_packages:
   vars:
     package_base_dir: 'packages/pulpcore/'
-    diff_package_skip: false
     diff_package_tags:
       - katello-pulpcore-nightly-el7
       - katello-pulpcore-nightly-el8
