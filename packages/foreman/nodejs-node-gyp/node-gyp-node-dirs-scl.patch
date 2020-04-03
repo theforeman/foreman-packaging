@@ -7,7 +7,7 @@ index 564564e..d010063 100644
      if (gyp.opts.nodedir) {
        // --nodedir was specified. use that for the dev files
 -      nodeDir = gyp.opts.nodedir.replace(/^~/, os.homedir())
-+      nodeDir = '/usr/share/node'
++      nodeDir = '/opt/rh/rh-nodejs10/root/usr/share/node'
 
        log.verbose('get node dir', 'compiling against specified --nodedir dev files: %s', nodeDir)
        createBuildDir()
@@ -27,7 +27,7 @@ index 564564e..d010063 100644
          }
          log.verbose('get node dir', 'target node version installed:', release.versionDir)
 -        nodeDir = path.resolve(gyp.devDir, release.versionDir)
-+        nodeDir = '/usr/share/node'
++        nodeDir = '/opt/rh/rh-nodejs10/root/usr/share/node'
          createBuildDir()
        })
      }
@@ -41,7 +41,7 @@ index 564564e..d010063 100644
 +    var gypScript = '/usr/bin/gyp'
 +    var addonGypiFile = gyp.opts.target || gyp.opts.nodeDir ? 'addon.gypi' : 'addon-rpm.gypi'
 +    var addonGypi = path.resolve(__dirname, '..', addonGypiFile)
-+    var commonGypi = path.resolve(nodeDir, '/usr/include/node/common.gypi')
++    var commonGypi = path.resolve(nodeDir, '/opt/rh/rh-nodejs10/root/usr/include/node/common.gypi')
      fs.stat(commonGypi, function (err) {
        if (err) {
          commonGypi = path.resolve(nodeDir, 'common.gypi')
