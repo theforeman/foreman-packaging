@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -26,6 +26,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+%{?scl:Obsoletes: rubygem-%{gem_name} <= 1.1.0}
 
 %description
 This gem can parse values, validations, documentation, types, groups and
@@ -82,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
+- Obsolete non-scl version
+
 * Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Build for SCL
 

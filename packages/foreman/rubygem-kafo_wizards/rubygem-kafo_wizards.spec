@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Wizard like interfaces in terminal
 Group: Development/Languages
 License: GPLv3+
@@ -24,6 +24,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+%{?scl:Obsoletes: rubygem-%{gem_name} <= 0.0.1}
 
 %description
 This gem helps to create wizard like interfaces in terminal applications, has
@@ -80,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-4
+- Obsolete non-scl version
+
 * Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-3
 - Build for SCL
 
