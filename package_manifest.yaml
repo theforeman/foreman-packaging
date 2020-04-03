@@ -705,9 +705,7 @@ foreman_client_packages:
         - el6-pulp
       rhel5:
         - el5-base
-        - el5-updates
         - el5-epel
-        - el5-extras
         - el5-puppet-6
         - el5-subscription-manager
         - el5-pulp
@@ -1074,9 +1072,7 @@ repoclosures:
       repoclosure_lookaside_repos:
         rhel5:
           - el5-base
-          - el5-updates
           - el5-epel
-          - el5-extras
           - el5-puppet-6
           - el5-subscription-manager
           - el5-pulp
@@ -1239,9 +1235,7 @@ foreman_release_packages:
         - el6-pulp
       rhel5:
         - el5-base
-        - el5-updates
         - el5-epel
-        - el5-extras
         - el5-puppet-6
         - el5-subscription-manager
         - el5-pulp
