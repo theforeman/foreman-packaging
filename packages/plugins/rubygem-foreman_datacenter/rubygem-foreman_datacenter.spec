@@ -93,8 +93,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
