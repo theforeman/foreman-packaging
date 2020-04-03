@@ -1,0 +1,117 @@
+repoclosures:
+  vars:
+    repoclosure_config: repoclosure/yum_el7.conf
+  hosts:
+    foreman-repoclosure-el7:
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-nightly
+      repoclosure_target_dist: rhel7
+      repoclosure_lookaside_repos:
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-6
+    plugins-repoclosure-el7:
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-plugins-nightly
+      repoclosure_target_dist: rhel7
+      repoclosure_lookaside_repos:
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-6
+          - el7-foreman-nightly
+    katello-repoclosure-el7:
+      repoclosure_target_repos:
+        rhel7:
+          - el7-katello-nightly
+      repoclosure_target_dist: rhel7
+      repoclosure_lookaside_repos:
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-scl
+          - el7-puppet-6
+          - el7-foreman-nightly
+          - el7-foreman-plugins-nightly
+          - el7-katello-pulp-nightly
+          - el7-katello-candlepin-nightly
+          - el7-katello-pulpcore-nightly
+    foreman-client-repoclosure-el8:
+      repoclosure_config: repoclosure/yum.conf
+      repoclosure_target_repos:
+        el8:
+          - el8-foreman-client-nightly
+      repoclosure_target_dist: el8
+      repoclosure_lookaside_repos:
+        el8:
+          - el8-baseos
+          - el8-appstream
+          - el8-epel
+          - el8-extras
+          - el8-puppet-6
+    foreman-client-repoclosure-el7:
+      repoclosure_config: repoclosure/yum_el7.conf
+      repoclosure_target_repos:
+        rhel7:
+          - el7-foreman-client-nightly
+      repoclosure_target_dist: rhel7
+      repoclosure_lookaside_repos:
+        rhel7:
+          - el7-base
+          - el7-updates
+          - el7-epel
+          - el7-extras
+          - el7-puppet-6
+    foreman-client-repoclosure-el6:
+      repoclosure_config: repoclosure/yum_el6.conf
+      repoclosure_target_repos:
+        rhel6:
+          - el6-foreman-client-nightly
+      repoclosure_target_dist: rhel6
+      repoclosure_lookaside_repos:
+        rhel6:
+          - el6-base
+          - el6-updates
+          - el6-epel
+          - el6-extras
+          - el6-puppet-6
+          - el6-qpid
+          - el6-pulp
+          - el6-subscription-manager
+    foreman-client-repoclosure-el5:
+      repoclosure_config: repoclosure/yum_el5.conf
+      repoclosure_target_repos:
+        rhel5:
+          - el5-foreman-client-nightly
+      repoclosure_target_dist: rhel5
+      repoclosure_lookaside_repos:
+        rhel5:
+          - el5-base
+          - el5-updates
+          - el5-epel
+          - el5-extras
+          - el5-puppet-6
+          - el5-subscription-manager
+          - el5-pulp
+    foreman-client-repoclosure-f29:
+      repoclosure_config: repoclosure/yum_f29.conf
+      repoclosure_target_repos:
+        fedora29:
+          - f29-foreman-client-nightly
+      repoclosure_target_dist: fedora29
+      repoclosure_lookaside_repos:
+        fedora29:
+          - f29-base
+          - f29-updates
+          - f29-puppet-6
