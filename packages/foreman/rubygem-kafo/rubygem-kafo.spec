@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -33,6 +33,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+%{?scl:Obsoletes: rubygem-%{gem_name} <= 4.1.0}
 
 %description
 If you write puppet modules for installing your software, you can use kafo to
@@ -101,6 +103,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-3
+- Obsolete non-scl version
+
 * Thu Apr 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-2
 - Build for SCL
 
