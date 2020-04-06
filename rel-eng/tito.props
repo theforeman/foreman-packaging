@@ -157,6 +157,7 @@ whitelist = foreman
   rubygem-ancestry
   rubygem-ansi
   rubygem-apipie-bindings
+  rubygem-apipie-dsl
   rubygem-apipie-params
   rubygem-apipie-rails
   rubygem-arel

@@ -155,6 +155,7 @@
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
       <packagereq type="default">tfm-rubygem-ansi</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-dsl</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-arel</packagereq>
@@ -416,6 +417,7 @@
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ansi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-apipie-dsl-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-arel-doc</packagereq>
