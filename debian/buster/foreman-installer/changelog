@@ -1,3 +1,9 @@
+foreman-installer (2.0.0-1) stable; urgency=low
+
+  * 2.0.0 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Mon, 06 Apr 2020 14:09:43 -0400
+
 foreman-installer (2.0.0~rc3-1) stable; urgency=low
 
   * 2.0.0-rc3 released
