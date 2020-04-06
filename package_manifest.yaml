@@ -83,6 +83,7 @@ foreman_scl_packages:
     rubygem-algebrick: {}
     rubygem-ancestry: {}
     rubygem-apipie-bindings: {}
+    rubygem-apipie-dsl: {}
     rubygem-apipie-params: {}
     rubygem-apipie-rails: {}
     rubygem-arel: {}
