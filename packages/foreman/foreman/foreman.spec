@@ -9,9 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 2.0.0
@@ -1004,6 +1002,9 @@ systemctl stop dynflowd.service > /dev/null 2>&1 || :
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Apr 06 2020 Patrick Creech <pcreech@redhat.com> - 2.0.0-1
+- Release foreman 2.0.0
+
 * Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.10.rc3
 - Stop dynflow before its service is removed
 
