@@ -1,6 +1,4 @@
-%global release 3
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
@@ -141,6 +139,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Apr 06 2020 Patrick Creech <pcreech@redhat.com> - 1:2.0.0-1
+- Release foreman-installer 2.0.0
+
 * Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.0.0-0.3.rc3
 - Release foreman-installer 2.0.0 rc3
 
