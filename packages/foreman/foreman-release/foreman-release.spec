@@ -13,9 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:     foreman-release
 Version:  2.0.0
@@ -109,6 +107,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Mon Apr 06 2020 Patrick Creech <pcreech@redhat.com> - 2.0.0-1
+- Release foreman-release 2.0.0
+
 * Mon Mar 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-0.3.rc3
 - Release foreman-release 2.0.0
 
