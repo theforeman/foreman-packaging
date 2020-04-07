@@ -4,7 +4,7 @@
 
 Name:           %{pypi_name}
 Version:        1.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{summary}
 
 License:        GPLv3
@@ -69,5 +69,8 @@ install -c -m 644 doc/keycloak-httpd-client-install.8 %{buildroot}/%{_mandir}/ma
 %{_mandir}/man8/*
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.2.2-2
+- Build for EL8
+
 * Wed Nov 20 2019 Amit Upadhye <upadhyeammit@gmail.com> - 1.2.2-1
 - Initial package.

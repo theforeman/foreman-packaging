@@ -37,7 +37,7 @@
 
 Name:           katello-selinux
 Version:        3.1.1
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -127,6 +127,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.1.1-2
+- Build for EL8
+
 * Thu Apr 04 2019 Tomer Brisker <tbrisker@gmail.com> - 3.1.1-1
 - Release katello-selinux 3.1.1
 

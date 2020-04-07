@@ -22,7 +22,7 @@
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -166,6 +166,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.2.develop
+- Build for EL8
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.develop
 - Bump version to 2.1-develop
 

@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
 Version: 201901011200
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -67,6 +67,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 201901011200-2
+- Build for EL8
+
 * Wed Apr 24 2019 Lukas Zapletal <lzap+rpm@redhat.com> 201901011200-1
 - Fix BZ#1702434
 

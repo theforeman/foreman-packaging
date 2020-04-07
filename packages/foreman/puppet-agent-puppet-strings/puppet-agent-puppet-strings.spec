@@ -4,7 +4,7 @@
 Summary: Puppet documentation via YARD
 Name: puppet-agent-%{gem_name}
 Version: 2.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: ASL-2.0
 URL: https://github.com/puppetlabs/puppetlabs-strings
@@ -50,6 +50,9 @@ else  # upgrade
 fi
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-2
+- Build for EL8
+
 * Tue Sep 03 2019 Dirk Goetz <dirk.goetz@netways.de> 2.3.0-1
 - Update to 2.3.0
 

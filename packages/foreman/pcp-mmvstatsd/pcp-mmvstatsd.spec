@@ -2,7 +2,7 @@
 
 Name:    pcp-mmvstatsd
 Version: 0.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Statsd to PCP MMV aggregator
 License: MIT and BSD
 URL:     https://github.com/lzap/%{name}
@@ -68,6 +68,9 @@ exit 0
 %attr(755, %{name}, %{name})%{_sharedstatedir}/%{name}
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4-3
+- Build for EL8
+
 * Fri Sep 14 2018 Lukas Zapletal <lzap+rpm@redhat.com> 0.4-2
 - Added debuginfo stripping
 
