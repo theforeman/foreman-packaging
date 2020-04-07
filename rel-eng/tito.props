@@ -517,6 +517,10 @@ whitelist = gyp
   rubygem-websocket-driver
   rubygem-websocket-extensions
 
+[foreman-plugins-nightly-el8]
+disttag = .el8
+whitelist =
+
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
