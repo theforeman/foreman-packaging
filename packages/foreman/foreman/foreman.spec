@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 29
+%global release 30
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -723,7 +723,7 @@ export NODE_ENV=production
 webpack --bail --config config/webpack.config.js
 %{?scl:"}
 %{scl_rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
-%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources DATABASE_URL=nulldb://nohost --trace
+%{scl_rake} apipie:cache RAILS_ENV=production FOREMAN_APIPIE_LANGS=en_US cache_part=resources DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
 
 %install
@@ -894,7 +894,7 @@ export BUNDLER_EXT_NOSTRICT=1 \\
 export NODE_ENV=production \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
 %%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} DATABASE_URL=nulldb://nohost --trace} \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] FOREMAN_APIPIE_LANGS=en_US RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} DATABASE_URL=nulldb://nohost --trace} \\
 \\
 popd \\
 rm -rf ./usr \\
@@ -1015,6 +1015,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 05 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.30.develop
+- Only generate en_US apipie docs for Foreman and Plugins
+
 * Wed Jul 29 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.29.develop
 - Ensure foreman.socket is removed on package removal
 
