@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 6
+%global release 7
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -38,7 +38,7 @@ Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(qpid_messaging)
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-Requires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
+Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.2.1
@@ -50,6 +50,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.3.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.2.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.3.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -69,7 +70,7 @@ BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(qpid_messaging)
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.12.1
+BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.2.1
@@ -81,6 +82,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.2.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -101,7 +103,7 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -121,8 +123,6 @@ BuildRequires: %{?scl_prefix}npm(query-string) >= 6.1.0
 BuildRequires: %{?scl_prefix}npm(query-string) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
 BuildRequires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(react-helmet) >= 5.2.0
-BuildRequires: %{?scl_prefix}npm(react-helmet) < 6.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -147,7 +147,7 @@ Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.0
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
@@ -167,8 +167,6 @@ Requires: %{?scl_prefix}npm(query-string) >= 6.1.0
 Requires: %{?scl_prefix}npm(query-string) < 7.0.0
 Requires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
 Requires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
-Requires: %{?scl_prefix}npm(react-helmet) >= 5.2.0
-Requires: %{?scl_prefix}npm(react-helmet) < 6.0.0
 # end package.json dependencies Requires
 
 %description assets
@@ -236,6 +234,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Apr 07 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.7.pre.master
+- Update Gem and NPM dependencies
+
 * Wed Apr 01 2020 Justin Sherrill <jsherril@redhat.com> 3.16.0-0.6.pre.master
 - Update angular dep
 
