@@ -17,19 +17,7 @@ fetch_strategy = custom.ForemanSourceStrategy
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = foreman-bootloaders-redhat
-  foreman-release
-  foreman-release-scl
-  foreman-selinux
-  katello-certs-tools
-  katello-selinux
-  keycloak-httpd-client-install
-  pcp-mmvstatsd
-  puppet-agent-oauth
-  puppet-agent-puppet-strings
-  puppet-agent-rgen
-  puppet-agent-yard
-  rubygem-clamp
+whitelist = rubygem-clamp
   rubygem-foreman_maintain
   rubygem-hashie
   rubygem-highline
@@ -41,8 +29,15 @@ whitelist = foreman-bootloaders-redhat
 [foreman-nightly-rhel7]
 disttag = .el7
 whitelist = foreman
+  foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
+  foreman-release
+  foreman-release-scl
+  foreman-selinux
+  katello-certs-tools
+  katello-selinux
+  keycloak-httpd-client-install
   nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
@@ -142,6 +137,11 @@ whitelist = foreman
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
+  pcp-mmvstatsd
+  puppet-agent-oauth
+  puppet-agent-puppet-strings
+  puppet-agent-rgen
+  puppet-agent-yard
   rubygem-actioncable
   rubygem-actionmailer
   rubygem-activejob

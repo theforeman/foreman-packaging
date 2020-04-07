@@ -431,7 +431,6 @@ foreman_installer_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     diff_package_tags:
-      - foreman-nightly-nonscl-rhel7
       - foreman-nightly-rhel7
       - foreman-nightly-el8
     releasers:
@@ -458,6 +457,7 @@ foreman_installer_packages:
         - el8-puppet-6
         - el8-devel
   hosts:
+    foreman-bootloaders-redhat: {}
     foreman-installer:
       releasers:
         - "{{ nightly_releaser }}"
@@ -476,6 +476,8 @@ foreman_installer_packages:
       build_package_tito_builder: "tito.builder.FetchBuilder"
     katello-certs-tools: {}
     katello-selinux: {}
+    keycloak-httpd-client-install: {}
+    pcp-mmvstatsd: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
     puppet-agent-rgen: {}
@@ -484,40 +486,6 @@ foreman_installer_packages:
     rubygem-kafo: {}
     rubygem-kafo_parsers: {}
     rubygem-kafo_wizards: {}
-
-foreman_nonscl_packages:
-  vars:
-    package_base_dir: 'packages/foreman/'
-    diff_package_tags:
-      - foreman-nightly-nonscl-rhel7
-      - foreman-nightly-el8
-    releasers:
-      - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
-      el8:
-        - el8-foreman-nightly
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-foreman-nightly
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-extras
-        - el8-puppet-6
-  hosts:
-    foreman-bootloaders-redhat: {}
-    foreman-release-scl: {}
-    keycloak-httpd-client-install: {}
-    pcp-mmvstatsd: {}
-    rubygem-foreman_maintain: {}
 
 foreman_proxy_packages:
   vars:
@@ -614,7 +582,6 @@ foreman_scl_and_nonscl_packages:
       - foreman-nightly-el8
     releasers:
       - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
     repoclosure_target_repos:
       rhel7:
         - el7-foreman-nightly
@@ -637,6 +604,10 @@ foreman_scl_and_nonscl_packages:
         - el8-puppet-6
   hosts:
     rubygem-clamp: {}
+    rubygem-foreman_maintain:
+      diff_package_tags:
+        - foreman-nightly-nonscl-rhel7
+        - foreman-nightly-el8
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-little-plugger: {}
@@ -1214,3 +1185,8 @@ foreman_release_packages:
         - f29-puppet-6
   hosts:
     foreman-release: {}
+    foreman-release-scl:
+      diff_package_tags:
+        - foreman-nightly-rhel7
+      releasers:
+        - koji-foreman
