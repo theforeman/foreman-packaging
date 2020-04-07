@@ -7,3 +7,6 @@ mock/site-defaults.cfg
 node_modules
 OLD_CHANGELOG
 downloaded_rpms
+
+SRPMs/
+mock_build/
