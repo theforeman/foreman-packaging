@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -857,10 +857,7 @@ GEMFILE
 # Common assets locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
 # Common webpack locations
-%%%{name}_webpack_plugin \\
-%%{gem_instdir}/public/webpack/%%{gem_name} \\
-%%exclude %%{gem_instdir}/public/webpack/fonts/ \\
-%%exclude %%{gem_instdir}/public/webpack/images/
+%%%{name}_webpack_plugin %%{gem_instdir}/public/webpack/%%{gem_name}
 %%%{name}_webpack_foreman %%{foreman_dir}/public/webpack/%%{gem_name}
 # Common apipie locations
 %%%{name}_apipie_cache_plugin %%{gem_instdir}/public/apipie-cache/plugin/%%{gem_name}
@@ -904,6 +901,8 @@ rm -rf ./usr \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}} \\
 %%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map} \\
 %%{?-s:rm -f %%{buildroot}%%{gem_instdir}/public/webpack/foreman-vendor.*}
+%%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/fonts}
+%%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/images}
 EOF
 
 %clean
@@ -1006,6 +1005,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Apr 07 2020 ehelms - 2.1.0-0.8.develop
+- Fix ignoring fonts and images for plugins
+
 * Tue Apr 07 2020 Evgeni Golov - 2.1.0-0.7.develop
 - Add images/ and fonts/ to exclude of plugin webpack builds
 
