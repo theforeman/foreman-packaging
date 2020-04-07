@@ -351,8 +351,12 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = gyp
+whitelist = foreman-bootloaders-redhat
+  foreman-selinux
+  gyp
   katello-certs-tools
+  katello-selinux
+  keycloak-httpd-client-install
   nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
@@ -452,6 +456,11 @@ whitelist = gyp
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
+  pcp-mmvstatsd
+  puppet-agent-oauth
+  puppet-agent-puppet-strings
+  puppet-agent-rgen
+  puppet-agent-yard
   rubygem-actioncable
   rubygem-actionmailer
   rubygem-actionpack
