@@ -7,8 +7,11 @@
     <description>Packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">foreman-proxy-selinux</packagereq>
+      <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">gyp</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
+      <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
       <packagereq type="default">nodejs-babel-cli</packagereq>
       <packagereq type="default">nodejs-babel-core</packagereq>

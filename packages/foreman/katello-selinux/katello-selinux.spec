@@ -18,26 +18,14 @@
 
 %define selinux_variants targeted
 %define selinux_modules katello
-
-%if 0%{?rhel} == 5
-# absolute minimum versions for RHEL 5
-%define selinux_policy_ver 3.11.1-81
-%else
-# absolute minimum versions for RHEL 6
-%define selinux_policy_ver 2.4.6-80
-%endif
-%define selinux_policycoreutils_ver 1.33.12-1
+%global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
-# set and uncomment all three to set alpha tag
-#global alphatag RC1
-#global dotalphatag .%{alphatag}
-#global dashalphatag -%{alphatag}
 
 Name:           katello-selinux
 Version:        3.1.1
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -45,17 +33,29 @@ License:        GPLv3+
 URL:            http://www.katello.org
 Source0:        https://codeload.github.com/Katello/%{name}/tar.gz/%{version}
 
-BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
-BuildRequires:  policycoreutils >= %{selinux_policycoreutils_ver}
+BuildRequires:  checkpolicy
+BuildRequires:  selinux-policy-devel
+BuildRequires:  hardlink
+BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
+Requires:           foreman-selinux
 Requires:           selinux-policy >= %{selinux_policy_ver}
-Requires:           foreman-selinux >= 1.17
-Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
-Requires(post):     policycoreutils-python
+Requires(post):     /usr/sbin/semodule
+Requires(post):     /sbin/restorecon
+Requires(post):     /usr/sbin/setsebool
+Requires(post):     /usr/sbin/selinuxenabled
+Requires(post):     /usr/sbin/semanage
 Requires(post):     selinux-policy-targeted
-Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
+Requires(postun):   /usr/sbin/semodule
+Requires(postun):   /sbin/restorecon
+
+%if 0%{?rhel} == 7
+Requires(post):     policycoreutils-python
+%else
+Requires(post):     policycoreutils-python-utils
+%endif
 
 %description
 SELinux policy module for Katello
@@ -127,6 +127,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.1.1-2
+- Update spec and build for EL8
+
 * Thu Apr 04 2019 Tomer Brisker <tbrisker@gmail.com> - 3.1.1-1
 - Release katello-selinux 3.1.1
 

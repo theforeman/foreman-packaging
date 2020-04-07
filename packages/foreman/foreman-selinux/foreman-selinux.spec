@@ -22,7 +22,7 @@
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -36,16 +36,28 @@ License:        GPLv3+
 URL:            https://theforeman.org
 Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
 
-BuildRequires:  checkpolicy, selinux-policy-devel, hardlink
+BuildRequires:  checkpolicy
+BuildRequires:  selinux-policy-devel
+BuildRequires:  hardlink
 BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
-Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
-Requires(post):     policycoreutils-python
+Requires(post):     /usr/sbin/semodule
+Requires(post):     /sbin/restorecon
+Requires(post):     /usr/sbin/setsebool
+Requires(post):     /usr/sbin/selinuxenabled
+Requires(post):     /usr/sbin/semanage
 Requires(post):     selinux-policy-targeted
-Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
+Requires(postun):   /usr/sbin/semodule
+Requires(postun):   /sbin/restorecon
+
+%if 0%{?rhel} == 7
+Requires(post):     policycoreutils-python
+%else
+Requires(post):     policycoreutils-python-utils
+%endif
 
 %description
 SELinux policy module for Foreman
@@ -122,10 +134,20 @@ Summary: SELinux policy module for Foreman Proxy
 Group:   System Environment/Base
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
-Requires(post):     /usr/sbin/semodule, /sbin/restorecon, /usr/sbin/setsebool, /usr/sbin/selinuxenabled, /usr/sbin/semanage
-Requires(post):     policycoreutils-python
+Requires(post):     /usr/sbin/semodule
+Requires(post):     /sbin/restorecon
+Requires(post):     /usr/sbin/setsebool
+Requires(post):     /usr/sbin/selinuxenabled
+Requires(post):     /usr/sbin/semanage
 Requires(post):     selinux-policy-targeted
-Requires(postun):   /usr/sbin/semodule, /sbin/restorecon
+Requires(postun):   /usr/sbin/semodule
+Requires(postun):   /sbin/restorecon
+
+%if 0%{?rhel} == 7
+Requires(post):     policycoreutils-python
+%else
+Requires(post):     policycoreutils-python-utils
+%endif
 
 %description -n foreman-proxy-selinux
 SELinux policy module for Foreman Proxy
@@ -166,6 +188,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.2.develop
+- Update spec and build for EL8
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.develop
 - Bump version to 2.1-develop
 

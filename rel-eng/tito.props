@@ -352,8 +352,10 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = gyp
+whitelist = foreman-selinux
+  gyp
   katello-certs-tools
+  katello-selinux
   nodejs-argv-parse
   nodejs-babel-cli
   nodejs-babel-core
