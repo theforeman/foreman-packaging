@@ -352,7 +352,11 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = foreman-selinux
+whitelist = foreman
+  foreman-bootloaders-redhat
+  foreman-proxy
+  foreman-release
+  foreman-release-scl
   gyp
   katello-certs-tools
   katello-selinux
@@ -390,7 +394,6 @@ whitelist = foreman-selinux
   nodejs-fbjs
   nodejs-file-loader
   nodejs-gud
-  nodejs-node-gyp
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
   nodejs-humanize-duration
@@ -404,6 +407,7 @@ whitelist = foreman-selinux
   nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
+  nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
   nodejs-patternfly
@@ -437,7 +441,6 @@ whitelist = foreman-selinux
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
-  nodejs-regenerator-runtime
   nodejs-reselect
   nodejs-sass-loader
   nodejs-seamless-immutable
@@ -467,62 +470,205 @@ whitelist = foreman-selinux
   rubygem-activemodel
   rubygem-activepack
   rubygem-activerecord
+  rubygem-activerecord-session_store
   rubygem-activestorage
   rubygem-activesupport
   rubygem-activeview
+  rubygem-addressable
+  rubygem-algebrick
+  rubygem-ancestry
   rubygem-ansi
+  rubygem-apipie-bindings
+  rubygem-apipie-params
+  rubygem-apipie-rails
   rubygem-arel
+  rubygem-audited
+  rubygem-autoprefixer-rails
+  rubygem-awesome_print
+  rubygem-bcrypt
+  rubygem-bootstrap-sass
   rubygem-builder
+  rubygem-bundler_ext
+  rubygem-clamp
   rubygem-coffee-rails
   rubygem-coffee-script
   rubygem-coffee-script-source
   rubygem-concurrent-ruby
-  rubygem-clamp
+  rubygem-concurrent-ruby-edge
+  rubygem-connection_pool
   rubygem-crass
+  rubygem-css_parser
+  rubygem-daemons
+  rubygem-deacon
+  rubygem-declarative
+  rubygem-declarative-option
+  rubygem-deep_cloneable
+  rubygem-domain_name
+  rubygem-dynflow
   rubygem-erubi
+  rubygem-eventmachine
+  rubygem-excon
   rubygem-execjs
+  rubygem-facter
+  rubygem-faraday
+  rubygem-fast_gettext
+  rubygem-ffi
+  rubygem-fog-aws
+  rubygem-fog-core
+  rubygem-fog-digitalocean
+  rubygem-fog-google
+  rubygem-fog-json
+  rubygem-fog-libvirt
+  rubygem-fog-openstack
+  rubygem-fog-ovirt
+  rubygem-fog-rackspace
+  rubygem-fog-vsphere
+  rubygem-fog-xenserver
+  rubygem-fog-xml
+  rubygem-font-awesome-sass
+  rubygem-foreman_maintain
+  rubygem-formatador
+  rubygem-friendly_id
+  rubygem-get_process_mem
+  rubygem-gettext
+  rubygem-gettext_i18n_rails
+  rubygem-gettext_i18n_rails_js
+  rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
+  rubygem-google-api-client
+  rubygem-googleauth
+  rubygem-graphql
+  rubygem-graphql-batch
+  rubygem-gridster-rails
+  rubygem-gssapi
+  rubygem-hammer_cli
+  rubygem-hammer_cli_foreman
   rubygem-hashie
   rubygem-highline
+  rubygem-hirb
+  rubygem-hirb-unicode-steakknife
+  rubygem-hoe
+  rubygem-httpclient
+  rubygem-http-cookie
   rubygem-i18n
-  rubygem-little-plugger
+  rubygem-ipaddress
+  rubygem-journald-logger
+  rubygem-journald-native
+  rubygem-jquery-ui-rails
+  rubygem-jwt
   rubygem-kafo
   rubygem-kafo_parsers
   rubygem-kafo_wizards
+  rubygem-ldap_fluff
+  rubygem-little-plugger
+  rubygem-locale
   rubygem-logging
+  rubygem-logging-journald
   rubygem-loofah
   rubygem-mail
   rubygem-marcel
+  rubygem-memoist
   rubygem-method_source
+  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
-  rubygem-mimemagic
   rubygem-mini_mime
   rubygem-mini_portile2
   rubygem-multi_json
+  rubygem-multipart-post
   rubygem-mustermann
+  rubygem-net-ldap
+  rubygem-net-ping
+  rubygem-netrc
+  rubygem-net-scp
+  rubygem-net-ssh
   rubygem-nio4r
+  rubygem-nokogiri
+  rubygem-oauth
+  rubygem-optimist
+  rubygem-os
+  rubygem-ovirt-engine-sdk
+  rubygem-paint
+  rubygem-passenger
+  rubygem-patternfly-sass
+  rubygem-pg
+  rubygem-po_to_json
   rubygem-powerbar
+  rubygem-prometheus-client
+  rubygem-promise.rb
+  rubygem-public_suffix
+  rubygem-puma
+  rubygem-quantile
+  rubygem-rabl
   rubygem-rack
+  rubygem-rack-cors
+  rubygem-rack-jsonp
   rubygem-rack-protection
   rubygem-rack-test
   rubygem-rails
   rubygem-rails-dom-testing
   rubygem-rails-html-sanitizer
+  rubygem-rails-i18n
   rubygem-railties
+  rubygem-rake-compiler
+  rubygem-rb-inotify
+  rubygem-rbovirt
+  rubygem-rbvmomi
+  rubygem-record_tag_helper
+  rubygem-redis
+  rubygem-representable
+  rubygem-responders
+  rubygem-rest-client
+  rubygem-retriable
+  rubygem-rkerberos
+  rubygem-roadie
+  rubygem-roadie-rails
+  rubygem-rsec
+  rubygem-ruby2ruby
+  rubygem-rubyforge
+  rubygem-rubyipmi
+  rubygem-ruby-libvirt
+  rubygem-ruby_parser
+  rubygem-safemode
   rubygem-sass
+  rubygem-sassc
+  rubygem-sassc-rails
   rubygem-sass-rails
+  rubygem-scoped_search
+  rubygem-secure_headers
+  rubygem-sequel
+  rubygem-sexp_processor
+  rubygem-sidekiq
+  rubygem-signet
   rubygem-sinatra
+  rubygem-spice-html5-rails
   rubygem-sprockets
+  rubygem-sprockets-rails
   rubygem-sqlite3
+  rubygem-sshkey
+  rubygem-statsd-instrument
+  rubygem-syntax
+  rubygem-text
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
   rubygem-turbolinks
   rubygem-tzinfo
+  rubygem-uber
   rubygem-uglifier
+  rubygem-unf
+  rubygem-unf_ext
+  rubygem-unicode
+  rubygem-unicode-display_width
+  rubygem-useragent
+  rubygem-validates_lengths_from_database
+  rubygem-webpack-rails
   rubygem-websocket-driver
   rubygem-websocket-extensions
+  rubygem-will_paginate
+  rubygem-wirb
+  rubygem-x-editable-rails
+  rubygem-xmlrpc
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
@@ -849,4 +995,3 @@ whitelist =
 
 [katello-pulpcore-nightly-el8]
 disttag = .el8
-
