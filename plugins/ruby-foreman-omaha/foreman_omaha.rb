@@ -1,1 +1,1 @@
-gem 'foreman_omaha', '3.0.0'
+gem 'foreman_omaha', '4.0.0'

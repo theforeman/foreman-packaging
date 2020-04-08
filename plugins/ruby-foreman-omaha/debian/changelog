@@ -1,3 +1,9 @@
+ruby-foreman-omaha (4.0.0-1) stable; urgency=low
+
+  * 4.0.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Wed, 08 Apr 2020 11:20:38 +0200
+
 ruby-foreman-omaha (3.0.0-1) stable; urgency=medium
 
   * Initial release.
