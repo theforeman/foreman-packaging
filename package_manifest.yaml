@@ -3,6 +3,28 @@ packages:
   vars:
     foremandist: .fm2_2
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
+    repoclosure_target_repos:
+      rhel7:
+        - el7-foreman-nightly
+      el8:
+        - el8-foreman-nightly
+    repoclosure_lookaside_repos:
+      rhel7:
+        - el7-base
+        - el7-updates
+        - el7-epel
+        - el7-extras
+        - el7-puppet-6
+        - el7-scl
+        - el7-katello-candlepin-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-devel
+        - el8-extras
+        - el8-powertools
+        - el8-puppet-6
+        - el8-katello-candlepin-nightly
   children:
     foreman_packages: {}
     plugins_packages: {}
@@ -54,28 +76,6 @@ foreman_scl_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
-      el8:
-        - el8-foreman-nightly
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - el7-katello-candlepin-nightly
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-devel
-        - el8-extras
-        - el8-powertools
-        - el8-puppet-6
-        - el8-katello-candlepin-nightly
   children:
     rails_core_packages: {}
   hosts:
@@ -319,21 +319,6 @@ foreman_nodejs_packages:
         dist: '.el8'
     releasers:
       - koji-foreman
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-foreman-nightly
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-scl
-        - el7-extras
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - el8-foreman-nightly
   hosts:
     nodejs-argv-parse: {}
     nodejs-babel-cli:
@@ -482,29 +467,6 @@ foreman_installer_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
-      el8:
-        - el8-foreman-nightly
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-foreman-nightly
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - el7-katello-candlepin-nightly
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - el8-devel
-        - el8-katello-candlepin-nightly
   hosts:
     foreman-installer:
       releasers:
@@ -543,29 +505,6 @@ foreman_nonscl_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
-      el8:
-        - el8-foreman-nightly
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-foreman-nightly
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-6
-        - el7-katello-candlepin-nightly
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - el8-devel
-        - el8-katello-candlepin-nightly
   hosts:
     foreman-bootloaders-redhat: {}
     keycloak-httpd-client-install: {}
@@ -588,22 +527,6 @@ foreman_proxy_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_config: repoclosure/yum.conf
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-foreman-nightly
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - el8-foreman-nightly
   hosts:
     foreman-proxy:
       releasers:
@@ -705,28 +628,6 @@ foreman_scl_and_nonscl_packages:
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      rhel7:
-        - el7-foreman-nightly
-      el8:
-        - el8-foreman-nightly
-    repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - el7-katello-candlepin-nightly
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-devel
-        - el8-puppet-6
-        - el8-katello-candlepin-nightly
   hosts:
     rubygem-clamp: {}
     rubygem-highline: {}
