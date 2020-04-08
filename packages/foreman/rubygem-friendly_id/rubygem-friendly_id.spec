@@ -6,7 +6,7 @@
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.4-4
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.4-3
 - Update spec to remove the ror scl
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
 Group: Development/Languages
 License: MIT
@@ -86,6 +86,9 @@ rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
 %doc %{gem_instdir}/preamble
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.0-7
+- Bump to release for EL8
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-6
 - Update and rebuild into SCL
 

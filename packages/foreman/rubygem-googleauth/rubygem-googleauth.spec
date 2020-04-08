@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Google Auth Library for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.7-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.7-2
 - Update spec to remove the ror scl
 

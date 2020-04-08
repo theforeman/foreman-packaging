@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.6.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Font-Awesome SASS
 Group: Development/Languages
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.6.2-5
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.6.2-4
 - Update spec to remove the ror scl
 
