@@ -1,6 +1,6 @@
 Name:     foreman-release-scl
 Version:  7
-Release:  2%{?dist}
+Release:  3%{?dist}
 
 Summary:  Foreman Software Collections repositories meta-package
 Group:    Applications/System
@@ -28,6 +28,9 @@ Enterprise Linux rebuilds, such as CentOS.
 %files
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 7-3
+- Bump to release for EL8
+
 * Tue Aug 21 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7-2
 - Switch dependency to centos-release-scl-rh
 

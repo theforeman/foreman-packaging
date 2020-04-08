@@ -6,7 +6,7 @@
 Summary: a minimal framework for command-line utilities
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.2
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/mdub/clamp
@@ -81,6 +81,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/CHANGES.md
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.2-6
+- Bump to release for EL8
+
 * Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.2-5
 - Rebuild for EL8
 

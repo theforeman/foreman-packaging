@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: An Action Dispatch session store backed by Active Record
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.1-4
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.1-3
 - Update spec to remove the ror scl
 
