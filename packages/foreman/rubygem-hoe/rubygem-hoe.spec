@@ -6,7 +6,7 @@
 Summary:    	Hoe is a simple rake/rubygems helper for project Rakefiles
 Name:       	%{?scl_prefix}rubygem-%{gem_name}
 Version:    	2.12.3
-Release:    	10%{?dist}
+Release:    	11%{?dist}
 Group:      	Development/Languages
 License:    	MIT
 URL:        	http://rubyforge.org/projects/seattlerb/
@@ -100,17 +100,6 @@ chmod 0755 %{buildroot}/%{gem_instdir}/template/bin/file_name.erb
 # Don't remove template files
 #rm -f %{buildroot}/%{gem_instdir}/template/.autotest.erb
 
-%check
-pushd .%{gem_instdir}
-
-# Make sure that hoe currently building are loaded
-export RUBYLIB=$(pwd)/lib
-
-%{?scl:scl enable %{scl} "}
-rake test -v --trace
-%{?scl:"}
-popd
-
 %files
 %defattr(-, root, root, -)
 %dir %{gem_instdir}/
@@ -132,6 +121,9 @@ popd
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.12.3-11
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.12.3-10
 - Rebuild for Rails 5.2 and Ruby 2.5
 
