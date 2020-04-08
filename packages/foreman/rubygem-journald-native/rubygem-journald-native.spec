@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPLv2
@@ -87,6 +87,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.11-2
+- Bump to release for EL8
+
 * Fri Oct 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.11-1
 - Bump version to the latest upstream version
 

@@ -7,7 +7,7 @@ Summary: Unicode support for hirb
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
@@ -67,6 +67,9 @@ rm -f %{buildroot}%{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/gem-public_cert.pem
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.7-4
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

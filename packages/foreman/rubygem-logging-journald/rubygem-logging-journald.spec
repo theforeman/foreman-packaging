@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Journald appender for logging gem
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.0-2
+- Bump to release for EL8
+
 * Fri Oct 12 2018 Lukas Zapletal <lzap+rpm@redhat.com> 2.0.0-1
 - Upstream version 2.0.0
 
