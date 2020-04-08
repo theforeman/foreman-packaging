@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: X-editable for Rails
 Group: Development/Languages
 License: MIT
@@ -76,6 +76,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.5-5
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.5-4
 - Update spec to remove the ror scl
 

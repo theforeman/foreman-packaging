@@ -11,7 +11,7 @@
 
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	1.3.0
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	Collection of text algorithms
 
 License:	MIT
@@ -99,6 +99,9 @@ popd
 %exclude	%{gem_instdir}/test/
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.0-7
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

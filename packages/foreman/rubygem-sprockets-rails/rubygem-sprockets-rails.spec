@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.1-6
+- Bump to release for EL8
+
 * Fri Feb 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-5
 - Fix Obsoletes of tfm-ror52
 

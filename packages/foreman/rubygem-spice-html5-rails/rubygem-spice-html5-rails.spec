@@ -7,7 +7,7 @@
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-9
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-8
 - Update spec to remove the ror scl
 
