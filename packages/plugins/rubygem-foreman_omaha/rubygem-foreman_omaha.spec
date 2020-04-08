@@ -4,11 +4,11 @@
 
 %global gem_name foreman_omaha
 %global plugin_name omaha
-%global foreman_min_version 1.20.0
+%global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 4.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -100,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Timo Goebel <mail@timogoebel.name> - 4.0.0-1
+- Update foreman_omaha to 4.0.0
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-2
 - Drop migrate, seed and restart posttans
 
