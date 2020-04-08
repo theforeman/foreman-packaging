@@ -6,7 +6,7 @@
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/moiristo/deep_cloneable
@@ -72,6 +72,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-2
 - Update spec to remove the ror scl
 

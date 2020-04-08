@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
@@ -92,6 +92,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.4-2
+- Bump to release for EL8
+
 * Tue Dec 17 2019 Shira Maximov <shiramaximov@gmail.com> 1.2.4-1
 - Update to 1.2.4
 

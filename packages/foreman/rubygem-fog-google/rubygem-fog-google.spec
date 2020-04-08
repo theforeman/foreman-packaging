@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Google
 Group: Development/Languages
 License: MIT
@@ -107,6 +107,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/MIGRATING.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.2-2
+- Bump to release for EL8
+
 
 * Tue Mar 12 2019 kgaikwad <kavitagaikwad103@gmail.com> 1.8.2-1
 - Update to 1.8.2

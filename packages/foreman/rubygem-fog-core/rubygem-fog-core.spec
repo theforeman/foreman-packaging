@@ -7,7 +7,7 @@ Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 2.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-core
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-2
 - Update spec to remove the ror scl
 

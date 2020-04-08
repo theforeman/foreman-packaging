@@ -6,7 +6,7 @@
 Summary: A toolkit to create and control daemons in different ways
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.3
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://daemons.rubyforge.org
@@ -65,6 +65,9 @@ cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.3-6
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.3-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 

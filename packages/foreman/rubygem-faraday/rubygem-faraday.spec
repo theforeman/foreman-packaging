@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.15.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP/REST API client library
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.15.4-2
+- Bump to release for EL8
+
 * Thu Mar 14 2019 kgaikwad <kavitagaikwad103@gmail.com> 0.15.4-1
 - Update to 0.15.4
 

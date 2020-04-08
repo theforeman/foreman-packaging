@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of classes for parsing CSS in Ruby
 Group: Development/Languages
 License: MIT
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.7-4
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.4.7-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
