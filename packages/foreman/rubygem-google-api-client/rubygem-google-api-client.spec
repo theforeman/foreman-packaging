@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.23.9
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -131,6 +131,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.23.9-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.23.9-2
 - Update spec to remove the ror scl
 

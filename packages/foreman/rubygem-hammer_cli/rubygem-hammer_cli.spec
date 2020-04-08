@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -129,6 +129,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.2.pre.develop
+- Bump to release for EL8
+
 * Thu Feb 13 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.1.pre.develop
 - bump to 2.1-develop
 

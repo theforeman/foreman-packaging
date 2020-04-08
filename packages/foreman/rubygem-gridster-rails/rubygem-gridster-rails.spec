@@ -6,7 +6,7 @@
 Summary: Provides jquery.gridster for your Rails 3+ application
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.6.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/vanetten/gridster-rails
@@ -69,6 +69,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.6.1-5
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.6.1-4
 - Update spec to remove the ror scl
 

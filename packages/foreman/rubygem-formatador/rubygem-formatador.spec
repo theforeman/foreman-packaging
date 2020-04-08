@@ -8,7 +8,7 @@
 Summary: Ruby STDOUT text formatting
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 11%{?dist}
+Release: 12%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/%{gem_name}
@@ -80,6 +80,9 @@ popd
 %{gem_instdir}/formatador.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.1-12
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-11
 - Rebuild for Rails 5.2 and Ruby 2.5
 

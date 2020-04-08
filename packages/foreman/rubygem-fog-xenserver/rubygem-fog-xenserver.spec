@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support XENSERVER
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Bump to release for EL8
+
 * Thu Dec 06 2018 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.0.0-1
 - Update to 1.0.0-1
 
