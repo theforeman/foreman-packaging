@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Simple HTTP and REST client for Ruby, inspired by microframework syntax for specifying actions
 Group: Development/Languages
 License: MIT
@@ -104,6 +104,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.2-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.2-2
 - Update spec to remove the ror scl
 

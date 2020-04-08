@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Ruby interface to the VMware vSphere API
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-2
 - Update spec to remove the ror scl
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 Group: Development/Languages
 License: MIT
@@ -95,6 +95,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.2-2
+- Bump to release for EL8
+
 * Wed Mar 13 2019 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.4.2-1
 - Update to 2.4.2-1
 

@@ -7,7 +7,7 @@ Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.3.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/safemode
@@ -86,6 +86,9 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.5-3
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.5-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
