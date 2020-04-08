@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -69,6 +69,10 @@ Various scenarios and tools for the Katello ecosystem
   --trace
 
 %install
+%if 0%{?fedora} || 0%{?rhel} >= 8
+grep -lr '#!/usr/bin/python' _build/modules/selinux | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
+%endif
+
 %{scl_rake} install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
@@ -145,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-0.3.develop
+- Build for EL8
+
 * Wed Apr 01 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-0.2.develop
 - Build foreman-installer for SCL
 

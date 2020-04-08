@@ -354,9 +354,11 @@ scl = tfm
 disttag = .el8
 whitelist = foreman
   foreman-bootloaders-redhat
+  foreman-installer
   foreman-proxy
   foreman-release
   foreman-release-scl
+  foreman-selinux
   gyp
   katello-certs-tools
   katello-selinux

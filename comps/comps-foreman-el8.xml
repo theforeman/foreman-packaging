@@ -9,6 +9,7 @@
     <packagelist>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
+      <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-release</packagereq>
