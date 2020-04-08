@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 9
+%global release 10
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -137,6 +137,8 @@ Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 Requires: %{?scl_prefix}rubygem(graphql-batch)
 # end specfile main Requires
 
+Requires: %{?scl_prefix_ruby}rubygem(bigdecimal)
+
 # start specfile facter Requires
 Requires: %{?scl_prefix}rubygem(facter)
 # end specfile facter Requires
@@ -147,8 +149,9 @@ Requires: %{?scl_prefix}rubygem(rack-jsonp)
 
 # Build dependencies
 %{?systemd_requires}
-BuildRequires: gettext
 BuildRequires: asciidoc
+BuildRequires: %{?scl_prefix_ruby}rubygem(bigdecimal)
+BuildRequires: gettext
 BuildRequires: %{scl_ruby_bin}
 BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
@@ -158,6 +161,7 @@ BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 BuildRequires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
 BuildRequires: %{?scl_prefix}rubygem(sqlite3) < 1.4.0
 # end specfile sqlite BuildRequires
+
 
 # start specfile main BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(rails) = 5.2.1
@@ -737,6 +741,11 @@ webpack --bail --config config/webpack.config.js
 rm config/database.yml config/settings.yaml
 
 %install
+%if 0%{?fedora} || 0%{?rhel} >= 8
+sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' extras/noVNC/*.py
+sed -i 's|#!/usr/bin/env python|#!/usr/bin/python3|g' extras/noVNC/websockify/*.py
+%endif
+
 rm -rf %{buildroot}
 
 #install man pages
@@ -905,6 +914,7 @@ rm -rf ./usr \\
 %%{?-s:rm -rf %%{buildroot}%%{gem_instdir}/public/webpack/images}
 EOF
 
+
 %clean
 rm -rf %{buildroot}
 
@@ -1005,6 +1015,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.10.develop
+- Bump to release for EL8
+
 * Wed Apr 08 2020 Evgeni Golov - 2.1.0-0.9.develop
 - Fix ignoring fonts and images for plugins once more
 
