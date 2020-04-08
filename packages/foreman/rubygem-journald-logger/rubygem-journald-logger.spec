@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: systemd-journal native logger
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.4-2
+- Bump to release for EL8
+
 * Thu Oct 11 2018 Lukas Zapletal <lzap+rpm@redhat.com> 2.0.4-1
 - Bumped version for Ruby 2.0 support
 

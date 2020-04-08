@@ -7,7 +7,7 @@
 Summary: jQuery UI packaged for the Rails asset pipeline
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/joliss/jquery-ui-rails
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules,.travis.yml,Gemfile,Ra
 %doc %{gem_instdir}/History.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2-9
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2-8
 - Update spec to remove the ror scl
 
