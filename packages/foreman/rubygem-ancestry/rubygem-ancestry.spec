@@ -7,7 +7,7 @@ Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/stefankroes/ancestry
@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-5
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-4
 - Update spec to remove the ror scl
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.9.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Log all changes to your models
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.9.0-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.9.0-2
 - Update spec to remove the ror scl
 
