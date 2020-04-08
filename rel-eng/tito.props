@@ -453,6 +453,10 @@ whitelist = gyp
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
+  puppet-agent-oauth
+  puppet-agent-puppet-strings
+  puppet-agent-rgen
+  puppet-agent-yard
   rubygem-actioncable
   rubygem-actionmailer
   rubygem-actionpack
