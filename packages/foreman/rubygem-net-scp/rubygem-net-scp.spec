@@ -6,7 +6,7 @@
 Summary: A pure Ruby implementation of the SCP client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://net-ssh.rubyforge.org/scp
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.2.1-4
+- Bump release to build for el8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.2.1-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 
