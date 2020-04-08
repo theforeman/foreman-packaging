@@ -7,8 +7,8 @@
 %global gem_name angular-rails-templates
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
-Version:   1.0.2
-Release:   5%{?dist}
+Version:   1.1.0
+Release:   1%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -23,7 +23,7 @@ Provides:  %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 Requires:  %{?scl_prefix_ruby}ruby(rubygems)
 Requires:  %{?scl_prefix}rubygem(railties) >= 4.2
-Requires:  %{?scl_prefix}rubygem(railties) < 6
+Requires:  %{?scl_prefix}rubygem(railties) < 7
 Requires:  %{?scl_prefix}rubygem(sprockets) >= 3.0
 Requires:  %{?scl_prefix}rubygem(sprockets) < 5
 Requires:  %{?scl_prefix}rubygem(tilt)
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Michael Moll <mmoll@mmoll.at> - 1:1.1.0-1
+- Update to 1.1.0
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:1.0.2-5
 - Update spec to remove the ror scl
 
