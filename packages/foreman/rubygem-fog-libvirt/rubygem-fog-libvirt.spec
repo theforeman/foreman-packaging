@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support libvirt
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-libvirt
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-2
+- Bump to release for EL8
+
 * Tue Oct 29 2019 Michael Moll <mmoll@mmoll.at> 0.7.0-1
 - Update to 0.7.0
 

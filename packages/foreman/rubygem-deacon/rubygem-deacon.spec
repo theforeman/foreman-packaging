@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Human readable random name generator
 Group: Development/Languages
 License: GPLv3 and Public domain
@@ -77,6 +77,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-4
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

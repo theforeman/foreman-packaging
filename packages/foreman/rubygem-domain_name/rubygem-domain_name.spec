@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.20160310
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Domain Name manipulation library for Ruby
 Group: Development/Languages
 License: BSD and (MPLv1.1 or GPLv2+ or LGPLv2+)
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/data/
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.20160310-4
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.5.20160310-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

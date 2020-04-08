@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.58.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -91,6 +91,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.58.0-5
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.58.0-4
 - Update spec to remove the ror scl
 
