@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A StatsD client for Ruby apps
 Group: Development/Languages
 License: MIT
@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.4-3
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.1.4-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

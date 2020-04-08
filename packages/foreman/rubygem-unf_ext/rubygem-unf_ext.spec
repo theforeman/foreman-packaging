@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.7.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.7.2-2
+- Bump to release for EL8
+
 * Fri Oct 18 2019 Aditi Puntambekar <apuntamb@redhat.com> 0.0.7.2-1
 - Update to 0.0.7.2
 

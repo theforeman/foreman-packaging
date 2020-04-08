@@ -7,7 +7,7 @@
 Summary:       Most awesome pagination solution for Rails
 Name:          %{?scl_prefix}rubygem-%{gem_name}
 Version:       3.1.7
-Release:       2%{?dist}
+Release:       3%{?dist}
 Group:         Development/Languages
 License:       MIT
 URL:           https://github.com/mislav/will_paginate
@@ -62,6 +62,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.7-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.7-2
 - Update spec to remove the ror scl
 

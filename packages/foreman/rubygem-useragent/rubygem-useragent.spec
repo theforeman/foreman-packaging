@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.16.8
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: HTTP User Agent parser
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.16.8-4
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.16.8-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

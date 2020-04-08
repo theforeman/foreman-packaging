@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.3
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Unicode normalization form support for Ruby/JRuby
 Group: Development/Languages
 License: MIT
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.3-8
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.3-7
 - Rebuild for Rails 5.2 and Ruby 2.5
 

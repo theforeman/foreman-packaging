@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.4.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Unicode normalization library
 Group: Development/Languages
 License: Ruby
@@ -92,6 +92,9 @@ cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}
 %{gem_instdir}/unicode.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.4.4-2
+- Bump to release for EL8
+
 * Tue Sep 24 2019 Eric D. Helms <ericdhelms@gmail.com> 0.4.4.4-1
 - Update to 0.4.4.4-1
 

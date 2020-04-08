@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Group: Development/Languages
 License: Apache-2.0
@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.0-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.0-2
 - Update spec to remove the ror scl
 

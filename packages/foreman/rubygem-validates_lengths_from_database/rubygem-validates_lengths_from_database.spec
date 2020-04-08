@@ -6,7 +6,7 @@
 Summary: Introspects your database string field maximum lengths and validates
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.0-7
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.0-6
 - Update spec to remove the ror scl
 
