@@ -1,181 +1,108 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global		gem_name	gettext
+%global gem_name gettext
 
-%global		locale_ver		2.0.5
-%global		repoid			67096
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 3.1.4
+Release: 9%{?dist}
+Summary: Gettext is a pure Ruby libary and tools to localize messages
+Group: Development/Languages
+License: Ruby or LGPLv3+
+URL: http://ruby-gettext.github.com/
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	3.1.4
-Release:	8%{?dist}
-Summary:	RubyGem of Localization Library and Tools for Ruby
-Group:		Development/Languages
-
-License:	Ruby
-URL:		http://www.yotabanana.com/hiki/ruby-gettext.html?ruby-gettext
-Source0:	http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-
-Requires:	%{?scl_prefix_ruby}ruby(release)
-BuildRequires:	%{?scl_prefix_ruby}ruby(release)
-BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
-# Disable tests
-## For %%check
-#BuildRequires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
-#BuildRequires:	%{?scl_prefix_ruby}rubygem(test-unit)
-#BuildRequires:	%{?scl_prefix}rubygem(test-unit-notify)
-#BuildRequires:	%{?scl_prefix}rubygem(test-unit-rr)
-#BuildRequires:	%{?scl_prefix}rubygem(text)
-# test/tools/test_task.rb -> lib/gettext/tools/task.rb
-#BuildRequires:	%{?scl_prefix_ruby}rubygem(rake)
-BuildRequires:	gettext
-
-Requires:	%{?scl_prefix_ruby}ruby(rubygems)
-Requires:	%{?scl_prefix}rubygem(locale) >= %{locale_ver}
-Requires:	%{?scl_prefix}rubygem(text)
-Requires:	%{?scl_prefix_ruby}irb
-Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-
-Obsoletes:	%{?scl_prefix}ruby-gettext-package <= %{version}-%{release}
-Provides:	%{?scl_prefix}ruby-gettext-package = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-BuildArch:	noarch
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby 
+Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix}rubygem(locale) >= 2.0.5
+Requires: %{?scl_prefix}rubygem(text) 
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby 
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Ruby-GetText-Package is a GNU GetText-like program for Ruby.
-The catalog file(po-file) is same format with GNU GetText.
-So you can use GNU GetText tools for maintaining.
+Gettext is a GNU gettext-like program for Ruby.
+The catalog file(po-file) is same format with GNU gettext.
+So you can use GNU gettext tools for maintaining.
 
-This package provides gem for Ruby-Gettext-Package.
 
-%package	doc
-Summary:	Documentation for %{pkg_name}
-Group:		Documentation
-Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
-%description	doc
-This package contains documentation for %{pkg_name}.
-
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-
-TOPDIR=$(pwd)
-mkdir tmpunpackdir
-pushd tmpunpackdir
-
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
-cd %{gem_name}-%{version}
+%{?scl:EOF}
 
-#Patches, etc
+%setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
-gem specification -l --ruby %{SOURCE0}
-%{?scl:"} > %{gem_name}.gemspec
-
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-%{?scl:"}
-mv %{gem_name}-%{version}.gem $TOPDIR
-
-popd
-rm -rf tmpunpackdir
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
-%{?scl:scl enable %{scl} - <<EOF}
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
-#%%{__rm} -f .%{gem_instdir}/Rakefile
-%{__rm} -f .%{gem_instdir}/%{gem_name}.gemspec
-%{__rm} -rf .%{gem_instdir}/po/
-%{__chmod} 0755 .%{gem_instdir}/bin/*
-%{__chmod} 0644 .%{gem_dir}/cache/*.gem
-find .%{gem_instdir}/ -name \*.po | xargs %{__chmod} 0644
-
-# Cleanups for rpmlint
-find .%{gem_instdir}/lib/ -name \*.rb | while read f
-do
-	%{__sed} -i -e '/^#!/d' $f
-done
-
 %install
-%{__mkdir_p} %{buildroot}{%{gem_dir},%{_bindir}}
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
-%{__cp} -a .%{_bindir}/* %{buildroot}/%{_bindir}/
-%{__cp} -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
-find %{buildroot}%{gem_dir} -name \*.rb.patch\* -delete
+mkdir -p %{buildroot}%{_bindir}
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
-
-# For --short-circult
-%{__rm} -f *.lang
-
-# modify find-lang.sh to deal with gettext .mo files under
-# %%{gem_instdir}/locale (required on EL6)
-sed -e 's|/share/locale/|/locale/|' \
-	/usr/lib/rpm/find-lang.sh \
-	> find-lang-modified.sh
-
-sh find-lang-modified.sh %{buildroot} gettext gettext-gem.lang
-#%find_lang gettext
-#mv gettext.lang gettext-gem.lang
-
-%{__cat} *-gem.lang >> %{pkg_name}-gem.lang
-
-# list directories under %%{gem_instdir}/locale/
-find %{buildroot}%{gem_instdir}/locale -type d | while read dir
-do
-	echo "%%dir ${dir#%{buildroot}}" >> %{pkg_name}-gem.lang
-done
-
-# replace shebangs to prevent SCL packages depending on non-SCL Ruby
-find %{buildroot}%{gem_instdir}/samples/ -name *.rb -exec \
-  sed -ri '1sX/usr/bin/rubyX/usr/bin/env rubyX' {} +
-
-# clean up
-rm -f %{buildroot}%{gem_instdir}/.yardopts
-
-# Disable tests as it adds test-unit requirement into builds, and currently
-# this isn't actively used.
-#%check
-#pushd .%{gem_instdir}
-#export LANG=ja_JP.UTF-8
-#%{?scl:scl enable %{scl} "}
-#ruby -Ilib:test test/run-test.rb
-#%{?scl:"}
-#popd
-
-
-%files	-f %{pkg_name}-gem.lang
-%defattr(-,root,root,-)
-%{_bindir}/rxgettext
-%{_bindir}/rmsginit
+%files
+%dir %{gem_instdir}
 %{_bindir}/rmsgcat
-%{_bindir}/rmsgfmt
 %{_bindir}/rmsgmerge
-
-%dir %{gem_instdir}/
-%doc %{gem_instdir}/[A-Z]*
-%doc %{gem_instdir}/doc/
-%exclude %{gem_instdir}/Rakefile
-%{gem_instdir}/bin/
-%{gem_instdir}/lib/
-
-%exclude	%{gem_cache}
+%{_bindir}/rxgettext
+%{_bindir}/rmsgfmt
+%{_bindir}/rmsginit
+%exclude %{gem_instdir}/.yardopts
+%{gem_instdir}/bin
+%{gem_libdir}
+%{gem_instdir}/locale
+%{gem_instdir}/po
+%{gem_instdir}/samples
+%{gem_instdir}/src
+%exclude %{gem_cache}
 %{gem_spec}
 
-%files		doc
-%defattr(-,root,root,-)
-%{gem_docdir}/
-%{gem_instdir}/samples/
-%exclude	%{gem_instdir}/test/
-%exclude	%{gem_instdir}/src/
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/doc
+%{gem_instdir}/gettext.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.4-9
+- Change the spec to be more inline with the gem2rpm template.
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.1.4-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
