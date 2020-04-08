@@ -1,68 +1,84 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name syntax
 
-Summary:        Ruby library for performing simple syntax highlighting
-Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        1.0.0
-Release:        13%{?dist}
-Group:          Development/Languages
-License:        Public Domain
-URL:            http://syntax.rubyforge.org/
-Source0:        http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-Source1:        %{gem_name}-LICENSE
-Patch0:         rubygem-syntax-fix-yaml-parse-for-ruby-1.9.patch
-BuildRoot:      %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:       %{?scl_prefix_ruby}ruby(release)
-Requires:       %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildRequires:  %{?scl_prefix_ruby}rubygem(test-unit)
-BuildArch:      noarch
-Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 1.0.0
+Release: 14%{?dist}
+Summary: Syntax is Ruby library for performing simple syntax highlighting
+Group: Development/Languages
+License: FIXME
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby 
+Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby 
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Syntax is a lexical analysis framework. It supports pluggable syntax
-modules, and comes with modules for Ruby, XML, and YAML.
+Syntax is Ruby library for performing simple syntax highlighting.
 
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-pushd .%{gem_instdir}
-%patch0
-popd
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
 
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
-cp %{SOURCE1} %{buildroot}%{gem_instdir}/LICENSE
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%check
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} "}
-ruby -Itest test/ALL-TESTS.rb
-%{?scl:"}
-popd
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%defattr(-,root,root,-)
-%{gem_instdir}/
-%doc %{gem_docdir}
-%{gem_cache}
+%dir %{gem_instdir}
+%{gem_instdir}/data
+%{gem_libdir}
+%exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
+
+%files doc
+%doc %{gem_docdir}
+%{gem_instdir}/test
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-14
+- Bump release to build for el8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-13
 - Rebuild for Rails 5.2 and Ruby 2.5
 
