@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Streaming Quantile Estimation
 Group: Development/Languages
 License: ASL 2.0
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.0-4
+- Bump to release for EL8
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 0.2.0-3
 - Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
 

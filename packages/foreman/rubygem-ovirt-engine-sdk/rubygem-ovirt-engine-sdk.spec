@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.2.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Ruby SDK for the oVirt Engine API.
 Group: Development/Languages
 License: ASL 2.0
@@ -86,6 +86,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %doc %{gem_instdir}/CHANGES.adoc
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.3-4
+- Bump to release for EL8
+
 * Wed Sep 12 2018 Bryan Kearney <bryan.kearney@gmail.com> - 4.2.3-3
 - Use ASL 2.0 instead of Apache 2.0 or Apache-2.0
 

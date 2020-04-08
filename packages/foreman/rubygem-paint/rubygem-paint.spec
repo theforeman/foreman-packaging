@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.7
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Terminal painter
 Group: Development/Languages
 License: MIT
@@ -64,6 +64,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.7-9
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.8.7-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
