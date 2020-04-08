@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A Ruby wrapper for Linux inotify, using FFI
 Group: Development/Languages
 License: MIT
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/rb-inotify.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.9.7-5
+- Bump to release for EL8
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.9.7-4
 - Update and rebuild into SCL
 

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A suite of instrumentation metric primitivesthat can be exposed through a web services interface
 Group: Development/Languages
 License: ASL 2.0
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
+- Bump to release for EL8
+
 * Wed Dec 04 2019 Lukas Zapletal <lzap@redhat.com> 1.0.0-1
 - Update to 1.0.0
 

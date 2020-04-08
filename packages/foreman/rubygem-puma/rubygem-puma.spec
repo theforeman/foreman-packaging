@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.3.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -104,6 +104,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/docs
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.3-3
+- Bump to release for EL8
+
 * Wed Apr 01 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.3.3-2
 - Build puma with SSL support
 
