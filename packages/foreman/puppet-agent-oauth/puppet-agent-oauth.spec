@@ -4,7 +4,7 @@
 Summary: OAuth Core Ruby implementation for Puppet Agent
 Name: puppet-agent-%{gem_name}
 Version: 0.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: MIT
 URL: http://rubydoc.info/gems/oauth
@@ -50,6 +50,9 @@ if ! /opt/puppetlabs/puppet/bin/gem list %{gem_name} | grep %{gem_name} | grep -
 fi
 
 %changelog
+* Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.5.1-4
+- Build for EL8
+
 * Mon Nov 14 2016 Dominic Cleal <dominic@cleal.org> 0.5.1-3
 - Fix release bump upgrade to keep gem installed (#17134,
   dominic@cleal.org)

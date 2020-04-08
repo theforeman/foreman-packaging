@@ -112,6 +112,10 @@
       <packagereq type="default">nodejs-warning</packagereq>
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
+      <packagereq type="default">puppet-agent-oauth</packagereq>
+      <packagereq type="default">puppet-agent-puppet-strings</packagereq>
+      <packagereq type="default">puppet-agent-rgen</packagereq>
+      <packagereq type="default">puppet-agent-yard</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
       <packagereq type="default">rubygem-actionmailer</packagereq>
       <packagereq type="default">rubygem-actionpack</packagereq>
