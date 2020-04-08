@@ -7,7 +7,7 @@ Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 4.1.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
@@ -110,6 +110,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.7-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.7-2
 - Update spec to remove the ror scl
 

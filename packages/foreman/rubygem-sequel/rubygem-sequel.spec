@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.7.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: The Database Toolkit for Ruby
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.7.1-3
+- Bump to release for EL8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 5.7.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

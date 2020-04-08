@@ -6,7 +6,7 @@
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: ActionView Record Tag Helpers
 Group:   Development/Languages
 License: MIT
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-3
+- Bump to release for EL8
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-2
 - Update spec to remove the ror scl
 

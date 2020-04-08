@@ -7,7 +7,7 @@
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Languages
 License: LGPLv2+
 URL: http://libvirt.org/ruby/
@@ -87,6 +87,9 @@ popd
 %{gem_instdir}/tests
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-4
+- Bump to release for EL8
+
 * Thu Sep 06 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

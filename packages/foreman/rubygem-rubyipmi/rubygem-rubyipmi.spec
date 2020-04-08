@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.10.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 Group: Development/Languages
 License: LGPLv2
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.10.0-6
+- Bump to release for EL8
+
 * Tue Oct 01 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.10.0-5
 - Update and rebuild into SCL
 
