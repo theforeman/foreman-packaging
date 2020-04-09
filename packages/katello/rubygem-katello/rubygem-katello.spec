@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 7
+%global release 8
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -57,6 +57,7 @@ Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.1
+Requires: %{?scl_prefix}rubygem(fx) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(rails)
@@ -234,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Apr 13 2020 ianballou <ianballou67@gmail.com> 3.16.0-0.8.pre.master
+- Add fx gem as a dependency
+
 * Tue Apr 07 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.7.pre.master
 - Update Gem and NPM dependencies
 
