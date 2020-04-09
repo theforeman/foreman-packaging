@@ -1,3 +1,9 @@
+ruby-foreman-omaha (4.0.1-1) stable; urgency=low
+
+  * 4.0.1 released
+
+ -- Timo Goebel <mail@timogoebel.name>  Thu, 09 Apr 2020 09:42:31 +0200
+
 ruby-foreman-omaha (3.0.0-1) stable; urgency=medium
 
   * Initial release.
