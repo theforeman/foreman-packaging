@@ -14,8 +14,8 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.2.1
-Release:        2%{?dist}
+Version:        0.2.2
+Release:        1%{?dist}
 Summary:        Apipie bindings for Python
 
 License:        MIT
@@ -34,24 +34,24 @@ BuildRequires:  python%{python3_pkgversion}-setuptools
 %endif
 
 %description
-Apipie bindings for Python
+Python bindings for the Apipie - Ruby on Rails API documentation tool.
 
 %if %{with python2}
 %package -n     python2-%{pypi_name}
-Summary:        Apipie bindings for Python
+Summary:        Apipie bindings for Python2
 Requires:       python-requests >= 2.4.2
 
 %description -n python2-%{pypi_name}
-Apipie bindings for Python2
+Python2 bindings for the Apipie - Ruby on Rails API documentation tool.
 %endif
 
 %if %{with python3}
 %package -n     python%{python3_pkgversion}-%{pypi_name}
-Summary:        Apipie bindings for Python
+Summary:        Apipie bindings for Python3
 Requires:       python%{python3_pkgversion}-requests >= 2.4.2
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
-Apipie bindings for Python3
+Python3 bindings for the Apipie - Ruby on Rails API documentation tool.
 %endif
 
 %prep
@@ -78,6 +78,7 @@ rm -rf %{pypi_name}.egg-info
 %if %{with python2}
 %files -n python2-%{pypi_name}
 %doc README.md
+%license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 %endif
@@ -85,11 +86,15 @@ rm -rf %{pypi_name}.egg-info
 %if %{with python3}
 %files -n python%{python3_pkgversion}-%{pypi_name}
 %doc README.md
+%license LICENSE
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 %endif
 
 %changelog
+* Thu Apr 09 2020 Evgeni Golov - 0.2.2-1
+- Release python-apypie 0.2.2
+
 * Wed Jan 08 2020 Evgeni Golov - 0.2.1-2
 - Rebuild for EL8 client repository
 
