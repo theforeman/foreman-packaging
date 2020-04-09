@@ -3,12 +3,13 @@
 
 Name:           python-%{pypi_name}
 Version:        3.6.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Async http client/server framework (asyncio)
 
 License:        Apache 2
 URL:            https://github.com/aio-libs/aiohttp
 Source0:        https://files.pythonhosted.org/packages/source/a/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Patch0:         allow-larger-headers.patch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
@@ -52,6 +53,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Apr 13 2020 Brian Bouterse <bmbouter@redhat.com> - 3.6.2-3
+- Raised incoming http header size limits that aiohttp Server accepts
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.6.2-2
 - Bump release to build for el8
 
