@@ -1,43 +1,59 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rubyforge
 
-# Depency loop here. Kill test when resolving dependency loop
-# is needed
-%global enable_test 0
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 2.0.4
+Release: 9%{?dist}
+Summary: A script which automates a limited set of rubyforge operations
+Group: Development/Languages
+License: MIT
+URL: http://codeforpeople.rubyforge.org/rubyforge/
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Summary:       A script which automates a limited set of rubyforge operations
-Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       2.0.4
-Release:       8%{?dist}
-Group:         Development/Languages
-License:       MIT
-URL:           http://rubyforge.org/projects/codeforpeople
-Source0:       http://gems.rubyforge.org/gems/%{gem_name}-%{version}.gem
-BuildRoot:     %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:      %{?scl_prefix_ruby}ruby(release)
-Requires:      %{?scl_prefix_ruby}rubygems
-Requires:      %{?scl_prefix_ruby}rubygem(json) >= 1.1.7
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if %{enable_test}
-BuildRequires(check): rubygem(rake)
-BuildRequires(check): rubygem(json)
-# The following line causes dependency loop
-BuildRequires(check): rubygem(hoe)
-%endif
-BuildArch:     noarch
-Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby 
+Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix}rubygem(json) >= 1.1.7
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby 
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 A script which automates a limited set of rubyforge operations.
+* Run 'rubyforge help' for complete usage.
+* Setup: For first time users AND upgrades to 0.4.0:
+* rubyforge setup (deletes your username and password, so run sparingly!)
+* edit ~/.rubyforge/user-config.yml
+* rubyforge config
+* For all rubyforge upgrades, run 'rubyforge config' to ensure you have
+latest.
 
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 # json_pure -> json
@@ -45,56 +61,47 @@ find . -name Rakefile -or -name \*.gemspec | \
 	xargs sed -i -e 's|json_pure|json|g'
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}/
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
-
-find %{buildroot}%{_bindir} -type f | xargs chmod a+x
-chmod 0755 %{buildroot}%{gem_instdir}/lib/rubyforge.rb
-chmod 0755 %{buildroot}%{_bindir}/rubyforge
-
-%clean
-rm -rf %{buildroot}
-
-%check
-%if ! %{enable_test}
-exit 0
-%endif
-
-pushd .%{gem_dir}
-# Hoe needs rubyforge, so make it sure that system-widely installed
-# Hoe looks for rubyforge just trying to install now first, not
-# system-widely installed rubyforge
-export GEM_PATH=$(pwd)
-popd
-
-pushd .%{gem_instdir}
-rake test
-popd
+cp -a .%{_bindir}/* \
+        %{buildroot}%{_bindir}/
+find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
-%{gem_instdir}/lib/
-%{gem_instdir}/bin/
-%{gem_dir}/cache/%{gem_name}-%{version}.gem
-%{gem_dir}/specifications/%{gem_name}-%{version}.gemspec
-%dir %{gem_instdir}/bin
-%{gem_instdir}/bin/rubyforge
 %{_bindir}/rubyforge
+%{gem_instdir}/Manifest.txt
+%{gem_instdir}/bin
+%{gem_libdir}
+%exclude %{gem_cache}
+%{gem_spec}
 
-%doc %{gem_dir}/doc/%{gem_name}-%{version}
+%files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/History.txt
-%doc %{gem_instdir}/Manifest.txt
 %doc %{gem_instdir}/README.txt
-%doc %{gem_instdir}/Rakefile
-%doc %{gem_instdir}/test/
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %changelog
+* Thu Apr 09 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.4-9
+- Bump release to build for el8
+
 * Wed Sep 05 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.0.4-8
 - Rebuild for Rails 5.2 and Ruby 2.5
 
