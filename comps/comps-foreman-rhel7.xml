@@ -204,6 +204,7 @@
       <packagereq type="default">tfm-rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">tfm-rubygem-formatador</packagereq>
       <packagereq type="default">tfm-rubygem-friendly_id</packagereq>
+      <packagereq type="default">tfm-rubygem-fx</packagereq>
       <packagereq type="default">tfm-rubygem-get_process_mem</packagereq>
       <packagereq type="default">tfm-rubygem-gettext</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails</packagereq>
@@ -461,6 +462,7 @@
       <packagereq type="default">tfm-rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-formatador-doc</packagereq>
       <packagereq type="default">tfm-rubygem-friendly_id-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fx-doc</packagereq>
       <packagereq type="default">tfm-rubygem-get_process_mem-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gettext_i18n_rails-doc</packagereq>
