@@ -21,8 +21,8 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.5
-Release: 5%{?foremandist}%{?dist}
+Version: 0.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -134,6 +134,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 09 2020 Timo Goebel <mail@timogoebel.name> - 0.1.0-1
+- Update smart_proxy_omaha to 0.1.0
+
 * Thu Apr 02 2020 Dirk Goetz <dirk.goetz@netways.de> - 0.0.5-5
 - Fix content_dir
 
