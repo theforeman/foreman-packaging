@@ -88,8 +88,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
-* Fri Apr 10 2020 Koen Torfs <koen@fwd.be> 3.3.0-1
+* Sat Apr 11 2020 Koen Torfs <koen@fwd.be> 3.3.0-1
 - Update to 3.3.0 for EL8
+
+* Fri Apr 10 2020 Koen Torfs <koen@fwd.be> 3.3.0-1
+- Update to 3.3.0
 
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.5-2
 - Bump to release for EL8
