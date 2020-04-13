@@ -257,6 +257,7 @@
       <packagereq type="default">tfm-rubygem-net-ping</packagereq>
       <packagereq type="default">tfm-rubygem-net-scp</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh</packagereq>
+      <packagereq type="default">tfm-rubygem-net_http_unix</packagereq>
       <packagereq type="default">tfm-rubygem-netrc</packagereq>
       <packagereq type="default">tfm-rubygem-nio4r</packagereq>
       <packagereq type="default">tfm-rubygem-nokogiri</packagereq>
@@ -513,6 +514,7 @@
       <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-net_http_unix-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ldap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ping-doc</packagereq>
       <packagereq type="default">tfm-rubygem-netrc-doc</packagereq>

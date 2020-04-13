@@ -236,6 +236,7 @@
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-multipart-post</packagereq>
       <packagereq type="default">rubygem-mustermann</packagereq>
+      <packagereq type="default">rubygem-net_http_unix</packagereq>
       <packagereq type="default">rubygem-net-ldap</packagereq>
       <packagereq type="default">rubygem-net-ping</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
@@ -447,6 +448,7 @@
       <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">rubygem-mustermann-doc</packagereq>
+      <packagereq type="default">rubygem-net_http_unix-doc</packagereq>
       <packagereq type="default">rubygem-net-ldap-doc</packagereq>
       <packagereq type="default">rubygem-net-ping-doc</packagereq>
       <packagereq type="default">rubygem-netrc-doc</packagereq>
