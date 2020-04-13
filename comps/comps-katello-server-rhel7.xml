@@ -47,6 +47,7 @@
       <packagereq type="default">tfm-rubygem-foreman_rh_cloud</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_scc_manager</packagereq>
       <packagereq type="default">tfm-rubygem-fssm</packagereq>
+      <packagereq type="default">tfm-rubygem-fx</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_csv</packagereq>
       <packagereq type="default">tfm-rubygem-hpricot</packagereq>
       <packagereq type="default">tfm-rubygem-i18n_data</packagereq>
@@ -81,6 +82,7 @@
       <packagereq type="optional">tfm-rubygem-foreman_rh_cloud-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-foreman_scc_manager-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-foreman_virt_who_configure-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-fx-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-hpricot-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulpcore_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_ansible_client-doc</packagereq>
