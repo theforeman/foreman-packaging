@@ -200,6 +200,7 @@ foreman_scl_packages:
     rubygem-os: {}
     rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
+    rubygem-parallel: {}
     rubygem-passenger:
       koji_tags:
         - name: foreman-nightly-rhel7

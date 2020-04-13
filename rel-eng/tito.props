@@ -267,6 +267,7 @@ whitelist = foreman
   rubygem-os
   rubygem-ovirt-engine-sdk
   rubygem-paint
+  rubygem-parallel
   rubygem-passenger
   rubygem-patternfly-sass
   rubygem-pg
@@ -591,6 +592,7 @@ whitelist = foreman
   rubygem-os
   rubygem-ovirt-engine-sdk
   rubygem-paint
+  rubygem-parallel
   rubygem-passenger
   rubygem-patternfly-sass
   rubygem-pg

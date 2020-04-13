@@ -265,6 +265,7 @@
       <packagereq type="default">tfm-rubygem-os</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
+      <packagereq type="default">tfm-rubygem-parallel</packagereq>
       <packagereq type="default">tfm-rubygem-passenger</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
@@ -524,6 +525,7 @@
       <packagereq type="default">tfm-rubygem-os-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-parallel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
