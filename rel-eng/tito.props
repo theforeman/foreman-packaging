@@ -255,6 +255,7 @@ whitelist = foreman
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
+  rubygem-net_http_unix
   rubygem-net-ldap
   rubygem-net-ping
   rubygem-netrc
@@ -580,6 +581,7 @@ whitelist = foreman
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
+  rubygem-net_http_unix
   rubygem-net-ldap
   rubygem-net-ping
   rubygem-netrc

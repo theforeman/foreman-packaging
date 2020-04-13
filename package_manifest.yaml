@@ -189,6 +189,7 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
+    rubygem-net_http_unix: {}
     rubygem-netrc:
       releasers:
         - koji-foreman
