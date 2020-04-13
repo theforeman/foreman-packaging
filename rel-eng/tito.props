@@ -357,7 +357,6 @@ whitelist = foreman
   foreman-installer
   foreman-proxy
   foreman-release
-  foreman-release-scl
   foreman-selinux
   gyp
   katello-certs-tools
