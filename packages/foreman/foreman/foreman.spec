@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -683,7 +683,10 @@ Meta Package to install dynflow sidekiq executor support
 %package service
 Summary: Foreman systemd service support
 Group:  Applications/System
+# start specfile service Requires
 Requires: %{?scl_prefix}rubygem(puma)
+Requires: %{?scl_prefix}rubygem(puma-status)
+# end specfile service Requires
 Requires: %{name} = %{version}-%{release}
 
 %description service
@@ -693,6 +696,7 @@ Meta Package to install requirements for Foreman service
 %{_unitdir}/%{name}.service
 %{_unitdir}/%{name}.socket
 %{_datadir}/%{name}/bundler.d/service.rb
+%{_sbindir}/%{name}-puma-status
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
@@ -713,7 +717,7 @@ plugins required for Foreman to work.
 #replace shebangs and binaries in scripts for SCL
 %if %{?scl:1}%{!?scl:0}
   # shebangs
-  for f in bin/* script/performance/profiler script/performance/benchmarker script/dynflowd ; do
+  for f in bin/* script/performance/profiler script/performance/benchmarker script/dynflowd; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   # script content
@@ -772,13 +776,17 @@ install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buil
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
+install -Dp -m0755 script/%{name}-puma-status %{buildroot}%{_sbindir}/%{name}-puma-status
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
 
+%if %{?scl:1}%{!?scl:0}
 sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
+sed -i '/^puma-status/ s|puma-status \(.\+\)$|/usr/bin/scl enable tfm "puma-status \1"|' %{buildroot}%{_sbindir}/%{name}-puma-status
+%endif
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
@@ -1015,6 +1023,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Apr 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.11.develop
+- Add puma-status to foreman-service
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.10.develop
 - Bump to release for EL8
 
