@@ -152,6 +152,7 @@
       <packagereq type="default">rubygem-coffee-rails</packagereq>
       <packagereq type="default">rubygem-coffee-script</packagereq>
       <packagereq type="default">rubygem-coffee-script-source</packagereq>
+      <packagereq type="default">rubygem-colorize</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge</packagereq>
       <packagereq type="default">rubygem-connection_pool</packagereq>
       <packagereq type="default">rubygem-crass</packagereq>
@@ -361,6 +362,7 @@
       <packagereq type="default">rubygem-coffee-rails-doc</packagereq>
       <packagereq type="default">rubygem-coffee-script-doc</packagereq>
       <packagereq type="default">rubygem-coffee-script-source-doc</packagereq>
+      <packagereq type="default">rubygem-colorize-doc</packagereq>
       <packagereq type="default">rubygem-concurrent-ruby-edge-doc</packagereq>
       <packagereq type="default">rubygem-connection_pool-doc</packagereq>
       <packagereq type="default">rubygem-crass-doc</packagereq>

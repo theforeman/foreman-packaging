@@ -171,6 +171,7 @@ whitelist = foreman
   rubygem-coffee-rails
   rubygem-coffee-script
   rubygem-coffee-script-source
+  rubygem-colorize
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-connection_pool
@@ -493,6 +494,7 @@ whitelist = foreman
   rubygem-coffee-rails
   rubygem-coffee-script
   rubygem-coffee-script-source
+  rubygem-colorize
   rubygem-concurrent-ruby
   rubygem-concurrent-ruby-edge
   rubygem-connection_pool
