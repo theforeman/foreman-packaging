@@ -8,8 +8,8 @@
 %global debug_package %{nil}
 
 Name:		%{?scl_prefix}postgresql-evr
-Version:	0.0.1
-Release:	2%{?dist}
+Version:	0.0.2
+Release:	1%{?dist}
 Summary:	RPM evr extension for PostgreSQL
 
 Group:    	Applications/System
@@ -33,7 +33,7 @@ Source0: https://codeload.github.com/Katello/postgresql-evr/tar.gz/%{version}#/p
 Installs files required to create evr extension in PostgreSQL.
 
 %prep
-%autosetup -p1 -n postgresql-evr-0.0.1
+%autosetup -p1 -n postgresql-evr-0.0.2
 
 %build
 
@@ -48,10 +48,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 
 %{_datadir}/pgsql/extension/evr.control
-%{_datadir}/pgsql/extension/evr--0.0.1.sql
+%{_datadir}/pgsql/extension/evr--0.0.2.sql
 
 
 %changelog
+* Mon Apr 13 2020 ianballou <ianballou67@gmail.com> 0.0.2-1
+- remove superuser requirement
+
 * Mon Mar 09 2020 Justin Sherrill <jsherril@redhat.com> 0.0.1-2
 - do not build a debug package on el8
 
