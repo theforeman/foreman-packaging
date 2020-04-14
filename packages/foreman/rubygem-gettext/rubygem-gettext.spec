@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.4
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Gettext is a pure Ruby libary and tools to localize messages
 Group: Development/Languages
 License: Ruby or LGPLv3+
@@ -85,9 +85,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/bin
 %{gem_libdir}
 %{gem_instdir}/locale
-%{gem_instdir}/po
-%{gem_instdir}/samples
 %{gem_instdir}/src
+%exclude %{gem_instdir}/po
+%exclude %{gem_instdir}/samples
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -100,6 +100,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 14 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.4-10
+- Remove the po and samples folder from the RPM.
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.4-9
 - Change the spec to be more inline with the gem2rpm template.
 
