@@ -2,12 +2,12 @@
 %global pypi_name inflection
 
 Name:           python-%{pypi_name}
-Version:        0.3.1
-Release:        2%{?dist}
+Version:        0.4.0
+Release:        1%{?dist}
 Summary:        A port of Ruby on Rails inflector to Python
 
 License:        MIT
-URL:            http://github.com/jpvanhal/inflection
+URL:            https://github.com/jpvanhal/inflection
 Source0:        https://files.pythonhosted.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
@@ -43,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 0.4.0-1
+- Update to 0.4.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.1-2
 - Bump release to build for el8
 
