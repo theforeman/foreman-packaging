@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.4
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: A script which automates a limited set of rubyforge operations
 Group: Development/Languages
 License: MIT
@@ -17,7 +17,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby 
 Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix}rubygem(json) >= 1.1.7
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.1.7
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby 
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
@@ -99,6 +99,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 14 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.4-10
+- Change the scl_prefix for json requirement
+
 * Thu Apr 09 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.4-9
 - Bump release to build for el8
 
