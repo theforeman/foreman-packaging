@@ -2,8 +2,8 @@
 %global pypi_name typing-extensions
 
 Name:           python-%{pypi_name}
-Version:        3.7.4.1
-Release:        2%{?dist}
+Version:        3.7.4.2
+Release:        1%{?dist}
 Summary:        Backported and Experimental Type Hints for Python 3
 
 License:        PSF
@@ -13,6 +13,7 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-typing >= 3.7.4
 
 %description
 %{summary}
@@ -20,6 +21,7 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
+Requires:       python3-typing >= 3.7.4
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -43,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/typing_extensions-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 3.7.4.2-1
+- Update to 3.7.4.2
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.4.1-2
 - Bump release to build for el8
 
