@@ -2,8 +2,8 @@
 %global pypi_name pygtrie
 
 Name:           python-%{pypi_name}
-Version:        2.3.2
-Release:        2%{?dist}
+Version:        2.3.3
+Release:        1%{?dist}
 Summary:        Trie data structure implementation
 
 License:        Apache-2.0
@@ -40,6 +40,9 @@ Summary:        %{summary}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 2.3.3-1
+- Update to 2.3.3
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.3.2-2
 - Bump release to build for el8
 
