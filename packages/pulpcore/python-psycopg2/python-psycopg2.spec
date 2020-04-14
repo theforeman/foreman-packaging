@@ -2,12 +2,12 @@
 %global pypi_name psycopg2
 
 Name:           python-%{pypi_name}
-Version:        2.8.4
-Release:        2%{?dist}
+Version:        2.8.5
+Release:        1%{?dist}
 Summary:        psycopg2 - Python-PostgreSQL Database Adapter
 
-License:        LGPL with exceptions or ZPL
-URL:            http://initd.org/psycopg/
+License:        LGPL with exceptions
+URL:            https://psycopg.org/
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildRequires:  python3-devel
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 2.8.5-1
+- Update to 2.8.5
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8.4-2
 - Bump release to build for el8
 
