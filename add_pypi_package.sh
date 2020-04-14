@@ -67,7 +67,7 @@ generate_pypi_package() {
   git add $PACKAGE_DIR/*.spec
   echo "FINISHED"
   echo -e "Annexing sources... - "
-  find "$PACKAGE_DIR" -name '*.tar.gz' -exec git annex add {} +
+  find "$PACKAGE_DIR" -name '*.tar.*' -exec git annex add {} +
   echo "FINISHED"
 }
 
