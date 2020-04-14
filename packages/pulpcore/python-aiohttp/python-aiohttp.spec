@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.6.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Async http client/server framework (asyncio)
 
 License:        Apache 2
@@ -36,9 +36,10 @@ Requires:       python3-yarl >= 1.0
 %{summary}
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%setup -n %{pypi_name}-%{version} -q 
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
+%patch0 -p1
 
 %build
 %py3_build
@@ -53,6 +54,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Justin Sherrill <jsherril@redhat.com> 3.6.2-4
+- fixing patch application
+
 * Mon Apr 13 2020 Brian Bouterse <bmbouter@redhat.com> - 3.6.2-3
 - Raised incoming http header size limits that aiohttp Server accepts
 
