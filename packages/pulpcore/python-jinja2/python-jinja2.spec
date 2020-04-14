@@ -3,8 +3,8 @@
 %global srcname jinja2
 
 Name:           python-%{srcname}
-Version:        2.11.1
-Release:        2%{?dist}
+Version:        2.11.2
+Release:        1%{?dist}
 Summary:        A very fast and expressive template engine
 
 License:        BSD-3-Clause
@@ -45,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 2.11.2-1
+- Update to 2.11.2
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.11.1-2
 - Bump release to build for el8
 
