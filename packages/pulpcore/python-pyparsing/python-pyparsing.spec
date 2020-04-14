@@ -2,8 +2,8 @@
 %global pypi_name pyparsing
 
 Name:           python-%{pypi_name}
-Version:        2.4.6
-Release:        2%{?dist}
+Version:        2.4.7
+Release:        1%{?dist}
 Summary:        Python parsing module
 
 License:        MIT License
@@ -37,12 +37,15 @@ rm -rf %{pypi_name}.egg-info
 
 %files -n python3-%{pypi_name}
 %license LICENSE
-%doc examples/0README.html README.rst
+%doc README.rst examples/0README.html
 %{python3_sitelib}/__pycache__/%{pypi_name}.*
 %{python3_sitelib}/%{pypi_name}.py
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 14 2020 Evgeni Golov 2.4.7-1
+- Update to 2.4.7
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.6-2
 - Bump release to build for el8
 
