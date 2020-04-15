@@ -765,12 +765,16 @@ katello_packages:
       - name: katello-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+      - name: katello-nightly-el8
+        dist: '.el8'
     releasers:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
     repoclosure_target_repos:
       rhel7:
         - el7-katello-nightly
+      el8:
+        - el8-katello-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -783,6 +787,16 @@ katello_packages:
         - el7-foreman-plugins-nightly
         - el7-katello-pulp-nightly
         - el7-katello-candlepin-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
+        - el8-foreman-nightly
+        - el8-foreman-plugins-nightly
+        - el8-katello-pulp-nightly
+        - el8-katello-candlepin-nightly
   hosts:
     katello: {}
     katello-client-bootstrap: {}
