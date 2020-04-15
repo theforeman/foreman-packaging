@@ -2,6 +2,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name journald-native
+%global gem_require_name journald/native
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.11
@@ -65,7 +66,9 @@ mkdir -p %{buildroot}%{gem_extdir_mri}
 %if 0%{?scl:1}
   cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
 %else
-  cp -a .%{gem_instdir}/ext/journald_native/journald_native.so %{buildroot}%{gem_extdir_mri}/
+  # for some reason, this file is not created by the build process on EL8
+  touch .%{gem_instdir}/ext/journald_native/gem.build_complete
+  cp -a .%{gem_instdir}/ext/journald_native/{gem.build_complete,journald_native.so} %{buildroot}%{gem_extdir_mri}/
 %endif
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
@@ -73,7 +76,15 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
 %{?scl:scl enable %{scl} - << \EOF}
-GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
 %{?scl:EOF}
 
 %files
