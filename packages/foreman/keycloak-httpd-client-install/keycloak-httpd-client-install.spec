@@ -2,18 +2,29 @@
 %global pypi_name keycloak-httpd-client-install
 %global summary Tools to configure Apache HTTPD as Keycloak client
 
+%if 0%{?rhel} == 7
+%global with_python2 1
+%else
+%global with_python3 1
+%endif
+
 Name:           %{pypi_name}
 Version:        1.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{summary}
 
 License:        GPLv3
 URL:            https://github.com/latchset/keycloak-httpd-client-install
 Source0:        https://files.pythonhosted.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
- 
+
+%if 0%{?rhel} == 7
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
+%else
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+%endif
 
 Requires:       %{_bindir}/keycloak-httpd-client-install
 
@@ -25,12 +36,13 @@ libraries and tools which can automate and simplify configuring an
 Apache HTTPD authentication module and registering as a client of a
 Keycloak IdP.
 
+%if 0%{?with_python2}
 %package -n     python2-%{pypi_name}
 Summary:        %{summary}
 
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
-Requires:       %{name} = %{version}-%{release} 
+Requires:       %{name} = %{version}-%{release}
 Requires:       python2-jinja2
 Requires:       python-lxml
 Requires:       python-requests
@@ -43,6 +55,28 @@ Requires:       %{_bindir}/keycloak-httpd-client-install
 Keycloak is an authentication server. This package contains libraries and
 programs which can invoke the Keycloak REST API and configure clients
 of a Keycloak server.
+%endif
+
+%if 0%{?with_python3}
+%package -n     python3-%{pypi_name}
+Summary:        %{summary}
+
+%{?python_provide:%python_provide python3-%{pypi_name}}
+
+Requires:       %{name} = %{version}-%{release}
+Requires:       python3-jinja2
+Requires:       python3-lxml
+Requires:       python3-requests
+Requires:       python3-requests-oauthlib
+Requires:       python3-setuptools
+Requires:       python3-six
+Requires:       %{_bindir}/keycloak-httpd-client-install
+
+%description -n python3-%{pypi_name}
+Keycloak is an authentication server. This package contains libraries and
+programs which can invoke the Keycloak REST API and configure clients
+of a Keycloak server.
+%endif
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
@@ -50,10 +84,23 @@ of a Keycloak server.
 rm -rf %{pypi_name}.egg-info
 
 %build
+%if 0%{?with_python2}
 %py2_build
+%endif
+
+%if 0%{?with_python3}
+%py3_build
+%endif
 
 %install
+%if 0%{?with_python2}
 %py2_install
+%endif
+
+%if 0%{?with_python3}
+%py3_install
+%endif
+
 install -d -m 755 %{buildroot}/%{_mandir}/man8
 install -c -m 644 doc/keycloak-httpd-client-install.8 %{buildroot}/%{_mandir}/man8
 
@@ -62,12 +109,25 @@ install -c -m 644 doc/keycloak-httpd-client-install.8 %{buildroot}/%{_mandir}/ma
 %doc README.md doc/ChangeLog
 %{_datadir}/%{pypi_name}/
 
+%if 0%{?with_python2}
 %files -n python2-%{pypi_name}
 %{python2_sitelib}/*
 %{_bindir}/keycloak-httpd-client-install
 %{_bindir}/keycloak-rest
 %{_mandir}/man8/*
+%endif
+
+%if 0%{?with_python3}
+%files -n python3-%{pypi_name}
+%{python3_sitelib}/*
+%{_bindir}/keycloak-httpd-client-install
+%{_bindir}/keycloak-rest
+%{_mandir}/man8/*
+%endif
 
 %changelog
+* Wed Apr 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.2.2-2
+- Build keycloak-httpd-client-install for Python 3 on EL8
+
 * Wed Nov 20 2019 Amit Upadhye <upadhyeammit@gmail.com> - 1.2.2-1
 - Initial package.
