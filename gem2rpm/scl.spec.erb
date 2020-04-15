@@ -4,6 +4,7 @@ require 'json'
 root = `git rev-parse --show-toplevel`.strip
 SCL_PREFIXES = JSON.load(File.read(File.join(root, 'scl_prefixes.json')))
 LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
+config.rules[:ignore] << 'Guardfile'
 -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
