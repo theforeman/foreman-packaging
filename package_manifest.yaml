@@ -845,11 +845,6 @@ katello_packages:
     rubygem-pulp_file_client: {}
     rubygem-pulp_2to3_migration_client: {}
     rubygem-pulp_rpm_client: {}
-    rubygem-qpid_messaging:
-      koji_tags:
-        - name: katello-nightly-rhel7
-          scl: 'tfm'
-          dist: '.el7'
     rubygem-redhat_access: {}
     rubygem-redhat_access_lib: {}
     rubygem-robotex: {}
