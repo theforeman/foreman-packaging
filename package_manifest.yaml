@@ -293,8 +293,6 @@ foreman_nodejs_packages:
     scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-nonscl-rhel7
-        dist: '.el7'
       - name: foreman-nightly-rhel7
         dist: '.el7'
         scl: 'tfm'
@@ -1253,6 +1251,8 @@ pulpcore_packages:
 foreman_release_packages:
   vars:
     koji_tags:
+      - name: foreman-nightly-el8
+        dist: '.el8'
       - name: foreman-nightly-nonscl-rhel7
         dist: '.el7'
       - name: foreman-client-nightly-el8
