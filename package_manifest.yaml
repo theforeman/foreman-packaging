@@ -199,7 +199,11 @@ foreman_scl_packages:
     rubygem-os: {}
     rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
-    rubygem-passenger: {}
+    rubygem-passenger:
+      koji_tags:
+        - name: foreman-nightly-rhel7
+          scl: 'tfm'
+          dist: '.el7'
     rubygem-patternfly-sass: {}
     rubygem-pg: {}
     rubygem-po_to_json: {}
@@ -274,7 +278,11 @@ foreman_scl_packages:
     rubygem-wirb: {}
     rubygem-x-editable-rails: {}
     rubygem-xmlrpc: {}
-    tfm: {}
+    tfm:
+      koji_tags:
+        - name: foreman-nightly-rhel7
+          scl: 'tfm'
+          dist: '.el7'
 
 foreman_nodejs_packages:
   vars:
@@ -544,6 +552,8 @@ foreman_proxy_packages:
       - name: foreman-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+      - name: foreman-nightly-el8
+        dist: '.el8'
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
