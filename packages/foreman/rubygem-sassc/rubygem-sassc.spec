@@ -65,6 +65,7 @@ sed -i "/s\.extensions/d" %{gem_name}.gemspec
 %build
 # use libsass.so.0 from host
 sed -i "s/libsass\.\#{dl_ext}/libsass\.\#{dl_ext}\.0/" lib/sassc/native.rb
+sed -i "/LoadError/,+1d" lib/sassc/native.rb
 sed -i "s!__dir__!\"%{_root_libdir}\"!" lib/sassc/native.rb
 
 # Create the gem as gem install only works on a gem file
