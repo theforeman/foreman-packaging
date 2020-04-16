@@ -26,6 +26,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(ffi) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(ffi) < 2
+BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
@@ -89,8 +90,6 @@ cp -a .%{gem_dir}/* \
 # But that fails to find native extensions on EL8, so we fake the structure that ruby expects
 mkdir gem_ext_test
 cp -a %{buildroot}%{gem_dir} gem_ext_test/
-mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
-cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
 %{?scl:EOF}
