@@ -5,6 +5,7 @@
 
 %global gem_name sassc
 %global gem_require_name %{gem_name}
+%define debug_package %{nil}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
@@ -26,7 +27,6 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygem(ffi) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(ffi) < 2
-BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
