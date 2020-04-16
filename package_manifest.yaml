@@ -872,12 +872,16 @@ plugin_scl_packages:
       - name: foreman-plugins-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+      - name: foreman-plugins-nightly-el8
+        dist: '.el8'
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_target_repos:
       rhel7:
         - el7-foreman-plugins-nightly
+      el8:
+        - el8-foreman-plugins-nightly
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -887,6 +891,12 @@ plugin_scl_packages:
         - el7-scl
         - el7-puppet-6
         - el7-foreman-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
   hosts:
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
