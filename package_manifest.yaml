@@ -599,6 +599,8 @@ foreman_proxy_plugin_packages:
       - name: foreman-plugins-nightly-rhel7
         dist: '.el7'
         scl: 'tfm'
+      - name: foreman-plugins-nightly-el8
+        dist: '.el8'
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -611,6 +613,13 @@ foreman_proxy_plugin_packages:
         - el7-extras
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-epel
+        - el8-extras
+        - el8-foreman-nightly
+        - el8-foreman-plugins-nightly
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
