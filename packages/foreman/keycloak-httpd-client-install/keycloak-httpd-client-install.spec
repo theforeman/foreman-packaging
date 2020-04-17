@@ -101,7 +101,7 @@ rm -rf %{pypi_name}.egg-info
 %py2_install
 %endif
 
-%if 0%{?with_python3}
+%if %{with python3}
 %py3_install
 %endif
 
