@@ -97,7 +97,7 @@ rm -rf %{pypi_name}.egg-info
 %endif
 
 %install
-%if 0%{?with_python2}
+%if %{with python2}
 %py2_install
 %endif
 
