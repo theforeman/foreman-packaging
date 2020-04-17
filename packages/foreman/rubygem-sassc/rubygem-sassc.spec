@@ -32,8 +32,6 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 BuildRequires: libsass
 Requires: libsass
-# We explicitly point it to libsass.so.0 in %build
-Requires: libsass.so.0()
 
 %description
 Use libsass with Ruby!
