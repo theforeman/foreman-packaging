@@ -18,10 +18,12 @@ URL:            https://github.com/latchset/keycloak-httpd-client-install
 Source0:        https://files.pythonhosted.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
-%if 0%{?rhel} == 7
+%if %{with python2}
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
-%else
+%endif
+
+%if %{with python3}
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 %endif
