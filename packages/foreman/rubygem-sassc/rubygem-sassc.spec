@@ -84,13 +84,7 @@ cp -a .%{gem_dir}/* \
 
 %check
 %{?scl:scl enable %{scl} - << \EOF}
-# Ideally, this would be something like this:
-# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
-# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
-mkdir gem_ext_test
-cp -a %{buildroot}%{gem_dir} gem_ext_test/
-GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
-rm -rf gem_ext_test
+ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{?scl:EOF}
 
 %files
