@@ -121,7 +121,7 @@ install -c -m 644 doc/keycloak-httpd-client-install.8 %{buildroot}/%{_mandir}/ma
 %{_mandir}/man8/*
 %endif
 
-%if 0%{?with_python3}
+%if %{with python3}
 %files -n python3-%{pypi_name}
 %{python3_sitelib}/*
 %{_bindir}/keycloak-httpd-client-install
