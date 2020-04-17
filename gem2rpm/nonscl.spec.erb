@@ -43,7 +43,7 @@ BuildArch: noarch
 <% else -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: rubygem(<%= d.name %>) <%= req  %>
+BuildRequires: rubygem(<%= d.name %>) <%= req  %>
 <% end -%>
 <% end -%>
 <% end -%>
