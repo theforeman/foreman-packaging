@@ -61,7 +61,7 @@ programs which can invoke the Keycloak REST API and configure clients
 of a Keycloak server.
 %endif
 
-%if 0%{?with_python3}
+%if %{with python3}
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 
