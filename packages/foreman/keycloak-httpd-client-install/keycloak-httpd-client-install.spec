@@ -40,7 +40,7 @@ libraries and tools which can automate and simplify configuring an
 Apache HTTPD authentication module and registering as a client of a
 Keycloak IdP.
 
-%if 0%{?with_python2}
+%if %{with python2}
 %package -n     python2-%{pypi_name}
 Summary:        %{summary}
 
