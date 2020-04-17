@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 11
+%global release 12
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -243,6 +243,7 @@ BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
+BuildRequires: %{?scl_prefix}rubygem-activerecord-nulldb-adapter
 # end specfile main BuildRequires
 
 # assets
@@ -542,13 +543,15 @@ Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 Requires: %{name}-build = %{version}-%{release}
 Requires: %{name}-sqlite = %{version}-%{release}
+Requires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
 
 %description plugin
 Meta package with support for plugins.
 
 %files plugin
 %{_sysconfdir}/rpm/macros.%{name}-plugin
-%{_datadir}/%{name}/schema_plugin.rb
+%{_datadir}/%{name}/schema.rb.nulldb
+%{_datadir}/%{name}/bundler.d/nulldb.rb
 
 %package build
 Summary: Foreman package RPM support
@@ -727,8 +730,7 @@ make -C locale all-mo
 
 #use Bundler_ext instead of Bundler
 mv Gemfile Gemfile.in
-cp config/database.yml.example config/database.yml
-cp config/settings.yaml.example config/settings.yaml
+cp db/schema.rb.nulldb db/schema.rb
 export BUNDLER_EXT_GROUPS="default assets"
 ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules
 # Calls webpack manually since webpack:compile uses the config which uses
@@ -737,10 +739,9 @@ export NODE_ENV=production
 %{?scl:scl enable %{scl} "}
 webpack --bail --config config/webpack.config.js
 %{?scl:"}
-%{scl_rake} assets:precompile RAILS_ENV=production --trace
-%{scl_rake} db:migrate db:schema:dump RAILS_ENV=production --trace
-%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources --trace
-rm config/database.yml config/settings.yaml
+%{scl_rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
+%{scl_rake} apipie:cache RAILS_ENV=production cache_part=resources DATABASE_URL=nulldb://nohost --trace
+rm db/schema.rb
 
 %install
 %if 0%{?fedora} || 0%{?rhel} >= 8
@@ -807,7 +808,7 @@ for i in orchestrator worker; do
 done
 
 # Put db in %{_localstatedir}/lib/%{name}/db
-cp -pr db/migrate db/seeds.rb db/seeds.d %{buildroot}%{_datadir}/%{name}
+cp -pr db/schema.rb.nulldb db/migrate db/seeds.rb db/seeds.d %{buildroot}%{_datadir}/%{name}
 mkdir %{buildroot}%{_localstatedir}/lib/%{name}/db
 
 ln -sv %{_localstatedir}/lib/%{name}/db %{buildroot}%{_datadir}/%{name}/db
@@ -842,9 +843,6 @@ cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name} << EOF
 # Common commands
 %%%{name}_rake         %{foreman_rake}
 EOF
-
-# Keep a copy of the schema for quick initialisation of plugin builds
-cp -pr db/schema.rb %{buildroot}%{_datadir}/%{name}/schema_plugin.rb
 
 cat > %{buildroot}%{_sysconfdir}/rpm/macros.%{name}-dist << EOF
 # Version to use like a dist tag
@@ -885,22 +883,23 @@ cp -r %%{%{name}_dir} ./%{_datadir} || echo 0 \\
 mkdir -p ./%{_localstatedir}/lib/%{name} \\
 cp -r %{_localstatedir}/lib/%{name}/db ./%{_localstatedir}/lib/%{name} || echo 0 \\
 unlink ./%{_datadir}/%{name}/db \\
-ln -sv \`pwd\`/%{_localstatedir}/lib/%{name}/db ./%{_datadir}/%{name}/db \\
 pushd ./%%{%{name}_dir} \\
+mkdir db/ \\
+cp -rf %{_datadir}/%{name}/db/* db/ \\
+mv db/schema.rb.nulldb db/schema.rb
 \\
 ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl} -- }ruby -e "print Gem.path.join(':')"\`} \\
 unlink tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
+rm \`pwd\`/config/database.yml \\
 /usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 export NODE_ENV=production \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:create RAILS_ENV=development --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake db:migrate RAILS_ENV=development --trace} \\
-%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} --trace} \\
+%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace} \\
+%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] RAILS_ENV=development cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} DATABASE_URL=nulldb://nohost --trace} \\
 \\
 popd \\
 rm -rf ./usr \\
@@ -1015,6 +1014,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.12.develop
+- Use nulldb for rake tasks
+
 * Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.11.develop
 - Only use scl for dynflow if available
 
