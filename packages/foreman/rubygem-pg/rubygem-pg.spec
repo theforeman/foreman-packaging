@@ -28,7 +28,9 @@ BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+Requires: %{?scl_prefix_ruby}rubygem(bigdecimal)
 BuildRequires: postgresql-devel
+BuildRequires: %{?scl_prefix_ruby}rubygem(bigdecimal)
 
 %description
 Pg is the Ruby interface to the PostgreSQL RDBMS.
