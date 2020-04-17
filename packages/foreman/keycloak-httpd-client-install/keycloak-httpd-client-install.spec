@@ -88,7 +88,7 @@ of a Keycloak server.
 rm -rf %{pypi_name}.egg-info
 
 %build
-%if 0%{?with_python2}
+%if %{with python2}
 %py2_build
 %endif
 
