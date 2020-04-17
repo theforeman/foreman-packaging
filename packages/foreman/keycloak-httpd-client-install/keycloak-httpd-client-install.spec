@@ -113,7 +113,7 @@ install -c -m 644 doc/keycloak-httpd-client-install.8 %{buildroot}/%{_mandir}/ma
 %doc README.md doc/ChangeLog
 %{_datadir}/%{pypi_name}/
 
-%if 0%{?with_python2}
+%if %{with python2}
 %files -n python2-%{pypi_name}
 %{python2_sitelib}/*
 %{_bindir}/keycloak-httpd-client-install
