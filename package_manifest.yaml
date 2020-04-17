@@ -1020,6 +1020,8 @@ plugin_nonscl_packages:
     koji_tags:
       - name: foreman-plugins-nightly-nonscl-rhel7
         dist: '.el7'
+      - name: foreman-plugins-nightly-el8
+        dist: '.el8'
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -1032,6 +1034,12 @@ plugin_nonscl_packages:
         - el7-puppet-6
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-extras
+        - el8-puppet-6
+        - el8-devel
   hosts:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}

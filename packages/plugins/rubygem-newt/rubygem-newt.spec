@@ -3,6 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name newt
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.7
@@ -67,20 +68,34 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
-cp -a .%{gem_instdir}/ext/ruby_newt/gem.build_complete %{buildroot}%{gem_extdir_mri}/
-cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri_lib}/%{gem_name}/
+%if 0%{?rhel} == 7
+mkdir -p %{buildroot}%{gem_extdir_mri}/lib/ruby_newt
+cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri}/lib/ruby_newt/
+%else
+mkdir -p %{buildroot}%{gem_extdir_mri}/ruby_newt
+cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri}/ruby_newt/
+%endif
+touch %{buildroot}%{gem_extdir_mri}/gem.build_complete
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/{ext,tmp,.require_paths}
 
 %check
 %{?scl:scl enable %{scl} - << \EOF}
-GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
 %{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_libdir}/ruby_newt
 %{gem_libdir}
 %{gem_extdir_mri}
 %exclude %{gem_cache}

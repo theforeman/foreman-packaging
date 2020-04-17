@@ -778,6 +778,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
+  rubygem-newt
   rubygem-openscap
   rubygem-openscap_parser
   rubygem-ovirt_provision_plugin
