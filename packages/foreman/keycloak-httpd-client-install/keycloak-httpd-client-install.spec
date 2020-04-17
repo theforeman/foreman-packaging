@@ -3,9 +3,11 @@
 %global summary Tools to configure Apache HTTPD as Keycloak client
 
 %if 0%{?rhel} == 7
-%global with_python2 1
+%bcond_without python2
+%bcond_with python3
 %else
-%global with_python3 1
+%bcond_with python2
+%bcond_without python3
 %endif
 
 Name:           %{pypi_name}
