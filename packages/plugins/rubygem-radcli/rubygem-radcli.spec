@@ -71,14 +71,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%if 0%{?scl:1}
 mkdir -p %{buildroot}%{gem_extdir_mri}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
 cp -a .%{gem_instdir}/ext/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/
-%else
-mkdir -p %{buildroot}%{gem_extdir_mri}/lib
-cp -a %{buildroot}%{gem_instdir}/lib/radcli.so %{buildroot}%{gem_extdir_mri}/lib/
-%endif
 
 # rake-compiler isn't needed on the system itself
 sed -i '/rake-compiler/ s/runtime/development/' %{buildroot}/%{gem_spec}
@@ -109,9 +104,6 @@ rm -rf gem_ext_test
 %{gem_spec}
 %exclude %{gem_instdir}/radcli.gemspec
 %{gem_extdir_mri}
-%if 0%{!?scl:1}
-%{gem_libdir}
-%endif
 
 %files doc
 %doc %{gem_docdir}
