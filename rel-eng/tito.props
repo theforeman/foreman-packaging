@@ -154,6 +154,7 @@ whitelist = foreman
   nodejs-warning
   nodejs-webpack
   nodejs-webpack-stats-plugin
+  rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
   rubygem-addressable
   rubygem-algebrick

@@ -41,6 +41,7 @@
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
       <packagereq type="default">tfm-mod_passenger</packagereq>
+      <packagereq type="default">tfm-rubygem-activerecord-nulldb-adapter</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick</packagereq>
@@ -353,6 +354,7 @@
       <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
       <packagereq type="default">rubygem-rsec-doc</packagereq>
       <packagereq type="default">rubygem-rubyipmi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-activerecord-nulldb-adapter-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>

@@ -39,6 +39,7 @@ foreman_scl_packages:
         - el7-foreman-rails-1.24
   hosts:
     foreman: {}
+    rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
