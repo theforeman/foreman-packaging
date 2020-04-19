@@ -147,6 +147,7 @@
       <packagereq type="default">tfm-rubygem-activejob</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord</packagereq>
+      <packagereq type="default">tfm-rubygem-activerecord-nulldb-adapter</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage</packagereq>
       <packagereq type="default">tfm-rubygem-activesupport</packagereq>
@@ -391,6 +392,7 @@
       <packagereq type="default">tfm-rubygem-activejob-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activemodel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-activerecord-nulldb-adapter-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activestorage-doc</packagereq>
       <packagereq type="default">tfm-rubygem-activesupport-doc</packagereq>
