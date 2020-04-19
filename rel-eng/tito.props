@@ -149,6 +149,7 @@ whitelist = foreman
   rubygem-activejob
   rubygem-activemodel
   rubygem-activerecord
+  rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
   rubygem-activestorage
   rubygem-activesupport
@@ -473,6 +474,7 @@ whitelist = foreman
   rubygem-activemodel
   rubygem-activepack
   rubygem-activerecord
+  rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
   rubygem-activestorage
   rubygem-activesupport

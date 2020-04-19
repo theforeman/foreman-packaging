@@ -153,6 +153,7 @@
       <packagereq type="default">rubygem-activemodel</packagereq>
       <packagereq type="default">rubygem-activepack</packagereq>
       <packagereq type="default">rubygem-activerecord</packagereq>
+      <packagereq type="default">rubygem-activerecord-nulldb-adapter</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-activestorage</packagereq>
       <packagereq type="default">rubygem-activesupport</packagereq>

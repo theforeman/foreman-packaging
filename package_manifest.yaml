@@ -65,6 +65,7 @@ foreman_scl_packages:
     rubygem-activejob: {}
     rubygem-activemodel: {}
     rubygem-activerecord: {}
+    rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-activestorage: {}
     rubygem-actionpack: {}
