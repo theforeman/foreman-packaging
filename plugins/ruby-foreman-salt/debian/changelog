@@ -1,3 +1,9 @@
+ruby-foreman-salt (13.2.3-1) stable; urgency=low
+
+  * 13.2.3 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Sun, 19 Apr 2020 16:43:45 +0200
+
 ruby-foreman-salt (11.0.1-1) stable; urgency=low
 
   * highstate uploader fails if pchanges doesn't have a diff (#105)
