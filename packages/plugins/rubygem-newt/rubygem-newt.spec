@@ -2,6 +2,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%if 0%{?rhel} == 7
+%global gem_extdir_mri_lib %{gem_extdir_mri}/lib
+%else
+%global gem_extdir_mri_lib %{gem_extdir_mri}
+%endif
+
 %global gem_name newt
 %global gem_require_name %{gem_name}
 
@@ -68,13 +74,8 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%if 0%{?rhel} == 7
-mkdir -p %{buildroot}%{gem_extdir_mri}/lib/ruby_newt
-cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri}/lib/ruby_newt/
-%else
-mkdir -p %{buildroot}%{gem_extdir_mri}/ruby_newt
-cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri}/ruby_newt/
-%endif
+mkdir -p %{buildroot}%{gem_extdir_mri_lib}/ruby_newt
+cp -a .%{gem_instdir}/ext/ruby_newt/*.so %{buildroot}%{gem_extdir_mri_lib}/ruby_newt/
 touch %{buildroot}%{gem_extdir_mri}/gem.build_complete
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
