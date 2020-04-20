@@ -81,9 +81,9 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGES.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/CHANGES.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/activerecord-nulldb-adapter.gemspec
 %{gem_instdir}/spec
