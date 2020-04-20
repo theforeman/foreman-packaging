@@ -20,6 +20,7 @@
       <packagereq type="default">foreman-ec2</packagereq>
       <packagereq type="default">foreman-gce</packagereq>
       <packagereq type="default">foreman-installer</packagereq>
+      <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">foreman-journald</packagereq>
       <packagereq type="default">foreman-libvirt</packagereq>
       <packagereq type="default">foreman-openstack</packagereq>

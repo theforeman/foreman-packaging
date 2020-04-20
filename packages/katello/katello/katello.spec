@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.16.0
@@ -39,6 +39,7 @@ Requires: %{?scl_prefix}rubygem-hammer_cli_foreman
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 
 #Pulp Requirements
+%if 0%{?rhel} == 7
 Requires: pulp-katello
 Requires: pulp-docker-plugins
 Requires: pulp-puppet-plugins
@@ -56,6 +57,7 @@ Requires: qpid-dispatch-router
 Requires: createrepo >= 0.9.9-18%{?dist}
 Requires: squid
 Requires: mod_xsendfile
+%endif
 
 Requires: candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
@@ -124,7 +126,11 @@ Common runtime components of %{name}
 %files common
 %{_sbindir}/katello-backup
 %{_sbindir}/katello-restore
+%if 0%{?rhel} == 7
 %{_sbindir}/qpid-core-dump
+%else
+%exclude %{_sbindir}/qpid-core-dump
+%endif
 %{_sbindir}/katello-change-hostname
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
@@ -139,9 +145,11 @@ Requires: mktemp
 Requires: foreman-debug
 Requires: findutils
 Requires: coreutils
-Requires: qpid-tools
 Requires: /bin/ps
+%if 0%{?rhel} == 7
+Requires: qpid-tools
 Requires: rh-mongodb34
+%endif
 
 %description debug
 Useful utilities for debug info collecting
@@ -153,7 +161,9 @@ Useful utilities for debug info collecting
 Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
+%if 0%{?rhel} == 7
 Requires: rh-mongodb34
+%endif
 Requires: foreman-installer-%{name}
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: %{name}-common = %{version}-%{release}
@@ -166,6 +176,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Apr 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.3.master
+- Only require mongo and pulp on EL7
+
 * Tue Mar 10 2020 Jonathon Turel <jturel@gmail.com> 3.16.0-0.2.master
 - Bump release for satellite-change-hostname supporting DNS updates
 
