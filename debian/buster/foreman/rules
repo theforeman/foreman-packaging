@@ -14,11 +14,10 @@ build:
 	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
 	/usr/bin/bundle exec rake locale:pack RAILS_ENV=production
-	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production
-	/usr/bin/bundle exec rake webpack:compile
-	/usr/bin/bundle exec rake db:migrate --trace RAILS_ENV=production
-	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production
-	/bin/rm db/production.sqlite3
+	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
+	/usr/bin/bundle exec rake webpack:compile DATABASE_URL=nulldb://nohost
+	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace RAILS_ENV=production DATABASE_URL=nulldb://nohost
+	/bin/rm -f bundler.d/nulldb.rb
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
 	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
 	/bin/sed -ri '/^ExecStart/ s#=#=/usr/bin/bundle exec --keep-file-descriptors #' extras/systemd/foreman.service
