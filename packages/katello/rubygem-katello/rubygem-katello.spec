@@ -8,7 +8,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 9
+%global release 10
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -35,7 +35,7 @@ Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(activerecord-import)
-Requires: %{?scl_prefix}rubygem(qpid_messaging)
+Requires: %{?scl_prefix}rubygem(stomp)
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
@@ -56,7 +56,7 @@ Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
-Requires: %{?scl_prefix}rubygem(fx) < 1.0
+Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(rails)
@@ -67,7 +67,7 @@ BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
-BuildRequires: %{?scl_prefix}rubygem(qpid_messaging)
+BuildRequires: %{?scl_prefix}rubygem(stomp)
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
@@ -88,6 +88,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
+BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
@@ -233,6 +234,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Apr 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.10.pre.master
+- Update Gem and NPM dependencies
+
 * Thu Apr 16 2020 Jonathon Turel <jturel@gmail.com> 3.16.0-0.9.pre.master
 - Adjust angular-rails-templates version
 
