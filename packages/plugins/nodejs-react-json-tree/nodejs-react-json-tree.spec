@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-json-tree
 Version: 0.11.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: React JSON Viewer Component, Extracted from redux-devtools
 License: MIT
 Group: Development/Libraries
@@ -29,6 +29,7 @@ Source14: nodejs-react-json-tree-%{version}-registry.npmjs.org.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -92,6 +93,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Mon Apr 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.0-4
+- Add npm to buildrequires for el8
+
 * Tue Oct 22 2019 Eric D. Helms <ericdhelms@gmail.com> - 0.11.0-3
 - Build for SCL
 
