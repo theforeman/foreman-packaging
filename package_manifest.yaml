@@ -696,12 +696,7 @@ foreman_scl_and_nonscl_packages:
         - el8-puppet-6
   hosts:
     rubygem-clamp: {}
-    rubygem-hashie: {}
     rubygem-highline: {}
-    rubygem-little-plugger: {}
-    rubygem-logging: {}
-    rubygem-multi_json: {}
-    rubygem-powerbar: {}
 
 foreman_client_packages:
   vars:

@@ -364,7 +364,6 @@
       <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
-      <packagereq type="default">nodejs-node-gyp</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
@@ -373,34 +372,18 @@
       <packagereq type="default">python2-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
-      <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
-      <packagereq type="default">rubygem-kafo</packagereq>
-      <packagereq type="default">rubygem-kafo_parsers</packagereq>
-      <packagereq type="default">rubygem-kafo_wizards</packagereq>
-      <packagereq type="default">rubygem-little-plugger</packagereq>
-      <packagereq type="default">rubygem-logging</packagereq>
-      <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-passenger-native</packagereq>
       <packagereq type="default">rubygem-passenger-native-libs</packagereq>
-      <packagereq type="default">rubygem-powerbar</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
-      <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
-      <packagereq type="default">rubygem-kafo-doc</packagereq>
-      <packagereq type="default">rubygem-kafo_parsers-doc</packagereq>
-      <packagereq type="default">rubygem-kafo_wizards-doc</packagereq>
-      <packagereq type="default">rubygem-little-plugger-doc</packagereq>
-      <packagereq type="default">rubygem-logging-doc</packagereq>
-      <packagereq type="default">rubygem-multi_json-doc</packagereq>
       <packagereq type="default">rubygem-passenger-doc</packagereq>
-      <packagereq type="default">rubygem-powerbar-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionpack-doc</packagereq>
