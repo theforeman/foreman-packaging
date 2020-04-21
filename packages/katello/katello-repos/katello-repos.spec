@@ -5,12 +5,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 1
 
 Name:           katello-repos
-Version:        3.15.0
+Version:        3.15.0.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -80,6 +78,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Apr 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.15.0.1-1
+- Release katello-repos 3.15.0.1
+
 * Mon Mar 30 2020 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.3.rc2
 - Release katello-repos 3.15.0
 
