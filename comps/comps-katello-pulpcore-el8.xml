@@ -10,6 +10,8 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">postgresql-debversion</packagereq>
+      <packagereq type="default">postgresql-evr</packagereq>
       <packagereq type="default">pulpcore-selinux</packagereq>
       <packagereq type="default">python3-aiodns</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
