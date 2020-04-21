@@ -8,7 +8,7 @@
 %global foreman_min_version 1.25.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.5
+Version: 0.0.6
 Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
@@ -23,10 +23,14 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 4
+Requires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
+Requires: %{?scl_prefix}rubygem(foreman_ansible) < 6
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.1
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 4
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -117,6 +121,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 21 2020 Leos Stejskal <lstejska@redhat.com> 0.0.6-1
+- Update to 0.0.6
+
 * Thu Apr 16 2020 Leos Stejskal <lstejska@redhat.com> 0.0.5-1
 - Update to 0.0.5
 
