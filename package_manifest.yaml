@@ -50,6 +50,7 @@ foreman_scl_packages:
         - el8-devel
         - el8-epel
         - el8-extras
+        - el8-powertools
         - el8-puppet-6
   hosts:
     foreman:
@@ -1081,6 +1082,7 @@ repoclosures:
           - el8-devel
           - el8-epel
           - el8-extras
+          - el8-powertools
           - el8-puppet-6
     plugins-repoclosure-el7:
       repoclosure_target_repos:
