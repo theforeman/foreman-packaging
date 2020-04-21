@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-performance-now
 Version: 2.1.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Implements performance
 License: MIT
 Group: Development/Libraries
@@ -32,7 +32,6 @@ mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
 
@@ -45,6 +44,9 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Apr 21 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-5
+- Drop including tests to prevent requires on coffee script
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-4
 - Bump packages to build for el8
 
