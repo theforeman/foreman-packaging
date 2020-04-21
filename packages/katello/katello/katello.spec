@@ -3,12 +3,10 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 1
 
 Name:       katello
-Version:    3.15.0
+Version:    3.15.0.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -166,6 +164,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Apr 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.15.0.1-1
+- Release katello 3.15.0.1
+
 * Mon Mar 30 2020 Patrick Creech <pcreech@redhat.com> - 3.15.0-0.5.rc2
 - Release katello 3.15.0
 
