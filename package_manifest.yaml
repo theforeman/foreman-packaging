@@ -902,11 +902,14 @@ plugin_scl_packages:
         - el7-puppet-6
         - el7-foreman-nightly
       el8:
-        - el8-baseos
         - el8-appstream
+        - el8-baseos
+        - el8-devel
         - el8-epel
         - el8-extras
+        - el8-powertools
         - el8-puppet-6
+        - el8-foreman-nightly
   hosts:
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
