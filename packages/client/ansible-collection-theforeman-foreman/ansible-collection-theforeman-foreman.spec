@@ -15,7 +15,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    0.7.0
+Version:    0.8.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -54,6 +54,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Tue Apr 21 2020 Evgeni Golov - 0.8.0-1
+- Release ansible-collection-theforeman-foreman 0.8.0
+
 * Wed Mar 18 2020 Evgeni Golov - 0.7.0-1
 - Release ansible-collection-theforeman-foreman 0.7.0
 
