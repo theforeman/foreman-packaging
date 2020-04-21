@@ -1,5 +1,7 @@
 ---
 packages:
+  vars:
+    foremandist: .fm2_1
   children:
     foreman_packages: {}
     plugins_packages: {}
@@ -870,8 +872,12 @@ plugin_scl_packages:
       - name: foreman-plugins-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+        macros:
+          foremandist: "{{ foremandist }}"
       - name: foreman-plugins-nightly-el8
         dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
