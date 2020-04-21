@@ -1,6 +1,8 @@
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?_root_sbindir:%global _root_sbindir %{_sbindir}}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
@@ -9,7 +11,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    3.1.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -158,6 +160,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Mon Apr 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.0-2
+- Exclude the debug folder for remote execution
+
 * Thu Apr 09 2020 Adam Ruzicka <aruzicka@redhat.com> 3.1.0-1
 - Update to 3.1.0
 
