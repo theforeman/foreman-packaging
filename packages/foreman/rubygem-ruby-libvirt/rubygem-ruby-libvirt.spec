@@ -3,6 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name ruby-libvirt
+%global gem_require_name libvirt
 
 Summary: Ruby bindings for LIBVIRT
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -79,12 +80,15 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
 %{?scl:scl enable %{scl} - << \EOF}
-GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
-# I disabled the tests because they modify system in possibly
-# dangerous way and need to be run with root privileges
-#pushd .%{gem_instdir}
-#testrb tests
-#popd
+# Ideally, this would be something like this:
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+# But that fails to find native extensions on EL8, so we fake the structure that ruby expects
+mkdir gem_ext_test
+cp -a %{buildroot}%{gem_dir} gem_ext_test/
+mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
+GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
+rm -rf gem_ext_test
 %{?scl:EOF}
 
 %files
