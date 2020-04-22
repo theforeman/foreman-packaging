@@ -19,7 +19,6 @@ fetch_strategy = custom.ForemanSourceStrategy
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-release
-  foreman-release-scl
   foreman-selinux
   katello-certs-tools
   katello-selinux

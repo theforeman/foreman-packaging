@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -119,6 +119,7 @@ Obsoletes: %{scl_prefix}rubygem-extlib < 0.9.16-7
 Obsoletes: %{scl_prefix}rubygem-docker-api < 1.28.0-5
 Obsoletes: %{scl_prefix}rubygem-gridster-rails < 0.5.6.1-6
 Obsoletes: %{scl_prefix}rubygem-fog-rackspace < 0.1.4-5
+Obsoletes: foreman-release-scl < 7-3
 
 # turbolinks isn't there to obsolete the tfm-ror52 package so this is explicit
 Obsoletes: tfm-ror52-rubygem-turbolinks < 2.5.4-3
@@ -312,6 +313,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu May 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.1-2
+- Obsolete foreman-release-scl
+
 * Tue May 19 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.1-1
 - Obsolete tfm-ror52-runtime
 
