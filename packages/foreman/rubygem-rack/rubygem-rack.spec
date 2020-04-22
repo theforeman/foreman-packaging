@@ -5,8 +5,8 @@
 %global gem_name rack
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.6
-Release: 4%{?dist}
+Version: 2.1.1
+Release: 1%{?dist}
 Summary: a modular Ruby webserver interface
 Group: Development/Languages
 License: MIT
@@ -81,7 +81,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files
 %dir %{gem_instdir}
 %{_bindir}/rackup
-%license %{gem_instdir}/COPYING
+%license %{gem_instdir}/MIT-LICENSE
 %{gem_instdir}/SPEC
 %{gem_instdir}/bin
 %{gem_instdir}/contrib
@@ -92,12 +92,15 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/HISTORY.md
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.1-1
+- Release rubygem-rack 2.1.1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.6-4
 - Update all rails packages for el8
 
