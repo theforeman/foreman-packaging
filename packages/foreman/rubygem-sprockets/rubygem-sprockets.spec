@@ -5,8 +5,8 @@
 %global gem_name sprockets
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.7.2
-Release: 6%{?dist}
+Version: 4.0.0
+Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
 License: MIT
@@ -80,7 +80,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files
 %dir %{gem_instdir}
 %{_bindir}/sprockets
-%license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -92,6 +91,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-1
+- Release rubygem-sprockets 4.0.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.7.2-6
 - Bump packages to build for el8
 
