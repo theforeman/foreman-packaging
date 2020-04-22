@@ -319,6 +319,7 @@ foreman_nodejs_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
+        - el8-foreman-nightly
   hosts:
     nodejs-argv-parse: {}
     nodejs-babel-cli:
