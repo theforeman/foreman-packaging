@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 10
+%global release 11
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -711,13 +711,15 @@ plugins required for Foreman to work.
   --trace
 
 #replace shebangs and binaries in scripts for SCL
-%if %{?scl:1}%{!?scl:0}
+%if 0%{?scl:1}
   # shebangs
   for f in bin/* script/performance/profiler script/performance/benchmarker script/dynflowd ; do
     sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
   done
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
+
+  sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 %endif
 
 #build locale files
@@ -777,8 +779,6 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
-
-sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
@@ -1015,6 +1015,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.11.develop
+- Only use scl for dynflow if available
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.10.develop
 - Bump to release for EL8
 
