@@ -5,8 +5,8 @@
 %global gem_name marcel
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.2
-Release: 4%{?dist}
+Version: 0.3.3
+Release: 1%{?dist}
 Summary: Simple mime type detection using magic numbers, filenames, and extensions
 Group: Development/Languages
 License: MIT
@@ -71,23 +71,19 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
-%exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/marcel.gemspec
-%{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.3-1
+- Release rubygem-marcel 0.3.3
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.2-4
 - Update all rails packages for el8
 
