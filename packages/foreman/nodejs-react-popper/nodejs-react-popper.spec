@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}nodejs-react-popper
 Version: 1.0.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: React wrapper around Popper
 License: MIT
 Group: Development/Libraries
@@ -40,6 +40,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %setup -q -n package
 # https://github.com/FezVrasta/react-popper/issues/226
 %nodejs_fixdep warning '^4.0.0'
+%nodejs_fixdep typed-styles '>= 0.0.5 <1.0.0'
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -60,6 +61,9 @@ cp -pfr typings %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Wed Apr 22 2020 Evgeni Golov - 1.0.2-5
+- Fix react-popper dependency on typed-styles
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.2-4
 - Bump packages to build for el8
 
