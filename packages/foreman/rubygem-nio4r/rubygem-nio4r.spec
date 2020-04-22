@@ -6,8 +6,8 @@
 %global gem_require_name nio
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.1
-Release: 5%{?dist}
+Version: 2.5.2
+Release: 1%{?dist}
 Summary: New IO for Ruby
 Group: Development/Languages
 License: MIT
@@ -89,18 +89,16 @@ rm -rf gem_ext_test
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/rakelib
 %{gem_instdir}/CHANGES.md
 %{gem_instdir}/Guardfile
-%license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/appveyor.yml
 %{gem_libdir}
 %{gem_instdir}/logo.png
-%{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -115,6 +113,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.2-1
+- Release rubygem-nio4r 2.5.2
+
 * Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.1-5
 - Add check section to test native library
 
