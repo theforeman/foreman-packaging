@@ -7,7 +7,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        3.15.0
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.15.0-0.4.nightly
+- Add module_hotfixes to repo files
+
 * Fri Dec 13 2019 Evgeni Golov - 3.15.0-0.3.nightly
 - Add pulpcore repository
 

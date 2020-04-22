@@ -4,3 +4,4 @@ baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/stable/latest/$releasever
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=1
 gpgcheck=1
+module_hotfixes=1
