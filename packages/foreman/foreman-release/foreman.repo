@@ -4,6 +4,7 @@ baseurl=https://yum.theforeman.org/releases/nightly/$DIST/$basearch
 enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+module_hotfixes=1
 
 [foreman-source]
 name=Foreman nightly - source

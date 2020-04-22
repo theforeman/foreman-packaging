@@ -6,6 +6,7 @@ baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/kate
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
+module_hotfixes=1
 
 [pulp]
 name=Pulp Community Release
@@ -13,6 +14,7 @@ baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releas
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=1
 gpgcheck=@PULP_GPG_CHECK@
+module_hotfixes=1
 
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
@@ -23,6 +25,7 @@ baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/cand
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
+module_hotfixes=1
 
 [katello-pulpcore]
 name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
@@ -30,6 +33,7 @@ baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulp
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
+module_hotfixes=1
 
 # source repositories
 
