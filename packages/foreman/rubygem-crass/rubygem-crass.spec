@@ -5,8 +5,8 @@
 %global gem_name crass
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.4
-Release: 4%{?dist}
+Version: 1.0.6
+Release: 1%{?dist}
 Summary: CSS parser based on the CSS Syntax Level 3 spec
 Group: Development/Languages
 License: MIT
@@ -84,9 +84,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/crass.gemspec
-%{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.6-1
+- Release rubygem-crass 1.0.6
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.4-4
 - Update all rails packages for el8
 
