@@ -5,8 +5,8 @@
 %global gem_name builder
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.3
-Release: 4%{?dist}
+Version: 3.2.4
+Release: 1%{?dist}
 Summary: Builders for MarkUp
 Group: Development/Languages
 License: MIT
@@ -73,21 +73,26 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/CHANGES
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
 %{gem_instdir}/rakelib
 %exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/builder.blurb
+%exclude %{gem_instdir}/builder.gemspec
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGES
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/doc
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.4-1
+- Release rubygem-builder 3.2.4
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.3-4
 - Update all rails packages for el8
 
