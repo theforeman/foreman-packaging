@@ -28,8 +28,12 @@ foreman_scl_packages:
       - name: foreman-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+        macros:
+          foremandist: "{{ foremandist }}"
       - name: foreman-nightly-el8
         dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -773,8 +777,12 @@ katello_packages:
       - name: katello-nightly-rhel7
         scl: 'tfm'
         dist: '.el7'
+        macros:
+          foremandist: "{{ foremandist }}"
       - name: katello-nightly-el8
         dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
     releasers:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
