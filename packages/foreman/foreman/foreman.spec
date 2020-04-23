@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 12
+%global release 13
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -815,6 +815,7 @@ ln -sv %{_localstatedir}/lib/%{name}/db %{buildroot}%{_datadir}/%{name}/db
 ln -sv %{_datadir}/%{name}/migrate %{buildroot}%{_localstatedir}/lib/%{name}/db/migrate
 ln -sv %{_datadir}/%{name}/seeds.rb %{buildroot}%{_localstatedir}/lib/%{name}/db/seeds.rb
 ln -sv %{_datadir}/%{name}/seeds.d %{buildroot}%{_localstatedir}/lib/%{name}/db/seeds.d
+ln -sv %{_datadir}/%{name}/schema.rb.nulldb %{buildroot}%{_localstatedir}/lib/%{name}/db/schema.rb.nulldb
 
 # Put HTML %{_localstatedir}/lib/%{name}/public
 cp -pr public %{buildroot}%{_localstatedir}/lib/%{name}/
@@ -886,7 +887,7 @@ unlink ./%{_datadir}/%{name}/db \\
 pushd ./%%{%{name}_dir} \\
 mkdir db/ \\
 cp -rf %{_datadir}/%{name}/db/* db/ \\
-mv db/schema.rb.nulldb db/schema.rb
+mv db/schema.rb.nulldb db/schema.rb \\
 \\
 ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules \\
 export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl} -- }ruby -e "print Gem.path.join(':')"\`} \\
@@ -1014,6 +1015,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Apr 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.13.develop
+- Fix schema.rb.nulldb location
+
 * Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.12.develop
 - Use nulldb for rake tasks
 
