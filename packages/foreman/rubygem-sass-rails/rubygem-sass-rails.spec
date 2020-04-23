@@ -5,8 +5,8 @@
 %global gem_name sass-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.7
-Release: 4%{?dist}
+Version: 6.0.0
+Release: 1%{?dist}
 Summary: Sass adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -17,24 +17,15 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(railties) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(railties) < 6
-Requires: %{?scl_prefix}rubygem(sass) >= 3.1
-Requires: %{?scl_prefix}rubygem(sass) < 4
-Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.0
-Requires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
-Requires: %{?scl_prefix}rubygem(sprockets) >= 2.8
-Requires: %{?scl_prefix}rubygem(sprockets) < 4.0
-Requires: %{?scl_prefix}rubygem(tilt) >= 1.1
-Requires: %{?scl_prefix}rubygem(tilt) < 3
+Requires: %{?scl_prefix}rubygem(sassc-rails) >= 2.1
+Requires: %{?scl_prefix}rubygem(sassc-rails) < 3
+Requires: %{?scl_prefix}rubygem(sassc-rails) >= 2.1.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.0.7
 
 %description
 Sass adapter for the Rails asset pipeline.
@@ -89,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 23 2020 Ondřej Ezr <oezr@redhat.com> 6.0.0-1
+- Update to 6.0.0-1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.7-4
 - Update all rails packages for el8
 
