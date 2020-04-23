@@ -66,6 +66,18 @@ Description: metapackage providing sqlite dependencies for Foreman
  .
  The foreman package should be installed along with this package.
 
+Package: foreman-nulldb
+Architecture: all
+Section: web
+Priority: extra
+Depends: foreman (= ${binary:Version}), ${misc:Depends}
+Description: metapackage providing nulldb dependencies for Foreman
+ This package provides build dependencies for Foreman, a
+ flexible systems management web application. Install this
+ only if you need the special nulldb dependency.
+ .
+ The foreman package should be installed along with this package.
+
 Package: foreman-console
 Architecture: all
 Section: web
