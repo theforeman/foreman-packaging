@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 13
+%global release 14
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -65,7 +65,7 @@ Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
 Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
+Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
 Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
@@ -173,7 +173,7 @@ BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
 BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.7
+BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
@@ -243,7 +243,6 @@ BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
-BuildRequires: %{?scl_prefix}rubygem-activerecord-nulldb-adapter
 # end specfile main BuildRequires
 
 # assets
@@ -306,7 +305,8 @@ BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
@@ -315,7 +315,7 @@ BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets BuildRequires
@@ -323,6 +323,10 @@ BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # start specfile facter BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(facter)
 # end specfile facter BuildRequires
+
+# start specfile nulldb BuildRequires
+BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
+# end specfile nulldb BuildRequires
 
 %package cli
 Summary: Foreman CLI
@@ -515,7 +519,8 @@ Requires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies Requires
 
 # start specfile assets Requires
-Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 5.0.0
+Requires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
+Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
@@ -524,7 +529,7 @@ Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
-Requires: %{?scl_prefix}rubygem(sass-rails) < 6.0
+Requires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
 Requires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 # end specfile assets Requires
@@ -1015,6 +1020,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Apr 23 2020 Evgeni Golov - 2.1.0-0.14.develop
+- Update Gem dependencies
+
 * Thu Apr 23 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.13.develop
 - Fix schema.rb.nulldb location
 
