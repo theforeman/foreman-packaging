@@ -794,6 +794,7 @@ katello_packages:
         - el7-foreman-nightly
         - el7-foreman-plugins-nightly
         - el7-katello-pulp-nightly
+        - el7-katello-pulpcore-nightly
         - el7-katello-candlepin-nightly
       el8:
         - el8-baseos
@@ -803,7 +804,7 @@ katello_packages:
         - el8-puppet-6
         - el8-foreman-nightly
         - el8-foreman-plugins-nightly
-        - el8-katello-pulp-nightly
+        - el8-katello-pulpcore-nightly
         - el8-katello-candlepin-nightly
   hosts:
     katello: {}
