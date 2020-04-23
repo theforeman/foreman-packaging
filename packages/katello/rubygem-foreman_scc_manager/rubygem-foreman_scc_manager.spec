@@ -8,8 +8,8 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.7.0
-Release: 2%{?foremandist}%{?dist}
+Version: 1.7.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -115,6 +115,15 @@ cp -a .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Thu Apr 23 2020 Markus Bucher <bucher@atix.de> 1.7.1-1
+- Update to 1.7.1
+- Add product_id in scc_product view
+- Fix test-connection button
+- Add role descriptions
+- Encrypt password in foreman-tasks
+- Fix test-connection in http-proxy-scenario
+- Improve logging
+
 * Tue Nov 19 2019 Markus Bucher <bucher@atix.de> - 1.7.0-2
 - Add apipie-cache generation
 
