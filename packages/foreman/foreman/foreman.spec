@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 14
+%global release 15
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -243,6 +243,7 @@ BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
+BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
 # end specfile main BuildRequires
 
 # assets
@@ -324,9 +325,6 @@ BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
 BuildRequires: %{?scl_prefix}rubygem(facter)
 # end specfile facter BuildRequires
 
-# start specfile nulldb BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
-# end specfile nulldb BuildRequires
 
 %package cli
 Summary: Foreman CLI
@@ -1020,6 +1018,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Apr 24 2020 Evgeni Golov - 2.1.0-0.15.develop
+- Regenerate GEM dependencies using new code
+
 * Thu Apr 23 2020 Evgeni Golov - 2.1.0-0.14.develop
 - Update Gem dependencies
 
