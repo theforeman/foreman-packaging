@@ -5,7 +5,14 @@ filename = ARGV.shift || 'Gemfile'
 
 HEADER = ARGV.shift || 'specfile'
 EXCLUDED_GROUPS = [:test, :development]
+EXCLUDED_REQUIRES = {
+  'BuildRequires' => ['strscan', 'stringio'],
+  'Requires' => ['strscan', 'stringio', 'activerecord-nulldb-adapter']
+}
 SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
+
+@requires = {}
+@group = 'main'
 
 def package(gem)
   return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
@@ -15,40 +22,44 @@ def source(url)
 end
 
 def gem(name, *requirements)
-  return if ['strscan', 'stringio'].include?(name)
+  return if EXCLUDED_REQUIRES[$require].include?(name)
+  @requires[@group] = {} unless @requires.key?(@group)
+  @requires[@group][$require] = [] unless @requires[@group].key?($require)
   requirements.pop if requirements.last.kind_of?(Hash)
   if requirements.empty?
-      puts "#{$require}: #{package(name)}"
+      @requires[@group][$require] << "#{package(name)}"
   else
     requirement = Gem::Requirement.create(requirements)
     requirement.requirements.each do |op, version|
       if op == '~>'
-        puts "#{$require}: #{package(name)} >= #{version}"
-        puts "#{$require}: #{package(name)} < #{version.bump}.0"
+        @requires[@group][$require] << "#{package(name)} >= #{version}"
+        @requires[@group][$require] << "#{package(name)} < #{version.bump}.0"
       else
-        puts "#{$require}: #{package(name)} #{op} #{version}"
+        @requires[@group][$require] << "#{package(name)} #{op} #{version}"
       end
     end
   end
 end
 
 def group(name, &block)
-  if $open_group
-    puts "# end #{HEADER} #{$open_group} #{$require}"
-    $open_group = nil
-  end
-
   unless EXCLUDED_GROUPS.include?(name)
-    puts ""
-    puts "# start #{HEADER} #{name} #{$require}"
+    @group = name
     block.call
-    puts "# end #{HEADER} #{name} #{$require}"
+    @group = 'main'
   end
 end
 
 ['BuildRequires', 'Requires'].each do |req|
   $require = req
-  $open_group = 'main'
-  puts "# start #{HEADER} #{$open_group} #{$require}"
   load filename
+end
+
+@requires.each do |group, reqs|
+  reqs.each do |req, lines|
+    puts "# start #{HEADER} #{group} #{req}"
+    lines.each do |line|
+      puts "#{req}: #{line}"
+    end
+    puts "# end #{HEADER} #{group} #{req}"
+  end
 end
