@@ -1,3 +1,9 @@
+ruby-foreman-tasks (1.1.0-1) stable; urgency=low
+
+  * 1.1.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Thu, 23 Apr 2020 17:45:18 +0200
+
 ruby-foreman-tasks (1.0.1-1) stable; urgency=low
 
   * Update foreman-ansible to 1.0.1
