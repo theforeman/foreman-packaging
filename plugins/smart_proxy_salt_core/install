@@ -1,0 +1,1 @@
+debian/salt_core.rb usr/share/foreman-proxy/bundler.d

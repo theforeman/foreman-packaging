@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-salt-core
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_salt
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-salt-core
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.8.0~rc1), salt-master, python, ruby-foreman-remote-execution-core (>= 0.1.2), ruby-foreman-tasks-core (>= 0.3.1)
+Description: SaltStack Plug-In core for Foreman's Smart Proxy
+ SaltStack Plug-In core for Foreman's Smart Proxy
