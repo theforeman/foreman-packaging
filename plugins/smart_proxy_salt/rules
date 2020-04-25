@@ -14,6 +14,7 @@
 build:
 	cp etc/foreman.yaml.example etc/foreman.yaml
 	cp settings.d/salt.yml.example settings.d/salt.yml
+	cp settings.d/salt.saltfile.example settings.d/salt.saltfile
 
 %:
 	dh $@ --buildsystem=ruby --with ruby
