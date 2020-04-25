@@ -1,1 +1,1 @@
-gem 'smart_proxy_salt', '2.1.9'
+gem 'smart_proxy_salt', '3.1.1'
