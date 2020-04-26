@@ -4,8 +4,8 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 4.3.0
-Release: 2%{?dist}
+Version: 4.5.0
+Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
@@ -13,7 +13,6 @@ URL: https://github.com/theforeman/foreman-js#readme
 Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
-BuildRequires: npm
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
@@ -40,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Sun Apr 26 2020 Avi Sharvit <sharvita@gmail.com> 4.5.0-1
+- Update to 4.5.0
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-2
 - Bump packages to build for el8
 
