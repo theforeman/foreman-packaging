@@ -133,7 +133,6 @@ foreman_scl_packages:
     rubygem-fog-libvirt: {}
     rubygem-fog-openstack: {}
     rubygem-fog-ovirt: {}
-    rubygem-fog-rackspace: {}
     rubygem-fog-vsphere: {}
     rubygem-fog-xenserver: {}
     rubygem-fog-xml: {}

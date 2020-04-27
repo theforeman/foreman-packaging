@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 18
+%global release 19
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -33,6 +33,7 @@ Conflicts: foreman-release-scl < 7-1
 Obsoletes: foreman-compute < %{version}-%{release}
 Obsoletes: foreman-sqlite < %{version}-%{release}
 Obsoletes: %{?scl_prefix}rubygem-foreman_userdata
+Obsoletes: foreman-rackspace < %{version}-%{release}
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
@@ -408,21 +409,6 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 
 %files ec2
 %{_datadir}/%{name}/bundler.d/ec2.rb
-
-%package rackspace
-Summary: Foreman Rackspace support
-Group:  Applications/System
-# start specfile rackspace Requires
-Requires: %{?scl_prefix}rubygem(fog-rackspace) >= 0.1.4
-Requires: %{?scl_prefix}rubygem(fog-rackspace) < 0.2.0
-# end specfile rackspace Requires
-Requires: %{name} = %{version}-%{release}
-
-%description rackspace
-Meta package to install requirements for Rackspace compute resource support.
-
-%files rackspace
-%{_datadir}/%{name}/bundler.d/rackspace.rb
 
 %package vmware
 Summary: Foreman VMware support
@@ -1001,6 +987,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Sun May 3 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.19.develop
+- Drop rackspace
+
 * Fri May 1 2020 Justin Sherrill <jsherril@redhat.com> 2.1.0-0.18.develop
 - stop dynflowd before service file is removed
 
