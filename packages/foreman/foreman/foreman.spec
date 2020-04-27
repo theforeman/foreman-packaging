@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 16
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -71,6 +71,7 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
+Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -179,6 +180,7 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -1018,6 +1020,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Apr 27 2020 Oleh Fedorenko <ofedoren@redhat.com> - 2.1.0-0.16.develop
+- Add apipie-dsl
+
 * Fri Apr 24 2020 Evgeni Golov - 2.1.0-0.15.develop
 - Regenerate GEM dependencies using new code
 
