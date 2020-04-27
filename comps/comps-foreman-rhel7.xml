@@ -28,7 +28,6 @@
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-proxy-journald</packagereq>
       <packagereq type="default">foreman-proxy-selinux</packagereq>
-      <packagereq type="default">foreman-rackspace</packagereq>
       <packagereq type="default">foreman-redis</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-release-scl</packagereq>
@@ -201,7 +200,6 @@
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-openstack</packagereq>
       <packagereq type="default">tfm-rubygem-fog-ovirt</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-rackspace</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml</packagereq>
@@ -449,7 +447,6 @@
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-openstack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-ovirt-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-rackspace-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-vsphere-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-xml-doc</packagereq>
