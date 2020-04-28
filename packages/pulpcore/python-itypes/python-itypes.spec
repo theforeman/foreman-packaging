@@ -2,12 +2,12 @@
 %global pypi_name itypes
 
 Name:           python-%{pypi_name}
-Version:        1.1.0
-Release:        2%{?dist}
+Version:        1.2.0
+Release:        1%{?dist}
 Summary:        Simple immutable types for python
 
 License:        BSD
-URL:            http://github.com/tomchristie/itypes
+URL:            http://github.com/PavanTatikonda/itypes
 Source0:        https://files.pythonhosted.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
@@ -36,11 +36,15 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %files -n python3-%{pypi_name}
+%doc README.md
 %{python3_sitelib}/__pycache__/%{pypi_name}.*
 %{python3_sitelib}/%{pypi_name}.py
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 1.2.0-1
+- Update to 1.2.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-2
 - Bump release to build for el8
 
