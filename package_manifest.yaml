@@ -1264,6 +1264,7 @@ pulpcore_packages:
     python-drf-yasg: {}
     python-dynaconf: {}
     python-ecdsa: {}
+    python-et-xmlfile: {}
     python-future: {}
     python-gnupg: {}
     python-gunicorn: {}
