@@ -11,8 +11,8 @@ EXCLUDED_REQUIRES = {
 }
 SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
 
-@requires = {}
-@group = 'main'
+$requires = {}
+$group = 'main'
 
 def package(gem)
   return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
@@ -23,19 +23,19 @@ end
 
 def gem(name, *requirements)
   return if EXCLUDED_REQUIRES[$require].include?(name)
-  @requires[@group] = {} unless @requires.key?(@group)
-  @requires[@group][$require] = [] unless @requires[@group].key?($require)
+  $requires[$group] = {} unless $requires.key?($group)
+  $requires[$group][$require] = [] unless $requires[$group].key?($require)
   requirements.pop if requirements.last.kind_of?(Hash)
   if requirements.empty?
-      @requires[@group][$require] << "#{package(name)}"
+      $requires[$group][$require] << "#{package(name)}"
   else
     requirement = Gem::Requirement.create(requirements)
     requirement.requirements.each do |op, version|
       if op == '~>'
-        @requires[@group][$require] << "#{package(name)} >= #{version}"
-        @requires[@group][$require] << "#{package(name)} < #{version.bump}.0"
+        $requires[$group][$require] << "#{package(name)} >= #{version}"
+        $requires[$group][$require] << "#{package(name)} < #{version.bump}.0"
       else
-        @requires[@group][$require] << "#{package(name)} #{op} #{version}"
+        $requires[$group][$require] << "#{package(name)} #{op} #{version}"
       end
     end
   end
@@ -43,9 +43,9 @@ end
 
 def group(name, &block)
   unless EXCLUDED_GROUPS.include?(name)
-    @group = name
+    $group = name
     block.call
-    @group = 'main'
+    $group = 'main'
   end
 end
 
@@ -54,7 +54,7 @@ end
   load filename
 end
 
-@requires.each do |group, reqs|
+$requires.each do |group, reqs|
   reqs.each do |req, lines|
     puts "# start #{HEADER} #{group} #{req}"
     lines.each do |line|
