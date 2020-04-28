@@ -2,7 +2,7 @@
 %global pypi_name pulp-container
 
 Name:           python-%{pypi_name}
-Version:        1.2.0
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        Container plugin for the Pulp Project
 
@@ -12,6 +12,12 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+Requires:       python3-ecdsa >= 0.13.2
+Conflicts:      python3-ecdsa >= 0.14
+Requires:       python3-pyjwkest >= 1.4.0
+Conflicts:      python3-pyjwkest >= 1.5
+Requires:       python3-pyjwt >= 1.7.1
+Conflicts:      python3-pyjwt >= 1.8
 BuildRequires:  python3-setuptools
 
 %description
@@ -22,8 +28,8 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-ecdsa >= 0.13.2
 Conflicts:      python3-ecdsa >= 0.14
-Requires:       python3-pulpcore < 3.3
-Requires:       python3-pulpcore >= 3.2.0
+Requires:       python3-pulpcore < 3.4
+Requires:       python3-pulpcore >= 3.3
 Requires:       python3-pyjwkest >= 1.4.0
 Conflicts:      python3-pyjwkest >= 1.5
 Requires:       python3-pyjwt >= 1.7.1
@@ -51,6 +57,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_container-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 1.3.0-1
+- Update to 1.3.0
+
 * Wed Mar 18 2020 Samir Jha 1.2.0-1
 - Update to 1.2.0
 
