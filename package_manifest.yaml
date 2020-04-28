@@ -1256,6 +1256,7 @@ pulpcore_packages:
     python-diff-match-patch: {}
     python-django: {}
     python-django-filter: {}
+    python-django-import-export: {}
     python-djangorestframework: {}
     python-djangorestframework-queryfields: {}
     python-dotenv: {}
