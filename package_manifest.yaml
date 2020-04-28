@@ -1281,6 +1281,7 @@ pulpcore_packages:
     python-mongoengine: {}
     python-multidict: {}
     python-odfpy: {}
+    python-openpyxl: {}
     python-packaging: {}
     python-psycopg2: {}
     python-pulp_2to3_migration: {}
