@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -15,9 +15,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 5.2.1
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.1
 Requires: %{?scl_prefix}rubygem(builder) >= 3.1
 Requires: %{?scl_prefix}rubygem(builder) < 4
 Requires: %{?scl_prefix}rubygem(erubi) >= 1.4
@@ -28,7 +28,7 @@ Requires: %{?scl_prefix}rubygem(rails-html-sanitizer) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(rails-dom-testing) >= 2.0
 Requires: %{?scl_prefix}rubygem(rails-dom-testing) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-2
+- Update to correct requires versions for rails6 packages
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-1
 - Release rubygem-actionview 6.0.2.1
 

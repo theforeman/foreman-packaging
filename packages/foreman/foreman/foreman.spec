@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 16
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -56,7 +56,7 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix}rubygem(rails) = 5.2.1
+Requires: %{?scl_prefix}rubygem(rails) = 6.0.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -1018,6 +1018,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.16.develop
+- Update to correct requires versions for rails6 packages
+
 * Fri Apr 24 2020 Evgeni Golov - 2.1.0-0.15.develop
 - Regenerate GEM dependencies using new code
 

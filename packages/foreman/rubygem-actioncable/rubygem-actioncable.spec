@@ -5,8 +5,8 @@
 %global gem_name actioncable
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.1
-Release: 4%{?dist}
+Version: 6.0.2.1
+Release: 2%{?dist}
 Summary: WebSocket framework for Rails
 Group: Development/Languages
 License: MIT
@@ -15,14 +15,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(actionpack) = 5.2.1
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.2.1
 Requires: %{?scl_prefix}rubygem(nio4r) >= 2.0
 Requires: %{?scl_prefix}rubygem(nio4r) < 3
 Requires: %{?scl_prefix}rubygem(websocket-driver) >= 0.6.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-1
+- Release rubygem-actioncable 6.0.2.1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-4
 - Update all rails packages for el8
 

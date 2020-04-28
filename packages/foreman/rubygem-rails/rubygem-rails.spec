@@ -15,22 +15,22 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.8.11
-Requires: %{?scl_prefix}rubygem(activesupport) = 5.2.1
-Requires: %{?scl_prefix}rubygem(actionpack) = 5.2.1
-Requires: %{?scl_prefix}rubygem(actionview) = 5.2.1
-Requires: %{?scl_prefix}rubygem(activemodel) = 5.2.1
-Requires: %{?scl_prefix}rubygem(activerecord) = 5.2.1
-Requires: %{?scl_prefix}rubygem(actionmailer) = 5.2.1
-Requires: %{?scl_prefix}rubygem(activejob) = 5.2.1
-Requires: %{?scl_prefix}rubygem(actioncable) = 5.2.1
-Requires: %{?scl_prefix}rubygem(activestorage) = 5.2.1
-Requires: %{?scl_prefix}rubygem(railties) = 5.2.1
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(actionview) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(activemodel) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(activerecord) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(actionmailer) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(activejob) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(actioncable) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(activestorage) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(railties) = 6.0.2.1
 Requires: %{?scl_prefix_ruby}rubygem(bundler) >= 1.3.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.8.11
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

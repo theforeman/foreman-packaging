@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
 License: MIT
@@ -15,7 +15,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
 Requires: %{?scl_prefix}rubygem(i18n) < 2
@@ -27,7 +27,7 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-2
+- Update to correct requires versions for rails6 packages
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.0.2.1-1
 - Release rubygem-activesupport 6.0.2.1
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Sass adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -17,8 +17,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(railties) >= 4.0.0
-Requires: %{?scl_prefix}rubygem(railties) < 6
+Requires: %{?scl_prefix}rubygem(railties) >= 6.0.0
+Requires: %{?scl_prefix}rubygem(railties) < 7
 Requires: %{?scl_prefix}rubygem(sass) >= 3.1
 Requires: %{?scl_prefix}rubygem(sass) < 4
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.0
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.7-5
+- Update to correct requires versions for rails6 packages
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.0.7-4
 - Update all rails packages for el8
 
