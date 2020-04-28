@@ -1309,6 +1309,7 @@ pulpcore_packages:
     python-setuptools-scm: {}
     python-six: {}
     python-sqlparse: {}
+    python-tablib: {}
     python-toml: {}
     python-typing: {}
     python-typing-extensions: {}
