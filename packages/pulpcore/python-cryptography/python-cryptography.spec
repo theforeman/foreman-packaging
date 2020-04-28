@@ -2,8 +2,8 @@
 %global pypi_name cryptography
 
 Name:           python-%{pypi_name}
-Version:        2.8
-Release:        2%{?dist}
+Version:        2.9.2
+Release:        1%{?dist}
 Summary:        cryptography is a package which provides cryptographic recipes and primitives to Python developers
 
 License:        BSD or Apache License, Version 2.0
@@ -14,6 +14,7 @@ BuildRequires:  python3-devel
 BuildConflicts: python3-cffi = 1.11.3
 BuildRequires:  python3-cffi >= 1.8
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-six >= 1.4.1
 
 BuildRequires:  openssl-devel
 BuildRequires:  gcc
@@ -49,6 +50,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 2.9.2-1
+- Update to 2.9.2
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8-2
 - Bump release to build for el8
 
