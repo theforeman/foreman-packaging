@@ -1,21 +1,16 @@
-# FIXME:
-#   1. Edit foreman requirement(s) and specify minimum version
-#   2. Delete these lines
-#
-# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name foreman_datacenter
 %global plugin_name datacenter
-%global foreman_min_version FIXME
+%global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.24.1
 Release: 1%{?foremandist}%{?dist}
 Summary: A plugin that lets you document your servers in a datacenter
 Group: Applications/Systems
-License: FIXME
+License: GPLv3
 URL: https://github.com/theforeman/foreman_datacenter
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
@@ -98,7 +93,6 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
