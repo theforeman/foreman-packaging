@@ -5,8 +5,8 @@
 %global gem_name actiontext
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.2.1
-Release: 2%{?dist}
+Version: 6.0.2.2
+Release: 1%{?dist}
 Summary: Rich text framework
 Group: Development/Languages
 License: MIT
@@ -17,10 +17,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.1
-Requires: %{?scl_prefix}rubygem(activerecord) = 6.0.2.1
-Requires: %{?scl_prefix}rubygem(activestorage) = 6.0.2.1
-Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.2.1
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(activerecord) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(activestorage) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.2.2
 Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.8.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
+- Update to 6.0.2.2
+
 * Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.1-2
 - Remove mentions of ror scl
 
