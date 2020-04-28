@@ -2,8 +2,8 @@
 %global pypi_name urllib3
 
 Name:           python-%{pypi_name}
-Version:        1.25.8
-Release:        2%{?dist}
+Version:        1.25.9
+Release:        1%{?dist}
 Summary:        HTTP library with thread-safe connection pooling, file post, and more
 
 License:        MIT
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 1.25.9-1
+- Update to 1.25.9
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.25.8-2
 - Bump release to build for el8
 
