@@ -1280,6 +1280,7 @@ pulpcore_packages:
     python-markupsafe: {}
     python-mongoengine: {}
     python-multidict: {}
+    python-odfpy: {}
     python-packaging: {}
     python-psycopg2: {}
     python-pulp_2to3_migration: {}
