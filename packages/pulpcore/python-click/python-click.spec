@@ -2,7 +2,7 @@
 %global pypi_name click
 
 Name:           python-%{pypi_name}
-Version:        7.1.1
+Version:        7.1.2
 Release:        1%{?dist}
 Summary:        Composable command line interface toolkit
 
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 7.1.2-1
+- Update to 7.1.2
+
 * Wed Mar 18 2020 Samir Jha 7.1.1-1
 - Update to 7.1.1
 
