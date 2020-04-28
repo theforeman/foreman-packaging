@@ -1317,6 +1317,7 @@ pulpcore_packages:
     python-urllib3: {}
     python-whitenoise: {}
     python-xlrd: {}
+    python-xlwt: {}
     python-yarl: {}
     python-zipp: {}
 

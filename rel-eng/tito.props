@@ -1207,6 +1207,7 @@ whitelist =
   python-urllib3
   python-whitenoise
   python-xlrd
+  python-xlwt
   python-yarl
   python-zipp
   rh-postgresql12-postgresql-debversion
