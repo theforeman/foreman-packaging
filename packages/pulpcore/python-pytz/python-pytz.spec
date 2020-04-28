@@ -2,8 +2,8 @@
 %global pypi_name pytz
 
 Name:           python-%{pypi_name}
-Version:        2019.3
-Release:        2%{?dist}
+Version:        2020.1
+Release:        1%{?dist}
 Summary:        World timezone definitions, modern and historical
 
 License:        MIT
@@ -37,11 +37,14 @@ rm -rf %{pypi_name}.egg-info
 
 %files -n python3-%{pypi_name}
 %license LICENSE.txt
-%doc README.txt
+%doc README.rst
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 2020.1-1
+- Update to 2020.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2019.3-2
 - Bump release to build for el8
 
