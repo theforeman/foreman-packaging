@@ -1142,6 +1142,7 @@ whitelist =
   python-coreapi
   python-coreschema
   python-cryptography
+  python-defusedxml
   python-django
   python-django-filter
   python-djangorestframework

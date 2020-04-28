@@ -378,6 +378,7 @@
       <packagereq type="default">rubygem-activejob-doc</packagereq>
       <packagereq type="default">rubygem-activemodel-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-doc</packagereq>
+      <packagereq type="default">rubygem-activerecord-nulldb-adapter-doc</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store-doc</packagereq>
       <packagereq type="default">rubygem-activestorage-doc</packagereq>
       <packagereq type="default">rubygem-activesupport-doc</packagereq>
@@ -386,6 +387,7 @@
       <packagereq type="default">rubygem-ancestry-doc</packagereq>
       <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
+      <packagereq type="default">rubygem-apipie-dsl-doc</packagereq>
       <packagereq type="default">rubygem-apipie-params-doc</packagereq>
       <packagereq type="default">rubygem-apipie-rails-doc</packagereq>
       <packagereq type="default">rubygem-arel-doc</packagereq>
