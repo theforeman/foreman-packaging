@@ -12,6 +12,7 @@ build:
 	/usr/bin/gem install -f minitest -v '5.10.3'
 	/usr/bin/gem install -f thor -v '0.19.4'
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
+	/bin/rm -f bundler.d/nulldb.rb db/schema.rb.nulldb
 	BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
 	/usr/bin/npm install --no-optional --unsafe-perm
 	/usr/bin/bundle exec rake locale:pack RAILS_ENV=production
