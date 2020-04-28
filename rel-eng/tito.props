@@ -1163,6 +1163,7 @@ whitelist =
   python-importlib-metadata
   python-inflection
   python-itypes
+  python-jdcal
   python-jinja2
   python-jsonschema
   python-markupsafe
