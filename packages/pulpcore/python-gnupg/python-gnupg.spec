@@ -3,7 +3,7 @@
 %global srcname gnupg
 
 Name:           python-%{srcname}
-Version:        0.4.5
+Version:        0.4.6
 Release:        1%{?dist}
 Summary:        A wrapper for the Gnu Privacy Guard (GPG or GnuPG)
 
@@ -27,6 +27,8 @@ Summary:        %{summary}
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
+# Remove bundled egg-info
+rm -rf %{pypi_name}.egg-info
 
 %build
 %py3_build
@@ -42,5 +44,8 @@ Summary:        %{summary}
 %{python3_sitelib}/python_gnupg-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Apr 28 2020 Evgeni Golov 0.4.6-1
+- Update to 0.4.6
+
 * Wed Mar 18 2020 Samir Jha - 0.4.5-1
 - Initial package.
