@@ -1143,6 +1143,7 @@ whitelist =
   python-coreschema
   python-cryptography
   python-defusedxml
+  python-diff-match-patch
   python-django
   python-django-filter
   python-djangorestframework
