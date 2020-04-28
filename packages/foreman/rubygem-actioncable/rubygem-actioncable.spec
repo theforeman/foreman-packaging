@@ -78,6 +78,7 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%dir %{gem_instdir}/app/assets/javascripts
 
 %files doc
 %doc %{gem_docdir}
@@ -85,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
+- Update to 6.0.2.2
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.1-4
 - Update all rails packages for el8
 
