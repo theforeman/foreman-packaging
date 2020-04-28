@@ -1166,6 +1166,7 @@ whitelist =
   python-jdcal
   python-jinja2
   python-jsonschema
+  python-markuppy
   python-markupsafe
   python-mongoengine
   python-multidict
