@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 2.0.0
@@ -962,6 +962,10 @@ rm -rf %{buildroot}
 getent group %{name} >/dev/null || groupadd -r %{name}
 getent passwd %{name} >/dev/null || \
 useradd -r -g %{name} -d %{homedir} -s /sbin/nologin -c "Foreman" %{name}
+if [ $1 == 2 ]; then
+  systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
+  systemctl stop dynflowd.service > /dev/null 2>&1 || :
+fi
 exit 0
 
 %post
@@ -995,13 +999,14 @@ exit 0
 
 %preun
 %systemd_preun %{name}.service
-systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
-systemctl stop dynflowd.service > /dev/null 2>&1 || :
 
 %postun
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Apr 30 2020 Justin Sherrill <jsherril@redhat.com> 2.0.0-2
+- stop dynflowd before service file is removed
+
 * Mon Apr 06 2020 Patrick Creech <pcreech@redhat.com> - 2.0.0-1
 - Release foreman 2.0.0
 
