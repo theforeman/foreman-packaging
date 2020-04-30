@@ -5,7 +5,7 @@
 %global gem_name rack
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.1
+Version: 2.2.2
 Release: 1%{?dist}
 Summary: a modular Ruby webserver interface
 Group: Development/Languages
@@ -15,10 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -82,12 +82,13 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %dir %{gem_instdir}
 %{_bindir}/rackup
 %license %{gem_instdir}/MIT-LICENSE
-%{gem_instdir}/SPEC
 %{gem_instdir}/bin
 %{gem_instdir}/contrib
 %{gem_instdir}/example
 %{gem_libdir}
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/CONTRIBUTING.md
+%exclude %{gem_instdir}/SPEC.rdoc
 %{gem_spec}
 
 %files doc
@@ -98,6 +99,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 2.2.2-1
+- Update to 2.2.2
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.1-1
 - Release rubygem-rack 2.1.1
 
