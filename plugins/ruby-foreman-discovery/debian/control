@@ -2,7 +2,7 @@ Source: ruby-foreman-discovery
 Section: ruby
 Priority: extra
 Maintainer: Lukas Zapletal <lzap+rpm@redhat.com>
-Build-Depends: debhelper (>= 8.0.0), foreman (>= 1.24.0~rc1), foreman-sqlite3 (>= 1.24.0~rc1)
+Build-Depends: debhelper (>= 8.0.0), foreman (>= 1.24.0~rc1), foreman-nulldb (>= 1.24.0~rc1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_discovery
 

@@ -2,7 +2,7 @@ Source: ruby-foreman-fog-proxmox
 Section: ruby
 Priority: extra
 Maintainer: Tristan Robert <tristan.robert.44@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.22.0~rc1), foreman (>= 1.22.0~rc1), ruby-foreman-deface, foreman-sqlite3
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.22.0~rc1), foreman (>= 1.22.0~rc1), ruby-foreman-deface, foreman-nulldb
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_fog_proxmox
 
