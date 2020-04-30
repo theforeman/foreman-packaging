@@ -57,6 +57,7 @@
       <packagereq type="default">python3-packaging</packagereq>
       <packagereq type="default">python3-psycopg2</packagereq>
       <packagereq type="default">python3-pulp-2to3-migration</packagereq>
+      <packagereq type="default">python3-pulp-certguard</packagereq>
       <packagereq type="default">python3-pulp-container</packagereq>
       <packagereq type="default">python3-pulp-file</packagereq>
       <packagereq type="default">python3-pulpcore</packagereq>
@@ -67,6 +68,7 @@
       <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyjwt</packagereq>
       <packagereq type="default">python3-pymongo</packagereq>
+      <packagereq type="default">python3-pyopenssl</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pyrsistent</packagereq>
       <packagereq type="default">python3-pytz</packagereq>
