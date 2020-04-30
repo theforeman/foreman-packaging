@@ -1183,6 +1183,7 @@ whitelist =
   python-pyjwkest
   python-pyjwt
   python-pymongo
+  python-pyopenssl
   python-pyparsing
   python-pyrsistent
   python-pytz
