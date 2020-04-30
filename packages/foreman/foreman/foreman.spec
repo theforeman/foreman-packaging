@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 16
+%global release 17
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -31,6 +31,7 @@ Conflicts: foreman-tasks < 0.11.0-2
 Conflicts: foreman-release-scl < 7-1
 
 Obsoletes: foreman-compute < %{version}-%{release}
+Obsoletes: foreman-sqlite < %{version}-%{release}
 Obsoletes: %{?scl_prefix}rubygem-foreman_userdata
 
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -158,11 +159,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
-# start specfile sqlite BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
-BuildRequires: %{?scl_prefix}rubygem(sqlite3) < 2.0
-# end specfile sqlite BuildRequires
-
 
 # start specfile main BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
@@ -547,7 +543,6 @@ Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 Requires: %{name}-build = %{version}-%{release}
-Requires: %{name}-sqlite = %{version}-%{release}
 Requires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
 
 %description plugin
@@ -599,21 +594,6 @@ Meta Package to install requirements for postgresql support
 
 %files postgresql
 %{_datadir}/%{name}/bundler.d/postgresql.rb
-
-%package sqlite
-Summary: Foreman sqlite support
-Group:  Applications/System
-# start specfile sqlite Requires
-Requires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
-Requires: %{?scl_prefix}rubygem(sqlite3) < 2.0
-# end specfile sqlite Requires
-Requires: %{name} = %{version}-%{release}
-
-%description sqlite
-Meta Package to install requirements for sqlite support
-
-%files sqlite
-%{_datadir}/%{name}/bundler.d/sqlite.rb
 
 %package telemetry
 Summary: Foreman telemetry support
@@ -1020,6 +1000,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri May 1 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.17.develop
+- Drop sqlite
+
 * Thu Apr 30 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.16.develop
 - Update Gem and NPM dependencies
 
