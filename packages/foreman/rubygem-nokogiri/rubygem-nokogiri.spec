@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.4
-Release: 8%{?dist}
+Version: 1.10.9
+Release: 1%{?dist}
 Summary: Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 Group: Development/Languages
 License: MIT
@@ -15,19 +15,19 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.1.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.3.0
-Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.4
+Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.4.0
+Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.1.0
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.3.0
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.4
-BuildRequires: libxml2-devel
-BuildRequires: libxslt-devel
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.4.0
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.5
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+BuildRequires: libxml2-devel
+BuildRequires: libxslt-devel
 
 Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.8.4
 
@@ -103,43 +103,24 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{_bindir}/nokogiri
-%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/.autotest
-%exclude %{gem_instdir}/.cross_rubies
-%exclude %{gem_instdir}/.editorconfig
-%exclude %{gem_instdir}/.gemtest
-%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE-DEPENDENCIES.md
 %license %{gem_instdir}/LICENSE.md
-%{gem_instdir}/Manifest.txt
-%exclude %{gem_instdir}/appveyor.yml
 %{gem_instdir}/bin
-%{gem_instdir}/build_all
 %{gem_instdir}/dependencies.yml
 %{gem_libdir}
 %{gem_instdir}/patches
-%{gem_instdir}/suppressions
-%{gem_instdir}/tasks
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%doc %{gem_instdir}/ROADMAP.md
-%doc %{gem_instdir}/SECURITY.md
-%doc %{gem_instdir}/STANDARD_RESPONSES.md
-%doc %{gem_instdir}/Y_U_NO_GEMSPEC.md
 %doc %{gem_docdir}
-%doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/C_CODING_STYLE.rdoc
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile-libxml-ruby
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/test
 
 %changelog
+* Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.10.9-1
+- Update to 1.10.9
+
 * Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.8.4-8
 - Add check section to test native library
 
