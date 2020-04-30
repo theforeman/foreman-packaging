@@ -5,8 +5,8 @@
 %global gem_name coffee-rails
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.2
-Release: 6%{?dist}
+Version: 5.0.0
+Release: 1%{?dist}
 Summary: CoffeeScript adapter for the Rails asset pipeline
 Group: Development/Languages
 License: MIT
@@ -18,7 +18,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(coffee-script) >= 2.2.0
-Requires: %{?scl_prefix}rubygem(railties) >= 4.0.0
+Requires: %{?scl_prefix}rubygem(railties) >= 5.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 5.0.0-1
+- Update to 5.0.0
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.2-6
 - Update all rails packages for el8
 
