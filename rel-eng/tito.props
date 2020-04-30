@@ -379,6 +379,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_chef
   rubygem-foreman_column_view
   rubygem-foreman_concrete
+  rubygem-foreman_datacenter
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
   rubygem-foreman_digitalocean
@@ -655,8 +656,3 @@ whitelist =
   python-whitenoise
   python-yarl
   python-zipp
-
-
-[foreman-plugins-nightly-rhel7]
-whitelist = 
-        rubygem-foreman_datacenter
