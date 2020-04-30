@@ -1286,6 +1286,7 @@ pulpcore_packages:
     python-openpyxl: {}
     python-packaging: {}
     python-psycopg2: {}
+    python-pulp-certguard: {}
     python-pulp_2to3_migration: {}
     python-pulp-container: {}
     python-pulp-file: {}

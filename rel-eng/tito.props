@@ -1172,6 +1172,7 @@ whitelist =
   python-packaging
   python-psycopg2
   python-pulp_2to3_migration
+  python-pulp-certguard
   python-pulp-container
   python-pulpcore
   python-pulp-file
