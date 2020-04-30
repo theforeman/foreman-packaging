@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 17
+%global release 18
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -952,15 +952,16 @@ rm -rf %{buildroot}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_datadir}/%{name}/config/initializers/local_secret_token.rb
 %{_tmpfilesdir}/%{name}.conf
 
-%preun
-systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
-systemctl stop dynflowd.service > /dev/null 2>&1 || :
-
 %pre
 # Add the "foreman" user and group
 getent group %{name} >/dev/null || groupadd -r %{name}
 getent passwd %{name} >/dev/null || \
 useradd -r -g %{name} -d %{homedir} -s /sbin/nologin -c "Foreman" %{name}
+
+if [ $1 == 2 ]; then
+  systemctl --no-reload disable dynflowd.service > /dev/null 2>&1 || :
+  systemctl stop dynflowd.service > /dev/null 2>&1 || :
+fi
 exit 0
 
 %post
@@ -1000,6 +1001,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri May 1 2020 Justin Sherrill <jsherril@redhat.com> 2.1.0-0.18.develop
+- stop dynflowd before service file is removed
+
 * Fri May 1 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.17.develop
 - Drop sqlite
 
