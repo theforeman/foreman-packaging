@@ -1147,6 +1147,7 @@ whitelist =
   python-coreapi
   python-coreschema
   python-cryptography
+  python-debian
   python-defusedxml
   python-diff-match-patch
   python-django

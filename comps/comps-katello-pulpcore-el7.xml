@@ -24,6 +24,7 @@
       <packagereq type="default">python3-coreapi</packagereq>
       <packagereq type="default">python3-coreschema</packagereq>
       <packagereq type="default">python3-cryptography</packagereq>
+      <packagereq type="default">python3-debian</packagereq>
       <packagereq type="default">python3-defusedxml</packagereq>
       <packagereq type="default">python3-diff-match-patch</packagereq>
       <packagereq type="default">python3-django</packagereq>
