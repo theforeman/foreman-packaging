@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.2.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -18,9 +18,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.2
-Requires: %{?scl_prefix_ruby}rubygem(rack) >= 2.0
-Requires: %{?scl_prefix_ruby}rubygem(rack) < 3
-Requires: %{?scl_prefix_ruby}rubygem(rack) >= 2.0.8
+Requires: %{?scl_prefix}rubygem(rack) < 3
+Requires: %{?scl_prefix}rubygem(rack) >= 2.0.8
 Requires: %{?scl_prefix}rubygem(rack-test) >= 0.6.3
 Requires: %{?scl_prefix}rubygem(rails-html-sanitizer) >= 1.0
 Requires: %{?scl_prefix}rubygem(rails-html-sanitizer) < 2
@@ -92,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-2
+- Adjust requirement on rack to not use ruby scl
+
 * Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
 - Update to 6.0.2.2
 
