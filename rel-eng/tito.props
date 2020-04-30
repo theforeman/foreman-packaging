@@ -1180,6 +1180,7 @@ whitelist =
   python-odfpy
   python-openpyxl
   python-packaging
+  python-productmd
   python-psycopg2
   python-pulp_2to3_migration
   python-pulp-certguard

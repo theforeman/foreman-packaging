@@ -1291,6 +1291,7 @@ pulpcore_packages:
     python-odfpy: {}
     python-openpyxl: {}
     python-packaging: {}
+    python-productmd: {}
     python-psycopg2: {}
     python-pulp-certguard: {}
     python-pulp_2to3_migration: {}
