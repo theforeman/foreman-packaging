@@ -222,7 +222,6 @@ whitelist = foreman
   rubygem-googleauth
   rubygem-graphql
   rubygem-graphql-batch
-  rubygem-gridster-rails
   rubygem-gssapi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
@@ -556,7 +555,6 @@ whitelist = foreman
   rubygem-googleauth
   rubygem-graphql
   rubygem-graphql-batch
-  rubygem-gridster-rails
   rubygem-gssapi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
