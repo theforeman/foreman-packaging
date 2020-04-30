@@ -2,7 +2,7 @@ Source: ruby-foreman-monitoring
 Section: ruby
 Priority: extra
 Maintainer: Foreman developers <foreman-dev@googlegroups.com>
-Build-Depends: debhelper (>= 8.0.0), foreman (>= 1.15.0~rc1), foreman-sqlite3 (>= 1.15.0~rc1), ruby-foreman-deface (<<2.0.0)
+Build-Depends: debhelper (>= 8.0.0), foreman (>= 1.15.0~rc1), foreman-nulldb (>= 1.15.0~rc1), ruby-foreman-deface (<<2.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_monitoring
 

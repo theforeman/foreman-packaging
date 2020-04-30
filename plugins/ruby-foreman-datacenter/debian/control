@@ -2,7 +2,7 @@ Source: ruby-foreman-datacenter
 Section: ruby
 Priority: extra
 Maintainer: Cloudevelops <foreman@cloudevelops.com>
-Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.23.0), foreman-sqlite3 (>= 1.23.0), ruby-foreman-deface (<<2.0.0)
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.23.0), foreman-nulldb (>= 1.23.0), ruby-foreman-deface (<<2.0.0)
 Standards-Version: 3.9.3
 Homepage: https://github.com/cloudevelops/foreman_datacenter
 

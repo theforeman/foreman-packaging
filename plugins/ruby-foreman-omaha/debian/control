@@ -5,7 +5,7 @@ Maintainer: Lennart Weller <lennart.weller@hansemerkur.de>
 Build-Depends: debhelper,
                foreman (>= 1.24.0~rc1),
                foreman-assets (>= 1.24.0~rc1),
-               foreman-sqlite3 (>= 1.24.0~rc1)
+               foreman-nulldb (>= 1.24.0~rc1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_omaha
 

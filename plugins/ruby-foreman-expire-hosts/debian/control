@@ -3,7 +3,7 @@ Section: ruby
 Priority: extra
 Maintainer: Michael Moll <mmoll@mmoll.at>
 Build-Depends: debhelper, foreman (>= 1.24.0~rc1), ruby-foreman-deface,
-  foreman-sqlite3 (>= 1.24.0~rc1)
+  foreman-nulldb (>= 1.24.0~rc1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_expire_hosts
 
