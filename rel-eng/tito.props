@@ -1172,6 +1172,7 @@ whitelist =
   python-jdcal
   python-jinja2
   python-jsonschema
+  python-libcomps
   python-markuppy
   python-markupsafe
   python-mongoengine

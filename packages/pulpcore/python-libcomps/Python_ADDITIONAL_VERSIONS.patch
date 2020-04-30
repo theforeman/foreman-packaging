@@ -1,0 +1,10 @@
+diff -Naur a/libcomps/src/python/pversion.cmake b/libcomps/src/python/pversion.cmake
+--- a/libcomps/src/python/pversion.cmake	2019-03-11 08:09:27.000000000 +0100
++++ b/libcomps/src/python/pversion.cmake	2019-11-13 09:56:12.127189225 +0100
+@@ -7,5 +7,6 @@
+     set(pversion 2)
+ else()
+     message("Building for python3")
++    set(Python_ADDITIONAL_VERSIONS 3.4 3.5 3.6 3.7 3.8)
+     set(pversion 3)
+ endif()
