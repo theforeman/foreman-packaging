@@ -34,7 +34,6 @@
       <packagereq type="default">foreman-release-scl</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
       <packagereq type="default">foreman-service</packagereq>
-      <packagereq type="default">foreman-sqlite</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">tfm</packagereq>
