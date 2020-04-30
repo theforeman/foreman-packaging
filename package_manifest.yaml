@@ -150,7 +150,6 @@ foreman_scl_packages:
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
-    rubygem-gridster-rails: {}
     rubygem-hammer_cli:
       releasers:
         - "{{ nightly_releaser }}"

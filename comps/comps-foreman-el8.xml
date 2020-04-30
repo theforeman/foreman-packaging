@@ -231,7 +231,6 @@
       <packagereq type="default">rubygem-googleauth</packagereq>
       <packagereq type="default">rubygem-graphql</packagereq>
       <packagereq type="default">rubygem-graphql-batch</packagereq>
-      <packagereq type="default">rubygem-gridster-rails</packagereq>
       <packagereq type="default">rubygem-gssapi</packagereq>
       <packagereq type="default">rubygem-hammer_cli</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
@@ -449,7 +448,6 @@
       <packagereq type="default">rubygem-googleauth-doc</packagereq>
       <packagereq type="default">rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">rubygem-graphql-doc</packagereq>
-      <packagereq type="default">rubygem-gridster-rails-doc</packagereq>
       <packagereq type="default">rubygem-gssapi-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
