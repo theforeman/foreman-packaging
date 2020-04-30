@@ -1242,6 +1242,7 @@ pulpcore_packages:
         - el8-baseos
         - el8-appstream
   hosts:
+    libsolv: {}
     postgresql-debversion: {}
     postgresql-evr: {}
     pulpcore-selinux: {}
