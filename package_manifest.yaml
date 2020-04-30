@@ -54,7 +54,6 @@ foreman_scl_packages:
         - el8-baseos
         - el8-appstream
         - el8-devel
-        - el8-epel
         - el8-extras
         - el8-powertools
         - el8-puppet-6
@@ -325,7 +324,6 @@ foreman_nodejs_packages:
       el8:
         - el8-baseos
         - el8-appstream
-        - el8-epel
         - el8-extras
         - el8-puppet-6
         - el8-foreman-nightly
@@ -586,7 +584,6 @@ foreman_proxy_packages:
       el8:
         - el8-baseos
         - el8-appstream
-        - el8-epel
         - el8-extras
         - el8-puppet-6
         - el8-foreman-nightly
@@ -630,7 +627,6 @@ foreman_proxy_plugin_packages:
       el8:
         - el8-baseos
         - el8-appstream
-        - el8-epel
         - el8-extras
         - el8-foreman-nightly
         - el8-foreman-plugins-nightly
@@ -700,7 +696,6 @@ foreman_scl_and_nonscl_packages:
       el8:
         - el8-baseos
         - el8-appstream
-        - el8-epel
         - el8-extras
         - el8-devel
         - el8-puppet-6
@@ -915,7 +910,6 @@ plugin_scl_packages:
         - el8-appstream
         - el8-baseos
         - el8-devel
-        - el8-epel
         - el8-extras
         - el8-powertools
         - el8-puppet-6
@@ -1099,7 +1093,6 @@ repoclosures:
           - el8-baseos
           - el8-appstream
           - el8-devel
-          - el8-epel
           - el8-extras
           - el8-powertools
           - el8-puppet-6
@@ -1127,7 +1120,6 @@ repoclosures:
           - el8-baseos
           - el8-appstream
           - el8-devel
-          - el8-epel
           - el8-extras
           - el8-powertools
           - el8-puppet-6
@@ -1357,7 +1349,6 @@ foreman_release_packages:
       el8:
         - el8-baseos
         - el8-appstream
-        - el8-epel
         - el8-extras
         - el8-puppet-6
       rhel7:
