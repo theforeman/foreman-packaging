@@ -1,3 +1,4 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
@@ -5,21 +6,25 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Mange/roadie-rails
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(railties) >= 5.1
-Requires: %{?scl_prefix}rubygem(railties) < 5.3
+Requires: %{?scl_prefix}rubygem(railties) < 6.1
 Requires: %{?scl_prefix}rubygem(roadie) >= 3.1
-Requires: %{?scl_prefix}rubygem(roadie) < 4.0
+Requires: %{?scl_prefix}rubygem(roadie) < 5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems
+# end specfile generated dependencies
+
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
@@ -82,6 +87,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 2.1.1-2
+- Update requirements for a newer railties
+
 * Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 2.1.1-1
 - Update to 2.1.1
 
