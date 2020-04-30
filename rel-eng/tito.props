@@ -1195,6 +1195,7 @@ whitelist =
   python-pulp-certguard
   python-pulp-container
   python-pulpcore
+  python-pulp-deb
   python-pulp-file
   python-pulp-rpm
   python-pycares

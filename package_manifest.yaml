@@ -1310,6 +1310,7 @@ pulpcore_packages:
     python-pulp-rpm: {}
     python-pulp_2to3_migration: {}
     python-pulp-container: {}
+    python-pulp-deb: {}
     python-pulp-file: {}
     python-pulpcore: {}
     python-pycares: {}
