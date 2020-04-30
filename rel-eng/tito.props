@@ -655,3 +655,8 @@ whitelist =
   python-whitenoise
   python-yarl
   python-zipp
+
+
+[foreman-plugins-nightly-rhel7]
+whitelist = 
+        rubygem-foreman_datacenter
