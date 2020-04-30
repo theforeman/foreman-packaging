@@ -1187,6 +1187,7 @@ whitelist =
   python-pulp-container
   python-pulpcore
   python-pulp-file
+  python-pulp-rpm
   python-pycares
   python-pycparser
   python-pycryptodomex
