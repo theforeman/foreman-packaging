@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 15
+%global release 16
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -56,7 +56,7 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix}rubygem(rails) = 5.2.1
+Requires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -71,6 +71,7 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
+Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
 Requires: %{?scl_prefix}rubygem(rabl) < 1.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -89,8 +90,8 @@ Requires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 Requires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
-Requires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) >= 6.0
+Requires: %{?scl_prefix}rubygem(rails-i18n) < 7.0
 Requires: %{?scl_prefix}rubygem(i18n) >= 1.1
 Requires: %{?scl_prefix}rubygem(i18n) < 2.0
 Requires: %{?scl_prefix}rubygem(logging) >= 1.8.0
@@ -159,12 +160,12 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 # start specfile sqlite BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
-BuildRequires: %{?scl_prefix}rubygem(sqlite3) < 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(sqlite3) < 2.0
 # end specfile sqlite BuildRequires
 
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(rails) = 5.2.1
+BuildRequires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -179,6 +180,7 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
+BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -197,8 +199,8 @@ BuildRequires: %{?scl_prefix}rubygem(fast_gettext) >= 1.4
 BuildRequires: %{?scl_prefix}rubygem(fast_gettext) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) >= 1.8
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 6.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) >= 6.0
+BuildRequires: %{?scl_prefix}rubygem(rails-i18n) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(i18n) >= 1.1
 BuildRequires: %{?scl_prefix}rubygem(i18n) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(logging) >= 1.8.0
@@ -308,8 +310,8 @@ BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # start specfile assets BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
-BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
-BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
+BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
+BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
@@ -317,8 +319,8 @@ BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 7.0
-BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
-BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
+BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 5.1.0
 # end specfile assets BuildRequires
 
 # start specfile facter BuildRequires
@@ -519,8 +521,8 @@ Requires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # start specfile assets Requires
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
-Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.32.1
-Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.38.0
+Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
+Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
@@ -528,8 +530,8 @@ Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
 Requires: %{?scl_prefix}rubygem(sass-rails) < 7.0
-Requires: %{?scl_prefix}rubygem(coffee-rails) >= 4.2.2
-Requires: %{?scl_prefix}rubygem(coffee-rails) < 4.3.0
+Requires: %{?scl_prefix}rubygem(coffee-rails) >= 5.0.0
+Requires: %{?scl_prefix}rubygem(coffee-rails) < 5.1.0
 # end specfile assets Requires
 
 %description assets
@@ -603,7 +605,7 @@ Summary: Foreman sqlite support
 Group:  Applications/System
 # start specfile sqlite Requires
 Requires: %{?scl_prefix}rubygem(sqlite3) >= 1.3.6
-Requires: %{?scl_prefix}rubygem(sqlite3) < 1.4.0
+Requires: %{?scl_prefix}rubygem(sqlite3) < 2.0
 # end specfile sqlite Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1018,6 +1020,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Apr 30 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.16.develop
+- Update Gem and NPM dependencies
+
 * Fri Apr 24 2020 Evgeni Golov - 2.1.0-0.15.develop
 - Regenerate GEM dependencies using new code
 
