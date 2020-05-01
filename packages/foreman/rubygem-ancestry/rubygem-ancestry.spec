@@ -6,8 +6,8 @@
 Summary: Organise ActiveRecord model into a tree structure
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 3.0.0
-Release: 5%{?dist}
+Version: 3.0.7
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/stefankroes/ancestry
@@ -82,6 +82,9 @@ mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
 %{gem_instdir}/ancestry.gemspec
 
 %changelog
+* Fri May 01 2020 Michael Moll <mmoll@mmoll.at> - 3.0.7-1
+- Update ancestry to 3.0.7
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-5
 - Bump to release for EL8
 
