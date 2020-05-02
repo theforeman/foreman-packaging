@@ -1,3 +1,5 @@
 foreman_templates.rb              usr/share/foreman/bundler.d
 cache                             usr/share/foreman/vendor
 apipie-cache/foreman_templates    var/lib/foreman/public/apipie-cache/plugin
+webpack/foreman_templates         var/lib/foreman/public/webpack
+assets                            var/lib/foreman/public
