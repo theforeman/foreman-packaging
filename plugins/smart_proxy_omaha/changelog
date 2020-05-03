@@ -1,3 +1,9 @@
+ruby-smart-proxy-omaha (0.1.0-1) stable; urgency=low
+
+  * 0.1.0 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Sun, 03 May 2020 16:05:13 +0200
+
 ruby-smart-proxy-omaha (0.0.5-2) stable; urgency=medium
 
   * Fix update script installation directory
