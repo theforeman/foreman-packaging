@@ -9,7 +9,7 @@
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
+Version: 1.3.0
 
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
@@ -26,6 +26,7 @@ Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
@@ -91,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon May 04 2020 Justin Sherrill <jsherril@redhat.com> 1.3.0-1
+- Update to 1.3.0
+
 * Thu Mar 26 2020 Samir Jha <sjha4@ncsu.edu> 1.2.0-1
 - Update to 1.2.0
 
