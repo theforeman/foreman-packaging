@@ -1133,6 +1133,7 @@ whitelist = katello
 [katello-pulpcore-nightly-el7]
 disttag = .el7
 whitelist =
+  libcomps
   libsolv
   pulpcore-selinux
   python-aiodns
@@ -1173,7 +1174,6 @@ whitelist =
   python-jdcal
   python-jinja2
   python-jsonschema
-  python-libcomps
   python-markuppy
   python-markupsafe
   python-mongoengine

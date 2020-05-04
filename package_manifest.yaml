@@ -1243,6 +1243,7 @@ pulpcore_packages:
         - el8-baseos
         - el8-appstream
   hosts:
+    libcomps: {}
     libsolv: {}
     postgresql-debversion: {}
     postgresql-evr: {}
@@ -1285,7 +1286,6 @@ pulpcore_packages:
     python-jdcal: {}
     python-jinja2: {}
     python-jsonschema: {}
-    python-libcomps: {}
     python-markuppy: {}
     python-markupsafe: {}
     python-mongoengine: {}
