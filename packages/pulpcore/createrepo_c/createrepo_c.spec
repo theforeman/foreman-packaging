@@ -33,7 +33,7 @@
 Summary:        Creates a common metadata repository
 Name:           createrepo_c
 Version:        0.15.10
-Release:        2%{?dist}
+Release:        1%{?dist}
 License:        GPLv2+
 URL:            https://github.com/rpm-software-management/createrepo_c
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
@@ -275,11 +275,5 @@ ln -sr %{buildroot}%{_bindir}/modifyrepo_c %{buildroot}%{_bindir}/modifyrepo
 %endif
 
 %changelog
-* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.15.5-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
-
-* Wed Jan 08 2020 Pavel Raiskup <praiskup@redhat.com> - 0.15.5-1
-- update to upstream 0.15.5 release, per
-  https://github.com/rpm-software-management/createrepo_c/compare/0.15.4...0.15.5
-- new option --recycle-pkglist for --update mode
-- a bit more optimal --update caching
+* Mon May 04 2020 Evgeni Golov - 0.15.10-1
+- update to upstream 0.15.10
