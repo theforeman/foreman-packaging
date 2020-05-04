@@ -19,7 +19,6 @@ Summary:        Comps XML file manipulation library
 License:        GPLv2+
 URL:            https://github.com/rpm-software-management/libcomps
 Source0:        %{url}/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
-Patch1:         Python_ADDITIONAL_VERSIONS.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
