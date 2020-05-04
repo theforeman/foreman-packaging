@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.3
+Version: 1.8.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -25,12 +25,10 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
 Requires: %{?scl_prefix}rubygem(rails) >= 5.1
-Requires: %{?scl_prefix}rubygem(rails) < 6
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
 BuildRequires: %{?scl_prefix}rubygem(rails) >= 5.1
-BuildRequires: %{?scl_prefix}rubygem(rails) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -106,6 +104,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 04 2020 ATIX AG <info@atix.de> 1.8.4-1
+- looser gem dependency on rails
+- Update to 1.8.4
+
 * Wed Mar 25 2020 Markus Bucher <bucher@atix.de> 1.8.3-1
 - Update to 1.8.3
 - Fix test-connection in http-proxy-scenario
