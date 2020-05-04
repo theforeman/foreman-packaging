@@ -1,6 +1,9 @@
 # Always build Python3 bindings
 %bcond_without python3
 
+# Never build docs by default
+%bcond_with doc
+
 # Do not build python2 bindings for RHEL > 7 and Fedora > 29
 %if 0%{?rhel} > 7 || 0%{?fedora} > 29
 %bcond_with python2
@@ -37,6 +40,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %description devel
 Development files for libcomps library.
 
+%if %{with doc}
 %package doc
 Summary:        Documentation files for libcomps library
 Requires:       %{name} = %{version}-%{release}
@@ -63,6 +67,7 @@ BuildRequires:  python2-sphinx
 
 %description -n python-%{name}-doc
 Documentation files for python bindings libcomps library.
+%endif
 
 %if %{with python2}
 %package -n python2-%{name}
@@ -89,6 +94,8 @@ Python3 bindings for libcomps library.
 
 %prep
 %autosetup -p1 -n %{name}-%{name}-%{version}
+# workaround for https://github.com/rpm-software-management/libcomps/pull/64
+sed -i 's/EXACT//' libcomps/src/python/src/CMakeLists.txt
 
 %if %{with python2}
 mkdir build-py2
@@ -96,12 +103,14 @@ mkdir build-py2
 %if %{with python3}
 mkdir build-py3
 %endif
+%if %{with doc}
 mkdir build-doc
+%endif
 
 %build
 %if %{with python2}
 pushd build-py2
-  %cmake ../libcomps/ -DPYTHON_DESIRED:STRING=2
+  %cmake ../libcomps/ -DPYTHON_DESIRED:STRING=2 -DENABLE_DOCS=OFF -DENABLE_TESTS=OFF
   %make_build
 popd
 %endif
@@ -113,6 +122,7 @@ pushd build-py3
 popd
 %endif
 
+%if %{with doc}
 pushd build-doc
 %if %{with python2}
   %cmake ../libcomps/ -DPYTHON_DESIRED:STRING=2
@@ -124,6 +134,7 @@ pushd build-doc
   make %{?_smp_mflags} docs
   make %{?_smp_mflags} pydocs
 popd
+%endif
 
 %install
 %if %{with python2}
@@ -139,12 +150,7 @@ popd
 %endif
 
 %check
-%if %{with python2}
-pushd build-py2
-  make test
-  make pytest
-popd
-%endif
+# only run tests on python3 as they are broken on py2/EL7
 
 %if %{with python3}
 pushd build-py3
@@ -170,11 +176,13 @@ popd
 %{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/%{name}/
 
+%if %{with doc}
 %files doc
 %doc build-doc/docs/libcomps-doc/html
 
 %files -n python-%{name}-doc
 %doc build-doc/src/python/docs/html
+%endif
 
 %if %{with python2}
 %files -n python2-%{name}
