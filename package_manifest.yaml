@@ -1243,6 +1243,7 @@ pulpcore_packages:
         - el8-baseos
         - el8-appstream
   hosts:
+    createrepo_c: {}
     libcomps: {}
     libsolv: {}
     postgresql-debversion: {}
@@ -1260,7 +1261,6 @@ pulpcore_packages:
     python-click: {}
     python-coreapi: {}
     python-coreschema: {}
-    python-createrepo_c: {}
     python-cryptography: {}
     python-defusedxml: {}
     python-diff-match-patch: {}

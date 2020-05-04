@@ -1133,6 +1133,7 @@ whitelist = katello
 [katello-pulpcore-nightly-el7]
 disttag = .el7
 whitelist =
+  createrepo_c
   libcomps
   libsolv
   pulpcore-selinux
@@ -1148,7 +1149,6 @@ whitelist =
   python-click
   python-coreapi
   python-coreschema
-  python-createrepo_c
   python-cryptography
   python-defusedxml
   python-diff-match-patch
