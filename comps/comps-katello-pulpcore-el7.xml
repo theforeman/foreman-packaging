@@ -10,6 +10,8 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">libcomps</packagereq>
+      <packagereq type="default">libcomps-devel</packagereq>
       <packagereq type="default">libsolv</packagereq>
       <packagereq type="default">libsolv-demo</packagereq>
       <packagereq type="default">libsolv-devel</packagereq>
