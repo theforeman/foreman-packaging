@@ -1089,6 +1089,7 @@ whitelist = katello
   rubygem-pulp_ansible_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
+  rubygem-pulp_deb_client
   rubygem-pulp_file_client
   rubygem-pulp_rpm_client
   rubygem-redhat_access
@@ -1128,6 +1129,7 @@ whitelist = katello
   rubygem-pulp_ansible_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
+  rubygem-pulp_deb_client
   rubygem-pulp_file_client
   rubygem-pulp_rpm_client
   rubygem-redhat_access
