@@ -24,8 +24,8 @@
 
 
 Name:           katello-selinux
-Version:        3.1.1
-Release:        2%{?dotalphatag}%{?dist}
+Version:        3.1.2
+Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -41,6 +41,7 @@ BuildRequires:  /usr/bin/pod2man
 BuildArch:      noarch
 
 Requires:           foreman-selinux
+Requires:           candlepin-selinux >= 3.1.10
 Requires:           selinux-policy >= %{selinux_policy_ver}
 Requires(post):     /usr/sbin/semodule
 Requires(post):     /sbin/restorecon
@@ -127,6 +128,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Tue May 05 2020 Jonathon Turel <jturel@gmail.com> - 3.1.2-1
+- Require candlepin-selinux
+
 * Tue Apr 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.1.1-2
 - Update spec and build for EL8
 
