@@ -76,7 +76,6 @@
       <packagereq type="default">python3-rq</packagereq>
       <packagereq type="default">python3-ruamel-yaml</packagereq>
       <packagereq type="default">python3-ruamel-yaml-clib</packagereq>
-      <packagereq type="default">python3-scikit-build</packagereq>
       <packagereq type="default">python3-semantic-version</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
       <packagereq type="default">python3-six</packagereq>

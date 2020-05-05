@@ -1190,7 +1190,6 @@ whitelist =
   python-rq
   python-ruamel-yaml
   python-ruamel-yaml-clib
-  python-scikit-build
   python-semantic-version
   python-setuptools-scm
   python-six
