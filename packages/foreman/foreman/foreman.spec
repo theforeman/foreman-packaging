@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 19
+%global release 20
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -575,6 +575,13 @@ Requires: %{?scl_prefix}rubygem(pg) < 2.0
 # end specfile postgresql Requires
 Requires: %{name} = %{version}-%{release}
 
+# On EL8 and Fedora the locales are not present by default. Since the installer
+# installs with the en_US.UTF-8 locale, this is needed in most cases and
+# doesn't hurt in others.
+%if 0%{?fedora} || 0%{?rhel} >= 8
+Requires: glibc-langpack-en
+%endif
+
 %description postgresql
 Meta Package to install requirements for postgresql support
 
@@ -987,6 +994,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed May 06 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.20.develop
+- Require glibc-langpack-en in foreman-postgresql
+
 * Sun May 3 2020 Tomer Brisker <tbrisker@gmail.com> - 2.1.0-0.19.develop
 - Drop rackspace
 
