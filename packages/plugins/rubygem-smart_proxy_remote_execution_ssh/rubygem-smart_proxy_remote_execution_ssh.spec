@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
-Release: 4%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -135,6 +135,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 06 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.0-1
+- Update to 0.3.0
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-4
 - Build for SCL
 
