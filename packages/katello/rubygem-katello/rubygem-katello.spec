@@ -2,11 +2,12 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 1.24.0
+%global foreman_min_version 2.0.0
+%global foreman_max_version 2.1.0
 %global plugin_name katello
 %global gem_name katello
 %global mainver 3.15.0.1
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -20,8 +21,9 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: katello-selinux
 Requires: foreman-postgresql
-# start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
+Requires: foreman < %{foreman_max_version}
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
@@ -227,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon May 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.15.0.1-2
+- Add foreman max version requirement
+
 * Tue Apr 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.15.0.1-1
 - Release rubygem-katello 3.15.0.1
 
