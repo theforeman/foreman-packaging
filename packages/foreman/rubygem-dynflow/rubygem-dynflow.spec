@@ -6,8 +6,8 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.3
-Release: 2%{?foremandist}%{?dist}
+Version: 1.4.4
+Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 06 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.4-1
+- Update to 1.4.4
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.3-2
 - Bump to release for EL8
 
