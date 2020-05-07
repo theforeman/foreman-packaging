@@ -365,6 +365,7 @@
       <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
+      <packagereq type="default">nodejs-patternfly-react-tokens</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
