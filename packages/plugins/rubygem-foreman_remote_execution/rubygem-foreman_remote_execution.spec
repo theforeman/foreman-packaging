@@ -10,8 +10,8 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.1.0
-Release:    2%{?foremandist}%{?dist}
+Version:    3.2.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -25,14 +25,14 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.1
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
@@ -160,6 +160,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Thu May 07 2020 Adam Ruzicka <aruzicka@redhat.com> 3.2.0-1
+- Update to 3.2.0
+
 * Mon Apr 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.0-2
 - Exclude the debug folder for remote execution
 
