@@ -406,6 +406,8 @@ whitelist = foreman
   nodejs-extract-text-webpack-plugin
   nodejs-fbjs
   nodejs-file-loader
+  nodejs-fortawesome-fontawesome-common-types
+  nodejs-fortawesome-free-brands-svg-icons
   nodejs-gud
   nodejs-harmony-reflect
   nodejs-hoist-non-react-statics
