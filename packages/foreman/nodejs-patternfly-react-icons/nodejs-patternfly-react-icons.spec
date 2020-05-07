@@ -14,8 +14,8 @@ Source0: https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-%{vers
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(@fortawesome/free-brands-svg-icons) >= 5.8.1
-Requires: npm(@fortawesome/free-brands-svg-icons) < 6.0.0
+Requires: %{?scl_prefix}npm(@fortawesome/free-brands-svg-icons) >= 5.8.1
+Requires: %{?scl_prefix}npm(@fortawesome/free-brands-svg-icons) < 6.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
