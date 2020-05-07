@@ -3,7 +3,7 @@
 NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
-TITO_TAG=foreman-nightly-nonscl-rhel7
+TITO_TAG=foreman-nightly-rhel7
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
@@ -90,7 +90,7 @@ add_to_tito_props() {
 }
 
 add_npm_to_comps() {
-  local comps_scl="nonscl"
+  local comps_scl=""
   local comps_package="${PACKAGE_NAME}"
   local comps_file="foreman"
 
@@ -101,7 +101,7 @@ add_npm_to_comps() {
 
 add_npm_to_manifest() {
   local package="${PACKAGE_NAME}"
-  local section="foreman_nonscl_packages"
+  local section="foreman_nodejs_packages"
 
   ./add_host.py "$section" "$package"
   git add package_manifest.yaml
