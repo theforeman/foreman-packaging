@@ -25,6 +25,7 @@ whitelist = foreman-bootloaders-redhat
   katello-selinux
   keycloak-httpd-client-install
   nodejs-node-gyp
+  nodejs-patternfly-react-icons
   nodejs-patternfly-react-tokens
   pcp-mmvstatsd
   puppet-agent-oauth
