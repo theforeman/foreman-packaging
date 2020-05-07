@@ -689,10 +689,15 @@ whitelist = foreman
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
-whitelist = nodejs-babel-plugin-module-resolver
+whitelist = ansiblerole-foreman_scap_client
+  ansiblerole-insights-client
+  ansiblerole-satellite-receptor-installer  
+  foreman-discovery-image-service
+  nodejs-babel-plugin-module-resolver
   nodejs-htmlparser2
   nodejs-react-html-parser
   nodejs-react-json-tree
+  puppet-foreman_scap_client
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
@@ -805,6 +810,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-ruby-hmac
   rubygem-ruby-nmap
   rubygem-safe_yaml
+  rubygem-satyr
   rubygem-sentry-raven
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
