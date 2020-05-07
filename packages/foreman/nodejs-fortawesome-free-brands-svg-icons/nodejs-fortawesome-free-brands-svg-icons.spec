@@ -14,8 +14,8 @@ Source0: https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-br
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(@fortawesome/fontawesome-common-types) >= 0.2.28
-Requires: npm(@fortawesome/fontawesome-common-types) < 0.3.0
+Requires: %{?scl_prefix}npm(@fortawesome/fontawesome-common-types) >= 0.2.28
+Requires: %{?scl_prefix}npm(@fortawesome/fontawesome-common-types) < 0.3.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
