@@ -35,6 +35,7 @@
       <packagereq type="default">foreman-service</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+      <packagereq type="default">nodejs-fortawesome-fontawesome-common-types</packagereq>
       <packagereq type="default">nodejs-fortawesome-free-brands-svg-icons</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
