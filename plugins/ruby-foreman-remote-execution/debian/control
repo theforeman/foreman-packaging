@@ -3,7 +3,7 @@ Section: ruby
 Priority: extra
 Maintainer: Stephen Benjamin <stephen@redhat.com>
 Build-Depends: debhelper (>= 8.0.0), git | git-core, foreman-assets (>= 1.20.0~rc1), foreman (>= 1.25.0~rc1),
-  foreman-nulldb (>= 1.25.0~rc1), ruby-foreman-tasks (>= 0.15.1), ruby-foreman-deface
+  foreman-nulldb (>= 1.25.0~rc1), ruby-foreman-tasks (>= 0.15.1), ruby-foreman-deface, python-dev
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_remote_execution
 
