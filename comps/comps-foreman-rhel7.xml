@@ -35,8 +35,6 @@
       <packagereq type="default">foreman-service</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
-      <packagereq type="default">nodejs-fortawesome-fontawesome-common-types</packagereq>
-      <packagereq type="default">nodejs-fortawesome-free-brands-svg-icons</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
       <packagereq type="default">tfm-mod_passenger</packagereq>
@@ -73,6 +71,8 @@
       <packagereq type="default">tfm-nodejs-extract-text-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-fbjs</packagereq>
       <packagereq type="default">tfm-nodejs-file-loader</packagereq>
+      <packagereq type="default">tfm-nodejs-fortawesome-fontawesome-common-types</packagereq>
+      <packagereq type="default">tfm-nodejs-fortawesome-free-brands-svg-icons</packagereq>
       <packagereq type="default">tfm-nodejs-gud</packagereq>
       <packagereq type="default">tfm-nodejs-harmony-reflect</packagereq>
       <packagereq type="default">tfm-nodejs-hoist-non-react-statics</packagereq>
