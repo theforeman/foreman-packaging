@@ -2,7 +2,7 @@
 %global pypi_name pulp-rpm
 
 Name:           python-%{pypi_name}
-Version:        3.3.0
+Version:        3.3.1
 Release:        1%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
@@ -57,5 +57,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri May 08 2020 Evgeni Golov - 3.3.1-1
+- Release python-pulp-rpm 3.3.1
+
 * Thu Apr 30 2020 Evgeni Golov - 3.3.0-1
 - Initial package.
