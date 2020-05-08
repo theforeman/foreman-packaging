@@ -2,7 +2,7 @@
 %global pypi_name pulpcore
 
 Name:           python-%{pypi_name}
-Version:        3.3.0
+Version:        3.3.1
 Release:        1%{?dist}
 Summary:        Pulp Django Application and Related Modules
 
@@ -106,7 +106,8 @@ Requires:       python3-whitenoise < 5.1.0
 Requires:       python3-whitenoise >= 4.1.3
 
 %description -n python3-%{pypi_name}
-Pulp is a platform for managing repositories of content, such as software packages, and pushing that content out to large numbers of consumers.
+Pulp is a platform for managing repositories of content, such as software
+packages, and pushing that content out to large numbers of consumers.
 
 Using Pulp you can:
 - Locally mirror all or part of a repository
@@ -134,6 +135,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri May 08 2020 Evgeni Golov 3.3.1-1
+- Update to 3.3.1
+
 * Tue Apr 28 2020 Evgeni Golov 3.3.0-1
 - Update to 3.3.0
 
