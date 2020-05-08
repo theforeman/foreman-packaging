@@ -1238,10 +1238,14 @@ pulpcore_packages:
         - el7-base
         - el7-updates
         - el7-scl
+        - el7-epel
       el8:
         - el8-baseos
         - el8-appstream
   hosts:
+    createrepo_c: {}
+    libcomps: {}
+    libsolv: {}
     postgresql-debversion: {}
     postgresql-evr: {}
     pulpcore-selinux: {}
@@ -1289,8 +1293,10 @@ pulpcore_packages:
     python-odfpy: {}
     python-openpyxl: {}
     python-packaging: {}
+    python-productmd: {}
     python-psycopg2: {}
     python-pulp-certguard: {}
+    python-pulp-rpm: {}
     python-pulp_2to3_migration: {}
     python-pulp-container: {}
     python-pulp-file: {}

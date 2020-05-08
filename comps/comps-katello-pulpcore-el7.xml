@@ -10,7 +10,17 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">createrepo_c</packagereq>
+      <packagereq type="default">createrepo_c-devel</packagereq>
+      <packagereq type="default">createrepo_c-libs</packagereq>
+      <packagereq type="default">libcomps</packagereq>
+      <packagereq type="default">libcomps-devel</packagereq>
+      <packagereq type="default">libsolv</packagereq>
+      <packagereq type="default">libsolv-demo</packagereq>
+      <packagereq type="default">libsolv-devel</packagereq>
+      <packagereq type="default">libsolv-tools</packagereq>
       <packagereq type="default">pulpcore-selinux</packagereq>
+      <packagereq type="default">python2-solv</packagereq>
       <packagereq type="default">python3-aiodns</packagereq>
       <packagereq type="default">python3-aiofiles</packagereq>
       <packagereq type="default">python3-aiohttp</packagereq>
@@ -23,6 +33,7 @@
       <packagereq type="default">python3-click</packagereq>
       <packagereq type="default">python3-coreapi</packagereq>
       <packagereq type="default">python3-coreschema</packagereq>
+      <packagereq type="default">python3-createrepo_c</packagereq>
       <packagereq type="default">python3-cryptography</packagereq>
       <packagereq type="default">python3-defusedxml</packagereq>
       <packagereq type="default">python3-diff-match-patch</packagereq>
@@ -48,6 +59,7 @@
       <packagereq type="default">python3-jdcal</packagereq>
       <packagereq type="default">python3-jinja2</packagereq>
       <packagereq type="default">python3-jsonschema</packagereq>
+      <packagereq type="default">python3-libcomps</packagereq>
       <packagereq type="default">python3-markuppy</packagereq>
       <packagereq type="default">python3-markupsafe</packagereq>
       <packagereq type="default">python3-mongoengine</packagereq>
@@ -55,11 +67,13 @@
       <packagereq type="default">python3-odfpy</packagereq>
       <packagereq type="default">python3-openpyxl</packagereq>
       <packagereq type="default">python3-packaging</packagereq>
+      <packagereq type="default">python3-productmd</packagereq>
       <packagereq type="default">python3-psycopg2</packagereq>
       <packagereq type="default">python3-pulp-2to3-migration</packagereq>
       <packagereq type="default">python3-pulp-certguard</packagereq>
       <packagereq type="default">python3-pulp-container</packagereq>
       <packagereq type="default">python3-pulp-file</packagereq>
+      <packagereq type="default">python3-pulp-rpm</packagereq>
       <packagereq type="default">python3-pulpcore</packagereq>
       <packagereq type="default">python3-pycares</packagereq>
       <packagereq type="default">python3-pycparser</packagereq>
@@ -81,6 +95,7 @@
       <packagereq type="default">python3-semantic-version</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
       <packagereq type="default">python3-six</packagereq>
+      <packagereq type="default">python3-solv</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>
       <packagereq type="default">python3-tablib</packagereq>
       <packagereq type="default">python3-toml</packagereq>
@@ -95,6 +110,7 @@
       <packagereq type="default">python3-zipp</packagereq>
       <packagereq type="default">rh-postgresql12-postgresql-debversion</packagereq>
       <packagereq type="default">rh-postgresql12-postgresql-evr</packagereq>
+      <packagereq type="default">ruby-solv</packagereq>
     </packagelist>
   </group>
 </comps>

@@ -1139,6 +1139,9 @@ whitelist = katello
 [katello-pulpcore-nightly-el7]
 disttag = .el7
 whitelist =
+  createrepo_c
+  libcomps
+  libsolv
   pulpcore-selinux
   python-aiodns
   python-aiofiles
@@ -1184,12 +1187,14 @@ whitelist =
   python-odfpy
   python-openpyxl
   python-packaging
+  python-productmd
   python-psycopg2
   python-pulp_2to3_migration
   python-pulp-certguard
   python-pulp-container
   python-pulpcore
   python-pulp-file
+  python-pulp-rpm
   python-pycares
   python-pycparser
   python-pycryptodomex
