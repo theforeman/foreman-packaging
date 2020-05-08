@@ -706,6 +706,7 @@ whitelist = ansiblerole-foreman_scap_client
   nodejs-react-html-parser
   nodejs-react-json-tree
   puppet-foreman_scap_client
+  puppetlabs-stdlib
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
@@ -859,6 +860,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   nodejs-htmlparser2
   nodejs-react-html-parser
   nodejs-react-json-tree
+  puppetlabs-stdlib
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4

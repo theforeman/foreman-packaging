@@ -1078,6 +1078,7 @@ plugin_nonscl_packages:
     ansiblerole-satellite-receptor-installer: {}
     foreman-discovery-image-service: {}
     puppet-foreman_scap_client: {}
+    puppetlabs-stdlib: {}
     rubygem-newt: {}
     rubygem-satyr: {}
 
