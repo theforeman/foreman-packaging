@@ -111,6 +111,10 @@ BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-icons) >= 3.15.15
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-icons) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-tokens) >= 2.8.13
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-tokens) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(angular) = 1.7.9
 BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
 BuildRequires: %{?scl_prefix}npm(downshift) >= 1.28.0
@@ -155,6 +159,10 @@ Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 Requires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
+Requires: %{?scl_prefix}npm(@patternfly/react-icons) >= 3.15.15
+Requires: %{?scl_prefix}npm(@patternfly/react-icons) < 4.0.0
+Requires: %{?scl_prefix}npm(@patternfly/react-tokens) >= 2.8.13
+Requires: %{?scl_prefix}npm(@patternfly/react-tokens) < 3.0.0
 Requires: %{?scl_prefix}npm(angular) = 1.7.9
 Requires: %{?scl_prefix}npm(bootstrap-select) = 1.12.4
 Requires: %{?scl_prefix}npm(downshift) >= 1.28.0
