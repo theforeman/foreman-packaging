@@ -8,6 +8,9 @@ import semver
 
 # We need a blacklist of packages that are devDependencies but not needed to build
 NPM_BLACKLIST = [
+    '@sheerun/mutationobserver-shim',
+    '@testing-library/jest-dom',
+    '@testing-library/react',
     '@theforeman/env',
     '@theforeman/eslint-plugin-foreman',
     '@theforeman/stories',
@@ -21,6 +24,7 @@ NPM_BLACKLIST = [
     'cross-env',
     'highlight.js',
     'jest',
+    'nock',
     'prettier',
     'raw-loader',
     'react-addons-test-utils',
