@@ -920,6 +920,7 @@ plugin_scl_packages:
       el8:
         - el8-appstream
         - el8-baseos
+        - el8-configmanagement-ansible
         - el8-devel
         - el8-extras
         - el8-powertools
@@ -1133,8 +1134,8 @@ repoclosures:
         el8:
           - el8-baseos
           - el8-appstream
+          - el8-configmanagement-ansible
           - el8-devel
-          - el8-epel
           - el8-extras
           - el8-powertools
           - el8-puppet-6
