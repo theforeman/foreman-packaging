@@ -4,7 +4,7 @@
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
+%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_openscap
@@ -12,7 +12,7 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -23,7 +23,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.2
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -153,6 +153,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> - 0.7.2-4
+- Change localstatedir to sharedstatedir
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.7.2-3
 - Build for SCL
 
