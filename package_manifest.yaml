@@ -942,6 +942,7 @@ plugin_scl_packages:
     rubygem-azure_mgmt_network: {}
     rubygem-azure_mgmt_resources: {}
     rubygem-azure_mgmt_storage: {}
+    rubygem-azure_mgmt_subscriptions: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
     rubygem-commonjs: {}
