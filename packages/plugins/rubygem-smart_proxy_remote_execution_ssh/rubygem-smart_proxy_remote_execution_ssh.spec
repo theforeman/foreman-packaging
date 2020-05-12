@@ -3,7 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
+%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_remote_execution_ssh
@@ -11,7 +11,7 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
