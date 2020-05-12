@@ -714,6 +714,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-azure_mgmt_network
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
+  rubygem-azure_mgmt_subscriptions
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
@@ -868,6 +869,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-azure_mgmt_network
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
+  rubygem-azure_mgmt_subscriptions
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
