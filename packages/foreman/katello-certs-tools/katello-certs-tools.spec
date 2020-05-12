@@ -2,7 +2,7 @@ Name:      katello-certs-tools
 Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
-Version:   2.6.1
+Version:   2.7.0
 Release:   1%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
 Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
@@ -62,6 +62,9 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Tue May 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.7.0-1
+- Release katello-certs-tools 2.7.0
+
 * Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.6.1-1
 - Release katello-certs-tools 2.6.1
 
