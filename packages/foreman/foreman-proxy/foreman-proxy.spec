@@ -11,7 +11,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        2.1.0
+Version:        2.2.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.2.develop
+- Bump version to 2.2-develop
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.2.develop
 - Bump to release for EL8
 

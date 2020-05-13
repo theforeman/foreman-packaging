@@ -14,7 +14,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 2.1.0
+Version: 2.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -994,6 +994,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.20.develop
+- Bump version to 2.2-develop
+
 * Wed May 06 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.20.develop
 - Require glibc-langpack-en in foreman-postgresql
 
