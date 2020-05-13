@@ -1,3 +1,9 @@
+foreman-proxy (2.2.0-1) stable; urgency=low
+
+  * Bump changelog to 2.2.0 to match VERSION
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Wed, 13 May 2020 14:29:17 -0400
+
 foreman-proxy (2.1.0-1) stable; urgency=low
 
   * Bump changelog to 2.1.0 to match VERSION
