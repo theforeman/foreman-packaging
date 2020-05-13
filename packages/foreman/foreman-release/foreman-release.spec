@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.4.develop
+- Add 2.1 GPG key
+
 * Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.3.develop
 - Add module_hotfixes to repo files
 
