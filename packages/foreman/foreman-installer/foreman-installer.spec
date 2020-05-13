@@ -7,7 +7,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    2.1.0
+Version:    2.2.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -149,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.3.develop
+- Bump version to 2.2-develop
+
 * Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-0.3.develop
 - Build for EL8
 

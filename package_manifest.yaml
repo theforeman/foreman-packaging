@@ -1,7 +1,7 @@
 ---
 packages:
   vars:
-    foremandist: .fm2_1
+    foremandist: .fm2_2
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
   children:
     foreman_packages: {}
