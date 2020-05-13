@@ -15,7 +15,7 @@ tag_suffix = .fm2_1
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-2.1-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-release
@@ -39,7 +39,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-multi_json
   rubygem-powerbar
 
-[foreman-nightly-rhel7]
+[foreman-2.1-rhel7]
 disttag = .el7
 whitelist = foreman
   foreman-installer
@@ -361,7 +361,7 @@ whitelist = foreman
   tfm
 scl = tfm
 
-[foreman-nightly-el8]
+[foreman-2.1-el8]
 disttag = .el8
 whitelist = foreman
   foreman-bootloaders-redhat
@@ -695,11 +695,11 @@ whitelist = foreman
   rubygem-xmlrpc
   rubygem-zeitwerk
 
-[foreman-plugins-nightly-el8]
+[foreman-plugins-2.1-el8]
 disttag = .el8
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
-  ansiblerole-satellite-receptor-installer  
+  ansiblerole-satellite-receptor-installer
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
   nodejs-htmlparser2
@@ -853,7 +853,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-2.1-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = nodejs-babel-plugin-module-resolver
@@ -1006,7 +1006,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-2.1-nonscl-rhel7]
 disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
@@ -1017,7 +1017,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-newt
   rubygem-satyr
 
-[foreman-client-nightly-el8]
+[foreman-client-2.1-el8]
 disttag = .el8
 whitelist =
   ansible-collection-theforeman-foreman
@@ -1027,9 +1027,9 @@ whitelist =
   rubygem-foreman_scap_client
   tracer
 
-[foreman-client-nightly-rhel7]
+[foreman-client-2.1-rhel7]
 disttag = .el7
-# don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
+# don't whitelist foreman-release here, it's already in foreman-2.1-nonscl-rhel7
 whitelist =
   ansible-collection-theforeman-foreman
   katello-host-tools
@@ -1037,28 +1037,18 @@ whitelist =
   rubygem-foreman_scap_client
   tracer
 
-[foreman-client-nightly-rhel6]
+[foreman-client-2.1-rhel6]
 disttag = .el6
 whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel5]
+[foreman-client-2.1-rhel5]
 disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-nightly-fedora29]
-disttag = .fc29
-whitelist =
-  ansible-collection-theforeman-foreman
-  foreman-release
-  katello-host-tools
-  python-apypie
-  rubygem-foreman_scap_client
-  tracer
-
-[katello-nightly-rhel7]
+[katello-3.16-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -1100,7 +1090,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-nightly-el8]
+[katello-3.16-el8]
 disttag = .el8
 whitelist = katello
   katello-client-bootstrap
@@ -1140,7 +1130,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-pulpcore-nightly-el7]
+[katello-pulpcore-3.16-el7]
 disttag = .el7
 whitelist =
   createrepo_c
@@ -1236,5 +1226,5 @@ whitelist =
   rh-postgresql12-postgresql-debversion
   rh-postgresql12-postgresql-evr
 
-[katello-pulpcore-nightly-el8]
+[katello-pulpcore-3.16-el8]
 disttag = .el8
