@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 1
 
 Name:       katello
-Version:    3.16.0
+Version:    4.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -176,6 +176,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.master
+- Update to 4.0
+
 * Mon Apr 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.3.master
 - Only require mongo and pulp on EL7
 
