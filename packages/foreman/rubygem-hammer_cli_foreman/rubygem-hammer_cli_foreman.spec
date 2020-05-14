@@ -4,7 +4,7 @@
 %global gem_name hammer_cli_foreman
 %global confdir hammer
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -12,7 +12,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -103,6 +103,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 14 2020 Shira Maximov <shiramaximov@gmail.com> - 2.2.0-0.1.pre.develop
+- Bumped to 2.2.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.2.pre.develop
 - Bump to release for EL8
 
