@@ -1,3 +1,9 @@
+ruby-hammer-cli (2.1.0-1) stable; urgency=low
+
+  * 2.1.0 released
+
+ -- Shira Maximov <shiramaximov@gmail.com>  Thu, 14 May 2020 15:08:44 +0300
+
 ruby-hammer-cli (2.0.0-1) stable; urgency=low
 
   * 2.0.0 released
