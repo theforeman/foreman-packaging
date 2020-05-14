@@ -5,8 +5,6 @@
 %global confdir hammer
 
 %global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
@@ -103,6 +101,9 @@ install -m 644 .%{gem_instdir}/config/foreman.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 14 2020 Shira Maximov <shiramaximov@gmail.com> - 2.1.0-2
+- release 2.1.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.2.pre.develop
 - Bump to release for EL8
 
