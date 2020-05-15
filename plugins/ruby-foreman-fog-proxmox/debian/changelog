@@ -1,3 +1,9 @@
+ruby-foreman-fog-proxmox (0.11.1-1) stable; urgency=low
+
+  * 0.11.1 released
+
+ -- Tristan Robert <tristan.robert.44@gmail.com>  Fri, 15 May 2020 18:10:45 +0200
+
 ruby-foreman-fog-proxmox (0.11.0-1) stable; urgency=low
 
   * 0.11.0 released
