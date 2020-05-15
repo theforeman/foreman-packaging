@@ -7,7 +7,7 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.8
+Version: 2.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
@@ -29,6 +29,8 @@ Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.17.10
 Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.18
 Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.18.7
 Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.19
+Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.1
+Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_resources) >= 0.17.6
@@ -39,6 +41,8 @@ BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.17.10
 BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.18
 BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.18.7
 BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.19
+BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.1
+BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -112,6 +116,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri May 15 2020 Aditi Puntambekar <apuntamb@redhat.com> 2.1.0-1
+- Update to 2.1.0
+
 * Wed Feb 26 2020 Aditi Puntambekar <apuntamb@redhat.com> 2.0.8-1
 - Update to 2.0.8
 
