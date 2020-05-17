@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
 Group: Development/Languages
 License: MIT
@@ -55,6 +55,9 @@ gem unpack %{SOURCE0}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
+# The first line is a shebang that isn't needed but creates a dependency
+sed -i 1d bin/r2r_show
+
 %build
 # Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
@@ -95,6 +98,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Sun May 17 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.4.2-3
+- Drop shebang to avoid a dependency on /usr/bin/ruby
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.2-2
 - Bump to release for EL8
 
