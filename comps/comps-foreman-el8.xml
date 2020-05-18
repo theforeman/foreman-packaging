@@ -168,6 +168,7 @@
       <packagereq type="default">rubygem-activeview</packagereq>
       <packagereq type="default">rubygem-addressable</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
+      <packagereq type="default">rubygem-amazing_print</packagereq>
       <packagereq type="default">rubygem-ancestry</packagereq>
       <packagereq type="default">rubygem-ansi</packagereq>
       <packagereq type="default">rubygem-apipie-bindings</packagereq>
@@ -384,6 +385,7 @@
       <packagereq type="default">rubygem-activesupport-doc</packagereq>
       <packagereq type="default">rubygem-addressable-doc</packagereq>
       <packagereq type="default">rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">rubygem-amazing_print-doc</packagereq>
       <packagereq type="default">rubygem-ancestry-doc</packagereq>
       <packagereq type="default">rubygem-ansi-doc</packagereq>
       <packagereq type="default">rubygem-apipie-bindings-doc</packagereq>
