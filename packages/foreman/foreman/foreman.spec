@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 20
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -994,6 +994,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon May 18 2020 Evgeni Golov - 2.1.0-0.20.rc1
+- Release foreman 2.1.0
+
 * Wed May 06 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.20.develop
 - Require glibc-langpack-en in foreman-postgresql
 
