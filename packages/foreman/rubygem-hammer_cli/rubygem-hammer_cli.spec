@@ -4,7 +4,7 @@
 %global gem_name hammer_cli
 %global confdir hammer
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -27,7 +27,7 @@ Requires: %{?scl_prefix}rubygem(clamp) >= 1.0
 Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
 Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(unicode-display_width)
-Requires: %{?scl_prefix}rubygem(awesome_print)
+Requires: %{?scl_prefix}rubygem(amazing_print)
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
@@ -129,6 +129,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 18 2020 Michael Moll <mmoll@mmoll.at> - 2.2.0-0.2.pre.develop
+- Change awesome_print dependency to amazing_print
+
 * Thu May 14 2020 Shira Maximov <shiramaximov@gmail.com> - 2.2.0-0.1.pre.develop
 - Bumped to 2.2.0
 
