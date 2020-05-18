@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -216,6 +216,9 @@ fi
 
 
 %changelog
+* Mon May 18 2020 Evgeni Golov - 2.1.0-0.2.rc1
+- Release foreman-proxy 2.1.0
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-0.2.develop
 - Bump to release for EL8
 
