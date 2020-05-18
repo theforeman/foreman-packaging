@@ -128,6 +128,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %exclude %{gem_instdir}/.yo-rc.json
 %exclude %{gem_instdir}/%{gem_name}.gemspec
 %exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/gemfile.d/foreman-tasks.rb
 %exclude %{gem_instdir}/babel.config.js
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
