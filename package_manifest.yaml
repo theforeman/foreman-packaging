@@ -85,6 +85,7 @@ foreman_scl_packages:
     rubygem-activesupport: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
+    rubygem-amazing_print: {}
     rubygem-ancestry: {}
     rubygem-apipie-bindings: {}
     rubygem-apipie-dsl: {}
