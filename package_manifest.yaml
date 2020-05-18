@@ -686,8 +686,6 @@ foreman_client_packages:
         dist: '.el6'
       - name: foreman-client-2.1-rhel5
         dist: '.el5'
-      - name: foreman-client-2.1-fedora29
-        dist: '.fc29'
     repoclosure_target_repos:
       el8:
         - el8-foreman-client-2.1
@@ -697,8 +695,6 @@ foreman_client_packages:
         - el6-foreman-client-2.1
       rhel5:
         - el5-foreman-client-2.1
-      fedora29:
-        - f29-foreman-client-2.1
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -727,10 +723,6 @@ foreman_client_packages:
         - el5-puppet-6
         - el5-subscription-manager
         - el5-pulp
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     ansible-collection-theforeman-foreman: {}
     katello-host-tools: {}
@@ -1176,16 +1168,6 @@ repoclosures:
           - el5-puppet-6
           - el5-subscription-manager
           - el5-pulp
-    foreman-client-repoclosure-f29:
-      repoclosure_target_repos:
-        fedora29:
-          - f29-foreman-client-2.1
-      repoclosure_target_dist: fedora29
-      repoclosure_lookaside_repos:
-        fedora29:
-          - f29-base
-          - f29-updates
-          - f29-puppet-6
 
 pulpcore_packages:
   vars:
@@ -1320,8 +1302,6 @@ foreman_release_packages:
         dist: '.el6'
       - name: foreman-client-2.1-rhel5
         dist: '.el5'
-      - name: foreman-client-2.1-fedora29
-        dist: '.fc29'
     releasers:
       - koji-foreman
       - koji-foreman-client
@@ -1335,8 +1315,6 @@ foreman_release_packages:
         - el6-foreman-client-2.1
       rhel5:
         - el5-foreman-client-2.1
-      fedora29:
-        - f29-foreman-client-2.1
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -1365,9 +1343,5 @@ foreman_release_packages:
         - el5-puppet-6
         - el5-subscription-manager
         - el5-pulp
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     foreman-release: {}
