@@ -1,3 +1,9 @@
+foreman (2.1.0~rc1-1) stable; urgency=low
+
+  * 2.1.0-rc1 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 18 May 2020 16:31:12 +0200
+
 foreman (2.1.0-1) stable; urgency=low
 
   * Bump changelog to 2.1.0 to match VERSION
