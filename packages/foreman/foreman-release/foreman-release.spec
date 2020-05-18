@@ -14,7 +14,7 @@
 %endif
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Mon May 18 2020 Evgeni Golov - 2.1.0-0.4.rc1
+- Release foreman-release 2.1.0
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.4.develop
 - Add 2.1 GPG key
 
