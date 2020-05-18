@@ -162,6 +162,7 @@ whitelist = foreman
   rubygem-activesupport
   rubygem-addressable
   rubygem-algebrick
+  rubygem-amazing_print
   rubygem-ancestry
   rubygem-ansi
   rubygem-apipie-bindings
@@ -497,6 +498,7 @@ whitelist = foreman
   rubygem-activeview
   rubygem-addressable
   rubygem-algebrick
+  rubygem-amazing_print
   rubygem-ancestry
   rubygem-ansi
   rubygem-apipie-bindings
