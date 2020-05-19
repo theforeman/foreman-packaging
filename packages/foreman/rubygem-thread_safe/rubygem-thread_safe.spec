@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.6
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Thread-safe collections and utilities for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.3.6
 
 %description
 A collection of data structures and utilities to make thread-safe programming
@@ -89,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/thread_safe.gemspec
 
 %changelog
+* Tue May 19 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.3.6-5
+- Add missing obsoletes tfm-ror52 line
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.6-4
 - Bump packages to build for el8
 
