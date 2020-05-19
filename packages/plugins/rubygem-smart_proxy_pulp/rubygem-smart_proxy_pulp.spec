@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
-Release: 3%{?foremandist}%{?dist}
+Version: 2.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -113,6 +113,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue May 19 2020 Justin Sherrill <jsherril@redhat.com> 2.1.0-1
+- Update to 2.1.0
+
 * Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> - 2.0.0-3
 - Change localstatedir to sharedstatedir
 
