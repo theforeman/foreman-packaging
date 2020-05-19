@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 21
+%global release 22
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -703,9 +703,9 @@ plugins required for Foreman to work.
   done
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
-
-  sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 %endif
+# sidekiq service SELinux helper path update
+sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|%{_libexecdir}/%{name}/sidekiq-selinux \1|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 
 #build locale files
 make -C locale all-mo
@@ -752,6 +752,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
+install -d -m0755 %{buildroot}%{_libexecdir}/%{name}
 #Copy init scripts and sysconfigs
 install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
@@ -762,6 +763,16 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
+
+# SELinux libexec wrappers
+cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
+#!/bin/bash
+# Shell wrapper with SELinux transition into foreman_rails_t domain.
+%if 0%{?scl:1}
+source scl_source enable %{scl}
+%endif
+exec sidekiq "\$@"
+EOF
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
@@ -934,6 +945,7 @@ rm -rf %{buildroot}
 %{_sbindir}/%{name}-rake
 %{_sbindir}/%{name}-tail
 %{_mandir}/man8
+%attr(755,root,root) %{_libexecdir}/%{name}/*
 %config(noreplace) %{_sysconfdir}/%{name}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
@@ -998,6 +1010,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu May 21 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.22.develop
+- Added SELinux wrapper for sidekiq
+
 * Thu May 21 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.21.develop
 - Update Gem and NPM dependencies
 
