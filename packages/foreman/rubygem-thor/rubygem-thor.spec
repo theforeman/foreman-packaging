@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.20.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 Group: Development/Languages
 License: MIT
@@ -23,6 +23,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.20.0
 
 %description
 Thor is a toolkit for building powerful command-line interfaces.
@@ -88,6 +90,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/thor.gemspec
 
 %changelog
+* Wed May 27 2020 Evgeni Golov - 0.20.0-6
+- Add missing obsoletes tfm-ror52 line
+
 * Mon Jan 27 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.20.0-5
 - Update spec to include Obsoletes of rails-packaging version
 
