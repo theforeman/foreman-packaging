@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 6.0
-Release: 6%{?dist}
+Version: 6.1
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -53,6 +53,7 @@ Requires: %{scl_prefix_ruby}runtime
 Requires: %{_root_bindir}/scl_source
 Requires(post): policycoreutils-python
 Obsoletes: ruby193-ruby-wrapper
+Obsoletes: tfm-ror52-runtime
 
 # Obsolete packages no longer carried within this SCL to both clean up
 # and to ensure smooth upgrades when old packages deps aren't satisified
@@ -311,6 +312,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue May 19 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.1-1
+- Obsolete tfm-ror52-runtime
+
 * Sun May 3 2020 Tomer Brisker <tbrisker@gmail.com> - 6.0-6
 - obsolete fog-rackspace
 
