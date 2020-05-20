@@ -1,6 +1,6 @@
 Name: foreman-bootloaders-redhat
-Version: 201901011200
-Release: 2%{?dist}
+Version: 202005201200
+Release: 1%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
 Group: Applications/System
@@ -44,22 +44,24 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 %{_bindir}/foreman-generate-bootloaders
 
 %files tftpboot
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubaa64.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.0
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.elf
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.elf
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.elf
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubx64.efi
+# the following files are managed by foreman-installer (puppet)
+%ghost %attr(755, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2
 %ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shim.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimx64.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimx64-redhat.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64.efi
-%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64-redhat.efi
+%ghost %attr(644, root, root) %{_sharedstatedir}/tftpboot/grub2/grubx64.efi
+# the following files are not managed by foreman-installer
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubaa64.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.0
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubia32.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64.elf
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc64le.elf
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/grubppc.elf
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimx64.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimx64-redhat.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64.efi
+%ghost %attr(644, foreman-proxy, root) %{_sharedstatedir}/tftpboot/grub2/shimaa64-redhat.efi
 
 
 %post tftpboot
@@ -67,6 +69,9 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Fri Apr 17 2020 Lukas Zapletal <lzap+rpm@redhat.com> 202005201200-1
+- BZ#1702434 - unmanaged files and permissions
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 201901011200-2
 - Bump to release for EL8
 
