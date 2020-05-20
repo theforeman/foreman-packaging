@@ -8,7 +8,7 @@
 %global foreman_min_version 1.18
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.11
+Version: 2.2.14
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
@@ -125,6 +125,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{gem_instdir}/test
 
 %changelog
+* Wed May 20 2020 Evgeni Golov 2.2.14-1
+- Update to 2.2.14
+
 * Tue Feb 25 2020 Evgeni Golov 2.2.11-1
 - Update to 2.2.11-1
 
