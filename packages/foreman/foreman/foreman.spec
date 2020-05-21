@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 20
+%global release 21
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -58,14 +58,15 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(rails) >= 6.0.2.2
+Requires: %{?scl_prefix}rubygem(rails) < 6.0.3.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
 Requires: %{?scl_prefix}rubygem(audited) < 5
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
-Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+Requires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
@@ -74,15 +75,16 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
-Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
-Requires: %{?scl_prefix}rubygem(rabl) < 1.0
+Requires: %{?scl_prefix_ruby}rubygem(rdoc)
+Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
+Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 Requires: %{?scl_prefix}rubygem(oauth) < 1
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
@@ -125,7 +127,7 @@ Requires: %{?scl_prefix}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.4
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -162,14 +164,15 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.2.2
+BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.3.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
 BuildRequires: %{?scl_prefix}rubygem(audited) < 5
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
-BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
@@ -178,15 +181,16 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
-BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
-BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
+BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
+BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
+BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
@@ -229,7 +233,7 @@ BuildRequires: %{?scl_prefix}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.4
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -259,7 +263,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.7
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.3.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -294,7 +298,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.7
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.3.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -414,7 +418,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.2.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.3.1
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -455,7 +459,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.7
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.3.0
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -490,7 +494,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.0.7
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.3.0
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -555,8 +559,8 @@ Group:  Applications/System
 # start specfile console Requires
 Requires: %{?scl_prefix}rubygem(wirb) >= 1.0
 Requires: %{?scl_prefix}rubygem(wirb) < 3.0
-Requires: %{?scl_prefix}rubygem(awesome_print) >= 1.0
-Requires: %{?scl_prefix}rubygem(awesome_print) < 2.0
+Requires: %{?scl_prefix}rubygem(amazing_print) >= 1.1
+Requires: %{?scl_prefix}rubygem(amazing_print) < 2.0
 # end specfile console Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -994,6 +998,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu May 21 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.21.develop
+- Update Gem and NPM dependencies
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.20.develop
 - Bump version to 2.2-develop
 
