@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 4%{?foremandist}%{?dist}
+Version: 1.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 21 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.1.0-1
+- Update to 1.1.0
+
 * Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> - 1.0.0-4
 - Change localstatedir to sharedstatedir
 
