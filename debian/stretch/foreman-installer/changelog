@@ -1,3 +1,9 @@
+foreman-installer (1.24.3-1) stable; urgency=low
+
+  * 1.24.3 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 22 May 2020 07:52:23 +0200
+
 foreman-installer (1.24.2-1) stable; urgency=low
 
   * 1.24.2 released
