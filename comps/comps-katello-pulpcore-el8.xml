@@ -13,6 +13,8 @@
       <packagereq type="default">createrepo_c</packagereq>
       <packagereq type="default">createrepo_c-devel</packagereq>
       <packagereq type="default">createrepo_c-libs</packagereq>
+      <packagereq type="default">libcomps</packagereq>
+      <packagereq type="default">libcomps-devel</packagereq>
       <packagereq type="default">libsolv</packagereq>
       <packagereq type="default">libsolv-demo</packagereq>
       <packagereq type="default">libsolv-devel</packagereq>
