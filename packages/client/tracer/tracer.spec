@@ -11,14 +11,14 @@
 %endif
 
 %else
-%bcond_without python2
+%bcond_with python2
 %bcond_without python3
 %bcond_without suggest
 %endif
 
 Name:       tracer
-Version:    0.7.1
-Release:    2%{?dist}
+Version:    0.7.3
+Release:    1%{?dist}
 Summary:    Finds outdated running applications in your system
 
 BuildArch:  noarch
@@ -32,6 +32,7 @@ Source0:    %{name}-%{version}.tar.gz
 
 BuildRequires:  asciidoc
 BuildRequires:  gettext
+BuildRequires:  make
 
 %global _description \
 Tracer determines which applications use outdated files and prints them. For\
@@ -57,19 +58,29 @@ Provides:       %{name} = %{version}-%{release}
 Obsoletes:      %{name} <= 0.6.11
 %endif
 BuildRequires:  python2-devel
-BuildRequires:  python-sphinx
+BuildRequires:  python2-sphinx
 %if 0%{?rhel} && 0%{?rhel} <= 7
+BuildRequires:  python-beautifulsoup4
+BuildRequires:  rpm-python
+BuildRequires:  python-lxml
+BuildRequires:  python2-mock
 Requires:       rpm-python
 Requires:       python-beautifulsoup4
 Requires:       python-lxml
-Requires:       python-setuptools
 %else
+BuildRequires:  python2-beautifulsoup4
+BuildRequires:  python2-rpm
 Requires:       python2-rpm
 Requires:       python2-beautifulsoup4
 Requires:       python2-lxml
-Requires:       python2-setuptools
 %endif
+BuildRequires:  python2-nose
+BuildRequires:  python2-psutil
+BuildRequires:  python2-future
+BuildRequires:  dbus-python
+Requires:       dbus-python
 Requires:       python2-psutil
+Requires:       python2-setuptools
 Requires:       python2-future
 Requires:       %{name}-common = %{version}-%{release}
 %if %{with suggest}
@@ -88,9 +99,13 @@ Python 2 version.
 %package -n python3-%{name}
 Summary:        %{summary}
 BuildRequires:  python3-devel
-%if 0%{?rhel} != 8
 BuildRequires:  python3-sphinx
-%endif
+BuildRequires:  python3-nose
+BuildRequires:  python3-psutil
+BuildRequires:  python3-future
+BuildRequires:  python3-beautifulsoup4
+BuildRequires:  python3-dbus
+BuildRequires:  python3-rpm
 Requires:       python3-rpm
 Requires:       python3-beautifulsoup4
 Requires:       python3-psutil
@@ -131,8 +146,17 @@ sed -i -e '1s|^#!.*$|#!%{__python3}|' bin/%{name}.py
 %if %{with python3}
 %py3_build
 %endif
-%if 0%{?rhel} != 8
 make %{?_smp_mflags} man
+
+%check
+%if %{with python3}
+nosetests-3 .
+%else
+%if 0%{?rhel} && 0%{?rhel} <= 7
+nosetests .
+%else
+nosetests-2 .
+%endif
 %endif
 
 %install
@@ -154,9 +178,7 @@ cp -ar %{name}/* tests %{buildroot}%{python3_sitelib}/%{name}/
 %endif
 
 install -Dpm0755 bin/%{name}.py %{buildroot}%{_bindir}/%{name}
-%if 0%{?rhel} != 8
 install -Dpm0644 doc/build/man/%{name}.8 %{buildroot}%{_mandir}/man8/%{name}.8
-%endif
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 install -pm 644 scripts/tracer.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/tracer
@@ -181,14 +203,31 @@ make DESTDIR=%{buildroot}%{_datadir} mo
 %endif
 
 %{_bindir}/%{name}
-%if 0%{?rhel} != 8
 %{_mandir}/man8/%{name}.8*
-%endif
 
 
 %changelog
-* Thu Mar 14 2019 Patrick Creech <pcreech@redhat.com> - 0.7.1-2
-- Fix setuptools dependency
+* Fri May 22 2020 Jonathon Turel <jturel@gmail.com> 0.7.3-1
+- Stub dbus calls in tests (jturel@gmail.com)
+
+* Thu May 21 2020 Jonathon Turel <jturel@gmail.com> 0.7.2-3
+- Update tito releaser branches (frostyx@email.cz)
+- Not build for python2 package for Fedora anymore (frostyx@email.cz)
+
+* Thu May 21 2020 Jonathon Turel <jturel@gmail.com> 0.7.2-2
+- Fix build dependencies for EL7, EL8, F30 (jturel@gmail.com)
+
+* Thu May 21 2020 Jonathon Turel <jturel@gmail.com> 0.7.2-1
+- Use DNF on RHEL (jturel@gmail.com)
+- Use PackageManager to determine kernel version (jturel@gmail.com)
+- Use subprocess to check process path arguments (jturel@gmail.com)
+- Find the right lxml version for Python 3.4 (jturel@gmail.com)
+- Update Vagrantfile to use Fedora 30 (jturel@gmail.com)
+- Ignore debug kernels when checking if kernel has been updated
+  (jturel@gmail.com)
+- Add build dependency for nosetests (frostyx@email.cz)
+- Run tests within the %%check phase (frostyx@email.cz)
+- Update fedora branches (frostyx@email.cz)
 
 * Wed Jan 09 2019 Jakub Kadlčík <frostyx@email.cz> 0.7.1-1
 - Fix #116 - Support currrent versions of DNF (elyscape@gmail.com)
