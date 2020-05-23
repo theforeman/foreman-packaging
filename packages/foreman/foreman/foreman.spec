@@ -755,6 +755,7 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+rm -f bundler.d/nulldb.rb db/schema.rb.nulldb
 
 %build
 #build man pages
