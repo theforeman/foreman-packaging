@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.4
-Release: 4%{?foremandist}%{?dist}
+Version: 0.0.5
+Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 25 2020 Evgeni Golov 0.0.5-1
+- Update to 0.0.5
+
 * Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> 0.0.4-4
 - Change localstatedir to sharedstatedir
 
