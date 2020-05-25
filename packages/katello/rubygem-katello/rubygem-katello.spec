@@ -6,8 +6,8 @@
 %global foreman_max_version 2.1.0
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.15.0.1
-%global release 2
+%global mainver 3.15.1
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon May 25 2020 Evgeni Golov - 3.15.1-1
+- Release rubygem-katello 3.15.1
+
 * Mon May 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.15.0.1-2
 - Add foreman max version requirement
 
