@@ -1,3 +1,9 @@
+foreman (1.24.3-2) stable; urgency=low
+
+  * Fix ovirt workaround
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Mon, 25 May 2020 11:24:05 +0200
+
 foreman (1.24.3-1) stable; urgency=low
 
   * 1.24.3 released
