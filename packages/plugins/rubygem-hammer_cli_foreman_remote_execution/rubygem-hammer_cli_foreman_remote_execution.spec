@@ -8,7 +8,7 @@
 
 Summary: Foreman Remote Execution commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.1
+Version: 0.1.2
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -71,6 +71,9 @@ cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_s
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 0.1.2-1
+- Update to 0.1.2
+
 * Tue Feb 18 2020 Ondrej Prazak <oprazak@redhat.com> 0.1.1-1
 - Update to 0.1.1
 
