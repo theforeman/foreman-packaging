@@ -1,34 +1,40 @@
+# template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name hammer_cli_foreman_remote_execution
-%global confdir hammer
+%global plugin_name foreman_remote_execution
 
-Summary: Foreman Remote Execution commands for Hammer CLI
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global hammer_confdir %{_root_sysconfdir}/hammer
+
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.1
+Version: 0.1.2
 Release: 1%{?foremandist}%{?dist}
-Group: Applications/System
-License: GPLv3
+Summary: CLI for the Foreman remote execution plugin
+Group: Development/Languages
+License: GPLv3+
 URL: https://github.com/theforeman/hammer_cli_foreman_remote_execution
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.3
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.3
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) < 0.1.0
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) < 0.1
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-This Hammer CLI plugin contains set of commands for foreman_remote_execution
+CLI for the Foreman remote execution plugin.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -37,40 +43,66 @@ Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%{?scl:EOF}
+
+%build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
 %{?scl:EOF}
 
 %install
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
-cp -pa .%{gem_instdir}/config/foreman_remote_execution.yml %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_remote_execution.yml
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
+
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/test
-%{gem_instdir}/Rakefile
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.tx
+%license %{gem_instdir}/LICENSE
+%{gem_libdir}
 %{gem_instdir}/locale
-%{gem_instdir}/config
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman_remote_execution.yml
-%doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
+%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%doc %{gem_instdir}/config
+%{gem_instdir}/hammer_cli_foreman_remote_execution.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Tue May 26 2020 Evgeni Golov 0.1.2-1
+- Update to 0.1.2
+
 * Tue Feb 18 2020 Ondrej Prazak <oprazak@redhat.com> 0.1.1-1
 - Update to 0.1.1
 
