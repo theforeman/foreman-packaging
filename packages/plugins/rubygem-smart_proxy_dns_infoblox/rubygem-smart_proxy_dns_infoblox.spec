@@ -3,7 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_dns_infoblox
@@ -11,14 +11,14 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Infoblox DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 1.1.0-2
+- Move local state to /var/lib
+
 * Thu May 21 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.1.0-1
 - Update to 1.1.0
 
