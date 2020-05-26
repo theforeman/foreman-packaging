@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -21,7 +21,6 @@ License: GPLv2
 URL:     https://theforeman.org/plugins/katello
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
-Requires: katello-selinux
 Requires: foreman-postgresql
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -244,6 +243,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue May 26 2020 Evgeni Golov - 4.0.0-0.2.pre.master
+- Drop Requires on katello-selinux
+
 * Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.pre.master
 - Update to 4.0
 
