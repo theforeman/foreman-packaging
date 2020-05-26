@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
@@ -44,6 +44,9 @@ Requires:       python3-solv
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
+# remove "solv" dependency from setup.py as python3-solv does not provide an egg
+sed -i "/'solv'/d" setup.py
+
 %build
 %py3_build
 
@@ -57,6 +60,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue May 26 2020 Evgeni Golov - 3.3.1-2
+- remove "solv" dependency from setup.py as python3-solv does not provide an egg
+
 * Fri May 08 2020 Evgeni Golov - 3.3.1-1
 - Release python-pulp-rpm 3.3.1
 
