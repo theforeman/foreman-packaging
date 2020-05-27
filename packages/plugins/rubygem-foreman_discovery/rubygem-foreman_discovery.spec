@@ -6,8 +6,8 @@
 %global plugin_name discovery
 %global foreman_min_version 1.24.0
 
-%global mainver 16.0.1
-%global release 2
+%global mainver 16.1.0
+%global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
 %global gem_docdir %{gem_dir}/doc/%{gem_name}-%{mainver}%{?prever}
@@ -105,6 +105,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 27 2020 Lukas Zapletal <lzap+rpm@redhat.com> 16.1.0-1
+- Update to 16.1
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 16.0.1-2
 - Drop migrate, seed and restart posttans
 
