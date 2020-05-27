@@ -9,8 +9,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.3
-Release: 2%{?dist}
+Version: 0.6.4
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -106,6 +106,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 27 2020 kgaikwad <kavitagaikwad103@gmail.com> 1:0.6.4-1
+- Update to 0.6.4
+
 * Wed Apr 08 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:0.6.3-2
 - Build for EL8
 
