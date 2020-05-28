@@ -592,6 +592,7 @@ foreman_proxy_plugin_packages:
         - el8-extras
         - el8-foreman-2.1
         - el8-foreman-plugins-2.1
+        - el8-configmanagement-ansible
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
