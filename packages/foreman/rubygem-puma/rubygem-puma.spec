@@ -7,8 +7,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.3
-Release: 4%{?dist}
+Version: 4.3.5
+Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
@@ -120,6 +120,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/docs
 
 %changelog
+* Thu May 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.3.5-1
+- Update to 4.3.5
+
 * Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.3.3-4
 - Add check section to test native library
 
