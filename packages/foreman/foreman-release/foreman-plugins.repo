@@ -1,4 +1,4 @@
-[foreman-plugins]
+[foreman-plugins-nightly]
 name=Foreman plugins nightly
 baseurl=https://yum.theforeman.org/plugins/nightly/$DIST/$basearch
 enabled=1
@@ -6,7 +6,7 @@ gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 module_hotfixes=1
 
-[foreman-plugins-source]
+[foreman-plugins-nightly-source]
 name=Foreman plugins nightly - source
 baseurl=https://yum.theforeman.org/plugins/nightly/$DIST/source
 enabled=0

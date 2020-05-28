@@ -1,6 +1,6 @@
 # Place this file in your /etc/yum.repos.d/ directory
 
-[katello]
+[katello-@REPO_VERSION@]
 name=Katello @REPO_NAME@
 baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/katello/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -8,7 +8,7 @@ enabled=1
 gpgcheck=@REPO_GPGCHECK@
 module_hotfixes=1
 
-[pulp]
+[pulp-@PULP_VERSION@]
 name=Pulp Community Release
 baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releasever/$basearch
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
@@ -19,7 +19,7 @@ module_hotfixes=1
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
 
-[katello-candlepin]
+[katello-candlepin-@REPO_VERSION@]
 name=Candlepin: an open source entitlement management system.
 baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/candlepin/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -27,7 +27,7 @@ enabled=1
 gpgcheck=@REPO_GPGCHECK@
 module_hotfixes=1
 
-[katello-pulpcore]
+[katello-pulpcore-@REPO_VERSION@]
 name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
 baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulpcore/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
@@ -37,28 +37,28 @@ module_hotfixes=1
 
 # source repositories
 
-[katello-source]
+[katello-@REPO_VERSION@-source]
 name=Katello @REPO_NAME@ Source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/katello/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
-[pulp-source]
+[pulp-@PULP_VERSION@-source]
 name=Pulp Community Release Source
 baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releasever/src/
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
 enabled=0
 gpgcheck=@PULP_GPG_CHECK@
 
-[katello-candlepin-source]
+[katello-@REPO_VERSION@-candlepin-source]
 name=Katello Candlepin source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/candlepin/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
-[katello-pulpcore-source]
+[katello-@REPO_VERSION@-pulpcore-source]
 name=Katello pulpcore source
 baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/pulpcore/@DIST@/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
