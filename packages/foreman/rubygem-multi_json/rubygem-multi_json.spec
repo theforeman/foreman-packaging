@@ -5,7 +5,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.14.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/intridea/multi_json
@@ -31,7 +31,9 @@ BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
+%if 0%{?scl:1}
 Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.13.1
+%endif
 
 # OkJson is allowed to be bundled:
 # https://fedorahosted.org/fpc/ticket/113
@@ -82,6 +84,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Thu May 28 2020 Evgeni Golov 1.14.1-2
+- Only obsolete the ror52 SCL version in the tfm SCL build
+
 * Wed May 27 2020 Evgeni Golov 1.14.1-1
 - Update to 1.14.1
 
