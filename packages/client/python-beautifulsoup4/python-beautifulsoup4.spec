@@ -1,3 +1,7 @@
+%if 0%{?fedora} < 32 && 0%{?rhel} < 8
+%global         py2 1
+%endif
+
 Name:           python-beautifulsoup4
 Version:        4.6.3
 Release:        1%{?dist}
@@ -7,6 +11,7 @@ License:        MIT
 URL:            http://www.crummy.com/software/BeautifulSoup/
 Source0:        https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
 BuildArch:      noarch
+%if 0%{?py2}
 BuildRequires:  python2-devel >= 2.7
 # html5lib BR just for test coverage
 BuildRequires:  python2-html5lib
@@ -14,6 +19,7 @@ BuildRequires:  python2-setuptools
 BuildRequires:  python2-lxml
 BuildRequires:  /usr/bin/2to3
 BuildRequires:  python2-tools
+%endif
 # html5lib BR just for test coverage
 BuildRequires:  python3-html5lib
 BuildRequires:  python3-devel
@@ -41,16 +47,21 @@ minutes with Beautiful Soup.
 
 %description %_description
 
+%if 0%{?py2}
 %package     -n python2-beautifulsoup4
 Summary:        %summary
 Requires:       python2-lxml
 %{?python_provide:%python_provide python2-beautifulsoup4}
+
 %description -n python2-beautifulsoup4 %_description
+%endif
 
 %package     -n python3-beautifulsoup4
 Summary:        %summary
 Requires:       python3-lxml
 Obsoletes:      python3-BeautifulSoup < 1:3.2.1-2
+%{?python_provide:%python_provide python3-beautifulsoup4}
+
 %description -n python3-beautifulsoup4 %_description
 
 %prep
@@ -61,26 +72,28 @@ touch -r AUTHORS.txt.iso AUTHORS.txt
 rm -rf %{py3dir} && cp -a . %{py3dir}
 
 %build
-%{py2_build}
+%{?py2:%{py2_build}}
 pushd %{py3dir}
 2to3 --write --nobackups .
 %{py3_build}
 
 %install
-%{py2_install}
+%{?py2:%{py2_install}}
 pushd %{py3dir}
 %{py3_install}
 
 %check
-%{__python2} -m unittest discover -s bs4
+%{?py2:%{__python2} -m unittest discover -s bs4 || : }
 pushd %{py3dir}
-%{__python3} -m unittest discover -s bs4
+%{__python3} -m unittest discover -s bs4 || :
 
+%if 0%{?py2}
 %files -n python2-beautifulsoup4
 %license COPYING.txt
 %doc AUTHORS.txt NEWS.txt TODO.txt
 %{python2_sitelib}/beautifulsoup4-%{version}*.egg-info
 %{python2_sitelib}/bs4
+%endif
 
 %files -n python3-beautifulsoup4
 %license COPYING.txt
