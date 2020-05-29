@@ -872,6 +872,7 @@ katello_packages:
       build_package_tito_builder: "tito.builder.FetchBuilder"
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
+    rubygem-pulp_certguard_client: {}
     rubygem-pulp_container_client: {}
     rubygem-pulp_deb_client: {}
     rubygem-pulp_file_client: {}
