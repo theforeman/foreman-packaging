@@ -12,7 +12,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
+Version: 2.1.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -25,7 +25,7 @@ Requires: %{?scl_prefix}rubygem(clamp) >= 1.0
 Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
 Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(unicode-display_width)
-Requires: %{?scl_prefix}rubygem(awesome_print)
+Requires: %{?scl_prefix}rubygem(amazing_print)
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
@@ -127,6 +127,9 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 29 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.1.1-1
+- Update to 2.1.1
+
 * Thu May 14 2020 Shira Maximov <shiramaximov@gmail.com> - 2.1.0-1
 release 2.1.0
 
