@@ -5,8 +5,8 @@
 %global gem_name apipie-dsl
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.2
-Release: 2%{?dist}
+Version: 2.2.5
+Release: 1%{?dist}
 Summary: Ruby DSL documentation tool
 Group: Development/Languages
 License: MIT
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 29 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.2.5-1
+- Update to 2.2.5
+
 * Tue Apr 28 2020 Tomer Brisker <tbrisker@gmail.com> - 2.2.2-2
 - rebuild for el8
 
