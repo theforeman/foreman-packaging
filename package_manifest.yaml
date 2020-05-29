@@ -779,6 +779,7 @@ foreman_client_packages:
     ansible-collection-theforeman-foreman: {}
     katello-host-tools: {}
     python-apypie: {}
+    python-beautifulsoup4: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
 
