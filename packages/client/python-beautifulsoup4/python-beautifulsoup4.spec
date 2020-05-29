@@ -13,18 +13,12 @@ Source0:        https://files.pythonhosted.org/packages/source/b/beautifulsoup4/
 BuildArch:      noarch
 %if 0%{?py2}
 BuildRequires:  python2-devel >= 2.7
-# html5lib BR just for test coverage
-BuildRequires:  python2-html5lib
 BuildRequires:  python2-setuptools
-BuildRequires:  python2-lxml
 BuildRequires:  /usr/bin/2to3
 BuildRequires:  python2-tools
 %endif
-# html5lib BR just for test coverage
-BuildRequires:  python3-html5lib
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-lxml
 
 %global _description\
 Beautiful Soup is a Python HTML/XML parser designed for quick\
@@ -50,7 +44,7 @@ minutes with Beautiful Soup.
 %if 0%{?py2}
 %package     -n python2-beautifulsoup4
 Summary:        %summary
-Requires:       python2-lxml
+Requires:       python-lxml
 %{?python_provide:%python_provide python2-beautifulsoup4}
 
 %description -n python2-beautifulsoup4 %_description
@@ -81,11 +75,6 @@ pushd %{py3dir}
 %{?py2:%{py2_install}}
 pushd %{py3dir}
 %{py3_install}
-
-%check
-%{?py2:%{__python2} -m unittest discover -s bs4 || : }
-pushd %{py3dir}
-%{__python3} -m unittest discover -s bs4 || :
 
 %if 0%{?py2}
 %files -n python2-beautifulsoup4
