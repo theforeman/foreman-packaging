@@ -1081,6 +1081,7 @@ whitelist = katello
   rubygem-katello
   rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
+  rubygem-pulp_certguard_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
@@ -1121,6 +1122,7 @@ whitelist = katello
   rubygem-katello
   rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
+  rubygem-pulp_certguard_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
