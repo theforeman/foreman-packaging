@@ -1,0 +1,17 @@
+Source: ruby-apipie-params
+Section: ruby
+Priority: optional
+Maintainer: Stephen Benjamin <stephen@redhat.com>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.4
+#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-apipie-params.git
+#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-apipie-params.git;a=summary
+Homepage: http://github.com/iNecas/apipie-params
+XS-Ruby-Versions: all
+
+Package: ruby-apipie-params
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, rake
+Description: DSL for describing data structures
+ Allows defining structure of data and perform validation against it using json-schema

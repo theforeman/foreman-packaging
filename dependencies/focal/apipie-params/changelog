@@ -1,0 +1,5 @@
+ruby-apipie-params (0.0.5-1) stable; urgency=low
+
+  * Initial release for Ubuntu/bionic
+
+ -- Michael Moll <mmoll@mmoll.at>  Sat, 30 Jun 2018 13:31:29 +0200
