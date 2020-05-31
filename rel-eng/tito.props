@@ -736,6 +736,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-foreman_chef
   rubygem-foreman_column_view
   rubygem-foreman_concrete
+  rubygem-foreman_datacenter
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
   rubygem-foreman_digitalocean
@@ -893,6 +894,7 @@ whitelist = foreman-discovery-image-service
   rubygem-foreman_chef
   rubygem-foreman_column_view
   rubygem-foreman_concrete
+  rubygem-foreman_datacenter
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
   rubygem-foreman_digitalocean
