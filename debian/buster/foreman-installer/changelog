@@ -1,3 +1,9 @@
+foreman-installer (2.1.0~rc2-1) stable; urgency=low
+
+  * 2.1.0-rc2 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Tue, 02 Jun 2020 08:14:39 -0400
+
 foreman-installer (2.1.0~rc1-1) stable; urgency=low
 
   * 2.1.0-rc1 released
