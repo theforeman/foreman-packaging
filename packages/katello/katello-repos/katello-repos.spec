@@ -5,7 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.4.rc2
+- Release katello-repos 3.16.0
+
 * Wed May 20 2020 Evgeni Golov - 3.16.0-0.4.rc1
 - Release katello-repos 3.16.0
 
