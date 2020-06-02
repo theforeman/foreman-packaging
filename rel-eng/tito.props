@@ -1021,9 +1021,9 @@ whitelist = ansiblerole-foreman_scap_client
 
 [foreman-client-2.1-el8]
 disttag = .el8
+# don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
   ansible-collection-theforeman-foreman
-  foreman-release
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
