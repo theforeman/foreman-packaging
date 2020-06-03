@@ -1,4 +1,3 @@
-# Generated from hammer_cli_katello-0.19.0.gem by gem2rpm -*- rpm-spec -*-
 # template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -6,7 +5,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 3
+%global release 4
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -76,7 +75,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
@@ -89,7 +88,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
-%config(noreplace) %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
+%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
@@ -97,6 +96,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jun 03 2020 Evgeni Golov - 0.22-0.4.pre.master
+- Regenerate spec file based on recent template
+
 * Mon Feb 24 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.22-0.3.pre.master
 - Update version to 0.22
 
