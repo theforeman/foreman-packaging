@@ -1,58 +1,54 @@
+# template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name hammer_cli_foreman
-%global confdir hammer
+%global plugin_name foreman
 
-%global release 1
+%global release 2
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global hammer_confdir %{_root_sysconfdir}/hammer
 
-Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
+Summary: Foreman commands for Hammer
 Group: Development/Languages
-License: GPLv3
+License: GPLv3+
 URL: https://github.com/theforeman/hammer-cli-foreman
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 0.18.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.1.0
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
-
+Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name} < 0.3.0-2
-%endif
+# end specfile generated dependencies
 
 %description
-Hammer cli provides universal extendable CLI interface for ruby apps
+Foreman commands for Hammer CLI.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name}-doc < 0.3.0-2
-%endif
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
@@ -79,30 +75,33 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 644 .%{gem_instdir}/config/foreman.yml \
-               %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
-%{gem_instdir}/locale
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 %license %{gem_instdir}/LICENSE
+%{gem_libdir}
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
+%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/config
 %doc %{gem_instdir}/doc
-%{gem_instdir}/config
 %{gem_instdir}/test
 
 %changelog
+* Wed Jun 03 2020 Evgeni Golov - 2.2.0-0.2.pre.develop
+- Regenerate spec file based on recent template
+
 * Thu May 14 2020 Shira Maximov <shiramaximov@gmail.com> - 2.2.0-0.1.pre.develop
 - Bumped to 2.2.0
 
