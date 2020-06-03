@@ -1,64 +1,60 @@
+# template: hammer_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name hammer_cli
-%global confdir hammer
 
-%global release 2
+%global release 3
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global hammer_confdir %{_root_sysconfdir}/hammer
 
-Summary: Universal command-line interface for Foreman
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
+Summary: Universal command-line interface
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(clamp) >= 1.0
+Requires: %{?scl_prefix}rubygem(clamp) >= 1.1
 Requires: %{?scl_prefix}rubygem(clamp) < 1.2.0
 Requires: %{?scl_prefix}rubygem(logging)
 Requires: %{?scl_prefix}rubygem(unicode-display_width)
+Requires: %{?scl_prefix}rubygem(unicode)
 Requires: %{?scl_prefix}rubygem(amazing_print)
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
 Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
-Requires: %{?scl_prefix}rubygem(unicode)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name} < 0.3.0-2
-%endif
+# end specfile generated dependencies
 
 %description
-Hammer cli provides universal extendable CLI interface for ruby apps
+Hammer cli provides universal extendable CLI interface for ruby apps.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
-%if 0%{?scl:1}
-Obsoletes: rubygem-%{gem_name}-doc < 0.3.0-2
-%endif
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
@@ -85,14 +81,13 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 sed -i '1s@/.*@/usr/bin/%{?scl_prefix}ruby@' .%{_bindir}/*
 mkdir -p %{buildroot}%{_root_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_root_bindir}/
-
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 mkdir -p %{buildroot}%{_root_sysconfdir}/bash_completion.d
@@ -102,9 +97,9 @@ mkdir -p %{buildroot}%{_root_mandir}/man1
 mv %{buildroot}%{gem_instdir}/man/hammer.1.gz %{buildroot}%{_root_mandir}/man1/
 rm -f %{buildroot}%{gem_instdir}/man/*.asciidoc
 
-mkdir -p %{buildroot}%{_root_sysconfdir}/%{confdir}/cli.modules.d
-install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
-               %{buildroot}%{_root_sysconfdir}/%{confdir}/cli_config.yml
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
+                %{buildroot}%{hammer_confdir}/cli_config.yml
 
 %files
 %dir %{gem_instdir}
@@ -112,23 +107,26 @@ install -m 644 .%{gem_instdir}/config/cli_config.template.yml \
 %{_root_bindir}/hammer-complete
 %doc %{_root_mandir}/man1/hammer.1.gz
 %{_root_sysconfdir}/bash_completion.d/%{gem_name}
-%{_root_sysconfdir}/%{confdir}/cli.modules.d
-%config(noreplace) %{_root_sysconfdir}/%{confdir}/cli_config.yml
-%{gem_instdir}/bin
-%{gem_instdir}/lib
-%{gem_instdir}/locale
 %license %{gem_instdir}/LICENSE
+%{gem_instdir}/bin
+%{gem_libdir}
+%{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
+%{hammer_confdir}/cli.modules.d
+%config %{hammer_confdir}/cli_config.yml
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/config
+%doc %{gem_instdir}/config
+%doc %{gem_instdir}/doc
 %{gem_instdir}/test
 
 %changelog
+* Wed Jun 03 2020 Evgeni Golov - 2.2.0-0.3.pre.develop
+- Regenerate spec file based on recent template
+
 * Mon May 18 2020 Michael Moll <mmoll@mmoll.at> - 2.2.0-0.2.pre.develop
 - Change awesome_print dependency to amazing_print
 
