@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -48,6 +48,7 @@ Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 0.4.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
+Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.3.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.4.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.3.0
@@ -80,6 +81,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 0.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.3.0
@@ -243,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Jun 02 2020 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.3.pre.master
+- Add pulp_certguard_client
+
 * Tue May 26 2020 Evgeni Golov - 4.0.0-0.2.pre.master
 - Drop Requires on katello-selinux
 
