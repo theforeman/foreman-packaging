@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.3.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
@@ -22,8 +22,10 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 %if 0%{?rhel} == 7
 Requires:       python36-gobject
+Requires:       libmodulemd2
 %else
 Requires:       python3-gobject
+Requires:       libmodulemd
 %endif
 Requires:       python3-createrepo_c < 1.0
 Requires:       python3-createrepo_c >= 0.15.10
@@ -60,6 +62,9 @@ sed -i "/'solv'/d" setup.py
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Jun 03 2020 Evgeni Golov - 3.3.1-3
+- Add Requires on libmodulemd
+
 * Tue May 26 2020 Evgeni Golov - 3.3.1-2
 - remove "solv" dependency from setup.py as python3-solv does not provide an egg
 
