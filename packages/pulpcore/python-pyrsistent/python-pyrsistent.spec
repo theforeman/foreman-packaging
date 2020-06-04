@@ -2,8 +2,8 @@
 %global pypi_name pyrsistent
 
 Name:           python-%{pypi_name}
-Version:        0.15.7
-Release:        2%{?dist}
+Version:        0.16.0
+Release:        1%{?dist}
 Summary:        Persistent/Functional/Immutable data structures
 
 License:        MIT
@@ -12,6 +12,7 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-six
 
 %description
 %{summary}
@@ -44,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/pvectorc.cpython-3*m-x86_64-linux-gnu.so
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 0.16.0-1
+- Update to 0.16.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.15.7-2
 - Bump release to build for el8
 
