@@ -10,7 +10,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.8
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -21,6 +21,11 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
+%if 0%{?rhel} < 8
+BuildRequires: python2-devel
+%else
+BuildRequires: python3-devel
+%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -76,7 +81,13 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py 
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+
+%if 0%{?rhel} < 8
+%py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
+%else
+%py_byte_compile %{__python3} %{buildroot}%{yumplugindir}/foreman-protector.py
+%endif
 
 %files
 %dir %{gem_instdir}
@@ -90,7 +101,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %{gem_instdir}/extras
-%{yumplugindir}/foreman-protector.py
+%{yumplugindir}/foreman-protector.py*
 %config(noreplace) %{_sysconfdir}/%{directory_name}
 %config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
@@ -106,6 +117,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 03 2020 Bernhard Suttner <suttner@atix.de> 1:0.6.8-2
+- Package pre-compiled python files
+
 * Wed Jul 08 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.8-1
 - Update to 0.6.8
 
