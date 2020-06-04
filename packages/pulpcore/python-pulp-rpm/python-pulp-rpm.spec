@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.3.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
@@ -25,7 +25,7 @@ Requires:       python36-gobject
 Requires:       libmodulemd2
 %else
 Requires:       python3-gobject
-Requires:       libmodulemd
+Requires:       libmodulemd >= 2.0
 %endif
 Requires:       python3-createrepo_c < 1.0
 Requires:       python3-createrepo_c >= 0.15.10
@@ -62,6 +62,9 @@ sed -i "/'solv'/d" setup.py
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov - 3.3.1-5
+- Make libmodulemd dependency versioned
+
 * Thu Jun 04 2020 Evgeni Golov <evgeni@golov.de> - 3.3.1-4
 - Bump libcomps require to get a version with egg info
 
