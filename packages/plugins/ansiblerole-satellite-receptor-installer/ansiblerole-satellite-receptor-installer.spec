@@ -6,7 +6,7 @@
 
 Name: ansiblerole-satellite-receptor-installer
 Summary: Packaging of the satellite_receptor_installer Ansible role
-Version: 0.6.6
+Version: 0.6.8
 Release: 1%{?dist}
 License: GPLv3
 
@@ -39,6 +39,9 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %doc %{repo_name}-%{version}/README.md
 
 %changelog
+* Thu Jun 4 2020 Marek Hulan <mhulan@redhat.com> - 0.6.8-1
+- Version bump to 0.6.8
+
 * Thu May 7 2020 Adam Ruzicka <aruzicka@redhat.com> - 0.6.6-1
 - Version bump to 0.6.6
 
