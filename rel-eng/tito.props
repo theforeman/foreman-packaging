@@ -1192,6 +1192,7 @@ whitelist =
   python-idna-ssl
   python-importlib-metadata
   python-inflection
+  python-iniparse
   python-itypes
   python-jdcal
   python-jinja2
@@ -1246,6 +1247,10 @@ whitelist =
   python-zipp
   rh-postgresql12-postgresql-debversion
   rh-postgresql12-postgresql-evr
+  subscription-manager
 
 [katello-pulpcore-nightly-el8]
 disttag = .el8
+blacklist =
+  python-iniparse
+  subscription-manager
