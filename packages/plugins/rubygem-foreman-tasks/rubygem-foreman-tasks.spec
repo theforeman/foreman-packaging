@@ -7,10 +7,10 @@
 
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 2.0.0
+%global foreman_min_version 2.1.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
+Version: 2.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -162,6 +162,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %doc %{gem_instdir}/extra/dynflow-executor.example
 
 %changelog
+* Thu Jun 04 2020 Adam Ruzicka <aruzicka@redhat.com> 2.0.0-1
+- Update to 2.0.0
+
 * Tue Jun 02 2020 Adam Ruzicka <aruzicka@redhat.com> 1.2.0-1
 - Update to 1.2.0
 
