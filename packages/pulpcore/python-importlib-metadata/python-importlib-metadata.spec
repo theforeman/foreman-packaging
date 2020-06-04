@@ -2,8 +2,8 @@
 %global pypi_name importlib-metadata
 
 Name:           python-%{pypi_name}
-Version:        1.4.0
-Release:        2%{?dist}
+Version:        1.6.0
+Release:        1%{?dist}
 Summary:        Read metadata from Python packages
 
 License:        Apache Software License
@@ -14,6 +14,7 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools-scm
+BuildRequires:  python3-zipp >= 0.5
 
 %description
 %{summary}
@@ -44,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/importlib_metadata-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 1.6.0-1
+- Update to 1.6.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.0-2
 - Bump release to build for el8
 
