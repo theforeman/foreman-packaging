@@ -2,7 +2,7 @@
 %global pypi_name tablib
 
 Name:           python-%{pypi_name}
-Version:        1.1.0
+Version:        2.0.0
 Release:        1%{?dist}
 Summary:        Format agnostic tabular data library (XLS, JSON, YAML, CSV)
 
@@ -23,7 +23,7 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-markuppy
 Requires:       python3-odfpy
-Requires:       python3-openpyxl >= 2.4.0
+Requires:       python3-openpyxl >= 2.6.0
 Requires:       python3-pyyaml
 Requires:       python3-xlrd
 Requires:       python3-xlwt
@@ -49,5 +49,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 2.0.0-1
+- Update to 2.0.0
+
 * Tue Apr 28 2020 Evgeni Golov - 1.1.0-1
 - Initial package.
