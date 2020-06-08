@@ -20,21 +20,9 @@ Source0:        https://github.com/giampaolo/psutil/archive/release-%{version}.t
 
 BuildRequires:  gcc
 BuildRequires:  python%{python3_pkgversion}-devel
-# Test dependencies
-BuildRequires:  procps-ng
-BuildRequires:  python%{python3_pkgversion}-mock
 
-%if 0%{?fedora} < 32
-BuildRequires:  python2-mock
 BuildRequires:  python2-devel
-BuildRequires:  python2-ipaddress
-%else
-# This package has an exception to use Python 2 in Fedora 32+
-# The exception is for chromium (chrome-remote-desktop)
-# https://pagure.io/fesco/issue/2214
-BuildRequires:  python27
 BuildRequires:  python2-setuptools
-%endif
 
 %description
 psutil is a module providing an interface for retrieving information on all
