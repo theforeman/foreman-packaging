@@ -20,6 +20,8 @@
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">python-gofer-proton</packagereq>
       <packagereq type="default">python2-apypie</packagereq>
+      <packagereq type="default">python2-beautifulsoup4</packagereq>
+      <packagereq type="default">python2-psutil</packagereq>
       <packagereq type="default">python2-tracer</packagereq>
       <packagereq type="default">qpid-proton-c</packagereq>
       <packagereq type="default">rubygem-foreman_scap_client</packagereq>
