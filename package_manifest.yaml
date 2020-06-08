@@ -780,6 +780,7 @@ foreman_client_packages:
     katello-host-tools: {}
     python-apypie: {}
     python-beautifulsoup4: {}
+    python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
 
