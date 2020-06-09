@@ -21,6 +21,22 @@ foreman_packages:
     foreman_nodejs_packages: {}
     foreman_installer_packages: {}
 
+rails_core_packages:
+  hosts:
+    rubygem-actioncable: {}
+    rubygem-actionmailbox: {}
+    rubygem-actionmailer: {}
+    rubygem-actiontext: {}
+    rubygem-activejob: {}
+    rubygem-activemodel: {}
+    rubygem-activerecord: {}
+    rubygem-activestorage: {}
+    rubygem-actionpack: {}
+    rubygem-actionview: {}
+    rubygem-activesupport: {}
+    rubygem-rails: {}
+    rubygem-railties: {}
+
 foreman_scl_packages:
   vars:
     scl: 'tfm'
@@ -60,6 +76,8 @@ foreman_scl_packages:
         - el8-powertools
         - el8-puppet-6
         - el8-katello-candlepin-nightly
+  children:
+    rails_core_packages: {}
   hosts:
     foreman:
       releasers:
@@ -70,19 +88,8 @@ foreman_scl_packages:
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
     gyp: {}
-    rubygem-actioncable: {}
-    rubygem-actionmailbox: {}
-    rubygem-actionmailer: {}
-    rubygem-actiontext: {}
-    rubygem-activejob: {}
-    rubygem-activemodel: {}
-    rubygem-activerecord: {}
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
-    rubygem-activestorage: {}
-    rubygem-actionpack: {}
-    rubygem-actionview: {}
-    rubygem-activesupport: {}
     rubygem-addressable: {}
     rubygem-algebrick: {}
     rubygem-amazing_print: {}
@@ -238,8 +245,6 @@ foreman_scl_packages:
     rubygem-rack-test: {}
     rubygem-rails-dom-testing: {}
     rubygem-rails-html-sanitizer: {}
-    rubygem-rails: {}
-    rubygem-railties: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
     rubygem-rbovirt: {}
