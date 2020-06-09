@@ -23,6 +23,7 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
+BuildRequires: %{?scl_prefix}rubygem(pg)
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
