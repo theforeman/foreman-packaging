@@ -1,10 +1,22 @@
+%if 0%{?rhel} == 7 || (0%{?fedora} && 0%{?fedora} <= 29)
+%bcond_without python2
+%else
+%bcond_with python2
+%endif
+
+%if 0%{?rhel} >= 8 || 0%{?fedora} || 0%{?epel}
+%bcond_without python3
+%else
+%bcond_with python3
+%endif
+
 # template: smart_proxy_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
+%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_salt
@@ -12,7 +24,7 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -21,15 +33,20 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.1
-Release: 4%{?foremandist}%{?dist}
+Version: 3.1.2
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: salt-master
+%if %{with python2}
 Requires: python
+%endif
+%if %{with python3}
+Requires: python3
+%endif
 Requires: /etc/cron.d
 
 %if 0%{?rhel} == 7
@@ -45,10 +62,6 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix}rubygem(rack) >= 1.1
-Requires: %{?scl_prefix}rubygem(sinatra)
-Requires: %{?scl_prefix}rubygem(logging)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -80,6 +93,14 @@ gem unpack %{SOURCE0}
 %{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
+
+%if %{with python2}
+sed -i -e '1s|^#!.*$|#!%{__python2}|' sbin/upload-salt-reports
+%endif
+
+%if %{with python3}
+sed -i -e '1s|^#!.*$|#!%{__python3}|' sbin/upload-salt-reports
+%endif
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -163,6 +184,10 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 09 2020 Bernhard Suttner <suttner@atix.de> 3.1.2-1
+- Update to 3.1.2
+- Move local state to /var/lib (Co-Authored-By: Adam Ruzicka <aruzicka@redhat.com>)
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.1.1-4
 - Update spec to remove the ror scl
 
