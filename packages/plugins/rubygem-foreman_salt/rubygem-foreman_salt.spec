@@ -4,11 +4,11 @@
 
 %global gem_name foreman_salt
 %global plugin_name salt
-%global foreman_min_version 1.21.0
+%global foreman_min_version 1.24.0
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    13.2.3
+Version:    13.2.4
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -103,14 +103,11 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
-%posttrans
-%{foreman_db_migrate}
-%{foreman_db_seed}
-%{foreman_apipie_cache}
-%{foreman_restart}
-exit 0
-
 %changelog
+* Tue Jun 09 2020 Bernhard Suttner <suttner@atix.de> 13.2.4-1
+- Update to 13.2.4
+- Drop migrate, seed and restart posttans
+
 * Thu Jan 23 2020 Bernhard Suttner <suttner@atix.de> 13.2.3-1
 - Update to 13.2.3
 
