@@ -2,7 +2,7 @@ Name:      katello-certs-tools
 Summary:   Katello SSL Key/Cert Tool
 Group:     Applications/Internet
 License:   GPLv2
-Version:   2.7.0
+Version:   2.7.1
 Release:   1%{?dist}
 URL:       https://github.com/katello/katello-certs-tools
 Source0:   https://codeload.github.com/Katello/%{name}/tar.gz/%{version}#/%{name}-%{version}.tar.gz
@@ -14,8 +14,10 @@ Requires: rpm-build
 BuildRequires: docbook-utils
 %if 0%{?rhel} == 7
 BuildRequires: python-devel >= 2.6
+BuildRequires: python-setuptools
 %else
 BuildRequires: python3-devel
+BuildRequires: python3-setuptools
 %endif
 
 %description
@@ -54,7 +56,6 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %dir %{_sysconfdir}/pki/%{name}
 %dir %{_sysconfdir}/pki/%{name}/certs
 %dir %{_sysconfdir}/pki/%{name}/private
-%attr(755,root,root) %{_bindir}/katello-sudo-ssl-tool
 %attr(755,root,root) %{_bindir}/katello-ssl-tool
 %attr(755,root,root) %{_bindir}/katello-certs-gen-rpm
 %attr(755,root,root) %{_bindir}/katello-certs-sign
@@ -62,6 +63,9 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/pki/%{name}/private
 %license LICENSE
 
 %changelog
+* Tue Jun 09 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.7.1-1
+- Release katello-certs-tools 2.7.1
+
 * Tue May 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.7.0-1
 - Release katello-certs-tools 2.7.0
 
