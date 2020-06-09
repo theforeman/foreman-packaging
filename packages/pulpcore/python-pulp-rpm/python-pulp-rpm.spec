@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        3.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
@@ -47,7 +47,7 @@ Requires:       python3-solv
 rm -rf %{pypi_name}.egg-info
 
 # remove "solv" dependency from setup.py as python3-solv does not provide an egg
-sed -i "/'solv'/d" setup.py
+sed -i "/solv/d" requirements.txt
 
 %build
 %py3_build
@@ -62,6 +62,9 @@ sed -i "/'solv'/d" setup.py
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Jun 09 2020 Justin Sherrill <jsherril@redhat.com> 3.4.1-2
+- solv dep moved to requirements.txt
+
 * Thu Jun 04 2020 Evgeni Golov 3.4.1-1
 - Update to 3.4.1
 
