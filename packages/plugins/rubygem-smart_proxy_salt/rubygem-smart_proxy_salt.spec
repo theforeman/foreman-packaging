@@ -1,6 +1,21 @@
+%if 0%{?rhel} == 7 || (0%{?fedora} && 0%{?fedora} <= 29)
+%bcond_without python2
+%else
+%bcond_with python2
+%endif
+
+%if 0%{?rhel} >= 8 || 0%{?fedora} || 0%{?epel}
+%bcond_without python3
+%else
+%bcond_with python3
+%endif
+
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
+
 %global gem_name smart_proxy_salt
 
 %global foreman_proxy_dir /usr/share/foreman-proxy
+%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{?rhel:/opt/theforeman/tfm/root/}%{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -9,7 +24,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: rubygem-%{gem_name}
-Version: 3.1.1
+Version: 3.1.2
 Release: 1%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -19,7 +34,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ruby(rubygems)
 Requires: foreman-proxy >= 1.8.0
 Requires: salt-master
+%if %{with python2}
 Requires: python
+%endif
+%if %{with python3}
+Requires: python3
+%endif
 Requires: /etc/cron.d
 
 %if 0%{?rhel} == 7
@@ -57,17 +77,33 @@ Summary:    Documentation for rubygem-%{gem_name}
 This package contains documentation for rubygem-%{gem_name}.
 
 %prep
+gem unpack %{SOURCE0}
 
-%setup -q -c -T
-%gem_install -n %{SOURCE0}
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%if %{with python2}
+sed -i -e '1s|^#!.*$|#!%{__python2}|' sbin/upload-salt-reports
+%endif
+
+%if %{with python3}
+sed -i -e '1s|^#!.*$|#!%{__python3}|' sbin/upload-salt-reports
+%endif
+
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build %{gem_name}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-mkdir -p %{buildroot}%{gem_dir}
 mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d
 
+mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
@@ -115,6 +151,15 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 09 2020 Bernhard Suttner <suttner@atix.de> 3.1.2-1
+- Update to 3.1.2
+- Move local state to /var/lib
+  (Co-Authored-By: Adam Ruzicka <aruzicka@redhat.com>)
+- Prevent local state from being put to /usr/com
+  (Co-Authored-By: Adam Ruzicka <aruzicka@redhat.com>)
+- Adapt prep- and build-section to latest version
+  (Co-Authored-By: Markus Bucher <bucher@atix.de>)
+
 * Tue Nov 05 2019 Bernhard Suttner <suttner@atix.de> 3.1.1-1
 - Update to 3.1.1
 
