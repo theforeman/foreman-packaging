@@ -8,7 +8,7 @@
 %global foreman_min_version 1.20
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
@@ -99,7 +99,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
-* Wed Jun 03 2020 Manuel Laug <laugmanuel@gmail.com> - 0.2.0
+* Wed Jun 10 2020 Manuel Laug <laugmanuel@gmail.com> - 0.3.0-1
+- Update to 0.3.0
+
+* Wed Jun 03 2020 Manuel Laug <laugmanuel@gmail.com> - 0.2.0-1
 - Update to 0.2.0
 
 * Mon Mar 16 2020  0.1.0-1
