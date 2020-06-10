@@ -1,3 +1,9 @@
+foreman (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Tue, 09 Jun 2020 20:40:11 -0400
+
 foreman (2.0.0-1) stable; urgency=low
 
   * 2.0.0 released
