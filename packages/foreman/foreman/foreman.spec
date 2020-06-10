@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 22
+%global release 23
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -1001,15 +1001,21 @@ fi
 exit 0
 
 %post service
+%systemd_post %{name}.socket
 %systemd_post %{name}.service
 
 %preun service
+%systemd_preun %{name}.socket
 %systemd_preun %{name}.service
 
 %postun service
+%systemd_postun_with_restart %{name}.socket
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Jun 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.23.develop
+- Ensure socket gets handled with service
+
 * Thu May 21 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.22.develop
 - Added SELinux wrapper for sidekiq
 
