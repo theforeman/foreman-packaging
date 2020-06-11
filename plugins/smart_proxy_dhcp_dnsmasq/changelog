@@ -1,0 +1,5 @@
+ruby-smart-proxy-dhcp-dnsmasq (1.0-1) stable; urgency=low
+
+  * Initial Debian packaging.
+
+ -- Michael Moll <mmoll@mmoll.at>  Thu, 11 Jun 2020 20:15:37 +0200
