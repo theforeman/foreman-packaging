@@ -1,0 +1,15 @@
+Source: ruby-smart-proxy-dns-dnsmasq
+Section: ruby
+Priority: optional
+Maintainer: Michael Moll <mmoll@mmoll.at>
+Build-Depends: debhelper, gem2deb
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/smart_proxy_dns_dnsmasq
+XS-Ruby-Versions: all
+
+Package: ruby-smart-proxy-dns-dnsmasq
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.15.0~rc1)
+Description: DNSmasq DNS provider plugin for Foreman's smart proxy
+ DNSmasq DNS provider plugin for Foreman's smart proxy
