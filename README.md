@@ -147,12 +147,16 @@ In order to update npm packages, first you will need to follow the [npm2rpm inst
 
 1. Run the update script
   ```sh
+  # update or install package latest version
   ./add_npm_package.sh PACKAGE
 
-  # to update @theforeman/vendor to latest
-  ./add_npm_package.sh @theforeman/vendor
-  # to update @theforeman/vendor to version 1.0.0
-  ./add_npm_package.sh @theforeman/vendor 1.0.0
+  # update or install package with a given version
+  ./add_npm_package.sh PACKAGE VERSION
+
+  # to update @theforeman/vendor and @theforeman/builder to latest
+  ./update_vendor.sh
+  # to update @theforeman/vendor and @theforeman/builder to version 1.0.0
+  ./update_vendor.sh 1.0.0
   ```
 1. Verify the changes
 1. Amend the commit if needed
