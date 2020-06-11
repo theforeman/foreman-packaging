@@ -1,0 +1,2 @@
+debian/dhcp_dnsmasq.rb usr/share/foreman-proxy/bundler.d
+config/dhcp_dnsmasq.yml etc/foreman-proxy/settings.d
