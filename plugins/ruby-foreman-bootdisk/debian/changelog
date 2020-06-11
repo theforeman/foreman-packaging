@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (16.1.0-2) stable; urgency=low
+
+  * Add syslinux-utils dependency
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Thu, 11 Jun 2020 20:00:54 +0200
+
 ruby-foreman-bootdisk (16.1.0-1) stable; urgency=low
 
   * 16.1.0 released
