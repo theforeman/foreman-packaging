@@ -494,6 +494,7 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_dhcp_bluecat: {}
     rubygem-smart_proxy_discovery: {}
     rubygem-smart_proxy_discovery_image: {}
+    rubygem-smart_proxy_dns_dnsmasq: {}
     rubygem-smart_proxy_dns_infoblox: {}
     rubygem-smart_proxy_dns_powerdns: {}
     rubygem-smart_proxy_dns_route53: {}
