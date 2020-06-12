@@ -1,3 +1,9 @@
+ruby-foreman-salt (13.2.4-1) stable; urgency=low
+
+  * 13.2.4 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Fri, 12 Jun 2020 21:39:31 +0200
+
 ruby-foreman-salt (13.2.3-1) stable; urgency=low
 
   * 13.2.3 released
