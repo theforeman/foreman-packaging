@@ -1,3 +1,9 @@
+ruby-smart-proxy-salt-core (0.0.3-1) stable; urgency=low
+
+  * 0.0.3 released
+
+ -- Michael Moll <kvedulv@kvedulv.de>  Fri, 12 Jun 2020 21:41:48 +0200
+
 ruby-smart-proxy-salt-core (0.0.2-1) stable; urgency=low
 
   * Initial release
