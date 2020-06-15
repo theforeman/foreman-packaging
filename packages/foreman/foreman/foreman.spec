@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 23
+%global release 24
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -58,8 +58,8 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix}rubygem(rails) >= 6.0.2.2
-Requires: %{?scl_prefix}rubygem(rails) < 6.0.3.0
+Requires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
+Requires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -164,8 +164,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.2.2
-BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.3.0
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
+BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -1013,6 +1013,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.24.develop
+- Update Rails to 6.0.3.1
+
 * Wed Jun 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.23.develop
 - Ensure socket gets handled with service
 
