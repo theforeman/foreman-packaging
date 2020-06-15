@@ -3,14 +3,15 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name activesupport
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.2.2
+Version: 6.0.3.1
 Release: 1%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
 License: MIT
-URL: http://rubyonrails.org
+URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -28,6 +29,7 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(zeitwerk) >= 2.2
 Requires: %{?scl_prefix}rubygem(zeitwerk) < 3
+Requires: %{?scl_prefix}rubygem(zeitwerk) >= 2.2.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -93,6 +95,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.1-1
+- Release rubygem-activesupport 6.0.3.1
+
 * Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
 - Update to 6.0.2.2
 
