@@ -3,23 +3,24 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name actionmailer
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.2.2
+Version: 6.0.3.1
 Release: 1%{?dist}
-Summary: Email composition, delivery, and receiving framework (part of Rails)
+Summary: Email composition and delivery framework (part of Rails)
 Group: Development/Languages
 License: MIT
-URL: http://rubyonrails.org
+URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.2.2
-Requires: %{?scl_prefix}rubygem(actionview) = 6.0.2.2
-Requires: %{?scl_prefix}rubygem(activejob) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.3.1
+Requires: %{?scl_prefix}rubygem(actionview) = 6.0.3.1
+Requires: %{?scl_prefix}rubygem(activejob) = 6.0.3.1
 Requires: %{?scl_prefix}rubygem(mail) >= 2.5
 Requires: %{?scl_prefix}rubygem(mail) < 3
 Requires: %{?scl_prefix}rubygem(mail) >= 2.5.4
@@ -35,7 +36,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 %description
-Email on Rails. Compose, deliver, receive, and test emails using the familiar
+Email on Rails. Compose, deliver, and test emails using the familiar
 controller/view pattern. First-class support for multipart email and
 attachments.
 
@@ -90,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.1-1
+- Release rubygem-actionmailer 6.0.3.1
+
 * Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
 - Update to 6.0.2.2
 
