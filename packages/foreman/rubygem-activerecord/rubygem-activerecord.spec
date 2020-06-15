@@ -3,22 +3,23 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name activerecord
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.2.2
+Version: 6.0.3.1
 Release: 1%{?dist}
 Summary: Object-relational mapper framework (part of Rails)
 Group: Development/Languages
 License: MIT
-URL: http://rubyonrails.org
+URL: https://rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.2.2
-Requires: %{?scl_prefix}rubygem(activemodel) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.1
+Requires: %{?scl_prefix}rubygem(activemodel) = 6.0.3.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -85,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/examples
 
 %changelog
+* Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.1-1
+- Release rubygem-activerecord 6.0.3.1
+
 * Tue Apr 28 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.2.2-1
 - Update to 6.0.2.2
 
