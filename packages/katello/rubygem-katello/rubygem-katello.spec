@@ -6,7 +6,7 @@
 %global foreman_max_version 2.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
 %global release 14
@@ -243,6 +243,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Jun 16 2020 Evgeni Golov - 3.16.0-0.14.rc3
+- Release rubygem-katello 3.16.0
+
 * Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.14.rc2
 - Release rubygem-katello 3.16.0
 
