@@ -3,10 +3,12 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name openscap
+%global min_openscap_version 1.2.9
+%global max_openscap_version 1.3.4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.9
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -14,11 +16,11 @@ URL: https://github.com/OpenSCAP/ruby-openscap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # require libopenscap.so.8 in an arch neutral way
-Requires: openscap >= 1.2.9
-Requires: openscap < 1.3.2
+Requires: openscap >= %{min_openscap_version}
+Requires: openscap < %{max_openscap_version}
 
-BuildRequires: openscap >= 1.2.9
-BuildRequires: openscap < 1.3.2
+BuildRequires: openscap >= %{min_openscap_version}
+BuildRequires: openscap < %{max_openscap_version}
 BuildRequires: openscap-devel
 BuildRequires: bzip2
 
@@ -90,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jun 16 2020 Evgeni Golov - 0.4.9-3
+- Bump supported openscap version
+
 * Tue May 05 2020 Evgeni Golov - 0.4.9-2
 - Update openscap dependency to match EL8
 
