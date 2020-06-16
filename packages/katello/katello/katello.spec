@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
 
@@ -176,6 +176,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Jun 16 2020 Evgeni Golov - 3.16.0-0.3.rc3
+- Release katello 3.16.0
+
 * Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.3.rc2
 - Release katello 3.16.0
 
