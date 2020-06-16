@@ -16,7 +16,7 @@
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_salt
@@ -24,7 +24,7 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
@@ -34,7 +34,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -184,6 +184,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jun 22 2020 Adam Ruzicka <aruzicka@redhat.com> 3.1.2-3
+- Prevent local state from being put to /usr/com
+
 * Mon Jun 22 2020 Evgeni Golov - 3.1.2-2
 - Fix bundler.d location on EL8
 
