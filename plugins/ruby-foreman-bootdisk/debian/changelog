@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (17.0.2-1) stable; urgency=low
+
+  * 17.0.2 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Tue, 16 Jun 2020 12:18:53 +0200
+
 ruby-foreman-bootdisk (16.1.0-2) stable; urgency=low
 
   * Add syslinux-utils dependency
