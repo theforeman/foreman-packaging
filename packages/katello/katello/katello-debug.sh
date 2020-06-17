@@ -52,7 +52,11 @@ add_files /var/log/tomcat*/host-manager*.log*
 add_files /var/log/tomcat*/localhost*.log*
 add_files /var/log/tomcat*/manager*.log*
 add_files /etc/candlepin/candlepin.conf
+add_files /etc/candlepin/broker.xml
 add_files /etc/tomcat*/server.xml
+add_files /etc/tomcat/cert-roles.properties
+add_files /etc/tomcat/cert-users.properties
+add_files /etc/tomcat/login.config
 
 # RHSM
 add_files /var/log/rhsm/*

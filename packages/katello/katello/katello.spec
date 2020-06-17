@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    4.0.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Jun 18 2020 Barnaby Court <bcourt@redhat.com> - 4.0.0-0.3.master
+- Add artemis broker.xml and tomcat config files to debug collection
+
 * Wed Jun 17 2020 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.2.master
 - move pulp-selinux requires to -common for foreman proxy install
 
