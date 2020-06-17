@@ -1085,6 +1085,7 @@ repoclosures:
           - el8-baseos
           - el8-appstream
           - el8-configmanagement-ansible
+          - el8-configmanagement-salt
           - el8-devel
           - el8-extras
           - el8-powertools
