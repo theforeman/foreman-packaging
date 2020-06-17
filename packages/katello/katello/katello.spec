@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.16.0
@@ -45,7 +45,6 @@ Requires: pulp-docker-plugins
 Requires: pulp-puppet-plugins
 Requires: pulp-rpm-plugins
 Requires: pulp-puppet-tools
-Requires: pulp-selinux
 Requires: pulp-server
 Requires: python-pulp-streamer
 Requires: rh-mongodb34
@@ -120,6 +119,11 @@ Summary:    Common runtime components of %{name}
 Requires:       rubygem-highline
 Requires:       %{name}-debug
 
+#Pulp Requirements
+%if 0%{?rhel} == 7
+Requires: pulp-selinux
+%endif
+
 %description common
 Common runtime components of %{name}
 
@@ -176,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Jun 17 2020 Justin Sherrill <jsherril@redhat.com> 3.16.0-0.4.rc3
+- move pulp-selinux requirement to katello-common for smart proxies
+
 * Tue Jun 16 2020 Evgeni Golov - 3.16.0-0.3.rc3
 - Release katello 3.16.0
 
