@@ -2,7 +2,7 @@
 %global pypi_name pulp-deb
 
 Name:           python-%{pypi_name}
-Version:        2.3.0
+Version:        2.4.0
 Release:        0.1.b1%{?dist}
 Summary:        pulp-deb plugin for the Pulp Project
 
@@ -21,8 +21,8 @@ BuildRequires:  python3-setuptools
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
-Requires:       python3-pulpcore < 3.4
-Requires:       python3-pulpcore >= 3.3
+Requires:       python3-pulpcore < 3.5
+Requires:       python3-pulpcore >= 3.4
 Requires:       python3-debian >= 0.1.36
 Requires:       python3-setuptools
 %description -n python3-%{pypi_name}
@@ -46,5 +46,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_deb-%{version}b1-py?.?.egg-info
 
 %changelog
+* Thu Jun 18 2020 Evgeni Golov - 2.4.0-0.1.b1
+- Update to 2.4.0b1
+
 * Thu Apr 30 2020 ATIX AG <info@atix.de> - 2.3.0-0.1.b1
 - Initial package.
