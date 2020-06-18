@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.9
-Release: 5%{?foremandist}%{?dist}
+Version: 1.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jun 18 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.2.0-1
+- Update to 1.2.0
+
 * Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 1.0.9-5
 - Move local state to /var/lib
 
