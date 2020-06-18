@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 22
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1009,6 +1009,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jun 18 2020 Evgeni Golov - 2.1.0-0.22.rc3
+- Release foreman 2.1.0
+
 * Wed Jun 17 2020 Evgeni Golov - 2.1.0-0.22.rc2
 - regenerate GEM file dependencies
 
