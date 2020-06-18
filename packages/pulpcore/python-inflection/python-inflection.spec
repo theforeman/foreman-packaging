@@ -2,7 +2,7 @@
 %global pypi_name inflection
 
 Name:           python-%{pypi_name}
-Version:        0.4.0
+Version:        0.5.0
 Release:        1%{?dist}
 Summary:        A port of Ruby on Rails inflector to Python
 
@@ -43,6 +43,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 18 2020 Evgeni Golov 0.5.0-1
+- Update to 0.5.0
+
 * Tue Apr 14 2020 Evgeni Golov 0.4.0-1
 - Update to 0.4.0
 
