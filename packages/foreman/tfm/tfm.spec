@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 6.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -124,6 +124,10 @@ Obsoletes: foreman-release-scl < 7-3
 # turbolinks isn't there to obsolete the tfm-ror52 package so this is explicit
 Obsoletes: tfm-ror52-rubygem-turbolinks < 2.5.4-3
 Obsoletes: tfm-ror52-rubygem-turbolinks-doc < 2.5.4-3
+
+# arel isn't there to obsolete the tfm-ror52 package so this is explicit
+Obsoletes: tfm-ror52-rubygem-arel <= 9.0.0
+Obsoletes: %{scl_prefix}-rubygem-arel <= 9.0.0
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -313,6 +317,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Jun 18 2020 Evgeni Golov - 6.1-3
+- obsolete arel
+
 * Thu May 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.1-2
 - Obsolete foreman-release-scl
 

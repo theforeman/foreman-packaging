@@ -168,7 +168,6 @@ whitelist = foreman
   rubygem-apipie-dsl
   rubygem-apipie-params
   rubygem-apipie-rails
-  rubygem-arel
   rubygem-audited
   rubygem-autoprefixer-rails
   rubygem-awesome_print
@@ -504,7 +503,6 @@ whitelist = foreman
   rubygem-apipie-dsl
   rubygem-apipie-params
   rubygem-apipie-rails
-  rubygem-arel
   rubygem-audited
   rubygem-autoprefixer-rails
   rubygem-awesome_print
