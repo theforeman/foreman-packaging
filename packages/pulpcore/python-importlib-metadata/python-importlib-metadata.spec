@@ -2,7 +2,7 @@
 %global pypi_name importlib-metadata
 
 Name:           python-%{pypi_name}
-Version:        1.6.0
+Version:        1.6.1
 Release:        1%{?dist}
 Summary:        Read metadata from Python packages
 
@@ -45,6 +45,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/importlib_metadata-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 18 2020 Evgeni Golov 1.6.1-1
+- Update to 1.6.1
+
 * Thu Jun 04 2020 Evgeni Golov 1.6.0-1
 - Update to 1.6.0
 
