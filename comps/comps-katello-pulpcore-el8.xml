@@ -84,7 +84,7 @@
       <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyjwt</packagereq>
       <packagereq type="default">python3-pymongo</packagereq>
-      <packagereq type="default">python3-pyopenssl</packagereq>
+      <packagereq type="default">python3-pyOpenSSL</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pyrsistent</packagereq>
       <packagereq type="default">python3-pytz</packagereq>

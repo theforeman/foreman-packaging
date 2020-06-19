@@ -1209,7 +1209,7 @@ whitelist =
   python-pyjwkest
   python-pyjwt
   python-pymongo
-  python-pyopenssl
+  python-pyOpenSSL
   python-pyparsing
   python-pyrsistent
   python-pytz
