@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 25
+%global release 26
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -917,7 +917,10 @@ rm -rf %{buildroot}
 %license LICENSE
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/app
-%exclude %{_datadir}/%{name}/app/assets
+%{_datadir}/%{name}/app/assets/config/manifest.js
+%exclude %{_datadir}/%{name}/app/assets/images
+%exclude %{_datadir}/%{name}/app/assets/stylesheets
+%exclude %{_datadir}/%{name}/app/assets/javascripts
 %exclude %{_datadir}/%{name}/script/%{name}-debug.d
 %dir %{_datadir}/%{name}/bundler.d
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
@@ -1013,6 +1016,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Jun 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.26.develop
+- Include manifest.js in Foreman RPM
+
 * Fri Jun 19 2020 Michael Moll <mmoll@mmoll.at> - 2.2.0-0.25.develop
 - Update sprockets dependency
 
