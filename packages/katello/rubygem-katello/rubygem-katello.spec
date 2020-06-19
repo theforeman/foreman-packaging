@@ -21,6 +21,8 @@ License: GPLv2
 URL:     https://theforeman.org/plugins/katello
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
+Autoreq: 0
+
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
 # start specfile generated dependencies
