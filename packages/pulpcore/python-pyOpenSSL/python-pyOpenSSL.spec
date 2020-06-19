@@ -2,7 +2,7 @@
 %global pypi_name pyOpenSSL
 %global srcname pyopenssl
 
-Name:           python-%{srcname}
+Name:           python-%{pypi_name}
 Version:        19.1.0
 Release:        1%{?dist}
 Summary:        Python wrapper module around the OpenSSL library
@@ -20,13 +20,13 @@ BuildRequires:  python3-six >= 1.5.2
 %description
 %{summary}
 
-%package -n     python3-%{srcname}
+%package -n     python3-%{pypi_name}
 Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{srcname}}
+%{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-cryptography >= 2.8
 Requires:       python3-six >= 1.5.2
 
-%description -n python3-%{srcname}
+%description -n python3-%{pypi_name}
 %{summary}
 
 %prep
@@ -40,7 +40,7 @@ rm -rf %{pypi_name}.egg-info
 %install
 %py3_install
 
-%files -n python3-%{srcname}
+%files -n python3-%{pypi_name}
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/OpenSSL
