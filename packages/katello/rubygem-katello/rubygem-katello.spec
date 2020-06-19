@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -20,6 +20,8 @@ Group:   Applications/Systems
 License: GPLv2
 URL:     https://theforeman.org/plugins/katello
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
+
+Autoreq: 0
 
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
@@ -248,6 +250,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Jun 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.5.pre.master
+- Disable autorequires to prevent rich dependency auto-creation on EL8
+
 * Tue Jun 09 2020 Evgeni Golov - 4.0.0-0.4.pre.master
 - Update GEM Requirements
 
