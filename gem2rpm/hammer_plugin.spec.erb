@@ -26,6 +26,8 @@ URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
+Autoreq: 0
+
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
