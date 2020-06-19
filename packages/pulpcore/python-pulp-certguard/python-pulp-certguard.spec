@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.1.0
-Release:        0.1.rc5%{?dist}
+Release:        0.2.rc5%{?dist}
 Summary:        X.509 Certguards plugin for the Pulp Project
 
 License:        GPLv2+
@@ -22,7 +22,7 @@ a certificate proving their entitlement to content before receiving the content.
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-pyopenssl
+Requires:       python3-pyOpenSSL
 Requires:       python3-pulpcore < 3.5
 Requires:       python3-pulpcore >= 3.3.0
 Requires:       python3-setuptools
@@ -50,6 +50,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_certguard-%{version}rc5-py%{python3_version}.egg-info
 
 %changelog
+* Fri Jun 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-0.2.rc5
+- Adjust pyopenssl requires to pyOpenSSL
+
 * Wed May 27 2020 Justin Sherrill <jsherril@redhat.com> 0.1.0-0.1.rc5
 - Update to 0.1.rc5
 
