@@ -1222,6 +1222,10 @@ pulpcore_packages:
     python-idna-ssl: {}
     python-importlib-metadata: {}
     python-inflection: {}
+    python-iniparse:
+      koji_tags:
+      - name: katello-pulpcore-nightly-el7
+        dist: '.el7'
     python-itypes: {}
     python-jdcal: {}
     python-jinja2: {}
@@ -1274,6 +1278,10 @@ pulpcore_packages:
     python-xlwt: {}
     python-yarl: {}
     python-zipp: {}
+    subscription-manager:
+      koji_tags:
+      - name: katello-pulpcore-nightly-el7
+        dist: '.el7'
 
 foreman_release_packages:
   vars:

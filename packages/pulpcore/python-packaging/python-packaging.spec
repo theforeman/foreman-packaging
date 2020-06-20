@@ -2,11 +2,11 @@
 %global pypi_name packaging
 
 Name:           python-%{pypi_name}
-Version:        20.3
+Version:        20.4
 Release:        1%{?dist}
 Summary:        Core utilities for Python packages
 
-License:        BSD or Apache License, Version 2.0
+License:        BSD-2-Clause or Apache-2.0
 URL:            https://github.com/pypa/packaging
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
@@ -46,6 +46,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 20.4-1
+- Update to 20.4
+
 * Wed Mar 18 2020 Samir Jha 20.3-1
 - Update to 20.3
 
