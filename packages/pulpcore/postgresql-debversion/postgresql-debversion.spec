@@ -7,7 +7,7 @@
 
 Name:     %{?scl_prefix}postgresql-debversion
 Version:  1.1.1
-Release:  1%{?dist}
+Release:  2%{?dist}
 Summary:  Debian version number type for PostgreSQL
 
 Group:    Applications/System
@@ -15,7 +15,7 @@ License:  GPLv3
 URL:      https://salsa.debian.org/postgresql/postgresql-debversion
 Source0:  https://salsa.debian.org/postgresql/postgresql-debversion/-/archive/v%{version}/postgresql-debversion-v%{version}.tar.gz
 Patch0:   0001-Copy-relevant-code-from-apt-pkg-to-ease-packaging.patch
-
+Patch1:   0002-set_superuser.patch
 
 Requires: %{?scl_prefix}postgresql-server
 %{?scl:Requires: %{?scl_prefix}runtime}
@@ -81,5 +81,8 @@ rm -rf $RPM_BUILD_ROOT
 %license COPYING
 
 %changelog
+* Tue Jun 09 2020 Justin Sherrill <jsherril@redhat.com> 1.1.1-2
+- add patch to allow nonsuperuser access
+
 * Fri Jan 03 2020 Matthias Dellweg <dellweg@atix.de> - 1.1.1-1
 - new package
