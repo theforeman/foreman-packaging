@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -143,7 +143,10 @@ ln -sv %{_tmppath} %{buildroot}%{_datadir}/%{name}/tmp
 %license LICENSE
 %{_datadir}/%{name}
 %{_libexecdir}/%{name}/puppet_sign.rb
-%config(noreplace) %{_sysconfdir}/%{name}
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/migration_state
+%config(noreplace) %attr(0640,root,%{name}) %{_sysconfdir}/%{name}/settings.yml
+%config(noreplace) %attr(0640,root,%{name}) %{_sysconfdir}/%{name}/settings.d/*yml
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/log/%{name}
 %attr(-,%{name},%{name}) %{_localstatedir}/spool/%{name}
@@ -216,6 +219,9 @@ fi
 
 
 %changelog
+* Sun Jun 21 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.3.develop
+- Set config file modes to 0640 and ownership to foreman-proxy
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.2.develop
 - Bump version to 2.2-develop
 

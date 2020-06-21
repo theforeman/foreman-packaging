@@ -1308,8 +1308,8 @@ pulpcore_packages:
     python-inflection: {}
     python-iniparse:
       koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
+        - name: katello-pulpcore-nightly-el7
+          dist: '.el7'
     python-itypes: {}
     python-jdcal: {}
     python-jinja2: {}
@@ -1364,8 +1364,8 @@ pulpcore_packages:
     python-zipp: {}
     subscription-manager:
       koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
+        - name: katello-pulpcore-nightly-el7
+          dist: '.el7'
 
 foreman_release_packages:
   vars:
