@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 26
+%global release 27
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -263,7 +263,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.3.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.8.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -298,7 +298,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.3.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.8.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -459,7 +459,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.3.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.8.0
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -494,7 +494,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.3.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.8.0
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -1016,6 +1016,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jun 22 2020 Avi Sharvit <sharvita@gmail.com> - 2.2.0-0.27.develop
+- Update foreman-js dependencies
+
 * Fri Jun 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.26.develop
 - Include manifest.js in Foreman RPM
 
