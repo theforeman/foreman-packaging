@@ -14,11 +14,11 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
+%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7
-Release: 5%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Summary: dnsmasq DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jun 22 2020 Evgeni Golov - 0.7-6
+- Fix bundler.d location on EL8
+
 * Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 0.7-5
 - Move local state to /var/lib
 
