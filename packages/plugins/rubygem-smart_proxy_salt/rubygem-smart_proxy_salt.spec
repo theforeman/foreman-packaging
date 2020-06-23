@@ -36,9 +36,11 @@ Requires: foreman-proxy >= 1.8.0
 Requires: salt-master
 %if %{with python2}
 Requires: python
+BuildRequires: python2-rpm-macros
 %endif
 %if %{with python3}
 Requires: python3
+BuildRequires: python3-rpm-macros
 %endif
 Requires: /etc/cron.d
 
