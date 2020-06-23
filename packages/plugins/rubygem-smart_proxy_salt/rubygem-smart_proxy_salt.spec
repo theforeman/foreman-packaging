@@ -34,7 +34,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -43,9 +43,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: salt-master
 %if %{with python2}
 Requires: python
+BuildRequires: python2-rpm-macros
 %endif
 %if %{with python3}
 Requires: python3
+BuildRequires: python3-rpm-macros
 %endif
 Requires: /etc/cron.d
 
@@ -184,6 +186,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jun 23 2020 Markus Bucher <bucher@atix.de> - 3.1.2-4
+- Fix hashbang in upload-salt-reports
+
 * Mon Jun 22 2020 Adam Ruzicka <aruzicka@redhat.com> 3.1.2-3
 - Prevent local state from being put to /usr/com
 
