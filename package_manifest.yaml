@@ -1338,6 +1338,7 @@ pulpcore_packages:
     python-pulp-file: {}
     python-pulpcore: {}
     python-pycares: {}
+    python-pycodestyle: {}
     python-pycparser: {}
     python-pycryptodomex: {}
     python-pygtrie: {}
