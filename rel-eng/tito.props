@@ -1221,6 +1221,7 @@ whitelist =
   python-pulp-file
   python-pulp-rpm
   python-pycares
+  python-pycodestyle
   python-pycparser
   python-pycryptodomex
   python-pygtrie
