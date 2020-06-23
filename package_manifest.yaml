@@ -1318,6 +1318,7 @@ pulpcore_packages:
     python-jdcal: {}
     python-jinja2: {}
     python-jsonschema: {}
+    python-markdown: {}
     python-markuppy: {}
     python-markupsafe: {}
     python-mongoengine: {}
