@@ -1213,6 +1213,7 @@ whitelist =
   python-productmd
   python-psycopg2
   python-pulp_2to3_migration
+  python-pulp-ansible
   python-pulp-certguard
   python-pulp-container
   python-pulpcore
