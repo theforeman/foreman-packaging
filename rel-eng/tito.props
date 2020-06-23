@@ -1224,6 +1224,7 @@ whitelist =
   python-pycodestyle
   python-pycparser
   python-pycryptodomex
+  python-pyflakes
   python-pygtrie
   python-pyjwkest
   python-pyjwt
