@@ -1301,6 +1301,7 @@ pulpcore_packages:
     python-dynaconf: {}
     python-ecdsa: {}
     python-et-xmlfile: {}
+    python-flake8: {}
     python-future: {}
     python-gnupg: {}
     python-gunicorn: {}
