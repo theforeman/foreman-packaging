@@ -1329,6 +1329,7 @@ pulpcore_packages:
     python-packaging: {}
     python-productmd: {}
     python-psycopg2: {}
+    python-pulp-ansible: {}
     python-pulp-certguard: {}
     python-pulp-rpm: {}
     python-pulp_2to3_migration: {}
