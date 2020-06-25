@@ -5,7 +5,7 @@
 %global gem_name rack
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.2
+Version: 2.2.3
 Release: 1%{?dist}
 Summary: a modular Ruby webserver interface
 Group: Development/Languages
@@ -99,6 +99,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Thu Jun 25 2020 Tomer Brisker <tbrisker@gmail.com> - 2.2.3-1
+- Release rubygem-rack 2.2.3
+
 * Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 2.2.2-1
 - Update to 2.2.2
 
