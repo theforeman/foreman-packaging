@@ -14,6 +14,10 @@ SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
 $requires = {}
 $group = 'main'
 
+def gemspec
+  # TODO
+end
+
 def package(gem)
   return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
 end
