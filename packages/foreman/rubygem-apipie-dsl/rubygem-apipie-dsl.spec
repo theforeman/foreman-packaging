@@ -5,7 +5,7 @@
 %global gem_name apipie-dsl
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.5
+Version: 2.2.7
 Release: 1%{?dist}
 Summary: Ruby DSL documentation tool
 Group: Development/Languages
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jun 26 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.2.7-1
+- Update to 2.2.7
+
 * Fri May 29 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.2.5-1
 - Update to 2.2.5
 
