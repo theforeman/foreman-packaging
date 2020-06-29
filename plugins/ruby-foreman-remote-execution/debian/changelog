@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (3.2.2-1) stable; urgency=low
+
+  * 3.2.2 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Mon, 29 Jun 2020 12:01:10 +0200
+
 ruby-foreman-remote-execution (3.2.1-1) stable; urgency=low
 
   * 3.2.1 released
