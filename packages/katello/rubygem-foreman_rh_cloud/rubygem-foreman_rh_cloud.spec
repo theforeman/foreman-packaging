@@ -8,13 +8,15 @@
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.7
+Version: 2.0.8
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Autoreq: 0
 
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
@@ -103,6 +105,7 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_instdir}/package.json
@@ -121,6 +124,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jun 30 2020 Shimon Shtein <sshtein@redhat.com> 2.0.8-1
+- Update to 2.0.8-1
+
 * Mon May 25 2020 Shimon Shtein <sshtein@redhat.com> 2.0.7-1
 - Update to 2.0.7-1
 
