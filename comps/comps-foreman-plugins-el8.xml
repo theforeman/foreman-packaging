@@ -43,6 +43,7 @@
       <packagereq type="default">rubygem-fog-proxmox</packagereq>
       <packagereq type="default">rubygem-foreman-tasks</packagereq>
       <packagereq type="default">rubygem-foreman-tasks-core</packagereq>
+      <packagereq type="default">rubygem-foreman_acd</packagereq>
       <packagereq type="default">rubygem-foreman_ansible</packagereq>
       <packagereq type="default">rubygem-foreman_ansible_core</packagereq>
       <packagereq type="default">rubygem-foreman_azure_rm</packagereq>
@@ -195,6 +196,7 @@
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-proxmox-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_acd-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible_core-doc</packagereq>
       <packagereq type="default">rubygem-foreman_ansible-doc</packagereq>
       <packagereq type="default">rubygem-foreman_azure_rm-doc</packagereq>
