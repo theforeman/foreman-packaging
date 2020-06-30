@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
@@ -132,6 +132,9 @@ cp -pa .%{gem_dir}/* \
 exit 0
 
 %changelog
+* Tue Jun 30 2020 Evgeni Golov - 0.2.1-2
+- Rebuild to properly build on EL7 and EL8
+
 * Fri Jun 26 2020 Bernhard Suttner <suttner@atix.de> 0.2.1-1
 - Update to 0.2.1
 
