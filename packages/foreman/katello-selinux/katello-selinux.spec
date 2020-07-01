@@ -24,7 +24,7 @@
 
 
 Name:           katello-selinux
-Version:        3.2.0
+Version:        3.3.0
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -128,6 +128,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Wed Jul 01 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.3.0-1
+- Release katello-selinux 3.3.0
+
 * Thu Jun 18 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-1
 - Release katello-selinux 3.2.0
 
