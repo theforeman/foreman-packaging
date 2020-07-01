@@ -6,7 +6,7 @@
 %global gem_name pulp_file_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 1.0.1
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -88,6 +88,9 @@ rm %{buildroot}/%{gem_instdir}/git_push.sh
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jun 08 2020 James Jeffers 1.0.1-1
+- Update to 1.0.1
+
 * Mon May 04 2020 Justin Sherrill <jsherril@redhat.com> 0.3.0-1
 - Update to 0.3.0
 
