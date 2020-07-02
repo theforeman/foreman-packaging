@@ -96,11 +96,11 @@ gem unpack %{SOURCE0}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%if %{with python2}
+%if %{with python2} && 0%{?rhel} >= 8
 sed -i -e '1s|^#!.*$|#!%{__python2}|' sbin/upload-salt-reports
 %endif
 
-%if %{with python3}
+%if %{with python3} && 0%{?rhel} >= 8
 sed -i -e '1s|^#!.*$|#!%{__python3}|' sbin/upload-salt-reports
 %endif
 
