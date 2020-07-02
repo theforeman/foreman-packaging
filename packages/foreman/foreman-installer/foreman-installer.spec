@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -23,7 +23,6 @@ Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
 Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
-Requires:   foreman-maintain
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 5.5.0
@@ -149,6 +148,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jul 02 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.2.0-0.4.develop
+- Drop foreman-maintain dependency
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.3.develop
 - Bump version to 2.2-develop
 
