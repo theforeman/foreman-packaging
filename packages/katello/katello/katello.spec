@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    3.18.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Sep 24 2020 Danny Synk <dsynk@redhat.com> - 3.18.0-0.3.master
+- Use case-insensitive sed for hostname change
+
 * Tue Aug 11 2020 Jeremy Lenz <jlenz@redhat.com> - 3.18.0-0.2.master
 - Fixes #30584: fix NoMethodError in change-hostname after foreman-installer fails
 
