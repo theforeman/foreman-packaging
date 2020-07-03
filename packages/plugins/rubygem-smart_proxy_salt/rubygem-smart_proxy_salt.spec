@@ -186,6 +186,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 03 2020 Stefan Bogner <bogner@b1-systems.de> - 3.1.2-5
+- Do not change hashbang on RHEL < 8
+
 * Tue Jun 23 2020 Markus Bucher <bucher@atix.de> - 3.1.2-4
 - Fix hashbang in upload-salt-reports
 
