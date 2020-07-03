@@ -34,7 +34,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
