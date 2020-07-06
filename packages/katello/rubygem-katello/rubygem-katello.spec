@@ -6,10 +6,10 @@
 %global foreman_max_version 2.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc3.1
+%global prereleasesource rc4
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 14
+%global release 15
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -43,17 +43,17 @@ Requires: %{?scl_prefix}rubygem(fx) < 1.0
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.3.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.4.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 0.4.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.4.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.0.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.1.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
-Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.3.0
-Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.4.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.3.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.4.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) > 0.1
+Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
+Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -77,17 +77,17 @@ BuildRequires: %{?scl_prefix}rubygem(fx) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 0.4.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.4.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.0.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) > 0.1
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -247,6 +247,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Jul 06 2020 Patrick Creech <pcreech@redhat.com> - 3.16.0-0.15.rc4
+- Release rubygem-katello 3.16.0
+
+* Thu Jun 25 2020 Justin Sherrill <jsherril@redhat.com> 3.16.0-0.15.rc3.1
+- update deps for pulpcore 3.4
+
 * Wed Jun 24 2020 Evgeni Golov - 3.16.0-0.14.rc3.1
 - Release rubygem-katello 3.16.0
 
