@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 28
+%global release 29
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -1005,18 +1005,19 @@ fi
 exit 0
 
 %post service
-%systemd_post %{name}.socket
-%systemd_post %{name}.service
+%systemd_post %{name}.socket %{name}.service
 
 %preun service
-%systemd_preun %{name}.socket
-%systemd_preun %{name}.service
+%systemd_preun %{name}.socket %{name}.service
 
 %postun service
-%systemd_postun_with_restart %{name}.socket
 %systemd_postun_with_restart %{name}.service
+%systemd_postun %{name}.socket
 
 %changelog
+* Wed Jul 29 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.29.develop
+- Ensure foreman.socket is removed on package removal
+
 * Mon Jul 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.28.develop
 - Update Gem and NPM dependencies
 
