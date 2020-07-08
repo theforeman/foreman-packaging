@@ -1178,6 +1178,7 @@ repoclosures:
       repoclosure_target_repos:
         rhel7:
           - el7-katello-nightly
+          - el7-katello-pulpcore-nightly
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1191,7 +1192,6 @@ repoclosures:
           - el7-foreman-plugins-nightly
           - el7-katello-pulp-nightly
           - el7-katello-candlepin-nightly
-          - el7-katello-pulpcore-nightly
     foreman-client-repoclosure-el8:
       repoclosure_target_repos:
         el8:
