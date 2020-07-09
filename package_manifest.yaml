@@ -1041,6 +1041,7 @@ plugin_scl_packages:
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-kubeclient: {}
+    rubygem-msgpack: {}
     rubygem-multi_xml: {}
     rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
