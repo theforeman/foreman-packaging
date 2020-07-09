@@ -15,6 +15,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
+%{!?_root_sbindir:%global _root_sbindir %{_sbindir}}
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
 %{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
@@ -34,7 +35,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 5%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -121,7 +122,6 @@ gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
 %install
-mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
 
 mkdir -p %{buildroot}%{gem_dir}
@@ -131,7 +131,9 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{_root_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_root_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
+sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
@@ -149,7 +151,8 @@ mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
 mkdir -p %{buildroot}%{_root_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_root_bindir}/foreman-node
-cp -pa .%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_sbindir}/upload-salt-reports
+mkdir -p %{buildroot}%{_root_sbindir}
+mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
 cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
@@ -159,12 +162,11 @@ EOF
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-node
+%{_root_sbindir}/upload-salt-reports
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
-%{gem_libdir}
-%{gem_instdir}/sbin
 %{gem_instdir}/cron
 %{gem_instdir}/salt
 %{gem_instdir}/lib
@@ -176,16 +178,18 @@ EOF
 %{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 %config(noreplace) %{salt_config_dir}/foreman.yaml
 %config %{_root_sysconfdir}/cron.d/%{gem_name}
-%{_sbindir}/upload-salt-reports
 %exclude %{gem_instdir}/etc
 %exclude %{gem_instdir}/cron
-
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 09 2020 Bernhard Suttner <suttner@atix.de> - 3.1.2-6
+- Fix upload-salt-report pat
+- Fix hashbang for foreman-node helper script
+
 * Fri Jul 03 2020 Stefan Bogner <bogner@b1-systems.de> - 3.1.2-5
 - Do not change hashbang on RHEL < 8
 
