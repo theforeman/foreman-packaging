@@ -114,6 +114,7 @@
       <packagereq type="default">rubygem-logify</packagereq>
       <packagereq type="default">rubygem-ms_rest</packagereq>
       <packagereq type="default">rubygem-ms_rest_azure</packagereq>
+      <packagereq type="default">rubygem-msgpack</packagereq>
       <packagereq type="default">rubygem-multi_xml</packagereq>
       <packagereq type="default">rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">rubygem-net-ssh-krb</packagereq>
@@ -267,6 +268,7 @@
       <packagereq type="default">rubygem-logify-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest-doc</packagereq>
+      <packagereq type="default">rubygem-msgpack-doc</packagereq>
       <packagereq type="default">rubygem-multi_xml-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-krb-doc</packagereq>

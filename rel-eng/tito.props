@@ -799,6 +799,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-logify
   rubygem-ms_rest
   rubygem-ms_rest_azure
+  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
