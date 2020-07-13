@@ -8,7 +8,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        3.15.2
+Version:        3.15.3
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -78,6 +78,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Jul 13 2020 Evgeni Golov - 3.15.3-1
+- Release katello-repos 3.15.3
+
 * Wed Jun 17 2020 Evgeni Golov - 3.15.2-1
 - Release katello-repos 3.15.2
 
