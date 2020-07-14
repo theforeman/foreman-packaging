@@ -187,7 +187,7 @@ EOF
 
 %changelog
 * Thu Jul 09 2020 Bernhard Suttner <suttner@atix.de> - 3.1.2-6
-- Fix upload-salt-report pat
+- Fix upload-salt-report path
 - Fix hashbang for foreman-node helper script
 
 * Fri Jul 03 2020 Stefan Bogner <bogner@b1-systems.de> - 3.1.2-5
