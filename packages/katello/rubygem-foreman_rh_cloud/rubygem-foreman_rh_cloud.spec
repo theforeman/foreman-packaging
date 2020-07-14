@@ -8,7 +8,7 @@
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.7
+Version: 2.0.9
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -103,6 +103,7 @@ cp -a .%{gem_dir}/* \
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_instdir}/package.json
@@ -121,6 +122,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jul 14 2020 Shimon Shtein <sshtein@redhat.com> 2.0.9-1
+- Update to 2.0.9-1
+
 * Wed May 27 2020 Shimon Shtein <sshtein@redhat.com> 2.0.7-1
 - Update to 2.0.7-1
 
