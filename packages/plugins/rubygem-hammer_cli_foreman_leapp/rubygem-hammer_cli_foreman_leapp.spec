@@ -1,14 +1,15 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%global hammer_confdir %{_root_sysconfdir}/hammer
 
 %global gem_name hammer_cli_foreman_leapp
-%global plugin_name hammer_cli_foreman_leapp
-%global foreman_min_version 1.25.0
+%global plugin_name foreman_leapp
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Leapp plugin for Hammer CLI
 Group: Applications/Systems
 License: GPLv3
@@ -16,19 +17,16 @@ URL: https://github.com/stejskalleos/hammer-cli-foreman-leapp
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
-BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -72,7 +70,9 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%foreman_bundlerd_file
+mkdir -p %{buildroot}%{hammer_confdir}/cli.modules.d
+install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
+                %{buildroot}%{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files
 %dir %{gem_instdir}
@@ -81,13 +81,16 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_bundlerd_plugin}
+%config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 15 2020 Adam Ruzicka <aruzicka@redhat.com> 0.1.0-2
+- Do not deploy as foreman plugin
+
 * Thu May 07 2020 Leos Stejskal <lstejska@redhat.com> 0.1.0-1
 - Update to 0.1.0
 
