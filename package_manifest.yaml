@@ -1304,6 +1304,7 @@ pulpcore_packages:
     python-coreapi: {}
     python-coreschema: {}
     python-cryptography: {}
+    python-dateutil: {}
     python-debian: {}
     python-defusedxml: {}
     python-diff-match-patch: {}
