@@ -31,6 +31,7 @@
       <packagereq type="default">python3-bleach</packagereq>
       <packagereq type="default">python3-bleach-whitelist</packagereq>
       <packagereq type="default">python3-box</packagereq>
+      <packagereq type="default">python3-certifi</packagereq>
       <packagereq type="default">python3-cffi</packagereq>
       <packagereq type="default">python3-chardet</packagereq>
       <packagereq type="default">python3-click</packagereq>
@@ -38,12 +39,14 @@
       <packagereq type="default">python3-coreschema</packagereq>
       <packagereq type="default">python3-createrepo_c</packagereq>
       <packagereq type="default">python3-cryptography</packagereq>
+      <packagereq type="default">python3-dateutil</packagereq>
       <packagereq type="default">python3-debian</packagereq>
       <packagereq type="default">python3-defusedxml</packagereq>
       <packagereq type="default">python3-diff-match-patch</packagereq>
       <packagereq type="default">python3-django</packagereq>
       <packagereq type="default">python3-django-filter</packagereq>
       <packagereq type="default">python3-django-import-export</packagereq>
+      <packagereq type="default">python3-django-prometheus</packagereq>
       <packagereq type="default">python3-djangorestframework</packagereq>
       <packagereq type="default">python3-djangorestframework-queryfields</packagereq>
       <packagereq type="default">python3-dotenv</packagereq>
@@ -55,6 +58,7 @@
       <packagereq type="default">python3-flake8</packagereq>
       <packagereq type="default">python3-future</packagereq>
       <packagereq type="default">python3-galaxy-importer</packagereq>
+      <packagereq type="default">python3-galaxy-ng</packagereq>
       <packagereq type="default">python3-gnupg</packagereq>
       <packagereq type="default">python3-gunicorn</packagereq>
       <packagereq type="default">python3-idna</packagereq>
@@ -77,6 +81,7 @@
       <packagereq type="default">python3-openpyxl</packagereq>
       <packagereq type="default">python3-packaging</packagereq>
       <packagereq type="default">python3-productmd</packagereq>
+      <packagereq type="default">python3-prometheus-client</packagereq>
       <packagereq type="default">python3-psycopg2</packagereq>
       <packagereq type="default">python3-pulp-2to3-migration</packagereq>
       <packagereq type="default">python3-pulp-ansible</packagereq>
