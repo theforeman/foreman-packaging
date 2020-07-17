@@ -1347,6 +1347,7 @@ pulpcore_packages:
     python-openpyxl: {}
     python-packaging: {}
     python-productmd: {}
+    python-prometheus-client: {}
     python-psycopg2: {}
     python-pulp-ansible: {}
     python-pulp-certguard: {}
