@@ -1322,6 +1322,7 @@ pulpcore_packages:
     python-flake8: {}
     python-future: {}
     python-galaxy-importer: {}
+    python-galaxy-ng: {}
     python-gnupg: {}
     python-gunicorn: {}
     python-idna: {}
