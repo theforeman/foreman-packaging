@@ -1217,6 +1217,7 @@ whitelist =
   python-openpyxl
   python-packaging
   python-productmd
+  python-prometheus-client
   python-psycopg2
   python-pulp_2to3_migration
   python-pulp-ansible
