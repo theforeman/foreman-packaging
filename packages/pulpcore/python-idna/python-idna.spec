@@ -2,7 +2,7 @@
 %global pypi_name idna
 
 Name:           python-%{pypi_name}
-Version:        2.9
+Version:        2.10
 Release:        1%{?dist}
 Summary:        Internationalized Domain Names in Applications (IDNA)
 
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 20 2020 Evgeni Golov 2.10-1
+- Update to 2.10
+
 * Wed Mar 18 2020 Samir Jha 2.9-1
 - Update to 2.9
 
