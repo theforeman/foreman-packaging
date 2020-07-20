@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 27
+%global release 28
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -263,7 +263,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.8.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -298,7 +298,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.8.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -318,7 +318,7 @@ BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
+BuildRequires: %{?scl_prefix}rubygem(sass-rails) >= 6.0
 BuildRequires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) >= 5.0.0
 BuildRequires: %{?scl_prefix}rubygem(coffee-rails) < 5.1.0
@@ -389,7 +389,7 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.4
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.5
 Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
@@ -404,6 +404,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 # start specfile ec2 Requires
+Requires: %{?scl_prefix}rubygem(fog-aws) >= 3.6.2
 Requires: %{?scl_prefix}rubygem(fog-aws) < 4
 # end specfile ec2 Requires
 Requires:  %{name} = %{version}-%{release}
@@ -459,7 +460,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.8.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -494,7 +495,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.8.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -514,7 +515,7 @@ Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
-Requires: %{?scl_prefix}rubygem(sass-rails) >= 5.0
+Requires: %{?scl_prefix}rubygem(sass-rails) >= 6.0
 Requires: %{?scl_prefix}rubygem(sass-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(coffee-rails) >= 5.0.0
 Requires: %{?scl_prefix}rubygem(coffee-rails) < 5.1.0
@@ -1016,6 +1017,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Jul 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.28.develop
+- Update Gem and NPM dependencies
+
 * Mon Jun 22 2020 Avi Sharvit <sharvita@gmail.com> - 2.2.0-0.27.develop
 - Update foreman-js dependencies
 
