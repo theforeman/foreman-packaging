@@ -2,7 +2,7 @@
 %global pypi_name diff-match-patch
 
 Name:           python-%{pypi_name}
-Version:        20181111
+Version:        20200713
 Release:        1%{?dist}
 Summary:        Repackaging of Google's Diff Match and Patch libraries
 
@@ -43,5 +43,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/diff_match_patch-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 20 2020 Evgeni Golov 20200713-1
+- Update to 20200713
+
 * Tue Apr 28 2020 Evgeni Golov - 20181111-1
 - Initial package.
