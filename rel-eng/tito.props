@@ -1171,6 +1171,7 @@ whitelist =
   python-bleach
   python-bleach-whitelist
   python-box
+  python-certifi
   python-cffi
   python-chardet
   python-click
