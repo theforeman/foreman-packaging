@@ -2,7 +2,7 @@
 %global pypi_name pycryptodomex
 
 Name:           python-%{pypi_name}
-Version:        3.9.7
+Version:        3.9.8
 Release:        1%{?dist}
 Summary:        Cryptographic library for Python
 
@@ -41,6 +41,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 20 2020 Evgeni Golov 3.9.8-1
+- Update to 3.9.8
+
 * Wed Mar 18 2020 Samir Jha 3.9.7-1
 - Update to 3.9.7
 
