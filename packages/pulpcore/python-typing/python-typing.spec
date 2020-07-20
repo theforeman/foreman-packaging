@@ -2,7 +2,7 @@
 %global pypi_name typing
 
 Name:           python-%{pypi_name}
-Version:        3.7.4.1
+Version:        3.7.4.3
 Release:        1%{?dist}
 Summary:        Type Hints for Python
 
@@ -43,5 +43,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 20 2020 Evgeni Golov 3.7.4.3-1
+- Update to 3.7.4.3
+
 * Wed Mar 18 2020 Samir Jha - 3.7.4.1-1
 - Initial package.
