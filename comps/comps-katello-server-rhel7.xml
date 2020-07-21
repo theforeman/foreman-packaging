@@ -34,6 +34,7 @@
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">tfm-nodejs-angular</packagereq>
       <packagereq type="default">tfm-nodejs-bootstrap-select</packagereq>
+      <packagereq type="default">tfm-nodejs-compute-scroll-into-view</packagereq>
       <packagereq type="default">tfm-nodejs-decode-uri-component</packagereq>
       <packagereq type="default">tfm-nodejs-downshift</packagereq>
       <packagereq type="default">tfm-nodejs-ngreact</packagereq>

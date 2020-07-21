@@ -1079,6 +1079,7 @@ whitelist = katello
   katello-repos
   nodejs-angular
   nodejs-bootstrap-select
+  nodejs-compute-scroll-into-view
   nodejs-decode-uri-component
   nodejs-downshift
   nodejs-ngreact
@@ -1121,6 +1122,7 @@ whitelist = katello
   katello-repos
   nodejs-angular
   nodejs-bootstrap-select
+  nodejs-compute-scroll-into-view
   nodejs-decode-uri-component
   nodejs-downshift
   nodejs-ngreact

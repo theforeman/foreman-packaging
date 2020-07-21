@@ -10,8 +10,10 @@ Summary: A set of primitives to build simple, flexible, WAI-ARIA compliant React
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/downshift-js/downshift#readme
-Source0: https://registry.npmjs.org/downshift/-/downshift-%{version}.tgz
-%if 0%{?!scl:1}
+Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
+%if 0%{?scl:1}
+BuildRequires: %{?scl_prefix_nodejs}npm
+%else
 BuildRequires: nodejs-packaging
 %endif
 Requires: npm(@babel/runtime) >= 7.10.2
