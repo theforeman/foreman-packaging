@@ -4,18 +4,24 @@
 %global npm_name downshift
 
 Name: %{?scl_prefix}nodejs-downshift
-Version: 1.31.15
-Release: 2%{?dist}
+Version: 5.4.7
+Release: 1%{?dist}
 Summary: A set of primitives to build simple, flexible, WAI-ARIA compliant React autocomplete components
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/paypal/downshift#readme
-Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+URL: https://github.com/downshift-js/downshift#readme
+Source0: https://registry.npmjs.org/downshift/-/downshift-%{version}.tgz
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
+Requires: npm(@babel/runtime) >= 7.10.2
+Requires: npm(@babel/runtime) < 8.0.0
+Requires: npm(compute-scroll-into-view) >= 1.0.14
+Requires: npm(compute-scroll-into-view) < 2.0.0
+Requires: npm(prop-types) >= 15.7.2
+Requires: npm(prop-types) < 16.0.0
+Requires: npm(react-is) >= 16.13.1
+Requires: npm(react-is) < 17.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -29,6 +35,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
+cp -pfr flow-typed %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr preact %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr typings %{buildroot}%{nodejs_sitelib}/%{npm_name}
@@ -45,6 +52,9 @@ cp -pfr typings %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Tue Jul 21 2020 John Mitsch <jomitsch@redhat.com> 5.4.7-1
+- Update to 5.4.7
+
 * Sun Oct 06 2019 Eric D. Helms <ericdhelms@gmail.com> - 1.31.15-2
 - Update to handle building for SCL
 
