@@ -6,10 +6,10 @@
 %global foreman_max_version 2.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc4.1
+%global prereleasesource rc5
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 15
+%global release 16
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -53,7 +53,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.2
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
@@ -110,8 +110,7 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) = 4.3.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
@@ -158,8 +157,7 @@ Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) = 4.3.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
 Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
 Requires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
@@ -249,6 +247,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Jul 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.16.rc5
+- Release rubygem-katello 3.16.0
+
 * Tue Jul 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.15.rc4.1
 - Release rubygem-katello 3.16.0
 
