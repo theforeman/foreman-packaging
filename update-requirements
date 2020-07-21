@@ -6,8 +6,8 @@ import json
 
 import semver
 
-# We need a blacklist of packages that are devDependencies but not needed to build
-NPM_BLACKLIST = [
+# We need a list of packages that are devDependencies but not needed to build
+EXCLUDE_NPM_PACKAGES = [
     '@sheerun/mutationobserver-shim',
     '@testing-library/jest-dom',
     '@testing-library/react',
@@ -40,7 +40,7 @@ NPM_BLACKLIST = [
     'webpack-dev-server',
 ]
 
-NPM_BLACKLIST_PREFIXES = [
+EXCLUDE_NPM_PREFIXES = [
     '@storybook/',
     'enzyme',
     'eslint',
@@ -48,9 +48,9 @@ NPM_BLACKLIST_PREFIXES = [
     'stylelint',
 ]
 
-def is_blacklisted(package):
-    return (package in NPM_BLACKLIST
-            or any(package.startswith(prefix) for prefix in NPM_BLACKLIST_PREFIXES))
+def is_excluded(package):
+    return (package in EXCLUDE_NPM_PACKAGES
+            or any(package.startswith(prefix) for prefix in EXCLUDE_NPM_PREFIXES))
 
 
 def get_requirement(version):
@@ -77,7 +77,7 @@ def get_requirement(version):
 
 def get_requirements(dependencies, fmt):
     for package, version in sorted(dependencies.items()):
-        if not is_blacklisted(package):
+        if not is_excluded(package):
             for requirement in get_requirement(version):
                 yield fmt.format(package, requirement)
 

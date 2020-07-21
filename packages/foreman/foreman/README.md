@@ -36,4 +36,4 @@ Name: foreman
 ...
 ```
 
-All the content between start and end is discarded while maintaining all the other lines. It then inserts generated dependencies equivalent to what's in package.json with some (static) blacklists. This is an optimization because we have no need for some this like linters or pure test dependencies. This is a lack in flexibility with `devDependencies`.
+All the content between start and end is discarded while maintaining all the other lines. It then inserts generated dependencies equivalent to what's in package.json with some (static) list of excluded modules. This is an optimization because we have no need for some this like linters or pure test dependencies. This is needed due to a lack in flexibility with `devDependencies`.
