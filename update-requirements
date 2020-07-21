@@ -16,6 +16,7 @@ NPM_BLACKLIST = [
     '@theforeman/stories',
     '@theforeman/test',
     '@theforeman/vendor-dev',
+    '@theforeman/find-foreman',
     'axios-mock-adapter',
     'babel-eslint',
     'babel-jest',
