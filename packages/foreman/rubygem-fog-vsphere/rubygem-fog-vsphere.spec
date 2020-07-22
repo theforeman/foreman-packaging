@@ -1,16 +1,22 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name fog-vsphere
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.3.1
+Version: 3.4.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-vsphere
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Autoreq: 0
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -22,6 +28,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 This library can be used as a module for `fog` or as standalone provider to
@@ -62,18 +69,17 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.travis.yml
+%{gem_instdir}/Jenkinsfile
 %license %{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/fog-vsphere.gemspec
-%exclude %{gem_instdir}/Jenkinsfile
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -86,8 +92,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Wed Jul 22 2020 Ondřej Ezr <oezr@redhat.com> 3.4.0-1
+- Update to 3.4.0-1
+
 * Wed May 13 2020 Ondřej Ezr <oezr@redhat.com> 3.3.1-1
 - Update to 3.3.1
 
