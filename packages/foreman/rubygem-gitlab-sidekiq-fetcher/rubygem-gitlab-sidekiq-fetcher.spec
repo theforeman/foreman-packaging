@@ -5,8 +5,8 @@
 %global gem_name gitlab-sidekiq-fetcher
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.2
-Release: 2%{?dist}
+Version: 0.6.0
+Release: 1%{?dist}
 Summary: Reliable fetch extension for Sidekiq
 Group: Development/Languages
 License: LGPL-3.0
@@ -18,7 +18,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(sidekiq) >= 5
-Requires: %{?scl_prefix}rubygem(sidekiq) < 6
+Requires: %{?scl_prefix}rubygem(sidekiq) < 7
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/tests
 
 %changelog
+* Thu Jul 23 2020 Adam Ruzicka <aruzicka@redhat.com> 0.6.0-1
+- Update to 0.6.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.5.2-2
 - Bump to release for EL8
 
