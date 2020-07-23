@@ -15,15 +15,16 @@ Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
 BuildRequires: %{?scl_prefix_nodejs}npm
 %else
 BuildRequires: nodejs-packaging
+BuildRequires: npm
 %endif
-Requires: npm(@babel/runtime) >= 7.10.2
-Requires: npm(@babel/runtime) < 8.0.0
-Requires: npm(compute-scroll-into-view) >= 1.0.14
-Requires: npm(compute-scroll-into-view) < 2.0.0
-Requires: npm(prop-types) >= 15.7.2
-Requires: npm(prop-types) < 16.0.0
-Requires: npm(react-is) >= 16.13.1
-Requires: npm(react-is) < 17.0.0
+Requires: %{?scl_prefix}npm(babel/runtime) >= 7.10.2
+Requires: %{?scl_prefix}npm(babel/runtime) < 8.0.0
+Requires: %{?scl_prefix}npm(compute-scroll-into-view) >= 1.0.14
+Requires: %{?scl_prefix}npm(compute-scroll-into-view) < 2.0.0
+Requires: %{?scl_prefix}npm(prop-types) >= 15.7.2
+Requires: %{?scl_prefix}npm(prop-types) < 16.0.0
+Requires: %{?scl_prefix}npm(react-is) >= 16.13.1
+Requires: %{?scl_prefix}npm(react-is) < 17.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
