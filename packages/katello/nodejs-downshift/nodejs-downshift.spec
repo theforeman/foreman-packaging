@@ -40,7 +40,6 @@ mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr flow-typed %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr preact %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr typings %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %nodejs_symlink_deps
