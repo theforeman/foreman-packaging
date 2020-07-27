@@ -34,6 +34,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %prep
 %setup -q -n package
+%nodejs_fixdep -r @babel/runtime
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
