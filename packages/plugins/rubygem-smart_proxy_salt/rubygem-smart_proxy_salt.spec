@@ -30,12 +30,15 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
+%global foreman_salt_datadir /usr/share/foreman-salt
 %global salt_config_dir %{_root_sysconfdir}/salt
+%global salt_runner_dir %{foreman_salt_datadir}/runner
+%global salt_reactor_dir %{foreman_salt_datadir}/reactor
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -156,6 +159,10 @@ mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbin
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
 cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
+mkdir -p %{buildroot}%{salt_runner_dir}
+cp -pa ./salt/report_upload/srv/salt/_runners/foreman_report_upload.py %{buildroot}%{salt_runner_dir}/foreman_report_upload.py
+mkdir -p %{buildroot}%{salt_reactor_dir}
+cp -pa ./salt/report_upload/srv/salt/foreman_report_upload.sls %{buildroot}%{salt_runner_dir}/foreman_report_upload.sls
 gem 'smart_proxy_salt_core'
 EOF
 
@@ -168,7 +175,6 @@ EOF
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_instdir}/cron
-%{gem_instdir}/salt
 %{gem_instdir}/lib
 %{gem_instdir}/bundler.d
 %{gem_instdir}/settings.d
@@ -180,12 +186,17 @@ EOF
 %config %{_root_sysconfdir}/cron.d/%{gem_name}
 %exclude %{gem_instdir}/etc
 %exclude %{gem_instdir}/cron
+%{salt_runner_dir}/foreman_report_upload.py
+%{salt_reactor_dir}/foreman_report_upload.sls
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 23 2020 Stefan Bogner <bogner@b1-systems.de> - 3.1.2-7
+- Include salt runner and reactor for report upload in package
+
 * Thu Jul 09 2020 Bernhard Suttner <suttner@atix.de> - 3.1.2-6
 - Fix upload-salt-report path
 - Fix hashbang for foreman-node helper script
