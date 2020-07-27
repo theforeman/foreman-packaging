@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.2.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Galaxy content importer
 
 License:        Apache-2.0
@@ -52,6 +52,8 @@ Requires:       python3-semantic-version >= 2.8.4
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
+sed -i -E '/\s+ansible($|-lint)/d' setup.cfg
+
 %build
 %py3_build
 
@@ -66,5 +68,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/galaxy_importer-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 27 2020 Evgeni Golov - 0.2.5-2
+- Patch out Ansible and ansible-lint dependencies from the Python egg
+
 * Tue Jun 23 2020 Evgeni Golov - 0.2.5-1
 - Initial package.
