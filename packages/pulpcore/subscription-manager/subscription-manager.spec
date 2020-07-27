@@ -223,7 +223,7 @@
 
 Name: subscription-manager
 Version: 1.27.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Tools and libraries for subscription and repository management
 Group:   System Environment/Base
 License: GPLv2
@@ -268,8 +268,8 @@ Requires:  %{py_package_prefix}-six
 BuildRequires:  %{py_package_prefix}-python-dateutil
 Requires:  %{py_package_prefix}-python-dateutil
 %else
-BuildRequires: python36-dateutil
-Requires: python36-dateutil
+BuildRequires: python3-dateutil
+Requires: python3-dateutil
 %endif
 Requires: %{py_package_prefix}-syspurpose
 
@@ -555,7 +555,7 @@ Requires: %{?suse_version:python-m2crypto} %{!?suse_version:m2crypto}
 %if 0%{?suse_version} >= 1500
 Requires:  %{py_package_prefix}-python-dateutil
 %else
-Requires: python36-dateutil
+Requires: python3-dateutil
 %endif
 Requires: python3-iniparse
 # rpm-python is an old name for python2-rpm but RHEL6 uses the old name
@@ -1361,6 +1361,9 @@ gtk-update-icon-cache -f %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Mon Jul 27 2020 Evgeni Golov 1.27.5-2
+- Use python3-dateutil instead of python36-dateutil
+
 * Sun May 31 2020 Christopher Snyder <csnyder@redhat.com> 1.27.5-1
 - Revert "1667792: added --disable-auto-attach option to register command;
   ENT-1684" (csnyder@redhat.com)
