@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.2.0b14
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pulp plugin to manage Ansible content, e.g. roles
 
 License:        GPLv2+
@@ -20,7 +20,7 @@ BuildRequires:  python3-setuptools
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-PyYAML
+Requires:       python3-pyyaml
 Requires:       python3-galaxy-importer
 Requires:       python3-packaging
 Requires:       python3-pulpcore < 3.5
@@ -49,5 +49,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/pulp_ansible-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Jul 27 2020 Evgeni Golov - 0.2.0b14-2
+* Fix pyyaml dependency
+
 * Tue Jun 23 2020 Evgeni Golov - 0.2.0b14-1
 - Initial package.
