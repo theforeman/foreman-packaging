@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -21,7 +21,6 @@ Requires:   curl
 Requires:   puppet-agent >= 5.5.0
 Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
-Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
@@ -43,7 +42,6 @@ Obsoletes: katello-installer-base < 3.11.0-1
 
 Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
-Requires: katello-selinux
 Requires: katello-certs-tools
 Requires: which
 
@@ -148,6 +146,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Jul 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.5.develop
+- Drop requires on selinux packages, allow installer code to handle
+
 * Thu Jul 02 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.2.0-0.4.develop
 - Drop foreman-maintain dependency
 
