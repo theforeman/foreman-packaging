@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -19,7 +19,6 @@ Requires:   curl
 Requires:   puppet-agent >= 5.5.0
 Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
-Requires:   foreman-selinux
 Requires:   %{?scl_prefix_ruby}ruby(release)
 Requires:   foreman-maintain
 
@@ -42,7 +41,6 @@ Obsoletes: katello-installer-base < 3.11.0-1
 
 Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
-Requires: katello-selinux
 Requires: katello-certs-tools
 Requires: which
 
@@ -147,6 +145,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jul 30 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-2
+- Drop requires on selinux packages, allow installer code to handle
+
 * Thu Jul 02 2020 Patrick Creech <pcreech@redhat.com> - 1:2.1.0-1
 - Release foreman-installer 2.1.0
 
