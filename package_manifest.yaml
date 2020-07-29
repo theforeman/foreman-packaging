@@ -523,7 +523,6 @@ foreman_installer_packages:
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
     katello-certs-tools: {}
-    katello-selinux: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
     puppet-agent-rgen: {}
@@ -850,6 +849,7 @@ katello_packages:
     katello: {}
     katello-client-bootstrap: {}
     katello-repos: {}
+    katello-selinux: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
