@@ -365,7 +365,6 @@
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
-      <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
