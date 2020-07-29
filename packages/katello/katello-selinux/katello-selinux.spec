@@ -17,14 +17,14 @@
 #
 
 %define selinux_variants targeted
-%define selinux_modules katello
+%define selinux_modules katello crane
 %global selinux_policy_ver %(rpm --qf "%%{version}-%%{release}" -q selinux-policy)
 
 %define moduletype apps
 
 
 Name:           katello-selinux
-Version:        3.3.1
+Version:        3.4.0
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -117,7 +117,8 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %files
-%doc LICENSE katello.fc katello.if katello.te
+%license LICENSE
+%doc katello.fc katello.if katello.te
 %attr(0600,root,root) %{_datadir}/selinux/*/katello.pp.bz2
 %{_datadir}/selinux/devel/include/%{moduletype}/katello.if
 %attr(0755,root,root) %{_sbindir}/%{name}-enable
@@ -127,7 +128,67 @@ fi
 %{_mandir}/man8/%{name}-disable.8.gz
 %{_mandir}/man8/%{name}-relabel.8.gz
 
+%package -n crane-selinux
+Summary: SELinux policy module for Crane
+Group:   System Environment/Base
+
+Requires:           selinux-policy >= %{selinux_policy_ver}
+Requires(post):     /usr/sbin/semodule
+Requires(post):     /sbin/restorecon
+Requires(post):     /usr/sbin/setsebool
+Requires(post):     /usr/sbin/selinuxenabled
+Requires(post):     /usr/sbin/semanage
+Requires(post):     selinux-policy-targeted
+Requires(postun):   /usr/sbin/semodule
+Requires(postun):   /sbin/restorecon
+
+%if 0%{?rhel} == 7
+Requires(post):     policycoreutils-python
+%else
+Requires(post):     policycoreutils-python-utils
+%endif
+
+%description -n crane-selinux
+SELinux policy module for Crane
+
+%post -n crane-selinux
+if /usr/sbin/selinuxenabled; then
+    # install and upgrade
+    %{_sbindir}/crane-selinux-enable
+fi
+
+%posttrans -n crane-selinux
+if /usr/sbin/selinuxenabled; then
+    # install and upgrade
+    %{_sbindir}/crane-selinux-relabel
+fi
+
+%preun -n crane-selinux
+if /usr/sbin/selinuxenabled; then
+    # uninstall only
+    if [ $1 -eq 0 ]; then
+        %{_sbindir}/crane-selinux-disable
+    fi
+    # upgrade and uninstall
+    %{_sbindir}/crane-selinux-relabel
+fi
+
+%files -n crane-selinux
+%license LICENSE
+%doc crane.fc crane.if crane.te
+%attr(0600,root,root) %{_datadir}/selinux/*/crane.pp.bz2
+%{_datadir}/selinux/devel/include/%{moduletype}/crane.if
+%attr(0755,root,root) %{_sbindir}/crane-selinux-enable
+%attr(0755,root,root) %{_sbindir}/crane-selinux-disable
+%attr(0755,root,root) %{_sbindir}/crane-selinux-relabel
+%{_mandir}/man8/crane-selinux-enable.8.gz
+%{_mandir}/man8/crane-selinux-disable.8.gz
+%{_mandir}/man8/crane-selinux-relabel.8.gz
+
 %changelog
+* Wed Jul 29 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-1
+- Add crane-selinux sub-package
+
 * Wed Jul 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-1
 - Release katello-selinux 3.3.1
 
