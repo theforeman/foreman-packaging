@@ -487,7 +487,6 @@ foreman_installer_packages:
     foreman-installer: {}
     foreman-selinux: {}
     katello-certs-tools: {}
-    katello-selinux: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
     puppet-agent-rgen: {}
@@ -788,6 +787,7 @@ katello_packages:
     katello: {}
     katello-client-bootstrap: {}
     katello-repos: {}
+    katello-selinux: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
