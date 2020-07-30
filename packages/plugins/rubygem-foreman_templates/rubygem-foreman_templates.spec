@@ -8,8 +8,8 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.0.0
-Release:    2%{?foremandist}%{?dist}
+Version:    9.0.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -120,6 +120,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Jul 30 2020 Ondrej Prazak <oprazak@redhat.com> 9.0.1-1
+- Update to 9.0.1
+
 * Tue Jul 21 2020 Evgeni Golov - 9.0.0-2
 - Drop posttrans macros
 
