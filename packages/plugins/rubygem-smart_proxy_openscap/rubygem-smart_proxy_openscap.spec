@@ -22,8 +22,8 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.2
-Release: 6%{?foremandist}%{?dist}
+Version: 0.7.3
+Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -125,6 +125,7 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{_root_bindir}/smart-proxy-arf-html
 %{_root_bindir}/smart-proxy-arf-json
 %{_root_bindir}/smart-proxy-openscap-send
+%{_root_bindir}/smart-proxy-openscap-send-inner
 %{_root_bindir}/smart-proxy-policy-guide
 %{_root_bindir}/smart-proxy-scap-profiles
 %{_root_bindir}/smart-proxy-scap-validation
@@ -153,6 +154,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 30 2020 Ondrej Prazak <oprazak@redhat.com> 0.7.3-1
+- Update to 0.7.3
+
 * Mon Jun 22 2020 Evgeni Golov - 0.7.2-6
 - Fix bundler.d location on EL8
 
