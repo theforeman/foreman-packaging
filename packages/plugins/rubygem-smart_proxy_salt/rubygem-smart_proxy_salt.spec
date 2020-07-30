@@ -162,7 +162,7 @@ cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_cor
 mkdir -p %{buildroot}%{salt_runner_dir}
 cp -pa ./salt/report_upload/srv/salt/_runners/foreman_report_upload.py %{buildroot}%{salt_runner_dir}/foreman_report_upload.py
 mkdir -p %{buildroot}%{salt_reactor_dir}
-cp -pa ./salt/report_upload/srv/salt/foreman_report_upload.sls %{buildroot}%{salt_runner_dir}/foreman_report_upload.sls
+cp -pa ./salt/report_upload/srv/salt/foreman_report_upload.sls %{buildroot}%{salt_reactor_dir}/foreman_report_upload.sls
 gem 'smart_proxy_salt_core'
 EOF
 
