@@ -5,7 +5,7 @@
 %global gem_name websocket-extensions
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
+Version: 0.1.5
 Release: 1%{?dist}
 Summary: Generic extension manager for WebSocket connections
 Group: Development/Languages
@@ -80,6 +80,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 31 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-1
+- Release rubygem-websocket-extensions 0.1.5
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.4-1
 - Release rubygem-websocket-extensions 0.1.4
 
