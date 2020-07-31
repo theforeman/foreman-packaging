@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 28
+%global release 29
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -655,7 +655,9 @@ Meta Package to install dynflow sidekiq executor support
 %files dynflow-sidekiq
 %{_datadir}/%{name}/bundler.d/dynflow_sidekiq.rb
 %{_unitdir}/%{dynflow_sidekiq_service_name}.service
+%{_datadir}/%{name}/config/dynflow
 %{_datadir}/%{name}/extras/dynflow-sidekiq.rb
+%{_sysconfdir}/%{name}/dynflow
 
 %post dynflow-sidekiq
 %systemd_post %{dynflow_sidekiq_service_name}.service
@@ -795,11 +797,10 @@ mv %{buildroot}%{_datadir}/%{name}/config/$i %{buildroot}%{_sysconfdir}/%{name}
 ln -sv %{_sysconfdir}/%{name}/$i %{buildroot}%{_datadir}/%{name}/config/$i
 done
 
-for i in orchestrator worker; do
-  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml.example %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml
-  mv %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml %{buildroot}%{_sysconfdir}/%{name}/dynflow/
-  ln -sv %{_sysconfdir}/%{name}/dynflow/$i.yml %{buildroot}%{_datadir}/%{name}/config/dynflow/$i.yml
-done
+mv %{buildroot}%{_datadir}/%{name}/config/dynflow/orchestrator.yml.example %{buildroot}%{_sysconfdir}/%{name}/dynflow/orchestrator.yml
+mv %{buildroot}%{_datadir}/%{name}/config/dynflow/worker.yml.example %{buildroot}%{_sysconfdir}/%{name}/dynflow/worker-1.yml
+rm -rf %{buildroot}%{_datadir}/%{name}/config/dynflow
+ln -sv %{_sysconfdir}/%{name}/dynflow %{buildroot}%{_datadir}/%{name}/config/dynflow
 
 # Put db in %{_localstatedir}/lib/%{name}/db
 cp -pr db/schema.rb.nulldb db/migrate db/seeds.rb db/seeds.d %{buildroot}%{_datadir}/%{name}
@@ -1017,6 +1018,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Jul 31 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.29.develop
+- Support Dynflow worker pool (#29817)
+
 * Mon Jul 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.28.develop
 - Update Gem and NPM dependencies
 
