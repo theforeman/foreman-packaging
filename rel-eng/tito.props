@@ -1166,7 +1166,6 @@ whitelist =
   python-django
   python-django-filter
   python-django-import-export
-  python-django-prometheus
   python-django-readonly-field
   python-djangorestframework
   python-djangorestframework-queryfields
