@@ -22,6 +22,7 @@ whitelist = foreman-bootloaders-redhat
   foreman-release-scl
   foreman-selinux
   katello-certs-tools
+  katello-selinux
   keycloak-httpd-client-install
   nodejs-node-gyp
   pcp-mmvstatsd
@@ -371,6 +372,7 @@ whitelist = foreman
   foreman-selinux
   gyp
   katello-certs-tools
+  katello-selinux
   keycloak-httpd-client-install
   nodejs-argv-parse
   nodejs-babel-cli
@@ -1060,7 +1062,6 @@ scl = tfm
 whitelist = katello
   katello-client-bootstrap
   katello-repos
-  katello-selinux
   nodejs-angular
   nodejs-bootstrap-select
   nodejs-decode-uri-component
@@ -1103,7 +1104,6 @@ disttag = .el8
 whitelist = katello
   katello-client-bootstrap
   katello-repos
-  katello-selinux
   nodejs-angular
   nodejs-bootstrap-select
   nodejs-decode-uri-component

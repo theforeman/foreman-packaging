@@ -7,6 +7,7 @@
     <description>Packages for the Foreman</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">crane-selinux</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
@@ -39,6 +40,7 @@
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">gyp</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
+      <packagereq type="default">katello-selinux</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
       <packagereq type="default">nodejs-argv-parse</packagereq>
       <packagereq type="default">nodejs-babel-cli</packagereq>
