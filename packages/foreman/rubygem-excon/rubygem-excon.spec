@@ -5,8 +5,8 @@
 
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.58.0
-Release: 5%{?dist}
+Version: 0.76.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -16,13 +16,6 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: ca-certificates
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: ca-certificates
-# For the tests
-#BuildRequires: %{?scl_prefix}rubygem(activesupport)
-#BuildRequires: %{?scl_prefix}rubygem(delorean)
-#BuildRequires: %{?scl_prefix}rubygem(open4)
-#BuildRequires: %{?scl_prefix}rubygem(shindo)
-#BuildRequires: %{?scl_prefix}rubygem(sinatra)
-#BuildRequires: %{?scl_prefix}rubygem(eventmachine)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -72,25 +65,21 @@ ln -sf /etc/pki/tls/cert.pem \
 %{gem_instdir}/data
 %{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Gemfile.lock
-%exclude %{gem_instdir}/spec
 %{gem_spec}
 %doc %{gem_instdir}/LICENSE.md
 
 %files doc
-%{gem_instdir}/benchmarks
-%{gem_instdir}/tests
 %{gem_instdir}/excon.gemspec
-%{gem_instdir}/Rakefile
 %doc %{gem_docdir}
-%doc %{gem_instdir}/changelog.txt
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
 %doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 03 2020 Bernhard Suttner <suttner@atix.de> 0.76.0-1
+- Update to 0.76.0 (mainly because of https://github.com/excon/excon/issues/718)
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.58.0-5
 - Bump to release for EL8
 
