@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 31
+%global release 32
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
@@ -1018,6 +1018,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Sep 29 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.2.0-0.32.rc3
+- Clean up cron file
+
 * Mon Sep 14 2020 Evgeni Golov - 2.2.0-0.31.rc3
 - Release foreman 2.2.0
 
