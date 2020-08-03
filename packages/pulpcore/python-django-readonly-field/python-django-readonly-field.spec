@@ -14,7 +14,6 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-django >= 1.11
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-tox
 
 %description
 %{summary}
