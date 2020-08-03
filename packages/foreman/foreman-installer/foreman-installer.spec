@@ -1,11 +1,11 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
-Version:    2.1.0
+Version:    2.1.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -145,6 +145,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Aug 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.1-1
+- Release foreman-installer 2.1.1
+
 * Thu Jul 30 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.0-2
 - Drop requires on selinux packages, allow installer code to handle
 
