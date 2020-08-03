@@ -12,19 +12,7 @@ Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-Requires:       python3-PyGObject >= 3.22
-Conflicts:      python3-PyGObject >= 3.23
-BuildRequires:  python3-createrepo-c < 1.0
-BuildRequires:  python3-createrepo-c >= 0.15.10
-BuildRequires:  python3-django-readonly-field
-BuildRequires:  python3-jsonschema >= 3.0
-Requires:       python3-libcomps >= 0.1.11
-Conflicts:      python3-libcomps >= 0.2
-BuildRequires:  python3-productmd >= 1.25
-BuildRequires:  python3-pulpcore < 3.6
-BuildRequires:  python3-pulpcore >= 3.4
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-solv
 
 %description
 %{summary}
@@ -32,13 +20,18 @@ BuildRequires:  python3-solv
 %package -n     python3-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
-Requires:       python3-PyGObject >= 3.22
-Conflicts:      python3-PyGObject >= 3.23
-Requires:       python3-createrepo-c < 1.0
-Requires:       python3-createrepo-c >= 0.15.10
+%if 0%{?rhel} == 7
+Requires:       python36-gobject
+Requires:       libmodulemd2
+%else
+Requires:       python3-gobject
+Requires:       libmodulemd >= 2.0
+%endif
+Requires:       python3-createrepo_c < 1.0
+Requires:       python3-createrepo_c >= 0.15.10
 Requires:       python3-django-readonly-field
 Requires:       python3-jsonschema >= 3.0
-Requires:       python3-libcomps >= 0.1.11
+Requires:       python3-libcomps >= 0.1.12
 Conflicts:      python3-libcomps >= 0.2
 Requires:       python3-productmd >= 1.25
 Requires:       python3-pulpcore < 3.6
@@ -53,6 +46,9 @@ Requires:       python3-solv
 %autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
+
+# remove "solv" dependency from setup.py as python3-solv does not provide an egg
+sed -i "/solv/d" requirements.txt
 
 %build
 %py3_build
