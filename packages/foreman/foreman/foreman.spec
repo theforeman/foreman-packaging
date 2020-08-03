@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -1017,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Sep 29 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.3.0-0.6.develop
+- Clean up cron file
+
 * Thu Sep 24 2020 Evgeni Golov - 2.3.0-0.5.develop
 - Update GEM dependencies
 
