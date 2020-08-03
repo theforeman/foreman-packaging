@@ -1291,6 +1291,7 @@ pulpcore_packages:
         - el8-powertools
         - el8-configmanagement-ansible
   hosts:
+    ansible-lint: {}
     createrepo_c: {}
     libcomps: {}
     libsolv: {}
