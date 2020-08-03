@@ -5,12 +5,12 @@
 # See https://github.com/dgoodwin/tito/pull/333
 Name:           python-pulp_2to3_migration
 Version:        0.2.0
-Release:        0.1.b3%{?dist}
+Release:        0.1.b7%{?dist}
 Summary:        Pulp 2 to Pulp 3 migration tool
 
 License:        GPLv2+
 URL:            http://www.pulpproject.org
-Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}b3.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}b7.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -23,8 +23,8 @@ BuildRequires:  python3-setuptools
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
-Requires:       python3-pulpcore >= 3.3
-Requires:       python3-jsonschema
+Requires:       python3-pulpcore >= 3.4
+Requires:       python3-jsonschema >= 3.0
 Requires:       python3-mongoengine
 Requires:       python3-semantic-version
 Requires:       python3-setuptools
@@ -33,7 +33,7 @@ Requires:       python3-setuptools
 %{summary}
 
 %prep
-%autosetup -n %{pypi_name}-%{version}b3
+%autosetup -n %{pypi_name}-%{version}b7
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -46,9 +46,12 @@ rm -rf %{pypi_name}.egg-info
 %files -n python3-%{pypi_name}
 %doc README.md
 %{python3_sitelib}/pulp_2to3_migration
-%{python3_sitelib}/pulp_2to3_migration-%{version}b3-py%{python3_version}.egg-info
+%{python3_sitelib}/pulp_2to3_migration-%{version}b7-py%{python3_version}.egg-info
 
 %changelog
+* Mon Aug 03 2020 Evgeni Golov - 0.2.0-0.1.b7
+- Update to 0.2.0-b7
+
 * Wed Jun 17 2020 Justin Sherrill <jsherril@redhat.com> 0.2.0-0.1.b3
 - updated to 0.2.0b3
 
