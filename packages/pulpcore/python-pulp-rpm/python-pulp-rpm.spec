@@ -3,12 +3,13 @@
 
 Name:           python-%{pypi_name}
 Version:        3.5.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
 URL:            http://www.pulpproject.org
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Patch0:         7248.patch
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -43,7 +44,8 @@ Requires:       python3-solv
 %{summary}
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%autosetup -n %{pypi_name}-%{version}  -p1
+
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -63,6 +65,9 @@ sed -i "/solv/d" requirements.txt
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.5.0-2
+- add patch for pulp issue 7248
+
 * Thu Jul 30 2020 Samir Jha 3.5.0-1
 - Update to 3.5.0
 
