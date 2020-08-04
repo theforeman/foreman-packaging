@@ -8,8 +8,8 @@
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.0.0
-%global release 7
+%global mainver 3.17.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -55,8 +55,8 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.2
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.6.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -91,8 +91,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.2
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -229,26 +229,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
-* Wed Jul 29 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.7.pre.master
-- Update Gem and NPM dependencies
-
-* Wed Jul 15 2020 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.6.pre.master
+* Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.pre.master
+- update version to 3.17.0
+- pulp_rpm 3.5 support
 - add remote_execution dep
-
-* Fri Jun 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.5.pre.master
 - Disable autorequires to prevent rich dependency auto-creation on EL8
-
-* Tue Jun 09 2020 Evgeni Golov - 4.0.0-0.4.pre.master
-- Update GEM Requirements
-
-* Tue Jun 02 2020 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.3.pre.master
 - Add pulp_certguard_client
-
-* Tue May 26 2020 Evgeni Golov - 4.0.0-0.2.pre.master
 - Drop Requires on katello-selinux
-
-* Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.pre.master
-- Update to 4.0
 
 * Wed May 06 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.13.pre.master
 - Update foreman version bounds

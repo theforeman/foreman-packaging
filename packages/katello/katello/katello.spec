@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 1
 
 Name:       katello
-Version:    4.0.0
+Version:    3.17.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -180,14 +180,10 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
-* Thu Jun 18 2020 Barnaby Court <bcourt@redhat.com> - 4.0.0-0.3.master
+* Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.master
+- change version to 3.17.0
 - Add artemis broker.xml and tomcat config files to debug collection
-
-* Wed Jun 17 2020 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.2.master
 - move pulp-selinux requires to -common for foreman proxy install
-
-* Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.master
-- Update to 4.0
 
 * Mon Apr 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.3.master
 - Only require mongo and pulp on EL7
