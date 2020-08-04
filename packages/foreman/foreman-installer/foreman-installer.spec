@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -12,6 +12,7 @@ Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
 URL:        https://theforeman.org
 Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+Patch0:     pulp_enabled.patch
 
 BuildArch:  noarch
 
@@ -49,6 +50,8 @@ Various scenarios and tools for the Katello ecosystem
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+
+%patch0 -p1
 
 %build
 #replace shebangs for SCL
@@ -145,6 +148,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Aug 04 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.1-2
+- Add patch for missing pulp_enabled? function
+
 * Mon Aug 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.1.1-1
 - Release foreman-installer 2.1.1
 
