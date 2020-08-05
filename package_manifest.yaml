@@ -749,17 +749,11 @@ katello_packages:
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: katello-3.16-el8
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
     releasers:
       - koji-katello
     repoclosure_target_repos:
       rhel7:
         - el7-katello-3.16
-      el8:
-        - el8-katello-3.16
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -773,17 +767,6 @@ katello_packages:
         - el7-katello-pulp-3.16
         - el7-katello-pulpcore-3.16
         - el7-katello-candlepin-3.16
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-epel
-        - el8-extras
-        - el8-puppet-6
-        - el8-foreman-2.1
-        - el8-foreman-plugins-2.1
-        - el8-katello-pulpcore-3.16
-        - el8-katello-candlepin-3.16
   hosts:
     katello: {}
     katello-client-bootstrap: {}
@@ -1180,25 +1163,17 @@ pulpcore_packages:
     koji_tags:
       - name: katello-pulpcore-3.16-el7
         dist: '.el7'
-      - name: katello-pulpcore-3.16-el8
-        dist: '.el8'
     releasers:
       - koji-katello-pulpcore
     repoclosure_target_repos:
       el7:
         - el7-katello-pulpcore-3.16
-      el8:
-        - el8-katello-pulpcore-3.16
     repoclosure_lookaside_repos:
       el7:
         - el7-base
         - el7-updates
         - el7-scl
         - el7-epel
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
   hosts:
     createrepo_c: {}
     libcomps: {}
