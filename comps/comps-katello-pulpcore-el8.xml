@@ -113,6 +113,7 @@
       <packagereq type="default">python3-ruamel-yaml-clib</packagereq>
       <packagereq type="default">python3-semantic-version</packagereq>
       <packagereq type="default">python3-setuptools-scm</packagereq>
+      <packagereq type="default">python3-setuptools_scm_git_archive</packagereq>
       <packagereq type="default">python3-six</packagereq>
       <packagereq type="default">python3-solv</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>

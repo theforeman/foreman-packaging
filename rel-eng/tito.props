@@ -1251,6 +1251,7 @@ whitelist =
   python-ruamel-yaml-clib
   python-semantic-version
   python-setuptools-scm
+  python-setuptools_scm_git_archive
   python-six
   python-sqlparse
   python-tablib
