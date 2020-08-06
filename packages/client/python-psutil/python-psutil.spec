@@ -5,18 +5,14 @@
 %global __provides_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/.*\\.so$
 
 Name:           python-%{srcname}
-Version:        5.6.3
-Release:        5%{?dist}
+Version:        5.7.2
+Release:        1%{?dist}
 Summary:        %{sum}
 
 License:        BSD
 URL:            https://github.com/giampaolo/psutil
 Source0:        https://github.com/giampaolo/psutil/archive/release-%{version}.tar.gz#/%{srcname}-%{version}.tar.gz
-#
-# Disable upstream failing test
-# https://github.com/giampaolo/psutil/issues/946
-#
-#Patch0:         psutil-5.4.3-disable-broken-tests.patch
+Patch0:         extras_require.patch
 
 BuildRequires:  gcc
 BuildRequires:  python%{python3_pkgversion}-devel
@@ -57,7 +53,7 @@ ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
 
 
 %prep
-%autosetup -p0 -n %{srcname}-release-%{version}
+%autosetup -p1 -n %{srcname}-release-%{version}
 
 # Remove shebangs
 find psutil -name \*.py | while read file; do
@@ -84,7 +80,7 @@ done
 #%endif
 #make test-memleaks PYTHON=%{__python3}
 
- 
+
 %files -n python2-%{srcname}
 %license LICENSE
 %doc CREDITS HISTORY.rst README.rst
@@ -100,6 +96,9 @@ done
 
 
 %changelog
+* Thu Aug 06 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.7.2-1
+- Release python-psutil 5.7.2
+
 * Sun Oct 06 2019 Kevin Fenzi <kevin@scrye.com> - 5.6.3-5
 - Add python2-setuptools to BuildRequires to fix egg info. Fixes bug #1750362
 
@@ -160,7 +159,7 @@ done
 
 * Mon Jan 02 2017 Kevin Fenzi <kevin@scrye.com> - 5.0.1-1
 - Update to 5.0.1. Fixes bug #1389579
-- Disable failing test while upstream looks at it. 
+- Disable failing test while upstream looks at it.
 
 * Wed Nov 09 2016 Kevin Fenzi <kevin@scrye.com> - 5.0.0-1
 - Update to 5.0.0. Fixes bug #1389579

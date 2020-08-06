@@ -1,0 +1,34 @@
+From 86ece690a462abcba30c0fe0a138f2d7919d5fa2 Mon Sep 17 00:00:00 2001
+From: "Eric D. Helms" <ericdhelms@gmail.com>
+Date: Thu, 15 Oct 2020 13:27:50 -0400
+Subject: [PATCH] Blank extras_require to build on EL7
+
+---
+ setup.py | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 893eb46b..6e0abcac 100755
+--- a/setup.py
++++ b/setup.py
+@@ -68,16 +68,7 @@ if POSIX:
+     sources.append('psutil/_psutil_posix.c')
+ 
+ 
+-extras_require = {"test": [
+-    "enum34; python_version <= '3.4'",
+-    "ipaddress; python_version < '3.0'",
+-    "mock; python_version < '3.0'",
+-    "unittest2; python_version < '3.0'",
+-]}
+-if not PYPY:
+-    extras_require['test'].extend([
+-        "pywin32; sys.platform == 'win32'",
+-        "wmi; sys.platform == 'win32'"])
++extras_require = {}
+ 
+ 
+ def get_version():
+-- 
+2.26.2
+
