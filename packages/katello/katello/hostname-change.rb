@@ -15,8 +15,6 @@ module KatelloUtilities
   class HostnameChange
     include ::KatelloUtilities::Helper
 
-    attr_accessor :temp_last_scenario_yaml
-
     def initialize(init_options)
       @default_program = self.get_default_program
       @proxy = init_options.fetch(:proxy)
@@ -375,11 +373,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     def restore_last_scenario_yaml
       STDOUT.puts 'restoring last_scenario.yaml'
       if File.exist?(last_scenario_yaml)
-        run_cmd("cp #{temp_last_scenario_yaml.path} #{last_scenario_yaml}")
+        run_cmd("cp #{@temp_last_scenario_yaml.path} #{last_scenario_yaml}")
       else
         # if the installer failed early the last_scenario symlink won't exist
         scenario_path = "#{scenarios_path}/#{@options[:scenario]}.yaml"
-        run_cmd("cp #{temp_last_scenario_yaml.path} #{scenario_path}")
+        run_cmd("cp #{@temp_last_scenario_yaml.path} #{scenario_path}")
         File.symlink(scenario_path, last_scenario_yaml)
       end
     end
@@ -500,11 +498,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       if File.exist?(last_scenario_yaml)
         STDOUT.puts 'backing up last_scenario.yaml'
-        temp_last_scenario_yaml = Tempfile.new('last_scenario')
+        @temp_last_scenario_yaml = Tempfile.new('last_scenario')
         begin
-          temp_last_scenario_yaml << File.read(last_scenario_yaml)
+          @temp_last_scenario_yaml << File.read(last_scenario_yaml)
         ensure
-          temp_last_scenario_yaml.close
+          @temp_last_scenario_yaml.close
         end
 
         STDOUT.puts 'removing last_scenario.yaml'
@@ -528,12 +526,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       STDOUT.puts installer
       run_cmd(installer, [0], installer_failure_message) do |result, success|
-        if temp_last_scenario_yaml && temp_last_scenario_yaml.path
+        if @temp_last_scenario_yaml && @temp_last_scenario_yaml.path
           unless success
             restore_last_scenario_yaml
           end
           STDOUT.puts 'cleaning up temporary files'
-          temp_last_scenario_yaml.unlink
+          @temp_last_scenario_yaml.unlink
         end
 
         if success
