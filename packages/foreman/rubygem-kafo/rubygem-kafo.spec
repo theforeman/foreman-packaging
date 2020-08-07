@@ -6,8 +6,8 @@
 %global gem_name kafo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.1.0
-Release: 3%{?dist}
+Version: 5.0.0
+Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -103,6 +103,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri Aug 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-1
+- Release rubygem-kafo 5.0.0
+
 * Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-3
 - Obsolete non-scl version
 
