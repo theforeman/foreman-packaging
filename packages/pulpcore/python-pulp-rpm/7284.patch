@@ -1,0 +1,26 @@
+diff --git a/pulp_rpm/app/tasks/copy.py b/pulp_rpm/app/tasks/copy.py
+index 37e72df5..db635bcc 100644
+--- a/pulp_rpm/app/tasks/copy.py
++++ b/pulp_rpm/app/tasks/copy.py
+@@ -146,7 +146,7 @@ def copy_content(config, dependency_solving):
+         else:
+             dest_repo_version = dest_repo.latest_version()
+ 
+-        if entry.get("content"):
++        if entry.get("content") is not None:
+             content_filter = Q(pk__in=entry.get("content"))
+         else:
+             content_filter = Q()
+diff --git a/pulp_rpm/app/viewsets.py b/pulp_rpm/app/viewsets.py
+index 652674b7..f63315d8 100644
+--- a/pulp_rpm/app/viewsets.py
++++ b/pulp_rpm/app/viewsets.py
+@@ -312,7 +312,7 @@ class CopyViewSet(viewsets.ViewSet):
+                                                     repo=dest_repo.name)
+                     raise DRFValidationError(detail=message)
+ 
+-            if entry.get("content"):
++            if entry.get("content") is not None:
+                 r["content"] = []
+                 for c in entry["content"]:
+                     r["content"].append(NamedModelViewSet().get_resource(c, Content).pk)
