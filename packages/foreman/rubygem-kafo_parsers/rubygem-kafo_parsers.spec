@@ -6,8 +6,8 @@
 %global gem_name kafo_parsers
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 3%{?dist}
+Version: 1.1.1
+Release: 1%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Aug 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.1-1
+- Release rubygem-kafo_parsers 1.1.1
+
 * Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
 - Obsolete non-scl version
 
