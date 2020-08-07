@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -19,15 +19,15 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   puppet-agent >= 5.5.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
-Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 5.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) < 6.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 5.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 4.1.0
-BuildRequires: %{?scl_prefix}rubygem(kafo) < 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) < 6.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
 
@@ -146,6 +146,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Aug 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.6.develop
+- Require kafo 5.Y
+
 * Tue Jul 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.5.develop
 - Drop requires on selinux packages, allow installer code to handle
 
