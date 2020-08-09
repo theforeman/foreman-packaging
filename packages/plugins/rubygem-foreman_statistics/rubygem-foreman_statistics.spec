@@ -8,7 +8,7 @@
 %global foreman_min_version 2.1.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
+Version: 1.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 Group: Applications/Systems
@@ -116,6 +116,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 10 2020 Ondřej Ezr <oezr@redhat.com> 1.0.0-1
+- Update to 1.0.0
+
 * Wed Jul 22 2020 Ondřej Ezr <oezr@redhat.com> 0.1.3-1
 - Update to 0.1.3-1
 
