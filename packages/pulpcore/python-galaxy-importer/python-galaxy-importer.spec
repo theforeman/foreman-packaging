@@ -1,14 +1,16 @@
 # Created by pyp2rpm-3.3.3
 %global pypi_name galaxy-importer
 
+%global full_version %{version}rc9
+
 Name:           python-%{pypi_name}
-Version:        0.2.7
-Release:        1%{?dist}
+Version:        0.2.8
+Release:        0.1.rc9%{?dist}
 Summary:        Galaxy content importer
 
 License:        Apache-2.0
 URL:            https://github.com/ansible/galaxy-importer
-Source0:        https://files.pythonhosted.org/packages/source/g/%{pypi_name}/galaxy_importer-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/g/%{pypi_name}/galaxy_importer-%{full_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -23,10 +25,11 @@ Summary:        %{summary}
 # We don't care if Ansible is Python 2 or 3 as we just call the CLI
 Requires:       ansible
 Requires:       /usr/bin/ansible-test
-# technically, we need ansible-lint to lint imported roles
-# but building it on EL is hard, and roles should import fine without
-#Requires:      python3-ansible-lint < 5.0
-#Requires:      python3-ansible-lint >= 4.2.0
+%if 0%{?rhel} == 8
+# We only have ansible-lint built on EL8
+Requires:       ansible-lint < 5.0
+Requires:       ansible-lint >= 4.2.0
+%endif
 Requires:       python3-attrs < 20
 Requires:       python3-attrs >= 19.3.0
 Requires:       python3-bleach < 4
@@ -48,7 +51,7 @@ Requires:       python3-semantic-version >= 2.8.4
 %{summary}
 
 %prep
-%autosetup -n galaxy_importer-%{version}
+%autosetup -n galaxy_importer-%{full_version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -64,10 +67,12 @@ sed -i -E '/\s+ansible($|-lint)/d' setup.cfg
 %license galaxy_importer/utils/spdx_licenses.py galaxy_importer/utils/spdx_licenses.json
 %doc README.md
 %{python3_sitelib}/galaxy_importer
-%{python3_sitelib}/tests
-%{python3_sitelib}/galaxy_importer-%{version}-py%{python3_version}.egg-info
+%{python3_sitelib}/galaxy_importer-%{full_version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Aug 10 2020 Evgeni Golov 0.2.8-0.1.rc9
+- Update to 0.2.8rc9
+
 * Mon Jul 27 2020 Evgeni Golov 0.2.7-1
 - Update to 0.2.7
 
