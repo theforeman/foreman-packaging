@@ -2,8 +2,8 @@
 %global pypi_name yarl
 
 Name:           python-%{pypi_name}
-Version:        1.4.2
-Release:        2%{?dist}
+Version:        1.5.1
+Release:        1%{?dist}
 Summary:        Yet another URL library
 
 License:        Apache 2
@@ -11,7 +11,10 @@ URL:            https://github.com/aio-libs/yarl/
 Source0:        https://files.pythonhosted.org/packages/source/y/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-idna >= 2.0
+BuildRequires:  python3-multidict >= 4.0
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-typing-extensions >= 3.7.4
 
 %description
 %{summary}
@@ -21,6 +24,7 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 Requires:       python3-idna >= 2.0
 Requires:       python3-multidict >= 4.0
+Requires:       python3-typing-extensions >= 3.7.4
 
 %description -n python3-%{pypi_name}
 %{summary}
@@ -43,6 +47,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Aug 10 2020 Evgeni Golov 1.5.1-1
+- Update to 1.5.1
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.2-2
 - Bump release to build for el8
 
