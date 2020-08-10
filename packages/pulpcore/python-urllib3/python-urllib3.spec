@@ -2,7 +2,7 @@
 %global pypi_name urllib3
 
 Name:           python-%{pypi_name}
-Version:        1.25.9
+Version:        1.25.10
 Release:        1%{?dist}
 Summary:        HTTP library with thread-safe connection pooling, file post, and more
 
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Aug 10 2020 Evgeni Golov 1.25.10-1
+- Update to 1.25.10
+
 * Tue Apr 28 2020 Evgeni Golov 1.25.9-1
 - Update to 1.25.9
 
