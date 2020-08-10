@@ -10,6 +10,7 @@
     <description>pulpcore Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
+      <packagereq type="default">ansible-lint</packagereq>
       <packagereq type="default">createrepo_c</packagereq>
       <packagereq type="default">createrepo_c-devel</packagereq>
       <packagereq type="default">createrepo_c-libs</packagereq>
