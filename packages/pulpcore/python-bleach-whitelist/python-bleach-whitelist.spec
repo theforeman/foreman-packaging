@@ -2,7 +2,7 @@
 %global pypi_name bleach-whitelist
 
 Name:           python-%{pypi_name}
-Version:        0.0.10
+Version:        0.0.11
 Release:        1%{?dist}
 Summary:        Curated lists of tags and attributes for sanitizing html
 
@@ -41,5 +41,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/bleach_whitelist-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Mon Aug 10 2020 Evgeni Golov 0.0.11-1
+- Update to 0.0.11
+
 * Tue Jun 23 2020 Evgeni Golov - 0.0.10-1
 - Initial package.
