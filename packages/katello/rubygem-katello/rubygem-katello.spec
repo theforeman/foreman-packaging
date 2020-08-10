@@ -6,10 +6,8 @@
 %global foreman_max_version 2.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc5.1 
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.16.0
-%global release 16
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -53,8 +51,8 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.2
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.6.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -87,8 +85,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.1
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 1.5.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -247,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-1
+- Release rubygem-katello 3.16.0
+
 * Fri Jul 31 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.16.rc5.1
 - Release rubygem-katello 3.16.0
 
