@@ -1191,6 +1191,7 @@ whitelist =
   python-djangorestframework-queryfields
   python-dotenv
   python-drf-nested-routers
+  python-drf-spectacular
   python-drf-yasg
   python-dynaconf
   python-ecdsa
