@@ -4,11 +4,11 @@
 
 %global gem_name foreman_monitoring
 %global plugin_name monitoring
-%global foreman_min_version 1.17.0
+%global foreman_min_version 2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
-Release: 4%{?foremandist}%{?dist}
+Version: 2.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
 License: GPLv3
@@ -96,6 +96,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 11 2020 Manuel Laug <manuel.laug@dm.de> - 2.0.0-1
+- Update foreman_monitoring to 2.0.0
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-4
 - Drop migrate, seed and restart posttans
 
