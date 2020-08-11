@@ -7,11 +7,13 @@ Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 1.3.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+# Patch safemode to allow to_sentence for array
+Patch0: https://patch-diff.githubusercontent.com/raw/svenfuchs/safemode/pull/32.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.4.0
@@ -45,6 +47,7 @@ This package contains documentation for rubygem-%{gem_name}.
 gem unpack %{SOURCE0}
 %{?scl:"}
 %setup -q -D -T -n  %{gem_name}-%{version}
+%patch0 -p1
 
 %{?scl:scl enable %{scl} "}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -86,6 +89,9 @@ rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
 %{gem_docdir}
 
 %changelog
+* Tue Jul 14 2020 Dirk Goetz <dirk.goetz@netways.de> - 1.3.5-4
+- Add patch to allow to_sentence for array
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.5-3
 - Bump to release for EL8
 
