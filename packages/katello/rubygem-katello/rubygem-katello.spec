@@ -2,13 +2,13 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 2.2
-%global foreman_max_version 2.3
+%global foreman_min_version 2.3
+%global foreman_max_version 2.4
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 3.17.0
+%global mainver 3.18.0
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.18.0-0.1.pre.master
+- Bump to 3.18.0
+
 * Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.pre.master
 - update version to 3.17.0
 - pulp_rpm 3.5 support

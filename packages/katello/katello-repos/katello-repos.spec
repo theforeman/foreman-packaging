@@ -10,7 +10,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        4.0.0
+Version:        3.18
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -80,6 +80,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.18-0.1.nightly
+- Bump to 3.18.0
+
 * Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.nightly
 - Update to 4.0
 

@@ -8,7 +8,7 @@
 %global release 1
 
 Name:       katello
-Version:    3.17.0
+Version:    3.18.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.18.0-0.1.master
+- Bump to 3.18.0
+
 * Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.master
 - change version to 3.17.0
 - Add artemis broker.xml and tomcat config files to debug collection
