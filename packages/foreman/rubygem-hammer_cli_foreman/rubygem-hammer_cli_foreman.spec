@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -13,7 +13,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.0
+Version: 2.3.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 Group: Development/Languages
@@ -99,6 +99,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.pre.develop
+- Bump version to 2.3-develop
+
 * Wed Jun 03 2020 Evgeni Golov - 2.2.0-0.2.pre.develop
 - Regenerate spec file based on recent template
 
