@@ -13,12 +13,12 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  2.2.0
+Version:  2.3.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -109,6 +109,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.3.develop
 - Bump version to 2.2-develop
 
