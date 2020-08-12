@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 30
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1015,6 +1015,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.30.rc1
+- Release foreman 2.2.0
+
 * Wed Aug 05 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.30.develop
 - Only generate en_US apipie docs for Foreman and Plugins
 

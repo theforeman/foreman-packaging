@@ -2,7 +2,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -146,6 +146,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Aug 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.6.rc1
+- Release foreman-installer 2.2.0
+
 * Fri Aug 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.6.develop
 - Require kafo 5.Y
 
