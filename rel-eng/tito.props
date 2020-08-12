@@ -1059,16 +1059,6 @@ disttag = .el5
 whitelist = foreman-release
   katello-host-tools
 
-[foreman-client-2.2-fedora29]
-disttag = .fc29
-whitelist =
-  ansible-collection-theforeman-foreman
-  foreman-release
-  katello-host-tools
-  python-apypie
-  rubygem-foreman_scap_client
-  tracer
-
 [katello-3.17-rhel7]
 disttag = .el7
 scl = tfm
