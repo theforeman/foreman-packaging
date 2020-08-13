@@ -2,15 +2,13 @@
 %global pypi_name pulp-rpm
 
 Name:           python-%{pypi_name}
-Version:        3.5.0
-Release:        3%{?dist}
+Version:        3.5.1
+Release:        1%{?dist}
 Summary:        RPM plugin for the Pulp Project
 
 License:        GPLv2+
 URL:            http://www.pulpproject.org
 Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-Patch0:         7248.patch
-Patch1:         7284.patch
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -66,6 +64,9 @@ sed -i "/solv/d" requirements.txt
 %{python3_sitelib}/pulp_rpm-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Aug 13 2020 Justin Sherrill <jsherril@redhat.com> 3.5.1-1
+- update to 3.5.1
+
 * Fri Aug 07 2020 Justin Sherrill <jsherril@redhat.com> 3.5.0-3
 - Add patch for issue 7284
 
