@@ -4,9 +4,7 @@
 
 %global gem_name hammer_cli
 
-%global release 3
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-1
+- Release 2.2.0
+
 * Wed Jun 03 2020 Evgeni Golov - 2.2.0-0.3.pre.develop
 - Regenerate spec file based on recent template
 
