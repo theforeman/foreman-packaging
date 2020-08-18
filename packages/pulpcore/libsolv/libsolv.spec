@@ -1,6 +1,12 @@
 %global libname solv
 
+# Only build Python2 bindings on EL7
+%if 0%{?rhel} == 7
 %bcond_without python2_bindings
+%else
+%bcond_with python2_bindings
+%endif
+
 %bcond_without python3_bindings
 %bcond_with    perl_bindings
 %bcond_without ruby_bindings
@@ -21,7 +27,7 @@
 
 Name:           lib%{libname}
 Version:        0.7.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Package dependency solver
 
 License:        BSD
@@ -269,5 +275,8 @@ Python 3 version.
 %endif
 
 %changelog
+* Tue Aug 18 2020 Evgeni Golov - 0.7.12-2
+- Only build Python2 bindings on EL7
+
 * Tue Apr 21 2020 Igor Raits <ignatenkobrain@fedoraproject.org> - 0.7.12-1
 - Update to 0.7.12
