@@ -3,7 +3,7 @@
 %global srcname box
 
 Name:           python-%{srcname}
-Version:        5.0.1
+Version:        5.1.0
 Release:        1%{?dist}
 Summary:        Advanced Python dictionaries with dot notation access
 
@@ -47,6 +47,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/python_box-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Wed Aug 19 2020 Justin Sherrill <jsherril@redhat.com> 5.1.0-1
+- update to 5.1.0
+
 * Mon Jul 20 2020 Evgeni Golov 5.0.1-1
 - Update to 5.0.1
 
