@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Aug 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.17.0-0.1.rc1
+- Release katello 3.17.0
+
 * Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.master
 - change version to 3.17.0
 - Add artemis broker.xml and tomcat config files to debug collection

@@ -5,12 +5,12 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:           katello-repos
-Version:        4.0.0
+Version:        3.17.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -80,8 +80,8 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
-* Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.nightly
-- Update to 4.0
+* Wed Aug 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.17.0-0.1.rc1
+- Release katello-repos 3.17.0
 
 * Wed Apr 22 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.15.0-0.4.nightly
 - Add module_hotfixes to repo files
