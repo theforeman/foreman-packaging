@@ -6,10 +6,10 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 
 Name:           foreman-proxy
-Version:        2.0.1
+Version:        2.0.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -242,6 +242,9 @@ fi
 
 
 %changelog
+* Wed Aug 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.2-1
+- Release foreman-proxy 2.0.2
+
 * Thu Jun 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.0.1-2
 - Update Gem dependencies
 
