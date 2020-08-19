@@ -12,7 +12,7 @@
 %global release 1
 
 Name:    foreman
-Version: 2.0.1
+Version: 2.0.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1005,6 +1005,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Wed Aug 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.2-1
+- Release foreman 2.0.2
+
 * Wed Jun 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-1
 - Release foreman 2.0.1
 
