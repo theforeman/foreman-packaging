@@ -753,10 +753,6 @@ katello_packages:
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: katello-3.17-el8
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
     releasers:
       - koji-katello
     repoclosure_target_repos:

@@ -6,7 +6,7 @@
 %global foreman_max_version 2.3
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.17.0
 %global release 1
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Aug 19 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.17.0-0.1.rc1
+- Release rubygem-katello 3.17.0
+
 * Tue Aug 04 2020 Justin Sherrill <jsherril@redhat.com> 3.17.0-0.1.pre.master
 - update version to 3.17.0
 - pulp_rpm 3.5 support
