@@ -1,10 +1,16 @@
 ---
-packages:
+all:
   vars:
     foremandist: .fm2_3
-    rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
     foreman_version: 'nightly'
     katello_version: 'nightly'
+  children:
+    packages: {}
+    repoclosures: {}
+
+packages:
+  vars:
+    rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
   children:
     foreman_packages: {}
     plugins_packages: {}
