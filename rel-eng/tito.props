@@ -225,6 +225,7 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
+  rubygem-hocon
   rubygem-hoe
   rubygem-httpclient
   rubygem-http-cookie
@@ -563,6 +564,7 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
+  rubygem-hocon
   rubygem-hoe
   rubygem-httpclient
   rubygem-http-cookie

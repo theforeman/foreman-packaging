@@ -185,6 +185,7 @@ foreman_scl_packages:
     rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
+    rubygem-hocon: {}
     rubygem-hoe: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
