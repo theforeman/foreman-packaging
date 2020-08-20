@@ -8,8 +8,8 @@
 
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
-Release: 7%{?dist}
+Version: 4.0.44
+Release: 1%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
 URL: https://puppetlabs.com/%{gem_name}
@@ -18,6 +18,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix}rubygem(hocon) >= 1.3
+Requires: %{?scl_prefix}rubygem(hocon) < 2.0
+Requires: %{?scl_prefix}rubygem(thor) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(thor) < 2.0
+
 
 %ifarch %ix86 x86_64 ia64
 Requires: dmidecode
@@ -78,21 +83,17 @@ cp -a .%{_bindir}/* \
 %{gem_instdir}/bin
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/etc
-%exclude %{gem_instdir}/ext
-%exclude %{gem_instdir}/install.rb
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
-%{gem_instdir}/Rakefile
-%{gem_instdir}/spec
-%doc %{gem_instdir}/COMMITTERS.md
-%doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 25 2020 Lukas Zapletal <lzap+rpm@redhat.com> 4.0.44-1
+- Update to 4.0.44
+
+* Thu Aug 20 2020 Lukas Zapletal <lzap+rpm@redhat.com> 4.0.35-1
+- Update to 4.0.35
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-7
 - Bump to release for EL8
 
