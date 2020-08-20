@@ -1,3 +1,9 @@
+foreman-proxy (2.1.2-1) stable; urgency=low
+
+  * 2.1.2 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Thu, 20 Aug 2020 13:16:10 -0400
+
 foreman-proxy (2.1.1-1) stable; urgency=low
 
   * 2.1.1 released
