@@ -4,7 +4,7 @@
 
 Name:           python-%{srcname}
 Version:        2.8.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Extensions to the standard Python datetime module
 
 License:        Dual License
@@ -16,6 +16,8 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools-scm
 BuildRequires:  python3-six >= 1.5
+
+Obsoletes: python36-dateutil
 
 %description
 %{summary}
@@ -46,5 +48,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/python_dateutil-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Aug 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.8.1-2
+- Obsolete python36-dateutil
+
 * Fri Jul 17 2020 Evgeni Golov - 2.8.1-1
 - Initial package.
