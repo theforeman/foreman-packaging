@@ -5,7 +5,7 @@
 %global gem_name pulp_rpm_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.0
+Version: 3.6.1
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 Group: Development/Languages
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 20 2020 Justin Sherrill <jsherril@redhat.com> 3.6.1-1
+- Update to 3.6.1
+
 * Mon Aug 03 2020 Samir Jha <sjha4@ncsu.edu> 3.5.0-1
 - Update to 3.5.0
 
