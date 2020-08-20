@@ -238,6 +238,7 @@
       <packagereq type="default">rubygem-hirb</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-hoe</packagereq>
+      <packagereq type="default">rubygem-hocon</packagereq>
       <packagereq type="default">rubygem-http-cookie</packagereq>
       <packagereq type="default">rubygem-httpclient</packagereq>
       <packagereq type="default">rubygem-i18n</packagereq>
@@ -456,6 +457,7 @@
       <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-hirb-doc</packagereq>
       <packagereq type="default">rubygem-hirb-unicode-steakknife-doc</packagereq>
+      <packagereq type="default">rubygem-hocon-doc</packagereq>
       <packagereq type="default">rubygem-hoe-doc</packagereq>
       <packagereq type="default">rubygem-httpclient-doc</packagereq>
       <packagereq type="default">rubygem-http-cookie-doc</packagereq>
