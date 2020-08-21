@@ -16,7 +16,6 @@
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
-      <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-satyr</packagereq>
       <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
       <packagereq type="default">tfm-nodejs-htmlparser2</packagereq>
@@ -122,6 +121,7 @@
       <packagereq type="default">tfm-rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi</packagereq>
+      <packagereq type="default">tfm-rubygem-newt</packagereq>
       <packagereq type="default">tfm-rubygem-openscap</packagereq>
       <packagereq type="default">tfm-rubygem-openscap_parser</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin</packagereq>
@@ -177,7 +177,6 @@
       -->
       <!--RGD-START-->
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
-      <packagereq type="default">rubygem-newt-doc</packagereq>
       <packagereq type="default">rubygem-satyr-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
@@ -270,13 +269,14 @@
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-logify-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-msgpack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-msgpack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_xml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-net-ssh-multi-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-newt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-openscap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-openscap_parser-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ovirt_provision_plugin-doc</packagereq>

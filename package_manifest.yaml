@@ -1064,6 +1064,7 @@ plugin_scl_packages:
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
+    rubygem-newt: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
@@ -1126,7 +1127,6 @@ plugin_nonscl_packages:
     foreman-discovery-image-service: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
-    rubygem-newt: {}
     rubygem-satyr: {}
 
 repoclosures:

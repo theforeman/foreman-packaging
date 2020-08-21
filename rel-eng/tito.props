@@ -962,6 +962,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
+  rubygem-newt
   rubygem-openscap
   rubygem-openscap_parser
   rubygem-ovirt_provision_plugin
@@ -1021,7 +1022,6 @@ whitelist = ansiblerole-foreman_scap_client
   foreman-discovery-image-service
   puppet-foreman_scap_client
   rubygem-fast_gettext
-  rubygem-newt
   rubygem-satyr
 
 [foreman-client-nightly-el8]
