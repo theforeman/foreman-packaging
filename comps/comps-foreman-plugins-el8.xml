@@ -266,9 +266,9 @@
       <packagereq type="default">rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">rubygem-kubeclient-doc</packagereq>
       <packagereq type="default">rubygem-logify-doc</packagereq>
+      <packagereq type="default">rubygem-msgpack-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest-doc</packagereq>
-      <packagereq type="default">rubygem-msgpack-doc</packagereq>
       <packagereq type="default">rubygem-multi_xml-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-krb-doc</packagereq>
