@@ -283,6 +283,7 @@ whitelist = foreman
   rubygem-promise.rb
   rubygem-public_suffix
   rubygem-puma
+  rubygem-puma-plugin-systemd
   rubygem-puma-status
   rubygem-quantile
   rubygem-rabl
@@ -618,6 +619,7 @@ whitelist = foreman
   rubygem-promise.rb
   rubygem-public_suffix
   rubygem-puma
+  rubygem-puma-plugin-systemd
   rubygem-puma-status
   rubygem-quantile
   rubygem-rabl
