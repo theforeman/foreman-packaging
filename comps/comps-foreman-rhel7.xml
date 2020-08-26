@@ -323,6 +323,7 @@
       <packagereq type="default">tfm-rubygem-sd_notify</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
+      <packagereq type="default">tfm-rubygem-server_sent_events</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq</packagereq>
       <packagereq type="default">tfm-rubygem-signet</packagereq>
@@ -569,6 +570,7 @@
       <packagereq type="default">tfm-rubygem-sd_notify-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-server_sent_events-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq-doc</packagereq>
       <packagereq type="default">tfm-rubygem-signet-doc</packagereq>
