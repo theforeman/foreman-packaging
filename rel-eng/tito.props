@@ -320,6 +320,7 @@ whitelist = foreman
   rubygem-sd_notify
   rubygem-secure_headers
   rubygem-sequel
+  rubygem-server_sent_events
   rubygem-sexp_processor
   rubygem-sidekiq
   rubygem-signet
@@ -656,6 +657,7 @@ whitelist = foreman
   rubygem-scoped_search
   rubygem-sd_notify
   rubygem-secure_headers
+  rubygem-server_sent_events
   rubygem-sequel
   rubygem-sexp_processor
   rubygem-sidekiq

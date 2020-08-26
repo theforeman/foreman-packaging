@@ -632,6 +632,7 @@ foreman_proxy_packages:
     rubygem-rubyipmi: {}
     rubygem-rb-inotify: {}
     rubygem-rsec: {}
+    rubygem-server_sent_events: {}
 
 foreman_proxy_plugin_packages:
   vars:
