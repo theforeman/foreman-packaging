@@ -1,3 +1,9 @@
+ruby-kafo (5.1.0-1) stable; urgency=low
+
+  * 5.1.0 released
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Wed, 26 Aug 2020 09:38:25 -0400
+
 ruby-kafo (4.1.0-1) stable; urgency=low
 
   * 4.1.0 released
