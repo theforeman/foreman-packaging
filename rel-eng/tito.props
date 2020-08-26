@@ -860,7 +860,8 @@ whitelist = ansiblerole-foreman_scap_client
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = nodejs-babel-plugin-module-resolver
+whitelist = foreman-discovery-image-service
+  nodejs-babel-plugin-module-resolver
   nodejs-htmlparser2
   nodejs-react-html-parser
   nodejs-react-json-tree
@@ -1021,7 +1022,6 @@ disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
-  foreman-discovery-image-service
   puppet-foreman_scap_client
   rubygem-fast_gettext
   rubygem-satyr
