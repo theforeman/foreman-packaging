@@ -1,27 +1,31 @@
 Name: foreman-discovery-image-service
 Version: 1.0.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Metapackage with dependencies for FDI
 
 Group: Applications/System
 License: GPLv2+
 URL: https://github.com/theforeman/foreman-discovery-image
 
+# explicitly define, as we build on top of an scl, not inside with scl_package 
+%{?scl:%global scl_prefix %{scl}-} 
+
 Requires:	foreman-proxy
-%if 0%{?rhel} == 7
-Requires:	tfm-rubygem-smart_proxy_discovery_image
-%else
-Requires:	rubygem-smart_proxy_discovery_image
-%endif
+Requires:	%{?scl_prefix}rubygem-smart_proxy_discovery_image
 
 %description
 Metapackage with dependencies for FDI
 
 %package tui
 Summary: Metapackage with dependencies for FDI TUI
-Requires: ruby(release)
-Requires: rubygem(newt)
-Requires: rubygem(fast_gettext)
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(newt)
+Requires: %{?scl_prefix}rubygem(fast_gettext)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 
 %description tui
 Metapackage with dependencies for FDI text-user interface
@@ -37,6 +41,9 @@ Metapackage with dependencies for FDI text-user interface
 %files tui
 
 %changelog
+* Wed Aug 26 2020 Lukas Zapletal <lzap+rpm@redhat.com - 1.0.0-4
+- TUI requires SCL dependencies
+
 * Mon May 11 2020 Zach Huntington-Meath - 1.0.0-3
 - Add scl macro to FDI dependency
 

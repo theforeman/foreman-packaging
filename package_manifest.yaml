@@ -962,6 +962,7 @@ plugin_scl_packages:
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
   hosts:
+    foreman-discovery-image-service: {}
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
     nodejs-htmlparser2:
@@ -1125,7 +1126,6 @@ plugin_nonscl_packages:
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     ansiblerole-satellite-receptor-installer: {}
-    foreman-discovery-image-service: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
     rubygem-satyr: {}
