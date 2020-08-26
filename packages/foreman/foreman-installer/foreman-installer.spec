@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -19,14 +19,14 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   puppet-agent >= 5.5.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 5.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 5.1.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 6.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 5.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 5.1.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 6.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
@@ -146,6 +146,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Aug 26 2020 William Bradford Clark <wclark@redhat.com> - 1:2.3.0-0.2.develop
+- Require kafo 5.1
+
 * Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.3.0-0.1.develop
 - Bump version to 2.3-develop
 
