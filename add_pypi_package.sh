@@ -21,6 +21,8 @@ PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
 ROOT=$(git rev-parse --show-toplevel)
 
+SCRIPT_ROOT=$(readlink -f $0)
+
 program_exists() {
   which "$@" &> /dev/null
 }
@@ -97,10 +99,10 @@ add_pypi_to_comps() {
 
   for comps_package in ${comps_packages}; do
     if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
-      ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
     fi
   done
-  ./comps_doc.sh
+  ${SCRIPT_ROOT}/comps_doc.sh
   git add comps/
 }
 
@@ -119,11 +121,11 @@ add_pypi_to_manifest() {
 	fi
 
 	if [[ -n $section ]] ; then
-		./add_host.py "$section" "$PACKAGE_NAME"
+		${SCRIPT_ROOT}/add_host.py "$section" "$PACKAGE_NAME"
 		git add package_manifest.yaml
 	else
 		echo "TODO: Add the package into the right section"
-		echo "./add_host.py SECTION '$PACKAGE_NAME'"
+		echo "${SCRIPT_ROOT}/add_host.py SECTION '$PACKAGE_NAME'"
 		echo "git add package_manifest.yaml"
 		echo "git commit --amend --no-edit"
 	fi
