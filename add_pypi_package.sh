@@ -19,8 +19,6 @@ fi
 PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
-ROOT=$(git rev-parse --show-toplevel)
-
 SCRIPT_ROOT=$(readlink -f $0)
 
 program_exists() {
@@ -61,7 +59,7 @@ generate_pypi_package() {
     sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_DIR/*.spec
     rm OLD_CHANGELOG
     CHANGELOG="- Update to $VERSION"
-    echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec
+    echo "$CHANGELOG" | $SCRIPT_ROOT/add_changelog.sh $PACKAGE_DIR/*.spec
   fi
   echo "FINISHED"
 
