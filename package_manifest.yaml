@@ -275,6 +275,7 @@ foreman_scl_packages:
     rubygem-sassc: {}
     rubygem-sassc-rails: {}
     rubygem-scoped_search: {}
+    rubygem-sd_notify: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
     rubygem-sexp_processor: {}
