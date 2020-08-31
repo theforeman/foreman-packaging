@@ -2,12 +2,14 @@
 %global pulp_version 2.21
 %global use_pulp_nightly false
 
+%global pulpcore_version 3.6
+
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.18
@@ -61,6 +63,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
     sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
     sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
+    sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
     if [ "%{use_pulp_nightly}" = true ] ; then
         PULP_URL_MIDDLE="testing\/automation\/2-master\/stage"
         PULP_GPG_CHECK=0
@@ -80,6 +83,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Aug 31 2020 Evgeni Golov - 3.18-0.2.nightly
+- Use the new pulpcore repos
+
 * Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.18-0.1.nightly
 - Bump to 3.18.0
 
