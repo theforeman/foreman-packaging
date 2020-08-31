@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -74,7 +74,7 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
-Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
+Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
@@ -85,7 +85,7 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
-Requires: %{?scl_prefix}rubygem(friendly_id) < 6
+Requires: %{?scl_prefix}rubygem(friendly_id) < 5.4
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -180,7 +180,7 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
-BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
+BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
@@ -191,7 +191,7 @@ BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.4
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -263,7 +263,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -298,7 +298,7 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.14.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -460,7 +460,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -495,7 +495,7 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.14.0
 Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
@@ -646,6 +646,8 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(sidekiq) >= 5.0
 Requires: %{?scl_prefix}rubygem(sidekiq) < 6.0
 Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
+Requires: %{?scl_prefix}rubygem(sd_notify) >= 0.1
+Requires: %{?scl_prefix}rubygem(sd_notify) < 1.0
 # end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1016,6 +1018,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Aug 31 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Sat Aug 29 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.2.develop
 - Add puma-plugin-systemd to service subpackage requires
 
