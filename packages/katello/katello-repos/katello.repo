@@ -27,10 +27,10 @@ enabled=1
 gpgcheck=@REPO_GPGCHECK@
 module_hotfixes=1
 
-[katello-pulpcore]
+[pulpcore]
 name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
-baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/pulpcore/@DIST@/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+baseurl=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/@DIST@/$basearch/
+gpgkey=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/GPG-RPM-KEY-pulpcore
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
 module_hotfixes=1
@@ -58,9 +58,9 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
-[katello-pulpcore-source]
-name=Katello pulpcore source
-baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/pulpcore/@DIST@/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
+[pulpcore-source]
+name=pulpcore source
+baseurl=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/@DIST@/source/
+gpgkey=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/GPG-RPM-KEY-pulpcore
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
