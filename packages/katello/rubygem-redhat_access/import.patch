@@ -1,0 +1,28 @@
+diff --git a/app/assets/stylesheets/insights/application.css b/app/assets/stylesheets/insights/application.css
+index de42cf8..093c697 100755
+--- a/app/assets/stylesheets/insights/application.css
++++ b/app/assets/stylesheets/insights/application.css
+@@ -9,6 +9,7 @@
+  * compiled file, but it's generally better to create a new file per style scope.
+  *
+  *= require_self
+- *= require telemetry/sat6.css
+- *= require insights/insights.css
+  */
++
++@import "telemetry/sat6.css";
++@import "insights/insights.css";
+diff --git a/app/assets/stylesheets/redhat_access/application.css b/app/assets/stylesheets/redhat_access/application.css
+index 78704fc..37e17ea 100644
+--- a/app/assets/stylesheets/redhat_access/application.css
++++ b/app/assets/stylesheets/redhat_access/application.css
+@@ -9,6 +9,7 @@
+  * compiled file, but it's generally better to create a new file per style scope.
+  *
+  *= require_self
+- *= require redhat_access/redhat_access_angular_ui-deps.css
+- *= require redhat_access/redhat_access_angular_ui.css
+  */
++
++@import "redhat_access/redhat_access_angular_ui-deps.css";
++@import "redhat_access/redhat_access_angular_ui.css";

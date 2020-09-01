@@ -15,6 +15,7 @@ Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/redhataccess/foreman-plugin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Patch0: import.patch
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -60,6 +61,7 @@ gem unpack %{SOURCE0}
 %{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
+%patch0 -p1
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
