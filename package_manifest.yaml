@@ -968,8 +968,6 @@ plugin_scl_packages:
       strategy: bundle
     nodejs-htmlparser2:
       strategy: bundle
-    nodejs-react-html-parser:
-      strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
     rubygem-angular-rails-templates: {}

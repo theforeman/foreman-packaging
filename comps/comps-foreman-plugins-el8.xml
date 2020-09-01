@@ -15,7 +15,6 @@
       <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">nodejs-babel-plugin-module-resolver</packagereq>
       <packagereq type="default">nodejs-htmlparser2</packagereq>
-      <packagereq type="default">nodejs-react-html-parser</packagereq>
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
