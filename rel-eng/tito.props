@@ -699,7 +699,6 @@ whitelist = ansiblerole-foreman_scap_client
   ansiblerole-satellite-receptor-installer
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
-  nodejs-htmlparser2
   nodejs-react-json-tree
   puppet-foreman_scap_client
   puppetlabs-stdlib
@@ -858,7 +857,6 @@ whitelist = ansiblerole-foreman_scap_client
 disttag = .el7
 scl = tfm
 whitelist = nodejs-babel-plugin-module-resolver
-  nodejs-htmlparser2
   nodejs-react-json-tree
   puppetlabs-stdlib
   rubygem-angular-rails-templates
