@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -38,6 +38,8 @@ Requires:       foreman-debug
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rack) >= 1.3.0
+Requires:       %{?scl_prefix}rubygem(sd_notify) >= 0.1
+Requires:       %{?scl_prefix}rubygem(sd_notify) < 0.2
 Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       %{?scl_prefix}rubygem(sinatra)
@@ -247,6 +249,9 @@ fi
 
 
 %changelog
+* Wed Sep 02 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.2.develop
+- Add sd_notify gem dependency (#30731)
+
 * Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
 - Bump version to 2.3-develop
 
