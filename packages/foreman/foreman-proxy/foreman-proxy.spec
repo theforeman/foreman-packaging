@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -214,7 +214,6 @@ getent group foreman-proxy >/dev/null || \
   groupadd -r foreman-proxy
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy daemon user" foreman-proxy
-
 exit 0
 
 %post
@@ -241,6 +240,10 @@ fi
 
 %systemd_post %{name}.service
 
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
+exit 0
+
 %preun
 %systemd_preun %{name}.service
 
@@ -249,6 +252,9 @@ fi
 
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.3.develop
+- Enforce tmpfiles
+
 * Wed Sep 02 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.2.develop
 - Add sd_notify gem dependency (#30731)
 
