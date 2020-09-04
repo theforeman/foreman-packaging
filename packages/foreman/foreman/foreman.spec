@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 2.1.2
@@ -995,6 +995,9 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
+
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
 exit 0
 
 %post service
@@ -1007,6 +1010,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.1.2-2
+- Enforce tmpfiles
+
 * Thu Aug 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-1
 - Release foreman 2.1.2
 
