@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -1005,6 +1005,9 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
+
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
 exit 0
 
 %post service
@@ -1018,6 +1021,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.4.develop
+- Enforce tmpfiles
+
 * Mon Aug 31 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.3.develop
 - Update Gem and NPM dependencies
 
