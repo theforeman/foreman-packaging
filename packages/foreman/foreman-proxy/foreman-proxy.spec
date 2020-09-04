@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
@@ -212,7 +212,6 @@ getent group foreman-proxy >/dev/null || \
   groupadd -r foreman-proxy
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy daemon user" foreman-proxy
-
 exit 0
 
 %post
@@ -239,6 +238,10 @@ fi
 
 %systemd_post %{name}.service
 
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
+exit 0
+
 %preun
 %systemd_preun %{name}.service
 
@@ -247,6 +250,9 @@ fi
 
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.5.rc1
+- Enforce tmpfiles
+
 * Wed Aug 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.4.rc1
 - Release foreman-proxy 2.2.0
 
