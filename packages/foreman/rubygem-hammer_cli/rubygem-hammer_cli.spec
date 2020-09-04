@@ -12,7 +12,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.0
+Version: 2.2.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 Group: Development/Languages
@@ -122,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 04 2020 Oleh Fedorenko <ofedoren@redhat.com> 2.2.1-1
+- Update to 2.2.1
+
 * Thu Aug 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-1
 - Release 2.2.0
 
