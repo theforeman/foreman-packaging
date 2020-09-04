@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 30
+%global release 31
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
@@ -1002,6 +1002,9 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
+
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
 exit 0
 
 %post service
@@ -1015,6 +1018,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.31.rc1
+- Enforce tmpfiles
+
 * Wed Aug 12 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.30.rc1
 - Release foreman 2.2.0
 
