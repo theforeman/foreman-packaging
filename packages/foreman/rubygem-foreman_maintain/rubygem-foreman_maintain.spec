@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.9
+Version: 0.6.10
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -21,6 +21,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
+Requires: yum-utils
 %if 0%{?rhel} < 8
 BuildRequires: python2-devel
 %else
@@ -122,6 +123,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 04 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.10-1
+- Update to 0.6.10
+
 * Mon Aug 03 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.9-1
 - Update to 0.6.9
 
