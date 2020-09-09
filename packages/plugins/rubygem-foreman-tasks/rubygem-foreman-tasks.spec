@@ -116,12 +116,12 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.eslintrc
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.prettierrc
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.stylelintrc
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.tx
 %exclude %{gem_instdir}/.yo-rc.json
 %exclude %{gem_instdir}/%{gem_name}.gemspec
