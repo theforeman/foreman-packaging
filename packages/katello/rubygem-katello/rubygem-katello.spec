@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.18.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -52,11 +52,11 @@ Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.6.0
 Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.7.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.3.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.2
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.1.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.7.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.4.0
@@ -89,11 +89,11 @@ BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.7.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) > 0.2
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.3
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.1.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.7.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.4.0
@@ -231,6 +231,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Sep 09 2020 Evgeni Golov - 3.18.0-0.3.pre.master
+- Update GEM dependencies
+
 * Tue Sep 01 2020 Evgeni Golov - 3.18.0-0.2.pre.master
 - Update GEM dependencies
 
