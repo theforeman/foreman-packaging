@@ -20,14 +20,3 @@ FOREMAN_HOME=/usr/share/foreman
 
 # Clean expired notification
 0 6 * * 0       foreman    cd ${FOREMAN_HOME} && /usr/sbin/foreman-rake notifications:clean >>/var/log/foreman/cron.log 2>&1
-
-# Only use the following cronjob if you're not using the ENC or ActiveRecord-based storeconfigs
-# Get the node.rb / ENC script and store at /etc/puppet/node.rb:
-#   https://github.com/theforeman/puppet-foreman/blob/master/templates/external_node.rb.erb
-# Send facts to Foreman, using the ENC script in a fact pushing only mode
-#*/2 * * * *     puppet     /etc/puppet/node.rb --push-facts >>/var/log/foreman/cron.log 2>&1
-
-# Warning: ActiveRecord-based storeconfigs is deprecated from Foreman 1.1 and Puppet 3.0
-#   see http://projects.theforeman.org/wiki/foreman/ReleaseNotes#11-stable
-# Only use the following cronjob if you're using ActiveRecord storeconfigs!
-#*/30 * * * *    foreman    cd ${FOREMAN_HOME} && /usr/sbin/foreman-rake puppet:migrate:populate_hosts >>/var/log/foreman/cron.log 2>&1
