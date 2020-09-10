@@ -1,3 +1,9 @@
+foreman-proxy (2.2.0~rc2-1) stable; urgency=low
+
+  * 2.2.0-rc2 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 10 Sep 2020 19:42:34 -0400
+
 foreman-proxy (2.2.0~rc1-1) stable; urgency=low
 
   * 2.2.0-rc1 released
