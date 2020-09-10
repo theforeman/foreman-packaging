@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 5
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -250,6 +250,9 @@ exit 0
 
 
 %changelog
+* Thu Sep 10 2020 Patrick Creech <pcreech@redhat.com> - 2.2.0-0.5.rc2
+- Release foreman-proxy 2.2.0
+
 * Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.5.rc1
 - Enforce tmpfiles
 
