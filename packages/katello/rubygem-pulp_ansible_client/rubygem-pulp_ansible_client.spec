@@ -6,7 +6,8 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
+Epoch: 1
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
 License: GPL-2.0+
@@ -34,7 +35,7 @@ pulp3 ansible client bindings
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -85,6 +86,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Sep 11 2020 Justin Sherrill <jsherril@redhat.com> 1:0.2.0-2
+- add epoch to handle upgrades from 0.2.0b13'
+
 * Thu Aug 20 2020 Justin Sherrill <jsherril@redhat.com> 0.2.0-1
 - Update to 0.2.0
 
