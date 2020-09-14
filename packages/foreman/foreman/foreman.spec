@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 31
-%global prereleasesource rc1
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1018,6 +1018,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Sep 14 2020 Evgeni Golov - 2.2.0-0.31.rc3
+- Release foreman 2.2.0
+
 * Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.2.0-0.31.rc1
 - Enforce tmpfiles
 
