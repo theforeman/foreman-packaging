@@ -16,7 +16,6 @@ packages:
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
-    pulpcore_packages: {}
     foreman_release_packages: {}
 
 foreman_packages:
@@ -842,7 +841,6 @@ katello_packages:
         - "el7-foreman-{{ foreman_version }}"
         - "el7-foreman-plugins-{{ foreman_version }}"
         - "el7-katello-pulp-{{ katello_version }}"
-        - "el7-katello-pulpcore-{{ katello_version }}"
         - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
@@ -853,7 +851,6 @@ katello_packages:
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
-        - "el8-katello-pulpcore-{{ katello_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
     katello: {}
@@ -1197,7 +1194,6 @@ repoclosures:
       repoclosure_target_repos:
         rhel7:
           - "el7-katello-{{ katello_version }}"
-          - "el7-katello-pulpcore-{{ katello_version }}"
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1274,151 +1270,6 @@ repoclosures:
           - f29-updates
           - f29-puppet-6
 
-pulpcore_packages:
-  vars:
-    package_base_dir: 'packages/pulpcore/'
-    koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
-      - name: katello-pulpcore-nightly-el8
-        dist: '.el8'
-    releasers:
-      - koji-katello-pulpcore
-    repoclosure_target_repos:
-      el7:
-        - "el7-katello-pulpcore-{{ katello_version }}"
-      el8:
-        - "el8-katello-pulpcore-{{ katello_version }}"
-    repoclosure_lookaside_repos:
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-scl
-        - el7-epel
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-configmanagement-ansible
-  hosts:
-    ansible-lint: {}
-    createrepo_c: {}
-    libcomps: {}
-    libsolv: {}
-    postgresql-debversion: {}
-    postgresql-evr: {}
-    pulpcore-selinux: {}
-    python-aiodns: {}
-    python-aiofiles: {}
-    python-aiohttp: {}
-    python-async-timeout: {}
-    python-attrs: {}
-    python-backoff: {}
-    python-bleach: {}
-    python-bleach-whitelist: {}
-    python-box: {}
-    python-certifi: {}
-    python-cffi: {}
-    python-chardet: {}
-    python-click: {}
-    python-coreapi: {}
-    python-coreschema: {}
-    python-cryptography: {}
-    python-dateutil: {}
-    python-debian: {}
-    python-defusedxml: {}
-    python-diff-match-patch: {}
-    python-django: {}
-    python-django-filter: {}
-    python-django-import-export: {}
-    python-django-prometheus: {}
-    python-django-readonly-field: {}
-    python-djangorestframework: {}
-    python-djangorestframework-queryfields: {}
-    python-dotenv: {}
-    python-drf-nested-routers: {}
-    python-drf-yasg: {}
-    python-dynaconf: {}
-    python-ecdsa: {}
-    python-et-xmlfile: {}
-    python-flake8: {}
-    python-future: {}
-    python-galaxy-importer: {}
-    python-galaxy-ng: {}
-    python-gnupg: {}
-    python-gunicorn: {}
-    python-idna: {}
-    python-idna-ssl: {}
-    python-importlib-metadata: {}
-    python-inflection: {}
-    python-iniparse:
-      koji_tags:
-        - name: katello-pulpcore-nightly-el7
-          dist: '.el7'
-    python-itypes: {}
-    python-jdcal: {}
-    python-jinja2: {}
-    python-jsonschema: {}
-    python-markdown: {}
-    python-markuppy: {}
-    python-markupsafe: {}
-    python-mccabe: {}
-    python-mongoengine: {}
-    python-multidict: {}
-    python-odfpy: {}
-    python-openpyxl: {}
-    python-packaging: {}
-    python-productmd: {}
-    python-prometheus-client: {}
-    python-psycopg2: {}
-    python-pulp-ansible: {}
-    python-pulp-certguard: {}
-    python-pulp-rpm: {}
-    python-pulp_2to3_migration: {}
-    python-pulp-container: {}
-    python-pulp-deb: {}
-    python-pulp-file: {}
-    python-pulpcore: {}
-    python-pycares: {}
-    python-pycodestyle: {}
-    python-pycparser: {}
-    python-pycryptodomex: {}
-    python-pyflakes: {}
-    python-pygtrie: {}
-    python-pyjwkest: {}
-    python-pyjwt: {}
-    python-pymongo: {}
-    python-pyOpenSSL: {}
-    python-pyparsing: {}
-    python-pyrsistent: {}
-    python-pytz: {}
-    python-pyyaml: {}
-    python-redis: {}
-    python-requests: {}
-    python-rq: {}
-    python-ruamel-yaml: {}
-    python-ruamel-yaml-clib: {}
-    python-semantic-version: {}
-    python-setuptools-scm: {}
-    python-setuptools_scm_git_archive: {}
-    python-six: {}
-    python-sqlparse: {}
-    python-tablib: {}
-    python-toml: {}
-    python-typing: {}
-    python-typing-extensions: {}
-    python-uritemplate: {}
-    python-urllib3: {}
-    python-webencodings: {}
-    python-whitenoise: {}
-    python-xlrd: {}
-    python-xlwt: {}
-    python-yarl: {}
-    python-zipp: {}
-    subscription-manager:
-      koji_tags:
-        - name: katello-pulpcore-nightly-el7
-          dist: '.el7'
 
 foreman_release_packages:
   vars:
