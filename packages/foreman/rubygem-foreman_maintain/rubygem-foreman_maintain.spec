@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.4
+Version: 0.6.11
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -21,6 +21,12 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
+Requires: yum-utils
+%if 0%{?rhel} < 8
+BuildRequires: python2-devel
+%else
+BuildRequires: python3-devel
+%endif
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -76,7 +82,13 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py 
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+
+%if 0%{?rhel} < 8
+%py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
+%else
+%py_byte_compile %{__python3} %{buildroot}%{yumplugindir}/foreman-protector.py
+%endif
 
 %files
 %dir %{gem_instdir}
@@ -90,7 +102,12 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %{gem_instdir}/extras
-%{yumplugindir}/foreman-protector.py
+%{yumplugindir}/foreman-protector.py*
+
+%if 0%{?rhel} > 7
+%{yumplugindir}/__pycache__/foreman-protector.cpython*
+%endif
+
 %config(noreplace) %{_sysconfdir}/%{directory_name}
 %config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
@@ -106,6 +123,33 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Sep 10 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.11-1
+- Update to 0.6.11
+
+* Fri Sep 04 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.10-1
+- Update to 0.6.10
+
+* Mon Aug 03 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.9-1
+- Update to 0.6.9
+
+* Wed Jul 08 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.8-1
+- Update to 0.6.8
+
+* Wed Jul 08 2020 Suraj Patil <patilsuraj767@gmail.com> 1:0.6.8-1
+- Fixes #30342 - fix snapshot backup dir detection
+
+* Wed Jul 08 2020 Bernhard Suttner <bernhard.suttner@atix.de> - 1:0.6.8-1
+- Fixes #30324 - check for http(s) proxy
+
+* Wed Jul 08 2020 Kavita Gaikwad <kavitagaikwad103@gmail.com> - 1:0.6.8-1
+- Fixes #30276 - handle nil case while updating all packages
+
+* Thu Jun 25 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.6-1
+- Update to 0.6.6
+
+* Wed Jun 03 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.5-1
+- Update to 0.6.5
+
 * Wed May 27 2020 kgaikwad <kavitagaikwad103@gmail.com> 1:0.6.4-1
 - Update to 0.6.4
 

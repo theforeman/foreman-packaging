@@ -3,9 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc1
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 1
 
 Name:       katello
 Version:    3.16.0
@@ -45,7 +43,6 @@ Requires: pulp-docker-plugins
 Requires: pulp-puppet-plugins
 Requires: pulp-rpm-plugins
 Requires: pulp-puppet-tools
-Requires: pulp-selinux
 Requires: pulp-server
 Requires: python-pulp-streamer
 Requires: rh-mongodb34
@@ -120,6 +117,11 @@ Summary:    Common runtime components of %{name}
 Requires:       rubygem-highline
 Requires:       %{name}-debug
 
+#Pulp Requirements
+%if 0%{?rhel} == 7
+Requires: pulp-selinux
+%endif
+
 %description common
 Common runtime components of %{name}
 
@@ -176,6 +178,30 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Aug 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-1
+- Release katello 3.16.0
+
+* Fri Jul 31 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.4.rc5.1
+- Release katello 3.16.0
+
+* Tue Jul 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.4.rc5
+- Release katello 3.16.0
+
+* Tue Jul 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.4.rc4.1
+- Release katello 3.16.0
+
+* Mon Jul 06 2020 Patrick Creech <pcreech@redhat.com> - 3.16.0-0.4.rc4
+- Release katello 3.16.0
+
+* Wed Jun 17 2020 Justin Sherrill <jsherril@redhat.com> 3.16.0-0.4.rc3
+- move pulp-selinux requirement to katello-common for smart proxies
+
+* Tue Jun 16 2020 Evgeni Golov - 3.16.0-0.3.rc3
+- Release katello 3.16.0
+
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.3.rc2
+- Release katello 3.16.0
+
 * Wed May 20 2020 Evgeni Golov - 3.16.0-0.3.rc1
 - Release katello 3.16.0
 

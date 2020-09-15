@@ -157,6 +157,7 @@
       <packagereq type="default">tfm-rubygem-activesupport</packagereq>
       <packagereq type="default">tfm-rubygem-addressable</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick</packagereq>
+      <packagereq type="default">tfm-rubygem-amazing_print</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry</packagereq>
       <packagereq type="default">tfm-rubygem-ansi</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings</packagereq>
@@ -363,6 +364,7 @@
 
         <packagereq type="default">foreman-*-nonscl-rhel7</packagereq>
       -->
+      <packagereq type="default">crane-selinux</packagereq>
       <packagereq type="default">foreman-installer</packagereq>
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
@@ -404,6 +406,7 @@
       <packagereq type="default">tfm-rubygem-activesupport-doc</packagereq>
       <packagereq type="default">tfm-rubygem-addressable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-algebrick-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-amazing_print-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ancestry-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ansi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-apipie-bindings-doc</packagereq>

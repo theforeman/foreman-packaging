@@ -5,9 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 1
 
 Name:           katello-repos
 Version:        3.16.0
@@ -80,6 +78,27 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Aug 10 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-1
+- Release katello-repos 3.16.0
+
+* Fri Jul 31 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.4.rc5.1
+- Release katello-repos 3.16.0
+
+* Tue Jul 21 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.16.0-0.4.rc5
+- Release katello-repos 3.16.0
+
+* Tue Jul 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.4.rc4.1
+- Release katello-repos 3.16.0
+
+* Mon Jul 06 2020 Patrick Creech <pcreech@redhat.com> - 3.16.0-0.4.rc4
+- Release katello-repos 3.16.0
+
+* Tue Jun 16 2020 Evgeni Golov - 3.16.0-0.4.rc3
+- Release katello-repos 3.16.0
+
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.16.0-0.4.rc2
+- Release katello-repos 3.16.0
+
 * Wed May 20 2020 Evgeni Golov - 3.16.0-0.4.rc1
 - Release katello-repos 3.16.0
 

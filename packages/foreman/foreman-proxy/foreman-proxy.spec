@@ -7,11 +7,9 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prereleasesource rc1
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        2.1.0
+Version:        2.1.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -26,27 +24,55 @@ BuildArch:      noarch
 BuildRequires:  /usr/bin/rename
 BuildRequires:  asciidoc
 BuildRequires:  %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
+Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-Requires:      %{?scl_prefix_ruby}ruby(release)
+BuildRequires:  %{?scl_prefix_ruby}ruby(release) >= 2.5
+Requires:       %{?scl_prefix_ruby}ruby(release) >= 2.5
+Requires:       %{?scl_prefix_ruby}rubygems
+Requires:       %{?scl_prefix}rubygem(bundler_ext)
 
 Requires:       foreman-debug
-Requires:       %{?scl_prefix_ruby}rubygems
-Requires:       %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires:       %{?scl_prefix}rubygem(sinatra)
-Requires:       %{?scl_prefix}rubygem(rack) >= 1.1.0
+
+# These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
 Requires:       %{?scl_prefix_ruby}rubygem(json)
-Requires:       %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
-Requires:       %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
-Requires:       %{?scl_prefix}rubygem(gssapi)
-Requires:       %{?scl_prefix}rubygem(bundler_ext)
-Requires:       %{?scl_prefix}rubygem(rb-inotify)
-Requires:       %{?scl_prefix}rubygem(rsec)
-Requires:       %{?scl_prefix}rubygem(jwt)
-Requires:       %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
-Requires:       %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+Requires:       %{?scl_prefix}rubygem(rack) >= 1.3.0
 Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
+Requires:       %{?scl_prefix}rubygem(sinatra)
+
+# start specfile main Requires
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
+# end specfile main Requires
+
+# start specfile bmc Requires
+Requires: %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
+# end specfile bmc Requires
+
+# This is a group within bundler.d/dhcp_isc.rb
+# start specfile dhcp_isc_inotify Requires
+Requires: %{?scl_prefix}rubygem(rsec) < 1
+Requires: %{?scl_prefix}rubygem(rb-inotify)
+# end specfile dhcp_isc_inotify Requires
+
+# start specfile krb5 Requires
+Requires: %{?scl_prefix}rubygem(rkerberos) >= 0.1.1
+Requires: %{?scl_prefix}rubygem(gssapi)
+# end specfile krb5 Requires
+
+# start specfile libvirt Requires
+Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.6.0
+# end specfile libvirt Requires
+
+# start specfile puppetca_token_whitelisting Requires
+Requires: %{?scl_prefix}rubygem(jwt)
+# end specfile puppetca_token_whitelisting Requires
+
+# start specfile realm_freeipa Requires
+Requires: %{?scl_prefix}rubygem(xmlrpc) >= 0.2
+Requires: %{?scl_prefix}rubygem(xmlrpc) < 1.0
+# end specfile realm_freeipa Requires
+
 Requires:       sudo
 Requires:       wget
 Requires(pre):  shadow-utils
@@ -181,7 +207,6 @@ getent group foreman-proxy >/dev/null || \
   groupadd -r foreman-proxy
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy daemon user" foreman-proxy
-
 exit 0
 
 %post
@@ -208,6 +233,10 @@ fi
 
 %systemd_post %{name}.service
 
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
+exit 0
+
 %preun
 %systemd_preun %{name}.service
 
@@ -216,6 +245,27 @@ fi
 
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.1.2-2
+- Enforce tmpfiles
+
+* Thu Aug 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-1
+- Release foreman-proxy 2.1.2
+
+* Mon Aug 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.1-1
+- Release foreman-proxy 2.1.1
+
+* Thu Jul 02 2020 Patrick Creech <pcreech@redhat.com> - 2.1.0-1
+- Release foreman-proxy 2.1.0
+
+* Thu Jun 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.1.0-0.3.rc3
+- Update Gem dependencies
+
+* Thu Jun 18 2020 Evgeni Golov - 2.1.0-0.2.rc3
+- Release foreman-proxy 2.1.0
+
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.2.rc2
+- Release foreman-proxy 2.1.0
+
 * Mon May 18 2020 Evgeni Golov - 2.1.0-0.2.rc1
 - Release foreman-proxy 2.1.0
 

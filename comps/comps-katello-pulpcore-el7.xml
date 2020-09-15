@@ -41,6 +41,7 @@
       <packagereq type="default">python3-django</packagereq>
       <packagereq type="default">python3-django-filter</packagereq>
       <packagereq type="default">python3-django-import-export</packagereq>
+      <packagereq type="default">python3-django-readonly-field</packagereq>
       <packagereq type="default">python3-djangorestframework</packagereq>
       <packagereq type="default">python3-djangorestframework-queryfields</packagereq>
       <packagereq type="default">python3-dotenv</packagereq>
@@ -56,6 +57,7 @@
       <packagereq type="default">python3-idna-ssl</packagereq>
       <packagereq type="default">python3-importlib-metadata</packagereq>
       <packagereq type="default">python3-inflection</packagereq>
+      <packagereq type="default">python3-iniparse</packagereq>
       <packagereq type="default">python3-itypes</packagereq>
       <packagereq type="default">python3-jdcal</packagereq>
       <packagereq type="default">python3-jinja2</packagereq>
@@ -84,7 +86,7 @@
       <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyjwt</packagereq>
       <packagereq type="default">python3-pymongo</packagereq>
-      <packagereq type="default">python3-pyopenssl</packagereq>
+      <packagereq type="default">python3-pyOpenSSL</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pyrsistent</packagereq>
       <packagereq type="default">python3-pytz</packagereq>
@@ -99,6 +101,7 @@
       <packagereq type="default">python3-six</packagereq>
       <packagereq type="default">python3-solv</packagereq>
       <packagereq type="default">python3-sqlparse</packagereq>
+      <packagereq type="default">python3-subscription-manager-rhsm</packagereq>
       <packagereq type="default">python3-tablib</packagereq>
       <packagereq type="default">python3-toml</packagereq>
       <packagereq type="default">python3-typing</packagereq>

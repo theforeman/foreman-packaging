@@ -2,7 +2,7 @@
 %global pypi_name whitenoise
 
 Name:           python-%{pypi_name}
-Version:        5.0.1
+Version:        5.1.0
 Release:        1%{?dist}
 Summary:        Radically simplified static file serving for WSGI applications
 
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 5.1.0-1
+- Update to 5.1.0
+
 * Wed Mar 18 2020 Samir Jha 5.0.1-1
 - Update to 5.0.1
 

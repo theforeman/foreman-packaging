@@ -10,7 +10,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.2.1
+Version:    3.3.7
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -47,7 +47,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.1
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 # end package.json devDependencies BuildRequires
 
@@ -160,6 +160,30 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Mon Aug 31 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.7-1
+- Update to 3.3.7
+
+* Thu Aug 13 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.6-1
+- Update to 3.3.6
+
+* Mon Aug 03 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.5-1
+- Update to 3.3.5
+
+* Mon Jul 20 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.4-1
+- Update to 3.3.4
+
+* Tue Jul 14 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.3-1
+- Update to 3.3.3
+
+* Tue Jun 23 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.2-1
+- Update to 3.3.2
+
+* Wed Jun 10 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.1-1
+- Update to 3.3.1
+
+* Mon Jun 1 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.0-1
+- Update to 3.3.0
+
 * Thu May 14 2020 Adam Ruzicka <aruzicka@redhat.com> 3.2.1-1
 - Update to 3.2.1
 

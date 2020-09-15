@@ -2,7 +2,7 @@
 %global pypi_name pulpcore
 
 Name:           python-%{pypi_name}
-Version:        3.3.1
+Version:        3.4.1
 Release:        1%{?dist}
 Summary:        Pulp Django Application and Related Modules
 
@@ -20,8 +20,6 @@ BuildRequires:  python3-aiodns
 BuildRequires:  python3-aiofiles
 BuildRequires:  python3-aiohttp
 BuildRequires:  python3-backoff
-Requires:       python3-coreapi >= 2.3.3
-Conflicts:      python3-coreapi >= 2.4
 Requires:       python3-django-filter >= 2.2.0
 Conflicts:      python3-django-filter >= 2.3
 Requires:       python3-django-import-export >= 2.0.2
@@ -45,11 +43,11 @@ BuildRequires:  python3-psycopg2 >= 2.7
 Requires:       python3-pygtrie >= 2.3.2
 Conflicts:      python3-pygtrie >= 2.4
 BuildRequires:  python3-redis >= 3.4.0
-BuildRequires:  python3-rq < 1.4
+BuildRequires:  python3-rq < 1.5
 BuildRequires:  python3-rq >= 1.1
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-setuptools >= 39.2.0
-BuildRequires:  python3-whitenoise < 5.1.0
+BuildRequires:  python3-whitenoise < 5.2.0
 BuildRequires:  python3-whitenoise >= 4.1.3
 
 %description
@@ -73,8 +71,6 @@ Requires:       python3-aiodns
 Requires:       python3-aiofiles
 Requires:       python3-aiohttp
 Requires:       python3-backoff
-Requires:       python3-coreapi >= 2.3.3
-Conflicts:      python3-coreapi >= 2.4
 Requires:       python3-django-filter >= 2.2.0
 Conflicts:      python3-django-filter >= 2.3
 Requires:       python3-django-import-export >= 2.0.2
@@ -98,11 +94,11 @@ Requires:       python3-psycopg2 >= 2.7
 Requires:       python3-pygtrie >= 2.3.2
 Conflicts:      python3-pygtrie >= 2.4
 Requires:       python3-redis >= 3.4.0
-Requires:       python3-rq < 1.4
+Requires:       python3-rq < 1.5
 Requires:       python3-rq >= 1.1
 Requires:       python3-setuptools
 Requires:       python3-setuptools >= 39.2.0
-Requires:       python3-whitenoise < 5.1.0
+Requires:       python3-whitenoise < 5.2.0
 Requires:       python3-whitenoise >= 4.1.3
 
 %description -n python3-%{pypi_name}
@@ -135,6 +131,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 3.4.1-1
+- Update to 3.4.1
+
 * Fri May 08 2020 Evgeni Golov 3.3.1-1
 - Update to 3.3.1
 

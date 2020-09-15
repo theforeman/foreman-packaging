@@ -5,7 +5,7 @@
 %global gem_name pulp_2to3_migration_client
 
 %global release 1
-%global prerelease b2
+%global prerelease b6
 %global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Aug 03 2020 Samir Jha <sjha4@ncsu.edu> 1:0.2.0-0.1.b6
+- Update to 0.2.0b6
+
 * Mon May 04 2020 Justin Sherrill <jsherril@redhat.com> 1:0.2.0-0.1.b2
 Update to 0.2.0b2
 

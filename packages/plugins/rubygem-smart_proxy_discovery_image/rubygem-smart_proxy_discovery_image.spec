@@ -3,7 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_discovery_image
@@ -11,14 +11,14 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
+%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.9
-Release: 4%{?foremandist}%{?dist}
+Version: 1.2.1
+Release: 1%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,18 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Aug 06 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.2.1-1
+- Update to 1.2.1
+
+* Mon Jun 22 2020 Evgeni Golov - 1.2.0-2
+- Fix bundler.d location on EL8
+
+* Thu Jun 18 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.2.0-1
+- Update to 1.2.0
+
+* Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 1.0.9-5
+- Move local state to /var/lib
+
 * Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> 1.0.9-4
 - Change localstatedir to sharedstatedir
 

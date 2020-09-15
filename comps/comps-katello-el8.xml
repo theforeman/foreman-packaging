@@ -49,6 +49,7 @@
       <packagereq type="default">rubygem-justified</packagereq>
       <packagereq type="default">rubygem-pulpcore_client</packagereq>
       <packagereq type="default">rubygem-pulp_ansible_client</packagereq>
+      <packagereq type="default">rubygem-pulp_certguard_client</packagereq>
       <packagereq type="default">rubygem-pulp_container_client</packagereq>
       <packagereq type="default">rubygem-pulp_deb_client</packagereq>
       <packagereq type="default">rubygem-pulp_file_client</packagereq>
@@ -78,6 +79,7 @@
       <packagereq type="optional">rubygem-hpricot-doc</packagereq>
       <packagereq type="optional">rubygem-pulpcore_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_ansible_client-doc</packagereq>
+      <packagereq type="optional">rubygem-pulp_certguard_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_file_client-doc</packagereq>
       <packagereq type="optional">rubygem-redhat_access-doc</packagereq>

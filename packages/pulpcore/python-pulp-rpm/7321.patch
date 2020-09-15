@@ -1,0 +1,14 @@
+diff --git a/pulp_rpm/app/downloaders.py b/pulp_rpm/app/downloaders.py
+index 2bf2dbaf..8fba5c86 100644
+--- a/pulp_rpm/app/downloaders.py
++++ b/pulp_rpm/app/downloaders.py
+@@ -38,7 +38,7 @@ class RpmDownloader(HttpDownloader):
+         else:
+             url = self.url
+ 
+-        async with self.session.get(url) as response:
++        async with self.session.get(url, proxy=self.proxy, auth=self.auth) as response:
+             try:
+                 response.raise_for_status()
+             except ClientResponseError:
+

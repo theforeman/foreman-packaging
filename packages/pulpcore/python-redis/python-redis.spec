@@ -2,7 +2,7 @@
 %global pypi_name redis
 
 Name:           python-%{pypi_name}
-Version:        3.4.1
+Version:        3.5.3
 Release:        1%{?dist}
 Summary:        Python client for Redis key-value store
 
@@ -42,6 +42,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 3.5.3-1
+- Update to 3.5.3
+
 * Wed Mar 18 2020 Samir Jha 3.4.1-1
 - Update to 3.4.1
 

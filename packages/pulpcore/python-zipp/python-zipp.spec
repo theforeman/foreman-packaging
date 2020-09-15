@@ -2,8 +2,8 @@
 %global pypi_name zipp
 
 Name:           python-%{pypi_name}
-Version:        2.1.0
-Release:        2%{?dist}
+Version:        3.1.0
+Release:        1%{?dist}
 Summary:        Backport of pathlib-compatible object wrapper for zip files
 
 License:        None
@@ -47,6 +47,9 @@ sed -i 's/setuptools.setup.*/setuptools.setup(use_scm_version=True)/' setup.py
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 3.1.0-1
+- Update to 3.1.0
+
 * Fri Feb 28 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-2
 - Bump release to build for el8
 

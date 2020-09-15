@@ -162,6 +162,7 @@ whitelist = foreman
   rubygem-activesupport
   rubygem-addressable
   rubygem-algebrick
+  rubygem-amazing_print
   rubygem-ancestry
   rubygem-ansi
   rubygem-apipie-bindings
@@ -497,6 +498,7 @@ whitelist = foreman
   rubygem-activeview
   rubygem-addressable
   rubygem-algebrick
+  rubygem-amazing_print
   rubygem-ancestry
   rubygem-ansi
   rubygem-apipie-bindings
@@ -764,6 +766,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
+  rubygem-foreman_statistics
   rubygem-foreman_supervisory_authority
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
@@ -831,6 +834,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_dhcp_remote_isc
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_dnsmasq
   rubygem-smart_proxy_dns_infoblox
   rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dns_route53
@@ -920,6 +924,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_setup
   rubygem-foreman_snapshot_management
   rubygem-foreman_spacewalk
+  rubygem-foreman_statistics
   rubygem-foreman_supervisory_authority
   rubygem-foreman-tasks
   rubygem-foreman-tasks-core
@@ -986,6 +991,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-smart_proxy_dhcp_remote_isc
   rubygem-smart_proxy_discovery
   rubygem-smart_proxy_discovery_image
+  rubygem-smart_proxy_dns_dnsmasq
   rubygem-smart_proxy_dns_infoblox
   rubygem-smart_proxy_dns_powerdns
   rubygem-smart_proxy_dns_route53
@@ -1022,9 +1028,9 @@ whitelist = ansiblerole-foreman_scap_client
 
 [foreman-client-2.1-el8]
 disttag = .el8
+# don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
   ansible-collection-theforeman-foreman
-  foreman-release
   katello-host-tools
   python-apypie
   rubygem-foreman_scap_client
@@ -1080,6 +1086,7 @@ whitelist = katello
   rubygem-katello
   rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
+  rubygem-pulp_certguard_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
@@ -1120,6 +1127,7 @@ whitelist = katello
   rubygem-katello
   rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
+  rubygem-pulp_certguard_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
@@ -1159,6 +1167,7 @@ whitelist =
   python-django
   python-django-filter
   python-django-import-export
+  python-django-readonly-field
   python-djangorestframework
   python-djangorestframework-queryfields
   python-dotenv
@@ -1174,6 +1183,7 @@ whitelist =
   python-idna-ssl
   python-importlib-metadata
   python-inflection
+  python-iniparse
   python-itypes
   python-jdcal
   python-jinja2
@@ -1201,7 +1211,7 @@ whitelist =
   python-pyjwkest
   python-pyjwt
   python-pymongo
-  python-pyopenssl
+  python-pyOpenSSL
   python-pyparsing
   python-pyrsistent
   python-pytz
@@ -1228,6 +1238,10 @@ whitelist =
   python-zipp
   rh-postgresql12-postgresql-debversion
   rh-postgresql12-postgresql-evr
+  subscription-manager
 
 [katello-pulpcore-3.16-el8]
 disttag = .el8
+blacklist =
+  python-iniparse
+  subscription-manager

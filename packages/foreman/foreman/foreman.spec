@@ -9,12 +9,10 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 20
-%global prereleasesource rc1
-%global prerelease %{?prereleasesource}
+%global release 2
 
 Name:    foreman
-Version: 2.1.0
+Version: 2.1.2
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -58,14 +56,15 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile main Requires
-Requires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
+Requires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
+Requires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
 Requires: %{?scl_prefix}rubygem(audited) < 5
 Requires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 Requires: %{?scl_prefix}rubygem(will_paginate) < 4
-Requires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+Requires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
@@ -74,15 +73,15 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
-Requires: %{?scl_prefix}rubygem(rabl) >= 0.11
-Requires: %{?scl_prefix}rubygem(rabl) < 1.0
+Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
+Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 Requires: %{?scl_prefix}rubygem(oauth) < 1
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
 Requires: %{?scl_prefix}rubygem(friendly_id) < 6
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
@@ -125,7 +124,7 @@ Requires: %{?scl_prefix}rubygem(mail) >= 2.7
 Requires: %{?scl_prefix}rubygem(mail) < 3.0
 Requires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 Requires: %{?scl_prefix}rubygem(sshkey) < 2.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.4.4
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(daemons)
 Requires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -162,14 +161,15 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
 # start specfile main BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(rails) = 6.0.2.2
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
+BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
 BuildRequires: %{?scl_prefix}rubygem(audited) < 5
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) >= 3.1.7
 BuildRequires: %{?scl_prefix}rubygem(will_paginate) < 4
-BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 2.0
+BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
@@ -178,15 +178,15 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
-BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.11
-BuildRequires: %{?scl_prefix}rubygem(rabl) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
+BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.2.4
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
@@ -229,7 +229,7 @@ BuildRequires: %{?scl_prefix}rubygem(mail) >= 2.7
 BuildRequires: %{?scl_prefix}rubygem(mail) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(sshkey) >= 1.9
 BuildRequires: %{?scl_prefix}rubygem(sshkey) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.4.4
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(daemons)
 BuildRequires: %{?scl_prefix}rubygem(bcrypt) >= 3.1
@@ -400,6 +400,7 @@ Meta package to install requirements for oVirt compute resource support.
 Summary:   Foreman Amazon Web Services (AWS) EC2 support
 Group:     Applications/System
 # start specfile ec2 Requires
+Requires: %{?scl_prefix}rubygem(fog-aws) >= 3.6.2
 Requires: %{?scl_prefix}rubygem(fog-aws) < 4
 # end specfile ec2 Requires
 Requires:  %{name} = %{version}-%{release}
@@ -414,7 +415,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.2.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.3.1
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -699,9 +700,9 @@ plugins required for Foreman to work.
   done
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
-
-  sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|/usr/bin/scl enable tfm "sidekiq \1"|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 %endif
+# sidekiq service SELinux helper path update
+sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|%{_libexecdir}/%{name}/sidekiq-selinux \1|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 
 #build locale files
 make -C locale all-mo
@@ -748,6 +749,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
+install -d -m0755 %{buildroot}%{_libexecdir}/%{name}
 #Copy init scripts and sysconfigs
 install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buildroot}%{_unitdir}/%{dynflow_sidekiq_service_name}.service
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
@@ -758,6 +760,16 @@ install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 install -Dp -m0644 extras/systemd/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
 install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
+
+# SELinux libexec wrappers
+cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
+#!/bin/bash
+# Shell wrapper with SELinux transition into foreman_rails_t domain.
+%if 0%{?scl:1}
+source scl_source enable %{scl}
+%endif
+exec sidekiq "\$@"
+EOF
 
 cp -p Gemfile.in %{buildroot}%{_datadir}/%{name}/Gemfile.in
 cp -p -r app bin bundler.d config config.ru extras lib locale Rakefile script webpack .babelrc.js %{buildroot}%{_datadir}/%{name}
@@ -930,6 +942,7 @@ rm -rf %{buildroot}
 %{_sbindir}/%{name}-rake
 %{_sbindir}/%{name}-tail
 %{_mandir}/man8
+%attr(755,root,root) %{_libexecdir}/%{name}/*
 %config(noreplace) %{_sysconfdir}/%{name}
 %ghost %attr(0640,root,%{name}) %config(noreplace) %{_sysconfdir}/%{name}/encryption_key.rb
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
@@ -982,6 +995,9 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
+
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
 exit 0
 
 %post service
@@ -994,6 +1010,30 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.1.2-2
+- Enforce tmpfiles
+
+* Thu Aug 20 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.2-1
+- Release foreman 2.1.2
+
+* Mon Aug 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.1-1
+- Release foreman 2.1.1
+
+* Thu Jul 02 2020 Patrick Creech <pcreech@redhat.com> - 2.1.0-1
+- Release foreman 2.1.0
+
+* Thu Jun 18 2020 Evgeni Golov - 2.1.0-0.22.rc3
+- Release foreman 2.1.0
+
+* Wed Jun 17 2020 Evgeni Golov - 2.1.0-0.22.rc2
+- regenerate GEM file dependencies
+
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.21.rc2
+- Added SELinux wrapper for sidekiq
+
+* Tue Jun 02 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-0.20.rc2
+- Release foreman 2.1.0
+
 * Mon May 18 2020 Evgeni Golov - 2.1.0-0.20.rc1
 - Release foreman 2.1.0
 

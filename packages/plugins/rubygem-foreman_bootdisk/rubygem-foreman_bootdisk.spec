@@ -8,13 +8,14 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    16.1.0
-Release:    1%{?foremandist}%{?dist}
+Version:    17.0.2
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_bootdisk
 Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+Requires:   dosfstools
 Requires:   ipxe-bootimgs
 Requires:   /usr/bin/isohybrid
 Requires:   /usr/bin/genisoimage
@@ -106,6 +107,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 15 2020 Adam Ruzicka <aruzicka@redhat.com> 17.0.2-2
+- Add missing dependency on dosfstools
+
+* Mon Jun 15 2020 Lukas Zapletal <lzap+rpm@redhat.com> 17.0.2-1
+- Update to 17.0.2
+
 * Thu Mar 12 2020 Lukas Zapletal <lzap+rpm@redhat.com> 16.1.0-1
 - Update to 16.1.0
 

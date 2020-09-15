@@ -13,6 +13,8 @@
       <packagereq type="default">createrepo_c</packagereq>
       <packagereq type="default">createrepo_c-devel</packagereq>
       <packagereq type="default">createrepo_c-libs</packagereq>
+      <packagereq type="default">libcomps</packagereq>
+      <packagereq type="default">libcomps-devel</packagereq>
       <packagereq type="default">libsolv</packagereq>
       <packagereq type="default">libsolv-demo</packagereq>
       <packagereq type="default">libsolv-devel</packagereq>
@@ -41,6 +43,7 @@
       <packagereq type="default">python3-django</packagereq>
       <packagereq type="default">python3-django-filter</packagereq>
       <packagereq type="default">python3-django-import-export</packagereq>
+      <packagereq type="default">python3-django-readonly-field</packagereq>
       <packagereq type="default">python3-djangorestframework</packagereq>
       <packagereq type="default">python3-djangorestframework-queryfields</packagereq>
       <packagereq type="default">python3-dotenv</packagereq>
@@ -84,7 +87,7 @@
       <packagereq type="default">python3-pyjwkest</packagereq>
       <packagereq type="default">python3-pyjwt</packagereq>
       <packagereq type="default">python3-pymongo</packagereq>
-      <packagereq type="default">python3-pyopenssl</packagereq>
+      <packagereq type="default">python3-pyOpenSSL</packagereq>
       <packagereq type="default">python3-pyparsing</packagereq>
       <packagereq type="default">python3-pyrsistent</packagereq>
       <packagereq type="default">python3-pytz</packagereq>

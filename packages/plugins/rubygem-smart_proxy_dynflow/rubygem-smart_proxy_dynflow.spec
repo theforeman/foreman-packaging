@@ -3,7 +3,7 @@
 %{!?scl:%global pkg_name %{name}}
 
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_sharedstatedir:%global _root_sharedstatedir %{_sharedstatedir}}
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name smart_proxy_dynflow
@@ -11,15 +11,15 @@
 
 %global foreman_proxy_min_version 1.25
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_sharedstatedir}/foreman-proxy
+%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{!?scl:/opt/theforeman/tfm/root}%{_datadir}/smart_proxy_dynflow_core/bundler.d
+%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.4
-Release: 4%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -120,6 +120,12 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jun 22 2020 Evgeni Golov - 0.2.4-6
+- Fix bundler.d location on EL8
+
+* Tue May 26 2020 Adam Ruzicka <aruzicka@redhat.com> 0.2.4-5
+- Move local state to /var/lib
+
 * Tue May 12 2020 Adam Ruzicka <aruzicka@redhat.com> 0.2.4-4
 - Move local state to /var/lib
 

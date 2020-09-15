@@ -3,7 +3,7 @@
 %global srcname django
 
 Name:           python-%{srcname}
-Version:        2.2.12
+Version:        2.2.13
 Release:        1%{?dist}
 Summary:        A high-level Python Web framework that encourages rapid development and clean, pragmatic design
 
@@ -13,7 +13,9 @@ Source0:        https://files.pythonhosted.org/packages/source/D/%{pypi_name}/%{
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-pytz
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-sqlparse
 
 %description
 %{summary}
@@ -50,7 +52,6 @@ popd
 mv %{buildroot}%{_bindir}/django-admin %{buildroot}%{_bindir}/python3-django-admin
 
 %files -n python3-%{srcname}
-
 %license LICENSE LICENSE.python django/contrib/admin/static/admin/css/vendor/select2/LICENSE-SELECT2.md django/contrib/admin/static/admin/fonts/LICENSE.txt django/contrib/admin/static/admin/img/LICENSE django/contrib/admin/static/admin/js/vendor/jquery/LICENSE.txt django/contrib/admin/static/admin/js/vendor/select2/LICENSE.md django/contrib/admin/static/admin/js/vendor/xregexp/LICENSE.txt django/contrib/gis/gdal/LICENSE django/contrib/gis/geos/LICENSE django/dispatch/license.txt docs/_theme/djangodocs/static/fontawesome/LICENSE.txt
 %doc README.rst django/contrib/admin/static/admin/fonts/README.txt django/contrib/admin/static/admin/img/README.txt docs/_theme/djangodocs/static/fontawesome/README.md extras/README.TXT tests/README.rst
 %{_bindir}/python3-django-admin
@@ -59,6 +60,9 @@ mv %{buildroot}%{_bindir}/django-admin %{buildroot}%{_bindir}/python3-django-adm
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Thu Jun 04 2020 Evgeni Golov 2.2.13-1
+- Update to 2.2.13
+
 * Tue Apr 14 2020 Evgeni Golov 2.2.12-1
 - Update to 2.2.12
 
