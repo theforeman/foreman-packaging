@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0rc5
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: Client bindings for pulp certguard plugin
 Group: Development/Languages
@@ -17,14 +17,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Aug 20 2020 Justin Sherrill <jsherril@redhat.com> 1.0.2-1
+- Update to 1.0.2
+
 * Fri May 29 2020 Justin Sherrill <jsherril@redhat.com> 0.1.0rc5-1
 - Initial build
 
