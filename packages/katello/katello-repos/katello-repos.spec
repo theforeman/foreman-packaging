@@ -9,7 +9,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        3.18
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Sep 16 2020 Evgeni Golov - 3.18-0.3.nightly
+- load pulpcore gpg keys from the server
+
 * Mon Aug 31 2020 Evgeni Golov - 3.18-0.2.nightly
 - Use the new pulpcore repos
 
