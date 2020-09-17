@@ -6,7 +6,7 @@
 %global plugin_name discovery
 %global foreman_min_version 1.24.0
 
-%global mainver 16.1.0
+%global mainver 16.2.0
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -105,6 +105,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Sep 17 2020 Lukas Zapletal <lzap+rpm@redhat.com> 16.2.0-1
+- Update to 16.2.0
+
 * Wed May 27 2020 Lukas Zapletal <lzap+rpm@redhat.com> 16.1.0-1
 - Update to 16.1
 
