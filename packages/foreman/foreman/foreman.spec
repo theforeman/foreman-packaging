@@ -9,10 +9,10 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 
 Name:    foreman
-Version: 2.0.2
+Version: 2.0.3
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1006,6 +1006,9 @@ exit 0
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Mon Sep 21 2020 Evgeni Golov - 2.0.3-1
+- Release foreman 2.0.3
+
 * Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.0.2-2
 - Enforce tmpfiles
 
