@@ -30,12 +30,7 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-yard
   rubygem-clamp
   rubygem-foreman_maintain
-  rubygem-hashie
   rubygem-highline
-  rubygem-little-plugger
-  rubygem-logging
-  rubygem-multi_json
-  rubygem-powerbar
 
 [foreman-nightly-rhel7]
 disttag = .el7
