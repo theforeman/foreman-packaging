@@ -182,6 +182,7 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-foreman-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+    rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hoe: {}
@@ -194,7 +195,9 @@ foreman_scl_packages:
     rubygem-jquery-ui-rails: {}
     rubygem-jwt: {}
     rubygem-ldap_fluff: {}
+    rubygem-little-plugger: {}
     rubygem-locale: {}
+    rubygem-logging: {}
     rubygem-logging-journald: {}
     rubygem-loofah: {}
     rubygem-mail: {}
@@ -236,6 +239,7 @@ foreman_scl_packages:
           dist: '.el7'
     rubygem-patternfly-sass: {}
     rubygem-pg: {}
+    rubygem-powerbar: {}
     rubygem-po_to_json: {}
     rubygem-prometheus-client: {}
     rubygem-promise.rb: {}
