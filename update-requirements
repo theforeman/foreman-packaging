@@ -23,6 +23,7 @@ EXCLUDE_NPM_PACKAGES = [
     'babel-plugin-dynamic-import-node',
     'coveralls',
     'cross-env',
+    'eslint-plugin-spellcheck',
     'highlight.js',
     'jest',
     'nock',
