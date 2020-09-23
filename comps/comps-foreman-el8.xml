@@ -362,7 +362,6 @@
       <packagereq type="default">rubygem-websocket-extensions</packagereq>
       <packagereq type="default">rubygem-will_paginate</packagereq>
       <packagereq type="default">rubygem-wirb</packagereq>
-      <packagereq type="default">rubygem-x-editable-rails</packagereq>
       <packagereq type="default">rubygem-xmlrpc</packagereq>
       <packagereq type="default">rubygem-zeitwerk</packagereq>
       <!--
@@ -579,7 +578,6 @@
       <packagereq type="default">rubygem-websocket-extensions-doc</packagereq>
       <packagereq type="default">rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">rubygem-wirb-doc</packagereq>
-      <packagereq type="default">rubygem-x-editable-rails-doc</packagereq>
       <packagereq type="default">rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->
