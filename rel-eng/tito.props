@@ -352,7 +352,6 @@ whitelist = foreman
   rubygem-websocket-extensions
   rubygem-will_paginate
   rubygem-wirb
-  rubygem-x-editable-rails
   rubygem-xmlrpc
   rubygem-zeitwerk
   tfm
@@ -691,7 +690,6 @@ whitelist = foreman
   rubygem-websocket-extensions
   rubygem-will_paginate
   rubygem-wirb
-  rubygem-x-editable-rails
   rubygem-xmlrpc
   rubygem-zeitwerk
 

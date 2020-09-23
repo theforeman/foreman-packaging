@@ -354,7 +354,6 @@
       <packagereq type="default">tfm-rubygem-websocket-extensions</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
-      <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
       <packagereq type="default">tfm-rubygem-zeitwerk</packagereq>
       <packagereq type="default">tfm-runtime</packagereq>
@@ -603,7 +602,6 @@
       <packagereq type="default">tfm-rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
