@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -117,8 +117,6 @@ Requires: %{?scl_prefix}rubygem(responders) >= 3.0
 Requires: %{?scl_prefix}rubygem(responders) < 4.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
-Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
-Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
 Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
@@ -223,8 +221,6 @@ BuildRequires: %{?scl_prefix}rubygem(responders) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
-BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
@@ -1021,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Sep 24 2020 Evgeni Golov - 2.3.0-0.5.develop
+- Update GEM dependencies
+
 * Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.4.develop
 - Enforce tmpfiles
 
