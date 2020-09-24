@@ -1,6 +1,11 @@
 %global pulp_release stable
 %global pulp_version 2.21
 %global use_pulp_nightly false
+%if 0%{?rhel} == 7
+%global pulp_enabled 1
+%else
+%global pulp_enabled 0
+%endif
 
 %global pulpcore_version 3.6
 
@@ -9,7 +14,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        3.18
@@ -63,6 +68,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
     sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
     sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
+    sed -i "s/@PULP_ENABLED@/%pulp_enabled/" $repofile
     sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
     if [ "%{use_pulp_nightly}" = true ] ; then
         PULP_URL_MIDDLE="testing\/automation\/2-master\/stage"
@@ -83,6 +89,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Thu Sep 24 2020 Evgeni Golov - 3.18-0.4.nightly
+- Only enable Pulp2 repos on EL7
+
 * Wed Sep 16 2020 Evgeni Golov - 3.18-0.3.nightly
 - load pulpcore gpg keys from the server
 

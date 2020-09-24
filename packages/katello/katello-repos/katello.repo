@@ -12,7 +12,7 @@ module_hotfixes=1
 name=Pulp Community Release
 baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/@PULP_URL_MIDDLE@/$releasever/$basearch
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
-enabled=1
+enabled=@PULP_ENABLED@
 gpgcheck=@PULP_GPG_CHECK@
 module_hotfixes=1
 
