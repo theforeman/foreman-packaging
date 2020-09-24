@@ -297,6 +297,7 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
+  rubygem-redfish_client
   rubygem-redis
   rubygem-representable
   rubygem-responders
@@ -635,6 +636,7 @@ whitelist = foreman
   rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
+  rubygem-redfish_client
   rubygem-redis
   rubygem-representable
   rubygem-responders

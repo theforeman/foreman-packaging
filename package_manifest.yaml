@@ -631,6 +631,7 @@ foreman_proxy_packages:
     rubygem-rake-compiler: {}
     rubygem-rubyipmi: {}
     rubygem-rb-inotify: {}
+    rubygem-redfish_client: {}
     rubygem-rsec: {}
     rubygem-server_sent_events: {}
 
