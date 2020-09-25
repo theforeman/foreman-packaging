@@ -11,6 +11,7 @@ build:
 	/bin/cp config/dynflow/orchestrator.yml.example config/dynflow/orchestrator.yml
 	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
+	/bin/sed -i "s/'puma'/&, '< 5.0'/" bundler.d/service.rb
 	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
 	/bin/cp db/schema.rb.nulldb db/schema.rb
