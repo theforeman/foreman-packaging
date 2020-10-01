@@ -4,8 +4,8 @@
 %global npm_name patternfly-react
 
 Name: %{?scl_prefix}nodejs-patternfly-react
-Version: 2.34.1
-Release: 4%{?dist}
+Version: 2.39.17
+Release: 1%{?dist}
 Summary: This library provides a set of common React components for use with the PatternFly reference implementation
 License: MIT
 Group: Development/Libraries
@@ -72,7 +72,6 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr __mocks__ %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr build %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
@@ -89,6 +88,9 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc README.md
 
 %changelog
+* Thu Oct 01 2020 Ondrej Prazak <oprazak@redhat.com> 2.39.17-1
+- Update to 2.39.17
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.34.1-4
 - Bump packages to build for el8
 
