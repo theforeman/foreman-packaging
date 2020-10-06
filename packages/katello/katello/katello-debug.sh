@@ -73,6 +73,7 @@ add_files /etc/default/pulp*
 add_files /etc/pulp/settings.py
 add_cmd "systemctl list-units -t service --full  | grep pulpcore" "pulpcore-services"
 add_cmd "systemctl cat pulpcore*" "pulpcore_service_files"
+add_cmd "sudo -u pulp PULP_SETTINGS='/etc/pulp/settings.py' DJANGO_SETTINGS_MODULE='pulpcore.app.settings' dynaconf list" "dynaconf_list"
 
 # MongoDB (*)
 if [ $NOGENERIC -eq 0 ]; then
