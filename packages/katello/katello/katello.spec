@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    3.18.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Oct 06 2020 Samir Jha <sjha4@ncsu.edu> - 3.18.0-0.4.master
+- Get dynaconf list into foreman-debug
+
 * Thu Sep 24 2020 Danny Synk <dsynk@redhat.com> - 3.18.0-0.3.master
 - Use case-insensitive sed for hostname change
 
