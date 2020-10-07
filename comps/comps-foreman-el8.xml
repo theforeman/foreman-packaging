@@ -144,11 +144,11 @@
       <packagereq type="default">nodejs-webpack</packagereq>
       <packagereq type="default">nodejs-webpack-stats-plugin</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
-      <packagereq type="default">python3-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
       <packagereq type="default">puppet-agent-rgen</packagereq>
       <packagereq type="default">puppet-agent-yard</packagereq>
+      <packagereq type="default">python3-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">rubygem-actioncable</packagereq>
       <packagereq type="default">rubygem-actionmailbox</packagereq>
       <packagereq type="default">rubygem-actionmailer</packagereq>
@@ -227,6 +227,7 @@
       <packagereq type="default">rubygem-gitlab-sidekiq-fetcher</packagereq>
       <packagereq type="default">rubygem-globalid</packagereq>
       <packagereq type="default">rubygem-google-api-client</packagereq>
+      <packagereq type="default">rubygem-google-cloud-env</packagereq>
       <packagereq type="default">rubygem-googleauth</packagereq>
       <packagereq type="default">rubygem-graphql</packagereq>
       <packagereq type="default">rubygem-graphql-batch</packagereq>
@@ -268,11 +269,11 @@
       <packagereq type="default">rubygem-multi_json</packagereq>
       <packagereq type="default">rubygem-multipart-post</packagereq>
       <packagereq type="default">rubygem-mustermann</packagereq>
-      <packagereq type="default">rubygem-net_http_unix</packagereq>
       <packagereq type="default">rubygem-net-ldap</packagereq>
       <packagereq type="default">rubygem-net-ping</packagereq>
       <packagereq type="default">rubygem-net-scp</packagereq>
       <packagereq type="default">rubygem-net-ssh</packagereq>
+      <packagereq type="default">rubygem-net_http_unix</packagereq>
       <packagereq type="default">rubygem-netrc</packagereq>
       <packagereq type="default">rubygem-nio4r</packagereq>
       <packagereq type="default">rubygem-nokogiri</packagereq>
@@ -333,8 +334,8 @@
       <packagereq type="default">rubygem-scoped_search</packagereq>
       <packagereq type="default">rubygem-sd_notify</packagereq>
       <packagereq type="default">rubygem-secure_headers</packagereq>
-      <packagereq type="default">rubygem-server_sent_events</packagereq>
       <packagereq type="default">rubygem-sequel</packagereq>
+      <packagereq type="default">rubygem-server_sent_events</packagereq>
       <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-sidekiq</packagereq>
       <packagereq type="default">rubygem-signet</packagereq>
@@ -447,6 +448,7 @@
       <packagereq type="default">rubygem-gitlab-sidekiq-fetcher-doc</packagereq>
       <packagereq type="default">rubygem-globalid-doc</packagereq>
       <packagereq type="default">rubygem-google-api-client-doc</packagereq>
+      <packagereq type="default">rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">rubygem-googleauth-doc</packagereq>
       <packagereq type="default">rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">rubygem-graphql-doc</packagereq>

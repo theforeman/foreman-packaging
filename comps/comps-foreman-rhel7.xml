@@ -216,6 +216,7 @@
       <packagereq type="default">tfm-rubygem-gitlab-sidekiq-fetcher</packagereq>
       <packagereq type="default">tfm-rubygem-globalid</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client</packagereq>
+      <packagereq type="default">tfm-rubygem-google-cloud-env</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth</packagereq>
       <packagereq type="default">tfm-rubygem-graphql</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch</packagereq>
@@ -466,6 +467,7 @@
       <packagereq type="default">tfm-rubygem-gitlab-sidekiq-fetcher-doc</packagereq>
       <packagereq type="default">tfm-rubygem-globalid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
@@ -603,7 +605,7 @@
       <packagereq type="default">tfm-rubygem-websocket-extensions-doc</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->
     </packagelist>
