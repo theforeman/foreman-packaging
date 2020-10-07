@@ -6,8 +6,8 @@
 %global gem_name signet
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.0
-Release: 3%{?dist}
+Version: 0.14.0
+Release: 1%{?dist}
 Summary: Signet is an OAuth 1.0 / OAuth 2.0 implementation
 Group: Development/Languages
 License: Apache-2.0
@@ -16,18 +16,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.4.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.3
 Requires: %{?scl_prefix}rubygem(addressable) < 3
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
-Requires: %{?scl_prefix}rubygem(faraday) < 1
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
-Requires: %{?scl_prefix}rubygem(multi_json) < 2
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.17.3
+Requires: %{?scl_prefix}rubygem(faraday) < 2.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 1.5
 Requires: %{?scl_prefix}rubygem(jwt) < 3.0
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.10
+Requires: %{?scl_prefix}rubygem(multi_json) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -78,7 +78,6 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%{gem_instdir}/tasks
 %{gem_instdir}/website
 %exclude %{gem_cache}
 %{gem_spec}
@@ -93,6 +92,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 0.14.0-1
+- Update to 0.14.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.0-3
 - Bump to release for EL8
 
