@@ -6,8 +6,8 @@
 %global gem_name faraday
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.15.4
-Release: 2%{?dist}
+Version: 0.17.3
+Release: 1%{?dist}
 Summary: HTTP/REST API client library
 Group: Development/Languages
 License: MIT
@@ -77,9 +77,16 @@ cp -pa .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/spec
+%{gem_instdir}/test
 
 %changelog
+* Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 0.17.3-1
+- Update to 0.17.3
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.15.4-2
 - Bump to release for EL8
 
