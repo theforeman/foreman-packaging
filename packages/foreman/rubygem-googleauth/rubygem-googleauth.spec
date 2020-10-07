@@ -6,8 +6,8 @@
 %global gem_name googleauth
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.7
-Release: 3%{?dist}
+Version: 0.13.1
+Release: 1%{?dist}
 Summary: Google Auth Library for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -16,10 +16,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.4.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.12
-Requires: %{?scl_prefix}rubygem(faraday) < 1
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.17.3
+Requires: %{?scl_prefix}rubygem(faraday) < 2.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 1.4
 Requires: %{?scl_prefix}rubygem(jwt) < 3.0
 Requires: %{?scl_prefix}rubygem(memoist) >= 0.16
@@ -28,10 +28,10 @@ Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11
 Requires: %{?scl_prefix}rubygem(multi_json) < 2
 Requires: %{?scl_prefix}rubygem(os) >= 0.9
 Requires: %{?scl_prefix}rubygem(os) < 2.0
-Requires: %{?scl_prefix}rubygem(signet) >= 0.7
+Requires: %{?scl_prefix}rubygem(signet) >= 0.14
 Requires: %{?scl_prefix}rubygem(signet) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -83,11 +83,13 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%{gem_instdir}/.kokoro
+%exclude %{gem_instdir}/.kokoro
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.repo-metadata.json
 %license %{gem_instdir}/COPYING
 %{gem_libdir}
+%{gem_instdir}/rakelib
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -95,15 +97,19 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/googleauth.gemspec
+%{gem_instdir}/integration
+%{gem_instdir}/test
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 0.13.1-1
+- Update to 0.13.1
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.7-3
 - Bump to release for EL8
 
