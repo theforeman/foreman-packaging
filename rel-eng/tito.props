@@ -215,6 +215,7 @@ whitelist = foreman
   rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
   rubygem-google-api-client
+  rubygem-google-cloud-env
   rubygem-googleauth
   rubygem-graphql
   rubygem-graphql-batch
@@ -553,6 +554,7 @@ whitelist = foreman
   rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
   rubygem-google-api-client
+  rubygem-google-cloud-env
   rubygem-googleauth
   rubygem-graphql
   rubygem-graphql-batch
@@ -658,8 +660,8 @@ whitelist = foreman
   rubygem-scoped_search
   rubygem-sd_notify
   rubygem-secure_headers
-  rubygem-server_sent_events
   rubygem-sequel
+  rubygem-server_sent_events
   rubygem-sexp_processor
   rubygem-sidekiq
   rubygem-signet
