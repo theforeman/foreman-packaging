@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Epoch: 1
-Version: 0.3.0
+Version: 0.5.0
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -21,13 +21,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
@@ -89,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 15 2020 ianballou <ianballou67@gmail.com> 1:0.5.0-1
+- Update to 0.5.0
+
 * Wed Aug 26 2020 Justin Sherrill <jsherril@redhat.com> 1:0.3.0-1
 - Update to 0.3.0
 
