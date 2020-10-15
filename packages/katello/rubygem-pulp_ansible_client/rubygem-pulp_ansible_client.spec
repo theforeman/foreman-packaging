@@ -5,7 +5,7 @@
 %global gem_name pulp_ansible_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.4.2
 Release: 1%{?dist}
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Oct 15 2020 ianballou <ianballou67@gmail.com> 0.4.2-1
+- Update to 0.4.2
+
 * Fri Sep 11 2020 Justin Sherrill <jsherril@redhat.com> 0.3.0-1
 - Update to 0.3.0
 
