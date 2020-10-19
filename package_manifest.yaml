@@ -874,6 +874,7 @@ repoclosures:
           - el7-scl
           - el7-puppet-6
           - el7-foreman-2.0
+          - el7-configmanagement-salt
     katello-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
