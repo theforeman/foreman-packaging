@@ -1176,6 +1176,8 @@ repoclosures:
           - el7-scl
           - el7-puppet-6
           - "el7-foreman-{{ foreman_version }}"
+          - el7-configmanagement-salt
+
     plugins-repoclosure-el8:
       repoclosure_target_repos:
         el8:
