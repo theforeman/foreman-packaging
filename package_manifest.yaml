@@ -473,6 +473,7 @@ foreman_proxy_plugin_packages:
         - el7-extras
         - el7-foreman-2.0
         - el7-foreman-plugins-2.0
+        - el7-configmanagement-salt
   hosts:
     rubygem-chef-api: {}
     rubygem-faraday_middleware: {}
@@ -695,6 +696,7 @@ plugin_scl_packages:
         - el7-scl
         - el7-puppet-6
         - el7-foreman-2.0
+        - el7-configmangement-salt
   hosts:
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
