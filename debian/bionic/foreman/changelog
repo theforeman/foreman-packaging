@@ -1,3 +1,9 @@
+foreman (2.2.0~rc4-1) stable; urgency=low
+
+  * 2.2.0-rc4 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Tue, 20 Oct 2020 11:43:40 -0400
+
 foreman (2.2.0~rc3-1) stable; urgency=low
 
   * 2.2.0-rc3 released
