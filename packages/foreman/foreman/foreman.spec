@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 32
-%global prereleasesource rc3
+%global prereleasesource rc4
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1018,6 +1018,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Oct 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-0.32.rc4
+- Release foreman 2.2.0
+
 * Tue Sep 29 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.2.0-0.32.rc3
 - Clean up cron file
 
