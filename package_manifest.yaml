@@ -1126,7 +1126,6 @@ plugin_nonscl_packages:
     ansiblerole-satellite-receptor-installer: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
-    rubygem-satyr: {}
 
 repoclosures:
   hosts:

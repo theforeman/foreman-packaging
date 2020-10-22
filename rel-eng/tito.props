@@ -823,7 +823,6 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-ruby-hmac
   rubygem-ruby-nmap
   rubygem-safe_yaml
-  rubygem-satyr
   rubygem-sentry-raven
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
@@ -1022,7 +1021,6 @@ whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
   puppet-foreman_scap_client
-  rubygem-satyr
 
 [foreman-client-nightly-el8]
 disttag = .el8
