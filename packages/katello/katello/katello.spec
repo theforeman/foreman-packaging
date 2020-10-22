@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource rc2.2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    3.17.0
@@ -180,6 +180,10 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Oct 22 2020 Chris Roberts - 3.17.0-0.2.rc2.2
+- Update katello 3.17.0 rc2.2
+- Needed updated puppet pulpcore
+
 * Wed Sep 30 2020 Evgeni Golov - 3.17.0-0.1.rc2.2
 - Release katello 3.17.0
 
