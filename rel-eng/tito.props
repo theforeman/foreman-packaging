@@ -1022,7 +1022,6 @@ whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
   puppet-foreman_scap_client
-  rubygem-fast_gettext
   rubygem-satyr
 
 [foreman-client-nightly-el8]
