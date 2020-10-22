@@ -15,7 +15,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    1.3.0
+Version:    1.4.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -25,8 +25,9 @@ Source0:    https://galaxy.ansible.com/download/%{collection_namespace}-%{collec
 BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
+Provides: bundled(%{ansible_python}-apypie) = 0.3.1
 Requires: ansible >= 2.8
-Requires: %{ansible_python}-apypie >= 0.0.5
+Requires: %{ansible_python}-requests >= 2.4.2
 Requires: %{pyyaml}
 %if 0%{?rhel} == 7
 Requires: python-ipaddress
@@ -55,6 +56,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Thu Oct 22 2020 Evgeni Golov - 1.4.0-1
+- Release ansible-collection-theforeman-foreman 1.4.0
+
 * Tue Sep 22 2020 Evgeni Golov - 1.3.0-1
 - Release ansible-collection-theforeman-foreman 1.3.0
 
