@@ -137,10 +137,7 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
-    rubygem-fast_gettext:
-      releasers:
-        - koji-foreman
-        - koji-foreman-plugins
+    rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
