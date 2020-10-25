@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -432,8 +432,8 @@ Meta package to install requirements for VMware compute resource support.
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 # start specfile gce Requires
-Requires: %{?scl_prefix}rubygem(fog-google) >= 1.8.2
-Requires: %{?scl_prefix}rubygem(fog-google) < 1.9.0
+Requires: %{?scl_prefix}rubygem(fog-google) >= 1.11.0
+Requires: %{?scl_prefix}rubygem(fog-google) < 1.12.0
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1017,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Sun Oct 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.7.develop
+- Update Gem and NPM dependencies
+
 * Tue Sep 29 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.3.0-0.6.develop
 - Clean up cron file
 
