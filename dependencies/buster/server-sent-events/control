@@ -1,0 +1,23 @@
+Source: ruby-server-sent-events
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Lukas Zapletal <lzap+pub@redhat.com>
+Build-Depends: debhelper (>= 11~),
+               gem2deb
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-server-sent-events.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-server-sent-events
+Homepage: https://github.com/xlab-si/server-sent-events-ruby
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-server-sent-events
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Library for dealing with server-sent events
+ <insert long description, indented with spaces>
