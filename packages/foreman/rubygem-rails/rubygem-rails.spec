@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.1
+Version: 6.0.3.4
 Release: 1%{?dist}
 Summary: Full-stack web application framework
 Group: Development/Languages
@@ -18,18 +18,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.8.11
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actionview) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(activemodel) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(activerecord) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actionmailer) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(activejob) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actioncable) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(activestorage) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actionmailbox) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(actiontext) = 6.0.3.1
-Requires: %{?scl_prefix}rubygem(railties) = 6.0.3.1
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actionview) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(activemodel) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(activerecord) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actionmailer) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(activejob) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actioncable) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(activestorage) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actionmailbox) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(actiontext) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(railties) = 6.0.3.4
 Requires: %{?scl_prefix_ruby}rubygem(bundler) >= 1.3.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -95,6 +95,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Oct 26 2020 Evgeni Golov - 6.0.3.4-1
+- Release rubygem-rails 6.0.3.4
+
 * Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.1-1
 - Release rubygem-rails 6.0.3.1
 
