@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -51,6 +51,7 @@ Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 
 # start specfile bmc Requires
 Requires: %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
+Requires: %{?scl_prefix}rubygem(redfish_client) >= 0.5.1
 # end specfile bmc Requires
 
 # This is a group within bundler.d/dhcp_isc.rb
@@ -252,6 +253,9 @@ exit 0
 
 
 %changelog
+* Mon Oct 26 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.4.develop
+- Update Gem dependencies
+
 * Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.3.develop
 - Enforce tmpfiles
 
