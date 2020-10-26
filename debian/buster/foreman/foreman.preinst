@@ -16,6 +16,8 @@ fi
 update-rc.d dynflowd remove >/dev/null
 dpkg-maintscript-helper rm_conffile /etc/init.d/dynflowd 2.0.0~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/default/dynflowd 2.0.0~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/init.d/foreman 2.4.0~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/default/foreman 2.4.0~ -- "$@"
 
 #DEBHELPER#
 
