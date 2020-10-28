@@ -1,3 +1,9 @@
+foreman (2.2.0-1) stable; urgency=low
+
+  * 2.2.0 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Wed, 28 Oct 2020 16:07:46 -0400
+
 foreman (2.2.0~rc4-1) stable; urgency=low
 
   * 2.2.0-rc4 released
