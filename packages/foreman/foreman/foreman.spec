@@ -9,9 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 32
-%global prereleasesource rc4
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 2.2.0
@@ -1018,6 +1016,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Oct 28 2020 Patrick Creech <pcreech@redhat.com> - 2.2.0-1
+- Release foreman 2.2.0
+
 * Tue Oct 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-0.32.rc4
 - Release foreman 2.2.0
 

@@ -6,9 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
-%global prereleasesource rc4
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:           foreman-proxy
 Version:        2.2.0
@@ -250,6 +248,9 @@ exit 0
 
 
 %changelog
+* Wed Oct 28 2020 Patrick Creech <pcreech@redhat.com> - 2.2.0-1
+- Release foreman-proxy 2.2.0
+
 * Tue Oct 20 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.0-0.5.rc4
 - Release foreman-proxy 2.2.0
 
