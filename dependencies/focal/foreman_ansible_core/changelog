@@ -1,3 +1,9 @@
+ruby-foreman-ansible-core (3.0.4-1) stable; urgency=low
+
+  * 3.0.4 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 28 Oct 2020 08:45:52 +0100
+
 ruby-foreman-ansible-core (3.0.3-1) stable; urgency=low
 
   * 3.0.3 released
