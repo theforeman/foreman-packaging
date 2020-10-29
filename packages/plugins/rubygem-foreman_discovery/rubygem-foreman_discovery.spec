@@ -37,6 +37,13 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 %description
@@ -94,10 +101,17 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/.eslintrc
+%exclude %{gem_instdir}/.stylelintrc
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
