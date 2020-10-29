@@ -7,14 +7,14 @@
 %global pulp_enabled 0
 %endif
 
-%global pulpcore_version 3.6
+%global pulpcore_version 3.7
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 5
 
 Name:           katello-repos
 Version:        3.18
@@ -89,6 +89,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Thu Oct 29 2020 Justin Sherrill <jsherril@redhat.com> 3.18-0.5.nightly
+- use pulpcore 3.7 repos
+
 * Thu Sep 24 2020 Evgeni Golov - 3.18-0.4.nightly
 - Only enable Pulp2 repos on EL7
 
