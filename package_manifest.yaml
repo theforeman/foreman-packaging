@@ -2,8 +2,8 @@
 all:
   vars:
     foremandist: .fm2_3
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '2.3'
+    katello_version: '3.18'
   children:
     packages: {}
     repoclosures: {}
@@ -86,14 +86,7 @@ foreman_scl_packages:
   children:
     rails_core_packages: {}
   hosts:
-    foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
+    foreman: {}
     gyp: {}
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
@@ -164,22 +157,8 @@ foreman_scl_packages:
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
-    rubygem-hammer_cli:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
-    rubygem-hammer_cli_foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-foreman-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
+    rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
     rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
@@ -517,22 +496,8 @@ foreman_installer_packages:
         - el8-devel
         - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
-    foreman-installer:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-installer-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
-    foreman-selinux:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-selinux-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
+    foreman-installer: {}
+    foreman-selinux: {}
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -886,22 +851,8 @@ katello_packages:
     rubygem-fx: {}
     rubygem-hammer_cli_csv: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
-    rubygem-hammer_cli_katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-katello-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
-    rubygem-katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=katello-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
+    rubygem-hammer_cli_katello: {}
+    rubygem-katello: {}
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
