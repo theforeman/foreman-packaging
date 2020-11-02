@@ -4,9 +4,17 @@
 # Filter Python modules from Provides
 %global __provides_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/.*\\.so$
 
+%if 0%{?rhel} && 0%{?rhel} <= 7
+%bcond_without python2
+%bcond_with python3
+%else
+%bcond_with python2
+%bcond_without python3
+%endif
+
 Name:           python-%{srcname}
 Version:        5.7.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{sum}
 
 License:        BSD
@@ -15,10 +23,15 @@ Source0:        https://github.com/giampaolo/psutil/archive/release-%{version}.t
 Patch0:         extras_require.patch
 
 BuildRequires:  gcc
-BuildRequires:  python%{python3_pkgversion}-devel
 
+%if %{with python3}
+BuildRequires:  python%{python3_pkgversion}-devel
+%endif
+
+%if %{with python2}
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
+%endif
 
 %description
 psutil is a module providing an interface for retrieving information on all
@@ -28,6 +41,7 @@ command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
 
 
+%if %{with python2}
 %package -n python2-%{srcname}
 Summary:        %{sum}
 %{?python_provide:%python_provide python2-%{srcname}}
@@ -39,7 +53,9 @@ running processes and system utilization (CPU, memory, disks, network, users) in
 a portable way by using Python 3, implementing many functionalities offered by
 command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
+%endif
 
+%if %{with python3}
 %package -n python%{python3_pkgversion}-psutil
 Summary:        %{sum}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{srcname}}
@@ -50,6 +66,7 @@ running processes and system utilization (CPU, memory, disks, network, users) in
 a portable way by using Python 3, implementing many functionalities offered by
 command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
+%endif
 
 
 %prep
@@ -64,13 +81,21 @@ done
 
 
 %build
+%if %{with python2}
 %py2_build
+%endif
+%if %{with python3}
 %py3_build
+%endif
 
 
 %install
+%if %{with python2}
 %py2_install
+%endif
+%if %{with python3}
 %py3_install
+%endif
 
 
 #%check
@@ -81,21 +106,28 @@ done
 #make test-memleaks PYTHON=%{__python3}
 
 
+%if %{with python2}
 %files -n python2-%{srcname}
 %license LICENSE
 %doc CREDITS HISTORY.rst README.rst
 %{python2_sitearch}/%{srcname}/
 %{python2_sitearch}/*.egg-info
+%endif
 
 
+%if %{with python3}
 %files -n python%{python3_pkgversion}-%{srcname}
 %license LICENSE
 %doc CREDITS HISTORY.rst README.rst
 %{python3_sitearch}/%{srcname}/
 %{python3_sitearch}/*.egg-info
+%endif
 
 
 %changelog
+* Mon Nov 02 2020 Evgeni Golov - 5.7.2-2
+- Build only Python3 bindings on EL8
+
 * Thu Aug 06 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.7.2-1
 - Release python-psutil 5.7.2
 
