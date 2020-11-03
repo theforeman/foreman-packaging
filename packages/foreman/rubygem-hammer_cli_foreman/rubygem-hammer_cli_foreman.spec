@@ -6,8 +6,6 @@
 %global plugin_name foreman
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -99,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 03 2020 Patrick Creech <pcreech@redhat.com> - 2.3.0-1
+- Release rubygem-hammer_cli_foreman 2.3.0
+
 * Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.pre.develop
 - Bump version to 2.3-develop
 
