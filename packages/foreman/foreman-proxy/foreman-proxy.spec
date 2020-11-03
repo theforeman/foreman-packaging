@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Tue Nov 03 2020 Patrick Creech <pcreech@redhat.com> - 2.3.0-0.4.rc1
+- Release foreman-proxy 2.3.0
+
 * Mon Oct 26 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.4.develop
 - Update Gem dependencies
 

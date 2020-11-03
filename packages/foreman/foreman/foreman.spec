@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 7
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1017,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Nov 03 2020 Patrick Creech <pcreech@redhat.com> - 2.3.0-0.7.rc1
+- Release foreman 2.3.0
+
 * Sun Oct 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.7.develop
 - Update Gem and NPM dependencies
 
