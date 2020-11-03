@@ -722,8 +722,6 @@ foreman_client_packages:
         dist: '.el7'
       - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: "foreman-client-{{ foreman_version }}-rhel5"
-        dist: '.el5'
       - name: "foreman-client-{{ foreman_version }}-fedora29"
         dist: '.fc29'
     repoclosure_target_repos:
@@ -733,8 +731,6 @@ foreman_client_packages:
         - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
         - "el6-foreman-client-{{ foreman_version }}"
-      rhel5:
-        - "el5-foreman-client-{{ foreman_version }}"
       fedora29:
         - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
@@ -760,12 +756,6 @@ foreman_client_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      rhel5:
-        - el5-base
-        - el5-epel
-        - el5-puppet-6
-        - el5-subscription-manager
-        - el5-pulp
       fedora29:
         - f29-base
         - f29-updates
@@ -1201,18 +1191,6 @@ repoclosures:
           - el6-qpid
           - el6-pulp
           - el6-subscription-manager
-    foreman-client-repoclosure-el5:
-      repoclosure_target_repos:
-        rhel5:
-          - "el5-foreman-client-{{ foreman_version }}"
-      repoclosure_target_dist: rhel5
-      repoclosure_lookaside_repos:
-        rhel5:
-          - el5-base
-          - el5-epel
-          - el5-puppet-6
-          - el5-subscription-manager
-          - el5-pulp
     foreman-client-repoclosure-f29:
       repoclosure_target_repos:
         fedora29:
@@ -1238,8 +1216,6 @@ foreman_release_packages:
         dist: '.el7'
       - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: "foreman-client-{{ foreman_version }}-rhel5"
-        dist: '.el5'
       - name: "foreman-client-{{ foreman_version }}-fedora29"
         dist: '.fc29'
     releasers:
@@ -1253,8 +1229,6 @@ foreman_release_packages:
         - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
         - "el6-foreman-client-{{ foreman_version }}"
-      rhel5:
-        - "el5-foreman-client-{{ foreman_version }}"
       fedora29:
         - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
@@ -1280,12 +1254,6 @@ foreman_release_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      rhel5:
-        - el5-base
-        - el5-epel
-        - el5-puppet-6
-        - el5-subscription-manager
-        - el5-pulp
       fedora29:
         - f29-base
         - f29-updates
