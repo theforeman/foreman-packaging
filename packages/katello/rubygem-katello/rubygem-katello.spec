@@ -2,14 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 2.3
-%global foreman_max_version 2.4
+%global foreman_min_version 2.4
+%global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 3.18.0
-%global release 5
+%global mainver 4.0.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -58,6 +58,8 @@ Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.2.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.8.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.8.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.6.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -95,6 +97,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.8.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -231,6 +235,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> 4.0.0-0.1.pre.master
+- Add pulp_deb_client dependencies
+- Bump version to 4.0.0
+
 * Thu Oct 15 2020 Ian Ballou <ianballou67@gmail.com> 3.18.0-0.5.pre.master
 - update pulp 3 client requires
 
