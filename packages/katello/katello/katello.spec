@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 1
 
 Name:       katello
-Version:    3.18.0
+Version:    4.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> - 4.0.0-0.1.master
+- Bump version to 4.0.0
+
 * Tue Oct 06 2020 Samir Jha <sjha4@ncsu.edu> - 3.18.0-0.4.master
 - Get dynaconf list into foreman-debug
 
