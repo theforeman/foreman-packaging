@@ -3,9 +3,9 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 1
 
 Name:       katello
 Version:    3.18.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Nov 05 2020 Evgeni Golov - 3.18.0-0.1.rc1
+- Release katello 3.18.0
+
 * Tue Oct 06 2020 Samir Jha <sjha4@ncsu.edu> - 3.18.0-0.4.master
 - Get dynaconf list into foreman-debug
 
