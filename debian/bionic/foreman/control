@@ -16,7 +16,7 @@ Section: web
 Priority: extra
 Depends: ruby, ruby2.5, bundler (>= 1.3), zlib1g-dev,
          ruby2.5-dev, build-essential, tzdata,
-         rake (>=0.8.4), ${misc:Depends}
+         rake (>=0.8.4), gawk, ${misc:Depends}
 Recommends: foreman-proxy, foreman-debug (= ${binary:Version}), python-minimal
 Conflicts: ruby-activerecord-deprecated-finders, ruby-foreman-tasks (<< 0.10.1), ruby-sequel-pg
 Replaces: foreman-compute, foreman-rackspace
