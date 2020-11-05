@@ -12,5 +12,6 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-dynflow (>= 1.1.0),
   ruby-dynflow (<< 2.0.0), ruby-foreman-tasks-core (>= 0.3.3),
-  ruby-rest-client, ruby-sequel, ruby-sqlite3, ruby-rack, ruby-bundler-ext, ruby-sinatra
+  ruby-rest-client, ruby-sequel, ruby-sqlite3, ruby-rack, ruby-bundler-ext, ruby-sinatra,
+  ruby-logging, ruby-sd-notify (>= 0.1.0), ruby-sd-notify (<< 0.2.0)
 Description: Dynflow runtime for Foreman smart proxy
