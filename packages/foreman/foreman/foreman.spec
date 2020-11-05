@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -47,6 +47,7 @@ Requires: %{scl}-runtime < 7
 
 Requires: wget
 Requires: /etc/cron.d
+Requires: gawk
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(post): systemd-sysv
@@ -1019,6 +1020,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.4.develop
+- Add timestamps to cron jobs
+
 * Wed Mar 10 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.5.0-0.3.develop
 - Update Gem and NPM dependencies
 
