@@ -1052,7 +1052,7 @@ whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[katello-2.3-rhel7]
+[katello-3.18-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -1096,7 +1096,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-2.3-el8]
+[katello-3.18-el8]
 disttag = .el8
 whitelist = katello
   katello-client-bootstrap
