@@ -11,7 +11,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.23.1
+Version: 0.23.2
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -94,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 06 2020 Chris Roberts <chrobert@redhat.com> 0.23.2-1
+- Update to 0.23.2
+
 * Mon Sep 21 2020 Chris Roberts <chrobert@redhat.com> 0.23.1-1
 - Update to 0.23.1
 
