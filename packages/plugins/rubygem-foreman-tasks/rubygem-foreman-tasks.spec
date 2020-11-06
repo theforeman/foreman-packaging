@@ -1,8 +1,6 @@
-# Generated from foreman-tasks-0.15.1.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
-
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman-tasks
@@ -10,7 +8,7 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.1
+Version: 3.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -66,33 +64,50 @@ BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 
 %description
 The goal of this plugin is to unify the way of showing task statuses across
-the Foreman instance.  It defines Task model for keeping the information
-about the tasks and Lock for assigning the tasks to resources. The locking
-allows dealing with preventing multiple colliding tasks to be run on the
-same resource. It also optionally provides Dynflow infrastructure for using
-it for managing the tasks.
+the Foreman instance.
+It defines Task model for keeping the information about the tasks and Lock for
+assigning the tasks
+to resources. The locking allows dealing with preventing multiple colliding
+tasks to be run on the
+same resource. It also optionally provides Dynflow infrastructure for using it
+for managing the tasks.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -124,17 +139,15 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %exclude %{gem_instdir}/.stylelintrc
 %exclude %{gem_instdir}/.tx
 %exclude %{gem_instdir}/.yo-rc.json
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/gemfile.d/foreman-tasks.rb
-%exclude %{gem_instdir}/babel.config.js
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%exclude %{gem_instdir}/babel.config.js
 %{gem_instdir}/bin
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/deploy
 %{gem_instdir}/extra
+%exclude %{gem_instdir}/gemfile.d
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_instdir}/package.json
@@ -143,23 +156,28 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{gem_instdir}/public
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
-%exclude %{gem_instdir}/test
 %{foreman_assets_plugin}
+%{gem_instdir}/public/assets/foreman_tasks/
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/extra/dynflow-executor.example
+%{gem_instdir}/foreman-tasks.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Fri Nov 06 2020 Evgeni Golov 3.0.2-1
+- Update to 3.0.2-1
+
 * Fri Oct 02 2020 Adam Ruzicka <aruzicka@redhat.com> 3.0.1-1
 - Update to 3.0.1
 
