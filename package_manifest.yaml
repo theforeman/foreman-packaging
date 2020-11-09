@@ -581,14 +581,7 @@ foreman_proxy_packages:
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
   hosts:
-    foreman-proxy:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=smart-proxy-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
+    foreman-proxy: {}
     rubygem-concurrent-ruby: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
