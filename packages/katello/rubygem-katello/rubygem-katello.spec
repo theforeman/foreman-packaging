@@ -6,10 +6,8 @@
 %global foreman_max_version 2.3
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc2.2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.17.0
-%global release 2
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -231,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Nov 09 2020 Patrick Creech <pcreech@redhat.com> - 3.17.0-1
+- Release rubygem-katello 3.17.0
+
 * Thu Oct 22 2020 Evgeni Golov - 3.17.0-0.2.rc2.2
 - Fix pulp_2to3_migration_client Requires
 
