@@ -52,7 +52,11 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	spectool --list-files $SPEC_FILE | cut -d' ' -f2 | grep http | xargs --no-run-if-empty -n 1 basename | xargs --no-run-if-empty git rm
 
-	sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
+	if grep "^%global mainver" $SPEC_FILE >/dev/null ; then
+		sed -i "s/^\(%global mainver\).\+$/\1 ${NEW_VERSION}/" $SPEC_FILE
+	else
+		sed -i "s/^\(Version:\s\+\).\+$/\1${NEW_VERSION}/" $SPEC_FILE
+	fi
 
 	RELEASE=$(rpmspec --srpm -q --queryformat='%{release}' --undefine=dist $SPEC_FILE)
 	if [[ ${RELEASE} != 1 ]] ; then
