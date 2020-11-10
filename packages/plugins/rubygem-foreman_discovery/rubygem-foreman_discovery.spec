@@ -6,7 +6,7 @@
 %global plugin_name discovery
 %global foreman_min_version 1.24.0
 
-%global mainver 16.3.1
+%global mainver 16.3.4
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -42,7 +42,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 # end package.json devDependencies BuildRequires
 
@@ -119,6 +119,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 10 2020 Lukas Zapletal <lzap+rpm@redhat.com> 16.3.4-1
+- Update to 16.3.4
+
 * Thu Oct 29 2020 Rahul Bajaj <rahulrb0509@gmail.com> 16.3.1-1
 - Adding NPM and webpack depencies
 
