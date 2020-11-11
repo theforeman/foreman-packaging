@@ -74,6 +74,7 @@ whitelist = foreman
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
+  nodejs-optimize-css-assets-webpack-plugin
   nodejs-performance-now
   nodejs-popper.js
   nodejs-raf
@@ -372,6 +373,7 @@ whitelist = foreman
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
+  nodejs-optimize-css-assets-webpack-plugin
   nodejs-performance-now
   nodejs-popper.js
   nodejs-raf
