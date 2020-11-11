@@ -399,6 +399,7 @@ foreman_nodejs_packages:
     nodejs-node-sass:
       strategy: bundle
     nodejs-object-assign: {}
+    nodejs-optimize-css-assets-webpack-plugin: {}
     nodejs-performance-now: {}
     nodejs-popper.js: {}
     nodejs-raf: {}

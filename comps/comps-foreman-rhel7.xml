@@ -75,6 +75,7 @@
       <packagereq type="default">tfm-nodejs-node-gyp</packagereq>
       <packagereq type="default">tfm-nodejs-node-sass</packagereq>
       <packagereq type="default">tfm-nodejs-object-assign</packagereq>
+      <packagereq type="default">tfm-nodejs-optimize-css-assets-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-performance-now</packagereq>
       <packagereq type="default">tfm-nodejs-popper.js</packagereq>
       <packagereq type="default">tfm-nodejs-raf</packagereq>
