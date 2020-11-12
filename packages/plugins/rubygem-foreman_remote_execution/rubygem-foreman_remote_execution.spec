@@ -11,7 +11,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    4.1.0
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -60,7 +60,8 @@ management functionality with remote management functionality.
 
 %package cockpit
 BuildArch:  noarch
-Requires:   cockpit
+Requires: cockpit
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires(post): systemd-units
 Requires(preun): systemd-units
 Summary:    Cockpit integration using remote execution connection
@@ -160,6 +161,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Thu Nov 12 2020 Evgeni Golov 4.1.0-2
+- Let cockpit subpackage depend on exact version of the main package
+
 * Tue Sep 01 2020 Adam Ruzicka <aruzicka@redhat.com> 4.1.0-1
 - Update to 4.1.0
 
