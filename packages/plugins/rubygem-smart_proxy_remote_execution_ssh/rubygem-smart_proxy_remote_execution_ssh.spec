@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 4%{?foremandist}%{?dist}
+Version: 0.3.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -38,8 +38,8 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 0.3.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -135,6 +135,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-1
+- Update to 0.3.1
+
 * Mon Jun 22 2020 Evgeni Golov - 0.3.0-4
 - Fix bundler.d location on EL8
 

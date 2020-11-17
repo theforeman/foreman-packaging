@@ -9,7 +9,7 @@
 %global gem_name smart_proxy_dynflow
 %global plugin_name dynflow
 
-%global foreman_proxy_min_version 1.25
+%global foreman_proxy_min_version 1.16
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
@@ -18,8 +18,8 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
-Release: 6%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -32,6 +32,8 @@ Requires: tfm-rubygem(smart_proxy_dynflow_core) < 0.3.0
 Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.0
 Requires: rubygem(smart_proxy_dynflow_core) < 0.3.0
 %endif
+
+Requires: %{?scl_prefix}rubygem(logging)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -120,6 +122,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Thu Nov 05 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.0-1
+- Update to 0.3.0
+
 * Mon Jun 22 2020 Evgeni Golov - 0.2.4-6
 - Fix bundler.d location on EL8
 

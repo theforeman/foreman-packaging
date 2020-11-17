@@ -60,7 +60,8 @@ management functionality with remote management functionality.
 
 %package cockpit
 BuildArch:  noarch
-Requires:   cockpit
+Requires: cockpit
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires(post): systemd-units
 Requires(preun): systemd-units
 Summary:    Cockpit integration using remote execution connection
@@ -160,8 +161,11 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
-* Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 4.2.0-1
+* Tue Nov 17 2020 Adam Ruzicka <aruzicka@redhat.com> 4.2.0-1
 - Update to 4.2.0
+
+* Thu Nov 12 2020 Evgeni Golov 4.1.0-2
+- Let cockpit subpackage depend on exact version of the main package
 
 * Tue Sep 01 2020 Adam Ruzicka <aruzicka@redhat.com> 4.1.0-1
 - Update to 4.1.0
