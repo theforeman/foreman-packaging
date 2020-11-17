@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 7
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1017,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Nov 17 2020 Evgeni Golov - 2.3.0-0.7.rc2
+- Release foreman 2.3.0
+
 * Tue Nov 03 2020 Patrick Creech <pcreech@redhat.com> - 2.3.0-0.7.rc1
 - Release foreman 2.3.0
 
