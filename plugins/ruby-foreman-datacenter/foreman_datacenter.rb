@@ -1,1 +1,1 @@
-gem 'foreman_datacenter', '2.1.0'
+gem 'foreman_datacenter', '2.1.1'
