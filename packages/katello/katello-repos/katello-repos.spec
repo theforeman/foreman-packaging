@@ -2,7 +2,7 @@
 %global pulp_version 2.21
 %global use_pulp_nightly false
 
-%global pulpcore_version 3.6
+%global pulpcore_version 3.7
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
