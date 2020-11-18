@@ -57,7 +57,7 @@ Requires(preun): systemd-units
 # Subpackages
 Requires: %{name}-debug
 
-# start specfile main Requires
+# start specfile default Requires
 Requires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
 Requires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
@@ -138,7 +138,7 @@ Requires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 Requires: %{?scl_prefix}rubygem(graphql-batch)
-# end specfile main Requires
+# end specfile default Requires
 
 Requires: %{?scl_prefix_ruby}rubygem(bigdecimal)
 
@@ -161,7 +161,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
-# start specfile main BuildRequires
+# start specfile default BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
 BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
@@ -243,7 +243,7 @@ BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
-# end specfile main BuildRequires
+# end specfile default BuildRequires
 
 # assets
 %if 0%{?scl:1}

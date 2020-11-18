@@ -44,10 +44,10 @@ Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       %{?scl_prefix}rubygem(sinatra)
 
-# start specfile main Requires
+# start specfile default Requires
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
-# end specfile main Requires
+# end specfile default Requires
 
 # start specfile bmc Requires
 Requires: %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
