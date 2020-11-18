@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 4.14.0
+Version: 6.0.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Nov 17 2020 John Mitsch <jomitsch@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
 * Tue Aug 18 2020 Avi Sharvit <sharvita@gmail.com> 4.14.0-1
 - Update to 4.14.0
 
