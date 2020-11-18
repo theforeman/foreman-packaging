@@ -7,7 +7,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.17.0
@@ -81,6 +81,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Nov 18 2020 Ian Ballou <ianballou67@gmail.com> - 3.17.0-2
+- Add pulpcore 3.7 repos
+
 * Mon Nov 09 2020 Patrick Creech <pcreech@redhat.com> - 3.17.0-1
 - Release katello-repos 3.17.0
 
