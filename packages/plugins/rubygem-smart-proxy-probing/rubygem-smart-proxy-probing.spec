@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
-Release: 5%{?foremandist}%{?dist}
+Version: 0.0.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Gem to allow probing through smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -36,7 +36,7 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 0.3.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1.0.0
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -124,6 +124,9 @@ EOF
 
 
 %changelog
+* Wed Nov 18 2020 Adam Ruzicka <aruzicka@redhat.com> - 0.0.3-1
+- Update to 0.0.3
+
 * Mon Jun 22 2020 Evgeni Golov - 0.0.2-5
 - Fix bundler.d location on EL8
 
