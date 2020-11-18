@@ -6,59 +6,54 @@ filename = ARGV.shift || 'Gemfile'
 HEADER = ARGV.shift || 'specfile'
 EXCLUDED_GROUPS = [:test, :development]
 EXCLUDED_REQUIRES = {
-  'BuildRequires' => ['strscan', 'stringio'],
-  'Requires' => ['strscan', 'stringio', 'activerecord-nulldb-adapter']
+  'BuildRequires' => [],
+  'Requires' => ['activerecord-nulldb-adapter']
 }
 SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
-
-$requires = {}
-$group = 'main'
-
-def gemspec
-  # TODO
-end
 
 def package(gem)
   return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
 end
 
-def source(url)
+unless File.file?(filename)
+  STDERR.puts "File #{filename} is not an existing file"
+  exit 1
 end
 
-def gem(name, *requirements)
-  return if EXCLUDED_REQUIRES[$require].include?(name)
-  $requires[$group] = {} unless $requires.key?($group)
-  $requires[$group][$require] = [] unless $requires[$group].key?($require)
-  requirements.pop if requirements.last.kind_of?(Hash)
-  if requirements.empty?
-      $requires[$group][$require] << "#{package(name)}"
-  else
-    requirement = Gem::Requirement.create(requirements)
-    requirement.requirements.each do |op, version|
-      if op == '~>'
-        $requires[$group][$require] << "#{package(name)} >= #{version}"
-        $requires[$group][$require] << "#{package(name)} < #{version.bump}.0"
-      else
-        $requires[$group][$require] << "#{package(name)} #{op} #{version}"
+bundler = Dir.chdir(File.dirname(filename)) do
+  Bundler.load
+end
+
+requires = Hash.new { |h, k| h[k] = {} }
+
+bundler.dependencies.each do |dependency|
+  dependency.groups.each do |group|
+    next if EXCLUDED_GROUPS.include?(group)
+
+    ['BuildRequires', 'Requires'].each do |req|
+      next if EXCLUDED_REQUIRES[req].include?(dependency.name)
+
+      requires[group][req] = [] unless requires[group].key?(req)
+
+      target = requires[group][req]
+      name = package(dependency.name)
+
+      dependency.requirement.requirements.each do |op, version|
+        if op == '~>'
+          target << "#{name} >= #{version}"
+          target << "#{name} < #{version.bump}.0"
+        elsif op == '>=' && version.to_s == '0'
+          target << name
+        elsif op != '!=' # != is not supported in RPM
+          target << "#{name} #{op} #{version}"
+        end
       end
     end
   end
 end
 
-def group(name, &block)
-  unless EXCLUDED_GROUPS.include?(name)
-    $group = name
-    block.call
-    $group = 'main'
-  end
-end
 
-['BuildRequires', 'Requires'].each do |req|
-  $require = req
-  load filename
-end
-
-$requires.each do |group, reqs|
+requires.each do |group, reqs|
   reqs.each do |req, lines|
     puts "# start #{HEADER} #{group} #{req}"
     lines.each do |line|
