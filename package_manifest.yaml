@@ -763,12 +763,18 @@ katello_packages:
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
+      - name: "katello-{{ katello_version }}-el8"
+        dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
     releasers:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
     repoclosure_target_repos:
       rhel7:
         - "el7-katello-{{ katello_version }}"
+      el8:
+        - "el8-katello-{{ katello_version }}"
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -781,6 +787,16 @@ katello_packages:
         - "el7-foreman-plugins-{{ foreman_version }}"
         - "el7-katello-pulp-{{ katello_version }}"
         - "el7-katello-candlepin-{{ katello_version }}"
+      el8:
+        - el8-baseos
+        - el8-appstream
+        - el8-powertools
+        - el8-epel
+        - el8-extras
+        - el8-puppet-6
+        - "el8-foreman-{{ foreman_version }}"
+        - "el8-foreman-plugins-{{ foreman_version }}"
+        - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
     katello: {}
     katello-client-bootstrap: {}
