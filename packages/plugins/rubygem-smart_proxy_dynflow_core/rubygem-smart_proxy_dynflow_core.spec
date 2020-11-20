@@ -15,7 +15,7 @@
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -33,6 +33,8 @@ Requires: %{?scl_prefix}rubygem(sinatra)
 Requires: %{?scl_prefix}rubygem(rack)
 Requires: %{?scl_prefix}rubygem(sqlite3)
 Requires: %{?scl_prefix}rubygem(logging)
+Requires: %{?scl_prefix}rubygem(logging-journald) >= 2.0
+Requires: %{?scl_prefix}rubygem(logging-journald) < 3.0
 Requires: %{?scl_prefix}rubygem(sd_notify) >= 0.1
 Requires: %{?scl_prefix}rubygem(sd_notify) < 1
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -122,6 +124,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Fri Nov 20 2020 Lukas Zapletal <lzap+rpm@redhat.com> 0.3.1-2
+- Add missing logging-journald dependency
+
 * Wed Nov 18 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-1
 - Update to 0.3.1
 
