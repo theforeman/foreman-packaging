@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -118,8 +118,7 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.6.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(angular) = 1.7.9
@@ -154,8 +153,7 @@ Summary:    Rebuild the assets for %{pkg_name}
 
 Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.6.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
 Requires: %{?scl_prefix}npm(angular) = 1.7.9
@@ -235,6 +233,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Nov 23 2020 Evgeni Golov - 4.0.0-0.2.pre.master
+- Update @theforeman/builder dependency
+
 * Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> 4.0.0-0.1.pre.master
 - Add pulp_deb_client dependencies
 - Bump version to 4.0.0
