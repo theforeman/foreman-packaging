@@ -23,6 +23,7 @@
       <packagereq type="default">katello-utils</packagereq>
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">python-gofer-qpid</packagereq>
+      <packagereq type="default">python2-qpid</packagereq>
       <packagereq type="default">pulp-katello</packagereq>
       <packagereq type="default">tfm-rubygem-activerecord-import</packagereq>
       <packagereq type="default">tfm-rubygem-ethon</packagereq>
