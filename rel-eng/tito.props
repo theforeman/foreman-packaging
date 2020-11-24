@@ -1078,6 +1078,7 @@ whitelist = katello
   nodejs-react-helmet
   nodejs-strict-uri-encode
   pulp-katello
+  python-qpid
   rhel8-kickstart-setup
   rubygem-activerecord-import
   rubygem-anemone
