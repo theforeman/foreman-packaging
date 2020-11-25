@@ -14,7 +14,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.0
@@ -89,6 +89,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Nov 25 2020 Evgeni Golov - 4.0-0.2.nightly
+- add qpid copr
+
 * Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> - 4.0-0.1.nightly
 - Bump version to 4.0.0
 
