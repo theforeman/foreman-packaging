@@ -80,6 +80,7 @@ rm -rf %{buildroot}
 %changelog
 * Thu Dec 03 2020 Evgeni Golov - 3.16.2-1
 - Release katello-repos 3.16.2
+- add qpid copr
 
 * Wed Sep 30 2020 Evgeni Golov - 3.16.1-1
 - Release katello-repos 3.16.1
