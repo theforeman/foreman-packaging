@@ -83,6 +83,7 @@ rm -rf %{buildroot}
 %changelog
 * Thu Dec 03 2020 Evgeni Golov - 3.17.1-1
 - Release katello-repos 3.17.1
+- add qpid copr
 
 * Wed Nov 18 2020 Ian Ballou <ianballou67@gmail.com> - 3.17.0-2
 - Add pulpcore 3.7 repos
