@@ -14,7 +14,7 @@
 
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.18.0
@@ -89,6 +89,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Nov 25 2020 Evgeni Golov - 3.18.0-0.2.rc2
+- add qpid copr
+
 * Thu Nov 19 2020 Evgeni Golov - 3.18.0-0.1.rc2
 - Release katello-repos 3.18.0
 

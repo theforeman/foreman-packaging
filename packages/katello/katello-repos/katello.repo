@@ -16,6 +16,13 @@ enabled=@PULP_ENABLED@
 gpgcheck=@PULP_GPG_CHECK@
 module_hotfixes=1
 
+[qpid]
+name=Copr repo for qpid owned by @qpid
+baseurl=https://download.copr.fedorainfracloud.org/results/@qpid/qpid/epel-7-$basearch/
+gpgcheck=@REPO_GPGCHECK@
+gpgkey=https://download.copr.fedorainfracloud.org/results/@qpid/qpid/pubkey.gpg
+enabled=@PULP_ENABLED@
+
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
 
