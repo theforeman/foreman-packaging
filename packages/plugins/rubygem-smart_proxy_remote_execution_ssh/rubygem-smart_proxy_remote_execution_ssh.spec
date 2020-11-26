@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -91,6 +91,9 @@ gem build %{gem_name}.gemspec
 
 %pre
 if [ -d %{foreman_proxy_dir}/.ssh ] && [ ! -L %{foreman_proxy_dir}/.ssh ] ; then
+  if [ -d %{foreman_proxy_statedir}/ssh ] ; then
+    mv %{foreman_proxy_statedir}/ssh %{foreman_proxy_statedir}/ssh.save$(date '+%%y%%m%%d%%H%%M')
+  fi
   mv %{foreman_proxy_dir}/.ssh %{foreman_proxy_statedir}/ssh
 fi
 
@@ -135,6 +138,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Nov 26 2020 Markus Bucher <bucher@atix.de> 0.3.1-2
+- Fix remove files and dirs from ssh-dir before move
+
 * Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-1
 - Update to 0.3.1
 
