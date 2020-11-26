@@ -5,10 +5,10 @@
 
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 1.24
+%global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.13.1
+Version: 3.0.14
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -124,6 +124,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Nov 26 2020 Ron Lavi <1ronlavi@gmail.com> 3.0.14-1
+- Update to 3.0.14-1
+
 * Tue Oct 20 2020 laviro <1ronlavi@gmail.com> 2.0.13.1-1
 - Update to 2.0.13.1-1
 
