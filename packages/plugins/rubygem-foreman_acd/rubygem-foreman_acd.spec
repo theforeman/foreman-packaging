@@ -4,11 +4,11 @@
 
 %global gem_name foreman_acd
 %global plugin_name acd
-%global foreman_min_version 2.0
+%global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
-Release: 3%{?foremandist}%{?dist}
+Version: 0.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
@@ -20,8 +20,10 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -33,8 +35,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
@@ -125,6 +127,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Nov 26 2020 Bernhard Suttner <suttner@atix.de> 0.3.0-1
+- Update to 0.3.0
+
 * Tue Jul 21 2020 Evgeni Golov - 0.2.1-3
 - Drop posttrans macros
 
