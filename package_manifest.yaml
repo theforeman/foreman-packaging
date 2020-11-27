@@ -848,7 +848,7 @@ plugin_scl_packages:
         - el7-scl
         - el7-puppet-6
         - el7-foreman-2.1
-        - el7-configmangement-salt
+        - el7-configmanagement-salt
       el8:
         - el8-appstream
         - el8-baseos
