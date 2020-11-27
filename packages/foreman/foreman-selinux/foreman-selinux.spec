@@ -22,7 +22,7 @@
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -41,6 +41,7 @@ BuildRequires:  selinux-policy-devel
 BuildRequires:  hardlink
 BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
+BuildRequires:  systemd
 BuildArch:      noarch
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
@@ -52,6 +53,7 @@ Requires(post):     /usr/sbin/semanage
 Requires(post):     selinux-policy-targeted
 Requires(postun):   /usr/sbin/semodule
 Requires(postun):   /sbin/restorecon
+%{?systemd_requires}
 
 %if 0%{?rhel} == 7
 Requires(post):     policycoreutils-python
@@ -99,6 +101,7 @@ make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{versi
 if /usr/sbin/selinuxenabled; then
     # install and upgrade
     %{_sbindir}/%{name}-enable
+    systemctl daemon-reexec &>/dev/null || :
 fi
 
 %posttrans
@@ -112,6 +115,7 @@ if /usr/sbin/selinuxenabled; then
     # uninstall only
     if [ $1 -eq 0 ]; then
         %{_sbindir}/%{name}-disable
+        systemctl daemon-reexec &>/dev/null || :
     fi
     # upgrade and uninstall
     %{_sbindir}/%{name}-relabel
@@ -188,6 +192,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Fri Nov 27 2020 Evgeni Golov - 2.4.0-0.2.develop
+- reexec systemd after policy changes to make socket labeling work
+
 * Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
 - Bump version to 2.4-develop
 
