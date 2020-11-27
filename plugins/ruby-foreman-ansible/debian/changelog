@@ -1,3 +1,9 @@
+ruby-foreman-ansible (6.4.1-2) stable; urgency=low
+
+  * Use foreman-plugin.mk instead of duplicating d/rules
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 25 Aug 2021 10:20:00 +0200
+
 ruby-foreman-ansible (6.4.1-1) stable; urgency=low
 
   * 6.4.1 released
