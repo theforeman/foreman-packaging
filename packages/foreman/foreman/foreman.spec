@@ -9,9 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 2.3.0
@@ -1017,6 +1015,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Dec 01 2020 Evgeni Golov - 2.3.0-1
+- Release foreman 2.3.0
+
 * Tue Nov 17 2020 Evgeni Golov - 2.3.0-0.7.rc2
 - Release foreman 2.3.0
 
