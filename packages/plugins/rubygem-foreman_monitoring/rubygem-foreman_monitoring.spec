@@ -4,10 +4,10 @@
 
 %global gem_name foreman_monitoring
 %global plugin_name monitoring
-%global foreman_min_version 2.0
+%global foreman_min_version 2.2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for monitoring system integration
 Group: Applications/Systems
@@ -28,7 +28,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %description
@@ -96,6 +96,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 01 2020 Dirk Goetz 2.1.0-1
+- Update to 2.1.0
+
 * Tue Aug 11 2020 Manuel Laug <manuel.laug@dm.de> - 2.0.0-1
 - Update foreman_monitoring to 2.0.0
 
