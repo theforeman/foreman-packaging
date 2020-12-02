@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -667,8 +667,10 @@ Meta Package to install dynflow sidekiq executor support
 %package service
 Summary: Foreman systemd service support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(puma)
-Requires: %{?scl_prefix}rubygem(puma-plugin-systemd)
+# start specfile service Requires
+Requires: %{?scl_prefix}rubygem(puma) >= 5.1
+Requires: %{?scl_prefix}rubygem(puma) < 6.0
+# end specfile service Requires
 Requires: %{name} = %{version}-%{release}
 
 %description service
@@ -1017,6 +1019,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jan 07 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.4.0-0.4.develop
+- Update puma dependency (#31431)
+
 * Mon Dec 28 2020 Tomer Brisker <tbrisker@gmail.com> - 2.4.0-0.3.develop
 - Update Gem dependencies
 
