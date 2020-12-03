@@ -6,7 +6,7 @@
 %global foreman_max_version 2.2
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.16.1.2
+%global mainver 3.16.2
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -245,6 +245,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Dec 03 2020 Evgeni Golov - 3.16.2-1
+- Release rubygem-katello 3.16.2
+
 * Mon Oct 05 2020 ianballou <ianballou67@gmail.com> 3.16.1.2-1
 - Update to 3.16.1.2
 
