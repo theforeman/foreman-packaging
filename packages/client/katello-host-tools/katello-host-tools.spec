@@ -7,7 +7,7 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 %global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 8))
-%global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
+%global legacy_agent (0%{?rhel} == 6)
 %global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
 %if 0%{?suse_version}
@@ -16,14 +16,12 @@
 
 Name: katello-host-tools
 Version: 3.5.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
 URL:     https://github.com/Katello/katello-agent
 Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
-
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?suse_version} && 0%{?suse_version} < 1200
 # this needs to be BuildArch for Suse but
@@ -47,10 +45,6 @@ Requires: python3-subscription-manager-rhsm
 Requires: python-rhsm
 %endif
 Requires: crontabs
-%endif
-
-%if 0%{?rhel} == 5
-Requires: python-simplejson
 %endif
 
 %if 0%{?sles_version}
@@ -106,10 +100,6 @@ Requires: %{name} = %{version}-%{release}
 
 %if 0%{?rhel} == 6
 Requires: yum-plugin-security
-%endif
-
-%if 0%{?rhel} == 5
-Requires: yum-security
 %endif
 
 %description -n katello-agent
@@ -398,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Dec 07 2020 Evgeni Golov - 3.5.4-2
+- remove EL5 bits that aren't longer needed
+
 * Wed May 27 2020 Jonathon Turel - 3.5.4-1
 - Release 3.5.4
 
