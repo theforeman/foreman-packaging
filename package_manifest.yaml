@@ -715,6 +715,7 @@ foreman_client_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
+        - el8-configmanagement-ansible
       rhel7:
         - el7-base
         - el7-updates
@@ -1127,6 +1128,7 @@ repoclosures:
           - el8-epel
           - el8-extras
           - el8-puppet-6
+          - el8-configmanagement-ansible
     foreman-client-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
