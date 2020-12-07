@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -30,12 +30,9 @@ Source1:  foreman-plugins.repo
 Source2:  foreman.gpg
 Source5:  foreman-client.repo
 Source6:  qpid-copr.repo
-Source7:  subscription-manager-el5.repo
 Source8:  pulp.repo
 Source9:  subscription-manager-el6.repo
 
-# Required by RHEL5
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: noarch
 
 BuildRequires: sed
@@ -62,11 +59,6 @@ Defines yum repositories for Foreman clients.
 %config %{repo_dir}/subscription-manager.repo
 %endif
 
-%if 0%{?rhel} == 5
-%config %{repo_dir}/pulp.repo
-%config %{repo_dir}/subscription-manager.repo
-%endif
-
 %if 0%{?suse_version}
 %dir /etc/pki
 %dir /etc/pki/rpm-gpg
@@ -83,11 +75,6 @@ install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
 install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
 install -m 644 %{SOURCE9} %{buildroot}%{repo_dir}/subscription-manager.repo
-%endif
-
-%if 0%{?rhel} == 5
-install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
-install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
@@ -109,6 +96,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Mon Dec 07 2020 Evgeni Golov - 2.4.0-0.2.develop
+- remove EL5 bits that aren't longer needed
+
 * Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
 - Bump version to 2.4-develop
 
