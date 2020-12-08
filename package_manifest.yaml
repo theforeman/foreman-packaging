@@ -416,7 +416,6 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-object-assign: {}
     nodejs-patternfly-react: {}
-    nodejs-patternfly-react-icons: {}
     nodejs-patternfly-react-tokens: {}
     nodejs-patternfly:
       strategy: bundle
