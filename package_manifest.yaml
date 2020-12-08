@@ -370,34 +370,20 @@ foreman_nodejs_packages:
     nodejs-babel-register:
       strategy: bundle
     nodejs-babel-runtime: {}
-    nodejs-bootstrap-slider-without-jquery: {}
-    nodejs-breakjs: {}
     nodejs-c3: {}
-    nodejs-change-emitter: {}
-    nodejs-classnames: {}
     nodejs-compression-webpack-plugin:
       strategy: bundle
     nodejs-core-js: {}
-    nodejs-create-react-context: {}
-    nodejs-css-element-queries: {}
     nodejs-css-loader:
       strategy: bundle
     nodejs-d3: {}
-    nodejs-dom-helpers: {}
     nodejs-dotenv: {}
-    nodejs-escape-string-regexp: {}
     nodejs-expose-loader: {}
     nodejs-extract-text-webpack-plugin:
       strategy: bundle
-    nodejs-fbjs:
-      strategy: bundle
     nodejs-file-loader:
       strategy: bundle
-    nodejs-fortawesome-fontawesome-common-types: {}
-    nodejs-fortawesome-free-brands-svg-icons: {}
-    nodejs-gud: {}
     nodejs-harmony-reflect: {}
-    nodejs-hoist-non-react-statics: {}
     nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
@@ -406,7 +392,6 @@ foreman_nodejs_packages:
     nodejs-jquery: {}
     nodejs-js-tokens: {}
     nodejs-lodash-es: {}
-    nodejs-lodash.debounce: {}
     nodejs-lodash: {}
     nodejs-loose-envify: {}
     nodejs-node-gyp:
@@ -414,42 +399,22 @@ foreman_nodejs_packages:
     nodejs-node-sass:
       strategy: bundle
     nodejs-object-assign: {}
-    nodejs-patternfly-react: {}
-    nodejs-patternfly-react-icons: {}
-    nodejs-patternfly-react-tokens: {}
-    nodejs-patternfly:
-      strategy: bundle
     nodejs-performance-now: {}
     nodejs-popper.js: {}
-    nodejs-prop-types: {}
-    nodejs-prop-types-extra: {}
     nodejs-raf: {}
-    nodejs-react-bootstrap-switch: {}
     nodejs-react-bootstrap:
       strategy: bundle
-    nodejs-react-bootstrap-typeahead: {}
-    nodejs-react-c3js: {}
-    nodejs-react-click-outside: {}
-    nodejs-react-collapse: {}
-    nodejs-react-debounce-input: {}
     nodejs-react-dom:
       strategy: bundle
     nodejs-react-ellipsis-with-tooltip: {}
-    nodejs-react-fontawesome: {}
     nodejs-react-intl:
       strategy: bundle
     nodejs-react-is: {}
     nodejs-react-lifecycles-compat: {}
-    nodejs-react-motion: {}
-    nodejs-react-overlays: {}
-    nodejs-react-popper: {}
     nodejs-react-redux:
       strategy: bundle
-    nodejs-react-transition-group: {}
     nodejs-react:
       strategy: bundle
-    nodejs-reactabular-table: {}
-    nodejs-recompose: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}
