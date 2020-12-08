@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 18%{?dist}
+Release: 19%{?dist}
 Summary: A Ruby interface for the the Kerberos library
 Group: Development/Languages
 License: Artistic 2.0
@@ -111,6 +111,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 08 2020 Evgeni Golov - 0.1.5-19
+- Rebuild against new libkadm5 in EL 8.3
+
 * Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.1.5-18
 - Add check section to test native library
 - Remove dependency on rake-compiler
