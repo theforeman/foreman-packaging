@@ -52,29 +52,17 @@ whitelist = foreman
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
-  nodejs-bootstrap-slider-without-jquery
-  nodejs-breakjs
   nodejs-c3
-  nodejs-change-emitter
-  nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-core-js
-  nodejs-create-react-context
   nodejs-css-element-queries
   nodejs-css-loader
   nodejs-d3
-  nodejs-dom-helpers
   nodejs-dotenv
-  nodejs-escape-string-regexp
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
-  nodejs-fbjs
   nodejs-file-loader
-  nodejs-fortawesome-fontawesome-common-types
-  nodejs-fortawesome-free-brands-svg-icons
-  nodejs-gud
   nodejs-harmony-reflect
-  nodejs-hoist-non-react-statics
   nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
@@ -83,42 +71,22 @@ whitelist = foreman
   nodejs-jquery
   nodejs-js-tokens
   nodejs-lodash
-  nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
-  nodejs-patternfly
-  nodejs-patternfly-react
-  nodejs-patternfly-react-icons
-  nodejs-patternfly-react-tokens
   nodejs-performance-now
   nodejs-popper.js
-  nodejs-prop-types
-  nodejs-prop-types-extra
   nodejs-raf
   nodejs-react
-  nodejs-reactabular-table
   nodejs-react-bootstrap
-  nodejs-react-bootstrap-switch
-  nodejs-react-bootstrap-typeahead
-  nodejs-react-c3js
-  nodejs-react-click-outside
-  nodejs-react-collapse
-  nodejs-react-debounce-input
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
-  nodejs-react-fontawesome
   nodejs-react-intl
   nodejs-react-is
   nodejs-react-lifecycles-compat
-  nodejs-react-motion
-  nodejs-react-overlays
-  nodejs-react-popper
   nodejs-react-redux
-  nodejs-react-transition-group
-  nodejs-recompose
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
@@ -385,29 +353,16 @@ whitelist = foreman
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
-  nodejs-bootstrap-slider-without-jquery
-  nodejs-breakjs
   nodejs-c3
-  nodejs-change-emitter
-  nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-core-js
-  nodejs-create-react-context
-  nodejs-css-element-queries
   nodejs-css-loader
   nodejs-d3
-  nodejs-dom-helpers
   nodejs-dotenv
-  nodejs-escape-string-regexp
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
-  nodejs-fbjs
   nodejs-file-loader
-  nodejs-fortawesome-fontawesome-common-types
-  nodejs-fortawesome-free-brands-svg-icons
-  nodejs-gud
   nodejs-harmony-reflect
-  nodejs-hoist-non-react-statics
   nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
@@ -416,42 +371,22 @@ whitelist = foreman
   nodejs-jquery
   nodejs-js-tokens
   nodejs-lodash
-  nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
-  nodejs-patternfly
-  nodejs-patternfly-react
-  nodejs-patternfly-react-icons
-  nodejs-patternfly-react-tokens
   nodejs-performance-now
   nodejs-popper.js
-  nodejs-prop-types
-  nodejs-prop-types-extra
   nodejs-raf
   nodejs-react
-  nodejs-reactabular-table
   nodejs-react-bootstrap
-  nodejs-react-bootstrap-switch
-  nodejs-react-bootstrap-typeahead
-  nodejs-react-c3js
-  nodejs-react-click-outside
-  nodejs-react-collapse
-  nodejs-react-debounce-input
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
-  nodejs-react-fontawesome
   nodejs-react-intl
   nodejs-react-is
   nodejs-react-lifecycles-compat
-  nodejs-react-motion
-  nodejs-react-overlays
-  nodejs-react-popper
   nodejs-react-redux
-  nodejs-react-transition-group
-  nodejs-recompose
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
