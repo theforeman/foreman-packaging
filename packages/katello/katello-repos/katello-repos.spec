@@ -5,7 +5,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        3.16.2
@@ -78,6 +78,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Thu Dec 10 2020 Evgeni Golov - 3.16.2-2
+- drop qpid copr again, EPEL is fixed
+
 * Thu Dec 03 2020 Evgeni Golov - 3.16.2-1
 - Release katello-repos 3.16.2
 - add qpid copr
