@@ -6,7 +6,7 @@
 %global npm_name node-sass
 
 Name: %{?scl_prefix}nodejs-node-sass
-Version: 4.13.1
+Version: 4.14.1
 Release: 1%{?dist}
 Summary: Wrapper around libsass
 License: MIT
@@ -447,6 +447,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Thu Dec 10 2020 Zach Huntington-Meath <zhunting@redhat.com> 4.14.1-1
+- Update to 4.14.1
+
 * Thu Mar 26 2020 Zach Huntington-Meath <zhunting@redhat.com> 4.13.1-1
 - Update to 4.13.1
 
