@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.5
+Version: 1.8.6
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -104,6 +104,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Dec 10 2020 Nadja Heitmann <heitmann@atix.de> 1.8.6-1
+- Update to 1.8.6
+- Add automatic GPG key support for SCC accounts
+- Make titles and descriptions of SCC products more readable
+- Minor beautifications and bug fixes
+
 * Wed Nov 04 2020 Markus Bucher <bucher@atix.de> 1.8.5-1
 - Update to 1.8.5
 - Fix display of product list for foreman >=2.0
