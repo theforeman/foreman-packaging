@@ -35,7 +35,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -97,13 +97,7 @@ gem unpack %{SOURCE0}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%if %{with python2} && 0%{?rhel} >= 8
-sed -i -e '1s|^#!.*$|#!%{__python2}|' sbin/upload-salt-reports
-%endif
-
-%if %{with python3} && 0%{?rhel} >= 8
-sed -i -e '1s|^#!.*$|#!%{__python3}|' sbin/upload-salt-reports
-%endif
+sed -i -e '1s|^#!.*$|#!%{_root_bindir}/salt_python_wrapper|' sbin/upload-salt-reports
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -120,6 +114,26 @@ gem build %{gem_name}.gemspec
 %{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
+
+cat <<EOF >.%{_bindir}/salt_python_wrapper
+#!/bin/sh
+
+set -eu
+
+for py in 'python3' 'python'; do
+  exe=\$(type -p \${py})
+  if [ -n "\${exe}" ]; then
+    if \${exe} -c 'import salt.config'; then
+      \${exe} "\$@"
+      exit \$?
+    fi
+  fi
+done
+
+echo "No usable python version found, check if python-salt-library is installed!" 1>&2
+exit 1
+EOF
+chmod a+x .%{_bindir}/salt_python_wrapper
 
 %install
 mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
@@ -162,6 +176,7 @@ EOF
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-node
+%{_root_bindir}/salt_python_wrapper
 %{_root_sbindir}/upload-salt-reports
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
@@ -186,6 +201,10 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Dec 10 2020 Markus Bucher <bucher@atix.de> - 3.1.2-7
+- Add salt_python_wrapper to select correct
+  python-exe for upload-salt-reports
+
 * Thu Jul 09 2020 Bernhard Suttner <suttner@atix.de> - 3.1.2-6
 - Fix upload-salt-report path
 - Fix hashbang for foreman-node helper script
