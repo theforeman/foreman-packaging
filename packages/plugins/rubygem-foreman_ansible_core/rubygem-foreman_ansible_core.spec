@@ -6,7 +6,7 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.4
+Version: 4.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
@@ -18,10 +18,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.2
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 0.4
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) >= 1.1
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core) < 2
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.2
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) < 0.4
 Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Dec 10 2020 Ondrej Prazak <oprazak@redhat.com> 4.0.0-1
+- Update to 4.0.0
+
 * Tue Sep 22 2020 Marek Hulan <mhulan@redhat.com> 3.0.4-1
 - Update to 3.0.4
 
