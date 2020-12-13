@@ -4,7 +4,7 @@
 %global gem_name fog-ovirt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.5
+Version: 2.0.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
@@ -77,6 +77,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/Gemfile.local.rb
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -92,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Sun Dec 13 2020 Shira Maximov <shiramaximov@gmail.com> 2.0.0-1
+- Update to 2.0.0
+
 * Tue May 26 2020 Shira Maximov <shiramaximov@gmail.com> 1.2.5-1
 - Update to 1.2.5
 
