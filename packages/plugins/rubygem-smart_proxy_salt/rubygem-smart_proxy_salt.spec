@@ -104,9 +104,6 @@ sed -i -e '1s|^#!.*$|#!%{_root_bindir}/salt_python_wrapper|' sbin/upload-salt-re
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
-cp %{SOURCE1} .%{_bindir}/salt_python_wrapper
-chmod a+x .%{_bindir}/salt_python_wrapper
-
 %build
 # Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
@@ -118,6 +115,9 @@ gem build %{gem_name}.gemspec
 %{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
+
+cp %{SOURCE1} .%{_bindir}/salt_python_wrapper
+chmod a+x .%{_bindir}/salt_python_wrapper
 
 %install
 mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
