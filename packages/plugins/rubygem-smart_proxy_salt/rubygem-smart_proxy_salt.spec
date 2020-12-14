@@ -40,6 +40,7 @@ Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: salt_python_wrapper
 
 Requires: salt-master
 %if %{with python2}
@@ -103,6 +104,9 @@ sed -i -e '1s|^#!.*$|#!%{_root_bindir}/salt_python_wrapper|' sbin/upload-salt-re
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
+cp %{SOURCE1} .%{_bindir}/salt_python_wrapper
+chmod a+x .%{_bindir}/salt_python_wrapper
+
 %build
 # Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
@@ -114,26 +118,6 @@ gem build %{gem_name}.gemspec
 %{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
-
-cat <<EOF >.%{_bindir}/salt_python_wrapper
-#!/bin/sh
-
-set -eu
-
-for py in 'python3' 'python'; do
-  exe=\$(type -p \${py})
-  if [ -n "\${exe}" ]; then
-    if \${exe} -c 'import salt.config'; then
-      \${exe} "\$@"
-      exit \$?
-    fi
-  fi
-done
-
-echo "No usable python version found, check if python-salt-library is installed!" 1>&2
-exit 1
-EOF
-chmod a+x .%{_bindir}/salt_python_wrapper
 
 %install
 mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
