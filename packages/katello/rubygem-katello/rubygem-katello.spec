@@ -6,8 +6,6 @@
 %global foreman_max_version 2.4
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc2.1
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 3.18.0
 %global release 1
 
@@ -235,6 +233,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Dec 14 2020 Zach Huntington-Meath - 3.18.0-1
+- Release rubygem-katello 3.18.0
+
 * Tue Dec 01 2020 Evgeni Golov - 3.18.0-0.1.rc2.1
 - Release rubygem-katello 3.18.0
 
