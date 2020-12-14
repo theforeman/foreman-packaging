@@ -4,10 +4,10 @@
 
 %global gem_name foreman_acd
 %global plugin_name acd
-%global foreman_min_version 2.1
+%global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
@@ -20,10 +20,10 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.2.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -127,6 +127,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Dec 14 2020 Bernhard Suttner <suttner@atix.de> 0.4.0-1
+- Update to 0.4.0
+
 * Thu Nov 26 2020 Bernhard Suttner <suttner@atix.de> 0.3.0-1
 - Update to 0.3.0
 
