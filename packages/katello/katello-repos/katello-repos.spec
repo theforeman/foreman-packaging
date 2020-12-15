@@ -12,9 +12,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
 Version:        3.18.0
@@ -89,6 +87,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Dec 15 2020 Evgeni Golov - 3.18.0-1
+- Release katello-repos 3.18.0
+
 * Wed Nov 25 2020 Evgeni Golov - 3.18.0-0.2.rc2
 - add qpid copr
 
