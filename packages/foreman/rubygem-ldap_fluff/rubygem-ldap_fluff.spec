@@ -5,8 +5,8 @@
 
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.7
-Release: 5%{?dist}
+Version: 0.5.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
@@ -72,6 +72,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Wed Dec 16 2020 Lukas Zapletal <lzap+rpm@redhat.com> 0.5.0-1
+- Update to 0.5.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.7-5
 - Bump to release for EL8
 
