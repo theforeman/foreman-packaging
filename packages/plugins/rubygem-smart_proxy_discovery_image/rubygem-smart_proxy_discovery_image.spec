@@ -17,7 +17,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.1
+Version: 1.3.2
 Release: 1%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Dec 16 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.3.2-1
+- Update to 1.3.2
+
 * Fri Oct 23 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.3.1-1
 - Update to 1.3.1
 
