@@ -123,13 +123,11 @@
       <packagereq type="default">rubygem-actionview</packagereq>
       <packagereq type="default">rubygem-activejob</packagereq>
       <packagereq type="default">rubygem-activemodel</packagereq>
-      <packagereq type="default">rubygem-activepack</packagereq>
       <packagereq type="default">rubygem-activerecord</packagereq>
       <packagereq type="default">rubygem-activerecord-nulldb-adapter</packagereq>
       <packagereq type="default">rubygem-activerecord-session_store</packagereq>
       <packagereq type="default">rubygem-activestorage</packagereq>
       <packagereq type="default">rubygem-activesupport</packagereq>
-      <packagereq type="default">rubygem-activeview</packagereq>
       <packagereq type="default">rubygem-addressable</packagereq>
       <packagereq type="default">rubygem-algebrick</packagereq>
       <packagereq type="default">rubygem-amazing_print</packagereq>
@@ -249,7 +247,6 @@
       <packagereq type="default">rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">rubygem-paint</packagereq>
       <packagereq type="default">rubygem-parallel</packagereq>
-      <packagereq type="default">rubygem-passenger</packagereq>
       <packagereq type="default">rubygem-patternfly-sass</packagereq>
       <packagereq type="default">rubygem-pg</packagereq>
       <packagereq type="default">rubygem-po_to_json</packagereq>
@@ -317,7 +314,6 @@
       <packagereq type="default">rubygem-thor</packagereq>
       <packagereq type="default">rubygem-thread_safe</packagereq>
       <packagereq type="default">rubygem-tilt</packagereq>
-      <packagereq type="default">rubygem-turbolinks</packagereq>
       <packagereq type="default">rubygem-tzinfo</packagereq>
       <packagereq type="default">rubygem-uber</packagereq>
       <packagereq type="default">rubygem-uglifier</packagereq>
@@ -470,7 +466,6 @@
       <packagereq type="default">rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">rubygem-paint-doc</packagereq>
       <packagereq type="default">rubygem-parallel-doc</packagereq>
-      <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">rubygem-pg-doc</packagereq>
       <packagereq type="default">rubygem-po_to_json-doc</packagereq>
