@@ -165,6 +165,7 @@
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt_core</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_shellhooks</packagereq>
       <packagereq type="default">rubygem-smart_proxy_spacewalk</packagereq>
       <packagereq type="default">rubygem-systemu</packagereq>
       <packagereq type="default">rubygem-timeliness</packagereq>
@@ -322,6 +323,7 @@
       <packagereq type="default">rubygem-smart_proxy_remote_execution_ssh-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt_core-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_salt-doc</packagereq>
+      <packagereq type="default">rubygem-smart_proxy_shellhooks-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_spacewalk-doc</packagereq>
       <packagereq type="default">rubygem-systemu-doc</packagereq>
       <packagereq type="default">rubygem-timeliness-doc</packagereq>
