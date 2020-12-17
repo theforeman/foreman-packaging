@@ -785,6 +785,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_salt_core
+  rubygem-smart_proxy_shellhooks
   rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-timeliness
@@ -949,6 +950,7 @@ whitelist = foreman-discovery-image-service
   rubygem-smart_proxy_remote_execution_ssh
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_salt_core
+  rubygem-smart_proxy_shellhooks
   rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-timeliness
