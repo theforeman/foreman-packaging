@@ -22,7 +22,6 @@ whitelist = foreman-bootloaders-redhat
   foreman-selinux
   katello-certs-tools
   keycloak-httpd-client-install
-  nodejs-node-gyp
   pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
@@ -55,7 +54,6 @@ whitelist = foreman
   nodejs-c3
   nodejs-compression-webpack-plugin
   nodejs-core-js
-  nodejs-css-element-queries
   nodejs-css-loader
   nodejs-d3
   nodejs-dotenv
@@ -115,7 +113,6 @@ whitelist = foreman
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
-  rubygem-activepack
   rubygem-activerecord
   rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
@@ -307,7 +304,6 @@ whitelist = foreman
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
-  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
@@ -420,13 +416,11 @@ whitelist = foreman
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
-  rubygem-activepack
   rubygem-activerecord
   rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
   rubygem-activestorage
   rubygem-activesupport
-  rubygem-activeview
   rubygem-addressable
   rubygem-algebrick
   rubygem-amazing_print
@@ -614,7 +608,6 @@ whitelist = foreman
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
-  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
