@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -386,7 +386,7 @@ Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
 Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.5
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 3
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -415,7 +415,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.3.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.5.0
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -1017,6 +1017,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Dec 28 2020 Tomer Brisker <tbrisker@gmail.com> - 2.4.0-0.3.develop
+- Update Gem dependencies
+
 * Wed Nov 18 2020 Tomer Brisker <tbrisker@gmail.com> - 2.4.0-0.2.develop
 - Update NPM dependencies
 
