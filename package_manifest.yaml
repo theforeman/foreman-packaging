@@ -429,6 +429,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-reactabular-table: {}
     nodejs-recompose: {}
+    nodejs-redhat-cloud-services-frontend-components: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}

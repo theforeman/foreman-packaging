@@ -34,6 +34,7 @@
       <packagereq type="default">foreman-service</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
+      <packagereq type="default">nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
       <packagereq type="default">tfm-mod_passenger</packagereq>
@@ -467,8 +468,8 @@
       <packagereq type="default">tfm-rubygem-gitlab-sidekiq-fetcher-doc</packagereq>
       <packagereq type="default">tfm-rubygem-globalid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gssapi-doc</packagereq>

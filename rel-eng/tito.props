@@ -1139,3 +1139,8 @@ whitelist = katello
   rubygem-stomp
   rubygem-typhoeus
   rubygem-zest
+
+
+[foreman-nightly-rhel7]
+whitelist = 
+        nodejs-redhat-cloud-services-frontend-components
