@@ -415,6 +415,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-react:
       strategy: bundle
+    nodejs-redhat-cloud-services-frontend-components: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}
