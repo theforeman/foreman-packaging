@@ -384,6 +384,7 @@ whitelist = foreman
   nodejs-react-is
   nodejs-react-lifecycles-compat
   nodejs-react-redux
+  nodejs-redhat-cloud-services-frontend-components
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
