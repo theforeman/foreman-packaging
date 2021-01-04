@@ -86,6 +86,7 @@ whitelist = foreman
   nodejs-react-is
   nodejs-react-lifecycles-compat
   nodejs-react-redux
+  nodejs-redhat-cloud-services-frontend-components
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
@@ -181,8 +182,8 @@ whitelist = foreman
   rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
   rubygem-google-api-client
-  rubygem-google-cloud-env
   rubygem-googleauth
+  rubygem-google-cloud-env
   rubygem-graphql
   rubygem-graphql-batch
   rubygem-gssapi
