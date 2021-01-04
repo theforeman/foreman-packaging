@@ -89,6 +89,7 @@
       <packagereq type="default">nodejs-react-is</packagereq>
       <packagereq type="default">nodejs-react-lifecycles-compat</packagereq>
       <packagereq type="default">nodejs-react-redux</packagereq>
+      <packagereq type="default">nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">nodejs-redux</packagereq>
       <packagereq type="default">nodejs-redux-thunk</packagereq>
       <packagereq type="default">nodejs-regenerator-runtime</packagereq>

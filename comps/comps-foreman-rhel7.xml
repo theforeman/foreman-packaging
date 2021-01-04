@@ -34,7 +34,6 @@
       <packagereq type="default">foreman-service</packagereq>
       <packagereq type="default">foreman-telemetry</packagereq>
       <packagereq type="default">foreman-vmware</packagereq>
-      <packagereq type="default">nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
       <packagereq type="default">tfm-mod_passenger</packagereq>
@@ -88,6 +87,7 @@
       <packagereq type="default">tfm-nodejs-react-is</packagereq>
       <packagereq type="default">tfm-nodejs-react-lifecycles-compat</packagereq>
       <packagereq type="default">tfm-nodejs-react-redux</packagereq>
+      <packagereq type="default">tfm-nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">tfm-nodejs-redux</packagereq>
       <packagereq type="default">tfm-nodejs-redux-thunk</packagereq>
       <packagereq type="default">tfm-nodejs-regenerator-runtime</packagereq>
