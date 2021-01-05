@@ -1,0 +1,1 @@
+debian/foreman_ansible_core.rb usr/share/foreman-proxy/bundler.d
