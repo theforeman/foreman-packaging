@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -14,6 +14,10 @@ Group:      Applications/System
 License:    GPLv3+ and ASL 2.0
 URL:        https://theforeman.org
 Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+Source1:    %{name}.prov
+
+%global __foreman_installer_provides %{SOURCE1}
+%global __foreman_installer_path ^%{_datadir}/%{name}/modules/*/metadata.json
 
 BuildArch:  noarch
 
@@ -146,6 +150,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Jan 05 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.4.0-0.2.develop
+- Add generated info about bundled modules
+
 * Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 1:2.4.0-0.1.develop
 - Bump version to 2.4-develop
 
