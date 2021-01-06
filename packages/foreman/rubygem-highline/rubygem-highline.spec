@@ -66,23 +66,21 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/COPYING
 %doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/appveyor.yml
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/AUTHORS
+%doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/Changelog.md
-%doc %{gem_instdir}/INSTALL
-%doc %{gem_instdir}/README.rdoc
 %doc %{gem_instdir}/TODO
 %doc %{gem_instdir}/examples
 %doc %{gem_instdir}/doc
 %{gem_instdir}/*.gemspec
 %{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
-%{gem_instdir}/setup.rb
 %{gem_instdir}/site
-%{gem_instdir}/test
 %exclude %{gem_instdir}/.*
 
 %changelog
