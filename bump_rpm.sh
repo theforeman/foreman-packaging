@@ -48,7 +48,7 @@ else
 fi
 
 if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
-	ensure_program rpmspec rpm-build
+	ensure_program spectool rpmdevtools
 
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
 
