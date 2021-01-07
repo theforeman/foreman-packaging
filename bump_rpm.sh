@@ -1,5 +1,14 @@
 #!/bin/bash -e
 
+# Dependencies:
+# curl
+# jq
+# python3-semver
+# rpm-build
+# rpmdevtools
+# rubygem-gem-compare
+# rubygem-gem2rpm
+
 if [[ -z $1 ]] ; then
 	echo "Usage: $0 directory [version]"
 	exit 1
@@ -79,7 +88,6 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 			git add $SPEC_FILE
 		fi
 
-		# TODO: hint at installing rubygem-gem-compare
 		echo "* Calling gem compare"
 		gem compare -b $GEM_NAME $CURRENT_VERSION $NEW_VERSION
 	else
