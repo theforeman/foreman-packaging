@@ -8,16 +8,6 @@ elif [[ ! -d $1 ]] ; then
 	exit 1
 fi
 
-SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
-
-cd $1
-
-ROOT=$(git rev-parse --show-toplevel)
-PACKAGE_NAME=$(basename $1)
-SPEC_FILE=*.spec
-GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
-CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
-
 program_exists() {
 	which "$@" &> /dev/null
 }
@@ -30,6 +20,18 @@ ensure_program() {
 		exit 1
 	fi
 }
+
+ensure_program rpmspec rpm-build
+
+SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
+
+cd $1
+
+ROOT=$(git rev-parse --show-toplevel)
+PACKAGE_NAME=$(basename $1)
+SPEC_FILE=*.spec
+GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
+CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
 
 if [[ -z $2 ]] ; then
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
