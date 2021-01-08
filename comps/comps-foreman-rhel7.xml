@@ -499,7 +499,6 @@
       <packagereq type="default">tfm-rubygem-promise.rb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-public_suffix-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puma-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-puma-plugin-systemd-doc</packagereq>
       <packagereq type="default">tfm-rubygem-puma-status-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
