@@ -7,14 +7,14 @@
 %global pulp_enabled 0
 %endif
 
-%global pulpcore_version 3.7
+%global pulpcore_version 3.9
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.0
@@ -89,6 +89,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Jan 11 2021 Ian Ballou <ianballou67@gmail.com> - 4.0-0.3.nightly
+- use pulpcore 3.9 repos
+
 * Wed Nov 25 2020 Evgeni Golov - 4.0-0.2.nightly
 - add qpid copr
 
