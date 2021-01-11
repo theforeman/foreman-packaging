@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-ansible (0.3.3-1) stable; urgency=low
+
+  * 0.3.3 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Mon, 11 Jan 2021 14:06:10 +0000
+
 ruby-hammer-cli-foreman-ansible (0.3.0-1) stable; urgency=low
 
   * Initial release for Debian and Ubuntu
