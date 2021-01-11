@@ -1,0 +1,5 @@
+ruby-smart-proxy-shellhooks (0.9.1-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)
+
+ -- Lukas Zapletal <lzap+pub@redhat.com>  Mon, 11 Jan 2021 14:48:26 +0100
