@@ -334,7 +334,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       begin
         aaaa_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::AAAA)
         commands << "update delete #{@old_hostname} AAAA"
-        commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
+        commands << "update add #{@new_hostname} #{aaaa_record.ttl} AAAA #{aaaa_record.address}"
       rescue Resolv::ResolvError => e
         # This is fine
       end
