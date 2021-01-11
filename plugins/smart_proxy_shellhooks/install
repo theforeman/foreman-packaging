@@ -1,0 +1,3 @@
+examples/* var/lib/foreman-proxy/shellhooks
+bundler.d/shellhooks.rb usr/share/foreman-proxy/bundler.d
+settings.d/shellhooks.yml etc/foreman-proxy/settings.d

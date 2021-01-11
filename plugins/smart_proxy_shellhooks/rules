@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+export GEM2DEB_TEST_RUNNER = --check-dependencies
+
+build:
+	mv settings.d/shellhooks.yml.example settings.d/shellhooks.yml
+
+%:
+	dh $@ --buildsystem=ruby --with ruby

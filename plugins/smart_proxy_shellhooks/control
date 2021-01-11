@@ -1,0 +1,21 @@
+Source: ruby-smart-proxy-shellhooks
+Section: ruby
+Priority: optional
+Maintainer: Lukas Zapletal <lzap+pub@redhat.com>
+Build-Depends: debhelper (>= 11~),
+               gem2deb
+Standards-Version: 4.3.0
+Homepage: http://github.com/theforeman/smart_proxy_shellhooks
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-smart-proxy-shellhooks
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         foreman-proxy (>= 2.3.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Run shell scripts via Foreman webhooks
+ Provides easy integration with 3rd parties for Foreman
