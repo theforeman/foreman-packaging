@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.0.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Jan 11 2021 Jonathon Turel <jturel@gmail.com> - 4.0.0-0.2.master
+- Fixes #31598 - Don't recreate AAAA record as A
+
 * Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> - 4.0.0-0.1.master
 - Bump version to 4.0.0
 
