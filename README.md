@@ -80,10 +80,6 @@ Adding a package into this repository.
 1. Install `gem2deb` and a few optional dependencies: `apt install gem2deb apt-file python3-debian`
 1. Update `apt-file` cache, it's used for calculating dependencies: `apt-file update`
 
-### Packaging Plugins
-
-1. TBD
-
 ### Packaging Dependencies
 
 1. Use `gem2deb` utility from Debian to generate a good starting point: `gem2deb -s GEM_NAME`, this will produce a `ruby-GEM_NAME-VERSION` directory (the gem name will be mangled to match Debian rules: no underscores, lowercase only).
@@ -96,3 +92,10 @@ Adding a package into this repository.
 1. Review the `*.docs` file
 1. Review the `changelog` file
 1. See the Contributing section above for instructions on where to download the final build
+
+### Packaging Plugins
+
+Instructions are the same as for dependencies (see above) with the following differences:
+
+1. Directory must be created in `plugins/GEM_NAME`
+2. Plugins typically depend on `foreman` or `foreman-proxy`
