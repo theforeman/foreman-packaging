@@ -5,8 +5,8 @@
 %global gem_name openscap_parser
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 3%{?dist}
+Version: 1.0.2
+Release: 1%{?dist}
 Summary: Parse OpenSCAP content
 Group: Development/Languages
 License: MIT
@@ -96,6 +96,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/openscap_parser.gemspec
 
 %changelog
+* Mon Jan 18 2021 Ondrej Prazak <oprazak@redhat.com> 1.0.2-1
+- Update to 1.0.2
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-3
 - Update spec to remove the ror scl
 
