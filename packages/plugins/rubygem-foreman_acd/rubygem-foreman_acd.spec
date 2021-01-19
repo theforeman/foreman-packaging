@@ -7,7 +7,7 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
+Version: 0.5.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
@@ -127,6 +127,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jan 19 2021 Bernhard Suttner <suttner@atix.de> 0.5.0-1
+- Update to 0.5.0
+
 * Thu Nov 26 2020 Bernhard Suttner <suttner@atix.de> 0.3.0-1
 - Update to 0.3.0
 
