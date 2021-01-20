@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
@@ -23,8 +23,6 @@ Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml)
 Requires: %{?scl_prefix}rubygem(ovirt-engine-sdk) >= 4.3.1
-Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -89,7 +87,6 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Gemfile.local.rb
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/fog-ovirt.gemspec
@@ -97,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Wed Jan 20 2021 Shira Maximov <shiramaximov@gmail.com> 2.0.1-1
+- Update to 2.0.1
+
 * Tue Dec 22 2020 Evgeni Golov 2.0.0-1
 - Update to 2.0.0-1
 
