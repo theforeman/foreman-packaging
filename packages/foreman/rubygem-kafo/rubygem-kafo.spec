@@ -6,8 +6,8 @@
 %global gem_name kafo
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.2.0
-Release: 2%{?dist}
+Version: 6.2.1
+Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -103,6 +103,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri Jan 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.2.1-1
+- Release rubygem-kafo 6.2.1
+
 * Wed Jan 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.2.0-2
 - Update to allow highline 2.0
 
