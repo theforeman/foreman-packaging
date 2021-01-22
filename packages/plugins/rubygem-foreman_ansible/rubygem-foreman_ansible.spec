@@ -8,7 +8,7 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.1
+Version: 6.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -43,6 +43,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
@@ -128,6 +129,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jan 22 2021 Adam Ruzicka <aruzicka@redhat.com> 6.0.2-1
+- Update to 6.0.2
+
 * Thu Dec 03 2020 Ondrej Prazak <oprazak@redhat.com> 6.0.1-1
 - Update to 6.0.1
 
