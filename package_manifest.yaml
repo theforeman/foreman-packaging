@@ -254,7 +254,6 @@ foreman_scl_packages:
     rubygem-rails-html-sanitizer: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
-    rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
     rubygem-redis: {}

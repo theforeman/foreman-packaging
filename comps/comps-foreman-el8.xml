@@ -271,7 +271,6 @@
       <packagereq type="default">rubygem-railties</packagereq>
       <packagereq type="default">rubygem-rake-compiler</packagereq>
       <packagereq type="default">rubygem-rb-inotify</packagereq>
-      <packagereq type="default">rubygem-rbovirt</packagereq>
       <packagereq type="default">rubygem-rbvmomi</packagereq>
       <packagereq type="default">rubygem-record_tag_helper</packagereq>
       <packagereq type="default">rubygem-redfish_client</packagereq>
@@ -486,7 +485,6 @@
       <packagereq type="default">rubygem-railties-doc</packagereq>
       <packagereq type="default">rubygem-rake-compiler-doc</packagereq>
       <packagereq type="default">rubygem-rb-inotify-doc</packagereq>
-      <packagereq type="default">rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">rubygem-record_tag_helper-doc</packagereq>
       <packagereq type="default">rubygem-redfish_client-doc</packagereq>
