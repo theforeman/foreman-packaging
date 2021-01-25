@@ -84,6 +84,7 @@
       <packagereq type="default">tfm-rubygem-foreman_templates</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vault</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_webhooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_wreckingball</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
@@ -239,6 +240,7 @@
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vault-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_webhooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_wreckingball-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_xen-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>

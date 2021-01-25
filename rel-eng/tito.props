@@ -701,6 +701,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-foreman_templates
   rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
+  rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
   rubygem-foreman_xen
   rubygem-git
@@ -859,6 +860,7 @@ whitelist = foreman-discovery-image-service
   rubygem-foreman_templates
   rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
+  rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
   rubygem-foreman_xen
   rubygem-git

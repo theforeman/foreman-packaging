@@ -995,6 +995,7 @@ plugin_scl_packages:
     rubygem-foreman_supervisory_authority: {}
     rubygem-foreman_templates: {}
     rubygem-foreman_vault: {}
+    rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-foreman_xen: {}
