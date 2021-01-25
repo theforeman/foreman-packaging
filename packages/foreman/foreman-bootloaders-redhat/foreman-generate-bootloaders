@@ -13,7 +13,7 @@ MODULES="all_video boot btrfs cat configfile echo efinet ext2 fat font gfxmenu g
 
 generate() {
   grub2-mknetdir --net-directory=/var/lib/tftpboot/ --locales="" --fonts="" -d /usr/lib/grub/$1/ --subdir=grub2 >/dev/null
-  grub2-mkimage -d /usr/lib/grub/$1/ -O $1 -o /var/lib/tftpboot/$2 -p "" $MODULES
+  grub2-mkimage -d /usr/lib/grub/$1/ -O $1 -o /var/lib/tftpboot/$2 -p "grub2" $MODULES
 }
 
 check_pkg() {
