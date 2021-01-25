@@ -9,7 +9,7 @@
 #   foreman-generate-boot [x86|aa64|ppc|ppc64|ppc64le]
 
 ARCH=${1:-x86_64}
-MODULES="all_video boot btrfs cat configfile echo ext2 fat font gfxmenu gfxterm gzio halt hfsplus iso9660 jpeg loadenv loopback lvm mdraid09 mdraid1x minicmd normal part_apple part_msdos part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file search_label serial sleep syslinuxcfg test tftp video xfs linux"
+MODULES="all_video boot btrfs cat configfile echo efinet ext2 fat font gfxmenu gfxterm gzio halt hfsplus iso9660 jpeg loadenv loopback lvm mdraid09 mdraid1x minicmd normal part_apple part_msdos part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file search_label serial sleep syslinuxcfg test tftp video xfs linux"
 
 generate() {
   grub2-mknetdir --net-directory=/var/lib/tftpboot/ --locales="" --fonts="" -d /usr/lib/grub/$1/ --subdir=grub2 >/dev/null
