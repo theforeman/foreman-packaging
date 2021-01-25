@@ -1,0 +1,13 @@
+Source: ruby-foreman-webhooks
+Section: ruby
+Priority: extra
+Maintainer: Lukas Zapletal <lzap+rpm@redhat.com>
+Build-Depends: debhelper (>= 11~), foreman (>= 2.3.0~rc1), foreman-assets(>= 2.3.0~rc1), foreman-nulldb (>= 2.3.0~rc1)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_webhooks
+
+Package: ruby-foreman-webhooks
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 2.3.0~rc1)
+Description: Foreman Webhooks Plugin
+ Plugin for Foreman that allows to configure Webhooks.
