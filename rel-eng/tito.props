@@ -262,7 +262,6 @@ whitelist = foreman
   rubygem-railties
   rubygem-rake-compiler
   rubygem-rb-inotify
-  rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
   rubygem-redfish_client
@@ -567,7 +566,6 @@ whitelist = foreman
   rubygem-railties
   rubygem-rake-compiler
   rubygem-rb-inotify
-  rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
   rubygem-redfish_client

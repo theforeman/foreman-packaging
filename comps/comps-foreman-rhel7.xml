@@ -267,7 +267,6 @@
       <packagereq type="default">tfm-rubygem-railties</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify</packagereq>
-      <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
       <packagereq type="default">tfm-rubygem-redfish_client</packagereq>
@@ -515,7 +514,6 @@
       <packagereq type="default">tfm-rubygem-railties-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>
       <packagereq type="default">tfm-rubygem-redfish_client-doc</packagereq>
