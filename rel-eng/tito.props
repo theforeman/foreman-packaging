@@ -1140,4 +1140,4 @@ whitelist = katello
   rubygem-runcible
   rubygem-stomp
   rubygem-typhoeus
-  rubygem-zest        
+  rubygem-zest
