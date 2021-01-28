@@ -1045,7 +1045,8 @@ whitelist = katello
 
 [katello-nightly-el8]
 disttag = .el8
-whitelist = katello
+whitelist = jsoncpp
+  katello
   katello-client-bootstrap
   katello-repos
   katello-selinux
