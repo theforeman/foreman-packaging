@@ -61,12 +61,19 @@ add_to_tito_props() {
 }
 
 add_gem_to_comps() {
-	if [[ $TEMPLATE_NAME == "nonscl" ]] || [[ $TEMPLATE_NAME == "smart_proxy_plugin" ]] ; then
-		local comps_scl="nonscl"
-		local comps_package="${PACKAGE_NAME}"
+	local distro=$1
+
+	if [[ $distro == "rhel7" ]] || [[ $distro == "el7" ]] ; then
+		if [[ $TEMPLATE_NAME == "nonscl" ]] || [[ $TEMPLATE_NAME == "smart_proxy_plugin" ]] ; then
+			local comps_scl="nonscl"
+			local comps_package="${PACKAGE_NAME}"
+		else
+			local comps_scl=""
+			local comps_package="tfm-${PACKAGE_NAME}"
+		fi
 	else
 		local comps_scl=""
-		local comps_package="tfm-${PACKAGE_NAME}"
+		local comps_package="${PACKAGE_NAME}"
 	fi
 
 	# TODO: figure this out for katello
@@ -76,7 +83,7 @@ add_gem_to_comps() {
 		local comps_file="foreman"
 	fi
 
-	./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+	./add_to_comps.rb comps/comps-${comps_file}-${distro}.xml $comps_package $comps_scl
 	./comps_doc.sh
 	git add comps/
 }
@@ -196,6 +203,6 @@ else
 	generate_gem_package
 	add_to_manifest
 	add_to_tito_props
-	add_gem_to_comps
+	add_gem_to_comps $DISTRO
 	git commit -m "Add $PACKAGE_NAME package"
 fi
