@@ -815,6 +815,7 @@ katello_packages:
         - "el8-foreman-plugins-{{ foreman_version }}"
         - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
+    jsoncpp: {}
     katello: {}
     katello-client-bootstrap: {}
     katello-repos: {}
