@@ -5,11 +5,11 @@
 
 %global gem_name foreman_wreckingball
 %global plugin_name wreckingball
-%global foreman_min_version 1.18
+%global foreman_min_version 1.21
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.4.0
-Release: 2%{?foremandist}%{?dist}
+Version: 3.4.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -97,6 +97,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jan 28 2021 Manuel Laug <laugmanuel@gmail.com> - 3.4.1-1
+- Update foreman_wreckingball to 3.4.1
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-2
 - Drop migrate, seed and restart posttans
 
