@@ -1,0 +1,26 @@
+From 0553600784903773655c98b8ca41847c1ce8b9e1 Mon Sep 17 00:00:00 2001
+From: Kim van der Riet <kvdr@localhost.localdomain>
+Date: Tue, 10 Dec 2019 10:56:30 -0500
+Subject: [PATCH] Changed Sphinx invocation from sphinx to sphinx-build for
+ RHEL7
+
+---
+ python/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index bdd2b4c..0991da1 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -127,7 +127,7 @@ else ()
+         COMMAND ${PN_ENV_SCRIPT} --
+         PYTHONPATH=${CMAKE_CURRENT_BINARY_DIR}:${CMAKE_CURRENT_SOURCE_DIR}
+         LD_LIBRARY_PATH="${CMAKE_CURRENT_BINARY_DIR}/c"
+-        ${PYTHON_EXECUTABLE} -m sphinx "${CMAKE_CURRENT_SOURCE_DIR}/docs" "${CMAKE_CURRENT_BINARY_DIR}/docs")
++        sphinx-build "${CMAKE_CURRENT_SOURCE_DIR}/docs" "${CMAKE_CURRENT_BINARY_DIR}/docs")
+     add_dependencies(docs docs-py)
+     install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/docs/"
+             DESTINATION "${PROTON_SHARE}/docs/api-py"
+-- 
+1.8.3.1
+
