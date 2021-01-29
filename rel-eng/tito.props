@@ -1059,6 +1059,7 @@ whitelist = jsoncpp
   nodejs-query-string
   nodejs-react-helmet
   nodejs-strict-uri-encode
+  qpid-cpp
   qpid-proton
   rhel8-kickstart-setup
   rubygem-activerecord-import
