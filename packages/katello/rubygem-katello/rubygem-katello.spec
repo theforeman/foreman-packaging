@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -63,6 +63,7 @@ Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
+Requires: %{?scl_prefix}rubygem(qpid_proton)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
@@ -102,6 +103,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
@@ -233,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Feb 4 2021 Jonathon Turel - 4.1.0-0.2.pre.master
+- Add qpid_proton dependency
+
 * Thu Feb 04 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.1.pre.master
 - Bump version to 4.1.0
 
