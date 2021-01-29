@@ -1035,7 +1035,6 @@ whitelist = katello
   rubygem-pulp_deb_client
   rubygem-pulp_file_client
   rubygem-pulp_rpm_client
-  rubygem-qpid_messaging
   rubygem-qpid_proton
   rubygem-redhat_access
   rubygem-redhat_access_lib
