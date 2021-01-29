@@ -64,6 +64,7 @@
       <packagereq type="default">tfm-rubygem-pulp_2to3_migration_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">tfm-rubygem-qpid_messaging</packagereq>
+      <packagereq type="default">tfm-rubygem-qpid_proton</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>
       <packagereq type="default">tfm-rubygem-robotex</packagereq>
       <packagereq type="default">tfm-rubygem-runcible</packagereq>
@@ -101,6 +102,7 @@
       <packagereq type="optional">tfm-rubygem-pulp_certguard_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_file_client-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-qpid_proton-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-redhat_access_lib-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
