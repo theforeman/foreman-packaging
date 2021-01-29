@@ -1,3 +1,10 @@
+ruby-smart-proxy-ansible (3.0.0-3) stable; urgency=low
+
+  * Depend on ansible_core
+  * Don't ship json_inventory.sh - it's in core.
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 29 Jan 2021 16:01:00 +0100
+
 ruby-smart-proxy-ansible (3.0.0-2) stable; urgency=low
 
   * Require python-requests for the Ansible Foreman callback
