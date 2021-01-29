@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    4.0.0
@@ -46,6 +46,7 @@ Requires: pulp-puppet-plugins
 Requires: pulp-rpm-plugins
 Requires: pulp-puppet-tools
 Requires: pulp-server
+Requires: pulp-selinux
 Requires: python-pulp-streamer
 Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
@@ -119,11 +120,6 @@ Summary:    Common runtime components of %{name}
 Requires:       rubygem-highline
 Requires:       %{name}-debug
 
-#Pulp Requirements
-%if 0%{?rhel} == 7
-Requires: pulp-selinux
-%endif
-
 %description common
 Common runtime components of %{name}
 
@@ -180,6 +176,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Jan 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.3.master
+- Only install pulp-selinux on Katello server
+
 * Mon Jan 11 2021 Jonathon Turel <jturel@gmail.com> - 4.0.0-0.2.master
 - Fixes #31598 - Don't recreate AAAA record as A
 
