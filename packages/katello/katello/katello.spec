@@ -3,9 +3,9 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource main
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    4.0.0
@@ -180,6 +180,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Jan 28 2021 Justin Sherrill <jsherril@redhat.com> 4.0.0-0.3.main
+* update from master to main
+
 * Mon Jan 11 2021 Jonathon Turel <jturel@gmail.com> - 4.0.0-0.2.master
 - Fixes #31598 - Don't recreate AAAA record as A
 
