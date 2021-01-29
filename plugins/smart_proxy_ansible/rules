@@ -16,3 +16,7 @@ build:
 
 %:
 	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_auto_install:
+	dh_auto_install
+	$(RM) $(CURDIR)/debian/ruby-smart-proxy-ansible/usr/bin/json_inventory.sh
