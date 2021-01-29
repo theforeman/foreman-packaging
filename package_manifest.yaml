@@ -834,6 +834,7 @@ katello_packages:
         - name: "katello-{{ katello_version }}-rhel7"
           scl: 'tfm'
           dist: '.el7'
+    qpid-proton: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
