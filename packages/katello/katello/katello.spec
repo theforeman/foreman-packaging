@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    4.0.0
@@ -17,8 +17,6 @@ Group:      Applications/Internet
 License:    GPLv2
 URL:        https://theforeman.org/plugins/katello
 Source1:    katello-debug.sh
-Source6:    katello-restore
-Source7:    katello-backup
 Source9:    qpid-core-dump
 Source11:   katello-change-hostname
 Source13:   katello-change-hostname.8.asciidoc
@@ -94,8 +92,6 @@ mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_sbindir}
 install -Dp -m0755 %{SOURCE11} %{buildroot}%{_sbindir}/katello-change-hostname
 install -Dp -m0755 %{SOURCE9} %{buildroot}%{_sbindir}/qpid-core-dump
-install -Dp -m0755 %{SOURCE7} %{buildroot}%{_sbindir}/katello-backup
-install -Dp -m0755 %{SOURCE6} %{buildroot}%{_sbindir}/katello-restore
 install -Dp -m0755 %{SOURCE1} %{buildroot}/usr/share/foreman/script/foreman-debug.d/katello-debug.sh
 
 # install tab completion scripts
@@ -124,8 +120,6 @@ Requires:       %{name}-debug
 Common runtime components of %{name}
 
 %files common
-%{_sbindir}/katello-backup
-%{_sbindir}/katello-restore
 %if 0%{?rhel} == 7
 %{_sbindir}/qpid-core-dump
 %else
@@ -176,6 +170,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Feb 01 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.4.master
+- Drop katello-{backup,restore} stubs
+
 * Fri Jan 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.3.master
 - Only install pulp-selinux on Katello server
 
