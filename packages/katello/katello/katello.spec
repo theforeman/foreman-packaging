@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 6
+%global release 7
 
 Name:       katello
 Version:    4.0.0
@@ -36,6 +36,9 @@ Requires: %{?scl_prefix}rubygem-hammer_cli
 Requires: %{?scl_prefix}rubygem-hammer_cli_foreman
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 
+# katello-agent requirements
+Requires: qpid-cpp-server-linearstore
+
 #Pulp Requirements
 %if 0%{?rhel} == 7
 Requires: pulp-katello
@@ -49,9 +52,6 @@ Requires: python-pulp-streamer
 Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
 Requires: python-crane
-Requires: qpid-cpp-server-linearstore
-Requires: qpid-cpp-client-devel
-Requires: qpid-dispatch-router
 Requires: createrepo >= 0.9.9-18%{?dist}
 Requires: squid
 Requires: mod_xsendfile
@@ -113,10 +113,11 @@ install -m 644 ./manpages/katello-change-hostname.8.gz %{buildroot}/%{_mandir}/m
 BuildArch:  noarch
 Summary:    Common runtime components of %{name}
 
-Requires:       rubygem-highline
-Requires:       %{name}-debug
+Requires: rubygem-highline
+Requires: %{name}-debug
+Requires: qpid-dispatch-router
 %if 0%{?rhel} == 8
-Requires:       container-selinux
+Requires: container-selinux
 %endif
 
 %description common
@@ -173,6 +174,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Feb 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.7.master
+- Require qpid and dispatch-router on EL8 and EL7
+
 * Tue Feb 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.6.master
 - Delete truststore with katello-change-hostname
 
