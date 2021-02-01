@@ -820,6 +820,7 @@ katello_packages:
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
+    libwebsockets: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
