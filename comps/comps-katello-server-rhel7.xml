@@ -71,16 +71,6 @@
       <packagereq type="default">tfm-rubygem-stomp</packagereq>
       <packagereq type="default">tfm-rubygem-typhoeus</packagereq>
       <packagereq type="default">tfm-rubygem-zest</packagereq>
-      <!-- qpid packages -->
-      <packagereq type="default">qpid-cpp-client</packagereq>
-      <packagereq type="default">qpid-cpp-client-devel</packagereq>
-      <packagereq type="default">qpid-cpp-server</packagereq>
-      <packagereq type="default">qpid-cpp-server-linearstore</packagereq>
-      <packagereq type="default">qpid-dispatch-router</packagereq>
-      <packagereq type="default">qpid-proton-c</packagereq>
-      <packagereq type="default">qpid-tools</packagereq>
-      <packagereq type="default">qpid-dispatch-router</packagereq>
-      <packagereq type="default">qpid-dispatch-tools</packagereq>
       <!-- other katello related packages -->
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
