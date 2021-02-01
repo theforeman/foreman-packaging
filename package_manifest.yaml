@@ -837,6 +837,7 @@ katello_packages:
           scl: 'tfm'
           dist: '.el7'
     qpid-cpp: {}
+    qpid-dispatch: {}
     qpid-proton: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}

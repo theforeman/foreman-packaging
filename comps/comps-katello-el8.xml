@@ -75,6 +75,7 @@
       <packagereq type="default">qpid-cpp-server</packagereq>
       <packagereq type="default">qpid-cpp-server-linearstore</packagereq>
       <packagereq type="default">qpid-dispatch-router</packagereq>
+      <packagereq type="default">qpid-dispatch-tools</packagereq>
       <packagereq type="default">qpid-proton-c</packagereq>
       <packagereq type="default">qpid-tools</packagereq>
       <packagereq type="default">qpid-dispatch-router</packagereq>
