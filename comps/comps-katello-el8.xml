@@ -68,6 +68,7 @@
       <!-- qpid packages -->
       <packagereq type="default">libwebsockets</packagereq>
       <packagereq type="default">python2-qpid</packagereq>
+      <packagereq type="default">python3-qpid-proton</packagereq>
       <packagereq type="default">python2-qpid-qmf</packagereq>
       <packagereq type="default">python2-saslwrapper</packagereq>
       <packagereq type="default">qpid-cpp-client</packagereq>
