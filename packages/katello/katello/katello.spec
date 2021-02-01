@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    4.0.0
@@ -115,6 +115,9 @@ Summary:    Common runtime components of %{name}
 
 Requires:       rubygem-highline
 Requires:       %{name}-debug
+%if 0%{?rhel} == 8
+Requires:       container-selinux
+%endif
 
 %description common
 Common runtime components of %{name}
@@ -170,6 +173,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Feb 01 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.5.master
+- Require container-selinux on EL8 until https://github.com/pulp/pulpcore-selinux/pull/33 is released
+
 * Mon Feb 01 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.4.master
 - Drop katello-{backup,restore} stubs
 
