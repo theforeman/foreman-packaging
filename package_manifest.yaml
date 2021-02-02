@@ -829,6 +829,7 @@ katello_packages:
     nodejs-react-helmet:
       strategy: bundle
     nodejs-strict-uri-encode: {}
+    python-qpid: {}
     pulp-katello:
       koji_tags:
         - name: "katello-{{ katello_version }}-rhel7"
