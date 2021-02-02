@@ -1092,6 +1092,23 @@ repoclosures:
           - el8-powertools
           - el8-puppet-6
           - "el8-foreman-{{ foreman_version }}"
+    katello-repoclosure-el8:
+      repoclosure_target_repos:
+        el8:
+          - "el8-katello-{{ katello_version }}"
+      repoclosure_target_dist: el8
+      repoclosure_lookaside_repos:
+        el8:
+          - el8-baseos
+          - el8-appstream
+          - el8-powertools
+          - el8-devel
+          - el8-extras
+          - el8-powertools
+          - el8-puppet-6
+          - "el8-foreman-{{ foreman_version }}"
+          - "el8-foreman-plugins-{{ foreman_version }}"
+          - "el8-katello-candlepin-{{ katello_version }}"
     katello-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
