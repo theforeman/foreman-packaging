@@ -1,0 +1,13 @@
+Source: ruby-foreman-puppet
+Section: ruby
+Priority: extra
+Maintainer: Ondrej Ezr <oezr@redhat.com>
+Build-Depends: debhelper (>= 8.0.0), foreman (>= 2.4.0~rc1), foreman-nulldb (>= 2.4.0~rc1), foreman-assets (>= 2.4.0~rc1)
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_puppet
+
+Package: ruby-foreman-puppet
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 2.4.0~rc1)
+Description: Foreman Puppet Plugin
+  A plugin bringing Puppet ENC to the Foreman.

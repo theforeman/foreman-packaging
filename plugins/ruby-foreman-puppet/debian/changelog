@@ -1,0 +1,5 @@
+ruby-foreman-puppet (0.0.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ondrej Ezr <oezr@redhat.com>  Tue, 02 Feb 2021 15:29:00 +0000
