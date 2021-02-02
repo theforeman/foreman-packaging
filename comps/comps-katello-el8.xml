@@ -78,6 +78,7 @@
       <packagereq type="default">qpid-dispatch-router</packagereq>
       <packagereq type="default">qpid-dispatch-tools</packagereq>
       <packagereq type="default">qpid-proton-c</packagereq>
+      <packagereq type="default">qpid-qmf</packagereq>
       <packagereq type="default">qpid-tools</packagereq>
       <packagereq type="default">qpid-dispatch-router</packagereq>
       <packagereq type="default">qpid-dispatch-tools</packagereq>
