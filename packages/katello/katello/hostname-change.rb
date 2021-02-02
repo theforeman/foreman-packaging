@@ -476,9 +476,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         self.run_cmd("rm -rf /etc/candlepin/certs/amqp{,.bak}")
         self.run_cmd("rm -f /etc/candlepin/certs/candlepin-ca.crt /etc/candlepin/certs/candlepin-ca.key")
         self.run_cmd("rm -f /etc/candlepin/certs/keystore")
+        self.run_cmd("rm -f /etc/candlepin/certs/truststore")
         self.run_cmd("rm -f /etc/tomcat/keystore")
+        self.run_cmd("rm -f /etc/tomcat/truststore")
         self.run_cmd("rm -rf /etc/foreman/old-certs")
         self.run_cmd("rm -f /etc/pki/katello/keystore")
+        self.run_cmd("rm -f /etc/pki/katello/truststore")
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_cert"]}")
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_key"]}")
       end

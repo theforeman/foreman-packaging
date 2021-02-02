@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 6
 
 Name:       katello
 Version:    4.0.0
@@ -173,6 +173,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Feb 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.6.master
+- Delete truststore with katello-change-hostname
+
 * Mon Feb 01 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.5.master
 - Require container-selinux on EL8 until https://github.com/pulp/pulpcore-selinux/pull/33 is released
 
