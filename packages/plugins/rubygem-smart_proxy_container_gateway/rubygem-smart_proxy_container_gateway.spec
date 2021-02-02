@@ -2,11 +2,16 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%{!?_root_datadir:%global _root_datadir %{_datadir}}
+
 %global gem_name smart_proxy_container_gateway
+%global plugin_name container_gateway
 %global gem_require_name %{gem_name}
+%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
+%global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: Pulp 3 container registry support for Foreman/Katello Smart-Proxy
 Group: Development/Languages
@@ -72,12 +77,18 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
+# bundler file
+mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
+   %{buildroot}%{foreman_proxy_bundlerd_dir}
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bundler.d
 %{gem_libdir}
 %{gem_instdir}/settings.d
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -86,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 02 2021 ianballou <ianballou67@gmail.com> 1.0.2-1
+- Update to 1.0.2
+
 * Wed Jan 27 2021 ianballou <ianballou67@gmail.com> 1.0.1-1
 - Update to 1.0.1
 
