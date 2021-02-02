@@ -1,3 +1,9 @@
+foreman-proxy (2.5.0-1) stable; urgency=low
+
+  * Bump changelog to 2.5.0 to match VERSION
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 02 Feb 2021 11:18:07 +0100
+
 foreman-proxy (2.4.0-1) stable; urgency=low
 
   * Bump changelog to 2.4.0 to match VERSION
