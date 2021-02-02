@@ -879,6 +879,7 @@ katello_packages:
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
+    saslwrapper: {}
 
 plugins_packages:
   children:
