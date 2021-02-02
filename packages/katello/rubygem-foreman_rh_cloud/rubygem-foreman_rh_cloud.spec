@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.14
+Version: 3.0.15
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -28,10 +28,12 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(katello)
 Requires: %{?scl_prefix}rubygem(redhat_access)
+Requires: %{?scl_prefix}rubygem(foreman_ansible)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(katello)
 BuildRequires: %{?scl_prefix}rubygem(redhat_access)
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -42,18 +44,18 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
-BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.15.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 2.9.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -124,6 +126,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 02 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.15-1
+- Update to 3.0.15
+
 * Thu Nov 26 2020 Ron Lavi <1ronlavi@gmail.com> 3.0.14-1
 - Update to 3.0.14-1
 
