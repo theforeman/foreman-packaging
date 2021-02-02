@@ -1081,3 +1081,4 @@ whitelist = jsoncpp
   rubygem-stomp
   rubygem-typhoeus
   rubygem-zest
+  saslwrapper
