@@ -1,3 +1,9 @@
+foreman-installer (2.4.0~rc1-1) stable; urgency=low
+
+  * 2.4.0-rc1 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 03 Feb 2021 19:56:47 +0100
+
 foreman-installer (2.4.0-1) stable; urgency=low
 
   * Bump changelog to 2.4.0 to match VERSION
