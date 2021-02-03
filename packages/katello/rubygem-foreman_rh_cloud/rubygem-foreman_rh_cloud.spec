@@ -48,7 +48,6 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
 BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
 BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 4.15.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
