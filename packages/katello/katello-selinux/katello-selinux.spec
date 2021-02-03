@@ -24,7 +24,7 @@
 
 
 Name:           katello-selinux
-Version:        3.5.1
+Version:        3.6.0
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -186,6 +186,9 @@ fi
 %{_mandir}/man8/crane-selinux-relabel.8.gz
 
 %changelog
+* Wed Feb 03 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-1
+- Release katello-selinux 3.6.0
+
 * Mon Jan 04 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.5.1-1
 - Release katello-selinux 3.5.1
 
