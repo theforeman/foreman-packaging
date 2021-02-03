@@ -988,16 +988,6 @@ whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-2.4-fedora29]
-disttag = .fc29
-whitelist =
-  ansible-collection-theforeman-foreman
-  foreman-release
-  katello-host-tools
-  python-apypie
-  rubygem-foreman_scap_client
-  tracer
-
 [katello-4.0-rhel7]
 disttag = .el7
 scl = tfm
