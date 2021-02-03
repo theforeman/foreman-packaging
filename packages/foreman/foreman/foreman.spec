@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1019,6 +1019,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Feb 03 2021 Evgeni Golov - 2.4.0-0.4.rc1
+- Release foreman 2.4.0
+
 * Thu Jan 07 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.4.0-0.4.develop
 - Update puma dependency (#31431)
 

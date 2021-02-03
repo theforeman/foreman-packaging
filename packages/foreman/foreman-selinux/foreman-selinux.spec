@@ -23,7 +23,7 @@
 %define moduletype apps
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -192,6 +192,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Feb 03 2021 Evgeni Golov - 2.4.0-0.2.rc1
+- Release foreman-selinux 2.4.0
+
 * Fri Nov 27 2020 Evgeni Golov - 2.4.0-0.2.develop
 - reexec systemd after policy changes to make socket labeling work
 
