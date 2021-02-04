@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 7
+%global release 8
 
 Name:       katello
 Version:    4.0.0
@@ -38,24 +38,7 @@ Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 
 # katello-agent requirements
 Requires: qpid-cpp-server-linearstore
-
-#Pulp Requirements
-%if 0%{?rhel} == 7
-Requires: pulp-katello
-Requires: pulp-docker-plugins
-Requires: pulp-puppet-plugins
-Requires: pulp-rpm-plugins
-Requires: pulp-puppet-tools
-Requires: pulp-server
-Requires: pulp-selinux
-Requires: python-pulp-streamer
-Requires: rh-mongodb34
 Requires: cyrus-sasl-plain
-Requires: python-crane
-Requires: createrepo >= 0.9.9-18%{?dist}
-Requires: squid
-Requires: mod_xsendfile
-%endif
 
 Requires: candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
@@ -124,11 +107,7 @@ Requires: container-selinux
 Common runtime components of %{name}
 
 %files common
-%if 0%{?rhel} == 7
 %{_sbindir}/qpid-core-dump
-%else
-%exclude %{_sbindir}/qpid-core-dump
-%endif
 %{_sbindir}/katello-change-hostname
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
@@ -144,10 +123,7 @@ Requires: foreman-debug
 Requires: findutils
 Requires: coreutils
 Requires: /bin/ps
-%if 0%{?rhel} == 7
 Requires: qpid-tools
-Requires: rh-mongodb34
-%endif
 
 %description debug
 Useful utilities for debug info collecting
@@ -159,9 +135,6 @@ Useful utilities for debug info collecting
 Summary: Provides a federation of katello services
 BuildArch: noarch
 Requires: findutils
-%if 0%{?rhel} == 7
-Requires: rh-mongodb34
-%endif
 Requires: foreman-installer-%{name}
 Requires: rubygem-foreman_maintain >= 0.2.2
 Requires: %{name}-common = %{version}-%{release}
@@ -174,6 +147,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Feb 04 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.8.master
+- Drop all Pulp 2 and MongoDB requires
+
 * Tue Feb 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.7.master
 - Require qpid and dispatch-router on EL8 and EL7
 
