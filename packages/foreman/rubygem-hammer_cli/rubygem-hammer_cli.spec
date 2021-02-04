@@ -5,8 +5,6 @@
 %global gem_name hammer_cli
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Feb 04 2021 Shira Maximov <shiramaximov@gmail.com> - 2.4.0-1
+- Release 2.4.0
+
 * Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.pre.develop
 - Bump version to 2.4-develop
 
