@@ -764,6 +764,7 @@ foreman_client_packages:
         - f29-puppet-6
   hosts:
     ansible-collection-theforeman-foreman: {}
+    gofer: {}
     katello-host-tools: {}
     python-apypie: {}
     python-beautifulsoup4: {}

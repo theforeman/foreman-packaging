@@ -963,6 +963,7 @@ disttag = .el8
 # don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
   ansible-collection-theforeman-foreman
+  gofer
   katello-host-tools
   python-apypie
   python-beautifulsoup4
