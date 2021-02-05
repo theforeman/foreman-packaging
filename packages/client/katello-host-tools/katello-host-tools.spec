@@ -6,7 +6,7 @@
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
-%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 8))
+%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || 0%{?rhel} > 0)
 %global legacy_agent (0%{?rhel} == 6)
 %global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -388,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Feb 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.5.4-3
+- Build katello-agent for EL8
+
 * Mon Dec 07 2020 Evgeni Golov - 3.5.4-2
 - remove EL5 bits that aren't longer needed
 
