@@ -708,6 +708,7 @@ foreman_client_packages:
         - el6-pulp
   hosts:
     ansible-collection-theforeman-foreman: {}
+    gofer: {}
     katello-host-tools: {}
     python-apypie: {}
     python-beautifulsoup4: {}
