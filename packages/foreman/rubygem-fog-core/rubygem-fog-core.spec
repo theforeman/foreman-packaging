@@ -6,15 +6,15 @@
 Summary: Shared classes and tests for fog providers and services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
-Version: 2.1.0
-Release: 3%{?dist}
+Version: 2.2.3
+Release: 1%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-core
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}rubygems
 Requires: %{?scl_prefix}rubygem-builder
-Requires: %{?scl_prefix}rubygem-excon >= 0.58.0
+Requires: %{?scl_prefix}rubygem-excon >= 0.71.0
 Requires: %{?scl_prefix}rubygem-excon < 1
 Requires: %{?scl_prefix}rubygem-formatador => 0.2.0
 Requires: %{?scl_prefix}rubygem-formatador < 0.3
@@ -63,6 +63,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{gem_instdir}/LICENSE.md
 %exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/.github
 
 %files doc
 %doc %{gem_docdir}
@@ -76,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/fog-core.gemspec
 
 %changelog
+* Mon Feb 08 2021 Ondřej Ezr <oezr@redhat.com> 2.2.3-1
+- Update to 2.2.3
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.1.0-3
 - Bump to release for EL8
 
