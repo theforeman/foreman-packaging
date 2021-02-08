@@ -857,7 +857,6 @@ plugin_scl_packages:
         - el8-configmanagement-salt
         - el8-devel
         - el8-extras
-        - el8-powertools
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
   hosts:
@@ -1057,7 +1056,6 @@ repoclosures:
           - el8-powertools
           - el8-devel
           - el8-extras
-          - el8-powertools
           - el8-puppet-6
           - "el8-katello-candlepin-{{ katello_version }}"
     plugins-repoclosure-el7:
@@ -1090,7 +1088,6 @@ repoclosures:
           - el8-configmanagement-salt
           - el8-devel
           - el8-extras
-          - el8-powertools
           - el8-puppet-6
           - "el8-foreman-{{ foreman_version }}"
     katello-repoclosure-el8:
@@ -1105,7 +1102,6 @@ repoclosures:
           - el8-powertools
           - el8-devel
           - el8-extras
-          - el8-powertools
           - el8-puppet-6
           - "el8-foreman-{{ foreman_version }}"
           - "el8-foreman-plugins-{{ foreman_version }}"
