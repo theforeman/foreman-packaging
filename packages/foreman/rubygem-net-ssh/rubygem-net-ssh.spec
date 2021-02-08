@@ -6,8 +6,8 @@
 
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.0
-Release: 2%{?dist}
+Version: 6.1.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh
@@ -73,7 +73,7 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %files doc
 %defattr(-, root, root, -)
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/THANKS.txt
 %doc %{gem_instdir}/CHANGES.txt
 %{gem_instdir}/Gemfile*
@@ -88,6 +88,9 @@ find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 
 %changelog
+* Mon Feb 08 2021 Ondřej Ezr <oezr@redhat.com> 6.1.0-1
+- Update to 6.1.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.2.0-2
 - Bump to release for EL8
 
