@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.0.0-4) stable; urgency=low
+
+  * Create workdir for Ansible on the Proxy
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 09 Feb 2021 12:03:00 +0100
+
 ruby-smart-proxy-ansible (3.0.0-3) stable; urgency=low
 
   * Depend on ansible_core
