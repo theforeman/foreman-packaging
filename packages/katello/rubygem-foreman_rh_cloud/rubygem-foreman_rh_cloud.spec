@@ -1,3 +1,7 @@
+# FIXME:
+#   1. Edit foreman requirement(s) and specify minimum version
+#   2. Delete these lines
+#
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -5,19 +9,16 @@
 
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 1.24
+%global foreman_min_version FIXME
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.13.1
+Version: 2.0.16
 Release: 1%{?foremandist}%{?dist}
-Summary: Connects Foreman with Red Hat Cloud services
+Summary: Summary of ForemanRhCloud
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -113,7 +114,6 @@ cp -a .%{gem_dir}/* \
 %{foreman_bundlerd_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
-%{foreman_assets_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -122,6 +122,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Feb 09 2021 Shimon Shtein <sshtein@redhat.com> 2.0.16-1
+- Update to 2.0.16-1
+
 * Tue Oct 20 2020 laviro <1ronlavi@gmail.com> 2.0.13.1-1
 - Update to 2.0.13.1-1
 
