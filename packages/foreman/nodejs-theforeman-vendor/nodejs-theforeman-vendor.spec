@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Feb 09 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.0-1
+- Update to 8.3.0
+
 * Tue Nov 17 2020 John Mitsch <jomitsch@redhat.com> 6.0.0-1
 - Update to 6.0.0
 
