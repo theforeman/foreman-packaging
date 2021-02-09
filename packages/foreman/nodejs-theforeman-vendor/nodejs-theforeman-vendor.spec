@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 6.0.0
+Version: 8.3.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
