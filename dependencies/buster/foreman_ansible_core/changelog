@@ -1,3 +1,10 @@
+ruby-foreman-ansible-core (4.0.0-2) stable; urgency=low
+
+  * Break/Replace old smart_proxy_ansible that contained the inventory
+    script.
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 10 Feb 2021 12:47:00 +0100
+
 ruby-foreman-ansible-core (4.0.0-1) stable; urgency=low
 
   * 4.0.0 released
