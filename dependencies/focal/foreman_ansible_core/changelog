@@ -2,6 +2,8 @@ ruby-foreman-ansible-core (4.0.0-2) stable; urgency=low
 
   * Break/Replace old smart_proxy_ansible that contained the inventory
     script.
+  * Depend on python3-psutil which we need to properly execute ansible
+    via ansible-runner.
 
  -- Evgeni Golov <evgeni@debian.org>  Wed, 10 Feb 2021 12:47:00 +0100
 
