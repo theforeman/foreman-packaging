@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 8
+%global release 9
 
 Name:       katello
 Version:    4.0.0
@@ -99,9 +99,6 @@ Summary:    Common runtime components of %{name}
 Requires: rubygem-highline
 Requires: %{name}-debug
 Requires: qpid-dispatch-router
-%if 0%{?rhel} == 8
-Requires: container-selinux
-%endif
 
 %description common
 Common runtime components of %{name}
@@ -147,6 +144,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Feb 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.9.master
+- Drop container-selinux workaround, fixed in pulpcore-selinux
+
 * Thu Feb 04 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.8.master
 - Drop all Pulp 2 and MongoDB requires
 
