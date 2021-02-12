@@ -7,10 +7,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        3.17.1
+Version:        3.17.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -81,6 +81,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Fri Feb 12 2021 Evgeni Golov - 3.17.2-1
+- Release katello-repos 3.17.2
+
 * Thu Dec 10 2020 Evgeni Golov - 3.17.1-2
 - drop qpid copr again, EPEL is fixed
 
