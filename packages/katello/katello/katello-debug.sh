@@ -36,7 +36,6 @@ add_cmd "find /root/ssl-build -ls | sort -k 11" "katello_ssl_build_dir"
 add_cmd "find /etc/pki -ls | sort -k 11" "katello_pki_dir"
 
 # Katello
-add_files /etc/pulp/server/plugins.d/*
 add_files /etc/foreman/plugins/katello.yaml
 add_files /var/log/httpd/katello-reverse-proxy_access_ssl.log*
 add_files /var/log/httpd/katello-reverse-proxy_error_ssl.log*
@@ -61,25 +60,11 @@ add_files /etc/tomcat/login.config
 # RHSM
 add_files /var/log/rhsm/*
 
-# Pulp
-add_files /etc/pulp/*.conf
-add_files /etc/httpd/conf.d/pulp.conf
-add_files /etc/pulp/server/plugins.conf.d/*
-add_files /var/log/httpd/pulp-http{s,}_access_ssl.log*
-add_files /var/log/httpd/pulp-http{s,}_error_ssl.log*
-add_files /etc/default/pulp*
-
 # Pulp3
 add_files /etc/pulp/settings.py
 add_cmd "systemctl list-units -t service --full  | grep pulpcore" "pulpcore-services"
 add_cmd "systemctl cat pulpcore*" "pulpcore_service_files"
 add_cmd "sudo -u pulp PULP_SETTINGS='/etc/pulp/settings.py' DJANGO_SETTINGS_MODULE='pulpcore.app.settings' dynaconf list" "dynaconf_list"
-
-# MongoDB (*)
-if [ $NOGENERIC -eq 0 ]; then
-  add_files /var/log/mongodb/*
-  add_files /var/lib/mongodb/mongodb.log*
-fi
 
 # Qpidd (*)
 if [ $NOGENERIC -eq 0 ]; then
@@ -93,10 +78,6 @@ if [ -f /etc/pki/katello/qpid_client_striped.crt ]; then
   add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-q"
   add_cmd "qpid-stat -u --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-u"
   add_cmd "qpid-stat -c --ssl-certificate=/etc/pki/katello/qpid_client_striped.crt -b amqps://localhost:5671" "qpid-stat-c"
-else
-  add_cmd "qpid-stat -q --ssl-certificate=/etc/pki/pulp/qpid/client.crt -b amqps://localhost:5671" "qpid-stat-q"
-  add_cmd "qpid-stat -u --ssl-certificate=/etc/pki/pulp/qpid/client.crt -b amqps://localhost:5671" "qpid-stat-u"
-  add_cmd "qpid-stat -c --ssl-certificate=/etc/pki/pulp/qpid/client.crt -b amqps://localhost:5671" "qpid-stat-c"
 fi
 add_cmd "ps -awfux" "ps-awfux"
 add_cmd "ps -efLm" "ps-elfm"
@@ -111,18 +92,8 @@ if [ $NOGENERIC -eq 0 ]; then
   add_files /etc/dirsrv/slapd-*/schema/99user.ldif
 fi
 
-# Squid (*)
-if [ $NOGENERIC -eq 0 ]; then
-  add_files /etc/squid/squid.conf
-  add_files /var/log/squid/access*.log*
-  add_files /var/log/squid/cache*.log*
-  add_files /var/log/squid/store*.log*
-  add_files /var/log/squid/squid*.out*
-fi
-
 # Disk Space Checks
 add_cmd "du -sh /var/lib/pgsql" "postgres_disk_space"
-add_cmd "du -sh /var/lib/mongodb" "mongodb_disk_space"
 add_cmd "df -h" "disk_space_output"
 add_cmd "du -sh /var/lib/qpid" "qpid_jrnl_disk_space"
 add_cmd "du -sh /var/lib/candlepin/hornetq" "hornetq_disk_space"
@@ -132,12 +103,6 @@ add_cmd "echo $http_proxy" "http_proxy_var"
 add_cmd "echo $https_proxy" "https_proxy_var"
 add_files /etc/profile.d/*
 
-
-add_cmd "mongo pulp_database --eval \"db.reserved_resources.find().pretty().shellPrint()\"" "mongo-reserved_resources"
-add_cmd "mongo pulp_database --eval \"DBQuery.shellBatchSize = ${FOREMAN_DEBUG_MONGOTASKS:-200};; db.task_status.find().sort({finish_time: -1}).pretty().shellPrint()\"" "mongo-task_status"
-
-echo "db.task_status.find({state:{\$ne: \"finished\"}}).pretty().shellPrint()" > $TEMP_DIR/pulp_running_tasks.js
-add_cmd "mongo pulp_database $TEMP_DIR/pulp_running_tasks.js" "pulp-running_tasks"
 
 add_cmd "echo 'select id, name, checksum_type, updated_at from katello_root_repositories' | su postgres -c 'psql foreman'" katello_repositories
 add_cmd "echo \"SELECT table_name, pg_size_pretty(total_bytes) AS total, pg_size_pretty(index_bytes) AS INDEX , pg_size_pretty(toast_bytes) AS toast, pg_size_pretty(table_bytes) AS TABLE FROM ( SELECT *, total_bytes-index_bytes-COALESCE(toast_bytes,0) AS table_bytes FROM (SELECT c.oid,nspname AS table_schema, relname AS TABLE_NAME, c.reltuples AS row_estimate, pg_total_relation_size(c.oid) AS total_bytes, pg_indexes_size(c.oid) AS index_bytes, pg_total_relation_size(reltoastrelid) AS toast_bytes FROM pg_class c LEFT JOIN pg_namespace n ON n.oid = c.relnamespace WHERE relkind = 'r') a) a order by total_bytes DESC\" | su postgres -c 'psql foreman'" "db_table_size"
