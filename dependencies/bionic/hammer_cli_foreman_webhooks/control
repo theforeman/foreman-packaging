@@ -1,0 +1,23 @@
+Source: ruby-hammer-cli-foreman-webhooks
+Section: ruby
+Priority: optional
+Maintainer: Oleh Fedorenko <ofedoren@redhat.com>
+Build-Depends: debhelper (>= 11~),
+               gem2deb,
+               ruby-hammer-cli-foreman (<< 3.0.0),
+               ruby-hammer-cli-foreman (>= 2.0.0)
+Standards-Version: 4.1.3
+Homepage: https://github.com/theforeman/hammer-cli-foreman-webhooks
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-hammer-cli-foreman-webhooks
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-hammer-cli-foreman (<< 3.0.0),
+         ruby-hammer-cli-foreman (>= 2.0.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Foreman Webhooks plugin for Hammer CLI
+ This Hammer CLI plugin contains set of commands for foreman_webhooks, a plugin to Foreman for Webhook management.

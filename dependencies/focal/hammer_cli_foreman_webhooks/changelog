@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-webhooks (0.0.1-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Mon, 15 Feb 2021 15:03:07 +0000
