@@ -1,0 +1,5 @@
+ruby-acts-as-list (1.0.3-1) stable; urgency=low
+
+  * Initial release for Ubuntu/buster
+
+ -- Ondrej Prazak <oprazak@redhat.com>  Mon, 15 Feb 2021 11:34:44 +0000
