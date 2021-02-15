@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -60,8 +60,8 @@ Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.9.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(qpid_proton)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -100,8 +100,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.9.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Feb 15 2021 Justin Sherrill <jsherril@redhat.com> 4.1.0-0.3.pre.master
+- upgrade to newer migration client gem
+
 * Thu Feb 4 2021 Jonathon Turel - 4.1.0-0.2.pre.master
 - Add qpid_proton dependency
 
