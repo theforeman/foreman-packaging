@@ -801,6 +801,7 @@ whitelist = foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
   nodejs-react-json-tree
   puppetlabs-stdlib
+  rubygem-acts_as_list
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
@@ -896,9 +897,9 @@ whitelist = foreman-discovery-image-service
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
+  rubygem-msgpack
   rubygem-ms_rest
   rubygem-ms_rest_azure
-  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
