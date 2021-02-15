@@ -887,6 +887,7 @@ whitelist = foreman-discovery-image-service
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
+  rubygem-hammer_cli_foreman_webhooks
   rubygem-http
   rubygem-httparty
   rubygem-http-form_data
@@ -896,9 +897,9 @@ whitelist = foreman-discovery-image-service
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
+  rubygem-msgpack
   rubygem-ms_rest
   rubygem-ms_rest_azure
-  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
