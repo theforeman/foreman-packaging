@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 9
+%global release 10
 
 Name:       katello
 Version:    4.0.0
@@ -144,6 +144,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Mar 10 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.10.rc2
+- Drop Pulp 2 from katello-debug
+
 * Mon Feb 22 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-0.9.rc2
 - Release katello 4.0.0-rc2
 
