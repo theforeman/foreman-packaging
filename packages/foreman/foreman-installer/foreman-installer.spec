@@ -66,10 +66,6 @@ Various scenarios and tools for the Katello ecosystem
   --trace
 
 %install
-%if 0%{?fedora} || 0%{?rhel} >= 8
-grep -lr '#!/usr/bin/python' _build/modules/selinux | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
-%endif
-
 %{scl_rake} install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
