@@ -938,6 +938,7 @@ plugin_scl_packages:
       strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
+    rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
     rubygem-aws-sigv4: {}

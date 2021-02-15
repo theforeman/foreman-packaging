@@ -17,6 +17,7 @@
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
       <packagereq type="default">tfm-nodejs-react-json-tree</packagereq>
+      <packagereq type="default">tfm-rubygem-acts_as_list</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4</packagereq>
@@ -180,6 +181,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">tfm-rubygem-acts_as_list-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-sigv4-doc</packagereq>
