@@ -104,6 +104,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_templates</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_webhooks</packagereq>
       <packagereq type="default">tfm-rubygem-http</packagereq>
       <packagereq type="default">tfm-rubygem-http-form_data</packagereq>
       <packagereq type="default">tfm-rubygem-http_parser.rb</packagereq>
@@ -264,6 +265,7 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_templates-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_webhooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-httparty-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-form_data-doc</packagereq>
@@ -299,8 +301,8 @@
       <packagereq type="default">tfm-rubygem-ruby-nmap-doc</packagereq>
       <packagereq type="default">tfm-rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sentry-raven-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-smart_proxy_acd-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_acd_core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_acd-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_chef-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_container_gateway-doc</packagereq>
