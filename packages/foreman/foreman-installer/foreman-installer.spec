@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -66,10 +66,6 @@ Various scenarios and tools for the Katello ecosystem
   --trace
 
 %install
-%if 0%{?fedora} || 0%{?rhel} >= 8
-grep -lr '#!/usr/bin/python' _build/modules/selinux | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
-%endif
-
 %{scl_rake} install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
@@ -146,6 +142,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Feb 15 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.0-0.2.develop
+- Drop puppet/selinux workaround
+
 * Tue Feb 02 2021 Evgeni Golov - 1:2.5.0-0.1.develop
 - Bump version to 2.5-develop
 
