@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 8.3.0
+Version: 8.3.3
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Feb 16 2021 vagrant 8.3.3-1
+- Update to 8.3.3
+
 * Tue Feb 09 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.0-1
 - Update to 8.3.0
 
