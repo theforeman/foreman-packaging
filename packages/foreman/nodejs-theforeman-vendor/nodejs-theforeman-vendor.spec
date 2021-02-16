@@ -39,7 +39,7 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
-* Tue Feb 16 2021 vagrant 8.3.3-1
+* Tue Feb 16 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.3-1
 - Update to 8.3.3
 
 * Tue Feb 09 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.0-1
