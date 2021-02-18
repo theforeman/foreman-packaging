@@ -5,6 +5,7 @@ config/settings.yaml                     etc/foreman
 config/database.yml                      etc/foreman
 script/foreman-rake                      usr/sbin
 script/foreman-tail                      usr/sbin
+script/foreman-puma-status               usr/sbin
 debian/foreman-plugin.mk                 usr/share/foreman
 app                                      usr/share/foreman
 bin                                      usr/share/foreman
