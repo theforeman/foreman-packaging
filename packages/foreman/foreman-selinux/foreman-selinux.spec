@@ -23,7 +23,7 @@
 %define moduletype apps
 
 %global release 2
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -192,6 +192,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Fri Feb 19 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.0-0.2.rc2
+- Release foreman-selinux 2.4.0
+
 * Wed Feb 03 2021 Evgeni Golov - 2.4.0-0.2.rc1
 - Release foreman-selinux 2.4.0
 
