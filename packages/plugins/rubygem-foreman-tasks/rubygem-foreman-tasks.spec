@@ -8,7 +8,7 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.3
+Version: 3.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -174,6 +174,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Fri Feb 19 2021 Adam Ruzicka <aruzicka@redhat.com> 3.0.4-1
+- Update to 3.0.4
+
 * Thu Jan 07 2021 Adam Ruzicka <aruzicka@redhat.com> 3.0.3-1
 - Update to 3.0.3
 
