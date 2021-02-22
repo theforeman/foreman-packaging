@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 9
 
@@ -144,6 +144,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Feb 22 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-0.9.rc2
+- Release katello 4.0.0-rc2
+
 * Thu Feb 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.9.rc1
 - Drop container-selinux workaround, fixed in pulpcore-selinux
 
