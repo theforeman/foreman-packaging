@@ -6,10 +6,10 @@
 %global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -67,6 +67,7 @@ Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
+Requires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(rails)
@@ -102,6 +103,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
@@ -233,6 +235,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Feb 22 2021 Zach Huntington-Meath - 4.0.0-0.4.rc2
+- Release rubygem-katello 4.0.0-rc2
+- Add qpid_proton requirement
+
 * Tue Feb 09 2021 Evgeni Golov - 4.0.0-0.3.rc1
 - Release rubygem-katello 4.0.0
 
