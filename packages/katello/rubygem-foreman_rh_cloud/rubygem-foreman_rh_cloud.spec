@@ -18,6 +18,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Autoreq: 0
 
+Conflicts: %{?scl_prefix}rubygem-redhat_access < 2.2.19
+
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 
