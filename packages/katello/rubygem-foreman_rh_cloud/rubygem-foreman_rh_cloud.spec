@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.16
+Version: 3.0.17
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -99,7 +99,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -114,6 +114,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 %{foreman_assets_plugin}
@@ -125,6 +127,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Feb 22 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.17-1
+- Update to 3.0.17-1
+
 * Tue Feb 09 2021 Shimon Shtein <sshtein@redhat.com> 3.0.16-1
 - Update to 3.0.16-1
 
