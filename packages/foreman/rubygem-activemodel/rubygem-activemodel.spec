@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.4
+Version: 6.0.3.5
 Release: 1%{?dist}
 Summary: A toolkit for building modeling frameworks (part of Rails)
 Group: Development/Languages
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.4
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Tue Feb 23 2021 Evgeni Golov - 6.0.3.5-1
+- Release rubygem-activemodel 6.0.3.5
+
 * Mon Oct 26 2020 Evgeni Golov - 6.0.3.4-1
 - Release rubygem-activemodel 6.0.3.4
 
