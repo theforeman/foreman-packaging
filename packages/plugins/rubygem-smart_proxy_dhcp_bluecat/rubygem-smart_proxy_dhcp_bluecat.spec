@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 6%{?foremandist}%{?dist}
+Version: 0.1.5
+Release: 1%{?foremandist}%{?dist}
 Summary: BlueCat DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -111,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_bluecat.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Feb 23 2021 Bernhard Suttner <suttner@atix.de> 0.1.5-1
+- Update to 0.1.5
+
 * Mon Jun 22 2020 Evgeni Golov - 0.1.0-6
 - Fix bundler.d location on EL8
 
