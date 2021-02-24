@@ -8,13 +8,15 @@
 %global foreman_min_version 1.18
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.18
+Version: 2.2.19
 Release: 1%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/redhataccess/foreman-plugin
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Autoreq: 0
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -39,6 +41,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 Obsoletes: %{?scl_prefix}rubygem-foreman-%{gem_name} < %{version}
+Requires: %{?scl_prefix}rubygem(foreman_rh_cloud) >= 3.0.17
 
 %description
 This plugin adds Red Hat Access knowledge base search, case management and
@@ -125,6 +128,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 24 2021 Shimon Shtein <sshtein@redhat.com> 2.2.19-1
+- Update to 2.2.19-1
+
 * Wed Oct 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.18-1
 - Release rubygem-redhat_access 2.2.18
 
