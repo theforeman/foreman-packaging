@@ -12,7 +12,7 @@
 %global release 1
 
 Name:    foreman
-Version: 2.2.2
+Version: 2.2.3
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1016,6 +1016,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Feb 24 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.3-1
+- Release foreman 2.2.3
+
 * Tue Dec 15 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.2-1
 - Release foreman 2.2.2
 
