@@ -1,8 +1,14 @@
 ruby-foreman-tasks (3.0.5-1) stable; urgency=low
 
-  * 3.0.5 released
+  * 4.0.0 released
 
  -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 02 Mar 2021 14:06:47 +0100
+
+ruby-foreman-tasks (4.0.0-1) stable; urgency=low
+
+  * 3.0.5 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 02 Mar 2021 13:46:01 +0100
 
 ruby-foreman-tasks (3.0.4-1) stable; urgency=low
 
