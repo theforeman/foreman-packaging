@@ -8,7 +8,7 @@
 
 Summary: Command and ruby library for gathering system information
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.44
+Version: 4.0.51
 Release: 1%{?dist}
 Group: System Environment/Base
 License: ASL 2.0
@@ -88,6 +88,9 @@ cp -a .%{_bindir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Tue Mar 02 2021 Lukas Zapletal <lzap+rpm@redhat.com> 4.0.51-1
+- Update to 4.0.51
+
 * Wed Nov 25 2020 Lukas Zapletal <lzap+rpm@redhat.com> 4.0.44-1
 - Update to 4.0.44
 
