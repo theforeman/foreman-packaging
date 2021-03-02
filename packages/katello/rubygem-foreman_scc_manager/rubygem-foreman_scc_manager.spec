@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.6
+Version: 1.8.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -104,6 +104,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 02 2021 Nadja Heitmann <heitmann@atix.de> 1.8.7-1
+- Update to 1.8.7
+- Prevent SCC manager to delete subscribed SCC products if subscription expires
+- Fix dynflow output for failed SCC account sync tasks
+- Shorten automatically created Katello root repository labels
+
 * Thu Dec 10 2020 Nadja Heitmann <heitmann@atix.de> 1.8.6-1
 - Update to 1.8.6
 - Add automatic GPG key support for SCC accounts
