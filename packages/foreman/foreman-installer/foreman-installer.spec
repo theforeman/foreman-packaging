@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource}
 
@@ -44,6 +44,13 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-certs-tools
 Requires: which
+
+# puppet-candlepin enables the pki-core module which needs DNF module support
+# That was introduced in 5.5.20 and 6.15.0
+%if 0%{rhel} == 8
+Requires:   puppet-agent >= 5.5.20
+Conflicts: (puppet-agent >= 6.0.0 with puppet-agent < 6.15.0)
+%endif
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -142,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Mon Mar 15 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.4.0-0.2.rc3
+- Require Puppet with DNF module support (#32003)
+
 * Thu Mar 11 2021 Patrick Creech <pcreech@redhat.com> - 1:2.4.0-0.1.rc3
 - Release foreman-installer 2.4.0
 
