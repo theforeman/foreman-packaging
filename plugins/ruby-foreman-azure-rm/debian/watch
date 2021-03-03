@@ -1,0 +1,2 @@
+version=3
+https://gemwatch.debian.net/foreman_azure_rm .*/foreman_azure_rm-(.*).tar.gz

@@ -1,0 +1,22 @@
+Source: ruby-azure-mgmt-compute
+Section: ruby
+Priority: optional
+Maintainer: Adam Cecile <acecile@letz-it.lu>
+Build-Depends: debhelper (>= 11~),
+               gem2deb,
+               ruby-ms-rest-azure (>= 0.12.0)
+Standards-Version: 4.5.1
+Homepage: https://aka.ms/azure-sdk-for-ruby
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-azure-mgmt-compute
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-ms-rest-azure (>= 0.12.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Official Ruby client library to consume Microsoft Azure Compute Management services.
+ Microsoft Azure Compute Management Client Library for Ruby

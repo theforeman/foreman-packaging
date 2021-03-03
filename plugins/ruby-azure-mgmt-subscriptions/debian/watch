@@ -1,0 +1,2 @@
+version=3
+https://gemwatch.debian.net/azure_mgmt_subscriptions .*/azure_mgmt_subscriptions-(.*).tar.gz

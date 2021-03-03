@@ -1,0 +1,191 @@
+<% arch ||= nil
+   os ||= nil
+   images = possible_images(compute_resource, arch, os)
+   resource_groups = compute_resource.resource_groups
+   compute_resource_id = compute_resource.id
+%>
+
+<script >
+    function azure_rm_region_callback() {
+        azure_rm_get_size_from_region();
+        azure_rm_subnets_from_region();
+    }
+
+    function azure_rm_get_size_from_region() {
+        var compute_resource = <%=compute_resource_id%>;
+        var size_spinner = $('#azure_rm_size_spinner');
+        var sizes = $('#azure_rm_size');
+        var imageId = $('#azure_rm_image_id').val();
+        if (typeof tfm == 'undefined') {  // earlier than 1.13
+            foreman.tools.showSpinner();
+        } else {
+            tfm.tools.showSpinner();
+        }
+        size_spinner.removeClass('hide');
+        $.ajax({
+            data: {"image_id": imageId, "compute_resource_id": compute_resource},
+            type: 'get',
+            url: '/azure_rm/sizes',
+            complete: function () {
+                reloadOnAjaxComplete('#azure_rm_size');
+                size_spinner.addClass('hide');
+                if (typeof tfm == 'undefined') {  // earlier than 1.13
+                    foreman.tools.hideSpinner();
+                } else {
+                    tfm.tools.hideSpinner();
+                }
+            },
+            error: function (request, status, error) {
+                console.log(request);
+                console.log(error);
+            },
+            success: function (request_sizes) {
+                sizes.empty();
+                $.each(request_sizes, function () {
+                    sizes.append($("<option />").val(this).text(this));
+                });
+            }
+        });
+    }
+
+    function azure_rm_subnets_from_region() {
+        var imageId = $('#azure_rm_image_id').val();
+        var subnets = $('#azure_rm_subnet');
+        var compute_resource = <%=compute_resource_id%>;
+        if (typeof tfm == 'undefined') {  // earlier than 1.13
+            foreman.tools.showSpinner();
+        } else {
+            tfm.tools.showSpinner();
+        }
+        $.ajax({
+            data: {"image_id": imageId, "compute_resource_id": compute_resource},
+            type: 'get',
+            url: '/azure_rm/subnets',
+            complete: function () {
+                reloadOnAjaxComplete('#azure_rm_subnet');
+                if (typeof tfm == 'undefined') {  // earlier than 1.13
+                    foreman.tools.hideSpinner();
+                } else {
+                    tfm.tools.hideSpinner();
+                }
+            },
+            error: function (request, status, error) {
+                console.log(status);
+                console.log(request);
+                console.log(error);
+            },
+            success: function (request_subnets) {
+                subnets.empty();
+                $.each(request_subnets, function () {
+                    //noinspection JSAnnotator
+                    subnets.append($("<option />").val(this.id).text(`${this.id.split('/')[8]} - ${this.name} (${this.address_prefix})`));
+                });
+            }
+        });
+    }
+</script>
+
+<% # This view has been modified and refers to the properties wrapper class %>
+
+<%= selectable_f f, :resource_group, resource_groups,
+               { :include_blank => _('Please select a Resource Group') },
+               {
+                   :disabled => resource_groups.empty?,
+                   :label    => _('Resource Group'),
+                   :required => true,
+                   :id       => 'azure_rm_rg',
+                   :help_inline => spinner_button_f(f, _('Reload Images, Sizes, vNets'),
+                     'azure_rm_region_callback();',
+                    {
+                      :id => 'load_subnets_btn',
+                      :spinner_id => 'load_subnets_indicator',
+                      :class         => 'btn-success',
+                      :spinner_class => 'spinner-inverse'
+                    })
+               }
+%>
+
+<%= selectable_f f, :vm_size, compute_resource.vm_sizes.map { |size| size.name },
+               { :include_blank => _('Please select a VM Size') },
+               {
+                   :label    => _('VM Size'),
+                   :required => true,
+                   :id       => 'azure_rm_size'
+               }
+%>
+
+<%= selectable_f f, :platform, %w(Linux Windows),
+               {},
+               {
+                   :label    => _('Platform'),
+                   :required => true
+               }
+%>
+
+<%= text_f f, :username,
+         {
+             :label    => _('Username'),
+             :required => true
+         }
+%>
+
+<%= password_f f, :password,
+         {
+             :label    => _('Password'),
+             :required => true,
+             :placeholder => "********",
+             :value => f.object.password
+
+         }
+%>
+
+<%= textarea_f f, :ssh_key_data,
+             {
+                 :label => _('SSH Key')
+             }
+%>
+
+<%= checkbox_f f, :premium_os_disk,
+             {    :checked => f.object.premium_os_disk == "Premium_LRS",
+                  :label => _('Premium OS Disk'),
+                  :label_size => "col-md-2"
+             },
+             'true',
+             'false'
+%>
+
+<%= selectable_f f, :os_disk_caching, %w(None ReadOnly ReadWrite),
+               {   :include_blank => _("Azure's Default") },
+               {
+                   :label    => _('OS Disk Caching'),
+                   :label_help => _("Default ReadWrite"),
+                   :class    => "col-md-2"
+               }
+%>
+
+<%= text_f f, :script_command,
+         {
+             :label => _('Custom Script Command'),
+             :label_help => _("To perform commands as root, prefix it with 'sudo'")
+         }
+%>
+
+<%= text_f f, :script_uris,
+         {
+             :label => _('Comma seperated file URIs')
+         }
+%>
+
+<div id="image_selection">
+  <%= select_f f, :image_id, images, :uuid, :name,
+               { :include_blank => (images.empty? or images.size == 1) ? false : _('Please select an image') },
+               {
+                   :disabled   => images.empty?,
+                   :label      => _('Image'),
+                   :required   => true,
+                   :selected   => f.object.image_id,
+                   :label_size => "col-md-2",
+                   :id         => 'azure_rm_image_id'
+               } if controller_name != "compute_attributes"
+  %>
+</div>

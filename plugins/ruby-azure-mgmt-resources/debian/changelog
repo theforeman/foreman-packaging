@@ -1,0 +1,5 @@
+ruby-azure-mgmt-resources (0.18.1-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Adam Cecile <acecile@letz-it.lu>  Wed, 03 Mar 2021 16:24:44 +0100

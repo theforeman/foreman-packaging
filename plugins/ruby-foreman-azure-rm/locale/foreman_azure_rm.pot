@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_azure_rm package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_azure_rm 2.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-12 15:17+0530\n"
+"PO-Revision-Date: 2020-05-12 15:17+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/compute_resources_controller_extensions.rb:10
+msgid "Client ID for AzureRm"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/compute_resources_controller_extensions.rb:11
+msgid "Client Secret for AzureRm"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/compute_resources_controller_extensions.rb:12
+msgid "Subscription ID for AzureRm"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/hosts_controller_extensions.rb:11
+msgid "The region you selected has no sizes associated with it"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/hosts_controller_extensions.rb:23
+msgid "The selected region has no subnets"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_azure_rm/concerns/hosts_controller_extensions.rb:27
+msgid "The selected image has no associated compute resource"
+msgstr ""
+
+#: ../app/helpers/azure_compute_resource_helper.rb:11
+msgid "Azure Region"
+msgstr ""
+
+#: ../app/helpers/azure_compute_resource_helper.rb:11
+msgid "Load Regions"
+msgstr ""
+
+#: ../app/models/foreman_azure_rm/azure_rm_compute.rb:148
+msgid "%{vm_size} VM Size"
+msgstr ""
+
+#: ../app/views/compute_resources/form/_azurerm.html.erb:1
+msgid "Client ID"
+msgstr ""
+
+#: ../app/views/compute_resources/form/_azurerm.html.erb:2
+msgid "Client Secret"
+msgstr ""
+
+#: ../app/views/compute_resources/form/_azurerm.html.erb:3
+msgid "Subscription ID"
+msgstr ""
+
+#: ../app/views/compute_resources/form/_azurerm.html.erb:4
+msgid "Tenant ID"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:91
+msgid "Please select a Resource Group"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:94
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:6
+msgid "Resource Group"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:97
+msgid "Reload Images, Sizes, vNets"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:109
+msgid "Please select a VM Size"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:111
+msgid "VM Size"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:120
+msgid "Platform"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:127
+msgid "Username"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:134
+msgid "Password"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:144
+msgid "SSH Key"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:150
+msgid "Premium OS Disk"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:158
+msgid "Azure's Default"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:160
+msgid "OS Disk Caching"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:161
+msgid "Default ReadWrite"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:168
+msgid "Custom Script Command"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:169
+msgid "To perform commands as root, prefix it with 'sudo'"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:175
+msgid "Comma seperated file URIs"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:181
+msgid "Please select an image"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_base.html.erb:184
+msgid "Image"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_network.html.erb:5
+msgid "Select"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_network.html.erb:7
+msgid "Azure Subnet"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_network.html.erb:18
+msgid "Public IP"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_network.html.erb:25
+msgid "Static Private IP"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_volume.html.erb:4
+msgid "Size (GB)"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_volume.html.erb:8
+msgid ""
+"Additional number of disks can be added based on VM Size. For more details, pl"
+"ease refer to Microsoft Azure's documentation"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_volume.html.erb:14
+msgid "Azure's default"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/form/azurerm/_volume.html.erb:17
+msgid "Data Disk Caching"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:4
+msgid "Name"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:5
+msgid "Size"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:7
+msgid "Region"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:8
+msgid "State"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/index/_azurerm.html.erb:9
+msgid "Actions"
+msgstr ""
+
+#: ../app/views/compute_resources_vms/show/_azurerm.html.erb:5
+msgid "Properties"
+msgstr ""
+
+#: ../app/views/images/form/_azurerm.html.erb:2
+msgid "The user that will be used to SSH into the VM for completion"
+msgstr ""
+
+#: ../app/views/images/form/_azurerm.html.erb:4
+msgid "Password to authenticate with - used for SSH finish step."
+msgstr ""
+
+#: ../app/views/images/form/_azurerm.html.erb:5
+msgid "Marketplace Image URN"
+msgstr ""
+
+#: ../app/views/images/form/_azurerm.html.erb:5
+msgid "Marketplace URN (e.g. OpenLogic:CentOS:7.5:latest)"
+msgstr ""
+
+#: ../app/views/images/form/_azurerm.html.erb:6
+msgid "Does this image support user data input?"
+msgstr ""
+
+#: action_names.rb:2
+msgid "Action with sub plans"
+msgstr ""
+
+#: action_names.rb:3
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Remote action:"
+msgstr ""
+
+#: gemspec.rb:2
+msgid "Azure Resource Manager as a compute resource for Foreman"
+msgstr ""

@@ -1,0 +1,6 @@
+<%= text_f f, :username, :value => @image.username || "root",
+           :help_inline         => _("The user that will be used to SSH into the VM for completion")
+%>
+<%= password_f f, :password, :keep_value => true, :help_inline => _("Password to authenticate with - used for SSH finish step.") %>
+<%= image_field(f, :label => _("Azure Image Name"), :help_inline => _("For custom or shared gallery image, use prefix 'custom://' or 'gallery://'. For public and RHEL-byos images, prefix the uuid with 'marketplace://'. (e.g. 'marketplace://OpenLogic:CentOS:7.5:latest' or 'custom://image-name')")) %>
+<%= checkbox_f f, :user_data, :help_inline => _("Does this image support user data input?") %>

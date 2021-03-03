@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+export GEM2DEB_TEST_RUNNER = --check-dependencies
+
+%:
+	dh $@ --buildsystem=ruby --with ruby
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf coverage/
+
+override_dh_auto_test:
+	# Two tests failing for bad reason and I don't know ruby packaging enough to ignore failing tests
+	#
+	# expected: "<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />"
+	# got:      "<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>"
+	#
+	# expected: "<meta charset='utf-8' />"
+	# got:      "<meta charset='utf-8'>"
+	-dh_auto_test

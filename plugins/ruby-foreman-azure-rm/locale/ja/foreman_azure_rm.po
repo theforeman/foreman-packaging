@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_azure_rm package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Lukáš Zapletal, 2020
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2020
+# Bryan Kearney <bryan.kearney@gmail.com>, 2020
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_azure_rm 2.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-04-21 13:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2020\n"
+"Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "%{vm_size} VM Size"
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr ""
+
+msgid "Actions"
+msgstr "アクション"
+
+msgid "Additional number of disks can be added based on VM Size. For more details, please refer to Microsoft Azure's documentation"
+msgstr ""
+
+msgid "Azure Region"
+msgstr ""
+
+msgid "Azure Resource Manager as a compute resource for Foreman"
+msgstr ""
+
+msgid "Azure Subnet"
+msgstr ""
+
+msgid "Azure's Default"
+msgstr ""
+
+msgid "Azure's default"
+msgstr ""
+
+msgid "Client ID"
+msgstr ""
+
+msgid "Client ID for AzureRm"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
+msgid "Client Secret for AzureRm"
+msgstr ""
+
+msgid "Comma seperated file URIs"
+msgstr ""
+
+msgid "Custom Script Command"
+msgstr ""
+
+msgid "Data Disk Caching"
+msgstr ""
+
+msgid "Default ReadWrite"
+msgstr ""
+
+msgid "Does this image support user data input?"
+msgstr "このイメージはユーザーのデータ入力に対応しますか?"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
+msgid "Load Regions"
+msgstr ""
+
+msgid "Marketplace Image URN"
+msgstr ""
+
+msgid "Marketplace URN (e.g. OpenLogic:CentOS:7.5:latest)"
+msgstr ""
+
+msgid "Name"
+msgstr "名前"
+
+msgid "OS Disk Caching"
+msgstr ""
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Password to authenticate with - used for SSH finish step."
+msgstr "認証に使用するパスワード - SSH の最終ステップで使用されます。"
+
+msgid "Platform"
+msgstr ""
+
+msgid "Please select a Resource Group"
+msgstr ""
+
+msgid "Please select a VM Size"
+msgstr ""
+
+msgid "Please select an image"
+msgstr "イメージを選択してください"
+
+msgid "Premium OS Disk"
+msgstr ""
+
+msgid "Properties"
+msgstr "プロパティー"
+
+msgid "Public IP"
+msgstr ""
+
+msgid "Region"
+msgstr "リージョン"
+
+msgid "Reload Images, Sizes, vNets"
+msgstr ""
+
+msgid "Remote action:"
+msgstr ""
+
+msgid "Resource Group"
+msgstr ""
+
+msgid "SSH Key"
+msgstr ""
+
+msgid "Select"
+msgstr "選択"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Size (GB)"
+msgstr "サイズ (GB)"
+
+msgid "State"
+msgstr "状態"
+
+msgid "Static Private IP"
+msgstr ""
+
+msgid "Subscription ID"
+msgstr "サブスクリプション ID"
+
+msgid "Subscription ID for AzureRm"
+msgstr ""
+
+msgid "Tenant ID"
+msgstr ""
+
+msgid "The region you selected has no sizes associated with it"
+msgstr ""
+
+msgid "The selected image has no associated compute resource"
+msgstr ""
+
+msgid "The selected region has no subnets"
+msgstr ""
+
+msgid "The user that will be used to SSH into the VM for completion"
+msgstr ""
+
+msgid "To perform commands as root, prefix it with 'sudo'"
+msgstr ""
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "VM Size"
+msgstr ""

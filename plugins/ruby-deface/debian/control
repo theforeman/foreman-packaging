@@ -1,0 +1,35 @@
+Source: ruby-deface
+Section: ruby
+Priority: optional
+Maintainer: Adam Cecile <acecile@letz-it.lu>
+Build-Depends: debhelper (>= 11~),
+               gem2deb,
+               rake,
+               ruby-nokogiri (>= 1.6),
+               ruby-polyglot,
+               ruby-rails (>= 5.2),
+               ruby-rainbow (>= 2.1.0),
+               ruby-rspec,
+               ruby-simplecov <!nocheck>,
+               pry <!nocheck>,
+               ruby-haml <!nocheck>,
+               ruby-slim <!nocheck>,
+               ruby-generator-spec <!nocheck>,
+Standards-Version: 4.5.1
+Homepage: https://github.com/spree/deface#readme
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-deface
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-nokogiri (>= 1.6),
+         ruby-polyglot,
+         ruby-rails (>= 5.2),
+         ruby-rainbow (>= 2.1.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
+ Deface is a library that allows you to customize ERB, Haml and Slim views in a Rails application without editing the underlying view.

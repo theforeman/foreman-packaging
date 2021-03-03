@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_azure_rm package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Andrei Burd <burdandrei@gmail.com>, 2020
+# Vladimir Pavlov <v.pavlov@i-teco.ru>, 2020
+# Yulia <yulia.poyarkova@redhat.com>, 2020
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2020
+# Bryan Kearney <bryan.kearney@gmail.com>, 2020
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_azure_rm 2.1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-04-21 13:58+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2020\n"
+"Language-Team: Russian (https://www.transifex.com/foreman/teams/114/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=1"
+"1 && n%100<=14)? 2 : 3);\n"
+
+msgid "%{vm_size} VM Size"
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr "Действия с подпланами"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Additional number of disks can be added based on VM Size. For more details, please refer to Microsoft Azure's documentation"
+msgstr ""
+
+msgid "Azure Region"
+msgstr ""
+
+msgid "Azure Resource Manager as a compute resource for Foreman"
+msgstr ""
+
+msgid "Azure Subnet"
+msgstr ""
+
+msgid "Azure's Default"
+msgstr ""
+
+msgid "Azure's default"
+msgstr ""
+
+msgid "Client ID"
+msgstr ""
+
+msgid "Client ID for AzureRm"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
+msgid "Client Secret for AzureRm"
+msgstr ""
+
+msgid "Comma seperated file URIs"
+msgstr ""
+
+msgid "Custom Script Command"
+msgstr ""
+
+msgid "Data Disk Caching"
+msgstr ""
+
+msgid "Default ReadWrite"
+msgstr ""
+
+msgid "Does this image support user data input?"
+msgstr "Допускает ли этот образ ввод пользовательских данных?"
+
+msgid "Image"
+msgstr "Образ"
+
+msgid "Import Puppet classes"
+msgstr "Импорт классов Puppet"
+
+msgid "Import facts"
+msgstr "Импорт фактов"
+
+msgid "Load Regions"
+msgstr "Загрузить регионы"
+
+msgid "Marketplace Image URN"
+msgstr ""
+
+msgid "Marketplace URN (e.g. OpenLogic:CentOS:7.5:latest)"
+msgstr ""
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "OS Disk Caching"
+msgstr ""
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password to authenticate with - used for SSH finish step."
+msgstr "Пароль SSH"
+
+msgid "Platform"
+msgstr ""
+
+msgid "Please select a Resource Group"
+msgstr ""
+
+msgid "Please select a VM Size"
+msgstr ""
+
+msgid "Please select an image"
+msgstr "Выберите образ"
+
+msgid "Premium OS Disk"
+msgstr ""
+
+msgid "Properties"
+msgstr "Свойства "
+
+msgid "Public IP"
+msgstr ""
+
+msgid "Region"
+msgstr "Регион"
+
+msgid "Reload Images, Sizes, vNets"
+msgstr ""
+
+msgid "Remote action:"
+msgstr "Удаленное действие:"
+
+msgid "Resource Group"
+msgstr ""
+
+msgid "SSH Key"
+msgstr ""
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Size (GB)"
+msgstr "Размер (ГБ)"
+
+msgid "State"
+msgstr "Состояние"
+
+msgid "Static Private IP"
+msgstr ""
+
+msgid "Subscription ID"
+msgstr "Идентификатор подписки"
+
+msgid "Subscription ID for AzureRm"
+msgstr ""
+
+msgid "Tenant ID"
+msgstr ""
+
+msgid "The region you selected has no sizes associated with it"
+msgstr ""
+
+msgid "The selected image has no associated compute resource"
+msgstr ""
+
+msgid "The selected region has no subnets"
+msgstr ""
+
+msgid "The user that will be used to SSH into the VM for completion"
+msgstr ""
+
+msgid "To perform commands as root, prefix it with 'sudo'"
+msgstr ""
+
+msgid "Username"
+msgstr "Имя"
+
+msgid "VM Size"
+msgstr ""

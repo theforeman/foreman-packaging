@@ -1,0 +1,20 @@
+<%= number_f f, :disk_size_gb,
+             {
+               :class    => "col-md-2",
+               :label    => _("Size (GB)"), :label_size => "col-md-2",
+               :required => true,
+               :min      => 0,
+               :value    => f.object.disk_size_gb || f.object.disk.disk_size_gb,
+               :help_inline => _("Additional number of disks can be added based on VM Size. For more details, please refer to Microsoft Azure's documentation")
+             }
+%>
+
+<%= selectable_f f, :data_disk_caching, options_for_select(["None", "ReadOnly", "ReadWrite"],
+                    :selected => f.object.data_disk_caching || f.object.disk.caching),
+                 { :include_blank => _("Azure's default") },
+                 {
+                     :class    => "col-md-2",
+                     :label    => _('Data Disk Caching'),
+                     :required => true
+                 }
+%>
