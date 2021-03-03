@@ -1,12 +1,3 @@
-%global pulp_release stable
-%global pulp_version 2.21
-%global use_pulp_nightly false
-%if 0%{?rhel} == 7
-%global pulp_enabled 1
-%else
-%global pulp_enabled 0
-%endif
-
 %global pulpcore_version 3.9
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
@@ -14,7 +5,7 @@
 
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:           katello-repos
 Version:        4.0.0
@@ -66,19 +57,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
-    sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
-    sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
-    sed -i "s/@PULP_ENABLED@/%pulp_enabled/" $repofile
     sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
-    if [ "%{use_pulp_nightly}" = true ] ; then
-        PULP_URL_MIDDLE="testing\/automation\/2-master\/stage"
-        PULP_GPG_CHECK=0
-    else
-        PULP_URL_MIDDLE="%{pulp_release}\/%{pulp_version}"
-        PULP_GPG_CHECK=1
-    fi
-    sed -i "s/@PULP_URL_MIDDLE@/${PULP_URL_MIDDLE}/" $repofile
-    sed -i "s/@PULP_GPG_CHECK@/${PULP_GPG_CHECK}/" $repofile
 done
 
 %clean
@@ -89,6 +68,10 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Mar 03 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.4.rc1
+- Remove Pulp 2 and qpid copr repository definitions
+- Always GPG check pulpcore repositories
+
 * Tue Feb 09 2021 Evgeni Golov - 4.0.0-0.3.rc1
 - Release katello-repos 4.0.0
 
