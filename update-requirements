@@ -72,6 +72,9 @@ def get_requirement(version):
 
         return ['>= {}'.format(min_version), '< {}'.format(max_version)]
 
+    if version.startswith('>=') or version.startswith('<'):
+        return [version]
+
     raise ValueError('Unable to handle version {}'.format(version))
 
 
