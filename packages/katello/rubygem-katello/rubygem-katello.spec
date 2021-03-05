@@ -6,7 +6,7 @@
 %global foreman_max_version 2.3
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.17.2
+%global mainver 3.17.3
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Mar 05 2021 Zach Huntington-Meath - 3.17.3-1
+- Release rubygem-katello 3.17.3
+
 * Fri Feb 12 2021 Evgeni Golov - 3.17.2-1
 - Release rubygem-katello 3.17.2
 
