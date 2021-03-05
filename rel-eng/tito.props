@@ -974,10 +974,12 @@ disttag = .el8
 whitelist =
   ansible-collection-theforeman-foreman
   gofer
+  jsoncpp
   katello-host-tools
   python-apypie
   python-beautifulsoup4
   python-psutil
+  qpid-proton
   rubygem-foreman_scap_client
   tracer
 
