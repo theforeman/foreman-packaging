@@ -18,6 +18,7 @@
       <packagereq type="default">katello-host-tools-tracer</packagereq>
       <packagereq type="default">python3-gofer</packagereq>
       <packagereq type="default">python3-gofer-proton</packagereq>
+      <packagereq type="default">python3-qpid-proton</packagereq>
       <packagereq type="default">python3-apypie</packagereq>
       <packagereq type="default">python3-beautifulsoup4</packagereq>
       <packagereq type="default">python3-psutil</packagereq>
