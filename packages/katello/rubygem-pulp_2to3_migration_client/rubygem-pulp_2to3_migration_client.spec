@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Epoch: 1
-Version: 0.6.0
+Version: 0.7.0
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Mar 05 2021 Zach Huntington-Meath <zhunting@redhat.com> - 1:0.7.0-1
+- Release rubygem-pulp_2to3_migration_client 0.7.0
+
 * Mon Jan 11 2021 ianballou <ianballou67@gmail.com> 1:0.6.0-1
 - Update to 0.6.0
 
