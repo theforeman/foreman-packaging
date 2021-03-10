@@ -197,7 +197,6 @@
       <packagereq type="default">tfm-rubygem-hirb</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">tfm-rubygem-hocon</packagereq>
-      <packagereq type="default">tfm-rubygem-hoe</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient</packagereq>
       <packagereq type="default">tfm-rubygem-i18n</packagereq>
@@ -283,7 +282,6 @@
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
-      <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
       <packagereq type="default">tfm-rubygem-rubyipmi</packagereq>
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
       <packagereq type="default">tfm-rubygem-sass</packagereq>
@@ -305,7 +303,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
-      <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-thor</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe</packagereq>
@@ -447,7 +444,6 @@
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hocon-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-i18n-doc</packagereq>
@@ -529,7 +525,6 @@
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rsec-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rubyforge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
@@ -553,7 +548,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-syntax-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe-doc</packagereq>
