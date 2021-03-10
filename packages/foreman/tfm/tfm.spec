@@ -6,7 +6,7 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%global scl_ruby rh-ruby25
+%global scl_ruby rh-ruby27
 %global scl_prefix_ruby %{scl_ruby}-
 %global scl_nodejs rh-nodejs10
 %global scl_prefix_nodejs %{scl_nodejs}-
@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 6.1
-Release: 5%{?dist}
+Version: 7.0
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -319,6 +319,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-1
+- Update to Ruby 2.7 via rh-ruby27
+
 * Fri Mar 12 2021 Evgeni Golov - 6.1-5
 - Obsolete rbovirt
 
