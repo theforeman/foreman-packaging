@@ -184,7 +184,6 @@ foreman_scl_packages:
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
     rubygem-hocon: {}
-    rubygem-hoe: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
@@ -270,7 +269,6 @@ foreman_scl_packages:
     rubygem-ruby-libvirt: {}
     rubygem-ruby2ruby: {}
     rubygem-ruby_parser: {}
-    rubygem-rubyforge: {}
     rubygem-safemode: {}
     rubygem-sass: {}
     rubygem-sass-rails: {}
@@ -290,7 +288,6 @@ foreman_scl_packages:
     rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
     rubygem-sqlite3: {}
-    rubygem-syntax: {}
     rubygem-text: {}
     rubygem-tilt: {}
     rubygem-thor: {}

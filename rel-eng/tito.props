@@ -194,7 +194,6 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-hocon
-  rubygem-hoe
   rubygem-httpclient
   rubygem-http-cookie
   rubygem-i18n
@@ -276,7 +275,6 @@ whitelist = foreman
   rubygem-roadie-rails
   rubygem-rsec
   rubygem-ruby2ruby
-  rubygem-rubyforge
   rubygem-rubyipmi
   rubygem-ruby-libvirt
   rubygem-ruby_parser
@@ -300,7 +298,6 @@ whitelist = foreman
   rubygem-sqlite3
   rubygem-sshkey
   rubygem-statsd-instrument
-  rubygem-syntax
   rubygem-text
   rubygem-thor
   rubygem-thread_safe
@@ -499,7 +496,6 @@ whitelist = foreman
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
   rubygem-hocon
-  rubygem-hoe
   rubygem-httpclient
   rubygem-http-cookie
   rubygem-i18n
@@ -581,7 +577,6 @@ whitelist = foreman
   rubygem-roadie-rails
   rubygem-rsec
   rubygem-ruby2ruby
-  rubygem-rubyforge
   rubygem-rubyipmi
   rubygem-ruby-libvirt
   rubygem-ruby_parser
@@ -605,7 +600,6 @@ whitelist = foreman
   rubygem-sqlite3
   rubygem-sshkey
   rubygem-statsd-instrument
-  rubygem-syntax
   rubygem-text
   rubygem-thor
   rubygem-thread_safe
