@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.7
+Version: 1.8.8
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -104,6 +104,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 10 2021 Nadja Heitmann <heitmann@atix.de> 1.8.8-1
+- Update to 1.8.8
+- Fix migrations bug
+
 * Tue Mar 02 2021 Nadja Heitmann <heitmann@atix.de> 1.8.7-1
 - Update to 1.8.7
 - Prevent SCC manager to delete subscribed SCC products if subscription expires
