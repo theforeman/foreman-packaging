@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.3.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: WebSocket framework for Rails
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.5-2
+- Rebuild against rh-ruby27
+
 * Tue Feb 23 2021 Evgeni Golov - 6.0.3.5-1
 - Release rubygem-actioncable 6.0.3.5
 
