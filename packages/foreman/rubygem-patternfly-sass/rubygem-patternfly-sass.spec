@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.59.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
 Group: Development/Languages
 License: ASL 2.0
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.59.4-2
+- Rebuild against rh-ruby27
+
 * Thu Apr 23 2020 Ondřej Ezr <oezr@redhat.com> 3.59.4-1
 - Update patternfly-sass to 3.59.4
 

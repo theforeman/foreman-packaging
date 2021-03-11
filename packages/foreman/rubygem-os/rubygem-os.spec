@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Simple and easy way to know if you're on windows or not (reliably), as well as how many bits the OS is, etc
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/.autotest
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
 - Bump to release for EL8
 

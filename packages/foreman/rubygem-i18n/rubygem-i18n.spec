@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: New wave Internationalization support for Ruby
 Group: Development/Languages
 License: MIT
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.8.2-2
+- Rebuild against rh-ruby27
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.2-1
 - Release rubygem-i18n 1.8.2
 

@@ -7,7 +7,7 @@ Summary: A mini view framework for console/irb that's easy to use, even while un
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.7.0
-Release: 12%{?dist}
+Release: 13%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: http://tagaholic.me/hirb/
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_docdir}
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.0-13
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.0-12
 - Bump to release for EL8
 

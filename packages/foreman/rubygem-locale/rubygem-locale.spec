@@ -10,7 +10,7 @@
 Summary:	Pure ruby library which provides basic APIs for localization
 Name:		%{?scl_prefix}rubygem-%{gem_name}
 Version:	2.0.9
-Release:	14%{?dist}
+Release:	15%{?dist}
 Group:		Development/Languages
 License:	GPLv2 or Ruby
 URL:		http://locale.rubyforge.org/
@@ -149,6 +149,9 @@ rm -rf %{buildroot}
 %{gem_instdir}/*.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.9-15
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.9-14
 - Bump to release for EL8
 

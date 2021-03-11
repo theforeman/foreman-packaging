@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: oVirt SDK
 Group: Development/Languages
 License: ASL 2.0
@@ -107,6 +107,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.adoc
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.4.0-2
+- Rebuild against rh-ruby27
+
 * Wed Dec 23 2020 Evgeni Golov 4.4.0-1
 - Update to 4.4.0-1
 
