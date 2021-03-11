@@ -94,6 +94,8 @@ foreman_scl_packages:
         - "jenkins_job=foreman-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/foreman-develop-source-release
+      source_system: jenkins
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
@@ -171,6 +173,8 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
+      source_system: jenkins
     rubygem-hammer_cli_foreman:
       releasers:
         - "{{ nightly_releaser }}"
@@ -179,6 +183,8 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-foreman-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
+      source_system: jenkins
     rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
@@ -487,6 +493,8 @@ foreman_installer_packages:
         - "jenkins_job=foreman-installer-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
+      source_system: jenkins
     foreman-selinux:
       releasers:
         - "{{ nightly_releaser }}"
@@ -495,6 +503,8 @@ foreman_installer_packages:
         - "jenkins_job=foreman-selinux-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/foreman-selinux-develop-source-release
+      source_system: jenkins
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -586,6 +596,8 @@ foreman_proxy_packages:
         - "jenkins_job=smart-proxy-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
+      source_system: jenkins
     rubygem-concurrent-ruby: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
@@ -851,6 +863,8 @@ katello_packages:
         - "jenkins_job=hammer-cli-katello-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
+      source_system: jenkins
     rubygem-katello:
       releasers:
         - "{{ nightly_releaser }}"
@@ -859,6 +873,8 @@ katello_packages:
         - "jenkins_job=katello-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/katello-master-source-release
+      source_system: jenkins
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
