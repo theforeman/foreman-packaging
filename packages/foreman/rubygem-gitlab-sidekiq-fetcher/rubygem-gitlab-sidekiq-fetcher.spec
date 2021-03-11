@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Reliable fetch extension for Sidekiq
 Group: Development/Languages
 License: LGPL-3.0
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-2
+- Rebuild against rh-ruby27
+
 * Thu Jul 23 2020 Adam Ruzicka <aruzicka@redhat.com> 0.6.0-1
 - Update to 0.6.0
 

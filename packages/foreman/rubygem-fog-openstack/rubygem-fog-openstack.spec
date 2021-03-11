@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.8
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: OpenStack fog provider gem
 Group: Development/Languages
 License: MIT
@@ -101,6 +101,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/fog-openstack.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.8-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.8-3
 - Bump to release for EL8
 

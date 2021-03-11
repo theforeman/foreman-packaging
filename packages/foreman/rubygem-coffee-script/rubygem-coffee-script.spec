@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.4.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Ruby CoffeeScript Compiler
 Group: Development/Languages
 License: MIT
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.4.1-5
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.4.1-4
 - Update all rails packages for el8
 

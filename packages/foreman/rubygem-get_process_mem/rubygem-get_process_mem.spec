@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Use GetProcessMem to find out the amount of RAM used by any process
 Group: Development/Languages
 License: MIT
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.7-2
+- Rebuild Ruby 2.7
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> 0.2.7-1
 - Update to 0.2.7-1
 
