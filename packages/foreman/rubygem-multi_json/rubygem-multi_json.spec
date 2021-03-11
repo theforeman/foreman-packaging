@@ -5,7 +5,7 @@
 Summary: A gem to provide swappable JSON backends
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.14.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/intridea/multi_json
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.14.1-3
+- Rebuild against rh-ruby27
+
 * Thu May 28 2020 Evgeni Golov 1.14.1-2
 - Only obsolete the ror52 SCL version in the tfm SCL build
 

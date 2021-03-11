@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Your personal string matching expert
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-5
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.2-4
 - Update all rails packages for el8
 

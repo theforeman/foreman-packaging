@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.5.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: New IO for Ruby
 Group: Development/Languages
 License: MIT
@@ -114,6 +114,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.4-2
+- Rebuild against rh-ruby27
+
 * Fri Sep 25 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.5.4-1
 - Release rubygem-nio4r 2.5.4
 
