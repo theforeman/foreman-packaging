@@ -830,11 +830,6 @@ katello_packages:
       strategy: bundle
     nodejs-strict-uri-encode: {}
     python-qpid: {}
-    pulp-katello:
-      koji_tags:
-        - name: "katello-{{ katello_version }}-rhel7"
-          scl: 'tfm'
-          dist: '.el7'
     qpid-cpp: {}
     qpid-dispatch: {}
     qpid-proton: {}
