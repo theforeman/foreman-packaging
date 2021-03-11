@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.2.develop
+- Rebuild against rh-ruby27
+
 * Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.develop
 - Bump version to 2.5-develop
 
