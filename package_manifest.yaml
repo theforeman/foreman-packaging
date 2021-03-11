@@ -94,7 +94,6 @@ foreman_scl_packages:
         - "jenkins_job=foreman-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
-    gyp: {}
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
@@ -342,6 +341,7 @@ foreman_nodejs_packages:
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
   hosts:
+    gyp: {}
     nodejs-argv-parse: {}
     nodejs-babel-cli:
       strategy: bundle
