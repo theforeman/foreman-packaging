@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Making HTML emails comfortable for the Ruby rockstars
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/autotest
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.0-3
 - Bump to release for EL8
 

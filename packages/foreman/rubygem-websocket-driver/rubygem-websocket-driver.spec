@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 Group: Development/Languages
 License: MIT
@@ -103,6 +103,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.1-2
+- Rebuild against rh-ruby27
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.1-1
 - Release rubygem-websocket-driver 0.7.1
 

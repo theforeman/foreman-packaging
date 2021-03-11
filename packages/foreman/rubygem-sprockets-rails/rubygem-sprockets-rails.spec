@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.1
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: Sprockets Rails integration
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2.1-7
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.1-6
 - Bump to release for EL8
 

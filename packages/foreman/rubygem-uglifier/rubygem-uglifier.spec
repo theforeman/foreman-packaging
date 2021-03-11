@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.1.18
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Ruby wrapper for UglifyJS JavaScript compressor
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/uglifier.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.18-5
+- Rebuild against rh-ruby27
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.18-4
 - Bump packages to build for el8
 

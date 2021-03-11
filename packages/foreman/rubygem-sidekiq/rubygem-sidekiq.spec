@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Simple, efficient background processing for Ruby
 Group: Development/Languages
 License: LGPL-3.0
@@ -111,6 +111,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/code_of_conduct.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.2.7-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.2.7-3
 - Bump to release for EL8
 

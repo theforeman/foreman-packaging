@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
 License: MIT
@@ -91,6 +91,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-2
+- Rebuild against rh-ruby27
+
 * Mon Jun 15 2020 Michael Moll <mmoll@mmoll.at> - 4.0.2-1
 - Release rubygem-sprockets 4.0.2
 

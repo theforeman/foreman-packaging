@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Determines the monospace display width of a string in Ruby
 Group: Development/Languages
 License: MIT
@@ -81,6 +81,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-2
+- Rebuild against rh-ruby27
+
 * Mon Mar 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-1
 - Release rubygem-unicode-display_width 1.7.0
 
