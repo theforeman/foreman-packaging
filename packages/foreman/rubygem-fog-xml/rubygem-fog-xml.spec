@@ -7,7 +7,7 @@ Summary: Shared XML related functionality for fog
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.1.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-xml
@@ -70,6 +70,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/fog-xml.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.2-9
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.2-8
 - Bump to release for EL8
 

@@ -6,7 +6,7 @@
 Summary: Http(s) EXtended CONnections
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.76.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/geemus/excon
@@ -77,6 +77,9 @@ ln -sf /etc/pki/tls/cert.pem \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.76.0-2
+- Rebuild against rh-ruby27
+
 * Mon Aug 03 2020 Bernhard Suttner <suttner@atix.de> 0.76.0-1
 - Update to 0.76.0 (mainly because of https://github.com/excon/excon/issues/718)
 

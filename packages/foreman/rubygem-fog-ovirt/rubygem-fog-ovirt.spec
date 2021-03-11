@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-2
+- Rebuild against rh-ruby27
+
 * Wed Jan 20 2021 Shira Maximov <shiramaximov@gmail.com> 2.0.1-1
 - Update to 2.0.1
 

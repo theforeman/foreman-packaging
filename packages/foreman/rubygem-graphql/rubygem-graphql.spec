@@ -1,13 +1,13 @@
-# Generated from graphql-1.8.14.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name graphql
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.14
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A GraphQL language and runtime for Ruby
 Group: Development/Languages
 License: MIT
@@ -58,19 +58,12 @@ gem build %{gem_name}.gemspec
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
 %{?scl:scl enable %{scl} - << \EOF}
-gem install -V \
-            --local \
-            --install-dir ./%{gem_dir} \
-            --no-user-install \
-            --bindir ./%{_bindir} \
-            --force \
-            --no-rdoc \
-            %{gem_name}-%{version}.gem
+%gem_install
 %{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
@@ -82,10 +75,14 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 
 %files doc
+%doc %{gem_docdir}
 %doc %{gem_instdir}/readme.md
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.8.14-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.14-2
 - Bump to release for EL8
 

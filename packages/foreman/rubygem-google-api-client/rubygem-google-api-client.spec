@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.33.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -131,6 +131,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.33.2-2
+- Rebuild against rh-ruby27
+
 * Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 0.33.2-1
 - Update to 0.33.2
 
