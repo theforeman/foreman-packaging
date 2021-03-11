@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Use libsass with Ruby!
 Group: Development/Languages
 License: MIT
@@ -109,6 +109,9 @@ ruby -I "%{buildroot}%{gem_libdir}" -e "require '%{gem_require_name}'"
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
+- Rebuild against rh-ruby27
+
 * Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.1-2
 - Add check section to test native library
 

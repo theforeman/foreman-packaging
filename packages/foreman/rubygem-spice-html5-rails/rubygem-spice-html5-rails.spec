@@ -7,7 +7,7 @@
 Summary: Spice client using HTML5 (WebSockets, Canvas)
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 9%{?dist}
+Release: 10%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://www.spice-space.org
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-10
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.5-9
 - Bump to release for EL8
 

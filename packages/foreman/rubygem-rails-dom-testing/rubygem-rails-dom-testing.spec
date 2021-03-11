@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.3
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: Dom and Selector assertions for Rails applications
 Group: Development/Languages
 License: MIT
@@ -83,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-7
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.3-6
 - Update all rails packages for el8
 

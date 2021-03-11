@@ -6,7 +6,7 @@
 Summary: Security related headers all in one gem
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.3.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
@@ -72,6 +72,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.3.0-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 6.3.0-2
 - Bump to release for EL8
 

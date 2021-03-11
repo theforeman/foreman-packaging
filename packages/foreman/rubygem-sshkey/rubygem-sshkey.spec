@@ -6,7 +6,7 @@
 Summary: Generate private/public SSH keypairs using pure Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.9.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bensie/sshkey
@@ -68,6 +68,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.9.0-5
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.9.0-4
 - Bump to release for EL8
 

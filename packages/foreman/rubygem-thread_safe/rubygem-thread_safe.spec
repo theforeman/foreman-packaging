@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.6
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: Thread-safe collections and utilities for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/thread_safe.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.6-6
+- Rebuild against rh-ruby27
+
 * Tue May 19 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.3.6-5
 - Add missing obsoletes tfm-ror52 line
 
