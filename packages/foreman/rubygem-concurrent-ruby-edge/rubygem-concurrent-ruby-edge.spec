@@ -6,7 +6,7 @@
 Summary: Edge concepts for the modern concurrency tools for Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Epoch: 1
 Group: Development/Languages
 
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.6.0-3
+- Rebuild against rh-ruby27
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1:0.6.0-2
 - Bump to release for EL8
 

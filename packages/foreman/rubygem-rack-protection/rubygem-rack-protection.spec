@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Protect against typical web attacks, works with all Rack apps, including Rails
 Group: Development/Languages
 License: MIT
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/rack-protection.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
+- Rebuild against rh-ruby27
+
 * Thu Dec 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-1
 - Release rubygem-rack-protection 2.1.0
 

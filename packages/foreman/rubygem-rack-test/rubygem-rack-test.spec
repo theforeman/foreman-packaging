@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Simple testing API built on Rack
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-5
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.0-4
 - Update all rails packages for el8
 

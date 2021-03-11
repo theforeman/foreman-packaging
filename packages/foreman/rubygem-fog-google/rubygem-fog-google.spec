@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.11.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Google
 Group: Development/Languages
 License: MIT
@@ -110,6 +110,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/MIGRATING.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.0-2
+- Rebuild against rh-ruby27
+
 * Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 1.11.0-1
 - Update to 1.11.0
 

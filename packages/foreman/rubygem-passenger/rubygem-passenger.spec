@@ -25,7 +25,7 @@
 Summary: Passenger Ruby web application server
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.18
-Release: 10.13%{?dist}
+Release: 11.13%{?dist}
 Group: System Environment/Daemons
 # Passenger code uses MIT license.
 # Bundled(Boost) uses Boost Software License
@@ -442,6 +442,9 @@ rake test --trace ||:
 %{gem_extdir_lib}/native
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com>
+- Rebuild against rh-ruby27
+
 * Tue Feb 04 2020 Zach Huntington-Meath <zhunting@redhat.com> 4.0.18-10.13
 - Rebuild without ror scl
 

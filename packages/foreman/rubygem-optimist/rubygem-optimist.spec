@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Optimist is a commandline option parser for Ruby that just gets out of your way
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.0.0-2
 - Bump to release for EL8
 

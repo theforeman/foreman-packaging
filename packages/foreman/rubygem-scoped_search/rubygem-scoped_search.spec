@@ -7,7 +7,7 @@ Summary: Easily search your ActiveRecord models
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 4.1.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/wvanbergen/scoped_search/wiki
@@ -110,6 +110,9 @@ popd
 %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.9-2
+- Rebuild against rh-ruby27
+
 * Mon Aug 24 2020 Adam Ruzicka <aruzicka@redhat.com> 4.1.9-1
 - Update to 4.1.9
 

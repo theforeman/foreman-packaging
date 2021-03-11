@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: retrieve the sourcecode for a method
 Group: Development/Languages
 License: MIT
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.2-3
+- Rebuild against rh-ruby27
+
 * Thu Sep 17 2020 Patrick Creech <pcreech@redhat.com> - 0.9.2-2
 - Add appropriate license, from https://github.com/banister/method_source/blob/master/LICENSE
 

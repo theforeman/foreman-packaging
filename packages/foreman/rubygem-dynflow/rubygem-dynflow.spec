@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.7
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.7-2
+- Rebuild against rh-ruby27
+
 * Sat Aug 29 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.7-1
 - Update to 1.4.7
 

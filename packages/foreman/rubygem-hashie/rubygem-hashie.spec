@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Your friendly neighborhood hash library
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-3
+- Rebuild against rh-ruby27
+
 * Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.6.0-2
 - Rebuild for EL8
 

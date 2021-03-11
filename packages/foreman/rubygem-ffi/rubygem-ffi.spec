@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.12.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby FFI
 Group: Development/Languages
 License: BSD-3-Clause
@@ -110,6 +110,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/ffi.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.12.2-2
+- Rebuild against rh-ruby27
+
 * Wed Apr 01 2020 Evgeni Golov 1.12.2-1
 - Update to 1.12.2
 

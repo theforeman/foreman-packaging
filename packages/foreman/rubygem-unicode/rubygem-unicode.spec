@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.4.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Unicode normalization library
 Group: Development/Languages
 License: Ruby
@@ -106,6 +106,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/unicode.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.4.4-4
+- Rebuild against rh-ruby27
+
 * Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.4.4.4-3
 - Add check section to test native library
 

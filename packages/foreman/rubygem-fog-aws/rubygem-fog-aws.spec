@@ -7,7 +7,7 @@ Summary: Module for the 'fog' gem to support Amazon Web Services
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 3.6.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/fog/fog-aws
@@ -78,6 +78,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/stale.yml
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.6.5-2
+- Rebuild against rh-ruby27
+
 * Wed May 27 2020 Aditi Puntambekar <apuntamb@redhat.com> 3.6.5-1
 - Update to 3.6.5
 

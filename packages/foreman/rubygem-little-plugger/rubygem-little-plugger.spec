@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: LittlePlugger is a module that provides Gem based plugin management
 Group: Development/Languages
 License: MIT
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.4-3
+- Rebuild against rh-ruby27
+
 * Thu Mar 26 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.4-2
 - Rebuild for EL8
 

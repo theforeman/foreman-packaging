@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Rake-based Ruby Extension (C, Java) task generator
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.7-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.7-3
 - Bump to release for EL8
 

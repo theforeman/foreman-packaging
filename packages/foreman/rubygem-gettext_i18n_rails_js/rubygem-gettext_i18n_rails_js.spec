@@ -6,7 +6,7 @@
 Summary: Extends gettext_i18n_rails making your .po files available to client side javascript as JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.3
-Release: 7%{?dist}
+Release: 8%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nubis/gettext_i18n_rails_js
@@ -69,6 +69,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-8
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.3-7
 - Bump to release for EL8
 

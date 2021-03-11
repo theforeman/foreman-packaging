@@ -6,7 +6,7 @@
 Summary: Swiss Army bulldozer of slugging and permalinks for Active Record
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/norman/friendly_id
@@ -77,6 +77,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.3.0-2
+- Rebuild against rh-ruby27
+
 * Fri May 01 2020 Michael Moll <mmoll@mmoll.at> - 5.3.0-1
 - Update friendly_id to 5.3.0
 

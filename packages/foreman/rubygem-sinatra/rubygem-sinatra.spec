@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Classy web-development dressed in a DSL
 Group: Development/Languages
 License: MIT
@@ -109,6 +109,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/sinatra.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
+- Rebuild against rh-ruby27
+
 * Thu Dec 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-1
 - Release rubygem-sinatra 2.1.0
 

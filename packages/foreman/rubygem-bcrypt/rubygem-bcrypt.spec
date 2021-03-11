@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.12
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Wrapper around bcrypt() password hashing algorithm
 Group: Development/Languages
 License: MIT and Public Domain and ISC
@@ -108,6 +108,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.12-4
+- Rebuild against rh-ruby27
+
 * Thu Apr 16 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.1.12-3
 - Add check section to test native library
 

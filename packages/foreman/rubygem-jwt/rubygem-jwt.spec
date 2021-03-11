@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: JSON Web Token implementation in Ruby
 Group: Development/Languages
 License: MIT
@@ -91,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.1-2
 - Bump to release for EL8
 

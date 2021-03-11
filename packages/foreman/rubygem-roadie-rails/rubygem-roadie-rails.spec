@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Hooks Roadie into your Rails application to help with email generation
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.1-3
+- Rebuild against rh-ruby27
+
 * Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 2.1.1-2
 - Update requirements for a newer railties
 

@@ -6,7 +6,7 @@
 Summary: Convert gettext PO files to JSON
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nubis/po_to_json
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-6
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.1-5
 - Bump to release for EL8
 

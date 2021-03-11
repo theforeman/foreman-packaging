@@ -6,7 +6,7 @@
 Summary: Pretty print Ruby objects with proper indentation and colors
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/awesome-print/awesome_print
@@ -92,6 +92,9 @@ chmod -x %{buildroot}%{gem_dir}/gems/%{gem_name}-%{version}/lib/awesome_print.rb
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.8.0-6
+- Rebuild against rh-ruby27
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.0-5
 - Bump to release for EL8
 

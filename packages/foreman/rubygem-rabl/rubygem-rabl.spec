@@ -6,7 +6,7 @@
 Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.14.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
@@ -90,6 +90,9 @@ rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENS
 # rake test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.14.3-2
+- Rebuild against rh-ruby27
+
 * Fri May 01 2020 Michel Moll <mmoll@mmoll.at> - 0.14.3-1
 - Update rubygem-rabl to 0.14.3
 
