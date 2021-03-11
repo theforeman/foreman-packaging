@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -41,8 +41,8 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 6
-Requires: %{scl}-runtime < 7
+Requires: %{scl}-runtime >= 7
+Requires: %{scl}-runtime < 8
 %endif
 
 Requires: wget
@@ -248,8 +248,8 @@ BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
 
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 6
-BuildRequires: %{scl}-runtime-assets < 7
+BuildRequires: %{scl}-runtime-assets >= 7
+BuildRequires: %{scl}-runtime-assets < 8
 %else
 BuildRequires: nodejs-packaging
 %endif
@@ -449,8 +449,8 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 6
-Requires: %{scl}-runtime-assets < 7
+Requires: %{scl}-runtime-assets >= 7
+Requires: %{scl}-runtime-assets < 8
 %endif
 Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 
@@ -1020,6 +1020,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.5.develop
+- Rebuild for Ruby 2.7
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.4.develop
 - Add timestamps to cron jobs
 
