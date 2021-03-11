@@ -5,7 +5,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   2.0.3
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   HighLine is a high-level command-line IO library
 Group:     Development/Languages
 License:   GPLv2+ or Ruby
@@ -84,6 +84,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-2
+- Rebuild against rh-ruby27
+
 * Fri Dec 18 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-1
 - Release rubygem-highline 2.0.3
 
