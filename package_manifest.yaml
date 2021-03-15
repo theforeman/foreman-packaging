@@ -981,7 +981,6 @@ plugin_scl_packages:
     rubygem-foreman_digitalocean: {}
     rubygem-foreman_discovery: {}
     rubygem-foreman_dlm: {}
-    rubygem-foreman_docker: {}
     rubygem-foreman_expire_hosts: {}
     rubygem-foreman_fog_proxmox: {}
     rubygem-foreman_git_templates: {}
@@ -1021,7 +1020,6 @@ plugin_scl_packages:
     rubygem-hammer_cli_foreman_azure_rm: {}
     rubygem-hammer_cli_foreman_bootdisk: {}
     rubygem-hammer_cli_foreman_discovery: {}
-    rubygem-hammer_cli_foreman_docker: {}
     rubygem-hammer_cli_foreman_kubevirt: {}
     rubygem-hammer_cli_foreman_leapp: {}
     rubygem-hammer_cli_foreman_openscap: {}
