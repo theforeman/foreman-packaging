@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Libcurl wrapper
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.12.0-2
+- Rebuild for Ruby 2.7
+
 * Fri Mar 08 2019 Justin Sherrill <jsherril@redhat.com> 0.12.0-1
 - Initial build
 

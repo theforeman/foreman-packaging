@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 3
+%global release 4
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -96,6 +96,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.4.pre.master
+- Rebuild for Ruby 2.7
+
 * Wed Mar 24 2021 Evgeni Golov - 1.0.1-0.3.pre.master
 - Obsolete hammer_cli_foreman_docker as we ship conflicting commands
 

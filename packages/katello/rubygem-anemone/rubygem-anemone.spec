@@ -6,7 +6,7 @@
 Summary:    Anemone web-spider framework
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.7.2
-Release:    17%{?dist}
+Release:    18%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        http://anemone.rubyforge.org/
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.2-18
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.2-17
 - Update spec to remove the ror scl
 
