@@ -7,7 +7,7 @@
 %global plugin_name katello
 %global gem_name katello
 %global mainver 3.17.3
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -55,7 +55,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.4
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.1.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.7.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -229,6 +229,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Mar 15 2021 Patrick Creech <pcreech@redhat.com> - 3.17.3-2
+- Missed dependency update for rubygem-pulp_rpm_client 3.9
+
 * Tue Mar 09 2021 Patrick Creech <pcreech@redhat.com> - 3.17.3-1
 - Release rubygem-katello 3.17.3
 
