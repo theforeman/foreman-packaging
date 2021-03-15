@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 1
+%global release 2
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -27,8 +27,6 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -96,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.2.pre.master
+- Drop hammer_cli_docker and hammer_cli_bootdisk requires
+
 * Thu Feb 18 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.1-0.1.pre.master
 - Bump to 1.0.1
 
