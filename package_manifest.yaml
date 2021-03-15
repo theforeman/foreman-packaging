@@ -976,6 +976,8 @@ plugin_scl_packages:
     rubygem-rqrcode: {}
     rubygem-safe_yaml: {}
     rubygem-sentry-raven: {}
+    rubygem-smart_proxy_acd: {}
+    rubygem-smart_proxy_acd_core: {}
     rubygem-smart_proxy_container_gateway: {}
     rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_salt_core: {}

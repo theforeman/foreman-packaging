@@ -757,6 +757,8 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-sentry-raven
+  rubygem-smart_proxy_acd
+  rubygem-smart_proxy_acd_core
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_container_gateway
@@ -920,6 +922,8 @@ whitelist = foreman-discovery-image-service
   rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-sentry-raven
+  rubygem-smart_proxy_acd
+  rubygem-smart_proxy_acd_core
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
   rubygem-smart_proxy_container_gateway
