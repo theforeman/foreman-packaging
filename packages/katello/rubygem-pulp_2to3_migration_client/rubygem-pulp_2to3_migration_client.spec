@@ -4,7 +4,7 @@
 
 %global gem_name pulp_2to3_migration_client
 
-%global release 1
+%global release 2
 # %%global prerelease b6
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.7.0-2
+- Rebuild for Ruby 2.7
+
 * Thu Feb 11 2021 Justin Sherrill <jsherril@redhat.com> 1:0.7.0-1
 - Update to 0.7.0
 

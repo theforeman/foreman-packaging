@@ -4,7 +4,7 @@
 
 %global gem_name pulp_container_client
 
-%global release 1
+%global release 2
 # %%global prerelease rc1
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-2
+- Rebuild for Ruby 2.7
+
 * Mon Jan 11 2021 ianballou <ianballou67@gmail.com> 2.2.0-1
 - Update to 2.2.0
 

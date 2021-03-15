@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -234,6 +234,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.6.pre.master
+- Rebuild for Ruby 2.7
+
 * Fri Mar 12 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.5.pre.master
 - Relax Ruby requirements
 

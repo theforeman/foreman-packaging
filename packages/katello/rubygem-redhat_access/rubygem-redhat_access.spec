@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.20
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Plugin to add Redhat Access to Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -128,6 +128,9 @@ cp -r  $RPM_BUILD_DIR/%{gem_name}-%{version}/vendor/assets/fonts/*  %{buildroot}
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.20-2
+- Rebuild for Ruby 2.7
+
 * Tue Mar 30 2021 Tomer Brisker <tbrisker@gmail.com> 2.2.20-1
 - Update to 2.2.20
 
