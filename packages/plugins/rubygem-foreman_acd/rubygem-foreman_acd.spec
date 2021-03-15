@@ -7,7 +7,7 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.0
+Version: 0.6.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
@@ -21,9 +21,11 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -127,6 +129,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Bernhard Suttner <suttner@atix.de> 0.6.0-1
+- Update to 0.6.0
+
 * Tue Jan 19 2021 Bernhard Suttner <suttner@atix.de> 0.5.0-1
 - Update to 0.5.0
 
