@@ -1,16 +1,20 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name sequel
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.7.1
-Release: 3%{?dist}
+Version: 5.42.0
+Release: 1%{?dist}
 Summary: The Database Toolkit for Ruby
 Group: Development/Languages
 License: MIT
 URL: http://sequel.jeremyevans.net
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -19,7 +23,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 The Database Toolkit for Ruby.
@@ -59,11 +63,11 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
@@ -80,11 +84,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/Rakefile
 %doc %{gem_instdir}/doc
-%{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> 5.42.0-1
+- Update to 5.42.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 5.7.1-3
 - Bump to release for EL8
 
