@@ -1,3 +1,4 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
@@ -8,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A plugin that lets you document your servers in a datacenter
 Group: Applications/Systems
 License: GPLv3
@@ -94,6 +95,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
@@ -103,6 +105,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-2
+- Update spec to lastest template
+
 * Fri Nov 27 2020 Evgeni Golov 2.3.0-1
 - Update to 2.3.0
 
