@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.3.3
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        Query JSON structure with a matching language
 
 Group:          Development/Tools
@@ -74,6 +74,9 @@ cp -a ./%{_bindir}/* %{buildroot}%{_bindir}
 
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-11
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-10
 - Rebuild for Rails 5.2 and Ruby 2.5
 

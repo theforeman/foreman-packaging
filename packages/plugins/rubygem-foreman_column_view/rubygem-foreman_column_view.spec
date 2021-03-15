@@ -9,7 +9,7 @@
 Summary:    Column View Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.4.0
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_column_view
@@ -108,6 +108,9 @@ CONFIG
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-5
+- Rebuild for Ruby 2.7
+
 * Tue Jul 21 2020 Evgeni Golov - 0.4.0-4
 - Drop posttrans macros
 

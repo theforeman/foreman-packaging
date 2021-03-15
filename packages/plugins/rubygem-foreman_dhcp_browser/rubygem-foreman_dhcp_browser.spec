@@ -9,7 +9,7 @@
 Summary:    DHCP browser plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.8
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_dhcp_browser
@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.8-5
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.8-4
 - Drop posttrans macros
 

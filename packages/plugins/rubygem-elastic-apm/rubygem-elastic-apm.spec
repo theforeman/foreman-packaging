@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.9.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: The official Elastic APM agent for Ruby
 Group: Development/Languages
 License: Apache-2.0
@@ -96,6 +96,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.9.1-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.9.1-2
 - Update spec to remove the ror scl
 

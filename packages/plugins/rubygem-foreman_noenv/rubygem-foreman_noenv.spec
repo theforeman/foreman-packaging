@@ -9,7 +9,7 @@
 Summary:    Agent-specified Environment Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.7
-Release:    5%{?foremandist}%{?dist}
+Release:    6%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/joshuabaird/foreman_noenv
@@ -100,6 +100,9 @@ mv %{buildroot}%{gem_instdir}/config/%{gem_name}.yaml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-6
+- Rebuild for Ruby 2.7
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-5
 - Drop migrate, seed and restart posttans
 

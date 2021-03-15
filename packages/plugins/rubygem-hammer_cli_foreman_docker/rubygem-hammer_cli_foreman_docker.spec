@@ -9,7 +9,7 @@
 Summary: Foreman Docker-related commands for Hammer
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3+
 URL: https://github.com/theforeman/hammer_cli_foreman_docker
@@ -76,6 +76,9 @@ install -m 755 .%{gem_instdir}/config/foreman_docker.yml \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7-2
+- Rebuild for Ruby 2.7
+
 * Fri Oct 23 2020 Oleh Fedorenko <ofedoren@redhat.com> 0.0.7-1
 - Update to 0.0.7
 

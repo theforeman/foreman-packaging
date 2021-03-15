@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Hammer commands for exporting and importing templates
 Group: Development/Languages
 License: GPLv3
@@ -85,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-2
+- Rebuild for Ruby 2.7
+
 * Mon Mar 02 2020 Oleh Fedorenko <ofedoren@redhat.com> 0.2.0-1
 - Update to 0.2.0
 

@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Summary: Spacewalk integration for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-5
+- Rebuild for Ruby 2.7
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-4
 - Drop migrate, seed and restart posttans
 

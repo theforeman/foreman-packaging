@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Simple callback-based HTTP request/response parser
 Group: Development/Languages
 License: MIT
@@ -108,6 +108,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-3
+- Rebuild for Ruby 2.7
+
 * Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.6.0-2
 - Add check section to test native library
 

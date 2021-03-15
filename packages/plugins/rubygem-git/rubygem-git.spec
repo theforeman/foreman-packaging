@@ -6,7 +6,7 @@
 Summary:        A package for using Git in Ruby code
 Name:           %{?scl_prefix}rubygem-%{gem_name}
 Version:        1.5.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            https://github.com/ruby-git/ruby-git
@@ -49,6 +49,9 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.0-2
+- Rebuild for Ruby 2.7
+
 * Fri Jan 11 2019 Marek Hulan <mhulan@redhat.com> - 1.5.0-1
 - Update git to 1.5.0
 

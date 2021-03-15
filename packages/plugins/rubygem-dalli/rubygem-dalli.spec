@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.7.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: High performance memcached client for Ruby
 Group: Development/Languages
 License: MIT
@@ -75,6 +75,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.7.6-3
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.7.6-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -9,7 +9,7 @@
 Summary:    Adds graphite integration to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.0.3
-Release:    7%{?foremandist}%{?dist}
+Release:    8%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_graphite
@@ -97,6 +97,9 @@ mv %{buildroot}%{gem_instdir}/%{gem_name}.yaml.example %{buildroot}%{foreman_plu
 %{gem_instdir}/Rakefile
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-8
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-7
 - Drop posttrans macros
 

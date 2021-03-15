@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Colorize printed text on ANSI terminals
 Group: Development/Languages
 License: MIT
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-4
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

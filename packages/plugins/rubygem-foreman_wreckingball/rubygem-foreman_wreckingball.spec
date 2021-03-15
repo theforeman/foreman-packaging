@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -97,6 +97,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.4.1-2
+- Rebuild for Ruby 2.7
+
 * Thu Jan 28 2021 Manuel Laug <laugmanuel@gmail.com> - 3.4.1-1
 - Update foreman_wreckingball to 3.4.1
 

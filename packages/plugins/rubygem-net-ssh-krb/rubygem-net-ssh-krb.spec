@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Add Kerberos support to Net::SSH
 Group: Development/Languages
 License: GPLv2
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-4
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-3
 - Rebuild for Rails 5.2 and Ruby 2.5
 

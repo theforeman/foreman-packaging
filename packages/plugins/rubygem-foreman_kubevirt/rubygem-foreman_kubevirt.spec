@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.9
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -102,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.9-2
+- Rebuild for Ruby 2.7
+
 * Thu Jan 21 2021 Shira Maximov <shiramaximov@gmail.com> 0.1.9-1
 - Update to 0.1.9
 

@@ -9,7 +9,7 @@
 Summary: Foreman boot disk commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_bootdisk
@@ -74,6 +74,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-2
+- Rebuild for Ruby 2.7
+
 * Tue Jul 02 2019 Lukas Zapletal <lzap+rpm@redhat.com> - 0.3.0-1
 - Upstream version 0.3.0
 

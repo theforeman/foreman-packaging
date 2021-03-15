@@ -6,7 +6,7 @@
 Summary: Graphite API - A Simple ruby client, aggregator daemon and API tools
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: LGPLv3
 URL: https://github.com/kontera-technologies/graphite-api
@@ -76,6 +76,9 @@ cp -pa .%{_bindir}/* %{buildroot}%{_bindir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-7
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

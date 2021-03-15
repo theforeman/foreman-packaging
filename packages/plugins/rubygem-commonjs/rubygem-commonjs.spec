@@ -7,7 +7,7 @@
 Summary: Provide access to your Ruby and Operating System runtime via the commonjs API
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.7
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/cowboyd/commonjs.rb
@@ -70,6 +70,9 @@ rm -rf %{buildroot}%{gem_instdir}/{.gitignore,.gitmodules}
 %{gem_instdir}/spec
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.7-7
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.2.7-6
 - Rebuild for Rails 5.2 and Ruby 2.5
 

@@ -9,7 +9,7 @@
 Summary:    Provision and manage DigitalOcean droplets from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.3.0
-Release:    4%{?foremandist}%{?dist}
+Release:    5%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-digitalocean
@@ -93,6 +93,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-5
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-4
 - Drop posttrans macros
 

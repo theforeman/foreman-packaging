@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman Leapp plugin for Hammer CLI
 Group: Applications/Systems
 License: GPLv3
@@ -88,6 +88,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-3
+- Rebuild for Ruby 2.7
+
 * Wed Jul 15 2020 Adam Ruzicka <aruzicka@redhat.com> 0.1.0-2
 - Do not deploy as foreman plugin
 

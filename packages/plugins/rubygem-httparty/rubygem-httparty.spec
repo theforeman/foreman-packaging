@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.17.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Makes http fun! Also, makes consuming restful web services dead easy
 Group: Development/Languages
 License: MIT
@@ -106,6 +106,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/website
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.17.0-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.17.0-2
 - Update spec to remove the ror scl
 
