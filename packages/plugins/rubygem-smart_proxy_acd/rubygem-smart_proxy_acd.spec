@@ -19,7 +19,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Application Centric Deployment smart proxy plugin
 Group: Applications/Internet
 License: GPLv3
@@ -97,7 +97,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/acd.yml.example \
 
 # bundler.d file for smart_proxy_acd_core
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_acd_core.rb
+cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_acd_core.rb \
+                %{buildroot}%{foreman_proxy_bundlerd_dir}/smart_proxy_acd_core.rb \
+                >/dev/null
 gem 'smart_proxy_acd_core'
 EOF
 
@@ -109,6 +111,7 @@ EOF
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
+%{foreman_proxy_bundlerd_dir}/smart_proxy_acd_core.rb
 %{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_acd_core.rb
 %exclude %{gem_cache}
 %{gem_spec}
@@ -118,6 +121,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.1.0-2
+- Deploy bundlerd file for foreman proxy
+
 * Tue Mar 09 2021 Bernhard Suttner <suttner@atix.de> 0.1.0-1
 - Update to 0.1.0
 

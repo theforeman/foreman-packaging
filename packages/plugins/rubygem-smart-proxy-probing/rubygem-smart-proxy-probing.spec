@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Gem to allow probing through smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -103,7 +103,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/probing.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/probing.yml
 
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
+cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb \
+                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_probing_core.rb \
+                >/dev/null
 gem 'foreman_probing_core'
 EOF
 
@@ -117,6 +119,7 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_proxy_bundlerd_dir}/foreman_probing_core.rb
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
 
 %files doc
@@ -124,6 +127,9 @@ EOF
 
 
 %changelog
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.0.3-2
+- Deploy bundlerd file for foreman proxy
+
 * Wed Nov 18 2020 Adam Ruzicka <aruzicka@redhat.com> - 0.0.3-1
 - Update to 0.0.3
 

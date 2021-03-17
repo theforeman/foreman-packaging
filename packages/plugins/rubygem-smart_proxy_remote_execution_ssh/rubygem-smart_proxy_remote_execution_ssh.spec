@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -114,7 +114,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
+cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb \
+                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_remote_execution_core.rb \
+                >/dev/null
 gem 'foreman_remote_execution_core'
 EOF
 
@@ -126,6 +128,7 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_proxy_bundlerd_dir}/foreman_remote_execution_core.rb
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
 %{foreman_proxy_dir}/.ssh
 %attr(0750,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
@@ -135,6 +138,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-2
+- Deploy bundlerd file for foreman proxy
+
 * Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-1
 - Update to 0.3.1
 
