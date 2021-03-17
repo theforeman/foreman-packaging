@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.17
+Version: 3.0.18.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -31,11 +31,13 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(katello)
 Requires: %{?scl_prefix}rubygem(redhat_access)
 Requires: %{?scl_prefix}rubygem(foreman_ansible)
+Requires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(katello)
 BuildRequires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -129,6 +131,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 17 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.18.1-1
+- Update to 3.0.18.1-1
+
 * Mon Feb 22 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.17-1
 - Update to 3.0.17-1
 
