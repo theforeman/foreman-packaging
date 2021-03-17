@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -122,7 +122,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/ansible.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/ansible.yml
 
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
+cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb \
+                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb \
+                >/dev/null
 gem 'foreman_ansible_core'
 EOF
 
@@ -152,6 +154,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
 %ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_root_sysconfdir}/foreman-proxy/ansible.cfg
+%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb
 %{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
 
 %files doc
@@ -159,6 +162,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 3.0.1-7
+- Deploy bundlerd file for foreman proxy
+
 * Mon Jun 22 2020 Evgeni Golov - 3.0.1-6
 - Fix bundler.d location on EL8
 
