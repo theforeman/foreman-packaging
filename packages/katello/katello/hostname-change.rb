@@ -495,9 +495,14 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       STDOUT.puts "updating hostname in foreman installer scenarios"
       self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{scenarios_path}/*.yaml")
 
-      STDOUT.puts "updating hostname in hammer configuration"
-      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{hammer_root_config_path}/*.yml")
-      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{hammer_config_path}/*.yml")
+      if File.exist?(hammer_root_config_path) or File.exist?(hammer_config_path)
+        STDOUT.puts "updating hostname in hammer configuration"
+        [hammer_root_config_path, hammer_config_path].each do |config_dir|
+          Dir[File.join(config_dir, "*.yml")].each do |config_file|
+            self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{config_file}")
+          end
+        end
+      end
 
       if File.exist?(last_scenario_yaml)
         STDOUT.puts 'backing up last_scenario.yaml'

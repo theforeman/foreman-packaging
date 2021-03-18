@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    4.1.0
@@ -144,6 +144,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Mar 19 2021 Pablo N. Hess <phess@redhat.com> - 4.1.0-0.3.master
+- Fixes #32125 - katello-change-hostname now looks for hammer config before changing it
+
 * Fri Mar 05 2021 Chris Roberts <chrobert@redhat.com> - 4.1.0-0.2.master
 - Update katello-debug with correct qpid commands
 
