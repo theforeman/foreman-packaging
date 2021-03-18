@@ -55,7 +55,6 @@
       <packagereq type="default">tfm-rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_discovery</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_dlm</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_docker</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_fog_proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_git_templates</packagereq>
@@ -96,7 +95,6 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery</packagereq>
-      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_docker</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_leapp</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_openscap</packagereq>
@@ -217,7 +215,6 @@
       <packagereq type="default">tfm-rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_dlm-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman_docker-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_expire_hosts-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_fog_proxmox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_git_templates-doc</packagereq>
@@ -258,7 +255,6 @@
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_discovery-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-hammer_cli_foreman_docker-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_leapp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_openscap-doc</packagereq>
