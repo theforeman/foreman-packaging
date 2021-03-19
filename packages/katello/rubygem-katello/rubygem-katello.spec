@@ -6,7 +6,7 @@
 %global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
 %global release 4
@@ -56,12 +56,12 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.9.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -96,12 +96,12 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.6.2
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.7.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Mar 19 2021 Patrick Creech <pcreech@redhat.com> - 4.0.0-0.4.rc3
+- Release rubygem-katello 4.0.0
+
 * Mon Feb 22 2021 Zach Huntington-Meath - 4.0.0-0.4.rc2
 - Release rubygem-katello 4.0.0-rc2
 - Add qpid_proton requirement

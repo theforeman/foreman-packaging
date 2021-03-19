@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc2
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 10
 
@@ -144,6 +144,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Mar 19 2021 Patrick Creech <pcreech@redhat.com> - 4.0.0-0.10.rc3
+- Release katello 4.0.0
+
 * Wed Mar 10 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.10.rc2
 - Drop Pulp 2 from katello-debug
 

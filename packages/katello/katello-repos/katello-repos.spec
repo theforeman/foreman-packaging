@@ -3,7 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Fri Mar 19 2021 Patrick Creech <pcreech@redhat.com> - 4.0.0-0.4.rc3
+- Release katello-repos 4.0.0
+
 * Wed Mar 03 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.0.0-0.4.rc1
 - Remove Pulp 2 and qpid copr repository definitions
 - Always GPG check pulpcore repositories
