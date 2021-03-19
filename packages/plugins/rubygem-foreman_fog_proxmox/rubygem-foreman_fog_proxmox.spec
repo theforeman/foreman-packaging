@@ -86,18 +86,21 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
