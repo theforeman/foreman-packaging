@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    4.1.0
@@ -17,7 +17,6 @@ Group:      Applications/Internet
 License:    GPLv2
 URL:        https://theforeman.org/plugins/katello
 Source1:    katello-debug.sh
-Source9:    qpid-core-dump
 Source11:   katello-change-hostname
 Source13:   katello-change-hostname.8.asciidoc
 Source16:   hostname-change.rb
@@ -35,10 +34,6 @@ Requires: %{?scl_prefix}rubygem-katello
 Requires: %{?scl_prefix}rubygem-hammer_cli
 Requires: %{?scl_prefix}rubygem-hammer_cli_foreman
 Requires: %{?scl_prefix}rubygem-hammer_cli_katello
-
-# katello-agent requirements
-Requires: qpid-cpp-server-linearstore
-Requires: cyrus-sasl-plain
 
 Requires: candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
@@ -74,7 +69,6 @@ install -m 644 %{SOURCE17} %{buildroot}%{_datarootdir}/katello/helper.rb
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_sbindir}
 install -Dp -m0755 %{SOURCE11} %{buildroot}%{_sbindir}/katello-change-hostname
-install -Dp -m0755 %{SOURCE9} %{buildroot}%{_sbindir}/qpid-core-dump
 install -Dp -m0755 %{SOURCE1} %{buildroot}/usr/share/foreman/script/foreman-debug.d/katello-debug.sh
 
 # install tab completion scripts
@@ -98,13 +92,11 @@ Summary:    Common runtime components of %{name}
 
 Requires: rubygem-highline
 Requires: %{name}-debug
-Requires: qpid-dispatch-router
 
 %description common
 Common runtime components of %{name}
 
 %files common
-%{_sbindir}/qpid-core-dump
 %{_sbindir}/katello-change-hostname
 %{_mandir}/man8/katello-change-hostname.8*
 %{_datarootdir}/katello/hostname-change.rb
@@ -144,6 +136,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Mar 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.4.master
+- Drop qpid install requires
+
 * Fri Mar 19 2021 Pablo N. Hess <phess@redhat.com> - 4.1.0-0.3.master
 - Fixes #32125 - katello-change-hostname now looks for hammer config before changing it
 
