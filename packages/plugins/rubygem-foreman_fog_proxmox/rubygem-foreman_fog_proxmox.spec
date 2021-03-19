@@ -7,7 +7,7 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.12.4
+Version: 0.13.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
@@ -21,12 +21,12 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.13
+Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
 Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.13
+BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -115,6 +115,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Fri Mar 19 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.13.3-1
+- Update to 0.13.3
+
 * Tue Aug 25 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.12.4-1
 - Update to 0.12.4
 
