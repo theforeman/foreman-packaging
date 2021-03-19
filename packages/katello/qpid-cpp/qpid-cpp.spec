@@ -8,7 +8,7 @@
 
 Name:          qpid-cpp
 Version:       1.39.0
-Release:       6%{?dist}
+Release:       7%{?dist}
 Summary:       Libraries for Qpid C++ client applications
 License:       ASL 2.0
 URL:           http://qpid.apache.org
@@ -465,7 +465,7 @@ export ADDFLAGS=""
 %cmake -DDOC_INSTALL_DIR:PATH=%{_pkgdocdir} \
        -DBUILD_LEGACYSTORE=false \
        -DBUILD_LINEARSTORE=true \
-       -DBUILD_BINDING_RUBY=true \
+       -DBUILD_BINDING_RUBY=false \
        "-DCMAKE_CXX_FLAGS=$CXXFLAGS $CXX11FLAG $ADDFLAGS" \
        .
 make %{?_smp_mflags}
@@ -537,6 +537,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Mar 19 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.39.0-7
+- Do not build qpid_messaging Ruby binding
+
 * Tue Oct 20 2020 Mike Cressman <mcressma@redhat.com> - 1.39.0-6
 - add client fixes that are missing from RHEL-8 (which is based on 1.39.0)
   - Bug 1618908 - client memory leak when attaching to an unreachable broker address
