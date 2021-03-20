@@ -1,3 +1,9 @@
+foreman-installer (2.4.0-1) stable; urgency=low
+
+  * 2.4.0 released
+
+ -- Patrick Creech <pcreech@redhat.com>  Sat, 20 Mar 2021 14:06:21 -0400
+
 foreman-installer (2.4.0~rc3-1) stable; urgency=low
 
   * 2.4.0-rc3 released
