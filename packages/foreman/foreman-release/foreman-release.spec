@@ -13,9 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:     foreman-release
 Version:  2.4.0
@@ -96,6 +94,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Sat Mar 20 2021 Patrick Creech <pcreech@redhat.com> - 2.4.0-1
+- Release foreman-release 2.4.0
+
 * Thu Mar 11 2021 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.2.rc3
 - Release foreman-release 2.4.0
 
