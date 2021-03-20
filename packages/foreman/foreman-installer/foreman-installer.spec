@@ -1,9 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
@@ -47,7 +45,7 @@ Requires: which
 
 # puppet-candlepin enables the pki-core module which needs DNF module support
 # That was introduced in 5.5.20 and 6.15.0
-%if 0%{rhel} == 8
+%if 0%{?rhel} == 8
 Requires:   puppet-agent >= 5.5.20
 Conflicts: (puppet-agent >= 6.0.0 with puppet-agent < 6.15.0)
 %endif
@@ -149,6 +147,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Sat Mar 20 2021 Patrick Creech <pcreech@redhat.com> - 1:2.4.0-1
+- Release foreman-installer 2.4.0
+
 * Mon Mar 15 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.4.0-0.2.rc3
 - Require Puppet with DNF module support (#32003)
 
