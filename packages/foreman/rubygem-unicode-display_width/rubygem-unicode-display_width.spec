@@ -1,69 +1,89 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name unicode-display_width
+%global gem_require_name %{gem_name}
 
-Summary: Determines the monospace display width of a string in Ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 1.0.5
-Release: 4%{?dist}
-Group: Development/Ruby
+Version: 1.7.0
+Release: 1%{?dist}
+Summary: Determines the monospace display width of a string in Ruby
+Group: Development/Languages
 License: MIT
 URL: https://github.com/janlelis/unicode-display_width
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(unicode-display_width) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Determines the monospace display width of a string using EastAsianWidth.txt,
-Unicode general category, and other data.
+[Unicode 13.0.0] Determines the monospace display width of a string using
+EastAsianWidth.txt, Unicode general category, and other data.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
-rm -rf %{buildroot}%{gem_instdir}/.yardoc
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
-%doc %{gem_instdir}/MIT-LICENSE.txt
+%license %{gem_instdir}/MIT-LICENSE.txt
 %{gem_instdir}/data
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Rakefile
-%doc %{gem_instdir}/CHANGELOG.txt
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/spec
-%exclude %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Mon Mar 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.7.0-1
+- Release rubygem-unicode-display_width 1.7.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.5-4
 - Bump to release for EL8
 
