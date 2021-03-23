@@ -5,7 +5,7 @@
 
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 5
 
 Name:           katello-repos
 Version:        4.0.0
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Mar 23 2021 Evgeni Golov - 4.0.0-0.5.rc3
+- Consume repositories from yum.theforeman.org
+
 * Fri Mar 19 2021 Patrick Creech <pcreech@redhat.com> - 4.0.0-0.4.rc3
 - Release katello-repos 4.0.0
 
