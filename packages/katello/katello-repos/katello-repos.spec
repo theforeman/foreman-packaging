@@ -5,7 +5,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.1
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Mar 23 2021 Evgeni Golov - 4.1-0.2.nightly
+- Consume repositories from yum.theforeman.org
+
 * Wed Mar 03 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.1-0.1.nightly
 - Bump to 4.1
 - Remove Pulp 2 and qpid copr repository definitions
