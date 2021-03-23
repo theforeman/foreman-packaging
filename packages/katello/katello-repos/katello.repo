@@ -2,7 +2,7 @@
 
 [katello]
 name=Katello @REPO_NAME@
-baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/katello/@DIST@/$basearch/
+baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/katello/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
@@ -13,7 +13,7 @@ module_hotfixes=1
 
 [katello-candlepin]
 name=Candlepin: an open source entitlement management system.
-baseurl=https://fedorapeople.org/groups/katello/releases/yum/@REPO_VERSION@/candlepin/@DIST@/$basearch/
+baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/candlepin/@DIST@/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
@@ -31,14 +31,14 @@ module_hotfixes=1
 
 [katello-source]
 name=Katello @REPO_NAME@ Source
-baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/katello/@DIST@/
+baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/katello/@DIST@/source/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
 
 [katello-candlepin-source]
 name=Katello Candlepin source
-baseurl=https://fedorapeople.org/groups/katello/releases/source/srpm/@REPO_VERSION@/candlepin/@DIST@/
+baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/candlepin/@DIST@/source/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=0
 gpgcheck=@REPO_GPGCHECK@
