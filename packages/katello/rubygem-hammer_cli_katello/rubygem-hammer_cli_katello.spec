@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 2
+%global release 3
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -33,6 +33,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: %{?scl_prefix}rubygem-hammer_cli_foreman_docker < 0.0.7-2
 
 %description
 Hammer-CLI-Katello is a plugin for Hammer to provide connectivity to a Katello
@@ -94,6 +96,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 24 2021 Evgeni Golov - 1.0.1-0.3.pre.master
+- Obsolete hammer_cli_foreman_docker as we ship conflicting commands
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.2.pre.master
 - Drop hammer_cli_docker and hammer_cli_bootdisk requires
 
