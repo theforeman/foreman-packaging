@@ -1,12 +1,12 @@
-# Generated from kafo-3.0.0.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name kafo
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.2.1
+Version: 6.3.0
 Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
@@ -16,7 +16,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.4.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(kafo_wizards)
 Requires: %{?scl_prefix}rubygem(ansi)
@@ -25,16 +25,14 @@ Requires: %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(clamp) < 1.3.1
 Requires: %{?scl_prefix}rubygem(highline) >= 1.6.21
-Requires: %{?scl_prefix}rubygem(highline) < 3.0.0
+Requires: %{?scl_prefix}rubygem(highline) < 3.0
 Requires: %{?scl_prefix}rubygem(powerbar)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-%{?scl:Obsoletes: rubygem-%{gem_name} <= 4.1.0}
 
 %description
 If you write puppet modules for installing your software, you can use kafo to
@@ -75,11 +73,11 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
@@ -103,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Thu Mar 25 2021 Eric D. Helms <ericdhelms@gmail.com> 6.3.0-1
+- Update to 6.3.0
+
 * Fri Jan 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.2.1-1
 - Release rubygem-kafo 6.2.1
 
