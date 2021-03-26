@@ -6,7 +6,7 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.0
+Version: 1.4.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Fri Mar 26 2021 Adam Ruzicka <aruzicka@redhat.com> 1.4.1-1
+- Update to 1.4.1
+
 * Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.0-1
 - Update to 1.4.0
 
