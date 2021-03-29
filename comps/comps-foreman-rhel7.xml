@@ -35,7 +35,6 @@
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
-      <packagereq type="default">tfm-mod_passenger</packagereq>
       <packagereq type="default">tfm-nodejs-argv-parse</packagereq>
       <packagereq type="default">tfm-nodejs-babel-cli</packagereq>
       <packagereq type="default">tfm-nodejs-babel-core</packagereq>
@@ -239,9 +238,6 @@
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
       <packagereq type="default">tfm-rubygem-parallel</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass</packagereq>
       <packagereq type="default">tfm-rubygem-pg</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
@@ -334,7 +330,6 @@
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
-      <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
@@ -344,9 +339,6 @@
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
-      <packagereq type="default">rubygem-passenger</packagereq>
-      <packagereq type="default">rubygem-passenger-native</packagereq>
-      <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -354,7 +346,6 @@
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
-      <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailbox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer-doc</packagereq>
@@ -485,7 +476,6 @@
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parallel-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json-doc</packagereq>

@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 7.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -130,6 +130,13 @@ Obsoletes: tfm-ror52-rubygem-turbolinks-doc < 2.5.4-3
 # arel isn't there to obsolete the tfm-ror52 package so this is explicit
 Obsoletes: tfm-ror52-rubygem-arel <= 9.0.0
 Obsoletes: %{scl_prefix}-rubygem-arel <= 9.0.0
+
+# obsolete all of the tfm Passenger packages since Passenger support is dropped
+Obsoletes: %{scl_prefix}mod_passenger < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-doc < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-native < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-native-libs < 4.0.18-10.14
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -319,6 +326,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-2
+- Obsolete passenger packages
+
 * Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-1
 - Update to Ruby 2.7 via rh-ruby27
 
