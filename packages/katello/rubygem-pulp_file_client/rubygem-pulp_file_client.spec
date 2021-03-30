@@ -6,8 +6,8 @@
 %global gem_name pulp_file_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.5.0
-Release: 2%{?dist}
+Version: 1.6.1
+Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
 License: GPLv2
@@ -88,6 +88,9 @@ rm %{buildroot}/%{gem_instdir}/git_push.sh
 %{gem_instdir}/spec
 
 %changelog
+* Tue Mar 30 2021 Justin Sherrill <jsherril@redhat.com> 1.6.1-1
+- Update to 1.6.1
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.0-2
 - Rebuild for Ruby 2.7
 
