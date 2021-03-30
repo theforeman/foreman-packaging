@@ -59,7 +59,6 @@
       <packagereq type="default">tfm-rubygem-pulp_container_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_deb_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_file_client</packagereq>
-      <packagereq type="default">tfm-rubygem-pulp_2to3_migration_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">tfm-rubygem-qpid_proton</packagereq>
       <packagereq type="default">tfm-rubygem-redhat_access_lib</packagereq>

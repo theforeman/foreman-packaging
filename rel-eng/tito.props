@@ -1027,7 +1027,6 @@ whitelist = katello
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
   rubygem-katello
-  rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
   rubygem-pulp_certguard_client
   rubygem-pulp_container_client
