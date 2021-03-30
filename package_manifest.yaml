@@ -881,7 +881,6 @@ katello_packages:
     rubygem-pulp_container_client: {}
     rubygem-pulp_deb_client: {}
     rubygem-pulp_file_client: {}
-    rubygem-pulp_2to3_migration_client: {}
     rubygem-pulp_rpm_client: {}
     rubygem-qpid_proton: {}
     rubygem-redhat_access: {}
