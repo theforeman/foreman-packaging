@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
 License: GPLv3
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-2
+- Rebuild plugins for Ruby 2.7
+
 * Thu Dec 10 2020 Ondrej Prazak <oprazak@redhat.com> 4.0.0-1
 - Update to 4.0.0
 

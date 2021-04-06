@@ -9,7 +9,7 @@
 Summary:    This plugin adds extra validations to a host
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.1.0
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_host_extra_validator
@@ -90,6 +90,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-4
+- Rebuild plugins for Ruby 2.7
+
 * Tue Jul 21 2020 Evgeni Golov - 0.1.0-3
 - Drop posttrans macros
 

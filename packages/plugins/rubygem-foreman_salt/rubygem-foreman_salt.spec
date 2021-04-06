@@ -9,7 +9,7 @@
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    13.2.4
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_salt
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 13.2.4-2
+- Rebuild plugins for Ruby 2.7
+
 * Tue Jun 09 2020 Bernhard Suttner <suttner@atix.de> 13.2.4-1
 - Update to 13.2.4
 - Drop migrate, seed and restart posttans

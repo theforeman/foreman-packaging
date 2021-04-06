@@ -7,7 +7,7 @@
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_remote_execution
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.1-2
+- Rebuild plugins for Ruby 2.7
+
 * Fri Mar 26 2021 Adam Ruzicka <aruzicka@redhat.com> 1.4.1-1
 - Update to 1.4.1
 
