@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puppet module parsers
 Group: Development/Languages
 License: GPLv3+
@@ -84,6 +84,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-2
+- Rebuild for Ruby 2.7
+
 * Tue Mar 16 2021 Eric D. Helms <ericdhelms@gmail.com> 1.2.0-1
 - Update to 1.2.0
 
