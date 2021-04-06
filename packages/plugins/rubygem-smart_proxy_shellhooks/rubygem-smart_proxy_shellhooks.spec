@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Execute scripts via REST API from Foreman Webhooks plugin
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/examples/* %{buildroot}%{foreman_proxy_statedir}/%
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.2-2
+- Rebuild for Ruby 2.7
+
 * Tue Mar 16 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.9.2-1
 - Update to 0.9.2
 

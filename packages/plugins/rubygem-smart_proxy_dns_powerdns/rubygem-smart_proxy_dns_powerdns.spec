@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 5%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Summary: PowerDNS DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dns_powerdns.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-6
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 1.0.0-5
 - Fix bundler.d location on EL8
 

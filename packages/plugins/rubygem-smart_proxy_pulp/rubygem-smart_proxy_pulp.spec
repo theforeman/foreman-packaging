@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -113,6 +113,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-4
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 2.1.0-3
 - Fix bundler.d location on EL8
 

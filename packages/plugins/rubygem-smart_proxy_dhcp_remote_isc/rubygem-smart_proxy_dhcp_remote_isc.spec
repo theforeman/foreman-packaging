@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Smart-Proxy dhcp module provider for NFS-accessible ISC dhcpd installations
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_remote_isc.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-4
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 0.0.5-3
 - Fix bundler.d location on EL8
 

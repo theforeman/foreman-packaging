@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.16
-Release: 4%{?foremandist}%{?dist}
+Release: 5%{?foremandist}%{?dist}
 Summary: Infoblox DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -111,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_infoblox.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.16-5
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 0.0.16-4
 - Fix bundler.d location on EL8
 

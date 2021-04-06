@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.2-2
+- Rebuild for Ruby 2.7
+
 * Wed Dec 16 2020 Lukas Zapletal <lzap+rpm@redhat.com> 1.3.2-1
 - Update to 1.3.2
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A Chef API client in Ruby
 Group: Development/Languages
 License: ASL 2.0
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-5
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.6.0-4
 - Update spec to remove the ror scl
 

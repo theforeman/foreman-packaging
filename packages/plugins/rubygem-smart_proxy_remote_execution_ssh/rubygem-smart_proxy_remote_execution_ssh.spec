@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -138,6 +138,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.1-3
+- Rebuild for Ruby 2.7
+
 * Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-2
 - Deploy bundlerd file for foreman proxy
 
