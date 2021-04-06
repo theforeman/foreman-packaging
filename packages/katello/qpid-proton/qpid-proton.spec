@@ -9,7 +9,7 @@
 
 Name:           qpid-proton
 Version:        0.32.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A high performance, lightweight messaging library
 License:        ASL 2.0
 URL:            http://qpid.apache.org/proton/
@@ -369,6 +369,9 @@ rm -f  %{buildroot}%{proton_datadir}/CMakeLists.txt
 %check
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.32.0-3
+- Rebuild for Ruby 2.7
+
 * Fri Oct  2 2020 Irina Boverman <iboverma@redhat.com> - 0.32.0-2
 - Added temp fix to allow building c/cpp examples
 
