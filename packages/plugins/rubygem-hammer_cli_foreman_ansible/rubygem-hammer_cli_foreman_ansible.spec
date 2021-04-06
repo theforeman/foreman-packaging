@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman Ansible plugin for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -85,6 +85,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.3-2
+- Rebuild plugins for Ruby 2.7
+
 * Mon Jan 11 2021 Oleh Fedorenko <ofedoren@redhat.com> 0.3.3-1
 - Update to 0.3.3
 

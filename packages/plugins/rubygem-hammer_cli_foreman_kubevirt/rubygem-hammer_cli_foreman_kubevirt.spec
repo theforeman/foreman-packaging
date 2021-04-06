@@ -11,7 +11,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.4
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman kubevirt commands for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -92,6 +92,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.4-2
+- Rebuild plugins for Ruby 2.7
+
 * Thu Mar 19 2020 Shira Maximov <shiramaximov@gmail.com> 0.1.4-1
 - Update to 0.1.4
 
