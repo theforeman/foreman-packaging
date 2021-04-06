@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: jquery.matchHeight.js for the Rails Asset Pipeline
 Group: Development/Languages
 License: MIT
@@ -78,6 +78,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.1-3
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 0.7.1-2
 - Rebuild for Rails 5.2 and Ruby 2.5
 
