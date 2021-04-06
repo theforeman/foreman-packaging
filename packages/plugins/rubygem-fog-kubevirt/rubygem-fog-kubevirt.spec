@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Kubevirt
 Group: Development/Languages
 License: Apache-2.0
@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-2
+- Rebuild for Ruby 2.7
+
 * Mon Nov 11 2019 Shira Maximov <shiramaximov@gmail.com> 1.3.3-1
 - Update to 1.3.3
 
