@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman CLI plugin for managing discovery hosts in foreman
 Group: Development/Languages
 License: GPLv3
@@ -90,6 +90,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-2
+- Rebuild plugins for Ruby 2.7
+
 * Tue Nov 19 2019 Lukas Zapletal <lzap@redhat.com> 1.0.2-1
 - Update to 1.0.2
 
