@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds support for using templates from Git repositories
 Group: Applications/Systems
 License: GPLv3
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.6-2
+- Rebuild plugins for Ruby 2.7
+
 * Thu Aug 13 2020 Manuel Laug <manuel.laug@dm.de> - 1.0.6-1
 - Update foreman_git_templates to 1.0.6
 

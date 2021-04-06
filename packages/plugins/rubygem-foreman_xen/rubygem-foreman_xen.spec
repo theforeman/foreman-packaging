@@ -9,7 +9,7 @@
 Summary:    Provision and manage XEN Server from Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.1
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman-xen
@@ -100,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-2
+- Rebuild plugins for Ruby 2.7
+
 * Sun Feb 02 2020 Michael Moll <mmoll@mmoll.at> 1.0.1-1
 - Update to 1.0.1
 

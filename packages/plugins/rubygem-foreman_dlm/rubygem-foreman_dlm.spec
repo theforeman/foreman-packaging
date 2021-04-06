@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -117,6 +117,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
+- Rebuild plugins for Ruby 2.7
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Drop migrate, seed and restart posttans
 

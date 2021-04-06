@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: This Foreman plug-in integrates with Elastic APM
 Group: Applications/Systems
 License: GPLv3+
@@ -92,6 +92,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-3
+- Rebuild plugins for Ruby 2.7
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-2
 - Drop posttrans macros
 
