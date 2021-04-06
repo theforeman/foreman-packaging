@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: dnsmasq DNS provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -108,5 +108,8 @@ mv %{buildroot}%{gem_instdir}/config/dns_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6-2
+- Rebuild for Ruby 2.7
+
 * Fri Jun 12 2020 Michael Moll <mmoll@mmoll.at> 0.6-1
 - Add rubygem-smart_proxy_dns_dnsmasq

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: This module provides common interface to HMAC functionality
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-4
+- Rebuild for Ruby 2.7
+
 * Tue Jan 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-3
 - Build for SCL
 

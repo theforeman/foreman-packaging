@@ -35,7 +35,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 7%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -189,6 +189,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.2-8
+- Rebuild for Ruby 2.7
+
 * Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 3.1.2-7
 - Deploy bundlerd file for foreman proxy
 

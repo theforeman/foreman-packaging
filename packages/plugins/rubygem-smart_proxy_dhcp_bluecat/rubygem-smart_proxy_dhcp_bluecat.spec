@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: BlueCat DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -111,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_bluecat.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.5-2
+- Rebuild for Ruby 2.7
+
 * Tue Feb 23 2021 Bernhard Suttner <suttner@atix.de> 0.1.5-1
 - Update to 0.1.5
 
