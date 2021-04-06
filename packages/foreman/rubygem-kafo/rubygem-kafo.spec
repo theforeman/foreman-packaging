@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.3.0-2
+- Rebuild for Ruby 2.7
+
 * Thu Mar 25 2021 Eric D. Helms <ericdhelms@gmail.com> 6.3.0-1
 - Update to 6.3.0
 
