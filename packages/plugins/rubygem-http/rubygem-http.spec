@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP should be easy
 Group: Development/Languages
 License: MIT
@@ -101,5 +101,8 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.3.0-2
+- Rebuild for Ruby 2.7
+
 * Wed Apr 24 2019 Moti Asayag <masayag@redhat.com> 3.3.0-1
 - Update to 3.3.0

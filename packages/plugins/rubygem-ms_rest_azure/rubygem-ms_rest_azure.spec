@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.11.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Azure Client Library for Ruby
 Group: Development/Languages
 License: MIT
@@ -87,6 +87,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.11.1-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.11.1-2
 - Update spec to remove the ror scl
 

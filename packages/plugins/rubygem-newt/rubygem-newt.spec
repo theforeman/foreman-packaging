@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Ruby bindings for newt
 Group: Development/Languages
 License: MIT
@@ -105,6 +105,9 @@ GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name
 %{gem_instdir}/examples
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.7-3
+- Rebuild for Ruby 2.7
+
 * Fri Aug 21 2020 Lukas Zapletal <lzap+rpm@redhat.com> 0.9.7-2
 - Release bump - moved into SCL for EL7
 

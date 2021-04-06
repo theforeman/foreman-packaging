@@ -18,7 +18,7 @@
 Summary:    Foreman plugin to provision new hosts and integrate to oVirt Engine
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    2.0.3
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/ovirt_provision_plugin
@@ -93,6 +93,9 @@ GEMFILE
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.3-3
+- Rebuild for Ruby 2.7
+
 
 * Mon Mar 08 2021 Shira Maximov <shiramaximov@gmail.com> 2.0.3-2
 - remove rbovirt dependency and add ovirt-engine-sdk dependency
