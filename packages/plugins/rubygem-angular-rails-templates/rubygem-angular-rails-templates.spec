@@ -8,7 +8,7 @@
 
 Name:      %{?scl_prefix}rubygem-%{gem_name}
 Version:   1.1.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Epoch:     1
 Summary:   Use your angular templates with rails' asset pipeline
 Group:     Development/Languages
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.0-2
+- Rebuild for Ruby 2.7
+
 * Wed Apr 08 2020 Michael Moll <mmoll@mmoll.at> - 1:1.1.0-1
 - Update to 1.1.0
 

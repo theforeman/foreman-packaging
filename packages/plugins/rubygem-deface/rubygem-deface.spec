@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.5.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Deface is a library that allows you to customize ERB, Haml and Slim views in Rails
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.3-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.5.3-2
 - Update spec to remove the ror scl
 

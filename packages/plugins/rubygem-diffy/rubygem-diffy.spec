@@ -6,7 +6,7 @@
 Summary: Convenient diffing in ruby
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/samg/diffy
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-6
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-5
 - Rebuild for Rails 5.2 and Ruby 2.5
 
