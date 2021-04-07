@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -47,7 +47,7 @@ Requires: which
 
 # puppet-candlepin enables the pki-core module which needs DNF module support
 # That was introduced in 5.5.20 and 6.15.0
-%if 0%{rhel} == 8
+%if 0%{?rhel} == 8
 Requires:   puppet-agent >= 5.5.20
 Conflicts: (puppet-agent >= 6.0.0 with puppet-agent < 6.15.0)
 %endif
@@ -149,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.5.0-0.4.develop
+- Do not fail if rhel macro is undefined
+
 * Fri Mar 05 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.0-0.3.develop
 - Require Puppet with DNF module support (#32003)
 
