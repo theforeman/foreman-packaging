@@ -5,8 +5,8 @@
 %global gem_name ms_rest_azure
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.1
-Release: 3%{?dist}
+Version: 0.12.0
+Release: 1%{?dist}
 Summary: Azure Client Library for Ruby
 Group: Development/Languages
 License: MIT
@@ -19,12 +19,11 @@ Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
-Requires: %{?scl_prefix}rubygem(unf_ext) = 0.0.7.2
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
-Requires: %{?scl_prefix}rubygem(faraday) < 1
+Requires: %{?scl_prefix}rubygem(faraday) < 2.0.0
 Requires: %{?scl_prefix}rubygem(faraday-cookie_jar) >= 0.0.6
 Requires: %{?scl_prefix}rubygem(faraday-cookie_jar) < 0.1
-Requires: %{?scl_prefix}rubygem(ms_rest) >= 0.7.4
+Requires: %{?scl_prefix}rubygem(ms_rest) >= 0.7.6
 Requires: %{?scl_prefix}rubygem(ms_rest) < 0.8
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
@@ -87,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 0.12.0-1
+- Update to 0.12.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.11.1-3
 - Rebuild for Ruby 2.7
 
