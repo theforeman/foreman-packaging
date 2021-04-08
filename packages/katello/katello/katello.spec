@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    4.1.0
@@ -31,9 +31,6 @@ Requires: %{name}-common = %{version}-%{release}
 Requires: foreman-installer-%{name}
 
 Requires: %{?scl_prefix}rubygem-katello
-Requires: %{?scl_prefix}rubygem-hammer_cli
-Requires: %{?scl_prefix}rubygem-hammer_cli_foreman
-Requires: %{?scl_prefix}rubygem-hammer_cli_katello
 
 Requires: candlepin >= 2.0
 Requires: candlepin-selinux >= 2.0
@@ -136,6 +133,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Apr 08 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.5.master
+- Drop requirement on Hammer CLI packages
+
 * Mon Mar 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.4.master
 - Drop qpid install requires
 
