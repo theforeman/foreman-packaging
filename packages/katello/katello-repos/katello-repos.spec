@@ -6,6 +6,7 @@
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
+
 Name:           katello-repos
 Version:        4.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
@@ -67,7 +68,7 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
-* Thu Apr 08 2021 Justin Sherrill <jsherril@redhat.com> 
+* Thu Apr 08 2021 Justin Sherrill <jsherril@redhat.com> - 4.1-0.3.nightly
 - use 3.11 pulpcore repos
 
 * Tue Mar 23 2021 Evgeni Golov - 4.1-0.2.nightly
