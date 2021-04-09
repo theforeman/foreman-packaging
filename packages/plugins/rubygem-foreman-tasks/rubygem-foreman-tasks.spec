@@ -8,8 +8,8 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
-Release: 2%{?foremandist}%{?dist}
+Version: 4.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -47,7 +47,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -174,6 +175,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 09 2021 Adam Ruzicka <aruzicka@redhat.com> 4.1.0-1
+- Update to 4.1.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-2
 - Rebuild plugins for Ruby 2.7
 
