@@ -6,7 +6,6 @@
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
-6
 Name:           katello-repos
 Version:        4.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
