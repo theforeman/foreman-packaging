@@ -1,0 +1,34 @@
+#!/bin/sh
+# postinst script for foreman-*
+#
+# see: dh_installdeb(1)
+
+[ -n "${DEBUG}" ] && set -x
+set -e
+
+. /usr/share/debconf/confmodule
+
+LOGFILE='/var/log/foreman-install.log'
+
+# if this script aborts with an error dpkg can
+# hang if daemons have been started
+trap db_stop EXIT
+
+BUNDLE=bundle
+[ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+
+# Update gems
+export HOME=/usr/share/foreman
+cd /usr/share/foreman
+if [ ! -z "${DEBUG}" ]; then
+  $BUNDLE update --local
+else
+  $BUNDLE update --local 2>&1 >> $LOGFILE
+fi
+
+# Own all the core files
+chown -Rf foreman:foreman '/usr/share/foreman'
+
+#DEBHELPER#
+
+exit 0
