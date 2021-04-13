@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Epoch: 1
-Version: 0.7.0
+Version: 0.11.0
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 13 2021 Samir Jha <sjha4@ncsu.edu> 1:0.11.0-1
+- Update to 0.11.0
+
 * Wed Feb 17 2021 ianballou <ianballou67@gmail.com> 1:0.7.0-1
 - Update to 0.7.0
 
