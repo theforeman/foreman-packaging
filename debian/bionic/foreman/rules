@@ -12,7 +12,7 @@ build:
 	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
 	/usr/bin/gem install -f rake -v '12.3.1'
 	/usr/bin/gem install -f minitest -v '5.10.3'
-	/usr/bin/gem install -f thor -v '0.19.4'
+	/usr/bin/gem install -f thor -v '1.1.0'
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
