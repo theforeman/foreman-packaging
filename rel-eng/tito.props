@@ -622,6 +622,7 @@ disttag = .el8
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
+  ansible-collection-theforeman-foreman
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
   nodejs-react-json-tree
@@ -952,13 +953,13 @@ disttag = .el7
 whitelist = ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
+  ansible-collection-theforeman-foreman
   puppet-foreman_scap_client
 
 [foreman-client-nightly-el8]
 disttag = .el8
 # don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
-  ansible-collection-theforeman-foreman
   gofer
   jsoncpp
   katello-host-tools
@@ -973,7 +974,6 @@ whitelist =
 disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
-  ansible-collection-theforeman-foreman
   katello-host-tools
   python-apypie
   python-beautifulsoup4
@@ -990,7 +990,6 @@ whitelist = foreman-release
 [foreman-client-nightly-fedora29]
 disttag = .fc29
 whitelist =
-  ansible-collection-theforeman-foreman
   foreman-release
   katello-host-tools
   python-apypie
