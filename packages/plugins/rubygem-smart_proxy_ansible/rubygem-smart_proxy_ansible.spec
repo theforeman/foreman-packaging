@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.1
-Release: 8%{?foremandist}%{?dist}
+Release: 9%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -32,13 +32,8 @@ Requires: python-requests
 Requires: python3-requests
 %endif
 
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: tfm-rubygem(foreman_ansible_core)
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: rubygem(foreman_ansible_core)
-%endif
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.1.5
+Requires: %{?scl_prefix}rubygem(foreman_ansible_core)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -162,6 +157,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Apr 16 2021 Evgeni Golov - 3.0.1-9
+- Unify *_core dependencies, now that the proxy is SCL'ed on EL7
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-8
 - Rebuild for Ruby 2.7
 
