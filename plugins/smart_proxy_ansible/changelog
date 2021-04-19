@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.0.0-5) stable; urgency=low
+
+  * Install python3-requests for the callback too.
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 19 Apr 2021 11:56:00 +0200
+
 ruby-smart-proxy-ansible (3.0.0-4) stable; urgency=low
 
   * Create workdir for Ansible on the Proxy
