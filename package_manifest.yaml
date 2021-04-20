@@ -1097,6 +1097,7 @@ plugin_nonscl_packages:
         - el8-configmanagement-ansible
         - el8-configmanagement-salt
   hosts:
+    ansible-collection-theforeman-operations: {}
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     ansiblerole-satellite-receptor-installer: {}

@@ -619,7 +619,8 @@ whitelist = foreman
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
-whitelist = ansiblerole-foreman_scap_client
+whitelist = ansible-collection-theforeman-operations
+  ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
   ansible-collection-theforeman-foreman
@@ -950,7 +951,8 @@ whitelist = foreman-discovery-image-service
 
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = ansiblerole-foreman_scap_client
+whitelist = ansible-collection-theforeman-operations
+  ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
   ansible-collection-theforeman-foreman
