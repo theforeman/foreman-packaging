@@ -26,11 +26,6 @@ URL: https://github.com/theforeman/smart_proxy_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ansible >= 2.2
-%if 0%{?rhel} == 7
-Requires: python-requests
-%else
-Requires: python3-requests
-%endif
 
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.1.5
 Requires: %{?scl_prefix}rubygem(foreman_ansible_core)
@@ -161,6 +156,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 * Fri Apr 16 2021 Evgeni Golov - 3.0.1-9
 - Unify *_core dependencies, now that the proxy is SCL'ed on EL7
 - Require ansible-collection-theforeman-foreman for the callback plugin
+- Don't require requests, the collection already does
 
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.1-8
 - Rebuild for Ruby 2.7
