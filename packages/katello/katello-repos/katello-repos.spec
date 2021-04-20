@@ -3,9 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc3
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 1
 
 Name:           katello-repos
 Version:        4.0.0
@@ -68,6 +66,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Apr 20 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-1
+- Release katello-repos 4.0.0
+
 * Tue Mar 23 2021 Evgeni Golov - 4.0.0-0.5.rc3
 - Consume repositories from yum.theforeman.org
 
