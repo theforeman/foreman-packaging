@@ -6,10 +6,8 @@
 %global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc3.1
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.0.0
-%global release 4
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -28,17 +26,19 @@ Requires: foreman < %{foreman_max_version}
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
+Requires: %{?scl_prefix_ruby}ruby < 2.7.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rails)
 Requires: %{?scl_prefix_ruby}rubygem(json)
 Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(rabl)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(activerecord-import)
+Requires: %{?scl_prefix}rubygem(qpid_proton)
 Requires: %{?scl_prefix}rubygem(stomp)
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.9
 Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
@@ -56,18 +56,17 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 1.0.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
-Requires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(rails)
@@ -75,10 +74,11 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(json)
 BuildRequires: %{?scl_prefix}rubygem(oauth)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(rabl)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.14.1
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
+BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(stomp)
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.9
 BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
@@ -96,21 +96,21 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
+BuildRequires: %{?scl_prefix_ruby}ruby < 2.7.0
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Apr 20 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-1
+- Release rubygem-katello 4.0.0
+
 * Mon Mar 29 2021 Evgeni Golov - 4.0.0-0.4.rc3.1
 - Release rubygem-katello 4.0.0rc3.1
 
