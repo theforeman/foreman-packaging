@@ -8,8 +8,8 @@
 
 Summary:    Plugin for Foreman that allows to configure Webhooks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.0.3
-Release:    2%{?foremandist}%{?dist}
+Version:    1.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_webhooks
@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 23 2021 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.0-1
+- Update to 1.0.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-2
 - Rebuild plugins for Ruby 2.7
 
