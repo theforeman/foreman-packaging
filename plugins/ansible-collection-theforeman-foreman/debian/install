@@ -1,0 +1,6 @@
+FILES.json usr/share/ansible/collections/ansible_collections/theforeman/foreman/
+MANIFEST.json usr/share/ansible/collections/ansible_collections/theforeman/foreman/
+meta usr/share/ansible/collections/ansible_collections/theforeman/foreman/
+plugins usr/share/ansible/collections/ansible_collections/theforeman/foreman/
+requirements.txt usr/share/ansible/collections/ansible_collections/theforeman/foreman/
+roles usr/share/ansible/collections/ansible_collections/theforeman/foreman/
