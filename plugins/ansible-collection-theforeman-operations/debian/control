@@ -1,0 +1,15 @@
+Source: ansible-collection-theforeman-operations
+Section: net
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper (>= 11~)
+Standards-Version: 4.5.1
+Homepage: https://theforeman.org/plugins/foreman-operations-collection/
+Rules-Requires-Root: no
+
+Package: ansible-collection-theforeman-operations
+Architecture: all
+Depends: ${misc:Depends}, ansible (>= 2.8)
+Description: The Foreman Project Ansible operations collection
+ Collection of Ansible Modules to manage Foreman installations.
+ Includes modules for Katello.
