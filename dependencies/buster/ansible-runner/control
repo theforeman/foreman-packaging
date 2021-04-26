@@ -9,7 +9,6 @@ Build-Depends:
  python3-mock,
  python3-pytest,
  python3-setuptools,
- python3-sphinx,
 Rules-Requires-Root: no
 Standards-Version: 4.5.1
 Homepage: https://www.ansible.com
