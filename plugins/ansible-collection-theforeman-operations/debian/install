@@ -1,0 +1,4 @@
+FILES.json usr/share/ansible/collections/ansible_collections/theforeman/operations/
+MANIFEST.json usr/share/ansible/collections/ansible_collections/theforeman/operations/
+requirements.txt usr/share/ansible/collections/ansible_collections/theforeman/operations/
+roles usr/share/ansible/collections/ansible_collections/theforeman/operations/
