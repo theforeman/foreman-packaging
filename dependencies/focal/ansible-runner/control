@@ -40,6 +40,9 @@ Depends:
  ${python3:Depends},
 Suggests:
  python-ansible-runner-doc,
+Provides: ansible-runner (= ${binary:Version})
+Breaks: ansible-runner (<< 1.4.7~)
+Replaces: ansible-runner (<< 1.4.7~)
 Description: library that interfaces with Ansible (Python 3.x)
  Ansible Runner is a tool and python library that helps when interfacing
  with Ansible directly or as part of another system whether that be
