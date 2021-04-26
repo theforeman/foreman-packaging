@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Sakirnth Nagarasa <sakirnth@gmail.com>
 Build-Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= 11),
  dh-python,
  python3-all,
  python3-mock,
