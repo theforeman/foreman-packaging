@@ -8,8 +8,8 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    17.0.2
-Release:    2%{?foremandist}%{?dist}
+Version:    17.1.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_bootdisk
@@ -23,12 +23,12 @@ Requires:   /usr/bin/genisoimage
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -93,6 +93,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/release-gem
+%exclude %{gem_instdir}/.github
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
@@ -107,6 +108,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 27 2021 Lukas Zapletal <lzap+rpm@redhat.com> 17.1.0-1
+- Update to 17.1.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 17.0.2-3
+- Rebuild plugins for Ruby 2.7
+
 * Wed Jul 15 2020 Adam Ruzicka <aruzicka@redhat.com> 17.0.2-2
 - Add missing dependency on dosfstools
 
