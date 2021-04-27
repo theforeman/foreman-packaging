@@ -8,8 +8,8 @@
 
 Summary:    MaaS Discovery Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    16.3.4
-Release:    3%{?foremandist}%{?dist}
+Version:    16.3.5
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_discovery
@@ -33,7 +33,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 # end package.json devDependencies BuildRequires
 
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 27 2021 Lukas Zapletal <lzap+rpm@redhat.com> 16.3.5-1
+- Update to 16.3.5
+
 * Fri Apr 16 2021 Evgeni Golov - 16.3.4-3
 - Drop theforeman/builder upper bound from BuildRequires
 - Rebuild for Ruby 2.7
