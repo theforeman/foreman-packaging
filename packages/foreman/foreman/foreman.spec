@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -106,8 +106,8 @@ Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 Requires: %{?scl_prefix}rubygem(net-ping)
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 2.0.0
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 3
 Requires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 Requires: %{?scl_prefix}rubygem(sprockets) < 5.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
@@ -210,8 +210,8 @@ BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 BuildRequires: %{?scl_prefix}rubygem(net-ping)
-BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
+BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 3
 BuildRequires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
@@ -1024,6 +1024,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.7.develop
+- Use rubygem-activerecord-session_store 2+
+
 * Wed Apr 21 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.6.develop
 - Add foreman-puma-status support
 
