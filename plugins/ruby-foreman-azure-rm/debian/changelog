@@ -1,0 +1,5 @@
+ruby-foreman-azure-rm (2.2.2-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Adam Cecile <acecile@letz-it.lu>  Tue, 09 Mar 2021 13:04:05 +0100
