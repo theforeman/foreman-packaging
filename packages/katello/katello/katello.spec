@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 6
 
 Name:       katello
 Version:    4.1.0
@@ -109,7 +109,6 @@ Requires: foreman-debug
 Requires: findutils
 Requires: coreutils
 Requires: /bin/ps
-Requires: qpid-tools
 
 %description debug
 Useful utilities for debug info collecting
@@ -133,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.6.master
+- Do not require qpid-tools in katello-debug
+
 * Thu Apr 08 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.5.master
 - Drop requirement on Hammer CLI packages
 
