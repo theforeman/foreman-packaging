@@ -2,19 +2,7 @@
 
 PLUGIN = foreman_azure_rm
 
-cache:
-	@if [ ! -d cache ]; then \
-	  echo "INFO: Downloading gems files into cache folder"; \
-	  . debian/gem.list; \
-	  mkdir cache/; \
-	  cd cache/; \
-	  for GEM_URL in $${GEMS}; do \
-	    echo "INFO: Downloading $${GEM_URL}"; \
-	    wget --no-verbose --no-clobber $${GEM_URL}; \
-	  done; \
-	fi
-
-build: cache
+build:
 	cp cache/* /usr/share/foreman/vendor/cache/
 	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
 	cd /usr/share/foreman && ( \
@@ -29,12 +17,6 @@ build: cache
 		cp -rp $${GEM_PATH}/public/assets/$(PLUGIN) ./
 	[ -e apipie-cache ] || mkdir apipie-cache/
 	cp -rp /var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) ./apipie-cache/
-
-override_dh_auto_clean:
-	dh_auto_clean
-	rm -rf cache/
-	rm -rf apipie-cache/
-	rm -rf $(PLUGIN)/
 
 %:
 	dh $@
