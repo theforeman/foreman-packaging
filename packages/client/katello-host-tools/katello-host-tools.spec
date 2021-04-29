@@ -15,8 +15,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.4
-Release: 3%{?dist}
+Version: 3.5.5
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -388,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Apr 29 2021 Justin Sherrill <jsherril@redhat.com> 3.5.5-1
+* update to 3.5.5
+
 * Fri Feb 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.5.4-3
 - Build katello-agent for EL8
 
