@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 8.4.1
+Version: 8.4.5
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Fri Apr 30 2021 Evgeni Golov 8.4.5-1
+- Update to 8.4.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> 8.4.1-1
 - Update to 8.4.1
 
