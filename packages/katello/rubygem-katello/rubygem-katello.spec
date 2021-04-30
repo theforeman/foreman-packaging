@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
-%global release 8
+%global release 9
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -57,7 +57,7 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.8
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.4.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.5.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.10.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.11.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.12.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -95,7 +95,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.8
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.5.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.11.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.12.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
@@ -231,6 +231,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Apr 27 2021 Quirin Pamp <pamp@atix.de> 4.1.0-0.9.pre.master
+- Update Katello's pulp_deb_client requirement to 2.11
+
 * Mon Apr 12 2021 ianballou <ianballou67@gmail.com> 4.1.0-0.8.pre.master
 - Update Katello's pulp_rpm_client requirement to 3.10.0
 
