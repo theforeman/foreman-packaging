@@ -249,6 +249,7 @@
       <packagereq type="default">tfm-rubygem-puma-status</packagereq>
       <packagereq type="default">tfm-rubygem-quantile</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
+      <packagereq type="default">tfm-rubygem-racc</packagereq>
       <packagereq type="default">tfm-rubygem-rack</packagereq>
       <packagereq type="default">tfm-rubygem-rack-cors</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
@@ -487,6 +488,7 @@
       <packagereq type="default">tfm-rubygem-puma-status-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-racc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-cors-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
