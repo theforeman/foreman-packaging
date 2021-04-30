@@ -246,6 +246,7 @@ foreman_scl_packages:
     rubygem-puma-status: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
+    rubygem-racc: {}
     rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
