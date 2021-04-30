@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -134,7 +134,7 @@ Requires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
@@ -238,7 +238,7 @@ BuildRequires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.2.2
 BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
@@ -260,7 +260,7 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.3.3
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -457,7 +457,7 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 8.3.3
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
 Requires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
@@ -1024,6 +1024,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Apr 30 2021 Evgeni Golov - 2.5.0-0.8.develop
+- Update depdendencies
+
 * Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.7.develop
 - Use rubygem-activerecord-session_store 2+
 
