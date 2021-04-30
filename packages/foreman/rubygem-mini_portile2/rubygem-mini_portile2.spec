@@ -3,28 +3,27 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name mini_portile2
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
-Release: 2%{?dist}
+Version: 2.5.1
+Release: 1%{?dist}
 Summary: Simplistic port-like solution for developers
 Group: Development/Languages
 License: MIT
-URL: http://github.com/flavorjones/mini_portile
+URL: https://github.com/flavorjones/mini_portile
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.2
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.3.0
 
 %description
 Simplistic port-like solution for developers. It provides a standard and
@@ -71,12 +70,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/.concourse.yml
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.txt
-%{gem_instdir}/appveyor.yml
-%{gem_instdir}/concourse
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -87,10 +83,14 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/mini_portile2.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 30 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.1-1
+- Release 2.5.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
 - Rebuild against rh-ruby27
 
