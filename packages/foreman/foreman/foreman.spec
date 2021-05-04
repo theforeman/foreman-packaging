@@ -9,12 +9,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 8
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 2.5.0
+Version: 2.6.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1024,6 +1024,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
 * Fri Apr 30 2021 Evgeni Golov - 2.5.0-0.8.develop
 - Update depdendencies
 
