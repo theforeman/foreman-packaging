@@ -4,9 +4,7 @@
 
 %global gem_name hammer_cli
 
-%global release 2
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 04 2021 Oleh Fedorenko <ofedoren@redhat.com> - 2.5.0-1
+- Release rubygem-hammer_cli 2.5.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.2.pre.develop
 - Rebuild against rh-ruby27
 
