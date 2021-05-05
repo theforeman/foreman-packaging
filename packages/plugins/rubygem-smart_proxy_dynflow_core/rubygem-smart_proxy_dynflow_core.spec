@@ -14,8 +14,8 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.2
-Release: 2%{?foremandist}%{?dist}
+Version: 0.3.3
+Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -122,6 +122,9 @@ install -Dp -m0644 %{SOURCE1} %{buildroot}%{root_sysconfdir}/logrotate.d/%{name}
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Wed May 05 2021 Adam Ruzicka <aruzicka@redhat.com> 0.3.3-1
+- Update to 0.3.3
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.2-2
 - Rebuild plugins for Ruby 2.7
 
