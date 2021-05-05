@@ -49,34 +49,74 @@ generate_gem_package() {
 	popd
 }
 
+add_to_all_tito_props() {
+	add_to_tito_props $TITO_TAG
+	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
+		add_to_tito_props foreman-nightly-el8
+	elif [[ $TITO_TAG == "foreman-plugin-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugin-nightly-nonscl-rhel7" ]] ; then
+		add_to_tito_props foreman-plugin-nightly-el8
+	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
+		add_to_tito_props foreman-client-nightly-el8
+		add_to_tito_props foreman-client-nightly-rhel6
+		add_to_tito_props foreman-client-nightly-fedora29
+	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
+		add_to_tito_props katello-nightly-el8
+	fi
+}
+
 add_to_tito_props() {
+	local tag=$1
+
 	# Get tito.props whitelists and add node package
 	original_locale=$LC_COLLATE
 	export LC_COLLATE=en_GB
-	local current_whitelist=$(crudini --get rel-eng/tito.props $TITO_TAG whitelist)
+	local current_whitelist=$(crudini --get rel-eng/tito.props $tag whitelist)
 	local whitelist=$(echo "$current_whitelist $PACKAGE_NAME" | tr " " "\n" | sort -u)
-	crudini --set rel-eng/tito.props $TITO_TAG whitelist "$whitelist"
+	crudini --set rel-eng/tito.props $tag whitelist "$whitelist"
 	export LC_COLLATE=$original_locale
 	git add rel-eng/tito.props
 }
 
+add_gem_to_all_comps() {
+	add_gem_to_comps $TITO_TAG
+	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
+		add_gem_to_comps foreman-nightly-el8
+	elif [[ $TITO_TAG == "foreman-plugin-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugin-nightly-nonscl-rhel7" ]] ; then
+		add_gem_to_comps foreman-plugin-nightly-el8
+	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
+		add_gem_to_comps foreman-client-nightly-el8
+		add_gem_to_comps foreman-client-nightly-rhel6
+		add_gem_to_comps foreman-client-nightly-fedora29
+	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
+		add_gem_to_comps katello-nightly-el8
+	fi
+}
+
 add_gem_to_comps() {
-	if [[ $TEMPLATE_NAME == "nonscl" ]] || [[ $TEMPLATE_NAME == "smart_proxy_plugin" ]] ; then
-		local comps_scl="nonscl"
-		local comps_package="${PACKAGE_NAME}"
+	local tag=$1
+	local distro=${tag##*-}
+
+	if [[ $distro == rhel7 ]] ; then
+		if [[ $TEMPLATE_NAME == "nonscl" ]] || [[ $TEMPLATE_NAME == "smart_proxy_plugin" ]] ; then
+			local comps_scl="nonscl"
+			local comps_package="${PACKAGE_NAME}"
+		else
+			local comps_scl=""
+			local comps_package="tfm-${PACKAGE_NAME}"
+		fi
 	else
-		local comps_scl=""
-		local comps_package="tfm-${PACKAGE_NAME}"
+			local comps_scl=""
+			local comps_package="${PACKAGE_NAME}"
 	fi
 
 	# TODO: figure this out for katello
-	if [[ $TITO_TAG == foreman-plugins-* ]]; then
+	if [[ $tag == foreman-plugins-* ]]; then
 		local comps_file="foreman-plugins"
 	else
 		local comps_file="foreman"
 	fi
 
-	./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+	./add_to_comps.rb comps/comps-${comps_file}-${distro}.xml $comps_package $comps_scl
 	./comps_doc.sh
 	git add comps/
 }
@@ -173,7 +213,6 @@ if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ 
 	usage
 fi
 
-DISTRO=${TITO_TAG##*-}
 TEMPLATE=$(pwd)/gem2rpm/$TEMPLATE_NAME.spec.erb
 
 if [[ ! -e $TEMPLATE ]] ; then
@@ -195,7 +234,7 @@ if [[ $UPDATE == true ]] ; then
 else
 	generate_gem_package
 	add_to_manifest
-	add_to_tito_props
-	add_gem_to_comps
+	add_to_all_tito_props
+	add_gem_to_all_comps
 	git commit -m "Add $PACKAGE_NAME package"
 fi
