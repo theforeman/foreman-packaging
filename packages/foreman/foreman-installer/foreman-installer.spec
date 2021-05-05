@@ -2,7 +2,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 4
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -149,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed May 05 2021 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.5.0-0.4.rc1
+- Release foreman-installer 2.5.0
+
 * Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.5.0-0.4.develop
 - Do not fail if rhel macro is undefined
 
