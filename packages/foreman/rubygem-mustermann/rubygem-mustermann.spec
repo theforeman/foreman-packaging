@@ -5,8 +5,8 @@
 %global gem_name mustermann
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
-Release: 5%{?dist}
+Version: 1.1.1
+Release: 1%{?dist}
 Summary: Your personal string matching expert
 Group: Development/Languages
 License: MIT
@@ -17,6 +17,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(ruby2_keywords) >= 0.0.1
+Requires: %{?scl_prefix}rubygem(ruby2_keywords) < 0.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -82,6 +84,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed May 05 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.1-1
+- Update to 1.1.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-5
 - Rebuild against rh-ruby27
 
