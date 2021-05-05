@@ -1,3 +1,9 @@
+foreman-proxy (2.5.0~rc1-1) stable; urgency=low
+
+  * 2.5.0-rc1 released
+
+ -- Zach Huntington-Meath <zhunting@redhat.com>  Wed, 05 May 2021 14:25:28 -0400
+
 foreman-proxy (2.5.0-1) stable; urgency=low
 
   * Bump changelog to 2.5.0 to match VERSION
