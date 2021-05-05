@@ -7,7 +7,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Wed May 05 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.0-0.2.rc1
+- Release foreman-proxy 2.5.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.2.develop
 - Rebuild against rh-ruby27
 
