@@ -2,8 +2,8 @@
 all:
   vars:
     foremandist: .fm2_5
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '2.5'
+    katello_version: '4.1'
   children:
     packages: {}
     repoclosures: {}
@@ -727,8 +727,6 @@ foreman_client_packages:
         dist: '.el7'
       - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: "foreman-client-{{ foreman_version }}-fedora29"
-        dist: '.fc29'
     repoclosure_target_repos:
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
@@ -736,8 +734,6 @@ foreman_client_packages:
         - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
         - "el6-foreman-client-{{ foreman_version }}"
-      fedora29:
-        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -762,10 +758,6 @@ foreman_client_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     gofer: {}
     katello-host-tools: {}
@@ -1240,16 +1232,6 @@ repoclosures:
           - el6-qpid
           - el6-pulp
           - el6-subscription-manager
-    foreman-client-repoclosure-f29:
-      repoclosure_target_repos:
-        fedora29:
-          - "f29-foreman-client-{{ foreman_version }}"
-      repoclosure_target_dist: fedora29
-      repoclosure_lookaside_repos:
-        fedora29:
-          - f29-base
-          - f29-updates
-          - f29-puppet-6
 
 
 foreman_release_packages:
@@ -1265,8 +1247,6 @@ foreman_release_packages:
         dist: '.el7'
       - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: "foreman-client-{{ foreman_version }}-fedora29"
-        dist: '.fc29'
     releasers:
       - koji-foreman
       - koji-foreman-client
@@ -1278,8 +1258,6 @@ foreman_release_packages:
         - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
         - "el6-foreman-client-{{ foreman_version }}"
-      fedora29:
-        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -1303,9 +1281,5 @@ foreman_release_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     foreman-release: {}
