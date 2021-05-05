@@ -266,6 +266,7 @@ foreman_scl_packages:
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
     rubygem-ruby-libvirt: {}
+    rubygem-ruby2_keywords: {}
     rubygem-ruby2ruby: {}
     rubygem-ruby_parser: {}
     rubygem-safemode: {}
