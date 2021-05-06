@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 6
+%global release 1
 
 Name:       katello
-Version:    4.1.0
+Version:    4.2.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu May 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-0.1.master
+- Update to 4.2.0
+
 * Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.6.master
 - Do not require qpid-tools in katello-debug
 
