@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.3.0
-Release: 2%{?dist}
+Version: 6.4.0
+Release: 1%{?dist}
 Summary: A gem for making installations based on puppet user friendly
 Group: Development/Languages
 License: GPLv3+
@@ -101,6 +101,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/doc
 
 %changelog
+* Fri May 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.4.0-1
+- Release 6.4.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.3.0-2
 - Rebuild for Ruby 2.7
 
@@ -551,5 +554,3 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 * Thu Aug 29 2013 Marek Hulan <mhulan@redhat.com> 0.0.6-1
 - new package built with tito
-
-
