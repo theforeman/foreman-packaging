@@ -21,29 +21,29 @@ Source0: <%= download_path %>%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
-Requires: ruby <%= req %>
+Requires: ruby<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-Requires: ruby(rubygems) <%= req %>
+Requires: ruby(rubygems)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: rubygem(<%= d.name %>) <%= req  %>
+Requires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% end -%>
 BuildRequires: ruby(release)
 <% for req in spec.required_ruby_version -%>
-BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %> <%= req %>
+BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %><%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-BuildRequires: rubygems-devel <%= req %>
+BuildRequires: rubygems-devel<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% if spec.extensions.empty? -%>
 BuildArch: noarch
 <% else -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-BuildRequires: rubygem(<%= d.name %>) <%= req  %>
+BuildRequires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% end -%>
 <% end -%>
