@@ -4,10 +4,10 @@
 
 %global gem_name foreman_snapshot_management
 %global plugin_name snapshot_management
-%global foreman_min_version 1.20.0
+%global foreman_min_version 2.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.7.1
+Version: 2.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
@@ -18,19 +18,48 @@ Source0: https://rubygems.org/downloads/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
+BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
+BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(sortabular) >= 1.5.1
+BuildRequires: %{?scl_prefix}npm(sortabular) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(table-resolver) >= 3.2.0
+BuildRequires: %{?scl_prefix}npm(table-resolver) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
+BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
+BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
+BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
+BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
+BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
+# end package.json dependencies BuildRequires
+
 %description
-Foreman-plugin to manage snapshots in a vSphere environment.
+Foreman-plugin to manage snapshots on hosts on a VMWare or Proxmox compute resource.
 
 
 %package doc
@@ -71,7 +100,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -80,11 +109,16 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/config
 %{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
+%{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -93,6 +127,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 10 2021 Markus Bucher <bucher@atix.de> 2.0.0-1
+- Update to 2.0.0
+- Switch to React-UI
+
 * Mon Mar 02 2020 Markus Bucher <bucher@atix.de> 1.7.1-1
 - Update to 1.7.1
 - Proxmox support
@@ -138,4 +176,3 @@ cp -pa .%{gem_dir}/* \
 
 * Tue Aug 15 2017 Eric D. Helms <ericdhelms@gmail.com> 1.0.0-1
 - new package built with tito
-
