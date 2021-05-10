@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.5
-Release: 2%{?dist}
+Version: 6.0.3.7
+Release: 1%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.5
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.7
 Requires: %{?scl_prefix}rubygem(builder) >= 3.1
 Requires: %{?scl_prefix}rubygem(builder) < 4
 Requires: %{?scl_prefix}rubygem(erubi) >= 1.4
@@ -34,8 +34,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 %description
 Simple, battle-tested conventions and helpers for building web pages.
@@ -91,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.7-1
+- Release 6.0.3.7
+
 * Wed Mar 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.5-2
 - Rebuild against rh-ruby27
 
