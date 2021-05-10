@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -17,14 +17,14 @@ BuildArch:  noarch
 
 Requires:   curl
 Requires:   puppet-agent >= 5.5.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 6.0.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 6.4.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 5.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.4.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
@@ -147,6 +147,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jul 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.5.1-2
+- Use Kafo 6.4+
+
 * Wed Jun 23 2021 Odilon Sousa <osousa@redhat.com> - 1:2.5.1-1
 - Release foreman-installer 2.5.1
 
