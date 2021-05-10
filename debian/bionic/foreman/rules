@@ -32,7 +32,7 @@ build:
 	/usr/bin/touch build
 
 %:
-	dh $@ --with=systemd
+	dh $@ --with=systemd --without=elf_tools
 
 override_dh_systemd_start:
 	dh_systemd_start --no-start --name=foreman.service --package=foreman-service
