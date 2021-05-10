@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.5
-Release: 2%{?dist}
+Version: 6.0.3.7
+Release: 1%{?dist}
 Summary: Web-flow and rendering framework putting the VC in MVC (part of Rails)
 Group: Development/Languages
 License: MIT
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.5
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.3.7
 Requires: %{?scl_prefix}rubygem(rack) >= 2.0
 Requires: %{?scl_prefix}rubygem(rack) < 3
 Requires: %{?scl_prefix}rubygem(rack) >= 2.0.8
@@ -28,15 +28,13 @@ Requires: %{?scl_prefix}rubygem(rails-html-sanitizer) < 2
 Requires: %{?scl_prefix}rubygem(rails-html-sanitizer) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(rails-dom-testing) >= 2.0
 Requires: %{?scl_prefix}rubygem(rails-dom-testing) < 3
-Requires: %{?scl_prefix}rubygem(actionview) = 6.0.3.5
+Requires: %{?scl_prefix}rubygem(actionview) = 6.0.3.7
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 %description
 Web apps on Rails. Simple, battle-tested conventions for building and testing
@@ -93,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.7-1
+- Release 6.0.3.7
+
 * Wed Mar 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.5-2
 - Rebuild against rh-ruby27
 
