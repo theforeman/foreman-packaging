@@ -10,8 +10,8 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    4.3.0
-Release:    2%{?foremandist}%{?dist}
+Version:    4.4.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -28,14 +28,14 @@ Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -47,6 +47,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 # end package.json devDependencies BuildRequires
 
@@ -160,6 +162,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Mon May 10 2021 Adam Ruzicka <aruzicka@redhat.com> 4.4.0-1
+- Update to 4.4.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-2
 - Rebuild plugins for Ruby 2.7
 
