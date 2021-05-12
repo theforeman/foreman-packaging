@@ -29,6 +29,7 @@
       <packagereq type="default">tfm-rubygem-azure_mgmt_resources</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_storage</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_subscriptions</packagereq>
+      <packagereq type="default">tfm-rubygem-bcrypt_pbkdf</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">tfm-rubygem-chef-api</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png</packagereq>
@@ -192,6 +193,7 @@
       <packagereq type="default">tfm-rubygem-azure_mgmt_resources-doc</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_storage-doc</packagereq>
       <packagereq type="default">tfm-rubygem-azure_mgmt_subscriptions-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-bcrypt_pbkdf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-chef-api-doc</packagereq>
       <packagereq type="default">tfm-rubygem-chunky_png-doc</packagereq>
