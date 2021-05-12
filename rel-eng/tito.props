@@ -639,6 +639,7 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
   rubygem-azure_mgmt_subscriptions
+  rubygem-bcrypt_pbkdf
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
@@ -803,6 +804,7 @@ whitelist = foreman-discovery-image-service
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
   rubygem-azure_mgmt_subscriptions
+  rubygem-bcrypt_pbkdf
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
