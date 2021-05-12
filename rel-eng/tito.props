@@ -647,6 +647,7 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
   rubygem-faraday_middleware
@@ -811,6 +812,7 @@ whitelist = foreman-discovery-image-service
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
   rubygem-faraday_middleware
