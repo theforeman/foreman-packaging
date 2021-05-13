@@ -12,7 +12,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.3.0
+Version: 2.3.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 Group: Development/Languages
@@ -122,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 13 2021 Oleh Fedorenko <ofedoren@redhat.com> 2.3.1-1
+- Update to 2.3.1
+
 * Tue Nov 03 2020 Patrick Creech <pcreech@redhat.com> - 2.3.0-1
 - Release rubygem-hammer_cli 2.3.0
 
