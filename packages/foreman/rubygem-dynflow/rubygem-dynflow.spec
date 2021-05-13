@@ -6,8 +6,8 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.7
-Release: 2%{?foremandist}%{?dist}
+Version: 1.5.0
+Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
 License: MIT
@@ -81,9 +81,10 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.github/install_dependencies.sh
+%exclude %{gem_instdir}/.github/workflows/ruby.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Dockerfile
 %exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/MIT-LICENSE
@@ -104,6 +105,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu May 13 2021 Adam Ruzicka <aruzicka@redhat.com> 1.5.0-1
+- Update to 1.5.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.7-2
 - Rebuild against rh-ruby27
 
