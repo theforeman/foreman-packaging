@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (2.3.2-1) stable; urgency=low
+
+  * 2.3.2 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Thu, 13 May 2021 14:55:27 +0000
+
 ruby-hammer-cli-foreman (2.3.1-1) stable; urgency=low
 
   * 2.3.1 released
