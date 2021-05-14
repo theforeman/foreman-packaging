@@ -7,7 +7,7 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.3
+Version: 2.2.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
@@ -114,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri May 14 2021 Evgeni Golov 2.2.4-1
+- Update to 2.2.4
+
 * Tue May 04 2021 Evgeni Golov 2.2.3-1
 - Update to 2.2.3
 
