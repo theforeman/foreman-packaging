@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 6
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri May 14 2021 Patrick Creech <pcreech@redhat.com> - 4.1.0-0.6.rc1
+- Release katello 4.1.0
+
 * Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.1.0-0.6.master
 - Do not require qpid-tools in katello-debug
 

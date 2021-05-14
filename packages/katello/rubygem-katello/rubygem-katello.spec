@@ -6,7 +6,7 @@
 %global foreman_max_version 2.6
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
 %global release 9
@@ -231,6 +231,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri May 14 2021 Patrick Creech <pcreech@redhat.com> - 4.1.0-0.9.rc1
+- Release rubygem-katello 4.1.0
+
 * Tue Apr 27 2021 Quirin Pamp <pamp@atix.de> 4.1.0-0.9.pre.master
 - Update Katello's pulp_deb_client requirement to 2.11
 

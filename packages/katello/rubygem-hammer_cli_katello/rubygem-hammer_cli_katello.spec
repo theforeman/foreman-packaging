@@ -5,9 +5,7 @@
 %global gem_name hammer_cli_katello
 %global plugin_name katello
 
-%global release 4
-%global prereleasesource pre.master
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
+%global release 1
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -96,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 14 2021 Patrick Creech <pcreech@redhat.com> - 1.0.1-1
+- Release rubygem-hammer_cli_katello 1.0.1
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.4.pre.master
 - Rebuild for Ruby 2.7
 
