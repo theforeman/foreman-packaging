@@ -8,8 +8,8 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 6.3.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -21,14 +21,18 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
+Requires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.2.0
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
 Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
+BuildRequires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
+BuildRequires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.2.0
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
 BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -121,6 +125,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 17 2021 Ondrej Prazak <oprazak@redhat.com> 6.3.0-1
+- Update to 6.3.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.2.0-2
 - Rebuild plugins for Ruby 2.7
 
