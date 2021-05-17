@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.1
-Release: 9%{?foremandist}%{?dist}
+Version: 3.1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -34,12 +34,12 @@ Requires: ansible-collection-theforeman-foreman
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -104,7 +104,7 @@ cp -a .%{gem_dir}/* \
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-mv %{buildroot}%{gem_instdir}/bundler.plugins.d/%{gem_name}.rb \
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
    %{buildroot}%{foreman_proxy_bundlerd_dir}
 
 # sample config
@@ -127,16 +127,14 @@ for i in ansible ansible_galaxy; do
 done
 
 ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy_dir}/.ansible.cfg
-find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/ansible.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bin
 %{gem_libdir}
 %{gem_instdir}/settings.d
-%{foreman_proxy_bundlerd_dir}/%{gem_name}.rb
+%{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_proxy_dir}/.ansible
@@ -153,6 +151,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon May 17 2021 Ondrej Prazak <oprazak@redhat.com> 3.1.0-1
+- Update to 3.1.0
+
 * Fri Apr 16 2021 Evgeni Golov - 3.0.1-9
 - Unify *_core dependencies, now that the proxy is SCL'ed on EL7
 - Require ansible-collection-theforeman-foreman for the callback plugin
