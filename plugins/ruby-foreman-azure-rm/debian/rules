@@ -2,7 +2,20 @@
 
 PLUGIN = foreman_azure_rm
 
+
 build:
+	# To be able to build it outside Jenkins
+	@if [ ! -d cache ]; then \
+	  echo "INFO: Downloading gems files into cache folder"; \
+	  . debian/gem.list; \
+	  mkdir cache/; \
+	  cd cache/; \
+	  for GEM_URL in $${GEMS}; do \
+	    echo "INFO: Downloading $${GEM_URL}"; \
+	    wget --no-verbose --no-clobber $${GEM_URL}; \
+	  done; \
+	fi
+	
 	cp cache/* /usr/share/foreman/vendor/cache/
 	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
 	cd /usr/share/foreman && ( \

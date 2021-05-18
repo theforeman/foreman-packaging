@@ -6,7 +6,6 @@ Build-Depends: debhelper (>= 11~),
                gem2deb,
                foreman-assets,
                foreman-nulldb,
-               ruby-foreman-deface (<< 2.0)
 # Could probably be done like this at some point
 #               ruby-azure-mgmt-compute-0.18.7,
 #               ruby-azure-mgmt-network-0.19.0,
