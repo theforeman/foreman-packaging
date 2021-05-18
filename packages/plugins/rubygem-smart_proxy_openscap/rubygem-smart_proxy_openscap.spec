@@ -22,7 +22,7 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.1
+Version: 0.9.0
 Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
@@ -37,7 +37,7 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(openscap) >= 0.4.7
 Requires: %{?scl_prefix}rubygem(openscap) < 0.5
-Requires: %{?scl_prefix}rubygem(openscap_parser) >= 1.0.1
+Requires: %{?scl_prefix}rubygem(openscap_parser) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(openscap_parser) < 1.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -153,6 +153,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Tue May 18 2021 Ondrej Prazak <oprazak@redhat.com> 0.9.0-1
+- Update to 0.9.0
+
 * Thu Apr 22 2021 Ondrej Prazak <oprazak@redhat.com> 0.8.1-1
 - Update to 0.8.1
 
