@@ -626,6 +626,7 @@ whitelist = ansible-collection-theforeman-operations
   ansible-collection-theforeman-foreman
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
+  nodejs-patternfly-react-catalog-view-extension
   nodejs-react-json-tree
   puppet-foreman_scap_client
   puppetlabs-stdlib
@@ -789,6 +790,7 @@ disttag = .el7
 scl = tfm
 whitelist = foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
+  nodejs-patternfly-react-catalog-view-extension
   nodejs-react-json-tree
   puppetlabs-stdlib
   rubygem-acts_as_list
