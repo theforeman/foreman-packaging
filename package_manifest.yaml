@@ -937,6 +937,8 @@ plugin_scl_packages:
     foreman-discovery-image-service: {}
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
+    nodejs-patternfly-react-catalog-view-extension:
+      strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
     rubygem-acts_as_list: {}
