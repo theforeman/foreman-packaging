@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -18,13 +18,13 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   puppet-agent >= 5.5.0
+Requires:   puppet-agent >= 6.15.0
 Requires:   %{?scl_prefix}rubygem(kafo) >= 6.4.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 5.5.0
+BuildRequires: puppet-agent >= 6.15.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.4.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
@@ -44,13 +44,6 @@ Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
 Requires: katello-certs-tools
 Requires: which
-
-# puppet-candlepin enables the pki-core module which needs DNF module support
-# That was introduced in 5.5.20 and 6.15.0
-%if 0%{?rhel} == 8
-Requires:   puppet-agent >= 5.5.20
-Conflicts: (puppet-agent >= 6.0.0 with puppet-agent < 6.15.0)
-%endif
 
 %description katello
 Various scenarios and tools for the Katello ecosystem
@@ -149,6 +142,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Wed May 19 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.3.develop
+- Bump puppet-agent requires to 6.15.0
+
 * Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.2.develop
 - Use Kafo 6.4+
 
