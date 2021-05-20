@@ -6,7 +6,7 @@
 %global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.0.0
+%global mainver 4.0.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -56,8 +56,8 @@ Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.9.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.10.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
 Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
@@ -96,8 +96,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.7
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.3.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu May 20 2021 Patrick Creech <pcreech@redhat.com> - 4.0.1-1
+- Release rubygem-katello 4.0.1
+
 * Tue Apr 20 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.0-1
 - Release rubygem-katello 4.0.0
 
