@@ -6,7 +6,7 @@
 %global foreman_max_version 2.6
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1.1
+%global prereleasesource rc2.1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.1.0
 %global release 9
@@ -231,6 +231,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu May 20 2021 Patrick Creech <pcreech@redhat.com> - 4.1.0-0.9.rc2.1
+- Release rubygem-katello 4.1.0rc2.1
+
 * Tue May 18 2021 Evgeni Golov - 4.1.0-0.9.rc1.1
 - Release rubygem-katello 4.1.0rc1.1
 
