@@ -7,7 +7,7 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.0
+Version: 4.3.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -30,6 +30,18 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
+# end package.json devDependencies BuildRequires
+
 Obsoletes: %{?scl_prefix}rubygem-scaptimony < 0.3.2-3
 
 %description
@@ -85,11 +97,15 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -97,6 +113,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jun 09 2021 Ondrej Prazak <oprazak@redhat.com> 4.3.2-1
+- Update to 4.3.2
+
 * Tue May 18 2021 Ondrej Prazak <oprazak@redhat.com> 4.3.0-1
 - Update to 4.3.0
 
