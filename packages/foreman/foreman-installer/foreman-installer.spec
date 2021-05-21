@@ -149,6 +149,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri May 21 2021 Patrick Creech <pcreech@redhat.com> - 1:2.5.0-0.4.rc2
+- Release foreman-installer 2.5.0
+
 * Mon May 10 2021 Evgeni Golov - 1:2.5.0-0.4.rc2
 - Release foreman-installer 2.5.0rc2
 

@@ -96,6 +96,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri May 21 2021 Patrick Creech <pcreech@redhat.com> - 2.5.0-0.1.rc2
+- Release foreman-release 2.5.0
+
 * Mon May 10 2021 Evgeni Golov - 2.5.0-0.1.rc2
 - Release foreman-release 2.5.0rc2
 

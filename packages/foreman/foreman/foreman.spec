@@ -1024,6 +1024,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri May 21 2021 Patrick Creech <pcreech@redhat.com> - 2.5.0-0.8.rc2
+- Release foreman 2.5.0
+
 * Mon May 10 2021 Evgeni Golov - 2.5.0-0.8.rc2
 - Release foreman 2.5.0rc2
 
