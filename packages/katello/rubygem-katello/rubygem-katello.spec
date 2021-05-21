@@ -6,7 +6,7 @@
 %global foreman_max_version 2.4
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.18.2.1
+%global mainver 3.18.3
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -57,10 +57,10 @@ Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.2.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.8.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
-Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 1.0.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -97,10 +97,10 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.8.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.9.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.7.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) >= 0.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_2to3_migration_client) < 1.0.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Fri May 21 2021 Evgeni Golov - 3.18.3-1
+- Release rubygem-katello 3.18.3
+
 * Wed Mar 17 2021 Evgeni Golov - 3.18.2.1-1
 - Release rubygem-katello 3.18.2.1
 
