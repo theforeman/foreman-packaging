@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.10.0
-Release: 1%{?dist}
+Release: 0.1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 Group: Development/Languages
 License: GPLv2
@@ -85,8 +85,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
-* Tue Apr 13 2021 ianballou <ianballou67@gmail.com> 3.10.0-1
+* Fri May 21 2021 Evgeni Golov 3.10.0-0.1
 - Update to 3.10.0
+- Rebuild against Ruby 2.5
+- Force the version to be lower than the one in Katello 4.1
 
 * Wed Feb 24 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.9.0-1
 - Update to 3.9.0
