@@ -1,3 +1,9 @@
+ruby-foreman-puppet (0.1.0-1) stable; urgency=low
+
+  * 0.1.0 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Sun, 23 May 2021 18:22:44 +0200
+
 ruby-foreman-puppet (0.0.2-1) unstable; urgency=low
 
   * Initial Release.
