@@ -8,7 +8,7 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.0.2
+Version:    9.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -119,6 +119,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue May 25 2021 Ondrej Prazak <oprazak@redhat.com> 9.1.0-1
+- Update to 9.1.0
+
 * Fri Apr 23 2021 Evgeni Golov 9.0.2-1
 - Update to 9.0.2
 
