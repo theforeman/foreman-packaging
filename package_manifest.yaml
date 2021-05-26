@@ -246,7 +246,7 @@ foreman_scl_packages:
     rubygem-puma-status: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
-    rubygem-racc: {}
+    rubygem-racc:
       koji_tags:
         - name: "foreman-{{ foreman_version }}-rhel7"
           scl: 'tfm'
