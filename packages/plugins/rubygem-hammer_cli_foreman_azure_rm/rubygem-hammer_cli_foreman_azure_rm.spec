@@ -9,8 +9,8 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.2.1
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman AzureRM commands for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -90,6 +90,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed May 26 2021 Odilon Sousa <osousa@redhat.com> - 0.2.1-1
+- Release rubygem-hammer_cli_foreman_azure_rm 0.2.1
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-2
 - Rebuild plugins for Ruby 2.7
 
