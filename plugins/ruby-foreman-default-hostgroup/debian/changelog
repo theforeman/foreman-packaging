@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (6.0.0-1) stable; urgency=low
+
+  * 6.0.0 released
+
+ -- Marek Hulan <mhulan@redhat.com>  Wed, 26 May 2021 11:31:13 +0200
+
 ruby-foreman-default-hostgroup (5.0.0-1) stable; urgency=low
 
   * 5.0.0 released
