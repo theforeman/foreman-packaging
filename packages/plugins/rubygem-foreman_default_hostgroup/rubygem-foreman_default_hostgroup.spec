@@ -8,8 +8,8 @@
 
 Summary:    Default Hostgroup Plugin for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
-Release:    5%{?foremandist}%{?dist}
+Version:    6.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_default_hostgroup
@@ -26,7 +26,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -91,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 26 2021 Marek Hulan <mhulan@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-5
 - Rebuild plugins for Ruby 2.7
 
