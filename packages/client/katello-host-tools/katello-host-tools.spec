@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -47,7 +47,7 @@ Requires: python-rhsm
 Requires: crontabs
 %endif
 
-%if 0%{?sles_version}
+%if 0%{?suse_version}
 BuildRequires: python-devel >= 2.6
 Requires: python2-zypp-plugin
 %else
@@ -388,6 +388,10 @@ exit 0
 %endif
 
 %changelog
+* Mon May 31 2021 Bernhard Suttner - 3.5.5-2
+- Use suse_version instead of sles_version to make
+  sure python2-zypp-plugin is a requirement
+
 * Thu Apr 29 2021 Justin Sherrill <jsherril@redhat.com> 3.5.5-1
 * update to 3.5.5
 
