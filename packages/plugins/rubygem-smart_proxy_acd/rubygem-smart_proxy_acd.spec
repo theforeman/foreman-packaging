@@ -18,8 +18,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 3%{?foremandist}%{?dist}
+Version: 0.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Application Centric Deployment smart proxy plugin
 Group: Applications/Internet
 License: GPLv3
@@ -121,6 +121,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon May 31 2021 Bernhard Suttner <suttner@atix.de> 0.2.0-1
+- Update to 0.2.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-3
 - Rebuild plugins for Ruby 2.7
 
