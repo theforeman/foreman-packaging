@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
-Release: 2%{?dist}
+Version: 0.2.0
+Release: 1%{?dist}
 Summary: Smart Proxy ACD - core bits
 Group: Development/Languages
 License: GPLv3
@@ -80,6 +80,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Mon May 31 2021 Bernhard Suttner <suttner@atix.de> 0.2.0-1
+- Update to 0.2.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-2
 - Rebuild plugins for Ruby 2.7
 

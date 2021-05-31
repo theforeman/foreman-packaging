@@ -1,14 +1,15 @@
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 
 %global gem_name foreman_acd
 %global plugin_name acd
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.7.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
@@ -18,16 +19,20 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
+Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
+Requires: %{?scl_prefix}rubygem(git)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
+BuildRequires: %{?scl_prefix}rubygem(git)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
+BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -103,6 +108,8 @@ cp -pa .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -a -s
 
+mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
@@ -121,6 +128,8 @@ cp -pa .%{gem_dir}/* \
 %{foreman_assets_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
+%attr(-,foreman,foreman) %{_root_localstatedir}/lib/foreman/%{gem_name}
+%attr(-,foreman,foreman) %{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
 
 %files doc
 %doc %{gem_docdir}
@@ -129,6 +138,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon May 31 2021 Bernhard Suttner <suttner@atix.de> 0.7.0-1
+- Update to 0.7.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-2
 - Rebuild plugins for Ruby 2.7
 
