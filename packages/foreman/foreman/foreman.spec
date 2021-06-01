@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -270,6 +270,8 @@ BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(css-loader) >= 0.23.1
 BuildRequires: %{?scl_prefix}npm(css-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(cssnano) >= 4.1.10
+BuildRequires: %{?scl_prefix}npm(cssnano) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(dotenv) >= 5.0.0
 BuildRequires: %{?scl_prefix}npm(dotenv) < 6.0.0
 BuildRequires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
@@ -280,6 +282,8 @@ BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 BuildRequires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 BuildRequires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -467,6 +471,8 @@ Requires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 Requires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 Requires: %{?scl_prefix}npm(css-loader) >= 0.23.1
 Requires: %{?scl_prefix}npm(css-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(cssnano) >= 4.1.10
+Requires: %{?scl_prefix}npm(cssnano) < 5.0.0
 Requires: %{?scl_prefix}npm(dotenv) >= 5.0.0
 Requires: %{?scl_prefix}npm(dotenv) < 6.0.0
 Requires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
@@ -477,6 +483,8 @@ Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
 Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
+Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
 Requires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 Requires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 Requires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -1024,6 +1032,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jun 02 2021 Amir Feferkuchen <afeferku@redhat.com> - 2.6.0-0.2.develop
+- Update NPM dependencies
+
 * Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
 - Bump version to 2.6-develop
 
