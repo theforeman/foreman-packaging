@@ -9,8 +9,8 @@
 
 Summary: Foreman admin commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.9
-Release: 2%{?foremandist}%{?dist}
+Version: 0.0.10
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli-foreman-admin
@@ -20,9 +20,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.2
 Requires: %{?scl_prefix}rubygem(hammer_cli)
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -74,6 +72,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 02 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.10-1
+- Update to 0.0.10
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.9-2
 - Rebuild plugins for Ruby 2.7
 
