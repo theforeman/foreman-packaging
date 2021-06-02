@@ -54,6 +54,7 @@
       <packagereq type="default">tfm-nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-core-js</packagereq>
       <packagereq type="default">tfm-nodejs-css-loader</packagereq>
+      <packagereq type="default">tfm-nodejs-cssnano</packagereq>
       <packagereq type="default">tfm-nodejs-d3</packagereq>
       <packagereq type="default">tfm-nodejs-dotenv</packagereq>
       <packagereq type="default">tfm-nodejs-expose-loader</packagereq>
