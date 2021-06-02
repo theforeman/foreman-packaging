@@ -378,6 +378,8 @@ foreman_nodejs_packages:
     nodejs-core-js: {}
     nodejs-css-loader:
       strategy: bundle
+    nodejs-cssnano:
+      strategy: bundle 
     nodejs-d3: {}
     nodejs-dotenv: {}
     nodejs-expose-loader: {}
