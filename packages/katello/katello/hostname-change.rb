@@ -212,6 +212,8 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     end
 
     def delete_puppet_certs
+      return unless @scenario_answers['puppet'].is_a?(Hash)
+
       puppet_ssldir = @scenario_answers['puppet']['ssldir']
 
       run_cmd("rm -rf '#{puppet_ssldir}'")
