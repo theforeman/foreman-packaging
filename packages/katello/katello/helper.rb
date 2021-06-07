@@ -32,8 +32,16 @@ module KatelloUtilities
       "This utility can't run on a non-katello system."
     end
 
+    def load_scenario_data(scenario)
+      YAML.load_file(File.join(scenarios_path, "#{scenario}.yaml"))
+    end
+
     def load_scenario_answers(scenario)
-      YAML.load_file("/etc/foreman-installer/scenarios.d/#{scenario}-answers.yaml")
+      data = load_scenario_data(scenario)
+      unless data && data[:answer_file]
+        fail_with_message("Could not determine answers file location for scenario '#{scenario}'")
+      end
+      YAML.load_file(data[:answer_file])
     end
 
     def fail_with_message(message, opt_parser=nil)
