@@ -353,6 +353,7 @@ whitelist = foreman
   nodejs-compression-webpack-plugin
   nodejs-core-js
   nodejs-css-loader
+  nodejs-cssnano
   nodejs-d3
   nodejs-dotenv
   nodejs-expose-loader
