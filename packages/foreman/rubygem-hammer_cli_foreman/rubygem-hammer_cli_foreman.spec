@@ -11,7 +11,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.5.0
+Version: 2.5.1
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 Group: Development/Languages
@@ -23,8 +23,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.3.0
+Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.5.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.4.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
@@ -97,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue Jun 08 2021 Oleh Fedorenko <ofedoren@redhat.com> - 2.5.1-1
+- Update to 2.5.1
+
 * Tue May 04 2021 Oleh Fedorenko <ofedoren@redhat.com> - 2.5.0-1
 - Release rubygem-hammer_cli_foreman 2.5.0
 
