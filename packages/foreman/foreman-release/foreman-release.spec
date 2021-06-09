@@ -16,7 +16,7 @@
 %global release 1
 
 Name:     foreman-release
-Version:  2.3.4
+Version:  2.3.5
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -107,6 +107,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Jun 09 2021 Evgeni Golov - 2.3.5-1
+- Release foreman-release 2.3.5
+
 * Fri May 21 2021 Patrick Creech <pcreech@redhat.com> - 2.3.4-1
 - Release foreman-release 2.3.4
 

@@ -12,7 +12,7 @@
 %global release 1
 
 Name:    foreman
-Version: 2.3.4
+Version: 2.3.5
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1015,6 +1015,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Jun 09 2021 Evgeni Golov - 2.3.5-1
+- Release foreman 2.3.5
+
 * Fri May 21 2021 Patrick Creech <pcreech@redhat.com> - 2.3.4-1
 - Release foreman 2.3.4
 
