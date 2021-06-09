@@ -387,6 +387,7 @@ foreman_nodejs_packages:
       strategy: bundle
     nodejs-file-loader:
       strategy: bundle
+    nodejs-graphql: {}
     nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
     nodejs-humanize-duration: {}

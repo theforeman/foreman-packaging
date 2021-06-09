@@ -61,6 +61,7 @@ whitelist = foreman
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-file-loader
+  nodejs-graphql
   nodejs-graphql-tag
   nodejs-harmony-reflect
   nodejs-humanize-duration
@@ -359,6 +360,7 @@ whitelist = foreman
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
   nodejs-file-loader
+  nodejs-graphql
   nodejs-graphql-tag
   nodejs-harmony-reflect
   nodejs-humanize-duration
