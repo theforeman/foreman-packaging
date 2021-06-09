@@ -1,5 +1,5 @@
 # list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_azure_rm-2.2.4.gem"
+GEMS="https://rubygems.org/downloads/foreman_azure_rm-2.2.5.gem"
 GEMS="${GEMS} https://rubygems.org/downloads/azure_mgmt_resources-0.18.2.gem"
 GEMS="${GEMS} https://rubygems.org/downloads/azure_mgmt_network-0.26.1.gem"
 GEMS="${GEMS} https://rubygems.org/downloads/azure_mgmt_storage-0.23.0.gem"
