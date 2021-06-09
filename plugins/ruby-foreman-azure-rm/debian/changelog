@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (2.2.5-1) stable; urgency=low
+
+  * 2.2.5 released
+
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Wed, 09 Jun 2021 15:50:41 +0530
+
 ruby-foreman-azure-rm (2.2.4-1) stable; urgency=low
 
   * Update to 2.2.4
