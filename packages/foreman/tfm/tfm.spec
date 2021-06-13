@@ -88,6 +88,7 @@ Obsoletes: %{scl_prefix}rubygem-ipaddrjs-rails < 1.1.1-2
 Obsoletes: %{scl_prefix}rubygem-jquery_pwstrength_bootstrap_4 < 1.2.2-5
 Obsoletes: %{scl_prefix}rubygem-jquery-rails < 3.1.0-4
 Obsoletes: %{scl_prefix}rubygem-jquery-turbolinks < 2.1.0-10
+Obsoletes: %{scl_prefix}rubygem-jquery-ui-rails < 6.0.1-3
 Obsoletes: %{scl_prefix}rubygem-jquery-turbolinks-doc < 2.1.0-10
 Obsoletes: %{scl_prefix}rubygem-less < 2.5.1-5
 Obsoletes: %{scl_prefix}rubygem-less-rails < 2.5.0-4
