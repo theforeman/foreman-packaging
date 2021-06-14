@@ -6,7 +6,7 @@
 %global foreman_max_version 2.4
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.18.3
+%global mainver 3.18.3.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -235,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Jun 14 2021 Odilon Sousa <osousa@redhat.com> - 3.18.3.1-1
+- Release rubygem-katello 3.18.3.1
+
 * Fri May 21 2021 Evgeni Golov - 3.18.3-1
 - Release rubygem-katello 3.18.3
 
