@@ -1045,6 +1045,7 @@ whitelist = katello
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
   rubygem-pulp_file_client
+  rubygem-pulp_python_client
   rubygem-pulp_rpm_client
   rubygem-qpid_proton
   rubygem-redhat_access
@@ -1095,6 +1096,7 @@ whitelist = jsoncpp
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
   rubygem-pulp_file_client
+  rubygem-pulp_python_client
   rubygem-pulp_rpm_client
   rubygem-redhat_access
   rubygem-redhat_access_lib

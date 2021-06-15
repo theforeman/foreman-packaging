@@ -878,6 +878,7 @@ katello_packages:
       build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/katello-master-source-release
       source_system: jenkins
+    rubygem-pulp_python_client: {}
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
