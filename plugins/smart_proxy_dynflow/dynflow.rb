@@ -1,1 +1,1 @@
-gem 'smart_proxy_dynflow', '0.5.0'
+gem 'smart_proxy_dynflow', '0.5.1'
