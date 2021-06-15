@@ -18,7 +18,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.0
+Version: 0.5.1
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -41,7 +41,10 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(logging)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.1
+Requires: %{?scl_prefix}rubygem(dynflow) < 2
+Requires: %{?scl_prefix}rubygem(rest-client)
+Requires: %{?scl_prefix}rubygem(sqlite3)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}ruby < 3
@@ -98,7 +101,7 @@ cp -a .%{gem_dir}/* \
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-mv %{buildroot}%{gem_instdir}/bundler.plugins.d/%{plugin_name}.rb \
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
    %{buildroot}%{foreman_proxy_bundlerd_dir}
 
 # sample config
@@ -117,7 +120,7 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/bundler.plugins.d
+%exclude %{gem_instdir}/bundler.d
 %{gem_spec}
 
 %files doc
@@ -125,6 +128,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.1-1
+- Update to 0.5.1
+
 * Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.0-1
 - Update to 0.5.0
 
