@@ -6,7 +6,7 @@
 Summary:    Anemone web-spider framework
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.7.2
-Release:    18%{?dist}
+Release:    23%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        http://anemone.rubyforge.org/
@@ -58,6 +58,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/VERSION
 
 %changelog
+* Tue Jun 15 2021 Odilon Sousa <osousa@redhat.com> - 0.7.2-23
+- align version with satellite
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.2-18
 - Rebuild for Ruby 2.7
 
