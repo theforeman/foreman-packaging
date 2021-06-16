@@ -4,8 +4,8 @@
 %global gem_name rainbow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.1
-Release: 6%{?dist}
+Version: 2.2.2
+Release: 1%{?dist}
 Summary: Colorize printed text on ANSI terminals
 Group: Development/Languages
 License: MIT
@@ -84,8 +84,8 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
-* Tue Jun 15 2021 Odilon Sousa <osousa@redhat.com> - 2.2.1-6
-- align version with satellite
+* Wed Jun 16 2021 Odilon Sousa <osousa@redhat.com> - 2.2.2-1
+- Release rubygem-rainbow 2.2.2
 
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-4
 - Rebuild for Ruby 2.7
