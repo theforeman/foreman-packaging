@@ -1,3 +1,9 @@
+ruby-foreman-discovery (17.0.1-1) stable; urgency=low
+
+  * 17.0.1 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Wed, 16 Jun 2021 10:11:36 +0200
+
 ruby-foreman-discovery (16.3.5-1) stable; urgency=low
 
   * 16.3.5 released
