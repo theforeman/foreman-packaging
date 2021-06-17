@@ -12,7 +12,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.5
-Release: 1%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Pulp 3 container registry support for Foreman/Katello Smart-Proxy
 Group: Development/Languages
 License: GPLv3
@@ -97,6 +97,9 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jun 17 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-2
+- Add foremandist
+
 * Mon Jun 14 2021 ianballou <ianballou67@gmail.com> 1.0.5-1
 - Update to 1.0.5
 
