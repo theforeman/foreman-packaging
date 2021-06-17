@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 7.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -121,6 +121,7 @@ Obsoletes: %{scl_prefix}rubygem-gridster-rails < 0.5.6.1-6
 Obsoletes: %{scl_prefix}rubygem-fog-rackspace < 0.1.4-5
 Obsoletes: %{scl_prefix}rubygem-x-editable-rails < 1.5.5-6
 Obsoletes: %{scl_prefix}rubygem-rbovirt < 0.1.7-5
+Obsoletes: %{scl_prefix}rubygem-mimemagic < 0.3.5-3
 Obsoletes: foreman-release-scl < 7-3
 
 # turbolinks isn't there to obsolete the tfm-ror52 package so this is explicit
@@ -326,6 +327,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Thu Jun 17 2021 Evgeni Golov - 7.0-3
+- Obsolete mimemagic
+
 * Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-2
 - Obsolete passenger packages
 

@@ -209,7 +209,6 @@ foreman_scl_packages:
     rubygem-method_source: {}
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
-    rubygem-mimemagic: {}
     rubygem-mini_mime: {}
     rubygem-mini_portile2: {}
     rubygem-multipart-post: {}

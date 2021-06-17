@@ -221,7 +221,6 @@
       <packagereq type="default">tfm-rubygem-method_source</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-data</packagereq>
-      <packagereq type="default">tfm-rubygem-mimemagic</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime</packagereq>
       <packagereq type="default">tfm-rubygem-mini_portile2</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json</packagereq>
@@ -459,7 +458,6 @@
       <packagereq type="default">tfm-rubygem-marcel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-memoist-doc</packagereq>
       <packagereq type="default">tfm-rubygem-method_source-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-mimemagic-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-data-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime-doc</packagereq>

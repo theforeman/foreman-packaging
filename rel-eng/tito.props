@@ -218,7 +218,6 @@ whitelist = foreman
   rubygem-marcel
   rubygem-memoist
   rubygem-method_source
-  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
   rubygem-mini_mime
@@ -523,7 +522,6 @@ whitelist = foreman
   rubygem-marcel
   rubygem-memoist
   rubygem-method_source
-  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
   rubygem-mini_mime
