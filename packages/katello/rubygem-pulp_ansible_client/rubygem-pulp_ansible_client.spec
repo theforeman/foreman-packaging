@@ -5,7 +5,7 @@
 %global gem_name pulp_ansible_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.3
+Version: 0.8.0
 Release: 1%{?dist}
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
@@ -65,6 +65,19 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
+
+#workaround for https://pulp.plan.io/issues/8950
+rm -rf %{gem_instdir}/dist
+rm -rf %{gem_instdir}/test
+rm -rf %{gem_instdir}/build
+rm -rf %{gem_instdir}/pulpcore
+rm -rf %{gem_instdir}/setup.*
+rm -rf %{gem_instdir}/*requirements.txt
+rm -rf %{gem_instdir}/pulp_ansible_client.egg-info
+rm -rf %{gem_instdir}/*.txt
+rm -rf %{gem_instdir}/*.cfg
+rm -rf %{gem_instdir}/*.ini
+
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
@@ -85,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jun 21 2021 Justin Sherrill <jsherril@redhat.com> 0.8.0-1
+- Update to 0.8.0
+
 * Fri Jun 11 2021 Justin Sherrill <jsherril@redhat.com> 0.7.3-1
 - Update to 0.7.3
 
