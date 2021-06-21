@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 2%{?dist}
+Version: 1.3.0
+Release: 1%{?dist}
 Summary: Client bindings for pulp certguard plugin
 Group: Development/Languages
 License: GPL-2.0+
@@ -76,6 +76,17 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 
+#workaround for https://pulp.plan.io/issues/8950
+%exclude %{gem_instdir}/dist
+%exclude %{gem_instdir}/build
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/pulpcore
+%exclude %{gem_instdir}/pulp_certguard_client.egg-info
+%exclude %{gem_instdir}/*.txt
+%exclude %{gem_instdir}/*.cfg
+%exclude %{gem_instdir}/*.ini
+%exclude %{gem_instdir}/setup.py*
+
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
@@ -86,6 +97,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jun 21 2021 Justin Sherrill <jsherril@redhat.com> 1.3.0-1
+- Update to 1.3.0
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-2
 - Rebuild for Ruby 2.7
 
