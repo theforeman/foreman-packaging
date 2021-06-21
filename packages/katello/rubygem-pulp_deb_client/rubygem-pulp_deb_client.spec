@@ -10,7 +10,7 @@
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.11.1
+Version: 2.13.0
 
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
@@ -79,6 +79,17 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_spec}
 
+#workaround for https://pulp.plan.io/issues/8950
+%exclude %{gem_instdir}/dist
+%exclude %{gem_instdir}/build
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/pulpcore
+%exclude %{gem_instdir}/pulp_deb_client.egg-info
+%exclude %{gem_instdir}/*.txt
+%exclude %{gem_instdir}/*.cfg
+%exclude %{gem_instdir}/*.ini
+%exclude %{gem_instdir}/setup.py*
+
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
@@ -89,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Mon Jun 21 2021 Justin Sherrill <jsherril@redhat.com> 2.13.0-1
+- Update to 2.13.0
+
 * Tue Apr 27 2021 Quirin Pamp <pamp@atix.de> 2.11.1-1
 - Update to 2.11.1
 
