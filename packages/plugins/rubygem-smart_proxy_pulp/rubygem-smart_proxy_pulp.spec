@@ -18,7 +18,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
+Version: 3.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
@@ -112,6 +112,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Tue Jun 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.0-1
+- Release rubygem-smart_proxy_pulp 3.1.0
+
 * Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-1
 - Release 3.0.0
 
