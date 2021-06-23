@@ -28,7 +28,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ansible >= 2.2
 
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(foreman_ansible_core)
 Requires: ansible-collection-theforeman-foreman
 
 # start specfile generated dependencies
@@ -50,6 +49,7 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
+Obsoletes: %{?scl_prefix}rubygem(foreman_ansible_core)
 
 %description
 Smart-Proxy ansible plugin.
@@ -115,13 +115,6 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/ansible.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/ansible.yml
 
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb \
-                >/dev/null
-gem 'foreman_ansible_core'
-EOF
-
 mkdir -p %{buildroot}%{foreman_proxy_dir}
 # Ensure all the ansible state is in /var/lib
 for i in ansible ansible_galaxy; do
@@ -146,8 +139,6 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
 %ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_root_sysconfdir}/foreman-proxy/ansible.cfg
-%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
 
 %files doc
 %doc %{gem_docdir}
