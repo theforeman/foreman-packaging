@@ -16,7 +16,7 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.0
+Version: 3.2.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
@@ -126,6 +126,7 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/ansible.yml
 %license %{gem_instdir}/LICENSE
+%{gem_instdir}/bin
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
@@ -143,6 +144,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.1-1
+- Update to 3.2.1
+
 * Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.0-1
 - Update to 3.2.0
 
