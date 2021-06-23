@@ -17,7 +17,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
@@ -36,8 +36,11 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
+Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
+Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) >= 0.4
+Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -151,6 +154,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.0-1
+- Update to 3.2.0
+
 * Mon May 17 2021 Ondrej Prazak <oprazak@redhat.com> 3.1.0-1
 - Update to 3.1.0
 
