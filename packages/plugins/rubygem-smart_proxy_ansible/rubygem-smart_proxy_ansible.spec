@@ -47,7 +47,7 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem(foreman_ansible_core)
+Obsoletes: %{?scl_prefix}rubygem-foreman_ansible_core
 
 %description
 Smart-Proxy ansible plugin.
