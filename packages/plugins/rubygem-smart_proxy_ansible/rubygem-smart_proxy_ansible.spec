@@ -27,7 +27,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ansible >= 2.2
 
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.1.5
 Requires: ansible-collection-theforeman-foreman
 
 # start specfile generated dependencies
