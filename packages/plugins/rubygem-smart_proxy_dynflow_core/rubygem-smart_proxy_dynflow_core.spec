@@ -6,7 +6,7 @@
 
 Summary: Core Smart Proxy Dynflow Service
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
+Version: 0.4.1
 Release: 1%{?foremandist}%{?dist}
 Group: Development/Libraries
 License: GPLv3
@@ -15,18 +15,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: foreman-proxy >= 1.12.0
 
 Requires: %{?scl_prefix}rubygem(bundler_ext)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.1.0
-Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.3
 
-Requires: %{?scl_prefix}rubygem(sequel)
-Requires: %{?scl_prefix}rubygem(rest-client)
-Requires: %{?scl_prefix}rubygem(sinatra)
-Requires: %{?scl_prefix}rubygem(rack)
-Requires: %{?scl_prefix}rubygem(sqlite3)
-Requires: %{?scl_prefix}rubygem(logging)
-Requires: %{?scl_prefix}rubygem(sd_notify) >= 0.1
-Requires: %{?scl_prefix}rubygem(sd_notify) < 1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1.0.0
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}rubygems
 Requires(post): systemd-sysv
@@ -82,6 +73,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/LICENSE
 
 %changelog
+* Thu Jun 24 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.1-1
+- Update to 0.4.1
+
 * Mon Jun 07 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.0-1
 - Update to 0.4.0
 
