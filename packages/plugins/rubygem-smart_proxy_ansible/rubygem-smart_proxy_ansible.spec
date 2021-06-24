@@ -14,10 +14,9 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.2.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
@@ -27,8 +26,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires: ansible >= 2.2
 
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(foreman_ansible_core)
 Requires: ansible-collection-theforeman-foreman
 
 # start specfile generated dependencies
@@ -36,8 +33,11 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
+Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
+Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) >= 0.4
+Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -47,6 +47,7 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
+Obsoletes: %{?scl_prefix}rubygem-foreman_ansible_core
 
 %description
 Smart-Proxy ansible plugin.
@@ -112,13 +113,6 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/ansible.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/ansible.yml
 
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb \
-                >/dev/null
-gem 'foreman_ansible_core'
-EOF
-
 mkdir -p %{buildroot}%{foreman_proxy_dir}
 # Ensure all the ansible state is in /var/lib
 for i in ansible ansible_galaxy; do
@@ -132,6 +126,7 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/ansible.yml
 %license %{gem_instdir}/LICENSE
+%{gem_instdir}/bin
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
@@ -143,14 +138,18 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible
 %attr(-,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ansible_galaxy
 %ghost %attr(0640,root,foreman-proxy) %config(noreplace) %{_root_sysconfdir}/foreman-proxy/ansible.cfg
-%{foreman_proxy_bundlerd_dir}/foreman_ansible_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_ansible_core.rb
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.1-1
+- Update to 3.2.1
+
+* Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.0-1
+- Update to 3.2.0
+
 * Mon May 17 2021 Ondrej Prazak <oprazak@redhat.com> 3.1.0-1
 - Update to 3.1.0
 
