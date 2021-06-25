@@ -663,7 +663,6 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-fog-proxmox
   rubygem-foreman_acd
   rubygem-foreman_ansible
-  rubygem-foreman_ansible_core
   rubygem-foreman_azure_rm
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
@@ -829,7 +828,6 @@ whitelist = foreman-discovery-image-service
   rubygem-fog-proxmox
   rubygem-foreman_acd
   rubygem-foreman_ansible
-  rubygem-foreman_ansible_core
   rubygem-foreman_azure_rm
   rubygem-foreman_bootdisk
   rubygem-foreman_chef

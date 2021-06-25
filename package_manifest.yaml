@@ -378,7 +378,7 @@ foreman_nodejs_packages:
     nodejs-css-loader:
       strategy: bundle
     nodejs-cssnano:
-      strategy: bundle 
+      strategy: bundle
     nodejs-d3: {}
     nodejs-dotenv: {}
     nodejs-expose-loader: {}
@@ -975,7 +975,6 @@ plugin_scl_packages:
     rubygem-foreman-tasks-core: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
-    rubygem-foreman_ansible_core: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
