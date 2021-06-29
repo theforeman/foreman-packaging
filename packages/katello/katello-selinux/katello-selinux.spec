@@ -24,7 +24,7 @@
 
 
 Name:           katello-selinux
-Version:        4.0.0
+Version:        4.0.2
 Release:        1%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
@@ -131,6 +131,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Tue Jun 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-1
+- Release katello-selinux 4.0.2
+
 * Fri Feb 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-1
 - Release katello-selinux 4.0.0
 
