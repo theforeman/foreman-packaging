@@ -38,23 +38,23 @@ Run:
 
 ## HOWTO: test a package
 
-Before releasing a build, please test it.  Using tito's --test flag, you can
-generate test (S)RPMs by first committing your changes locally, then it will
-use the SHA in the RPM version.
+Before releasing a build, please test it. This can either be done locally with
+mock or, if you have access, using the Foreman Koji instance.
 
 ### With mock
 
 Configuration for mock is supplied in mock/ and can be used to build any of
 the packages locally and quickly.
 
-1. Copy mock/site-defaults.cfg.basic to site-defaults.cfg, or look at other
-   example configs for more options.
-1. `tito build --rpm --test --builder tito.builder.MockBuilder --arg mock_config_dir=mock/ --arg mock=el7-scl`
+```sh
+obal mock --config ./mock/el7-scl.cfg PACKAGE
+```
 
-The last argument is the name of the mock config in mock/, which includes SCL
-and non-SCL variants.
+Using a local git checkout, change `source_dir` as appropriate:
 
-### With koji access
+* Core packages: `obal mock foreman --config ./mock/el7-scl.cfg -e "{'releasers':['koji-foreman-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
+
+### With Koji access
 
 If you have a certificate for our Koji server (regular packagers can get them),
 then you can use tito to build scratch packages on Koji, though it's slower
