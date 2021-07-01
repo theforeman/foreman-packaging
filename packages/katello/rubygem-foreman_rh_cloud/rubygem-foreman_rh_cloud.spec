@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.21.1
+Version: 3.0.23
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -129,6 +129,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 01 2021 Odilon Sousa <osousa@redhat.com> - 3.0.23-1
+- Release rubygem-foreman_rh_cloud 3.0.23
+
 * Wed Jun 02 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.21.1-1
 - Update to 3.0.21.1-1
 
