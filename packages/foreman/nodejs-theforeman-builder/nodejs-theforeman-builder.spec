@@ -4,7 +4,7 @@
 %global npm_name @theforeman/builder
 
 Name: %{?scl_prefix}nodejs-theforeman-builder
-Version: 8.7.0
+Version: 8.7.1
 Release: 1%{?dist}
 Summary: Build production and development bundle files for foreman core and plugins
 License: MIT
@@ -105,32 +105,32 @@ Source91: https://registry.npmjs.org/@babel/runtime/-/runtime-7.14.6.tgz
 Source92: https://registry.npmjs.org/@babel/template/-/template-7.14.5.tgz
 Source93: https://registry.npmjs.org/@babel/traverse/-/traverse-7.14.7.tgz
 Source94: https://registry.npmjs.org/@babel/types/-/types-7.14.5.tgz
-Source95: https://registry.npmjs.org/@theforeman/builder/-/builder-8.7.0.tgz
+Source95: https://registry.npmjs.org/@theforeman/builder/-/builder-8.7.1.tgz
 Source96: https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz
 Source97: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz
 Source98: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz
 Source99: https://registry.npmjs.org/browserslist/-/browserslist-4.16.6.tgz
 Source100: https://registry.npmjs.org/call-bind/-/call-bind-1.0.2.tgz
 Source101: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001241.tgz
-Source102: https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz
-Source103: https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz
-Source104: https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz
-Source105: https://registry.npmjs.org/colorette/-/colorette-1.2.2.tgz
-Source106: https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.8.0.tgz
-Source107: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.15.2.tgz
-Source108: https://registry.npmjs.org/debug/-/debug-4.3.2.tgz
-Source109: https://registry.npmjs.org/define-properties/-/define-properties-1.1.3.tgz
-Source110: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.762.tgz
-Source111: https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz
-Source112: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
-Source113: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
-Source114: https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz
-Source115: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz
-Source116: https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.1.1.tgz
-Source117: https://registry.npmjs.org/globals/-/globals-11.12.0.tgz
-Source118: https://registry.npmjs.org/has/-/has-1.0.3.tgz
-Source119: https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz
-Source120: https://registry.npmjs.org/has-symbols/-/has-symbols-1.0.2.tgz
+Source102: https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz
+Source103: https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz
+Source104: https://registry.npmjs.org/colorette/-/colorette-1.2.2.tgz
+Source105: https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.8.0.tgz
+Source106: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.15.2.tgz
+Source107: https://registry.npmjs.org/debug/-/debug-4.3.2.tgz
+Source108: https://registry.npmjs.org/define-properties/-/define-properties-1.1.3.tgz
+Source109: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.765.tgz
+Source110: https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz
+Source111: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
+Source112: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
+Source113: https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz
+Source114: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz
+Source115: https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.1.1.tgz
+Source116: https://registry.npmjs.org/globals/-/globals-11.12.0.tgz
+Source117: https://registry.npmjs.org/has/-/has-1.0.3.tgz
+Source118: https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz
+Source119: https://registry.npmjs.org/has-symbols/-/has-symbols-1.0.2.tgz
+Source120: https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz
 Source121: https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz
 Source122: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz
 Source123: https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz
@@ -266,14 +266,13 @@ Provides: bundled(npm(@babel/runtime)) = 7.14.6
 Provides: bundled(npm(@babel/template)) = 7.14.5
 Provides: bundled(npm(@babel/traverse)) = 7.14.7
 Provides: bundled(npm(@babel/types)) = 7.14.5
-Provides: bundled(npm(@theforeman/builder)) = 8.7.0
+Provides: bundled(npm(@theforeman/builder)) = 8.7.1
 Provides: bundled(npm(ansi-styles)) = 3.2.1
 Provides: bundled(npm(babel-plugin-dynamic-import-node)) = 2.3.0
 Provides: bundled(npm(babel-plugin-dynamic-import-node)) = 2.3.3
 Provides: bundled(npm(browserslist)) = 4.16.6
 Provides: bundled(npm(call-bind)) = 1.0.2
 Provides: bundled(npm(caniuse-lite)) = 1.0.30001241
-Provides: bundled(npm(chalk)) = 2.4.2
 Provides: bundled(npm(color-convert)) = 1.9.3
 Provides: bundled(npm(color-name)) = 1.1.3
 Provides: bundled(npm(colorette)) = 1.2.2
@@ -281,7 +280,7 @@ Provides: bundled(npm(convert-source-map)) = 1.8.0
 Provides: bundled(npm(core-js-compat)) = 3.15.2
 Provides: bundled(npm(debug)) = 4.3.2
 Provides: bundled(npm(define-properties)) = 1.1.3
-Provides: bundled(npm(electron-to-chromium)) = 1.3.762
+Provides: bundled(npm(electron-to-chromium)) = 1.3.765
 Provides: bundled(npm(escalade)) = 3.1.1
 Provides: bundled(npm(escape-string-regexp)) = 1.0.5
 Provides: bundled(npm(esutils)) = 2.0.3
@@ -292,6 +291,7 @@ Provides: bundled(npm(globals)) = 11.12.0
 Provides: bundled(npm(has)) = 1.0.3
 Provides: bundled(npm(has-flag)) = 3.0.0
 Provides: bundled(npm(has-symbols)) = 1.0.2
+Provides: bundled(npm(chalk)) = 2.4.2
 Provides: bundled(npm(invariant)) = 2.2.4
 Provides: bundled(npm(js-tokens)) = 4.0.0
 Provides: bundled(npm(jsesc)) = 0.5.0
@@ -381,6 +381,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Fri Jul 02 2021 Ondřej Ezr <oezr@redhat.com> 8.7.1-1
+- Update to 8.7.1
+
 * Wed Jun 30 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.7.0-1
 - Update to 8.7.0
 
