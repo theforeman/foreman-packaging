@@ -4,7 +4,7 @@
 %global npm_name @theforeman/builder
 
 Name: %{?scl_prefix}nodejs-theforeman-builder
-Version: 8.7.0
+Version: 8.7.2
 Release: 1%{?dist}
 Summary: Build production and development bundle files for foreman core and plugins
 License: MIT
@@ -105,7 +105,7 @@ Source91: https://registry.npmjs.org/@babel/runtime/-/runtime-7.14.6.tgz
 Source92: https://registry.npmjs.org/@babel/template/-/template-7.14.5.tgz
 Source93: https://registry.npmjs.org/@babel/traverse/-/traverse-7.14.7.tgz
 Source94: https://registry.npmjs.org/@babel/types/-/types-7.14.5.tgz
-Source95: https://registry.npmjs.org/@theforeman/builder/-/builder-8.7.0.tgz
+Source95: https://registry.npmjs.org/@theforeman/builder/-/builder-8.7.2.tgz
 Source96: https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz
 Source97: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz
 Source98: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz
@@ -120,7 +120,7 @@ Source106: https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.
 Source107: https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.15.2.tgz
 Source108: https://registry.npmjs.org/debug/-/debug-4.3.2.tgz
 Source109: https://registry.npmjs.org/define-properties/-/define-properties-1.1.3.tgz
-Source110: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.762.tgz
+Source110: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.766.tgz
 Source111: https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz
 Source112: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz
 Source113: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
@@ -266,7 +266,7 @@ Provides: bundled(npm(@babel/runtime)) = 7.14.6
 Provides: bundled(npm(@babel/template)) = 7.14.5
 Provides: bundled(npm(@babel/traverse)) = 7.14.7
 Provides: bundled(npm(@babel/types)) = 7.14.5
-Provides: bundled(npm(@theforeman/builder)) = 8.7.0
+Provides: bundled(npm(@theforeman/builder)) = 8.7.2
 Provides: bundled(npm(ansi-styles)) = 3.2.1
 Provides: bundled(npm(babel-plugin-dynamic-import-node)) = 2.3.0
 Provides: bundled(npm(babel-plugin-dynamic-import-node)) = 2.3.3
@@ -281,7 +281,7 @@ Provides: bundled(npm(convert-source-map)) = 1.8.0
 Provides: bundled(npm(core-js-compat)) = 3.15.2
 Provides: bundled(npm(debug)) = 4.3.2
 Provides: bundled(npm(define-properties)) = 1.1.3
-Provides: bundled(npm(electron-to-chromium)) = 1.3.762
+Provides: bundled(npm(electron-to-chromium)) = 1.3.766
 Provides: bundled(npm(escalade)) = 3.1.1
 Provides: bundled(npm(escape-string-regexp)) = 1.0.5
 Provides: bundled(npm(esutils)) = 2.0.3
@@ -381,6 +381,9 @@ rm -rf %{buildroot} %{npm_cache_dir}
 %doc node_modules/%{npm_name}/README.md
 
 %changelog
+* Sat Jul 03 2021 Eric D. Helms <ericdhelms@gmail.com> 8.7.2-1
+- Update to 8.7.2
+
 * Wed Jun 30 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.7.0-1
 - Update to 8.7.0
 
