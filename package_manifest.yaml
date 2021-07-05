@@ -445,6 +445,7 @@ foreman_nodejs_packages:
     nodejs-urijs: {}
     nodejs-url-loader:
       strategy: bundle
+    nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
     nodejs-warning: {}
     nodejs-webpack-stats-plugin: {}

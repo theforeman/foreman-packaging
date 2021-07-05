@@ -106,6 +106,7 @@ whitelist = foreman
   nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
+  nodejs-use-deep-compare-effect
   nodejs-uuid
   nodejs-warning
   nodejs-webpack
@@ -404,6 +405,7 @@ whitelist = foreman
   nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
+  nodejs-use-deep-compare-effect
   nodejs-uuid
   nodejs-warning
   nodejs-webpack
