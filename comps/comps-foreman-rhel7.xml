@@ -107,6 +107,7 @@
       <packagereq type="default">tfm-nodejs-uglifyjs-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-urijs</packagereq>
       <packagereq type="default">tfm-nodejs-url-loader</packagereq>
+      <packagereq type="default">tfm-nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">tfm-nodejs-uuid</packagereq>
       <packagereq type="default">tfm-nodejs-warning</packagereq>
       <packagereq type="default">tfm-nodejs-webpack</packagereq>
