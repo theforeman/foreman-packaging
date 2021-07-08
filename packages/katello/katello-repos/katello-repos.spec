@@ -1,9 +1,9 @@
-%global pulpcore_version 3.11
+%global pulpcore_version 3.14
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.1.0
@@ -66,6 +66,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Thu Jul 8 2021 James Jeffers <jjeffers@redhat.com> - 4.1.0-2
+- Update pulpcore to 3.14
+
 * Mon Jun 21 2021 Odilon Sousa <osousa@redhat.com> - 4.1.0-1
 - Release katello-repos 4.1.0
 
