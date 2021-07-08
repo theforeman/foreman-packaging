@@ -9,7 +9,7 @@
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
+Version: 2.7.0
 
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
@@ -82,6 +82,17 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 
+#workaround for https://pulp.plan.io/issues/8950
+%exclude %{gem_instdir}/dist
+%exclude %{gem_instdir}/build
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/pulpcore
+%exclude %{gem_instdir}/pulp_container_client.egg-info
+%exclude %{gem_instdir}/*.txt
+%exclude %{gem_instdir}/*.cfg
+%exclude %{gem_instdir}/*.ini
+%exclude %{gem_instdir}/setup.py*
+
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
@@ -92,6 +103,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Fri Jul 02 2021 James Jeffers <jjeffers@redhat.com> 2.7.0-1
+- Update to 2.7.0
+
 * Tue Mar 30 2021 Justin Sherrill <jsherril@redhat.com> 2.4.0-1
 - Update to 2.4.0
 
