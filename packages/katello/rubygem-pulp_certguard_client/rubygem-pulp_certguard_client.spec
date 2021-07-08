@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 2%{?dist}
+Version: 1.4.0
+Release: 1%{?dist}
 Summary: Client bindings for pulp certguard plugin
 Group: Development/Languages
 License: GPL-2.0+
@@ -86,6 +86,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jul 08 2021 James Jeffers <jjeffers@redhat.com> 1.4.0-1
+- Update to 1.4.0
+
 * Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.3-2
 - Rebuild for Ruby 2.7
 
