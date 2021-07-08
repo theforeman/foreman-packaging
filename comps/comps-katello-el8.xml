@@ -26,7 +26,6 @@
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">rubygem-katello</packagereq>
       <packagereq type="default">rubygem-katello-assets</packagereq>
-      <packagereq type="default">rubygem-redhat_access</packagereq>
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-angular</packagereq>
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
@@ -58,7 +57,6 @@
       <packagereq type="default">rubygem-pulp_python_client</packagereq>
       <packagereq type="default">rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">rubygem-qpid_proton</packagereq>
-      <packagereq type="default">rubygem-redhat_access_lib</packagereq>
       <packagereq type="default">rubygem-robotex</packagereq>
       <packagereq type="default">rubygem-runcible</packagereq>
       <packagereq type="default">rubygem-sexp_processor</packagereq>
@@ -104,8 +102,6 @@
       <packagereq type="optional">rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_file_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_python_client-doc</packagereq>
-      <packagereq type="optional">rubygem-redhat_access-doc</packagereq>
-      <packagereq type="optional">rubygem-redhat_access_lib-doc</packagereq>
       <packagereq type="optional">rubygem-runcible-doc</packagereq>
       <packagereq type="optional">rubygem-sexp_processor-doc</packagereq>
       <packagereq type="optional">rubygem-stomp-doc</packagereq>
