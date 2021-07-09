@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.1
-Release: 3%{?foremandist}%{?dist}
+Version: 0.3.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -138,6 +138,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 09 2021 Adam Ruzicka <aruzicka@redhat.com> 0.3.2-1
+- Update to 0.3.2
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.1-3
 - Rebuild for Ruby 2.7
 
