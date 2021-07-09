@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -41,7 +41,6 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem-foreman_remote_execution_core
 
 %description
 Ssh remote execution provider for Foreman Smart-Proxy.
@@ -121,6 +120,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 09 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.1-2
+- Do not obsolete foreman_remote_execution_core
+
 * Fri Jul 09 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.1-1
 - Update to 0.4.1
 
