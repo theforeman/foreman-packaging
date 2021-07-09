@@ -17,7 +17,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
+Version: 0.4.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
@@ -38,8 +38,7 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.1
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -106,7 +105,7 @@ cp -a .%{gem_dir}/* \
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-mv %{buildroot}%{gem_instdir}/bundler.plugins.d/%{plugin_name}.rb \
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
    %{buildroot}%{foreman_proxy_bundlerd_dir}
 
 # sample config
@@ -139,6 +138,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 09 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.1-1
+- Update to 0.4.1
+
 * Mon Jun 07 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.0-1
 - Update to 0.4.0
 
