@@ -1005,7 +1005,6 @@ plugin_scl_packages:
     rubygem-foreman_probing_core: {}
     rubygem-foreman_puppet: {}
     rubygem-foreman_remote_execution: {}
-    rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
