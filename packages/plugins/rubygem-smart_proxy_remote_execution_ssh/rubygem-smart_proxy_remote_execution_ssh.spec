@@ -14,7 +14,6 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.1
@@ -24,14 +23,6 @@ Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: tfm-rubygem(foreman_remote_execution_core)
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: rubygem(foreman_remote_execution_core)
-%endif
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -50,6 +41,7 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
+Obsoletes: %{?scl_prefix}rubygem-foreman_remote_execution_core
 
 %description
 Ssh remote execution provider for Foreman Smart-Proxy.
@@ -113,13 +105,6 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
 
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_remote_execution_core.rb \
-                >/dev/null
-gem 'foreman_remote_execution_core'
-EOF
-
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
@@ -128,8 +113,6 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_proxy_bundlerd_dir}/foreman_remote_execution_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
 %{foreman_proxy_dir}/.ssh
 %attr(0750,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
 
