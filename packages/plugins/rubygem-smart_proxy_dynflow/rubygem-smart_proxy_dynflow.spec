@@ -119,7 +119,7 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
-* Thu Jul 12 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-2
+* Mon Jul 12 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-2
 - Do not depend on smart_proxy_dynflow_core
 
 * Thu Jun 24 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-1
