@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -47,7 +47,6 @@ Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 %{?scl:Obsoletes: rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem-foreman_ansible_core
 
 %description
 Smart-Proxy ansible plugin.
@@ -144,6 +143,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jul 12 2021 Evgeni Golov - 3.2.1-2
+- Do not obsolete ansible_core from smart_proxy_ansible
+
 * Wed Jun 23 2021 Adam Ruzicka <aruzicka@redhat.com> 3.2.1-1
 - Update to 3.2.1
 
