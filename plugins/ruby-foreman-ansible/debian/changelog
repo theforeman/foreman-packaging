@@ -1,3 +1,9 @@
+ruby-foreman-ansible (6.3.1-1) stable; urgency=low
+
+  * 6.3.1 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Mon, 12 Jul 2021 13:38:35 +0200
+
 ruby-foreman-ansible (6.1.1-1) stable; urgency=low
 
   * 6.1.1 released
