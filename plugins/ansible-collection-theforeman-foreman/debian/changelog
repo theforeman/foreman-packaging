@@ -1,3 +1,9 @@
+ansible-collection-theforeman-foreman (2.1.2-1) stable; urgency=low
+
+  * 2.1.2 released
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 13 Jul 2021 19:48:37 +0200
+
 ansible-collection-theforeman-foreman (2.1.1-1) stable; urgency=low
 
   * 2.1.1 released
