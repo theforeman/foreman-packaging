@@ -45,7 +45,6 @@
       <packagereq type="default">tfm-rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-core</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_acd</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_azure_rm</packagereq>
@@ -244,7 +243,6 @@
       <packagereq type="default">tfm-rubygem-foreman_spacewalk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_statistics-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_supervisory_authority-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-foreman-tasks-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman-tasks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_vault-doc</packagereq>

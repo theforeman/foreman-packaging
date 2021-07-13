@@ -973,7 +973,6 @@ plugin_scl_packages:
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
-    rubygem-foreman-tasks-core: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
     rubygem-foreman_azure_rm: {}
