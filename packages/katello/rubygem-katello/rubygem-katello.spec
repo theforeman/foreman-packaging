@@ -6,7 +6,7 @@
 %global foreman_max_version 2.6
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.1.0
+%global mainver 4.1.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -33,6 +33,8 @@ Requires: %{?scl_prefix}rubygem(oauth)
 Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) < 5
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.3.5
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(activerecord-import)
@@ -46,18 +48,18 @@ Requires: %{?scl_prefix}rubygem(pg)
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.11.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.12.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.6.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.7.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.7
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.8
-Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.4.0
-Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.5.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.10.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.12.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.14.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.15.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.8.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.9.0
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.8
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.9
+Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.7.0
+Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.8.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.13.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.14.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.13.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.14.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -71,6 +73,8 @@ BuildRequires: %{?scl_prefix}rubygem(oauth)
 BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 5
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.3.5
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
@@ -84,18 +88,18 @@ BuildRequires: %{?scl_prefix}rubygem(pg)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.11.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.12.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.6.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.7.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.7
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.8
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.5.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.12.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.11.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.14.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.15.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.8
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.9
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.7.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.13.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.14.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.13.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.14.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -229,6 +233,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Jul 14 2021 Evgeni Golov - 4.1.1-1
+- Release rubygem-katello 4.1.1
+
 * Mon Jun 21 2021 Odilon Sousa <osousa@redhat.com> - 4.1.0-1
 - Release rubygem-katello 4.1.0
 
