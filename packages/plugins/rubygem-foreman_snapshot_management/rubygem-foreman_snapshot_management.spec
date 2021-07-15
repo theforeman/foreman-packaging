@@ -7,7 +7,7 @@
 %global foreman_min_version 2.0.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Snapshot Management for VMware vSphere
 Group: Applications/Systems
@@ -35,27 +35,11 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
-BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(sortabular) >= 1.5.1
-BuildRequires: %{?scl_prefix}npm(sortabular) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(table-resolver) >= 3.2.0
-BuildRequires: %{?scl_prefix}npm(table-resolver) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
-BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
-BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
-BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -127,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 15 2021 Markus Bucher <bucher@atix.de> 2.0.1-1
+- Update to 2.0.1
+
 * Mon May 10 2021 Markus Bucher <bucher@atix.de> 2.0.0-1
 - Update to 2.0.0
 - Switch to React-UI
