@@ -8,7 +8,7 @@
 %global foreman_min_version 2.4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.0
+Version: 1.0.0.rc.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -22,12 +22,12 @@ Autoreq: 0
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -109,6 +109,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 15 2021 Ondřej Ezr <oezr@redhat.com> 1.0.0.rc.1-1
+- Update to 1.0.0.rc.1
+
 * Thu May 20 2021 Manuel Laug <manuel.laug@dm.de> 0.1.0-1
 - Update to 0.1.0
 
