@@ -9,7 +9,7 @@
 
 Summary: Foreman admin commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.10
+Version: 1.1.0
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -72,6 +72,9 @@ cp -pa .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Jul 15 2021 Lukas Zapletal <lzap+rpm@redhat.com> 1.1.0-1
+- Update to 1.1.0
+
 * Wed Jun 02 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.10-1
 - Update to 0.0.10
 
