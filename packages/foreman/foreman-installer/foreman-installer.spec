@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 
 Name:       foreman-installer
 Epoch:      1
@@ -40,6 +40,8 @@ Obsoletes: katello-installer-base < 3.11.0-1
 
 # Users must have upgraded Pulp packages - it will break with < 3.14
 Conflicts: python3-pulpcore < 3.14
+# Katello 4.1.0 is incompatible with Pulp 3.14
+Conflicts: %{?scl_prefix}rubygem(katello) < 4.1.1
 
 Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
@@ -150,6 +152,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.2-3
+- Conflict with Katello < 4.1.1
+
 * Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.2-2
 - Conflict with Pulpcore < 3.14
 
