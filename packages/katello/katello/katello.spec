@@ -6,7 +6,7 @@
 %global release 1
 
 Name:       katello
-Version:    3.18.3
+Version:    3.18.4
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -178,6 +178,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Jul 16 2021 Evgeni Golov - 3.18.4-1
+- Release katello 3.18.4
+
 * Fri May 21 2021 Evgeni Golov - 3.18.3-1
 - Release katello 3.18.3
 
