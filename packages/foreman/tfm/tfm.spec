@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 7.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -130,7 +130,7 @@ Obsoletes: tfm-ror52-rubygem-turbolinks-doc < 2.5.4-3
 
 # arel isn't there to obsolete the tfm-ror52 package so this is explicit
 Obsoletes: tfm-ror52-rubygem-arel <= 9.0.0
-Obsoletes: %{scl_prefix}-rubygem-arel <= 9.0.0
+Obsoletes: %{scl_prefix}rubygem-arel <= 9.0.0
 
 # obsolete all of the tfm Passenger packages since Passenger support is dropped
 Obsoletes: %{scl_prefix}mod_passenger < 4.0.18-10.14
@@ -327,6 +327,9 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.0-4
+- Correct rubygem-arel obsolete
+
 * Thu Jun 17 2021 Evgeni Golov - 7.0-3
 - Obsolete mimemagic
 
