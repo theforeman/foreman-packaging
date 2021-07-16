@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -37,6 +37,9 @@ Summary: Katello installer bits
 Group: Applications/System
 Provides: katello-installer-base < 3.11.0-1
 Obsoletes: katello-installer-base < 3.11.0-1
+
+# Users must have upgraded Pulp packages - it will break with < 3.14
+Conflicts: python3-pulpcore < 3.14
 
 Requires: %{name} = %{epoch}:%{version}-%{release}
 Requires: openssl
@@ -147,6 +150,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.2-2
+- Conflict with Pulpcore < 3.14
+
 * Thu Jul 15 2021 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.5.2-1
 - Release foreman-installer 2.5.2
 
