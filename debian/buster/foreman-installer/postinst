@@ -19,6 +19,9 @@ set -e
 
 case "$1" in
   configure)
+    if [ -d /etc/foreman-installer/scenarios.d ] ; then
+      mv /etc/foreman-installer/scenarios.d /var/lib/foreman-installer
+    fi
     foreman-installer --scenario foreman --migrations-only > /dev/null
   ;;
 
