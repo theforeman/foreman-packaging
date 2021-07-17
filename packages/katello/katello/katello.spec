@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.2.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Jul 27 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-0.2.master
+- Support /var/lib/foreman-installer in change-hostname
+
 * Thu May 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-0.1.master
 - Update to 4.2.0
 

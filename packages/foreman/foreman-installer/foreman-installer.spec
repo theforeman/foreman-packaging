@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -73,6 +73,11 @@ Various scenarios and tools for the Katello ecosystem
   SYSCONFDIR=%{buildroot}%{_sysconfdir} \
   --trace
 
+%pre
+if [ -d %{_sysconfdir}/%{name}/scenarios.d ] ; then
+  mv %{_sysconfdir}/%{name}/scenarios.d %{_sharedstatedir}/%{name}
+fi
+
 %post
 foreman-installer --scenario foreman --migrations-only > /dev/null
 
@@ -86,7 +91,7 @@ foreman-installer --scenario katello --migrations-only > /dev/null
 for scenario in foreman-proxy-content katello ; do
 	MIGRATIONS=%{_sysconfdir}/%{name}/scenarios.d/$scenario.migrations
 	if [ -d $MIGRATIONS ] && [ ! -L $MIGRATIONS ] ; then
-		mv $MIGRATIONS/.applied %{_sysconfdir}/%{name}/scenarios.d/$scenario-migrations-applied
+		mv $MIGRATIONS/.applied %{_sharedstatedir}/%{name}/scenarios.d/$scenario-migrations-applied
 		rm -rf $MIGRATIONS
 	fi
 done
@@ -97,11 +102,12 @@ done
 %license LICENSE
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/custom-hiera.yaml
-%dir %{_sysconfdir}/%{name}/scenarios.d
-%{_sysconfdir}/%{name}/scenarios.d/foreman.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/foreman-migrations-applied
+%dir %{_sharedstatedir}/%{name}
+%dir %{_sharedstatedir}/%{name}/scenarios.d
+%{_sharedstatedir}/%{name}/scenarios.d/foreman.migrations
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/foreman.yaml
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/foreman-answers.yaml
+%config(noreplace) %{_sharedstatedir}/%{name}/scenarios.d/foreman-migrations-applied
 %{_sbindir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man8
@@ -123,18 +129,18 @@ done
 # foreman-proxy-content scenario
 %{_datadir}/%{name}/config/foreman-proxy-content*
 %{_datadir}/%{name}/parser_cache/foreman-proxy-content.yaml
-%{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/foreman-proxy-content-migrations-applied
+%{_sharedstatedir}/%{name}/scenarios.d/foreman-proxy-content.migrations
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/foreman-proxy-content.yaml
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/foreman-proxy-content-answers.yaml
+%config(noreplace) %{_sharedstatedir}/%{name}/scenarios.d/foreman-proxy-content-migrations-applied
 
 # katello scenario
 %{_datadir}/%{name}/config/katello*
 %{_datadir}/%{name}/parser_cache/katello.yaml
-%{_sysconfdir}/%{name}/scenarios.d/katello.migrations
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/katello.yaml
-%config(noreplace) %attr(600, root, root) %{_sysconfdir}/%{name}/scenarios.d/katello-answers.yaml
-%config(noreplace) %{_sysconfdir}/%{name}/scenarios.d/katello-migrations-applied
+%{_sharedstatedir}/%{name}/scenarios.d/katello.migrations
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/katello.yaml
+%config(noreplace) %attr(600, root, root) %{_sharedstatedir}/%{name}/scenarios.d/katello-answers.yaml
+%config(noreplace) %{_sharedstatedir}/%{name}/scenarios.d/katello-migrations-applied
 
 # foreman-proxy-certs-generate
 %{_datadir}/%{name}/katello-certs
@@ -142,6 +148,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Sat Jul 17 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.4.develop
+- rebuilt
+
 * Wed May 19 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.3.develop
 - Bump puppet-agent requires to 6.15.0
 

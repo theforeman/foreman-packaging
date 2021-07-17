@@ -9,7 +9,11 @@ module KatelloUtilities
     end
 
     def scenarios_path
-      '/etc/foreman-installer/scenarios.d'
+      if File.exist?('/var/lib/foreman-installer/scenarios.d')
+        '/var/lib/foreman-installer/scenarios.d'
+      else
+        '/etc/foreman-installer/scenarios.d'
+      end
     end
 
     def hammer_root_config_path
