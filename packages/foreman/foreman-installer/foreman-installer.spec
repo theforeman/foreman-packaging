@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -73,6 +73,7 @@ Various scenarios and tools for the Katello ecosystem
   SYSCONFDIR=%{buildroot}%{_sysconfdir} \
   --trace
 
+%if 0%{?foremandist:1}
 %post
 foreman-installer --scenario foreman --migrations-only > /dev/null
 
@@ -90,6 +91,7 @@ for scenario in foreman-proxy-content katello ; do
 		rm -rf $MIGRATIONS
 	fi
 done
+%endif
 
 %files
 %defattr(-,root,root,-)
@@ -142,6 +144,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Jul 20 2021 Evgeni Golov - 1:2.6.0-0.4.develop
+- Only generate post scripts when building for upstream Foreman
+
 * Wed May 19 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.3.develop
 - Bump puppet-agent requires to 6.15.0
 
