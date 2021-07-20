@@ -1,3 +1,9 @@
+ruby-foreman-ansible-core (4.1.1-1) stable; urgency=low
+
+  * 4.1.1 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 20 Jul 2021 17:25:33 +0200
+
 ruby-foreman-ansible-core (4.0.0-2) stable; urgency=low
 
   * Break/Replace old smart_proxy_ansible that contained the inventory
