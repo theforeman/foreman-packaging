@@ -17,6 +17,8 @@ config.rules[:ignore] << 'appveyor.yml'
 config.rules[:ignore] << 'TODO'
 config.rules[:ignore] << 'web'
 config.rules[:ignore] << '.github'
+config.rules[:ignore] << '.ruby-version'
+config.rules[:ignore] << '.coveralls.yml'
 -%>
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
