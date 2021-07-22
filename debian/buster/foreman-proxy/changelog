@@ -1,3 +1,9 @@
+foreman-proxy (3.0.0-1) stable; urgency=low
+
+  * Bump changelog to 3.0.0 to match VERSION
+
+ -- Tomer Brisker <tbrisker@gmail.com>  Thu, 22 Jul 2021 17:02:34 +0300
+
 foreman-proxy (2.6.0-1) stable; urgency=low
 
   * Bump changelog to 2.6.0 to match VERSION
