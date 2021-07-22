@@ -1,7 +1,7 @@
 ---
 all:
   vars:
-    foremandist: .fm2_6
+    foremandist: .fm3_0
     foreman_version: 'nightly'
     katello_version: 'nightly'
   children:
