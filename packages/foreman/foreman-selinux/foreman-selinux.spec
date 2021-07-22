@@ -27,7 +27,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        2.6.0
+Version:        3.0.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -192,6 +192,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
 * Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
 - Bump version to 2.6-develop
 
