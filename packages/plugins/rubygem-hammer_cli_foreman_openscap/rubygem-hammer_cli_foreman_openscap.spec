@@ -8,8 +8,8 @@
 
 Summary: Foreman OpenSCAP commands for Hammer CLI
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.12
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.13
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/hammer_cli_foreman_openscap
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.6.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -65,6 +65,9 @@ cp -pa .%{gem_instdir}/config/foreman_openscap.yml %{buildroot}%{_root_sysconfdi
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 23 2021 Ondrej Prazak <oprazak@redhat.com> 0.1.13-1
+- Update to 0.1.13
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.12-2
 - Rebuild plugins for Ruby 2.7
 
