@@ -716,6 +716,7 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
   rubygem-hammer_cli_foreman_kubevirt
+  rubygem-hammer_cli_foreman_leapp
   rubygem-hammer_cli_foreman_openscap
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
