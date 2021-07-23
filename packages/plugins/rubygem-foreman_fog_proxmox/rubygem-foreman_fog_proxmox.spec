@@ -7,7 +7,7 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.4
+Version: 0.14.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
@@ -118,6 +118,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Fri Jul 23 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.14.0-1
+- Update to 0.14.0
+
 * Thu Jul 22 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.13.4-1
 - Update to 0.13.4
 
