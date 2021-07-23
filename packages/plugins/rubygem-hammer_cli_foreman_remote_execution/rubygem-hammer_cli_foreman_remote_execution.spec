@@ -9,8 +9,8 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.2.2
+Release: 1%{?foremandist}%{?dist}
 Summary: CLI for the Foreman remote execution plugin
 Group: Development/Languages
 License: GPLv3+
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.1.3
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 3.0.0
+Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) >= 0.0.3
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks) < 0.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -100,6 +100,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 23 2021 Adam Ruzicka <aruzicka@redhat.com> 0.2.2-1
+- Update to 0.2.2
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-2
 - Rebuild plugins for Ruby 2.7
 
