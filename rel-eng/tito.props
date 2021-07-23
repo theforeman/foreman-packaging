@@ -723,6 +723,7 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
+  rubygem-hammer_cli_foreman_webhooks
   rubygem-http
   rubygem-httparty
   rubygem-http-form_data

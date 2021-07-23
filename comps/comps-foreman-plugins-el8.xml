@@ -106,6 +106,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_templates</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_webhooks</packagereq>
       <packagereq type="default">rubygem-http</packagereq>
       <packagereq type="default">rubygem-http-form_data</packagereq>
       <packagereq type="default">rubygem-http_parser.rb</packagereq>
@@ -265,6 +266,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_tasks-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_templates-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_webhooks-doc</packagereq>
       <packagereq type="default">rubygem-httparty-doc</packagereq>
       <packagereq type="default">rubygem-http-doc</packagereq>
       <packagereq type="default">rubygem-http-form_data-doc</packagereq>
