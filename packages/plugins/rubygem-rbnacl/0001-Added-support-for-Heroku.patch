@@ -1,0 +1,40 @@
+From c788aea2c6dcf6c24cd5e9af2d2ce3ee42714bcd Mon Sep 17 00:00:00 2001
+From: Andrew Kane <andrew@chartkick.com>
+Date: Sat, 1 Dec 2018 15:03:36 -0800
+Subject: [PATCH] Added support for Heroku
+
+(cherry picked from commit 38c1bcd2fe7a3735c52fdd9dd9127814cbcc44e6)
+---
+ lib/rbnacl/init.rb   | 2 +-
+ lib/rbnacl/sodium.rb | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git lib/rbnacl/init.rb lib/rbnacl/init.rb
+index baa0f4d..9c07f49 100644
+--- lib/rbnacl/init.rb
++++ lib/rbnacl/init.rb
+@@ -8,7 +8,7 @@ module RbNaCl
+     if defined?(RBNACL_LIBSODIUM_GEM_LIB_PATH)
+       ffi_lib RBNACL_LIBSODIUM_GEM_LIB_PATH
+     else
+-      ffi_lib "sodium"
++      ffi_lib ["sodium", "libsodium.so.18", "libsodium.so.23"]
+     end
+ 
+     attach_function :sodium_init, [], :int
+diff --git lib/rbnacl/sodium.rb lib/rbnacl/sodium.rb
+index bafbda6..4b7988c 100644
+--- lib/rbnacl/sodium.rb
++++ lib/rbnacl/sodium.rb
+@@ -11,7 +11,7 @@ module RbNaCl
+       if defined?(RBNACL_LIBSODIUM_GEM_LIB_PATH)
+         klass.ffi_lib RBNACL_LIBSODIUM_GEM_LIB_PATH
+       else
+-        klass.ffi_lib "sodium"
++        klass.ffi_lib ["sodium", "libsodium.so.18", "libsodium.so.23"]
+       end
+     end
+ 
+-- 
+2.31.1
+
