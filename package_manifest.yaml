@@ -559,6 +559,7 @@ foreman_nonscl_packages:
     keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
     rubygem-foreman_maintain: {}
+    rubygem-rexml: {}
 
 foreman_proxy_packages:
   vars:

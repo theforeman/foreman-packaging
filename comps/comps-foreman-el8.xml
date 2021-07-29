@@ -281,6 +281,7 @@
       <packagereq type="default">rubygem-responders</packagereq>
       <packagereq type="default">rubygem-rest-client</packagereq>
       <packagereq type="default">rubygem-retriable</packagereq>
+      <packagereq type="default">rubygem-rexml</packagereq>
       <packagereq type="default">rubygem-rkerberos</packagereq>
       <packagereq type="default">rubygem-roadie</packagereq>
       <packagereq type="default">rubygem-roadie-rails</packagereq>
@@ -495,6 +496,7 @@
       <packagereq type="default">rubygem-responders-doc</packagereq>
       <packagereq type="default">rubygem-rest-client-doc</packagereq>
       <packagereq type="default">rubygem-retriable-doc</packagereq>
+      <packagereq type="default">rubygem-rexml-doc</packagereq>
       <packagereq type="default">rubygem-rkerberos-doc</packagereq>
       <packagereq type="default">rubygem-roadie-doc</packagereq>
       <packagereq type="default">rubygem-roadie-rails-doc</packagereq>

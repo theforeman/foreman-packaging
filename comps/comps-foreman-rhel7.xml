@@ -344,6 +344,7 @@
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
+      <packagereq type="default">rubygem-rexml</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -351,6 +352,7 @@
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
+      <packagereq type="default">rubygem-rexml-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailbox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer-doc</packagereq>

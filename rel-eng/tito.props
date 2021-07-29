@@ -30,6 +30,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-clamp
   rubygem-foreman_maintain
   rubygem-highline
+  rubygem-rexml
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -576,6 +577,7 @@ whitelist = foreman
   rubygem-responders
   rubygem-rest-client
   rubygem-retriable
+  rubygem-rexml
   rubygem-rkerberos
   rubygem-roadie
   rubygem-roadie-rails
