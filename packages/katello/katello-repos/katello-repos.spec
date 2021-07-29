@@ -6,7 +6,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        4.0.1
+Version:        4.0.2
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -66,6 +66,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Thu Jul 29 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.2-1
+- Release katello-repos 4.0.2
+
 * Thu May 20 2021 Patrick Creech <pcreech@redhat.com> - 4.0.1-1
 - Release katello-repos 4.0.1
 
