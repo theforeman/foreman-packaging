@@ -1,3 +1,9 @@
+ruby-foreman-tasks-core (0.3.6-1) stable; urgency=low
+
+  * 0.3.6 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 29 Jul 2021 10:23:13 +0200
+
 ruby-foreman-tasks-core (0.3.5-1) stable; urgency=low
 
   * 0.3.5 released
