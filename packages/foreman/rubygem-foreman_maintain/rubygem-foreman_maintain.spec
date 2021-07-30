@@ -10,12 +10,13 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_maintain
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: %{gem_name}.logrotate
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
@@ -83,6 +84,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
 %if 0%{?rhel} < 8
 %py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
@@ -112,6 +114,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{gem_name}
 %{_localstatedir}/log/%{directory_name}
 %{_localstatedir}/lib/%{directory_name}
 %license %{gem_instdir}/LICENSE
@@ -123,6 +126,9 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 30 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.9-2
+- Add logrotate configuration file
+
 * Tue Jul 27 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.9-1
 - Update to 0.8.9
 
