@@ -4,12 +4,12 @@
 
 %global gem_name foreman_salt
 %global plugin_name salt
-%global foreman_min_version 1.24.0
+%global foreman_min_version 2.5
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    13.2.4
-Release:    2%{?foremandist}%{?dist}
+Version:    14.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_salt
@@ -104,6 +104,10 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 02 2021 Bastian Schmidt <schmidt@atix.de> 14.0.0-1
+- Update to 14.0.0
+- Implement Salt Autosign via Grains
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 13.2.4-2
 - Rebuild plugins for Ruby 2.7
 
