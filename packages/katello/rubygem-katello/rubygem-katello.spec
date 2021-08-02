@@ -6,7 +6,7 @@
 %global foreman_max_version 2.6
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.1.2
+%global mainver 4.1.2.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -34,7 +34,7 @@ Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 Requires: %{?scl_prefix}rubygem(foreman-tasks) < 5
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.3.5
+Requires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.4
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(activerecord-import)
@@ -74,7 +74,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) < 5
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.3.5
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core) <= 0.4
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
@@ -233,6 +233,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 02 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2.1-1
+- Release rubygem-katello 4.1.2.1
+
 * Wed Jul 28 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.1.2-1
 - Release rubygem-katello 4.1.2
 
