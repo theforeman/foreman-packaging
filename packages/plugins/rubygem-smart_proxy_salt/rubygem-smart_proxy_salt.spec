@@ -23,19 +23,21 @@
 %global gem_name smart_proxy_salt
 %global plugin_name salt
 
-%global foreman_proxy_min_version 1.25
+%global foreman_proxy_min_version 2.5
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 %global salt_config_dir %{_root_sysconfdir}/salt
+%global salt_proxy_runners_dir %{foreman_proxy_dir}/salt/runners
+%global salt_proxy_reactors_dir %{foreman_proxy_dir}/salt/reactors
+%global salt_state_grains_dir %{foreman_proxy_statedir}/salt/grains
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.2
-Release: 9%{?foremandist}%{?dist}
+Version: 4.0.0
+Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -52,19 +54,12 @@ BuildRequires: python3-rpm-macros
 %endif
 Requires: /etc/cron.d
 
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.2.2
-Requires: tfm-rubygem(smart_proxy_salt_core)
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.2
-Requires: rubygem(smart_proxy_salt_core)
-%endif
-
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -135,6 +130,16 @@ cp -a .%{_bindir}/* \
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
 
+# autosign runner, reactor, key file
+mkdir -p %{buildroot}%{salt_proxy_runners_dir}
+mv %{buildroot}%{gem_instdir}/salt/minion_auth/srv/salt/_runners/* \
+   %{buildroot}%{salt_proxy_runners_dir}
+mkdir -p %{buildroot}%{salt_proxy_reactors_dir}
+mv %{buildroot}%{gem_instdir}/salt/minion_auth/foreman_minion_auth.sls \
+   %{buildroot}%{salt_proxy_reactors_dir}/
+mkdir -p %{buildroot}%{salt_state_grains_dir}
+touch %{buildroot}%{salt_state_grains_dir}/autosign_key
+
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
 mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
@@ -155,15 +160,11 @@ mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/smart_proxy_salt_core.rb \
-                >/dev/null
-gem 'smart_proxy_salt_core'
-EOF
 
 %files
 %dir %{gem_instdir}
 %{_root_bindir}/foreman-node
+%{_root_bindir}/salt_python_wrapper
 %{_root_sbindir}/upload-salt-reports
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.saltfile
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/salt.yml
@@ -177,18 +178,32 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_proxy_bundlerd_dir}/smart_proxy_salt_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 %config(noreplace) %{salt_config_dir}/foreman.yaml
 %config %{_root_sysconfdir}/cron.d/%{gem_name}
 %exclude %{gem_instdir}/etc
 %exclude %{gem_instdir}/cron
+%{salt_proxy_runners_dir}
+%{salt_proxy_reactors_dir}
+%dir %attr(-,foreman-proxy,foreman-proxy) %{salt_state_grains_dir}
+%ghost %{salt_state_grains_dir}/autosign_key
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
+%post
+if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
+  touch %{salt_state_grains_dir}/autosign_key
+  chmod 640 %{salt_state_grains_dir}/autosign_key
+  chown foreman-proxy:foreman-proxy %{salt_state_grains_dir}/autosign_key
+fi
+
 %changelog
+* Wed Jan 12 2022 Bastian Schmidt <schmidt@atix.de> 4.0.0-1
+- Update to 4.0.0
+- Add Autosign via Grains authentication
+- Remove smart_proxy_salt_core
+
 * Mon Jan 10 2022 Evgeni Golov - 3.1.2-9
 - use versioned obsoletes for proxy plugins
 
