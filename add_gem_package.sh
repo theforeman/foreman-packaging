@@ -53,8 +53,8 @@ add_to_all_tito_props() {
 	add_to_tito_props $TITO_TAG
 	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
 		add_to_tito_props foreman-nightly-el8
-	elif [[ $TITO_TAG == "foreman-plugin-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugin-nightly-nonscl-rhel7" ]] ; then
-		add_to_tito_props foreman-plugin-nightly-el8
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
+		add_to_tito_props foreman-plugins-nightly-el8
 	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
 		add_to_tito_props foreman-client-nightly-el8
 		add_to_tito_props foreman-client-nightly-rhel6
@@ -81,8 +81,8 @@ add_gem_to_all_comps() {
 	add_gem_to_comps $TITO_TAG
 	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
 		add_gem_to_comps foreman-nightly-el8
-	elif [[ $TITO_TAG == "foreman-plugin-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugin-nightly-nonscl-rhel7" ]] ; then
-		add_gem_to_comps foreman-plugin-nightly-el8
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
+		add_gem_to_comps foreman-plugins-nightly-el8
 	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
 		add_gem_to_comps foreman-client-nightly-el8
 		add_gem_to_comps foreman-client-nightly-rhel6
