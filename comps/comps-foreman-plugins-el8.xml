@@ -87,8 +87,8 @@
       <packagereq type="default">rubygem-foreman_supervisory_authority</packagereq>
       <packagereq type="default">rubygem-foreman_templates</packagereq>
       <packagereq type="default">rubygem-foreman_vault</packagereq>
-      <packagereq type="default">rubygem-foreman_webhooks</packagereq>
       <packagereq type="default">rubygem-foreman_vmwareannotations</packagereq>
+      <packagereq type="default">rubygem-foreman_webhooks</packagereq>
       <packagereq type="default">rubygem-foreman_wreckingball</packagereq>
       <packagereq type="default">rubygem-foreman_xen</packagereq>
       <packagereq type="default">rubygem-git</packagereq>
@@ -101,6 +101,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_kubevirt</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_leapp</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_openscap</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_puppet</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh</packagereq>
@@ -143,9 +144,9 @@
       <packagereq type="default">rubygem-ruby-nmap</packagereq>
       <packagereq type="default">rubygem-safe_yaml</packagereq>
       <packagereq type="default">rubygem-sentry-raven</packagereq>
+      <packagereq type="default">rubygem-smart-proxy-probing</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd_core</packagereq>
-      <packagereq type="default">rubygem-smart-proxy-probing</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible</packagereq>
       <packagereq type="default">rubygem-smart_proxy_chef</packagereq>
       <packagereq type="default">rubygem-smart_proxy_container_gateway</packagereq>
@@ -261,6 +262,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_leapp-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_openscap-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_puppet-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_remote_execution-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_salt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_ssh-doc</packagereq>

@@ -628,11 +628,11 @@ whitelist = foreman
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
-whitelist = ansible-collection-theforeman-operations
+whitelist = ansible-collection-theforeman-foreman
+  ansible-collection-theforeman-operations
   ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
-  ansible-collection-theforeman-foreman
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
   nodejs-patternfly-react-catalog-view-extension
@@ -718,6 +718,7 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-hammer_cli_foreman_kubevirt
   rubygem-hammer_cli_foreman_leapp
   rubygem-hammer_cli_foreman_openscap
+  rubygem-hammer_cli_foreman_puppet
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
@@ -733,9 +734,9 @@ whitelist = ansible-collection-theforeman-operations
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
+  rubygem-msgpack
   rubygem-ms_rest
   rubygem-ms_rest_azure
-  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
@@ -884,6 +885,7 @@ whitelist = foreman-discovery-image-service
   rubygem-hammer_cli_foreman_kubevirt
   rubygem-hammer_cli_foreman_leapp
   rubygem-hammer_cli_foreman_openscap
+  rubygem-hammer_cli_foreman_puppet
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
