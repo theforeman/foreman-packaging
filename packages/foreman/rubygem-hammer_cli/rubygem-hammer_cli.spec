@@ -5,8 +5,6 @@
 %global gem_name hammer_cli
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 04 2021 Oleh Fedorenko <ofedoren@redhat.com> - 3.0.0-1
+- Release rubygem-hammer_cli 3.0.0
+
 * Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.pre.develop
 - Bump version to 3.0-develop
 
