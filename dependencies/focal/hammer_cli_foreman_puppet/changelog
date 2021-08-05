@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-puppet (0.0.3-2) stable; urgency=low
+
+  * Deploy foreman_puppet.yml to config directory
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Thu, 05 Aug 2021 14:53:11 -0400
+
 ruby-hammer-cli-foreman-puppet (0.0.3-1) stable; urgency=medium
 
   * Initial release
