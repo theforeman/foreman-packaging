@@ -8,7 +8,7 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.25
+Version: 4.0.25.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -29,13 +29,11 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(katello)
-Requires: %{?scl_prefix}rubygem(redhat_access)
 Requires: %{?scl_prefix}rubygem(foreman_ansible)
 Requires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(katello)
-BuildRequires: %{?scl_prefix}rubygem(redhat_access)
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -131,6 +129,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 05 2021 Shimon Shtein <sshtein@redhat.com> 4.0.25.1-1
+- Update to 4.0.25.1-1
+
 * Sun Aug 01 2021 Shimon Shtein <sshtein@redhat.com> 4.0.25-1
 - Update to 4.0.25-1
 
