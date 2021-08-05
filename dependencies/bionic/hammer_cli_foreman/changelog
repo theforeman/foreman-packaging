@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman (3.0.0-1) stable; urgency=low
+
+  * 3.0.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Thu, 05 Aug 2021 12:28:32 +0200
+
 ruby-hammer-cli-foreman (2.5.1-1) stable; urgency=low
 
   * 2.5.1 released
