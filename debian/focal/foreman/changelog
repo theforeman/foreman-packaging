@@ -1,3 +1,9 @@
+foreman (3.1.0-1) stable; urgency=low
+
+  * Bump changelog to 3.1.0 to match VERSION
+
+ -- Patrick Creech <pcreech@redhat.com>  Thu, 05 Aug 2021 20:39:03 -0400
+
 foreman (3.0.0-1) stable; urgency=low
 
   * Bump changelog to 3.0.0 to match VERSION
