@@ -17,7 +17,7 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
@@ -151,6 +151,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 09 2021 Ondrej Prazak <oprazak@redhat.com> 3.1.1-1
+- Update to 3.1.1
+
 * Mon May 17 2021 Ondrej Prazak <oprazak@redhat.com> 3.1.0-1
 - Update to 3.1.0
 
