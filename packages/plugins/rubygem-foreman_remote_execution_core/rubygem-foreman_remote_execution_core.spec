@@ -6,7 +6,7 @@
 
 Summary: Foreman remote execution - core bits
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.6
+Version: 1.4.7
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -21,8 +21,6 @@ Requires: %{?scl_prefix}rubygem(bcrypt_pbkdf)
 Requires: %{?scl_prefix}rubygem(ed25519)
 Requires: %{?scl_prefix}rubygem(foreman-tasks-core) >= 0.3.1
 Requires: %{?scl_prefix}rubygem(net-ssh)
-Requires: %{?scl_prefix}rubygem(rbnacl) >= 3.2
-Requires: %{?scl_prefix}rubygem(rbnacl) < 5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -84,6 +82,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Tue Aug 10 2021 Adam Ruzicka <aruzicka@redhat.com> 1.4.7-1
+- Update to 1.4.7
+
 * Tue Jul 27 2021 Adam Ruzicka <aruzicka@redhat.com> 1.4.6-1
 - Update to 1.4.6
 
