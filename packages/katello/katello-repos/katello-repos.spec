@@ -3,12 +3,10 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource nightly
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
-Version:        4.2
+Version:        4.2.0.rc1
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -68,6 +66,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Aug 11 2021 Patrick Creech <pcreech@redhat.com> - 4.2.0.rc1-1
+- Release katello-repos 4.2.0.rc1
+
 * Fri Jul 2 2021 James Jeffers <jjeffers@redhat.com> - 4.2-0.2.nightly
 - Update Pulp to 3.14
 
