@@ -3,12 +3,10 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 1
 
 Name:       katello
-Version:    4.2.0
+Version:    4.2.0.rc1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,6 +130,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Aug 11 2021 Patrick Creech <pcreech@redhat.com> - 4.2.0.rc1-1
+- Release katello 4.2.0.rc1
+
 * Thu May 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-0.1.master
 - Update to 4.2.0
 
