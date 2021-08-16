@@ -8,7 +8,7 @@
 %global foreman_min_version 2.4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0.rc.1
+Version: 1.0.0.rc.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -109,6 +109,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 16 2021 Ondřej Ezr <oezr@redhat.com> 1.0.0.rc.2-1
+- Update to 1.0.0.rc.2
+
 * Thu Jul 15 2021 Ondřej Ezr <oezr@redhat.com> 1.0.0.rc.1-1
 - Update to 1.0.0.rc.1
 
