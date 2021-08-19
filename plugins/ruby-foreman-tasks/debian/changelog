@@ -2,6 +2,12 @@ ruby-foreman-tasks (4.1.2-1) stable; urgency=low
 
   * 4.1.2 released
 
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 19 Aug 2021 09:10:52 +0200
+
+ruby-foreman-tasks (4.1.2-1) stable; urgency=low
+
+  * 4.1.2 released
+
  -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 15 Jun 2021 15:45:15 +0200
 
 ruby-foreman-tasks (4.1.1-1) stable; urgency=low
