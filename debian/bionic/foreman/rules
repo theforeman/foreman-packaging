@@ -39,6 +39,9 @@ build:
 override_dh_md5sums:
 	dh_md5sums -Xnode_modules
 
+override_dh_makeshlibs:
+	dh_makeshlibs -Xnode_modules
+
 override_dh_systemd_start:
 	dh_systemd_start --no-start --name=foreman.service --package=foreman-service
 	dh_systemd_start --no-start --name=foreman.socket --package=foreman-service
