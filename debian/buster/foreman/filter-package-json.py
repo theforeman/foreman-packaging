@@ -58,6 +58,7 @@ with open('package.json') as package_json:
     data = json.load(package_json)
 for section in ('devDependencies', 'dependencies'):
     data[section] = {package: version for (package, version) in filter_section(data, section)}
+data['scripts']['postinstall'] = data['scripts']['postinstall'].replace('./script/npm-fix-foreman-stories.sh', '/bin/true')
 
 with open('package.json', 'w') as package_json:
     json.dump(data, package_json, indent=2)
