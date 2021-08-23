@@ -1,7 +1,6 @@
 %global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
-
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
@@ -15,7 +14,7 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.6
+Version: 3.5.7
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
@@ -38,13 +37,10 @@ Requires: %{name}-fact-plugin = %{version}-%{release}
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 %endif
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
 %if %{dnf_install}
 Requires: python3-subscription-manager-rhsm
 %else
 Requires: python-rhsm
-%endif
-Requires: crontabs
 %endif
 
 %if 0%{?suse_version}
@@ -125,8 +121,12 @@ A subscription-manager plugin to add an additional fact 'network.fqdn' if not pr
 BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
 Group:      Development/Languages
-
 Requires: %{name} = %{version}-%{release}
+%if 0%{?suse_version}
+Requires: cronie
+%else
+Requires: crontabs
+%endif
 %if %{dnf_install}
 Requires: python3-tracer
 %else
@@ -226,10 +226,17 @@ cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 
 #clean up tracer if its not being built
 %if %{build_tracer}
-#do nothing
+rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+
+%if %{dnf_install} || %{yum_install}
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+%endif
+
 %else
 rm %{buildroot}%{plugins_dir}/tracer_upload.py*
-rm %{buildroot}%{katello_libdir}/tracer.py
+rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm %{buildroot}%{katello_libdir}/tracer.py*
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
@@ -245,10 +252,10 @@ cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
 # cache directory
 mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
+%if %{build_tracer}
 # crontab
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
-cp extra/katello-agent-send.cron %{buildroot}%{_sysconfdir}/cron.d/%{name}
+cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tracer-upload
 %endif
 
 %clean
@@ -359,10 +366,6 @@ exit 0
 %dir %{_usr}/lib/zypp/plugins/commit/
 %endif
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
-%config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
-%endif
-
 %if %{build_fact_plugin}
 %files fact-plugin
 %defattr(-,root,root,-)
@@ -377,17 +380,24 @@ exit 0
 %files tracer
 %defattr(-,root,root,-)
 %{plugins_dir}/tracer_upload.py*
-%{katello_libdir}/tracer.py*
+%{katello_libdir}/*tracer.py*
 %{plugins_confdir}/tracer_upload.conf
+%config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 
 %if %{dnf_install}
-%{katello_libdir}/__pycache__/tracer.*
+%{katello_libdir}/__pycache__/*tracer.*
 %{plugins_dir}/__pycache__/tracer_upload.*
 %endif
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
 
+
 %changelog
+* Fri Oct 15 2021 Bernhard Suttner - 3.5.7-1
+- Update to 3.5.7
+- Add cron job for tracer upload to tracer package and
+  use this cron job for sles, too.
+
 * Wed Sep 22 2021 Jonathon Turel <jturel@gmail.com> 3.5.6-1
 - Update to 3.5.6
 
