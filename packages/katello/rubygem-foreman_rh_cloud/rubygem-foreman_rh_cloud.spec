@@ -8,8 +8,8 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.25.1
-Release: 2%{?foremandist}%{?dist}
+Version: 4.0.26
+Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
 License: GPLv3
@@ -130,6 +130,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Aug 23 2021 Shimon Shtein <sshtein@redhat.com> 4.0.26-1
+- Update to 4.0.26-1
+
 * Wed Aug 18 2021 Evgeni Golov - 4.0.25.1-2
 - Obsolete redhat_access plugin
 
