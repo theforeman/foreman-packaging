@@ -4,53 +4,15 @@
 import argparse
 import json
 
+import requests
 import semver
 
-# We need a list of packages that are devDependencies but not needed to build
-EXCLUDE_NPM_PACKAGES = [
-    '@sheerun/mutationobserver-shim',
-    '@testing-library/jest-dom',
-    '@testing-library/react',
-    '@theforeman/env',
-    '@theforeman/eslint-plugin-foreman',
-    '@theforeman/stories',
-    '@theforeman/test',
-    '@theforeman/vendor-dev',
-    '@theforeman/find-foreman',
-    'axios-mock-adapter',
-    'babel-eslint',
-    'babel-jest',
-    'babel-plugin-dynamic-import-node',
-    'coveralls',
-    'cross-env',
-    'highlight.js',
-    'jest',
-    'nock',
-    'prettier',
-    'raw-loader',
-    'react-addons-test-utils',
-    'react-dnd-test-backend',
-    'react-dnd-test-utils',
-    'react-remarkable',
-    'react-test-renderer',
-    'react-redux-test-utils',
-    'redux-mock-store',
-    'surge',
-    'webpack-bundle-analyzer',
-    'webpack-dev-server',
-]
 
-EXCLUDE_NPM_PREFIXES = [
-    '@storybook/',
-    'enzyme',
-    'eslint',
-    'jest-',
-    'stylelint',
-]
+PACKAGE_EXCLUDE_JSON_URL = 'https://raw.githubusercontent.com/theforeman/foreman/develop/package-exclude.json'
 
-def is_excluded(package):
-    return (package in EXCLUDE_NPM_PACKAGES
-            or any(package.startswith(prefix) for prefix in EXCLUDE_NPM_PREFIXES))
+def is_excluded(package, excludes):
+    return (package in excludes['EXCLUDE_NPM_PACKAGES']
+            or any(package.startswith(prefix) for prefix in excludes['EXCLUDE_NPM_PREFIXES']))
 
 
 def get_requirement(version):
@@ -78,19 +40,19 @@ def get_requirement(version):
     raise ValueError('Unable to handle version {}'.format(version))
 
 
-def get_requirements(dependencies, fmt):
+def get_requirements(dependencies, fmt, excludes):
     for package, version in sorted(dependencies.items()):
-        if not is_excluded(package):
+        if not is_excluded(package, excludes):
             for requirement in get_requirement(version):
                 yield fmt.format(package, requirement)
 
 
-def get_npm_sections(packages):
+def get_npm_sections(packages, excludes):
     for section in ('devDependencies', 'dependencies'):
         for requires in ('BuildRequires', 'Requires'):
             trigger = '{} {}\n'.format(section, requires)
             deps = packages.get(section, {})
-            requirements = list(get_requirements(deps, requires + ': %{{?scl_prefix}}npm({}) {}\n'))
+            requirements = list(get_requirements(deps, requires + ': %{{?scl_prefix}}npm({}) {}\n', excludes))
             yield trigger, requirements
 
 
@@ -146,11 +108,18 @@ def main():
     parser.add_argument('requirementsfile', help='Path to the requirements file',
                         type=argparse.FileType('r'))
     parser.add_argument('specfile', help='path to the specfile', type=argparse.FileType('r'))
+    parser.add_argument('--excludefile', help='Path/URL to the package-exclude.json (default: %(default)s)', default=PACKAGE_EXCLUDE_JSON_URL)
     args = parser.parse_args()
 
     if args.requirementstype == 'npm':
+        if args.excludefile.startswith('https://'):
+            excludes = requests.get(args.excludefile).json()
+        else:
+            with open(args.excludefile) as excludesfile:
+                excludes = json.load(excludesfile)
+
         prefix = '# start package.json '
-        requires = dict(get_npm_sections(json.load(args.requirementsfile)))
+        requires = dict(get_npm_sections(json.load(args.requirementsfile), excludes))
     elif args.requirementstype == 'specfile':
         prefix = '# start specfile '
         requires = dict(get_specfile_sections(prefix, args.requirementsfile))
