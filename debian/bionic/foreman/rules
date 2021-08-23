@@ -16,7 +16,7 @@ build:
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
-	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
+	/usr/bin/npm install --no-audit --no-optional --ignore-scripts --unsafe-perm
 	/bin/cp db/schema.rb.nulldb db/schema.rb
 	/usr/bin/bundle exec rake locale:pack RAILS_ENV=production
 	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
