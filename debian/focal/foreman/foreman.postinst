@@ -37,9 +37,9 @@ BUNDLE=bundle
 export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ -f Gemfile.lock ]; then
-  CMD="$BUNDLE update --local"
+  CMD="$BUNDLE update --jobs 4 --local"
 else
-  CMD="$BUNDLE install --path ./vendor/ --local --no-prune"
+  CMD="$BUNDLE install --jobs 4 --path ./vendor/ --local --no-prune"
 fi
 
 if [ ! -z "${DEBUG}" ]; then
