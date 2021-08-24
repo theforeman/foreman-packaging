@@ -21,9 +21,9 @@ BUNDLE=bundle
 export HOME=/usr/share/foreman
 cd /usr/share/foreman
 if [ ! -z "${DEBUG}" ]; then
-  $BUNDLE update --local
+  $BUNDLE update --jobs 4 --local
 else
-  $BUNDLE update --local 2>&1 >> $LOGFILE
+  $BUNDLE update --jobs 4 --local 2>&1 >> $LOGFILE
 fi
 
 mv db/schema.rb.nulldb db/schema.rb
