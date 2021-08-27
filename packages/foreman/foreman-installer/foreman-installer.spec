@@ -1,11 +1,11 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
-Version:    2.5.2
+Version:    2.5.3
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -152,6 +152,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Aug 27 2021 Patrick Creech <pcreech@redhat.com> - 1:2.5.3-1
+- Release foreman-installer 2.5.3
+
 * Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.2-3
 - Conflict with Katello < 4.1.1
 
