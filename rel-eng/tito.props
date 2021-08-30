@@ -968,6 +968,7 @@ whitelist = ansible-collection-theforeman-operations
 disttag = .el8
 # don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
+  foreman_ygg_worker
   gofer
   jsoncpp
   katello-host-tools
@@ -981,6 +982,7 @@ whitelist =
 disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
+  foreman_ygg_worker
   katello-host-tools
   python-psutil
   rubygem-foreman_scap_client

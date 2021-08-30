@@ -752,6 +752,7 @@ foreman_client_packages:
         - el7-extras
         - el7-puppet-6
   hosts:
+    foreman_ygg_worker: {}
     gofer: {}
     katello-host-tools: {}
     python-psutil: {}
