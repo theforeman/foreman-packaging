@@ -1,6 +1,6 @@
 ansible-collection-theforeman-foreman (2.2.0-1) stable; urgency=low
 
-  * 2.2.0 released
+  * 2.2.0 released - DON@T TOUCH
 
  -- Evgeni Golov <evgeni@debian.org>  Wed, 25 Aug 2021 09:33:54 +0200
 
