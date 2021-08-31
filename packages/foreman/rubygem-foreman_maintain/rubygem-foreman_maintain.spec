@@ -10,7 +10,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.13
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -23,7 +23,6 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: yum-utils
-Requires: facter
 %if 0%{?rhel} < 8
 BuildRequires: python2-devel
 %else
@@ -127,6 +126,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 01 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.13-2
+- Remove facter dependency
+
 * Tue Aug 31 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.13-1
 - Update to 0.8.13
 
