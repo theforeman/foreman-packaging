@@ -27,6 +27,8 @@ build:
 	cp -rp $${GEM_PATH}/public/webpack ./
 	[ -e apipie-cache ] || mkdir apipie-cache/
 	cp -rp /var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) ./apipie-cache/
+  ln -s $${GEM_PATH}/extra/foreman-tasks-cleanup.sh /usr/bin/foreman-tasks-cleanup
+  ln -s $${GEM_PATH}/extra/foreman-tasks-export.sh /usr/bin/foreman-tasks-export
 
 %:
 	dh $@
