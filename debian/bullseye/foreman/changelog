@@ -1,3 +1,9 @@
+foreman (3.5.0-4) stable; urgency=low
+
+  * adjust foreman-plugin.mk to build the plugin as a user
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 17 Oct 2022 09:31:32 +0200
+
 foreman (3.5.0-3) stable; urgency=low
 
   * clean up ruby and git dependencies
