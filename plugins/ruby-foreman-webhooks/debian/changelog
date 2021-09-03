@@ -1,3 +1,9 @@
+ruby-foreman-webhooks (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Fri, 03 Sep 2021 13:08:03 +0200
+
 ruby-foreman-webhooks (1.0.0-1) stable; urgency=low
 
   * 1.0.0 released
