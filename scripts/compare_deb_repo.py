@@ -26,12 +26,12 @@ def get_repo_packages(dist, release='nightly', arch='amd64'):
 
 def get_git_packages(dist, release='nightly'):
     if dist == 'plugins':
-        package_folders = Path('plugins/').glob('*/debian')
+        package_changelogs = Path('plugins/').glob('**/changelog')
     else:
-        package_folders = chain(Path('debian/').glob(f'{dist}/*'), Path('dependencies/').glob(f'{dist}/*'))
+        package_changelogs = chain(Path('debian/').glob(f'{dist}/**/changelog'), Path('dependencies/').glob(f'{dist}/**/changelog'))
     packages = set()
-    for package_folder in package_folders:
-        with package_folder.joinpath('changelog').open() as debchangelog:
+    for package_changelog in package_changelogs:
+        with package_changelog.open() as debchangelog:
             changelog = Changelog(debchangelog)
             if release == 'nightly' and changelog.package in NIGHTLY_PACKAGES:
                 continue
