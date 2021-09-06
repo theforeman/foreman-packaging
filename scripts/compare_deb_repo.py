@@ -9,6 +9,7 @@ from debian.changelog import Changelog
 
 DISTS = [path.name for path in Path('debian/').glob('*') if path.name != 'buildscripts']
 PLUGINS = ['plugins']
+NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy']
 
 
 def get_repo_packages(dist, release='nightly', arch='amd64'):
@@ -23,7 +24,7 @@ def get_repo_packages(dist, release='nightly', arch='amd64'):
     return repo_packages
 
 
-def get_git_packages(dist):
+def get_git_packages(dist, release='nightly'):
     if dist == 'plugins':
         package_folders = Path('plugins/').glob('*/debian')
     else:
@@ -32,6 +33,8 @@ def get_git_packages(dist):
     for package_folder in package_folders:
         with package_folder.joinpath('changelog').open() as debchangelog:
             changelog = Changelog(debchangelog)
+            if release == 'nightly' and changelog.package in NIGHTLY_PACKAGES:
+                continue
             packages.add((str(changelog.package), str(changelog.version)))
     return packages
 
@@ -49,7 +52,7 @@ def main():
     parser.add_argument('--release', default='nightly', help='release to compare for (default: %(default)s)')
     args = parser.parse_args()
     for dist in DISTS + PLUGINS:
-        packages = get_git_packages(dist)
+        packages = get_git_packages(dist, release=args.release)
         repo_packages = get_repo_packages(dist, release=args.release)
         print_diff(dist, repo_packages, packages)
 
