@@ -4,8 +4,9 @@ import argparse
 import requests
 from itertools import chain
 from pathlib import Path
-from debian.deb822 import Packages
 from debian.changelog import Changelog
+from debian.deb822 import Packages
+from debian.debian_support import NativeVersion
 
 DISTS = [path.name for path in Path('debian/').glob('*')]
 PLUGINS = ['plugins']
@@ -13,15 +14,19 @@ NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy']
 
 
 def get_repo_packages(dist, release='nightly', arch='amd64'):
-    repo_packages = set()
+    packages = {}
     remote_packages = requests.get(f'https://deb.theforeman.org/dists/{dist}/{release}/binary-{arch}/Packages')
     for pkg in Packages.iter_paragraphs(remote_packages.text, use_apt_pkg=False):
         source = pkg.get('Source', pkg['Package'])
         version = pkg['Version']
         if version.startswith('9999-') and release == 'nightly' and source in NIGHTLY_PACKAGES:
             continue
-        repo_packages.add((source, version))
-    return repo_packages
+        if source in packages:
+            if NativeVersion(packages[source]) < NativeVersion(version):
+                packages[source] = version
+        else:
+            packages[source] = version
+    return set(packages.items())
 
 
 def get_git_packages(dist, release='nightly'):
