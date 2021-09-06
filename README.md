@@ -99,3 +99,23 @@ Instructions are the same as for dependencies (see above) with the following dif
 
 1. Directory must be created in `plugins/GEM_NAME`
 2. Plugins typically depend on `foreman` or `foreman-proxy`
+
+## HOWTO: compare packages
+
+Sometimes it is beneficial to compare the contents of this Git repository with the contents on deb.theforeman.org.
+
+```console
+$ ./scripts/compare_deb_repo.py --release X.Y
+bionic
+In repo but not in git:
+{('ruby-foreman-ansible-core', '4.0.0-2'), ('ruby-yard', '0.9.8-1'), ('ruby-awesome-print', '1.8.0-1'), ('ruby-foreman-remote-execution-core', '1.5.0-1'), ('ruby-concurrent', '1.1.6+dfsg-2')}
+In git but not in repo:
+{('foreman-installer', '3.1.0-1'), ('foreman', '3.1.0-1'), ('foreman-proxy', '3.1.0-1')}
+…
+```
+
+The output is formatted for each know "suite" (buster, bionic, focal, plugins) and lists packages (and their versions) that are either found in the repository, but not in git, or vice versa.
+
+If there are packages that are in the repository, but not in git, this usually means that those packages weren't properly cleaned up.
+
+If there are packages that are in git, but not in the repository, this usually means that the corresponding build failed or wasn't properly scheduled.
