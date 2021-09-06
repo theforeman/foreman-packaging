@@ -18,7 +18,7 @@ def get_repo_packages(dist, release='nightly', arch='amd64'):
     for pkg in Packages.iter_paragraphs(remote_packages.text, use_apt_pkg=False):
         source = pkg.get('Source', pkg['Package'])
         version = pkg['Version']
-        if version.startswith('9999-'):
+        if version.startswith('9999-') and release == 'nightly' and source in NIGHTLY_PACKAGES:
             continue
         repo_packages.add((source, version))
     return repo_packages
