@@ -2,6 +2,7 @@
 
 import argparse
 import requests
+from collections import defaultdict
 from itertools import chain
 from pathlib import Path
 from debian.changelog import Changelog
@@ -14,17 +15,14 @@ NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy']
 
 
 def get_repo_packages(dist, release='nightly', arch='amd64'):
-    packages = {}
+    packages = defaultdict(lambda: '0')
     remote_packages = requests.get(f'https://deb.theforeman.org/dists/{dist}/{release}/binary-{arch}/Packages')
     for pkg in Packages.iter_paragraphs(remote_packages.text, use_apt_pkg=False):
         source = pkg.get('Source', pkg['Package'])
         version = pkg['Version']
         if version.startswith('9999-') and release == 'nightly' and source in NIGHTLY_PACKAGES:
             continue
-        if source in packages:
-            if NativeVersion(packages[source]) < NativeVersion(version):
-                packages[source] = version
-        else:
+        if NativeVersion(packages[source]) < NativeVersion(version):
             packages[source] = version
     return set(packages.items())
 
