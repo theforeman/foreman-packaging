@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import requests
 from itertools import chain
 from pathlib import Path
@@ -44,9 +45,12 @@ def print_diff(dist, repo_packages, git_packages):
 
 
 def main():
+    parser = argparse.ArgumentParser(description='compare git and debian repo')
+    parser.add_argument('--release', default='nightly', help='release to compare for (default: %(default)s)')
+    args = parser.parse_args()
     for dist in DISTS + PLUGINS:
         packages = get_git_packages(dist)
-        repo_packages = get_repo_packages(dist)
+        repo_packages = get_repo_packages(dist, release=args.release)
         print_diff(dist, repo_packages, packages)
 
 
