@@ -7,7 +7,7 @@ from pathlib import Path
 from debian.deb822 import Packages
 from debian.changelog import Changelog
 
-DISTS = [path.name for path in Path('debian/').glob('*') if path.name != 'buildscripts']
+DISTS = [path.name for path in Path('debian/').glob('*')]
 PLUGINS = ['plugins']
 NIGHTLY_PACKAGES = ['foreman', 'foreman-installer', 'foreman-proxy']
 
