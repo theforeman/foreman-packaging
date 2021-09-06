@@ -7,6 +7,9 @@
 
 DEB_BUILD_OPTIONS=noautodbgsym
 
+RUBY_VERSION := $(shell ruby -e 'print RbConfig::CONFIG["RUBY_API_VERSION"]')
+BUNDLE := $(firstword $(wildcard /usr/bin/bundle$(RUBY_VERSION) /usr/bin/bundle))
+
 build:
 	/bin/cp config/settings.yaml.example config/settings.yaml
 	/bin/cp config/database.yml.example config/database.yml
@@ -16,22 +19,22 @@ build:
 	cd ./vendor/cache && /usr/bin/gem fetch thor -v '1.1.0'
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
-	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle install --path ./install-bundle/
-	/usr/bin/bundle package --no-install
+	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 $(BUNDLE) install --path ./install-bundle/
+	$(BUNDLE) package --no-install
 	/usr/bin/python script/filter-package-json.py
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm
 	/bin/cp db/schema.rb.nulldb db/schema.rb
-	/usr/bin/bundle exec rake locale:pack RAILS_ENV=production
-	/usr/bin/bundle exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
-	/usr/bin/bundle exec rake webpack:compile DATABASE_URL=nulldb://nohost
-	/usr/bin/bundle exec rake apipie:cache cache_part=resources --trace FOREMAN_APIPIE_LANGS=en_US RAILS_ENV=production DATABASE_URL=nulldb://nohost
+	$(BUNDLE) exec rake locale:pack RAILS_ENV=production
+	$(BUNDLE) exec rake assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost
+	$(BUNDLE) exec rake webpack:compile DATABASE_URL=nulldb://nohost
+	$(BUNDLE) exec rake apipie:cache cache_part=resources --trace FOREMAN_APIPIE_LANGS=en_US RAILS_ENV=production DATABASE_URL=nulldb://nohost
 	/bin/rm -f public/webpack/*.js.map public/webpack/*.js.map.gz public/webpack/*.css.map public/webpack/*.css.map.gz
 	/bin/rm -f db/schema.rb
 	/bin/sed -ri '1sXenv rubyXenv foreman-rubyX' bin/*
-	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby /usr/bin/bundle exec"~' script/foreman-rake
-	/bin/sed -i 's#puma-status#cd /usr/share/foreman \&\& /usr/bin/bundle exec &#' script/foreman-puma-status
-	/bin/sed -ri '/^ExecStart/ s#=#=/usr/bin/bundle exec --keep-file-descriptors #' extras/systemd/foreman.service
-	/bin/sed -ri '/^ExecStart/ s#/usr/bin/sidekiq#/usr/bin/bundle exec sidekiq#' extras/systemd/dynflow-sidekiq@.service
+	/bin/sed -ri 's~^BUNDLER_CMD=""~BUNDLER_CMD="/usr/bin/foreman-ruby $(BUNDLE) exec"~' script/foreman-rake
+	/bin/sed -i 's#puma-status#cd /usr/share/foreman \&\& $(BUNDLE) exec &#' script/foreman-puma-status
+	/bin/sed -ri '/^ExecStart/ s#=#=$(BUNDLE) exec --keep-file-descriptors #' extras/systemd/foreman.service
+	/bin/sed -ri '/^ExecStart/ s#/usr/bin/sidekiq#$(BUNDLE) exec sidekiq#' extras/systemd/dynflow-sidekiq@.service
 	/bin/mkdir -p .ssh
 	/usr/bin/touch build
 
