@@ -119,3 +119,14 @@ The output is formatted for each know "suite" (buster, bionic, focal, plugins) a
 If there are packages that are in the repository, but not in git, this usually means that those packages weren't properly cleaned up.
 
 If there are packages that are in git, but not in the repository, this usually means that the corresponding build failed or wasn't properly scheduled.
+
+## HOWTO: removing packages
+
+There is no automated way of removing packages from the Debian repository, once they have been removed from Git.
+
+To remove a package from the Debian repository, two things need to happen:
+1. The package file needs to be removed from the server
+    * For core and dependencies, this happens in `/var/www/freight/apt/$SUITE/nightly/` *and* `/var/www/freightstage/apt/$SUITE/theforeman-nightly/`
+    * For plugins, this happens in `/var/www/freight/apt/plugins/nightly`
+1. The package index needs to be regenerated
+    * This happens automatically on the next run of the cronjob, so you just need to wait
