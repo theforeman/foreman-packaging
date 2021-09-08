@@ -9,8 +9,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.13
-Release: 2%{?dist}
+Version: 0.8.14
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -126,6 +126,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Sep 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.14-1
+- Update to 0.8.14
+
 * Tue Aug 31 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.8.13-2
 - Drop requires on facter
 
