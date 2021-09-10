@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.15
+Version: 0.8.16
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -126,6 +126,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Sep 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.8.16-1
+- Release rubygem-foreman_maintain 0.8.16
+
 * Thu Sep 09 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.15-1
 - Update to 0.8.15
 
