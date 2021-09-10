@@ -4,11 +4,11 @@
 
 %global gem_name qpid_proton
 %global gem_require_name %{gem_name}
-%global qpid_version 0.34.0
+%global qpid_version 0.35.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: %{qpid_version}
-Release: 3%{?dist}
+Release: 1%{?dist}
 Summary: Ruby language bindings for the Qpid Proton messaging framework
 Group: Development/Languages
 License: Apache-2.0
@@ -108,6 +108,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Fri Sep 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.35.0-1
+- Release 0.35.0
+
 * Thu May 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.34.0-3
 - Bump release to build against rh-ruby27
 
