@@ -1,3 +1,9 @@
+ruby-foreman-puppet (1.0.1-1) stable; urgency=low
+
+  * 1.0.1 released
+
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Mon, 13 Sep 2021 15:38:35 +0530
+
 ruby-foreman-puppet (1.0.0-1) stable; urgency=low
 
   * 1.0.0 released
