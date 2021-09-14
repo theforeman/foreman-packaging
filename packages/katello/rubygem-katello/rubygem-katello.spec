@@ -6,7 +6,7 @@
 %global foreman_max_version 2.4
 %global plugin_name katello
 %global gem_name katello
-%global mainver 3.18.4
+%global mainver 3.18.5
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -49,7 +49,7 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.6.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.8.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.7.7
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.2.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.4.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
@@ -90,7 +90,7 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.6.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.8.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.7.7
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.2
@@ -237,6 +237,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Sep 13 2021 Odilon Sousa <osousa@redhat.com> - 3.18.5-1
+- Release rubygem-katello 3.18.5
+
 * Fri Jul 16 2021 Evgeni Golov - 3.18.4-1
 - Release rubygem-katello 3.18.4
 
