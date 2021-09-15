@@ -16,7 +16,7 @@
 
 Name: katello-host-tools
 Version: 3.5.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -234,6 +234,13 @@ rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
 
+%if !%{zypper_install}
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+%endif
+
+# remove unnecessary files
+rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+
 %if %{build_fact_plugin}
 # RHSM plugin
 mkdir -p %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/
@@ -388,6 +395,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Sep 15 2021 Louis Rokitta - 3.5.5-3
+- Add removing of unnecessary files for CentOS
+
 * Mon May 31 2021 Bernhard Suttner - 3.5.5-2
 - Use suse_version instead of sles_version to make
   sure python2-zypp-plugin is a requirement
