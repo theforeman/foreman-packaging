@@ -13,7 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -55,8 +55,11 @@ Defines yum repositories for Foreman clients.
 
 %if 0%{?rhel} == 6
 %config %{repo_dir}/pulp.repo
-%config %{repo_dir}/qpid-copr.repo
 %config %{repo_dir}/subscription-manager.repo
+%endif
+
+%if 0%{?rhel} == 7
+%config %{repo_dir}/qpid-copr.repo
 %endif
 
 %if 0%{?suse_version}
@@ -73,8 +76,11 @@ install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 
 %if 0%{?rhel} == 6
 install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
-install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
 install -m 644 %{SOURCE9} %{buildroot}%{repo_dir}/subscription-manager.repo
+%endif
+
+%if 0%{?rhel} == 7
+install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
 %endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
@@ -96,6 +102,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Thu Sep 16 2021 Evgeni Golov - 3.1.0-0.2.develop
+- Enable the qpid copr for EL7 clients
+
 * Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
 - Bump version to 3.1-develop
 
