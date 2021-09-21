@@ -223,6 +223,7 @@ whitelist = foreman
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack-rails
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
@@ -528,6 +529,7 @@ whitelist = foreman
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack-rails
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann

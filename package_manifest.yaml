@@ -211,6 +211,7 @@ foreman_scl_packages:
     rubygem-mime-types-data: {}
     rubygem-mini_mime: {}
     rubygem-mini_portile2: {}
+    rubygem-msgpack-rails: {}
     rubygem-multipart-post: {}
     rubygem-multi_json: {}
     rubygem-mustermann: {}
