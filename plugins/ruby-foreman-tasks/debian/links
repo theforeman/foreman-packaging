@@ -1,0 +1,2 @@
+usr/share/foreman/extras/foreman-tasks-cleanup.sh	usr/bin/foreman-tasks-cleanup
+usr/share/foreman/extras/foreman-tasks-export.sh	usr/bin/foreman-tasks-export
