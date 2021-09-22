@@ -15,8 +15,8 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.5
-Release: 2%{?dist}
+Version: 3.5.6
+Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
@@ -388,6 +388,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Sep 22 2021 Jonathon Turel <jturel@gmail.com> 3.5.6-1
+- Update to 3.5.6
+
 * Mon May 31 2021 Bernhard Suttner - 3.5.5-2
 - Use suse_version instead of sles_version to make
   sure python2-zypp-plugin is a requirement
