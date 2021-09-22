@@ -6,7 +6,7 @@
 %global foreman_max_version 2.5
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.0.2.1
+%global mainver 4.0.3
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -37,6 +37,7 @@ Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
+Requires: %{?scl_prefix}rubygem(dynflow) < 1.6.0
 Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(qpid_proton)
 Requires: %{?scl_prefix}rubygem(stomp)
@@ -77,6 +78,7 @@ BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) < 1.6.0
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(stomp)
@@ -235,6 +237,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Sep 22 2021 Odilon Sousa <osousa@redhat.com> - 4.0.3-1
+- Release rubygem-katello 4.0.3
+
 * Wed Aug 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 4.0.2.1-1
 - Release rubygem-katello 4.0.2.1
 
