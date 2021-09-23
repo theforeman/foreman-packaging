@@ -127,7 +127,7 @@ BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(angular) = 1.8.2
-BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.13.6
+BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.13.18
 BuildRequires: %{?scl_prefix}npm(downshift) >= 5.4.2
 BuildRequires: %{?scl_prefix}npm(downshift) < 6.0.0
 BuildRequires: %{?scl_prefix}npm(ngreact) >= 0.5.0
