@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (18.0.0-1) stable; urgency=low
+
+  * 18.0.0 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Fri, 24 Sep 2021 09:42:24 +0200
+
 ruby-foreman-bootdisk (17.1.0-1) stable; urgency=low
 
   * 17.1.0 released
