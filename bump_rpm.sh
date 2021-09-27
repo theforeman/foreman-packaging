@@ -6,7 +6,6 @@
 # python3-semver
 # rpm-build
 # rpmdevtools
-# rubygem-gem-compare
 # rubygem-gem2rpm
 
 if [[ -z $1 ]] ; then
@@ -87,9 +86,6 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $SCRIPT_DIR/update-requirements specfile - $SPEC_FILE
 			git add $SPEC_FILE
 		fi
-
-		echo "* Calling gem compare"
-		gem compare -b $GEM_NAME $CURRENT_VERSION $NEW_VERSION
 	else
 		echo "TODO:"
 		echo "* Verify the dependencies"
