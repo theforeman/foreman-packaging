@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.3.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Sep 28 2021 William Bradford Clark <wclark@redhat.com> 4.3.0-0.2.master
+- Bump release for hostname-change.rb to suggest new puppet::server_foreman_url on proxy server
+
 * Mon Aug 09 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.1.master
 - 4.3.0 version bump
 
