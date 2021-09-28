@@ -155,7 +155,8 @@ module KatelloUtilities
 
   #{@options[:program]}-installer --foreman-proxy-content-parent-fqdn #{@new_hostname} \\
                                   --foreman-proxy-foreman-base-url  https://#{@new_hostname} \\
-                                  --foreman-proxy-trusted-hosts #{@new_hostname}
+                                  --foreman-proxy-trusted-hosts #{@new_hostname} \\
+                                  --puppet-server-foreman-url https://#{@new_hostname}
 
   Short hostnames have not been updated, please update those manually.\n
 )
