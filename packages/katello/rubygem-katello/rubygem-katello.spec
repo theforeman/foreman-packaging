@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.3.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -38,7 +38,7 @@ Requires: %{?scl_prefix}rubygem(rest-client)
 Requires: %{?scl_prefix}rubygem(rabl)
 Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.5.0
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
 Requires: %{?scl_prefix}rubygem(activerecord-import)
 Requires: %{?scl_prefix}rubygem(qpid_proton)
 Requires: %{?scl_prefix}rubygem(stomp)
@@ -65,6 +65,7 @@ Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.15.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 Requires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.4.0
 Requires: %{?scl_prefix}rubygem(pulp_python_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_ostree_client)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
 Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
@@ -78,7 +79,7 @@ BuildRequires: %{?scl_prefix}rubygem(rest-client)
 BuildRequires: %{?scl_prefix}rubygem(rabl)
 BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.5.0
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
 BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
 BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
 BuildRequires: %{?scl_prefix}rubygem(stomp)
@@ -105,6 +106,7 @@ BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.15.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.4.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ostree_client)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
@@ -242,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Sep 28 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.4.pre.master
+- match dynflow requires at 1.6.1, add pulp_ostree_client
+
 * Mon Sep 27 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.3.pre.master
 - bump bootstrap-select requires
 
