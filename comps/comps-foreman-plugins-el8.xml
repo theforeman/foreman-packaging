@@ -184,6 +184,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">rubygem-acts_as_list-doc</packagereq>
       <packagereq type="default">rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">rubygem-aws-eventstream-doc</packagereq>
       <packagereq type="default">rubygem-aws-sigv4-doc</packagereq>
