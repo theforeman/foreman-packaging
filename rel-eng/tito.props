@@ -223,6 +223,7 @@ whitelist = foreman
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
@@ -528,6 +529,7 @@ whitelist = foreman
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
@@ -734,7 +736,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
-  rubygem-msgpack
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
@@ -901,7 +902,6 @@ whitelist = foreman-discovery-image-service
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
-  rubygem-msgpack
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
