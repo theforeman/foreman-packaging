@@ -224,6 +224,7 @@
       <packagereq type="default">tfm-rubygem-mime-types-data</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime</packagereq>
       <packagereq type="default">tfm-rubygem-mini_portile2</packagereq>
+      <packagereq type="default">tfm-rubygem-msgpack</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann</packagereq>
@@ -463,6 +464,7 @@
       <packagereq type="default">tfm-rubygem-mime-types-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mini_portile2-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-msgpack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann-doc</packagereq>
