@@ -5,8 +5,8 @@
 %global gem_name rubyipmi
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.0
-Release: 7%{?dist}
+Version: 0.11.0
+Release: 1%{?dist}
 Summary: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
 Group: Development/Languages
 License: LGPLv2
@@ -19,6 +19,7 @@ Requires: ipmitool
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(highline)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -74,6 +75,11 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%exclude %{gem_instdir}/.document
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rspec
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
 
 %files doc
 %doc %{gem_docdir}
@@ -82,9 +88,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/RELEASE_NOTES.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/rubyipmi.gemspec
-%{gem_instdir}/spec
 
 %changelog
+* Mon Oct 04 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.11.0-1
+- Update to 0.11.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.10.0-7
 - Rebuild against rh-ruby27
 
