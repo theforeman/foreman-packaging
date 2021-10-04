@@ -10,6 +10,6 @@ XS-Ruby-Versions: all
 Package: ruby-rubyipmi
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-highline
 Description: A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
  A ruby wrapper for ipmi command line tools that supports ipmitool and freeipmi
