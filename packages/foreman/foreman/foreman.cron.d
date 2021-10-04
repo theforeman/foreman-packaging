@@ -15,6 +15,9 @@ FOREMAN_HOME=/usr/share/foreman
 # Expire old reports
 30 7 * * *      foreman    /usr/sbin/foreman-rake reports:expire 2>&1 | gawk '{ print strftime("[\%Y-\%m-\%d \%H:\%M:\%S]"), $0 }' >>/var/log/foreman/cron.log
 
+# Expire old audits
+0 1 * * *      foreman    /usr/sbin/foreman-rake audits:expire 2>&1 | gawk '{ print strftime("[\%Y-\%m-\%d \%H:\%M:\%S]"), $0 }' >>/var/log/foreman/cron.log
+
 # Refreshes ldap usergroups. Can be disabled if you're not using LDAP authentication.
 */30 * * * *    foreman    /usr/sbin/foreman-rake ldap:refresh_usergroups 2>&1 | gawk '{ print strftime("[\%Y-\%m-\%d \%H:\%M:\%S]"), $0 }' >>/var/log/foreman/cron.log
 
