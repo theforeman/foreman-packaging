@@ -54,6 +54,7 @@
       <packagereq type="default">rubygem-pulp_container_client</packagereq>
       <packagereq type="default">rubygem-pulp_deb_client</packagereq>
       <packagereq type="default">rubygem-pulp_file_client</packagereq>
+      <packagereq type="default">rubygem-pulp_ostree_client</packagereq>
       <packagereq type="default">rubygem-pulp_python_client</packagereq>
       <packagereq type="default">rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">rubygem-qpid_proton</packagereq>
@@ -101,6 +102,7 @@
       <packagereq type="optional">rubygem-pulp_certguard_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_file_client-doc</packagereq>
+      <packagereq type="optional">rubygem-pulp_ostree_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_python_client-doc</packagereq>
       <packagereq type="optional">rubygem-runcible-doc</packagereq>
       <packagereq type="optional">rubygem-sexp_processor-doc</packagereq>

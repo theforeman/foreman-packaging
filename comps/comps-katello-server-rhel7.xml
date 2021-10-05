@@ -58,6 +58,7 @@
       <packagereq type="default">tfm-rubygem-pulp_container_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_deb_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_file_client</packagereq>
+      <packagereq type="default">tfm-rubygem-pulp_ostree_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_python_client</packagereq>
       <packagereq type="default">tfm-rubygem-pulp_rpm_client</packagereq>
       <packagereq type="default">tfm-rubygem-qpid_proton</packagereq>
@@ -88,6 +89,7 @@
       <packagereq type="optional">tfm-rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_file_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-pulp_python_client-doc</packagereq>
+      <packagereq type="optional">tfm-rubygem-pulp_ostree_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-qpid_proton-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
