@@ -8,7 +8,7 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.0
+Version: 0.9.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
@@ -138,6 +138,9 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{gem_instdir}/test
 
 %changelog
+* Tue Oct 05 2021 Bernhard Suttner <suttner@atix.de> 0.9.0-1
+- Update to 0.9.0
+
 * Mon May 31 2021 Bernhard Suttner <suttner@atix.de> 0.7.0-1
 - Update to 0.7.0
 
