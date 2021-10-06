@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 8.8.0
+Version: 8.15.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Wed Oct 06 2021 Ron Lavi <1ronlavi@gmail.com> 8.15.0-1
+- Update to 8.15.0
+
 * Tue Jul 13 2021 Tomer Brisker <tbrisker@gmail.com> 8.8.0-1
 - Update to 8.8.0
 
