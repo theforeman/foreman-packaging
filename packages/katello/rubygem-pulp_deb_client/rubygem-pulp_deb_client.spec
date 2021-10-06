@@ -10,7 +10,7 @@
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.13.1
+Version: 2.15.0
 
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
@@ -100,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 2.15.0-1
+- Update to 2.15.0
+
 * Tue Sep 14 2021 Justin Sherrill <jsherril@redhat.com> 2.13.1-1
 - Update to 2.13.1
 
