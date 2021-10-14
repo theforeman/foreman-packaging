@@ -5,16 +5,18 @@
 
 %global gem_name foreman_puppet
 %global plugin_name puppet
-%global foreman_min_version 2.4
+%global foreman_min_version 3.0
+%global prerelease .alpha.2
+%global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.3
-Release: 1%{?foremandist}%{?dist}
+Version: 2.0.0
+Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
 License: GPLv3
 URL: https://theforeman.org
-Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
 Autoreq: 0
 
@@ -22,12 +24,12 @@ Autoreq: 0
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
@@ -36,7 +38,10 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.7.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 %description
@@ -57,7 +62,7 @@ Documentation for %{pkg_name}.
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%setup -q -D -T -n  %{gem_name}-%{version}
+%setup -q -D -T -n  %{gem_name}-%{version}%{?prerelease}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -109,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Oct 14 2021 Ondřej Ezr <oezr@redhat.com> 2.0.0-0.1.alpha.2
+- Update to 2.0.0.alpha.2
+
 * Fri Sep 17 2021 Ondřej Ezr <oezr@redhat.com> 1.0.3-1
 - Update to 1.0.3
 
