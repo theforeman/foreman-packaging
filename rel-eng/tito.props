@@ -780,6 +780,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_dynflow_core
+  rubygem-smart_proxy_host_reports
   rubygem-smart_proxy_m2
   rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_omaha
@@ -946,6 +947,7 @@ whitelist = foreman-discovery-image-service
   rubygem-smart_proxy_dns_route53
   rubygem-smart_proxy_dynflow
   rubygem-smart_proxy_dynflow_core
+  rubygem-smart_proxy_host_reports
   rubygem-smart_proxy_m2
   rubygem-smart_proxy_monitoring
   rubygem-smart_proxy_omaha

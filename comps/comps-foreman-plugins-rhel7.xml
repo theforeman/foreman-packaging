@@ -161,6 +161,7 @@
       <packagereq type="default">tfm-rubygem-smart_proxy_dns_route53</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_host_reports</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_m2</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_monitoring</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_omaha</packagereq>
@@ -320,6 +321,7 @@
       <packagereq type="default">tfm-rubygem-smart_proxy_dns_route53-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow_core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_dynflow-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-smart_proxy_host_reports-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_m2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_monitoring-doc</packagereq>
       <packagereq type="default">tfm-rubygem-smart_proxy_omaha-doc</packagereq>
