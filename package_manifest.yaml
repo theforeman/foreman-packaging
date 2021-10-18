@@ -765,6 +765,7 @@ foreman_client_packages:
     python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
+    yggdrasil: {}
 
 katello_packages:
   vars:
