@@ -1,0 +1,6 @@
+# yggdrasil global configuration settings
+
+broker = ["wss://connect.cloud.redhat.com:443"]
+cert-file = "/etc/pki/consumer/cert.pem"
+key-file = "/etc/pki/consumer/key.pem"
+log-level = "error"
