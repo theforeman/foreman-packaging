@@ -684,6 +684,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_host_reports
   rubygem-foreman_kubevirt
   rubygem-foreman_leapp
   rubygem-foreman_m2
@@ -850,6 +851,7 @@ whitelist = foreman-discovery-image-service
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_host_reports
   rubygem-foreman_kubevirt
   rubygem-foreman_leapp
   rubygem-foreman_m2
