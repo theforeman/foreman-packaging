@@ -64,6 +64,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_reports</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_leapp</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_m2</packagereq>
@@ -225,6 +226,7 @@
       <packagereq type="default">tfm-rubygem-foreman_graphite-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_hooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_host_extra_validator-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_host_reports-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_leapp-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_m2-doc</packagereq>
