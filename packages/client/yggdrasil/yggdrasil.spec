@@ -2,15 +2,15 @@
 
 %global go_arches x86_64 s390x ppc64le
 
-Name:    rhc
-Version: 0.2.0
-Release: 2%{?dist}
+Name:    yggdrasil
+Version: 0.1.5
+Release: 1%{?dist}
 Epoch:   1
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
 
-Source0: %{name}-%{version}.tar.gz
+Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
 Source1: config.toml
 
 Patch0:  Use-gzip-c-instead-of-k.patch
@@ -19,7 +19,7 @@ Patch1:  build-Remove-the-Makefile-preamble.patch
 ExclusiveArch: %{go_arches}
 
 BuildRequires: git
-BuildRequires: go-toolset-1.15-golang
+BuildRequires: golang
 BuildRequires: dbus-devel
 BuildRequires: systemd-devel
 
@@ -37,24 +37,19 @@ a receiving queue for instructions to be sent to the system via a broker.
 %build
 CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
 BUILDFLAGS="%buildflags" \
-scl enable go-toolset-1.15 -- \
 make PREFIX=%{_prefix} \
      SYSCONFDIR=%{_sysconfdir} \
      LOCALSTATEDIR=%{_localstatedir} \
      SHORTNAME=%{name} \
      LONGNAME=%{name} \
      PKGNAME=%{name} \
-     'BRANDNAME=Red Hat connector' \
      TOPICPREFIX=redhat/insights \
      VERSION=%{version} \
-     DATAHOST=cert.cloud.redhat.com \
-     'PROVIDER=Red Hat'
-
+     DATAHOST=cert.cloud.redhat.com
 
 %install
 CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
 BUILDFLAGS="%buildflags" \
-scl enable go-toolset-1.15 -- \
 make PREFIX=%{_prefix} \
      SYSCONFDIR=%{_sysconfdir} \
      LOCALSTATEDIR=%{_localstatedir} \
@@ -62,11 +57,7 @@ make PREFIX=%{_prefix} \
      SHORTNAME=%{name} \
      LONGNAME=%{name} \
      PKGNAME=%{name} \
-     'BRANDNAME=Red Hat connector' \
-     TOPICPREFIX=redhat/insights \
      VERSION=%{version} \
-     DATAHOST=cert.cloud.redhat.com \
-     'PROVIDER=Red Hat' \
      install
 %{__install} -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{name}/
 
@@ -84,6 +75,9 @@ make PREFIX=%{_prefix} \
 
 
 %changelog
+* Mon Oct 19 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.1.5-1
+- Downgrade to latest upstream release
+
 * Wed Aug 25 2021 Link Dupont <link@redhat.com> - 0.2.0-2
 - Rebuild for new build target
 
