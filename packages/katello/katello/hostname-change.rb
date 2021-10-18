@@ -16,13 +16,13 @@ module KatelloUtilities
     include ::KatelloUtilities::Helper
 
     def initialize(init_options)
+      @last_scenario = self.last_scenario
       @default_program = self.get_default_program
       @proxy = init_options.fetch(:proxy)
       @plural_proxy = init_options.fetch(:plural_proxy)
       @proxy_hyphenated = init_options.fetch(:proxy_hyphenated)
       @command_prefix = init_options.fetch(:command_prefix)
       @accepted_scenarios = init_options.fetch(:accepted_scenarios, nil)
-      @last_scenario = self.last_scenario
 
       @options = {}
       @options[:program] = init_options.fetch(:program, @default_program)
@@ -153,8 +153,7 @@ module KatelloUtilities
 
   On all #{@plural_proxy}, you will need to re-run the #{@options[:program]}-installer with this command:
 
-  #{@options[:program]}-installer --foreman-proxy-content-parent-fqdn #{@new_hostname} \\
-                                  --foreman-proxy-foreman-base-url  https://#{@new_hostname} \\
+  #{@options[:program]}-installer --foreman-proxy-foreman-base-url https://#{@new_hostname} \\
                                   --foreman-proxy-trusted-hosts #{@new_hostname} \\
                                   --puppet-server-foreman-url https://#{@new_hostname}
 
