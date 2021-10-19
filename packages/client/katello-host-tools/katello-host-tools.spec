@@ -228,7 +228,7 @@ cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %if %{build_tracer}
 rm %{buildroot}%{katello_libdir}/apt_tracer.py*
 
-%if %{dnf_install} || %{yum_install}
+%if !0%{?suse_version}
 rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
 %endif
 
