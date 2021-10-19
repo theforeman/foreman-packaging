@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.3.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -50,21 +50,21 @@ Requires: %{?scl_prefix}rubygem(pg)
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.14.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.15.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.8.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.9.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.9
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.10
-Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.7.0
-Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.8.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.13.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.14.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.13.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.15.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.15.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.16.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
+Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.10
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.11
+Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.9.0
+Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.10.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.15.0
+Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.16.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.15.0
+Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.16.0
 Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
-Requires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.4.0
-Requires: %{?scl_prefix}rubygem(pulp_python_client) < 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.5.0
+Requires: %{?scl_prefix}rubygem(pulp_python_client) < 3.6.0
 Requires: %{?scl_prefix}rubygem(pulp_ostree_client)
 Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -91,21 +91,21 @@ BuildRequires: %{?scl_prefix}rubygem(pg)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.14.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.15.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.8.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.9.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.9
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.10
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.7.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.8.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.13.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.14.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.13.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.15.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.15.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.16.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.10
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.11
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.9.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.10.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.15.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.16.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.15.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.16.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.4.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) < 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.5.0
+BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) < 3.6.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ostree_client)
 BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.5.pre.master
+- updates to pulpcore 3.15 client bindings
+
 * Tue Sep 28 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.4.pre.master
 - match dynflow requires at 1.6.1, add pulp_ostree_client
 

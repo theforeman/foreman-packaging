@@ -1,11 +1,11 @@
-%global pulpcore_version 3.14
+%global pulpcore_version 3.15
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.3
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3-0.2.nightly
+- use pulp 3.15 repos
+
 * Mon Aug 09 2021 Justin Sherrill <jsherril@redhat.com> 4.3-0.1.nightly
 - 4.3.0 version bump
 
