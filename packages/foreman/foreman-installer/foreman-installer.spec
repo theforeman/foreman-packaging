@@ -5,7 +5,7 @@
 
 Name:       foreman-installer
 Epoch:      1
-Version:    2.5.3
+Version:    2.5.4
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -152,6 +152,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Oct 19 2021 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.5.4-1
+- Release foreman-installer 2.5.4
+
 * Fri Aug 27 2021 Patrick Creech <pcreech@redhat.com> - 1:2.5.3-1
 - Release foreman-installer 2.5.3
 
