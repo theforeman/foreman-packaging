@@ -8,15 +8,14 @@
 %undefine __brp_mangle_shebangs
 
 Name:           qpid-proton
-Version:        0.32.0
-Release:        3%{?dist}
+Version:        0.35.0
+Release:        1%{?dist}
 Summary:        A high performance, lightweight messaging library
 License:        ASL 2.0
 URL:            http://qpid.apache.org/proton/
 
 Source0:        https://apache.osuosl.org/qpid/proton/%{version}/%{name}-%{version}.tar.gz
 Patch0:         proton.patch
-Patch1:         0001-Temporary-patch-to-enable-installed-examples-to-buil.patch
 
 Source1:        licenses.xml
 
@@ -81,8 +80,6 @@ Requires:  qpid-proton-c%{?_isa} = %{version}-%{release}
 %files cpp
 %defattr(-,root,root,-)
 %dir %{proton_datadir}
-%license %{proton_licensedir}/LICENSE.txt
-%license %{proton_licensedir}/licenses.xml
 %doc %{proton_datadir}/README*
 %{_libdir}/libqpid-proton-cpp.so.*
 
@@ -141,7 +138,6 @@ Obsoletes: qpid-proton-c-devel-docs
 
 %files c-docs
 %license %{proton_licensedir}/LICENSE.txt
-%license %{proton_licensedir}/licenses.xml
 %doc %{proton_datadir}/docs/api-c
 %doc %{proton_datadir}/examples/README.md
 %doc %{proton_datadir}/examples/c/ssl-certs
@@ -149,7 +145,6 @@ Obsoletes: qpid-proton-c-devel-docs
 %doc %{proton_datadir}/examples/c/*.h
 %doc %{proton_datadir}/examples/c/README.dox
 %doc %{proton_datadir}/examples/c/CMakeLists.txt
-%doc %{proton_datadir}/examples/c/testme*
 
 
 %package   cpp-docs
@@ -163,13 +158,11 @@ Obsoletes: qpid-proton-cpp-devel-docs
 
 %files cpp-docs
 %license %{proton_licensedir}/LICENSE.txt
-%license %{proton_licensedir}/licenses.xml
 %{proton_datadir}/docs/api-cpp
 %doc %{proton_datadir}/examples/cpp/*.cpp
 %doc %{proton_datadir}/examples/cpp/*.hpp
 %doc %{proton_datadir}/examples/cpp/README.dox
 %doc %{proton_datadir}/examples/cpp/CMakeLists.txt
-%doc %{proton_datadir}/examples/cpp/testme*
 %doc %{proton_datadir}/examples/cpp/ssl-certs
 %doc %{proton_datadir}/examples/cpp/tutorial.dox
 
@@ -200,8 +193,6 @@ Obsoletes:  python-qpid-proton-doc
 
 %files -n python-qpid-proton-docs
 %license %{proton_licensedir}/LICENSE.txt
-%license %{proton_licensedir}/licenses.xml
-#%doc %{proton_datadir}/docs/api-py
 %doc %{proton_datadir}/examples/python
 
 %package tests
@@ -236,8 +227,6 @@ standard.
 %{gem_extdir_mri}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.txt
-%doc %{gem_instdir}/licenses.xml
 %doc %{gem_instdir}/examples
 %doc %{gem_instdir}/tests
 
@@ -245,7 +234,6 @@ standard.
 %prep
 %setup -q -n %{name}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 
 %build
@@ -258,15 +246,12 @@ mkdir build; cd build
 %cmake \
     -DSYSINSTALL_BINDINGS=ON \
     -DCMAKE_SKIP_RPATH:BOOL=OFF \
-    -DENABLE_FUZZ_TESTING=NO \
-    "-DCMAKE_C_FLAGS=$CMAKE_C_FLAGS $CFLAGS -Wno-error=format" \
-    "-DCMAKE_CXX_FLAGS=$CMAKE_CXX_FLAGS $CXXFLAGS" \
+    -DENABLE_LINKTIME_OPTIMIZATION=NO \
     "-DPYTHON_EXECUTABLE=%{__python3}" \
     "-DPYTHON_INCLUDE_DIR=$python_includes" \
     "-DPYTHON_LIBRARY=$python_lib" \
     ..
-#make all docs %{?_smp_mflags}
-make all docs -j1
+make all docs %{?_smp_mflags}
 (cd python/dist; %py3_build)
 
 %install
@@ -277,16 +262,6 @@ cd build
 (cd python/dist; %py3_install)
 
 chmod +x %{buildroot}%{python3_sitearch}/_cproton.so
-find %{buildroot}%{proton_datadir}/examples/python -name "*.py" -exec sed -i.original 's/!\/usr\/bin\/env python/!\/usr\/bin\/python3/' {} \;
-sed -i.original 's/!\/usr\/bin\/python/!\/usr\/bin\/python3/' %{buildroot}%{proton_datadir}/examples/c/testme
-sed -i.original 's/!\/usr\/bin\/python/!\/usr\/bin\/python3/' %{buildroot}%{proton_datadir}/examples/cpp/testme
-echo '#!/usr/bin/python3' > %{buildroot}%{proton_datadir}/examples/python/proton_server.py.original
-cat %{buildroot}%{proton_datadir}/examples/python/proton_server.py >> %{buildroot}%{proton_datadir}/examples/python/proton_server.py.original
-cp %{buildroot}%{proton_datadir}/examples/python/proton_server.py.original %{buildroot}%{proton_datadir}/examples/python/proton_server.py
-
-rm -f  %{buildroot}%{proton_datadir}/examples/python/*.original
-rm -f  %{buildroot}%{proton_datadir}/examples/c/*.original
-rm -f  %{buildroot}%{proton_datadir}/examples/cpp/*.original
 
 install -dm 755 %{buildroot}%{proton_licensedir}
 install -pm 644 %{SOURCE1} %{buildroot}%{proton_licensedir}
@@ -297,12 +272,10 @@ cd ruby/gem/
 mkdir -p %{buildroot}%{gem_instdir}
 install -dm 755 %{buildroot}%{gem_dir}/specifications
 mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a ../cproton.so %{buildroot}%{gem_extdir_mri}/
+cp -a %{buildroot}%{ruby_vendorarchdir}/cproton.so %{buildroot}%{gem_extdir_mri}/
 touch %{buildroot}%{gem_extdir_mri}/gem.build_complete
 chmod 644 %{buildroot}%{gem_extdir_mri}/gem.build_complete
 cp -a examples tests lib %{buildroot}%{gem_instdir}/
-install -pm 644 LICENSE.txt %{buildroot}%{gem_instdir}/
-install -pm 644 %{SOURCE1} %{buildroot}%{gem_instdir}/
 install -pm 644 %{gem_name}.gemspec %{buildroot}%{gem_spec}
 
 # clean up files that are not shipped
@@ -369,6 +342,9 @@ rm -f  %{buildroot}%{proton_datadir}/CMakeLists.txt
 %check
 
 %changelog
+* Wed Oct 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.35.0-1
+- Build 0.35
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.32.0-3
 - Rebuild for Ruby 2.7
 
