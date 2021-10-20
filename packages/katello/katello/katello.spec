@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    4.3.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Oct 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-0.4.master
+- Mention Puppet options separately for change hostname
+
 * Mon Oct 18 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-0.3.master
 - Remove dropped parameter in change-hostname
 - Fix broken branding caused by empty last_scenario
