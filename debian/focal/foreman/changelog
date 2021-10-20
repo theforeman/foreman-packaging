@@ -1,3 +1,9 @@
+foreman (2.5.4-2) stable; urgency=low
+
+  * Pin dynflow to <1.6.0
+
+ -- Evgeni Golov <evgeni@debian.org>  Wed, 20 Oct 2021 09:54:59 +0200
+
 foreman (2.5.4-1) stable; urgency=low
 
   * 2.5.4 released
