@@ -13,6 +13,7 @@ build:
 	/usr/bin/gem install -f thor -v '1.1.0'
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
+	/bin/sed -i '/dynflow/ s/2.0.0/1.6.0/' Gemfile
 	BUNDLE_BUILD__SASSC=--disable-march-tune-native BUNDLE_RETRY=5 BUNDLE_JOBS=4 /usr/bin/bundle package
 	/usr/bin/python script/filter-package-json.py
 	/usr/bin/npm install --no-audit --no-optional --unsafe-perm

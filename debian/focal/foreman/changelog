@@ -1,3 +1,9 @@
+foreman (3.0.1-2) stable; urgency=low
+
+  * Pin dynflow to <1.6.0
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 28 Oct 2021 14:36:59 +0200
+
 foreman (3.0.1-1) stable; urgency=low
 
   * 3.0.1 released
