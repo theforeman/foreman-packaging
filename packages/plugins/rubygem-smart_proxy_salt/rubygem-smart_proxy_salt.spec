@@ -37,7 +37,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -158,7 +158,6 @@ cp -pa .%{_bindir}/salt_python_wrapper %{buildroot}%{_root_bindir}/salt_python_w
 mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
 
 %files
 %dir %{gem_instdir}
@@ -198,6 +197,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-3
+- Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
+
 * Tue Apr 05 2022 Bernhard Suttner <suttner@atix.de> - 5.0.0-2
 - Fix wrong rubygem wrapper script for shell script 'salt_python_wrapper'
 

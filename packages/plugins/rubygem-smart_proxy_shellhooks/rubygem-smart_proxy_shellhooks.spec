@@ -14,11 +14,10 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.2
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Execute scripts via REST API from Foreman Webhooks plugin
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/examples/* %{buildroot}%{foreman_proxy_statedir}/%
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.9.2-3
+- Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.2-2
 - Rebuild for Ruby 2.7
 

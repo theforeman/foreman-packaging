@@ -14,11 +14,10 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 8%{?foremandist}%{?dist}
+Release: 9%{?foremandist}%{?dist}
 Summary: Chef support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -106,6 +105,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/chef.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-9
+- Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
+
 * Mon Jan 10 2022 Evgeni Golov - 0.2.0-8
 - use versioned obsoletes for proxy plugins
 
