@@ -15,14 +15,13 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 %global content_dir %{foreman_proxy_statedir}/omaha
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: Omaha protocol support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -134,6 +133,9 @@ mkdir -p %{buildroot}%{content_dir}
 %{gem_instdir}/test
 
 %changelog
+* Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-7
+- Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
+
 * Mon Jan 10 2022 Evgeni Golov - 0.1.0-6
 - use versioned obsoletes for proxy plugins
 

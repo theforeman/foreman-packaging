@@ -15,7 +15,6 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 %global spool_dir %{_var}/spool/foreman-proxy/openscap
 %global content_dir %{foreman_proxy_statedir}/openscap
@@ -23,7 +22,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -153,6 +152,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.9.1-3
+- Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
+
 * Mon Jan 10 2022 Evgeni Golov - 0.9.1-2
 - use versioned obsoletes for proxy plugins
 
