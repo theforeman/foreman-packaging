@@ -154,7 +154,10 @@ module KatelloUtilities
   On all #{@plural_proxy}, you will need to re-run the #{@options[:program]}-installer with this command:
 
   #{@options[:program]}-installer --foreman-proxy-foreman-base-url https://#{@new_hostname} \\
-                                  --foreman-proxy-trusted-hosts #{@new_hostname} \\
+                                  --foreman-proxy-trusted-hosts #{@new_hostname}
+
+  If Puppet is enabled on the #{proxy}, add the following to the installer command:
+
                                   --puppet-server-foreman-url https://#{@new_hostname}
 
   Short hostnames have not been updated, please update those manually.\n
