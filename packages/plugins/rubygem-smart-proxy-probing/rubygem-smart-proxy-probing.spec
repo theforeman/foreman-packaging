@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
-Release: 3%{?foremandist}%{?dist}
+Version: 0.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Gem to allow probing through smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -36,8 +36,10 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1.0.0
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
+Requires: %{?scl_prefix}rubygem(ruby-nmap) >= 0.9
+Requires: %{?scl_prefix}rubygem(ruby-nmap) < 1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -127,6 +129,9 @@ EOF
 
 
 %changelog
+* Thu Oct 21 2021 Adam Ruzicka <aruzicka@redhat.com> 0.0.4-1
+- Update to 0.0.4
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-3
 - Rebuild for Ruby 2.7
 
