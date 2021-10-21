@@ -693,7 +693,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-foreman_omaha
   rubygem-foreman_openscap
   rubygem-foreman_probing
-  rubygem-foreman_probing_core
   rubygem-foreman_puppet
   rubygem-foreman_remote_execution
   rubygem-foreman_rescue
@@ -860,7 +859,6 @@ whitelist = foreman-discovery-image-service
   rubygem-foreman_omaha
   rubygem-foreman_openscap
   rubygem-foreman_probing
-  rubygem-foreman_probing_core
   rubygem-foreman_puppet
   rubygem-foreman_remote_execution
   rubygem-foreman_rescue
