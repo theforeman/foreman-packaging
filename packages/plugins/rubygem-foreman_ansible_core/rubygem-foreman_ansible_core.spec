@@ -6,7 +6,7 @@
 %global gem_name foreman_ansible_core
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.0
+Version: 4.2.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org): core bits
 Group: Development/Languages
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Oct 21 2021 Ondrej Prazak <oprazak@redhat.com> 4.2.1-1
+- Update to 4.2.1
+
 * Wed Sep 29 2021 Adam Ruzicka <aruzicka@redhat.com> 4.2.0-1
 - Update to 4.2.0
 
