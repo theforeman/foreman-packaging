@@ -74,7 +74,6 @@
       <packagereq type="default">rubygem-foreman_omaha</packagereq>
       <packagereq type="default">rubygem-foreman_openscap</packagereq>
       <packagereq type="default">rubygem-foreman_probing</packagereq>
-      <packagereq type="default">rubygem-foreman_probing_core</packagereq>
       <packagereq type="default">rubygem-foreman_puppet</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-cockpit</packagereq>
@@ -235,7 +234,6 @@
       <packagereq type="default">rubygem-foreman_noenv-doc</packagereq>
       <packagereq type="default">rubygem-foreman_omaha-doc</packagereq>
       <packagereq type="default">rubygem-foreman_openscap-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_probing_core-doc</packagereq>
       <packagereq type="default">rubygem-foreman_probing-doc</packagereq>
       <packagereq type="default">rubygem-foreman_puppet-doc</packagereq>
       <packagereq type="default">rubygem-foreman_remote_execution-doc</packagereq>

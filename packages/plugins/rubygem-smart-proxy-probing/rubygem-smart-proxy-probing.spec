@@ -14,7 +14,6 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.4
@@ -24,12 +23,6 @@ Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/adamruzicka/smart-proxy-probing
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(foreman_probing_core)
-%else
-Requires: rubygem(foreman_probing_core)
-%endif
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
@@ -104,25 +97,15 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/probing.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/probing.yml
 
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/foreman_probing_core.rb \
-                >/dev/null
-gem 'foreman_probing_core'
-EOF
-
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/probing.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bundler.plugins.d
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_proxy_bundlerd_dir}/foreman_probing_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
 
 %files doc
 %doc %{gem_docdir}
