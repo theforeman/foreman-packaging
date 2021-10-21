@@ -8,8 +8,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for detecting network devices
 Group: Applications/Systems
 License: GPLv3
@@ -100,6 +100,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Oct 21 2021 Adam Ruzicka <aruzicka@redhat.com> 0.0.4-1
+- Update to 0.0.4
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-2
 - Rebuild plugins for Ruby 2.7
 
