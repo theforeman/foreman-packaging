@@ -5,11 +5,11 @@
 
 %global gem_name foreman_wreckingball
 %global plugin_name wreckingball
-%global foreman_min_version 1.21
+%global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.4.1
-Release: 2%{?foremandist}%{?dist}
+Version: 4.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -97,6 +97,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 22 2021 Manuel Laug <laugmanuel@gmail.com> - 4.0.0-1
+- Update foreman_wreckingball to 4.0.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.4.1-2
 - Rebuild plugins for Ruby 2.7
 
