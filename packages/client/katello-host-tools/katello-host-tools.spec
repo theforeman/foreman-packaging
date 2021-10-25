@@ -15,10 +15,14 @@
 
 Name: katello-host-tools
 Version: 3.5.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
+%if 0%{?suse_version}
+License: LGPL-2.0
+%else
 License: LGPLv2
+%endif
 URL:     https://github.com/Katello/katello-agent
 Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
 
@@ -37,24 +41,29 @@ Requires: %{name}-fact-plugin = %{version}-%{release}
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 %endif
 
-%if %{dnf_install}
+%if %{dnf_install} || 0%{?suse_version} >= 1500
 Requires: python3-subscription-manager-rhsm
 %else
 Requires: python-rhsm
 %endif
 
 %if 0%{?suse_version}
+%if 0%{?suse_version} >= 1500
+BuildRequires: python3-devel
+Requires: python3-zypp-plugin
+%else
 BuildRequires: python-devel >= 2.6
 Requires: python2-zypp-plugin
-%else
+%endif
+%else # not suse
 %if %{dnf_install}
 BuildRequires: python3-devel
 %else
-BuildRequires: %{?suse_version:python-devel >= 2.6} %{!?suse_version:python2-devel}
+BuildRequires: python2-devel
 %endif
 %endif
 
-%if %{dnf_install}
+%if %{dnf_install} || 0%{?suse_version} >= 1500
 BuildRequires: python3-setuptools
 %else
 BuildRequires: python-setuptools
@@ -144,7 +153,7 @@ Adds Tracer functionality to a client managed by katello-host-tools
 
 %build
 pushd src
-%if %{dnf_install}
+%if %{dnf_install} || 0%{?suse_version} >= 1500
 %{__python3} setup.py build
 %else
 %{__python} setup.py build
@@ -222,6 +231,15 @@ cp bin/* %{buildroot}%{_sbindir}/
 %endif
 %if %{dnf_install}
 cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
+%endif
+
+%if 0%{?suse_version} >= 1500
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-enabled-repos-upload
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-package-upload
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-tracer-upload
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/enabled_repos_upload.py
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/package_upload.py
+sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/tracer_upload.py
 %endif
 
 #clean up tracer if its not being built
@@ -393,6 +411,9 @@ exit 0
 
 
 %changelog
+* Mon Oct 25 2021 Bernhard Suttner - 3.5.7-2
+- Build for SLES 15 with python3
+
 * Fri Oct 15 2021 Bernhard Suttner - 3.5.7-1
 - Update to 3.5.7
 - Add cron job for tracer upload to tracer package and
