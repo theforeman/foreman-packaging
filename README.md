@@ -41,7 +41,7 @@ to install them during postinst.
 
 To quickly bump version in all core projects, run e.g.:
 ```
-scripts/changelog.rb -v 2.0.0 -m "Bump changelog to 2.0.0 to match VERSION" debian/{bionic,buster}/foreman{,-installer,-proxy}/changelog
+scripts/changelog.rb -v 2.0.0 -m "Bump changelog to 2.0.0 to match VERSION" debian/{buster,focal}/foreman{,-installer,-proxy}/changelog
 ```
 
 ### Foreman plugins
@@ -114,7 +114,7 @@ In git but not in repo:
 …
 ```
 
-The output is formatted for each know "suite" (buster, bionic, focal, plugins) and lists packages (and their versions) that are either found in the repository, but not in git, or vice versa.
+The output is formatted for each know "suite" (buster, focal, plugins) and lists packages (and their versions) that are either found in the repository, but not in git, or vice versa.
 
 If there are packages that are in the repository, but not in git, this usually means that those packages weren't properly cleaned up.
 
