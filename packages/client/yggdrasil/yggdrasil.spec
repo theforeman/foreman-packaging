@@ -72,7 +72,7 @@ make PREFIX=%{_prefix} \
 
 
 %changelog
-* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.1.5-1
+* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 1:0.1.5-1
 - Downgrade to latest upstream release
 
 * Wed Aug 25 2021 Link Dupont <link@redhat.com> - 0.2.0-2
