@@ -11,7 +11,6 @@ License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
 
 Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
-Source1: config.toml
 
 ExclusiveArch: %{go_arches}
 
@@ -40,9 +39,7 @@ make PREFIX=%{_prefix} \
      SHORTNAME=%{name} \
      LONGNAME=%{name} \
      PKGNAME=%{name} \
-     TOPICPREFIX=redhat/insights \
-     VERSION=%{version} \
-     DATAHOST=cert.cloud.redhat.com
+     VERSION=%{version}
 
 %install
 CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2 -fstack-protector-all"  \
@@ -56,7 +53,6 @@ make PREFIX=%{_prefix} \
      PKGNAME=%{name} \
      VERSION=%{version} \
      install
-%{__install} -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{name}/
 
 
 %files
