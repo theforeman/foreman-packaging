@@ -13,10 +13,10 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 1
 
 Name:     foreman-release
-Version:  3.0.0
+Version:  3.0.1
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -100,6 +100,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Oct 27 2021 Patrick Creech <pcreech@redhat.com> - 3.0.1-1
+- Release foreman-release 3.0.1
+
 * Thu Sep 16 2021 Evgeni Golov - 3.0.0-2
 - Enable the qpid copr for EL7 clients
 
