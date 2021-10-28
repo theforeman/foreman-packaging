@@ -1037,6 +1037,7 @@ whitelist = katello
   rubygem-foreman_virt_who_configure
   rubygem-fx
   rubygem-hammer_cli_csv
+  rubygem-hammer_cli_foreman_rh_cloud
   rubygem-hammer_cli_foreman_scc_manager
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
@@ -1088,6 +1089,7 @@ whitelist = jsoncpp
   rubygem-foreman_virt_who_configure
   rubygem-fx
   rubygem-hammer_cli_csv
+  rubygem-hammer_cli_foreman_rh_cloud
   rubygem-hammer_cli_foreman_scc_manager
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
