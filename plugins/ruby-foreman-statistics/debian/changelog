@@ -1,3 +1,9 @@
+ruby-foreman-statistics (2.0.0-1) stable; urgency=low
+
+  * 2.0.0 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Sun, 31 Oct 2021 14:54:22 +0100
+
 ruby-foreman-statistics (1.2.0-1) stable; urgency=low
 
   * 1.2.0 released
