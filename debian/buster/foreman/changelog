@@ -1,3 +1,9 @@
+foreman (3.1.0-2) stable; urgency=low
+
+  * Restart foreman services after package upgrade
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Mon, 01 Nov 2021 10:59:14 -0400
+
 foreman (3.1.0-1) stable; urgency=low
 
   * Bump changelog to 3.1.0 to match VERSION
