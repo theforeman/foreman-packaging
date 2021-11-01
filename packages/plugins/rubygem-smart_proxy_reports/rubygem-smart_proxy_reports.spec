@@ -6,8 +6,8 @@
 %{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
-%global gem_name smart_proxy_host_reports
-%global plugin_name host_reports
+%global gem_name smart_proxy_reports
+%global plugin_name reports
 
 %global foreman_proxy_min_version 2.5
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
@@ -16,7 +16,7 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Transform and forward reports from config management or hosts
 Group: Applications/Internet
@@ -27,10 +27,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.3.0
+Requires: %{?scl_prefix}rubygem(rack) >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -108,5 +110,8 @@ install -d -m755 %{buildroot}%{foreman_proxy_statedir}/%{plugin_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Oct 22 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.5-1
+- Update to 0.0.5
+
 * Fri Oct 15 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.3-1
 - Initial version
