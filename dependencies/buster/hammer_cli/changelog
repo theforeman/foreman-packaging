@@ -1,3 +1,9 @@
+ruby-hammer-cli (3.0.1-1) stable; urgency=low
+
+  * 3.0.1 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 02 Nov 2021 15:15:01 +0000
+
 ruby-hammer-cli (3.0.0-1) stable; urgency=low
 
   * 3.0.0 released
