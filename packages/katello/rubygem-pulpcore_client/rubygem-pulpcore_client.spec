@@ -6,7 +6,7 @@
 %global gem_name pulpcore_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.15.2
+Version: 3.16.0
 Release: 1%{?dist}
 Epoch: 1
 Summary: Pulp 3 API Ruby Gem
@@ -98,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Nov 02 2021 ianballou <ianballou67@gmail.com> 1:3.16.0-1
+- Update to 3.16.0
+
 * Wed Oct 20 2021 Justin Sherrill <jsherril@redhat.com> 1:3.15.2-1
 - Update to 3.15.2
 
