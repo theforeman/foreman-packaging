@@ -1,0 +1,25 @@
+From 022d333cfa1779831ff685179a6ccb7f9561b255 Mon Sep 17 00:00:00 2001
+From: Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>
+Date: Tue, 2 Nov 2021 10:48:59 +0100
+Subject: [PATCH] Fixes #33810 - Remove a space in hammer's shebang
+
+This space confuses Debian packaging on Ubuntu 20.04 and causes it to
+not be replaced. The end result is that it may end up using the wrong
+Ruby.
+---
+ bin/hammer | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bin/hammer b/bin/hammer
+index ec8a1d1..c833858 100755
+--- a/bin/hammer
++++ b/bin/hammer
+@@ -1,4 +1,4 @@
+-#! /usr/bin/env ruby
++#!/usr/bin/env ruby
+ 
+ require 'rubygems'
+ require 'clamp'
+-- 
+2.31.1
+

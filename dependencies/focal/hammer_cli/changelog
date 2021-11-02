@@ -1,3 +1,9 @@
+ruby-hammer-cli (3.0.0-2) stable; urgency=low
+
+  * Fix the hammmer shebang to use the correct Ruby
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Tue, 02 Nov 2021 10:53:25 +0100
+
 ruby-hammer-cli (3.0.0-1) stable; urgency=low
 
   * 3.0.0 released
