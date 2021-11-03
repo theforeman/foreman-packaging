@@ -10,8 +10,8 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.4
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.5
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman kubevirt commands for Hammer CLI
 Group: Development/Languages
 License: GPLv3
@@ -22,8 +22,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(gettext) >= 3.1.3
-Requires: %{?scl_prefix}rubygem(gettext) < 4.0.0
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 0.17.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -92,6 +90,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 
 
 %changelog
+* Wed Nov 03 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.1.5-1
+- Update to 0.1.5
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.4-2
 - Rebuild plugins for Ruby 2.7
 
