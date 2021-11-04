@@ -1,3 +1,10 @@
+foreman (3.1.0-4) stable; urgency=low
+
+  * fix dh_systemd_* calls
+  * don't run db:migrate in postinst
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 04 Nov 2021 09:58:34 +0100
+
 foreman (3.1.0-3) stable; urgency=low
 
   * Do not restart Dynflow services on package upgrade
