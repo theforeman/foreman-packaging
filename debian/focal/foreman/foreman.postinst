@@ -66,18 +66,6 @@ if [ ! -e config/initializers/encryption_key.rb -a -e /etc/foreman/encryption_ke
   ln -s /etc/foreman/encryption_key.rb config/initializers/
 fi
 
-# Run a db:migrate and db:seed if the user has created a dbfile
-# always attempt to reencrypt after update in case new fields can be encrypted
-if [ -f /usr/share/foreman/config/database.yml ]; then
-  if [ ! -z "${DEBUG}" ]; then
-    /usr/sbin/foreman-rake db:migrate db:encrypt_all || true
-    /usr/sbin/foreman-rake db:seed || true
-  else
-    /usr/sbin/foreman-rake db:migrate db:encrypt_all >> $LOGFILE 2>&1 || true
-    /usr/sbin/foreman-rake db:seed >> $LOGFILE 2>&1 || true
-  fi
-fi
-
 # Generate apipie cache
 if [ ! -z "${DEBUG}" ]; then
   /usr/sbin/foreman-rake apipie:cache:index || true
