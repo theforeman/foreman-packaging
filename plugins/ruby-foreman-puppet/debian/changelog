@@ -1,3 +1,9 @@
+ruby-foreman-puppet (2.0.0~alpha.2-2) stable; urgency=low
+
+  * don't run db:migrate in postinst
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 04 Nov 2021 15:47:06 +0100
+
 ruby-foreman-puppet (2.0.0~alpha.2-1) stable; urgency=low
 
   * 2.0.0~alpha.2 released
