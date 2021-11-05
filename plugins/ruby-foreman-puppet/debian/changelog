@@ -1,3 +1,11 @@
+ruby-foreman-puppet (2.0.0~alpha.2-3) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+    this requires at least foreman 3.1.0~, as that's the version
+    we introduced that library in
+
+ -- Evgeni Golov <evgeni@debian.org>  Fri, 05 Nov 2021 07:51:52 +0100
+
 ruby-foreman-puppet (2.0.0~alpha.2-2) stable; urgency=low
 
   * don't run db:migrate in postinst
