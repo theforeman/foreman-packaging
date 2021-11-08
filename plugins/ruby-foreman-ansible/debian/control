@@ -11,7 +11,7 @@ Homepage: https://github.com/theforeman/foreman_ansible
 
 Package: ruby-foreman-ansible
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 2.2.0~rc1),
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1),
   ruby-foreman-deface (<<2.0.0),
   ruby-foreman-remote-execution (>= 4.0.0-1)
 Description: Foreman Ansible plugin
