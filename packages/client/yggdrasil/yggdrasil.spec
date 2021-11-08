@@ -3,8 +3,8 @@
 %global go_arches x86_64 s390x ppc64le
 
 Name:    yggdrasil
-Version: 0.1.5
-Release: 1%{?dist}
+Version: 0.2.0
+Release: 3%{?dist}
 Epoch:   1
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
@@ -68,8 +68,8 @@ make PREFIX=%{_prefix} \
 
 
 %changelog
-* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 1:0.1.5-1
-- Downgrade to latest upstream release
+* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 1:0.2.0-3
+- Rebuild without downstream branding
 
 * Wed Aug 25 2021 Link Dupont <link@redhat.com> - 0.2.0-2
 - Rebuild for new build target
