@@ -23,6 +23,7 @@ Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ruby | ruby-interpreter,
          ruby-foreman-deface (<< 2.0),
+         foreman (>= 3.1.0~rc1),
          ${misc:Depends},
          ${shlibs:Depends}
 Description: Azure Resource Manager as a compute resource for The Foreman
