@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (2.2.5-2) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 08 Nov 2021 10:24:33 +0100
+
 ruby-foreman-azure-rm (2.2.5-1) stable; urgency=low
 
   * 2.2.5 released
