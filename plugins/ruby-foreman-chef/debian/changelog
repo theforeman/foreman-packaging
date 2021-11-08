@@ -1,3 +1,9 @@
+ruby-foreman-chef (0.10.0-3) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 08 Nov 2021 11:04:43 +0100
+
 ruby-foreman-chef (0.10.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk instead of duplicating d/rules
