@@ -10,7 +10,7 @@ Homepage: https://github.com/theforeman/foreman_remote_execution
 
 Package: ruby-foreman-remote-execution
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 2.2.0~rc1), ruby-foreman-tasks (>= 5.1.0),
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1), ruby-foreman-tasks (>= 5.1.0),
   ruby-foreman-deface, ruby-dynflow (>= 1.0.2), ruby-dynflow (< 2.0.0)
 Description: Foreman Remote Execution Plugin
   A plugin bringing remote execution to the Foreman, completing the config management functionality with remote management functionality

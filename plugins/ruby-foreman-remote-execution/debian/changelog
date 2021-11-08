@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (4.8.0-2) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Mon, 08 Nov 2021 14:37:53 +0100
+
 ruby-foreman-remote-execution (4.8.0-1) stable; urgency=low
 
   * 4.8.0 released
