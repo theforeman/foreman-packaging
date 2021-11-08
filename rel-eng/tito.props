@@ -975,7 +975,6 @@ whitelist =
   gofer
   jsoncpp
   katello-host-tools
-  python-beautifulsoup4
   python-psutil
   qpid-proton
   rubygem-foreman_scap_client
@@ -986,7 +985,6 @@ disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
   katello-host-tools
-  python-beautifulsoup4
   python-psutil
   rubygem-foreman_scap_client
   tracer

@@ -776,7 +776,6 @@ foreman_client_packages:
   hosts:
     gofer: {}
     katello-host-tools: {}
-    python-beautifulsoup4: {}
     python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
