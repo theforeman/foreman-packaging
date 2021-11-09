@@ -1,6 +1,7 @@
 ruby-foreman-chef (0.10.0-3) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
+  * lol
 
  -- Evgeni Golov <evgeni@debian.org>  Mon, 08 Nov 2021 11:04:43 +0100
 
