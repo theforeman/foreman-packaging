@@ -1,1 +1,1 @@
-gem 'foreman_discovery', '18.0.0'
+gem 'foreman_discovery', '18.0.4'
