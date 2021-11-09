@@ -168,7 +168,6 @@
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-digitalocean</packagereq>
       <packagereq type="default">tfm-rubygem-fog-google</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
@@ -408,7 +407,6 @@
       <packagereq type="default">tfm-rubygem-ffi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-digitalocean-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-google-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>

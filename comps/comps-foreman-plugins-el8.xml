@@ -56,7 +56,6 @@
       <packagereq type="default">rubygem-foreman_datacenter</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser</packagereq>
-      <packagereq type="default">rubygem-foreman_digitalocean</packagereq>
       <packagereq type="default">rubygem-foreman_discovery</packagereq>
       <packagereq type="default">rubygem-foreman_dlm</packagereq>
       <packagereq type="default">rubygem-foreman_expire_hosts</packagereq>
@@ -218,7 +217,6 @@
       <packagereq type="default">rubygem-foreman_datacenter-doc</packagereq>
       <packagereq type="default">rubygem-foreman_default_hostgroup-doc</packagereq>
       <packagereq type="default">rubygem-foreman_dhcp_browser-doc</packagereq>
-      <packagereq type="default">rubygem-foreman_digitalocean-doc</packagereq>
       <packagereq type="default">rubygem-foreman_discovery-doc</packagereq>
       <packagereq type="default">rubygem-foreman_dlm-doc</packagereq>
       <packagereq type="default">rubygem-foreman_expire_hosts-doc</packagereq>

@@ -142,7 +142,6 @@ foreman_scl_packages:
     rubygem-ffi: {}
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
-    rubygem-fog-digitalocean: {}
     rubygem-fog-google: {}
     rubygem-fog-json: {}
     rubygem-fog-libvirt: {}
@@ -985,7 +984,6 @@ plugin_scl_packages:
     rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
     rubygem-foreman_dhcp_browser: {}
-    rubygem-foreman_digitalocean: {}
     rubygem-foreman_discovery: {}
     rubygem-foreman_dlm: {}
     rubygem-foreman_expire_hosts: {}
