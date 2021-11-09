@@ -1,3 +1,0 @@
-foreman_cockpit     var/lib/foreman/public/assets
-foreman_cockpit.rb  usr/share/foreman/bundler.d
-cache               usr/share/foreman/vendor
