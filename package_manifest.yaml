@@ -1018,7 +1018,6 @@ plugin_scl_packages:
     rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
-    rubygem-foreman_xen: {}
     rubygem-git: {}
     rubygem-graphite-api: {}
     rubygem-hammer_cli_foreman_admin: {}
