@@ -8,6 +8,6 @@ Homepage: https://github.com/theforeman/foreman_statistics
 
 Package: ruby-foreman-statistics
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 2.1.0~rc2)
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc2)
 Description: Foreman statistics plugin
  Statistics plugin for Foreman.
