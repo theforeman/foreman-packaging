@@ -11,7 +11,7 @@ Homepage: https://github.com/theforeman/foreman_omaha
 
 Package: ruby-foreman-omaha
 Architecture: all
-Depends: bundler, foreman (>= 1.24.0~rc1), ${misc:Depends}
+Depends: bundler, foreman (>= 3.1.0~rc1), ${misc:Depends}
 Description: Foreman Omaha Plugin
  This plug-in adds support for the Omaha procotol to The Foreman.
  It allows you to better manage and update your CoreOS servers
