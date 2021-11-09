@@ -1,3 +1,9 @@
+ruby-foreman-salt (13.2.4-2) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 09 Nov 2021 10:39:32 +0100
+
 ruby-foreman-salt (13.2.4-1) stable; urgency=low
 
   * 13.2.4 released
