@@ -1,7 +1,0 @@
-# list of gem urls to download via Jenkins, space separated
-GEMS="https://rubygems.org/downloads/foreman_azure-1.3.1.gem"
-GEMS="$GEMS https://rubygems.org/downloads/fog-azure-0.0.2.gem"
-GEMS="$GEMS https://rubygems.org/downloads/azure-0.7.7.gem"
-GEMS="$GEMS https://rubygems.org/downloads/azure-core-0.1.5.gem"
-GEMS="$GEMS https://rubygems.org/downloads/faraday_middleware-0.10.1.gem"
-GEMS="$GEMS https://rubygems.org/downloads/systemu-2.6.5.gem"
