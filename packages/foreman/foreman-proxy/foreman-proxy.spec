@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -79,7 +79,7 @@ Requires: %{?scl_prefix}rubygem(xmlrpc) < 1.0
 # end specfile realm_freeipa Requires
 
 Requires:       sudo
-Requires:       wget
+Requires:       curl
 Requires(pre):  shadow-utils
 %{?systemd_requires}
 BuildRequires: systemd
@@ -253,6 +253,9 @@ exit 0
 
 
 %changelog
+* Tue Nov 09 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.1.0-0.2.develop
+- Swap wget for curl dependency
+
 * Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
 - Bump version to 3.1-develop
 
