@@ -8,6 +8,6 @@ Homepage: https://github.com/dm-drogeriemarkt/foreman_rescue
 
 Package: ruby-foreman-rescue
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 1.20.0)
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1)
 Description: Foreman Rescue Plugin
  This plugin allows a user to boot a Foreman host into a rescue system via PXE.
