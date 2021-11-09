@@ -10,15 +10,9 @@
 #export DH_VERBOSE=1
 
 PLUGIN = foreman_rescue
+PLUGIN_HAS_ASSETS = false
+PLUGIN_HAS_WEBPACK = false
+PLUGIN_HAS_PACKAGE_JSON = false
+PLUGIN_HAS_API = true
 
-build:
-	cp cache/* /usr/share/foreman/vendor/cache/
-	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
-	cd /usr/share/foreman && ( \
-		/usr/bin/foreman-ruby /usr/bin/bundle install --local && \
-		/usr/bin/foreman-ruby /usr/bin/bundle exec rake db:migrate RAILS_ENV=development && \
-			OUT=/var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) RAILS_ENV=development \
-	)
-
-%:
-	dh $@
+include /usr/share/foreman/foreman-plugin.mk
