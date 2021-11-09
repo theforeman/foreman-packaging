@@ -1,7 +1,0 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: ruby-foreman-azure
-Source: https://github.com/theforeman/foreman_azure
-
-Files: *
-Copyright: 2016 Daniel Lobato Garcia <elobatocs@gmail.com>
-License: GPL-3.0+
