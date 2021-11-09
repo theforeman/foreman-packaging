@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (5.0.0-2) stable; urgency=low
+
+  * use foreman-plugin.postinst-lib from foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 09 Nov 2021 13:41:04 +0100
+
 ruby-puppetdb-foreman (5.0.0-1) stable; urgency=low
 
   * 5.0.0 released
