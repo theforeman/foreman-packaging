@@ -1,3 +1,9 @@
+ruby-smart-proxy-dynflow (0.6.0-1) stable; urgency=low
+
+  * 0.6.0 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 11 Nov 2021 14:27:33 +0100
+
 ruby-smart-proxy-dynflow (0.5.2-2) stable; urgency=low
 
   * Do not depend on smart_proxy_dynflow_core
