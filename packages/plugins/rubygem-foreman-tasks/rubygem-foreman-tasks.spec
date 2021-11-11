@@ -8,7 +8,7 @@
 %global foreman_min_version 2.6.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.1.1
+Version: 5.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -45,7 +45,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -53,10 +53,6 @@ BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
 BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
-BuildRequires: %{?scl_prefix}npm(humanize-duration) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -179,6 +175,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Thu Nov 11 2021 Adam Ruzicka <aruzicka@redhat.com> 5.2.0-1
+- Update to 5.2.0
+
 * Tue Sep 21 2021 Adam Ruzicka <aruzicka@redhat.com> 5.1.1-1
 - Update to 5.1.1
 
