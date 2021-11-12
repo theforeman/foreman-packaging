@@ -1,3 +1,9 @@
+foreman (3.2.0-1) stable; urgency=low
+
+  * Bump changelog to 3.2.0 to match VERSION
+
+ -- Odilon Sousa <osousa@redhat.com>  Fri, 12 Nov 2021 09:23:16 -0300
+
 foreman (3.1.0-5) stable; urgency=low
 
   * provide a central postinst library for plugins
