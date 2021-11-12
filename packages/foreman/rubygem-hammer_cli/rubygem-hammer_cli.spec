@@ -14,7 +14,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.0
+Version: 3.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 Group: Development/Languages
@@ -124,6 +124,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.pre.develop
+- Bump version to 3.2-develop
+
 * Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.pre.develop
 - Bump version to 3.1-develop
 
