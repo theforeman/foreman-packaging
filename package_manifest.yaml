@@ -2,8 +2,8 @@
 all:
   vars:
     foremandist: .fm3_1
-    foreman_version: 'nightly'
-    katello_version: 'nightly'
+    foreman_version: '3.1'
+    katello_version: '4.3'
   children:
     packages: {}
     repoclosures: {}
