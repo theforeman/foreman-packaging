@@ -15,7 +15,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    2.2.0
+Version:    3.0.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -26,7 +26,7 @@ BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
 Provides: bundled(%{ansible_python}-apypie) = 0.3.2
-Requires: ansible >= 2.8
+Requires: ansible >= 2.9
 Requires: %{ansible_python}-requests >= 2.4.2
 Requires: %{pyyaml}
 %if 0%{?rhel} == 7
@@ -56,6 +56,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Fri Nov 12 2021 Evgeni Golov - 3.0.0-1
+- Release ansible-collection-theforeman-foreman 3.0.0
+
 * Wed Aug 25 2021 Evgeni Golov - 2.2.0-1
 - Release ansible-collection-theforeman-foreman 2.2.0
 
