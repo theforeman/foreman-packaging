@@ -1,3 +1,9 @@
+foreman (3.1.0~rc1-1) stable; urgency=low
+
+  * 3.1.0-rc1 released
+
+ -- Odilon Sousa <osousa@redhat.com>  Mon, 15 Nov 2021 13:06:15 -0300
+
 foreman (3.1.0-5) stable; urgency=low
 
   * provide a central postinst library for plugins
