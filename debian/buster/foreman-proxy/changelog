@@ -1,3 +1,9 @@
+foreman-proxy (3.1.0~rc1-1) stable; urgency=low
+
+  * 3.1.0-rc1 released
+
+ -- Odilon Sousa <osousa@redhat.com>  Mon, 15 Nov 2021 13:06:15 -0300
+
 foreman-proxy (3.1.0-1) stable; urgency=low
 
   * Bump changelog to 3.1.0 to match VERSION
