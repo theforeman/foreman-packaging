@@ -16,8 +16,8 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.1
-Release: 2%{?foremandist}%{?dist}
+Version: 0.5.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -31,7 +31,8 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
-Requires: %{?scl_prefix}rubygem(net-ssh)
+Requires: %{?scl_prefix}rubygem(net-ssh) >= 4.2.0
+Requires: %{?scl_prefix}rubygem(mqtt)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -120,6 +121,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 16 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.0-1
+- Update to 0.5.0
+
 * Fri Jul 09 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.1-2
 - Do not obsolete foreman_remote_execution_core
 
