@@ -15,10 +15,9 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0
+Version: 0.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Application Centric Deployment smart proxy plugin
 Group: Applications/Internet
@@ -26,14 +25,12 @@ License: GPLv3
 URL: http://github.com/ATIX-AG/smart_proxy_acd
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow_core) >= 0.2.2
-Requires: %{?scl_prefix}rubygem(smart_proxy_acd_core)
-
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -95,14 +92,6 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/acd.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/acd.yml
 
-# bundler.d file for smart_proxy_acd_core
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_acd_core.rb \
-                %{buildroot}%{foreman_proxy_bundlerd_dir}/smart_proxy_acd_core.rb \
-                >/dev/null
-gem 'smart_proxy_acd_core'
-EOF
-
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/acd.yml
@@ -111,8 +100,6 @@ EOF
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
-%{foreman_proxy_bundlerd_dir}/smart_proxy_acd_core.rb
-%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_acd_core.rb
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -121,6 +108,9 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Nov 16 2021 Bernhard Suttner <suttner@atix.de> 0.3.0-1
+- Update to 0.3.0
+
 * Mon May 31 2021 Bernhard Suttner <suttner@atix.de> 0.2.0-1
 - Update to 0.2.0
 
