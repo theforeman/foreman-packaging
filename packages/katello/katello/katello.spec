@@ -132,7 +132,7 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
-* Wed Nov 11 2021 Chris Roberts <chrobert@redhat.com> - 4.4.0-0.1.master
+* Wed Nov 17 2021 Chris Roberts <chrobert@redhat.com> - 4.4.0-0.1.master
 - 4.4.0 version bump
 
 * Wed Oct 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-0.4.master

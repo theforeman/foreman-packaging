@@ -68,7 +68,7 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
-* Wed Nov 11 2021 Chris Roberts <chrobert@redhat.com> 4.4-0.1.nightly
+* Wed Nov 17 2021 Chris Roberts <chrobert@redhat.com> 4.4-0.1.nightly
 - 4.4.0 version bump
 
 * Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3-0.2.nightly
