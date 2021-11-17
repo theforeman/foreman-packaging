@@ -2,14 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 3.1
-%global foreman_max_version 3.2
+%global foreman_min_version 3.2
+%global foreman_max_version 3.3
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.3.0
-%global release 5
+%global mainver 4.4.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Nov 11 2021 Chris Roberts <chrobert@redhat.com> 4.4.0-0.1.pre.master
+- 4.4.0 version bump
+
 * Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.5.pre.master
 - updates to pulpcore 3.15 client bindings
 
