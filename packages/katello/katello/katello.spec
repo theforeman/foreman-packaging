@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Nov 17 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.4.rc1
+- Release katello 4.3.0rc1
+
 * Wed Oct 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-0.4.master
 - Mention Puppet options separately for change hostname
 

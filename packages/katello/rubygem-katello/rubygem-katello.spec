@@ -6,7 +6,7 @@
 %global foreman_max_version 3.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.3.0
 %global release 5
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Nov 17 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.5.rc1
+- Release rubygem-katello 4.3.0rc1
+
 * Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.5.pre.master
 - updates to pulpcore 3.15 client bindings
 
