@@ -244,7 +244,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
-* Wed Nov 11 2021 Chris Roberts <chrobert@redhat.com> 4.4.0-0.1.pre.master
+* Wed Nov 17 2021 Chris Roberts <chrobert@redhat.com> 4.4.0-0.1.pre.master
 - 4.4.0 version bump
 
 * Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3.0-0.5.pre.master
