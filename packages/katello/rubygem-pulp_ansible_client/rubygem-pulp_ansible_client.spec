@@ -5,7 +5,7 @@
 %global gem_name pulp_ansible_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.0b13.dev01588546902
+Version: 0.10.1
 Release: 1%{?dist}
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
@@ -16,14 +16,14 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
@@ -75,6 +75,17 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 
+#workaround for https://pulp.plan.io/issues/8950
+%exclude %{gem_instdir}/dist
+%exclude %{gem_instdir}/build
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/pulpcore
+%exclude %{gem_instdir}/pulp_ansible_client.egg-info
+%exclude %{gem_instdir}/*.txt
+%exclude %{gem_instdir}/*.cfg
+%exclude %{gem_instdir}/*.ini
+%exclude %{gem_instdir}/setup.py*
+
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
@@ -85,6 +96,36 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 0.10.1-1
+- Update to 0.10.1
+
+* Fri Aug 27 2021 Justin Sherrill <jsherril@redhat.com> 0.9.1-1
+- Update to 0.9.1
+
+* Tue Jul 06 2021 James Jeffers <jjeffers@redhat.com> 0.8.0-1
+- Update to 0.8.0
+
+* Fri Jun 11 2021 Justin Sherrill <jsherril@redhat.com> 0.7.3-1
+- Update to 0.7.3
+
+* Tue Mar 30 2021 Justin Sherrill <jsherril@redhat.com> 0.7.1-1
+- Update to 0.7.1
+
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.6.0-2
+- Rebuild for Ruby 2.7
+
+* Mon Jan 11 2021 ianballou <ianballou67@gmail.com> 0.6.0-1
+- Update to 0.6.0
+
+* Thu Oct 15 2020 ianballou <ianballou67@gmail.com> 0.4.2-1
+- Update to 0.4.2
+
+* Fri Sep 11 2020 Justin Sherrill <jsherril@redhat.com> 0.3.0-1
+- Update to 0.3.0
+
+* Thu Aug 20 2020 Justin Sherrill <jsherril@redhat.com> 0.2.0-1
+- Update to 0.2.0
+
 * Mon May 04 2020 Justin Sherrill <jsherril@redhat.com> 0.2.0b13.dev01588546902-1
 - Update to 0.2.0b13.dev01588546902
 

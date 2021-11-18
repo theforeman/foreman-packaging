@@ -4,13 +4,13 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 4.12.0
+Version: 8.16.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/theforeman/foreman-js#readme
-Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-%{version}.tgz
+Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-8.16.0.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
@@ -39,6 +39,36 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Thu Oct 21 2021 Ron Lavi <1ronlavi@gmail.com> 8.16.0-1
+- Update to 8.16.0
+
+* Wed Oct 06 2021 Ron Lavi <1ronlavi@gmail.com> 8.15.0-1
+- Update to 8.15.0
+
+* Tue Jul 13 2021 Tomer Brisker <tbrisker@gmail.com> 8.8.0-1
+- Update to 8.8.0
+
+* Wed Jun 30 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 8.7.0-1
+- Update to 8.7.0
+
+* Fri Apr 30 2021 Evgeni Golov 8.4.5-1
+- Update to 8.4.5
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> 8.4.1-1
+- Update to 8.4.1
+
+* Tue Feb 16 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.3-1
+- Update to 8.3.3
+
+* Tue Feb 09 2021 Ondrej Prazak <oprazak@redhat.com> 8.3.0-1
+- Update to 8.3.0
+
+* Tue Nov 17 2020 John Mitsch <jomitsch@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
+* Tue Aug 18 2020 Avi Sharvit <sharvita@gmail.com> 4.14.0-1
+- Update to 4.14.0
+
 * Tue Jul 28 2020 MariaAga <mariaagaphonchev@gmail.com> 4.12.0-1
 - Update to 4.12.0
 

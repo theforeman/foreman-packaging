@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: Spacewalk integration support for smart-proxy
 Group: Applications/Internet
 License: GPLv3
@@ -114,6 +114,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/spacewalk.yml.example \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-7
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 0.1.0-6
 - Fix bundler.d location on EL8
 

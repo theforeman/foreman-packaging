@@ -8,8 +8,8 @@
 %global foreman_min_version 1.24
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.0.1
-Release: 1%{?foremandist}%{?dist}
+Version: 7.0.4
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for limiting host lifetime
 Group: Applications/Systems
 License: GPLv3
@@ -82,9 +82,6 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.rubocop_todo.yml
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
@@ -100,12 +97,16 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/foreman_expire_hosts.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0.4-2
+- Rebuild plugins for Ruby 2.7
+
+* Tue Feb 02 2021 Manuel Laug <laugmanuel@gmail.com> - 7.0.4-1
+- Update foreman_expire_hosts to 7.0.4
+
 * Mon Mar 16 2020 Timo Goebel <mail@timogoebel.name> - 7.0.1-1
 - Update foreman_expire_hosts to 7.0.1
 

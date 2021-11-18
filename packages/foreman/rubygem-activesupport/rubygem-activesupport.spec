@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.1
+Version: 6.0.3.7
 Release: 1%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
@@ -36,8 +36,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 5.2.1
 
 %description
 A toolkit of support libraries and Ruby core extensions extracted from the
@@ -95,6 +93,18 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.7-1
+- Release 6.0.3.7
+
+* Wed Mar 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.5-2
+- Rebuild against rh-ruby27
+
+* Tue Feb 23 2021 Evgeni Golov - 6.0.3.5-1
+- Release rubygem-activesupport 6.0.3.5
+
+* Mon Oct 26 2020 Evgeni Golov - 6.0.3.4-1
+- Release rubygem-activesupport 6.0.3.4
+
 * Mon Jun 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.1-1
 - Release rubygem-activesupport 6.0.3.1
 

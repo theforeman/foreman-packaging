@@ -9,37 +9,36 @@
 %global gem_name smart_proxy_dynflow
 %global plugin_name dynflow
 
-%global foreman_proxy_min_version 1.25
+%global foreman_proxy_min_version 1.16
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.4
-Release: 6%{?foremandist}%{?dist}
+Version: 0.5.2
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.2.0
-Requires: tfm-rubygem(smart_proxy_dynflow_core) < 0.3.0
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.2.0
-Requires: rubygem(smart_proxy_dynflow_core) < 0.3.0
-%endif
+Requires: %{?scl_prefix}rubygem(logging)
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
+Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.1
+Requires: %{?scl_prefix}rubygem(dynflow) < 2
+Requires: %{?scl_prefix}rubygem(rest-client)
+Requires: %{?scl_prefix}rubygem(sqlite3)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
+BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -93,7 +92,7 @@ cp -a .%{gem_dir}/* \
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-mv %{buildroot}%{gem_instdir}/bundler.plugins.d/%{plugin_name}.rb \
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
    %{buildroot}%{foreman_proxy_bundlerd_dir}
 
 # sample config
@@ -112,7 +111,7 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/bundler.plugins.d
+%exclude %{gem_instdir}/bundler.d
 %{gem_spec}
 
 %files doc
@@ -120,6 +119,30 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jul 12 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-2
+- Do not depend on smart_proxy_dynflow_core
+
+* Thu Jun 24 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-1
+- Update to 0.5.2
+
+* Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.1-1
+- Update to 0.5.1
+
+* Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 0.5.0-1
+- Update to 0.5.0
+
+* Mon Jun 07 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.0-1
+- Update to 0.4.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.0-3
+- Rebuild for Ruby 2.7
+
+* Wed Nov 18 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.0-2
+- Loosen dependency on smart_proxy_dynflow_core
+
+* Thu Nov 05 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.0-1
+- Update to 0.3.0
+
 * Mon Jun 22 2020 Evgeni Golov - 0.2.4-6
 - Fix bundler.d location on EL8
 

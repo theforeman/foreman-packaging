@@ -7,7 +7,7 @@ Summary: Common locale data and translations for Rails i18n
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 6.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
@@ -64,6 +64,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.0-3
+- Rebuild against rh-ruby27
+
 * Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 6.0.0-2
 - Update requirements on railties
 

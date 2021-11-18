@@ -6,35 +6,53 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.10.9
-Release: 1%{?dist}
-Summary: Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
+Version: 1.11.3
+Release: 2%{?dist}
+Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 Group: Development/Languages
 License: MIT
+URL: https://nokogiri.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# On EL8 rubygem-racc is bundled into ruby-libs package and
+# auto-generated dependencies will break dependency resolution
+Autoreq: 0
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.4.0
-Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.5
+Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.5.0
+Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.3.0
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.4.0
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.5
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.5.0
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.6
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.8.4
+%if 0%{?rhel} >= 8
+Requires: bundled(rubygem-racc) >= 1.4
+Requires: bundled(rubygem-racc) < 2
+BuildRequires: bundled(rubygem-racc) >= 1.4
+BuildRequires: bundled(rubygem-racc) < 2
+%else
+Requires: %{?scl_prefix}rubygem(racc) >= 1.4
+Requires: %{?scl_prefix}rubygem(racc) < 2
+BuildRequires: %{?scl_prefix}rubygem(racc) >= 1.4
+BuildRequires: %{?scl_prefix}rubygem(racc) < 2
+%endif
 
 %description
-Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser.  Among
-Nokogiri's many features is the ability to search documents via XPath
-or CSS3 selectors.
+Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby.
+It provides a
+sensible, easy-to-understand API for reading, writing, modifying, and querying
+documents. It is
+fast and standards-compliant by relying on native parsers like libxml2 (C) and
+xerces (Java).
 
 
 %package doc
@@ -78,7 +96,6 @@ mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
 cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
 cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}/
 
-
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
@@ -103,6 +120,7 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{_bindir}/nokogiri
+%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %license %{gem_instdir}/LICENSE-DEPENDENCIES.md
 %license %{gem_instdir}/LICENSE.md
@@ -115,9 +133,19 @@ rm -rf gem_ext_test
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu May 27 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.3-2
+- Do not generate auto requires due to rubygem-racc
+
+* Fri Apr 30 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.3-1
+- Release 1.11.3
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.10.9-2
+- Rebuild against rh-ruby27
+
 * Thu Apr 30 2020 Zach Huntington-Meath <zhunting@redhat.com> 1.10.9-1
 - Update to 1.10.9
 

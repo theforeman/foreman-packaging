@@ -5,8 +5,8 @@
 %global gem_name sinatra
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.3
-Release: 4%{?dist}
+Version: 2.1.0
+Release: 2%{?dist}
 Summary: Classy web-development dressed in a DSL
 Group: Development/Languages
 License: MIT
@@ -17,11 +17,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(rack) >= 2.0
+Requires: %{?scl_prefix}rubygem(rack) >= 2.2
 Requires: %{?scl_prefix}rubygem(rack) < 3
 Requires: %{?scl_prefix}rubygem(tilt) >= 2.0
 Requires: %{?scl_prefix}rubygem(tilt) < 3
-Requires: %{?scl_prefix}rubygem(rack-protection) = 2.0.3
+Requires: %{?scl_prefix}rubygem(rack-protection) = 2.1.0
 Requires: %{?scl_prefix}rubygem(mustermann) >= 1.0
 Requires: %{?scl_prefix}rubygem(mustermann) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
@@ -98,6 +98,7 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.hu.md
 %doc %{gem_instdir}/README.ja.md
 %doc %{gem_instdir}/README.ko.md
+%doc %{gem_instdir}/README.malayalam.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/README.pt-br.md
 %doc %{gem_instdir}/README.pt-pt.md
@@ -108,6 +109,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/sinatra.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
+- Rebuild against rh-ruby27
+
+* Thu Dec 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-1
+- Release rubygem-sinatra 2.1.0
+
 * Tue Mar 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.3-4
 - Bump packages to build for el8
 

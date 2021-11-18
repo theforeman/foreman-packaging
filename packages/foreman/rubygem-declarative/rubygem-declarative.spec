@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.10
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: DSL for nested schemas
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.10-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.10-2
 - Bump to release for EL8
 

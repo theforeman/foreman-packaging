@@ -6,12 +6,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
-Version:        2.2.0
+Version:        3.2.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 
@@ -38,17 +38,20 @@ Requires:       foreman-debug
 # These come from smart_proxy.gemspec - get-gemfile-deps can't handle that yet
 Requires:       %{?scl_prefix_ruby}rubygem(json)
 Requires:       %{?scl_prefix}rubygem(rack) >= 1.3.0
+Requires:       %{?scl_prefix}rubygem(sd_notify) >= 0.1
+Requires:       %{?scl_prefix}rubygem(sd_notify) < 0.2
 Requires:       %{?scl_prefix}rubygem(logging) >= 1.8.0
 Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       %{?scl_prefix}rubygem(sinatra)
 
-# start specfile main Requires
+# start specfile default Requires
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
-# end specfile main Requires
+# end specfile default Requires
 
 # start specfile bmc Requires
 Requires: %{?scl_prefix}rubygem(rubyipmi) >= 0.10.0
+Requires: %{?scl_prefix}rubygem(redfish_client) >= 0.5.1
 # end specfile bmc Requires
 
 # This is a group within bundler.d/dhcp_isc.rb
@@ -76,7 +79,7 @@ Requires: %{?scl_prefix}rubygem(xmlrpc) < 1.0
 # end specfile realm_freeipa Requires
 
 Requires:       sudo
-Requires:       wget
+Requires:       curl
 Requires(pre):  shadow-utils
 %{?systemd_requires}
 BuildRequires: systemd
@@ -212,7 +215,6 @@ getent group foreman-proxy >/dev/null || \
   groupadd -r foreman-proxy
 getent passwd foreman-proxy >/dev/null || \
   useradd -r -g foreman-proxy -d %{homedir} -s /sbin/nologin -c "Foreman Proxy daemon user" foreman-proxy
-
 exit 0
 
 %post
@@ -239,6 +241,10 @@ fi
 
 %systemd_post %{name}.service
 
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
+exit 0
+
 %preun
 %systemd_preun %{name}.service
 
@@ -247,6 +253,42 @@ fi
 
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.develop
+- Bump version to 3.2-develop
+
+* Tue Nov 09 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.1.0-0.2.develop
+- Swap wget for curl dependency
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.2.develop
+- Rebuild against rh-ruby27
+
+* Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.develop
+- Bump version to 2.5-develop
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
+- Bump version to 2.4-develop
+
+* Mon Oct 26 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.4.develop
+- Update Gem dependencies
+
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.3.develop
+- Enforce tmpfiles
+
+* Wed Sep 02 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.2.develop
+- Add sd_notify gem dependency (#30731)
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
 * Thu Jun 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.2.0-0.4.develop
 - Update Gem dependencies
 

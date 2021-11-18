@@ -7,12 +7,12 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.5
+Version: 5.5.0
 Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
-URL: http://puma.io
+URL: https://puma.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -28,6 +28,9 @@ BuildRequires: %{?scl_prefix}rubygem(nio4r) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(nio4r) < 3
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+# Puma 5.1.0 includes systemd support so the plugin is no longer needed
+Obsoletes: %{?scl_prefix}rubygem-puma-plugin-systemd < 0.1.5-2
 
 BuildRequires: openssl-devel
 
@@ -53,7 +56,7 @@ Documentation for %{pkg_name}.
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%setup -q -D -T -n  %{gem_name}-%{version}
+%autosetup -p1 -D -T -n  %{gem_name}-%{version}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -109,7 +112,6 @@ rm -rf gem_ext_test
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
-%{gem_instdir}/tools
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -118,8 +120,27 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/docs
+%doc %{gem_instdir}/tools
 
 %changelog
+* Thu Sep 23 2021 Evgeni Golov 5.5.0-1
+- Update to 5.5.0
+
+* Wed May 26 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.3.2-1
+- Release 5.3.2
+
+* Mon May 10 2021 Evgeni Golov 5.3.0-1
+- Update to 5.3.0
+
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.1.1-2
+- Rebuild for Ruby 2.7
+
+* Thu Jan 07 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.1.1-1
+- Update to 5.1.1
+
+* Thu Oct 15 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.3.6-1
+- Release rubygem-puma 4.3.6
+
 * Thu May 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.3.5-1
 - Update to 4.3.5
 

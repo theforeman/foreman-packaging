@@ -1,5 +1,5 @@
 Name: foreman-bootloaders-redhat
-Version: 202005201200
+Version: 202102220000
 Release: 1%{?dist}
 Summary: Metapackage with Grub2 and Shim TFTP bootloaders
 
@@ -69,6 +69,13 @@ install -Dp -m0755 %{SOURCE0} %{buildroot}%{_bindir}/foreman-generate-bootloader
 
 
 %changelog
+* Fri Feb 19 2021 Oliver Freyermuth <o.freyermuth@googlemail.com> 202102220000-1
+- Add efinet module only on *-efi platforms.
+
+* Mon Jan 25 2021 Oliver Freyermuth <o.freyermuth@googlemail.com> 202102211600-1
+- Add efinet module to Grub2 modules.
+- Set prefix "grub2" in generated Grub2.
+
 * Fri Apr 17 2020 Lukas Zapletal <lzap+rpm@redhat.com> 202005201200-1
 - BZ#1702434 - unmanaged files and permissions
 

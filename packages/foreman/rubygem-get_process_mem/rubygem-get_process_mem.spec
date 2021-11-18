@@ -1,25 +1,31 @@
-# Generated from get_process_mem-0.2.1.gem by gem2rpm -*- rpm-spec -*-
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name get_process_mem
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
-Release: 4%{?dist}
+Version: 0.2.7
+Release: 2%{?dist}
 Summary: Use GetProcessMem to find out the amount of RAM used by any process
 Group: Development/Languages
 License: MIT
 URL: https://github.com/schneems/get_process_mem
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(ffi) >= 1.0
+Requires: %{?scl_prefix}rubygem(ffi) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 Get memory usage of a process in Ruby .
@@ -59,15 +65,16 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
-%exclude %{gem_instdir}/.*
+%{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/appveyor.yml
-%exclude %{gem_instdir}/get_process_mem.gemspec
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -77,9 +84,16 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/get_process_mem.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.7-2
+- Rebuild Ruby 2.7
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> 0.2.7-1
+- Update to 0.2.7-1
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.2.1-4
 - Bump to release for EL8
 

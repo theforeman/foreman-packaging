@@ -9,7 +9,7 @@ tito=0.6.1
 builder = obal.tito_extensions.git_annex_spec_builder.GitAnnexSpecBuilder
 tagger = tito.tagger.ReleaseTagger
 lib_dir = rel-eng/custom/
-tag_suffix = .fm2_2
+tag_suffix = .fm3_2
 
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
@@ -22,7 +22,6 @@ whitelist = foreman-bootloaders-redhat
   foreman-selinux
   katello-certs-tools
   keycloak-httpd-client-install
-  nodejs-node-gyp
   pcp-mmvstatsd
   puppet-agent-oauth
   puppet-agent-puppet-strings
@@ -30,12 +29,7 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-yard
   rubygem-clamp
   rubygem-foreman_maintain
-  rubygem-hashie
   rubygem-highline
-  rubygem-little-plugger
-  rubygem-logging
-  rubygem-multi_json
-  rubygem-powerbar
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -57,29 +51,19 @@ whitelist = foreman
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
-  nodejs-bootstrap-slider-without-jquery
-  nodejs-breakjs
   nodejs-c3
-  nodejs-change-emitter
-  nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-core-js
-  nodejs-create-react-context
-  nodejs-css-element-queries
   nodejs-css-loader
+  nodejs-cssnano
   nodejs-d3
-  nodejs-dom-helpers
   nodejs-dotenv
-  nodejs-escape-string-regexp
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
-  nodejs-fbjs
   nodejs-file-loader
-  nodejs-fortawesome-fontawesome-common-types
-  nodejs-fortawesome-free-brands-svg-icons
-  nodejs-gud
+  nodejs-graphql
+  nodejs-graphql-tag
   nodejs-harmony-reflect
-  nodejs-hoist-non-react-statics
   nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
@@ -88,42 +72,24 @@ whitelist = foreman
   nodejs-jquery
   nodejs-js-tokens
   nodejs-lodash
-  nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
-  nodejs-patternfly
-  nodejs-patternfly-react
-  nodejs-patternfly-react-icons
-  nodejs-patternfly-react-tokens
+  nodejs-optimize-css-assets-webpack-plugin
   nodejs-performance-now
   nodejs-popper.js
-  nodejs-prop-types
-  nodejs-prop-types-extra
   nodejs-raf
   nodejs-react
-  nodejs-reactabular-table
   nodejs-react-bootstrap
-  nodejs-react-bootstrap-switch
-  nodejs-react-bootstrap-typeahead
-  nodejs-react-c3js
-  nodejs-react-click-outside
-  nodejs-react-collapse
-  nodejs-react-debounce-input
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
-  nodejs-react-fontawesome
   nodejs-react-intl
   nodejs-react-is
   nodejs-react-lifecycles-compat
-  nodejs-react-motion
-  nodejs-react-overlays
-  nodejs-react-popper
   nodejs-react-redux
-  nodejs-react-transition-group
-  nodejs-recompose
+  nodejs-redhat-cloud-services-frontend-components
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
@@ -140,6 +106,7 @@ whitelist = foreman
   nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
+  nodejs-use-deep-compare-effect
   nodejs-uuid
   nodejs-warning
   nodejs-webpack
@@ -152,7 +119,6 @@ whitelist = foreman
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
-  rubygem-activepack
   rubygem-activerecord
   rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
@@ -201,7 +167,6 @@ whitelist = foreman
   rubygem-ffi
   rubygem-fog-aws
   rubygem-fog-core
-  rubygem-fog-digitalocean
   rubygem-fog-google
   rubygem-fog-json
   rubygem-fog-libvirt
@@ -221,6 +186,7 @@ whitelist = foreman
   rubygem-globalid
   rubygem-google-api-client
   rubygem-googleauth
+  rubygem-google-cloud-env
   rubygem-graphql
   rubygem-graphql-batch
   rubygem-gssapi
@@ -230,7 +196,7 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
-  rubygem-hoe
+  rubygem-hocon
   rubygem-httpclient
   rubygem-http-cookie
   rubygem-i18n
@@ -252,11 +218,11 @@ whitelist = foreman
   rubygem-marcel
   rubygem-memoist
   rubygem-method_source
-  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
@@ -274,7 +240,6 @@ whitelist = foreman
   rubygem-ovirt-engine-sdk
   rubygem-paint
   rubygem-parallel
-  rubygem-passenger
   rubygem-patternfly-sass
   rubygem-pg
   rubygem-po_to_json
@@ -286,6 +251,7 @@ whitelist = foreman
   rubygem-puma-status
   rubygem-quantile
   rubygem-rabl
+  rubygem-racc
   rubygem-rack
   rubygem-rack-cors
   rubygem-rack-jsonp
@@ -298,9 +264,9 @@ whitelist = foreman
   rubygem-railties
   rubygem-rake-compiler
   rubygem-rb-inotify
-  rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
+  rubygem-redfish_client
   rubygem-redis
   rubygem-representable
   rubygem-responders
@@ -310,8 +276,8 @@ whitelist = foreman
   rubygem-roadie
   rubygem-roadie-rails
   rubygem-rsec
+  rubygem-ruby2_keywords
   rubygem-ruby2ruby
-  rubygem-rubyforge
   rubygem-rubyipmi
   rubygem-ruby-libvirt
   rubygem-ruby_parser
@@ -321,8 +287,10 @@ whitelist = foreman
   rubygem-sassc-rails
   rubygem-sass-rails
   rubygem-scoped_search
+  rubygem-sd_notify
   rubygem-secure_headers
   rubygem-sequel
+  rubygem-server_sent_events
   rubygem-sexp_processor
   rubygem-sidekiq
   rubygem-signet
@@ -333,12 +301,10 @@ whitelist = foreman
   rubygem-sqlite3
   rubygem-sshkey
   rubygem-statsd-instrument
-  rubygem-syntax
   rubygem-text
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
-  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
@@ -353,7 +319,6 @@ whitelist = foreman
   rubygem-websocket-extensions
   rubygem-will_paginate
   rubygem-wirb
-  rubygem-x-editable-rails
   rubygem-xmlrpc
   rubygem-zeitwerk
   tfm
@@ -385,29 +350,19 @@ whitelist = foreman
   nodejs-babel-preset-react
   nodejs-babel-register
   nodejs-babel-runtime
-  nodejs-bootstrap-slider-without-jquery
-  nodejs-breakjs
   nodejs-c3
-  nodejs-change-emitter
-  nodejs-classnames
   nodejs-compression-webpack-plugin
   nodejs-core-js
-  nodejs-create-react-context
-  nodejs-css-element-queries
   nodejs-css-loader
+  nodejs-cssnano
   nodejs-d3
-  nodejs-dom-helpers
   nodejs-dotenv
-  nodejs-escape-string-regexp
   nodejs-expose-loader
   nodejs-extract-text-webpack-plugin
-  nodejs-fbjs
   nodejs-file-loader
-  nodejs-fortawesome-fontawesome-common-types
-  nodejs-fortawesome-free-brands-svg-icons
-  nodejs-gud
+  nodejs-graphql
+  nodejs-graphql-tag
   nodejs-harmony-reflect
-  nodejs-hoist-non-react-statics
   nodejs-humanize-duration
   nodejs-identity-obj-proxy
   nodejs-intl
@@ -416,42 +371,24 @@ whitelist = foreman
   nodejs-jquery
   nodejs-js-tokens
   nodejs-lodash
-  nodejs-lodash.debounce
   nodejs-lodash-es
   nodejs-loose-envify
   nodejs-node-gyp
   nodejs-node-sass
   nodejs-object-assign
-  nodejs-patternfly
-  nodejs-patternfly-react
-  nodejs-patternfly-react-icons
-  nodejs-patternfly-react-tokens
+  nodejs-optimize-css-assets-webpack-plugin
   nodejs-performance-now
   nodejs-popper.js
-  nodejs-prop-types
-  nodejs-prop-types-extra
   nodejs-raf
   nodejs-react
-  nodejs-reactabular-table
   nodejs-react-bootstrap
-  nodejs-react-bootstrap-switch
-  nodejs-react-bootstrap-typeahead
-  nodejs-react-c3js
-  nodejs-react-click-outside
-  nodejs-react-collapse
-  nodejs-react-debounce-input
   nodejs-react-dom
   nodejs-react-ellipsis-with-tooltip
-  nodejs-react-fontawesome
   nodejs-react-intl
   nodejs-react-is
   nodejs-react-lifecycles-compat
-  nodejs-react-motion
-  nodejs-react-overlays
-  nodejs-react-popper
   nodejs-react-redux
-  nodejs-react-transition-group
-  nodejs-recompose
+  nodejs-redhat-cloud-services-frontend-components
   nodejs-redux
   nodejs-redux-thunk
   nodejs-regenerator-runtime
@@ -468,6 +405,7 @@ whitelist = foreman
   nodejs-uglifyjs-webpack-plugin
   nodejs-urijs
   nodejs-url-loader
+  nodejs-use-deep-compare-effect
   nodejs-uuid
   nodejs-warning
   nodejs-webpack
@@ -485,13 +423,11 @@ whitelist = foreman
   rubygem-actionview
   rubygem-activejob
   rubygem-activemodel
-  rubygem-activepack
   rubygem-activerecord
   rubygem-activerecord-nulldb-adapter
   rubygem-activerecord-session_store
   rubygem-activestorage
   rubygem-activesupport
-  rubygem-activeview
   rubygem-addressable
   rubygem-algebrick
   rubygem-amazing_print
@@ -535,7 +471,6 @@ whitelist = foreman
   rubygem-ffi
   rubygem-fog-aws
   rubygem-fog-core
-  rubygem-fog-digitalocean
   rubygem-fog-google
   rubygem-fog-json
   rubygem-fog-libvirt
@@ -556,6 +491,7 @@ whitelist = foreman
   rubygem-globalid
   rubygem-google-api-client
   rubygem-googleauth
+  rubygem-google-cloud-env
   rubygem-graphql
   rubygem-graphql-batch
   rubygem-gssapi
@@ -565,7 +501,7 @@ whitelist = foreman
   rubygem-highline
   rubygem-hirb
   rubygem-hirb-unicode-steakknife
-  rubygem-hoe
+  rubygem-hocon
   rubygem-httpclient
   rubygem-http-cookie
   rubygem-i18n
@@ -587,11 +523,11 @@ whitelist = foreman
   rubygem-marcel
   rubygem-memoist
   rubygem-method_source
-  rubygem-mimemagic
   rubygem-mime-types
   rubygem-mime-types-data
   rubygem-mini_mime
   rubygem-mini_portile2
+  rubygem-msgpack
   rubygem-multi_json
   rubygem-multipart-post
   rubygem-mustermann
@@ -609,7 +545,6 @@ whitelist = foreman
   rubygem-ovirt-engine-sdk
   rubygem-paint
   rubygem-parallel
-  rubygem-passenger
   rubygem-patternfly-sass
   rubygem-pg
   rubygem-po_to_json
@@ -633,9 +568,9 @@ whitelist = foreman
   rubygem-railties
   rubygem-rake-compiler
   rubygem-rb-inotify
-  rubygem-rbovirt
   rubygem-rbvmomi
   rubygem-record_tag_helper
+  rubygem-redfish_client
   rubygem-redis
   rubygem-representable
   rubygem-responders
@@ -645,8 +580,8 @@ whitelist = foreman
   rubygem-roadie
   rubygem-roadie-rails
   rubygem-rsec
+  rubygem-ruby2_keywords
   rubygem-ruby2ruby
-  rubygem-rubyforge
   rubygem-rubyipmi
   rubygem-ruby-libvirt
   rubygem-ruby_parser
@@ -656,8 +591,10 @@ whitelist = foreman
   rubygem-sassc-rails
   rubygem-sass-rails
   rubygem-scoped_search
+  rubygem-sd_notify
   rubygem-secure_headers
   rubygem-sequel
+  rubygem-server_sent_events
   rubygem-sexp_processor
   rubygem-sidekiq
   rubygem-signet
@@ -668,12 +605,10 @@ whitelist = foreman
   rubygem-sqlite3
   rubygem-sshkey
   rubygem-statsd-instrument
-  rubygem-syntax
   rubygem-text
   rubygem-thor
   rubygem-thread_safe
   rubygem-tilt
-  rubygem-turbolinks
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
@@ -688,22 +623,23 @@ whitelist = foreman
   rubygem-websocket-extensions
   rubygem-will_paginate
   rubygem-wirb
-  rubygem-x-editable-rails
   rubygem-xmlrpc
   rubygem-zeitwerk
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
-whitelist = ansiblerole-foreman_scap_client
+whitelist = ansible-collection-theforeman-foreman
+  ansible-collection-theforeman-operations
+  ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
   foreman-discovery-image-service
   nodejs-babel-plugin-module-resolver
-  nodejs-htmlparser2
-  nodejs-react-html-parser
+  nodejs-patternfly-react-catalog-view-extension
   nodejs-react-json-tree
   puppet-foreman_scap_client
   puppetlabs-stdlib
+  rubygem-acts_as_list
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
@@ -712,6 +648,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
   rubygem-azure_mgmt_subscriptions
+  rubygem-bcrypt_pbkdf
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
@@ -720,6 +657,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
   rubygem-faraday_middleware
@@ -727,24 +665,23 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-fog-proxmox
   rubygem-foreman_acd
   rubygem-foreman_ansible
-  rubygem-foreman_ansible_core
   rubygem-foreman_azure_rm
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
   rubygem-foreman_concrete
+  rubygem-foreman_datacenter
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
-  rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_dlm
-  rubygem-foreman_docker
   rubygem-foreman_expire_hosts
   rubygem-foreman_fog_proxmox
   rubygem-foreman_git_templates
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_host_reports
   rubygem-foreman_kubevirt
   rubygem-foreman_leapp
   rubygem-foreman_m2
@@ -754,9 +691,8 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-foreman_omaha
   rubygem-foreman_openscap
   rubygem-foreman_probing
-  rubygem-foreman_probing_core
+  rubygem-foreman_puppet
   rubygem-foreman_remote_execution
-  rubygem-foreman_remote_execution_core
   rubygem-foreman_rescue
   rubygem-foreman_salt
   rubygem-foreman_setup
@@ -765,12 +701,11 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-foreman_statistics
   rubygem-foreman_supervisory_authority
   rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_templates
   rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
+  rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
-  rubygem-foreman_xen
   rubygem-git
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
@@ -778,14 +713,16 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-hammer_cli_foreman_azure_rm
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
-  rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_kubevirt
+  rubygem-hammer_cli_foreman_leapp
   rubygem-hammer_cli_foreman_openscap
+  rubygem-hammer_cli_foreman_puppet
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
+  rubygem-hammer_cli_foreman_webhooks
   rubygem-http
   rubygem-httparty
   rubygem-http-form_data
@@ -797,7 +734,6 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-logify
   rubygem-ms_rest
   rubygem-ms_rest_azure
-  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
@@ -813,6 +749,7 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-puppetdb_foreman
   rubygem-radcli
   rubygem-rainbow
+  rubygem-rbnacl
   rubygem-recursive-open-struct
   rubygem-route53
   rubygem-rprogram
@@ -820,10 +757,12 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-ruby-hmac
   rubygem-ruby-nmap
   rubygem-safe_yaml
-  rubygem-satyr
   rubygem-sentry-raven
+  rubygem-smart_proxy_acd
+  rubygem-smart_proxy_acd_core
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_container_gateway
   rubygem-smart_proxy_dhcp_bluecat
   rubygem-smart_proxy_dhcp_device42
   rubygem-smart_proxy_dhcp_dnsmasq
@@ -845,8 +784,10 @@ whitelist = ansiblerole-foreman_scap_client
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
+  rubygem-smart_proxy_reports
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_salt_core
+  rubygem-smart_proxy_shellhooks
   rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-timeliness
@@ -858,11 +799,12 @@ whitelist = ansiblerole-foreman_scap_client
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
 scl = tfm
-whitelist = nodejs-babel-plugin-module-resolver
-  nodejs-htmlparser2
-  nodejs-react-html-parser
+whitelist = foreman-discovery-image-service
+  nodejs-babel-plugin-module-resolver
+  nodejs-patternfly-react-catalog-view-extension
   nodejs-react-json-tree
   puppetlabs-stdlib
+  rubygem-acts_as_list
   rubygem-angular-rails-templates
   rubygem-aws-eventstream
   rubygem-aws-sigv4
@@ -871,6 +813,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-azure_mgmt_resources
   rubygem-azure_mgmt_storage
   rubygem-azure_mgmt_subscriptions
+  rubygem-bcrypt_pbkdf
   rubygem-bootstrap-datepicker-rails
   rubygem-chef-api
   rubygem-chunky_png
@@ -879,6 +822,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-deface
   rubygem-diffy
   rubygem-down
+  rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
   rubygem-faraday_middleware
@@ -886,24 +830,23 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-fog-proxmox
   rubygem-foreman_acd
   rubygem-foreman_ansible
-  rubygem-foreman_ansible_core
   rubygem-foreman_azure_rm
   rubygem-foreman_bootdisk
   rubygem-foreman_chef
   rubygem-foreman_column_view
   rubygem-foreman_concrete
+  rubygem-foreman_datacenter
   rubygem-foreman_default_hostgroup
   rubygem-foreman_dhcp_browser
-  rubygem-foreman_digitalocean
   rubygem-foreman_discovery
   rubygem-foreman_dlm
-  rubygem-foreman_docker
   rubygem-foreman_expire_hosts
   rubygem-foreman_fog_proxmox
   rubygem-foreman_git_templates
   rubygem-foreman_graphite
   rubygem-foreman_hooks
   rubygem-foreman_host_extra_validator
+  rubygem-foreman_host_reports
   rubygem-foreman_kubevirt
   rubygem-foreman_leapp
   rubygem-foreman_m2
@@ -913,9 +856,8 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_omaha
   rubygem-foreman_openscap
   rubygem-foreman_probing
-  rubygem-foreman_probing_core
+  rubygem-foreman_puppet
   rubygem-foreman_remote_execution
-  rubygem-foreman_remote_execution_core
   rubygem-foreman_rescue
   rubygem-foreman_salt
   rubygem-foreman_setup
@@ -924,12 +866,11 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-foreman_statistics
   rubygem-foreman_supervisory_authority
   rubygem-foreman-tasks
-  rubygem-foreman-tasks-core
   rubygem-foreman_templates
   rubygem-foreman_vault
   rubygem-foreman_vmwareannotations
+  rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
-  rubygem-foreman_xen
   rubygem-git
   rubygem-graphite-api
   rubygem-hammer_cli_foreman_admin
@@ -937,15 +878,16 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-hammer_cli_foreman_azure_rm
   rubygem-hammer_cli_foreman_bootdisk
   rubygem-hammer_cli_foreman_discovery
-  rubygem-hammer_cli_foreman_docker
   rubygem-hammer_cli_foreman_kubevirt
   rubygem-hammer_cli_foreman_leapp
   rubygem-hammer_cli_foreman_openscap
+  rubygem-hammer_cli_foreman_puppet
   rubygem-hammer_cli_foreman_remote_execution
   rubygem-hammer_cli_foreman_salt
   rubygem-hammer_cli_foreman_ssh
   rubygem-hammer_cli_foreman_tasks
   rubygem-hammer_cli_foreman_templates
+  rubygem-hammer_cli_foreman_webhooks
   rubygem-http
   rubygem-httparty
   rubygem-http-form_data
@@ -957,11 +899,11 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-logify
   rubygem-ms_rest
   rubygem-ms_rest_azure
-  rubygem-msgpack
   rubygem-multi_xml
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
+  rubygem-newt
   rubygem-openscap
   rubygem-openscap_parser
   rubygem-ovirt_provision_plugin
@@ -972,6 +914,7 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-puppetdb_foreman
   rubygem-radcli
   rubygem-rainbow
+  rubygem-rbnacl
   rubygem-recursive-open-struct
   rubygem-route53
   rubygem-rprogram
@@ -980,8 +923,11 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-ruby-nmap
   rubygem-safe_yaml
   rubygem-sentry-raven
+  rubygem-smart_proxy_acd
+  rubygem-smart_proxy_acd_core
   rubygem-smart_proxy_ansible
   rubygem-smart_proxy_chef
+  rubygem-smart_proxy_container_gateway
   rubygem-smart_proxy_dhcp_bluecat
   rubygem-smart_proxy_dhcp_device42
   rubygem-smart_proxy_dhcp_dnsmasq
@@ -1003,8 +949,10 @@ whitelist = nodejs-babel-plugin-module-resolver
   rubygem-smart_proxy_pulp
   rubygem-smart_proxy_realm_ad_plugin
   rubygem-smart_proxy_remote_execution_ssh
+  rubygem-smart_proxy_reports
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_salt_core
+  rubygem-smart_proxy_shellhooks
   rubygem-smart_proxy_spacewalk
   rubygem-systemu
   rubygem-timeliness
@@ -1015,24 +963,23 @@ whitelist = nodejs-babel-plugin-module-resolver
 
 [foreman-plugins-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = ansiblerole-foreman_scap_client
+whitelist = ansible-collection-theforeman-operations
+  ansiblerole-foreman_scap_client
   ansiblerole-insights-client
   ansiblerole-satellite-receptor-installer
-  foreman-discovery-image-service
+  ansible-collection-theforeman-foreman
   puppet-foreman_scap_client
-  rubygem-fast_gettext
-  rubygem-newt
-  rubygem-satyr
 
 [foreman-client-nightly-el8]
 disttag = .el8
 # don't whitelist foreman-release here, it's already in foreman-nightly-el8
 whitelist =
-  ansible-collection-theforeman-foreman
+  gofer
+  jsoncpp
   katello-host-tools
-  python-apypie
   python-beautifulsoup4
   python-psutil
+  qpid-proton
   rubygem-foreman_scap_client
   tracer
 
@@ -1040,9 +987,7 @@ whitelist =
 disttag = .el7
 # don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
-  ansible-collection-theforeman-foreman
   katello-host-tools
-  python-apypie
   python-beautifulsoup4
   python-psutil
   rubygem-foreman_scap_client
@@ -1054,18 +999,11 @@ whitelist = foreman-release
   katello-host-tools
   rubygem-foreman_scap_client
 
-[foreman-client-nightly-rhel5]
-disttag = .el5
-whitelist = foreman-release
-  katello-host-tools
-
 [foreman-client-nightly-fedora29]
 disttag = .fc29
 whitelist =
-  ansible-collection-theforeman-foreman
   foreman-release
   katello-host-tools
-  python-apypie
   rubygem-foreman_scap_client
   tracer
 
@@ -1084,7 +1022,6 @@ whitelist = katello
   nodejs-query-string
   nodejs-react-helmet
   nodejs-strict-uri-encode
-  pulp-katello
   rhel8-kickstart-setup
   rubygem-activerecord-import
   rubygem-anemone
@@ -1094,17 +1031,21 @@ whitelist = katello
   rubygem-foreman_virt_who_configure
   rubygem-fx
   rubygem-hammer_cli_csv
+  rubygem-hammer_cli_foreman_rh_cloud
+  rubygem-hammer_cli_foreman_scc_manager
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
   rubygem-katello
-  rubygem-pulp_2to3_migration_client
   rubygem-pulp_ansible_client
   rubygem-pulp_certguard_client
   rubygem-pulp_container_client
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
   rubygem-pulp_file_client
+  rubygem-pulp_ostree_client
+  rubygem-pulp_python_client
   rubygem-pulp_rpm_client
+  rubygem-qpid_proton
   rubygem-redhat_access
   rubygem-redhat_access_lib
   rubygem-robotex
@@ -1115,10 +1056,12 @@ whitelist = katello
 
 [katello-nightly-el8]
 disttag = .el8
-whitelist = katello
+whitelist = jsoncpp
+  katello
   katello-client-bootstrap
   katello-repos
   katello-selinux
+  libwebsockets
   nodejs-angular
   nodejs-bootstrap-select
   nodejs-decode-uri-component
@@ -1127,6 +1070,10 @@ whitelist = katello
   nodejs-query-string
   nodejs-react-helmet
   nodejs-strict-uri-encode
+  python-qpid
+  qpid-cpp
+  qpid-dispatch
+  qpid-proton
   rhel8-kickstart-setup
   rubygem-activerecord-import
   rubygem-anemone
@@ -1136,6 +1083,8 @@ whitelist = katello
   rubygem-foreman_virt_who_configure
   rubygem-fx
   rubygem-hammer_cli_csv
+  rubygem-hammer_cli_foreman_rh_cloud
+  rubygem-hammer_cli_foreman_scc_manager
   rubygem-hammer_cli_foreman_virt_who_configure
   rubygem-hammer_cli_katello
   rubygem-katello
@@ -1146,6 +1095,8 @@ whitelist = katello
   rubygem-pulpcore_client
   rubygem-pulp_deb_client
   rubygem-pulp_file_client
+  rubygem-pulp_ostree_client
+  rubygem-pulp_python_client
   rubygem-pulp_rpm_client
   rubygem-redhat_access
   rubygem-redhat_access_lib
@@ -1154,124 +1105,4 @@ whitelist = katello
   rubygem-stomp
   rubygem-typhoeus
   rubygem-zest
-
-[katello-pulpcore-nightly-el7]
-disttag = .el7
-whitelist =
-  createrepo_c
-  libcomps
-  libsolv
-  pulpcore-selinux
-  python-aiodns
-  python-aiofiles
-  python-aiohttp
-  python-async-timeout
-  python-attrs
-  python-backoff
-  python-bleach
-  python-bleach-whitelist
-  python-box
-  python-certifi
-  python-cffi
-  python-chardet
-  python-click
-  python-coreapi
-  python-coreschema
-  python-cryptography
-  python-dateutil
-  python-debian
-  python-defusedxml
-  python-diff-match-patch
-  python-django
-  python-django-filter
-  python-django-import-export
-  python-django-prometheus
-  python-django-readonly-field
-  python-djangorestframework
-  python-djangorestframework-queryfields
-  python-dotenv
-  python-drf-nested-routers
-  python-drf-yasg
-  python-dynaconf
-  python-ecdsa
-  python-et-xmlfile
-  python-flake8
-  python-future
-  python-galaxy-importer
-  python-galaxy-ng
-  python-gnupg
-  python-gunicorn
-  python-idna
-  python-idna-ssl
-  python-importlib-metadata
-  python-inflection
-  python-iniparse
-  python-itypes
-  python-jdcal
-  python-jinja2
-  python-jsonschema
-  python-markdown
-  python-markuppy
-  python-markupsafe
-  python-mccabe
-  python-mongoengine
-  python-multidict
-  python-odfpy
-  python-openpyxl
-  python-packaging
-  python-productmd
-  python-prometheus-client
-  python-psycopg2
-  python-pulp_2to3_migration
-  python-pulp-ansible
-  python-pulp-certguard
-  python-pulp-container
-  python-pulpcore
-  python-pulp-deb
-  python-pulp-file
-  python-pulp-rpm
-  python-pycares
-  python-pycodestyle
-  python-pycparser
-  python-pycryptodomex
-  python-pyflakes
-  python-pygtrie
-  python-pyjwkest
-  python-pyjwt
-  python-pymongo
-  python-pyOpenSSL
-  python-pyparsing
-  python-pyrsistent
-  python-pytz
-  python-pyyaml
-  python-redis
-  python-requests
-  python-rq
-  python-ruamel-yaml
-  python-ruamel-yaml-clib
-  python-semantic-version
-  python-setuptools-scm
-  python-setuptools_scm_git_archive
-  python-six
-  python-sqlparse
-  python-tablib
-  python-toml
-  python-typing
-  python-typing-extensions
-  python-uritemplate
-  python-urllib3
-  python-webencodings
-  python-whitenoise
-  python-xlrd
-  python-xlwt
-  python-yarl
-  python-zipp
-  rh-postgresql12-postgresql-debversion
-  rh-postgresql12-postgresql-evr
-  subscription-manager
-
-[katello-pulpcore-nightly-el8]
-disttag = .el8
-blacklist =
-  python-iniparse
-  subscription-manager
+  saslwrapper

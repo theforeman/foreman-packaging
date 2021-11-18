@@ -1,13 +1,13 @@
-# Generated from addressable-2.6.0.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name addressable
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.6.0
-Release: 2%{?dist}
+Version: 2.8.0
+Release: 1%{?dist}
 Summary: URI Implementation
 Group: Development/Languages
 License: Apache-2.0
@@ -19,7 +19,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(public_suffix) >= 2.0.2
-Requires: %{?scl_prefix}rubygem(public_suffix) < 4.0
+Requires: %{?scl_prefix}rubygem(public_suffix) < 5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -28,9 +28,9 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
-Addressable is a replacement for the URI implementation that is part of
-Ruby's standard library. It more closely conforms to the relevant RFCs and
-adds support for IRIs and URI templates.
+Addressable is an alternative implementation to the URI implementation that is
+part of Ruby's standard library. It is flexible, offers heuristic parsing, and
+additionally provides extensive support for IRIs and URI templates.
 
 
 %package doc
@@ -67,7 +67,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
@@ -85,9 +85,16 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/addressable.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Thu Jul 08 2021 Eric D. Helms <ericdhelms@gmail.com> 2.8.0-1
+- Update to 2.8.0-1
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.6.0-3
+- Rebuild against rh-ruby27
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-2
 - Bump to release for EL8
 

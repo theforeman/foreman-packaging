@@ -7,7 +7,7 @@
 %global foreman_min_version 1.22
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.11.1
+Version: 0.14.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
@@ -21,12 +21,12 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.12
+Requires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
 Requires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.12
+BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) >= 0.14
 BuildRequires: %{?scl_prefix}rubygem(fog-proxmox) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -86,18 +86,21 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
+%{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
@@ -115,6 +118,21 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Fri Jul 23 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.14.0-1
+- Update to 0.14.0
+
+* Thu Jul 22 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.13.4-1
+- Update to 0.13.4
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.13.3-2
+- Rebuild plugins for Ruby 2.7
+
+* Fri Mar 19 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.13.3-1
+- Update to 0.13.3
+
+* Tue Aug 25 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.12.4-1
+- Update to 0.12.4
+
 * Fri May 15 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.11.1-1
 - Update to 0.11.1
 

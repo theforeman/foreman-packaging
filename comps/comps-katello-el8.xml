@@ -11,7 +11,6 @@
     <uservisible>true</uservisible>
     <packagelist>
       <!-- katello core packages -->
-      <packagereq type="default">crane-selinux</packagereq>
       <packagereq type="default">foreman-proxy-content</packagereq>
       <packagereq type="default">katello</packagereq>
       <packagereq type="default">katello-client-bootstrap</packagereq>
@@ -27,7 +26,6 @@
       <packagereq type="default">rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">rubygem-katello</packagereq>
       <packagereq type="default">rubygem-katello-assets</packagereq>
-      <packagereq type="default">rubygem-redhat_access</packagereq>
       <!-- katello thirdparty nodejs packages -->
       <packagereq type="default">nodejs-angular</packagereq>
       <packagereq type="default">nodejs-bootstrap-select</packagereq>
@@ -46,6 +44,8 @@
       <packagereq type="default">rubygem-fssm</packagereq>
       <packagereq type="default">rubygem-fx</packagereq>
       <packagereq type="default">rubygem-hammer_cli_csv</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_rh_cloud</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_scc_manager</packagereq>
       <packagereq type="default">rubygem-hpricot</packagereq>
       <packagereq type="default">rubygem-i18n_data</packagereq>
       <packagereq type="default">rubygem-justified</packagereq>
@@ -55,15 +55,35 @@
       <packagereq type="default">rubygem-pulp_container_client</packagereq>
       <packagereq type="default">rubygem-pulp_deb_client</packagereq>
       <packagereq type="default">rubygem-pulp_file_client</packagereq>
-      <packagereq type="default">rubygem-pulp_2to3_migration_client</packagereq>
+      <packagereq type="default">rubygem-pulp_ostree_client</packagereq>
+      <packagereq type="default">rubygem-pulp_python_client</packagereq>
       <packagereq type="default">rubygem-pulp_rpm_client</packagereq>
-      <packagereq type="default">rubygem-redhat_access_lib</packagereq>
+      <packagereq type="default">rubygem-qpid_proton</packagereq>
       <packagereq type="default">rubygem-robotex</packagereq>
       <packagereq type="default">rubygem-runcible</packagereq>
       <packagereq type="default">rubygem-sexp_processor</packagereq>
       <packagereq type="default">rubygem-stomp</packagereq>
       <packagereq type="default">rubygem-typhoeus</packagereq>
       <packagereq type="default">rubygem-zest</packagereq>
+      <!-- qpid packages -->
+      <packagereq type="default">libwebsockets</packagereq>
+      <packagereq type="default">python2-qpid</packagereq>
+      <packagereq type="default">python3-qpid-proton</packagereq>
+      <packagereq type="default">python2-qpid-qmf</packagereq>
+      <packagereq type="default">python2-saslwrapper</packagereq>
+      <packagereq type="default">qpid-cpp-client</packagereq>
+      <packagereq type="default">qpid-cpp-client-devel</packagereq>
+      <packagereq type="default">qpid-cpp-server</packagereq>
+      <packagereq type="default">qpid-cpp-server-linearstore</packagereq>
+      <packagereq type="default">qpid-dispatch-router</packagereq>
+      <packagereq type="default">qpid-dispatch-tools</packagereq>
+      <packagereq type="default">qpid-proton-c</packagereq>
+      <packagereq type="default">qpid-proton-c-devel</packagereq>
+      <packagereq type="default">qpid-qmf</packagereq>
+      <packagereq type="default">qpid-tools</packagereq>
+      <packagereq type="default">qpid-dispatch-router</packagereq>
+      <packagereq type="default">qpid-dispatch-tools</packagereq>
+      <packagereq type="default">saslwrapper</packagereq>
       <!-- other katello related packages -->
       <packagereq type="default">rhel8-kickstart-setup</packagereq>
     </packagelist>
@@ -84,8 +104,8 @@
       <packagereq type="optional">rubygem-pulp_certguard_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_container_client-doc</packagereq>
       <packagereq type="optional">rubygem-pulp_file_client-doc</packagereq>
-      <packagereq type="optional">rubygem-redhat_access-doc</packagereq>
-      <packagereq type="optional">rubygem-redhat_access_lib-doc</packagereq>
+      <packagereq type="optional">rubygem-pulp_ostree_client-doc</packagereq>
+      <packagereq type="optional">rubygem-pulp_python_client-doc</packagereq>
       <packagereq type="optional">rubygem-runcible-doc</packagereq>
       <packagereq type="optional">rubygem-sexp_processor-doc</packagereq>
       <packagereq type="optional">rubygem-stomp-doc</packagereq>

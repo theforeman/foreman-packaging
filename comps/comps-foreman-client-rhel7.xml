@@ -10,7 +10,6 @@
     <description>Foreman Client Packages</description>
     <uservisible>true</uservisible>
     <packagelist>
-      <packagereq type="default">ansible-collection-theforeman-foreman</packagereq>
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">gofer</packagereq>
       <packagereq type="default">katello-agent</packagereq>
@@ -19,7 +18,6 @@
       <packagereq type="default">katello-host-tools-tracer</packagereq>
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">python-gofer-proton</packagereq>
-      <packagereq type="default">python2-apypie</packagereq>
       <packagereq type="default">python2-beautifulsoup4</packagereq>
       <packagereq type="default">python2-psutil</packagereq>
       <packagereq type="default">python2-tracer</packagereq>

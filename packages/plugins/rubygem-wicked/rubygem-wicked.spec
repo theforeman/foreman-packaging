@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.3.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Use Wicked to turn your controller into a wizard
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/wicked.gemspec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.3-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.3-2
 - Update spec to remove the ror scl
 

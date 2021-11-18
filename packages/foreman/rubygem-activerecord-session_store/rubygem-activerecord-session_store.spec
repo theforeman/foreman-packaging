@@ -1,32 +1,41 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name activerecord-session_store
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.1
-Release: 4%{?dist}
-Summary: An Action Dispatch session store backed by Active Record
+Version: 2.0.0
+Release: 1%{?dist}
+Summary: An Action Dispatch session store backed by an Active Record class
 Group: Development/Languages
 License: MIT
 URL: https://github.com/rails/activerecord-session_store
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(actionpack) >= 4.0
-Requires: %{?scl_prefix}rubygem(activerecord) >= 4.0
-Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11.2
-Requires: %{?scl_prefix}rubygem(multi_json) < 2.0
-Requires: %{?scl_prefix}rubygem(rack) >= 1.5.2
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
+Requires: %{?scl_prefix_ruby}ruby(rubygems) 
+Requires: %{?scl_prefix}rubygem(activerecord) >= 5.2.4.1
+Requires: %{?scl_prefix}rubygem(actionpack) >= 5.2.4.1
+Requires: %{?scl_prefix}rubygem(railties) >= 5.2.4.1
+Requires: %{?scl_prefix}rubygem(rack) >= 2.0.8
 Requires: %{?scl_prefix}rubygem(rack) < 3
-Requires: %{?scl_prefix}rubygem(railties) >= 4.0
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11
+Requires: %{?scl_prefix}rubygem(multi_json) < 2
+Requires: %{?scl_prefix}rubygem(multi_json) >= 1.11.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 An Action Dispatch session store backed by an Active Record class.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -49,10 +58,13 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
 %{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
@@ -64,8 +76,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
-%doc %{gem_instdir}/MIT-LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -74,6 +86,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-1
+- Release 2.0.0
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.1-5
+- Rebuild against rh-ruby27
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.1.1-4
 - Bump to release for EL8
 

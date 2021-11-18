@@ -6,7 +6,7 @@
 %global gem_name fog-google
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.2
+Version: 1.11.0
 Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Google
 Group: Development/Languages
@@ -24,8 +24,10 @@ Requires: %{?scl_prefix}rubygem(fog-json) >= 1.2
 Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
-Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.23.0
-Requires: %{?scl_prefix}rubygem(google-api-client) < 0.24
+Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.32
+Requires: %{?scl_prefix}rubygem(google-api-client) < 0.34
+Requires: %{?scl_prefix}rubygem(google-cloud-env) >= 1.2
+Requires: %{?scl_prefix}rubygem(google-cloud-env) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
 BuildRequires: %{?scl_prefix_ruby}ruby < 3
@@ -97,6 +99,7 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
@@ -107,6 +110,12 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/MIGRATING.md
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.0-2
+- Rebuild against rh-ruby27
+
+* Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 1.11.0-1
+- Update to 1.11.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.8.2-2
 - Bump to release for EL8
 

@@ -17,7 +17,7 @@
 %endif
 
 Name:       tracer
-Version:    0.7.3
+Version:    0.7.8
 Release:    1%{?dist}
 Summary:    Finds outdated running applications in your system
 
@@ -60,28 +60,24 @@ Obsoletes:      %{name} <= 0.6.11
 BuildRequires:  python2-devel
 BuildRequires:  python2-sphinx
 %if 0%{?rhel} && 0%{?rhel} <= 7
-BuildRequires:  python-beautifulsoup4
 BuildRequires:  rpm-python
-BuildRequires:  python-lxml
 BuildRequires:  python2-mock
 Requires:       rpm-python
-Requires:       python-beautifulsoup4
-Requires:       python-lxml
 %else
-BuildRequires:  python2-beautifulsoup4
 BuildRequires:  python2-rpm
 Requires:       python2-rpm
-Requires:       python2-beautifulsoup4
-Requires:       python2-lxml
 %endif
-BuildRequires:  python2-nose
+BuildRequires:  python2-pytest
 BuildRequires:  python2-psutil
-BuildRequires:  python2-future
+BuildRequires:  python2-six
 BuildRequires:  dbus-python
+BuildRequires:  python2-distro
 Requires:       dbus-python
 Requires:       python2-psutil
 Requires:       python2-setuptools
 Requires:       python2-future
+Requires:       python2-six
+Requires:       python2-distro
 Requires:       %{name}-common = %{version}-%{release}
 %if %{with suggest}
 Suggests:       python-argcomplete
@@ -100,19 +96,18 @@ Python 2 version.
 Summary:        %{summary}
 BuildRequires:  python3-devel
 BuildRequires:  python3-sphinx
-BuildRequires:  python3-nose
+BuildRequires:  python3-pytest
 BuildRequires:  python3-psutil
-BuildRequires:  python3-future
-BuildRequires:  python3-beautifulsoup4
+BuildRequires:  python3-six
 BuildRequires:  python3-dbus
 BuildRequires:  python3-rpm
+BuildRequires:  python3-distro
 Requires:       python3-rpm
-Requires:       python3-beautifulsoup4
 Requires:       python3-psutil
-Requires:       python3-lxml
 Requires:       python3-setuptools
 Requires:       python3-dbus
-Requires:       python3-future
+Requires:       python3-six
+Requires:       python3-distro
 Requires:       %{name}-common = %{version}-%{release}
 %if %{with suggest}
 Suggests:       python3-argcomplete
@@ -150,13 +145,9 @@ make %{?_smp_mflags} man
 
 %check
 %if %{with python3}
-nosetests-3 .
+python3 -m pytest -v tests
 %else
-%if 0%{?rhel} && 0%{?rhel} <= 7
-nosetests .
-%else
-nosetests-2 .
-%endif
+python2 -m pytest -v tests
 %endif
 
 %install
@@ -207,6 +198,15 @@ make DESTDIR=%{buildroot}%{_datadir} mo
 
 
 %changelog
+* Mon Oct 25 2021 Chris Roberts <chrobert@redhat.com> 0.7.8-1
+- Release also for F35 (frostyx@email.cz)
+- Use distro.id() instead of platform.linux_distribution() (frostyx@email.cz)
+- Implement compare_packages for the alpm backend (jvanderwaa@redhat.com)
+- Add find_package support for alpm (jvanderwaa@redhat.com)
+- Use importlib instead of deprecated imp (frostyx@email.cz)
+- Drop beautifulsoup4/lxml dependencies (jvanderwaa@redhat.com)
+- Drop F32 from releasers.conf (frostyx@email.cz)
+
 * Fri May 22 2020 Jonathon Turel <jturel@gmail.com> 0.7.3-1
 - Stub dbus calls in tests (jturel@gmail.com)
 

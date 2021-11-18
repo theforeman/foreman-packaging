@@ -6,7 +6,7 @@
 Summary: A simple, fast, memory-efficient and threadsafe implementation of GetText
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.4.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 # fast_gettext is MIT. However the files in lib/vendor directory
 # are GPLv2+ or Ruby licensed.
@@ -67,6 +67,9 @@ find %{buildroot}%{gem_libdir} -type f -exec \
 %doc %{gem_docdir}
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.1-5
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.4.1-4
 - Bump to release for EL8
 

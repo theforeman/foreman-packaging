@@ -5,8 +5,8 @@
 %global gem_name kafo_wizards
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
-Release: 4%{?dist}
+Version: 0.0.2
+Release: 2%{?dist}
 Summary: Wizard like interfaces in terminal
 Group: Development/Languages
 License: GPLv3+
@@ -82,6 +82,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-2
+- Rebuild for Ruby 2.7
+
+* Fri Dec 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.2-1
+- Release rubygem-kafo_wizards 0.0.2
+
 * Fri Apr 03 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-4
 - Obsolete non-scl version
 

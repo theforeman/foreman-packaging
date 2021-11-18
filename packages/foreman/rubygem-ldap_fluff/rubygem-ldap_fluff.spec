@@ -1,25 +1,31 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name ldap_fluff
+%global gem_require_name %{gem_name}
 
 Summary: LDAP integration for Active Directory, FreeIPA and POSIX
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.7
-Release: 5%{?dist}
+Version: 0.6.0
+Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: https://github.com/theforeman/ldap_fluff
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}ruby >= 2.4.0
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(activesupport)
-Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.3.1
+Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.11
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 Provides multiple implementations of LDAP queries for various backends.
@@ -72,6 +78,15 @@ rm -rf %{buildroot}%{gem_instdir}/{.yardoc,etc}
 %{gem_instdir}/test
 
 %changelog
+* Fri Jun 25 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.6.0-1
+- Update to 0.6.0
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.5.0-2
+- Rebuild against rh-ruby27
+
+* Wed Dec 16 2020 Lukas Zapletal <lzap+rpm@redhat.com> 0.5.0-1
+- Update to 0.5.0
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.4.7-5
 - Bump to release for EL8
 

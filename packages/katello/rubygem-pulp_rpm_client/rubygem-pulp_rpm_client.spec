@@ -5,7 +5,7 @@
 %global gem_name pulp_rpm_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.0
+Version: 3.15.0
 Release: 1%{?dist}
 Summary: Pulp 3 RPM plugin API Ruby Gem
 Group: Development/Languages
@@ -75,6 +75,17 @@ cp -a .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_spec}
 
+#workaround for https://pulp.plan.io/issues/8950
+%exclude %{gem_instdir}/dist
+%exclude %{gem_instdir}/build
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/pulpcore
+%exclude %{gem_instdir}/pulp_rpm_client.egg-info
+%exclude %{gem_instdir}/*.txt
+%exclude %{gem_instdir}/*.cfg
+%exclude %{gem_instdir}/*.ini
+%exclude %{gem_instdir}/setup.py*
+
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
@@ -85,6 +96,36 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 3.15.0-1
+- Update to 3.15.0
+
+* Thu Jul 08 2021 James Jeffers <jjeffers@redhat.com> 3.13.3-1
+- Update to 3.13.3
+
+* Fri Jul 02 2021 James Jeffers <jjeffers@redhat.com> 3.13.2-1
+- Update to 3.13.2
+
+* Fri Apr 09 2021 ianballou <ianballou67@gmail.com> 3.10.0-1
+- Update to 3.10.0
+
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.9.0-2
+- Rebuild for Ruby 2.7
+
+* Wed Feb 24 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.9.0-1
+- Update to 3.9.0
+
+* Mon Jan 11 2021 ianballou <ianballou67@gmail.com> 3.8.0-1
+- Update to 3.8.0
+
+* Thu Oct 15 2020 ianballou <ianballou67@gmail.com> 3.7.0-1
+- Update to 3.7.0
+
+* Tue Sep 08 2020 Justin Sherrill <jsherril@redhat.com> 3.6.2-1
+- Update to 3.6.2
+
+* Thu Aug 20 2020 Justin Sherrill <jsherril@redhat.com> 3.6.1-1
+- Update to 3.6.1
+
 * Mon Aug 03 2020 Samir Jha <sjha4@ncsu.edu> 3.5.0-1
 - Update to 3.5.0
 

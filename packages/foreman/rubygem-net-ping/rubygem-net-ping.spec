@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A ping interface for Ruby
 Group: Development/Languages
 License: Artistic 2.0
@@ -83,6 +83,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-5
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.0.1-4
 - Bump to release for EL8
 

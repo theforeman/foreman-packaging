@@ -6,7 +6,7 @@
 Summary: sexp_processor branches from ParseTree bringing all the generic sexp processing tools with it
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.10.0
-Release: 6%{?dist}
+Release: 7%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/sexp_processor
@@ -71,6 +71,9 @@ rm -f %{buildroot}%{gem_instdir}/.gemtest
 %{gem_docdir}
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.10.0-7
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 4.10.0-6
 - Bump to release for EL8
 

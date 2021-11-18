@@ -5,10 +5,10 @@
 
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 1.24
+%global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.10
+Version: 5.0.28
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -17,6 +17,9 @@ URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Autoreq: 0
+
+Obsoletes: %{?scl_prefix}rubygem-redhat_access
+Obsoletes: %{?scl_prefix}rubygem-redhat_access_lib
 
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
 Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
@@ -27,11 +30,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(katello)
-Requires: %{?scl_prefix}rubygem(redhat_access)
+Requires: %{?scl_prefix}rubygem(foreman_ansible)
+Requires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(katello)
-BuildRequires: %{?scl_prefix}rubygem(redhat_access)
+BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -42,18 +47,17 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(raf) >= 3.4.0
-BuildRequires: %{?scl_prefix}npm(raf) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(react-intl) < 2.9.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -98,7 +102,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -s
+%foreman_precompile_plugin -a -s
 
 %files
 %dir %{gem_instdir}
@@ -113,6 +117,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
+%{foreman_apipie_cache_foreman}
+%{foreman_apipie_cache_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 %{foreman_assets_plugin}
@@ -124,6 +130,72 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Nov 04 2021 Shimon Shtein <sshtein@redhat.com> 5.0.28-1
+- Update to 5.0.28-1
+
+* Mon Aug 23 2021 Shimon Shtein <sshtein@redhat.com> 4.0.26-1
+- Update to 4.0.26-1
+
+* Wed Aug 18 2021 Evgeni Golov - 4.0.25.1-2
+- Obsolete redhat_access plugin
+
+* Thu Aug 05 2021 Shimon Shtein <sshtein@redhat.com> 4.0.25.1-1
+- Update to 4.0.25.1-1
+
+* Sun Aug 01 2021 Shimon Shtein <sshtein@redhat.com> 4.0.25-1
+- Update to 4.0.25-1
+
+* Wed Jul 21 2021 Shimon Shtein <sshtein@redhat.com> 4.0.24.1-1
+- Update to 4.0.24.1-1
+
+* Tue Jul 20 2021 Shimon Shtein <sshtein@redhat.com> 4.0.24-1
+- Update to 4.0.24-1
+
+* Wed Jun 30 2021 Shimon Shtein <sshtein@redhat.com> 4.0.23-1
+- Update to 4.0.23-1
+
+* Tue Jun 15 2021 Ron Lavi <1ronlavi@gmail.com> 4.0.22-1
+- Update to 4.0.22-1
+
+* Sun Jun 06 2021 Ron Lavi <1ronlavi@gmail.com> 4.0.21.1-1
+- Update to 4.0.21.1-1
+
+* Fri Jun 04 2021 Evgeni Golov 3.0.21.1-1
+- Update to 3.0.21.1
+
+* Mon May 31 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.21-1
+- Update to 3.0.21-1
+
+* Mon Apr 26 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.20-1
+- Update to 3.0.20-1
+
+* Thu Apr 01 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.19-1
+- Update to 3.0.19-1
+
+* Wed Mar 17 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.18.1-1
+- Update to 3.0.18.1-1
+
+* Mon Feb 22 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.17-1
+- Update to 3.0.17-1
+
+* Tue Feb 09 2021 Shimon Shtein <sshtein@redhat.com> 3.0.16-1
+- Update to 3.0.16-1
+
+* Tue Feb 02 2021 Ron Lavi <1ronlavi@gmail.com> 3.0.15-1
+- Update to 3.0.15
+
+* Thu Nov 26 2020 Ron Lavi <1ronlavi@gmail.com> 3.0.14-1
+- Update to 3.0.14-1
+
+* Tue Oct 20 2020 laviro <1ronlavi@gmail.com> 2.0.13.1-1
+- Update to 2.0.13.1-1
+
+* Wed Sep 23 2020 Shimon Shtein <sshtein@redhat.com> 2.0.12-1
+- Update to 2.0.12-1
+
+* Wed Sep 16 2020 laviro <1ronlavi@gmail.com> 2.0.11-1
+- Update to 2.0.11-1
+
 * Tue Aug 04 2020 Shimon Shtein <sshtein@redhat.com> 2.0.10-1
 - Update to 2.0.10-1
 

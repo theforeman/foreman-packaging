@@ -6,7 +6,7 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.6
+Version: 1.6.1
 Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
@@ -19,6 +19,8 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(multi_json)
+Requires: %{?scl_prefix}rubygem(msgpack) >= 1.3.3
+Requires: %{?scl_prefix}rubygem(msgpack) < 1.4
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8
@@ -81,9 +83,10 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.github/install_dependencies.sh
+%exclude %{gem_instdir}/.github/workflows/ruby.yml
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Dockerfile
 %exclude %{gem_instdir}/docker-compose.yml
 %license %{gem_instdir}/MIT-LICENSE
@@ -104,6 +107,21 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Sep 24 2021 Adam Ruzicka <aruzicka@redhat.com> 1.6.1-1
+- Update to 1.6.1
+
+* Tue Sep 21 2021 Adam Ruzicka <aruzicka@redhat.com> 1.6.0-1
+- Update to 1.6.0
+
+* Thu May 13 2021 Adam Ruzicka <aruzicka@redhat.com> 1.5.0-1
+- Update to 1.5.0
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.7-2
+- Rebuild against rh-ruby27
+
+* Sat Aug 29 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.7-1
+- Update to 1.4.7
+
 * Tue Jun 23 2020 Adam Ruzicka <aruzicka@redhat.com> 1.4.6-1
 - Update to 1.4.6
 

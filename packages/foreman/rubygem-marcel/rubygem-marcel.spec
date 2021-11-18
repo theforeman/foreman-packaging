@@ -3,30 +3,27 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name marcel
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.3
+Version: 1.0.1
 Release: 1%{?dist}
 Summary: Simple mime type detection using magic numbers, filenames, and extensions
 Group: Development/Languages
-License: MIT
-URL: https://github.com/basecamp/marcel
+License: MIT and Apache-2.0
+URL: https://github.com/rails/marcel
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(mimemagic) >= 0.3.2
-Requires: %{?scl_prefix}rubygem(mimemagic) < 0.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.3.2
 
 %description
 Simple mime type detection using magic numbers, filenames, and extensions.
@@ -73,14 +70,20 @@ cp -a .%{gem_dir}/* \
 %dir %{gem_instdir}
 %license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
-%{gem_spec}
 %exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
+
 
 %changelog
+* Tue May 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-1
+- Release 1.0.1
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.3-2
+- Rebuild against rh-ruby27
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.3.3-1
 - Release rubygem-marcel 0.3.3
 

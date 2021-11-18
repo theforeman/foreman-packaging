@@ -3,10 +3,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name mime-types
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.2.2
-Release: 4%{?dist}
+Version: 3.3.1
+Release: 2%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 Group: Development/Languages
 License: MIT
@@ -25,8 +26,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 3.2.2
 
 %description
 The mime-types library provides a library and registry for information about
@@ -99,6 +98,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-2
+- Rebuild against rh-ruby27
+
+* Mon Mar 22 2021 Eric D. Helms <ericdhelms@gmail.com> 3.3.1-1
+- Update to 3.3.1-1
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.2-4
 - Update all rails packages for el8
 

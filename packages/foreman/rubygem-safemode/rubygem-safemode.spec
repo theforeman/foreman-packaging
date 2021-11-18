@@ -1,91 +1,108 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name safemode
+%global gem_require_name %{gem_name}
 
-Summary: A library for safe evaluation of Ruby code
 Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 1.3.5
-Release: 3%{?dist}
-Group: Development/Ruby
+Version: 1.3.6
+Release: 2%{?dist}
+Summary: A library for safe evaluation of Ruby code
+Group: Development/Languages
 License: MIT
 URL: https://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Autoreq: 0
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(ruby2ruby) >= 2.4.0
 Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.10.1
 Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.10.0
-
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
-BuildRequires: %{?scl_prefix_ruby}rubygems
-
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(safemode) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 A library for safe evaluation of Ruby code based on RubyParser and Ruby2Ruby.
 Provides Rails ActionView template handlers for ERB and Haml.
 
+
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
+
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
-%{?scl:scl enable %{scl} - <<EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
-rm -rf ./%{gem_instdir}/.yardoc
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-mv %{buildroot}%{gem_instdir}/{LICENCSE,README.markdown} ./
-rm %{buildroot}%{gem_instdir}/{VERSION,.travis.yml}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%doc LICENCSE
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/VERSION
+%license %{gem_instdir}/LICENCSE
+%{gem_instdir}/VERSION
 %{gem_instdir}/demo.rb
 %{gem_instdir}/init.rb
-%{gem_instdir}/safemode.gemspec
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%{gem_instdir}/test
-%{gem_instdir}/Gemfile*
+%doc %{gem_docdir}
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
-%{gem_docdir}
+%{gem_instdir}/safemode.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.6-2
+- Rebuild against rh-ruby27
+
+* Mon Aug 31 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.3.6-1
+- Update to 1.3.6
+- Regenerate spec file based on the latest template
+
+* Tue Jul 14 2020 Dirk Goetz <dirk.goetz@netways.de> - 1.3.5-4
+- Add patch to allow to_sentence for array
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.3.5-3
 - Bump to release for EL8
 

@@ -6,7 +6,7 @@
 %global gem_name jwt
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.1
+Version: 2.2.2
 Release: 2%{?dist}
 Summary: JSON Web Token implementation in Ruby
 Group: Development/Languages
@@ -91,6 +91,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/ruby-jwt.gemspec
 
 %changelog
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-2
+- Rebuild against rh-ruby27
+
+* Thu Mar 18 2021 Rahul Bajaj <rahulrb0509@gmail.com> 2.2.2-1
+- Update jwt to 2.2.2
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.2.1-2
 - Bump to release for EL8
 

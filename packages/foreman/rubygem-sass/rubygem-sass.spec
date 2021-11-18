@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.4.25
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A powerful but elegant CSS compiler that makes CSS fun again
 Group: Development/Languages
 License: MIT
@@ -104,6 +104,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.4.25-5
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.4.25-4
 - Update all rails packages for el8
 

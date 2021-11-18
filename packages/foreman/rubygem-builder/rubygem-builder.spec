@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Builders for MarkUp
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2.4-2
+- Rebuild against rh-ruby27
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.4-1
 - Release rubygem-builder 3.2.4
 

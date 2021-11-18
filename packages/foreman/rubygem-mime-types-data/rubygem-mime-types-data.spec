@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2018.0812
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: mime-types-data provides a registry for information about MIME media type definitions
 Group: Development/Languages
 License: MIT
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2018.0812-5
+- Rebuild against rh-ruby27
+
 * Mon Mar 02 2020 Zach Huntington-Meath <zhunting@redhat.com> - 3.2018.0812-4
 - Update all rails packages for el8
 

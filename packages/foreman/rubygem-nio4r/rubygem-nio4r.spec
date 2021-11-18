@@ -6,8 +6,8 @@
 %global gem_require_name nio
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.5.2
-Release: 1%{?dist}
+Version: 2.5.4
+Release: 2%{?dist}
 Summary: New IO for Ruby
 Group: Development/Languages
 License: MIT
@@ -52,6 +52,9 @@ gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Use -fno-strict-alisaing, due to various "warning: dereferencing type-punned pointer will break strict-aliasing rules"
+%global optflags %{?optflags} -fno-strict-aliasing
+
 # Create the gem as gem install only works on a gem file
 %{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
@@ -91,12 +94,10 @@ rm -rf gem_ext_test
 %dir %{gem_instdir}
 %{gem_extdir_mri}
 %exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/rakelib
 %{gem_instdir}/CHANGES.md
-%{gem_instdir}/Guardfile
-%{gem_instdir}/appveyor.yml
 %{gem_libdir}
 %{gem_instdir}/logo.png
 %exclude %{gem_cache}
@@ -113,6 +114,15 @@ rm -rf gem_ext_test
 %{gem_instdir}/spec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.4-2
+- Rebuild against rh-ruby27
+
+* Fri Sep 25 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.5.4-1
+- Release rubygem-nio4r 2.5.4
+
+* Thu Sep 17 2020 Patrick Creech <pcreech@redhat.com> - 2.5.2-2
+- Use '-fno-strict-aliasing' due to "warning: dereferencing type-punned pointer will break strict-aliasing rules"
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.5.2-1
 - Release rubygem-nio4r 2.5.2
 

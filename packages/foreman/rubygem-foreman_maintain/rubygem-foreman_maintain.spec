@@ -9,18 +9,20 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.9
+Version: 0.9.2
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/theforeman/foreman_maintain
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source1: %{gem_name}.logrotate
 
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
+Requires: yum-utils
 %if 0%{?rhel} < 8
 BuildRequires: python2-devel
 %else
@@ -82,6 +84,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
 %if 0%{?rhel} < 8
 %py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
@@ -111,6 +114,7 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %config(noreplace) %{_sysconfdir}/passenger-recycler.yaml
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 %config(noreplace) %{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{gem_name}
 %{_localstatedir}/log/%{directory_name}
 %{_localstatedir}/lib/%{directory_name}
 %license %{gem_instdir}/LICENSE
@@ -122,6 +126,123 @@ install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-pr
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Nov 10 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.9.2-1
+- Update to 0.9.2
+
+* Wed Oct 20 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.9.1-1
+- Update to 0.9.1
+
+* Tue Oct 19 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.20-1
+- Update to 0.8.20
+
+* Wed Oct 06 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.19-1
+- Update to 0.8.19
+
+* Fri Oct 01 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.18-1
+- Update to 0.8.18
+
+* Wed Sep 22 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.17-1
+- Update to 0.8.17
+
+* Fri Sep 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.8.16-1
+- Release rubygem-foreman_maintain 0.8.16
+
+* Thu Sep 09 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.15-1
+- Update to 0.8.15
+
+* Wed Sep 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.14-1
+- Update to 0.8.14
+
+* Tue Aug 31 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.8.13-2
+- Drop requires on facter
+
+* Tue Aug 31 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.13-1
+- Update to 0.8.13
+
+* Wed Aug 25 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:0.8.12-2
+- Add requires on facter
+
+* Wed Aug 25 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.12-1
+- Update to 0.8.12
+
+* Wed Aug 25 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.11-1
+- Update to 0.8.11
+
+* Tue Aug 03 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.10-1
+- Update to 0.8.10
+
+* Fri Jul 30 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.9-2
+- Add logrotate configuration file
+
+* Tue Jul 27 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.9-1
+- Update to 0.8.9
+
+* Tue Jul 27 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.8-1
+- Update to 0.8.8
+
+* Mon Jul 19 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.7-1
+- Update to 0.8.7
+
+* Tue Jul 13 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.6-1
+- Update to 0.8.6
+
+* Fri Jul 09 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.5-1
+- Update to 0.8.5
+
+* Thu Jul 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.4-1
+- Update to 0.8.4
+
+* Tue Jul 06 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.3-1
+- Update to 0.8.3
+
+* Wed Jun 16 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.2-1
+- Update to 0.8.2
+
+* Mon May 10 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.1-1
+- Update to 0.8.1
+
+* Fri Apr 09 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.8.0-1
+- Update to 0.8.0
+
+* Thu Mar 25 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.9-1
+- Update to 0.7.9
+
+* Mon Mar 22 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.8-1
+- Update to 0.7.8
+
+* Mon Mar 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.7-1
+- Update to 0.7.7
+
+* Tue Mar 02 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.6-1
+- Update to 0.7.6
+
+* Thu Feb 04 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.5-1
+- Update to 0.7.5
+
+* Mon Jan 11 2021 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.4-1
+- Update to 0.7.4
+
+* Wed Dec 23 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.2-1
+- Update to 0.7.2
+
+* Fri Dec 04 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.1-1
+- Update to 0.7.1
+
+* Wed Dec 02 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.7.0-1
+- Update to 0.7.0
+
+* Tue Sep 22 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.13-1
+- Update to 0.6.13
+
+* Mon Sep 21 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.12-1
+- Update to 0.6.12
+
+* Thu Sep 10 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.11-1
+- Update to 0.6.11
+
+* Fri Sep 04 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.10-1
+- Update to 0.6.10
+
 * Mon Aug 03 2020 Amit Upadhye <upadhyeammit@gmail.com> 1:0.6.9-1
 - Update to 0.6.9
 

@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.6
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Ruby/EventMachine library
 Group: Development/Languages
 License: Ruby and GPL
@@ -108,6 +108,9 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.6-5
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.6-4
 - Bump to release for EL8
 

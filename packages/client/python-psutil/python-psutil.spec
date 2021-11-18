@@ -4,25 +4,34 @@
 # Filter Python modules from Provides
 %global __provides_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/.*\\.so$
 
+%if 0%{?rhel} && 0%{?rhel} <= 7
+%bcond_without python2
+%bcond_with python3
+%else
+%bcond_with python2
+%bcond_without python3
+%endif
+
 Name:           python-%{srcname}
-Version:        5.6.3
-Release:        5%{?dist}
+Version:        5.7.2
+Release:        2%{?dist}
 Summary:        %{sum}
 
 License:        BSD
 URL:            https://github.com/giampaolo/psutil
 Source0:        https://github.com/giampaolo/psutil/archive/release-%{version}.tar.gz#/%{srcname}-%{version}.tar.gz
-#
-# Disable upstream failing test
-# https://github.com/giampaolo/psutil/issues/946
-#
-#Patch0:         psutil-5.4.3-disable-broken-tests.patch
+Patch0:         extras_require.patch
 
 BuildRequires:  gcc
-BuildRequires:  python%{python3_pkgversion}-devel
 
+%if %{with python3}
+BuildRequires:  python%{python3_pkgversion}-devel
+%endif
+
+%if %{with python2}
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
+%endif
 
 %description
 psutil is a module providing an interface for retrieving information on all
@@ -32,6 +41,7 @@ command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
 
 
+%if %{with python2}
 %package -n python2-%{srcname}
 Summary:        %{sum}
 %{?python_provide:%python_provide python2-%{srcname}}
@@ -43,7 +53,9 @@ running processes and system utilization (CPU, memory, disks, network, users) in
 a portable way by using Python 3, implementing many functionalities offered by
 command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
+%endif
 
+%if %{with python3}
 %package -n python%{python3_pkgversion}-psutil
 Summary:        %{sum}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{srcname}}
@@ -54,10 +66,11 @@ running processes and system utilization (CPU, memory, disks, network, users) in
 a portable way by using Python 3, implementing many functionalities offered by
 command line tools such as: ps, top, df, kill, free, lsof, free, netstat,
 ifconfig, nice, ionice, iostat, iotop, uptime, pidof, tty, who, taskset, pmap.
+%endif
 
 
 %prep
-%autosetup -p0 -n %{srcname}-release-%{version}
+%autosetup -p1 -n %{srcname}-release-%{version}
 
 # Remove shebangs
 find psutil -name \*.py | while read file; do
@@ -68,13 +81,21 @@ done
 
 
 %build
+%if %{with python2}
 %py2_build
+%endif
+%if %{with python3}
 %py3_build
+%endif
 
 
 %install
+%if %{with python2}
 %py2_install
+%endif
+%if %{with python3}
 %py3_install
+%endif
 
 
 #%check
@@ -84,22 +105,32 @@ done
 #%endif
 #make test-memleaks PYTHON=%{__python3}
 
- 
+
+%if %{with python2}
 %files -n python2-%{srcname}
 %license LICENSE
 %doc CREDITS HISTORY.rst README.rst
 %{python2_sitearch}/%{srcname}/
 %{python2_sitearch}/*.egg-info
+%endif
 
 
+%if %{with python3}
 %files -n python%{python3_pkgversion}-%{srcname}
 %license LICENSE
 %doc CREDITS HISTORY.rst README.rst
 %{python3_sitearch}/%{srcname}/
 %{python3_sitearch}/*.egg-info
+%endif
 
 
 %changelog
+* Mon Nov 02 2020 Evgeni Golov - 5.7.2-2
+- Build only Python3 bindings on EL8
+
+* Thu Aug 06 2020 Eric D. Helms <ericdhelms@gmail.com> - 5.7.2-1
+- Release python-psutil 5.7.2
+
 * Sun Oct 06 2019 Kevin Fenzi <kevin@scrye.com> - 5.6.3-5
 - Add python2-setuptools to BuildRequires to fix egg info. Fixes bug #1750362
 
@@ -160,7 +191,7 @@ done
 
 * Mon Jan 02 2017 Kevin Fenzi <kevin@scrye.com> - 5.0.1-1
 - Update to 5.0.1. Fixes bug #1389579
-- Disable failing test while upstream looks at it. 
+- Disable failing test while upstream looks at it.
 
 * Wed Nov 09 2016 Kevin Fenzi <kevin@scrye.com> - 5.0.0-1
 - Update to 5.0.0. Fixes bug #1389579

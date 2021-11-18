@@ -5,7 +5,7 @@
 %global gem_name hammer_cli_foreman
 %global plugin_name foreman
 
-%global release 2
+%global release 1
 %global prereleasesource pre.develop
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
@@ -13,7 +13,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.0
+Version: 3.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Foreman commands for Hammer
 Group: Development/Languages
@@ -99,6 +99,30 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.pre.develop
+- Bump version to 3.2-develop
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.pre.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.pre.develop
+- Bump version to 3.0-develop
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.pre.develop
+- Bump version to 2.6-develop
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.2.pre.develop
+- Rebuild against rh-ruby27
+
+* Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.pre.develop
+- Bump version to 2.5-develop
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.pre.develop
+- Bump version to 2.4-develop
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.pre.develop
+- Bump version to 2.3-develop
+
 * Wed Jun 03 2020 Evgeni Golov - 2.2.0-0.2.pre.develop
 - Regenerate spec file based on recent template
 

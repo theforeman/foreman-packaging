@@ -1,6 +1,4 @@
-%global pulp_release stable
-%global pulp_version 2.21
-%global use_pulp_nightly false
+%global pulpcore_version 3.15
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
@@ -10,7 +8,7 @@
 %global release 1
 
 Name:           katello-repos
-Version:        4.0.0
+Version:        4.4
 Release:        %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:        Definition of yum repositories for Katello
 
@@ -59,17 +57,7 @@ for repofile in %{buildroot}%{repo_dir}/*.repo; do
     sed -i "s/@REPO_VERSION@/${REPO_VERSION}/" $repofile
     sed -i "s/@REPO_NAME@/${REPO_NAME}/" $repofile
     sed -i "s/@REPO_GPGCHECK@/${REPO_GPGCHECK}/" $repofile
-    sed -i "s/@PULP_RELEASE@/%pulp_release/" $repofile
-    sed -i "s/@PULP_VERSION@/%pulp_version/" $repofile
-    if [ "%{use_pulp_nightly}" = true ] ; then
-        PULP_URL_MIDDLE="testing\/automation\/2-master\/stage"
-        PULP_GPG_CHECK=0
-    else
-        PULP_URL_MIDDLE="%{pulp_release}\/%{pulp_version}"
-        PULP_GPG_CHECK=1
-    fi
-    sed -i "s/@PULP_URL_MIDDLE@/${PULP_URL_MIDDLE}/" $repofile
-    sed -i "s/@PULP_GPG_CHECK@/${PULP_GPG_CHECK}/" $repofile
+    sed -i "s/@PULPCORE_VERSION@/%pulpcore_version/" $repofile
 done
 
 %clean
@@ -80,6 +68,56 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Nov 17 2021 Chris Roberts <chrobert@redhat.com> 4.4-0.1.nightly
+- 4.4.0 version bump
+
+* Tue Oct 19 2021 Justin Sherrill <jsherril@redhat.com> 4.3-0.2.nightly
+- use pulp 3.15 repos
+
+* Mon Aug 09 2021 Justin Sherrill <jsherril@redhat.com> 4.3-0.1.nightly
+- 4.3.0 version bump
+
+* Fri Jul 2 2021 James Jeffers <jjeffers@redhat.com> - 4.2-0.2.nightly
+- Update Pulp to 3.14
+
+* Thu May 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2-0.1.nightly
+- Update to 4.2.0
+
+* Thu Apr 08 2021 Justin Sherrill <jsherril@redhat.com> - 4.1-0.3.nightly
+- use 3.11 pulpcore repos
+
+* Tue Mar 23 2021 Evgeni Golov - 4.1-0.2.nightly
+- Consume repositories from yum.theforeman.org
+
+* Wed Mar 03 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.1-0.1.nightly
+- Bump to 4.1
+- Remove Pulp 2 and qpid copr repository definitions
+- Always GPG check pulpcore repositories
+
+* Mon Jan 11 2021 Ian Ballou <ianballou67@gmail.com> - 4.0-0.3.nightly
+- use pulpcore 3.9 repos
+
+* Wed Nov 25 2020 Evgeni Golov - 4.0-0.2.nightly
+- add qpid copr
+
+* Wed Nov 04 2020 Jonathon Turel <jturel@gmail.com> - 4.0-0.1.nightly
+- Bump version to 4.0.0
+
+* Thu Oct 29 2020 Justin Sherrill <jsherril@redhat.com> 3.18-0.5.nightly
+- use pulpcore 3.7 repos
+
+* Thu Sep 24 2020 Evgeni Golov - 3.18-0.4.nightly
+- Only enable Pulp2 repos on EL7
+
+* Wed Sep 16 2020 Evgeni Golov - 3.18-0.3.nightly
+- load pulpcore gpg keys from the server
+
+* Mon Aug 31 2020 Evgeni Golov - 3.18-0.2.nightly
+- Use the new pulpcore repos
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 3.18-0.1.nightly
+- Bump to 3.18.0
+
 * Thu May 14 2020 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-0.1.nightly
 - Update to 4.0
 

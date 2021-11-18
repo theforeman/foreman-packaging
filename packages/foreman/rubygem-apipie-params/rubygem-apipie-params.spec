@@ -6,7 +6,7 @@
 Summary: DSL for describing data structures
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/iNecas/apipie-params
@@ -73,6 +73,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/%{gem_name}.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.5-5
+- Rebuild against rh-ruby27
+
 * Tue Apr 07 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.0.5-4
 - Bump to release for EL8
 

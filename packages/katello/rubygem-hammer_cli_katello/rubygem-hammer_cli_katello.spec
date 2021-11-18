@@ -13,7 +13,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.23
+Version: 1.3.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Katello commands for Hammer
 Group: Development/Languages
@@ -27,14 +27,14 @@ Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
 Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_tasks)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_bootdisk)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman_docker)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+Obsoletes: %{?scl_prefix}rubygem-hammer_cli_foreman_docker < 0.0.7-2
 
 %description
 Hammer-CLI-Katello is a plugin for Hammer to provide connectivity to a Katello
@@ -96,6 +96,30 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Fri Oct 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-0.1.pre.master
+- Bump version to 1.3.0
+
+* Fri May 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.1-0.1.pre.master
+- Update version to 1.1.1
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.4.pre.master
+- Rebuild for Ruby 2.7
+
+* Wed Mar 24 2021 Evgeni Golov - 1.0.1-0.3.pre.master
+- Obsolete hammer_cli_foreman_docker as we ship conflicting commands
+
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-0.2.pre.master
+- Drop hammer_cli_docker and hammer_cli_bootdisk requires
+
+* Thu Feb 18 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.1-0.1.pre.master
+- Bump to 1.0.1
+
+* Mon Nov 02 2020 Chris Roberts - 0.25-0.1.pre.master
+- Update version to 0.25
+
+* Wed Sep 02 2020 Chris Roberts - 0.24-0.1.pre.master
+- Update version to 0.24
+
 * Wed Jun 03 2020 Evgeni Golov - 0.23-0.1.pre.master
 - Update version to 0.23
 - Regenerate spec file based on recent template

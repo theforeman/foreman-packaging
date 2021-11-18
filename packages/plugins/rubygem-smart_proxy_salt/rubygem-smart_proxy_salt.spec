@@ -35,7 +35,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.1.2
-Release: 6%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -155,7 +155,9 @@ mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
 mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
+cat <<EOF | tee %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb \
+                %{buildroot}%{foreman_proxy_bundlerd_dir}/smart_proxy_salt_core.rb \
+                >/dev/null
 gem 'smart_proxy_salt_core'
 EOF
 
@@ -175,6 +177,7 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
+%{foreman_proxy_bundlerd_dir}/smart_proxy_salt_core.rb
 %{smart_proxy_dynflow_bundlerd_dir}/smart_proxy_salt_core.rb
 %config(noreplace) %{salt_config_dir}/foreman.yaml
 %config %{_root_sysconfdir}/cron.d/%{gem_name}
@@ -186,6 +189,12 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.2-8
+- Rebuild for Ruby 2.7
+
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 3.1.2-7
+- Deploy bundlerd file for foreman proxy
+
 * Thu Jul 09 2020 Bernhard Suttner <suttner@atix.de> - 3.1.2-6
 - Fix upload-salt-report path
 - Fix hashbang for foreman-node helper script

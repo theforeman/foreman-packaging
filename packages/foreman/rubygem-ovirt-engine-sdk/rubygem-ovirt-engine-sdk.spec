@@ -6,24 +6,23 @@
 %global gem_require_name ovirtsdk4
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.3.0
-Release: 1%{?dist}
+Version: 4.4.0
+Release: 2%{?dist}
 Summary: oVirt SDK
 Group: Development/Languages
 License: ASL 2.0
-URL: https://github.com/oVirt/ovirt-engine-sdk-ruby
+URL: http://ovirt.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.1
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.1
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) >= 1
 BuildRequires: %{?scl_prefix_ruby}rubygem(json) < 3
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -82,7 +81,7 @@ rm -rf %{buildroot}%{gem_instdir}/ext/
 %check
 %{?scl:scl enable %{scl} - << \EOF}
 # Ideally, this would be something like this:
-# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 # But that fails to find native extensions on EL8, so we fake the structure that ruby expects
 mkdir gem_ext_test
 cp -a %{buildroot}%{gem_dir} gem_ext_test/
@@ -104,10 +103,16 @@ rm -rf gem_ext_test
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.adoc
 %doc %{gem_instdir}/CHANGES.adoc
+%doc %{gem_instdir}/README.adoc
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.4.0-2
+- Rebuild against rh-ruby27
+
+* Wed Dec 23 2020 Evgeni Golov 4.4.0-1
+- Update to 4.4.0-1
+
 * Mon Apr 20 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.3.0-1
 - Update to 4.3.0-1
 

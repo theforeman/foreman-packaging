@@ -1,5 +1,13 @@
 #!/bin/bash -e
 
+# Dependencies:
+# curl
+# jq
+# python3-semver
+# rpm-build
+# rpmdevtools
+# rubygem-gem2rpm
+
 if [[ -z $1 ]] ; then
 	echo "Usage: $0 directory [version]"
 	exit 1
@@ -7,16 +15,6 @@ elif [[ ! -d $1 ]] ; then
 	echo "$1 is not a directory. It must be the full path"
 	exit 1
 fi
-
-SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
-
-cd $1
-
-ROOT=$(git rev-parse --show-toplevel)
-PACKAGE_NAME=$(basename $1)
-SPEC_FILE=*.spec
-GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
-CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
 
 program_exists() {
 	which "$@" &> /dev/null
@@ -30,6 +28,18 @@ ensure_program() {
 		exit 1
 	fi
 }
+
+ensure_program rpmspec rpm-build
+
+SCRIPT_DIR=$(dirname $(readlink -f $BASH_SOURCE))
+
+cd $1
+
+ROOT=$(git rev-parse --show-toplevel)
+PACKAGE_NAME=$(basename $1)
+SPEC_FILE=*.spec
+GEM_NAME=$(awk '/^%global\s+gem_name/ { print $3 }' $SPEC_FILE)
+CURRENT_VERSION=$(rpmspec --srpm -q --queryformat="%{version}" $SPEC_FILE)
 
 if [[ -z $2 ]] ; then
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
@@ -46,7 +56,7 @@ else
 fi
 
 if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
-	ensure_program rpmspec rpm-build
+	ensure_program spectool rpmdevtools
 
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION != $NEW_VERSION ; bumping"
 
@@ -76,10 +86,6 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $SCRIPT_DIR/update-requirements specfile - $SPEC_FILE
 			git add $SPEC_FILE
 		fi
-
-		# TODO: hint at installing rubygem-gem-compare
-		echo "* Calling gem compare"
-		gem compare -b $GEM_NAME $CURRENT_VERSION $NEW_VERSION
 	else
 		echo "TODO:"
 		echo "* Verify the dependencies"

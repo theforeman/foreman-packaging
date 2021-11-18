@@ -27,7 +27,6 @@
       <packagereq type="default">foreman-postgresql</packagereq>
       <packagereq type="default">foreman-proxy</packagereq>
       <packagereq type="default">foreman-proxy-journald</packagereq>
-      <packagereq type="default">foreman-proxy-selinux</packagereq>
       <packagereq type="default">foreman-redis</packagereq>
       <packagereq type="default">foreman-release</packagereq>
       <packagereq type="default">foreman-selinux</packagereq>
@@ -36,7 +35,6 @@
       <packagereq type="default">foreman-vmware</packagereq>
       <packagereq type="default">tfm</packagereq>
       <packagereq type="default">tfm-build</packagereq>
-      <packagereq type="default">tfm-mod_passenger</packagereq>
       <packagereq type="default">tfm-nodejs-argv-parse</packagereq>
       <packagereq type="default">tfm-nodejs-babel-cli</packagereq>
       <packagereq type="default">tfm-nodejs-babel-core</packagereq>
@@ -52,29 +50,19 @@
       <packagereq type="default">tfm-nodejs-babel-preset-react</packagereq>
       <packagereq type="default">tfm-nodejs-babel-register</packagereq>
       <packagereq type="default">tfm-nodejs-babel-runtime</packagereq>
-      <packagereq type="default">tfm-nodejs-bootstrap-slider-without-jquery</packagereq>
-      <packagereq type="default">tfm-nodejs-breakjs</packagereq>
       <packagereq type="default">tfm-nodejs-c3</packagereq>
-      <packagereq type="default">tfm-nodejs-change-emitter</packagereq>
-      <packagereq type="default">tfm-nodejs-classnames</packagereq>
       <packagereq type="default">tfm-nodejs-compression-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-core-js</packagereq>
-      <packagereq type="default">tfm-nodejs-create-react-context</packagereq>
-      <packagereq type="default">tfm-nodejs-css-element-queries</packagereq>
       <packagereq type="default">tfm-nodejs-css-loader</packagereq>
+      <packagereq type="default">tfm-nodejs-cssnano</packagereq>
       <packagereq type="default">tfm-nodejs-d3</packagereq>
-      <packagereq type="default">tfm-nodejs-dom-helpers</packagereq>
       <packagereq type="default">tfm-nodejs-dotenv</packagereq>
-      <packagereq type="default">tfm-nodejs-escape-string-regexp</packagereq>
       <packagereq type="default">tfm-nodejs-expose-loader</packagereq>
       <packagereq type="default">tfm-nodejs-extract-text-webpack-plugin</packagereq>
-      <packagereq type="default">tfm-nodejs-fbjs</packagereq>
       <packagereq type="default">tfm-nodejs-file-loader</packagereq>
-      <packagereq type="default">tfm-nodejs-fortawesome-fontawesome-common-types</packagereq>
-      <packagereq type="default">tfm-nodejs-fortawesome-free-brands-svg-icons</packagereq>
-      <packagereq type="default">tfm-nodejs-gud</packagereq>
+      <packagereq type="default">tfm-nodejs-graphql</packagereq>
+      <packagereq type="default">tfm-nodejs-graphql-tag</packagereq>
       <packagereq type="default">tfm-nodejs-harmony-reflect</packagereq>
-      <packagereq type="default">tfm-nodejs-hoist-non-react-statics</packagereq>
       <packagereq type="default">tfm-nodejs-humanize-duration</packagereq>
       <packagereq type="default">tfm-nodejs-identity-obj-proxy</packagereq>
       <packagereq type="default">tfm-nodejs-intl</packagereq>
@@ -84,41 +72,23 @@
       <packagereq type="default">tfm-nodejs-js-tokens</packagereq>
       <packagereq type="default">tfm-nodejs-lodash</packagereq>
       <packagereq type="default">tfm-nodejs-lodash-es</packagereq>
-      <packagereq type="default">tfm-nodejs-lodash.debounce</packagereq>
       <packagereq type="default">tfm-nodejs-loose-envify</packagereq>
       <packagereq type="default">tfm-nodejs-node-gyp</packagereq>
       <packagereq type="default">tfm-nodejs-node-sass</packagereq>
       <packagereq type="default">tfm-nodejs-object-assign</packagereq>
-      <packagereq type="default">tfm-nodejs-patternfly</packagereq>
-      <packagereq type="default">tfm-nodejs-patternfly-react</packagereq>
-      <packagereq type="default">tfm-nodejs-patternfly-react-icons</packagereq>
-      <packagereq type="default">tfm-nodejs-patternfly-react-tokens</packagereq>
+      <packagereq type="default">tfm-nodejs-optimize-css-assets-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-performance-now</packagereq>
       <packagereq type="default">tfm-nodejs-popper.js</packagereq>
-      <packagereq type="default">tfm-nodejs-prop-types</packagereq>
-      <packagereq type="default">tfm-nodejs-prop-types-extra</packagereq>
       <packagereq type="default">tfm-nodejs-raf</packagereq>
       <packagereq type="default">tfm-nodejs-react</packagereq>
       <packagereq type="default">tfm-nodejs-react-bootstrap</packagereq>
-      <packagereq type="default">tfm-nodejs-react-bootstrap-switch</packagereq>
-      <packagereq type="default">tfm-nodejs-react-bootstrap-typeahead</packagereq>
-      <packagereq type="default">tfm-nodejs-react-c3js</packagereq>
-      <packagereq type="default">tfm-nodejs-react-click-outside</packagereq>
-      <packagereq type="default">tfm-nodejs-react-collapse</packagereq>
-      <packagereq type="default">tfm-nodejs-react-debounce-input</packagereq>
       <packagereq type="default">tfm-nodejs-react-dom</packagereq>
       <packagereq type="default">tfm-nodejs-react-ellipsis-with-tooltip</packagereq>
-      <packagereq type="default">tfm-nodejs-react-fontawesome</packagereq>
       <packagereq type="default">tfm-nodejs-react-intl</packagereq>
       <packagereq type="default">tfm-nodejs-react-is</packagereq>
       <packagereq type="default">tfm-nodejs-react-lifecycles-compat</packagereq>
-      <packagereq type="default">tfm-nodejs-react-motion</packagereq>
-      <packagereq type="default">tfm-nodejs-react-overlays</packagereq>
-      <packagereq type="default">tfm-nodejs-react-popper</packagereq>
       <packagereq type="default">tfm-nodejs-react-redux</packagereq>
-      <packagereq type="default">tfm-nodejs-react-transition-group</packagereq>
-      <packagereq type="default">tfm-nodejs-reactabular-table</packagereq>
-      <packagereq type="default">tfm-nodejs-recompose</packagereq>
+      <packagereq type="default">tfm-nodejs-redhat-cloud-services-frontend-components</packagereq>
       <packagereq type="default">tfm-nodejs-redux</packagereq>
       <packagereq type="default">tfm-nodejs-redux-thunk</packagereq>
       <packagereq type="default">tfm-nodejs-regenerator-runtime</packagereq>
@@ -137,6 +107,7 @@
       <packagereq type="default">tfm-nodejs-uglifyjs-webpack-plugin</packagereq>
       <packagereq type="default">tfm-nodejs-urijs</packagereq>
       <packagereq type="default">tfm-nodejs-url-loader</packagereq>
+      <packagereq type="default">tfm-nodejs-use-deep-compare-effect</packagereq>
       <packagereq type="default">tfm-nodejs-uuid</packagereq>
       <packagereq type="default">tfm-nodejs-warning</packagereq>
       <packagereq type="default">tfm-nodejs-webpack</packagereq>
@@ -197,7 +168,6 @@
       <packagereq type="default">tfm-rubygem-ffi</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-digitalocean</packagereq>
       <packagereq type="default">tfm-rubygem-fog-google</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt</packagereq>
@@ -216,6 +186,7 @@
       <packagereq type="default">tfm-rubygem-gitlab-sidekiq-fetcher</packagereq>
       <packagereq type="default">tfm-rubygem-globalid</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client</packagereq>
+      <packagereq type="default">tfm-rubygem-google-cloud-env</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth</packagereq>
       <packagereq type="default">tfm-rubygem-graphql</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch</packagereq>
@@ -226,7 +197,7 @@
       <packagereq type="default">tfm-rubygem-highline</packagereq>
       <packagereq type="default">tfm-rubygem-hirb</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife</packagereq>
-      <packagereq type="default">tfm-rubygem-hoe</packagereq>
+      <packagereq type="default">tfm-rubygem-hocon</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient</packagereq>
       <packagereq type="default">tfm-rubygem-i18n</packagereq>
@@ -250,9 +221,9 @@
       <packagereq type="default">tfm-rubygem-method_source</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-data</packagereq>
-      <packagereq type="default">tfm-rubygem-mimemagic</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime</packagereq>
       <packagereq type="default">tfm-rubygem-mini_portile2</packagereq>
+      <packagereq type="default">tfm-rubygem-msgpack</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann</packagereq>
@@ -270,9 +241,6 @@
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk</packagereq>
       <packagereq type="default">tfm-rubygem-paint</packagereq>
       <packagereq type="default">tfm-rubygem-parallel</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-native-libs</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass</packagereq>
       <packagereq type="default">tfm-rubygem-pg</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json</packagereq>
@@ -284,6 +252,7 @@
       <packagereq type="default">tfm-rubygem-puma-status</packagereq>
       <packagereq type="default">tfm-rubygem-quantile</packagereq>
       <packagereq type="default">tfm-rubygem-rabl</packagereq>
+      <packagereq type="default">tfm-rubygem-racc</packagereq>
       <packagereq type="default">tfm-rubygem-rack</packagereq>
       <packagereq type="default">tfm-rubygem-rack-cors</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp</packagereq>
@@ -296,9 +265,9 @@
       <packagereq type="default">tfm-rubygem-railties</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify</packagereq>
-      <packagereq type="default">tfm-rubygem-rbovirt</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
+      <packagereq type="default">tfm-rubygem-redfish_client</packagereq>
       <packagereq type="default">tfm-rubygem-redis</packagereq>
       <packagereq type="default">tfm-rubygem-representable</packagereq>
       <packagereq type="default">tfm-rubygem-responders</packagereq>
@@ -309,9 +278,9 @@
       <packagereq type="default">tfm-rubygem-roadie-rails</packagereq>
       <packagereq type="default">tfm-rubygem-rsec</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt</packagereq>
+      <packagereq type="default">tfm-rubygem-ruby2_keywords</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser</packagereq>
-      <packagereq type="default">tfm-rubygem-rubyforge</packagereq>
       <packagereq type="default">tfm-rubygem-rubyipmi</packagereq>
       <packagereq type="default">tfm-rubygem-safemode</packagereq>
       <packagereq type="default">tfm-rubygem-sass</packagereq>
@@ -319,8 +288,10 @@
       <packagereq type="default">tfm-rubygem-sassc</packagereq>
       <packagereq type="default">tfm-rubygem-sassc-rails</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search</packagereq>
+      <packagereq type="default">tfm-rubygem-sd_notify</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers</packagereq>
       <packagereq type="default">tfm-rubygem-sequel</packagereq>
+      <packagereq type="default">tfm-rubygem-server_sent_events</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq</packagereq>
       <packagereq type="default">tfm-rubygem-signet</packagereq>
@@ -331,7 +302,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument</packagereq>
-      <packagereq type="default">tfm-rubygem-syntax</packagereq>
       <packagereq type="default">tfm-rubygem-text</packagereq>
       <packagereq type="default">tfm-rubygem-thor</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe</packagereq>
@@ -350,7 +320,6 @@
       <packagereq type="default">tfm-rubygem-websocket-extensions</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate</packagereq>
       <packagereq type="default">tfm-rubygem-wirb</packagereq>
-      <packagereq type="default">tfm-rubygem-x-editable-rails</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc</packagereq>
       <packagereq type="default">tfm-rubygem-zeitwerk</packagereq>
       <packagereq type="default">tfm-runtime</packagereq>
@@ -366,7 +335,6 @@
       <packagereq type="default">foreman-installer-katello</packagereq>
       <packagereq type="default">katello-certs-tools</packagereq>
       <packagereq type="default">keycloak-httpd-client-install</packagereq>
-      <packagereq type="default">mod_passenger</packagereq>
       <packagereq type="default">pcp-mmvstatsd</packagereq>
       <packagereq type="default">puppet-agent-oauth</packagereq>
       <packagereq type="default">puppet-agent-puppet-strings</packagereq>
@@ -376,9 +344,6 @@
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
-      <packagereq type="default">rubygem-passenger</packagereq>
-      <packagereq type="default">rubygem-passenger-native</packagereq>
-      <packagereq type="default">rubygem-passenger-native-libs</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
@@ -386,7 +351,6 @@
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
-      <packagereq type="default">rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailbox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailer-doc</packagereq>
@@ -443,7 +407,6 @@
       <packagereq type="default">tfm-rubygem-ffi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-aws-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-core-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-fog-digitalocean-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-google-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-libvirt-doc</packagereq>
@@ -463,6 +426,7 @@
       <packagereq type="default">tfm-rubygem-globalid-doc</packagereq>
       <packagereq type="default">tfm-rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-googleauth-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphql-doc</packagereq>
       <packagereq type="default">tfm-rubygem-gssapi-doc</packagereq>
@@ -472,7 +436,7 @@
       <packagereq type="default">tfm-rubygem-highline-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hirb-unicode-steakknife-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-hoe-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-hocon-doc</packagereq>
       <packagereq type="default">tfm-rubygem-httpclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-i18n-doc</packagereq>
@@ -494,11 +458,11 @@
       <packagereq type="default">tfm-rubygem-marcel-doc</packagereq>
       <packagereq type="default">tfm-rubygem-memoist-doc</packagereq>
       <packagereq type="default">tfm-rubygem-method_source-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-mimemagic-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-data-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mime-types-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mini_mime-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mini_portile2-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-msgpack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_json-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multipart-post-doc</packagereq>
       <packagereq type="default">tfm-rubygem-mustermann-doc</packagereq>
@@ -516,7 +480,6 @@
       <packagereq type="default">tfm-rubygem-ovirt-engine-sdk-doc</packagereq>
       <packagereq type="default">tfm-rubygem-paint-doc</packagereq>
       <packagereq type="default">tfm-rubygem-parallel-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-passenger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-patternfly-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-pg-doc</packagereq>
       <packagereq type="default">tfm-rubygem-po_to_json-doc</packagereq>
@@ -528,6 +491,7 @@
       <packagereq type="default">tfm-rubygem-puma-status-doc</packagereq>
       <packagereq type="default">tfm-rubygem-quantile-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rabl-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-racc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-cors-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rack-jsonp-doc</packagereq>
@@ -540,9 +504,9 @@
       <packagereq type="default">tfm-rubygem-railties-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rake-compiler-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rbovirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-redfish_client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-redis-doc</packagereq>
       <packagereq type="default">tfm-rubygem-representable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-responders-doc</packagereq>
@@ -552,8 +516,8 @@
       <packagereq type="default">tfm-rubygem-roadie-doc</packagereq>
       <packagereq type="default">tfm-rubygem-roadie-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rsec-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-ruby2_keywords-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby2ruby-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-rubyforge-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rubyipmi-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ruby_parser-doc</packagereq>
@@ -563,8 +527,10 @@
       <packagereq type="default">tfm-rubygem-sass-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sass-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-scoped_search-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-sd_notify-doc</packagereq>
       <packagereq type="default">tfm-rubygem-secure_headers-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sequel-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-server_sent_events-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sidekiq-doc</packagereq>
       <packagereq type="default">tfm-rubygem-signet-doc</packagereq>
@@ -575,7 +541,6 @@
       <packagereq type="default">tfm-rubygem-sqlite3-doc</packagereq>
       <packagereq type="default">tfm-rubygem-sshkey-doc</packagereq>
       <packagereq type="default">tfm-rubygem-statsd-instrument-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-syntax-doc</packagereq>
       <packagereq type="default">tfm-rubygem-text-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thor-doc</packagereq>
       <packagereq type="default">tfm-rubygem-thread_safe-doc</packagereq>
@@ -594,7 +559,6 @@
       <packagereq type="default">tfm-rubygem-websocket-extensions-doc</packagereq>
       <packagereq type="default">tfm-rubygem-will_paginate-doc</packagereq>
       <packagereq type="default">tfm-rubygem-wirb-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-x-editable-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-xmlrpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-zeitwerk-doc</packagereq>
       <!--RGD-END-->

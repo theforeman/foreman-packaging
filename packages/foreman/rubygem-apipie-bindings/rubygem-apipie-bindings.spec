@@ -6,7 +6,7 @@
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/Apipie/apipie-bindings
@@ -70,6 +70,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-2
+- Rebuild against rh-ruby27
+
 * Fri May 29 2020 Oleh Fedorenko <ofedoren@redhat.com> 0.4.0-1
 - Update to 0.4.0
 

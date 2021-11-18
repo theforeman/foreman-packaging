@@ -19,7 +19,7 @@ fi
 PACKAGE_NAME=${PACKAGE_PREFIX}$(echo ${PYPI_NAME} |tr '[A-Z].' '[a-z]-')
 PACKAGE_DIR=packages/$BASE_DIR/$PACKAGE_NAME
 
-ROOT=$(git rev-parse --show-toplevel)
+SCRIPT_ROOT=$(dirname $(readlink -f $0))
 
 program_exists() {
   which "$@" &> /dev/null
@@ -48,7 +48,7 @@ generate_pypi_package() {
   else
     RPM_NAME_ARG=""
   fi
-  pyp2rpm --no-autonc -s -t $TEMPLATE -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
+  pyp2rpm --no-autonc --sclize --no-meta-runtime-dep --no-meta-buildtime-dep -s -t $TEMPLATE -o epel7 -b $BASE_PYTHON -d $PACKAGE_DIR -v $VERSION $RPM_NAME_ARG $PYPI_NAME
   # pyp2rpm does not create a newline at the end of the file, which breaks our changelog append script
   echo >> $PACKAGE_DIR/*.spec
   sed -i '/BuildRequires:.*sphinx/d' $PACKAGE_DIR/*.spec
@@ -59,7 +59,7 @@ generate_pypi_package() {
     sed -i '/^%changelog/,/^%changelog/{0,//!d}' $PACKAGE_DIR/*.spec
     rm OLD_CHANGELOG
     CHANGELOG="- Update to $VERSION"
-    echo "$CHANGELOG" | $ROOT/add_changelog.sh $PACKAGE_DIR/*.spec
+    echo "$CHANGELOG" | $SCRIPT_ROOT/add_changelog.sh $PACKAGE_DIR/*.spec
   fi
   echo "FINISHED"
 
@@ -97,10 +97,10 @@ add_pypi_to_comps() {
 
   for comps_package in ${comps_packages}; do
     if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
-      ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
     fi
   done
-  ./comps_doc.sh
+  ${SCRIPT_ROOT}/comps_doc.sh
   git add comps/
 }
 
@@ -119,11 +119,11 @@ add_pypi_to_manifest() {
 	fi
 
 	if [[ -n $section ]] ; then
-		./add_host.py "$section" "$PACKAGE_NAME"
+		${SCRIPT_ROOT}/add_host.py "$section" "$PACKAGE_NAME"
 		git add package_manifest.yaml
 	else
 		echo "TODO: Add the package into the right section"
-		echo "./add_host.py SECTION '$PACKAGE_NAME'"
+		echo "${SCRIPT_ROOT}/add_host.py SECTION '$PACKAGE_NAME'"
 		echo "git add package_manifest.yaml"
 		echo "git commit --amend --no-edit"
 	fi
@@ -144,6 +144,7 @@ fi
 
 ensure_program crudini
 ensure_program pyp2rpm
+ensure_program spec2scl
 
 if [[ $VERSION == "auto" ]] ; then
   ensure_program curl

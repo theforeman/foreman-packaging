@@ -8,8 +8,8 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.3
-Release: 1%{?foremandist}%{?dist}
+Version: 0.1.7
+Release: 2%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
 License: GPLv3
@@ -22,15 +22,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 4
+Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 5.0
 Requires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
-Requires: %{?scl_prefix}rubygem(foreman_ansible) < 6
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 4
+BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) < 6
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -42,8 +40,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.3.3
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -121,6 +119,21 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-2
+- Rebuild plugins for Ruby 2.7
+
+* Tue Mar 30 2021 Leos Stejskal <lstejska@redhat.com> 0.1.7-1
+- Update to 0.1.7
+
+* Fri Sep 25 2020 Leos Stejskal <lstejska@redhat.com> 0.1.6-1
+- Update to 0.1.6
+
+* Thu Sep 10 2020 Leos Stejskal <lstejska@redhat.com> 0.1.5-1
+- Update to 0.1.5
+
+* Mon Aug 24 2020 Marek Hulan <mhulan@redhat.com> 0.1.4-1
+- Update to 0.1.4
+
 * Tue Jun 09 2020 Leos Stejskal <lstejska@redhat.com> 0.1.3-1
 - Update to 0.1.3
 

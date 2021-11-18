@@ -6,8 +6,8 @@
 %global gem_name activerecord-import
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.1.0
+Release: 1%{?dist}
 Summary: Bulk insert extension for ActiveRecord
 Group: Development/Languages
 License: Ruby
@@ -91,6 +91,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jun 16 2021 Odilon Sousa <osousa@redhat.com> - 1.1.0-1
+- Release rubygem-activerecord-import 1.1.0
+
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.0.0-2
 - Update spec to remove the ror scl
 

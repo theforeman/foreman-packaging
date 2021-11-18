@@ -6,11 +6,11 @@
 
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 1.24.0
+%global foreman_min_version 2.2.0
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.3.5
+Version:    4.8.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -27,15 +27,13 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.1.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface)
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution_core)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.15.1
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -47,8 +45,9 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.2.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
+BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.10.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -60,7 +59,8 @@ management functionality with remote management functionality.
 
 %package cockpit
 BuildArch:  noarch
-Requires:   cockpit
+Requires: cockpit
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 Requires(post): systemd-units
 Requires(preun): systemd-units
 Summary:    Cockpit integration using remote execution connection
@@ -160,6 +160,48 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Tue Sep 14 2021 Adam Ruzicka <aruzicka@redhat.com> 4.8.0-1
+- Update to 4.8.0
+
+* Tue Aug 03 2021 Adam Ruzicka <aruzicka@redhat.com> 4.7.0-1
+- Update to 4.7.0
+
+* Mon Jun 07 2021 Adam Ruzicka <aruzicka@redhat.com> 4.6.0-1
+- Update to 4.6.0
+
+* Mon May 31 2021 Adam Ruzicka <aruzicka@redhat.com> 4.5.0-1
+- Update to 4.5.0
+
+* Mon May 10 2021 Adam Ruzicka <aruzicka@redhat.com> 4.4.0-1
+- Update to 4.4.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.3.0-2
+- Rebuild plugins for Ruby 2.7
+
+* Mon Mar 22 2021 Adam Ruzicka <aruzicka@redhat.com> 4.3.0-1
+- Update to 4.3.0
+
+* Wed Jan 13 2021 Adam Ruzicka <aruzicka@redhat.com> 4.2.2-1
+- Update to 4.2.2
+
+* Thu Nov 26 2020 Adam Ruzicka <aruzicka@redhat.com> 4.2.1-1
+- Update to 4.2.1
+
+* Tue Nov 17 2020 Adam Ruzicka <aruzicka@redhat.com> 4.2.0-1
+- Update to 4.2.0
+
+* Thu Nov 12 2020 Evgeni Golov 4.1.0-2
+- Let cockpit subpackage depend on exact version of the main package
+
+* Tue Sep 01 2020 Adam Ruzicka <aruzicka@redhat.com> 4.1.0-1
+- Update to 4.1.0
+
+* Thu Aug 13 2020 Adam Ruzicka <aruzicka@redhat.com> 4.0.0-1
+- Update to 4.0.0
+
+* Thu Aug 13 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.6-1
+- Update to 3.3.6
+
 * Mon Aug 03 2020 Adam Ruzicka <aruzicka@redhat.com> 3.3.5-1
 - Update to 3.3.5
 

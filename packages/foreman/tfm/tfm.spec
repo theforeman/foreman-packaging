@@ -6,7 +6,7 @@
 %{?scl_package:%scl_package %scl}
 
 # Fallback to sclo-ror42 etc. when scldevel's not in the buildroot
-%global scl_ruby rh-ruby25
+%global scl_ruby rh-ruby27
 %global scl_prefix_ruby %{scl_ruby}-
 %global scl_nodejs rh-nodejs10
 %global scl_prefix_nodejs %{scl_nodejs}-
@@ -18,8 +18,8 @@
 
 Summary: Package that installs %scl
 Name: %scl_name
-Version: 6.1
-Release: 3%{?dist}
+Version: 7.0
+Release: 4%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -119,6 +119,9 @@ Obsoletes: %{scl_prefix}rubygem-extlib < 0.9.16-7
 Obsoletes: %{scl_prefix}rubygem-docker-api < 1.28.0-5
 Obsoletes: %{scl_prefix}rubygem-gridster-rails < 0.5.6.1-6
 Obsoletes: %{scl_prefix}rubygem-fog-rackspace < 0.1.4-5
+Obsoletes: %{scl_prefix}rubygem-x-editable-rails < 1.5.5-6
+Obsoletes: %{scl_prefix}rubygem-rbovirt < 0.1.7-5
+Obsoletes: %{scl_prefix}rubygem-mimemagic < 0.3.5-3
 Obsoletes: foreman-release-scl < 7-3
 
 # turbolinks isn't there to obsolete the tfm-ror52 package so this is explicit
@@ -127,7 +130,14 @@ Obsoletes: tfm-ror52-rubygem-turbolinks-doc < 2.5.4-3
 
 # arel isn't there to obsolete the tfm-ror52 package so this is explicit
 Obsoletes: tfm-ror52-rubygem-arel <= 9.0.0
-Obsoletes: %{scl_prefix}-rubygem-arel <= 9.0.0
+Obsoletes: %{scl_prefix}rubygem-arel <= 9.0.0
+
+# obsolete all of the tfm Passenger packages since Passenger support is dropped
+Obsoletes: %{scl_prefix}mod_passenger < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-doc < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-native < 4.0.18-10.14
+Obsoletes: %{scl_prefix}rubygem-passenger-native-libs < 4.0.18-10.14
 
 %description runtime
 Package shipping essential scripts to work with %scl Software Collection.
@@ -317,6 +327,24 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.0-4
+- Correct rubygem-arel obsolete
+
+* Thu Jun 17 2021 Evgeni Golov - 7.0-3
+- Obsolete mimemagic
+
+* Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-2
+- Obsolete passenger packages
+
+* Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0-1
+- Update to Ruby 2.7 via rh-ruby27
+
+* Fri Mar 12 2021 Evgeni Golov - 6.1-5
+- Obsolete rbovirt
+
+* Mon Nov 09 2020 Evgeni Golov - 6.1-4
+- Obsolete x-editable-rails
+
 * Thu Jun 18 2020 Evgeni Golov - 6.1-3
 - obsolete arel
 

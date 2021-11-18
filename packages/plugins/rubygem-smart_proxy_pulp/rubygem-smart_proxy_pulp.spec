@@ -2,6 +2,7 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
+%{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_datadir:%global _root_datadir %{_datadir}}
 %{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
@@ -9,7 +10,7 @@
 %global gem_name smart_proxy_pulp
 %global plugin_name pulp
 
-%global foreman_proxy_min_version 1.25
+%global foreman_proxy_min_version 2.3
 %global foreman_proxy_dir %{_root_datadir}/foreman-proxy
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
@@ -17,8 +18,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
-Release: 3%{?foremandist}%{?dist}
+Version: 3.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -28,10 +29,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
+Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
+BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -90,20 +93,16 @@ mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
-mv %{buildroot}%{gem_instdir}/settings.d/pulp.yml.example \
-   %{buildroot}%{foreman_proxy_settingsd_dir}/pulp.yml
 mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/pulpcore.yml
-mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
-   %{buildroot}%{foreman_proxy_settingsd_dir}/pulpnode.yml
 
 %files
 %dir %{gem_instdir}
-%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulp.yml
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulpcore.yml
-%config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/pulpnode.yml
 %license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/bundler.d
 %{gem_libdir}
+%exclude %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
@@ -113,6 +112,18 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpnode.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Thu Sep 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-1
+- Release rubygem-smart_proxy_pulp 3.2.0
+
+* Tue Jun 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.0-1
+- Release rubygem-smart_proxy_pulp 3.1.0
+
+* Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-1
+- Release 3.0.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-4
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 2.1.0-3
 - Fix bundler.d location on EL8
 

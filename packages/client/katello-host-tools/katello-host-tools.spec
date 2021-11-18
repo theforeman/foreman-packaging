@@ -1,13 +1,12 @@
 %global dnf_install (0%{?rhel} > 7) || (0%{?fedora} > 26)
 %global yum_install ((0%{?rhel} <= 7) && (0%{?rhel} >= 5)) || ((0%{?fedora} < 27) && (0%{?fedora} > 0))
 %global zypper_install (0%{?suse_version} > 0)
-
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
-%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || (0%{?rhel} > 0 && 0%{?rhel} < 8))
-%global legacy_agent (0%{?rhel} == 5) || (0%{?rhel} == 6)
+%global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || 0%{?rhel} > 0)
+%global legacy_agent (0%{?rhel} == 6)
 %global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
 %if 0%{?suse_version}
@@ -15,15 +14,13 @@
 %endif
 
 Name: katello-host-tools
-Version: 3.5.4
+Version: 3.5.7
 Release: 1%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 License: LGPLv2
 URL:     https://github.com/Katello/katello-agent
 Source0: https://codeload.github.com/Katello/katello-host-tools/tar.gz/%{version}#/%{name}-%{version}.tar.gz
-
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?suse_version} && 0%{?suse_version} < 1200
 # this needs to be BuildArch for Suse but
@@ -40,20 +37,13 @@ Requires: %{name}-fact-plugin = %{version}-%{release}
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
 %endif
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
 %if %{dnf_install}
 Requires: python3-subscription-manager-rhsm
 %else
 Requires: python-rhsm
 %endif
-Requires: crontabs
-%endif
 
-%if 0%{?rhel} == 5
-Requires: python-simplejson
-%endif
-
-%if 0%{?sles_version}
+%if 0%{?suse_version}
 BuildRequires: python-devel >= 2.6
 Requires: python2-zypp-plugin
 %else
@@ -108,10 +98,6 @@ Requires: %{name} = %{version}-%{release}
 Requires: yum-plugin-security
 %endif
 
-%if 0%{?rhel} == 5
-Requires: yum-security
-%endif
-
 %description -n katello-agent
 Provides plugin for gofer, which allows communicating with Katello server
 and execute scheduled actions.
@@ -135,8 +121,12 @@ A subscription-manager plugin to add an additional fact 'network.fqdn' if not pr
 BuildArch:  noarch
 Summary:    Adds Tracer functionality to a client managed by katello-host-tools
 Group:      Development/Languages
-
 Requires: %{name} = %{version}-%{release}
+%if 0%{?suse_version}
+Requires: cronie
+%else
+Requires: crontabs
+%endif
 %if %{dnf_install}
 Requires: python3-tracer
 %else
@@ -236,10 +226,17 @@ cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 
 #clean up tracer if its not being built
 %if %{build_tracer}
-#do nothing
+rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+
+%if !0%{?suse_version}
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+%endif
+
 %else
 rm %{buildroot}%{plugins_dir}/tracer_upload.py*
-rm %{buildroot}%{katello_libdir}/tracer.py
+rm %{buildroot}%{katello_libdir}/apt_tracer.py*
+rm %{buildroot}%{katello_libdir}/zypper_tracer.py*
+rm %{buildroot}%{katello_libdir}/tracer.py*
 rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
@@ -255,10 +252,10 @@ cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
 # cache directory
 mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
+%if %{build_tracer}
 # crontab
 mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
-cp extra/katello-agent-send.cron %{buildroot}%{_sysconfdir}/cron.d/%{name}
+cp extra/katello-tracer-upload.cron %{buildroot}%{_sysconfdir}/cron.d/katello-tracer-upload
 %endif
 
 %clean
@@ -369,10 +366,6 @@ exit 0
 %dir %{_usr}/lib/zypp/plugins/commit/
 %endif
 
-%if 0%{?fedora} > 18 || 0%{?rhel} > 6
-%config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/%{name}
-%endif
-
 %if %{build_fact_plugin}
 %files fact-plugin
 %defattr(-,root,root,-)
@@ -387,17 +380,40 @@ exit 0
 %files tracer
 %defattr(-,root,root,-)
 %{plugins_dir}/tracer_upload.py*
-%{katello_libdir}/tracer.py*
+%{katello_libdir}/*tracer.py*
 %{plugins_confdir}/tracer_upload.conf
+%config(noreplace) %attr(0644, root, root) %{_sysconfdir}/cron.d/katello-tracer-upload
 
 %if %{dnf_install}
-%{katello_libdir}/__pycache__/tracer.*
+%{katello_libdir}/__pycache__/*tracer.*
 %{plugins_dir}/__pycache__/tracer_upload.*
 %endif
 %attr(750, root, root) %{_sbindir}/katello-tracer-upload
 %endif
 
+
 %changelog
+* Fri Oct 15 2021 Bernhard Suttner - 3.5.7-1
+- Update to 3.5.7
+- Add cron job for tracer upload to tracer package and
+  use this cron job for sles, too.
+
+* Wed Sep 22 2021 Jonathon Turel <jturel@gmail.com> 3.5.6-1
+- Update to 3.5.6
+
+* Mon May 31 2021 Bernhard Suttner - 3.5.5-2
+- Use suse_version instead of sles_version to make
+  sure python2-zypp-plugin is a requirement
+
+* Thu Apr 29 2021 Justin Sherrill <jsherril@redhat.com> 3.5.5-1
+* update to 3.5.5
+
+* Fri Feb 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.5.4-3
+- Build katello-agent for EL8
+
+* Mon Dec 07 2020 Evgeni Golov - 3.5.4-2
+- remove EL5 bits that aren't longer needed
+
 * Wed May 27 2020 Jonathon Turel - 3.5.4-1
 - Release 3.5.4
 

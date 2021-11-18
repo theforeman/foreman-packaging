@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Gem-authoring tools like generic builders, dynamic options and more
 Group: Development/Languages
 License: MIT
@@ -85,6 +85,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/uber.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.0-3
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.1.0-2
 - Bump to release for EL8
 

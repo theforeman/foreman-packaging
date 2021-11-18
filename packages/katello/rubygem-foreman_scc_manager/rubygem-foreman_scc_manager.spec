@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.4
+Version: 1.8.12
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -104,6 +104,42 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Sep 21 2021 Nadja Heitmann <heitmann@atix.de> 1.8.12-1
+- Update to 1.8.12
+- Minor bug fixes
+
+* Wed Jul 14 2021 Nadja Heitmann <heitmann@atix.de> 1.8.10-1
+- Update to 1.8.10
+- Bug fixes
+
+* Thu Apr 29 2021 Nadja Heitmann <heitmann@atix.de> 1.8.9-1
+- Update to 1.8.9
+- Update to work with Katello 3.18 and Foreman 2.3
+
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.8.8-2
+- Rebuild for Ruby 2.7
+
+* Wed Mar 10 2021 Nadja Heitmann <heitmann@atix.de> 1.8.8-1
+- Update to 1.8.8
+- Fix migrations bug
+
+* Tue Mar 02 2021 Nadja Heitmann <heitmann@atix.de> 1.8.7-1
+- Update to 1.8.7
+- Prevent SCC manager to delete subscribed SCC products if subscription expires
+- Fix dynflow output for failed SCC account sync tasks
+- Shorten automatically created Katello root repository labels
+
+* Thu Dec 10 2020 Nadja Heitmann <heitmann@atix.de> 1.8.6-1
+- Update to 1.8.6
+- Add automatic GPG key support for SCC accounts
+- Make titles and descriptions of SCC products more readable
+- Minor beautifications and bug fixes
+
+* Wed Nov 04 2020 Markus Bucher <bucher@atix.de> 1.8.5-1
+- Update to 1.8.5
+- Fix display of product list for foreman >=2.0
+- Remove products without repositories from product-selection
+
 * Mon May 04 2020 ATIX AG <info@atix.de> 1.8.4-1
 - looser gem dependency on rails
 - Update to 1.8.4

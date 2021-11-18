@@ -7,7 +7,7 @@
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.8.0
-Release: 12%{?dist}
+Release: 13%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
@@ -83,6 +83,9 @@ popd
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.8.0-13
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.8.0-12
 - Bump to release for EL8
 

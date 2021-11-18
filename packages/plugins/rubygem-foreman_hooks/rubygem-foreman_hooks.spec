@@ -8,7 +8,7 @@
 
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    0.3.16
+Version:    0.3.17
 Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -103,6 +103,12 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.17-2
+- Rebuild plugins for Ruby 2.7
+
+* Wed Nov 18 2020 Lukas Zapletal <lzap+rpm@redhat.com> 0.3.17-1
+- Update to 0.3.17
+
 * Fri Jan 17 2020 Eric D. Helms <ericdhelms@gmail.com> - 0.3.16-2
 - Drop posttrans macros
 

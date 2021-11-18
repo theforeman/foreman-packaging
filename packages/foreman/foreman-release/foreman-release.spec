@@ -13,12 +13,12 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 3
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  2.2.0
+Version:  3.2.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -30,12 +30,9 @@ Source1:  foreman-plugins.repo
 Source2:  foreman.gpg
 Source5:  foreman-client.repo
 Source6:  qpid-copr.repo
-Source7:  subscription-manager-el5.repo
 Source8:  pulp.repo
 Source9:  subscription-manager-el6.repo
 
-# Required by RHEL5
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: noarch
 
 BuildRequires: sed
@@ -58,13 +55,11 @@ Defines yum repositories for Foreman clients.
 
 %if 0%{?rhel} == 6
 %config %{repo_dir}/pulp.repo
-%config %{repo_dir}/qpid-copr.repo
 %config %{repo_dir}/subscription-manager.repo
 %endif
 
-%if 0%{?rhel} == 5
-%config %{repo_dir}/pulp.repo
-%config %{repo_dir}/subscription-manager.repo
+%if 0%{?rhel} == 7
+%config %{repo_dir}/qpid-copr.repo
 %endif
 
 %if 0%{?suse_version}
@@ -81,13 +76,11 @@ install -Dpm0644 %{SOURCE5} %{buildroot}%{repo_dir}/foreman-client.repo
 
 %if 0%{?rhel} == 6
 install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
-install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
 install -m 644 %{SOURCE9} %{buildroot}%{repo_dir}/subscription-manager.repo
 %endif
 
-%if 0%{?rhel} == 5
-install -m 644 %{SOURCE8} %{buildroot}%{repo_dir}/pulp.repo
-install -m 644 %{SOURCE7} %{buildroot}%{repo_dir}/subscription-manager.repo
+%if 0%{?rhel} == 7
+install -m 644 %{SOURCE6} %{buildroot}%{repo_dir}/qpid-copr.repo
 %endif
 
 trimmed_dist=`echo %{repo_dist} | sed 's/^\.//'`
@@ -109,6 +102,33 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.develop
+- Bump version to 3.2-develop
+
+* Thu Sep 16 2021 Evgeni Golov - 3.1.0-0.2.develop
+- Enable the qpid copr for EL7 clients
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
+* Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.develop
+- Bump version to 2.5-develop
+
+* Mon Dec 07 2020 Evgeni Golov - 2.4.0-0.2.develop
+- remove EL5 bits that aren't longer needed
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
+- Bump version to 2.4-develop
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.3.develop
 - Bump version to 2.2-develop
 

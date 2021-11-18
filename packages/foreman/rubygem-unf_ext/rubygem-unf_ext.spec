@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.7.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
 Group: Development/Languages
 License: MIT
@@ -105,6 +105,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/unf_ext.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7.2-4
+- Rebuild against rh-ruby27
+
 * Mon Apr 20 2020 Evgeni Golov 0.0.7.2-3
 * Revert to 0.0.7.2 as that's what ms_rest_azure requires
 

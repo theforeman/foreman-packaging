@@ -14,32 +14,23 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 4%{?foremandist}%{?dist}
+Version: 0.4.1
+Release: 2%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_remote_execution_ssh
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: tfm-rubygem(foreman_remote_execution_core)
-%else
-Requires: rubygem(smart_proxy_dynflow_core) >= 0.1.5
-Requires: rubygem(foreman_remote_execution_core)
-%endif
-
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 0.3.0
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 Requires: %{?scl_prefix}rubygem(net-ssh)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -105,18 +96,13 @@ cp -a .%{gem_dir}/* \
 
 # bundler file
 mkdir -p %{buildroot}%{foreman_proxy_bundlerd_dir}
-mv %{buildroot}%{gem_instdir}/bundler.plugins.d/%{plugin_name}.rb \
+mv %{buildroot}%{gem_instdir}/bundler.d/%{plugin_name}.rb \
    %{buildroot}%{foreman_proxy_bundlerd_dir}
 
 # sample config
 mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/remote_execution_ssh.yml
-
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
-gem 'foreman_remote_execution_core'
-EOF
 
 %files
 %dir %{gem_instdir}
@@ -126,7 +112,6 @@ EOF
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_remote_execution_core.rb
 %{foreman_proxy_dir}/.ssh
 %attr(0750,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
 
@@ -135,6 +120,24 @@ EOF
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 09 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.1-2
+- Do not obsolete foreman_remote_execution_core
+
+* Fri Jul 09 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.1-1
+- Update to 0.4.1
+
+* Mon Jun 07 2021 Adam Ruzicka <aruzicka@redhat.com> 0.4.0-1
+- Update to 0.4.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.1-3
+- Rebuild for Ruby 2.7
+
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-2
+- Deploy bundlerd file for foreman proxy
+
+* Mon Nov 09 2020 Adam Ruzicka <aruzicka@redhat.com> 0.3.1-1
+- Update to 0.3.1
+
 * Mon Jun 22 2020 Evgeni Golov - 0.3.0-4
 - Fix bundler.d location on EL8
 

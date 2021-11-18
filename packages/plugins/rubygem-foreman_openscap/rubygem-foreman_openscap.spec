@@ -7,7 +7,7 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
+Version: 5.1.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
@@ -30,6 +30,18 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
+# end package.json devDependencies BuildRequires
+
 Obsoletes: %{?scl_prefix}rubygem-scaptimony < 0.3.2-3
 
 %description
@@ -85,11 +97,15 @@ cp -pa .%{gem_dir}/* \
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -97,6 +113,42 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 01 2021 Ondrej Prazak <oprazak@redhat.com> 5.1.0-1
+- Update to 5.1.0
+
+* Fri Aug 27 2021 Ondrej Prazak <oprazak@redhat.com> 5.0.0-1
+- Update to 5.0.0
+
+* Tue Jul 13 2021 Ondrej Prazak <oprazak@redhat.com> 4.3.3-1
+- Update to 4.3.3
+
+* Wed Jun 09 2021 Ondrej Prazak <oprazak@redhat.com> 4.3.2-1
+- Update to 4.3.2
+
+* Tue May 18 2021 Ondrej Prazak <oprazak@redhat.com> 4.3.0-1
+- Update to 4.3.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-2
+- Rebuild plugins for Ruby 2.7
+
+* Wed Feb 24 2021 Ondrej Prazak <oprazak@redhat.com> 4.2.0-1
+- Update to 4.2.0
+
+* Thu Dec 10 2020 Ondrej Prazak <oprazak@redhat.com> 4.1.2-1
+- Update to 4.1.2
+
+* Thu Dec 03 2020 Ondrej Prazak <oprazak@redhat.com> 4.1.1-1
+- Update to 4.1.1
+
+* Thu Nov 05 2020 Ondrej Prazak <oprazak@redhat.com> 4.1.0-1
+- Update to 4.1.0
+
+* Tue Sep 08 2020 Marek Hulan <mhulan@redhat.com> 4.0.3-1
+- Update to 4.0.3
+
+* Thu Aug 13 2020 Ondrej Prazak <oprazak@redhat.com> 4.0.2-1
+- Update to 4.0.2
+
 * Thu May 21 2020 Ondrej Prazak <oprazak@redhat.com> 4.0.0-1
 - Update to 4.0.0
 

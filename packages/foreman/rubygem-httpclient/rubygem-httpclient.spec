@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.8.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: gives something like the functionality of libwww-perl (LWP) in Ruby
 Group: Development/Languages
 License: Ruby
@@ -86,6 +86,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.8.3-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 2.8.3-3
 - Bump to release for EL8
 

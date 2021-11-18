@@ -8,8 +8,8 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.8
-Release: 1%{?foremandist}%{?dist}
+Version: 0.1.9
+Release: 2%{?foremandist}%{?dist}
 Summary: Provision and manage Kubevirt Virtual Machines from Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -23,11 +23,11 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-kubevirt) => 1.3.3
+Requires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
 Requires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) => 1.3.3
+BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) >= 1.3.3
 BuildRequires: %{?scl_prefix}rubygem(fog-kubevirt) < 1.4
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -102,6 +102,12 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.9-2
+- Rebuild plugins for Ruby 2.7
+
+* Thu Jan 21 2021 Shira Maximov <shiramaximov@gmail.com> 0.1.9-1
+- Update to 0.1.9
+
 * Wed Jun 24 2020 Shira Maximov <shiramaximov@gmail.com> 0.1.8-1
 - Update to 0.1.8
 

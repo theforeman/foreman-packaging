@@ -6,8 +6,8 @@
 %global gem_name fog-proxmox
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.13.0
-Release: 1%{?dist}
+Version: 0.14.0
+Release: 2%{?dist}
 Summary: Module for the 'Fog' gem to support Proxmox VE
 Group: Development/Languages
 License: GPLv3
@@ -110,6 +110,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.14.0-2
+- Rebuild for Ruby 2.7
+
+* Tue Feb 23 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.14.0-1
+- Update to 0.14.0
+
 * Wed Jul 22 2020 Tristan Robert <tristan.robert.44@gmail.com> 0.13.0-1
 - Update to 0.13.0
 

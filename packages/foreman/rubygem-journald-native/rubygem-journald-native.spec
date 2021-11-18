@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.11
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: systemd-journal logging native lib wrapper
 Group: Development/Languages
 License: LGPLv2
@@ -103,6 +103,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/Rakefile
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.11-4
+- Rebuild against rh-ruby27
+
 * Wed Apr 15 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.11-3
 - Add check section to test native library
 

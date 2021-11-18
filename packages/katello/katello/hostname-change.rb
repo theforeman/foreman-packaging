@@ -15,16 +15,14 @@ module KatelloUtilities
   class HostnameChange
     include ::KatelloUtilities::Helper
 
-    attr_accessor :temp_last_scenario_yaml
-
     def initialize(init_options)
+      @last_scenario = self.last_scenario
       @default_program = self.get_default_program
       @proxy = init_options.fetch(:proxy)
       @plural_proxy = init_options.fetch(:plural_proxy)
       @proxy_hyphenated = init_options.fetch(:proxy_hyphenated)
       @command_prefix = init_options.fetch(:command_prefix)
       @accepted_scenarios = init_options.fetch(:accepted_scenarios, nil)
-      @last_scenario = self.last_scenario
 
       @options = {}
       @options[:program] = init_options.fetch(:program, @default_program)
@@ -155,9 +153,12 @@ module KatelloUtilities
 
   On all #{@plural_proxy}, you will need to re-run the #{@options[:program]}-installer with this command:
 
-  #{@options[:program]}-installer --foreman-proxy-content-parent-fqdn #{@new_hostname} \\
-                                  --foreman-proxy-foreman-base-url  https://#{@new_hostname} \\
+  #{@options[:program]}-installer --foreman-proxy-foreman-base-url https://#{@new_hostname} \\
                                   --foreman-proxy-trusted-hosts #{@new_hostname}
+
+  If Puppet is enabled on the #{proxy}, add the following to the installer command:
+
+                                  --puppet-server-foreman-url https://#{@new_hostname}
 
   Short hostnames have not been updated, please update those manually.\n
 )
@@ -214,6 +215,8 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     end
 
     def delete_puppet_certs
+      return unless @scenario_answers['puppet'].is_a?(Hash)
+
       puppet_ssldir = @scenario_answers['puppet']['ssldir']
 
       run_cmd("rm -rf '#{puppet_ssldir}'")
@@ -336,7 +339,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       begin
         aaaa_record = resolver.getresource(@old_hostname, Resolv::DNS::Resource::IN::AAAA)
         commands << "update delete #{@old_hostname} AAAA"
-        commands << "update add #{@new_hostname} #{aaaa_record.ttl} A #{aaaa_record.address}"
+        commands << "update add #{@new_hostname} #{aaaa_record.ttl} AAAA #{aaaa_record.address}"
       rescue Resolv::ResolvError => e
         # This is fine
       end
@@ -375,11 +378,11 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
     def restore_last_scenario_yaml
       STDOUT.puts 'restoring last_scenario.yaml'
       if File.exist?(last_scenario_yaml)
-        run_cmd("cp #{temp_last_scenario_yaml.path} #{last_scenario_yaml}")
+        run_cmd("cp #{@temp_last_scenario_yaml.path} #{last_scenario_yaml}")
       else
         # if the installer failed early the last_scenario symlink won't exist
         scenario_path = "#{scenarios_path}/#{@options[:scenario]}.yaml"
-        run_cmd("cp #{temp_last_scenario_yaml.path} #{scenario_path}")
+        run_cmd("cp #{@temp_last_scenario_yaml.path} #{scenario_path}")
         File.symlink(scenario_path, last_scenario_yaml)
       end
     end
@@ -413,7 +416,7 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       end
 
       STDOUT.puts "updating hostname in /etc/hostname"
-      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/hostname")
+      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/Ig' /etc/hostname")
       STDOUT.puts "setting hostname"
       self.run_cmd("hostnamectl set-hostname #{@new_hostname}")
 
@@ -478,9 +481,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         self.run_cmd("rm -rf /etc/candlepin/certs/amqp{,.bak}")
         self.run_cmd("rm -f /etc/candlepin/certs/candlepin-ca.crt /etc/candlepin/certs/candlepin-ca.key")
         self.run_cmd("rm -f /etc/candlepin/certs/keystore")
+        self.run_cmd("rm -f /etc/candlepin/certs/truststore")
         self.run_cmd("rm -f /etc/tomcat/keystore")
+        self.run_cmd("rm -f /etc/tomcat/truststore")
         self.run_cmd("rm -rf /etc/foreman/old-certs")
         self.run_cmd("rm -f /etc/pki/katello/keystore")
+        self.run_cmd("rm -f /etc/pki/katello/truststore")
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_cert"]}")
         self.run_cmd("rm -rf #{@scenario_answers["foreman"]["client_ssl_key"]}")
       end
@@ -489,22 +495,27 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       STDOUT.puts "backed up #{public_dir} to #{public_backup_dir}"
       STDOUT.puts "updating hostname in /etc/hosts"
-      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' /etc/hosts")
+      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/Ig' /etc/hosts")
 
       STDOUT.puts "updating hostname in foreman installer scenarios"
-      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/g' #{scenarios_path}/*.yaml")
+      self.run_cmd("sed -i -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{scenarios_path}/*.yaml")
 
-      STDOUT.puts "updating hostname in hammer configuration"
-      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/g' #{hammer_root_config_path}/*.yml")
-      self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/g' #{hammer_config_path}/*.yml")
+      if File.exist?(hammer_root_config_path) or File.exist?(hammer_config_path)
+        STDOUT.puts "updating hostname in hammer configuration"
+        [hammer_root_config_path, hammer_config_path].each do |config_dir|
+          Dir[File.join(config_dir, "*.yml")].each do |config_file|
+            self.run_cmd("sed -i.bak -e 's/#{@old_hostname}/#{@new_hostname}/Ig' #{config_file}")
+          end
+        end
+      end
 
       if File.exist?(last_scenario_yaml)
         STDOUT.puts 'backing up last_scenario.yaml'
-        temp_last_scenario_yaml = Tempfile.new('last_scenario')
+        @temp_last_scenario_yaml = Tempfile.new('last_scenario')
         begin
-          temp_last_scenario_yaml << File.read(last_scenario_yaml)
+          @temp_last_scenario_yaml << File.read(last_scenario_yaml)
         ensure
-          temp_last_scenario_yaml.close
+          @temp_last_scenario_yaml.close
         end
 
         STDOUT.puts 'removing last_scenario.yaml'
@@ -528,12 +539,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
 
       STDOUT.puts installer
       run_cmd(installer, [0], installer_failure_message) do |result, success|
-        if temp_last_scenario_yaml && temp_last_scenario_yaml.path
+        if @temp_last_scenario_yaml && @temp_last_scenario_yaml.path
           unless success
             restore_last_scenario_yaml
           end
           STDOUT.puts 'cleaning up temporary files'
-          temp_last_scenario_yaml.unlink
+          @temp_last_scenario_yaml.unlink
         end
 
         if success

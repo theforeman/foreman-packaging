@@ -1,32 +1,34 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name fog-ovirt
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.5
-Release: 1%{?dist}
+Version: 2.0.1
+Release: 2%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
 URL: https://github.com/fog/fog-ovirt
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(fog-core)
+Requires: %{?scl_prefix}rubygem(activesupport)
 Requires: %{?scl_prefix}rubygem(fog-core)
 Requires: %{?scl_prefix}rubygem(fog-json)
 Requires: %{?scl_prefix}rubygem(fog-xml)
-Requires: %{?scl_prefix}rubygem(fog-xml)
-Requires: %{?scl_prefix}rubygem(ovirt-engine-sdk) >= 4.1.3
-Requires: %{?scl_prefix}rubygem(rbovirt) >= 0.1.5
-Requires: %{?scl_prefix}rubygem(rbovirt) < 0.2
+Requires: %{?scl_prefix}rubygem(ovirt-engine-sdk) >= 4.3.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 This library can be used as a module for `fog`.
@@ -66,7 +68,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
@@ -76,7 +78,6 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
 %license %{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/%{gem_name}.gemspec
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -88,10 +89,20 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%{gem_instdir}/fog-ovirt.gemspec
 %{gem_instdir}/spec
 %{gem_instdir}/tests
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-2
+- Rebuild against rh-ruby27
+
+* Wed Jan 20 2021 Shira Maximov <shiramaximov@gmail.com> 2.0.1-1
+- Update to 2.0.1
+
+* Tue Dec 22 2020 Evgeni Golov 2.0.0-1
+- Update to 2.0.0-1
+
 * Tue May 26 2020 Shira Maximov <shiramaximov@gmail.com> 1.2.5-1
 - Update to 1.2.5
 

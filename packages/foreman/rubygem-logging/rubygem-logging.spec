@@ -4,8 +4,8 @@
 %global gem_name logging
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.2
-Release: 5%{?dist}
+Version: 2.3.0
+Release: 2%{?dist}
 Summary: A flexible and extendable logging library for Ruby
 Group: Development/Languages
 License: MIT
@@ -90,6 +90,12 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-2
+- Rebuild against rh-ruby27
+
+* Wed Aug 12 2020 Lukas Zapletal <lzap+rpm@redhat.com> 2.3.0-1
+- Update to 2.3.0
+
 * Fri Mar 27 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-5
 - Build for EL8
 

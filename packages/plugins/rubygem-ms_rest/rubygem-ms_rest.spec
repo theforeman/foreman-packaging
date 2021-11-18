@@ -5,8 +5,8 @@
 %global gem_name ms_rest
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.4
-Release: 2%{?dist}
+Version: 0.7.6
+Release: 1%{?dist}
 Summary: Azure Client Library for Ruby
 Group: Development/Languages
 License: MIT
@@ -22,7 +22,7 @@ Requires: %{?scl_prefix}rubygem(timeliness) < 0.4
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 Requires: %{?scl_prefix}rubygem(faraday) >= 0.9
-Requires: %{?scl_prefix}rubygem(faraday) < 1
+Requires: %{?scl_prefix}rubygem(faraday) < 2.0.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -85,6 +85,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Apr 08 2021 Amit Upadhye <upadhyeammit@gmail.com> 0.7.6-1
+- Update to 0.7.6
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.4-3
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.7.4-2
 - Update spec to remove the ror scl
 

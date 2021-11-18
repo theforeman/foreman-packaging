@@ -14,30 +14,25 @@
 %global foreman_proxy_statedir %{_root_localstatedir}/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
-%global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
-Release: 5%{?foremandist}%{?dist}
+Version: 0.0.4
+Release: 1%{?foremandist}%{?dist}
 Summary: Gem to allow probing through smart-proxy
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/adamruzicka/smart-proxy-probing
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?rhel} == 7
-Requires: tfm-rubygem(foreman_probing_core)
-%else
-Requires: rubygem(foreman_probing_core)
-%endif
-
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 0.3.0
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.1.0
+Requires: %{?scl_prefix}rubygem(ruby-nmap) >= 0.9
+Requires: %{?scl_prefix}rubygem(ruby-nmap) < 1
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -102,28 +97,33 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/settings.d/probing.yml.example \
    %{buildroot}%{foreman_proxy_settingsd_dir}/probing.yml
 
-mkdir -p %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}
-cat <<EOF > %{buildroot}%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
-gem 'foreman_probing_core'
-EOF
-
 %files
 %dir %{gem_instdir}
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/probing.yml
 %license %{gem_instdir}/LICENSE
-%{gem_instdir}/bundler.plugins.d
 %{gem_libdir}
 %{gem_instdir}/settings.d
 %{foreman_proxy_bundlerd_dir}/%{plugin_name}.rb
 %exclude %{gem_cache}
 %{gem_spec}
-%{smart_proxy_dynflow_bundlerd_dir}/foreman_probing_core.rb
 
 %files doc
 %doc %{gem_docdir}
 
 
 %changelog
+* Thu Oct 21 2021 Adam Ruzicka <aruzicka@redhat.com> 0.0.4-1
+- Update to 0.0.4
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.3-3
+- Rebuild for Ruby 2.7
+
+* Wed Mar 17 2021 Adam Ruzicka <aruzicka@redhat.com> 0.0.3-2
+- Deploy bundlerd file for foreman proxy
+
+* Wed Nov 18 2020 Adam Ruzicka <aruzicka@redhat.com> - 0.0.3-1
+- Update to 0.0.3
+
 * Mon Jun 22 2020 Evgeni Golov - 0.0.2-5
 - Fix bundler.d location on EL8
 

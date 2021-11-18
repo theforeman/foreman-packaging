@@ -6,8 +6,8 @@
 %global gem_name google-api-client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.23.9
-Release: 3%{?dist}
+Version: 0.33.2
+Release: 2%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -16,7 +16,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.4
 Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(representable) >= 3.0
@@ -26,16 +26,16 @@ Requires: %{?scl_prefix}rubygem(retriable) < 4.0
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.5
 Requires: %{?scl_prefix}rubygem(addressable) < 3
 Requires: %{?scl_prefix}rubygem(addressable) >= 2.5.1
-Requires: %{?scl_prefix}rubygem(mime-types) >= 3.0
-Requires: %{?scl_prefix}rubygem(mime-types) < 4
-Requires: %{?scl_prefix}rubygem(signet) >= 0.9
+Requires: %{?scl_prefix}rubygem(mini_mime) >= 1.0
+Requires: %{?scl_prefix}rubygem(mini_mime) < 2
+Requires: %{?scl_prefix}rubygem(signet) >= 0.12
 Requires: %{?scl_prefix}rubygem(signet) < 1
-Requires: %{?scl_prefix}rubygem(googleauth) >= 0.5
-Requires: %{?scl_prefix}rubygem(googleauth) < 0.7.0
+Requires: %{?scl_prefix}rubygem(googleauth) >= 0.9
+Requires: %{?scl_prefix}rubygem(googleauth) < 1
 Requires: %{?scl_prefix}rubygem(httpclient) >= 2.8.1
 Requires: %{?scl_prefix}rubygem(httpclient) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4
 BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
@@ -86,7 +86,7 @@ gem install \
         --force \
         --no-document \
         --bindir %{_bindir} \
-        %{gem_name}-%{version}.gem 
+        %{gem_name}-%{version}.gem
 %{?scl:EOF}
 
 %install
@@ -105,8 +105,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.yardopts
+%exclude %{gem_instdir}/.kokoro
+%exclude %{gem_instdir}/.github
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/api_names.yaml
 %{gem_instdir}/bin
@@ -122,7 +123,6 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 #%%doc %%{gem_docdir}
 %exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/MIGRATING.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %{gem_instdir}/Gemfile
@@ -131,6 +131,12 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.33.2-2
+- Rebuild against rh-ruby27
+
+* Thu Oct 08 2020 Ondřej Ezr <oezr@redhat.com> 0.33.2-1
+- Update to 0.33.2
+
 * Wed Apr 08 2020 Zach Huntington-Meath <zhunting@redhat.com> - 0.23.9-3
 - Bump to release for EL8
 

@@ -1,13 +1,21 @@
 ---
+all:
+  vars:
+    foremandist: .fm3_2
+    foreman_version: 'nightly'
+    katello_version: 'nightly'
+  children:
+    packages: {}
+    repoclosures: {}
+
 packages:
   vars:
-    foremandist: .fm2_2
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
     repoclosure_target_repos:
       rhel7:
-        - el7-foreman-nightly
+        - "el7-foreman-{{ foreman_version }}"
       el8:
-        - el8-foreman-nightly
+        - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -16,7 +24,7 @@ packages:
         - el7-extras
         - el7-puppet-6
         - el7-scl
-        - el7-katello-candlepin-nightly
+        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -24,13 +32,12 @@ packages:
         - el8-extras
         - el8-powertools
         - el8-puppet-6
-        - el8-katello-candlepin-nightly
+        - "el8-katello-candlepin-{{ katello_version }}"
   children:
     foreman_packages: {}
     plugins_packages: {}
     foreman_client_packages: {}
     katello_packages: {}
-    pulpcore_packages: {}
     foreman_release_packages: {}
 
 foreman_packages:
@@ -64,12 +71,12 @@ foreman_scl_packages:
     scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-rhel7
+      - name: "foreman-{{ foreman_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
@@ -87,7 +94,8 @@ foreman_scl_packages:
         - "jenkins_job=foreman-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
-    gyp: {}
+      source_location: https://ci.theforeman.org/job/foreman-develop-source-release
+      source_system: jenkins
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}
@@ -130,14 +138,10 @@ foreman_scl_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
-    rubygem-fast_gettext:
-      releasers:
-        - koji-foreman
-        - koji-foreman-plugins
+    rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
     rubygem-fog-core: {}
-    rubygem-fog-digitalocean: {}
     rubygem-fog-google: {}
     rubygem-fog-json: {}
     rubygem-fog-libvirt: {}
@@ -156,6 +160,7 @@ foreman_scl_packages:
     rubygem-gitlab-sidekiq-fetcher: {}
     rubygem-globalid: {}
     rubygem-google-api-client: {}
+    rubygem-google-cloud-env: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
@@ -167,6 +172,8 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
+      source_system: jenkins
     rubygem-hammer_cli_foreman:
       releasers:
         - "{{ nightly_releaser }}"
@@ -175,9 +182,12 @@ foreman_scl_packages:
         - "jenkins_job=hammer-cli-foreman-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
+      source_system: jenkins
+    rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
-    rubygem-hoe: {}
+    rubygem-hocon: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
@@ -187,7 +197,9 @@ foreman_scl_packages:
     rubygem-jquery-ui-rails: {}
     rubygem-jwt: {}
     rubygem-ldap_fluff: {}
+    rubygem-little-plugger: {}
     rubygem-locale: {}
+    rubygem-logging: {}
     rubygem-logging-journald: {}
     rubygem-loofah: {}
     rubygem-mail: {}
@@ -196,9 +208,9 @@ foreman_scl_packages:
     rubygem-method_source: {}
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
-    rubygem-mimemagic: {}
     rubygem-mini_mime: {}
     rubygem-mini_portile2: {}
+    rubygem-msgpack: {}
     rubygem-multipart-post: {}
     rubygem-multi_json: {}
     rubygem-mustermann: {}
@@ -222,13 +234,9 @@ foreman_scl_packages:
     rubygem-ovirt-engine-sdk: {}
     rubygem-paint: {}
     rubygem-parallel: {}
-    rubygem-passenger:
-      koji_tags:
-        - name: foreman-nightly-rhel7
-          scl: 'tfm'
-          dist: '.el7'
     rubygem-patternfly-sass: {}
     rubygem-pg: {}
+    rubygem-powerbar: {}
     rubygem-po_to_json: {}
     rubygem-prometheus-client: {}
     rubygem-promise.rb: {}
@@ -237,6 +245,11 @@ foreman_scl_packages:
     rubygem-puma-status: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
+    rubygem-racc:
+      koji_tags:
+        - name: "foreman-{{ foreman_version }}-rhel7"
+          scl: 'tfm'
+          dist: '.el7'
     rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
@@ -246,7 +259,6 @@ foreman_scl_packages:
     rubygem-rails-html-sanitizer: {}
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
-    rubygem-rbovirt: {}
     rubygem-rbvmomi: {}
     rubygem-record_tag_helper: {}
     rubygem-redis: {}
@@ -258,15 +270,16 @@ foreman_scl_packages:
     rubygem-roadie-rails: {}
     rubygem-roadie: {}
     rubygem-ruby-libvirt: {}
+    rubygem-ruby2_keywords: {}
     rubygem-ruby2ruby: {}
     rubygem-ruby_parser: {}
-    rubygem-rubyforge: {}
     rubygem-safemode: {}
     rubygem-sass: {}
     rubygem-sass-rails: {}
     rubygem-sassc: {}
     rubygem-sassc-rails: {}
     rubygem-scoped_search: {}
+    rubygem-sd_notify: {}
     rubygem-secure_headers: {}
     rubygem-sequel: {}
     rubygem-sexp_processor: {}
@@ -279,7 +292,6 @@ foreman_scl_packages:
     rubygem-sshkey: {}
     rubygem-statsd-instrument: {}
     rubygem-sqlite3: {}
-    rubygem-syntax: {}
     rubygem-text: {}
     rubygem-tilt: {}
     rubygem-thor: {}
@@ -298,12 +310,11 @@ foreman_scl_packages:
     rubygem-websocket-extensions: {}
     rubygem-will_paginate: {}
     rubygem-wirb: {}
-    rubygem-x-editable-rails: {}
     rubygem-xmlrpc: {}
     rubygem-zeitwerk: {}
     tfm:
       koji_tags:
-        - name: foreman-nightly-rhel7
+        - name: "foreman-{{ foreman_version }}-rhel7"
           scl: 'tfm'
           dist: '.el7'
 
@@ -312,14 +323,15 @@ foreman_nodejs_packages:
     scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-rhel7
+      - name: "foreman-{{ foreman_version }}-rhel7"
         dist: '.el7'
         scl: 'tfm'
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
       - koji-foreman
   hosts:
+    gyp: {}
     nodejs-argv-parse: {}
     nodejs-babel-cli:
       strategy: bundle
@@ -344,34 +356,24 @@ foreman_nodejs_packages:
     nodejs-babel-register:
       strategy: bundle
     nodejs-babel-runtime: {}
-    nodejs-bootstrap-slider-without-jquery: {}
-    nodejs-breakjs: {}
     nodejs-c3: {}
-    nodejs-change-emitter: {}
-    nodejs-classnames: {}
     nodejs-compression-webpack-plugin:
       strategy: bundle
     nodejs-core-js: {}
-    nodejs-create-react-context: {}
-    nodejs-css-element-queries: {}
     nodejs-css-loader:
       strategy: bundle
+    nodejs-cssnano:
+      strategy: bundle
     nodejs-d3: {}
-    nodejs-dom-helpers: {}
     nodejs-dotenv: {}
-    nodejs-escape-string-regexp: {}
     nodejs-expose-loader: {}
     nodejs-extract-text-webpack-plugin:
       strategy: bundle
-    nodejs-fbjs:
-      strategy: bundle
     nodejs-file-loader:
       strategy: bundle
-    nodejs-fortawesome-fontawesome-common-types: {}
-    nodejs-fortawesome-free-brands-svg-icons: {}
-    nodejs-gud: {}
+    nodejs-graphql: {}
+    nodejs-graphql-tag: {}
     nodejs-harmony-reflect: {}
-    nodejs-hoist-non-react-statics: {}
     nodejs-humanize-duration: {}
     nodejs-identity-obj-proxy: {}
     nodejs-intl: {}
@@ -380,7 +382,6 @@ foreman_nodejs_packages:
     nodejs-jquery: {}
     nodejs-js-tokens: {}
     nodejs-lodash-es: {}
-    nodejs-lodash.debounce: {}
     nodejs-lodash: {}
     nodejs-loose-envify: {}
     nodejs-node-gyp:
@@ -388,42 +389,24 @@ foreman_nodejs_packages:
     nodejs-node-sass:
       strategy: bundle
     nodejs-object-assign: {}
-    nodejs-patternfly-react: {}
-    nodejs-patternfly-react-icons: {}
-    nodejs-patternfly-react-tokens: {}
-    nodejs-patternfly:
-      strategy: bundle
+    nodejs-optimize-css-assets-webpack-plugin: {}
     nodejs-performance-now: {}
     nodejs-popper.js: {}
-    nodejs-prop-types: {}
-    nodejs-prop-types-extra: {}
     nodejs-raf: {}
-    nodejs-react-bootstrap-switch: {}
     nodejs-react-bootstrap:
       strategy: bundle
-    nodejs-react-bootstrap-typeahead: {}
-    nodejs-react-c3js: {}
-    nodejs-react-click-outside: {}
-    nodejs-react-collapse: {}
-    nodejs-react-debounce-input: {}
     nodejs-react-dom:
       strategy: bundle
     nodejs-react-ellipsis-with-tooltip: {}
-    nodejs-react-fontawesome: {}
     nodejs-react-intl:
       strategy: bundle
     nodejs-react-is: {}
     nodejs-react-lifecycles-compat: {}
-    nodejs-react-motion: {}
-    nodejs-react-overlays: {}
-    nodejs-react-popper: {}
     nodejs-react-redux:
       strategy: bundle
-    nodejs-react-transition-group: {}
     nodejs-react:
       strategy: bundle
-    nodejs-reactabular-table: {}
-    nodejs-recompose: {}
+    nodejs-redhat-cloud-services-frontend-components: {}
     nodejs-redux-thunk: {}
     nodejs-redux: {}
     nodejs-regenerator-runtime: {}
@@ -447,6 +430,7 @@ foreman_nodejs_packages:
     nodejs-urijs: {}
     nodejs-url-loader:
       strategy: bundle
+    nodejs-use-deep-compare-effect: {}
     nodejs-uuid: {}
     nodejs-warning: {}
     nodejs-webpack-stats-plugin: {}
@@ -457,12 +441,12 @@ foreman_installer_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-nonscl-rhel7
+      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
-      - name: foreman-nightly-rhel7
+      - name: "foreman-{{ foreman_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
       - koji-foreman
@@ -476,6 +460,8 @@ foreman_installer_packages:
         - "jenkins_job=foreman-installer-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
+      source_system: jenkins
     foreman-selinux:
       releasers:
         - "{{ nightly_releaser }}"
@@ -484,6 +470,8 @@ foreman_installer_packages:
         - "jenkins_job=foreman-selinux-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/foreman-selinux-develop-source-release
+      source_system: jenkins
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
@@ -498,9 +486,9 @@ foreman_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-nonscl-rhel7
+      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
       - koji-foreman
@@ -515,12 +503,12 @@ foreman_proxy_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-rhel7
+      - name: "foreman-{{ foreman_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
@@ -536,23 +524,27 @@ foreman_proxy_packages:
         - "jenkins_job=smart-proxy-develop-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
+      source_system: jenkins
     rubygem-concurrent-ruby: {}
     rubygem-gssapi: {}
     rubygem-rake-compiler: {}
     rubygem-rubyipmi: {}
     rubygem-rb-inotify: {}
+    rubygem-redfish_client: {}
     rubygem-rsec: {}
+    rubygem-server_sent_events: {}
 
 foreman_proxy_plugin_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: foreman-plugins-nightly-rhel7
+      - name: "foreman-plugins-{{ foreman_version }}-rhel7"
         dist: '.el7'
         scl: 'tfm'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: foreman-plugins-nightly-el8
+      - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
@@ -566,15 +558,16 @@ foreman_proxy_plugin_packages:
         - el7-scl
         - el7-epel
         - el7-extras
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
+        - "el7-foreman-{{ foreman_version }}"
+        - "el7-foreman-plugins-{{ foreman_version }}"
+        - el7-configmanagement-salt
       el8:
         - el8-baseos
         - el8-appstream
         - el8-powertools
         - el8-extras
-        - el8-foreman-nightly
-        - el8-foreman-plugins-nightly
+        - "el8-foreman-{{ foreman_version }}"
+        - "el8-foreman-plugins-{{ foreman_version }}"
         - el8-configmanagement-ansible
         - el8-configmanagement-salt
   hosts:
@@ -611,19 +604,21 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_pulp: {}
     rubygem-smart_proxy_realm_ad_plugin: {}
     rubygem-smart_proxy_remote_execution_ssh: {}
+    rubygem-smart_proxy_reports: {}
     rubygem-smart_proxy_salt: {}
+    rubygem-smart_proxy_shellhooks: {}
     rubygem-smart_proxy_spacewalk: {}
 
 foreman_scl_and_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: foreman-nightly-rhel7
+      - name: "foreman-{{ foreman_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
-      - name: foreman-nightly-nonscl-rhel7
+      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
       - koji-foreman
@@ -638,27 +633,23 @@ foreman_client_packages:
     releasers:
       - koji-foreman-client
     koji_tags:
-      - name: foreman-client-nightly-el8
+      - name: "foreman-client-{{ foreman_version }}-el8"
         dist: '.el8'
-      - name: foreman-client-nightly-rhel7
+      - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
-      - name: foreman-client-nightly-rhel6
+      - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: foreman-client-nightly-rhel5
-        dist: '.el5'
-      - name: foreman-client-nightly-fedora29
+      - name: "foreman-client-{{ foreman_version }}-fedora29"
         dist: '.fc29'
     repoclosure_target_repos:
       el8:
-        - el8-foreman-client-nightly
+        - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
-        - el7-foreman-client-nightly
+        - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
-        - el6-foreman-client-nightly
-      rhel5:
-        - el5-foreman-client-nightly
+        - "el6-foreman-client-{{ foreman_version }}"
       fedora29:
-        - f29-foreman-client-nightly
+        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -667,6 +658,7 @@ foreman_client_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
+        - el8-configmanagement-ansible
       rhel7:
         - el7-base
         - el7-updates
@@ -682,20 +674,13 @@ foreman_client_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      rhel5:
-        - el5-base
-        - el5-epel
-        - el5-puppet-6
-        - el5-subscription-manager
-        - el5-pulp
       fedora29:
         - f29-base
         - f29-updates
         - f29-puppet-6
   hosts:
-    ansible-collection-theforeman-foreman: {}
+    gofer: {}
     katello-host-tools: {}
-    python-apypie: {}
     python-beautifulsoup4: {}
     python-psutil: {}
     rubygem-foreman_scap_client: {}
@@ -705,12 +690,12 @@ katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
     koji_tags:
-      - name: katello-nightly-rhel7
+      - name: "katello-{{ katello_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: katello-nightly-el8
+      - name: "katello-{{ katello_version }}-el8"
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
@@ -719,9 +704,9 @@ katello_packages:
     nightly_releaser: koji-katello-jenkins
     repoclosure_target_repos:
       rhel7:
-        - el7-katello-nightly
+        - "el7-katello-{{ katello_version }}"
       el8:
-        - el8-katello-nightly
+        - "el8-katello-{{ katello_version }}"
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -730,11 +715,10 @@ katello_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
-        - el7-katello-pulp-nightly
-        - el7-katello-pulpcore-nightly
-        - el7-katello-candlepin-nightly
+        - "el7-foreman-{{ foreman_version }}"
+        - "el7-foreman-plugins-{{ foreman_version }}"
+        - "el7-katello-pulp-{{ katello_version }}"
+        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -742,15 +726,16 @@ katello_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
-        - el8-foreman-nightly
-        - el8-foreman-plugins-nightly
-        - el8-katello-pulpcore-nightly
-        - el8-katello-candlepin-nightly
+        - "el8-foreman-{{ foreman_version }}"
+        - "el8-foreman-plugins-{{ foreman_version }}"
+        - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
+    jsoncpp: {}
     katello: {}
     katello-client-bootstrap: {}
     katello-repos: {}
     katello-selinux: {}
+    libwebsockets: {}
     nodejs-angular: {}
     nodejs-bootstrap-select: {}
     nodejs-decode-uri-component: {}
@@ -760,11 +745,10 @@ katello_packages:
     nodejs-react-helmet:
       strategy: bundle
     nodejs-strict-uri-encode: {}
-    pulp-katello:
-      koji_tags:
-        - name: katello-nightly-rhel7
-          scl: 'tfm'
-          dist: '.el7'
+    python-qpid: {}
+    qpid-cpp: {}
+    qpid-dispatch: {}
+    qpid-proton: {}
     rhel8-kickstart-setup: {}
     rubygem-activerecord-import: {}
     rubygem-anemone: {}
@@ -774,6 +758,8 @@ katello_packages:
     rubygem-foreman_virt_who_configure: {}
     rubygem-fx: {}
     rubygem-hammer_cli_csv: {}
+    rubygem-hammer_cli_foreman_rh_cloud: {}
+    rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello:
       releasers:
@@ -783,6 +769,8 @@ katello_packages:
         - "jenkins_job=hammer-cli-katello-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
+      source_system: jenkins
     rubygem-katello:
       releasers:
         - "{{ nightly_releaser }}"
@@ -791,21 +779,24 @@ katello_packages:
         - "jenkins_job=katello-master-source-release"
         - "jenkins_url=https://ci.theforeman.org"
       build_package_tito_builder: "tito.builder.FetchBuilder"
+      source_location: https://ci.theforeman.org/job/katello-master-source-release
+      source_system: jenkins
+    rubygem-pulp_python_client: {}
     rubygem-pulpcore_client: {}
     rubygem-pulp_ansible_client: {}
     rubygem-pulp_certguard_client: {}
     rubygem-pulp_container_client: {}
     rubygem-pulp_deb_client: {}
     rubygem-pulp_file_client: {}
-    rubygem-pulp_2to3_migration_client: {}
+    rubygem-pulp_ostree_client: {}
     rubygem-pulp_rpm_client: {}
-    rubygem-redhat_access: {}
-    rubygem-redhat_access_lib: {}
+    rubygem-qpid_proton: {}
     rubygem-robotex: {}
     rubygem-runcible: {}
     rubygem-stomp: {}
     rubygem-typhoeus: {}
     rubygem-zest: {}
+    saslwrapper: {}
 
 plugins_packages:
   children:
@@ -816,12 +807,12 @@ plugin_scl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: foreman-plugins-nightly-rhel7
+      - name: "foreman-plugins-{{ foreman_version }}-rhel7"
         scl: 'tfm'
         dist: '.el7'
         macros:
           foremandist: "{{ foremandist }}"
-      - name: foreman-plugins-nightly-el8
+      - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
           foremandist: "{{ foremandist }}"
@@ -830,9 +821,9 @@ plugin_scl_packages:
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_target_repos:
       rhel7:
-        - el7-foreman-plugins-nightly
+        - "el7-foreman-plugins-{{ foreman_version }}"
       el8:
-        - el8-foreman-plugins-nightly
+        - "el8-foreman-plugins-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -841,7 +832,8 @@ plugin_scl_packages:
         - el7-extras
         - el7-scl
         - el7-puppet-6
-        - el7-foreman-nightly
+        - "el7-foreman-{{ foreman_version }}"
+        - el7-configmanagement-salt
       el8:
         - el8-appstream
         - el8-baseos
@@ -850,18 +842,17 @@ plugin_scl_packages:
         - el8-configmanagement-salt
         - el8-devel
         - el8-extras
-        - el8-powertools
         - el8-puppet-6
-        - el8-foreman-nightly
+        - "el8-foreman-{{ foreman_version }}"
   hosts:
+    foreman-discovery-image-service: {}
     nodejs-babel-plugin-module-resolver:
       strategy: bundle
-    nodejs-htmlparser2:
-      strategy: bundle
-    nodejs-react-html-parser:
+    nodejs-patternfly-react-catalog-view-extension:
       strategy: bundle
     nodejs-react-json-tree:
       strategy: bundle
+    rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
     rubygem-aws-sigv4: {}
@@ -870,9 +861,11 @@ plugin_scl_packages:
     rubygem-azure_mgmt_resources: {}
     rubygem-azure_mgmt_storage: {}
     rubygem-azure_mgmt_subscriptions: {}
+    rubygem-bcrypt_pbkdf: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
     rubygem-commonjs: {}
+    rubygem-ed25519: {}
     rubygem-elastic-apm: {}
     rubygem-dalli: {}
     rubygem-deface: {}
@@ -882,27 +875,25 @@ plugin_scl_packages:
     rubygem-fog-kubevirt: {}
     rubygem-fog-proxmox: {}
     rubygem-foreman-tasks: {}
-    rubygem-foreman-tasks-core: {}
     rubygem-foreman_acd: {}
     rubygem-foreman_ansible: {}
-    rubygem-foreman_ansible_core: {}
     rubygem-foreman_azure_rm: {}
     rubygem-foreman_bootdisk: {}
     rubygem-foreman_chef: {}
     rubygem-foreman_column_view: {}
     rubygem-foreman_concrete: {}
+    rubygem-foreman_datacenter: {}
     rubygem-foreman_default_hostgroup: {}
     rubygem-foreman_dhcp_browser: {}
-    rubygem-foreman_digitalocean: {}
     rubygem-foreman_discovery: {}
     rubygem-foreman_dlm: {}
-    rubygem-foreman_docker: {}
     rubygem-foreman_expire_hosts: {}
     rubygem-foreman_fog_proxmox: {}
     rubygem-foreman_git_templates: {}
     rubygem-foreman_graphite: {}
     rubygem-foreman_hooks: {}
     rubygem-foreman_host_extra_validator: {}
+    rubygem-foreman_host_reports: {}
     rubygem-foreman_kubevirt: {}
     rubygem-foreman_leapp: {}
     rubygem-foreman_m2: {}
@@ -912,9 +903,8 @@ plugin_scl_packages:
     rubygem-foreman_omaha: {}
     rubygem-foreman_openscap: {}
     rubygem-foreman_probing: {}
-    rubygem-foreman_probing_core: {}
+    rubygem-foreman_puppet: {}
     rubygem-foreman_remote_execution: {}
-    rubygem-foreman_remote_execution_core: {}
     rubygem-foreman_rescue: {}
     rubygem-foreman_salt: {}
     rubygem-foreman_setup: {}
@@ -924,9 +914,9 @@ plugin_scl_packages:
     rubygem-foreman_supervisory_authority: {}
     rubygem-foreman_templates: {}
     rubygem-foreman_vault: {}
+    rubygem-foreman_webhooks: {}
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
-    rubygem-foreman_xen: {}
     rubygem-git: {}
     rubygem-graphite-api: {}
     rubygem-hammer_cli_foreman_admin: {}
@@ -934,15 +924,16 @@ plugin_scl_packages:
     rubygem-hammer_cli_foreman_azure_rm: {}
     rubygem-hammer_cli_foreman_bootdisk: {}
     rubygem-hammer_cli_foreman_discovery: {}
-    rubygem-hammer_cli_foreman_docker: {}
     rubygem-hammer_cli_foreman_kubevirt: {}
     rubygem-hammer_cli_foreman_leapp: {}
     rubygem-hammer_cli_foreman_openscap: {}
+    rubygem-hammer_cli_foreman_puppet: {}
     rubygem-hammer_cli_foreman_remote_execution: {}
     rubygem-hammer_cli_foreman_salt: {}
     rubygem-hammer_cli_foreman_ssh: {}
     rubygem-hammer_cli_foreman_tasks: {}
     rubygem-hammer_cli_foreman_templates: {}
+    rubygem-hammer_cli_foreman_webhooks: {}
     rubygem-http: {}
     rubygem-http-form_data: {}
     rubygem-http_parser.rb: {}
@@ -950,13 +941,13 @@ plugin_scl_packages:
     rubygem-jgrep: {}
     rubygem-jquery-matchheight-rails: {}
     rubygem-kubeclient: {}
-    rubygem-msgpack: {}
     rubygem-multi_xml: {}
     rubygem-ms_rest: {}
     rubygem-ms_rest_azure: {}
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
+    rubygem-newt: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
     rubygem-pdf-core: {}
@@ -964,10 +955,14 @@ plugin_scl_packages:
     rubygem-prawn: {}
     rubygem-puppetdb_foreman: {}
     rubygem-rainbow: {}
+    rubygem-rbnacl: {}
     rubygem-recursive-open-struct: {}
     rubygem-rqrcode: {}
     rubygem-safe_yaml: {}
     rubygem-sentry-raven: {}
+    rubygem-smart_proxy_container_gateway: {}
+    rubygem-smart_proxy_acd: {}
+    rubygem-smart_proxy_acd_core: {}
     rubygem-smart_proxy_dynflow_core: {}
     rubygem-smart_proxy_salt_core: {}
     rubygem-systemu: {}
@@ -981,18 +976,18 @@ plugin_nonscl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: foreman-plugins-nightly-nonscl-rhel7
+      - name: "foreman-plugins-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
-      - name: foreman-plugins-nightly-el8
+      - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_target_repos:
       rhel7:
-        - el7-foreman-plugins-nightly
+        - "el7-foreman-plugins-{{ foreman_version }}"
       el8:
-        - el8-foreman-plugins-nightly
+        - "el8-foreman-plugins-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       rhel7:
         - el7-base
@@ -1000,9 +995,10 @@ plugin_nonscl_packages:
         - el7-epel
         - el7-extras
         - el7-puppet-6
-        - el7-foreman-nightly
-        - el7-foreman-plugins-nightly
+        - "el7-foreman-{{ foreman_version }}"
+        - "el7-foreman-plugins-{{ foreman_version }}"
         - el7-scl
+        - el7-configmanagement-salt
       el8:
         - el8-baseos
         - el8-appstream
@@ -1010,24 +1006,24 @@ plugin_nonscl_packages:
         - el8-extras
         - el8-puppet-6
         - el8-devel
-        - el8-foreman-nightly
+        - "el8-foreman-{{ foreman_version }}"
         - el8-configmanagement-ansible
+        - el8-configmanagement-salt
   hosts:
+    ansible-collection-theforeman-operations: {}
     ansiblerole-foreman_scap_client: {}
     ansiblerole-insights-client: {}
     ansiblerole-satellite-receptor-installer: {}
-    foreman-discovery-image-service: {}
+    ansible-collection-theforeman-foreman: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
-    rubygem-newt: {}
-    rubygem-satyr: {}
 
 repoclosures:
   hosts:
     foreman-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
-          - el7-foreman-nightly
+          - "el7-foreman-{{ foreman_version }}"
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1037,11 +1033,11 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-katello-candlepin-nightly
+          - "el7-katello-candlepin-{{ katello_version }}"
     foreman-repoclosure-el8:
       repoclosure_target_repos:
         el8:
-          - el8-foreman-nightly
+          - "el8-foreman-{{ foreman_version }}"
       repoclosure_target_dist: el8
       repoclosure_lookaside_repos:
         el8:
@@ -1050,13 +1046,12 @@ repoclosures:
           - el8-powertools
           - el8-devel
           - el8-extras
-          - el8-powertools
           - el8-puppet-6
-          - el8-katello-candlepin-nightly
+          - "el8-katello-candlepin-{{ katello_version }}"
     plugins-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
-          - el7-foreman-plugins-nightly
+          - "el7-foreman-plugins-{{ foreman_version }}"
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1066,11 +1061,12 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-nightly
+          - "el7-foreman-{{ foreman_version }}"
+          - el7-configmanagement-salt
     plugins-repoclosure-el8:
       repoclosure_target_repos:
         el8:
-          - el8-foreman-plugins-nightly
+          - "el8-foreman-plugins-{{ foreman_version }}"
       repoclosure_target_dist: el8
       repoclosure_lookaside_repos:
         el8:
@@ -1081,14 +1077,28 @@ repoclosures:
           - el8-configmanagement-salt
           - el8-devel
           - el8-extras
-          - el8-powertools
           - el8-puppet-6
-          - el8-foreman-nightly
+          - "el8-foreman-{{ foreman_version }}"
+    katello-repoclosure-el8:
+      repoclosure_target_repos:
+        el8:
+          - "el8-katello-{{ katello_version }}"
+      repoclosure_target_dist: el8
+      repoclosure_lookaside_repos:
+        el8:
+          - el8-baseos
+          - el8-appstream
+          - el8-powertools
+          - el8-devel
+          - el8-extras
+          - el8-puppet-6
+          - "el8-foreman-{{ foreman_version }}"
+          - "el8-foreman-plugins-{{ foreman_version }}"
+          - "el8-katello-candlepin-{{ katello_version }}"
     katello-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
-          - el7-katello-nightly
-          - el7-katello-pulpcore-nightly
+          - "el7-katello-{{ katello_version }}"
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1098,14 +1108,14 @@ repoclosures:
           - el7-extras
           - el7-scl
           - el7-puppet-6
-          - el7-foreman-nightly
-          - el7-foreman-plugins-nightly
-          - el7-katello-pulp-nightly
-          - el7-katello-candlepin-nightly
+          - "el7-foreman-{{ foreman_version }}"
+          - "el7-foreman-plugins-{{ foreman_version }}"
+          - "el7-katello-pulp-{{ katello_version }}"
+          - "el7-katello-candlepin-{{ katello_version }}"
     foreman-client-repoclosure-el8:
       repoclosure_target_repos:
         el8:
-          - el8-foreman-client-nightly
+          - "el8-foreman-client-{{ foreman_version }}"
       repoclosure_target_dist: el8
       repoclosure_lookaside_repos:
         el8:
@@ -1115,10 +1125,11 @@ repoclosures:
           - el8-epel
           - el8-extras
           - el8-puppet-6
+          - el8-configmanagement-ansible
     foreman-client-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
-          - el7-foreman-client-nightly
+          - "el7-foreman-client-{{ foreman_version }}"
       repoclosure_target_dist: rhel7
       repoclosure_lookaside_repos:
         rhel7:
@@ -1130,7 +1141,7 @@ repoclosures:
     foreman-client-repoclosure-el6:
       repoclosure_target_repos:
         rhel6:
-          - el6-foreman-client-nightly
+          - "el6-foreman-client-{{ foreman_version }}"
       repoclosure_target_dist: rhel6
       repoclosure_lookaside_repos:
         rhel6:
@@ -1142,22 +1153,10 @@ repoclosures:
           - el6-qpid
           - el6-pulp
           - el6-subscription-manager
-    foreman-client-repoclosure-el5:
-      repoclosure_target_repos:
-        rhel5:
-          - el5-foreman-client-nightly
-      repoclosure_target_dist: rhel5
-      repoclosure_lookaside_repos:
-        rhel5:
-          - el5-base
-          - el5-epel
-          - el5-puppet-6
-          - el5-subscription-manager
-          - el5-pulp
     foreman-client-repoclosure-f29:
       repoclosure_target_repos:
         fedora29:
-          - f29-foreman-client-nightly
+          - "f29-foreman-client-{{ foreman_version }}"
       repoclosure_target_dist: fedora29
       repoclosure_lookaside_repos:
         fedora29:
@@ -1165,167 +1164,21 @@ repoclosures:
           - f29-updates
           - f29-puppet-6
 
-pulpcore_packages:
-  vars:
-    package_base_dir: 'packages/pulpcore/'
-    koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
-      - name: katello-pulpcore-nightly-el8
-        dist: '.el8'
-    releasers:
-      - koji-katello-pulpcore
-    repoclosure_target_repos:
-      el7:
-        - el7-katello-pulpcore-nightly
-      el8:
-        - el8-katello-pulpcore-nightly
-    repoclosure_lookaside_repos:
-      el7:
-        - el7-base
-        - el7-updates
-        - el7-scl
-        - el7-epel
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-configmanagement-ansible
-  hosts:
-    createrepo_c: {}
-    libcomps: {}
-    libsolv: {}
-    postgresql-debversion: {}
-    postgresql-evr: {}
-    pulpcore-selinux: {}
-    python-aiodns: {}
-    python-aiofiles: {}
-    python-aiohttp: {}
-    python-async-timeout: {}
-    python-attrs: {}
-    python-backoff: {}
-    python-bleach: {}
-    python-bleach-whitelist: {}
-    python-box: {}
-    python-certifi: {}
-    python-cffi: {}
-    python-chardet: {}
-    python-click: {}
-    python-coreapi: {}
-    python-coreschema: {}
-    python-cryptography: {}
-    python-dateutil: {}
-    python-debian: {}
-    python-defusedxml: {}
-    python-diff-match-patch: {}
-    python-django: {}
-    python-django-filter: {}
-    python-django-import-export: {}
-    python-django-prometheus: {}
-    python-django-readonly-field: {}
-    python-djangorestframework: {}
-    python-djangorestframework-queryfields: {}
-    python-dotenv: {}
-    python-drf-nested-routers: {}
-    python-drf-yasg: {}
-    python-dynaconf: {}
-    python-ecdsa: {}
-    python-et-xmlfile: {}
-    python-flake8: {}
-    python-future: {}
-    python-galaxy-importer: {}
-    python-galaxy-ng: {}
-    python-gnupg: {}
-    python-gunicorn: {}
-    python-idna: {}
-    python-idna-ssl: {}
-    python-importlib-metadata: {}
-    python-inflection: {}
-    python-iniparse:
-      koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
-    python-itypes: {}
-    python-jdcal: {}
-    python-jinja2: {}
-    python-jsonschema: {}
-    python-markdown: {}
-    python-markuppy: {}
-    python-markupsafe: {}
-    python-mccabe: {}
-    python-mongoengine: {}
-    python-multidict: {}
-    python-odfpy: {}
-    python-openpyxl: {}
-    python-packaging: {}
-    python-productmd: {}
-    python-prometheus-client: {}
-    python-psycopg2: {}
-    python-pulp-ansible: {}
-    python-pulp-certguard: {}
-    python-pulp-rpm: {}
-    python-pulp_2to3_migration: {}
-    python-pulp-container: {}
-    python-pulp-deb: {}
-    python-pulp-file: {}
-    python-pulpcore: {}
-    python-pycares: {}
-    python-pycodestyle: {}
-    python-pycparser: {}
-    python-pycryptodomex: {}
-    python-pyflakes: {}
-    python-pygtrie: {}
-    python-pyjwkest: {}
-    python-pyjwt: {}
-    python-pymongo: {}
-    python-pyOpenSSL: {}
-    python-pyparsing: {}
-    python-pyrsistent: {}
-    python-pytz: {}
-    python-pyyaml: {}
-    python-redis: {}
-    python-requests: {}
-    python-rq: {}
-    python-ruamel-yaml: {}
-    python-ruamel-yaml-clib: {}
-    python-semantic-version: {}
-    python-setuptools-scm: {}
-    python-setuptools_scm_git_archive: {}
-    python-six: {}
-    python-sqlparse: {}
-    python-tablib: {}
-    python-toml: {}
-    python-typing: {}
-    python-typing-extensions: {}
-    python-uritemplate: {}
-    python-urllib3: {}
-    python-webencodings: {}
-    python-whitenoise: {}
-    python-xlrd: {}
-    python-xlwt: {}
-    python-yarl: {}
-    python-zipp: {}
-    subscription-manager:
-      koji_tags:
-      - name: katello-pulpcore-nightly-el7
-        dist: '.el7'
 
 foreman_release_packages:
   vars:
     koji_tags:
-      - name: foreman-nightly-el8
+      - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
-      - name: foreman-nightly-nonscl-rhel7
+      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
-      - name: foreman-client-nightly-el8
+      - name: "foreman-client-{{ foreman_version }}-el8"
         dist: '.el8'
-      - name: foreman-client-nightly-rhel7
+      - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
-      - name: foreman-client-nightly-rhel6
+      - name: "foreman-client-{{ foreman_version }}-rhel6"
         dist: '.el6'
-      - name: foreman-client-nightly-rhel5
-        dist: '.el5'
-      - name: foreman-client-nightly-fedora29
+      - name: "foreman-client-{{ foreman_version }}-fedora29"
         dist: '.fc29'
     releasers:
       - koji-foreman
@@ -1333,15 +1186,13 @@ foreman_release_packages:
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
       el8:
-        - el8-foreman-client-nightly
+        - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
-        - el7-foreman-client-nightly
+        - "el7-foreman-client-{{ foreman_version }}"
       rhel6:
-        - el6-foreman-client-nightly
-      rhel5:
-        - el5-foreman-client-nightly
+        - "el6-foreman-client-{{ foreman_version }}"
       fedora29:
-        - f29-foreman-client-nightly
+        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -1355,7 +1206,7 @@ foreman_release_packages:
         - el7-epel
         - el7-extras
         - el7-puppet-6
-        - el7-foreman-nightly
+        - "el7-foreman-{{ foreman_version }}"
       rhel6:
         - el6-base
         - el6-updates
@@ -1365,12 +1216,6 @@ foreman_release_packages:
         - el6-qpid
         - el6-subscription-manager
         - el6-pulp
-      rhel5:
-        - el5-base
-        - el5-epel
-        - el5-puppet-6
-        - el5-subscription-manager
-        - el5-pulp
       fedora29:
         - f29-base
         - f29-updates

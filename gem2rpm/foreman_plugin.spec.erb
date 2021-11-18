@@ -52,20 +52,18 @@ URL: <%= spec.homepage %>
 <% end -%>
 Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
-Autoreq: 0
-
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
-Requires: %{?scl_prefix_ruby}ruby <%= req %>
+Requires: %{?scl_prefix_ruby}ruby<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-Requires: %{?scl_prefix_ruby}ruby(rubygems) <%= req %>
+Requires: %{?scl_prefix_ruby}ruby(rubygems)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
+Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% end -%>
 <% if has_assets || has_webpack -%>
@@ -75,16 +73,16 @@ BuildRequires: foreman-plugin >= %{foreman_min_version}
 <% if has_assets || has_webpack || has_apidoc -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-BuildRequires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>) <%= req  %>
+BuildRequires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% end -%>
 <% end -%>
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 <% for req in spec.required_ruby_version -%>
-BuildRequires: %{?scl_prefix_ruby}ruby<%= "-devel" unless spec.extensions.empty? %> <%= req %>
+BuildRequires: %{?scl_prefix_ruby}ruby<%= "-devel" unless spec.extensions.empty? %><%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel <%= req %>
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% if spec.extensions.empty? -%>
 BuildArch: noarch

@@ -5,7 +5,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.7.1.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A date picker for Twitter Bootstrap
 Group: Development/Languages
 License: MIT
@@ -74,6 +74,9 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %exclude %{gem_instdir}/.*
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.7.1.1-4
+- Rebuild for Ruby 2.7
+
 * Fri Jan 17 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.7.1.1-3
 - Update spec to remove the ror scl
 

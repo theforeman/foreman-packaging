@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.2
-Release: 6%{?foremandist}%{?dist}
+Release: 7%{?foremandist}%{?dist}
 Summary: Monitoring plug-in for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -119,6 +119,9 @@ mkdir -p %{buildroot}%{_root_sysconfdir}/foreman-proxy/monitoring
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.2-7
+- Rebuild for Ruby 2.7
+
 * Mon Jun 22 2020 Evgeni Golov - 0.1.2-6
 - Fix bundler.d location on EL8
 

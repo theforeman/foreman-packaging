@@ -4,16 +4,14 @@
 %global npm_name angular
 
 Name: %{?scl_prefix}nodejs-angular
-Version: 1.7.9
+Version: 1.8.2
 Release: 1%{?dist}
 Summary: HTML enhanced for web apps
 License: MIT
 Group: Development/Libraries
 URL: http://angularjs.org
 Source0: https://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
-%if 0%{?scl:1}
-BuildRequires: %{?scl_prefix_nodejs}npm
-%else
+%if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
 BuildArch: noarch
@@ -43,9 +41,13 @@ cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
+%license LICENSE.md
 %doc README.md
 
 %changelog
+* Wed Feb 24 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.8.2-1
+- Update to 1.8.2
+
 * Wed Apr 01 2020 Justin Sherrill <jsherril@redhat.com> 1.7.9-1
 - Update to 1.7.9
 

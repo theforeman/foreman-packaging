@@ -1,1 +1,3 @@
 addFilter('macro-in-comment')
+addFilter('unversioned-explicit-obsoletes')
+addFilter('unversioned Obsoletes')

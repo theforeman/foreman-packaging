@@ -1,16 +1,14 @@
-# Generated from foreman-tasks-0.15.1.gem by gem2rpm -*- rpm-spec -*-
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
-
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 2.1.0
+%global foreman_min_version 2.6.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.2
+Version: 5.1.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -25,7 +23,6 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
-Requires: %{?scl_prefix}rubygem(foreman-tasks-core)
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
@@ -33,7 +30,6 @@ Requires: %{?scl_prefix}rubygem(sinatra)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks-core)
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
@@ -49,8 +45,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -60,41 +55,56 @@ BuildRequires: %{?scl_prefix}npm(c3) >= 0.4.11
 BuildRequires: %{?scl_prefix}npm(c3) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(humanize-duration) >= 3.20.1
 BuildRequires: %{?scl_prefix}npm(humanize-duration) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-html-parser) >= 2.0.2
-BuildRequires: %{?scl_prefix}npm(react-html-parser) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
 BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 %description
 The goal of this plugin is to unify the way of showing task statuses across
-the Foreman instance.  It defines Task model for keeping the information
-about the tasks and Lock for assigning the tasks to resources. The locking
-allows dealing with preventing multiple colliding tasks to be run on the
-same resource. It also optionally provides Dynflow infrastructure for using
-it for managing the tasks.
+the Foreman instance.
+It defines Task model for keeping the information about the tasks and Lock for
+assigning the tasks
+to resources. The locking allows dealing with preventing multiple colliding
+tasks to be run on the
+same resource. It also optionally provides Dynflow infrastructure for using it
+for managing the tasks.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
+%{?scl:scl enable %{scl} - << \EOF}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -109,6 +119,11 @@ chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 %{__mkdir_p} %{buildroot}%{foreman_dir}/script/foreman-debug.d
 ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
+# Link rake task interface scripts into /usr/bin
+mkdir -p %{buildroot}%{_bindir}
+ln -s %{gem_instdir}/extra/foreman-tasks-cleanup.sh %{buildroot}%{_bindir}/foreman-tasks-cleanup
+ln -s %{gem_instdir}/extra/foreman-tasks-export.sh %{buildroot}%{_bindir}/foreman-tasks-export
+
 # Logrotate script
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_root_sysconfdir}/logrotate.d/%{gem_name}
 
@@ -118,25 +133,25 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.eslintrc
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.prettierrc
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.stylelintrc
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.tx
 %exclude %{gem_instdir}/.yo-rc.json
-%exclude %{gem_instdir}/%{gem_name}.gemspec
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/gemfile.d/foreman-tasks.rb
-%exclude %{gem_instdir}/babel.config.js
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
+%exclude %{gem_instdir}/babel.config.js
 %{gem_instdir}/bin
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_instdir}/deploy
 %{gem_instdir}/extra
+%{_bindir}/foreman-tasks-cleanup
+%{_bindir}/foreman-tasks-export
+%exclude %{gem_instdir}/gemfile.d
 %{gem_libdir}
 %{gem_instdir}/locale
 %exclude %{gem_instdir}/package.json
@@ -145,23 +160,61 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{gem_instdir}/public
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
-%exclude %{gem_instdir}/test
 %{foreman_assets_plugin}
+%{gem_instdir}/public/assets/foreman_tasks/
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
+%{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/extra/dynflow-executor.example
+%{gem_instdir}/foreman-tasks.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Tue Sep 21 2021 Adam Ruzicka <aruzicka@redhat.com> 5.1.1-1
+- Update to 5.1.1
+
+* Wed Sep 01 2021 Adam Ruzicka <aruzicka@redhat.com> 5.1.0-1
+- Update to 5.1.0
+
+* Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 5.0.0-1
+- Update to 5.0.0
+
+* Tue Jun 15 2021 Adam Ruzicka <aruzicka@redhat.com> 4.1.2-1
+- Update to 4.1.2
+
+* Mon May 10 2021 Adam Ruzicka <aruzicka@redhat.com> 4.1.1-1
+- Update to 4.1.1
+
+* Fri Apr 09 2021 Adam Ruzicka <aruzicka@redhat.com> 4.1.0-1
+- Update to 4.1.0
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.0-2
+- Rebuild plugins for Ruby 2.7
+
+* Fri Mar 05 2021 Eric D. Helms <ericdhelms@gmail.com> 4.0.0-1
+- Update to 4.0.0
+
+* Thu Jan 07 2021 Adam Ruzicka <aruzicka@redhat.com> 3.0.3-1
+- Update to 3.0.3
+
+* Fri Nov 06 2020 Evgeni Golov 3.0.2-1
+- Update to 3.0.2-1
+
+* Fri Oct 02 2020 Adam Ruzicka <aruzicka@redhat.com> 3.0.1-1
+- Update to 3.0.1
+
+* Tue Sep 01 2020 Adam Ruzicka <aruzicka@redhat.com> 3.0.0-1
+- Update to 3.0.0
+
 * Thu Jul 09 2020 Adam Ruzicka <aruzicka@redhat.com> 2.0.2-1
 - Update to 2.0.2
 

@@ -22,12 +22,12 @@
 
 %define moduletype apps
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        2.2.0
+Version:        3.2.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -41,6 +41,7 @@ BuildRequires:  selinux-policy-devel
 BuildRequires:  hardlink
 BuildRequires:  policycoreutils
 BuildRequires:  /usr/bin/pod2man
+BuildRequires:  systemd
 BuildArch:      noarch
 
 Requires:           selinux-policy >= %{selinux_policy_ver}
@@ -52,6 +53,7 @@ Requires(post):     /usr/sbin/semanage
 Requires(post):     selinux-policy-targeted
 Requires(postun):   /usr/sbin/semodule
 Requires(postun):   /sbin/restorecon
+%{?systemd_requires}
 
 %if 0%{?rhel} == 7
 Requires(post):     policycoreutils-python
@@ -99,6 +101,7 @@ make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{versi
 if /usr/sbin/selinuxenabled; then
     # install and upgrade
     %{_sbindir}/%{name}-enable
+    systemctl daemon-reexec &>/dev/null || :
 fi
 
 %posttrans
@@ -112,6 +115,7 @@ if /usr/sbin/selinuxenabled; then
     # uninstall only
     if [ $1 -eq 0 ]; then
         %{_sbindir}/%{name}-disable
+        systemctl daemon-reexec &>/dev/null || :
     fi
     # upgrade and uninstall
     %{_sbindir}/%{name}-relabel
@@ -188,6 +192,30 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.develop
+- Bump version to 3.2-develop
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
+* Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.develop
+- Bump version to 2.5-develop
+
+* Fri Nov 27 2020 Evgeni Golov - 2.4.0-0.2.develop
+- reexec systemd after policy changes to make socket labeling work
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
+- Bump version to 2.4-develop
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
 * Wed May 13 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.2.develop
 - Bump version to 2.2-develop
 

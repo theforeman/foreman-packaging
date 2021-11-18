@@ -8,7 +8,7 @@
 Summary:    Ruby library to obey robots.txt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    1.0.0
-Release:    21%{?dist}
+Release:    22%{?dist}
 License:    MIT
 Group:      Development/Languages
 URL:        https://www.github.com/chriskite/robotex
@@ -79,6 +79,9 @@ popd
 %{gem_instdir}/spec/
 
 %changelog
+* Mon Mar 15 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-22
+- Rebuild for Ruby 2.7
+
 * Fri Sep 07 2018 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-21
 - Rebuild for Rails 5.2 and Ruby 2.5
 

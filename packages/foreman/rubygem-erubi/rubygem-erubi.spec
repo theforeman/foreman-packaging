@@ -6,7 +6,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.9.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Small ERB Implementation
 Group: Development/Languages
 License: MIT
@@ -82,6 +82,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.9.0-2
+- Rebuild against rh-ruby27
+
 * Mon Apr 13 2020 Zach Huntington-Meath <zhunting@redhat.com> - 1.9.0-1
 - Release rubygem-erubi 1.9.0
 

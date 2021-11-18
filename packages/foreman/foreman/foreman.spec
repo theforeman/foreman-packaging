@@ -9,12 +9,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 30
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 2.2.0
+Version: 3.2.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -41,12 +41,13 @@ Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(bundler_ext)
 %if 0%{?scl:1}
-Requires: %{scl}-runtime >= 6
-Requires: %{scl}-runtime < 7
+Requires: %{scl}-runtime >= 7
+Requires: %{scl}-runtime < 8
 %endif
 
 Requires: wget
 Requires: /etc/cron.d
+Requires: gawk
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(post): systemd-sysv
@@ -57,7 +58,7 @@ Requires(preun): systemd-units
 # Subpackages
 Requires: %{name}-debug
 
-# start specfile main Requires
+# start specfile default Requires
 Requires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
 Requires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
@@ -70,11 +71,11 @@ Requires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 Requires: %{?scl_prefix}rubygem(ancestry) < 4
 Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 Requires: %{?scl_prefix}rubygem(scoped_search) < 5
-Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
+Requires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.5.0
 Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
-Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
+Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 Requires: %{?scl_prefix_ruby}rubygem(rdoc)
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
@@ -85,7 +86,7 @@ Requires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 Requires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 Requires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
-Requires: %{?scl_prefix}rubygem(friendly_id) < 6
+Requires: %{?scl_prefix}rubygem(friendly_id) < 5.4
 Requires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 Requires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 Requires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -105,8 +106,8 @@ Requires: %{?scl_prefix}rubygem(net-scp)
 Requires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 Requires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 Requires: %{?scl_prefix}rubygem(net-ping)
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
-Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) >= 2.0.0
+Requires: %{?scl_prefix}rubygem(activerecord-session_store) < 3
 Requires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 Requires: %{?scl_prefix}rubygem(sprockets) < 5.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
@@ -117,8 +118,6 @@ Requires: %{?scl_prefix}rubygem(responders) >= 3.0
 Requires: %{?scl_prefix}rubygem(responders) < 4.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
-Requires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
-Requires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 Requires: %{?scl_prefix}rubygem(deacon) >= 1.0
 Requires: %{?scl_prefix}rubygem(deacon) < 2.0
 Requires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
@@ -135,12 +134,12 @@ Requires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.2
 Requires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 Requires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 Requires: %{?scl_prefix}rubygem(graphql-batch)
-# end specfile main Requires
+# end specfile default Requires
 
 Requires: %{?scl_prefix_ruby}rubygem(bigdecimal)
 
@@ -163,7 +162,7 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
-# start specfile main BuildRequires
+# start specfile default BuildRequires
 BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.3.1
 BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.4.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
@@ -176,11 +175,11 @@ BuildRequires: %{?scl_prefix}rubygem(ancestry) >= 3.0.7
 BuildRequires: %{?scl_prefix}rubygem(ancestry) < 4
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.8
 BuildRequires: %{?scl_prefix}rubygem(scoped_search) < 5
-BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.4.7
+BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) >= 0.5.0
 BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
-BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.2
+BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
@@ -191,7 +190,7 @@ BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) < 4
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: %{?scl_prefix}rubygem(validates_lengths_from_database) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(friendly_id) >= 5.3.0
-BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 6
+BuildRequires: %{?scl_prefix}rubygem(friendly_id) < 5.4
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) >= 6.3
 BuildRequires: %{?scl_prefix}rubygem(secure_headers) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(safemode) >= 1.3.5
@@ -211,8 +210,8 @@ BuildRequires: %{?scl_prefix}rubygem(net-scp)
 BuildRequires: %{?scl_prefix}rubygem(net-ssh) = 4.2.0
 BuildRequires: %{?scl_prefix}rubygem(net-ldap) >= 0.16.0
 BuildRequires: %{?scl_prefix}rubygem(net-ping)
-BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 2
+BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) >= 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(activerecord-session_store) < 3
 BuildRequires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
@@ -223,8 +222,6 @@ BuildRequires: %{?scl_prefix}rubygem(responders) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) < 3.0
-BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) >= 1.5.5
-BuildRequires: %{?scl_prefix}rubygem(x-editable-rails) < 1.6.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) >= 1.0
 BuildRequires: %{?scl_prefix}rubygem(deacon) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(webpack-rails) >= 0.9.8
@@ -241,18 +238,18 @@ BuildRequires: %{?scl_prefix}rubygem(bcrypt) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) >= 1.0.2
 BuildRequires: %{?scl_prefix}rubygem(rack-cors) < 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
+BuildRequires: %{?scl_prefix}rubygem(jwt) >= 2.2.2
 BuildRequires: %{?scl_prefix}rubygem(jwt) < 2.3.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) >= 1.8.0
 BuildRequires: %{?scl_prefix}rubygem(graphql) < 1.9.0
 BuildRequires: %{?scl_prefix}rubygem(graphql-batch)
 BuildRequires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
-# end specfile main BuildRequires
+# end specfile default BuildRequires
 
 # assets
 %if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 6
-BuildRequires: %{scl}-runtime-assets < 7
+BuildRequires: %{scl}-runtime-assets >= 7
+BuildRequires: %{scl}-runtime-assets < 8
 %else
 BuildRequires: nodejs-packaging
 %endif
@@ -263,8 +260,8 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -273,6 +270,8 @@ BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(css-loader) >= 0.23.1
 BuildRequires: %{?scl_prefix}npm(css-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(cssnano) >= 4.1.10
+BuildRequires: %{?scl_prefix}npm(cssnano) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(dotenv) >= 5.0.0
 BuildRequires: %{?scl_prefix}npm(dotenv) < 6.0.0
 BuildRequires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
@@ -283,6 +282,8 @@ BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
 BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 BuildRequires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 BuildRequires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -298,8 +299,8 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 8.4.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -355,7 +356,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.7.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.8.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
@@ -389,8 +390,8 @@ Meta package to install requirements for OpenStack compute resource support.
 Summary: Foreman oVirt support
 Group:  Applications/System
 # start specfile ovirt Requires
-Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 1.2.5
-Requires: %{?scl_prefix}rubygem(fog-ovirt) < 1.3.0
+Requires: %{?scl_prefix}rubygem(fog-ovirt) >= 2.0.1
+Requires: %{?scl_prefix}rubygem(fog-ovirt) < 3
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -419,7 +420,7 @@ Meta package to install requirements for Amazon Web Services (AWS) EC2 support.
 Summary: Foreman VMware support
 Group:  Applications/System
 # start specfile vmware Requires
-Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.3.1
+Requires: %{?scl_prefix}rubygem(fog-vsphere) >= 3.5.0
 Requires: %{?scl_prefix}rubygem(fog-vsphere) < 4.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) >= 2.0
 Requires: %{?scl_prefix}rubygem(rbvmomi) < 3.0
@@ -436,8 +437,8 @@ Meta package to install requirements for VMware compute resource support.
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 # start specfile gce Requires
-Requires: %{?scl_prefix}rubygem(fog-google) >= 1.8.2
-Requires: %{?scl_prefix}rubygem(fog-google) < 1.9.0
+Requires: %{?scl_prefix}rubygem(fog-google) >= 1.11.0
+Requires: %{?scl_prefix}rubygem(fog-google) < 1.12.0
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -452,16 +453,16 @@ Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
 %if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 6
-Requires: %{scl}-runtime-assets < 7
+Requires: %{scl}-runtime-assets >= 7
+Requires: %{scl}-runtime-assets < 8
 %endif
 Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 4.11.1
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 5.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
+Requires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -470,6 +471,8 @@ Requires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
 Requires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
 Requires: %{?scl_prefix}npm(css-loader) >= 0.23.1
 Requires: %{?scl_prefix}npm(css-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(cssnano) >= 4.1.10
+Requires: %{?scl_prefix}npm(cssnano) < 5.0.0
 Requires: %{?scl_prefix}npm(dotenv) >= 5.0.0
 Requires: %{?scl_prefix}npm(dotenv) < 6.0.0
 Requires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
@@ -480,6 +483,8 @@ Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
 Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
+Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
 Requires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
 Requires: %{?scl_prefix}npm(sass-loader) < 6.1.0
 Requires: %{?scl_prefix}npm(style-loader) >= 0.13.1
@@ -495,8 +500,8 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 4.11.1
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 5.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 8.4.1
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 9.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
 Requires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -646,6 +651,8 @@ Group:  Applications/System
 Requires: %{?scl_prefix}rubygem(sidekiq) >= 5.0
 Requires: %{?scl_prefix}rubygem(sidekiq) < 6.0
 Requires: %{?scl_prefix}rubygem(gitlab-sidekiq-fetcher)
+Requires: %{?scl_prefix}rubygem(sd_notify) >= 0.1
+Requires: %{?scl_prefix}rubygem(sd_notify) < 1.0
 # end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -669,7 +676,11 @@ Meta Package to install dynflow sidekiq executor support
 %package service
 Summary: Foreman systemd service support
 Group:  Applications/System
-Requires: %{?scl_prefix}rubygem(puma)
+# start specfile service Requires
+Requires: %{?scl_prefix}rubygem(puma) >= 5.1
+Requires: %{?scl_prefix}rubygem(puma) < 6.0
+# end specfile service Requires
+Requires: %{?scl_prefix}rubygem(puma-status)
 Requires: %{name} = %{version}-%{release}
 
 %description service
@@ -679,6 +690,7 @@ Meta Package to install requirements for Foreman service
 %{_unitdir}/%{name}.service
 %{_unitdir}/%{name}.socket
 %{_datadir}/%{name}/bundler.d/service.rb
+%{_sbindir}/%{name}-puma-status
 
 %description
 Foreman is aimed to be a Single Address For All Machines Life Cycle Management.
@@ -704,6 +716,7 @@ plugins required for Foreman to work.
   done
   # script content
   sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
+  sed -i '2isource scl_source enable tfm' script/foreman-puma-status
 %endif
 # sidekiq service SELinux helper path update
 sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|%{_libexecdir}/%{name}/sidekiq-selinux \1|' extras/systemd/%{dynflow_sidekiq_service_name}.service
@@ -759,6 +772,7 @@ install -Dp -m0644 extras/systemd/%{dynflow_sidekiq_service_name}.service %{buil
 install -Dp -m0755 script/%{name}-debug %{buildroot}%{_sbindir}/%{name}-debug
 install -Dp -m0755 script/%{name}-rake %{buildroot}%{_sbindir}/%{name}-rake
 install -Dp -m0755 script/%{name}-tail %{buildroot}%{_sbindir}/%{name}-tail
+install -Dp -m0755 script/%{name}-puma-status %{buildroot}%{_sbindir}/%{name}-puma-status
 install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.d/%{name}
 install -Dp -m0644 %{SOURCE5} %{buildroot}%{_tmpfilesdir}/%{name}.conf
@@ -1002,6 +1016,9 @@ if [ ! -e %{_datadir}/%{name}/config/initializers/encryption_key.rb -a \
      -e %{_sysconfdir}/%{name}/encryption_key.rb ]; then
   ln -s %{_sysconfdir}/%{name}/encryption_key.rb %{_datadir}/%{name}/config/initializers/
 fi
+
+# Enforce tmpfiles run
+%tmpfiles_create %{_tmpfilesdir}/%{name}.conf
 exit 0
 
 %post service
@@ -1015,6 +1032,78 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.develop
+- Bump version to 3.2-develop
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 3.1.0-0.1.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
+* Wed Jun 02 2021 Amir Feferkuchen <afeferku@redhat.com> - 2.6.0-0.2.develop
+- Update NPM dependencies
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
+* Fri Apr 30 2021 Evgeni Golov - 2.5.0-0.8.develop
+- Update depdendencies
+
+* Wed Apr 28 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.7.develop
+- Use rubygem-activerecord-session_store 2+
+
+* Wed Apr 21 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.6.develop
+- Add foreman-puma-status support
+
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.5.develop
+- Rebuild for Ruby 2.7
+
+* Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.0-0.4.develop
+- Add timestamps to cron jobs
+
+* Wed Mar 10 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.5.0-0.3.develop
+- Update Gem and NPM dependencies
+
+* Mon Feb 08 2021 Ondrej Prazak <oprazak@redhat.com> - 2.5.0-0.2.develop
+- Bump @theforeman/vendor
+
+* Tue Feb 02 2021 Evgeni Golov - 2.5.0-0.1.develop
+- Bump version to 2.5-develop
+
+* Thu Jan 07 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.4.0-0.4.develop
+- Update puma dependency (#31431)
+
+* Mon Dec 28 2020 Tomer Brisker <tbrisker@gmail.com> - 2.4.0-0.3.develop
+- Update Gem dependencies
+
+* Wed Nov 18 2020 Tomer Brisker <tbrisker@gmail.com> - 2.4.0-0.2.develop
+- Update NPM dependencies
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 2.4.0-0.1.develop
+- Bump version to 2.4-develop
+
+* Sun Oct 25 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.7.develop
+- Update Gem and NPM dependencies
+
+* Tue Sep 29 2020 Ondrej Ezr <ezrik12@gmail.com> - 2.3.0-0.6.develop
+- Clean up cron file
+
+* Thu Sep 24 2020 Evgeni Golov - 2.3.0-0.5.develop
+- Update GEM dependencies
+
+* Fri Sep 04 2020 Lukas Zapletal <lzap+rpm@redhat.com> - 2.3.0-0.4.develop
+- Enforce tmpfiles
+
+* Mon Aug 31 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.3.0-0.3.develop
+- Update Gem and NPM dependencies
+
+* Sat Aug 29 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.2.develop
+- Add puma-plugin-systemd to service subpackage requires
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
 * Wed Aug 05 2020 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-0.30.develop
 - Only generate en_US apipie docs for Foreman and Plugins
 

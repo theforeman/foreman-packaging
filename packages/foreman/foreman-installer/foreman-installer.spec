@@ -1,13 +1,13 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
-Version:    2.2.0
+Version:    3.2.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -18,16 +18,16 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
-Requires:   puppet-agent >= 5.5.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 4.1.0
-Requires:   %{?scl_prefix}rubygem(kafo) < 5.0.0
+Requires:   puppet-agent >= 6.15.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 6.4.0
+Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
-BuildRequires: puppet-agent >= 5.5.0
+BuildRequires: puppet-agent >= 6.15.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 4.1.0
-BuildRequires: %{?scl_prefix}rubygem(kafo) < 5.0.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.4.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
 
@@ -66,10 +66,6 @@ Various scenarios and tools for the Katello ecosystem
   --trace
 
 %install
-%if 0%{?fedora} || 0%{?rhel} >= 8
-grep -lr '#!/usr/bin/python' _build/modules/selinux | xargs sed -i 's/#!\/usr\/bin\/python/#!\/usr\/bin\/python3/g'
-%endif
-
 %{scl_rake} install \
   PREFIX=%{buildroot}%{_prefix} \
   LOCALSTATEDIR=%{buildroot}%{_localstatedir} \
@@ -146,6 +142,51 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 1:3.2.0-0.1.develop
+- Bump version to 3.2-develop
+
+* Thu Aug 05 2021 Patrick Creech <pcreech@redhat.com> - 1:3.1.0-0.1.develop
+- Bump version to 3.1-develop
+
+* Thu Jul 22 2021 Tomer Brisker <tbrisker@gmail.com> - 1:3.0.0-0.1.develop
+- Bump version to 3.0-develop
+
+* Wed May 19 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.3.develop
+- Bump puppet-agent requires to 6.15.0
+
+* Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.6.0-0.2.develop
+- Use Kafo 6.4+
+
+* Tue May 04 2021 Zach Huntington-Meath <zhunting@redhat.com> - 1:2.6.0-0.1.develop
+- Bump version to 2.6-develop
+
+* Wed Apr 07 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:2.5.0-0.4.develop
+- Do not fail if rhel macro is undefined
+
+* Fri Mar 05 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.0-0.3.develop
+- Require Puppet with DNF module support (#32003)
+
+* Mon Feb 15 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:2.5.0-0.2.develop
+- Drop puppet/selinux workaround
+
+* Tue Feb 02 2021 Evgeni Golov - 1:2.5.0-0.1.develop
+- Bump version to 2.5-develop
+
+* Mon Nov 02 2020 Patrick Creech <pcreech@redhat.com> - 1:2.4.0-0.1.develop
+- Bump version to 2.4-develop
+
+* Wed Oct 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.3.0-0.3.develop
+- Require kafo 6.0.0 or greater
+
+* Wed Aug 26 2020 William Bradford Clark <wclark@redhat.com> - 1:2.3.0-0.2.develop
+- Require kafo 5.1
+
+* Tue Aug 11 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.3.0-0.1.develop
+- Bump version to 2.3-develop
+
+* Fri Aug 07 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.6.develop
+- Require kafo 5.Y
+
 * Tue Jul 28 2020 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-0.5.develop
 - Drop requires on selinux packages, allow installer code to handle
 

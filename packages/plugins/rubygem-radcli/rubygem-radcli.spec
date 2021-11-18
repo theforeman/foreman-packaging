@@ -7,7 +7,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A Ruby interface for the adcli library
 Group: Development/Languages
 License: Artistic-2.0
@@ -113,6 +113,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.0-5
+- Rebuild for Ruby 2.7
+
 * Fri Mar 27 2020 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-4
 - Add check section to test native library
 - Fix building of native library
