@@ -4,11 +4,11 @@
 
 %global gem_name openscap
 %global min_openscap_version 1.2.9
-%global max_openscap_version 1.3.5
+%global max_openscap_version 1.3.6
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.4.9
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: A FFI wrapper around the OpenSCAP library
 Group: Development/Languages
 License: GPLv2+
@@ -92,6 +92,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 23 2021 Evgeni Golov - 0.4.9-6
+- Bump supported openscap version
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.9-5
 - Rebuild for Ruby 2.7
 
