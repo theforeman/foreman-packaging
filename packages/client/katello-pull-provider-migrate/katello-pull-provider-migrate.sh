@@ -57,6 +57,7 @@ fi
 
 # start the yggdrasild service
 echo "Starting yggdrasild..."
+systemctl enable yggdrasild
 systemctl start yggdrasild
 
 # check status of yggdrasild and fail if it is not running

@@ -976,7 +976,6 @@ whitelist =
   jsoncpp
   katello-host-tools
   katello-pull-provider-migrate
-  python-beautifulsoup4
   python-psutil
   qpid-proton
   rubygem-foreman_scap_client
@@ -988,7 +987,6 @@ disttag = .el7
 whitelist =
   katello-host-tools
   katello-pull-provider-migrate
-  python-beautifulsoup4
   python-psutil
   rubygem-foreman_scap_client
   tracer
