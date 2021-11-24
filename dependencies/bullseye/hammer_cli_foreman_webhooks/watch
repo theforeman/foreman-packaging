@@ -1,0 +1,2 @@
+version=3
+https://pkg-ruby-extras.alioth.debian.org/cgi-bin/gemwatch/hammer_cli_foreman_webhooks .*/hammer_cli_foreman_webhooks-(.*).tar.gz
