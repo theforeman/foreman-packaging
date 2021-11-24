@@ -1,0 +1,16 @@
+/var/log/foreman-proxy/migrate_settings.log
+/var/log/foreman-proxy/proxy.log
+{
+  missingok
+  notifempty
+  create 0644 foreman-proxy foreman-proxy
+  sharedscripts
+  rotate 5
+  compress
+	daily
+  postrotate
+    if [ -d /run/systemd/system ] ; then
+      /bin/systemctl kill --signal=SIGUSR1 --kill-who=main foreman-proxy >/dev/null 2>&1 || true
+    fi
+  endscript
+}
