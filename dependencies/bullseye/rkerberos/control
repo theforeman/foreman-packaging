@@ -1,0 +1,19 @@
+Source: ruby-rkerberos
+Section: ruby
+Priority: optional
+Maintainer: Greg Sutcliffe <gsutclif@redhat.com>
+Uploaders: Greg Sutcliffe <gsutclif@redhat.com>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.0~), libkrb5-dev, rake
+Standards-Version: 3.9.3
+XS-Ruby-Versions: all
+
+Package: ruby-rkerberos
+Architecture: any
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Suggests: doc-base
+Description: Kerberos binding for Ruby
+ Ruby kerberos provides basic Kerberos bindings for ruby which allow
+ authentication, password changes, adding principals, and deleting
+ principals.

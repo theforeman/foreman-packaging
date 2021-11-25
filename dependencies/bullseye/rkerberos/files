@@ -1,0 +1,5 @@
+ruby-rkerberos_0.1.1-1_amd64.deb ruby optional
+libkrb5-ruby_0.1.1-1_all.deb oldlibs extra
+libkrb5-ruby1.8_0.1.1-1_all.deb oldlibs extra
+libkrb5-ruby1.9.1_0.1.1-1_all.deb oldlibs extra
+libkrb5-ruby-doc_0.1.1-1_all.deb oldlibs extra
