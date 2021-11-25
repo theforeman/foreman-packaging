@@ -130,3 +130,47 @@ To remove a package from the Debian repository, two things need to happen:
     * For plugins, this happens in `/var/www/freight/apt/plugins/nightly`
 1. The package index needs to be regenerated
     * This happens automatically on the next run of the cronjob, so you just need to wait
+
+## HOWTO: add new Debian release
+
+### Prerequisites
+
+1. verify that the Ruby version is supported by Foreman
+1. add the new release to the build infrastructure, like [bullseye was added in foreman-infra@15ebf5b](https://github.com/theforeman/foreman-infra/commit/15ebf5bdf553d4af2e4ff87ac89b8e39b124a706)
+1. add the new release to forklift, like [bullseye was added in forklift@b2ea4fe](https://github.com/theforeman/forklift/commit/b2ea4fead5f247358e2a23a49e16f1bef3b5f9b8)
+1. verify `puppet-agent` and `puppetserver` packages are available from `apt.puppet.com`
+    * if `puppet-agent` isn't available `foreman-installer` won't build or run
+    * if `puppetserver` isn't available packages will build, but deployment of Foreman will fail
+
+### Prepare our repositories
+
+When building packages, we add our own repositories to the build environment, as they carry build dependencies.
+Because of that, we will have to create the repositories *before* building the first packages.
+
+On the repository host, create the directories:
+* `/var/www/freight/apt/$SUITE/nightly/` for the "real" repository
+* `/var/www/freightstage/apt/$SUITE/theforeman-nightly/` for the "staging" repository
+
+`chown` the directories to the `freight` and `freightstage` users accordingly.
+
+As `freight` doesn't publish repositories that have no content, we need to drop *some* `.deb` package in each of these directories.
+Ideally the package will have an older version, so it will be automatically cleaned up when we build the real package.
+
+Once done, manually publish both repositories once:
+
+```console
+# sudo -u freight /usr/bin/freight-cache -c /home/freight/freight.conf
+# sudo -u freightstage /usr/bin/freight-cache -c /home/freightstage/freight.conf
+```
+
+### Build dependencies
+
+Once all the infrastructure is in place, it's time to build the packages from the `dependencies` directory.
+
+The easiest way to do that is to copy the individual package directories from another Debian (or Ubuntu) release directory, preferable from the *newest* one.
+
+While adding packages, please check if any of them are (now) available in Debian/Ubuntu and might not need packaging by us.
+
+### Build core
+
+After the depdendencies are built, you can copy over `foreman`, `foreman-proxy` and `foreman-installer` from another release directory.
