@@ -732,6 +732,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
+  rubygem-mqtt
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
@@ -896,6 +897,7 @@ whitelist = foreman-discovery-image-service
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
   rubygem-logify
+  rubygem-mqtt
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
