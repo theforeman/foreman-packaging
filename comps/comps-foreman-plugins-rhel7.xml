@@ -114,6 +114,7 @@
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient</packagereq>
       <packagereq type="default">tfm-rubygem-logify</packagereq>
+      <packagereq type="default">tfm-rubygem-mqtt</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest_azure</packagereq>
       <packagereq type="default">tfm-rubygem-multi_xml</packagereq>
@@ -180,6 +181,7 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
+      <packagereq type="default">tfm-rubygem-mqtt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-acts_as_list-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
