@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.0
+Version: 3.0.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -113,6 +113,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Nov 26 2021 Ondřej Ezr <oezr@redhat.com> 3.0.0-1
+- Update to 3.0.0
+
 * Mon Nov 15 2021 Ondřej Ezr <oezr@redhat.com> 2.0.0-1
 - Update to 2.0.0
 
