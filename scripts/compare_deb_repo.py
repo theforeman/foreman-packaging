@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import json
 import requests
 from collections import defaultdict
 from itertools import chain
@@ -46,23 +47,26 @@ def get_git_packages(dist, release='nightly'):
     return packages
 
 
-def print_diff(dist, repo_packages, git_packages):
-    print(dist)
-    print("In repo but not in git:")
-    print(repo_packages - git_packages)
-    print("In git but not in repo:")
-    print(git_packages - repo_packages)
-
-
 def main():
     parser = argparse.ArgumentParser(description='compare git and debian repo')
     parser.add_argument('--release', default='nightly', help='release to compare for (default: %(default)s)')
     parser.add_argument('--staging', action='store_true', help='check staging repository')
+    parser.add_argument('--json', action='store_true', help='JSON output')
     args = parser.parse_args()
+    result = {}
     for dist in DISTS + PLUGINS:
-        packages = get_git_packages(dist, release=args.release)
+        git_packages = get_git_packages(dist, release=args.release)
         repo_packages = get_repo_packages(dist, release=args.release, staging=args.staging)
-        print_diff(dist, repo_packages, packages)
+        result[dist] = {'repo_only': list(repo_packages-git_packages), 'git_only': list(git_packages-repo_packages)}
+    if args.json:
+        print(json.dumps(result))
+    else:
+        for dist, data in result.items():
+            print(dist)
+            print("In repo but not in git:")
+            print(data['repo_only'])
+            print("In git but not in repo:")
+            print(data['git_only'])
 
 
 if __name__ == '__main__':
