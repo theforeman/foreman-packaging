@@ -3,6 +3,7 @@
 import argparse
 import json
 import requests
+import subprocess
 from collections import defaultdict
 from itertools import chain
 from pathlib import Path
@@ -47,9 +48,20 @@ def get_git_packages(dist, release='nightly'):
     return packages
 
 
+def get_release_from_git_branch(default='nightly'):
+    release = default
+    git_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], encoding='utf-8').strip()
+    if git_branch.startswith('deb/'):
+        release = git_branch.replace('deb/', '')
+        if release == 'develop':
+            release = 'nightly'
+    return release
+
+
 def main():
+    default_release = get_release_from_git_branch()
     parser = argparse.ArgumentParser(description='compare git and debian repo')
-    parser.add_argument('--release', default='nightly', help='release to compare for (default: %(default)s)')
+    parser.add_argument('--release', default=default_release, help='release to compare for (default: %(default)s)')
     parser.add_argument('--staging', action='store_true', help='check staging repository')
     parser.add_argument('--json', action='store_true', help='JSON output')
     args = parser.parse_args()
