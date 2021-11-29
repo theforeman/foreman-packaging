@@ -1,0 +1,5 @@
+ruby-msgpack (1.4.2-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 09 Nov 2021 14:39:53 +0000
