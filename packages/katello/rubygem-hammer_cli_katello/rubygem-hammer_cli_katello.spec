@@ -6,8 +6,6 @@
 %global plugin_name katello
 
 %global release 1
-%global prereleasesource pre.master
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -96,6 +94,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 29 2021 Chris Roberts <chrobert@redhat.com> - 1.3.0-1
+- Bump version to 1.3.0
+
 * Fri Oct 22 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-0.1.pre.master
 - Bump version to 1.3.0
 
