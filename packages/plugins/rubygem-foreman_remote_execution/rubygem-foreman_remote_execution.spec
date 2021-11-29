@@ -49,6 +49,10 @@ BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
