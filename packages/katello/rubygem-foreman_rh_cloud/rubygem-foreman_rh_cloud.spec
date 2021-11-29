@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.26
+Version: 3.0.29
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -47,12 +47,12 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
+BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
@@ -129,6 +129,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Nov 29 2021 Shimon Shtein <sshtein@redhat.com> 3.0.29-1
+- Update to 3.0.29-1
+
 * Mon Aug 30 2021 Shimon Shtein <sshtein@redhat.com> 3.0.26-1
 - Update to 3.0.26-1
 
