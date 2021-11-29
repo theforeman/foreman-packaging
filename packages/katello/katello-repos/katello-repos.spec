@@ -1,9 +1,9 @@
-%global pulpcore_version 3.15
+%global pulpcore_version 3.16
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2.1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -68,6 +68,12 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue Nov 30 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc2.1
+- Release katello-repos 4.3.0rc2.1
+
+* Mon Nov 29 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc2
+- Release katello-repos 4.3.0rc2
+
 * Wed Nov 17 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc1
 - Release katello-repos 4.3.0rc1
 
