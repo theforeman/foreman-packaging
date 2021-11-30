@@ -8,7 +8,7 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    18.0.0
+Version:    19.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -108,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Nov 30 2021 Lukas Zapletal <lzap+rpm@redhat.com> 19.0.0-1
+- Update to 19.0.0
+
 * Fri Sep 24 2021 Lukas Zapletal <lzap+rpm@redhat.com> 18.0.0-1
 - Update to 18.0.0
 
