@@ -104,7 +104,9 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 		rm -rf "$UNPACKED_GEM_DIR"
 	fi
 
-	git commit -m "Update $PACKAGE_NAME to $NEW_VERSION"
+	if [[ "$SKIP_GIT_COMMIT" != "1" ]] ; then
+		git commit -m "Update $PACKAGE_NAME to $NEW_VERSION"
+	fi
 else
 	echo "${PACKAGE_NAME}: $CURRENT_VERSION == $NEW_VERSION ; skipping"
 fi
