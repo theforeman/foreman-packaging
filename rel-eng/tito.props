@@ -705,7 +705,10 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
   rubygem-git
+  rubygem-googleapis-common-protos-types
+  rubygem-google-protobuf
   rubygem-graphite-api
+  rubygem-grpc
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_ansible
   rubygem-hammer_cli_foreman_azure_rm
@@ -868,7 +871,10 @@ whitelist = foreman-discovery-image-service
   rubygem-foreman_webhooks
   rubygem-foreman_wreckingball
   rubygem-git
+  rubygem-googleapis-common-protos-types
+  rubygem-google-protobuf
   rubygem-graphite-api
+  rubygem-grpc
   rubygem-hammer_cli_foreman_admin
   rubygem-hammer_cli_foreman_ansible
   rubygem-hammer_cli_foreman_azure_rm

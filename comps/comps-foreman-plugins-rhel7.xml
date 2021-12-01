@@ -89,7 +89,10 @@
       <packagereq type="default">tfm-rubygem-foreman_webhooks</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_wreckingball</packagereq>
       <packagereq type="default">tfm-rubygem-git</packagereq>
+      <packagereq type="default">tfm-rubygem-google-protobuf</packagereq>
+      <packagereq type="default">tfm-rubygem-googleapis-common-protos-types</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api</packagereq>
+      <packagereq type="default">tfm-rubygem-grpc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ansible</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm</packagereq>
@@ -134,6 +137,7 @@
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
       <packagereq type="default">tfm-rubygem-rbnacl</packagereq>
       <packagereq type="default">tfm-rubygem-recursive-open-struct</packagereq>
+      <packagereq type="default">tfm-rubygem-rh_cloud_rhc_worker</packagereq>
       <packagereq type="default">tfm-rubygem-route53</packagereq>
       <packagereq type="default">tfm-rubygem-rprogram</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode</packagereq>
@@ -179,7 +183,6 @@
         Do not edit this section manually and use ./comps_doc.sh script
       -->
       <!--RGD-START-->
-      <packagereq type="default">tfm-rubygem-mqtt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-acts_as_list-doc</packagereq>
       <packagereq type="default">tfm-rubygem-angular-rails-templates-doc</packagereq>
       <packagereq type="default">tfm-rubygem-aws-eventstream-doc</packagereq>
@@ -247,7 +250,10 @@
       <packagereq type="default">tfm-rubygem-foreman_vmwareannotations-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_webhooks-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_wreckingball-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-googleapis-common-protos-types-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-google-protobuf-doc</packagereq>
       <packagereq type="default">tfm-rubygem-graphite-api-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-grpc-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_admin-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_ansible-doc</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_azure_rm-doc</packagereq>
@@ -272,6 +278,7 @@
       <packagereq type="default">tfm-rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-kubeclient-doc</packagereq>
       <packagereq type="default">tfm-rubygem-logify-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-mqtt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ms_rest-doc</packagereq>
       <packagereq type="default">tfm-rubygem-multi_xml-doc</packagereq>
@@ -291,6 +298,7 @@
       <packagereq type="default">tfm-rubygem-rainbow-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbnacl-doc</packagereq>
       <packagereq type="default">tfm-rubygem-recursive-open-struct-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-rh_cloud_rhc_worker-doc</packagereq>
       <packagereq type="default">tfm-rubygem-route53-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rprogram-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rqrcode-doc</packagereq>

@@ -989,7 +989,10 @@ plugin_scl_packages:
     rubygem-foreman_vmwareannotations: {}
     rubygem-foreman_wreckingball: {}
     rubygem-git: {}
+    rubygem-google-protobuf: {}
+    rubygem-googleapis-common-protos-types: {}
     rubygem-graphite-api: {}
+    rubygem-grpc: {}
     rubygem-hammer_cli_foreman_admin: {}
     rubygem-hammer_cli_foreman_ansible: {}
     rubygem-hammer_cli_foreman_azure_rm: {}
