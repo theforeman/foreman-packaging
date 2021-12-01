@@ -3,13 +3,29 @@ on:
   workflow_dispatch:
 
 jobs:
+  # ugly way to share the plugin list
+  plugin_list:
+    runs-on: ubuntu-latest
+    outputs:
+      plugins: ${{ steps.set-list.outputs.plugins }}
+    steps:
+    - name: Write the plugin list
+      run: echo '["foreman_ansible"]' > plugin_list.json
+    - name: Set the plugins list
+      id: set-list
+      run: |
+        PLUGINS=$(cat plugin_list.json)
+        echo "::set-output name=plugins::$PLUGINS"
+
   # Bump the plugins on RPM
   bump_plugin_rpm:
+    needs: plugin_list
     runs-on: ubuntu-latest
     strategy:
       matrix:
         plugin:
-          - foreman_ansible
+          - ${{ fromJson(needs.plugin_list.outputs.plugins) }}
+
     env:
       PLUGIN_DIR: "packages/plugins/rubygem-${{ matrix.plugin }}"
       SPEC_FILE: "packages/plugins/rubygem-${{ matrix.plugin }}/rubygem-${{ matrix.plugin }}.spec"
@@ -53,11 +69,12 @@ jobs:
 
   # Bump the plugins on DEB
   bump_plugin_deb:
+    needs: plugin_list
     runs-on: ubuntu-latest
     strategy:
       matrix:
         plugin:
-          - foreman_ansible
+          - ${{ fromJson(needs.plugin_list.outputs.plugins) }}
     steps:
     - name: Set plugin package name
       id: package_info
