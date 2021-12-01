@@ -1,0 +1,92 @@
+name: Update plugins
+on:
+  workflow_dispatch:
+
+jobs:
+  # Bump the plugins on RPM
+  bump_plugin_rpm:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin:
+          - foreman_ansible
+    env:
+      PLUGIN_DIR: "packages/plugins/rubygem-${{ matrix.plugin }}"
+      SPEC_FILE: "packages/plugins/rubygem-${{ matrix.plugin }}/rubygem-${{ matrix.plugin }}.spec"
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y rpm curl jq git-annex python3-pip
+        sudo pip3 install semver
+        sudo gem install gem2rpm
+        sudo apt-get install -y libcurl4-openssl-dev
+        sudo curl --create-dirs -o /usr/local/bin/spectool https://pagure.io/rpmdevtools/raw/26a8abc746fba9c0b32eb899b96c92841a37855a/f/spectool.in
+        sudo chmod +x /usr/local/bin/spectool
+    - name: Fetch latest plugin gem info
+      id: latest_gem
+      run: |
+        curl_output=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json)
+        echo "::set-output name=version::$(jq -r .version <<<$curl_output)"
+        echo "::set-output name=uri::$(jq -r .gem_uri <<<$curl_output)"
+      env:
+        GEM_NAME: ${{ matrix.plugin }}
+    - name: Checkout RPM
+      uses: actions/checkout@v2
+      with:
+        ref: rpm/develop
+    - name: Initialize git annex
+      run: git annex init
+    - name: Try to bump plugin
+      run: |
+        alias rpmdev-packager="echo $RPM_PACKER"
+        ./bump_rpm.sh $PLUGIN_DIR
+      env:
+        RPM_PACKER: Github Actions <noreply@github.com>
+        SKIP_GIT_COMMIT: 1
+    - name: Open a PR
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        branch: "bump_rpm/${{ matrix.plugin }}"
+        title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        body: ''
+
+  # Bump the plugins on DEB
+  bump_plugin_deb:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin:
+          - foreman_ansible
+    steps:
+    - name: Set plugin package name
+      id: package_info
+      run: echo "::set-output name=name::$(echo $GEM_NAME | tr _ -)"
+      env:
+        GEM_NAME: ${{ matrix.plugin }}
+    - name: Checkout DEB
+      uses: actions/checkout@v2
+      with:
+        ref: deb/develop
+    - name: Fetch latest plugin gem info
+      id: latest_gem
+      run: |
+        curl_output=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json)
+        echo "::set-output name=version::$(jq -r .version <<<$curl_output)"
+        echo "::set-output name=uri::$(jq -r .gem_uri <<<$curl_output)"
+      env:
+        GEM_NAME: ${{ matrix.plugin }}
+    - name: Update package
+      run: ./scripts/update_package.rb --name ruby-$PACKAGE_NAME --version $NEW_VERSION
+      env:
+        NEW_VERSION: ${{ steps.latest_gem.outputs.version }}
+        PACKAGE_NAME: ${{ steps.package_info.outputs.name }}
+        GIT_AUTHOR_NAME: ${{ github.actor }}
+        GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
+    - name: Open a PR
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        branch: "bump_deb/develop-${{ matrix.plugin }}"
+        title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        body: ''
