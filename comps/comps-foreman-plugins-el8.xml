@@ -135,6 +135,7 @@
       <packagereq type="default">rubygem-rainbow</packagereq>
       <packagereq type="default">rubygem-rbnacl</packagereq>
       <packagereq type="default">rubygem-recursive-open-struct</packagereq>
+      <packagereq type="default">rubygem-rh_cloud_rhc_worker</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
       <packagereq type="default">rubygem-rprogram</packagereq>
       <packagereq type="default">rubygem-rqrcode</packagereq>
@@ -295,6 +296,7 @@
       <packagereq type="default">rubygem-rainbow-doc</packagereq>
       <packagereq type="default">rubygem-rbnacl-doc</packagereq>
       <packagereq type="default">rubygem-recursive-open-struct-doc</packagereq>
+      <packagereq type="default">rubygem-rh_cloud_rhc_worker-doc</packagereq>
       <packagereq type="default">rubygem-route53-doc</packagereq>
       <packagereq type="default">rubygem-rprogram-doc</packagereq>
       <packagereq type="default">rubygem-rqrcode-doc</packagereq>

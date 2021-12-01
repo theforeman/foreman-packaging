@@ -1051,6 +1051,7 @@ plugin_scl_packages:
     rubygem-rainbow: {}
     rubygem-rbnacl: {}
     rubygem-recursive-open-struct: {}
+    rubygem-rh_cloud_rhc_worker: {}
     rubygem-rqrcode: {}
     rubygem-safe_yaml: {}
     rubygem-sentry-raven: {}
