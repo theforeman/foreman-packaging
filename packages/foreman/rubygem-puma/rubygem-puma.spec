@@ -7,7 +7,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.5.0
+Version: 5.5.2
 Release: 1%{?dist}
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
@@ -123,6 +123,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/tools
 
 %changelog
+* Thu Dec 02 2021 Evgeni Golov 5.5.2-1
+- Update to 5.5.2
+
 * Thu Sep 23 2021 Evgeni Golov 5.5.0-1
 - Update to 5.5.0
 
