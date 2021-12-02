@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -314,8 +314,6 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
@@ -515,8 +513,6 @@ Requires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
 Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
@@ -699,6 +695,8 @@ plugins required for Foreman to work.
 
 %prep
 %setup -q -n %{name}-%{version}%{?prerelease:-}%{?prerelease}
+
+sed -i '/gettext_i18n_rails_js/d' bundler.d/assets.rb
 
 %build
 #build man pages
@@ -1032,6 +1030,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Dec 02 2021 Evgeni Golov - 3.2.0-0.2.develop
+- test
+
 * Fri Nov 12 2021 Odilon Sousa <osousa@redhat.com> - 3.2.0-0.1.develop
 - Bump version to 3.2-develop
 
