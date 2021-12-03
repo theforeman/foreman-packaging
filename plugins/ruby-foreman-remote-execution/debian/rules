@@ -17,6 +17,7 @@ build:
 	cd /usr/share/foreman && ( \
 		/usr/bin/foreman-ruby /usr/bin/bundle install --local && \
 		/usr/bin/npm install --no-audit --no-optional --unsafe-perm && \
+		/usr/bin/npm install --save-dev 'graphql@^15.5.0' 'graphql-tag@^2.11.0' && \
 		/usr/bin/foreman-ruby /usr/bin/bundle exec rake plugin:assets:precompile[$(PLUGIN)] RAILS_ENV=production DATABASE_URL=nulldb://nohost && \
 		/usr/bin/foreman-ruby /usr/bin/bundle exec rake plugin:apipie:cache[$(PLUGIN)] cache_part=resources \
 			OUT=/var/lib/foreman/public/apipie-cache/plugin/$(PLUGIN) RAILS_ENV=development \
