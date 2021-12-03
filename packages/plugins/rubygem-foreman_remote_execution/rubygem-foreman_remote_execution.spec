@@ -10,7 +10,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.0.0
+Version:    5.0.1
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -49,10 +49,10 @@ BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
 BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -165,6 +165,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Fri Dec 03 2021 Adam Ruzicka <aruzicka@redhat.com> 5.0.1-1
+- Update to 5.0.1
+
 * Tue Nov 16 2021 Adam Ruzicka <aruzicka@redhat.com> 5.0.0-1
 - Update to 5.0.0
 
