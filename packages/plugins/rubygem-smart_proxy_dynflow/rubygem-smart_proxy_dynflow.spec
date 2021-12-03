@@ -17,7 +17,7 @@
 
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.6.0
+Version: 0.6.1
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -117,6 +117,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Fri Dec 03 2021 Adam Ruzicka <aruzicka@redhat.com> 0.6.1-1
+- Update to 0.6.1
+
 * Thu Nov 11 2021 Adam Ruzicka <aruzicka@redhat.com> 0.6.0-1
 - Update to 0.6.0
 
