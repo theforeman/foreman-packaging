@@ -550,8 +550,10 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
         if success
           STDOUT.puts result
           STDOUT.puts 'Restarting puppet services'
-          run_cmd('/bin/systemctl try-restart puppet')
-          run_cmd('foreman-maintain service restart --only puppetserver')
+          puppet_services = ['puppet', 'puppetserver'].select do |service|
+            system("systemctl is-active #{service} --quiet")
+          end
+          run_cmd("/bin/systemctl try-restart #{puppet_services.join(' ')}") unless puppet_services.empty?
 
           STDOUT.puts "**** Hostname change complete! ****".green
           STDOUT.puts "IMPORTANT:"

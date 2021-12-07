@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:       katello
 Version:    4.4.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Dec 07 2021 Evgeni Golov - 4.4.0-0.3.master
+- Fixes #34099 - only restart puppetserver if it is present
+
 * Tue Dec 07 2021 Evgeni Golov - 4.4.0-0.2.master
 - Fixes #34098 - correctly print proxy type in Puppet message
 
