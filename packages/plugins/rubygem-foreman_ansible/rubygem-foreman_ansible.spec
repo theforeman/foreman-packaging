@@ -8,7 +8,7 @@
 %global foreman_min_version 2.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.4.1
+Version: 7.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -25,16 +25,14 @@ Requires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
 Requires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-Requires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
-Requires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
 BuildRequires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-BuildRequires: %{?scl_prefix}rubygem(ipaddress) >= 0.8.0
-BuildRequires: %{?scl_prefix}rubygem(ipaddress) < 1.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -48,6 +46,10 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -125,6 +127,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 07 2021 Ondřej Ezr <oezr@redhat.com> 7.0.1-1
+- Update to 7.0.1
+
 * Fri Jun 25 2021 Adam Ruzicka <aruzicka@redhat.com> 6.4.1-1
 - Update to 6.4.1
 
