@@ -1018,7 +1018,6 @@ whitelist = katello
   nodejs-downshift
   nodejs-ngreact
   nodejs-query-string
-  nodejs-react-helmet
   nodejs-strict-uri-encode
   rhel8-kickstart-setup
   rubygem-activerecord-import
@@ -1066,7 +1065,6 @@ whitelist = jsoncpp
   nodejs-downshift
   nodejs-ngreact
   nodejs-query-string
-  nodejs-react-helmet
   nodejs-strict-uri-encode
   python-qpid
   qpid-cpp
