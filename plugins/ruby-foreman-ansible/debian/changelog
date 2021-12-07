@@ -1,3 +1,9 @@
+ruby-foreman-ansible (7.0.1-1) stable; urgency=low
+
+  * 7.0.1 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Tue, 07 Dec 2021 12:23:26 +0100
+
 ruby-foreman-ansible (6.4.1-3) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
