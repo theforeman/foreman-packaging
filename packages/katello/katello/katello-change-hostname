@@ -21,5 +21,5 @@ hostname_change = KatelloUtilities::HostnameChange.new(options)
 if hostname_change.accepted_scenarios.include? hostname_change.last_scenario
   hostname_change.run
 else
-  STDOUT.puts hostname_change.error_message
+  abort hostname_change.error_message
 end
