@@ -37,7 +37,6 @@
       <packagereq type="default">tfm-nodejs-downshift</packagereq>
       <packagereq type="default">tfm-nodejs-ngreact</packagereq>
       <packagereq type="default">tfm-nodejs-query-string</packagereq>
-      <packagereq type="default">tfm-nodejs-react-helmet</packagereq>
       <packagereq type="default">tfm-nodejs-strict-uri-encode</packagereq>
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">tfm-rubygem-anemone</packagereq>

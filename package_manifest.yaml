@@ -836,8 +836,6 @@ katello_packages:
     nodejs-downshift: {}
     nodejs-ngreact: {}
     nodejs-query-string: {}
-    nodejs-react-helmet:
-      strategy: bundle
     nodejs-strict-uri-encode: {}
     python-qpid: {}
     qpid-cpp: {}
