@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 6
 
 Name:       katello
 Version:    4.3.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri Dec 10 2021 Evgeni Golov - 4.3.0-0.6.rc3
+- Fixes #34099 - only restart puppetserver if it is present
+
 * Wed Dec 08 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.5.rc3
 - Release katello 4.3.0rc3
 
