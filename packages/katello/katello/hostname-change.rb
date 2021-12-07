@@ -156,7 +156,7 @@ module KatelloUtilities
   #{@options[:program]}-installer --foreman-proxy-foreman-base-url https://#{@new_hostname} \\
                                   --foreman-proxy-trusted-hosts #{@new_hostname}
 
-  If Puppet is enabled on the #{proxy}, add the following to the installer command:
+  If Puppet is enabled on the #{@proxy}, add the following to the installer command:
 
                                   --puppet-server-foreman-url https://#{@new_hostname}
 

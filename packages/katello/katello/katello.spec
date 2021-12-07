@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.4.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Dec 07 2021 Evgeni Golov - 4.4.0-0.2.master
+- Fixes #34098 - correctly print proxy type in Puppet message
+
 * Wed Nov 17 2021 Chris Roberts <chrobert@redhat.com> - 4.4.0-0.1.master
 - 4.4.0 version bump
 
