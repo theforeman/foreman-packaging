@@ -24,6 +24,10 @@ module KatelloUtilities
       "#{scenarios_path}/last_scenario.yaml"
     end
 
+    def scenario_yaml(scenario)
+      File.join(scenarios_path, "#{scenario}.yaml")
+    end
+
     def accepted_scenarios
       @accepted_scenarios || ["katello", "foreman-proxy-content"]
     end
@@ -33,7 +37,9 @@ module KatelloUtilities
     end
 
     def load_scenario_data(scenario)
-      YAML.load_file(File.join(scenarios_path, "#{scenario}.yaml"))
+      if File.exist?(scenario_yaml(scenario))
+        YAML.load_file(scenario_yaml(scenario))
+      end
     end
 
     def load_scenario_answers(scenario)
