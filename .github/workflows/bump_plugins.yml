@@ -66,6 +66,7 @@ jobs:
         branch: "bump_rpm/${{ matrix.plugin }}"
         title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
         body: ''
+        delete-branch: true
 
   # Bump the plugins on DEB
   bump_plugin_deb:
@@ -107,3 +108,4 @@ jobs:
         branch: "bump_deb/develop-${{ matrix.plugin }}"
         title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
         body: ''
+        delete-branch: true
