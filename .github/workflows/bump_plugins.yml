@@ -1,6 +1,9 @@
 name: Update plugins
 on:
   workflow_dispatch:
+env:
+  GIT_AUTHOR_NAME: ${{ github.actor }}
+  GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
 
 jobs:
   # ugly way to share the plugin list
@@ -23,12 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        plugin:
+        gem:
           - ${{ fromJson(needs.plugin_list.outputs.plugins) }}
-
-    env:
-      PLUGIN_DIR: "packages/plugins/rubygem-${{ matrix.plugin }}"
-      SPEC_FILE: "packages/plugins/rubygem-${{ matrix.plugin }}/rubygem-${{ matrix.plugin }}.spec"
     steps:
     - name: Install dependencies
       run: |
@@ -40,12 +39,7 @@ jobs:
         sudo chmod +x /usr/local/bin/spectool
     - name: Fetch latest plugin gem info
       id: latest_gem
-      run: |
-        curl_output=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json)
-        echo "::set-output name=version::$(jq -r .version <<<$curl_output)"
-        echo "::set-output name=uri::$(jq -r .gem_uri <<<$curl_output)"
-      env:
-        GEM_NAME: ${{ matrix.plugin }}
+      run: echo "::set-output name=version::$(curl -s https://rubygems.org/api/v1/gems/${{ matrix.gem }}.json | jq -r .version)"
     - name: Checkout RPM
       uses: actions/checkout@v2
       with:
@@ -54,17 +48,16 @@ jobs:
       run: git annex init
     - name: Try to bump plugin
       run: |
-        alias rpmdev-packager="echo $RPM_PACKER"
-        ./bump_rpm.sh $PLUGIN_DIR
+        alias rpmdev-packager="echo $GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
+        ./bump_rpm.sh packages/plugins/rubygem-${{ matrix.gem }} ${{ steps.latest_gem.outputs.version }}
       env:
-        RPM_PACKER: Github Actions <noreply@github.com>
         SKIP_GIT_COMMIT: 1
     - name: Open a PR
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
-        branch: "bump_rpm/${{ matrix.plugin }}"
-        title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        commit-message: "Update ${{ matrix.gem }} to ${{ steps.latest_gem.outputs.version }}"
+        branch: "bump_rpm/${{ matrix.gem }}"
+        title: "Update ${{ matrix.gem }} to ${{ steps.latest_gem.outputs.version }}"
         body: ''
         delete-branch: true
 
@@ -74,38 +67,26 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        plugin:
+        gem:
           - ${{ fromJson(needs.plugin_list.outputs.plugins) }}
     steps:
     - name: Set plugin package name
       id: package_info
-      run: echo "::set-output name=name::$(echo $GEM_NAME | tr _ -)"
-      env:
-        GEM_NAME: ${{ matrix.plugin }}
+      run: echo "::set-output name=name::ruby-$(echo ${{ matrix.gem }} | tr _ -)"
     - name: Checkout DEB
       uses: actions/checkout@v2
       with:
         ref: deb/develop
     - name: Fetch latest plugin gem info
       id: latest_gem
-      run: |
-        curl_output=$(curl -s https://rubygems.org/api/v1/gems/${GEM_NAME}.json)
-        echo "::set-output name=version::$(jq -r .version <<<$curl_output)"
-        echo "::set-output name=uri::$(jq -r .gem_uri <<<$curl_output)"
-      env:
-        GEM_NAME: ${{ matrix.plugin }}
+      run: echo "::set-output name=version::$(curl -s https://rubygems.org/api/v1/gems/${{ matrix.gem }}.json | jq -r .version)"
     - name: Update package
-      run: ./scripts/update_package.rb --name ruby-$PACKAGE_NAME --version $NEW_VERSION
-      env:
-        NEW_VERSION: ${{ steps.latest_gem.outputs.version }}
-        PACKAGE_NAME: ${{ steps.package_info.outputs.name }}
-        GIT_AUTHOR_NAME: ${{ github.actor }}
-        GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
+      run: ./scripts/update_package.rb --name ${{ steps.package_info.outputs.name }} --version ${{ steps.latest_gem.outputs.version }}
     - name: Open a PR
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
-        branch: "bump_deb/develop-${{ matrix.plugin }}"
-        title: "Update ${{ matrix.plugin }} to ${{ steps.latest_gem.outputs.version }}"
+        commit-message: "Update ${{ matrix.gem }} to ${{ steps.latest_gem.outputs.version }}"
+        branch: "bump_deb/develop-${{ matrix.gem }}"
+        title: "Update ${{ matrix.gem }} to ${{ steps.latest_gem.outputs.version }}"
         body: ''
         delete-branch: true
