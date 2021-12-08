@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc2.1
+%global prereleasesource rc3
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 5
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Wed Dec 08 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.5.rc3
+- Release katello 4.3.0rc3
+
 * Tue Dec 07 2021 Evgeni Golov - 4.3.0-0.5.rc2.1
 - Fixes #34098 - correctly print proxy type in Puppet message
 
