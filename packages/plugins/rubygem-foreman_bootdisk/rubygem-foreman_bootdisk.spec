@@ -8,7 +8,7 @@
 
 Summary:    Create boot disks to provision hosts with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    18.0.0
+Version:    19.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -84,16 +84,16 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.tx
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
-%{gem_libdir}
+%{gem_instdir}/webpack
+%{gem_instdir}/lib
 %{gem_instdir}/locale
+%{gem_instdir}/package.json
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/release-gem
-%exclude %{gem_instdir}/.github
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
@@ -104,10 +104,11 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/AUTHORS
-%{gem_instdir}/test
 
 %changelog
+* Wed Dec 08 2021 Odilon Sousa <osousa@redhat.com> - 19.0.0-1
+- Release rubygem-foreman_bootdisk 19.0.0
+
 * Fri Sep 24 2021 Lukas Zapletal <lzap+rpm@redhat.com> 18.0.0-1
 - Update to 18.0.0
 
