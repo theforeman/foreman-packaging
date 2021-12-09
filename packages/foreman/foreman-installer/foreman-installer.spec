@@ -2,8 +2,6 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
@@ -142,6 +140,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Dec 09 2021 Odilon Sousa <osousa@redhat.com> - 1:3.1.0-1
+- Release foreman-installer 3.1.0
+
 * Mon Nov 29 2021 Odilon Sousa <osousa@redhat.com> - 1:3.1.0-0.1.rc2
 - Release foreman-installer 3.1.0rc2
 
