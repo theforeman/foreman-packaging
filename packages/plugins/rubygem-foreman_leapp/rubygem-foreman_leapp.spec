@@ -8,8 +8,8 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.7
-Release: 2%{?foremandist}%{?dist}
+Version: 0.1.8
+Release: 1%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
 License: GPLv3
@@ -22,12 +22,10 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) < 5.0
 Requires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.2
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(foreman_ansible) >= 5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
@@ -119,6 +117,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Dec 09 2021 Leos Stejskal <lstejska@redhat.com> 0.1.8-1
+- Update to 0.1.8
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.7-2
 - Rebuild plugins for Ruby 2.7
 
