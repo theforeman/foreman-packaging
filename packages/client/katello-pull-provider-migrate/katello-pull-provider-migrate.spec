@@ -5,8 +5,8 @@ Summary:        An RPM that migrates katello-agent users to the new pull provide
 BuildArch:      noarch
 
 License:        LGPLv2
-URL:            https://github.com/theforeman/foreman-packaging/packages/client/katello-pull-provider-migrate
-Source0:        %{name}.sh
+URL:            https://github.com/theforeman/foreman-packaging/tree/rpm/develop/packages/client/katello-pull-provider-migrate
+Source0:        %{name}
 
 Requires:       bash
 Requires:       yggdrasil
@@ -15,9 +15,9 @@ Requires:       foreman_ygg_worker
 %description
 An RPM that migrates katello-agent users to the new pull provider.
 
-Relies on the existing configuration in rhsm.conf to know which Katello server it should communicate with.
-The RPM install will fail if client is not registered to a Katello server.
-This RPM obtains the relevant values from the existing rhsm.conf, writes the configuration to yggdrasil's config.toml,
+Relies on the existing Red Hat Subscription Manager configuration to know which Katello server it should communicate with.
+The scriptlet will fail if the client is not registered to a Katello server.
+This RPM obtains the relevant values from the existing RHSM configuration, writes the configuration to yggdrasil's config.toml,
 and starts the pull provider agent.
 
 %prep
@@ -26,17 +26,17 @@ and starts the pull provider agent.
 
 %install
 rm -rf %{buildroot}
-mkdir -p  %{buildroot}%{_bindir}
-cp %{SOURCE0} %{buildroot}%{_bindir}
+mkdir -p  %{buildroot}%{_sbindir}
+cp %{SOURCE0} %{buildroot}%{_sbindir}
 
 %clean
 rm -rf %{buildroot}
 
 %post
-SYSCONFDIR=%{_sysconfdir} %{_bindir}/%{name}.sh
+SYSCONFDIR=%{_sysconfdir} SBINDIR=%{_sbindir} %{_sbindir}/%{name}
 
 %files
-%{_bindir}/%{name}.sh
+%{_sbindir}/%{name}
 
 %changelog
 * Thu Oct 28 2021 Jeremy Lenz <jlenz@redhat.com> 1.0.0-1

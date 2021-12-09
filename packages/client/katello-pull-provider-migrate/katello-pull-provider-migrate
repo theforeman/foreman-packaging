@@ -1,14 +1,19 @@
 #!/bin/sh
 
+# set SBINDIR to /sbin if it is not set
+if [ -z "$SBINDIR" ]; then
+    SBINDIR=/usr/sbin
+fi
+
 # check if system is registered
 subscription-manager identity > /dev/null
 if [ $? -ne 0 ]; then
-    echo "Please register with subscription-manager first, then re-run `katello-pull-provider-migrate.sh`."
+    echo "Please register with subscription-manager first, then re-run `$SBINDIR/katello-pull-provider-migrate`."
     exit 1
 fi
 
 echo "Getting configuration from subscription-manager..."
-KPPTEMPFILE=/tmp/kpp_tempfile
+KPPTEMPFILE=$(mktemp kpp_tempfile_XXXXXXXX)
 subscription-manager config --list > $KPPTEMPFILE
 CONSUMER_CERT_DIR=$(grep 'consumercertdir' $KPPTEMPFILE | cut -d= -f2 | xargs | sed 's/[][]//g')
 CERT_FILE=$CONSUMER_CERT_DIR/cert.pem
@@ -66,7 +71,7 @@ systemctl start yggdrasild
 # and broker must be running on the server
 yggdrasil status
 
-if [ $(systemctl is-active yggdrasild) != "active" ]; then
+if ! systemctl is-active --quiet yggdrasild; then
     echo ""
     echo "yggdrasild failed to start! Check configuration in $CONFIGTOML and make sure the broker is running on the server."
     exit $?
