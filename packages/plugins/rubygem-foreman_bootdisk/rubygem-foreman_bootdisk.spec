@@ -1,19 +1,20 @@
 # template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 
 %global gem_name foreman_bootdisk
 %global plugin_name bootdisk
-%global foreman_min_version 3.0
+%global foreman_min_version 3.1
 
-Summary:    Create boot disks to provision hosts with Foreman
-Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    18.0.0
-Release:    1%{?foremandist}%{?dist}
-Group:      Applications/Systems
-License:    GPLv3
-URL:        https://github.com/theforeman/foreman_bootdisk
-Source0:    https://rubygems.org/gems/%{gem_name}-%{version}.gem
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 19.0.0
+Release: 1%{?foremandist}%{?dist}
+Summary: Create boot disks to provision hosts with Foreman
+Group: Applications/Systems
+License: GPLv3
+URL: https://github.com/theforeman/foreman_bootdisk
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 Requires:   dosfstools
 Requires:   ipxe-bootimgs
@@ -34,7 +35,18 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+
+# start package.json devDependencies BuildRequires
+BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
+BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+# end package.json devDependencies BuildRequires
+
+# start package.json dependencies BuildRequires
+# end package.json dependencies BuildRequires
 
 %description
 Plugin for Foreman that creates iPXE-based boot disks to provision hosts
@@ -42,11 +54,10 @@ without the need for PXE infrastructure.
 
 
 %package doc
-BuildArch:  noarch
-Group:      Documentation
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for %{pkg_name}
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
 Documentation for %{pkg_name}.
@@ -76,7 +87,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -84,30 +95,32 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.tx
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/app
 %{gem_instdir}/config
 %{gem_instdir}/db
 %{gem_libdir}
 %{gem_instdir}/locale
+%exclude %{gem_instdir}/package.json
+%exclude %{gem_instdir}/webpack
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/release-gem
-%exclude %{gem_instdir}/.github
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_apipie_cache_foreman}
 %{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
+%{foreman_webpack_plugin}
+%{foreman_webpack_foreman}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/AUTHORS
-%{gem_instdir}/test
 
 %changelog
+* Thu Dec 09 2021 Evgeni Golov 19.0.0-1
+- Update to 19.0.0-1
+
 * Fri Sep 24 2021 Lukas Zapletal <lzap+rpm@redhat.com> 18.0.0-1
 - Update to 18.0.0
 
