@@ -1,3 +1,4 @@
+# template: foreman_plugin
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
