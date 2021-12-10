@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+from typing import Generator, Iterable, Mapping, Optional
+
+import requests
+
+SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
+SESSION = requests.Session()
+
+
+class Spec:
+    def __init__(self, path: Path):
+        self.path = path
+        spec = path.read_text()
+        self.lines = spec.splitlines()
+        self._globals = None
+
+    @property
+    def directory(self) -> str:
+        return self.path.parent.as_posix()
+
+    @property
+    def package_name(self) -> str:
+        return self.path.name[:-len('.spec')]
+
+    @property
+    def template(self) -> Optional[str]:
+        for line in self.lines:
+            if line.startswith('# template:'):
+                _, _, template = line.split(None, 3)
+                return template
+
+        return None
+
+    @property
+    def globals(self) -> Mapping[str, str]:
+        """
+        Perform very naive spec parsing to extract the globals
+        """
+        if self._globals is None:
+            self._globals = {}
+            for line in self.lines:
+                if line.startswith('%global'):
+                    definition, name, value = line.split(None, 3)
+                    if definition == '%global':
+                        self._globals[name] = value
+
+        return self._globals
+
+    @property
+    def is_nightly(self) -> bool:
+        return 'prereleasesource' in self.globals
+
+    @property
+    def gem_name(self) -> str:
+        return self.globals.get('gem_name')
+
+    @property
+    def version(self) -> str:
+        cmd = ['rpmspec', '--srpm', '--query', '--queryformat=%{version}', self.path.as_posix()]
+        return subprocess.check_output(cmd, stderr=subprocess.DEVNULL, universal_newlines=True)
+
+
+def find_specs() -> Generator[Spec, None, None]:
+    for path in Path('packages').glob('*/*/*.spec'):
+        spec = Spec(path)
+        if spec.template in SUPPORTED_TEMPLATES and not spec.is_nightly:
+            yield spec
+
+
+def latest_version(spec: Spec) -> str:
+    if spec.gem_name:
+        url = f'https://rubygems.org/api/v1/versions/{spec.gem_name}/latest.json'
+        response = SESSION.get(url)
+        response.raise_for_status()
+        return response.json()['version']
+    raise ValueError('Unable to determine latest version', spec)
+
+
+def build_matrix(specs: Iterable[Spec]) -> Generator[dict, None, None]:
+    for spec in specs:
+        try:
+            current_version = spec.version
+        except subprocess.CalledProcessError as e:  # pylint: disable=invalid-name
+            print('Failed to determine version for', spec.path.as_posix(), str(e), file=sys.stderr)
+        else:
+            new_version = latest_version(spec)
+            if current_version != new_version:
+                entry = {
+                    'directory': spec.directory,
+                    'package_name': spec.package_name,
+                    'gem_name': spec.gem_name,
+                    'current_version': current_version,
+                    'new_version': new_version,
+                }
+                yield entry
+
+
+def main() -> None:
+    matrix = list(build_matrix(find_specs()))
+
+    if 'GITHUB_ACTION' in os.environ:
+        directories = [entry['directory'] for entry in matrix]
+        print(f'::set-output name=directories::{json.dumps(directories)}')
+        print(f'::set-output name=matrix::{json.dumps(matrix)}')
+    for entry in matrix:
+        print(entry['directory'], entry['new_version'])
+
+
+if __name__ == '__main__':
+    main()
