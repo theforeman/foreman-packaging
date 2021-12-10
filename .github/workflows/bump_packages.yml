@@ -1,0 +1,95 @@
+name: Update packages
+on:
+  workflow_dispatch:
+env:
+  GIT_AUTHOR_NAME: ${{ github.actor }}
+  GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
+
+jobs:
+  rpm_list:
+    name: 'Gather RPMs'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-list.outputs.matrix }}
+    steps:
+    - name: Checkout RPM
+      uses: actions/checkout@v2
+      with:
+        ref: rpm/develop
+    - name: Set the list
+      id: set-list
+      run: ./list_updatable_packages
+
+  bump_rpm:
+    name: 'Bump ${{ matrix.package_name }} RPM ${{ matrix.new_version }}'
+    needs: rpm_list
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.rpm_list.outputs.matrix) }}
+
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y rpm git-annex python3-semver
+        sudo gem install gem2rpm --no-document
+        sudo curl --create-dirs -o /usr/local/bin/spectool https://pagure.io/rpmdevtools/raw/26a8abc746fba9c0b32eb899b96c92841a37855a/f/spectool.in
+        echo 'echo "$GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"' | sudo tee /usr/local/bin/rpmdev-packager
+        sudo chmod +x /usr/local/bin/spectool /usr/local/bin/rpmdev-packager
+    - name: Checkout RPM
+      uses: actions/checkout@v2
+      with:
+        ref: rpm/develop
+    - name: Initialize git annex
+      run: git annex init
+    - name: Bump ${{ matrix.package_name }} to ${{ matrix.new_version }}
+      run: ./bump_rpm.sh "${{ matrix.directory }}" "${{ matrix.new_version }}"
+      env:
+        SKIP_GIT_COMMIT: 1
+    - name: Open a PR
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
+        branch: "bump_rpm/${{ matrix.package_name }}"
+        title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
+        body: ''
+        delete-branch: true
+
+  deb_list:
+    name: 'Gather debs'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-list.outputs.matrix }}
+    steps:
+    - name: Checkout deb
+      uses: actions/checkout@v2
+      with:
+        ref: deb/develop
+    - name: Set the list
+      id: set-list
+      run: ./scripts/list_updatable_packages
+
+  bump_plugin_deb:
+    name: 'Bump ${{ matrix.package_name }} deb ${{ matrix.new_version }}'
+    needs: deb_list
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.deb_list.outputs.matrix) }}
+    steps:
+    - name: Checkout DEB
+      uses: actions/checkout@v2
+      with:
+        ref: deb/develop
+    - name: Update package
+      run: ./scripts/update_package.rb --name "$(basename ${{ matrix.directory }})" --version "${{ matrix.new_version }}"
+    - name: Open a PR
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
+        branch: "bump_deb/${{ matrix.package_name }}"
+        title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
+        body: ''
+        delete-branch: true
