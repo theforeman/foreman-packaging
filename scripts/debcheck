@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# use dose-debcheck/dose-distcheck to do "repoclosure" for debian
+# Debian package dose-distcheck
+# Fedora package dose3-tools
+
+set -e
+set -o pipefail
+
+DEBIAN_RELEASE=${1:-bullseye}
+FOREMAN_VERSION=${2:-nightly}
+INCLUDE_PLUGINS=${3:-true}
+USE_STAGING=${4:-false}
+PUPPET_VERSION=${PUPPET_VERSION:-6}
+# user repos TBD
+
+case ${DEBIAN_RELEASE} in
+  focal)
+    DEBIAN_PACKAGES_SOURCE=http://archive.ubuntu.com/ubuntu/dists/${DEBIAN_RELEASE}/@DEBIAN_SUITE@/binary-amd64/Packages.xz
+    DEBIAN_SUITES="main universe"
+    ;;
+  *)
+    DEBIAN_PACKAGES_SOURCE=https://deb.debian.org/debian/dists/${DEBIAN_RELEASE}/@DEBIAN_SUITE@/binary-amd64/Packages.xz
+    DEBIAN_SUITES="main"
+    ;;
+esac
+
+PUPPET_PACKAGES_SOURCE=https://apt.puppet.com/dists/${DEBIAN_RELEASE}/puppet${PUPPET_VERSION}/binary-amd64/Packages
+
+if [[ ${USE_STAGING} == true ]]; then
+  FOREMAN_PACKAGES_SOURCE=https://stagingdeb.theforeman.org/dists/${DEBIAN_RELEASE}/theforeman-${FOREMAN_VERSION}/binary-amd64/Packages
+else
+  FOREMAN_PACKAGES_SOURCE=https://deb.theforeman.org/dists/${DEBIAN_RELEASE}/${FOREMAN_VERSION}/binary-amd64/Packages
+fi
+PLUGINS_PACKAGES_SOURCE=https://deb.theforeman.org/dists/plugins/${FOREMAN_VERSION}/binary-amd64/Packages
+
+WORKDIR=$(mktemp -d)
+PACKAGES_DEBIAN=${WORKDIR}/Packages_debian
+PACKAGES_PUPPET=${WORKDIR}/Packages_puppet
+PACKAGES_FOREMAN=${WORKDIR}/Packages_foreman
+PACKAGES_PLUGINS=${WORKDIR}/Packages_plugins
+
+trap "rm -rf ${WORKDIR}" EXIT
+
+for DEBIAN_SUITE in ${DEBIAN_SUITES}; do
+  curl --silent --output - $(echo ${DEBIAN_PACKAGES_SOURCE} | sed s/@DEBIAN_SUITE@/${DEBIAN_SUITE}/) | xz -d >> ${PACKAGES_DEBIAN}
+done
+curl --silent --output ${PACKAGES_PUPPET} ${PUPPET_PACKAGES_SOURCE}
+curl --silent --output ${PACKAGES_FOREMAN} ${FOREMAN_PACKAGES_SOURCE}
+
+if [[ ${INCLUDE_PLUGINS} == true ]]; then
+  curl --silent -o ${PACKAGES_PLUGINS} ${PLUGINS_PACKAGES_SOURCE}
+  FG_PACKAGES_PLUGINS="--fg deb://${PACKAGES_PLUGINS}"
+else
+  FG_PACKAGES_PLUGINS=""
+fi
+
+dose-distcheck --failures --explain --latest=1 --bg deb://${PACKAGES_DEBIAN} --bg deb://${PACKAGES_PUPPET} --fg deb://${PACKAGES_FOREMAN} ${FG_PACKAGES_PLUGINS}
