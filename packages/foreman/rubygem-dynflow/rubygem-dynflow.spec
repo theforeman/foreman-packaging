@@ -6,7 +6,7 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.1
+Version: 1.6.2
 Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
@@ -19,8 +19,9 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(multi_json)
+Requires: %{?scl_prefix}rubygem(msgpack) >= 1.3
+Requires: %{?scl_prefix}rubygem(msgpack) < 2
 Requires: %{?scl_prefix}rubygem(msgpack) >= 1.3.3
-Requires: %{?scl_prefix}rubygem(msgpack) < 1.4
 Requires: %{?scl_prefix}rubygem(apipie-params)
 Requires: %{?scl_prefix}rubygem(algebrick) >= 0.7.0
 Requires: %{?scl_prefix}rubygem(algebrick) < 0.8
@@ -107,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Dec 10 2021 Adam Ruzicka <aruzicka@redhat.com> 1.6.2-1
+- Update to 1.6.2
+
 * Fri Sep 24 2021 Adam Ruzicka <aruzicka@redhat.com> 1.6.1-1
 - Update to 1.6.1
 
