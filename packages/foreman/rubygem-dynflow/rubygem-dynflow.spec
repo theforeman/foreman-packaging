@@ -19,7 +19,6 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(multi_json)
-Requires: %{?scl_prefix}rubygem(msgpack) >= 1.3
 Requires: %{?scl_prefix}rubygem(msgpack) < 2
 Requires: %{?scl_prefix}rubygem(msgpack) >= 1.3.3
 Requires: %{?scl_prefix}rubygem(apipie-params)
