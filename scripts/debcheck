@@ -8,7 +8,7 @@ set -e
 set -o pipefail
 
 if [[ $1 == "--help" ]] || [[ $1 == "-h" ]]; then
-  echo "$(basename $0) [DEBIAN_RELEASE] [FOREMAN_VERSION] [INCLUDE_PLUGINS] [USE_STAGING]"
+  echo "$(basename $0) [DEBIAN_RELEASE [FOREMAN_VERSION [INCLUDE_PLUGINS [USE_STAGING]]]]"
   exit
 fi
 
