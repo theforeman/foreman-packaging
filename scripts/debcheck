@@ -7,6 +7,11 @@
 set -e
 set -o pipefail
 
+if [[ $1 == "--help" ]] || [[ $1 == "-h" ]]; then
+  echo "$(basename $0) [DEBIAN_RELEASE] [FOREMAN_VERSION] [INCLUDE_PLUGINS] [USE_STAGING]"
+  exit
+fi
+
 DEBIAN_RELEASE=${1:-bullseye}
 FOREMAN_VERSION=${2:-nightly}
 INCLUDE_PLUGINS=${3:-true}
