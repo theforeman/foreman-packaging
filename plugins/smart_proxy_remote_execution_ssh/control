@@ -11,7 +11,8 @@ Package: ruby-smart-proxy-remote-execution-ssh
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.11.0~rc3),
-  ruby-smart-proxy-dynflow (>= 0.5.0), ruby-smart-proxy-dynflow (<< 1.0.0), ruby-net-ssh (>= 4.2.0)
+  ruby-smart-proxy-dynflow (>= 0.5.0), ruby-smart-proxy-dynflow (<< 1.0.0), ruby-net-ssh (>= 4.2.0),
+  ruby-mqtt
 Breaks: ruby-foreman-remote-execution-core (<<1.5.1)
 Replaces: ruby-foreman-remote-execution-core (<<1.5.1)
 Description: SSH remote execution provider for Foreman smart proxy
