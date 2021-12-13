@@ -3,7 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc3
+%global prereleasesource rc4
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 2
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Dec 13 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc4
+- Release katello-repos 4.3.0rc4
+
 * Wed Dec 08 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc3
 - Release katello-repos 4.3.0rc3
 

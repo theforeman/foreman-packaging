@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource rc3
+%global prereleasesource rc4
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 6
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Dec 13 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.6.rc4
+- Release katello 4.3.0rc4
+
 * Fri Dec 10 2021 Evgeni Golov - 4.3.0-0.6.rc3
 - Fixes #34099 - only restart puppetserver if it is present
 
