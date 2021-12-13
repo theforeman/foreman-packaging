@@ -1,0 +1,23 @@
+Source: ruby-mqtt
+Section: ruby
+Priority: optional
+Maintainer: Evgeni Golov <evgeni@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake,
+               ruby-rspec
+Standards-Version: 4.5.0
+Homepage: https://github.com/njh/ruby-mqtt
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-mqtt
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Implementation of the MQTT protocol
+ Pure Ruby gem that implements the MQTT protocol, a lightweight protocol for
+ publish/subscribe messaging.
