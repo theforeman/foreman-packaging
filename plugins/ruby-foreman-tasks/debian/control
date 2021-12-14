@@ -10,6 +10,6 @@ Package: ruby-foreman-tasks
 Architecture: all
 Conflicts: ruby-foreman-dynflow
 Replaces: ruby-foreman-dynflow
-Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1)
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1), ruby-dynflow (>= 1.6.0)
 Description: Tasks management engine for Foreman.
   Tasks management engine for Foreman. Gives you and overview of what's happening/happened in your Foreman instance.
