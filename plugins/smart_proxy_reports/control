@@ -1,0 +1,21 @@
+Source: ruby-smart-proxy-reports
+Section: ruby
+Priority: optional
+Maintainer: Lukas Zapletal <lzap+pub@redhat.com>
+Build-Depends: debhelper (>= 11~),
+               gem2deb
+Standards-Version: 4.3.0
+Homepage: http://github.com/theforeman/smart_proxy_reports
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-smart-proxy-reports
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         foreman-proxy (>= 2.5.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Provides an API for configuration management platforms like
+  Ansible or Puppet, or managed hosts, to upload reports and facts.
