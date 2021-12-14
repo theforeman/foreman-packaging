@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (19.0.0-1) stable; urgency=low
+
+  * 19.0.0 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Tue, 14 Dec 2021 10:32:44 +0000
+
 ruby-foreman-bootdisk (18.0.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
