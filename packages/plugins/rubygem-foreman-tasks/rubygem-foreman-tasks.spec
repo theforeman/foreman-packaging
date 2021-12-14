@@ -8,7 +8,7 @@
 %global foreman_min_version 2.6.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.0
+Version: 5.3.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -22,14 +22,14 @@ Requires: foreman >= %{foreman_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
+Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6.0
 Requires: %{?scl_prefix}rubygem(get_process_mem)
 Requires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 Requires: %{?scl_prefix}rubygem(parse-cron) < 0.2
 Requires: %{?scl_prefix}rubygem(sinatra)
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.2.3
+BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.6.0
 BuildRequires: %{?scl_prefix}rubygem(get_process_mem)
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) >= 0.1.4
 BuildRequires: %{?scl_prefix}rubygem(parse-cron) < 0.2
@@ -175,6 +175,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Tue Dec 14 2021 Adam Ruzicka <aruzicka@redhat.com> 5.3.0-1
+- Update to 5.3.0
+
 * Thu Nov 11 2021 Adam Ruzicka <aruzicka@redhat.com> 5.2.0-1
 - Update to 5.2.0
 
