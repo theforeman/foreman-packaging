@@ -16,7 +16,7 @@ Requires:       foreman_ygg_worker
 An RPM that migrates katello-agent users to the new pull provider.
 
 Relies on the existing Red Hat Subscription Manager configuration to know which Katello server it should communicate with.
-The scriptlet will fail if the client is not registered to a Katello server.
+The scriptlet will fail if the client is not registered to a Foreman server with the Katello plugin.
 This RPM obtains the relevant values from the existing RHSM configuration, writes the configuration to yggdrasil's config.toml,
 and starts the pull provider agent.
 

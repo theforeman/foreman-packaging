@@ -8,7 +8,7 @@ fi
 # check if system is registered
 subscription-manager identity > /dev/null
 if [ $? -ne 0 ]; then
-    echo "Please register with subscription-manager first, then re-run `$SBINDIR/katello-pull-provider-migrate`."
+    echo "Please register with subscription-manager first, then re-run `$SBINDIR/katello-pull-transport-migrate`."
     exit 1
 fi
 
@@ -29,7 +29,7 @@ fi
 
 # fail if client is not registered to a Katello
 if ! grep -q 'prefix = \/rhsm' $KPPTEMPFILE; then
-    echo "Client is not registered to Katello; exiting"
+    echo "Client is registered to RHSM; exiting"
     exit 2
 fi
 
@@ -46,7 +46,7 @@ if [ -f $CONFIGTOML ]; then
     # make a backup of CONFIGTOML
     cp $CONFIGTOML $CONFIGTOML.bak
     cat <<EOF > $CONFIGTOML
-# yggdrasil global configuration settings written by katello-pull-provider-migrate
+# yggdrasil global configuration settings written by katello-pull-transport-migrate
 
 broker = ["tcp://$SERVER_NAME:1883"]
 cert-file = "$CERT_FILE"
