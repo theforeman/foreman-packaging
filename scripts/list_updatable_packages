@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+
+import json
+import os
+from collections import namedtuple
+from pathlib import Path
+from typing import Generator, Iterable
+
+from debian.changelog import Changelog  # type: ignore
+from debian.debian_support import NativeVersion  # type: ignore
+
+import requests
+
+SESSION = requests.Session()
+
+
+Package = namedtuple('Package', ['package_name', 'version', 'gem_name', 'directory'])
+
+
+def find_packages() -> Generator[Package, None, None]:
+    for plugin_rb in Path('plugins/').glob('**/*.rb'):
+        gem_name = plugin_rb.read_text().strip().split()[1].strip("',\"")
+        package_changelog = next(plugin_rb.parent.glob('**/changelog'))
+        with package_changelog.open() as debchangelog:
+            changelog = Changelog(debchangelog)
+            version = NativeVersion(changelog.version).upstream_version
+            yield Package(str(changelog.package), version, gem_name, plugin_rb.parent.as_posix())
+
+
+def latest_version(spec: Package) -> str:
+    if spec.gem_name:
+        url = f'https://rubygems.org/api/v1/versions/{spec.gem_name}/latest.json'
+        response = SESSION.get(url)
+        response.raise_for_status()
+        return response.json()['version']
+    raise ValueError('Unable to determine latest version', spec)
+
+
+def build_matrix(specs: Iterable[Package]) -> Generator[dict, None, None]:
+    for spec in specs:
+        current_version = spec.version
+        new_version = latest_version(spec)
+        if current_version != new_version:
+            entry = {
+                'directory': spec.directory,
+                'package_name': spec.package_name,
+                'gem_name': spec.gem_name,
+                'current_version': current_version,
+                'new_version': new_version,
+            }
+            yield entry
+
+
+def main() -> None:
+    matrix = list(build_matrix(find_packages()))
+
+    if 'GITHUB_ACTION' in os.environ:
+        directories = [entry['directory'] for entry in matrix]
+        print(f'::set-output name=directories::{json.dumps(directories)}')
+        print(f'::set-output name=matrix::{json.dumps(matrix)}')
+    for entry in matrix:
+        print(entry['directory'], entry['new_version'])
+
+
+if __name__ == '__main__':
+    main()
