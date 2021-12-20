@@ -1,0 +1,28 @@
+---
+document: modulemd
+version: 2
+data:
+  name: foreman
+  stream: latest
+  version: 0
+  arch: x86_64
+  summary: Foreman module
+  description: >-
+    A module to make Foreman easier to install.
+  license:
+    module:
+      - GPLv3
+  profiles:
+    installer:
+      rpms:
+        - foreman-installer
+  dependencies:
+    - buildrequires:
+        platform: ['el8']
+        nodejs: ['12']
+        ruby: ['2.7']
+        postgresql: ['12']
+      requires:
+        platform: ['el8']
+        ruby: ['2.7']
+        postgresql: ['12']
