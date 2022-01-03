@@ -16,7 +16,7 @@ fi
 # hang if daemons have been started
 trap db_stop EXIT
 
-foreman_plugin_install "foreman_bootdisk" "$2" "true" "false"
+foreman_plugin_install "foreman_bootdisk" "$2"
 
 #DEBHELPER#
 
