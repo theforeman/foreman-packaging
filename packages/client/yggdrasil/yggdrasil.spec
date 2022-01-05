@@ -12,6 +12,9 @@ URL:     https://github.com/redhatinsights/yggdrasil
 
 Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
 
+Patch0:  Use-gzip-c-instead-of-k.patch
+Patch1:  build-Remove-the-Makefile-preamble.patch
+
 ExclusiveArch: %{go_arches}
 
 BuildRequires: git
