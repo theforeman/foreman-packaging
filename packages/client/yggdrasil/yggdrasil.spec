@@ -22,6 +22,7 @@ BuildRequires: golang
 BuildRequires: dbus-devel
 BuildRequires: systemd-devel
 
+Requires: subscription-manager
 
 %description
 %{name} is pair of utilities that register systems with RHSM and establishes
