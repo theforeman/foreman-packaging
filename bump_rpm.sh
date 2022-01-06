@@ -1,11 +1,11 @@
 #!/bin/bash -e
 
 # Dependencies:
-# curl
-# jq
-# python3-semver
-# rpm-build
-# rpmdevtools
+# curl (if no new version is specified)
+# jq (if no new version is specified)
+# python3-semver (for update-requirements)
+# rpm-build (provides rpmspec)
+# rpmdevtools (provides spectool)
 # rubygem-gem2rpm
 
 if [[ -z $1 ]] ; then
