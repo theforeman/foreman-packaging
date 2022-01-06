@@ -58,7 +58,6 @@ make PREFIX=%{_prefix} \
      VERSION=%{version} \
      install
 
-
 %files
 %doc README.md
 %{_bindir}/%{name}
@@ -69,7 +68,6 @@ make PREFIX=%{_prefix} \
 %{_mandir}/man1/*
 %{_prefix}/share/pkgconfig/%{name}.pc
 %{_libexecdir}/%{name}
-
 
 %changelog
 * Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 1:0.2.0-3
