@@ -70,8 +70,7 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 		sed -i "s/^\(Release:\s\+\)${RELEASE}/\11/" $SPEC_FILE
 	fi
 
-	EVR=$(rpmspec --srpm -q --queryformat='%{evr}' --undefine=dist $SPEC_FILE)
-	$SCRIPT_DIR/add_changelog.sh $SPEC_FILE $EVR <<-EOF
+	$SCRIPT_DIR/add_changelog.sh $SPEC_FILE <<-EOF
 	- Update to $NEW_VERSION
 	EOF
 

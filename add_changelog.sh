@@ -9,7 +9,7 @@ if [[ -z $SPEC_FILE ]] || [[ ! -e $SPEC_FILE ]] ; then
 fi
 
 if [[ -z $VERSION ]] ; then
-	VERSION=$(rpmspec --srpm -q --queryformat="%{version}-%{release}" --undefine=dist $SPEC_FILE)
+	VERSION=$(rpmspec --srpm -q --queryformat="%{evr}" --undefine=dist $SPEC_FILE)
 fi
 
 read MESSAGE
