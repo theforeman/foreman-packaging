@@ -10,14 +10,14 @@ jobs:
     name: 'Gather RPMs'
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-list.outputs.matrix }}
+      matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout RPM
       uses: actions/checkout@v2
       with:
         ref: rpm/develop
     - name: Set the list
-      id: set-list
+      id: set_list
       run: ./list_updatable_packages
 
   bump_rpm:
@@ -60,14 +60,14 @@ jobs:
     name: 'Gather debs'
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-list.outputs.matrix }}
+      matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout deb
       uses: actions/checkout@v2
       with:
         ref: deb/develop
     - name: Set the list
-      id: set-list
+      id: set_list
       run: ./scripts/list_updatable_packages
 
   bump_plugin_deb:
