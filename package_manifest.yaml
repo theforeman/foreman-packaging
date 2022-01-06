@@ -1054,8 +1054,6 @@ plugin_scl_packages:
     rubygem-sentry-raven: {}
     rubygem-smart_proxy_container_gateway: {}
     rubygem-smart_proxy_acd: {}
-    rubygem-smart_proxy_dynflow_core: {}
-    rubygem-smart_proxy_salt_core: {}
     rubygem-systemu: {}
     rubygem-timeliness: {}
     rubygem-ttfunk: {}
