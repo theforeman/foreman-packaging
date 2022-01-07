@@ -10,7 +10,8 @@ build:
 	/bin/cp config/database.yml.example config/database.yml
 	/bin/cp config/dynflow/orchestrator.yml.example config/dynflow/orchestrator.yml
 	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
-	/usr/bin/gem install -f thor -v '1.1.0'
+	/bin/mkdir -p ./vendor/cache
+	echo 'gem "thor", "1.1.0"' >> Gemfile
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	/bin/sed -i '/dynflow/ s/2.0.0/1.6.0/' Gemfile
