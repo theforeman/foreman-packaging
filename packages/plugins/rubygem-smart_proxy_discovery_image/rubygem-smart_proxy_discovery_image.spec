@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.2
-Release: 3%{?foremandist}%{?dist}
+Version: 1.5.0
+Release: 1%{?foremandist}%{?dist}
 Summary: FDI API for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery_image.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jan 11 2022 Lukas Zapletal <lzap+rpm@redhat.com> 1.5.0-1
+- Update to 1.5.0
+
 * Mon Jan 10 2022 Evgeni Golov - 1.3.2-3
 - use versioned obsoletes for proxy plugins
 
