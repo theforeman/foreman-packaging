@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.7
-Release: 7%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Summary: dnsmasq DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -38,7 +38,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name}}
+%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 dnamasq DHCP provider plugin for Foreman's smart proxy.
@@ -50,7 +50,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 0.7-8
+- use versioned obsoletes for proxy plugins
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7-7
 - Rebuild for Ruby 2.7
 
