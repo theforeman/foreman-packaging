@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.5
-Release: 7%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Summary: Discovery plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -39,7 +39,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name}}
+%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 This smart proxy plugin, together with a Foreman plugin, add the capability to
@@ -53,7 +53,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -110,6 +110,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/discovery.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 1.0.5-8
+- use versioned obsoletes for proxy plugins
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.5-7
 - Rebuild for Ruby 2.7
 
