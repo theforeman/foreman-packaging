@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.3.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Application Centric Deployment smart proxy plugin
 Group: Applications/Internet
 License: GPLv3
@@ -48,8 +48,6 @@ Summary: Documentation for %{name}
 Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
-
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
 
 %description doc
 Documentation for %{name}.
@@ -108,6 +106,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/acd.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 0.3.0-2
+- Drop obsoletes, there newer was a non-SCL ACD plugin on EL7
+
 * Tue Nov 16 2021 Bernhard Suttner <suttner@atix.de> 0.3.0-1
 - Update to 0.3.0
 
