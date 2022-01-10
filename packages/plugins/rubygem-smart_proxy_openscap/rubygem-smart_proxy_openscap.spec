@@ -23,7 +23,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -47,7 +47,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name}}
+%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 A plug-in to the Foreman's smart-proxy which receives
@@ -60,7 +60,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -153,6 +153,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 0.9.1-2
+- use versioned obsoletes for proxy plugins
+
 * Wed Jul 14 2021 Ondrej Prazak <oprazak@redhat.com> 0.9.1-1
 - Update to 0.9.1
 
