@@ -18,7 +18,7 @@
 Summary: Dynflow runtime for Foreman smart proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.6.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_dynflow
@@ -43,7 +43,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name}}
+%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 Use the Dynflow inside Foreman smart proxy.
@@ -55,7 +55,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -117,6 +117,9 @@ mkdir -p %{buildroot}%{foreman_proxy_statedir}/dynflow
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 0.6.1-2
+- use versioned obsoletes for proxy plugins
+
 * Fri Dec 03 2021 Adam Ruzicka <aruzicka@redhat.com> 0.6.1-1
 - Update to 0.6.1
 
