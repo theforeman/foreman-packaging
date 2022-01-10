@@ -18,7 +18,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.2.0
-Release: 7%{?foremandist}%{?dist}
+Release: 8%{?foremandist}%{?dist}
 Summary: Chef support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -49,7 +49,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -106,6 +106,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/chef.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 0.2.0-8
+- use versioned obsoletes for proxy plugins
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.0-7
 - Rebuild for Ruby 2.7
 
