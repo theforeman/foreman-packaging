@@ -19,7 +19,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.2.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Basic Pulp support for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -41,7 +41,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
-%{?scl:Obsoletes: rubygem-%{gem_name}}
+%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 Basic Pulp support for Foreman Smart-Proxy.
@@ -53,7 +53,7 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc}
+%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
 
 %description doc
 Documentation for %{name}.
@@ -112,6 +112,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/pulpcore.yml.example \
 %{gem_instdir}/Gemfile
 
 %changelog
+* Mon Jan 10 2022 Evgeni Golov - 3.2.0-2
+- use versioned obsoletes for proxy plugins
+
 * Thu Sep 02 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-1
 - Release rubygem-smart_proxy_pulp 3.2.0
 
