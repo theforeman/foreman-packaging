@@ -6,10 +6,8 @@
 %global foreman_max_version 3.2
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc4
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.3.0
-%global release 5
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -244,6 +242,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Jan 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-1
+- Release rubygem-katello 4.3.0
+
 * Mon Dec 13 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.5.rc4
 - Release rubygem-katello 4.3.0rc4
 

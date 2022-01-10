@@ -3,9 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc4
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 1
 
 Name:           katello-repos
 Version:        4.3.0
@@ -68,6 +66,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Jan 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-1
+- Release katello-repos 4.3.0
+
 * Mon Dec 13 2021 Odilon Sousa <osousa@redhat.com> - 4.3.0-0.2.rc4
 - Release katello-repos 4.3.0rc4
 
