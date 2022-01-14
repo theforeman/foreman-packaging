@@ -1,3 +1,15 @@
+ruby-foreman-bootdisk (19.0.2-1) stable; urgency=low
+
+  * 19.0.2 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Fri, 14 Jan 2022 09:53:58 +0100
+
+ruby-foreman-bootdisk (19.0.1-1) stable; urgency=low
+
+  * 19.0.1 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Wed, 12 Jan 2022 15:19:52 +0100
+
 ruby-foreman-bootdisk (19.0.0-2) stable; urgency=low
 
   * Correctly setup webpack in postinst
