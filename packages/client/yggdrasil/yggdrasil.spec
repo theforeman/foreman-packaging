@@ -5,7 +5,6 @@
 Name:    yggdrasil
 Version: 0.2.0
 Release: 3%{?dist}
-Epoch:   1
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -70,7 +69,7 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
-* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 1:0.2.0-3
+* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-3
 - Rebuild without downstream branding
 
 * Wed Aug 25 2021 Link Dupont <link@redhat.com> - 0.2.0-2
