@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.1.5
-Release: 3%{?foremandist}%{?dist}
+Version: 0.1.6
+Release: 1%{?foremandist}%{?dist}
 Summary: BlueCat DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -28,12 +28,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(httparty)
 Requires: %{?scl_prefix}rubygem(ipaddress)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -111,6 +111,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_bluecat.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.1.6-1
+- Update to 0.1.6
+
 * Mon Jan 10 2022 Evgeni Golov - 0.1.5-3
 - use versioned obsoletes for proxy plugins
 
