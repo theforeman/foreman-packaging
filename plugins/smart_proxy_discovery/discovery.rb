@@ -1,1 +1,1 @@
-gem 'smart_proxy_discovery', '1.0.3'
+gem 'smart_proxy_discovery', '1.0.5'
