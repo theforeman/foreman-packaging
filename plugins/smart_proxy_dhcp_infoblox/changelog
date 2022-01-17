@@ -1,3 +1,9 @@
+ruby-smart-proxy-dhcp-infoblox (0.0.16-1) stable; urgency=low
+
+  * 0.0.16 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 17 Jan 2022 11:41:25 +0000
+
 ruby-smart-proxy-dhcp-infoblox (0.0.14-1) stable; urgency=low
 
   * 0.0.14 released
