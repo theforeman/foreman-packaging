@@ -1,3 +1,9 @@
+ruby-foreman-setup (7.0.0-1) stable; urgency=low
+
+  * 7.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Mon, 17 Jan 2022 11:41:27 +0000
+
 ruby-foreman-setup (6.0.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
