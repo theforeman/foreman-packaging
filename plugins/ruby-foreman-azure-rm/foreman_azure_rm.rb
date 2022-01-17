@@ -1,1 +1,1 @@
-gem 'foreman_azure_rm', '2.2.5'
+gem 'foreman_azure_rm', '2.2.6'
