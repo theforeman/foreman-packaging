@@ -16,7 +16,7 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.5
+Version: 0.0.7
 Release: 1%{?foremandist}%{?dist}
 Summary: Transform and forward reports from config management or hosts
 Group: Applications/Internet
@@ -29,8 +29,6 @@ Requires: foreman-proxy >= %{foreman_proxy_min_version}
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.3.0
-Requires: %{?scl_prefix}rubygem(rack) >= 2.1.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -110,6 +108,9 @@ install -d -m755 %{buildroot}%{foreman_proxy_statedir}/%{plugin_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Jan 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.0.7-1
+- Update to 0.0.7
+
 * Fri Oct 22 2021 Lukas Zapletal <lzap+rpm@redhat.com> 0.0.5-1
 - Update to 0.0.5
 
