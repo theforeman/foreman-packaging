@@ -17,8 +17,8 @@
 %global smart_proxy_dynflow_bundlerd_dir %{_datadir}/smart_proxy_dynflow_core/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7
-Release: 8%{?foremandist}%{?dist}
+Version: 1.0
+Release: 1%{?foremandist}%{?dist}
 Summary: dnsmasq DHCP provider plugin for Foreman's smart proxy
 Group: Applications/Internet
 License: GPLv3
@@ -109,6 +109,9 @@ mv %{buildroot}%{gem_instdir}/config/dhcp_dnsmasq.yml \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.0-1
+- Update to 1.0
+
 * Mon Jan 10 2022 Evgeni Golov - 0.7-8
 - use versioned obsoletes for proxy plugins
 
