@@ -8,7 +8,7 @@
 
 Summary:    Foreman Plug-in for Salt
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    14.0.0
+Version:    14.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -21,13 +21,13 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
+Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
 BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 2.0.0
+BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.8
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -104,6 +104,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Jan 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 14.1.0-1
+- Update to 14.1.0
+
 * Mon Aug 02 2021 Bastian Schmidt <schmidt@atix.de> 14.0.0-1
 - Update to 14.0.0
 - Implement Salt Autosign via Grains
