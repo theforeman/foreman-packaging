@@ -4,13 +4,13 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 8.16.0
+Version: 10.0.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/theforeman/foreman-js#readme
-Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-8.16.0.tgz
+Source0: https://registry.npmjs.org/@theforeman/vendor/-/vendor-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Tue Jan 18 2022 MariaAga <mariaaga@redhat.com> 10.0.0-1
+- Update to 10.0.0
+
 * Thu Oct 21 2021 Ron Lavi <1ronlavi@gmail.com> 8.16.0-1
 - Update to 8.16.0
 
