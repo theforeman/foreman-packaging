@@ -39,6 +39,7 @@ Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 # Optional dependency that we always pull in
 Requires: %{?scl_prefix}rubygem(statsd-instrument)
+Requires: dynflow-utils
 
 %description
 Ruby workflow/orchestration engine.
