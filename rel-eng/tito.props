@@ -30,6 +30,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-clamp
   rubygem-foreman_maintain
   rubygem-highline
+  dynflow-utils
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -625,6 +626,7 @@ whitelist = foreman
   rubygem-wirb
   rubygem-xmlrpc
   rubygem-zeitwerk
+  dynflow-utils
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
