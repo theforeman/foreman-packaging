@@ -13,7 +13,7 @@
 
 Name: katello-host-tools
 Version: 3.5.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -240,12 +240,12 @@ cp extra/katello-tracer-upload-dnf %{buildroot}%{_sbindir}/katello-tracer-upload
 %endif
 
 %if 0%{?suse_version} >= 1500
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-enabled-repos-upload
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-package-upload
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{_sbindir}/katello-tracer-upload
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/enabled_repos_upload.py
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/package_upload.py
-sed -i 's/bin\/python$/bin\/python3/' %{buildroot}%{plugins_dir}/tracer_upload.py
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-enabled-repos-upload
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-package-upload
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{_sbindir}/katello-tracer-upload
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/enabled_repos_upload.py
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/package_upload.py
+sed -i 's|bin/python$|bin/python3|' %{buildroot}%{plugins_dir}/tracer_upload.py
 %endif
 
 #clean up tracer if its not being built
@@ -417,6 +417,9 @@ exit 0
 
 
 %changelog
+* Thu Apr 14 2022 Bernhard Suttner - 3.5.7-4
+- Improve regular expression for python2/python3 interop
+
 * Wed Feb 09 2022 Patrick Creech <pcreech@redhat.com> - 3.5.7-3
 - Fixup python macros to be more compliant with recent changes
 
