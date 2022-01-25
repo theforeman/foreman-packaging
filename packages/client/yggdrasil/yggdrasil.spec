@@ -4,7 +4,7 @@
 
 Name:    yggdrasil
 Version: 0.2.0
-Release: 3%{?dist}
+Release: 1%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -69,28 +69,5 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
-* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-3
-- Rebuild without downstream branding
-
-* Wed Aug 25 2021 Link Dupont <link@redhat.com> - 0.2.0-2
-- Rebuild for new build target
-
-* Mon Jun 28 2021 Link Dupont <link@redhat.com> - 0.2.0-1
-- New upstream release
-- Mark config file as a noreplace config file
-
-* Fri Apr  9 2021 Link Dupont <link@redhat.com> - 0.1.4-1
-- New upstream release
-
-* Fri Feb 19 2021 Link Dupont <link@redhat.com> - 0.1.2-2
-- Update default broker URI
-- Set Epoch to 1
-
-* Thu Feb 18 2021 Link Dupont <link@redhat.com> - 0.1.2-1
-- New upstream release
-
-* Wed Feb 17 2021 Link Dupont <link@redhat.com> - 0.1.1-1
-- New upstream release
-
-* Fri Feb 12 2021 Link Dupont <link@redhat.com> - 0.1-1
+* Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-1
 - Initial release
