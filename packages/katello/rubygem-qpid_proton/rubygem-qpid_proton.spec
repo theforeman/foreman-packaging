@@ -7,7 +7,7 @@
 %global qpid_version 0.36.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.36.0
+Version: %{qpid_version}
 Release: 1%{?dist}
 Summary: Ruby language bindings for the Qpid Proton messaging framework
 Group: Development/Languages
