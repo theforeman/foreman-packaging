@@ -266,7 +266,6 @@ whitelist = foreman
   rubygem-rake-compiler
   rubygem-rb-inotify
   rubygem-rbvmomi
-  rubygem-record_tag_helper
   rubygem-redfish_client
   rubygem-redis
   rubygem-representable
@@ -313,7 +312,6 @@ whitelist = foreman
   rubygem-unf_ext
   rubygem-unicode
   rubygem-unicode-display_width
-  rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
   rubygem-websocket-driver
@@ -570,7 +568,6 @@ whitelist = foreman
   rubygem-rake-compiler
   rubygem-rb-inotify
   rubygem-rbvmomi
-  rubygem-record_tag_helper
   rubygem-redfish_client
   rubygem-redis
   rubygem-representable
@@ -617,7 +614,6 @@ whitelist = foreman
   rubygem-unf_ext
   rubygem-unicode
   rubygem-unicode-display_width
-  rubygem-useragent
   rubygem-validates_lengths_from_database
   rubygem-webpack-rails
   rubygem-websocket-driver

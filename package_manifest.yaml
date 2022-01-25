@@ -259,7 +259,6 @@ foreman_scl_packages:
     rubygem-rails-i18n: {}
     rubygem-rake-compiler: {}
     rubygem-rbvmomi: {}
-    rubygem-record_tag_helper: {}
     rubygem-redis: {}
     rubygem-representable: {}
     rubygem-responders: {}
@@ -302,7 +301,6 @@ foreman_scl_packages:
     rubygem-unf_ext: {}
     rubygem-unicode: {}
     rubygem-unicode-display_width: {}
-    rubygem-useragent: {}
     rubygem-validates_lengths_from_database: {}
     rubygem-webpack-rails: {}
     rubygem-websocket-driver: {}

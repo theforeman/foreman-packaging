@@ -267,7 +267,6 @@
       <packagereq type="default">tfm-rubygem-rake-compiler</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi</packagereq>
-      <packagereq type="default">tfm-rubygem-record_tag_helper</packagereq>
       <packagereq type="default">tfm-rubygem-redfish_client</packagereq>
       <packagereq type="default">tfm-rubygem-redis</packagereq>
       <packagereq type="default">tfm-rubygem-representable</packagereq>
@@ -314,7 +313,6 @@
       <packagereq type="default">tfm-rubygem-unf_ext</packagereq>
       <packagereq type="default">tfm-rubygem-unicode</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width</packagereq>
-      <packagereq type="default">tfm-rubygem-useragent</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails</packagereq>
       <packagereq type="default">tfm-rubygem-websocket-driver</packagereq>
@@ -506,7 +504,6 @@
       <packagereq type="default">tfm-rubygem-rake-compiler-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rb-inotify-doc</packagereq>
       <packagereq type="default">tfm-rubygem-rbvmomi-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-record_tag_helper-doc</packagereq>
       <packagereq type="default">tfm-rubygem-redfish_client-doc</packagereq>
       <packagereq type="default">tfm-rubygem-redis-doc</packagereq>
       <packagereq type="default">tfm-rubygem-representable-doc</packagereq>
@@ -553,7 +550,6 @@
       <packagereq type="default">tfm-rubygem-unf_ext-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">tfm-rubygem-unicode-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-useragent-doc</packagereq>
       <packagereq type="default">tfm-rubygem-validates_lengths_from_database-doc</packagereq>
       <packagereq type="default">tfm-rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">tfm-rubygem-websocket-driver-doc</packagereq>
