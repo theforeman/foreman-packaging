@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -76,7 +76,7 @@ Requires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
-Requires: %{?scl_prefix_ruby}rubygem(rdoc)
+Requires: %{?scl_prefix_ruby}rubygem(rdoc) < 6.4
 Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -112,8 +112,6 @@ Requires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 Requires: %{?scl_prefix}rubygem(sprockets) < 5.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
 Requires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
-Requires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
-Requires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 Requires: %{?scl_prefix}rubygem(responders) >= 3.0
 Requires: %{?scl_prefix}rubygem(responders) < 4.0
 Requires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
@@ -180,7 +178,7 @@ BuildRequires: %{?scl_prefix}rubygem(ldap_fluff) < 1.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
-BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
+BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc) < 6.4
 BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
 BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
@@ -216,8 +214,6 @@ BuildRequires: %{?scl_prefix}rubygem(sprockets) >= 4.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets) < 5.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(sprockets-rails) < 4.0
-BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) >= 1.0
-BuildRequires: %{?scl_prefix}rubygem(record_tag_helper) < 2.0
 BuildRequires: %{?scl_prefix}rubygem(responders) >= 3.0
 BuildRequires: %{?scl_prefix}rubygem(responders) < 4.0
 BuildRequires: %{?scl_prefix}rubygem(roadie-rails) >= 2.0
@@ -260,8 +256,8 @@ BuildRequires: systemd
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
 BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -280,6 +276,8 @@ BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
 BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
@@ -299,8 +297,10 @@ BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 8.4.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 9.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 10.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 11.0.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
 BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -314,8 +314,8 @@ BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 BuildRequires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
 BuildRequires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.3.1
+BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 BuildRequires: %{?scl_prefix}rubygem(execjs) < 3.0
 BuildRequires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
@@ -356,7 +356,7 @@ Useful utilities for debug info collection
 Summary: Foreman libvirt support
 Group:  Applications/System
 # start specfile libvirt Requires
-Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.8.0
+Requires: %{?scl_prefix}rubygem(fog-libvirt) >= 0.9.0
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) >= 0.5
 Requires: %{?scl_prefix}rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
@@ -461,8 +461,8 @@ Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
 # start package.json devDependencies Requires
 Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) >= 10.0.0
+Requires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
 Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
 Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
 Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
@@ -481,6 +481,8 @@ Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
 Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
 Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
 Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
+Requires: %{?scl_prefix}npm(graphql) >= 15.5.0
+Requires: %{?scl_prefix}npm(graphql) < 16.0.0
 Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
 Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
 Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
@@ -500,8 +502,10 @@ Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 8.4.1
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 9.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 10.0.0
+Requires: %{?scl_prefix}npm(@theforeman/vendor) < 11.0.0
+Requires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
+Requires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
 Requires: %{?scl_prefix}npm(intl) >= 1.2.5
 Requires: %{?scl_prefix}npm(intl) < 1.3.0
 Requires: %{?scl_prefix}npm(jed) >= 1.1.1
@@ -515,8 +519,8 @@ Requires: %{?scl_prefix}rubygem(jquery-ui-rails) >= 6.0
 Requires: %{?scl_prefix}rubygem(jquery-ui-rails) < 7.0
 Requires: %{?scl_prefix}rubygem(patternfly-sass) >= 3.59.4
 Requires: %{?scl_prefix}rubygem(patternfly-sass) < 3.60.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.0
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 2.0
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) >= 1.3.1
+Requires: %{?scl_prefix}rubygem(gettext_i18n_rails_js) < 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) >= 1.4.0
 Requires: %{?scl_prefix}rubygem(execjs) < 3.0
 Requires: %{?scl_prefix}rubygem(uglifier) >= 1.0.3
@@ -1032,6 +1036,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Jan 25 2022 Evgeni Golov - 3.2.0-0.3.develop
+- Update Gem and NPM dependencies
+
 * Thu Dec 16 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.2.0-0.2.develop
 - Build plugin apipie:cache with production Rails environment
 
