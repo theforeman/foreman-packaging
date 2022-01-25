@@ -19,7 +19,7 @@
 Summary: Package that installs %scl
 Name: %scl_name
 Version: 7.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: GPLv2+
 Group: Applications/File
 Source0: README
@@ -97,6 +97,7 @@ Obsoletes: %{scl_prefix}rubygem-multi-select-rails < 0.9.12-6
 Obsoletes: %{scl_prefix}rubygem-nokogiri < 1.6.6.2-3
 Obsoletes: %{scl_prefix}rubygem-protected_attributes < 1.1.3-4
 Obsoletes: %{scl_prefix}rubygem-rails-observers < 0.1.2-8
+Obsoletes: %{scl_prefix}rubygem-record_tag_helper < 1.0.1-5
 Obsoletes: %{scl_prefix}rubygem-sass < 3.4.19-4
 Obsoletes: %{scl_prefix}rubygem-sass-rails < 5.0.4-3
 Obsoletes: %{scl_prefix}rubygem-select2-rails < 3.5.10-3
@@ -107,6 +108,7 @@ Obsoletes: %{scl_prefix}rubygem-table_print < 1.5.1-7
 Obsoletes: %{scl_prefix}rubygem-turbolinks < 2.5.4-3
 Obsoletes: %{scl_prefix}rubygem-turbolinks-doc < 2.5.4-3
 Obsoletes: %{scl_prefix}rubygem-underscore-rails < 1.8.3-5
+Obsoletes: %{scl_prefix}rubygem-useragent < 0.16.8-6
 Obsoletes: %{scl_prefix}rubygem-uuid < 2.3.8-2
 Obsoletes: %{scl_prefix}rubygem-uuidtools < 2.1.3-6
 Obsoletes: %{scl_prefix}rubygem-quiet_assets
@@ -327,6 +329,10 @@ selinuxenabled && load_policy || :
 %{_root_sysconfdir}/rpm/macros.%{scl_name}-scldevel
 
 %changelog
+* Tue Jan 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.0-5
+- Obsolete tfm-rubygem-record_tag_helper
+- Obsolete tfm-rubygem-useragent
+
 * Fri Jul 16 2021 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 7.0-4
 - Correct rubygem-arel obsolete
 
