@@ -989,12 +989,6 @@ whitelist =
   rubygem-foreman_scap_client
   tracer
 
-[foreman-client-nightly-rhel6]
-disttag = .el6
-whitelist = foreman-release
-  katello-host-tools
-  rubygem-foreman_scap_client
-
 [foreman-client-nightly-fedora29]
 disttag = .fc29
 whitelist =
