@@ -3,7 +3,7 @@ document: modulemd
 version: 2
 data:
   name: katello
-  stream: latest
+  stream: el8
   version: 0
   arch: x86_64
   summary: Katello module
