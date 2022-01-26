@@ -21,7 +21,7 @@ build:
 	/bin/cp config/dynflow/orchestrator.yml.example config/dynflow/orchestrator.yml
 	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
 	/bin/mkdir -p ./vendor/cache
-	cd ./vendor/cache && /usr/bin/gem fetch thor -v '1.1.0'
+	echo 'gem "thor", "1.1.0"' >> Gemfile
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
