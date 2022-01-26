@@ -25,7 +25,7 @@
 %global release 1
 
 Name:           foreman-selinux
-Version:        3.1.0
+Version:        3.1.1
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -190,6 +190,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Jan 26 2022 Odilon Sousa <osousa@redhat.com> - 3.1.1-1
+- Release foreman-selinux 3.1.1
+
 * Thu Dec 09 2021 Odilon Sousa <osousa@redhat.com> - 3.1.0-1
 - Release foreman-selinux 3.1.0
 
