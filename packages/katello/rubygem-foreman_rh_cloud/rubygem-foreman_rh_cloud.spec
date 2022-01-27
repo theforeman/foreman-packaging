@@ -8,7 +8,7 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.29
+Version: 5.0.31
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -130,6 +130,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jan 27 2022 Shimon Shtein <sshtein@redhat.com> 5.0.31-1
+- Update to 5.0.31-1
+
 * Mon Dec 13 2021 Shimon Shtein <sshtein@redhat.com> 5.0.29-1
 - Update to 5.0.29-1
 
