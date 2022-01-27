@@ -36,7 +36,6 @@
       <!-- katello thirdparty rubygem packages -->
       <packagereq type="default">rubygem-anemone</packagereq>
       <packagereq type="default">rubygem-ansi</packagereq>
-      <packagereq type="default">rubygem-chunky_png</packagereq>
       <packagereq type="default">rubygem-foreman_rh_cloud</packagereq>
       <packagereq type="default">rubygem-foreman_scc_manager</packagereq>
       <packagereq type="default">rubygem-fssm</packagereq>
