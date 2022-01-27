@@ -60,7 +60,6 @@
       <packagereq type="default">tfm-rubygem-qpid_proton</packagereq>
       <packagereq type="default">tfm-rubygem-robotex</packagereq>
       <packagereq type="default">tfm-rubygem-runcible</packagereq>
-      <packagereq type="default">tfm-rubygem-sexp_processor</packagereq>
       <packagereq type="default">tfm-rubygem-stomp</packagereq>
       <packagereq type="default">tfm-rubygem-typhoeus</packagereq>
       <packagereq type="default">tfm-rubygem-zest</packagereq>
@@ -88,7 +87,6 @@
       <packagereq type="optional">tfm-rubygem-pulp_ostree_client-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-qpid_proton-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-runcible-doc</packagereq>
-      <packagereq type="optional">tfm-rubygem-sexp_processor-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-stomp-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-typhoeus-doc</packagereq>
       <packagereq type="optional">tfm-rubygem-zest-doc</packagereq>
