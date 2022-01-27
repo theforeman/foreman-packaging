@@ -24,7 +24,6 @@
       <packagereq type="default">tfm-rubygem-ethon</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_virt_who_configure</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_foreman_virt_who_configure</packagereq>
-      <packagereq type="default">tfm-rubygem-hammer_cli_import</packagereq>
       <packagereq type="default">tfm-rubygem-hammer_cli_katello</packagereq>
       <packagereq type="default">tfm-rubygem-katello</packagereq>
       <packagereq type="default">tfm-rubygem-katello-assets</packagereq>
