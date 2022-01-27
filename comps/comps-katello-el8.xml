@@ -41,7 +41,6 @@
       <packagereq type="default">rubygem-hammer_cli_csv</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_rh_cloud</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_scc_manager</packagereq>
-      <packagereq type="default">rubygem-i18n_data</packagereq>
       <packagereq type="default">rubygem-pulpcore_client</packagereq>
       <packagereq type="default">rubygem-pulp_ansible_client</packagereq>
       <packagereq type="default">rubygem-pulp_certguard_client</packagereq>
