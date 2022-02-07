@@ -37,7 +37,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -120,15 +120,11 @@ gem build %{gem_name}.gemspec
 mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d
 
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* \
-        %{buildroot}%{gem_dir}/
-
-mkdir -p %{buildroot}%{_root_bindir}
-cp -a .%{_bindir}/* \
-        %{buildroot}%{_root_bindir}/
+cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
+sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/salt_python_wrapper
 
 # autosign runner, reactor, key file
 mkdir -p %{buildroot}%{salt_proxy_runners_dir}
@@ -154,8 +150,11 @@ mv %{buildroot}%{gem_instdir}/settings.d/salt.yml.example \
 
 mkdir -p  %{buildroot}%{salt_config_dir}
 cp -pa .%{gem_instdir}/etc/foreman.yaml.example %{buildroot}%{salt_config_dir}/foreman.yaml
+
 mkdir -p %{buildroot}%{_root_bindir}
 cp -pa .%{_bindir}/foreman-node %{buildroot}%{_root_bindir}/foreman-node
+cp -pa .%{_bindir}/salt_python_wrapper %{buildroot}%{_root_bindir}/salt_python_wrapper
+
 mkdir -p %{buildroot}%{_root_sbindir}
 mv %{buildroot}/%{gem_instdir}/sbin/upload-salt-reports %{buildroot}%{_root_sbindir}/upload-salt-reports
 mv .%{gem_instdir}/cron/smart_proxy_salt %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
@@ -199,6 +198,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Tue Apr 05 2022 Bernhard Suttner <suttner@atix.de> - 5.0.0-2
+- Fix wrong rubygem wrapper script for shell script 'salt_python_wrapper'
+
 * Mon Feb 14 2022 Bernhard Suttner <suttner@atix.de> 5.0.0-1
 - Update to 5.0.0
 
