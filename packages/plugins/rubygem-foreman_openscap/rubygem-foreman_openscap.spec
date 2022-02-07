@@ -34,12 +34,12 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
 BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
+BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 # end package.json devDependencies BuildRequires
 
 Obsoletes: %{?scl_prefix}rubygem-scaptimony < 0.3.2-3
