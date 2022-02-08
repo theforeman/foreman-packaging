@@ -46,6 +46,11 @@ def main(filename: Path) -> None:
         missing_packages = comps_packages - koji_packages
         extra_packages = koji_packages - comps_packages
 
+        # We can't automatically build foreman-release in client, koji will fail with duplicate
+        # builds. We always manually tag it to client after.
+        if tag.startswith('foreman-client-'):
+            extra_packages -= {'foreman-release'}
+
         if missing_packages:
             print(f"\n# Packages missing in tag {tag}")
             for missing_package in sorted(missing_packages):
