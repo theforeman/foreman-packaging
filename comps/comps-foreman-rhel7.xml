@@ -8,7 +8,6 @@
     <uservisible>true</uservisible>
     <packagelist>
       <packagereq type="default">dynflow-utils</packagereq>
-      <packagereq type="default">centos-release-scl-rh</packagereq>
       <packagereq type="default">foreman</packagereq>
       <packagereq type="default">foreman-assets</packagereq>
       <packagereq type="default">foreman-bootloaders-redhat</packagereq>
