@@ -3,8 +3,6 @@
 %global zypper_install (0%{?suse_version} > 0)
 %global build_tracer 0%{?rhel} >= 7 || 0%{?fedora} || 0%{?suse_version}
 
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
-
 %global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || 0%{?rhel} > 0)
 %global legacy_agent (0%{?rhel} == 6)
 %global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
@@ -15,7 +13,7 @@
 
 Name: katello-host-tools
 Version: 3.5.7
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -154,9 +152,13 @@ Adds Tracer functionality to a client managed by katello-host-tools
 %build
 pushd src
 %if %{dnf_install} || 0%{?suse_version} >= 1500
-%{__python3} setup.py build
+%py3_build
 %else
+%if 0%{?rhel} == 6
 %{__python} setup.py build
+%else
+%py_build
+%endif
 %endif
 popd
 
@@ -170,7 +172,11 @@ rm -rf %{buildroot}
 %endif
 
 %if %{yum_install}
+%if 0%{?rhel} == 6
 %global katello_libdir %{python_sitelib}/katello
+%else
+%global katello_libdir %{python2_sitelib}/katello
+%endif
 %global plugins_dir %{_usr}/lib/yum-plugins
 %global plugins_confdir %{_sysconfdir}/yum/pluginconf.d
 %endif
@@ -411,6 +417,9 @@ exit 0
 
 
 %changelog
+* Wed Feb 09 2022 Patrick Creech <pcreech@redhat.com> - 3.5.7-3
+- Fixup python macros to be more compliant with recent changes
+
 * Mon Oct 25 2021 Bernhard Suttner - 3.5.7-2
 - Build for SLES 15 with python3
 
