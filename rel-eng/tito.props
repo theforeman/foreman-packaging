@@ -975,6 +975,7 @@ whitelist =
   qpid-proton
   rubygem-foreman_scap_client
   tracer
+  yggdrasil
 
 [foreman-client-nightly-rhel7]
 disttag = .el7
@@ -984,6 +985,7 @@ whitelist =
   python-psutil
   rubygem-foreman_scap_client
   tracer
+  yggdrasil
 
 [foreman-client-nightly-fedora29]
 disttag = .fc29
