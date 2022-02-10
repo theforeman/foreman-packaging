@@ -6,7 +6,8 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
+Epoch: 1
 Summary: Classy web-development dressed in a DSL
 Group: Development/Languages
 License: MIT
@@ -41,7 +42,7 @@ effort.
 %package doc
 Summary: Documentation for %{pkg_name}
 Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -109,6 +110,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/sinatra.gemspec
 
 %changelog
+* Thu Feb 10 2022 Patrick Creech <pcreech@redhat.com> - 1:2.1.0-3
+- rebuilt
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
 - Rebuild against rh-ruby27
 
