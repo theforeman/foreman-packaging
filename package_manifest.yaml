@@ -731,15 +731,11 @@ foreman_client_packages:
         dist: '.el8'
       - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
-      - name: "foreman-client-{{ foreman_version }}-fedora29"
-        dist: '.fc29'
     repoclosure_target_repos:
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
         - "el7-foreman-client-{{ foreman_version }}"
-      fedora29:
-        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -755,10 +751,6 @@ foreman_client_packages:
         - el7-epel
         - el7-extras
         - el7-puppet-6
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     gofer: {}
     katello-host-tools: {}
@@ -1210,17 +1202,6 @@ repoclosures:
           - el7-epel
           - el7-extras
           - el7-puppet-6
-    foreman-client-repoclosure-f29:
-      repoclosure_target_repos:
-        fedora29:
-          - "f29-foreman-client-{{ foreman_version }}"
-      repoclosure_target_dist: fedora29
-      repoclosure_lookaside_repos:
-        fedora29:
-          - f29-base
-          - f29-updates
-          - f29-puppet-6
-
 
 foreman_release_packages:
   vars:
@@ -1233,8 +1214,6 @@ foreman_release_packages:
         dist: '.el8'
       - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
-      - name: "foreman-client-{{ foreman_version }}-fedora29"
-        dist: '.fc29'
     releasers:
       - koji-foreman
       - koji-foreman-client
@@ -1244,8 +1223,6 @@ foreman_release_packages:
         - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
         - "el7-foreman-client-{{ foreman_version }}"
-      fedora29:
-        - "f29-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
       el8:
         - el8-baseos
@@ -1260,9 +1237,5 @@ foreman_release_packages:
         - el7-extras
         - el7-puppet-6
         - "el7-foreman-{{ foreman_version }}"
-      fedora29:
-        - f29-base
-        - f29-updates
-        - f29-puppet-6
   hosts:
     foreman-release: {}
