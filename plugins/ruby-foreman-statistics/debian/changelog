@@ -1,3 +1,9 @@
+ruby-foreman-statistics (2.0.1-1) stable; urgency=low
+
+  * 2.0.1 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Mon, 14 Feb 2022 22:32:42 +0100
+
 ruby-foreman-statistics (2.0.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
