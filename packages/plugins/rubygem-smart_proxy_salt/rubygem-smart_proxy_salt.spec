@@ -36,7 +36,7 @@
 
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.0
+Version: 5.0.0
 Release: 1%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
@@ -199,6 +199,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Mon Feb 14 2022 Bernhard Suttner <suttner@atix.de> 5.0.0-1
+- Update to 5.0.0
+
 * Wed Jan 12 2022 Bastian Schmidt <schmidt@atix.de> 4.0.0-1
 - Update to 4.0.0
 - Add Autosign via Grains authentication
