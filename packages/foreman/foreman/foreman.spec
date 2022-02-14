@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1036,6 +1036,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Feb 14 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-0.3.rc1
+- Release foreman 3.2.0
+
 * Tue Jan 25 2022 Evgeni Golov - 3.2.0-0.3.develop
 - Update Gem and NPM dependencies
 
