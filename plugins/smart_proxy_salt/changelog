@@ -1,8 +1,8 @@
-ruby-smart-proxy-salt (4.0.0-1) stable; urgency=low
+ruby-smart-proxy-salt (5.0.0-1) stable; urgency=low
 
-  * 4.0.0 released
+  * 5.0.0 released
 
- -- Bernhard Suttner <suttner@atix.de>  Mon, 13 Dec 2021 16:47:27 +0100
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 14 Feb 2022 14:20:08 +0100
 
 ruby-smart-proxy-salt (3.1.2-1) stable; urgency=low
 
