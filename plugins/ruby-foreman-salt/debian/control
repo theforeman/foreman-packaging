@@ -2,12 +2,12 @@ Source: ruby-foreman-salt
 Section: ruby
 Priority: extra
 Maintainer: Stephen Benjamin <stephen@redhat.com>
-Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 1.24.0), foreman (>= 1.24.0), foreman-nulldb (>= 1.24.0), ruby-foreman-deface, ruby-foreman-tasks (>= 0.14.5), ruby-foreman-remote-execution (>= 2.0.0)
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 3.1.0~rc1), foreman (>= 3.1.0~rc1), ruby-foreman-deface, ruby-foreman-tasks (>= 5.1.0), ruby-foreman-remote-execution (>= 4.4.0-1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_salt
 
 Package: ruby-foreman-salt
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1), ruby-foreman-deface, ruby-foreman-tasks (>= 0.14.5), ruby-foreman-remote-execution (>= 2.0.0)
+Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1), ruby-foreman-deface, ruby-foreman-tasks (>= 5.1.0), ruby-foreman-remote-execution (>= 4.4.0-1)
 Description: Foreman Salt Plugin
  Plugin for Foreman for Salt integration
