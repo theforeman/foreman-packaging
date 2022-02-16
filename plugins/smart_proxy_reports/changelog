@@ -1,3 +1,9 @@
+ruby-smart-proxy-reports (1.0.0-1) stable; urgency=low
+
+  * 1.0.0 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Wed, 16 Feb 2022 14:45:56 +0100
+
 ruby-smart-proxy-reports (0.0.7-1) stable; urgency=medium
 
   * Initial release
