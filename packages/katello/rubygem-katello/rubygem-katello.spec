@@ -6,7 +6,7 @@
 %global foreman_max_version 3.3
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.4.0
 %global release 2
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Feb 16 2022 Zach Huntington-Meath <zhunting@redhat.com> - 4.4.0-0.2.rc1
+- Release rubygem-katello 4.4.0rc1
+
 * Thu Nov 18 2021 Ian Ballou <ianballou67@gmail.com> 4.4.0-0.2.pre.master
 - updates to pulpcore 3.16 client bindings
 
