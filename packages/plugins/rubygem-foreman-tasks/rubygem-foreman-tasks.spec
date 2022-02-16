@@ -2,13 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
+%{!?_root_bindir:%global _root_bindir %{_bindir}}
 
 %global gem_name foreman-tasks
 %global plugin_name foreman-tasks
-%global foreman_min_version 2.6.0
+%global foreman_min_version 3.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.3.0
+Version: 6.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
@@ -116,9 +117,9 @@ chmod +x %{buildroot}%{gem_instdir}/extra/dynflow-debug.sh
 ln -s %{gem_instdir}/extra/dynflow-debug.sh %{buildroot}%{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 
 # Link rake task interface scripts into /usr/bin
-mkdir -p %{buildroot}%{_bindir}
-ln -s %{gem_instdir}/extra/foreman-tasks-cleanup.sh %{buildroot}%{_bindir}/foreman-tasks-cleanup
-ln -s %{gem_instdir}/extra/foreman-tasks-export.sh %{buildroot}%{_bindir}/foreman-tasks-export
+mkdir -p %{buildroot}%{_root_bindir}
+ln -s %{gem_instdir}/extra/foreman-tasks-cleanup.sh %{buildroot}%{_root_bindir}/foreman-tasks-cleanup
+ln -s %{gem_instdir}/extra/foreman-tasks-export.sh %{buildroot}%{_root_bindir}/foreman-tasks-export
 
 # Logrotate script
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_root_sysconfdir}/logrotate.d/%{gem_name}
@@ -145,8 +146,8 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/db
 %{gem_instdir}/deploy
 %{gem_instdir}/extra
-%{_bindir}/foreman-tasks-cleanup
-%{_bindir}/foreman-tasks-export
+%{_root_bindir}/foreman-tasks-cleanup
+%{_root_bindir}/foreman-tasks-export
 %exclude %{gem_instdir}/gemfile.d
 %{gem_libdir}
 %{gem_instdir}/locale
@@ -175,6 +176,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Wed Feb 16 2022 Adam Ruzicka <aruzicka@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
 * Tue Dec 14 2021 Adam Ruzicka <aruzicka@redhat.com> 5.3.0-1
 - Update to 5.3.0
 
