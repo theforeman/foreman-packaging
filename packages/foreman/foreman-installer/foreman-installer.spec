@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
@@ -18,6 +18,7 @@ Source0:    https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerel
 BuildArch:  noarch
 
 Requires:   curl
+Requires:   hostname
 Requires:   puppet-agent >= 6.15.0
 Requires:   %{?scl_prefix}rubygem(kafo) >= 6.4.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
@@ -142,6 +143,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Mar 10 2022 Evgeni Golov - 1:3.2.0-0.2.rc2
+- require hostname explicitly
+
 * Thu Mar 03 2022 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.2.0-0.1.rc2
 - Release foreman-installer 3.2.0rc2
 
