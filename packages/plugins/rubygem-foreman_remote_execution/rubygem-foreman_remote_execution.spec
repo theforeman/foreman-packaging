@@ -6,11 +6,11 @@
 
 %global gem_name foreman_remote_execution
 %global plugin_name remote_execution
-%global foreman_min_version 3.1.0
+%global foreman_min_version 3.2.0
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    5.1.0
+Version:    6.0.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -48,7 +48,6 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
 BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
@@ -165,6 +164,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Thu Feb 17 2022 Adam Ruzicka <aruzicka@redhat.com> 6.0.0-1
+- Update to 6.0.0
+
 * Tue Dec 14 2021 Adam Ruzicka <aruzicka@redhat.com> 5.1.0-1
 - Update to 5.1.0
 
