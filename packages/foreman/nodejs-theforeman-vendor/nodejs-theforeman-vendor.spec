@@ -4,7 +4,7 @@
 %global npm_name @theforeman/vendor
 
 Name: %{?scl_prefix}nodejs-theforeman-vendor
-Version: 10.0.0
+Version: 10.1.0
 Release: 1%{?dist}
 Summary: foreman supported 3rd-party node_modules
 License: MIT
@@ -39,6 +39,9 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
+* Mon Feb 21 2022 vagrant 10.1.0-1
+- Update to 10.1.0
+
 * Tue Jan 18 2022 MariaAga <mariaaga@redhat.com> 10.0.0-1
 - Update to 10.0.0
 
