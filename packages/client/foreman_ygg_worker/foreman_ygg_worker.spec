@@ -26,6 +26,7 @@ License: MIT
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/releases/download/v%{version}/%{repo_name}-%{version}.tar.gz
 Url: https://github.com/%{repo_orgname}/%{repo_name}/
 
+# EL7 doesn't define go_arches
 %if ! 0%{?go_arches:1}
 %define go_arches %{ix86} x86_64 %{arm} aarch64 ppc64le
 %endif
