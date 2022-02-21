@@ -1,10 +1,8 @@
 %define debug_package %{nil}
 
-%global go_arches x86_64 s390x ppc64le
-
 Name:    yggdrasil
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Message dispatch agent for cloud-connected systems
 License: GPLv3
 URL:     https://github.com/redhatinsights/yggdrasil
@@ -14,6 +12,10 @@ Source0: https://github.com/redhatinsights/%{name}/releases/download/%{version}/
 Patch0:  Use-gzip-c-instead-of-k.patch
 Patch1:  build-Remove-the-Makefile-preamble.patch
 
+# EL7 doesn't define go_arches
+%if ! 0%{?go_arches:1}
+%define go_arches %{ix86} x86_64 %{arm} aarch64 ppc64le
+%endif
 ExclusiveArch: %{go_arches}
 
 BuildRequires: git
@@ -69,5 +71,8 @@ make PREFIX=%{_prefix} \
 %{_libexecdir}/%{name}
 
 %changelog
+* Mon Feb 21 2022 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-2
+- Standardize go_arches
+
 * Mon Oct 18 2021 Adam Ruzicka <aruzicka@redhat.com> - 0.2.0-1
 - Initial release
