@@ -1,0 +1,13 @@
+Source: ruby-foreman-host-reports
+Section: ruby
+Priority: extra
+Maintainer: Lukas Zapletal <lzap+rpm@redhat.com>
+Build-Depends: debhelper (>= 11~), foreman (>= 3.2.0~rc1), foreman-assets(>= 3.2.0~rc1), foreman-nulldb (>= 3.2.0~rc1), git
+Standards-Version: 3.9.3
+Homepage: https://github.com/theforeman/foreman_host_reports
+
+Package: ruby-foreman-host-reports
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 3.2.0~rc1)
+Description: Foreman Host Reports
+ Plugin for Foreman that allows collection of configuration management reports.
