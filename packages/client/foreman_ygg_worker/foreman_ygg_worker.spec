@@ -31,8 +31,6 @@ Url: https://github.com/%{repo_orgname}/%{repo_name}/
 %endif
 ExclusiveArch: %{go_arches}
 
-BuildRequires: tar
-BuildRequires: gzip
 BuildRequires: golang
 Requires: yggdrasil
 
