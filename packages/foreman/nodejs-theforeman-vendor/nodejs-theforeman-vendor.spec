@@ -39,7 +39,7 @@ cp -pfr scss %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %doc readme.md
 
 %changelog
-* Mon Feb 21 2022 vagrant 10.1.0-1
+* Mon Feb 21 2022 Oleh Fedorenko <ofedoren@redhat.com> 10.1.0-1
 - Update to 10.1.0
 
 * Tue Jan 18 2022 MariaAga <mariaaga@redhat.com> 10.0.0-1
