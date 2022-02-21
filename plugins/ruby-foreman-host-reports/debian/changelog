@@ -1,0 +1,5 @@
+ruby-foreman-host-reports (1.0.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Lukas Zapletal <lzap+rpm@redhat.com>  Mon, 21 Feb 2022 18:27:49 +0000
