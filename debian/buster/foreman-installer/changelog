@@ -1,3 +1,9 @@
+foreman-installer (3.1.2-1) stable; urgency=low
+
+  * 3.1.2 released
+
+ -- Odilon Sousa <osousa@redhat.com>  Tue, 22 Feb 2022 14:40:07 -0300
+
 foreman-installer (3.1.1-1) stable; urgency=low
 
   * 3.1.1 released
