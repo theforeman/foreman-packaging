@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 3.0.1
@@ -531,6 +531,9 @@ Meta package to install asset pipeline support.
 %{_datadir}/%{name}/bundler.d/assets.rb
 %{_datadir}/%{name}/webpack
 %{_datadir}/%{name}/.babelrc.js
+%{_datadir}/%{name}/script/npm*
+%{_datadir}/%{name}/script/plugin_webpack*
+%{_datadir}/%{name}/script/webpack-analyze*
 
 %package plugin
 Summary: Foreman plugin support
@@ -935,6 +938,12 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/%{name}/app/assets/stylesheets
 %exclude %{_datadir}/%{name}/app/assets/javascripts
 %exclude %{_datadir}/%{name}/script/%{name}-debug.d
+%exclude %{_datadir}/%{name}/script/%{name}-puma-status
+%exclude %{_datadir}/%{name}/script/%{name}-rake
+%exclude %{_datadir}/%{name}/script/%{name}-tail
+%exclude %{_datadir}/%{name}/script/npm*
+%exclude %{_datadir}/%{name}/script/plugin_webpack*
+%exclude %{_datadir}/%{name}/script/webpack-analyze*
 %dir %{_datadir}/%{name}/bundler.d
 %exclude %{_datadir}/%{name}/bundler.d/development.rb
 %{_datadir}/%{name}/bundler.d/facter.rb
@@ -945,6 +954,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/config*
 %{_datadir}/%{name}/db
 %{_datadir}/%{name}/extras
+%exclude %{_datadir}/%{name}/extras/systemd
 %{_datadir}/%{name}/Gemfile.in
 %{_datadir}/%{name}/lib
 %{_datadir}/%{name}/locale
@@ -1030,6 +1040,10 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Feb 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.0.1-2
+- Drop accidental nodejs dependency by moving files
+- Exclude redundant systemd files
+
 * Wed Oct 27 2021 Patrick Creech <pcreech@redhat.com> - 3.0.1-1
 - Release foreman 3.0.1
 
