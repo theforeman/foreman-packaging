@@ -1,0 +1,5 @@
+ruby-hammer-cli-foreman-host-reports (0.1.0-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 23 Feb 2022 18:28:33 +0000
