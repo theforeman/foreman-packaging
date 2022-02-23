@@ -7,14 +7,18 @@
 Name: ansiblerole-insights-client
 Summary: Packaging of the insights-client Ansible role
 Version: 1.7.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: ASL 2.0
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/archive/v%{version}.tar.gz#/%{role_name}-%{version}.tar.gz
 Url: https://github.com/%{repo_orgname}/%{repo_name}/
 BuildArch: noarch
 
+%if 0%{?rhel} == 7
 Requires: ansible
+%else
+Requires: (ansible or ansible-core)
+%endif
 
 %description
 This package installs the insights-client Ansibile role.
@@ -38,6 +42,9 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %license %{repo_name}-%{version}/LICENSE
 
 %changelog
+* Wed Feb 23 2022 Evgeni Golov - 1.7.1-2
+- Require ansible or ansible-core on EL8+
+
 * Tue Nov 26 2019 Marek Hulan <mhulan@redhat.com> - 1.7.1-1
 - Update to 1.7.1
 
