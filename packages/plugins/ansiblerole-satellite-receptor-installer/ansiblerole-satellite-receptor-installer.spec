@@ -7,14 +7,18 @@
 Name: ansiblerole-satellite-receptor-installer
 Summary: Packaging of the satellite_receptor_installer Ansible role
 Version: 0.6.13
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv3
 
 Source0: https://github.com/%{repo_orgname}/%{repo_name}/archive/v%{version}.tar.gz#/%{role_name}-%{version}.tar.gz
 Url: https://github.com/%{repo_orgname}/%{repo_name}/
 BuildArch: noarch
 
+%if 0%{?rhel} == 7
 Requires: ansible
+%else
+Requires: (ansible or ansible-core)
+%endif
 
 %description
 This package installs the satellite_receptor_installer Ansibile role.
@@ -39,6 +43,9 @@ cp -pR %{repo_name}-%{version} %{buildroot}%{_datadir}/ansible/roles/%{role_orgn
 %doc %{repo_name}-%{version}/README.md
 
 %changelog
+* Wed Feb 23 2022 Evgeni Golov - 0.6.13-2
+- Require ansible or ansible-core on EL8+
+
 * Tue Aug 25 2020 Adam Ruzicka <aruzicka@redhat.com> 0.6.13-1
 - Update to 0.6.13
 
