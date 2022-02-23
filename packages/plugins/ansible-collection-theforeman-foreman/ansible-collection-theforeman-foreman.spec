@@ -12,7 +12,7 @@
 %global pyyaml PyYAML
 %endif
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    3.0.0
@@ -26,7 +26,13 @@ BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
 Provides: bundled(%{ansible_python}-apypie) = 0.3.2
+
+%if 0%{?rhel} == 7
 Requires: ansible >= 2.9
+%else
+Requires: (ansible >= 2.9 or ansible-core)
+%endif
+
 Requires: %{ansible_python}-requests >= 2.4.2
 Requires: %{pyyaml}
 %if 0%{?rhel} == 7
@@ -56,6 +62,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Wed Feb 23 2022 Evgeni Golov - 3.0.0-2
+- Require ansible or ansible-core on EL8+
+
 * Fri Nov 12 2021 Evgeni Golov - 3.0.0-1
 - Release ansible-collection-theforeman-foreman 3.0.0
 
