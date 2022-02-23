@@ -12,7 +12,7 @@
 %global pyyaml PyYAML
 %endif
 
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    0.3.0
@@ -25,7 +25,12 @@ Source0:    https://galaxy.ansible.com/download/%{collection_namespace}-%{collec
 BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
+
+%if 0%{?rhel} == 7
 Requires: ansible >= 2.8
+%else
+Requires: (ansible >= 2.8 or ansible-core)
+%endif
 
 %description
 Collection of Ansible Modules to manage Foreman installations.
@@ -46,5 +51,8 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Wed Feb 23 2022 Evgeni Golov - 0.3.0-2
+- Require ansible or ansible-core on EL8+
+
 * Tue Apr 20 2021 Eric Helms - 0.3.0-1
 - Initial package
