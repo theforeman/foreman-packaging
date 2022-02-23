@@ -96,6 +96,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_azure_rm</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_host_reports</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_kubevirt</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_leapp</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_openscap</packagereq>
@@ -254,6 +255,7 @@
       <packagereq type="default">rubygem-hammer_cli_foreman_azure_rm-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_bootdisk-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_discovery-doc</packagereq>
+      <packagereq type="default">rubygem-hammer_cli_foreman_host_reports-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_kubevirt-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_leapp-doc</packagereq>
       <packagereq type="default">rubygem-hammer_cli_foreman_openscap-doc</packagereq>
