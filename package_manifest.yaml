@@ -584,7 +584,6 @@ foreman_proxy_plugin_packages:
         - el8-extras
         - "el8-foreman-{{ foreman_version }}"
         - "el8-foreman-plugins-{{ foreman_version }}"
-        - el8-configmanagement-ansible
         - el8-configmanagement-salt
   hosts:
     rubygem-chef-api: {}
@@ -686,7 +685,6 @@ foreman_client_packages:
         - el8-epel
         - el8-extras
         - el8-puppet-6
-        - el8-configmanagement-ansible
       rhel7:
         - el7-base
         - el7-updates
@@ -833,7 +831,6 @@ plugin_scl_packages:
         - el8-appstream
         - el8-baseos
         - el8-powertools
-        - el8-configmanagement-ansible
         - el8-configmanagement-salt
         - el8-extras
         - el8-puppet-6
@@ -999,7 +996,6 @@ plugin_nonscl_packages:
         - el8-extras
         - el8-puppet-6
         - "el8-foreman-{{ foreman_version }}"
-        - el8-configmanagement-ansible
         - el8-configmanagement-salt
   hosts:
     ansible-collection-theforeman-operations: {}
@@ -1064,7 +1060,6 @@ repoclosures:
           - el8-baseos
           - el8-appstream
           - el8-powertools
-          - el8-configmanagement-ansible
           - el8-configmanagement-salt
           - el8-extras
           - el8-puppet-6
@@ -1114,7 +1109,6 @@ repoclosures:
           - el8-epel
           - el8-extras
           - el8-puppet-6
-          - el8-configmanagement-ansible
     foreman-client-repoclosure-el7:
       repoclosure_target_repos:
         rhel7:
