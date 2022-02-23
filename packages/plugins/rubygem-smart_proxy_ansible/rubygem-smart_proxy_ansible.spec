@@ -17,14 +17,18 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_ansible
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: ansible >= 2.2
+%if 0%{?rhel} == 7
+Requires: ansible
+%else
+Requires: (ansible or ansible-core)
+%endif
 
 Requires: ansible-collection-theforeman-foreman
 
@@ -143,6 +147,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Feb 23 2022 Evgeni Golov - 3.3.1-2
+- Require ansible or ansible-core on EL8+
+
 * Tue Feb 08 2022 Ondřej Ezr <oezr@redhat.com> 3.3.1-1
 - Update to 3.3.1
 
