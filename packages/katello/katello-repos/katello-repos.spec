@@ -5,7 +5,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.5
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Feb 28 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.5-0.2.nightly
+- Remove module_hotfixes=1
+
 * Wed Feb 16 2022 Justin Sherrill <jsherril@redhat.com> 4.5-0.1.nightly
 - bump to version 4.5
 
