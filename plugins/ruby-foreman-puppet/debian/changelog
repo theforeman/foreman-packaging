@@ -1,3 +1,9 @@
+ruby-foreman-puppet (2.0.4-1) stable; urgency=low
+
+  * 2.0.4 released
+
+ -- Ondřej Ezr <oezr@redhat.com>  Mon, 28 Feb 2022 13:00:45 +0100
+
 ruby-foreman-puppet (2.0.3-1) stable; urgency=low
 
   * 2.0.3 released
