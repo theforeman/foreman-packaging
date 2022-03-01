@@ -1,4 +1,5 @@
 %global with_tests 0
+%bcond_with websockets
 
 Name:           mosquitto
 Version:        2.0.14
@@ -13,7 +14,9 @@ BuildRequires:  c-ares-devel
 BuildRequires:  cjson-devel
 BuildRequires:  gcc-c++
 BuildRequires:  libuuid-devel
+%if %{with websockets}
 BuildRequires:  libwebsockets-devel
+%endif
 BuildRequires:  make
 BuildRequires:  openssl-devel
 BuildRequires:  systemd-devel
@@ -60,7 +63,7 @@ export CFLAGS="%{optflags} -std=gnu99"
 export CFLAGS="%{optflags}"
 %endif
 export LDFLAGS="%{optflags} %{__global_ldflags} -Wl,--as-needed"
-make all %{?_smp_mflags} WITH_WEBSOCKETS=yes WITH_SYSTEMD=yes WITH_SRV=yes
+make all %{?_smp_mflags} WITH_WEBSOCKETS=%{?with_websockets:yes}%{!?with_websockets:no} WITH_SYSTEMD=yes WITH_SRV=yes
 
 %install
 %if "%{_lib}" == "lib64"
