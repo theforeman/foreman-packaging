@@ -14,7 +14,6 @@
       <packagereq type="default">ansiblerole-satellite-receptor-installer</packagereq>
       <packagereq type="default">foreman-discovery-image-service</packagereq>
       <packagereq type="default">foreman-discovery-image-service-tui</packagereq>
-      <packagereq type="default">ipxe-bootimgs</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">tfm-nodejs-babel-plugin-module-resolver</packagereq>
