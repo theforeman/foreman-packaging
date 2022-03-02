@@ -28,10 +28,10 @@ developing applications that use cJSON.
 
 %build
 %cmake
-%cmake_build
+make %{?_smp_mflags}
 
 %install
-%cmake_install
+%make_install
 rm -f %{buildroot}%{_libdir}/*.{la,a}
 rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 
