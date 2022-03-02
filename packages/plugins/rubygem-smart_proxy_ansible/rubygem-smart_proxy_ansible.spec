@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.3.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -28,6 +28,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: ansible
 %else
 Requires: (ansible or ansible-core)
+Requires: (python38-psutil if ansible-core)
 %endif
 
 Requires: ansible-collection-theforeman-foreman
@@ -147,6 +148,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 02 2022 Evgeni Golov - 3.3.0-3
+- Require python38-psutil on EL8 when using ansible-core
+
 * Wed Feb 23 2022 Evgeni Golov - 3.3.0-2
 - Require ansible or ansible-core on EL8+
 
