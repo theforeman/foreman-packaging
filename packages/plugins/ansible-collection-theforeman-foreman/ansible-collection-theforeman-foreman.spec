@@ -12,10 +12,10 @@
 %global pyyaml PyYAML
 %endif
 
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.1.0
+Version:    3.2.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -62,6 +62,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Wed Mar 02 2022 Evgeni Golov - 3.2.0-1
+- Release ansible-collection-theforeman-foreman 3.2.0
+
 * Wed Feb 23 2022 Evgeni Golov - 3.1.0-2
 - Require ansible or ansible-core on EL8+
 
