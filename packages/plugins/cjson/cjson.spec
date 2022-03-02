@@ -36,7 +36,9 @@ rm -f %{buildroot}%{_libdir}/*.{la,a}
 rm -f %{buildroot}%{_libdir}/cmake/cJSON/*.cmake
 
 %check
+%if 0%{?rhel} > 7
 %ctest
+%endif
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
