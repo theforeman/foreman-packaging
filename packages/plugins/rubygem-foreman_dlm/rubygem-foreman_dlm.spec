@@ -5,16 +5,16 @@
 
 %global gem_name foreman_dlm
 %global plugin_name dlm
-%global foreman_min_version 1.17
+%global foreman_min_version 3.0
 %global service_name foreman-dlm-expire-events
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 3%{?foremandist}%{?dist}
+Version: 2.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
-License: GPLv3+
-URL: https://github.com/timogoebel/foreman_dlm
+License: GPLv3
+URL: https://github.com/dm-drogeriemarkt/foreman_dlm
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -75,7 +75,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
@@ -117,6 +117,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 02 2022 Manuel Laug <laugmanuel@gmail.com> - 2.0.0-1
+- Update foreman_dlm to 2.0.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-3
 - Rebuild plugins for Ruby 2.7
 
