@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:       foreman-installer
 Epoch:      1
@@ -140,6 +140,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Mar 03 2022 Patrick Creech <pcreech@redhat.com> - 1:3.0.2-2
+- Rebuild due to weird koji state for the specific nvra of 3.0.2-1.el7
+
 * Tue Mar 01 2022 Patrick Creech <pcreech@redhat.com> - 1:3.0.2-1
 - Release foreman-installer 3.0.2
 
