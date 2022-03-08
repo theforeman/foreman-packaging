@@ -1,3 +1,9 @@
+foreman (3.0.2-2) stable; urgency=low
+
+  * Fix thor bundling
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 08 Mar 2022 20:57:39 +0100
+
 foreman (3.0.2-1) stable; urgency=low
 
   * 3.0.2 released
