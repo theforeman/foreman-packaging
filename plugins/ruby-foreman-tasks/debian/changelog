@@ -1,3 +1,9 @@
+ruby-foreman-tasks (5.3.0-2) stable; urgency=low
+
+  * Update sinatra to 2.2.0 to match rack-protection in core.
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 10 Mar 2022 09:50:37 +0100
+
 ruby-foreman-tasks (5.3.0-1) stable; urgency=low
 
   * 5.3.0 released
