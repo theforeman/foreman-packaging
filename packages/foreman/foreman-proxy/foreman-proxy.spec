@@ -6,7 +6,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -45,6 +45,7 @@ Requires:       %{?scl_prefix}rubygem(logging) < 3.0.0
 Requires:       %{?scl_prefix}rubygem(sinatra)
 
 # start specfile default Requires
+Requires: %{?scl_prefix}rubygem(smart_proxy)
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2.0
 # end specfile default Requires
@@ -253,6 +254,9 @@ exit 0
 
 
 %changelog
+* Thu Mar 10 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.3.0-0.2.develop
+- Update Gem dependencies
+
 * Thu Feb 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.0-0.1.develop
 - Bump version to 3.3-develop
 
