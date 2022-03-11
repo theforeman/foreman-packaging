@@ -28,9 +28,9 @@ def get_requirement(version):
 
         min_version = '{}.{}.{}'.format(parsed['major'], parsed['minor'], parsed['patch'])
         if modifier == '^':
-            max_version = semver.bump_major(min_version)
+            max_version = '{}.0.0'.format(parsed['major'] + 1)
         elif modifier == '~':
-            max_version = semver.bump_minor(min_version)
+            max_version = '{}.{}.0'.format(parsed['major'], parsed['minor'] + 1)
 
         return ['>= {}'.format(min_version), '< {}'.format(max_version)]
 
