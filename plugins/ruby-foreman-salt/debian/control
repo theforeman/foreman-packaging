@@ -2,7 +2,7 @@ Source: ruby-foreman-salt
 Section: ruby
 Priority: extra
 Maintainer: Stephen Benjamin <stephen@redhat.com>
-Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 3.1.0~rc1), foreman (>= 3.1.0~rc1), ruby-foreman-deface, ruby-foreman-tasks (>= 5.1.0), ruby-foreman-remote-execution (>= 4.4.0-1)
+Build-Depends: debhelper (>= 8.0.0), foreman-assets (>= 3.1.0~rc1), foreman (>= 3.1.0~rc1), foreman-nulldb (>= 3.1.0~rc1), ruby-foreman-deface, ruby-foreman-tasks (>= 5.1.0), ruby-foreman-remote-execution (>= 4.4.0-1)
 Standards-Version: 3.9.3
 Homepage: https://github.com/theforeman/foreman_salt
 
