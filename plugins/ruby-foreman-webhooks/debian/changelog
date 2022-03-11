@@ -1,3 +1,9 @@
+ruby-foreman-webhooks (3.0.1-1) stable; urgency=low
+
+  * 3.0.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Fri, 11 Mar 2022 11:42:27 +0000
+
 ruby-foreman-webhooks (3.0.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
