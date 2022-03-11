@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.3
+Version: 3.0.5
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -38,7 +38,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -113,6 +113,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Mar 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.0.5-1
+- Update to 3.0.5
+
 * Mon Feb 28 2022 Ondřej Ezr <oezr@redhat.com> 3.0.3-1
 - Update to 3.0.3
 
