@@ -8,7 +8,7 @@
 %global foreman_min_version 3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman reporting engine
 Group: Applications/Systems
@@ -34,8 +34,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
@@ -115,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Mon Mar 14 2022 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.2-1
+- Update to 1.0.2
+
 * Mon Feb 21 2022 Lukas Zapletal <lzap+rpm@redhat.com> 1.0.1-1
 - Update to 1.0.1
 
