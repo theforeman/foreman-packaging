@@ -1,1 +1,1 @@
-gem 'foreman_host_reports', '1.0.1'
+gem 'foreman_host_reports', '1.0.2'
