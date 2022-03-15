@@ -4,15 +4,7 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%if 0%{?fedora} || 0%{?rhel} >= 8
-%global ansible_python python3
-%global pyyaml %{ansible_python}-pyyaml
-%else
-%global ansible_python python2
-%global pyyaml PyYAML
-%endif
-
-%global release 1
+%global release 2
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
 Version:    3.2.0
@@ -25,18 +17,19 @@ Source0:    https://galaxy.ansible.com/download/%{collection_namespace}-%{collec
 BuildArch:  noarch
 
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
-Provides: bundled(%{ansible_python}-apypie) = 0.3.2
+Provides: bundled(python-apypie) = 0.3.2
 
 %if 0%{?rhel} == 7
 Requires: ansible >= 2.9
+Requires: python2-requests >= 2.4.2
+Requires: python-ipaddress
+Requires: PyYAML
 %else
 Requires: (ansible >= 2.9 or ansible-core)
-%endif
-
-Requires: %{ansible_python}-requests >= 2.4.2
-Requires: %{pyyaml}
-%if 0%{?rhel} == 7
-Requires: python-ipaddress
+Requires: (python3-requests if ansible)
+Requires: (python3-pyyaml if ansible)
+Requires: (python38-requests if ansible-core)
+Requires: (python38-pyyaml if ansible-core)
 %endif
 
 %description
@@ -62,6 +55,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Tue Mar 15 2022 Evgeni Golov - 3.2.0-2
+- adjust dependencies to pull in right requests and pyyaml
+
 * Wed Mar 02 2022 Evgeni Golov - 3.2.0-1
 - Release ansible-collection-theforeman-foreman 3.2.0
 
