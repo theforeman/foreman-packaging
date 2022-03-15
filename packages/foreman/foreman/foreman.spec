@@ -9,9 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.2.0
@@ -1046,6 +1044,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Mar 15 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-1
+- Release foreman 3.2.0
+
 * Thu Mar 03 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-0.4.rc2
 - Release foreman 3.2.0rc2
 
