@@ -1,9 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:       foreman-installer
 Epoch:      1
@@ -143,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue Mar 15 2022 Zach Huntington-Meath <zhunting@redhat.com> - 1:3.2.0-1
+- Release foreman-installer 3.2.0
+
 * Thu Mar 10 2022 Evgeni Golov - 1:3.2.0-0.2.rc2
 - require hostname explicitly
 
