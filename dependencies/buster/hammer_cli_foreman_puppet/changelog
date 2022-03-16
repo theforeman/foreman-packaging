@@ -1,3 +1,9 @@
+ruby-hammer-cli-foreman-puppet (0.0.5-1) stable; urgency=low
+
+  * 0.0.5 released
+
+ -- Oleh Fedorenko <ofedoren@redhat.com>  Wed, 16 Mar 2022 16:58:45 +0000
+
 ruby-hammer-cli-foreman-puppet (0.0.4-1) stable; urgency=low
 
   * 0.0.4 released
