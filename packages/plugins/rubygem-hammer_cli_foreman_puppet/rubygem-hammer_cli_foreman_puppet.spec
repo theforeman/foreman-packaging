@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Puppet plugin for Hammer CLI
 Group: Development/Languages
@@ -90,6 +90,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Wed Mar 16 2022 Oleh Fedorenko <ofedoren@redhat.com> 0.0.5-1
+- Update to 0.0.5
+
 * Tue Nov 09 2021 Amir Fefer <amirfefer@gmail.com> 0.0.4-1
 - Update to 0.0.4
 
