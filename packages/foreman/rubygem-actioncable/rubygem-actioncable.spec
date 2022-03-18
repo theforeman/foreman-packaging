@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.3.7
+Version: 6.0.4.7
 Release: 1%{?dist}
 Summary: WebSocket framework for Rails
 Group: Development/Languages
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.3.7
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.4.7
 Requires: %{?scl_prefix}rubygem(nio4r) >= 2.0
 Requires: %{?scl_prefix}rubygem(nio4r) < 3
 Requires: %{?scl_prefix}rubygem(websocket-driver) >= 0.6.1
@@ -85,6 +85,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.4.7-1
+- Release rubygem-actioncable 6.0.4.7
+
 * Mon May 10 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.3.7-1
 - Release 6.0.3.7
 
