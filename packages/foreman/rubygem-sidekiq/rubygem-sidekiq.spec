@@ -5,8 +5,8 @@
 %global gem_name sidekiq
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.7
-Release: 4%{?dist}
+Version: 5.2.10
+Release: 1%{?dist}
 Summary: Simple, efficient background processing for Ruby
 Group: Development/Languages
 License: LGPL-3.0
@@ -17,12 +17,13 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.2.2
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(redis) >= 3.3.5
-Requires: %{?scl_prefix}rubygem(redis) < 5
+Requires: %{?scl_prefix}rubygem(redis) >= 4.5
+Requires: %{?scl_prefix}rubygem(redis) < 4.6.0
 Requires: %{?scl_prefix}rubygem(connection_pool) >= 2.2
 Requires: %{?scl_prefix}rubygem(connection_pool) < 3
 Requires: %{?scl_prefix}rubygem(connection_pool) >= 2.2.2
-Requires: %{?scl_prefix}rubygem(rack) >= 1.5.0
+Requires: %{?scl_prefix}rubygem(rack) >= 2.0
+Requires: %{?scl_prefix}rubygem(rack) < 3
 Requires: %{?scl_prefix}rubygem(rack-protection) >= 1.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.2
@@ -111,6 +112,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/code_of_conduct.md
 
 %changelog
+* Fri Mar 18 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 5.2.10-1
+- Update to 5.2.10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.2.7-4
 - Rebuild against rh-ruby27
 
