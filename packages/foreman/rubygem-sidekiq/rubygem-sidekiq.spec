@@ -5,8 +5,8 @@
 %global gem_name sidekiq
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.2.7
-Release: 4%{?dist}
+Version: 5.2.10
+Release: 1%{?dist}
 Summary: Simple, efficient background processing for Ruby
 Group: Development/Languages
 License: LGPL-3.0
@@ -111,6 +111,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/code_of_conduct.md
 
 %changelog
+* Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.2.10-1
+- Release rubygem-sidekiq 5.2.10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.2.7-4
 - Rebuild against rh-ruby27
 
