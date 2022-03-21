@@ -1013,6 +1013,7 @@ whitelist = katello
   rubygem-activerecord-import
   rubygem-anemone
   rubygem-ethon
+  rubygem-foreman_kernel_care
   rubygem-foreman_rh_cloud
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
@@ -1064,6 +1065,7 @@ whitelist = jsoncpp
   rubygem-activerecord-import
   rubygem-anemone
   rubygem-ethon
+  rubygem-foreman_kernel_care
   rubygem-foreman_rh_cloud
   rubygem-foreman_scc_manager
   rubygem-foreman_virt_who_configure
