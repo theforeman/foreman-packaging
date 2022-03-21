@@ -8,7 +8,7 @@
 %undefine __brp_mangle_shebangs
 
 Name:           qpid-proton
-Version:        0.35.0
+Version:        0.36.0
 Release:        1%{?dist}
 Summary:        A high performance, lightweight messaging library
 License:        ASL 2.0
@@ -342,6 +342,9 @@ rm -f  %{buildroot}%{proton_datadir}/CMakeLists.txt
 %check
 
 %changelog
+* Mon Mar 21 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.36.0-1
+- Release qpid-proton 0.36.0
+
 * Wed Oct 20 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.35.0-1
 - Build 0.35
 
