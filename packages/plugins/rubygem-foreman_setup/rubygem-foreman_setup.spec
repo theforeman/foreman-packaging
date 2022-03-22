@@ -4,12 +4,12 @@
 
 %global gem_name foreman_setup
 %global plugin_name setup
-%global foreman_min_version 1.17.0
+%global foreman_min_version 3.2.0
 
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    7.0.0
-Release:    3%{?foremandist}%{?dist}
+Version:    8.0.1
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
@@ -94,6 +94,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Mar 22 2022 Lukas Zapletal <lzap+rpm@redhat.com> 8.0.1-1
+- Update to 8.0.1
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 7.0.0-3
 - Rebuild plugins for Ruby 2.7
 
