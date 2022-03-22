@@ -1,3 +1,9 @@
+ruby-foreman-setup (8.0.1-1) stable; urgency=low
+
+  * 8.0.1 released
+
+ -- Lukas Zapletal <lzap+git@redhat.com>  Tue, 22 Mar 2022 14:21:26 +0100
+
 ruby-foreman-setup (7.0.0-1) stable; urgency=low
 
   * 7.0.0 released
