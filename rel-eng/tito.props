@@ -794,6 +794,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-vault
   rubygem-wicked
   rubygem-zscheduler
+  yggdrasil-worker-forwarder
 
 [foreman-plugins-nightly-rhel7]
 disttag = .el7
@@ -969,6 +970,7 @@ whitelist = ansible-collection-theforeman-operations
   cjson
   mosquitto
   puppet-foreman_scap_client
+  yggdrasil-worker-forwarder
 
 [foreman-client-nightly-el8]
 disttag = .el8

@@ -178,6 +178,8 @@
       <packagereq type="default">tfm-rubygem-vault</packagereq>
       <packagereq type="default">tfm-rubygem-wicked</packagereq>
       <packagereq type="default">tfm-rubygem-zscheduler</packagereq>
+      <packagereq type="default">yggdrasil</packagereq>
+      <packagereq type="default">yggdrasil-forwarder-worker</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->

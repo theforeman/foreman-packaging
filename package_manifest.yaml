@@ -1084,6 +1084,7 @@ plugin_nonscl_packages:
     mosquitto: {}
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
+    yggdrasil-worker-forwarder: {}
 
 repoclosures:
   hosts:
