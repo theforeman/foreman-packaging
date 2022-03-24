@@ -4,18 +4,10 @@
 %global collection_name operations
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%if 0%{?fedora} || 0%{?rhel} >= 8
-%global ansible_python python3
-%global pyyaml %{ansible_python}-pyyaml
-%else
-%global ansible_python python2
-%global pyyaml PyYAML
-%endif
-
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    0.3.0
+Version:    1.0.1
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible operations collection
 
@@ -51,6 +43,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Thu Mar 24 2022 Evgeni Golov - 1.0.1-1
+- Release ansible-collection-theforeman-operations 1.0.1
+
 * Wed Feb 23 2022 Evgeni Golov - 0.3.0-2
 - Require ansible or ansible-core on EL8+
 
