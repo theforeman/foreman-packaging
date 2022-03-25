@@ -1,3 +1,9 @@
+puppet-agent-oauth (0.5.5-1) stable; urgency=low
+
+  * Update puppet-agent-oauth to 0.5.5
+
+ -- Andreas Ntaflos <daff@pseudoterminal.org>  Fri, 25 Mar 2022 17:20:28 +0100
+
 puppet-agent-oauth (0.5.1-2) stable; urgency=low
 
   * Add --local for the "gem install" command
