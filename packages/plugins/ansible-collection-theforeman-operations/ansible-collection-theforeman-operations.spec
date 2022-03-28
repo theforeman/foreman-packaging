@@ -7,7 +7,7 @@
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    1.0.1
+Version:    1.0.2
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible operations collection
 
@@ -19,14 +19,14 @@ BuildArch:  noarch
 Provides: ansible-collection(%{collection_namespace}.%{collection_name}) = %{version}
 
 %if 0%{?rhel} == 7
-Requires: ansible >= 2.8
+Requires: ansible >= 2.9
 %else
-Requires: (ansible >= 2.8 or ansible-core)
+Requires: (ansible >= 2.9 or ansible-core)
 %endif
 
 %description
-Collection of Ansible Modules to manage Foreman installations.
-Includes modules for Katello.
+Collection of Ansible assets for managing Foreman operations such as install,
+upgrade or maintenance tasks.
 
 %prep
 %setup -q -c
@@ -43,6 +43,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 %changelog
+* Mon Mar 28 2022 Evgeni Golov - 1.0.2-1
+- Release ansible-collection-theforeman-operations 1.0.2
+
 * Thu Mar 24 2022 Evgeni Golov - 1.0.1-1
 - Release ansible-collection-theforeman-operations 1.0.1
 
