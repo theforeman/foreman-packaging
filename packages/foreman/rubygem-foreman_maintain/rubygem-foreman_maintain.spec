@@ -9,7 +9,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.5
+Version: 1.0.6
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -126,6 +126,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Mar 30 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.6-1
+- Update to 1.0.6
+
 * Wed Mar 30 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.5-1
 - Update to 1.0.5
 
