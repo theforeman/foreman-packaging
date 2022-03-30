@@ -1,25 +1,21 @@
 # deb packaging branches
 
-The deb/\* branches contain the Debian packaging files for Foreman and it's
+The `deb/*` branches contain the Debian packaging files for Foreman and it's
 dependencies. The repo mirrors [Foreman Core](https://github.com/theforeman/foreman),
-i.e. deb/develop is for packaging branch 'develop', deb/1.3 is for packaging release
-1.3 and so on
+i.e. `deb/develop` is for packaging branch `develop`, `deb/3.2` is for packaging release
+1.3 and so on.
 
 ## Contributing
 
-It's generally best to contribute to 'deb/develop' unless something is specifically
+It's generally best to contribute to `deb/develop` unless something is specifically
 broken for an older release. Please fork and send a PR.
 
 PRs will get automatically tested and test packages will be built into a
-per-user area on [stagingdeb.theforeman.org](http://stagingdeb.theforeman.org).
+per-user area on [stagingdeb.theforeman.org](https://stagingdeb.theforeman.org).
 Example for adding a repository:
 
-    # curl -L https://stagingdeb.theforeman.org/foreman.asc | sudo apt-key add -
-    # deb http://stagingdeb.theforeman.org/ buster ares-nightly
-
-Our PR test jobs are very picky about branch names, for which we apologise.  Please
-prefix *your* branch with the name of the target branch and a hyphen.  For example,
-a PR to `deb/develop` could be called `deb/develop-fix-foo`.
+    # wget https://deb.theforeman.org/foreman.asc -O /etc/apt/trusted.gpg.d/foreman.asc
+    # echo "deb http://stagingdeb.theforeman.org/ bullseye $USER-nightly" >> /etc/apt/sources.list.d/foreman.list
 
 ## HOWTO: update a package
 
