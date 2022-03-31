@@ -6,7 +6,7 @@
 %global foreman_max_version 3.2
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.3.0
+%global mainver 4.3.1
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -242,6 +242,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Mar 31 2022 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.1-1
+- Release rubygem-katello 4.3.1
+
 * Mon Jan 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 4.3.0-1
 - Release rubygem-katello 4.3.0
 
