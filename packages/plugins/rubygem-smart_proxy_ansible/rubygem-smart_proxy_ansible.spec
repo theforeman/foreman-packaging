@@ -16,8 +16,8 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.3.1
-Release: 3%{?foremandist}%{?dist}
+Version: 3.4.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Smart-Proxy Ansible plugin
 Group: Applications/Internet
 License: GPLv3
@@ -39,7 +39,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(net-ssh)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5
+Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.8
 Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) < 1
 Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) >= 0.4
 Requires: %{?scl_prefix}rubygem(smart_proxy_remote_execution_ssh) < 1
@@ -148,6 +148,9 @@ ln -sv %{_root_sysconfdir}/foreman-proxy/ansible.cfg %{buildroot}%{foreman_proxy
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Thu Mar 31 2022 Adam Ruzicka <aruzicka@redhat.com> 3.4.0-1
+- Update to 3.4.0
+
 * Wed Mar 02 2022 Evgeni Golov - 3.3.1-3
 - Require python38-psutil on EL8 when using ansible-core
 
