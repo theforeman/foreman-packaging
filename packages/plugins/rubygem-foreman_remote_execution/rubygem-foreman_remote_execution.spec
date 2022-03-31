@@ -10,7 +10,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    6.0.0
+Version:    6.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -47,7 +47,7 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
 BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
 BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
@@ -131,6 +131,7 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/jsconfig.json
 %exclude %{gem_instdir}/package.json
 %exclude %{gem_instdir}/webpack
 %{gem_instdir}/app
@@ -164,6 +165,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{_unitdir}/foreman-cockpit.service
 
 %changelog
+* Thu Mar 31 2022 Adam Ruzicka <aruzicka@redhat.com> 6.1.0-1
+- Update to 6.1.0
+
 * Thu Feb 17 2022 Adam Ruzicka <aruzicka@redhat.com> 6.0.0-1
 - Update to 6.0.0
 
