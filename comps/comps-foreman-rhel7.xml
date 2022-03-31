@@ -341,6 +341,7 @@
       <packagereq type="default">python2-keycloak-httpd-client-install</packagereq>
       <packagereq type="default">rubygem-clamp</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
+      <packagereq type="default">rubygem-google-cloud-compute</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
@@ -348,6 +349,7 @@
       <!--RGD-START-->
       <packagereq type="default">rubygem-clamp-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
+      <packagereq type="default">rubygem-google-cloud-compute-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actioncable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-actionmailbox-doc</packagereq>

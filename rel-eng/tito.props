@@ -17,7 +17,8 @@ fetch_strategy = custom.ForemanSourceStrategy
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
 [foreman-nightly-nonscl-rhel7]
 disttag = .el7
-whitelist = foreman-bootloaders-redhat
+whitelist = dynflow-utils
+  foreman-bootloaders-redhat
   foreman-release
   foreman-selinux
   katello-certs-tools
@@ -29,8 +30,8 @@ whitelist = foreman-bootloaders-redhat
   puppet-agent-yard
   rubygem-clamp
   rubygem-foreman_maintain
+  rubygem-google-cloud-compute
   rubygem-highline
-  dynflow-utils
 
 [foreman-nightly-rhel7]
 disttag = .el7
@@ -325,7 +326,8 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = foreman
+whitelist = dynflow-utils
+  foreman
   foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
@@ -490,6 +492,7 @@ whitelist = foreman
   rubygem-globalid
   rubygem-google-api-client
   rubygem-googleauth
+  rubygem-google-cloud-compute
   rubygem-google-cloud-env
   rubygem-graphql
   rubygem-graphql-batch
@@ -622,7 +625,6 @@ whitelist = foreman
   rubygem-wirb
   rubygem-xmlrpc
   rubygem-zeitwerk
-  dynflow-utils
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
