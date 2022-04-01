@@ -177,6 +177,7 @@ whitelist = foreman
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
+  rubygem-foreman_google
   rubygem-formatador
   rubygem-friendly_id
   rubygem-get_process_mem
@@ -325,7 +326,8 @@ scl = tfm
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = foreman
+whitelist = dynflow-utils
+  foreman
   foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
@@ -479,6 +481,7 @@ whitelist = foreman
   rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
+  rubygem-foreman_google
   rubygem-foreman_maintain
   rubygem-formatador
   rubygem-friendly_id
@@ -622,7 +625,6 @@ whitelist = foreman
   rubygem-wirb
   rubygem-xmlrpc
   rubygem-zeitwerk
-  dynflow-utils
 
 [foreman-plugins-nightly-el8]
 disttag = .el8

@@ -186,6 +186,7 @@
       <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass</packagereq>
+      <packagereq type="default">rubygem-foreman_google</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
       <packagereq type="default">rubygem-formatador</packagereq>
       <packagereq type="default">rubygem-friendly_id</packagereq>
@@ -398,6 +399,7 @@
       <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
+      <packagereq type="default">rubygem-foreman_google-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
       <packagereq type="default">rubygem-formatador-doc</packagereq>
       <packagereq type="default">rubygem-friendly_id-doc</packagereq>

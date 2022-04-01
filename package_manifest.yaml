@@ -150,6 +150,7 @@ foreman_scl_packages:
     rubygem-fog-xenserver: {}
     rubygem-fog-xml: {}
     rubygem-font-awesome-sass: {}
+    rubygem-foreman_google: {}
     rubygem-formatador: {}
     rubygem-friendly_id: {}
     rubygem-get_process_mem: {}
