@@ -196,6 +196,7 @@
       <packagereq type="default">rubygem-gitlab-sidekiq-fetcher</packagereq>
       <packagereq type="default">rubygem-globalid</packagereq>
       <packagereq type="default">rubygem-google-api-client</packagereq>
+      <packagereq type="default">rubygem-google-cloud-core</packagereq>
       <packagereq type="default">rubygem-google-cloud-env</packagereq>
       <packagereq type="default">rubygem-googleauth</packagereq>
       <packagereq type="default">rubygem-graphql</packagereq>
@@ -409,6 +410,7 @@
       <packagereq type="default">rubygem-globalid-doc</packagereq>
       <packagereq type="default">rubygem-google-api-client-doc</packagereq>
       <packagereq type="default">rubygem-googleauth-doc</packagereq>
+      <packagereq type="default">rubygem-google-cloud-core-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">rubygem-graphql-batch-doc</packagereq>
       <packagereq type="default">rubygem-graphql-doc</packagereq>
