@@ -1,0 +1,27 @@
+Source: ruby-google-cloud-core
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: <>
+Build-Depends: debhelper (>= 11~),
+               gem2deb,
+               ruby-google-cloud-env (>= 1.0),
+               ruby-google-cloud-errors (>= 1.0)
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-google-cloud-core.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-google-cloud-core
+Homepage: https://github.com/googleapis/google-cloud-ruby/tree/master/google-cloud-core
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-google-cloud-core
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-google-cloud-env (>= 1.0),
+         ruby-google-cloud-errors (>= 1.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Internal shared library for google-cloud-ruby
+ google-cloud-core is the internal shared library for google-cloud-ruby.
