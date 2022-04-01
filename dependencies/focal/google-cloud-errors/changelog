@@ -1,0 +1,5 @@
+ruby-google-cloud-errors (1.2.0-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)
+
+ -- root <root@debpkg.example.com>  Fri, 01 Apr 2022 08:17:41 +0000

@@ -1,0 +1,23 @@
+Source: ruby-google-cloud-errors
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: <>
+Build-Depends: debhelper (>= 11~),
+               gem2deb
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-google-cloud-errors.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-google-cloud-errors
+Homepage: https://github.com/googleapis/google-cloud-ruby/tree/master/google-cloud-errors
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-google-cloud-errors
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Error classes for google-cloud-ruby
+ google-cloud-errors defines error classes for google-cloud-ruby.

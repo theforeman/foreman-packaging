@@ -1,0 +1,7 @@
+a38ffd1f2a148417f77e3bc8f098e4cc  usr/lib/ruby/vendor_ruby/google-cloud-errors.rb
+58c8333ca0291e7bf80805fbf6f17a91  usr/lib/ruby/vendor_ruby/google/cloud/errors.rb
+d6314f79e7025b53f634e7aca071efed  usr/lib/ruby/vendor_ruby/google/cloud/errors/version.rb
+5416db5dc951894c9a3107952f7cd92f  usr/share/doc/ruby-google-cloud-errors/README.md
+3de904581e2114fb008403fdc3ad4ac2  usr/share/doc/ruby-google-cloud-errors/changelog.Debian.gz
+a77826087417fc6f316afe94e7b6567e  usr/share/doc/ruby-google-cloud-errors/copyright
+5a3bd90bb22106aded9b3761babec07a  usr/share/rubygems-integration/all/specifications/google-cloud-errors-1.2.0.gemspec

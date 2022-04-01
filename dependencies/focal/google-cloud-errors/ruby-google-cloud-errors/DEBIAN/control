@@ -1,0 +1,12 @@
+Package: ruby-google-cloud-errors
+Version: 1.2.0-1
+Architecture: all
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 39
+Depends: ruby | ruby-interpreter
+Section: ruby
+Priority: optional
+Homepage: https://github.com/googleapis/google-cloud-ruby/tree/master/google-cloud-errors
+Description: Error classes for google-cloud-ruby
+ google-cloud-errors defines error classes for google-cloud-ruby.
+Ruby-Versions: all
