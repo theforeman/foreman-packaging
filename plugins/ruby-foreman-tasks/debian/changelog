@@ -1,3 +1,9 @@
+ruby-foreman-tasks (6.0.1-1) stable; urgency=low
+
+  * 6.0.1 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Fri, 01 Apr 2022 08:05:32 +0000
+
 ruby-foreman-tasks (6.0.0-1) stable; urgency=low
 
   * 6.0.0 released
