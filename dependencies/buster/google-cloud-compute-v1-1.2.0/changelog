@@ -1,0 +1,5 @@
+ruby-google-cloud-compute-v1 (1.2.0-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Leos Stejskal <lstejska@redhat.com>  Fri, 01 Apr 2022 07:51:54 +0000
