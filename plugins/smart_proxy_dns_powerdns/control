@@ -12,7 +12,7 @@ XS-Ruby-Versions: all
 Package: ruby-smart-proxy-dns-powerdns
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.13.0~rc1), ruby-mysql2, ruby-pg
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, foreman-proxy (>= 1.13.0~rc1)
 Recommends: pdns-server
 Description: PowerDNS DNS provider plugin for Foreman's smart proxy
  PowerDNS DNS provider plugin for Foreman's smart proxy
