@@ -1,0 +1,13 @@
+Source: ruby-foreman-google
+Section: ruby
+Priority: extra
+Maintainer: Leos Stejskal <lstejska@redhat.com>
+Build-Depends: debhelper (>= 11~), foreman (>= 3.3.0~rc1), foreman-nulldb (>= 3.3.0~rc1), foreman-assets (>= 3.3.0~rc1)
+Standards-Version: 3.9.0
+Homepage: https://github.com/theforeman/foreman_google
+
+Package: ruby-foreman-google
+Architecture: all
+Depends: ${misc:Depends}, bundler, foreman (>= 3.3.0~rc1)
+Description: Google Compute Engine plugin for the Foreman
+ Google Compute Engine plugin for the Foreman

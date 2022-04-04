@@ -1,0 +1,4 @@
+foreman_google.rb         usr/share/foreman/bundler.d
+cache                     usr/share/foreman/vendor
+assets                    var/lib/foreman/public
+webpack/foreman_google    var/lib/foreman/public/webpack
