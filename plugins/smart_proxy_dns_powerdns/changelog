@@ -1,3 +1,9 @@
+ruby-smart-proxy-dns-powerdns (1.0.0-2) stable; urgency=low
+
+  * Remove unused ruby-mysql2 and ruby-pg dependencies
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Mon, 04 Apr 2022 15:44:39 +0200
+
 ruby-smart-proxy-dns-powerdns (1.0.0-1) stable; urgency=low
 
   * 1.0.0 released
