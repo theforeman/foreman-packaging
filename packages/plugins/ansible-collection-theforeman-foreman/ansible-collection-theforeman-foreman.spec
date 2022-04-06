@@ -4,10 +4,10 @@
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
 
-%global release 2
+%global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.2.0
+Version:    3.3.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -55,6 +55,9 @@ cp -a ./* %{buildroot}%{collection_directory}
 
 
 %changelog
+* Wed Apr 06 2022 Evgeni Golov - 3.3.0-1
+- Release ansible-collection-theforeman-foreman 3.3.0
+
 * Tue Mar 15 2022 Evgeni Golov - 3.2.0-2
 - adjust dependencies to pull in right requests and pyyaml
 
