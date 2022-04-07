@@ -4,10 +4,10 @@
 
 %global gem_name qpid_proton
 %global gem_require_name %{gem_name}
-%global qpid_version 0.36.0
+%global qpid_version 0.37.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.36.0
+Version: %{qpid_version}
 Release: 1%{?dist}
 Summary: Ruby language bindings for the Qpid Proton messaging framework
 Group: Development/Languages
@@ -108,6 +108,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/tests
 
 %changelog
+* Thu Apr 07 2022 Evgeni Golov 0.37.0-1
+- Update to 0.37.0
+
 * Mon Jan 24 2022 Justin Sherrill <jsherril@redhat.com> 0.36.0-1
 - Update to 0.36.0
 
