@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.2
+Version: 3.6.0
 Release: 1%{?dist}
 Summary: Pulp 3 API Ruby Gem
 Group: Development/Languages
@@ -98,6 +98,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Apr 07 2022 ianballou <ianballou67@gmail.com> 3.6.0-1
+- Update to 3.6.0
+
 * Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 3.5.2-1
 - Update to 3.5.2
 
