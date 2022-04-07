@@ -9,7 +9,7 @@
 # %%global prereleaserpm %{?prerelease:.}%{?prerelease}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.9.0
+Version: 2.10.3
 
 Release: %{?prereleaserpm:0.}%{release}%{?prereleaserpm}%{?dist}
 Summary: Pulp container plugin for Pulp3 API Ruby Gem
@@ -24,7 +24,9 @@ Obsoletes: %{?scl_prefix_ruby}rubygem-pulp_docker_client
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.17
+Requires: %{?scl_prefix}rubygem(faraday) < 1
+Requires: %{?scl_prefix}rubygem(faraday) < 1.9.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
@@ -103,6 +105,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu Apr 07 2022 ianballou <ianballou67@gmail.com> 2.10.3-1
+- Update to 2.10.3
+
 * Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 2.9.0-1
 - Update to 2.9.0
 
