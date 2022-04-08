@@ -1,3 +1,15 @@
+ruby-foreman-salt (15.1.0-1) stable; urgency=low
+
+  * 15.1.0 released
+
+ -- Bernhard Suttner <suttner@atix.de>  Fri, 08 Apr 2022 13:34:14 +0200
+
+ruby-foreman-salt (15.0.0-1) stable; urgency=low
+
+  * 15.0.0 released
+
+ -- Bernhard Suttner <suttner@atix.de>  Mon, 14 Feb 2022 14:13:02 +0100
+
 ruby-foreman-salt (14.1.0-1) stable; urgency=low
 
   * 14.1.0 released
