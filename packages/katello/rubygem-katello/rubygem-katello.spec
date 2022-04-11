@@ -6,7 +6,7 @@
 %global foreman_max_version 3.3
 %global plugin_name katello
 %global gem_name katello
-%global mainver 4.4.0.1
+%global mainver 4.4.0.2
 %global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
@@ -242,6 +242,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Apr 11 2022 ianballou <ianballou67@gmail.com> 4.4.0.2-1
+- Update to 4.4.0.2
+
 * Fri Apr 01 2022 ianballou <ianballou67@gmail.com> 4.4.0.1-1
 - Update to 4.4.0.1
 
