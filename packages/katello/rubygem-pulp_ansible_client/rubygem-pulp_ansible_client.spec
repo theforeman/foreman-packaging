@@ -5,7 +5,7 @@
 %global gem_name pulp_ansible_client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.10.1
+Version: 0.12.1
 Release: 1%{?dist}
 Summary: Pulp 3 Ansible API Ruby Gem
 Group: Development/Languages
@@ -17,7 +17,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 1.9
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(faraday) >= 0.14.0
+Requires: %{?scl_prefix}rubygem(faraday) >= 0.17
+Requires: %{?scl_prefix}rubygem(faraday) < 1
+Requires: %{?scl_prefix}rubygem(faraday) < 1.9.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1.0
 Requires: %{?scl_prefix_ruby}rubygem(json) >= 2.1
 Requires: %{?scl_prefix_ruby}rubygem(json) < 3
@@ -96,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Tue Apr 12 2022 ianballou <ianballou67@gmail.com> 0.12.1-1
+- Update to 0.12.1
+
 * Wed Oct 06 2021 Justin Sherrill <jsherril@redhat.com> 0.10.1-1
 - Update to 0.10.1
 
