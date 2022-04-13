@@ -17,7 +17,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.5.2
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Ssh remote execution provider for Foreman Smart-Proxy
 Group: Applications/Internet
 License: GPLv3
@@ -114,13 +114,16 @@ mv %{buildroot}%{gem_instdir}/settings.d/remote_execution_ssh.yml.example \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_proxy_dir}/.ssh
-%attr(0750,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
+%attr(0700,foreman-proxy,foreman-proxy) %{foreman_proxy_statedir}/ssh
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Apr 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.5.2-2
+- Update ssh_identity_dir permissions
+
 * Mon Feb 07 2022 Adam Ruzicka <aruzicka@redhat.com> 0.5.2-1
 - Update to 0.5.2
 
