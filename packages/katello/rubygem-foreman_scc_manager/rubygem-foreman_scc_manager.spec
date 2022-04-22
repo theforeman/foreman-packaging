@@ -8,8 +8,8 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.17
-Release: 2%{?foremandist}%{?dist}
+Version: 1.8.18
+Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -102,6 +102,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 22 2022 Nadja Heitmann <nadjah@atix.de> 1.8.18-1
+- Update to 1.8.18
+- Bug fix: Update all Katello repositories originating from one SCC repository
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.8.17-2
 - Stop generaing apipie cache
 
