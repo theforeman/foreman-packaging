@@ -4,13 +4,14 @@
 %global gem_name foreman_maintain
 %global directory_name foreman-maintain
 %global yumplugindir %{_prefix}/lib%{nil}/yum-plugins
+%global dnfplugindir %{python3_sitelib}/dnf-plugins
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.7
-Release: 2%{?dist}
+Version: 1.0.8
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -86,13 +87,17 @@ install -D -m0640 %{buildroot}%{gem_instdir}/config/passenger-recycler.yaml %{bu
 
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
 install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+%if 0%{?rhel} > 7
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/dnf/foreman-protector.py %{buildroot}%{dnfplugindir}/foreman-protector.py
+%else
+install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/yum/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+%endif
 install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
-%if 0%{?rhel} < 8
-%py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
+%if 0%{?rhel} > 7
+%py_byte_compile %{__python3} %{buildroot}%{dnfplugindir}/foreman-protector.py
 %else
-%py_byte_compile %{__python3} %{buildroot}%{yumplugindir}/foreman-protector.py
+%py_byte_compile %{__python2} %{buildroot}%{yumplugindir}/foreman-protector.py
 %endif
 
 %files
@@ -107,10 +112,14 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %{gem_instdir}/lib
 %{gem_instdir}/config
 %{gem_instdir}/extras
+%if 0%{?rhel} > 7
+%{dnfplugindir}/foreman-protector.py*
+%else
 %{yumplugindir}/foreman-protector.py*
+%endif
 
 %if 0%{?rhel} > 7
-%{yumplugindir}/__pycache__/foreman-protector.cpython*
+%{dnfplugindir}/__pycache__/foreman-protector.cpython*
 %endif
 
 %config(noreplace) %{_sysconfdir}/%{directory_name}
@@ -129,6 +138,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Apr 22 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.8-1
+- Update to 1.0.8 and update yum and dnf foreman-protector file paths
+
 * Wed Apr 20 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.7-2
 - Require nftables for newer than EL7 operating systems
 
