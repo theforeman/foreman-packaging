@@ -25,14 +25,6 @@ foreman_plugin_install() {
     fi
   fi
 
-  if [ "${PLUGIN_HAS_APIPIE}" = "true" ]; then
-    if [ ! -z "${DEBUG}" ]; then
-      /usr/sbin/foreman-rake apipie:cache:index || true
-    else
-      /usr/sbin/foreman-rake apipie:cache:index >> $LOGFILE 2>&1 || true
-    fi
-  fi
-
   if [ "${PLUGIN_HAS_WEBPACK}" = "true" ]; then
     # The output sometimes contain additional data like the following line:
     #    Found no changes, using resolution from the lockfile

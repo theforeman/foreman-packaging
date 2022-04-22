@@ -1,3 +1,9 @@
+ruby-foreman-expire-hosts (7.0.4-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:43:29 -0400
+
 ruby-foreman-expire-hosts (7.0.4-1) stable; urgency=low
 
   * 7.0.4 released

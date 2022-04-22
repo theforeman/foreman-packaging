@@ -1,3 +1,9 @@
+ruby-foreman-azure-rm (2.2.6-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:11:33 -0400
+
 ruby-foreman-azure-rm (2.2.6-1) stable; urgency=low
 
   * 2.2.6 released

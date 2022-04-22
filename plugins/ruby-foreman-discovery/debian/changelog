@@ -1,3 +1,9 @@
+ruby-foreman-discovery (21.0.0-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:15:13 -0400
+
 ruby-foreman-discovery (21.0.0-1) stable; urgency=low
 
   * 21.0.0 released

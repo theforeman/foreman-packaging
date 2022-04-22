@@ -1,3 +1,9 @@
+ruby-foreman-salt (15.1.0-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:50:13 -0400
+
 ruby-foreman-salt (15.1.0-1) stable; urgency=low
 
   * 15.1.0 released

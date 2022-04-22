@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (6.2.0-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:50:03 -0400
+
 ruby-foreman-remote-execution (6.2.0-1) stable; urgency=low
 
   * 6.2.0 released
