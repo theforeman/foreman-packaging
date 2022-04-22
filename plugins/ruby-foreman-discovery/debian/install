@@ -1,5 +1,4 @@
 foreman_discovery.rb             usr/share/foreman/bundler.d
 cache                            usr/share/foreman/vendor
 webpack/foreman_discovery        var/lib/foreman/public/webpack
-apipie-cache/foreman_discovery   var/lib/foreman/public/apipie-cache/plugin
 assets                           var/lib/foreman/public

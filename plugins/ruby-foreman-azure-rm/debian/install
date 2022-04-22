@@ -1,4 +1,3 @@
 foreman_azure_rm.rb              usr/share/foreman/bundler.d
 cache                            usr/share/foreman/vendor
 foreman_azure_rm                 var/lib/foreman/public/assets
-apipie-cache/foreman_azure_rm    var/lib/foreman/public/apipie-cache/plugin

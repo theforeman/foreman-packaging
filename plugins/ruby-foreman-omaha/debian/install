@@ -1,4 +1,3 @@
 foreman_omaha.rb            usr/share/foreman/bundler.d
 cache                       usr/share/foreman/vendor
-apipie-cache/foreman_omaha  var/lib/foreman/public/apipie-cache/plugin
 assets                      var/lib/foreman/public

@@ -1,3 +1,9 @@
+ruby-foreman-puppet (3.0.5-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:49:54 -0400
+
 ruby-foreman-puppet (3.0.5-1) stable; urgency=low
 
   * 3.0.5 released

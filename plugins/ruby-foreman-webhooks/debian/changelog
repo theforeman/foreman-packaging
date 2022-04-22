@@ -1,3 +1,9 @@
+ruby-foreman-webhooks (3.0.1-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:51:23 -0400
+
 ruby-foreman-webhooks (3.0.1-1) stable; urgency=low
 
   * 3.0.1 released

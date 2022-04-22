@@ -2,7 +2,6 @@ foreman-tasks.rb                  usr/share/foreman/bundler.d
 cache                             usr/share/foreman/vendor
 foreman-tasks.yaml                etc/foreman/plugins
 webpack/foreman-tasks             var/lib/foreman/public/webpack
-apipie-cache/foreman-tasks        var/lib/foreman/public/apipie-cache/plugin
 assets                            var/lib/foreman/public
 extra/foreman-tasks-cleanup.sh    usr/share/foreman/extras/
 extra/foreman-tasks-export.sh     usr/share/foreman/extras/

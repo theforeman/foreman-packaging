@@ -1,3 +1,9 @@
+ruby-foreman-templates (9.2.0-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:51:16 -0400
+
 ruby-foreman-templates (9.2.0-1) stable; urgency=low
 
   * 9.2.0 released

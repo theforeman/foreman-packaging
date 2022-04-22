@@ -1,3 +1,2 @@
 puppetdb_foreman.rb usr/share/foreman/bundler.d
 cache               usr/share/foreman/vendor
-apipie-cache/puppetdb_foreman    var/lib/foreman/public/apipie-cache/plugin

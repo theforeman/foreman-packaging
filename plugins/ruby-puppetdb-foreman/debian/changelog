@@ -1,3 +1,9 @@
+ruby-puppetdb-foreman (5.0.0-3) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:51:35 -0400
+
 ruby-puppetdb-foreman (5.0.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman

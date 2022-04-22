@@ -1,3 +1,9 @@
+ruby-foreman-tasks (6.0.1-2) stable; urgency=low
+
+  * Drop apipie cache generation
+
+ -- Eric D. Helms <ericdhelms@gmail.com>  Fri, 22 Apr 2022 12:51:10 -0400
+
 ruby-foreman-tasks (6.0.1-1) stable; urgency=low
 
   * 6.0.1 released

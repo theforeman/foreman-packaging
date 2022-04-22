@@ -1,5 +1,4 @@
 foreman_bootdisk.rb           usr/share/foreman/bundler.d
 cache                         usr/share/foreman/vendor
 webpack/foreman_bootdisk      var/lib/foreman/public/webpack
-apipie-cache/foreman_bootdisk var/lib/foreman/public/apipie-cache/plugin
 assets                        var/lib/foreman/public
