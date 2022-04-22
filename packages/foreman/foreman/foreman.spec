@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -743,7 +743,6 @@ export NODE_ENV=production
 webpack --bail --config config/webpack.config.js
 %{?scl:"}
 %{scl_rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
-%{scl_rake} apipie:cache RAILS_ENV=production FOREMAN_APIPIE_LANGS=en_US cache_part=resources DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
 
 %install
@@ -1046,6 +1045,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.3.0-0.4.develop
+- Stop generating apipie cache for Foreman
+
 * Wed Mar 23 2022 Evgeni Golov - 3.3.0-0.3.develop
 - Update foreman GEM dependencies
 
