@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.17
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -80,7 +80,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -92,8 +92,6 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/locale
 %exclude %{gem_cache}
 %{gem_spec}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
 
@@ -104,6 +102,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.8.17-2
+- Stop generaing apipie cache
+
 * Tue Feb 01 2022 Nadja Heitmann <heitmann@atix.de> 1.8.17-1
 - Update to 1.8.17
 - Allow for new mirroring_policy setting in Katello >= 4.3

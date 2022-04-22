@@ -24,7 +24,6 @@ has_webpack = spec.files.any? { |f| f.start_with?('webpack/') }
 has_package_json = spec.files.any? { |f| f == 'package.json' }
 
 precompile_flags = ''
-precompile_flags << ' -a' if has_apidoc
 precompile_flags << ' -s' if has_assets || has_webpack
 
 config.rules[:doc] << /\/?CHANGES/
