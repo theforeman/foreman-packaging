@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.2.6
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -92,7 +92,6 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -105,8 +104,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -114,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.6-2
+- Stop generaing apipie cache
+
 * Thu Nov 11 2021 Chris Roberts <chrobert@redhat.com> 2.2.6-1
 - Update to 2.2.6
 

@@ -17,7 +17,7 @@
 Summary:    Foreman plugin to interact with PuppetDB
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    5.0.0
-Release:    3%{?foremandist}%{?dist}
+Release:    4%{?foremandist}%{?dist}
 Group:      Applications/System
 License:    GPLv3
 URL:        https://github.com/theforeman/puppetdb_foreman
@@ -81,7 +81,6 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
 
 %files
 %dir %{gem_instdir}
@@ -93,8 +92,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 
 %files doc
 %doc %{gem_docdir}
@@ -103,6 +100,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-4
+- Stop generaing apipie cache
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-3
 - Rebuild for Ruby 2.7
 

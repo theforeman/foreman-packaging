@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.14.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -86,7 +86,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -99,8 +99,6 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 
 %files doc
@@ -118,6 +116,9 @@ if [ $1 -eq 0 ] ; then
 fi
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.14.0-2
+- Stop generaing apipie cache
+
 * Fri Jul 23 2021 Tristan Robert <tristan.robert.44@gmail.com> 0.14.0-1
 - Update to 0.14.0
 

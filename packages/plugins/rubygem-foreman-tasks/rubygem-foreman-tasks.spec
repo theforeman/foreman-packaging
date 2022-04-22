@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -105,7 +105,7 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 mkdir -p %{buildroot}%{foreman_pluginconf_dir}
 mv %{buildroot}/%{gem_instdir}/config/%{gem_name}.yaml.example \
@@ -158,8 +158,6 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %config %{foreman_pluginconf_dir}/%{gem_name}.yaml
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
 %{foreman_assets_plugin}
@@ -176,6 +174,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.1-2
+- Stop generaing apipie cache
+
 * Fri Apr 01 2022 Adam Ruzicka <aruzicka@redhat.com> 6.0.1-1
 - Update to 6.0.1
 

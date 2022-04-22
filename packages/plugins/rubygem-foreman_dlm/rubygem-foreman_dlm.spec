@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Distributed Lock Manager for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -79,7 +79,6 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a
 
 #copy init scripts, sysconfigs and logrotate config
 install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.service %{buildroot}%{_unitdir}/%{service_name}.service
@@ -103,8 +102,6 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{_unitdir}/%{service_name}.service
 %{_unitdir}/%{service_name}.timer
 
@@ -117,6 +114,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/contrib/systemd/%{service_name}.ti
 %{gem_instdir}/test
 
 %changelog
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.0.0-2
+- Stop generaing apipie cache
+
 * Wed Mar 02 2022 Manuel Laug <laugmanuel@gmail.com> - 2.0.0-1
 - Update foreman_dlm to 2.0.0
 
