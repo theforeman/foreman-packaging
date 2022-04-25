@@ -4,11 +4,11 @@
 
 %global gem_name foreman_omaha
 %global plugin_name omaha
-%global foreman_min_version 1.24.0
+%global foreman_min_version 3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
-Release: 4%{?foremandist}%{?dist}
+Version: 5.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -101,6 +101,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Apr 25 2022 Manuel Laug <laugmanuel@gmail.com> - 5.0.1-1
+- Update foreman_omaha to 5.0.0
+
 * Mon May 09 2022 Evgeni Golov - 4.0.1-4
 - log plugin installation in posttrans
 
