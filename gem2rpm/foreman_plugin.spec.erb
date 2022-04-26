@@ -185,10 +185,6 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-<% if has_apidoc -%>
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
-<% end -%>
 <% if has_assets -%>
 %{foreman_assets_plugin}
 <% end -%>
