@@ -115,8 +115,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 %{foreman_assets_plugin}
@@ -128,6 +126,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 26 2022 Shimon Shtein <sshtein@redhat.com> 5.0.34-1
+- Update to 5.0.34-1
+
 * Tue Apr 26 2022 Shimon Shtein <sshtein@redhat.com> 5.0.34-1
 - Update to 5.0.34-1
 
