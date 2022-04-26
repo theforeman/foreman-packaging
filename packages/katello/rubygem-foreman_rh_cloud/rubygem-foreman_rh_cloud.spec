@@ -8,7 +8,7 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.33
+Version: 5.0.34
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -50,12 +50,12 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
 BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
 BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.14.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
 BuildRequires: %{?scl_prefix}npm(react-intl) < 2.9.0
 # end package.json dependencies BuildRequires
@@ -130,6 +130,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Apr 26 2022 Shimon Shtein <sshtein@redhat.com> 5.0.34-1
+- Update to 5.0.34-1
+
 * Thu Apr 14 2022 Shimon Shtein <sshtein@redhat.com> 5.0.33-1
 - Update to 5.0.33-1
 
