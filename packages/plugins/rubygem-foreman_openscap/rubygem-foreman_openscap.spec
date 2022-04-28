@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.2.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/Systems
 License: GPLv3
@@ -86,7 +86,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 %files
 %dir %{gem_instdir}
@@ -101,8 +101,6 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/webpack
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
@@ -113,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 28 2022 Evgeni Golov - 5.2.1-2
+- Stop generaing apipie cache
+
 * Fri Jan 28 2022 Lukas Zapletal <lzap+rpm@redhat.com> 5.2.1-1
 - Update to 5.2.1
 
