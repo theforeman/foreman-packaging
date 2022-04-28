@@ -1,3 +1,9 @@
+ruby-foreman-puppet (2.0.6-1) stable; urgency=low
+
+  * 2.0.6 released
+
+ -- Nadja Heitmann <nadjah@atix.de>  Thu, 28 Apr 2022 10:22:54 +0200
+
 ruby-foreman-puppet (2.0.4-1) stable; urgency=low
 
   * 2.0.4 released
