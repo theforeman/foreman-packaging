@@ -6,10 +6,10 @@
 %global gem_name foreman_puppet
 %global plugin_name puppet
 %global foreman_min_version 3.0
-%global release 2
+%global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.5
+Version: 3.0.6
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Apr 28 2022 Nadja Heitmann <nadjah@atix.de> 3.0.6-1
+- Update to 3.0.6
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.0.5-2
 - Stop generaing apipie cache
 
