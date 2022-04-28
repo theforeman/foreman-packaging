@@ -1,4 +1,3 @@
 foreman_statistics.rb            usr/share/foreman/bundler.d
 cache                            usr/share/foreman/vendor
-apipie-cache/foreman_statistics  var/lib/foreman/public/apipie-cache/plugin
 webpack/foreman_statistics       var/lib/foreman/public/webpack
