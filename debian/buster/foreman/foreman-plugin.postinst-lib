@@ -37,6 +37,11 @@ foreman_plugin_install() {
     fi
   fi
 
+  # log plugin installation
+  echo "${PLUGIN}" >> /usr/share/foreman/tmp/restart_required_changed_plugins
+  # explicit chown, as the one below does not apply due to tmp symlink
+  chown foreman:foreman /usr/share/foreman/tmp/restart_required_changed_plugins
+
   # Own all the core files
   chown -Rf foreman:foreman '/usr/share/foreman'
 }
