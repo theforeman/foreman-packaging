@@ -1,3 +1,9 @@
+ruby-smart-proxy-monitoring (0.2.0) stable; urgency=low
+
+  * 0.2.0 released
+
+ -- Dirk Goetz <dirk.goetz@netways.de>  Mon, 02 May 2022 13:22:31 +0200
+
 ruby-smart-proxy-monitoring (0.1.1-1) stable; urgency=low
 
   * 0.1.1 released
