@@ -8,7 +8,7 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.0
+Version: 0.9.2.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
@@ -40,29 +40,23 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 9.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
+BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
 BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
 BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
 BuildRequires: %{?scl_prefix}npm(sortabular) >= 1.5.1
 BuildRequires: %{?scl_prefix}npm(sortabular) < 2.0.0
 BuildRequires: %{?scl_prefix}npm(table-resolver) >= 3.2.0
 BuildRequires: %{?scl_prefix}npm(table-resolver) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(react-redux) >= 5.0.7
-BuildRequires: %{?scl_prefix}npm(react-redux) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(redux) >= 3.7.2
-BuildRequires: %{?scl_prefix}npm(redux) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) >= 2.3.0
-BuildRequires: %{?scl_prefix}npm(redux-thunk) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
-BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -106,7 +100,7 @@ cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %foreman_bundlerd_file
-%foreman_precompile_plugin -a -s
+%foreman_precompile_plugin -s
 
 mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-playbooks/
 
@@ -123,8 +117,6 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
-%{foreman_apipie_cache_foreman}
-%{foreman_apipie_cache_plugin}
 %{foreman_assets_plugin}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
@@ -138,6 +130,10 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{gem_instdir}/test
 
 %changelog
+* Mon May 02 2022 Bernhard Suttner <suttner@atix.de> 0.9.2.3-1
+- Update to 0.9.2.3
+- Stop generating apipie cache (Thanks Evgeni G.)
+
 * Tue Oct 05 2021 Bernhard Suttner <suttner@atix.de> 0.9.0-1
 - Update to 0.9.0
 
