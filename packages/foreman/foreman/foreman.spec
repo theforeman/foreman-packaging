@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -886,6 +886,10 @@ GEMFILE
 %%%{name}_apipie_cache_foreman %%{foreman_dir}/public/apipie-cache/plugin/%%{gem_name}
 # build apipie cache index
 %%%{name}_apipie_cache %%{%{name}_rake} apipie:cache:index >> %%{%{name}_log_dir}/apipie_cache.log 2>&1 || :
+# log plugin installation
+%%%{name}_plugin_log \\
+echo %%{gem_name} >> %%{foreman_dir}/tmp/restart_required_changed_plugins || : \\
+chown foreman:foreman %%{foreman_dir}/tmp/restart_required_changed_plugins || :
 
 # Generate precompiled assets at gem_instdir/public/assets/gem_name/
 # -r<rake_task>     Overrides rake task of plugin:assets:precompile[plugin_name]
@@ -1045,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon May 02 2022 Evgeni Golov - 3.3.0-0.5.develop
+- Refs #34602 - log plugin installations
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.3.0-0.4.develop
 - Stop generating apipie cache for Foreman
 
