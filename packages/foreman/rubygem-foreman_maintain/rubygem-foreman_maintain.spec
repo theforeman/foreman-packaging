@@ -11,7 +11,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.0.9
-Release: 2%{?dist}
+Release: 3%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -24,10 +24,12 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(clamp) >= 0.6.2
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: yum-utils
-%if 0%{?rhel} > 7
+%if 0%{?rhel} == 7
+Requires: rh-postgresql12-postgresql-syspaths
+%else
+Requires: /usr/bin/psql
 Requires: nftables
 %endif
-Requires: /usr/bin/psql
 %if 0%{?rhel} < 8
 BuildRequires: python2-devel
 %else
@@ -139,7 +141,10 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
-* Mon May 02 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.9-2
+* Wed May 11 2022 Evgeni Golov - 1:1.0.9-3
+- Adjust psql requires to use SCL'ed version on EL7
+
+* Wed May 11 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.9-2
 - Add requires of psql utility
 
 * Wed May 04 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.9-1
