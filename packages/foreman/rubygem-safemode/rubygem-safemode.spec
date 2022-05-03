@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.6
-Release: 2%{?dist}
+Version: 1.3.7
+Release: 1%{?dist}
 Summary: A library for safe evaluation of Ruby code
 Group: Development/Languages
 License: MIT
@@ -93,6 +93,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 03 2022 Marek Hulan <mhulan@redhat.com> 1.3.7-1
+- Update to 1.3.7
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.6-2
 - Rebuild against rh-ruby27
 
