@@ -10,7 +10,7 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.8
+Version: 1.0.9
 Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
@@ -138,6 +138,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 04 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.9-1
+- Update to 1.0.9
+
 * Fri Apr 22 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.8-1
 - Update to 1.0.8 and update yum and dnf foreman-protector file paths
 
