@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.13
-Release: 7%{?dist}
+Version: 1.4.2
+Release: 1%{?dist}
 Summary: This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org)
 Group: Development/Languages
 License: BSD-3
@@ -21,9 +21,9 @@ Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.8.7
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
-BuildRequires: sqlite-devel
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+BuildRequires: sqlite-devel
 
 Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.3.13
 
@@ -93,6 +93,9 @@ rm -rf gem_ext_test
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.gemtest
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/appveyor.yml
 %exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %license %{gem_instdir}/LICENSE
@@ -100,7 +103,7 @@ rm -rf gem_ext_test
 %{gem_instdir}/faq
 %{gem_libdir}
 %{gem_instdir}/setup.rb
-%{gem_instdir}/tasks
+%{gem_instdir}/rakelib
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -115,6 +118,9 @@ rm -rf gem_ext_test
 %{gem_instdir}/test
 
 %changelog
+* Thu May 05 2022 Evgeni Golov 1.4.2-1
+- Update to 1.4.2
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.13-7
 - Rebuild against rh-ruby27
 
