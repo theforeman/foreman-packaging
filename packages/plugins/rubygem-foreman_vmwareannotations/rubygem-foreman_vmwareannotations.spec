@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.0.1
-Release: 5%{?foremandist}%{?dist}
+Release: 6%{?foremandist}%{?dist}
 Summary: This plug-in copies the host comment to VMWare annotations in The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -88,7 +88,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 0.0.1-6
+- log plugin installation in posttrans
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.1-5
 - Rebuild plugins for Ruby 2.7
 
