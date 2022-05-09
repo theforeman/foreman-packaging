@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.1
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -97,7 +97,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 4.0.1-4
+- log plugin installation in posttrans
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.0.1-3
 - Stop generaing apipie cache
 
