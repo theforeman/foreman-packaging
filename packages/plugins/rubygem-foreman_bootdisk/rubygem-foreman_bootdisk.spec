@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 19.0.5
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -114,7 +114,13 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 19.0.5-2
+- log plugin installation in posttrans
+
 * Thu Apr 28 2022 Ron Lavi <1ronlavi@gmail.com> 19.0.5-1
 - Update to 19.0.5
 
