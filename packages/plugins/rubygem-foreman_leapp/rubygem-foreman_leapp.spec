@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.1.10
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: A Foreman plugin for Leapp utility
 Group: Applications/Systems
 License: GPLv3
@@ -113,7 +113,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 0.1.10-2
+- log plugin installation in posttrans
+
 * Thu Apr 28 2022 Evgeni Golov 0.1.10-1
 - Update to 0.1.10
 - Stop generaing apipie cache
