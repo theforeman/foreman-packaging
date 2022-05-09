@@ -11,7 +11,7 @@
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    6.2.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -162,7 +162,13 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %config(noreplace) %{_root_sysconfdir}/foreman/cockpit/foreman-cockpit-session.yml
 %{_unitdir}/foreman-cockpit.service
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 6.2.0-3
+- log plugin installation in posttrans
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.2.0-2
 - Stop generaing apipie cache
 
