@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 6.0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -173,7 +173,13 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{gem_instdir}/foreman-tasks.gemspec
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 6.0.1-3
+- log plugin installation in posttrans
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.1-2
 - Stop generaing apipie cache
 
