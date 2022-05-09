@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 Group: Applications/Systems
 License: GPLv3
@@ -113,7 +113,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 2.0.1-3
+- log plugin installation in posttrans
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-2
 - Stop generaing apipie cache
 
