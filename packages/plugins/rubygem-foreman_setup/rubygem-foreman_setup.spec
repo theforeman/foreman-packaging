@@ -9,7 +9,7 @@
 Summary:    Helps set up Foreman for provisioning
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    8.0.1
-Release:    1%{?foremandist}%{?dist}
+Release:    2%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_setup
@@ -93,7 +93,13 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 8.0.1-2
+- log plugin installation in posttrans
+
 * Tue Mar 22 2022 Lukas Zapletal <lzap+rpm@redhat.com> 8.0.1-1
 - Update to 8.0.1
 
