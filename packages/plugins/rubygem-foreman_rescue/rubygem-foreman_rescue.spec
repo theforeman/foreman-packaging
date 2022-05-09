@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 3.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Provides the ability to boot a host into a rescue system
 Group: Applications/Systems
 License: GPLv3+
@@ -90,7 +90,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 3.0.0-3
+- log plugin installation in posttrans
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-2
 - Rebuild plugins for Ruby 2.7
 
