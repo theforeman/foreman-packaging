@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -96,7 +96,13 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 4.0.0-2
+- log plugin installation in posttrans
+
 * Fri Oct 22 2021 Manuel Laug <laugmanuel@gmail.com> - 4.0.0-1
 - Update foreman_wreckingball to 4.0.0
 
