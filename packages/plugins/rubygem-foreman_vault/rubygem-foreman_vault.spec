@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
 License: GPLv3
@@ -95,7 +95,13 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 1.1.0-3
+- log plugin installation in posttrans
+
 * Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
 - Stop generaing apipie cache
 
