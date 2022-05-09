@@ -9,7 +9,7 @@
 Summary:    Run custom hook scripts on Foreman events
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.3.17
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_hooks
@@ -102,7 +102,13 @@ ln -s %{gem_instdir}/extra/foreman-debug.sh %{buildroot}%{foreman_dir}/script/fo
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
+* Mon May 09 2022 Evgeni Golov - 0.3.17-3
+- log plugin installation in posttrans
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.17-2
 - Rebuild plugins for Ruby 2.7
 
