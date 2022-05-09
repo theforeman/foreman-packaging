@@ -202,4 +202,7 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 <%= doc_file_entries(spec) %>
 <% end # if doc_subpackage -%>
 
+%posttrans
+%{foreman_plugin_log}
+
 %changelog
