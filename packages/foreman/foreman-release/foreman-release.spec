@@ -18,7 +18,7 @@
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  3.3.0
+Version:  3.4.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -90,6 +90,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.develop
+- Bump version to 3.4-develop
+
 * Thu Feb 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.0-0.1.develop
 - Bump version to 3.3-develop
 

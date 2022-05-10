@@ -1,13 +1,13 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
 Epoch:      1
-Version:    3.3.0
+Version:    3.4.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:    Puppet-based installer for The Foreman
 Group:      Applications/System
@@ -143,6 +143,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 1:3.4.0-0.1.develop
+- Bump version to 3.4-develop
+
 * Thu Feb 17 2022 Evgeni Golov - 1:3.3.0-0.2.develop
 - require hostname explicitly
 

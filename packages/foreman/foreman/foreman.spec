@@ -9,12 +9,12 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.3.0
+Version: 3.4.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1049,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.develop
+- Bump version to 3.4-develop
+
 * Mon May 02 2022 Evgeni Golov - 3.3.0-0.5.develop
 - Refs #34602 - log plugin installations
 
