@@ -2,14 +2,14 @@
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global foreman_min_version 3.3
-%global foreman_max_version 3.4
+%global foreman_min_version 3.4
+%global foreman_max_version 3.5
 %global plugin_name katello
 %global gem_name katello
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global mainver 4.5.0
-%global release 5
+%global mainver 4.6.0
+%global release 1
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu May 12 2022 Partha Aji <paji@redhat.com> 4.6.0-0.1.pre.master
+- bump to 4.6
+
 * Mon May 02 2022 Quirin Pamp - 4.5.0-0.5.pre.master
 - Update katello's pulp_deb GEM dependency
 
