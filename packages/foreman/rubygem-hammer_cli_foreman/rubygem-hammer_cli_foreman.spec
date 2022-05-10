@@ -6,8 +6,6 @@
 %global plugin_name foreman
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -26,7 +24,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(hammer_cli) >= 2.1.0
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.3.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.5.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.8.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires: %{?scl_prefix}rubygem(jwt) >= 2.2.1
@@ -99,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 10 2022 Oleh Fedorenko <ofedoren@redhat.com> - 3.3.0-1
+- Release rubygem-hammer_cli_foreman 3.3.0
+
 * Thu Feb 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.0-0.1.pre.develop
 - Bump version to 3.3-develop
 
