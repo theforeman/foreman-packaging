@@ -15,7 +15,7 @@ tag_suffix = .fm3_3
 fetch_strategy = custom.ForemanSourceStrategy
 
 # Only whitelist packages that must be non-SCL, e.g. proxy, or CLI related
-[foreman-nightly-nonscl-rhel7]
+[foreman-3.3-nonscl-rhel7]
 disttag = .el7
 whitelist = foreman-bootloaders-redhat
   foreman-release
@@ -32,7 +32,7 @@ whitelist = foreman-bootloaders-redhat
   rubygem-highline
   dynflow-utils
 
-[foreman-nightly-rhel7]
+[foreman-3.3-rhel7]
 disttag = .el7
 whitelist = foreman
   foreman-installer
@@ -323,7 +323,7 @@ whitelist = foreman
   tfm
 scl = tfm
 
-[foreman-nightly-el8]
+[foreman-3.3-el8]
 disttag = .el8
 whitelist = foreman
   foreman-bootloaders-redhat
@@ -624,7 +624,7 @@ whitelist = foreman
   rubygem-zeitwerk
   dynflow-utils
 
-[foreman-plugins-nightly-el8]
+[foreman-plugins-3.3-el8]
 disttag = .el8
 whitelist = ansible-collection-theforeman-foreman
   ansible-collection-theforeman-operations
@@ -796,7 +796,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-zscheduler
   yggdrasil-worker-forwarder
 
-[foreman-plugins-nightly-rhel7]
+[foreman-plugins-3.3-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = foreman-discovery-image-service
@@ -960,7 +960,7 @@ whitelist = foreman-discovery-image-service
   rubygem-wicked
   rubygem-zscheduler
 
-[foreman-plugins-nightly-nonscl-rhel7]
+[foreman-plugins-3.3-nonscl-rhel7]
 disttag = .el7
 whitelist = ansible-collection-theforeman-operations
   ansiblerole-foreman_scap_client
@@ -972,9 +972,9 @@ whitelist = ansible-collection-theforeman-operations
   puppet-foreman_scap_client
   yggdrasil-worker-forwarder
 
-[foreman-client-nightly-el8]
+[foreman-client-3.3-el8]
 disttag = .el8
-# don't whitelist foreman-release here, it's already in foreman-nightly-el8
+# don't whitelist foreman-release here, it's already in foreman-3.3-el8
 whitelist =
   foreman_ygg_worker
   gofer
@@ -986,9 +986,9 @@ whitelist =
   tracer
   yggdrasil
 
-[foreman-client-nightly-rhel7]
+[foreman-client-3.3-rhel7]
 disttag = .el7
-# don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
+# don't whitelist foreman-release here, it's already in foreman-3.3-nonscl-rhel7
 whitelist =
   foreman_ygg_worker
   katello-host-tools
@@ -997,7 +997,7 @@ whitelist =
   tracer
   yggdrasil
 
-[katello-nightly-rhel7]
+[katello-3.3-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -1044,7 +1044,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-nightly-el8]
+[katello-3.3-el8]
 disttag = .el8
 whitelist = jsoncpp
   katello
