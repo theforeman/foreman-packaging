@@ -5,8 +5,6 @@
 %global gem_name hammer_cli
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -35,7 +33,7 @@ Requires: %{?scl_prefix}rubygem(amazing_print)
 Requires: %{?scl_prefix}rubygem(highline)
 Requires: %{?scl_prefix}rubygem(fast_gettext)
 Requires: %{?scl_prefix}rubygem(locale) >= 2.0.6
-Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.2.0
+Requires: %{?scl_prefix}rubygem(apipie-bindings) >= 0.5.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 10 2022 Oleh Fedorenko <ofedoren@redhat.com> - 3.3.0-1
+- Release rubygem-hammer_cli 3.3.0
+
 * Thu Feb 10 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.3.0-0.1.pre.develop
 - Bump version to 3.3-develop
 
