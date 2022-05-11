@@ -1,3 +1,4 @@
+# template: scl
 %global gem_name apipie-bindings
 
 %{?scl:%scl_package rubygem-%{gem_name}}
@@ -5,26 +6,28 @@
 
 Summary: The Ruby bindings for Apipie documented APIs
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 2%{?dist}
+Version: 0.5.0
+Release: 1%{?dist}
 Group: Development/Libraries
 License: MIT
 URL: https://github.com/Apipie/apipie-bindings
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
 Requires: %{?scl_prefix}rubygem(rest-client) >= 1.6.5
 Requires: %{?scl_prefix}rubygem(rest-client) < 3.0.0
 Requires: %{?scl_prefix}rubygem(oauth)
-Requires: %{?scl_prefix_ruby}rubygem(json) >= 1.2.1
-Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix}rubygem(gssapi)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildArch: noarch
-
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 Bindings for API calls that are documented with Apipie. Bindings are generated on the fly.
@@ -70,6 +73,9 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed May 11 2022 Evgeni Golov 0.5.0-1
+- Update to 0.5.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-2
 - Rebuild against rh-ruby27
 
