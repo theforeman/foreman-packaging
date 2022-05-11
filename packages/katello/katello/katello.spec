@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:       katello
 Version:    4.6.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Fri May 13 2022 Evgeni Golov - 4.6.0-0.2.master
+- Fixes #34896 - properly detect default_program in k-c-h
+
 * Thu May 12 2022 Partha Aji <paji@redhat.com> 4.6.0-0.1.master
 - bump for 4.6
 

@@ -17,12 +17,14 @@ module KatelloUtilities
 
     def initialize(init_options)
       @last_scenario = self.last_scenario
-      @default_program = self.get_default_program
+
       @proxy = init_options.fetch(:proxy)
       @plural_proxy = init_options.fetch(:plural_proxy)
       @proxy_hyphenated = init_options.fetch(:proxy_hyphenated)
       @command_prefix = init_options.fetch(:command_prefix)
       @accepted_scenarios = init_options.fetch(:accepted_scenarios, nil)
+
+      @default_program = self.get_default_program
 
       @options = {}
       @options[:program] = init_options.fetch(:program, @default_program)
