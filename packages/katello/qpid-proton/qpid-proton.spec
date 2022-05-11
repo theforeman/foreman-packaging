@@ -8,7 +8,7 @@
 %undefine __brp_mangle_shebangs
 
 Name:           qpid-proton
-Version:        0.36.0
+Version:        0.37.0
 Release:        1%{?dist}
 Summary:        A high performance, lightweight messaging library
 License:        ASL 2.0
@@ -246,7 +246,6 @@ mkdir build; cd build
 %cmake \
     -DSYSINSTALL_BINDINGS=ON \
     -DCMAKE_SKIP_RPATH:BOOL=OFF \
-    -DENABLE_LINKTIME_OPTIMIZATION=NO \
     "-DPYTHON_EXECUTABLE=%{__python3}" \
     "-DPYTHON_INCLUDE_DIR=$python_includes" \
     "-DPYTHON_LIBRARY=$python_lib" \
@@ -295,6 +294,7 @@ rm -f  %{buildroot}%{proton_datadir}/examples/*.cmake
 rm -fr %{buildroot}%{proton_datadir}/examples/c/CMakeFiles
 rm -f  %{buildroot}%{proton_datadir}/examples/c/*.cmake
 rm -f  %{buildroot}%{proton_datadir}/examples/c/Makefile
+rm -f  %{buildroot}%{proton_datadir}/examples/c/Makefile.pkgconfig
 rm -f  %{buildroot}%{proton_datadir}/examples/c/broker
 rm -f  %{buildroot}%{proton_datadir}/examples/c/direct
 rm -f  %{buildroot}%{proton_datadir}/examples/c/receive
@@ -304,6 +304,7 @@ rm -f  %{buildroot}%{proton_datadir}/examples/c/send-ssl
 rm -fr %{buildroot}%{proton_datadir}/examples/cpp/CMakeFiles
 rm -f  %{buildroot}%{proton_datadir}/examples/cpp/*.cmake
 rm -f  %{buildroot}%{proton_datadir}/examples/cpp/Makefile
+rm -f  %{buildroot}%{proton_datadir}/examples/cpp/Makefile.pkgconfig
 rm -f  %{buildroot}%{proton_datadir}/examples/cpp/broker
 rm -f  %{buildroot}%{proton_datadir}/examples/cpp/client
 rm -f  %{buildroot}%{proton_datadir}/examples/cpp/connection_options
@@ -342,6 +343,9 @@ rm -f  %{buildroot}%{proton_datadir}/CMakeLists.txt
 %check
 
 %changelog
+* Wed May 11 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.37.0-1
+- Rebase to 0.37
+
 * Mon Mar 21 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.36.0-1
 - Release qpid-proton 0.36.0
 
