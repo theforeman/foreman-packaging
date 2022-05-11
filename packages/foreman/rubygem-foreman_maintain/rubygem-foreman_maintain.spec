@@ -10,8 +10,8 @@
 
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.9
-Release: 3%{?dist}
+Version: 1.0.10
+Release: 1%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -141,6 +141,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 11 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.0.10-1
+- Update to 1.0.10
+
 * Wed May 11 2022 Evgeni Golov - 1:1.0.9-3
 - Adjust psql requires to use SCL'ed version on EL7
 
