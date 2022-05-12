@@ -997,7 +997,7 @@ whitelist =
   tracer
   yggdrasil
 
-[katello-3.3-rhel7]
+[katello-4.5-rhel7]
 disttag = .el7
 scl = tfm
 whitelist = katello
@@ -1044,7 +1044,7 @@ whitelist = katello
   rubygem-typhoeus
   rubygem-zest
 
-[katello-3.3-el8]
+[katello-4.5-el8]
 disttag = .el8
 whitelist = jsoncpp
   katello
