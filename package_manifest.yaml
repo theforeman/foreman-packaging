@@ -457,6 +457,7 @@ foreman_installer_packages:
         - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
     foreman-installer: {}
+    foreman-selinux: {}
     katello-certs-tools: {}
     puppet-agent-oauth: {}
     puppet-agent-puppet-strings: {}
