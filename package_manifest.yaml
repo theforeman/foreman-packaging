@@ -154,6 +154,7 @@ foreman_scl_packages:
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
     rubygem-hammer_cli: {}
+    rubygem-hammer_cli_foreman: {}
     rubygem-hashie: {}
     rubygem-hirb-unicode-steakknife: {}
     rubygem-hirb: {}
