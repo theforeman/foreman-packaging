@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (5.0.7-1) stable; urgency=low
+
+  * 5.0.7 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Thu, 12 May 2022 09:07:42 +0200
+
 ruby-foreman-remote-execution (5.0.6-1) stable; urgency=low
 
   * 5.0.6 released
