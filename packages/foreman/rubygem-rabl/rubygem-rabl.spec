@@ -1,95 +1,92 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rabl
+%global gem_require_name %{gem_name}
 
-Summary: General ruby templating with json, bson, xml and msgpack support
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.14.3
-Release: 2%{?dist}
+Version: 0.15.0
+Release: 1%{?dist}
+Summary: General ruby templating with json, bson, xml and msgpack support
 Group: Development/Languages
 License: MIT
 URL: https://github.com/nesquena/rabl
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(activesupport) >= 2.3.14
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
 
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(activesupport) >= 2.3.14
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-RABL (Ruby API Builder Language) is a Rails and Padrino ruby
-templating system for generating JSON, XML, MessagePack, PList and
-BSON.
+General ruby templating with json, bson, xml and msgpack support.
+
 
 %package doc
-BuildArch: noarch
+Summary: Documentation for %{pkg_name}
+Group: Documentation
 Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary: Documentation for rubygem-%{gem_name}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
+
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
 %build
-mkdir -p .%{gem_dir}
-
-%{?scl:scl enable %{scl} "}
 # Create the gem as gem install only works on a gem file
-%{?scl:"}
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
+%{?scl:EOF}
 
-%{?scl:scl enable %{scl} - <<EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
-rm -rf ./%{gem_dir}/gems/%{gem_name}-%{version}/.yardoc
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-rm %{buildroot}%{gem_instdir}/{README.md,CHANGELOG.md,CONTRIBUTING.md,MIT-LICENSE,.gitignore,\
-.travis.yml,rabl.gemspec,test.watchr}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
-%{gem_cache}
+%license %{gem_instdir}/MIT-LICENSE
+%{gem_libdir}
+%exclude %{gem_cache}
 %{gem_spec}
-%doc MIT-LICENSE
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Gemfile*
-%{gem_instdir}/Rakefile
-%doc README.md CHANGELOG.md CONTRIBUTING.md
-%{gem_instdir}/test
-%{gem_instdir}/fixtures
-%{gem_instdir}/examples
-
-%check
-# Running tests requires: rubygem-riot, rubygem-tilt,
-# rubygem-yajl-ruby, rubygem-msgpack, rubygem-bson, rubygem-plist
-# Deps not available in RPMs, skipping for nown
-# Running manually was green
-# rake test
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/README.md
 
 %changelog
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.15.0-1
+- Release rubygem-rabl 0.15.0
+
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> 0.15.0-1
+- Update to 0.15.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.14.3-2
 - Rebuild against rh-ruby27
 
