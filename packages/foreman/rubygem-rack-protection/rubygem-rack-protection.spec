@@ -3,14 +3,15 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rack-protection
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
-Release: 2%{?dist}
+Version: 2.2.0
+Release: 1%{?dist}
 Summary: Protect against typical web attacks, works with all Rack apps, including Rails
 Group: Development/Languages
 License: MIT
-URL: http://www.sinatrarb.com/protection/
+URL: http://sinatrarb.com/protection/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -24,8 +25,6 @@ BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.0.3
 
 %description
 Protect against typical web attacks, works with all Rack apps, including
@@ -84,6 +83,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/rack-protection.gemspec
 
 %changelog
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.0-1
+- Release rubygem-rack-protection 2.2.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.0-2
 - Rebuild against rh-ruby27
 
