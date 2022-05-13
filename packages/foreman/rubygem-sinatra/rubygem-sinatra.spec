@@ -3,36 +3,35 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name sinatra
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.0
-Release: 3%{?dist}
+Version: 2.2.0
+Release: 1%{?dist}
 Epoch: 1
 Summary: Classy web-development dressed in a DSL
 Group: Development/Languages
 License: MIT
-URL: http://www.sinatrarb.com/
+URL: http://sinatrarb.com/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.2.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rack) >= 2.2
 Requires: %{?scl_prefix}rubygem(rack) < 3
 Requires: %{?scl_prefix}rubygem(tilt) >= 2.0
 Requires: %{?scl_prefix}rubygem(tilt) < 3
-Requires: %{?scl_prefix}rubygem(rack-protection) = 2.1.0
+Requires: %{?scl_prefix}rubygem(rack-protection) = 2.2.0
 Requires: %{?scl_prefix}rubygem(mustermann) >= 1.0
 Requires: %{?scl_prefix}rubygem(mustermann) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.0
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.0.3
 
 %description
 Sinatra is a DSL for quickly creating web applications in Ruby with minimal
@@ -81,7 +80,6 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/MAINTENANCE.md
-%{gem_instdir}/SECURITY.md
 %{gem_instdir}/VERSION
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -106,10 +104,14 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.ru.md
 %doc %{gem_instdir}/README.zh.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SECURITY.md
 %{gem_instdir}/examples
 %{gem_instdir}/sinatra.gemspec
 
 %changelog
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 1:2.2.0-1
+- Release rubygem-sinatra 2.2.0
+
 * Thu Feb 10 2022 Patrick Creech <pcreech@redhat.com> - 1:2.1.0-3
 - rebuilt
 
