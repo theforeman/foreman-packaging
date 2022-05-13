@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.5.1
+Version: 2.8.0
 Release: 1%{?dist}
 Summary: Simplistic port-like solution for developers
 Group: Development/Languages
@@ -88,6 +88,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.8.0-1
+- Release rubygem-mini_portile2 2.8.0
+
 * Fri Apr 30 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.5.1-1
 - Release 2.5.1
 
