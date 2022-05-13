@@ -9,8 +9,8 @@
 %global foreman_min_version 3.2.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.1
-Release: 3%{?foremandist}%{?dist}
+Version: 6.0.2
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -177,6 +177,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Fri May 13 2022 Adam Ruzicka <aruzicka@redhat.com> 6.0.2-1
+- Update to 6.0.2
+
 * Mon May 09 2022 Evgeni Golov - 6.0.1-3
 - log plugin installation in posttrans
 
