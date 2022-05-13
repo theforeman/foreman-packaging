@@ -6,29 +6,25 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.11.3
-Release: 2%{?dist}
+Version: 1.13.6
+Release: 1%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 Group: Development/Languages
 License: MIT
 URL: https://nokogiri.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-# On EL8 rubygem-racc is bundled into ruby-libs package and
-# auto-generated dependencies will break dependency resolution
-Autoreq: 0
-
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
+Requires: %{?scl_prefix_ruby}ruby >= 2.6.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.5.0
-Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.6
+Requires: %{?scl_prefix}rubygem(mini_portile2) >= 2.8.0
+Requires: %{?scl_prefix}rubygem(mini_portile2) < 2.9
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.5.0
+BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 2.6.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.5.0
-BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.6
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) >= 2.8.0
+BuildRequires: %{?scl_prefix}rubygem(mini_portile2) < 2.9
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 BuildRequires: libxml2-devel
@@ -126,6 +122,7 @@ rm -rf gem_ext_test
 %license %{gem_instdir}/LICENSE.md
 %{gem_instdir}/bin
 %{gem_instdir}/dependencies.yml
+%{gem_instdir}/gumbo-parser
 %{gem_libdir}
 %{gem_instdir}/patches
 %exclude %{gem_cache}
@@ -137,6 +134,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.13.6-1
+- Release rubygem-nokogiri 1.13.6
+
 * Thu May 27 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.3-2
 - Do not generate auto requires due to rubygem-racc
 
