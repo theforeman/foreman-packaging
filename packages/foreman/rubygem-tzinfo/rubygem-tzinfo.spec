@@ -3,34 +3,33 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name tzinfo
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.6
-Release: 2%{?dist}
-Summary: Daylight savings aware timezone library
+Version: 2.0.4
+Release: 1%{?dist}
+Summary: Time Zone Library
 Group: Development/Languages
 License: MIT
-URL: http://tzinfo.github.io
+URL: https://tzinfo.github.io
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
+Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(thread_safe) >= 0.1
-Requires: %{?scl_prefix}rubygem(thread_safe) < 1
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
+Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
+BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.2.5
-
 %description
-TZInfo provides daylight savings aware transformations between times in
-different time zones.
+TZInfo provides access to time zone data and allows times to be converted
+using time zone rules.
 
 
 %package doc
@@ -73,7 +72,6 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.yardopts
-%{gem_instdir}/CHANGES.md
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -81,12 +79,13 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGES.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/test
-%{gem_instdir}/tzinfo.gemspec
 
 %changelog
+* Mon May 16 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.0.4-1
+- Release rubygem-tzinfo 2.0.4
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.6-2
 - Rebuild against rh-ruby27
 
