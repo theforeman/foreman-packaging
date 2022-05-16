@@ -8,8 +8,8 @@
 
 Summary:    Template-syncing engine for Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    9.2.0
-Release:    3%{?foremandist}%{?dist}
+Version:    9.3.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_templates
@@ -40,7 +40,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 4.0.2
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) >= 3.0.0
 BuildRequires: %{?scl_prefix}npm(identity-obj-proxy) < 4.0.0
 # end package.json devDependencies BuildRequires
@@ -120,6 +121,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon May 16 2022 Oleh Fedorenko <ofedoren@redhat.com> 9.3.0-1
+- Update to 9.3.0
+
 * Mon May 09 2022 Evgeni Golov - 9.2.0-3
 - log plugin installation in posttrans
 
