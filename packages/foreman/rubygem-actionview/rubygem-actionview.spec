@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.4.7
+Version: 6.1.6
 Release: 1%{?dist}
 Summary: Rendering framework putting the V in MVC (part of Rails)
 Group: Development/Languages
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.4.7
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.1.6
 Requires: %{?scl_prefix}rubygem(builder) >= 3.1
 Requires: %{?scl_prefix}rubygem(builder) < 4
 Requires: %{?scl_prefix}rubygem(erubi) >= 1.4
@@ -89,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 16 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.1.6-1
+- Release rubygem-actionview 6.1.6
+
 * Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.4.7-1
 - Release rubygem-actionview 6.0.4.7
 

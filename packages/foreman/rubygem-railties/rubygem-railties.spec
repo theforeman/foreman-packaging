@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.4.7
+Version: 6.1.6
 Release: 1%{?dist}
 Summary: Tools for creating, working with, and running Rails applications
 Group: Development/Languages
@@ -18,11 +18,11 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 6.0.4.7
-Requires: %{?scl_prefix}rubygem(actionpack) = 6.0.4.7
-Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.7
-Requires: %{?scl_prefix}rubygem(thor) >= 0.20.3
-Requires: %{?scl_prefix}rubygem(thor) < 2.0
+Requires: %{?scl_prefix}rubygem(activesupport) = 6.1.6
+Requires: %{?scl_prefix}rubygem(actionpack) = 6.1.6
+Requires: %{?scl_prefix_ruby}rubygem(rake) >= 12.2
+Requires: %{?scl_prefix}rubygem(thor) >= 1.0
+Requires: %{?scl_prefix}rubygem(thor) < 2
 Requires: %{?scl_prefix}rubygem(method_source)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
@@ -93,6 +93,9 @@ find %{buildroot}%{gem_instdir}/exe -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 16 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.1.6-1
+- Release rubygem-railties 6.1.6
+
 * Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.4.7-1
 - Release rubygem-railties 6.0.4.7
 
