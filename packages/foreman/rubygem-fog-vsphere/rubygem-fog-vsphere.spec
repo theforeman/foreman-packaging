@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.5.0
-Release: 2%{?dist}
+Version: 3.5.1
+Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support VMware vSphere
 Group: Development/Languages
 License: MIT
@@ -95,6 +95,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/fog-vsphere.gemspec
 
 %changelog
+* Mon May 16 2022 Chris Roberts <chrobert@redhat.com> 3.5.1-1
+- Update to 3.5.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-2
 - Rebuild against rh-ruby27
 
