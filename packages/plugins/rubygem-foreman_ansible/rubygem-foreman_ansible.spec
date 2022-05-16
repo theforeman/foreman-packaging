@@ -5,11 +5,11 @@
 
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 2.2.0
+%global foreman_min_version 3.3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 7.1.0
-Release: 3%{?foremandist}%{?dist}
+Version: 8.0.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
 License: GPLv3
@@ -124,6 +124,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon May 16 2022 Leos Stejskal <lstejska@redhat.com> 8.0.0-1
+- Update to 8.0.0
+
 * Mon May 09 2022 Evgeni Golov - 7.1.0-3
 - log plugin installation in posttrans
 
