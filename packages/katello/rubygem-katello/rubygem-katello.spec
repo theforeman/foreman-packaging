@@ -6,7 +6,7 @@
 %global foreman_max_version 3.4
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.5.0
 %global release 5
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon May 16 2022 Odilon Sousa <osousa@redhat.com> - 4.5.0-0.5.rc1
+- Release rubygem-katello 4.5.0rc1
+
 * Mon May 02 2022 Quirin Pamp - 4.5.0-0.5.pre.master
 - Update katello's pulp_deb GEM dependency
 
