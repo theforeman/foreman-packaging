@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.0.4.7
+Version: 6.1.6
 Release: 1%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
@@ -18,18 +18,16 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
+Requires: %{?scl_prefix}rubygem(i18n) >= 1.6
 Requires: %{?scl_prefix}rubygem(i18n) < 2
-Requires: %{?scl_prefix}rubygem(tzinfo) >= 1.1
-Requires: %{?scl_prefix}rubygem(tzinfo) < 2
-Requires: %{?scl_prefix_ruby}rubygem(minitest) >= 5.1
-Requires: %{?scl_prefix_ruby}rubygem(minitest) < 6
+Requires: %{?scl_prefix}rubygem(tzinfo) >= 2.0
+Requires: %{?scl_prefix}rubygem(tzinfo) < 3
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(zeitwerk) >= 2.2
+Requires: %{?scl_prefix}rubygem(zeitwerk) >= 2.3
 Requires: %{?scl_prefix}rubygem(zeitwerk) < 3
-Requires: %{?scl_prefix}rubygem(zeitwerk) >= 2.2.2
+Requires: %{?scl_prefix_ruby}rubygem(minitest) >= 5.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -93,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Mon May 16 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.1.6-1
+- Release rubygem-activesupport 6.1.6
+
 * Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.0.4.7-1
 - Release rubygem-activesupport 6.0.4.7
 
