@@ -5,7 +5,7 @@
 
 %global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.5.0
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed Jun 08 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.5.0-0.3.rc1
+- Drop use of module_hotfixes, there are modules now
+
 * Mon May 16 2022 Odilon Sousa <osousa@redhat.com> - 4.5.0-0.2.rc1
 - Release katello-repos 4.5.0rc1
 

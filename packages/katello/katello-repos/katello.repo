@@ -6,7 +6,6 @@ baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/katello/@DIST@/$basear
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
-module_hotfixes=1
 
 # Candlepin RPMs as supported by Katello - This is a coordinated
 # copy of Candlepin's packages in order to ensure compatibility
@@ -17,7 +16,6 @@ baseurl=https://yum.theforeman.org/katello/@REPO_VERSION@/candlepin/@DIST@/$base
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman
 enabled=1
 gpgcheck=@REPO_GPGCHECK@
-module_hotfixes=1
 
 [pulpcore]
 name=pulpcore: Fetch, Upload, Organize, and Distribute Software Packages.
@@ -25,7 +23,6 @@ baseurl=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/@DIST@/$basearch/
 gpgkey=https://yum.theforeman.org/pulpcore/@PULPCORE_VERSION@/GPG-RPM-KEY-pulpcore
 enabled=1
 gpgcheck=1
-module_hotfixes=1
 
 # source repositories
 
