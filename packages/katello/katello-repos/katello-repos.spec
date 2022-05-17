@@ -5,7 +5,7 @@
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 1
+%global release 2
 
 Name:           katello-repos
 Version:        4.6
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Tue May 17 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.6-0.2.nightly
+- Drop use of module_hotfixes, there are modules now
+
 * Wed May 11 2022 Partha Aji <paji@redhat.com> - 4.6-0.1.nightly
 - bump to 4.6
 
