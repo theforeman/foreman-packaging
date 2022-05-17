@@ -292,7 +292,12 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
           exit
         end
       end
-      @opt_parser.parse!
+      begin
+        @opt_parser.parse!
+      rescue OptionParser::InvalidOption => error
+        self.fail_with_message("#{error}", @opt_parser)
+        exit
+      end
     end
 
     def dns_managed?
