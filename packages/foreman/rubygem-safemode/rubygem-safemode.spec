@@ -6,15 +6,13 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.3.6
-Release: 2%{?dist}
-Summary: A library for safe evaluation of Ruby code
+Version: 1.3.7
+Release: 1%{?dist}
+Summary: A library for safe evaluation of Ruby code based on ParseTree/RubyParser and Ruby2Ruby
 Group: Development/Languages
 License: MIT
 URL: https://github.com/svenfuchs/safemode
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-Autoreq: 0
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -74,9 +72,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/VERSION
-%license %{gem_instdir}/LICENCSE
+%license %{gem_instdir}/LICENSE
 %{gem_instdir}/VERSION
 %{gem_instdir}/demo.rb
 %{gem_instdir}/init.rb
@@ -93,6 +89,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue May 17 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.3.7-1
+- Release rubygem-safemode 1.3.7
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.6-2
 - Rebuild against rh-ruby27
 
