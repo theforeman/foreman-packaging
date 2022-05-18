@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -59,8 +59,8 @@ Requires(preun): systemd-units
 Requires: %{name}-debug
 
 # start specfile default Requires
-Requires: %{?scl_prefix}rubygem(rails) >= 6.0.4.7
-Requires: %{?scl_prefix}rubygem(rails) < 6.0.5.0
+Requires: %{?scl_prefix}rubygem(rails) >= 6.1.6
+Requires: %{?scl_prefix}rubygem(rails) < 6.2.0
 Requires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 Requires: %{?scl_prefix}rubygem(rest-client) < 3
 Requires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -161,8 +161,8 @@ BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
 BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
 
 # start specfile default BuildRequires
-BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.0.4.7
-BuildRequires: %{?scl_prefix}rubygem(rails) < 6.0.5.0
+BuildRequires: %{?scl_prefix}rubygem(rails) >= 6.1.6
+BuildRequires: %{?scl_prefix}rubygem(rails) < 6.2.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) >= 2.0.0
 BuildRequires: %{?scl_prefix}rubygem(rest-client) < 3
 BuildRequires: %{?scl_prefix}rubygem(audited) >= 4.9.0
@@ -1049,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue May 24 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-0.3.develop
+- Update to Rails 6.1
+
 * Mon May 23 2022 Evgeni Golov - 3.4.0-0.2.develop
 - Update Foreman GEM requirements
 
