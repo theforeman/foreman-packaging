@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.6.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -51,8 +51,8 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(faraday) < 1.9
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.17.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.18.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
@@ -93,8 +93,8 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(faraday) < 1.9
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.17.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.18.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Wed May 18 2022 Ian Ballou <ianballou67@gmail.com> 4.6.0-0.2.pre.master
+- Bump pulpcore_client requirement to 3.18
+
 * Thu May 12 2022 Partha Aji <paji@redhat.com> 4.6.0-0.1.pre.master
 - bump to 4.6
 
