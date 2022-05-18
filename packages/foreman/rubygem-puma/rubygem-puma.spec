@@ -1,4 +1,3 @@
-# Generated from puma-3.11.4.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
@@ -7,9 +6,9 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.6.2
+Version: 5.6.4
 Release: 1%{?dist}
-Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
+Summary: Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications
 Group: Development/Languages
 License: BSD-3-Clause
 URL: https://puma.io
@@ -29,15 +28,12 @@ BuildRequires: %{?scl_prefix}rubygem(nio4r) < 3
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-# Puma 5.1.0 includes systemd support so the plugin is no longer needed
-Obsoletes: %{?scl_prefix}rubygem-puma-plugin-systemd < 0.1.5-2
-
 BuildRequires: openssl-devel
 
 %description
-Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for
+Puma is a simple, fast, threaded, and highly parallel HTTP 1.1 server for
 Ruby/Rack applications. Puma is intended for use in both development and
-production environments. It's great for highly concurrent Ruby implementations
+production environments. It's great for highly parallel Ruby implementations
 such as Rubinius and JRuby as well as as providing process worker support to
 support CRuby well.
 
@@ -56,7 +52,7 @@ Documentation for %{pkg_name}.
 gem unpack %{SOURCE0}
 %{?scl:EOF}
 
-%autosetup -p1 -D -T -n  %{gem_name}-%{version}
+%setup -q -D -T -n  %{gem_name}-%{version}
 
 %{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
@@ -76,7 +72,7 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{gem_extdir_mri}/puma
@@ -87,7 +83,7 @@ cp -a .%{gem_extdir_mri}/puma/*.so %{buildroot}%{gem_extdir_mri}/puma
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
@@ -108,10 +104,12 @@ rm -rf gem_ext_test
 %dir %{gem_instdir}
 %{_bindir}/puma
 %{_bindir}/pumactl
+%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
+%{gem_instdir}/tools
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -120,9 +118,11 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/History.md
 %doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/docs
-%doc %{gem_instdir}/tools
 
 %changelog
+* Wed May 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.6.4-1
+- Release rubygem-puma 5.6.4
+
 * Fri Mar 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.6.2-1
 - Release rubygem-puma 5.6.2
 
