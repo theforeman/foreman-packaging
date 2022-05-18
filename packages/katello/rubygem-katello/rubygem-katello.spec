@@ -51,8 +51,8 @@ Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
 Requires: %{?scl_prefix}rubygem(faraday) < 1.9
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.17.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.18.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
+Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
 Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
@@ -93,8 +93,8 @@ BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
 BuildRequires: %{?scl_prefix}rubygem(faraday) < 1.9
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.17.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.18.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
+BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
