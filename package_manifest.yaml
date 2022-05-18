@@ -789,7 +789,6 @@ katello_packages:
         - el7-puppet-6
         - "el7-foreman-{{ foreman_version }}"
         - "el7-foreman-plugins-{{ foreman_version }}"
-        - "el7-katello-pulp-{{ katello_version }}"
         - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
@@ -1175,7 +1174,6 @@ repoclosures:
           - el7-puppet-6
           - "el7-foreman-{{ foreman_version }}"
           - "el7-foreman-plugins-{{ foreman_version }}"
-          - "el7-katello-pulp-{{ katello_version }}"
           - "el7-katello-candlepin-{{ katello_version }}"
     foreman-client-repoclosure-el8:
       repoclosure_target_repos:
