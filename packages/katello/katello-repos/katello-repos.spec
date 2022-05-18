@@ -1,11 +1,11 @@
-%global pulpcore_version 3.17
+%global pulpcore_version 3.18
 
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
 %global prereleasesource nightly
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 2
+%global release 3
 
 Name:           katello-repos
 Version:        4.6
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Wed May 18 2022 Ian Ballou <ianballou67@gmail.com> - 4.6-0.3.nightly
+- Bump Pulpcore version to 3.18
+
 * Tue May 17 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.6-0.2.nightly
 - Drop use of module_hotfixes, there are modules now
 
