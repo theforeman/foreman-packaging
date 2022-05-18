@@ -7,12 +7,16 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.13.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 Group: Development/Languages
 License: MIT
 URL: https://nokogiri.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# On EL8 rubygem-racc is bundled into ruby-libs package and
+# auto-generated dependencies will break dependency resolution
+Autoreq: 0
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
@@ -134,6 +138,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed May 18 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.13.6-2
+- Add back disable of Autoreq
+
 * Fri May 13 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.13.6-1
 - Release rubygem-nokogiri 1.13.6
 
