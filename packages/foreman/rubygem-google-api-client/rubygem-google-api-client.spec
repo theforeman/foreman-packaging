@@ -6,8 +6,8 @@
 %global gem_name google-api-client
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.33.2
-Release: 2%{?dist}
+Version: 0.50.0
+Release: 1%{?dist}
 Summary: Client for accessing Google APIs
 Group: Development/Languages
 License: Apache-2.0
@@ -17,7 +17,6 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.4
-Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(representable) >= 3.0
 Requires: %{?scl_prefix}rubygem(representable) < 4
@@ -36,7 +35,6 @@ Requires: %{?scl_prefix}rubygem(httpclient) >= 2.8.1
 Requires: %{?scl_prefix}rubygem(httpclient) < 3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.4
-BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -99,6 +97,9 @@ cp -pa .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
+# this file is not needed and freaks out EL7 builds
+rm -f %{buildroot}%{gem_instdir}/synth.py
+
 %files
 %dir %{gem_instdir}
 %{_bindir}/generate-api
@@ -108,6 +109,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/.yardopts
 %exclude %{gem_instdir}/.kokoro
 %exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.repo-metadata.json
+%exclude %{gem_instdir}/api_list_config.yaml
+%exclude %{gem_instdir}/synth.py
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/api_names.yaml
 %{gem_instdir}/bin
@@ -122,15 +126,20 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 #%%gem_docdir is not populated because building docs takes to much time
 #%%doc %%{gem_docdir}
 %exclude %{gem_instdir}/.rspec
+%doc %{gem_instdir}/docs/
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/MIGRATING.md
 %doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/OVERVIEW.md
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/google-api-client.gemspec
 
 %changelog
+* Thu May 19 2022 Evgeni Golov 0.50.0-1
+- Update to 0.50.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.33.2-2
 - Rebuild against rh-ruby27
 
