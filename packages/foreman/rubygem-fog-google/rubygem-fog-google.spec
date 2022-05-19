@@ -6,8 +6,8 @@
 %global gem_name fog-google
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.11.0
-Release: 2%{?dist}
+Version: 1.15.0
+Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Google
 Group: Development/Languages
 License: MIT
@@ -17,20 +17,18 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.0
-Requires: %{?scl_prefix_ruby}ruby < 3
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(fog-core) <= 2.1.0
 Requires: %{?scl_prefix}rubygem(fog-json) >= 1.2
 Requires: %{?scl_prefix}rubygem(fog-json) < 2
 Requires: %{?scl_prefix}rubygem(fog-xml) >= 0.1.0
 Requires: %{?scl_prefix}rubygem(fog-xml) < 0.2
-Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.32
-Requires: %{?scl_prefix}rubygem(google-api-client) < 0.34
+Requires: %{?scl_prefix}rubygem(google-api-client) >= 0.44.2
+Requires: %{?scl_prefix}rubygem(google-api-client) < 0.51
 Requires: %{?scl_prefix}rubygem(google-cloud-env) >= 1.2
 Requires: %{?scl_prefix}rubygem(google-cloud-env) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0
-BuildRequires: %{?scl_prefix_ruby}ruby < 3
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -83,6 +81,7 @@ cp -pa .%{gem_dir}/* \
 %exclude %{gem_instdir}/.codecov.yml
 %exclude %{gem_instdir}/.editorconfig
 %exclude %{gem_instdir}/.fog.example
+%exclude %{gem_instdir}/.github/
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.hound.yml
 %exclude %{gem_instdir}/.rubocop.yml
@@ -110,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/MIGRATING.md
 
 %changelog
+* Thu May 19 2022 Evgeni Golov 1.15.0-1
+- Update to 1.15.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.11.0-2
 - Rebuild against rh-ruby27
 
