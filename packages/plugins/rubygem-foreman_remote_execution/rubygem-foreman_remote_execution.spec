@@ -47,7 +47,7 @@ BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
 BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
 BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
 BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
 BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
