@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -77,8 +77,8 @@ Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 Requires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 Requires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 Requires: %{?scl_prefix_ruby}rubygem(rdoc) < 6.4
-Requires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
-Requires: %{?scl_prefix}rubygem(rabl) < 0.15.0
+Requires: %{?scl_prefix}rubygem(rabl) >= 0.15.0
+Requires: %{?scl_prefix}rubygem(rabl) < 1
 Requires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 Requires: %{?scl_prefix}rubygem(oauth) < 1
 Requires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
@@ -179,8 +179,8 @@ BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.17
 BuildRequires: %{?scl_prefix}rubygem(apipie-rails) < 0.6.0
 BuildRequires: %{?scl_prefix}rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc) < 6.4
-BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.14.2
-BuildRequires: %{?scl_prefix}rubygem(rabl) < 0.15.0
+BuildRequires: %{?scl_prefix}rubygem(rabl) >= 0.15.0
+BuildRequires: %{?scl_prefix}rubygem(rabl) < 1
 BuildRequires: %{?scl_prefix}rubygem(oauth) >= 0.5.4
 BuildRequires: %{?scl_prefix}rubygem(oauth) < 1
 BuildRequires: %{?scl_prefix}rubygem(deep_cloneable) >= 3
@@ -437,8 +437,8 @@ Meta package to install requirements for VMware compute resource support.
 Summary: Foreman Google Compute Engine (GCE) support
 Group:  Applications/System
 # start specfile gce Requires
-Requires: %{?scl_prefix}rubygem(fog-google) >= 1.11.0
-Requires: %{?scl_prefix}rubygem(fog-google) < 1.12.0
+Requires: %{?scl_prefix}rubygem(fog-google) >= 1.14
+Requires: %{?scl_prefix}rubygem(fog-google) < 2.0
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1049,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon May 23 2022 Evgeni Golov - 3.4.0-0.2.develop
+- Update Foreman GEM requirements
+
 * Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.develop
 - Bump version to 3.4-develop
 
