@@ -3,11 +3,12 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name roadie-rails
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.1.1
-Release: 3%{?dist}
-Summary: Hooks Roadie into your Rails application to help with email generation
+Version: 2.3.0
+Release: 1%{?dist}
+Summary: Making HTML emails comfortable for the Rails rockstars
 Group: Development/Languages
 License: MIT
 URL: https://github.com/Mange/roadie-rails
@@ -15,22 +16,22 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.5
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(railties) >= 5.1
-Requires: %{?scl_prefix}rubygem(railties) < 6.1
+Requires: %{?scl_prefix}rubygem(railties) < 7.1
 Requires: %{?scl_prefix}rubygem(roadie) >= 3.1
 Requires: %{?scl_prefix}rubygem(roadie) < 5.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems
-# end specfile generated dependencies
-
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-This gem hooks up your Rails application with Roadie to help you
-generate HTML emails.
+Hooks Roadie into your Rails application to help with email generation.
+
 
 %package doc
 Summary: Documentation for %{pkg_name}
@@ -39,54 +40,61 @@ Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{pkg_name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:"}
+%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
-
+%{?scl:EOF}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
+%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:"}
-%{?scl:scl enable %{scl} - <<EOF}
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
 %{?scl:EOF}
 
-
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%license %{gem_instdir}/LICENSE.txt
+%{gem_instdir}/Upgrading.md
+%{gem_instdir}/codecov.yml
 %{gem_libdir}
-%doc %{gem_instdir}/LICENSE.txt
+%{gem_instdir}/setup.sh
 %exclude %{gem_cache}
 %{gem_spec}
-%exclude %{gem_instdir}/codecov.yml
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
 %doc %{gem_instdir}/Changelog.md
-%doc %{gem_instdir}/Upgrading.md
-%{gem_instdir}/%{gem_name}.gemspec
-%{gem_instdir}/setup.sh
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/.*
+%{gem_instdir}/roadie-rails.gemspec
 
 %changelog
+* Tue May 24 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.3.0-1
+- Release rubygem-roadie-rails 2.3.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.1.1-3
 - Rebuild against rh-ruby27
 
@@ -118,4 +126,3 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 
 * Thu Jun 02 2016 Dominic Cleal <dominic@cleal.org> 1.1.1-1
 - new package built with tito
-
