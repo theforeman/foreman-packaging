@@ -5,7 +5,6 @@
 
 %global build_agent (0%{?suse_version} == 0) && (0%{?fedora} > 28 || 0%{?rhel} > 0)
 %global legacy_agent (0%{?rhel} == 6)
-%global build_fact_plugin (0%{?rhel} > 0 && 0%{?rhel} <= 7)
 
 %if 0%{?suse_version}
 %define dist suse%{?suse_version}
@@ -13,7 +12,7 @@
 
 Name: katello-host-tools
 Version: 3.5.7
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: A set of commands and yum plugins that support a Katello host
 Group:   Development/Languages
 %if 0%{?suse_version}
@@ -33,11 +32,7 @@ BuildArch: noarch
 %endif
 
 Requires: subscription-manager
-%if %{build_fact_plugin}
-Requires: %{name}-fact-plugin = %{version}-%{release}
-%else
 Obsoletes: %{name}-fact-plugin < %{version}-%{release}
-%endif
 
 %if %{dnf_install} || 0%{?suse_version} >= 1500
 Requires: python3-subscription-manager-rhsm
@@ -108,19 +103,6 @@ Requires: yum-plugin-security
 %description -n katello-agent
 Provides plugin for gofer, which allows communicating with Katello server
 and execute scheduled actions.
-%endif
-
-%if %{build_fact_plugin}
-%package fact-plugin
-BuildArch:  noarch
-Summary:    Adds an fqdn fact plugin for subscription-manager
-Group:      Development/Languages
-
-Requires:   subscription-manager
-Obsoletes:  katello-agent-fact-plugin <= 3.0.0
-
-%description fact-plugin
-A subscription-manager plugin to add an additional fact 'network.fqdn' if not present
 %endif
 
 %if %{build_tracer}
@@ -265,14 +247,6 @@ rm %{buildroot}%{_sbindir}/katello-tracer-upload
 rm %{buildroot}%{plugins_confdir}/tracer_upload.conf
 %endif
 
-%if %{build_fact_plugin}
-# RHSM plugin
-mkdir -p %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/
-mkdir -p %{buildroot}%{_datadir}/rhsm-plugins/
-cp etc/rhsm/pluginconf.d/fqdn.FactsPlugin.conf %{buildroot}%{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
-cp src/rhsm-plugins/fqdn.py %{buildroot}%{_datadir}/rhsm-plugins/fqdn.py
-%endif
-
 # cache directory
 mkdir -p %{buildroot}%{_localstatedir}/cache/katello-agent/
 
@@ -390,16 +364,6 @@ exit 0
 %dir %{_usr}/lib/zypp/plugins/commit/
 %endif
 
-%if %{build_fact_plugin}
-%files fact-plugin
-%defattr(-,root,root,-)
-%dir %{_sysconfdir}/rhsm/
-%dir %{_sysconfdir}/rhsm/pluginconf.d/
-%config %{_sysconfdir}/rhsm/pluginconf.d/fqdn.FactsPlugin.conf
-%dir %{_datadir}/rhsm-plugins/
-%{_datadir}/rhsm-plugins/fqdn.*
-%endif
-
 %if %{build_tracer}
 %files tracer
 %defattr(-,root,root,-)
@@ -417,6 +381,9 @@ exit 0
 
 
 %changelog
+* Tue May 24 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.7-5
+- Stop building katello-host-tools-fact-plugin
+
 * Thu Apr 14 2022 Bernhard Suttner - 3.5.7-4
 - Improve regular expression for python2/python3 interop
 
