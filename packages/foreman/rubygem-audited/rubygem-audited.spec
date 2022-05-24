@@ -1,13 +1,13 @@
-# Generated from audited-4.9.0.gem by gem2rpm -*- rpm-spec -*-
 # template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name audited
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.9.0
-Release: 4%{?dist}
+Version: 4.10.0
+Release: 1%{?dist}
 Summary: Log all changes to your models
 Group: Development/Languages
 License: MIT
@@ -19,7 +19,7 @@ Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby >= 2.3.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(activerecord) >= 4.2
-Requires: %{?scl_prefix}rubygem(activerecord) < 6.1
+Requires: %{?scl_prefix}rubygem(activerecord) < 6.2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -65,29 +65,35 @@ gem build %{gem_name}.gemspec
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_libdir}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.yardopts
+%exclude %{gem_instdir}/Appraisals
 %license %{gem_instdir}/LICENSE
-%exclude %{gem_instdir}/.*
+%exclude %{gem_instdir}/gemfiles
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/Appraisals
 %doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/gemfiles
 %{gem_instdir}/spec
 %{gem_instdir}/test
 
 %changelog
+* Tue May 24 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.10.0-1
+- Release rubygem-audited 4.10.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.9.0-4
 - Rebuild against rh-ruby27
 
