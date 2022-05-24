@@ -13,7 +13,6 @@
     <packagelist>
       <packagereq type="default">foreman-client-release</packagereq>
       <packagereq type="default">katello-host-tools</packagereq>
-      <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <!--
         Do not edit this section manually and use ./comps_doc.sh script
       -->
