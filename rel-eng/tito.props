@@ -14,9 +14,20 @@ tag_suffix = .fm3_4
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
 
+  rubygem-gapic-common
+  rubygem-googleapis-common-protos
+  rubygem-googleapis-common-protos-types
+  rubygem-google-cloud-common
+  rubygem-google-cloud-compute
+  rubygem-google-cloud-compute-v1
+  rubygem-google-cloud-core
+  rubygem-google-cloud-errors
+  rubygem-google-protobuf
+  rubygem-grpc
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = foreman
+whitelist = dynflow-utils
+  foreman
   foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
@@ -173,6 +184,7 @@ whitelist = foreman
   rubygem-foreman_maintain
   rubygem-formatador
   rubygem-friendly_id
+  rubygem-gapic-common
   rubygem-get_process_mem
   rubygem-gettext
   rubygem-gettext_i18n_rails
@@ -180,10 +192,19 @@ whitelist = foreman
   rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
   rubygem-google-api-client
+  rubygem-googleapis-common-protos
+  rubygem-googleapis-common-protos-types
   rubygem-googleauth
+  rubygem-google-cloud-common
+  rubygem-google-cloud-compute
+  rubygem-google-cloud-compute-v1
+  rubygem-google-cloud-core
   rubygem-google-cloud-env
+  rubygem-google-cloud-errors
+  rubygem-google-protobuf
   rubygem-graphql
   rubygem-graphql-batch
+  rubygem-grpc
   rubygem-gssapi
   rubygem-hammer_cli
   rubygem-hammer_cli_foreman
@@ -313,7 +334,6 @@ whitelist = foreman
   rubygem-wirb
   rubygem-xmlrpc
   rubygem-zeitwerk
-  dynflow-utils
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
