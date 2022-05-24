@@ -47,6 +47,8 @@ ARGV.each do |path|
     version = "#{current_version}-#{current_release.to_i + 1}"
   end
 
+  version += '-1' unless version.include?('-')
+
   logs = File.read(path)
   entry = "#{project} (#{version}) stable; urgency=low\n\n"
   options[:message].each { |m| entry += "  * #{m}\n" }
