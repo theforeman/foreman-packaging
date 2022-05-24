@@ -12,7 +12,7 @@
 %global release 1
 
 Name:    foreman
-Version: 3.2.0
+Version: 3.2.1
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1044,6 +1044,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue May 24 2022 Odilon Sousa <osousa@redhat.com> - 3.2.1-1
+- Release foreman 3.2.1
+
 * Tue Mar 15 2022 Zach Huntington-Meath <zhunting@redhat.com> - 3.2.0-1
 - Release foreman 3.2.0
 
