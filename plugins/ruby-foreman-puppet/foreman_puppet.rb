@@ -1,1 +1,1 @@
-gem 'foreman_puppet', '3.0.6'
+gem 'foreman_puppet', '4.0.0'
