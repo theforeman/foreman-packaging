@@ -1,0 +1,31 @@
+Source: ruby-google-cloud-compute-v1
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: <>
+Build-Depends: debhelper (>= 11~),
+               gem2deb,
+               ruby-gapic-common (<< 2.a),
+               ruby-gapic-common (>= 0.7),
+               ruby-google-cloud-common (>= 1.0),
+               ruby-google-cloud-errors (>= 1.0)
+Standards-Version: 4.3.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-google-cloud-compute-v1.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-google-cloud-compute-v1
+Homepage: https://github.com/googleapis/google-cloud-ruby
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-google-cloud-compute-v1
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby | ruby-interpreter,
+         ruby-gapic-common (<< 2.a),
+         ruby-gapic-common (>= 0.7),
+         ruby-google-cloud-common (>= 1.0),
+         ruby-google-cloud-errors (>= 1.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: API Client library for the Google Cloud Compute V1 API
+ google-cloud-compute-v1 is the official client library for the Google Cloud Compute V1 API.

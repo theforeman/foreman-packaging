@@ -1,0 +1,5 @@
+ruby-google-cloud-compute-v1 (1.3.0-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)
+
+ -- root <root@debpkg.example.com>  Wed, 25 May 2022 07:31:28 +0000
