@@ -6,7 +6,7 @@
 %global gem_name dynflow
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.6.6
+Version: 1.6.7
 Release: 1%{?foremandist}%{?dist}
 Summary: DYNamic workFLOW engine
 Group: Development/Languages
@@ -110,6 +110,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed May 25 2022 Adam Ruzicka <aruzicka@redhat.com> 1.6.7-1
+- Update to 1.6.7
+
 * Tue May 24 2022 Adam Ruzicka <aruzicka@redhat.com> 1.6.6-1
 - Update to 1.6.6
 
