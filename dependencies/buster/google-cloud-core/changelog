@@ -1,0 +1,5 @@
+ruby-google-cloud-core (1.6.0-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)
+
+ -- root <root@debpkg.example.com>  Wed, 25 May 2022 07:33:43 +0000
