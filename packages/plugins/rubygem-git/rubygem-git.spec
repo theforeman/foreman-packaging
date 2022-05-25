@@ -1,34 +1,71 @@
+# template: scl
 %{?scl:%scl_package rubygem-%{gem_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%define gem_name git
+%global gem_name git
+%global gem_require_name %{gem_name}
 
-Summary:        A package for using Git in Ruby code
-Name:           %{?scl_prefix}rubygem-%{gem_name}
-Version:        1.5.0
-Release:        2%{?dist}
-Group:          Development/Languages
-License:        MIT
-URL:            https://github.com/ruby-git/ruby-git
-Source0:        https://rubygems.org/downloads/%{gem_name}-%{version}.gem
-Requires:       %{?scl_prefix_ruby}ruby(rubygems)
-Requires:       %{?scl_prefix_ruby}ruby(release)
-Requires:       git >= 1.6.0.0
-BuildRequires:  %{?scl_prefix_ruby}rubygems-devel
-BuildArch:      noarch
-Provides:       %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+Name: %{?scl_prefix}rubygem-%{gem_name}
+Version: 1.11.0
+Release: 1%{?dist}
+Summary: An API to create, read, and manipulate Git repositories
+Group: Development/Languages
+License: MIT
+URL: http://github.com/ruby-git/ruby-git
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+# start specfile generated dependencies
+Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: %{?scl_prefix_ruby}ruby >= 2.3
+Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: %{?scl_prefix}rubygem(rchardet) >= 1.8
+Requires: %{?scl_prefix}rubygem(rchardet) < 2
+BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.3
+BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+BuildArch: noarch
+Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-A package for using Git in Ruby code.
+The Git Gem provides an API that can be used to create, read, and manipulate
+Git repositories by wrapping system calls to the `git` binary. The API can be
+used for working with Git in complex interactions including branching and
+merging, object inspection and manipulation, history, patch generation and
+more.
+
+
+%package doc
+Summary: Documentation for %{pkg_name}
+Group: Documentation
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+BuildArch: noarch
+
+%description doc
+Documentation for %{pkg_name}.
 
 %prep
-%setup -q -c -T
 %{?scl:scl enable %{scl} - << \EOF}
-%gem_install -n %{SOURCE0}
+gem unpack %{SOURCE0}
+%{?scl:EOF}
+
+%setup -q -D -T -n  %{gem_name}-%{version}
+
+%{?scl:scl enable %{scl} - << \EOF}
+gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
 %{?scl:EOF}
 
 %build
+# Create the gem as gem install only works on a gem file
+%{?scl:scl enable %{scl} - << \EOF}
+gem build %{gem_name}.gemspec
+%{?scl:EOF}
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%{?scl:scl enable %{scl} - << \EOF}
+%gem_install
+%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -36,19 +73,33 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
-%doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CONTRIBUTING.md
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.yardopts
+%{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/MAINTAINERS.md
-%doc %{gem_docdir}
+%{gem_instdir}/MAINTAINERS.md
+%{gem_instdir}/PULL_REQUEST_TEMPLATE.md
+%{gem_instdir}/RELEASING.md
 %{gem_libdir}
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
 
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/Dockerfile.changelog-rs
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
+%{gem_instdir}/git.gemspec
+
 %changelog
+* Wed May 25 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.11.0-1
+- Release rubygem-git 1.11.0
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.5.0-2
 - Rebuild for Ruby 2.7
 
