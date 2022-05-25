@@ -995,6 +995,7 @@ whitelist =
   gofer
   jsoncpp
   katello-host-tools
+  katello-pull-transport-migrate
   python-psutil
   qpid-proton
   rubygem-foreman_scap_client
@@ -1007,6 +1008,7 @@ disttag = .el7
 whitelist =
   foreman_ygg_worker
   katello-host-tools
+  katello-pull-transport-migrate
   python-psutil
   rubygem-foreman_scap_client
   tracer

@@ -17,6 +17,7 @@
       <packagereq type="default">katello-host-tools</packagereq>
       <packagereq type="default">katello-host-tools-fact-plugin</packagereq>
       <packagereq type="default">katello-host-tools-tracer</packagereq>
+      <packagereq type="default">katello-pull-transport-migrate</packagereq>
       <packagereq type="default">python-gofer</packagereq>
       <packagereq type="default">python-gofer-proton</packagereq>
       <packagereq type="default">python2-psutil</packagereq>
