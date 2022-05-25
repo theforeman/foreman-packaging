@@ -701,6 +701,7 @@ foreman_client_packages:
     foreman_ygg_worker: {}
     gofer: {}
     katello-host-tools: {}
+    katello-pull-transport-migrate: {}
     python-psutil: {}
     rubygem-foreman_scap_client: {}
     tracer: {}
