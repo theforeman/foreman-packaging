@@ -6,10 +6,10 @@
 %global gem_name foreman_puppet
 %global plugin_name puppet
 %global foreman_min_version 3.0
-%global release 2
+%global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.6
+Version: 4.0.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -114,6 +114,10 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed May 25 2022 Nadja Heitmann <nadjah@atix.de> 4.0.0-1
+- Add reports tab to Host details
+- Update to 4.0.0
+
 * Mon May 09 2022 Evgeni Golov - 3.0.6-2
 - log plugin installation in posttrans
 
