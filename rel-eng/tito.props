@@ -752,6 +752,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-radcli
   rubygem-rainbow
   rubygem-rbnacl
+  rubygem-rchardet
   rubygem-recursive-open-struct
   rubygem-route53
   rubygem-rprogram
@@ -917,6 +918,7 @@ whitelist = foreman-discovery-image-service
   rubygem-radcli
   rubygem-rainbow
   rubygem-rbnacl
+  rubygem-rchardet
   rubygem-recursive-open-struct
   rubygem-route53
   rubygem-rprogram
