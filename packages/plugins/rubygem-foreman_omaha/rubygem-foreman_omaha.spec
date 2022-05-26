@@ -7,8 +7,8 @@
 %global foreman_min_version 1.24.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
-Release: 4%{?foremandist}%{?dist}
+Version: 5.0.1
+Release: 1%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -29,7 +29,7 @@ BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-Provides: foreman-plugin-%{plugin_name}
+Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
@@ -101,6 +101,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.1-1
+- Update to 5.0.1
+
 * Mon May 09 2022 Evgeni Golov - 4.0.1-4
 - log plugin installation in posttrans
 
