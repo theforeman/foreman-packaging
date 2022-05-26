@@ -55,6 +55,20 @@ jobs:
         title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         body: ''
         delete-branch: true
+    - name: Send email to Discourse on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: community.theforeman.org
+        server_port: 25
+        subject: "foreman-packaging update RPM packages Github Action failed"
+        to: ci@community.theforeman.org
+        from: Github Actions
+        secure: true
+        body: |
+          foreman-packaging update RPM packages Github Action failed
+
+          $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
 
   deb_list:
     name: 'Gather debs'
@@ -93,3 +107,17 @@ jobs:
         title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         body: ''
         delete-branch: true
+    - name: Send email to Discourse on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: community.theforeman.org
+        server_port: 25
+        subject: "foreman-packaging update Debian packages Github Action failed"
+        to: ci@community.theforeman.org
+        from: Github Actions
+        secure: true
+        body: |
+          foreman-packaging update Debian packages Github Action failed
+
+          $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
