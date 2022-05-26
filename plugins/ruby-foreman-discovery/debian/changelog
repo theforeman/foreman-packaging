@@ -1,3 +1,9 @@
+ruby-foreman-discovery (21.0.1-1) stable; urgency=low
+
+  * 21.0.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Thu, 26 May 2022 00:38:07 +0000
+
 ruby-foreman-discovery (21.0.0-2) stable; urgency=low
 
   * Drop apipie cache generation
