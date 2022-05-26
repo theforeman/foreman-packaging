@@ -10,7 +10,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 5
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1049,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu May 26 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-0.5.rc2
+- Release foreman 3.3.0rc2
+
 * Thu May 12 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-0.5.rc1
 - Release foreman 3.3.0rc1
 
