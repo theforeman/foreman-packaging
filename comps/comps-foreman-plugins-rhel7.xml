@@ -150,6 +150,7 @@
       <packagereq type="default">tfm-rubygem-radcli</packagereq>
       <packagereq type="default">tfm-rubygem-rainbow</packagereq>
       <packagereq type="default">tfm-rubygem-rbnacl</packagereq>
+      <packagereq type="default">tfm-rubygem-rchardet</packagereq>
       <packagereq type="default">tfm-rubygem-recursive-open-struct</packagereq>
       <packagereq type="default">tfm-rubygem-route53</packagereq>
       <packagereq type="default">tfm-rubygem-rprogram</packagereq>

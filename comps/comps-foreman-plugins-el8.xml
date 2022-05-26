@@ -149,6 +149,7 @@
       <packagereq type="default">rubygem-puppetdb_foreman</packagereq>
       <packagereq type="default">rubygem-radcli</packagereq>
       <packagereq type="default">rubygem-rainbow</packagereq>
+      <packagereq type="default">rubygem-rchardet</packagereq>
       <packagereq type="default">rubygem-rbnacl</packagereq>
       <packagereq type="default">rubygem-recursive-open-struct</packagereq>
       <packagereq type="default">rubygem-route53</packagereq>
