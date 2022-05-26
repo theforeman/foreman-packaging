@@ -5,8 +5,8 @@
 %global gem_name activerecord-nulldb-adapter
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.4.0
-Release: 2%{?dist}
+Version: 0.8.0
+Release: 1%{?dist}
 Summary: The Null Object pattern as applied to ActiveRecord database adapters
 Group: Development/Languages
 License: MIT
@@ -17,7 +17,8 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activerecord) >= 2.0.0
+Requires: %{?scl_prefix}rubygem(activerecord) >= 5.2.0
+Requires: %{?scl_prefix}rubygem(activerecord) < 7.1
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -71,7 +72,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.github/
 %exclude %{gem_instdir}/Appraisals
 %license %{gem_instdir}/LICENSE
 %exclude %{gem_instdir}/gemfiles
@@ -89,6 +90,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Thu May 26 2022 Odilon Sousa <osousa@redhat.com> - 0.8.0-1
+- Release rubygem-activerecord-nulldb-adapter 0.8.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.4.0-2
 - Rebuild against rh-ruby27
 
