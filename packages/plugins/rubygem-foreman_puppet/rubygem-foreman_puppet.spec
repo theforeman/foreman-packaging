@@ -9,7 +9,7 @@
 %global release 2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.6
+Version: 4.0.0
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -37,7 +37,7 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
@@ -114,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.0-2
+- Update to 4.0.0
+
 * Mon May 09 2022 Evgeni Golov - 3.0.6-2
 - log plugin installation in posttrans
 
