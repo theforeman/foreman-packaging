@@ -21,8 +21,8 @@
 %global proxy_user foreman-proxy
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.1
-Release: 3%{?foremandist}%{?dist}
+Version: 0.9.2
+Release: 1%{?foremandist}%{?dist}
 Summary: OpenSCAP plug-in for Foreman's smart-proxy
 Group: Applications/Internet
 License: GPLv3+
@@ -152,6 +152,9 @@ ln -sv %{content_dir} %{buildroot}%{foreman_proxy_dir}/openscap
 %{gem_instdir}/test
 
 %changelog
+* Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.2-1
+- Update to 0.9.2
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 0.9.1-3
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
