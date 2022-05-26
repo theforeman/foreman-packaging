@@ -8,7 +8,7 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.36
+Version: 5.0.37
 Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
@@ -48,9 +48,8 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 8.17.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
@@ -129,6 +128,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.37-1
+- Update to 5.0.37
+
 * Thu May 19 2022 Shimon Shtein <sshtein@redhat.com> 5.0.36-1
 - Update to 5.0.36-1
 
