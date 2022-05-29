@@ -3,14 +3,15 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name rack
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.3
-Release: 2%{?dist}
-Summary: a modular Ruby webserver interface
+Version: 2.2.3.1
+Release: 1%{?dist}
+Summary: A modular Ruby webserver interface
 Group: Development/Languages
 License: MIT
-URL: https://rack.github.io/
+URL: https://github.com/rack/rack
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
@@ -24,15 +25,12 @@ BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 2.0.6
-
 %description
 Rack provides a minimal, modular and adaptable interface for developing
-web applications in Ruby.  By wrapping HTTP requests and responses in
+web applications in Ruby. By wrapping HTTP requests and responses in
 the simplest way possible, it unifies and distills the API for web
 servers, web frameworks, and software in between (the so-called
 middleware) into a single method call.
-Also see https://rack.github.io/.
 
 
 %package doc
@@ -68,7 +66,6 @@ gem build %{gem_name}.gemspec
 %{?scl:EOF}
 
 %install
-rm -rf .%{gem_dir}/gems/%{gem_name}-%{version}/test
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -87,18 +84,21 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/example
 %{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/CONTRIBUTING.md
-%exclude %{gem_instdir}/SPEC.rdoc
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/SPEC.rdoc
 %{gem_instdir}/rack.gemspec
 
 %changelog
+* Sun May 29 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.3.1-1
+- Release rubygem-rack 2.2.3.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.3-2
 - Rebuild against rh-ruby27
 
