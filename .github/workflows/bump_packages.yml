@@ -23,6 +23,7 @@ jobs:
   bump_rpm:
     name: 'Bump ${{ matrix.package_name }} RPM ${{ matrix.new_version }}'
     needs: rpm_list
+    if: ${{ needs.rpm_list.outputs.matrix != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -73,6 +74,7 @@ jobs:
   bump_plugin_deb:
     name: 'Bump ${{ matrix.package_name }} deb ${{ matrix.new_version }}'
     needs: deb_list
+    if: ${{ needs.deb_list.outputs.matrix != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
