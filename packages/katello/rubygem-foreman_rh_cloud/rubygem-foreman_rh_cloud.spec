@@ -49,7 +49,6 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
 BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 8.17.0
 BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
 BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
