@@ -10,7 +10,7 @@ jobs:
     name: 'Gather RPMs'
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set_list.outputs.matrix || [] }}
+      matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout RPM
       uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
     name: 'Gather debs'
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set_list.outputs.matrix || [] }}
+      matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
     - name: Checkout deb
       uses: actions/checkout@v2
