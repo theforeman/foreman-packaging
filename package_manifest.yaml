@@ -945,6 +945,7 @@ plugin_scl_packages:
     rubygem-dry-logic: {}
     rubygem-dry-types: {}
     rubygem-dry-schema: {}
+    rubygem-dry-validation: {}
     rubygem-ed25519: {}
     rubygem-elastic-apm: {}
     rubygem-dalli: {}
