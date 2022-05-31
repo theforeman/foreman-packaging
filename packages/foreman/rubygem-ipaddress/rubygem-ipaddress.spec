@@ -6,18 +6,17 @@
 
 Summary: IPv4/IPv6 addresses manipulation library
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.8.0
-Release: 13%{?dist}
+Version: 0.8.3
+Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/bluemonk/ipaddress
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Patch0: rubygem-ipaddress-0.8.0-ruby2-conversion.patch
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
+BuildRequires: %{?scl_prefix_ruby}rubygem(minitest)
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -48,10 +47,6 @@ Documentation for %{pkg_name}
 # See https://github.com/bluemonk/ipaddress/issues/23
 rm .%{gem_instdir}/.document
 
-pushd .%{gem_instdir}
-%patch0 -p1
-popd
-
 %build
 
 %install
@@ -70,19 +65,24 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
+%license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/test
 %exclude %{gem_instdir}/%{gem_name}.gemspec
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rock.yml
 %exclude %{gem_cache}
 
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/README.rdoc
-%{gem_instdir}/VERSION
 %{gem_instdir}/CHANGELOG.rdoc
+%{gem_instdir}/Gemfile
 %{gem_instdir}/Rakefile
 
 %changelog
+* Tue May 31 2022 Dirk Goetz <dirk.goetz@netways.de> 0.8.3-1
+- Update to 0.8.3
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.8.0-13
 - Rebuild against rh-ruby27
 
