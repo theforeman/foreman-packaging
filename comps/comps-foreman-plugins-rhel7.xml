@@ -40,6 +40,7 @@
       <packagereq type="default">tfm-rubygem-down</packagereq>
       <packagereq type="default">tfm-rubygem-dry-container</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-equalizer</packagereq>
       <packagereq type="default">tfm-rubygem-dry-inflector</packagereq>
       <packagereq type="default">tfm-rubygem-dry-initializer</packagereq>
       <packagereq type="default">tfm-rubygem-dry-logic</packagereq>
@@ -209,6 +210,7 @@
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-container-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-equalizer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-inflector-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-initializer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-logic-doc</packagereq>
