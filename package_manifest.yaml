@@ -858,6 +858,7 @@ plugin_scl_packages:
     rubygem-dry-initializer: {}
     rubygem-dry-logic: {}
     rubygem-dry-types: {}
+    rubygem-dry-schema: {}
     rubygem-ed25519: {}
     rubygem-elastic-apm: {}
     rubygem-dalli: {}
