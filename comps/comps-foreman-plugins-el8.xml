@@ -136,6 +136,7 @@
       <packagereq type="default">rubygem-net-ssh-gateway</packagereq>
       <packagereq type="default">rubygem-net-ssh-krb</packagereq>
       <packagereq type="default">rubygem-net-ssh-multi</packagereq>
+      <packagereq type="default">rubygem-netbox-client-ruby</packagereq>
       <packagereq type="default">rubygem-newt</packagereq>
       <packagereq type="default">rubygem-openscap</packagereq>
       <packagereq type="default">rubygem-openscap_parser</packagereq>
@@ -305,6 +306,7 @@
       <packagereq type="default">rubygem-ms_rest_azure-doc</packagereq>
       <packagereq type="default">rubygem-ms_rest-doc</packagereq>
       <packagereq type="default">rubygem-multi_xml-doc</packagereq>
+      <packagereq type="default">rubygem-netbox-client-ruby-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-gateway-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-krb-doc</packagereq>
       <packagereq type="default">rubygem-net-ssh-multi-doc</packagereq>
