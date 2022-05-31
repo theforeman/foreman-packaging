@@ -42,6 +42,11 @@
       <packagereq type="default">rubygem-dry-core</packagereq>
       <packagereq type="default">rubygem-dry-inflector</packagereq>
       <packagereq type="default">rubygem-dry-initializer</packagereq>
+<<<<<<< HEAD
+=======
+      <packagereq type="default">rubygem-dry-logic</packagereq>
+      <packagereq type="default">rubygem-dry-schema</packagereq>
+>>>>>>> c353e4f8a (Add rubygem-dry-logic package)
       <packagereq type="default">rubygem-ed25519</packagereq>
       <packagereq type="default">rubygem-elastic-apm</packagereq>
       <packagereq type="default">rubygem-faraday-cookie_jar</packagereq>
@@ -209,6 +214,7 @@
       <packagereq type="default">rubygem-dry-core-doc</packagereq>
       <packagereq type="default">rubygem-dry-inflector-doc</packagereq>
       <packagereq type="default">rubygem-dry-initializer-doc</packagereq>
+      <packagereq type="default">rubygem-dry-logic-doc</packagereq>
       <packagereq type="default">rubygem-ed25519-doc</packagereq>
       <packagereq type="default">rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">rubygem-faraday-cookie_jar-doc</packagereq>
