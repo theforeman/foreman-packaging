@@ -908,6 +908,7 @@ plugin_scl_packages:
     rubygem-foreman_m2: {}
     rubygem-foreman_memcache: {}
     rubygem-foreman_monitoring: {}
+    rubygem-foreman_netbox: {}
     rubygem-foreman_noenv: {}
     rubygem-foreman_omaha: {}
     rubygem-foreman_openscap: {}
