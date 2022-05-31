@@ -121,6 +121,7 @@
       <packagereq type="default">rubygem-http_parser.rb</packagereq>
       <packagereq type="default">rubygem-httparty</packagereq>
       <packagereq type="default">rubygem-infoblox</packagereq>
+      <packagereq type="default">rubygem-interactor</packagereq>
       <packagereq type="default">rubygem-jgrep</packagereq>
       <packagereq type="default">rubygem-jquery-matchheight-rails</packagereq>
       <packagereq type="default">rubygem-kubeclient</packagereq>
@@ -289,6 +290,7 @@
       <packagereq type="default">rubygem-http-form_data-doc</packagereq>
       <packagereq type="default">rubygem-http_parser.rb-doc</packagereq>
       <packagereq type="default">rubygem-infoblox-doc</packagereq>
+      <packagereq type="default">rubygem-interactor-doc</packagereq>
       <packagereq type="default">rubygem-jgrep-doc</packagereq>
       <packagereq type="default">rubygem-jquery-matchheight-rails-doc</packagereq>
       <packagereq type="default">rubygem-kubeclient-doc</packagereq>
