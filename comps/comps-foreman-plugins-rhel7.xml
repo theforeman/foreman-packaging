@@ -41,6 +41,7 @@
       <packagereq type="default">tfm-rubygem-ed25519</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday-detailed_logger</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox</packagereq>
@@ -203,6 +204,7 @@
       <packagereq type="default">tfm-rubygem-ed25519-doc</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-faraday-detailed_logger-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday_middleware-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-kubevirt-doc</packagereq>
       <packagereq type="default">tfm-rubygem-fog-proxmox-doc</packagereq>
