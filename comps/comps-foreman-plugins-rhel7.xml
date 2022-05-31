@@ -69,6 +69,7 @@
       <packagereq type="default">tfm-rubygem-foreman_m2</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_netbox</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_omaha</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap</packagereq>
@@ -230,6 +231,7 @@
       <packagereq type="default">tfm-rubygem-foreman_m2-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_memcache-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_monitoring-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-foreman_netbox-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_noenv-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_omaha-doc</packagereq>
       <packagereq type="default">tfm-rubygem-foreman_openscap-doc</packagereq>
