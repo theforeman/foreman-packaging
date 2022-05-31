@@ -951,6 +951,7 @@ plugin_scl_packages:
     rubygem-net-ssh-gateway: {}
     rubygem-net-ssh-krb: {}
     rubygem-net-ssh-multi: {}
+    rubygem-netbox-client-ruby: {}
     rubygem-newt: {}
     rubygem-ovirt_provision_plugin: {}
     rubygem-parse-cron: {}
