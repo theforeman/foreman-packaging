@@ -659,6 +659,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-dry-core
   rubygem-dry-inflector
   rubygem-dry-initializer
+  rubygem-dry-logic
   rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
@@ -829,6 +830,7 @@ whitelist = foreman-discovery-image-service
 <<<<<<< HEAD
 =======
   rubygem-dry-initializer
+  rubygem-dry-logic
   rubygem-dry-schema
 >>>>>>> 917bd679f (Add rubygem-dry-initializer package)
   rubygem-ed25519
