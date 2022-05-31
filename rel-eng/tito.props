@@ -739,6 +739,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-http-form_data
   rubygem-http_parser.rb
   rubygem-infoblox
+  rubygem-interactor
   rubygem-jgrep
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
@@ -914,6 +915,7 @@ whitelist = foreman-discovery-image-service
   rubygem-http-form_data
   rubygem-http_parser.rb
   rubygem-infoblox
+  rubygem-interactor
   rubygem-jgrep
   rubygem-jquery-matchheight-rails
   rubygem-kubeclient
