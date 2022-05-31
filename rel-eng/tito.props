@@ -661,6 +661,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-down
   rubygem-dry-container
   rubygem-dry-core
+  rubygem-dry-equalizer
   rubygem-dry-inflector
   rubygem-dry-initializer
   rubygem-dry-logic
@@ -835,6 +836,7 @@ whitelist = foreman-discovery-image-service
   rubygem-down
   rubygem-dry-container
   rubygem-dry-core
+  rubygem-dry-equalizer
   rubygem-dry-inflector
   rubygem-dry-initializer
   rubygem-dry-logic
