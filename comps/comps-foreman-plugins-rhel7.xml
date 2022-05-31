@@ -38,6 +38,7 @@
       <packagereq type="default">tfm-rubygem-deface</packagereq>
       <packagereq type="default">tfm-rubygem-diffy</packagereq>
       <packagereq type="default">tfm-rubygem-down</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-configurable</packagereq>
       <packagereq type="default">tfm-rubygem-dry-container</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core</packagereq>
       <packagereq type="default">tfm-rubygem-dry-equalizer</packagereq>
@@ -209,6 +210,7 @@
       <packagereq type="default">tfm-rubygem-deface-doc</packagereq>
       <packagereq type="default">tfm-rubygem-diffy-doc</packagereq>
       <packagereq type="default">tfm-rubygem-down-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-configurable-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-container-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-equalizer-doc</packagereq>
