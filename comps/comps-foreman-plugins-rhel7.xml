@@ -43,8 +43,9 @@
       <packagereq type="default">tfm-rubygem-dry-inflector</packagereq>
       <packagereq type="default">tfm-rubygem-dry-initializer</packagereq>
       <packagereq type="default">tfm-rubygem-dry-logic</packagereq>
-      <packagereq type="default">tfm-rubygem-dry-types</packagereq>
       <packagereq type="default">tfm-rubygem-dry-schema</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-types</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-validation</packagereq>
       <packagereq type="default">tfm-rubygem-ed25519</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar</packagereq>
@@ -211,8 +212,9 @@
       <packagereq type="default">tfm-rubygem-dry-inflector-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-initializer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-logic-doc</packagereq>
-      <packagereq type="default">tfm-rubygem-dry-types-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-schema-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-types-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-validation-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ed25519-doc</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar-doc</packagereq>
