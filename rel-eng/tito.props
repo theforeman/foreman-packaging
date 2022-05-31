@@ -657,12 +657,9 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-deface
   rubygem-diffy
   rubygem-down
-<<<<<<< HEAD
-=======
-  rubygem-dry-configurable
   rubygem-dry-container
->>>>>>> ca3b1f587 (Add rubygem-dry-container package)
   rubygem-dry-core
+  rubygem-dry-inflector
   rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
@@ -831,6 +828,7 @@ whitelist = foreman-discovery-image-service
   rubygem-down
   rubygem-dry-container
   rubygem-dry-core
+  rubygem-dry-inflector
   rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
