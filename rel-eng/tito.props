@@ -658,6 +658,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
+  rubygem-faraday-detailed_logger
   rubygem-faraday_middleware
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
@@ -821,6 +822,7 @@ whitelist = foreman-discovery-image-service
   rubygem-ed25519
   rubygem-elastic-apm
   rubygem-faraday-cookie_jar
+  rubygem-faraday-detailed_logger
   rubygem-faraday_middleware
   rubygem-fog-kubevirt
   rubygem-fog-proxmox
