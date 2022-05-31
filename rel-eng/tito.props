@@ -746,6 +746,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
+  rubygem-netbox-client-ruby
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
@@ -921,6 +922,7 @@ whitelist = foreman-discovery-image-service
   rubygem-ms_rest
   rubygem-ms_rest_azure
   rubygem-multi_xml
+  rubygem-netbox-client-ruby
   rubygem-net-ssh-gateway
   rubygem-net-ssh-krb
   rubygem-net-ssh-multi
