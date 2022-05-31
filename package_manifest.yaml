@@ -866,6 +866,7 @@ plugin_scl_packages:
     rubygem-dry-container: {}
     rubygem-dry-core: {}
     rubygem-dry-inflector: {}
+    rubygem-dry-initializer: {}
     rubygem-ed25519: {}
     rubygem-elastic-apm: {}
     rubygem-dalli: {}

@@ -43,6 +43,7 @@
       <packagereq type="default">tfm-rubygem-dry-container</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core</packagereq>
       <packagereq type="default">tfm-rubygem-dry-inflector</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-initializer</packagereq>
       <packagereq type="default">tfm-rubygem-ed25519</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar</packagereq>
@@ -209,6 +210,7 @@
       <packagereq type="default">tfm-rubygem-dry-container-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-core-doc</packagereq>
       <packagereq type="default">tfm-rubygem-dry-inflector-doc</packagereq>
+      <packagereq type="default">tfm-rubygem-dry-initializer-doc</packagereq>
       <packagereq type="default">tfm-rubygem-ed25519-doc</packagereq>
       <packagereq type="default">tfm-rubygem-elastic-apm-doc</packagereq>
       <packagereq type="default">tfm-rubygem-faraday-cookie_jar-doc</packagereq>
