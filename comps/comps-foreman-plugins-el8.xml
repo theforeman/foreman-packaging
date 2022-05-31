@@ -38,6 +38,7 @@
       <packagereq type="default">rubygem-deface</packagereq>
       <packagereq type="default">rubygem-diffy</packagereq>
       <packagereq type="default">rubygem-down</packagereq>
+      <packagereq type="default">rubygem-dry-configurable</packagereq>
       <packagereq type="default">rubygem-dry-container</packagereq>
       <packagereq type="default">rubygem-dry-core</packagereq>
       <packagereq type="default">rubygem-dry-equalizer</packagereq>
@@ -211,6 +212,7 @@
       <packagereq type="default">rubygem-deface-doc</packagereq>
       <packagereq type="default">rubygem-diffy-doc</packagereq>
       <packagereq type="default">rubygem-down-doc</packagereq>
+      <packagereq type="default">rubygem-dry-configurable-doc</packagereq>
       <packagereq type="default">rubygem-dry-container-doc</packagereq>
       <packagereq type="default">rubygem-dry-core-doc</packagereq>
       <packagereq type="default">rubygem-dry-equalizer-doc</packagereq>

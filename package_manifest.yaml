@@ -856,6 +856,7 @@ plugin_scl_packages:
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
     rubygem-commonjs: {}
+    rubygem-dry-configurable: {}
     rubygem-dry-container: {}
     rubygem-dry-core: {}
     rubygem-dry-equalizer: {}
