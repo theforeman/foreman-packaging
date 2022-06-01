@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.2
+Version: 0.0.3
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Webhooks plugin for Hammer CLI
 Group: Development/Languages
@@ -82,6 +82,7 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/test
 %{gem_spec}
 %config %{hammer_confdir}/cli.modules.d/%{plugin_name}.yml
 
@@ -91,6 +92,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Wed Jun 01 2022 Oleh Fedorenko <ofedoren@redhat.com> 0.0.3-1
+- Update to 0.0.3
+
 * Fri Jul 23 2021 Oleh Fedorenko <ofedoren@redhat.com> 0.0.2-1
 - Update to 0.0.2
 
