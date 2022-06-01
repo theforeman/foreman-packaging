@@ -726,11 +726,15 @@ foreman_client_packages:
     releasers:
       - koji-foreman-client
     koji_tags:
+      - name: "foreman-client-{{ foreman_version }}-el9"
+        dist: '.el9'
       - name: "foreman-client-{{ foreman_version }}-el8"
         dist: '.el8'
       - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
     repoclosure_target_repos:
+      el9:
+        - "el9-foreman-client-{{ foreman_version }}"
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
@@ -1176,6 +1180,16 @@ repoclosures:
           - "el7-foreman-{{ foreman_version }}"
           - "el7-foreman-plugins-{{ foreman_version }}"
           - "el7-katello-candlepin-{{ katello_version }}"
+    foreman-client-repoclosure-el9:
+      repoclosure_target_repos:
+        el9:
+          - "el9-foreman-client-{{ foreman_version }}"
+      repoclosure_target_dist: el9
+      repoclosure_lookaside_repos:
+        el9:
+          - el9-baseos
+          - el9-appstream
+          - el9-puppet-7
     foreman-client-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -1209,6 +1223,8 @@ foreman_release_packages:
         dist: '.el8'
       - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
         dist: '.el7'
+      - name: "foreman-client-{{ foreman_version }}-el9"
+        dist: '.el9'
       - name: "foreman-client-{{ foreman_version }}-el8"
         dist: '.el8'
       - name: "foreman-client-{{ foreman_version }}-rhel7"
@@ -1218,11 +1234,17 @@ foreman_release_packages:
       - koji-foreman-client
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
+      el9:
+        - "el9-foreman-client-{{ foreman_version }}"
       el8:
         - "el8-foreman-client-{{ foreman_version }}"
       rhel7:
         - "el7-foreman-client-{{ foreman_version }}"
     repoclosure_lookaside_repos:
+      el9:
+        - el9-baseos
+        - el9-appstream
+        - el9-puppet-7
       el8:
         - el8-baseos
         - el8-appstream

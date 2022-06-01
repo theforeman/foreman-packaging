@@ -972,6 +972,21 @@ whitelist = ansible-collection-theforeman-operations
   puppet-foreman_scap_client
   yggdrasil-worker-forwarder
 
+[foreman-client-nightly-el9]
+disttag = .el9
+whitelist =
+  foreman-release
+  foreman_ygg_worker
+  gofer
+  jsoncpp
+  katello-host-tools
+  katello-pull-transport-migrate
+  python-psutil
+  qpid-proton
+  rubygem-foreman_scap_client
+  tracer
+  yggdrasil
+
 [foreman-client-nightly-el8]
 disttag = .el8
 # don't whitelist foreman-release here, it's already in foreman-nightly-el8
