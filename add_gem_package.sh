@@ -57,6 +57,7 @@ add_to_all_tito_props() {
 		add_to_tito_props foreman-plugins-nightly-el8
 	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
 		add_to_tito_props foreman-client-nightly-el8
+		add_to_tito_props foreman-client-nightly-el9
 	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
 		add_to_tito_props katello-nightly-el8
 	fi
