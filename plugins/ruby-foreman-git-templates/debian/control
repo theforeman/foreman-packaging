@@ -1,0 +1,22 @@
+Source: ruby-foreman-git-templates
+Section: ruby
+Priority: optional
+Maintainer: Dirk Goetz <dirk.goetz@netways.de>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               rake
+#               ruby-down (>= 4.5),
+#               ruby-rest-client (>= 2)
+Standards-Version: 4.5.0
+Homepage: https://github.com/dm-drogeriemarkt/foreman_git_templates
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-foreman-git-templates
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Adds support for using templates from Git repositories

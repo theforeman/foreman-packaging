@@ -1,0 +1,4 @@
+# list of gem urls to download via Jenkins, space separated
+GEMS="https://rubygems.org/downloads/foreman_git_templates-1.0.6.gem"
+GEMS="${GEMS} https://rubygems.org/downloads/down-5.3.1.gem"
+GEMS="${GEMS} https://rubygems.org/downloads/rest-client-2.1.0.gem"

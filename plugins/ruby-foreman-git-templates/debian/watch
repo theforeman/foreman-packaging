@@ -1,0 +1,2 @@
+version=4
+https://gemwatch.debian.net/foreman_git_templates .*/foreman_git_templates-(.*).tar.gz
