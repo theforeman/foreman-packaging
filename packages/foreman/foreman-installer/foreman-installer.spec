@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -20,14 +20,14 @@ BuildArch:  noarch
 Requires:   curl
 Requires:   hostname
 Requires:   puppet-agent >= 6.15.0
-Requires:   %{?scl_prefix}rubygem(kafo) >= 6.4.0
+Requires:   %{?scl_prefix}rubygem(kafo) >= 6.5.0
 Requires:   %{?scl_prefix}rubygem(kafo) < 7.0.0
 Requires:   %{?scl_prefix_ruby}ruby(release)
 
 BuildRequires: asciidoc
 BuildRequires: puppet-agent >= 6.15.0
 BuildRequires: %{?scl_prefix_ruby}rubygem(rake)
-BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.4.0
+BuildRequires: %{?scl_prefix}rubygem(kafo) >= 6.5.0
 BuildRequires: %{?scl_prefix}rubygem(kafo) < 7.0.0
 BuildRequires: puppet-agent-puppet-strings >= 1.2.0
 BuildRequires: puppet-agent-puppet-strings < 3
@@ -143,6 +143,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Jun 02 2022 Evgeni Golov - 1:3.4.0-0.2.develop
+- bump kafo dependency for UTF-8 fix
+
 * Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 1:3.4.0-0.1.develop
 - Bump version to 3.4-develop
 
