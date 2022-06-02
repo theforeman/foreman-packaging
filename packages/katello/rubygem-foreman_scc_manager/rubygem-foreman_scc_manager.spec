@@ -8,7 +8,7 @@
 %global katello_min_version 3.7.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.8.19
+Version: 1.8.20
 Release: 1%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
@@ -102,6 +102,10 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Jun 02 2022 Nadja Heitmann <nadjah@atix.de> 1.8.20-1
+- Update to 1.8.20
+- Support upstream_authentication_token for Katello > 4.3
+
 * Fri Apr 29 2022 Nadja Heitmann <nadjah@atix.de> 1.8.19-1
 - Update to 1.8.19
 - Use default_download_policy for scc repositories
