@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler"
+require "json"
+
+bundle = Bundler::LockfileParser.new(Bundler.read_file('Gemfile.lock'))
+
+gem_name_version_map = bundle.specs.map { |spec|
+  {"name": spec.name, "version": spec.version.to_s}
+}
+
+puts gem_name_version_map.to_json
