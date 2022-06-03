@@ -8,8 +8,8 @@
 
 Summary:    Plugin for Foreman that allows to configure Webhooks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.1
-Release:    3%{?foremandist}%{?dist}
+Version:    3.0.3
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_webhooks
@@ -33,7 +33,9 @@ Provides: foreman-plugin-%{plugin_name} = %{version}
 # start package.json devDependencies BuildRequires
 BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
 BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
+BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 0
+BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
+BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -109,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jun 03 2022 Oleh Fedorenko <ofedoren@redhat.com> 3.0.3-1
+- Update to 3.0.3
+
 * Mon May 09 2022 Evgeni Golov - 3.0.1-3
 - log plugin installation in posttrans
 
