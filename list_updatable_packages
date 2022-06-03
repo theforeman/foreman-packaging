@@ -8,10 +8,13 @@ from pathlib import Path
 from typing import Generator, Iterable, Mapping, Optional
 
 import requests
+import tempfile
 
 SUPPORTED_TEMPLATES = ('foreman_plugin', 'hammer_plugin', 'smart_proxy_plugin')
 SESSION = requests.Session()
-
+FOREMAN_GEMFILE_LOCK_URL = 'https://ci.theforeman.org/job/foreman-develop-source-release/lastSuccessfulBuild/artifact/Gemfile.lock'
+KATELLO_GEMFILE_LOCK_URL = 'https://ci.theforeman.org/job/katello-master-source-release/lastSuccessfulBuild/artifact/Gemfile.lock'
+DEBUG = (len(sys.argv) == 2 and sys.argv[1] == 'debug')
 
 class Spec:
     def __init__(self, path: Path):
@@ -67,11 +70,40 @@ class Spec:
 
 
 def find_specs() -> Generator[Spec, None, None]:
+    if DEBUG: print('Finding plugin specs')
     for path in Path('packages').glob('*/*/*.spec'):
         spec = Spec(path)
         if spec.template in SUPPORTED_TEMPLATES and not spec.is_nightly:
             yield spec
 
+def parse_gemfile_lock(project: str) -> dict:
+    gemfile_lock = fetch_gemfile_lock(project)
+
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        with open(f'{tmpdirname}/Gemfile.lock', 'w') as fp:
+            fp.write(gemfile_lock)
+
+        with open(f'{tmpdirname}/Gemfile', 'w') as fp:
+            pass
+
+        if DEBUG: print(f'Parsing Gemfile.lock for {project}')
+        script = Path(__file__).absolute().parent / 'parse-gemfile-lock'
+        return json.loads(subprocess.check_output([script], universal_newlines=True, cwd=tmpdirname))
+
+    return {}
+
+def fetch_gemfile_lock(project: str) -> str:
+    if project == 'foreman':
+        url = FOREMAN_GEMFILE_LOCK_URL
+    elif project == 'katello':
+        url = KATELLO_GEMFILE_LOCK_URL
+    else:
+        raise RuntimeError(f'Do not know how to fetch Gemfile.lock for project ({project})')
+
+    if DEBUG: print(f'Fetching Gemfile.lock for {project}')
+    response = SESSION.get(url)
+    response.raise_for_status()
+    return response.text
 
 def latest_version(spec: Spec) -> str:
     if spec.gem_name:
@@ -82,7 +114,8 @@ def latest_version(spec: Spec) -> str:
     raise ValueError('Unable to determine latest version', spec)
 
 
-def build_matrix(specs: Iterable[Spec]) -> Generator[dict, None, None]:
+def build_plugin_matrix(specs: Iterable[Spec]) -> Generator[dict, None, None]:
+    if DEBUG: print('Building plugin matrix')
     for spec in specs:
         try:
             current_version = spec.version
@@ -100,9 +133,38 @@ def build_matrix(specs: Iterable[Spec]) -> Generator[dict, None, None]:
                 }
                 yield entry
 
+def build_dependency_matrix(gems: dict, project: str='foreman') -> Generator[dict, None, None]:
+    if DEBUG: print(f'Building dependency matrix for {project}')
+    for gem in gems:
+        name = gem['name']
+        path = Path('packages') / project / f'rubygem-{name}' / f'rubygem-{name}.spec'
+        if path.is_file():
+            spec = Spec(path)
+            try:
+                current_version = spec.version
+            except subprocess.CalledProcessError as e:  # pylint: disable=invalid-name
+                print('Failed to determine version for', spec.path.as_posix(), str(e), file=sys.stderr)
+            except FileNotFoundError as e:
+                print(f'No path for dependency found: {name}', spec.path.as_posix(), str(e), file=sys.stderr)
+            else:
+                new_version = gem['version']
+                if current_version != new_version:
+                    entry = {
+                        'directory': spec.directory,
+                        'package_name': spec.package_name,
+                        'gem_name': spec.gem_name,
+                        'current_version': current_version,
+                        'new_version': new_version,
+                    }
+                    yield entry
+
 
 def main() -> None:
-    matrix = list(build_matrix(find_specs()))
+    foreman_dependencies = list(build_dependency_matrix(gems=parse_gemfile_lock('foreman'), project='foreman'))
+    katello_dependencies = list(build_dependency_matrix(gems=parse_gemfile_lock('katello'), project='katello'))
+    plugins = list(build_plugin_matrix(find_specs()))
+
+    matrix = plugins + foreman_dependencies + katello_dependencies
 
     if 'GITHUB_ACTION' in os.environ:
         directories = [entry['directory'] for entry in matrix]
