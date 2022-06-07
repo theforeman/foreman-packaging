@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.1
-Release: 2%{?dist}
+Version: 2.0.2
+Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Ovirt
 Group: Development/Languages
 License: MIT
@@ -94,6 +94,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Jun 07 2022 Ron Lavi <1ronlavi@gmail.com> 2.0.2-1
+- Update to 2.0.2
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-2
 - Rebuild against rh-ruby27
 
