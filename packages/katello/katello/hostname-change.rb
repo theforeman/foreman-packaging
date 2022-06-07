@@ -204,6 +204,10 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       run_cmd("LANG=en_US.UTF-8 hammer -u #{@options[:username].shellescape} -p #{@options[:password].shellescape} #{cmd}", exit_codes, message)
     end
 
+    def curl_cmd(method, url, exit_codes=[0], message=nil)
+      run_cmd("curl --silent --user #{@options[:username].shellescape}:#{@options[:password].shellescape} --request #{method} https://#{@old_hostname}/#{url}", exit_codes, message)
+    end
+
     def get_default_proxy_id
       output = hammer_cmd("--output json capsule info --name #{@old_hostname}",
                           [0], "Couldn't find default #{@proxy} id")
@@ -438,6 +442,8 @@ If not done, all hosts will lose connection to #{@options[:scenario]} and discov
       unless @foreman_proxy_content
         STDOUT.puts "\nUpdating default #{@proxy}"
         proxy_id = self.get_default_proxy_id
+        self.curl_cmd('DELETE', "/api/v2/instance_hosts/#{@old_hostname}")
+        self.curl_cmd('DELETE', "/api/v2/smart_proxies/#{proxy_id}/hosts/#{@old_hostname}")
         # Incorrect error message is piped to /dev/null, can be removed when http://projects.theforeman.org/issues/18186 is fixed
         # For the same reason, we accept exit code 65 here.
         self.hammer_cmd("capsule update --id #{proxy_id} --url https://#{@new_hostname}:9090 --new-name #{@new_hostname} 2> /dev/null", [0, 65])

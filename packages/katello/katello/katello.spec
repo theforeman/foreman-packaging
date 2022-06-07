@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 3
+%global release 4
 
 Name:       katello
 Version:    4.6.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Tue Jun 07 2022 Evgeni Golov - 4.6.0-0.4.master
+- Fixes #35028 - drop the infrastructure facet when renaming
+
 * Tue May 17 2022 Nagoor Shaik <nshaik@redhat.com> - 4.6.0-0.3.master
 - Incorrect argument error handling in katello-change-hostname
 
