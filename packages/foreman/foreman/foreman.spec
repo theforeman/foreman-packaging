@@ -9,9 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 5
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:    foreman
 Version: 3.3.0
@@ -1049,6 +1047,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jun 09 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-1
+- Release foreman 3.3.0
+
 * Thu May 26 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-0.5.rc2
 - Release foreman 3.3.0rc2
 
