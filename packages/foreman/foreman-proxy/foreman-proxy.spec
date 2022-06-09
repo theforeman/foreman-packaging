@@ -7,8 +7,6 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 1
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
 
 Name:           foreman-proxy
 Version:        3.3.0
@@ -253,6 +251,9 @@ exit 0
 
 
 %changelog
+* Thu Jun 09 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-1
+- Release foreman-proxy 3.3.0
+
 * Thu May 26 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-0.1.rc2
 - Release foreman-proxy 3.3.0rc2
 

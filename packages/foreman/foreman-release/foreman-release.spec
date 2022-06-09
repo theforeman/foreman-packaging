@@ -13,9 +13,7 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
-%global prereleasesource rc2
-%global prerelease %{?prereleasesource}
+%global release 1
 
 Name:     foreman-release
 Version:  3.3.0
@@ -90,6 +88,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Thu Jun 09 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-1
+- Release foreman-release 3.3.0
+
 * Wed Jun 08 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.3.0-0.2.rc2
 - Drop use of module_hotfixes, there are modules now
 
