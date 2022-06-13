@@ -3,7 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 4
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Jun 13 2022 Odilon Sousa <osousa@redhat.com> - 4.5.0-0.4.rc2
+- Release katello-repos 4.5.0rc2
+
 * Wed Jun 08 2022 Ian Ballou <ianballou67@gmail.com> - 4.5.0-0.4.rc1
 - Bump Pulpcore to 3.18
 
