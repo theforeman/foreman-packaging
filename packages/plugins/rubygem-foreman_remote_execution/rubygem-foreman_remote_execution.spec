@@ -10,7 +10,7 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    7.0.0
+Version:    7.1.0
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -166,6 +166,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Mon Jun 13 2022 Adam Ruzicka <aruzicka@redhat.com> 7.1.0-1
+- Update to 7.1.0
+
 * Mon May 16 2022 Adam Ruzicka <aruzicka@redhat.com> 7.0.0-1
 - Update to 7.0.0
 
