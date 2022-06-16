@@ -9,7 +9,7 @@
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.5.0
-%global release 5
+%global release 6
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -55,8 +55,8 @@ Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
 Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.13
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.13.1
+Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.14
 Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.10.0
 Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.11.0
 Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.18.0
@@ -97,8 +97,8 @@ BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.12.1
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.13
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.13.1
+BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.14
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.10.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.11.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.18.0
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Jun 16 2022 Ian Ballou <ianballou67@gmail.com> 4.5.0-0.6.rc2
+- Bump pulp_ansible_client requirement to at least 0.13.1 but not more than 0.14
+
 * Mon Jun 13 2022 Odilon Sousa <osousa@redhat.com> - 4.5.0-0.5.rc2
 - Release rubygem-katello 4.5.0rc2
 
