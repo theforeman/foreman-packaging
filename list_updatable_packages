@@ -32,7 +32,7 @@ class Spec:
     def template(self) -> Optional[str]:
         for line in self.lines:
             if line.startswith('# template:'):
-                _, _, template = line.split(None, 3)
+                _, _, template = line.split(None, 2)
                 return template
 
         return None
@@ -46,7 +46,7 @@ class Spec:
             self._globals = {}
             for line in self.lines:
                 if line.startswith('%global'):
-                    definition, name, value = line.split(None, 3)
+                    definition, name, value = line.split(None, 2)
                     if definition == '%global':
                         self._globals[name] = value
 
