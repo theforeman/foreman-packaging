@@ -1,0 +1,3 @@
+deb http://deb.theforeman.org/ bullseye nightly
+deb http://deb.theforeman.org/ plugins nightly
+

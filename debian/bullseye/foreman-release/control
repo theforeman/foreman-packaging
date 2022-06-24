@@ -1,0 +1,9 @@
+Source: foreman-release
+Build-Depends: debhelper (>= 9.20160709), rename
+Homepage: http://theforeman.org/projects/foreman
+
+Package: foreman-release
+Architecture: all
+Description: Configures the Foreman and Foreman Plugins repositories on the system. 
+The foreman-release package configures the version specific
+Foreman and Foreman Plugins repositories on the system.
