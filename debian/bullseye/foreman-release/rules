@@ -10,8 +10,8 @@ include /usr/share/dpkg/pkg-info.mk
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 override_dh_auto_build:
-	if [ "$(DEB_VERSION_UPSTREAM)" != "9999" ]; then \
-		sed "s/nightly/$(DEB_VERSION_UPSTREAM)/g" -i debian/foreman.list; \
-	fi
+ifneq($(DEB_VERSION_UPSTREAM)",9999)
+	sed "s/nightly/$(DEB_VERSION_UPSTREAM)/g" -i debian/foreman.list
+endif
 %:
 	dh $@
