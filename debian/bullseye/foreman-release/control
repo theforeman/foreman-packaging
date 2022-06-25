@@ -1,6 +1,9 @@
 Source: foreman-release
-Build-Depends: debhelper (>= 9.20160709), rename
-Homepage: http://theforeman.org/projects/foreman
+Section: web
+Priority: extra
+Build-Depends: debhelper (>= 12~)
+Homepage: https://theforeman.org/
+Maintainer: Amit Upadhye <upadhyeammit@gmail.com>
 
 Package: foreman-release
 Architecture: all

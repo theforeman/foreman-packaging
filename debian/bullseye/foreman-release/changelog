@@ -2,4 +2,4 @@ foreman-release (3.4.0-1) stable; urgency=low
 
   * Introduce the foreman-release package 3.4.0-1
 
- -- Amit Upadhye <upadhyeammit@gmail.com>  Fri, 24 June 2022 08:08:08 +0530
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Fri, 24 Jun 2022 08:08:08 +0530
