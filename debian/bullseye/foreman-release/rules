@@ -9,11 +9,10 @@ include /usr/share/dpkg/pkg-info.mk
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-export RELEASE =  $(shell git branch --show-current)
 build:
-	if [[ "deb/develop" != "$RELEASE" ]] then
-		sed "s/nightly/$DEB_UPSTREAM_VERSION/g" -i foreman.list
+	if [ "$DEB_UPSTREAM_VERSION" != "9999" ]; then \
+		sed "s/nightly/$DEB_UPSTREAM_VERSION/g" -i foreman.list \
 	fi
 	dh $@
 %:
-	dh $@ --with=systemd
+	dh $@
