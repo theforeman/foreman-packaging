@@ -3,3 +3,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # Script for initiating removal of orphaned content
 00 22 * * 0	root	foreman-rake katello:delete_orphaned_content RAILS_ENV=production >/dev/null 2>&1
+
+# Script to refresh all alternate content sources
+00 18 * * 0     root    foreman-rake katello:refresh_alternate_content_sources >/dev/null 2>&1

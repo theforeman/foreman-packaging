@@ -5,7 +5,7 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 4
+%global release 5
 
 Name:       katello
 Version:    4.6.0
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Jul 14 2022 Chris Roberts - 4.6.0-0.5.master
+- Fixes #34898 - Add ACS refresh cron job
+
 * Tue Jun 07 2022 Evgeni Golov - 4.6.0-0.4.master
 - Fixes #35028 - drop the infrastructure facet when renaming
 
