@@ -46,14 +46,8 @@ rails_core_packages:
 
 foreman_scl_packages:
   vars:
-    scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
-        macros:
-          foremandist: "{{ foremandist }}"
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
@@ -234,11 +228,6 @@ foreman_scl_packages:
     rubygem-puma-status: {}
     rubygem-quantile: {}
     rubygem-rabl: {}
-    rubygem-racc:
-      koji_tags:
-        - name: "foreman-{{ foreman_version }}-rhel7"
-          scl: 'tfm'
-          dist: '.el7'
     rubygem-rack: {}
     rubygem-rack-cors: {}
     rubygem-rack-jsonp: {}
@@ -299,20 +288,11 @@ foreman_scl_packages:
     rubygem-wirb: {}
     rubygem-xmlrpc: {}
     rubygem-zeitwerk: {}
-    tfm:
-      koji_tags:
-        - name: "foreman-{{ foreman_version }}-rhel7"
-          scl: 'tfm'
-          dist: '.el7'
 
 foreman_nodejs_packages:
   vars:
-    scl: 'tfm'
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-rhel7"
-        dist: '.el7'
-        scl: 'tfm'
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
@@ -436,11 +416,6 @@ foreman_installer_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
-        dist: '.el7'
-      - name: "foreman-{{ foreman_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
@@ -492,8 +467,6 @@ foreman_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
-        dist: '.el7'
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
@@ -521,11 +494,6 @@ foreman_proxy_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
-        macros:
-          foremandist: "{{ foremandist }}"
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
@@ -566,11 +534,6 @@ foreman_proxy_plugin_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-rhel7"
-        dist: '.el7'
-        scl: 'tfm'
-        macros:
-          foremandist: "{{ foremandist }}"
       - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
@@ -630,11 +593,6 @@ foreman_scl_and_nonscl_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
-      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
-        dist: '.el7'
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
@@ -706,11 +664,6 @@ katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
     koji_tags:
-      - name: "katello-{{ katello_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
-        macros:
-          foremandist: "{{ foremandist }}"
       - name: "katello-{{ katello_version }}-el8"
         dist: '.el8'
         macros:
@@ -809,11 +762,6 @@ plugin_scl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-rhel7"
-        scl: 'tfm'
-        dist: '.el7'
-        macros:
-          foremandist: "{{ foremandist }}"
       - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
         macros:
@@ -979,8 +927,6 @@ plugin_nonscl_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-nonscl-rhel7"
-        dist: '.el7'
       - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
     releasers:
