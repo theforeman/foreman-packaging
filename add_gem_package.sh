@@ -78,14 +78,9 @@ add_to_tito_props() {
 
 add_gem_to_all_comps() {
 	add_gem_to_comps $TITO_TAG
-	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
-		add_gem_to_comps foreman-nightly-el8
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
-		add_gem_to_comps foreman-plugins-nightly-el8
-	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
-		add_gem_to_comps foreman-client-nightly-el8
-	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
-		add_gem_to_comps katello-nightly-el8
+	if [[ $TITO_TAG == "foreman-client-nightly-el8" ]] ; then
+		add_gem_to_comps foreman-client-nightly-el9
+		add_gem_to_comps foreman-client-nightly-rhel7
 	fi
 }
 
