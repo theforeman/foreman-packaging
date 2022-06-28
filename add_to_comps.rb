@@ -8,8 +8,8 @@ add_to_comps - adds packagereqs for a package to a comps xml file
 Usage ./add_to_comps.rb comps-file package-name [nonscl]
 
 Examples:
-  ./add_to_comps.rb comps/comps-foreman-rhel7.xml nodejs-example
-  ./add_to_comps.rb comps/comps-foreman-rhel7.xml nodejs-example nonscl
+  ./add_to_comps.rb comps/comps-foreman-el8.xml nodejs-example
+  ./add_to_comps.rb comps/comps-foreman-el8.xml nodejs-example nonscl
 
 Return codes:
 
