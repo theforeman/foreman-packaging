@@ -1,2 +1,0 @@
-config/foreman_docker.yml     etc/hammer/cli.modules.d
-locale/en                     usr/share/locale
