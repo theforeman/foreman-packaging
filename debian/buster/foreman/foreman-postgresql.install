@@ -1,2 +1,0 @@
-bundler.d/postgresql.rb           /usr/share/foreman/bundler.d
-debian/database.yml.pgsql-example /etc/foreman
