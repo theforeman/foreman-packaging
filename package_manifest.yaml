@@ -62,19 +62,9 @@ foreman_scl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
       el8:
         - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -328,13 +318,6 @@ foreman_nodejs_packages:
     releasers:
       - koji-foreman
     repoclosure_lookaside_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-scl
-        - el7-extras
       el8:
         - el8-baseos
         - el8-appstream
@@ -464,20 +447,9 @@ foreman_installer_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
       el8:
         - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -528,20 +500,9 @@ foreman_nonscl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
       el8:
         - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-6
-        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -574,13 +535,6 @@ foreman_proxy_packages:
     nightly_releaser: koji-foreman-jenkins
     repoclosure_config: repoclosure/yum.conf
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - "el7-foreman-{{ foreman_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -625,15 +579,6 @@ foreman_proxy_plugin_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-scl
-        - el7-epel
-        - el7-extras
-        - "el7-foreman-{{ foreman_version }}"
-        - "el7-foreman-plugins-{{ foreman_version }}"
-        - el7-configmanagement-salt
       el8:
         - el8-baseos
         - el8-appstream
@@ -696,19 +641,9 @@ foreman_scl_and_nonscl_packages:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-{{ foreman_version }}"
       el8:
         - "el8-foreman-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - el7-scl
-        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -784,21 +719,9 @@ katello_packages:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-katello-{{ katello_version }}"
       el8:
         - "el8-katello-{{ katello_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-6
-        - "el7-foreman-{{ foreman_version }}"
-        - "el7-foreman-plugins-{{ foreman_version }}"
-        - "el7-katello-candlepin-{{ katello_version }}"
       el8:
         - el8-baseos
         - el8-appstream
@@ -899,20 +822,9 @@ plugin_scl_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-plugins-{{ foreman_version }}"
       el8:
         - "el8-foreman-plugins-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-scl
-        - el7-puppet-6
-        - "el7-foreman-{{ foreman_version }}"
-        - el7-configmanagement-salt
       el8:
         - el8-appstream
         - el8-baseos
@@ -1075,21 +987,9 @@ plugin_nonscl_packages:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
     repoclosure_target_repos:
-      rhel7:
-        - "el7-foreman-plugins-{{ foreman_version }}"
       el8:
         - "el8-foreman-plugins-{{ foreman_version }}"
     repoclosure_lookaside_repos:
-      rhel7:
-        - el7-base
-        - el7-updates
-        - el7-epel
-        - el7-extras
-        - el7-puppet-6
-        - "el7-foreman-{{ foreman_version }}"
-        - "el7-foreman-plugins-{{ foreman_version }}"
-        - el7-scl
-        - el7-configmanagement-salt
       el8:
         - el8-baseos
         - el8-appstream
@@ -1112,20 +1012,6 @@ plugin_nonscl_packages:
 
 repoclosures:
   hosts:
-    foreman-repoclosure-el7:
-      repoclosure_target_repos:
-        rhel7:
-          - "el7-foreman-{{ foreman_version }}"
-      repoclosure_target_dist: rhel7
-      repoclosure_lookaside_repos:
-        rhel7:
-          - el7-base
-          - el7-updates
-          - el7-epel
-          - el7-extras
-          - el7-scl
-          - el7-puppet-6
-          - "el7-katello-candlepin-{{ katello_version }}"
     foreman-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -1139,21 +1025,6 @@ repoclosures:
           - el8-extras
           - el8-puppet-6
           - "el8-katello-candlepin-{{ katello_version }}"
-    plugins-repoclosure-el7:
-      repoclosure_target_repos:
-        rhel7:
-          - "el7-foreman-plugins-{{ foreman_version }}"
-      repoclosure_target_dist: rhel7
-      repoclosure_lookaside_repos:
-        rhel7:
-          - el7-base
-          - el7-updates
-          - el7-epel
-          - el7-extras
-          - el7-scl
-          - el7-puppet-6
-          - "el7-foreman-{{ foreman_version }}"
-          - el7-configmanagement-salt
     plugins-repoclosure-el8:
       repoclosure_target_repos:
         el8:
@@ -1183,22 +1054,6 @@ repoclosures:
           - "el8-foreman-{{ foreman_version }}"
           - "el8-foreman-plugins-{{ foreman_version }}"
           - "el8-katello-candlepin-{{ katello_version }}"
-    katello-repoclosure-el7:
-      repoclosure_target_repos:
-        rhel7:
-          - "el7-katello-{{ katello_version }}"
-      repoclosure_target_dist: rhel7
-      repoclosure_lookaside_repos:
-        rhel7:
-          - el7-base
-          - el7-updates
-          - el7-epel
-          - el7-extras
-          - el7-scl
-          - el7-puppet-6
-          - "el7-foreman-{{ foreman_version }}"
-          - "el7-foreman-plugins-{{ foreman_version }}"
-          - "el7-katello-candlepin-{{ katello_version }}"
     foreman-client-repoclosure-el9:
       repoclosure_target_repos:
         el9:
@@ -1240,8 +1095,6 @@ foreman_release_packages:
     koji_tags:
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
-      - name: "foreman-{{ foreman_version }}-nonscl-rhel7"
-        dist: '.el7'
       - name: "foreman-client-{{ foreman_version }}-el9"
         dist: '.el9'
       - name: "foreman-client-{{ foreman_version }}-el8"
@@ -1249,7 +1102,6 @@ foreman_release_packages:
       - name: "foreman-client-{{ foreman_version }}-rhel7"
         dist: '.el7'
     releasers:
-      - koji-foreman
       - koji-foreman-client
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
@@ -1276,6 +1128,5 @@ foreman_release_packages:
         - el7-epel
         - el7-extras
         - el7-puppet-6
-        - "el7-foreman-{{ foreman_version }}"
   hosts:
     foreman-release: {}
