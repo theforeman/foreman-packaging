@@ -19,30 +19,6 @@ packages:
     foreman_release_packages: {}
 
 foreman_packages:
-  children:
-    foreman_core_packages: {}
-    foreman_proxy_packages: {}
-    foreman_proxy_plugin_packages: {}
-    foreman_nodejs_packages: {}
-    foreman_installer_packages: {}
-
-rails_core_packages:
-  hosts:
-    rubygem-actioncable: {}
-    rubygem-actionmailbox: {}
-    rubygem-actionmailer: {}
-    rubygem-actiontext: {}
-    rubygem-activejob: {}
-    rubygem-activemodel: {}
-    rubygem-activerecord: {}
-    rubygem-activestorage: {}
-    rubygem-actionpack: {}
-    rubygem-actionview: {}
-    rubygem-activesupport: {}
-    rubygem-rails: {}
-    rubygem-railties: {}
-
-foreman_core_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
@@ -64,6 +40,56 @@ foreman_core_packages:
         - el8-powertools
         - el8-puppet-6
         - "el8-katello-candlepin-{{ katello_version }}"
+  children:
+    foreman_core_packages: {}
+    foreman_proxy_packages: {}
+    foreman_nodejs_packages: {}
+    foreman_installer_packages: {}
+
+plugin_packages:
+  vars:
+    package_base_dir: 'packages/plugins/'
+    koji_tags:
+      - name: "foreman-plugins-{{ foreman_version }}-el8"
+        dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
+    releasers:
+      - koji-foreman-plugins
+    nightly_releaser: koji-foreman-plugins-jenkins
+    repoclosure_target_repos:
+      el8:
+        - "el8-foreman-plugins-{{ foreman_version }}"
+    repoclosure_lookaside_repos:
+      el8:
+        - el8-appstream
+        - el8-baseos
+        - el8-powertools
+        - el8-configmanagement-salt
+        - el8-extras
+        - el8-puppet-6
+        - "el8-foreman-{{ foreman_version }}"
+  children:
+    foreman_plugin_packages: {}
+    foreman_proxy_plugin_packages: {}
+
+rails_core_packages:
+  hosts:
+    rubygem-actioncable: {}
+    rubygem-actionmailbox: {}
+    rubygem-actionmailer: {}
+    rubygem-actiontext: {}
+    rubygem-activejob: {}
+    rubygem-activemodel: {}
+    rubygem-activerecord: {}
+    rubygem-activestorage: {}
+    rubygem-actionpack: {}
+    rubygem-actionview: {}
+    rubygem-activesupport: {}
+    rubygem-rails: {}
+    rubygem-railties: {}
+
+foreman_core_packages:
   children:
     rails_core_packages: {}
   hosts:
@@ -295,21 +321,6 @@ foreman_core_packages:
     rubygem-zeitwerk: {}
 
 foreman_nodejs_packages:
-  vars:
-    package_base_dir: 'packages/foreman/'
-    koji_tags:
-      - name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-    releasers:
-      - koji-foreman
-    repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - "el8-foreman-{{ foreman_version }}"
   hosts:
     gyp: {}
     nodejs-argv-parse: {}
@@ -418,25 +429,6 @@ foreman_nodejs_packages:
       strategy: bundle
 
 foreman_installer_packages:
-  vars:
-    package_base_dir: 'packages/foreman/'
-    koji_tags:
-      - name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-    releasers:
-      - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
-    repoclosure_target_repos:
-      el8:
-        - "el8-foreman-{{ foreman_version }}"
-    repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - "el8-katello-candlepin-{{ katello_version }}"
   hosts:
     foreman-installer:
       releasers:
@@ -469,25 +461,6 @@ foreman_installer_packages:
     rubygem-kafo_wizards: {}
 
 foreman_proxy_packages:
-  vars:
-    package_base_dir: 'packages/foreman/'
-    koji_tags:
-      - name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
-    repoclosure_config: repoclosure/yum.conf
-    repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - el8-puppet-6
-        - "el8-foreman-{{ foreman_version }}"
   hosts:
     foreman-proxy:
       releasers:
@@ -507,65 +480,6 @@ foreman_proxy_packages:
     rubygem-redfish_client: {}
     rubygem-rsec: {}
     rubygem-server_sent_events: {}
-
-foreman_proxy_plugin_packages:
-  vars:
-    package_base_dir: 'packages/plugins/'
-    koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-foreman-plugins
-    nightly_releaser: koji-foreman-plugins-jenkins
-    repoclosure_lookaside_repos:
-      el8:
-        - el8-baseos
-        - el8-appstream
-        - el8-powertools
-        - el8-extras
-        - "el8-foreman-{{ foreman_version }}"
-        - "el8-foreman-plugins-{{ foreman_version }}"
-        - el8-configmanagement-salt
-  hosts:
-    rubygem-chef-api: {}
-    rubygem-faraday_middleware: {}
-    rubygem-infoblox: {}
-    rubygem-logify: {}
-    rubygem-openscap: {}
-    rubygem-openscap_parser: {}
-    rubygem-radcli: {}
-    rubygem-route53: {}
-    rubygem-rprogram: {}
-    rubygem-ruby-hmac: {}
-    rubygem-ruby-nmap: {}
-    rubygem-smart_proxy_ansible: {}
-    rubygem-smart_proxy_chef: {}
-    rubygem-smart_proxy_dhcp_dnsmasq: {}
-    rubygem-smart_proxy_dhcp_infoblox: {}
-    rubygem-smart_proxy_dhcp_remote_isc: {}
-    rubygem-smart_proxy_dhcp_device42: {}
-    rubygem-smart_proxy_dhcp_bluecat: {}
-    rubygem-smart_proxy_discovery: {}
-    rubygem-smart_proxy_discovery_image: {}
-    rubygem-smart_proxy_dns_dnsmasq: {}
-    rubygem-smart_proxy_dns_infoblox: {}
-    rubygem-smart_proxy_dns_powerdns: {}
-    rubygem-smart_proxy_dns_route53: {}
-    rubygem-smart_proxy_dynflow: {}
-    rubygem-smart_proxy_m2: {}
-    rubygem-smart_proxy_monitoring: {}
-    rubygem-smart_proxy_omaha: {}
-    rubygem-smart_proxy_openscap: {}
-    rubygem-smart-proxy-probing: {}
-    rubygem-smart_proxy_pulp: {}
-    rubygem-smart_proxy_realm_ad_plugin: {}
-    rubygem-smart_proxy_remote_execution_ssh: {}
-    rubygem-smart_proxy_reports: {}
-    rubygem-smart_proxy_salt: {}
-    rubygem-smart_proxy_shellhooks: {}
-    rubygem-smart_proxy_spacewalk: {}
 
 foreman_client_packages:
   vars:
@@ -707,29 +621,7 @@ katello_packages:
     rubygem-zest: {}
     saslwrapper: {}
 
-plugin_packages:
-  vars:
-    package_base_dir: 'packages/plugins/'
-    koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-foreman-plugins
-    nightly_releaser: koji-foreman-plugins-jenkins
-    repoclosure_target_repos:
-      el8:
-        - "el8-foreman-plugins-{{ foreman_version }}"
-    repoclosure_lookaside_repos:
-      el8:
-        - el8-appstream
-        - el8-baseos
-        - el8-powertools
-        - el8-configmanagement-salt
-        - el8-extras
-        - el8-puppet-6
-        - "el8-foreman-{{ foreman_version }}"
+foreman_plugin_packages:
   hosts:
     ansible-collection-theforeman-operations: {}
     ansiblerole-foreman_scap_client: {}
@@ -881,6 +773,46 @@ plugin_packages:
     rubygem-wicked: {}
     rubygem-zscheduler: {}
     yggdrasil-worker-forwarder: {}
+
+foreman_proxy_plugin_packages:
+  hosts:
+    rubygem-chef-api: {}
+    rubygem-faraday_middleware: {}
+    rubygem-infoblox: {}
+    rubygem-logify: {}
+    rubygem-openscap: {}
+    rubygem-openscap_parser: {}
+    rubygem-radcli: {}
+    rubygem-route53: {}
+    rubygem-rprogram: {}
+    rubygem-ruby-hmac: {}
+    rubygem-ruby-nmap: {}
+    rubygem-smart_proxy_ansible: {}
+    rubygem-smart_proxy_chef: {}
+    rubygem-smart_proxy_dhcp_dnsmasq: {}
+    rubygem-smart_proxy_dhcp_infoblox: {}
+    rubygem-smart_proxy_dhcp_remote_isc: {}
+    rubygem-smart_proxy_dhcp_device42: {}
+    rubygem-smart_proxy_dhcp_bluecat: {}
+    rubygem-smart_proxy_discovery: {}
+    rubygem-smart_proxy_discovery_image: {}
+    rubygem-smart_proxy_dns_dnsmasq: {}
+    rubygem-smart_proxy_dns_infoblox: {}
+    rubygem-smart_proxy_dns_powerdns: {}
+    rubygem-smart_proxy_dns_route53: {}
+    rubygem-smart_proxy_dynflow: {}
+    rubygem-smart_proxy_m2: {}
+    rubygem-smart_proxy_monitoring: {}
+    rubygem-smart_proxy_omaha: {}
+    rubygem-smart_proxy_openscap: {}
+    rubygem-smart-proxy-probing: {}
+    rubygem-smart_proxy_pulp: {}
+    rubygem-smart_proxy_realm_ad_plugin: {}
+    rubygem-smart_proxy_remote_execution_ssh: {}
+    rubygem-smart_proxy_reports: {}
+    rubygem-smart_proxy_salt: {}
+    rubygem-smart_proxy_shellhooks: {}
+    rubygem-smart_proxy_spacewalk: {}
 
 repoclosures:
   hosts:
