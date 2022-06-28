@@ -119,18 +119,16 @@ add_gem_to_comps() {
 }
 
 add_to_manifest() {
-	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] ; then
-		local section="foreman_scl_packages"
-	elif [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
-		local section="foreman_nonscl_packages"
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] ; then
-		local section="plugin_scl_packages"
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
-		local section="plugin_nonscl_packages"
-	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
+	if [[ $TITO_TAG == "foreman-nightly-el8" ]] ; then
+		local section="foreman_core_packages"
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-el8" ]] ; then
+		local section="foreman_plugin_packages"
+	elif [[ $TITO_TAG == "katello-nightly-el8" ]] ; then
 		local section="katello_packages"
+	elif [[ $TITO_TAG == "foreman-client-*" ]] ; then
+		local section="foreman_client_packages"
 	else
-		# TODO: client packages
+		# TODO: installer, smart_proxy plugins, rails
 		local section=""
 	fi
 
