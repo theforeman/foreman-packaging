@@ -80,6 +80,9 @@ if [[ $CURRENT_VERSION != $NEW_VERSION ]] ; then
 
 	if [[ $PACKAGE_NAME == *rubygem-* ]]; then
 		TEMPLATE="$(awk '/^# template: / { print $3 }' $SPEC_FILE)"
+		if [[ $TEMPLATE == 'scl' || $TEMPLATE == 'nonscl' ]] ; then
+			TEMPLATE=default
+		fi
 		if [[ -n $TEMPLATE ]] ; then
 			echo "* Updating requirements"
 			gem2rpm -t $ROOT/gem2rpm/$TEMPLATE.spec.erb *.gem | $SCRIPT_DIR/update-requirements specfile - $SPEC_FILE

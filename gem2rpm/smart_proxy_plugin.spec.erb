@@ -2,7 +2,6 @@
 <%-
 require 'json'
 root = `git rev-parse --show-toplevel`.strip
-SCL_PREFIXES = JSON.load(File.read(File.join(root, 'scl_prefixes.json')))
 LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
 has_cronjob = spec.files.any? { |f| f =~ %r{\Aextra/.*\.cron\z } }
 
@@ -10,24 +9,16 @@ config.rules[:ignore] << 'bundler.d'
 config.rules[:ignore] << 'settings.d'
 config.rules[:ignore] << 'config'
 -%>
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-%{!?_root_bindir:%global _root_bindir %{_bindir}}
-%{!?_root_datadir:%global _root_datadir %{_datadir}}
-%{!?_root_localstatedir:%global _root_localstatedir %{_localstatedir}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name <%= spec.name %>
 %global plugin_name <%= spec.name.sub(/\Asmart_proxy_/, '') %>
 
 %global foreman_proxy_min_version 1.24
-%global foreman_proxy_dir %{_root_datadir}/foreman-proxy
-%global foreman_proxy_statedir %{_root_localstatedir}/lib/foreman-proxy
+%global foreman_proxy_dir %{_datadir}/foreman-proxy
+%global foreman_proxy_statedir %{_localstatedir}/lib/foreman-proxy
 %global foreman_proxy_bundlerd_dir %{foreman_proxy_dir}/bundler.d
-%global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
+%global foreman_proxy_settingsd_dir %{_sysconfdir}/foreman-proxy/settings.d
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: <%= spec.version %>
 Release: 1%{?foremandist}%{?dist}
 Summary: <%= spec.summary.gsub(/\.$/, "") %>
@@ -40,33 +31,31 @@ Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
+Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
-Requires: %{?scl_prefix_ruby}ruby<%= " #{req}" unless req.empty? %>
+Requires: ruby<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-Requires: %{?scl_prefix_ruby}ruby(rubygems)<%= " #{req}" unless req.empty? %>
+Requires: ruby(rubygems)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for d in spec.runtime_dependencies -%>
 <% for req in d.requirement -%>
-Requires: %{?scl_prefix<%= SCL_PREFIXES[d.name] %>}rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
+Requires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% end -%>
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
+BuildRequires: ruby(release)
 <% for req in spec.required_ruby_version -%>
-BuildRequires: %{?scl_prefix_ruby}ruby<%= "-devel" unless spec.extensions.empty? %><%= " #{req}" unless req.empty? %>
+BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %><%= " #{req}" unless req.empty? %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel<%= " #{req}" unless req.empty? %>
+BuildRequires: rubygems-devel<%= " #{req}" unless req.empty? %>
 <% end -%>
 <% if spec.extensions.empty? -%>
 BuildArch: noarch
 <% end -%>
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
-
-%{?scl:Obsoletes: rubygem-%{gem_name} < %{version}-%{release}}
 
 %description
 <%= spec.description %>
@@ -78,34 +67,24 @@ Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
-%{?scl:Obsoletes: rubygem-%{gem_name}-doc < %{version}-%{release}}
-
 %description doc
 Documentation for %{name}.
 <% end # if doc_subpackage -%>
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
 gem unpack %{SOURCE0}
-%{?scl:EOF}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 
-%{?scl:scl enable %{scl} - << \EOF}
 gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
 gem build %{gem_name}.gemspec
-%{?scl:EOF}
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -143,8 +122,8 @@ mkdir -p %{buildroot}%{foreman_proxy_settingsd_dir}
 mv %{buildroot}%{gem_instdir}/<%= config_file_path %> \
    %{buildroot}%{foreman_proxy_settingsd_dir}/<%= config_file.chomp('.example') %>
 <% if has_cronjob -%>
-mkdir -p %{buildroot}%{_root_sysconfdir}/cron.d/
-mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.d/%{gem_name}
+mkdir -p %{buildroot}%{_sysconfdir}/cron.d/
+mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_sysconfdir}/cron.d/%{gem_name}
 <% end -%>
 <% end -%>
 
@@ -162,7 +141,7 @@ mv %{buildroot}%{gem_instdir}/extra/*.cron %{buildroot}%{_root_sysconfdir}/cron.
 <% config_file_paths.each do |config_file_path| -%>
 %config(noreplace) %attr(0640, root, foreman-proxy) %{foreman_proxy_settingsd_dir}/<%= config_file_path %>
 <% if has_cronjob -%>
-%config(noreplace) %{_root_sysconfdir}/cron.d/%{gem_name}
+%config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
 <% end -%>
 <% end -%>
 <%= main_file_entries(spec) %>
