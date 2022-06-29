@@ -1,8 +1,23 @@
-# template: nonscl
+# template: default
 <%-
 require 'json'
 root = `git rev-parse --show-toplevel`.strip
 LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
+
+config.rules[:doc] << /\/?CHANGES/
+config.rules[:doc] << 'sample'
+config.rules[:doc] << /\/?SECURITY/
+
+config.rules[:ignore] << 'Guardfile'
+config.rules[:ignore] << '.document'
+config.rules[:ignore] << 'Appraisals'
+config.rules[:ignore] << 'gemfiles'
+config.rules[:ignore] << 'appveyor.yml'
+config.rules[:ignore] << 'TODO'
+config.rules[:ignore] << 'web'
+config.rules[:ignore] << '.github'
+config.rules[:ignore] << '.ruby-version'
+config.rules[:ignore] << '.coveralls.yml'
 -%>
 %global gem_name <%= spec.name %>
 %global gem_require_name %{gem_name}
@@ -122,12 +137,13 @@ rm -rf gem_ext_test
 <% end -%>
 <% end -%>
 <% unless spec.extensions.empty? -%>
+%exclude %{gem_instdir}/ext
 %{gem_extdir_mri}
 <% end -%>
 <%= main_file_entries(spec) %>
 <% unless doc_subpackage -%>
 %doc %{gem_docdir}
-<%= doc_file_entries(spec) -%>
+<%= doc_file_entries(spec) %>
 <% end -%>
 %exclude %{gem_cache}
 %{gem_spec}

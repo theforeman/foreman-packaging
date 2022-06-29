@@ -9,10 +9,9 @@ EXCLUDED_REQUIRES = {
   'BuildRequires' => [],
   'Requires' => ['activerecord-nulldb-adapter']
 }
-SCL_PREFIXES = JSON.load(File.read(File.join(__dir__, 'scl_prefixes.json')))
 
 def package(gem)
-  return "%{?scl_prefix#{SCL_PREFIXES[gem]}}rubygem(#{gem})"
+  return "rubygem(#{gem})"
 end
 
 unless File.file?(filename)
