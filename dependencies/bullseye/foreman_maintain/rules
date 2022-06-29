@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+export GEM2DEB_TEST_RUNNER = --check-dependencies
+export DH_RUBY = --gem-install
+
+execute_after_dh_auto_install:
+	install -m640 $(CURDIR)/debian/ruby-foreman-maintain/usr/share/rubygems-integration/all/gems/foreman_maintain-*/config/foreman_maintain.yml.packaging $(CURDIR)/debian/ruby-foreman-maintain/etc/foreman-maintain/foreman_maintain.yml
+%:
+	dh $@ --buildsystem=ruby --with ruby
