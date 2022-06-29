@@ -1,0 +1,5 @@
+ruby-foreman-maintain (1.1.2-1) stable; urgency=low
+
+  * Initial release for Debian 1.1.2-1
+
+ -- Amit Upadhye <upadhyeammit@gmail.com>  Wed, 29 Jun 2022 09:45:58 -0700
