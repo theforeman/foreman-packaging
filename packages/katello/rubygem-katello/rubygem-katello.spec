@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
-%global release 4
+%global release 5
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -68,8 +68,8 @@ BuildRequires: rubygem(pulp_deb_client) < 2.19.0
 BuildRequires: rubygem(pulp_rpm_client) >= 3.17.0
 BuildRequires: rubygem(pulp_rpm_client) < 3.18.0
 BuildRequires: rubygem(pulp_certguard_client) < 2.0
-BuildRequires: rubygem(pulp_python_client) >= 3.6.0
-BuildRequires: rubygem(pulp_python_client) < 3.7.0
+BuildRequires: rubygem(pulp_python_client) >= 3.7.1
+BuildRequires: rubygem(pulp_python_client) < 3.8.0
 BuildRequires: rubygem(pulp_ostree_client)
 BuildRequires: rubygem(deface) >= 1.0.2
 BuildRequires: rubygem(deface) < 2.0.0
@@ -207,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Oct 3 2022 Ian Ballou <ianballou67@gmail.com> 4.7.0-0.5.pre.master
+- Bump pulp_python_client requirement to be higher than 3.7.1 but lower then 3.8.0
+
 * Wed Aug 31 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.4.pre.master
 - Update Gem and NPM dependencies
 
