@@ -3,10 +3,11 @@
 %{!?scl:%global pkg_name %{name}}
 
 %global gem_name sprockets
+%global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.2
-Release: 2%{?dist}
+Version: 4.1.1
+Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
 License: MIT
@@ -15,24 +16,22 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
+Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(rack) > 1
 Requires: %{?scl_prefix}rubygem(rack) < 3
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
 Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 3.7.2
-
 %description
 Sprockets is a Rack-based asset packaging system that concatenates and serves
-JavaScript, CoffeeScript, CSS, LESS, Sass, and SCSS.
+JavaScript, CoffeeScript, CSS, Sass, and SCSS.
 
 
 %package doc
@@ -80,6 +79,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files
 %dir %{gem_instdir}
 %{_bindir}/sprockets
+%license %{gem_instdir}/MIT-LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -91,6 +91,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 01 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.1.1-1
+- Release rubygem-sprockets 4.1.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-2
 - Rebuild against rh-ruby27
 
