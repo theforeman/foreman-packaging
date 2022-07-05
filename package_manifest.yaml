@@ -11,6 +11,7 @@ all:
 packages:
   vars:
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
+    build_package_use_koji_build: true
   children:
     foreman_packages: {}
     plugin_packages: {}
