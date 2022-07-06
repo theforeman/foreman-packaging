@@ -31,29 +31,28 @@ Source0: <%= download_path %>%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: ruby(release)
 <% for req in spec.required_ruby_version -%>
 Requires: ruby<%= " #{req}" unless req.empty? %>
 <% end -%>
-<% for req in spec.required_rubygems_version -%>
-Requires: ruby(rubygems)<%= " #{req}" unless req.empty? %>
-<% end -%>
-<% for d in spec.runtime_dependencies -%>
-<% for req in d.requirement -%>
-Requires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
-<% end -%>
-<% end -%>
-BuildRequires: ruby(release)
 <% for req in spec.required_ruby_version -%>
-BuildRequires: ruby<%= "-devel" unless spec.extensions.empty? %><%= " #{req}" unless req.empty? %>
+BuildRequires: <%= requirement "ruby#{'-devel' unless spec.extensions.empty?}", req %>
 <% end -%>
 <% for req in spec.required_rubygems_version -%>
-BuildRequires: rubygems-devel<%= " #{req}" unless req.empty? %>
+BuildRequires: <%= requirement 'rubygems-devel', req %>
+<% end -%>
+<% unless spec.extensions.empty? -%>
+<% for dep in runtime_dependencies.virtualize -%>
+<% for req in dep.requirement -%>
+BuildRequires: <%= requirement(dep.name, req) %>
+<% end -%>
+<% end -%>
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
 <% end -%>
 <% if spec.extensions.empty? -%>
 BuildArch: noarch
 <% end -%>
-Provides: rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -92,8 +91,9 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 <% unless spec.extensions.empty? -%>
-mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
+mkdir -p %{buildroot}%{gem_extdir_mri}/%{gem_name}
+cp -a .%{gem_extdir_mri}/gem.build_complete %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/%{gem_name}/*.so %{buildroot}%{gem_extdir_mri}/%{gem_name}
 
 <% for ext in spec.extensions -%>
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
