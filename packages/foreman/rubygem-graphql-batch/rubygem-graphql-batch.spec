@@ -6,8 +6,8 @@
 %global gem_name graphql-batch
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.10
-Release: 3%{?dist}
+Version: 0.4.3
+Release: 1%{?dist}
 Summary: A query batching executor for the graphql gem
 Group: Development/Languages
 License: MIT
@@ -18,7 +18,7 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(graphql) >= 0.8
+Requires: %{?scl_prefix}rubygem(graphql) >= 1.3
 Requires: %{?scl_prefix}rubygem(graphql) < 2
 Requires: %{?scl_prefix}rubygem(promise.rb) >= 0.7.2
 Requires: %{?scl_prefix}rubygem(promise.rb) < 0.8
@@ -74,6 +74,7 @@ cp -pa .%{gem_dir}/* \
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.rubocop*
 %license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -90,6 +91,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/graphql-batch.gemspec
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.4.3-1
+- Update to 0.4.3
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.3.10-3
 - Rebuild against rh-ruby27
 
