@@ -5,8 +5,8 @@
 %global gem_name erubi
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.9.0
-Release: 2%{?dist}
+Version: 1.10.0
+Release: 1%{?dist}
 Summary: Small ERB Implementation
 Group: Development/Languages
 License: MIT
@@ -79,9 +79,11 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/CHANGELOG
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
-%{gem_instdir}/test
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.10.0-1
+- Update to 1.10.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.9.0-2
 - Rebuild against rh-ruby27
 
