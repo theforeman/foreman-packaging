@@ -6,8 +6,8 @@
 %global gem_name optimist
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 3%{?dist}
+Version: 3.0.1
+Release: 1%{?dist}
 Summary: Optimist is a commandline option parser for Ruby that just gets out of your way
 Group: Development/Languages
 License: MIT
@@ -72,9 +72,9 @@ cp -pa .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/FAQ.txt
 %{gem_libdir}
 %exclude %{gem_instdir}/optimist.gemspec
 %exclude %{gem_cache}
@@ -83,12 +83,16 @@ cp -pa .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/FAQ.txt
 %doc %{gem_instdir}/History.txt
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.0.1-1
+- Update to 3.0.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-3
 - Rebuild against rh-ruby27
 
