@@ -5,8 +5,8 @@
 %global gem_name thor
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.1
-Release: 3%{?dist}
+Version: 1.2.1
+Release: 1%{?dist}
 Summary: Thor is a toolkit for building powerful command-line interfaces
 Group: Development/Languages
 License: MIT
@@ -15,10 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.8.7
+Requires: %{?scl_prefix_ruby}ruby >= 2.0.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems) >= 1.3.5
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.0.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel >= 1.3.5
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -84,12 +84,14 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/.document
-%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/thor.gemspec
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.2.1-1
+- Update to 1.2.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-3
 - Rebuild against rh-ruby27
 
