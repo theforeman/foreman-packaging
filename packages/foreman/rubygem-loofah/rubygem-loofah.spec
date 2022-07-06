@@ -5,8 +5,8 @@
 %global gem_name loofah
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.0
-Release: 2%{?dist}
+Version: 2.18.0
+Release: 1%{?dist}
 Summary: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments
 Group: Development/Languages
 License: MIT
@@ -17,9 +17,9 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.9
 Requires: %{?scl_prefix}rubygem(crass) >= 1.0.2
 Requires: %{?scl_prefix}rubygem(crass) < 1.1
+Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.9
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}ruby
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -81,11 +81,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.gemtest
 %license %{gem_instdir}/MIT-LICENSE.txt
-%{gem_instdir}/Manifest.txt
-%{gem_instdir}/SECURITY.md
-%{gem_instdir}/benchmark
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -93,12 +89,13 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/SECURITY.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
-%{gem_instdir}/test
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.18.0-1
+- Update to 2.18.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.4.0-2
 - Rebuild against rh-ruby27
 
