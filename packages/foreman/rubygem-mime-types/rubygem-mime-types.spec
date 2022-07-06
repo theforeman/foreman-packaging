@@ -6,8 +6,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.3.1
-Release: 2%{?dist}
+Version: 3.4.1
+Release: 1%{?dist}
 Summary: The mime-types library provides a library and registry for information about MIME content type definitions
 Group: Development/Languages
 License: MIT
@@ -98,6 +98,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 06 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.4.1-1
+- Update to 3.4.1
+
 * Mon Apr 05 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.3.1-2
 - Rebuild against rh-ruby27
 
