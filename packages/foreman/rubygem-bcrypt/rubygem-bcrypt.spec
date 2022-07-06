@@ -5,8 +5,8 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.12
-Release: 4%{?dist}
+Version: 3.1.18
+Release: 1%{?dist}
 Summary: Wrapper around bcrypt() password hashing algorithm
 Group: Development/Languages
 License: MIT and Public Domain and ISC
@@ -88,26 +88,27 @@ rm -rf gem_ext_test
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/.rspec
 %license %{gem_instdir}/COPYING
-%exclude %{gem_instdir}/appveyor.yml
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG
 %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/bcrypt.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.1.18-1
+- Update to 3.1.18
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.12-4
 - Rebuild against rh-ruby27
 
