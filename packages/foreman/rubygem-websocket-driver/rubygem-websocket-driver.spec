@@ -6,8 +6,8 @@
 %global gem_require_name websocket/driver
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.1
-Release: 2%{?dist}
+Version: 0.7.5
+Release: 1%{?dist}
 Summary: WebSocket protocol handler with pluggable I/O
 Group: Development/Languages
 License: MIT
@@ -103,6 +103,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Jul 06 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.7.5-1
+- Update to 0.7.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.1-2
 - Rebuild against rh-ruby27
 
