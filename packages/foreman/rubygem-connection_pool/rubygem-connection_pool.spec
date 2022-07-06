@@ -5,8 +5,8 @@
 %global gem_name connection_pool
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.2
-Release: 3%{?dist}
+Version: 2.2.5
+Release: 1%{?dist}
 Summary: Generic connection pool for Ruby
 Group: Development/Languages
 License: MIT
@@ -15,10 +15,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
+Requires: %{?scl_prefix_ruby}ruby >= 2.2.0
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
+BuildRequires: %{?scl_prefix_ruby}ruby >= 2.2.0
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
@@ -68,8 +68,7 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
-%{gem_instdir}/Changes.md
+%exclude %{gem_instdir}/.github
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
@@ -79,11 +78,15 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/Changes.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/connection_pool.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Wed Jul 06 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 2.2.5-1
+- Update to 2.2.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.2.2-3
 - Rebuild against rh-ruby27
 
