@@ -74,15 +74,11 @@ Documentation for %{name}.
 <% end # if doc_subpackage -%>
 
 %prep
-gem unpack %{SOURCE0}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-gem build %{gem_name}.gemspec
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
@@ -108,9 +104,10 @@ rm -rf %{buildroot}%{gem_instdir}/<%= ext.split(File::SEPARATOR).first %>/
 mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
-find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 
+find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 <% end -%>
+
 <% unless spec.extensions.empty? -%>
 %check
 # Ideally, this would be something like this:
@@ -122,14 +119,12 @@ mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig 
 cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
-
 <% end -%>
+
 %files
 %dir %{gem_instdir}
-<% unless spec.executables.nil? or spec.executables.empty? -%>
 <% for f in spec.executables -%>
 %{_bindir}/<%= f %>
-<% end -%>
 <% end -%>
 <% unless spec.extensions.empty? -%>
 %{gem_extdir_mri}
