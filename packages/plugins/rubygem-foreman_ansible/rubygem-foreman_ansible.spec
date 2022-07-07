@@ -8,7 +8,7 @@
 %global foreman_min_version 3.3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.0.0
+Version: 8.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -124,6 +124,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Jul 07 2022 Leos Stejskal <lstejska@redhat.com> 8.0.1-1
+- Update to 8.0.1
+
 * Mon May 16 2022 Leos Stejskal <lstejska@redhat.com> 8.0.0-1
 - Update to 8.0.0
 
