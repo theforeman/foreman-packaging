@@ -28,7 +28,6 @@ Name: rubygem-%{gem_name}
 Version: <%= spec.version %>
 Release: 1%{?dist}
 Summary: <%= spec.summary.gsub(/\.$/, "") %>
-Group: Development/Languages
 License: <%= spec.licenses.empty? ? 'FIXME' : spec.licenses.map { |l| LICENSES.fetch(l, l) }.join(" and ") %>
 <% if spec.homepage -%>
 URL: <%= spec.homepage.gsub('http://', 'https://') %>
@@ -66,7 +65,6 @@ BuildArch: noarch
 <% if doc_subpackage -%>
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
