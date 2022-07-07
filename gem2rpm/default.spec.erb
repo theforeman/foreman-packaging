@@ -18,6 +18,7 @@ config.rules[:ignore] << 'web'
 config.rules[:ignore] << '.github'
 config.rules[:ignore] << '.ruby-version'
 config.rules[:ignore] << '.coveralls.yml'
+config.rules[:ignore] << 'Gemfile.lock'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
