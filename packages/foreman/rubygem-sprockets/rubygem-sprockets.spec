@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.1.1
+Version: 4.0.3
 Release: 1%{?dist}
 Summary: Rack-based asset packaging system
 Group: Development/Languages
@@ -15,18 +15,10 @@ URL: https://github.com/rails/sprockets
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(rack) > 1
-Requires: %{?scl_prefix}rubygem(rack) < 3
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) >= 1.0
-Requires: %{?scl_prefix}rubygem(concurrent-ruby) < 2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -91,6 +83,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jul 10 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.3-1
+- Update to 4.0.3
+
 * Fri Jul 01 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.1.1-1
 - Release rubygem-sprockets 4.1.1
 
