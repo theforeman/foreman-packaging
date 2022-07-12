@@ -22,7 +22,7 @@
 
 %define moduletype apps
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -98,11 +98,9 @@ done
 make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
-if /usr/sbin/selinuxenabled; then
-    # install and upgrade
-    %{_sbindir}/%{name}-enable
-    systemctl daemon-reexec &>/dev/null || :
-fi
+# install and upgrade
+%{_sbindir}/%{name}-enable
+systemctl daemon-reexec &>/dev/null || :
 
 %posttrans
 if /usr/sbin/selinuxenabled; then
@@ -111,13 +109,14 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %preun
+# uninstall only
+if [ $1 -eq 0 ]; then
+    %{_sbindir}/%{name}-disable
+    systemctl daemon-reexec &>/dev/null || :
+fi
+
+# upgrade and uninstall
 if /usr/sbin/selinuxenabled; then
-    # uninstall only
-    if [ $1 -eq 0 ]; then
-        %{_sbindir}/%{name}-disable
-        systemctl daemon-reexec &>/dev/null || :
-    fi
-    # upgrade and uninstall
     %{_sbindir}/%{name}-relabel
 fi
 
@@ -157,10 +156,8 @@ Requires(post):     policycoreutils-python-utils
 SELinux policy module for Foreman Proxy
 
 %post -n foreman-proxy-selinux
-if /usr/sbin/selinuxenabled; then
-    # install and upgrade
-    %{_sbindir}/foreman-proxy-selinux-enable
-fi
+# install and upgrade
+%{_sbindir}/foreman-proxy-selinux-enable
 
 %posttrans -n foreman-proxy-selinux
 if /usr/sbin/selinuxenabled; then
@@ -169,12 +166,13 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %preun -n foreman-proxy-selinux
+# uninstall only
+if [ $1 -eq 0 ]; then
+    %{_sbindir}/foreman-proxy-selinux-disable
+fi
+
+# upgrade and uninstall
 if /usr/sbin/selinuxenabled; then
-    # uninstall only
-    if [ $1 -eq 0 ]; then
-        %{_sbindir}/foreman-proxy-selinux-disable
-    fi
-    # upgrade and uninstall
     %{_sbindir}/foreman-proxy-selinux-relabel
 fi
 
@@ -192,6 +190,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Tue Jul 12 2022 Evgeni Golov - 3.4.0-0.2.develop
+- Fixes #35198 - always load SELinux definitions
+
 * Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.develop
 - Bump version to 3.4-develop
 

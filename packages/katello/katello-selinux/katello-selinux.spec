@@ -25,7 +25,7 @@
 
 Name:           katello-selinux
 Version:        4.0.2
-Release:        1%{?dotalphatag}%{?dist}
+Release:        2%{?dotalphatag}%{?dist}
 Summary:        SELinux policy module for katello
 
 Group:          System Environment/Base
@@ -97,10 +97,8 @@ done
 make clean install-data NAME=${selinuxvariant} DISTRO=%{distver} VERSION=%{version} INSTPREFIX=%{buildroot}
 
 %post
-if /usr/sbin/selinuxenabled; then
-    # install and upgrade
-    %{_sbindir}/%{name}-enable
-fi
+# install and upgrade
+%{_sbindir}/%{name}-enable
 
 %posttrans
 if /usr/sbin/selinuxenabled; then
@@ -109,12 +107,13 @@ if /usr/sbin/selinuxenabled; then
 fi
 
 %preun
+# uninstall only
+if [ $1 -eq 0 ]; then
+    %{_sbindir}/%{name}-disable
+fi
+
+# upgrade and uninstall
 if /usr/sbin/selinuxenabled; then
-    # uninstall only
-    if [ $1 -eq 0 ]; then
-        %{_sbindir}/%{name}-disable
-    fi
-    # upgrade and uninstall
     %{_sbindir}/%{name}-relabel
 fi
 
@@ -131,6 +130,9 @@ fi
 %{_mandir}/man8/%{name}-relabel.8.gz
 
 %changelog
+* Tue Jul 12 2022 Evgeni Golov - 4.0.2-2
+- Fixes #35198 - always load SELinux definitions
+
 * Tue Jun 29 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.0.2-1
 - Release katello-selinux 4.0.2
 
