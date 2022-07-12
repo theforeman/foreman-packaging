@@ -106,8 +106,8 @@ cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
 
 find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
-<% end -%>
 
+<% end -%>
 <% unless spec.extensions.empty? -%>
 %check
 # Ideally, this would be something like this:
@@ -119,8 +119,8 @@ mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig 
 cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
-<% end -%>
 
+<% end -%>
 %files
 %dir %{gem_instdir}
 <% for f in spec.executables -%>
