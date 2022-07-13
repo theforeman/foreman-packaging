@@ -1,70 +1,73 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
+# template: default
+%global gem_name daemons
 
-%define gem_name daemons
-
+Name: rubygem-%{gem_name}
+Version: 1.4.1
+Release: 1%{?dist}
 Summary: A toolkit to create and control daemons in different ways
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.3
-Release: 7%{?dist}
-Group: Development/Languages
-License: GPLv2+ or Ruby
-URL: http://daemons.rubyforge.org
+License: MIT
+URL: https://github.com/thuehlinger/daemons
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-BuildRoot: %{_tmppath}/%{pkg_name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}rubygems
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+# end specfile generated dependencies
 
 %description
 Daemons provides an easy way to wrap existing ruby scripts (for example a
 self-written server)  to be run as a daemon and to be controlled by simple
-start/stop/restart commands.  You can also call blocks as daemons and control
-them from the parent or just daemonize the current process.  Besides this
-basic functionality, daemons offers many advanced features like exception
-backtracing and logging (in case your ruby script crashes) and monitoring and
-automatic restarting of your processes if they crash.
+start/stop/restart commands.
+You can also call blocks as daemons and control them from the parent or just
+daemonize the current process.
+Besides this basic functionality, daemons offers many advanced features like
+exception backtracing and logging (in case your ruby script crashes) and
+monitoring and automatic restarting of your processes if they crash.
+
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
+Documentation for %{name}.
 
 %prep
-%setup -q -c -T -n  %{gem_name}-%{version}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/examples
-%doc %{gem_instdir}/Releases
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/Releases
+%{gem_instdir}/examples
 
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.4.1-1
+- Update to 1.4.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.3-7
 - Rebuild against rh-ruby27
 
