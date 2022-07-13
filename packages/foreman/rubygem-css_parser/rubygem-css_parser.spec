@@ -1,66 +1,52 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name css_parser
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.4.7
-Release: 5%{?dist}
-Summary: A set of classes for parsing CSS in Ruby
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 1.11.0
+Release: 1%{?dist}
+Summary: Ruby CSS parser
 License: MIT
 URL: https://github.com/premailer/css_parser
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(addressable)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems
+
+# start specfile generated dependencies
+Requires: ruby >= 2.4
+BuildRequires: ruby >= 2.4
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Load, parse and cascade CSS rule sets in Ruby.
+A set of classes for parsing CSS in Ruby.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
-gem unpack %{SOURCE0}
-%{?scl:"}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} "}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
-
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-%{?scl:"}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/MIT-LICENSE
+%license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -68,7 +54,11 @@ cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
 %files doc
 %doc %{gem_docdir}
 
+
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.11.0-1
+- Update to 1.11.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.4.7-5
 - Rebuild against rh-ruby27
 
