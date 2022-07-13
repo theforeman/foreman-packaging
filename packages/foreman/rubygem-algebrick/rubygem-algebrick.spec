@@ -1,65 +1,54 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name algebrick
 
-Summary: Algebraic types and pattern matching
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.7.3
-Release: 8%{?dist}
-Group: Development/Languages
-License: GPLv3
+Name: rubygem-%{gem_name}
+Version: 0.7.5
+Release: 1%{?dist}
+Summary: Algebraic types and pattern matching for Ruby
+License: Apache-2.0
 URL: https://github.com/pitr-ch/algebrick
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-It's a gem providing algebraic types and pattern matching seamlessly
-integrates with standard features Ruby.
+Provides algebraic type definitions and pattern matching.
+
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
-
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
+
+%build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE.txt
+%license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/VERSION
-%{gem_instdir}/lib
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -70,6 +59,9 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_instdir}/doc
 
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.7.5-1
+- Update to 0.7.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.7.3-8
 - Rebuild against rh-ruby27
 
