@@ -150,6 +150,7 @@ foreman_core_packages:
       releasers:
         - koji-foreman
         - koji-foreman-plugins
+    rubygem-faraday-em_http: {}
     rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
