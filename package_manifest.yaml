@@ -185,6 +185,7 @@ foreman_core_packages:
     rubygem-google-apis-dns_v1: {}
     rubygem-google-apis-iamcredentials_v1: {}
     rubygem-google-apis-monitoring_v3: {}
+    rubygem-google-apis-pubsub_v1: {}
     rubygem-google-cloud-env: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
