@@ -1,66 +1,45 @@
-%{!?scl:%global pkg_name %{name}}
-%{?scl:%scl_package rubygem-%{gem_name}}
+# template: default
 %global gem_name multi_json
 
-Summary: A gem to provide swappable JSON backends
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.14.1
-Release: 3%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 1.15.0
+Release: 1%{?dist}
+Summary: A common interface to multiple JSON libraries
 License: MIT
 URL: https://github.com/intridea/multi_json
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(rubygems)
-# BuildRequires: %{?scl_prefix_ruby}rubygem(json)
-# BuildRequires: %{?scl_prefix}rubygem(json_pure)
-# BuildRequires: %{?scl_prefix}rubygem(rspec)
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel >= 1.3.5
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-
-%if 0%{?scl:1}
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.13.1
-%endif
-
-# OkJson is allowed to be bundled:
-# https://fedorahosted.org/fpc/ticket/113
-Provides: bundled(%{?scl_prefix}okjson) = 20110719
+# end specfile generated dependencies
 
 %description
-A gem to provide swappable JSON backends utilizing Yajl::Ruby, the JSON gem,
-JSON pure, or a vendored version of okjson.
+A common interface to multiple JSON libraries, including Oj, Yajl, the JSON
+gem (with C-extensions), the pure-Ruby JSON gem, NSJSONSerialization, gson.rb,
+JrJackson, and OkJson.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl:%scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
-
+Documentation for %{name}.
 
 %prep
-%setup -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -69,8 +48,7 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.*
-%doc %{gem_instdir}/LICENSE.md
+%license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
@@ -79,11 +57,12 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
 
-
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.15.0-1
+- Update to 1.15.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.14.1-3
 - Rebuild against rh-ruby27
 
