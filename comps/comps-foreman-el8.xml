@@ -179,6 +179,7 @@
       <packagereq type="default">rubygem-faraday-httpclient</packagereq>
       <packagereq type="default">rubygem-faraday-net_http</packagereq>
       <packagereq type="default">rubygem-faraday-net_http_persistent</packagereq>
+      <packagereq type="default">rubygem-faraday-patron</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-ffi</packagereq>
       <packagereq type="default">rubygem-fog-aws</packagereq>
@@ -397,6 +398,7 @@
       <packagereq type="default">rubygem-faraday-httpclient-doc</packagereq>
       <packagereq type="default">rubygem-faraday-net_http-doc</packagereq>
       <packagereq type="default">rubygem-faraday-net_http_persistent-doc</packagereq>
+      <packagereq type="default">rubygem-faraday-patron-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-ffi-doc</packagereq>
       <packagereq type="default">rubygem-fog-aws-doc</packagereq>
