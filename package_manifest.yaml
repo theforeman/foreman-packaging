@@ -154,6 +154,7 @@ foreman_core_packages:
     rubygem-faraday-em_synchrony: {}
     rubygem-faraday-excon: {}
     rubygem-faraday-httpclient: {}
+    rubygem-faraday-net_http: {}
     rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
