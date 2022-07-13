@@ -1,104 +1,67 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
+# template: default
+%global gem_name text
 
-%global	gem_name	text
+Name: rubygem-%{gem_name}
+Version: 1.3.1
+Release: 1%{?dist}
+Summary: A collection of text algorithms
+License: MIT
+URL: https://github.com/threedaymonk/text
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-%if 0%{?fedora} >= 21
-%global	gem_minitest	rubygem(minitest4)
-%else
-%global	gem_minitest	rubygem(minitest)
-%endif
-
-Name:		%{?scl_prefix}rubygem-%{gem_name}
-Version:	1.3.0
-Release:	8%{?dist}
-Summary:	Collection of text algorithms
-
-License:	MIT
-URL:		https://github.com/threedaymonk/text
-Source0:	https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-BuildRequires:	%{?scl_prefix_ruby}ruby(release)
-BuildRequires:	%{?scl_prefix_ruby}rubygems-devel
-# Check
-BuildRequires:	%{?scl_prefix_ruby}%gem_minitest
-BuildRequires:	%{?scl_prefix_ruby}rubygem(test-unit)
-Requires:	%{?scl_prefix_ruby}ruby(release)
-Requires:	%{?scl_prefix_ruby}ruby(rubygems)
-
-BuildArch:	noarch
-Provides:	%{?scl_prefix}rubygem(%{gem_name}) = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
 A collection of text algorithms: Levenshtein, Soundex, Metaphone, Double
-Metaphone, Figlet, Porter Stemming
+Metaphone, Porter Stemming.
 
-%package	doc
-Summary:	Documentation for %{pkg_name}
-Group:	Documentation
-Requires:	%{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-BuildArch:	noarch
+
+%package doc
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-
-TOPDIR=$(pwd)
-mkdir tmpunpackdir
-pushd tmpunpackdir
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack -V %{SOURCE0}
-%{?scl:EOF}
-cd %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem specification -l --ruby %{SOURCE0} > %{gem_name}.gemspec
-%{?scl:EOF}
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
-mv %{gem_name}-%{version}.gem $TOPDIR
-
-popd
-rm -rf tmpunpackdir
+%setup -q -n  %{gem_name}-%{version}
 
 %build
-%{?scl:scl enable %{scl} - <<EOF}
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
-	%{buildroot}%{gem_dir}/
-
-%check
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
-ruby -Ilib:test:. -e 'Dir.glob("test/*_test.rb").each{|f| require f}'
-%{?scl:EOF}
-popd
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%dir	%{gem_instdir}
-%doc	%{gem_instdir}/README.rdoc
-%doc	%{gem_instdir}/COPYING.txt
-
-%{gem_libdir}/
-%exclude	%{gem_cache}
+%dir %{gem_instdir}
+%license %{gem_instdir}/COPYING.txt
+%{gem_libdir}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%doc	%{gem_docdir}
-%exclude	%{gem_instdir}/Rakefile
-%exclude	%{gem_instdir}/test/
+%doc %{gem_docdir}
+%doc %{gem_instdir}/README.rdoc
+%{gem_instdir}/Rakefile
+%{gem_instdir}/test
 
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.3.1-1
+- Update to 1.3.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.3.0-8
 - Rebuild against rh-ruby27
 
