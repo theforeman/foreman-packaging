@@ -182,6 +182,7 @@ foreman_core_packages:
     rubygem-globalid: {}
     rubygem-google-api-client: {}
     rubygem-google-apis-core: {}
+    rubygem-google-apis-dns_v1: {}
     rubygem-google-cloud-env: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
