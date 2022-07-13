@@ -16,7 +16,8 @@ fetch_strategy = custom.ForemanSourceStrategy
 
 [foreman-nightly-el8]
 disttag = .el8
-whitelist = foreman
+whitelist = dynflow-utils
+  foreman
   foreman-bootloaders-redhat
   foreman-installer
   foreman-proxy
@@ -313,7 +314,6 @@ whitelist = foreman
   rubygem-wirb
   rubygem-xmlrpc
   rubygem-zeitwerk
-  dynflow-utils
 
 [foreman-plugins-nightly-el8]
 disttag = .el8
