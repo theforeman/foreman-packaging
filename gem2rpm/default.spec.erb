@@ -4,8 +4,12 @@ require 'json'
 root = `git rev-parse --show-toplevel`.strip
 LICENSES = JSON.load(File.read(File.join(root, 'licenses.json')))
 
+config.rules[:misc] << /\/?CHANGES/
+config.rules[:misc] << /samples?/
+config.rules[:misc] << /examples?/
+
+config.rules[:doc] << /^.+\.md$/
 config.rules[:doc] << /\/?CHANGES/
-config.rules[:doc] << 'sample'
 config.rules[:doc] << /\/?SECURITY/
 
 config.rules[:ignore] << 'Guardfile'
@@ -19,6 +23,15 @@ config.rules[:ignore] << '.github'
 config.rules[:ignore] << '.ruby-version'
 config.rules[:ignore] << '.coveralls.yml'
 config.rules[:ignore] << 'Gemfile.lock'
+config.rules[:ignore] << 'Manifest.txt'
+config.rules[:ignore] << 'MANIFEST'
+config.rules[:ignore] << '.zuul.yml'
+config.rules[:ignore] << 'CODE_OF_CONDUCT.md'
+config.rules[:ignore] << /^.+\.gemspec$/
+config.rules[:ignore] << '.editorconfig'
+config.rules[:ignore] << '.codecov.yml'
+config.rules[:ignore] << '.ruby-gemset'
+config.rules[:ignore] << '.autotest'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
