@@ -1,3 +1,9 @@
+ruby-foreman-ansible (8.0.1-1) stable; urgency=low
+
+  * 8.0.1 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Wed, 13 Jul 2022 00:50:15 +0000
+
 ruby-foreman-ansible (8.0.0) stable; urgency=low
 
   * 8.0.0 released
