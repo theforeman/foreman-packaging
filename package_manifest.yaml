@@ -181,6 +181,7 @@ foreman_core_packages:
     rubygem-gitlab-sidekiq-fetcher: {}
     rubygem-globalid: {}
     rubygem-google-api-client: {}
+    rubygem-google-apis-core: {}
     rubygem-google-cloud-env: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}

@@ -189,6 +189,7 @@ whitelist = dynflow-utils
   rubygem-gitlab-sidekiq-fetcher
   rubygem-globalid
   rubygem-google-api-client
+  rubygem-google-apis-core
   rubygem-googleauth
   rubygem-google-cloud-env
   rubygem-graphql
