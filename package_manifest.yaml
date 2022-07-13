@@ -152,6 +152,7 @@ foreman_core_packages:
         - koji-foreman-plugins
     rubygem-faraday-em_http: {}
     rubygem-faraday-em_synchrony: {}
+    rubygem-faraday-excon: {}
     rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
