@@ -1,85 +1,71 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name formatador
 
-%global bootstrap 1
-
+Name: rubygem-%{gem_name}
+Version: 0.3.0
+Release: 1%{?dist}
 Summary: Ruby STDOUT text formatting
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.2.1
-Release: 13%{?dist}
-Group: Development/Languages
 License: MIT
-URL: https://github.com/geemus/%{gem_name}
+URL: https://github.com/geemus/formatador
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-# TODO: Fix tests failing when redirected to a file, reported at
-# https://github.com/geemus/formatador/commit/a874311f52a34b9a1f1d0fe9fef20a095b79f941
-Patch0: formatador-fix-tests-when-redirecting-to-file.patch
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-%if 0%{bootstrap} < 1
-BuildRequires: %{?scl_prefix}rubygem(shindo)
-%endif
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-STDOUT text formatting
+STDOUT text formatting.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
-
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
-
-pushd .%{gem_instdir}
-%patch0 -p8
-popd
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
-
-%check
-%if 0%{bootstrap} < 1
-pushd .%{gem_instdir}
-# fix "uninitialized constant StringIO" until its in the gem, as reported in https://github.com/geemus/formatador/issues/5
-sed -i "1i\require 'stringio'" tests/tests_helper.rb
-shindo
-popd
-%endif
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/README.rdoc
+%license %{gem_instdir}/LICENSE.md
 %{gem_libdir}
-%{gem_cache}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/tests
+%doc %{gem_instdir}/changelog.txt
 %{gem_instdir}/formatador.gemspec
+%{gem_instdir}/tests
 
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.3.0-1
+- Update to 0.3.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.2.1-13
 - Rebuild against rh-ruby27
 
