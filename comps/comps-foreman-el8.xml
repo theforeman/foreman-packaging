@@ -207,6 +207,7 @@
       <packagereq type="default">rubygem-google-apis-core</packagereq>
       <packagereq type="default">rubygem-google-apis-dns_v1</packagereq>
       <packagereq type="default">rubygem-google-apis-iamcredentials_v1</packagereq>
+      <packagereq type="default">rubygem-google-apis-monitoring_v3</packagereq>
       <packagereq type="default">rubygem-google-cloud-env</packagereq>
       <packagereq type="default">rubygem-googleauth</packagereq>
       <packagereq type="default">rubygem-graphql</packagereq>
@@ -430,6 +431,7 @@
       <packagereq type="default">rubygem-google-apis-core-doc</packagereq>
       <packagereq type="default">rubygem-google-apis-dns_v1-doc</packagereq>
       <packagereq type="default">rubygem-google-apis-iamcredentials_v1-doc</packagereq>
+      <packagereq type="default">rubygem-google-apis-monitoring_v3-doc</packagereq>
       <packagereq type="default">rubygem-googleauth-doc</packagereq>
       <packagereq type="default">rubygem-google-cloud-env-doc</packagereq>
       <packagereq type="default">rubygem-graphql-batch-doc</packagereq>
