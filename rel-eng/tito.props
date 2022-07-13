@@ -195,6 +195,7 @@ whitelist = dynflow-utils
   rubygem-google-apis-monitoring_v3
   rubygem-google-apis-pubsub_v1
   rubygem-google-apis-sqladmin_v1beta4
+  rubygem-google-apis-storage_v1
   rubygem-googleauth
   rubygem-google-cloud-env
   rubygem-graphql
