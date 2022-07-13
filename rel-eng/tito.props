@@ -159,6 +159,7 @@ whitelist = dynflow-utils
   rubygem-facter
   rubygem-faraday
   rubygem-faraday-em_http
+  rubygem-faraday-em_synchrony
   rubygem-fast_gettext
   rubygem-ffi
   rubygem-fog-aws

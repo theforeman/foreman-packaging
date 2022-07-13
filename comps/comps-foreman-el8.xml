@@ -174,6 +174,7 @@
       <packagereq type="default">rubygem-facter</packagereq>
       <packagereq type="default">rubygem-faraday</packagereq>
       <packagereq type="default">rubygem-faraday-em_http</packagereq>
+      <packagereq type="default">rubygem-faraday-em_synchrony</packagereq>
       <packagereq type="default">rubygem-fast_gettext</packagereq>
       <packagereq type="default">rubygem-ffi</packagereq>
       <packagereq type="default">rubygem-fog-aws</packagereq>
@@ -387,6 +388,7 @@
       <packagereq type="default">rubygem-facter-doc</packagereq>
       <packagereq type="default">rubygem-faraday-doc</packagereq>
       <packagereq type="default">rubygem-faraday-em_http-doc</packagereq>
+      <packagereq type="default">rubygem-faraday-em_synchrony-doc</packagereq>
       <packagereq type="default">rubygem-fast_gettext-doc</packagereq>
       <packagereq type="default">rubygem-ffi-doc</packagereq>
       <packagereq type="default">rubygem-fog-aws-doc</packagereq>
