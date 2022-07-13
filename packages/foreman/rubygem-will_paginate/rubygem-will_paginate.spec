@@ -1,47 +1,45 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name will_paginate
 
+Name: rubygem-%{gem_name}
+Version: 3.3.1
+Release: 1%{?dist}
+Summary: Pagination plugin for web frameworks and other apps
+License: MIT
+URL: https://github.com/mislav/will_paginate
+Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Summary:       Most awesome pagination solution for Rails
-Name:          %{?scl_prefix}rubygem-%{gem_name}
-Version:       3.1.7
-Release:       4%{?dist}
-Group:         Development/Languages
-License:       MIT
-URL:           https://github.com/mislav/will_paginate
-Source0:       https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires:      %{?scl_prefix_ruby}ruby(release)
-Requires:      %{?scl_prefix_ruby}ruby(rubygems)
-Requires:      %{?scl_prefix}rubygem(activerecord)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildArch:     noarch
-Provides:      %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# start specfile generated dependencies
+Requires: ruby >= 2.0
+BuildRequires: ruby >= 2.0
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
-The will_paginate library provides a simple, yet powerful and extensible API
-for ActiveRecord pagination and rendering of pagination links in ActionView
-templates.
+will_paginate provides a simple API for performing paginated queries with
+Active Record, DataMapper and Sequel, and includes helpers for rendering
+pagination links in Rails, Sinatra, Hanami, and Merb web apps.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -49,19 +47,21 @@ cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%doc %{gem_instdir}/LICENSE
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/spec
+%{gem_instdir}/spec
 
 %changelog
+* Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.3.1-1
+- Update to 3.3.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.7-4
 - Rebuild against rh-ruby27
 
