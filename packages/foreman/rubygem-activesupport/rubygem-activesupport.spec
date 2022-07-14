@@ -6,7 +6,7 @@
 %global gem_require_name %{gem_name}
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.1.6
+Version: 6.1.6.1
 Release: 1%{?dist}
 Summary: A toolkit of support libraries and Ruby core extensions extracted from the Rails framework
 Group: Development/Languages
@@ -91,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Thu Jul 14 2022 Evgeni Golov - 6.1.6.1-1
+- Release rubygem-activesupport 6.1.6.1
+
 * Mon May 16 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.1.6-1
 - Release rubygem-activesupport 6.1.6
 
