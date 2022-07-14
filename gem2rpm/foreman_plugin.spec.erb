@@ -76,6 +76,13 @@ BuildRequires: gcc
 BuildArch: noarch
 <% end -%>
 Provides: foreman-plugin-%{plugin_name} = %{version}
+<% if has_assets || has_webpack -%>
+<% for d in spec.runtime_dependencies -%>
+<% for req in d.requirement -%>
+BuildRequires: rubygem(<%= d.name %>)<%= " #{req}" unless req.empty? %>
+<% end -%>
+<% end -%>
+<% end -%>
 # end specfile generated dependencies
 <% if has_package_json -%>
 
