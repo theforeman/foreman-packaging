@@ -69,7 +69,6 @@ jobs:
         subject: "foreman-packaging update RPM packages Github Action failed"
         to: ci@community.theforeman.org
         from: Github Actions
-        secure: true
         body: |
           foreman-packaging update RPM packages Github Action failed
 
@@ -122,7 +121,6 @@ jobs:
         subject: "foreman-packaging update Debian packages Github Action failed"
         to: ci@community.theforeman.org
         from: Github Actions
-        secure: true
         body: |
           foreman-packaging update Debian packages Github Action failed
 
