@@ -2,14 +2,9 @@
 %global confdir extras/packaging/rpm/sources
 %global foreman_rake %{_sbindir}/%{name}-rake
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
+%global rake /usr/bin/rake
 
-# explicitly define, as we build on top of an scl, not inside with scl_package
-%{?scl:%global scl_prefix %{scl}-}
-%{?scl:%global _scl_root /opt/theforeman/%{scl}/root}
-%global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
-%global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
-
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -27,40 +22,25 @@ Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
 BuildArch:  noarch
 
-Conflicts: foreman-tasks < 0.11.0-2
-Conflicts: foreman-release-scl < 7-1
-
-Obsoletes: foreman-compute < %{version}-%{release}
-Obsoletes: foreman-sqlite < %{version}-%{release}
-Obsoletes: %{?scl_prefix}rubygem-foreman_userdata
-Obsoletes: foreman-rackspace < %{version}-%{release}
-
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-Requires: %{?scl_prefix_ruby}rubygem(rdoc)
-Requires: %{?scl_prefix}rubygem(bundler_ext)
-%if 0%{?scl:1}
-Requires: %{scl}-runtime >= 7
-Requires: %{scl}-runtime < 8
-%endif
+Requires: ruby(release)
+Requires: rubygems
+Requires: rubygem(rake) >= 0.8.3
+Requires: rubygem(bundler_ext)
 
 Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
 Requires(pre):  shadow-utils
-Requires(post): chkconfig
 Requires(post): systemd-sysv
 Requires(post): systemd-units
-Requires(preun): chkconfig
 Requires(preun): systemd-units
 
 # Subpackages
 Requires: %{name}-debug
 
 # start specfile default Requires
-Requires: rubygem(rails) >= 6.1.6
-Requires: rubygem(rails) < 6.2.0
+Requires: rubygem(rails) >= 6.1.6.1
+Requires: rubygem(rails) < 6.1.7.0
 Requires: rubygem(rest-client) >= 2.0.0
 Requires: rubygem(rest-client) < 3
 Requires: rubygem(audited) >= 4.9.0
@@ -140,7 +120,7 @@ Requires: rubygem(graphql) < 1.9.0
 Requires: rubygem(graphql-batch)
 # end specfile default Requires
 
-Requires: %{?scl_prefix_ruby}rubygem(bigdecimal)
+Requires: rubygem(bigdecimal)
 
 # start specfile facter Requires
 Requires: rubygem(facter)
@@ -153,17 +133,16 @@ Requires: rubygem(rack-jsonp)
 # Build dependencies
 %{?systemd_requires}
 BuildRequires: asciidoc
-BuildRequires: %{?scl_prefix_ruby}rubygem(bigdecimal)
+BuildRequires: rubygem(bigdecimal)
 BuildRequires: gettext
-BuildRequires: %{scl_ruby_bin}
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildRequires: %{?scl_prefix_ruby}rubygem(rake) >= 0.8.3
-BuildRequires: %{?scl_prefix_ruby}rubygem(rdoc)
-BuildRequires: %{?scl_prefix}rubygem(bundler_ext)
+BuildRequires: /usr/bin/ruby
+BuildRequires: rubygems
+BuildRequires: rubygem(rake) >= 0.8.3
+BuildRequires: rubygem(bundler_ext)
 
 # start specfile default BuildRequires
-BuildRequires: rubygem(rails) >= 6.1.6
-BuildRequires: rubygem(rails) < 6.2.0
+BuildRequires: rubygem(rails) >= 6.1.6.1
+BuildRequires: rubygem(rails) < 6.1.7.0
 BuildRequires: rubygem(rest-client) >= 2.0.0
 BuildRequires: rubygem(rest-client) < 3
 BuildRequires: rubygem(audited) >= 4.9.0
@@ -245,70 +224,65 @@ BuildRequires: rubygem(activerecord-nulldb-adapter)
 # end specfile default BuildRequires
 
 # assets
-%if 0%{?scl:1}
-BuildRequires: %{scl}-runtime-assets >= 7
-BuildRequires: %{scl}-runtime-assets < 8
-%else
 BuildRequires: nodejs-packaging
-%endif
-BuildRequires: %{?scl_prefix_nodejs}nodejs >= 6.10
+BuildRequires: nodejs >= 14
 BuildRequires: http-parser
 BuildRequires: systemd
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
-BuildRequires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
-BuildRequires: %{?scl_prefix}npm(argv-parse) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
-BuildRequires: %{?scl_prefix}npm(babel-loader) < 9.0.0
-BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
-BuildRequires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
-BuildRequires: %{?scl_prefix}npm(css-loader) >= 0.23.1
-BuildRequires: %{?scl_prefix}npm(css-loader) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(cssnano) >= 4.1.10
-BuildRequires: %{?scl_prefix}npm(cssnano) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(dotenv) >= 5.0.0
-BuildRequires: %{?scl_prefix}npm(dotenv) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
-BuildRequires: %{?scl_prefix}npm(expose-loader) < 0.7.0
-BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
-BuildRequires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(file-loader) >= 0.9.0
-BuildRequires: %{?scl_prefix}npm(file-loader) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
-BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
-BuildRequires: %{?scl_prefix}npm(node-sass) >= 4.5.0
-BuildRequires: %{?scl_prefix}npm(node-sass) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
-BuildRequires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
-BuildRequires: %{?scl_prefix}npm(sass-loader) < 6.1.0
-BuildRequires: %{?scl_prefix}npm(style-loader) >= 0.13.1
-BuildRequires: %{?scl_prefix}npm(style-loader) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) >= 1.2.2
-BuildRequires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(url-loader) >= 1.0.1
-BuildRequires: %{?scl_prefix}npm(url-loader) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(webpack) >= 3.4.1
-BuildRequires: %{?scl_prefix}npm(webpack) < 4.0.0
-BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) >= 0.1.5
-BuildRequires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(argv-parse) >= 1.0.1
+BuildRequires: npm(argv-parse) < 2.0.0
+BuildRequires: npm(babel-loader) >= 8.0.0
+BuildRequires: npm(babel-loader) < 9.0.0
+BuildRequires: npm(compression-webpack-plugin) >= 1.1.11
+BuildRequires: npm(compression-webpack-plugin) < 1.2.0
+BuildRequires: npm(css-loader) >= 0.23.1
+BuildRequires: npm(css-loader) < 1.0.0
+BuildRequires: npm(cssnano) >= 4.1.10
+BuildRequires: npm(cssnano) < 5.0.0
+BuildRequires: npm(dotenv) >= 5.0.0
+BuildRequires: npm(dotenv) < 6.0.0
+BuildRequires: npm(expose-loader) >= 0.6.0
+BuildRequires: npm(expose-loader) < 0.7.0
+BuildRequires: npm(extract-text-webpack-plugin) >= 3.0.0
+BuildRequires: npm(extract-text-webpack-plugin) < 4.0.0
+BuildRequires: npm(file-loader) >= 0.9.0
+BuildRequires: npm(file-loader) < 1.0.0
+BuildRequires: npm(graphql) >= 15.5.0
+BuildRequires: npm(graphql) < 16.0.0
+BuildRequires: npm(node-sass) >= 4.5.0
+BuildRequires: npm(node-sass) < 5.0.0
+BuildRequires: npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+BuildRequires: npm(optimize-css-assets-webpack-plugin) < 4.0.0
+BuildRequires: npm(sass-loader) >= 6.0.6
+BuildRequires: npm(sass-loader) < 6.1.0
+BuildRequires: npm(style-loader) >= 0.13.1
+BuildRequires: npm(style-loader) < 1.0.0
+BuildRequires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+BuildRequires: npm(uglifyjs-webpack-plugin) < 2.0.0
+BuildRequires: npm(url-loader) >= 1.0.1
+BuildRequires: npm(url-loader) < 2.0.0
+BuildRequires: npm(webpack) >= 3.4.1
+BuildRequires: npm(webpack) < 4.0.0
+BuildRequires: npm(webpack-stats-plugin) >= 0.1.5
+BuildRequires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/vendor) < 11.0.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(intl) >= 1.2.5
-BuildRequires: %{?scl_prefix}npm(intl) < 1.3.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-BuildRequires: %{?scl_prefix}npm(react-intl) < 3.0.0
+BuildRequires: npm(@theforeman/vendor) >= 10.1.0
+BuildRequires: npm(@theforeman/vendor) < 11.0.0
+BuildRequires: npm(graphql-tag) >= 2.11.0
+BuildRequires: npm(graphql-tag) < 3.0.0
+BuildRequires: npm(intl) >= 1.2.5
+BuildRequires: npm(intl) < 1.3.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
+BuildRequires: npm(react-intl) >= 2.8.0
+BuildRequires: npm(react-intl) < 3.0.0
 # end package.json dependencies BuildRequires
 
 # start specfile assets BuildRequires
@@ -335,7 +309,7 @@ BuildRequires: rubygem(facter)
 %package cli
 Summary: Foreman CLI
 Group: Applications/System
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman)
+Requires: rubygem(hammer_cli_foreman)
 
 %description cli
 Meta Package to install hammer rubygems and its dependencies
@@ -454,66 +428,62 @@ Meta package to install requirements for Google Compute Engine (GCE) support
 Summary: Foreman asset pipeline support
 Group: Applications/System
 Requires: %{name} = %{version}-%{release}
-%if 0%{?scl:1}
-Requires: %{scl}-runtime-assets >= 7
-Requires: %{scl}-runtime-assets < 8
-%endif
-Requires: %{?scl_prefix_nodejs}nodejs >= 6.10
+Requires: nodejs >= 14
 
 # start package.json devDependencies Requires
-Requires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-Requires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-Requires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
-Requires: %{?scl_prefix}npm(argv-parse) >= 1.0.1
-Requires: %{?scl_prefix}npm(argv-parse) < 2.0.0
-Requires: %{?scl_prefix}npm(babel-loader) >= 8.0.0
-Requires: %{?scl_prefix}npm(babel-loader) < 9.0.0
-Requires: %{?scl_prefix}npm(compression-webpack-plugin) >= 1.1.11
-Requires: %{?scl_prefix}npm(compression-webpack-plugin) < 1.2.0
-Requires: %{?scl_prefix}npm(css-loader) >= 0.23.1
-Requires: %{?scl_prefix}npm(css-loader) < 1.0.0
-Requires: %{?scl_prefix}npm(cssnano) >= 4.1.10
-Requires: %{?scl_prefix}npm(cssnano) < 5.0.0
-Requires: %{?scl_prefix}npm(dotenv) >= 5.0.0
-Requires: %{?scl_prefix}npm(dotenv) < 6.0.0
-Requires: %{?scl_prefix}npm(expose-loader) >= 0.6.0
-Requires: %{?scl_prefix}npm(expose-loader) < 0.7.0
-Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) >= 3.0.0
-Requires: %{?scl_prefix}npm(extract-text-webpack-plugin) < 4.0.0
-Requires: %{?scl_prefix}npm(file-loader) >= 0.9.0
-Requires: %{?scl_prefix}npm(file-loader) < 1.0.0
-Requires: %{?scl_prefix}npm(graphql) >= 15.5.0
-Requires: %{?scl_prefix}npm(graphql) < 16.0.0
-Requires: %{?scl_prefix}npm(node-sass) >= 4.5.0
-Requires: %{?scl_prefix}npm(node-sass) < 5.0.0
-Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) >= 3.2.0
-Requires: %{?scl_prefix}npm(optimize-css-assets-webpack-plugin) < 4.0.0
-Requires: %{?scl_prefix}npm(sass-loader) >= 6.0.6
-Requires: %{?scl_prefix}npm(sass-loader) < 6.1.0
-Requires: %{?scl_prefix}npm(style-loader) >= 0.13.1
-Requires: %{?scl_prefix}npm(style-loader) < 1.0.0
-Requires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) >= 1.2.2
-Requires: %{?scl_prefix}npm(uglifyjs-webpack-plugin) < 2.0.0
-Requires: %{?scl_prefix}npm(url-loader) >= 1.0.1
-Requires: %{?scl_prefix}npm(url-loader) < 2.0.0
-Requires: %{?scl_prefix}npm(webpack) >= 3.4.1
-Requires: %{?scl_prefix}npm(webpack) < 4.0.0
-Requires: %{?scl_prefix}npm(webpack-stats-plugin) >= 0.1.5
-Requires: %{?scl_prefix}npm(webpack-stats-plugin) < 1.0.0
+Requires: npm(@babel/core) >= 7.7.0
+Requires: npm(@babel/core) < 8.0.0
+Requires: npm(@theforeman/builder) >= 10.1.0
+Requires: npm(@theforeman/builder) < 11.0.0
+Requires: npm(argv-parse) >= 1.0.1
+Requires: npm(argv-parse) < 2.0.0
+Requires: npm(babel-loader) >= 8.0.0
+Requires: npm(babel-loader) < 9.0.0
+Requires: npm(compression-webpack-plugin) >= 1.1.11
+Requires: npm(compression-webpack-plugin) < 1.2.0
+Requires: npm(css-loader) >= 0.23.1
+Requires: npm(css-loader) < 1.0.0
+Requires: npm(cssnano) >= 4.1.10
+Requires: npm(cssnano) < 5.0.0
+Requires: npm(dotenv) >= 5.0.0
+Requires: npm(dotenv) < 6.0.0
+Requires: npm(expose-loader) >= 0.6.0
+Requires: npm(expose-loader) < 0.7.0
+Requires: npm(extract-text-webpack-plugin) >= 3.0.0
+Requires: npm(extract-text-webpack-plugin) < 4.0.0
+Requires: npm(file-loader) >= 0.9.0
+Requires: npm(file-loader) < 1.0.0
+Requires: npm(graphql) >= 15.5.0
+Requires: npm(graphql) < 16.0.0
+Requires: npm(node-sass) >= 4.5.0
+Requires: npm(node-sass) < 5.0.0
+Requires: npm(optimize-css-assets-webpack-plugin) >= 3.2.0
+Requires: npm(optimize-css-assets-webpack-plugin) < 4.0.0
+Requires: npm(sass-loader) >= 6.0.6
+Requires: npm(sass-loader) < 6.1.0
+Requires: npm(style-loader) >= 0.13.1
+Requires: npm(style-loader) < 1.0.0
+Requires: npm(uglifyjs-webpack-plugin) >= 1.2.2
+Requires: npm(uglifyjs-webpack-plugin) < 2.0.0
+Requires: npm(url-loader) >= 1.0.1
+Requires: npm(url-loader) < 2.0.0
+Requires: npm(webpack) >= 3.4.1
+Requires: npm(webpack) < 4.0.0
+Requires: npm(webpack-stats-plugin) >= 0.1.5
+Requires: npm(webpack-stats-plugin) < 1.0.0
 # end package.json devDependencies Requires
 
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/vendor) >= 10.1.0
-Requires: %{?scl_prefix}npm(@theforeman/vendor) < 11.0.0
-Requires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
-Requires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
-Requires: %{?scl_prefix}npm(intl) >= 1.2.5
-Requires: %{?scl_prefix}npm(intl) < 1.3.0
-Requires: %{?scl_prefix}npm(jed) >= 1.1.1
-Requires: %{?scl_prefix}npm(jed) < 2.0.0
-Requires: %{?scl_prefix}npm(react-intl) >= 2.8.0
-Requires: %{?scl_prefix}npm(react-intl) < 3.0.0
+Requires: npm(@theforeman/vendor) >= 10.1.0
+Requires: npm(@theforeman/vendor) < 11.0.0
+Requires: npm(graphql-tag) >= 2.11.0
+Requires: npm(graphql-tag) < 3.0.0
+Requires: npm(intl) >= 1.2.5
+Requires: npm(intl) < 1.3.0
+Requires: npm(jed) >= 1.1.1
+Requires: npm(jed) < 2.0.0
+Requires: npm(react-intl) >= 2.8.0
+Requires: npm(react-intl) < 3.0.0
 # end package.json dependencies Requires
 
 # start specfile assets Requires
@@ -548,7 +518,7 @@ Summary: Foreman plugin support
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 Requires: %{name}-build = %{version}-%{release}
-Requires: %{?scl_prefix}rubygem(activerecord-nulldb-adapter)
+Requires: rubygem(activerecord-nulldb-adapter)
 
 %description plugin
 Meta package with support for plugins.
@@ -689,7 +659,7 @@ Group:  Applications/System
 Requires: rubygem(puma) >= 5.1
 Requires: rubygem(puma) < 6.0
 # end specfile service Requires
-Requires: %{?scl_prefix}rubygem(puma-status)
+Requires: rubygem(puma-status)
 Requires: %{name} = %{version}-%{release}
 
 %description service
@@ -711,22 +681,12 @@ plugins required for Foreman to work.
 
 %build
 #build man pages
-%{scl_rake} -f Rakefile.dist build \
+%{rake} -f Rakefile.dist build \
   PREFIX=%{_prefix} \
   SBINDIR=%{_sbindir} \
   SYSCONFDIR=%{_sysconfdir} \
   --trace
 
-#replace shebangs and binaries in scripts for SCL
-%if 0%{?scl:1}
-  # shebangs
-  for f in bin/* script/performance/profiler script/performance/benchmarker script/dynflowd ; do
-    sed -ri '1sX(/usr/bin/ruby|/usr/bin/env ruby)X%{scl_ruby_bin}X' $f
-  done
-  # script content
-  sed -ri 'sX/usr/bin/rakeX%{scl_rake}X' extras/dbmigrate script/foreman-rake
-  sed -i '2isource scl_source enable tfm' script/foreman-puma-status
-%endif
 # sidekiq service SELinux helper path update
 sed -i '/^ExecStart/ s|/usr/bin/sidekiq \(.\+\)$|%{_libexecdir}/%{name}/sidekiq-selinux \1|' extras/systemd/%{dynflow_sidekiq_service_name}.service
 
@@ -737,14 +697,12 @@ make -C locale all-mo
 mv Gemfile Gemfile.in
 cp db/schema.rb.nulldb db/schema.rb
 export BUNDLER_EXT_GROUPS="default assets"
-ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules
+ln -s %{nodejs_sitelib} node_modules
 # Calls webpack manually since webpack:compile uses the config which uses
 # node_modules/.bin/webpack and that doesn't exist in our setup
 export NODE_ENV=production
-%{?scl:scl enable %{scl} "}
 webpack --bail --config config/webpack.config.js
-%{?scl:"}
-%{scl_rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
+%{rake} assets:precompile RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace
 rm db/schema.rb
 
 %install
@@ -756,12 +714,12 @@ sed -i 's|#!/usr/bin/env python|#!/usr/bin/python3|g' extras/noVNC/websockify/*.
 rm -rf %{buildroot}
 
 #install man pages
-%{scl_rake} -f Rakefile.dist install \
+%{rake} -f Rakefile.dist install \
   PREFIX=%{buildroot}%{_prefix} \
   SBINDIR=%{buildroot}%{_sbindir} \
   SYSCONFDIR=%{buildroot}%{_sysconfdir} \
   --trace
-%{scl_rake} -f Rakefile.dist clean
+%{rake} -f Rakefile.dist clean
 
 install -d -m0755 %{buildroot}%{_datadir}/%{name}
 install -d -m0755 %{buildroot}%{_datadir}/%{name}/plugins
@@ -791,9 +749,6 @@ install -Dp -m0644 extras/systemd/%{name}.socket %{buildroot}%{_unitdir}/%{name}
 cat > %{buildroot}%{_libexecdir}/%{name}/sidekiq-selinux <<EOF
 #!/bin/bash
 # Shell wrapper with SELinux transition into foreman_rails_t domain.
-%if 0%{?scl:1}
-source scl_source enable %{scl}
-%endif
 exec sidekiq "\$@"
 EOF
 
@@ -909,18 +864,18 @@ mkdir db/ \\
 cp -rf %{_datadir}/%{name}/db/* db/ \\
 mv db/schema.rb.nulldb db/schema.rb \\
 \\
-ln -s %{?scl_prefix_nodejs:%{_scl_root}}%{nodejs_sitelib} node_modules \\
-export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`%{?scl:scl enable %%{scl} -- }ruby -e "print Gem.path.join(':')"\`} \\
+ln -s %{nodejs_sitelib} node_modules \\
+export GEM_PATH=%%{buildroot}%%{gem_dir}:\${GEM_PATH:+\${GEM_PATH}}\${GEM_PATH:-\`ruby -e "print Gem.path.join(':')"\`} \\
 unlink tmp \\
 \\
 rm \`pwd\`/config/initializers/encryption_key.rb \\
 rm \`pwd\`/config/database.yml \\
-/usr/bin/%%{?scl:%%{scl}-}rake security:generate_encryption_key \\
+%{rake} security:generate_encryption_key \\
 export BUNDLER_EXT_NOSTRICT=1 \\
 export NODE_ENV=production \\
 cp %%{buildroot}%%{%{name}_bundlerd_dir}/%%{gem_name}.rb ./bundler.d/%%{gem_name}.rb \\
-%%{?-s:/usr/bin/%%{?scl:%%{scl}-}rake %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace} \\
-%%{?-a:/usr/bin/%%{?scl:%%{scl}-}rake plugin:apipie:cache[%%{gem_name}] FOREMAN_APIPIE_LANGS=en_US RAILS_ENV=production cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} DATABASE_URL=nulldb://nohost --trace} \\
+%%{?-s:%{rake} %%{-r*}%%{!?-r:plugin:assets:precompile[%%{-n*}%%{!?-n:%%{gem_name}}]} RAILS_ENV=production DATABASE_URL=nulldb://nohost --trace} \\
+%%{?-a:%{rake} plugin:apipie:cache[%%{gem_name}] FOREMAN_APIPIE_LANGS=en_US RAILS_ENV=production cache_part=resources OUT=%%{buildroot}%%{%{name}_apipie_cache_plugin} DATABASE_URL=nulldb://nohost --trace} \\
 \\
 popd \\
 rm -rf ./usr \\
@@ -1051,6 +1006,10 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Jul 15 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.5.develop
+- Remove SCL compatibility macros
+- Update Rails dependency
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.4.develop
 - Update Gem and NPM dependencies
 
