@@ -8,13 +8,16 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.2.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.9.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
 URL: https://www.orcharhino.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+Requires: git
+BuildRequires: git
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
@@ -133,6 +136,9 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{foreman_plugin_log}
 
 %changelog
+* Fri Jul 15 2022 Bernhard Suttner <suttner@atix.de> 0.9.3-1
+- Update to 0.9.3
+
 * Mon May 09 2022 Evgeni Golov - 0.9.2.3-2
 - log plugin installation in posttrans
 
