@@ -68,7 +68,7 @@ jobs:
         server_port: 25
         subject: "foreman-packaging update RPM packages Github Action failed"
         to: ci@community.theforeman.org
-        from: Github Actions
+        from: Foreman Github Actions <github@theforeman.org>
         body: |
           foreman-packaging update RPM packages Github Action failed
 
@@ -120,7 +120,7 @@ jobs:
         server_port: 25
         subject: "foreman-packaging update Debian packages Github Action failed"
         to: ci@community.theforeman.org
-        from: Github Actions
+        from: Foreman Github Actions <github@theforeman.org>
         body: |
           foreman-packaging update Debian packages Github Action failed
 
