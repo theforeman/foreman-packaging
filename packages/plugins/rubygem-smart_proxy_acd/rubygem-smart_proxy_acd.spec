@@ -17,8 +17,8 @@
 %global foreman_proxy_settingsd_dir %{_root_sysconfdir}/foreman-proxy/settings.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.3.0
-Release: 2%{?foremandist}%{?dist}
+Version: 0.4.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Application Centric Deployment smart proxy plugin
 Group: Applications/Internet
 License: GPLv3
@@ -27,15 +27,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman-proxy >= %{foreman_proxy_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(smart_proxy_dynflow) >= 0.5.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-proxy-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -106,6 +101,9 @@ mv %{buildroot}%{gem_instdir}/settings.d/acd.yml.example \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.4.0-1
+- Update to 0.4.0
+
 * Mon Jan 10 2022 Evgeni Golov - 0.3.0-2
 - Drop obsoletes, there newer was a non-SCL ACD plugin on EL7
 
