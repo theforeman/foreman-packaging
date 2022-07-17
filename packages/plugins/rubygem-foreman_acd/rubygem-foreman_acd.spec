@@ -8,8 +8,8 @@
 %global foreman_min_version 2.1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.2.3
-Release: 2%{?foremandist}%{?dist}
+Version: 0.9.3
+Release: 1%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
@@ -18,42 +18,34 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby < 3
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-Requires: %{?scl_prefix}rubygem(git)
+Requires: ruby >= 2.5
+Requires: ruby < 3
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.3.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 0.10
-BuildRequires: %{?scl_prefix}rubygem(git)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}ruby < 3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+Requires: ruby < 3
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 3
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-plugin-transform-class-properties) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) >= 1.6.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-env) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) >= 6.24.1
-BuildRequires: %{?scl_prefix}npm(babel-preset-react) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(lodash) >= 4.17.11
-BuildRequires: %{?scl_prefix}npm(lodash) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(sortabular) >= 1.5.1
-BuildRequires: %{?scl_prefix}npm(sortabular) < 2.0.0
-BuildRequires: %{?scl_prefix}npm(table-resolver) >= 3.2.0
-BuildRequires: %{?scl_prefix}npm(table-resolver) < 4.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(babel-plugin-transform-class-properties) >= 6.24.1
+BuildRequires: npm(babel-plugin-transform-class-properties) < 7.0.0
+BuildRequires: npm(babel-preset-env) >= 1.6.0
+BuildRequires: npm(babel-preset-env) < 2.0.0
+BuildRequires: npm(babel-preset-react) >= 6.24.1
+BuildRequires: npm(babel-preset-react) < 7.0.0
+BuildRequires: npm(lodash) >= 4.17.11
+BuildRequires: npm(lodash) < 5.0.0
+BuildRequires: npm(sortabular) >= 1.5.1
+BuildRequires: npm(sortabular) < 2.0.0
+BuildRequires: npm(table-resolver) >= 3.2.0
+BuildRequires: npm(table-resolver) < 4.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -133,6 +125,9 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.9.3-1
+- Update to 0.9.3
+
 * Mon May 09 2022 Evgeni Golov - 0.9.2.3-2
 - log plugin installation in posttrans
 
