@@ -2,7 +2,7 @@
 %global gem_name faraday
 
 Name: rubygem-%{gem_name}
-Version: 1.8.0
+Version: 2.3.0
 Release: 1%{?dist}
 Summary: HTTP/REST API client library
 License: MIT
@@ -10,8 +10,8 @@ URL: https://lostisland.github.io/faraday
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.4
-BuildRequires: ruby >= 2.4
+Requires: ruby >= 2.6
+BuildRequires: ruby >= 2.6
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.3.0-1
+- Update to 2.3.0
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.8.0-1
 - Update to 1.8.0
 
