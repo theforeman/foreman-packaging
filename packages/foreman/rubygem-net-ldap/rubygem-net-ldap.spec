@@ -1,28 +1,20 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name net-ldap
 
+Name: rubygem-%{gem_name}
+Version: 0.17.1
+Release: 1%{?dist}
 Summary: Net::LDAP for Ruby implements client access LDAP protocol
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.17.0
-Release: 2%{?dist}
-Group: Development/Languages
 License: MIT
 URL: https://github.com/ruby-ldap/ruby-net-ldap
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-#BuildRequires: %{?scl_prefix}rubygem(flexmock)
-BuildRequires: %{?scl_prefix_ruby}rubygem(test-unit)
+
+# start specfile generated dependencies
+Requires: ruby >= 2.0.0
+BuildRequires: ruby >= 2.0.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-# this package obsoletes rubygem-ruby-net-ldap
-Provides: %{?scl_prefix}rubygem(ruby-net-ldap) = %{version}-%{release}
-Provides: %{?scl_prefix}rubygem-ruby-net-ldap = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-Obsoletes: %{?scl_prefix}rubygem-ruby-net-ldap < 0.0.4-7
+# end specfile generated dependencies
 
 %description
 Net::LDAP for Ruby (also called net-ldap) implements client access for the
@@ -32,50 +24,39 @@ Ruby with no external dependencies. It supports most LDAP client features and
 a subset of server features as well.
 Net::LDAP has been tested against modern popular LDAP servers including
 OpenLDAP and Active Directory. The current release is mostly compliant with
-earlier versions of the IETF LDAP RFCs (2251–2256, 2829–2830, 3377, and
-3771).
+earlier versions of the IETF LDAP RFCs (2251-2256, 2829-2830, 3377, and 3771).
 Our roadmap for Net::LDAP 1.0 is to gain full client compliance with
-the most recent LDAP RFCs (4510–4519, plus portions of 4520–4532).
+the most recent LDAP RFCs (4510-4519, plutions of 4520-4532).
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-%check
-pushd .%{gem_instdir}
-%{?scl:scl enable %{scl} - << \EOF}
-# Disabled due to no flexmock
-#ruby -Ilib:test -e 'Dir.glob "./test/**/test_*.rb", &method(:require)'
-%{?scl:EOF}
-popd
-
-
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/License.rdoc
+%license %{gem_instdir}/License.rdoc
 %{gem_libdir}
-%exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -87,6 +68,9 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
+* Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.17.1-1
+- Update to 0.17.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.17.0-2
 - Rebuild against rh-ruby27
 
