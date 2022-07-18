@@ -1,7 +1,7 @@
 foreman_postinst() {
   LOGFILE='/var/log/foreman-install.log'
-  BUNDLE=bundle
-  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+  BUNDLE=@BUNDLE@
+  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby @BUNDLE@"
 
   # Update gems
   export HOME=/usr/share/foreman

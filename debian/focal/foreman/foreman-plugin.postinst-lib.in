@@ -5,8 +5,8 @@ foreman_plugin_install() {
   PLUGIN_HAS_WEBPACK="${4:-true}"
   LOGFILE="${5:-/var/log/foreman-install.log}"
 
-  BUNDLE=bundle
-  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby /usr/bin/bundle"
+  BUNDLE=@BUNDLE@
+  [ -h /usr/bin/foreman-ruby ] && BUNDLE="/usr/bin/foreman-ruby @BUNDLE@"
 
   # Update gems
   export HOME=/usr/share/foreman

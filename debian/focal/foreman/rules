@@ -39,6 +39,9 @@ build:
 	/bin/sed -i 's#puma-status#cd /usr/share/foreman \&\& $(BUNDLE) exec &#' script/foreman-puma-status
 	/bin/sed -ri '/^ExecStart/ s#=#=$(BUNDLE) exec --keep-file-descriptors #' extras/systemd/foreman.service
 	/bin/sed -ri '/^ExecStart/ s#/usr/bin/sidekiq#$(BUNDLE) exec sidekiq#' extras/systemd/dynflow-sidekiq@.service
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman.postinst.in > debian/foreman.postinst
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman.postinst-lib.in > debian/foreman.postinst-lib
+	/bin/sed 's#@BUNDLE@#$(BUNDLE)#' debian/foreman-plugin.postinst-lib.in > debian/foreman-plugin.postinst-lib
 	/bin/mkdir -p .ssh
 	/usr/bin/touch build
 
