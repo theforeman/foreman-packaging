@@ -60,19 +60,6 @@ jobs:
         title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         body: ''
         delete-branch: true
-    - name: Send email to Discourse on failure
-      if: failure()
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: community.theforeman.org
-        server_port: 25
-        subject: "foreman-packaging update RPM packages Github Action failed"
-        to: ci@community.theforeman.org
-        from: Foreman Github Actions <github@theforeman.org>
-        body: |
-          foreman-packaging update RPM packages Github Action failed
-
-          $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
 
   deb_list:
     name: 'Gather debs'
@@ -112,16 +99,24 @@ jobs:
         title: "Update ${{ matrix.package_name }} to ${{ matrix.new_version }}"
         body: ''
         delete-branch: true
+
+  report:
+    name: Report failure to Discourse
+    needs:
+      - bump_plugin_deb
+      - bump_rpm
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
     - name: Send email to Discourse on failure
-      if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: community.theforeman.org
         server_port: 25
-        subject: "foreman-packaging update Debian packages Github Action failed"
+        subject: "foreman-packaging update packages Github Action failed"
         to: ci@community.theforeman.org
         from: Foreman Github Actions <github@theforeman.org>
         body: |
-          foreman-packaging update Debian packages Github Action failed
+          foreman-packaging update packages Github Action failed
 
-          $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          ${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}
