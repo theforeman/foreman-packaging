@@ -179,6 +179,7 @@ foreman_core_packages:
     rubygem-foreman_maintain: {}
     rubygem-formatador: {}
     rubygem-friendly_id: {}
+    rubygem-gapic-common: {}
     rubygem-get_process_mem: {}
     rubygem-gettext: {}
     rubygem-gettext_i18n_rails: {}
@@ -193,7 +194,15 @@ foreman_core_packages:
     rubygem-google-apis-pubsub_v1: {}
     rubygem-google-apis-sqladmin_v1beta4: {}
     rubygem-google-apis-storage_v1: {}
+    rubygem-google-cloud-common: {}
+    rubygem-google-cloud-compute: {}
+    rubygem-google-cloud-compute-v1: {}
+    rubygem-google-cloud-core: {}
     rubygem-google-cloud-env: {}
+    rubygem-google-cloud-errors: {}
+    rubygem-google-protobuf: {}
+    rubygem-googleapis-common-protos: {}
+    rubygem-googleapis-common-protos-types: {}
     rubygem-googleauth: {}
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
