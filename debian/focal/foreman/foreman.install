@@ -7,6 +7,7 @@ script/foreman-rake                      usr/sbin
 script/foreman-tail                      usr/sbin
 debian/foreman-plugin.mk                 usr/share/foreman
 debian/foreman-plugin.postinst-lib       usr/share/foreman
+debian/foreman.postinst-lib              usr/share/foreman
 app                                      usr/share/foreman
 bin                                      usr/share/foreman
 config                                   usr/share/foreman
