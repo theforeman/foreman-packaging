@@ -4,15 +4,11 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.13.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby
 License: MIT
 URL: https://nokogiri.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-
-# On EL8 rubygem-racc is bundled into ruby-libs package and
-# auto-generated dependencies will break dependency resolution
-Autoreq: 0
 
 # start specfile generated dependencies
 Requires: ruby >= 2.6.0
@@ -27,6 +23,7 @@ BuildRequires: gcc
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 
+# On EL8 rubygem-racc is bundled into ruby-libs package
 Requires: bundled(rubygem-racc) >= 1.4
 Requires: bundled(rubygem-racc) < 2
 BuildRequires: bundled(rubygem-racc) >= 1.4
@@ -51,6 +48,10 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+
+# On EL8 rubygem-racc is bundled into ruby-libs package and
+# auto-generated dependencies will break dependency resolution
+%gemspec_remove_dep -g racc "~> 1.4"
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -110,6 +111,9 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Tue Jul 19 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.13.7-2
+- Turn on auto-requires again
+
 * Sun Jul 17 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.13.7-1
 - Update to 1.13.7
 
