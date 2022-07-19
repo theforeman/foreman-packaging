@@ -8,7 +8,7 @@ Homepage: https://github.com/theforeman/foreman_hooks
 
 Package: ruby-foreman-hooks
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, foreman (>= 3.1.0~)
 Description: Foreman Hooks Plugin
  Plugin engine for Foreman that enables running custom hook scripts on Foreman
  events.
