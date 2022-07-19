@@ -1,3 +1,9 @@
+ruby-foreman-datacenter (2.3.0-3) stable; urgency=low
+
+  * Use foreman-plugin.mk
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 11:36:50 +0200
+
 ruby-foreman-datacenter (2.3.0-2) stable; urgency=low
 
   * use foreman-plugin.postinst-lib from foreman
