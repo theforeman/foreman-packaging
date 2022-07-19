@@ -3,8 +3,8 @@
 set -e
 
 if [ $# -lt 2 ]; then
-  echo "Usage: $0 <yum.conf>"
-  exit 1
+	echo "Usage: $0 <yum.conf>"
+	exit 1
 fi
 
 config=$1 ; shift
