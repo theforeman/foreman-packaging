@@ -1,28 +1,16 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-# This file was originally written by Joey Hess and Craig Small.
-# As a special exception, when this file is copied by dh-make into a
-# dh-make output file, you may use that output file without restriction.
-# This special exception was added by Craig Small in version 0.37 of dh-make.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
 PLUGIN = foreman-tasks
+PLUGIN_HAS_ASSETS = true
+PLUGIN_HAS_WEBPACK = true
+PLUGIN_HAS_PACKAGE_JSON = true
 
-build:
-	cp cache/* /usr/share/foreman/vendor/cache/
-	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
-	cd /usr/share/foreman && ( \
-		/usr/bin/foreman-ruby /usr/bin/bundle install --local && \
-		/usr/bin/npm install --no-audit --no-optional --unsafe-perm && \
-		/usr/bin/foreman-ruby /usr/bin/bundle exec rake plugin:assets:precompile[$(PLUGIN)] RAILS_ENV=production DATABASE_URL=nulldb://nohost \
-	)
-	GEM_PATH=$$(cd /usr/share/foreman && /usr/bin/foreman-ruby /usr/bin/bundle show $(PLUGIN)) && \
-	cp -rp $${GEM_PATH}/public/assets ./ && \
-	cp -rp $${GEM_PATH}/public/webpack ./ && \
-	cp -rp $${GEM_PATH}/extra ./
+include /usr/share/foreman/foreman-plugin.mk
 
-%:
-	dh $@
+override_dh_auto_install:
+	cp -r /usr/share/foreman/vendor/ruby/*/gems/foreman-tasks-*/extra ./
+	dh_auto_install
