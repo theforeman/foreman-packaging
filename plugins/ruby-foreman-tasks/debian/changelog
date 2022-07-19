@@ -1,4 +1,10 @@
-ruby-foreman-tasks (6.0.2) stable; urgency=low
+ruby-foreman-tasks (6.0.2-2) stable; urgency=low
+
+  * Update sinatra to 2.2.1 to match rack-protection in core
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 12:06:31 +0200
+
+ruby-foreman-tasks (6.0.2-1) stable; urgency=low
 
   * 6.0.2 released
 
