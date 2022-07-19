@@ -1,3 +1,9 @@
+ruby-foreman-hooks (0.3.17-2) stable; urgency=low
+
+  * Use Foreman postinst library
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 09:28:36 +0200
+
 ruby-foreman-hooks (0.3.17-1) stable; urgency=low
 
   * 0.3.17 released
