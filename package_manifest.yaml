@@ -4,6 +4,31 @@ all:
     foremandist: .fm3_5
     foreman_version: 'nightly'
     katello_version: 'nightly'
+    all_tags:
+      foreman-el8:
+        name: "foreman-{{ foreman_version }}-el8"
+        dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
+      foreman-plugins-el8:
+        name: "foreman-plugins-{{ foreman_version }}-el8"
+        dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
+      foreman-client-el9:
+        name: "foreman-client-{{ foreman_version }}-el9"
+        dist: '.el9'
+      foreman-client-el8:
+        name: "foreman-client-{{ foreman_version }}-el8"
+        dist: '.el8'
+      foreman-client-el7:
+        name: "foreman-client-{{ foreman_version }}-rhel7"
+        dist: '.el7'
+      katello-el8:
+        name: "katello-{{ katello_version }}-el8"
+        dist: '.el8'
+        macros:
+          foremandist: "{{ foremandist }}"
   children:
     packages: {}
     repoclosures: {}
@@ -23,13 +48,7 @@ foreman_packages:
   vars:
     package_base_dir: 'packages/foreman/'
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-foreman
-    nightly_releaser: koji-foreman-jenkins
+      - "{{ all_tags['foreman-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-foreman-{{ foreman_version }}"
@@ -51,13 +70,7 @@ plugin_packages:
   vars:
     package_base_dir: 'packages/plugins/'
     koji_tags:
-      - name: "foreman-plugins-{{ foreman_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-foreman-plugins
-    nightly_releaser: koji-foreman-plugins-jenkins
+      - "{{ all_tags['foreman-plugins-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-foreman-plugins-{{ foreman_version }}"
@@ -96,13 +109,6 @@ foreman_core_packages:
   hosts:
     dynflow-utils: {}
     foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/foreman-develop-source-release
       source_system: jenkins
     foreman-bootloaders-redhat: {}
@@ -147,10 +153,7 @@ foreman_core_packages:
     rubygem-execjs: {}
     rubygem-excon: {}
     rubygem-facter: {}
-    rubygem-faraday:
-      releasers:
-        - koji-foreman
-        - koji-foreman-plugins
+    rubygem-faraday: {}
     rubygem-faraday-em_http: {}
     rubygem-faraday-em_synchrony: {}
     rubygem-faraday-excon: {}
@@ -195,23 +198,9 @@ foreman_core_packages:
     rubygem-graphql: {}
     rubygem-graphql-batch: {}
     rubygem-hammer_cli:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/hammer-cli-master-source-release
       source_system: jenkins
     rubygem-hammer_cli_foreman:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-foreman-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/hammer-cli-foreman-master-source-release
       source_system: jenkins
     rubygem-hashie: {}
@@ -246,15 +235,9 @@ foreman_core_packages:
     rubygem-net-ldap: {}
     rubygem-net-ping: {}
     rubygem-net-scp: {}
-    rubygem-net-ssh:
-      releasers:
-        - koji-foreman
-        - koji-foreman-plugins
+    rubygem-net-ssh: {}
     rubygem-net_http_unix: {}
-    rubygem-netrc:
-      releasers:
-        - koji-foreman
-        - koji-foreman-plugins
+    rubygem-netrc: {}
     rubygem-nio4r: {}
     rubygem-nokogiri: {}
     rubygem-oauth: {}
@@ -445,23 +428,9 @@ foreman_nodejs_packages:
 foreman_installer_packages:
   hosts:
     foreman-installer:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-installer-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/foreman-installer-develop-source-release
       source_system: jenkins
     foreman-selinux:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=foreman-selinux-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/foreman-selinux-develop-source-release
       source_system: jenkins
     katello-certs-tools: {}
@@ -477,13 +446,6 @@ foreman_installer_packages:
 foreman_proxy_packages:
   hosts:
     foreman-proxy:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=smart-proxy-develop-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/smart-proxy-develop-source-release
       source_system: jenkins
     rubygem-concurrent-ruby: {}
@@ -498,15 +460,10 @@ foreman_proxy_packages:
 foreman_client_packages:
   vars:
     package_base_dir: 'packages/client/'
-    releasers:
-      - koji-foreman-client
     koji_tags:
-      - name: "foreman-client-{{ foreman_version }}-el9"
-        dist: '.el9'
-      - name: "foreman-client-{{ foreman_version }}-el8"
-        dist: '.el8'
-      - name: "foreman-client-{{ foreman_version }}-rhel7"
-        dist: '.el7'
+      - "{{ all_tags['foreman-client-el9'] }}"
+      - "{{ all_tags['foreman-client-el8'] }}"
+      - "{{ all_tags['foreman-client-el7'] }}"
     repoclosure_target_repos:
       el9:
         - "el9-foreman-client-{{ foreman_version }}"
@@ -546,13 +503,7 @@ katello_packages:
   vars:
     package_base_dir: 'packages/katello/'
     koji_tags:
-      - name: "katello-{{ katello_version }}-el8"
-        dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
-    releasers:
-      - koji-katello
-    nightly_releaser: koji-katello-jenkins
+      - "{{ all_tags['katello-el8'] }}"
     repoclosure_target_repos:
       el8:
         - "el8-katello-{{ katello_version }}"
@@ -599,23 +550,9 @@ katello_packages:
     rubygem-hammer_cli_foreman_scc_manager: {}
     rubygem-hammer_cli_foreman_virt_who_configure: {}
     rubygem-hammer_cli_katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=hammer-cli-katello-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/hammer-cli-katello-master-source-release
       source_system: jenkins
     rubygem-katello:
-      releasers:
-        - "{{ nightly_releaser }}"
-      build_package_tito_releaser_args: "{{ nightly_package_tito_releaser_args }}"
-      nightly_package_tito_releaser_args:
-        - "jenkins_job=katello-master-source-release"
-        - "jenkins_url=https://ci.theforeman.org"
-      build_package_tito_builder: "tito.builder.FetchBuilder"
       source_location: https://ci.theforeman.org/job/katello-master-source-release
       source_system: jenkins
     rubygem-pulp_python_client: {}
@@ -902,16 +839,10 @@ repoclosures:
 foreman_release_packages:
   vars:
     koji_tags:
-      - name: "foreman-{{ foreman_version }}-el8"
-        dist: '.el8'
-      - name: "foreman-client-{{ foreman_version }}-el9"
-        dist: '.el9'
-      - name: "foreman-client-{{ foreman_version }}-el8"
-        dist: '.el8'
-      - name: "foreman-client-{{ foreman_version }}-rhel7"
-        dist: '.el7'
-    releasers:
-      - koji-foreman-client
+      - "{{ all_tags['foreman-el8'] }}"
+      - "{{ all_tags['foreman-client-el9'] }}"
+      - "{{ all_tags['foreman-client-el8'] }}"
+      - "{{ all_tags['foreman-client-el7'] }}"
     package_base_dir: 'packages/foreman/'
     repoclosure_target_repos:
       el9:

@@ -3,8 +3,8 @@
 NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
-TITO_TAG=foreman-nightly-el8
-DISTRO=${TITO_TAG##*-}
+KOJI_TAG=foreman-nightly-el8
+DISTRO=${KOJI_TAG##*-}
 BASE_DIR=${4:-foreman}
 
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
@@ -76,17 +76,6 @@ generate_npm_package() {
   echo -e "Annexing sources... - "
   find "$PACKAGE_DIR" -name '*.tgz' -exec git annex add {} +
   echo "FINISHED"
-}
-
-add_to_tito_props() {
-  # Get tito.props whitelists and add node package
-  original_locale=$LC_COLLATE
-  export LC_COLLATE=en_GB
-  local current_whitelist=$(crudini --get rel-eng/tito.props $TITO_TAG whitelist)
-  local whitelist=$(echo "$current_whitelist $PACKAGE_NAME" | tr " " "\n" | sort -u)
-  crudini --set rel-eng/tito.props $TITO_TAG whitelist "$whitelist"
-  export LC_COLLATE=$original_locale
-  git add rel-eng/tito.props
 }
 
 add_npm_to_comps() {
@@ -167,9 +156,6 @@ if [[ $UPDATE == true ]] ; then
   fi
 else
   generate_npm_package
-  echo -n "Setting tito props..."
-  add_to_tito_props
-  echo "FINISHED"
   echo -e "Updating comps... - "
   add_npm_to_comps
   echo "FINISHED"

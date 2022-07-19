@@ -22,10 +22,8 @@ If you're submitting a patch which adds/updates npm modules (nodejs- packages) y
 
 To build locally or release RPMs from this repo, you also require:
 
-* [obal](https://github.com/theforeman/obal) 0.0.2 or higher
-* [tito](https://github.com/dgoodwin/tito) 0.6.1 or higher
+* [obal](https://github.com/theforeman/obal) 0.10.0 or higher
 * [mock](http://fedoraproject.org/wiki/Projects/Mock) or koji client and an account (certificate) on koji.katello.org
-* scl-utils-build package (Fedora or Red Hat repositories)
 
 ## HOWTO: checkout
 
@@ -46,26 +44,16 @@ Configuration for mock is supplied in mock/ and can be used to build any of
 the packages locally and quickly.
 
 ```sh
-obal mock --config ./mock/el7-scl.cfg PACKAGE
+obal mock PACKGE --config ./mock/el8.cfg
 ```
-
-Using a local git checkout, change `source_dir` as appropriate:
-
-* Core packages: `obal mock foreman --config ./mock/el7-scl.cfg -e "{'releasers':['koji-foreman-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
 
 ### With Koji access
 
 If you have a certificate for our Koji server (regular packagers can get them),
-then you can use tito to build scratch packages on Koji, though it's slower
+then you can use Obal to build scratch packages on Koji, though it's slower
 than mock (above).
 
     obal scratch PACKAGE
-
-Using a local git checkout, change `source_dir` as appropriate:
-
-* Core packages: `obal scratch foreman -e "{'releasers':['koji-foreman-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman']}"`
-* Plugins: `obal scratch rubygem-foreman_bootdisk -e "{'releasers': ['koji-foreman-plugins-jenkins']}, 'build_package_tito_releaser_args': ['--arg source_dir=~/foreman_bootdisk']}"`
-* Katello: `obal scratch rubygem-katello -e "{'releasers': ['koji-katello-jenkins'], 'build_package_tito_releaser_args': ['--arg source_dir=~/katello']}"`
 
 ## HOWTO: Add a package
 
@@ -76,8 +64,8 @@ Using a local git checkout, change `source_dir` as appropriate:
 1. Ensure you're on a fresh git branch because the tooling will create a commit.
 1. Choose a template from gem2rpm that's suitable for the type of package and
    run:
-  `./add_gem_package.sh GEM_NAME TEMPLATE TITO_TAG`
-   Running without arguments will list the templates and tito tags.
+  `./add_gem_package.sh GEM_NAME TEMPLATE KOJI_TAG`
+   Running without arguments will list the templates and koji tags.
 1. Improve the spec file to a reasonable standard, tidying up any gem2rpm
    weirdness.  In particular, look for:
    * Convert SPDX licences to [Fedora short names](https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing#Software_License_List)
@@ -92,7 +80,7 @@ In order to add or update npm dependencies, you will need [npm2rpm](https://www.
 
 1. Until npm2rpm is released, you will need to install it from source (git clone).
 1. In your `npm2rpm` directory, run `npm install`.
-1. Make a symlink from `npm2rpm.js` to `npm2rpm` (with no extension).  This is so the update script, `add_npm_package.sh`, can find it. 
+1. Make a symlink from `npm2rpm.js` to `npm2rpm` (with no extension).  This is so the update script, `add_npm_package.sh`, can find it.
   ```
   ln -s ~/npm2rpm/bin/npm2rpm.js ~/npm2rpm/bin/npm2rpm
   ```
@@ -117,7 +105,7 @@ In both cases:
    * For packages without dependencies - `./add_npm_package.sh example version single`
    * For packages that bundle dependencies - `./add_npm_package.sh example version bundle`
 1. This should have created a nodejs-example directory with the packages needed, the spec,
-and the cache if it's a bundled package. It should have modified tito.props, comps and
+and the cache if it's a bundled package. It should have modified comps and
 added everything to git, including a commit.
 1. Add the package to `package_manifest.yaml`
 1. Amend the commit
@@ -185,17 +173,9 @@ To update Katello we'll assume a git checkout at `~/katello`:
 ## HOWTO: build multiple packages
 
 If you have multiple packages that you want to build together because they
-depend on each other, `mockchain` can be very helpful. To do this:
+depend on each other, `mockchain` can be very helpful. To do this use Obal `mock`:
 
-1. Use tito to generate a SRPM for every package. Run  `tito build --srpm
---test --builder` on every package directory
-1. Run `mockchain -r el7-scl --tmp_prefix tfm --recurse /tmp/tito/*.src.rpm`
-to build the SRPMs created in the previous step. This will attempt to build
-all your packages in alphabetical order and will retry.
-1. The results of mockchain will be put in '/var/tmp/mock-chain-tfm.../'.
-To benefit from that and avoid building packages that were already successfully
-built, run  `mockchain -l /var/tmp/mock-chain-tfm.../` adjusting the path for
-the location of your packages.
+   obal mock rubygem-rails rubygem-actioncable --config mock/el8.cfg
 
 ## HOWTO: removing a package
 
@@ -205,10 +185,8 @@ the location of your packages.
 
 ## How does this repo work?
 
-This repo contains a directory per source package and some tito configuration
-and state (under rel-eng/).  Each source package directory contains a spec
-file and patches under version control plus references to the source files
-(i.e. gems or tarballs).
+This repo contains a directory per source package and configuration in `package_manifest.yaml`.
+Each source package directory contains a spec file and patches under version control plus references to the source files (i.e. gems or tarballs).
 
 These references are managed using git-annex, a git extension for tracking
 large binary blobs outside of the git repo itself.  This means we can
@@ -216,51 +194,18 @@ reference source files directly on rubygems.org etc, or perhaps set up a kind
 of lookaside cache in the future.  For now, we use the [special web remote](http://git-annex.branchable.com/tips/using_the_web_as_a_special_remote/)
 with URLs to all of our source files available on the web.
 
-Obal's custom git-annex support for tito will automatically (lazily) fetch
+Obal's custom git-annex support will automatically (lazily) fetch
 files and cache them in your local git checkout as and when you build packages.
 
-tito works in two key stages: tagging and releasing.  Obal's custom git-annex
-support helps bypass the tagging stage.
-
-tito lets you build a SRPM and submit to koji, which builds the binary package
+Obal lets you build a SRPM and submit to koji, which builds the binary package
 (whereupon it gets pulled into our yum repositories).
 
 This repository is branched like Foreman itself, with rpm/1.x branches
 for major releases.
 
-To find tito build targets do this:
-
-    $ tito release -l
-    [koji-foreman]
-    [koji-foreman-jenkins]
-    [koji-foreman-plugins]
-    [koji-foreman-plugins-jenkins]
-    [koji-katello]
-    [koji-katello-client]
-    [koji-katello-jenkins]
-
 To build a new release package for foreman project for example, do this:
 
-    $ tito release koji-foreman
-
-## Releasing a package
-
-After a PR has been merged to add or update a package, then the package should be released.  In
-case it's a new package, be sure to add it to the correct koji tags as well.  [Here's a helper script](https://github.com/theforeman/foreman-packaging/blob/rpm/develop/rel-eng/compare-with-tags.rb)
-
-1. Switch to the directory for the package to be released, i.e. for the rubygem-mysql2 package:
-
-    `$ cd packages/foreman/rubygem-mysql2/`
-
-1. Do a scratch build of the release first:
-
-    `$ tito release --scratch koji-foreman koji-foreman-plugins`
-
-1. Verify package built successfully in koji, and then release:
-
-    `$ tito release koji-foreman koji-foreman-plugins`
-
-* This uses local filesystem, so please be sure your using a clean checkout with no local changes
+    $ obal release foreman
 
 ## Releasing Katello client packages for SUSE
 
@@ -297,15 +242,3 @@ koji tag-build foreman-client-nightly-sles11 katello-repos-3.7.0-18.1.nightly.su
 Spec files are generally based on Fedora spec files, which means that unless a
 spec file contains an explicit license attribution within it, it is available
 under the MIT license.
-
-## TODO / ideas
-
-Instead of using KojiReleaser, we should use KojiGitReleaser so Koji checks
-out this repo from git and runs `make srpm`, which could use tito to build
-the SRPM.  This has the nice benefit of not accepting random SRPMs as builds
-in Koji, giving end to end safety + verification.  The Makefile could be in a
-common/ directory.
-
-  * http://www.redhat.com/archives/fedora-buildsys-list/2008-August/msg00014.html
-  * http://www.redhat.com/archives/fedora-buildsys-list/2007-September/msg00023.html
-  * https://git.fedorahosted.org/cgit/koji/tree/koji/daemon.py#n320

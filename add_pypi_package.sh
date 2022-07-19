@@ -2,8 +2,8 @@
 
 PYPI_NAME=$1
 VERSION=${2:-auto}
-TITO_TAG=${3:-foreman-nightly-el8}
-DISTRO=${TITO_TAG##*-}
+KOJI_TAG=${3:-foreman-nightly-el8}
+DISTRO=${KOJI_TAG##*-}
 BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
 BASE_PYTHON=3
@@ -71,20 +71,9 @@ generate_pypi_package() {
   echo "FINISHED"
 }
 
-add_to_tito_props() {
-  # Get tito.props whitelists and add node package
-  original_locale=$LC_COLLATE
-  export LC_COLLATE=en_GB
-  local current_whitelist=$(crudini --get rel-eng/tito.props $TITO_TAG whitelist)
-  local whitelist=$(echo "$current_whitelist $PACKAGE_NAME" | tr " " "\n" | sort -u)
-  crudini --set rel-eng/tito.props $TITO_TAG whitelist "$whitelist"
-  export LC_COLLATE=$original_locale
-  git add rel-eng/tito.props
-}
-
 add_pypi_to_comps() {
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $TITO_TAG == katello-* ]]; then
+  if [[ $KOJI_TAG == katello-* ]]; then
     local comps_file="katello-server"
   else
     local comps_file="foreman"
@@ -100,11 +89,11 @@ add_pypi_to_comps() {
 }
 
 add_pypi_to_manifest() {
-	if [[ $TITO_TAG == "foreman-nightly-el8" ]] ; then
+	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
 		local section="foreman_core_packages"
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-el8" ]] ; then
+	elif [[ $KOJI_TAG == "foreman-plugins-nightly-el8" ]] ; then
 		local section="foreman_plugin_packages"
-	elif [[ $TITO_TAG == "katello-nightly-el8" ]] ; then
+	elif [[ $KOJI_TAG == "katello-nightly-el8" ]] ; then
 		local section="katello_packages"
 	else
 		# TODO: client packages
@@ -130,7 +119,7 @@ pypi_info() {
 
 if [[ -z $PYPI_NAME ]]; then
   echo "This script adds a new python package based on the module found on pypi.org"
-  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [TITO_TAG [PACKAGE_SUBDIR [TEMPLATE]]] \n"
+  echo -e "\nUsage:\n$0 PYPI_NAME [VERSION [KOJI_TAG [PACKAGE_SUBDIR [TEMPLATE]]] \n"
   echo "VERSION is optional but can be an exact version number or auto to use the latest version"
   exit 1
 fi
@@ -168,9 +157,6 @@ if [[ $UPDATE == true ]] ; then
   fi
 else
   generate_pypi_package
-  echo -n "Setting tito props..."
-  add_to_tito_props
-  echo "FINISHED"
   echo -e "Updating comps... - "
   add_pypi_to_comps
   echo "FINISHED"
