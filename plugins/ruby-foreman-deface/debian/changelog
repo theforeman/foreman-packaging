@@ -1,3 +1,9 @@
+ruby-foreman-deface (1.9.0-2) stable; urgency=low
+
+  * Use Foreman postinst library
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 08:52:00 +0200
+
 ruby-foreman-deface (1.9.0-1) stable; urgency=low
 
   * 1.9.0 released

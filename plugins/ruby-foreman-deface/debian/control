@@ -8,6 +8,6 @@ Homepage: https://github.com/DefaceCommunity/deface
 
 Package: ruby-foreman-deface
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman
+Depends: ${misc:Depends}, foreman (>= 3.1.0~)
 Description: Foreman Deface Plugin Dependency
  Dependency of several Foreman Plugins, providing the Deface view modification engine
