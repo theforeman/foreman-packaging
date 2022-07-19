@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
 usage() {
-	echo "Usage: $0 GEM_NAME [TEMPLATE [TITO_TAG [PACKAGE_SUBDIR]]]"
+	echo "Usage: $0 GEM_NAME [TEMPLATE [PACKAGE_SUBDIR [KOJI_TAG]]]"
 	echo "Valid templates: $(ls gem2rpm | sed 's/.spec.erb//' | tr '\n' ' ')"
-	python3 -c "import configparser ; c = configparser.ConfigParser() ; c.read('rel-eng/tito.props') ; print('Tito tags: ' + ' '.join(s for s in c.sections() if s not in ('requirements', 'buildconfig', 'builder')))"
+	./list_koji_tags
 	exit 1
 }
 
@@ -49,30 +49,9 @@ generate_gem_package() {
 	popd
 }
 
-add_to_all_tito_props() {
-	add_to_tito_props $TITO_TAG
-	if [[ $TITO_TAG == "foreman-client-nightly-el8" ]] ; then
-		add_to_tito_props foreman-client-nightly-rhel7
-		add_to_tito_props foreman-client-nightly-el9
-	fi
-}
-
-add_to_tito_props() {
-	local tag=$1
-
-	# Get tito.props whitelists and add node package
-	original_locale=$LC_COLLATE
-	export LC_COLLATE=en_GB
-	local current_whitelist=$(crudini --get rel-eng/tito.props $tag whitelist)
-	local whitelist=$(echo "$current_whitelist $PACKAGE_NAME" | tr " " "\n" | sort -u)
-	crudini --set rel-eng/tito.props $tag whitelist "$whitelist"
-	export LC_COLLATE=$original_locale
-	git add rel-eng/tito.props
-}
-
 add_gem_to_all_comps() {
-	add_gem_to_comps $TITO_TAG
-	if [[ $TITO_TAG == "foreman-client-nightly-el8" ]] ; then
+	add_gem_to_comps $KOJI_TAG
+	if [[ $KOJI_TAG == "foreman-client-nightly-el8" ]] ; then
 		add_gem_to_comps foreman-client-nightly-el9
 		add_gem_to_comps foreman-client-nightly-rhel7
 	fi
@@ -95,13 +74,13 @@ add_gem_to_comps() {
 }
 
 add_to_manifest() {
-	if [[ $TITO_TAG == "foreman-nightly-el8" ]] ; then
+	if [[ $KOJI_TAG == "foreman-nightly-el8" ]] ; then
 		local section="foreman_core_packages"
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-el8" ]] ; then
+	elif [[ $KOJI_TAG == "foreman-plugins-nightly-el8" ]] ; then
 		local section="foreman_plugin_packages"
-	elif [[ $TITO_TAG == "katello-nightly-el8" ]] ; then
+	elif [[ $KOJI_TAG == "katello-nightly-el8" ]] ; then
 		local section="katello_packages"
-	elif [[ $TITO_TAG == "foreman-client-*" ]] ; then
+	elif [[ $KOJI_TAG == "foreman-client-*" ]] ; then
 		local section="foreman_client_packages"
 	else
 		# TODO: installer, smart_proxy plugins, rails
@@ -129,7 +108,7 @@ GEM_NAME=${GEM_NAME_ARR[0]}
 GEM_VERSION=${GEM_NAME_ARR[1]}
 PACKAGE_NAME=rubygem-$GEM_NAME
 TEMPLATE_NAME=$2
-TITO_TAG=$3
+KOJI_TAG=$3
 PACKAGE_SUBDIR=$4
 ROOT=$(git rev-parse --show-toplevel)
 
@@ -145,16 +124,16 @@ if [[ -z $TEMPLATE_NAME ]] ; then
 	fi
 fi
 
-if [[ -z $TITO_TAG ]] ; then
+if [[ -z $KOJI_TAG ]] ; then
 	if [[ $TEMPLATE_NAME == *_plugin ]] ; then
-		TITO_TAG="foreman-plugins-nightly-el8"
+		KOJI_TAG="foreman-plugins-nightly-el8"
 	fi
 fi
 
 if [[ -z $PACKAGE_SUBDIR ]] ; then
-	if [[ $TITO_TAG == foreman-plugins-* ]] ; then
+	if [[ $KOJI_TAG == foreman-plugins-* ]] ; then
 		PACKAGE_SUBDIR="plugins"
-	elif [[ $TITO_TAG == katello-* ]] ; then
+	elif [[ $KOJI_TAG == katello-* ]] ; then
 		PACKAGE_SUBDIR="katello"
 	else
 		PACKAGE_SUBDIR="foreman"
@@ -174,7 +153,7 @@ else
 	UPDATE=false
 fi
 
-if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $TITO_TAG ]]; then
+if [[ -z $GEM_NAME ]] || [[ -z $TEMPLATE_NAME ]] || [[ $UPDATE != true ]] && [[ -z $KOJI_TAG ]]; then
 	usage
 fi
 
@@ -199,7 +178,6 @@ if [[ $UPDATE == true ]] ; then
 else
 	generate_gem_package
 	add_to_manifest
-	add_to_all_tito_props
 	add_gem_to_all_comps
 	git commit -m "Add $PACKAGE_NAME package"
 fi

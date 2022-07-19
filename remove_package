@@ -18,15 +18,6 @@ remove_from_comps() {
 	done
 }
 
-remove_from_tito() {
-	for tag in foreman-nightly-el8 foreman-plugins-nightly-el8 katello-nightly-el8 foreman-client-nightly-{el9,el8,rhel7} ; do
-		for package in ${PACKAGES[*]} ; do
-			crudini --del --list --list-sep=$'\n' rel-eng/tito.props "$tag" whitelist "$package"
-		done
-	done
-}
-
 remove_packages
 remove_from_manifest
 remove_from_comps
-remove_from_tito
