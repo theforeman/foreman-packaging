@@ -10,13 +10,8 @@
 #export DH_VERBOSE=1
 
 PLUGIN = foreman_monitoring
+PLUGIN_HAS_ASSETS = false
+PLUGIN_HAS_WEBPACK = false
+PLUGIN_HAS_PACKAGE_JSON = false
 
-build:
-	cp cache/* /usr/share/foreman/vendor/cache/
-	cp $(PLUGIN).rb /usr/share/foreman/bundler.d/
-	cd /usr/share/foreman && ( \
-		/usr/bin/foreman-ruby /usr/bin/bundle install --local \
-	)
-
-%:
-	dh $@
+include /usr/share/foreman/foreman-plugin.mk
