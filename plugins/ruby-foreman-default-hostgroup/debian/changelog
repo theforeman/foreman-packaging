@@ -1,3 +1,9 @@
+ruby-foreman-default-hostgroup (6.0.0-2) stable; urgency=low
+
+  * Use Foreman postinst library
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 19 Jul 2022 09:26:42 +0200
+
 ruby-foreman-default-hostgroup (6.0.0-1) stable; urgency=low
 
   * 6.0.0 released
