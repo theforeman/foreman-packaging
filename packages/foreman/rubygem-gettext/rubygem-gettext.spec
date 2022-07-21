@@ -1,30 +1,26 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name gettext
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.1.4
-Release: 11%{?dist}
+Name: rubygem-%{gem_name}
+Version: 3.4.3
+Release: 1%{?dist}
 Summary: Gettext is a pure Ruby libary and tools to localize messages
-Group: Development/Languages
-License: Ruby or LGPLv3+
-URL: http://ruby-gettext.github.com/
+License: Ruby and LGPLv3+
+URL: https://ruby-gettext.github.io/
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby 
-Requires: %{?scl_prefix_ruby}ruby(rubygems) 
-Requires: %{?scl_prefix}rubygem(locale) >= 2.0.5
-Requires: %{?scl_prefix}rubygem(text) 
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby 
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel 
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
+
+# CI runs rpmlint on EL7
+%if 0%{?rhel} >= 8
+# prime is a default gem in Ruby < 3.1, bundled in >= 3.1
+Requires: (rubygem(prime) or ruby-default-gems < 3.1)
+%endif
 
 %description
 Gettext is a GNU gettext-like program for Ruby.
@@ -33,36 +29,26 @@ So you can use GNU gettext tools for maintaining.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+# prime is a default gem in Ruby < 3.1, bundled in >= 3.1
+%gemspec_remove_dep -g prime
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -72,15 +58,16 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{_bindir}
 cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
 %{_bindir}/rmsgcat
-%{_bindir}/rmsgmerge
-%{_bindir}/rxgettext
 %{_bindir}/rmsgfmt
 %{_bindir}/rmsginit
+%{_bindir}/rmsgmerge
+%{_bindir}/rxgettext
 %exclude %{gem_instdir}/.yardopts
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -100,6 +87,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %{gem_instdir}/test
 
 %changelog
+* Thu Jul 21 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.3-1
+- Update to 3.4.3
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.1.4-11
 - Rebuild against rh-ruby27
 
