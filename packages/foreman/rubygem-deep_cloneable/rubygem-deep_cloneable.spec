@@ -1,28 +1,20 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkgname %{name}}
+# template: default
+%global gem_name deep_cloneable
 
-%define gem_name deep_cloneable
-
+Name: rubygem-%{gem_name}
+Version: 3.2.0
+Release: 1%{?dist}
 Summary: This gem gives every ActiveRecord::Base object the possibility to do a deep clone
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.0.0
-Release: 4%{?dist}
-Group: Development/Languages
 License: MIT
 URL: https://github.com/moiristo/deep_cloneable
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(activerecord) >= 3.1.0
-Requires: %{?scl_prefix}rubygem(activerecord) < 7
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby >= 1.9.3
+BuildRequires: ruby >= 1.9.3
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 Extends the functionality of ActiveRecord::Base#dup to perform a deep clone
@@ -31,47 +23,50 @@ that includes user specified associations.
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
-
+Documentation for %{name}.
 
 %prep
-%setup -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-
 
 %files
 %dir %{gem_instdir}
-%doc %{gem_instdir}/LICENSE
-%{gem_instdir}/*
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/Appraisals
+%license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/init.rb
+%{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/.rubocop.yml
-%exclude %{gem_instdir}/.travis.yml
-%exclude %{gem_instdir}/.document
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/readme.md
 %doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Gemfile.lock
+%{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/deep_cloneable.gemspec
+%doc %{gem_instdir}/readme.md
 
 %changelog
+* Fri Jul 22 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 3.2.0-1
+- Update to 3.2.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.0-4
 - Rebuild against rh-ruby27
 
