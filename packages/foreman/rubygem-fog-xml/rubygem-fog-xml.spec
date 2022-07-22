@@ -1,75 +1,76 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name fog-xml
 
-Summary: Shared XML related functionality for fog
-Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 0.1.2
-Release: 9%{?dist}
-Group: Development/Ruby
+Name: rubygem-%{gem_name}
+Version: 0.1.4
+Release: 1%{?dist}
+Summary: XML parsing for fog providers
 License: MIT
 URL: https://github.com/fog/fog-xml
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(fog-core)
-Requires: %{?scl_prefix}rubygem(nokogiri) >= 1.5.11
-Requires: %{?scl_prefix}rubygem(nokogiri) < 2.0
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
-BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
-%define gembuilddir %{buildroot}%{gem_dir}
+# start specfile generated dependencies
+Requires: ruby >= 2.0.0
+BuildRequires: ruby >= 2.0.0
+BuildRequires: rubygems-devel
+BuildArch: noarch
+# end specfile generated dependencies
 
 %description
-Extraction of the XML parsing tools shared between a number of providers in the
-'fog' gem.
+Extraction of the XML parsing tools shared between a
+number of providers in the 'fog' gem.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -T -c
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/lib
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.ruby-gemset
+%license %{gem_instdir}/LICENSE.md
+%exclude %{gem_instdir}/gemfiles
+%{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_instdir}/LICENSE.md
-%exclude %{gem_instdir}/.*
 
 %files doc
 %doc %{gem_docdir}
-%{gem_instdir}/CONTRIBUTING.md
-%{gem_instdir}/CONTRIBUTORS.md
-%{gem_instdir}/README.md
-%{gem_instdir}/spec
-%{gem_instdir}/gemfiles
-%{gem_instdir}/Gemfile*
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/CONTRIBUTORS.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %exclude %{gem_instdir}/fog-xml.gemspec
+%{gem_instdir}/spec
 
 %changelog
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.1.4-1
+- Update to 0.1.4
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.1.2-9
 - Rebuild against rh-ruby27
 
