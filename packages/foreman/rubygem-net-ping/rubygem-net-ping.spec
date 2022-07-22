@@ -1,24 +1,20 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name net-ping
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.0.1
-Release: 5%{?dist}
+Name: rubygem-%{gem_name}
+Version: 2.0.8
+Release: 1%{?dist}
 Summary: A ping interface for Ruby
-Group: Development/Languages
 License: Artistic 2.0
 URL: https://github.com/chernesk/net-ping
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.3
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.9.3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+
+# start specfile generated dependencies
+Requires: ruby >= 1.9.3
+BuildRequires: ruby >= 1.9.3
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 The net-ping library provides a ping interface for Ruby. It includes
@@ -27,62 +23,53 @@ classes.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/CHANGES
+%exclude %{gem_instdir}/MANIFEST
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGES
+%doc %{gem_instdir}/CHANGES.out_of_date
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Gemfile.lock
-%{gem_instdir}/MANIFEST
+%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %doc %{gem_instdir}/doc
 %{gem_instdir}/examples
-%{gem_instdir}/net-ping.gemspec
+%exclude %{gem_instdir}/net-ping.gemspec
 %{gem_instdir}/test
 
 %changelog
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.8-1
+- Update to 2.0.8
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.0.1-5
 - Rebuild against rh-ruby27
 
