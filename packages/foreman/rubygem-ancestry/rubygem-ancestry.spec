@@ -1,87 +1,71 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name ancestry
 
-Summary: Organise ActiveRecord model into a tree structure
-Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 3.0.7
-Release: 2%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 3.2.1
+Release: 1%{?dist}
+Summary: Organize ActiveRecord model into a tree structure
 License: MIT
 URL: https://github.com/stefankroes/ancestry
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(activerecord) >= 3.2.2
-BuildRequires: %{?scl_prefix_ruby}rubygems
+
+# start specfile generated dependencies
+Requires: ruby >= 2.0.0
+BuildRequires: ruby >= 2.0.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(ancestry) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Ancestry allows the records of a ActiveRecord model to be organised in a tree
-structure, using a single, intuitively formatted database column. It exposes
-all the standard tree structure relations (ancestors, parent, root, children,
-siblings, descendants) and all of them can be fetched in a single sql query.
-Additional features are named_scopes, integrity checking, integrity
-restoration, arrangement of (sub)tree into hashes and different strategies
-for dealing with orphaned records.
+Ancestry allows the records of a ActiveRecord model to be organized in a tree
+structure, using the materialized path pattern. It exposes the standard
+relations (ancestors, parent, root, children, siblings, descendants)
+and allows them to be fetched in a single query. Additional features include
+named scopes, integrity checking, integrity restoration, arrangement
+of (sub)tree into hashes and different strategies for dealing with orphaned
+records.
+
 
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
-gem unpack %{SOURCE0}
-%{?scl:"}
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} "}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
-mkdir -p .%{gem_dir}
-
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-%{?scl:"}
+gem build ../%{gem_name}-%{version}.gemspec
 
-%{?scl:scl enable %{scl} - << EOF}
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a ./%{gem_dir}/* %{buildroot}%{gem_dir}/
-mv %{buildroot}%{gem_instdir}/{MIT-LICENSE,README.md} ./
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
-%license MIT-LICENSE
 %dir %{gem_instdir}
+%license %{gem_instdir}/MIT-LICENSE
 %{gem_libdir}
-%{gem_spec}
-%exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/init.rb
-%exclude %{gem_instdir}/install.rb
+%{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
-%doc README.md
-%{gem_instdir}/ancestry.gemspec
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.2.1-1
+- Update to 3.2.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.0.7-2
 - Rebuild against rh-ruby27
 
