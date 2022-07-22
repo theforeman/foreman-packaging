@@ -1,82 +1,74 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name excon
 
-Summary: Http(s) EXtended CONnections
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.76.0
-Release: 2%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 0.92.3
+Release: 1%{?dist}
+Summary: speed, persistence, http(s)
 License: MIT
-URL: https://github.com/geemus/excon
+URL: https://github.com/excon/excon
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: ca-certificates
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: ca-certificates
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
+
+Requires: ca-certificates
 
 %description
-EXtended http(s) CONnections
+EXtended http(s) CONnections.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 # kill bundled cacert.pem
 ln -sf /etc/pki/tls/cert.pem \
 	%{buildroot}%{gem_instdir}/data/cacert.pem
 
-%check
-#pushd .%{gem_instdir}
-## we need to remove the dependency on bundler and add the missing requires (workaround for not using the Rakefile)
-## do not require bundler
-#sed -i -e "s/'bundler'/'open4'\nrequire 'delorean'/" -e '/Bundler.require(:default, :development)/d' tests/test_helper.rb
-#
-## require the other needed libs
-## https://github.com/geemus/excon/issues/135#issuecomment-7181061
-#RUBYOPT="-r./lib/excon -rsecurerandom" shindo
-#popd
-
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/LICENSE.md
 %{gem_instdir}/data
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.md
 
 %files doc
-%{gem_instdir}/excon.gemspec
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CONTRIBUTING.md
 %doc %{gem_instdir}/CONTRIBUTORS.md
-%doc %{gem_instdir}/LICENSE.md
 %doc %{gem_instdir}/README.md
+%exclude %{gem_instdir}/excon.gemspec
 
 %changelog
+* Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.92.3-1
+- Update to 0.92.3
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.76.0-2
 - Rebuild against rh-ruby27
 
