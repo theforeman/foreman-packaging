@@ -1,25 +1,20 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name http-cookie
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.2
-Release: 5%{?dist}
-Summary: Ruby library to handle HTTP Cookies based on RFC 6265
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 1.0.5
+Release: 1%{?dist}
+Summary: A Ruby library to handle HTTP Cookies based on RFC 6265
 License: MIT
 URL: https://github.com/sparklemotion/http-cookie
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(domain_name) >= 0.5
-Requires: %{?scl_prefix}rubygem(domain_name) < 1.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 HTTP::Cookie is a Ruby library to handle HTTP Cookies based on RFC 6265.  It
@@ -28,60 +23,53 @@ just the same as today's major web browsers.  It has builtin support for the
 legacy cookies.txt and the latest cookies.sqlite formats of Mozilla Firefox,
 and its modular API makes it easy to add support for a new backend store.
 
+
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} "}
-gem unpack %{SOURCE0}
-%{?scl:"}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} "}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:"}
-
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} "}
-gem build %{gem_name}.gemspec
-%{?scl:"}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -a .%{gem_dir}/* %{buildroot}/%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
-%doc %{gem_instdir}/LICENSE.txt
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/README.md
-%{gem_instdir}/%{gem_name}.gemspec
-%{gem_instdir}/test
 %{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/test/
+%exclude %{gem_instdir}/http-cookie.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.0.5-1
+- Update to 1.0.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.2-5
 - Rebuild against rh-ruby27
 
