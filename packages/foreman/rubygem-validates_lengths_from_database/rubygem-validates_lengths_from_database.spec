@@ -1,52 +1,44 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name validates_lengths_from_database
 
-Summary: Introspects your database string field maximum lengths and validates
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.5.0
-Release: 8%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 0.8.0
+Release: 1%{?dist}
+Summary: Automatic maximum-length validations
 License: MIT
 URL: https://github.com/rubiety/validates_lengths_from_database
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(activerecord) >= 2.3.2
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby >= 2.4
+BuildRequires: ruby >= 2.4
+BuildRequires: rubygems-devel >= 1.3.4
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Few people add length validations to fields in their database, and when saving
-such fields that have exhausted their length, an SQL error occurs. This gem
-introspects your table schema for maximum lengths on string and text fields and
-automatically adds length validations to the model.
+Introspects your database string field maximum lengths and automatically
+defines length validations.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -55,26 +47,27 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/Appraisals
+%license %{gem_instdir}/LICENSE
+%exclude %{gem_instdir}/init.rb
 %{gem_libdir}
-%{gem_instdir}/init.rb
-%{gem_instdir}/rails
+%exclude %{gem_instdir}/rails
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
-
-%exclude %{gem_instdir}/Appraisals
-%exclude %{gem_instdir}/Gemfile*
-%exclude %{gem_instdir}/spec
-%exclude %{gem_instdir}/*.gem
-%exclude %{gem_instdir}/*.gemspec
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/CHANGELOG.rdoc
+%{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Gemfile.lock
 %doc %{gem_instdir}/README.rdoc
 %{gem_instdir}/Rakefile
+%{gem_instdir}/spec
 
 %changelog
+* Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.8.0-1
+- Update to 0.8.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.5.0-8
 - Rebuild against rh-ruby27
 
