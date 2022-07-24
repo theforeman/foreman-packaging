@@ -8,7 +8,7 @@
 %global foreman_min_version 3.3.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.0.0
+Version: 8.0.1
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -18,39 +18,31 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
-Requires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
-Requires: %{?scl_prefix}rubygem(deface) < 2.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(acts_as_list) >= 1.0.3
-BuildRequires: %{?scl_prefix}rubygem(acts_as_list) < 1.1
-BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 4.4.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.2.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(acts_as_list) >= 1.0.3
+BuildRequires: rubygem(acts_as_list) < 1.1
+BuildRequires: rubygem(deface) < 2.0
+BuildRequires: rubygem(foreman_remote_execution) >= 4.4.0
+BuildRequires: rubygem(foreman-tasks) >= 5.2.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.4.1
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 8.4.1
+BuildRequires: npm(@theforeman/builder) < 11.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(react-json-tree) >= 0.11.0
-BuildRequires: %{?scl_prefix}npm(react-json-tree) < 1.0.0
+BuildRequires: npm(react-json-tree) >= 0.11.0
+BuildRequires: npm(react-json-tree) < 1.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -124,6 +116,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 8.0.1-1
+- Update to 8.0.1
+
 * Mon May 16 2022 Leos Stejskal <lstejska@redhat.com> 8.0.0-1
 - Update to 8.0.0
 
