@@ -1,32 +1,19 @@
-# Generated from ruby2ruby-2.4.2.gem by gem2rpm -*- rpm-spec -*-
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name ruby2ruby
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.4.2
-Release: 4%{?dist}
+Name: rubygem-%{gem_name}
+Version: 2.4.4
+Release: 1%{?dist}
 Summary: ruby2ruby provides a means of generating pure ruby code easily from RubyParser compatible Sexps
-Group: Development/Languages
 License: MIT
 URL: https://github.com/seattlerb/ruby2ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(sexp_processor) >= 4.6
-Requires: %{?scl_prefix}rubygem(sexp_processor) < 5
-Requires: %{?scl_prefix}rubygem(ruby_parser) >= 3.1
-Requires: %{?scl_prefix}rubygem(ruby_parser) < 4
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -36,53 +23,39 @@ processors in ruby easier than ever!
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
-
-# The first line is a shebang that isn't needed but creates a dependency
-sed -i 1d bin/r2r_show
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 mkdir -p %{buildroot}%{_bindir}
-cp -pa .%{_bindir}/* \
+cp -a .%{_bindir}/* \
         %{buildroot}%{_bindir}/
+
 find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 %files
 %dir %{gem_instdir}
 %{_bindir}/r2r_show
+%exclude %{gem_instdir}/.autotest
 %exclude %{gem_instdir}/Manifest.txt
 %{gem_instdir}/bin
 %{gem_libdir}
@@ -93,11 +66,13 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %doc %{gem_docdir}
 %doc %{gem_instdir}/History.rdoc
 %doc %{gem_instdir}/README.rdoc
-%{gem_instdir}/.autotest
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
 
 %changelog
+* Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.4.4-1
+- Update to 2.4.4
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 2.4.2-4
 - Rebuild against rh-ruby27
 
