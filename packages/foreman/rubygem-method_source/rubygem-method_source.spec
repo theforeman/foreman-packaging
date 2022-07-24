@@ -1,66 +1,43 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name method_source
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.9.2
-Release: 3%{?dist}
+Name: rubygem-%{gem_name}
+Version: 1.0.0
+Release: 1%{?dist}
 Summary: retrieve the sourcecode for a method
-Group: Development/Languages
 License: MIT
-URL: http://banisterfiend.wordpress.com
+URL: https://banisterfiend.wordpress.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 0.9.0
 
 %description
 retrieve the sourcecode for a method.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -69,8 +46,8 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.circleci
 %exclude %{gem_instdir}/.gemtest
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.yardopts
 %license %{gem_instdir}/LICENSE
 %{gem_libdir}
@@ -79,13 +56,17 @@ cp -a .%{gem_dir}/* \
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.markdown
 %{gem_instdir}/Rakefile
-%{gem_instdir}/method_source.gemspec
+%exclude %{gem_instdir}/method_source.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.0.0-1
+- Update to 1.0.0
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.9.2-3
 - Rebuild against rh-ruby27
 
