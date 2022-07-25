@@ -3,11 +3,12 @@
 %global collection_namespace theforeman
 %global collection_name foreman
 %global collection_directory %{_datadir}/ansible/collections/ansible_collections/%{collection_namespace}/%{collection_name}
+%global documentation_directory %{_datadir}/usr/share/doc/%{collection_namespace}/%{collection_name}
 
 %global release 1
 
 Name:       ansible-collection-%{collection_namespace}-%{collection_name}
-Version:    3.6.0
+Version:    3.7.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary:    The Foreman Project Ansible modules collection
 
@@ -40,10 +41,14 @@ Includes modules for Katello.
 %setup -q -c
 
 %build
+make -C docs doc
+tar -czf %{collection_namespace}-%{collection_name}-%{version}.tar.gz -C docs/_build/html .
 
 %install
 mkdir -p %{buildroot}%{collection_directory}
 cp -a ./* %{buildroot}%{collection_directory}
+mkdir -p %{buildroot}%{documentation_directory}
+cp -a ./* %{buildroot}%{documentation_directory}
 
 
 
@@ -53,8 +58,25 @@ cp -a ./* %{buildroot}%{collection_directory}
 %doc %{collection_directory}/README.md
 
 
+%package documentation
+Summary:    Documentation for Foreman Project Ansible modules collection
+Source1:    %{collection_namespace}-%{collection_name}-%{version}.tar.gz
+
+
+%description documentation
+Documentation for collection of Ansible Modules to manage Foreman installations.
+Includes modules for Katello.
+
+
+%files documentation
+%doc %dir /usr/share/doc/%{name}
+/usr/share/doc/%{name}
+
 
 %changelog
+* Wed Sep 14 2022 Maximilian Kolb - 3.7.0-1
+- Build and package FAM documentation
+
 * Fri Sep 02 2022 Evgeni Golov - 3.6.0-1
 - Release ansible-collection-theforeman-foreman 3.6.0
 
