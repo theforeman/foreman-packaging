@@ -1,49 +1,43 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name secure_headers
 
-Summary: Security related headers all in one gem
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 6.3.0
-Release: 3%{?dist}
-Group: Development/Languages
+Name: rubygem-%{gem_name}
+Version: 6.3.4
+Release: 1%{?dist}
+Summary: Manages application of security headers with many safe defaults.
 License: ASL 2.0
 URL: https://github.com/twitter/secureheaders
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Add easily configured security headers to responses including content security
-policy, x-frame-options, strict-transport-security and more.
+Add easily configured security headers to responses including content-security-policy, x-frame-options, strict-transport-security, etc
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -52,26 +46,34 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.ruby-gemset
+%exclude %{gem_instdir}/.ruby-version
+%exclude %{gem_instdir}/CODE_OF_CONDUCT.md
+%exclude %{gem_instdir}/Guardfile
+%license %{gem_instdir}/LICENSE
 %{gem_libdir}
-%exclude %{gem_instdir}/secure_headers.gemspec
-%exclude %{gem_instdir}/.*
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE
 
 %files doc
 %doc %{gem_docdir}
+%exclude %{gem_instdir}/.rspec
 %doc %{gem_instdir}/CHANGELOG.md
-%doc %{gem_instdir}/CODE_OF_CONDUCT.md
 %doc %{gem_instdir}/CONTRIBUTING.md
-%doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/docs
 %{gem_instdir}/Gemfile
-%{gem_instdir}/Guardfile
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
+%doc %{gem_instdir}/docs
+%exclude %{gem_instdir}/secure_headers.gemspec
 %{gem_instdir}/spec
 
 %changelog
+* Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 6.3.4-1
+- Update to 6.3.4
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.3.0-3
 - Rebuild against rh-ruby27
 
