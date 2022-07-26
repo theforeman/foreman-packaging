@@ -26,12 +26,14 @@ config.rules[:ignore] << 'Gemfile.lock'
 config.rules[:ignore] << 'Manifest.txt'
 config.rules[:ignore] << 'MANIFEST'
 config.rules[:ignore] << '.zuul.yml'
+config.rules[:ignore] << '.zuul.yaml'
 config.rules[:ignore] << 'CODE_OF_CONDUCT.md'
 config.rules[:ignore] << /^.+\.gemspec$/
 config.rules[:ignore] << '.editorconfig'
 config.rules[:ignore] << '.codecov.yml'
 config.rules[:ignore] << '.ruby-gemset'
 config.rules[:ignore] << '.autotest'
+config.rules[:ignore] << '.circleci'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
