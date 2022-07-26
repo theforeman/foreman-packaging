@@ -1,83 +1,63 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name journald-native
 %global gem_require_name journald/native
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.0.11
-Release: 4%{?dist}
+Name: rubygem-%{gem_name}
+Version: 1.0.12
+Release: 1%{?dist}
 Summary: systemd-journal logging native lib wrapper
-Group: Development/Languages
-License: LGPLv2
-URL: https://github.com/sandfoxme/journald-native
+License: LGPLv2+
+URL: https://github.com/theforeman/journald-native
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 1.9.2
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel >= 1.9.2
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+
+# start specfile generated dependencies
+Requires: ruby >= 1.9.3
+BuildRequires: ruby-devel >= 1.9.3
+BuildRequires: rubygems-devel
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
+# end specfile generated dependencies
+
 BuildRequires: systemd-devel
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 
 %description
 systemd-journal logging native lib wrapper.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-mkdir -p %{buildroot}%{gem_extdir_mri}
-%if 0%{?scl:1}
-  cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
-%else
-  # for some reason, this file is not created by the build process on EL8
-  touch .%{gem_instdir}/ext/journald_native/gem.build_complete
-  cp -a .%{gem_instdir}/ext/journald_native/{gem.build_complete,journald_native.so} %{buildroot}%{gem_extdir_mri}/
-%endif
+mkdir -p %{buildroot}%{gem_extdir_mri}/
+cp -a .%{gem_extdir_mri}/{*.so,gem.build_complete} %{buildroot}%{gem_extdir_mri}/
 
 # Prevent dangling symlink in -debuginfo (rhbz#878863).
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
-%{?scl:scl enable %{scl} - << \EOF}
 # Ideally, this would be something like this:
-# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 # But that fails to find native extensions on EL8, so we fake the structure that ruby expects
 mkdir gem_ext_test
 cp -a %{buildroot}%{gem_dir} gem_ext_test/
@@ -85,24 +65,24 @@ mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig 
 cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
-%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
-%exclude %{gem_instdir}/CHANGELOG.md
-%exclude %{gem_instdir}/gems.rb
-%exclude %{gem_instdir}/journald-native.gemspec
+%license %{gem_instdir}/COPYING.md
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_instdir}/README.md
-%{gem_instdir}/Rakefile
 
 %changelog
+* Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.12-1
+- Update to 1.0.12
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.0.11-4
 - Rebuild against rh-ruby27
 
