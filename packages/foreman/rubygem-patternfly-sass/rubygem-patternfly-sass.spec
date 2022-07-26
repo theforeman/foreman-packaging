@@ -1,89 +1,69 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name patternfly-sass
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 3.59.4
-Release: 2%{?dist}
+Name: rubygem-%{gem_name}
+Version: 3.59.5
+Release: 1%{?dist}
 Summary: Red Hat's Patternfly, converted to Sass and ready to drop into Rails
-Group: Development/Languages
 License: ASL 2.0
 URL: https://github.com/Patternfly/patternfly
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) >= 3.4.0
-Requires: %{?scl_prefix}rubygem(bootstrap-sass) < 3.5.0
-Requires: %{?scl_prefix}rubygem(font-awesome-sass) >= 4.6.2
-Requires: %{?scl_prefix}rubygem(font-awesome-sass) < 4.7.0
-Requires: %{?scl_prefix}rubygem(sass) >= 3.4.15
-Requires: %{?scl_prefix}rubygem(sass) < 3.5.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 Red Hat's Patternfly, converted to Sass and ready to drop into Rails.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/CODE_OF_CONDUCT.md
+%exclude %{gem_instdir}/CODE_OF_CONDUCT.md
 %license %{gem_instdir}/LICENSE.txt
 %license %{gem_instdir}/OPEN_SOURCE_LICENCES.txt
-%{gem_instdir}/QUICKSTART.md
 %{gem_instdir}/dist
 %{gem_libdir}
-%exclude %{gem_instdir}/patternfly-sass.gemspec
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/QUICKSTART.md
+%exclude %{gem_instdir}/patternfly-sass.gemspec
 
 %changelog
+* Tue Jul 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.59.5-1
+- Update to 3.59.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 3.59.4-2
 - Rebuild against rh-ruby27
 
