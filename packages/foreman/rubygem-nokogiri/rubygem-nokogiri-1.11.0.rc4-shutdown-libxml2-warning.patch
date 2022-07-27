@@ -1,0 +1,10 @@
+--- nokogiri-1.11.0.rc4/lib/nokogiri/version/info.rb.warn	2020-12-31 16:56:11.533949657 +0900
++++ nokogiri-1.11.0.rc4/lib/nokogiri/version/info.rb	2020-12-31 16:59:38.576697147 +0900
+@@ -58,6 +58,7 @@ module Nokogiri
+ 
+     def warnings
+       warnings = []
++      return warnings
+ 
+       if libxml2?
+         if compiled_libxml_version != loaded_libxml_version
