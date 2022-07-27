@@ -1,27 +1,22 @@
-# template: scl
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name unf_ext
 %global gem_require_name %{gem_name}
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.7.2
-Release: 4%{?dist}
+Name: rubygem-%{gem_name}
+Version: 0.0.8.2
+Release: 1%{?dist}
 Summary: Unicode Normalization Form support library for CRuby
-Group: Development/Languages
 License: MIT
 URL: https://github.com/knu/ruby-unf_ext
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+Requires: ruby >= 2.2
+BuildRequires: ruby-devel >= 2.2
+BuildRequires: rubygems-devel
+# Compiler is required for build of gem binary extension.
+# https://fedoraproject.org/wiki/Packaging:C_and_C++#BuildRequires_and_Requires
+BuildRequires: gcc
 # end specfile generated dependencies
 
 %description
@@ -29,36 +24,23 @@ Unicode Normalization Form support library for CRuby.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -72,9 +54,8 @@ cp -a .%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}
 rm -rf %{buildroot}%{gem_instdir}/ext/
 
 %check
-%{?scl:scl enable %{scl} - << \EOF}
 # Ideally, this would be something like this:
-# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_name}'"
+# GEM_PATH="%{buildroot}%{gem_dir}:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 # But that fails to find native extensions on EL8, so we fake the structure that ruby expects
 mkdir gem_ext_test
 cp -a %{buildroot}%{gem_dir} gem_ext_test/
@@ -82,13 +63,12 @@ mkdir -p gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig 
 cp -a %{buildroot}%{gem_extdir_mri} gem_ext_test/gems/extensions/%{_arch}-%{_target_os}/$(ruby -r rbconfig -e 'print RbConfig::CONFIG["ruby_version"]')/
 GEM_PATH="./gem_ext_test/gems:$GEM_PATH" ruby -e "require '%{gem_require_name}'"
 rm -rf gem_ext_test
-%{?scl:EOF}
 
 %files
 %dir %{gem_instdir}
 %{gem_extdir_mri}
+%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/.document
 %license %{gem_instdir}/LICENSE.txt
 %{gem_libdir}
@@ -102,9 +82,12 @@ rm -rf gem_ext_test
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 %{gem_instdir}/test
-%{gem_instdir}/unf_ext.gemspec
+%exclude %{gem_instdir}/unf_ext.gemspec
 
 %changelog
+* Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.0.8.2-1
+- Update to 0.0.8.2
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.0.7.2-4
 - Rebuild against rh-ruby27
 
