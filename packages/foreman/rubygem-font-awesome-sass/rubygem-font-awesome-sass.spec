@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.6.2
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Font-Awesome SASS
 License: MIT
 URL: https://github.com/FortAwesome/font-awesome-sass
@@ -34,7 +34,7 @@ Documentation for %{name}.
 # Replace deprecated sass with sassc
 # https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
 %gemspec_remove_dep -g sass
-%gemspec_add_dep -g sass ">= 1.11"
+%gemspec_add_dep -g sassc ">= 1.11"
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -66,6 +66,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-8
+- Correctly replace sass dependency with sassc
+
 * Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-7
 - Replace deprecated sass dependency with sassc
 
