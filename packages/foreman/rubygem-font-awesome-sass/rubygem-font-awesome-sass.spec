@@ -1,45 +1,48 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name font-awesome-sass
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
+Name: rubygem-%{gem_name}
 Version: 4.6.2
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: Font-Awesome SASS
-Group: Development/Languages
 License: MIT
 URL: https://github.com/FortAwesome/font-awesome-sass
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix}rubygem(sass) >= 3.2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
-Font-Awesome SASS gem to be used in Ruby projects.
+Font-Awesome SASS gem for use in Ruby projects.
+
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
+
+# Replace deprecated sass with sassc
+# https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
+%gemspec_remove_dep -g sass
+%gemspec_add_dep -g sass ">= 1.11"
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -49,20 +52,23 @@ cp -a .%{gem_dir}/* \
 %files
 %dir %{gem_instdir}
 %exclude %{gem_instdir}/.gitignore
+%license %{gem_instdir}/LICENSE.txt
 %{gem_instdir}/assets
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
-%doc %{gem_instdir}/LICENSE.txt
 
 %files doc
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/font-awesome-sass.gemspec
+%exclude %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-7
+- Replace deprecated sass dependency with sassc
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.6.2-6
 - Rebuild against rh-ruby27
 
