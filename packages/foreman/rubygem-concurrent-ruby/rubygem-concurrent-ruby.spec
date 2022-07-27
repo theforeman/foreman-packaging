@@ -1,62 +1,46 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name concurrent-ruby
 
-Summary: Modern concurrency tools for Ruby
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.6
-Release: 3%{?dist}
+Name: rubygem-%{gem_name}
+Version: 1.1.10
+Release: 1%{?dist}
 Epoch: 1
-Group: Development/Languages
-
+Summary: Modern concurrency tools for Ruby
 License: MIT
-URL: https://github.com/ruby-concurrency/concurrent-ruby
+URL: https://www.concurrent-ruby.com
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
 
-%if 0%{?el6} && 0%{!?scl:1}
-Requires: %{?scl_prefix_ruby}ruby(abi)
-BuildRequires: %{?scl_prefix_ruby}ruby(abi)
-%else
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-%endif
-
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+# start specfile generated dependencies
+Requires: ruby >= 2.2
+BuildRequires: ruby >= 2.2
+BuildRequires: rubygems-devel
 BuildArch: noarch
-
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
-
-Obsoletes: tfm-ror52-rubygem-%{gem_name} <= 1.1.4
+# end specfile generated dependencies
 
 %description
-Modern concurrency tools including agents, futures,
-promises, thread pools, actors, supervisors, and more. Inspired by
-Erlang, Clojure, Go, JavaScript, actors, and classic concurrency
-patterns.
+Modern concurrency tools including agents, futures, promises, thread pools,
+actors, supervisors, and more. Inspired by Erlang, Clojure, Go, JavaScript,
+actors, and classic concurrency patterns.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{epoch}:%{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
-
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -65,21 +49,23 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%license %{gem_instdir}/LICENSE.md
-%{gem_libdir}
-
-%exclude %{gem_cache}
+%license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/ext
-%exclude %{gem_instdir}/Gemfile
-%exclude %{gem_instdir}/Rakefile
+%{gem_libdir}
+%exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/CHANGELOG.md
 %doc %{gem_docdir}
+%doc %{gem_instdir}/CHANGELOG.md
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 
 %changelog
+* Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:1.1.10-1
+- Update to 1.1.10
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1:1.1.6-3
 - Rebuild against rh-ruby27
 
