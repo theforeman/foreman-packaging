@@ -291,7 +291,6 @@ whitelist = dynflow-utils
   rubygem-ruby-libvirt
   rubygem-ruby_parser
   rubygem-safemode
-  rubygem-sass
   rubygem-sassc
   rubygem-sassc-rails
   rubygem-sass-rails

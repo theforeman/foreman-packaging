@@ -298,7 +298,6 @@ foreman_core_packages:
     rubygem-ruby2ruby: {}
     rubygem-ruby_parser: {}
     rubygem-safemode: {}
-    rubygem-sass: {}
     rubygem-sass-rails: {}
     rubygem-sassc: {}
     rubygem-sassc-rails: {}
