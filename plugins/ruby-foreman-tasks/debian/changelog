@@ -1,3 +1,9 @@
+ruby-foreman-tasks (7.0.0-1) stable; urgency=low
+
+  * 7.0.0 released
+
+ -- Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>  Fri, 29 Jul 2022 15:34:03 +0200
+
 ruby-foreman-tasks (6.0.2-2) stable; urgency=low
 
   * Update sinatra to 2.2.1 to match rack-protection in core
