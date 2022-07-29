@@ -3,11 +3,13 @@
 
 Name: rubygem-%{gem_name}
 Version: 4.6.2
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Font-Awesome SASS
 License: MIT
 URL: https://github.com/FortAwesome/font-awesome-sass
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+# https://github.com/FortAwesome/font-awesome-sass/commit/8c85abf355cfdb81bd87a0e1d11dc3876e71a5c6
+Patch0: 0001-Update-to-use-either-sass-or-sassc-gem.patch
 
 # start specfile generated dependencies
 Requires: ruby
@@ -30,11 +32,10 @@ Documentation for %{name}.
 
 %prep
 %setup -q -n  %{gem_name}-%{version}
+%patch0 -p1
 
-# Replace deprecated sass with sassc
-# https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
+# Foreman relies on the Rails integration and that pulls in sass
 %gemspec_remove_dep -g sass
-%gemspec_add_dep -g sassc ">= 1.11"
 
 %build
 # Create the gem as gem install only works on a gem file
@@ -66,6 +67,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/font-awesome-sass.gemspec
 
 %changelog
+* Fri Jul 29 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-9
+- Use upstream patch to make sass optional
+
 * Wed Jul 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.6.2-8
 - Correctly replace sass dependency with sassc
 
