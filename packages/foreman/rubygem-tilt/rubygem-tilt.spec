@@ -2,7 +2,7 @@
 %global gem_name tilt
 
 Name: rubygem-%{gem_name}
-Version: 2.0.10
+Version: 2.0.11
 Release: 1%{?dist}
 Summary: Generic interface to multiple Ruby template engines
 License: MIT
@@ -64,6 +64,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 
 
 %changelog
+* Sun Jul 31 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.11-1
+- Update to 2.0.11
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.0.10-1
 - Update to 2.0.10
 
