@@ -2,7 +2,7 @@
 %global gem_name fog-google
 
 Name: rubygem-%{gem_name}
-Version: 1.18.0
+Version: 1.19.0
 Release: 1%{?dist}
 Summary: Module for the 'fog' gem to support Google
 License: MIT
@@ -76,6 +76,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Sun Jul 31 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.19.0-1
+- Update to 1.19.0
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.18.0-1
 - Update to 1.18.0
 
