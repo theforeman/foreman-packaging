@@ -2,7 +2,7 @@
 %global gem_name rack-protection
 
 Name: rubygem-%{gem_name}
-Version: 2.2.1
+Version: 2.2.2
 Release: 1%{?dist}
 Summary: Protect against typical web attacks, works with all Rack apps, including Rails
 License: MIT
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/rack-protection.gemspec
 
 %changelog
+* Sun Jul 31 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.2-1
+- Update to 2.2.2
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.1-1
 - Update to 2.2.1
 
