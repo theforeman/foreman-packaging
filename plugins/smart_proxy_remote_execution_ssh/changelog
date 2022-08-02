@@ -1,3 +1,9 @@
+ruby-smart-proxy-remote-execution-ssh (0.7.1) stable; urgency=low
+
+  * 0.7.1 released
+
+ -- Adam Ruzicka <aruzicka@redhat.com>  Tue, 02 Aug 2022 11:39:26 +0000
+
 ruby-smart-proxy-remote-execution-ssh (0.7.0) stable; urgency=low
 
   * 0.7.0 released
