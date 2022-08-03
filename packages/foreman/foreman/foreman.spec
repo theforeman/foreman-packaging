@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -65,8 +65,8 @@ Requires: rubygem(deep_cloneable) >= 3
 Requires: rubygem(deep_cloneable) < 4
 Requires: rubygem(validates_lengths_from_database) >= 0.5
 Requires: rubygem(validates_lengths_from_database) < 1.0
-Requires: rubygem(friendly_id) >= 5.3.0
-Requires: rubygem(friendly_id) < 5.4
+Requires: rubygem(friendly_id) >= 5.4.2
+Requires: rubygem(friendly_id) < 6
 Requires: rubygem(secure_headers) >= 6.3
 Requires: rubygem(secure_headers) < 7.0
 Requires: rubygem(safemode) >= 1.3.5
@@ -167,8 +167,8 @@ BuildRequires: rubygem(deep_cloneable) >= 3
 BuildRequires: rubygem(deep_cloneable) < 4
 BuildRequires: rubygem(validates_lengths_from_database) >= 0.5
 BuildRequires: rubygem(validates_lengths_from_database) < 1.0
-BuildRequires: rubygem(friendly_id) >= 5.3.0
-BuildRequires: rubygem(friendly_id) < 5.4
+BuildRequires: rubygem(friendly_id) >= 5.4.2
+BuildRequires: rubygem(friendly_id) < 6
 BuildRequires: rubygem(secure_headers) >= 6.3
 BuildRequires: rubygem(secure_headers) < 7.0
 BuildRequires: rubygem(safemode) >= 1.3.5
@@ -415,6 +415,7 @@ Group:  Applications/System
 # start specfile gce Requires
 Requires: rubygem(fog-google) >= 1.14
 Requires: rubygem(fog-google) < 2.0
+Requires: rubygem(faraday) < 2
 # end specfile gce Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1006,6 +1007,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 03 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Fri Jul 15 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.5.develop
 - Remove SCL compatibility macros
 - Update Rails dependency
