@@ -1,7 +1,7 @@
 %{?scl:%global scl_prefix %{scl}-}
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -110,7 +110,6 @@ done
 # katello files
 %exclude %{_datadir}/%{name}/config/foreman-proxy-content*
 %exclude %{_datadir}/%{name}/config/katello*
-%exclude %{_datadir}/%{name}/katello
 %exclude %{_datadir}/%{name}/katello-certs
 %exclude %{_datadir}/%{name}/parser_cache/foreman-proxy-certs.yaml
 %exclude %{_datadir}/%{name}/parser_cache/foreman-proxy-content.yaml
@@ -119,7 +118,6 @@ done
 %files katello
 # common
 %{_sbindir}/katello-certs-check
-%{_datadir}/%{name}/katello
 
 # foreman-proxy-content scenario
 %{_datadir}/%{name}/config/foreman-proxy-content*
@@ -143,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Aug 04 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.4.0-0.3.develop
+- Drop katello subdirectory from files
+
 * Thu Jun 02 2022 Evgeni Golov - 1:3.4.0-0.2.develop
 - bump kafo dependency for UTF-8 fix
 
