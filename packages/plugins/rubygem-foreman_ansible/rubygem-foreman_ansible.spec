@@ -5,10 +5,10 @@
 
 %global gem_name foreman_ansible
 %global plugin_name ansible
-%global foreman_min_version 3.3.0
+%global foreman_min_version 3.4.0
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 8.0.1
+Version: 9.0.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Ansible integration with Foreman (theforeman.org)
 Group: Applications/Systems
@@ -116,6 +116,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Aug 08 2022 Leos Stejskal <lstejska@redhat.com> 9.0.0-1
+- Update to 9.0.0
+
 * Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 8.0.1-1
 - Update to 8.0.1
 
