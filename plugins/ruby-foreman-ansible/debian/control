@@ -2,7 +2,7 @@ Source: ruby-foreman-ansible
 Section: ruby
 Priority: extra
 Maintainer: Daniel Lobato Garcia <elobatocs@gmail.com>
-Build-Depends: debhelper, git | git-core, python-dev, foreman (>= 3.1.0~rc1), ruby-foreman-deface (<<2.0.0),
+Build-Depends: debhelper, git | git-core, python-dev, foreman (>= 3.4.0~rc1), ruby-foreman-deface (<<2.0.0),
   foreman-assets(>= 3.1.0~rc1),
   ruby-foreman-remote-execution (>= 4.4.0-1),
   foreman-nulldb (>= 3.1.0~rc1)
@@ -11,7 +11,7 @@ Homepage: https://github.com/theforeman/foreman_ansible
 
 Package: ruby-foreman-ansible
 Architecture: all
-Depends: ${misc:Depends}, bundler, foreman (>= 3.1.0~rc1),
+Depends: ${misc:Depends}, bundler, foreman (>= 3.4.0~rc1),
   ruby-foreman-deface (<<2.0.0),
   ruby-foreman-remote-execution (>= 4.4.0-1)
 Description: Foreman Ansible plugin
