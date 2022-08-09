@@ -1,3 +1,9 @@
+ruby-foreman-discovery (21.0.2) stable; urgency=low
+
+  * 21.0.2 released
+
+ -- Stejskal Leos <github@stejskalleos.cz>  Tue, 09 Aug 2022 08:57:01 +0000
+
 ruby-foreman-discovery (21.0.0-2) stable; urgency=low
 
   * Drop apipie cache generation
