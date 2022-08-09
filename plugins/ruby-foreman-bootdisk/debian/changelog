@@ -1,3 +1,9 @@
+ruby-foreman-bootdisk (19.0.6) stable; urgency=low
+
+  * 19.0.6 released
+
+ -- Stejskal Leos <github@stejskalleos.cz>  Tue, 09 Aug 2022 08:59:27 +0000
+
 ruby-foreman-bootdisk (19.0.4-1) stable; urgency=low
 
   * 19.0.4 released
