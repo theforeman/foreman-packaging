@@ -22,12 +22,12 @@
 
 %define moduletype apps
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
-Version:        3.4.0
+Version:        3.5.0
 Release:        %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary:        SELinux policy module for Foreman
 
@@ -190,6 +190,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Wed Aug 10 2022 Patrick Creech <pcreech@redhat.com> - 3.5.0-0.1.develop
+- Bump version to 3.5-develop
+
 * Tue Jul 12 2022 Evgeni Golov - 3.4.0-0.2.develop
 - Fixes #35198 - always load SELinux definitions
 

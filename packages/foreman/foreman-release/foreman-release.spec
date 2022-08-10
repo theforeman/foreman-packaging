@@ -13,12 +13,12 @@
 %define repo_dist %{dist}
 %endif
 
-%global release 2
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:     foreman-release
-Version:  3.4.0
+Version:  3.5.0
 Release:  %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?dist}
 
 Summary:  Foreman repositories meta-package
@@ -90,6 +90,9 @@ install -Dpm0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-f
 %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-foreman
 
 %changelog
+* Wed Aug 10 2022 Patrick Creech <pcreech@redhat.com> - 3.5.0-0.1.develop
+- Bump version to 3.5-develop
+
 * Tue May 17 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.4.0-0.2.develop
 - Drop use of module_hotfixes, there are modules now
 
