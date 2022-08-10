@@ -14,7 +14,7 @@ tag_suffix = .fm3_4
 [builder]
 fetch_strategy = custom.ForemanSourceStrategy
 
-[foreman-nightly-el8]
+[foreman-3.4-el8]
 disttag = .el8
 whitelist = dynflow-utils
   foreman
@@ -329,7 +329,7 @@ whitelist = dynflow-utils
   rubygem-xmlrpc
   rubygem-zeitwerk
 
-[foreman-plugins-nightly-el8]
+[foreman-plugins-3.4-el8]
 disttag = .el8
 whitelist = ansible-collection-theforeman-foreman
   ansible-collection-theforeman-operations
@@ -516,7 +516,7 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-zscheduler
   yggdrasil-worker-forwarder
 
-[foreman-client-nightly-el9]
+[foreman-client-3.4-el9]
 disttag = .el9
 whitelist =
   foreman-release
@@ -531,9 +531,9 @@ whitelist =
   tracer
   yggdrasil
 
-[foreman-client-nightly-el8]
+[foreman-client-3.4-el8]
 disttag = .el8
-# don't whitelist foreman-release here, it's already in foreman-nightly-el8
+# don't whitelist foreman-release here, it's already in foreman-3.4-el8
 whitelist =
   foreman_ygg_worker
   gofer
@@ -546,10 +546,10 @@ whitelist =
   tracer
   yggdrasil
 
-[foreman-client-nightly-rhel7]
+[foreman-client-3.4-rhel7]
 disttag = .el7
-# don't whitelist foreman-release here, it's already in foreman-nightly-nonscl-rhel7
 whitelist =
+  foreman-release
   foreman_ygg_worker
   katello-host-tools
   katello-pull-transport-migrate
@@ -558,7 +558,7 @@ whitelist =
   tracer
   yggdrasil
 
-[katello-nightly-el8]
+[katello-4.6-el8]
 disttag = .el8
 whitelist = jsoncpp
   katello
