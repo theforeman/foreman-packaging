@@ -4,12 +4,12 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+%global release 1
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
-Version: 3.4.0
+Version: 3.5.0
 Release: %{?prerelease:0.}%{release}%{?prerelease:.}%{?prerelease}%{?nightly}%{?dist}
 Summary: Systems Management web application
 
@@ -1007,6 +1007,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 10 2022 Patrick Creech <pcreech@redhat.com> - 3.5.0-0.1.develop
+- Bump version to 3.5-develop
+
 * Wed Aug 03 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.6.develop
 - Update Gem and NPM dependencies
 
