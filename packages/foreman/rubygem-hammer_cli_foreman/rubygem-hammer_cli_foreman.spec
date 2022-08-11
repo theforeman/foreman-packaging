@@ -6,8 +6,6 @@
 %global plugin_name foreman
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
 %global hammer_confdir %{_root_sysconfdir}/hammer
@@ -99,6 +97,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 11 2022 vagrant - 3.4.0-1
+- Release rubygem-hammer_cli_foreman 3.4.0
+
 * Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.pre.develop
 - Bump version to 3.4-develop
 
