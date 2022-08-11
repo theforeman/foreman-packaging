@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 6
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -1007,6 +1007,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 3.4.0-0.6.rc1
+- Release foreman 3.4.0rc1
+
 * Wed Aug 03 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.4.0-0.6.develop
 - Update Gem and NPM dependencies
 

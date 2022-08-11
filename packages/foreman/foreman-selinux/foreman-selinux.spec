@@ -23,7 +23,7 @@
 %define moduletype apps
 
 %global release 2
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:           foreman-selinux
@@ -190,6 +190,9 @@ fi
 %{_mandir}/man8/foreman-proxy-selinux-relabel.8.gz
 
 %changelog
+* Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 3.4.0-0.2.rc1
+- Release foreman-selinux 3.4.0rc1
+
 * Tue Jul 12 2022 Evgeni Golov - 3.4.0-0.2.develop
 - Fixes #35198 - always load SELinux definitions
 

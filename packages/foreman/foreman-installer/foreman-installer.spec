@@ -2,7 +2,7 @@
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
 %global release 3
-%global prereleasesource develop
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource}
 
 Name:       foreman-installer
@@ -141,6 +141,9 @@ done
 %{_sbindir}/foreman-proxy-certs-generate
 
 %changelog
+* Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 1:3.4.0-0.3.rc1
+- Release foreman-installer 3.4.0rc1
+
 * Thu Aug 04 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1:3.4.0-0.3.develop
 - Drop katello subdirectory from files
 
