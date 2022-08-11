@@ -3,7 +3,7 @@
 
 %global homedir %{_datarootdir}/%{name}
 %global confdir common
-%global prereleasesource master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 5
 
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.5.rc1
+- Release katello 4.6.0rc1
+
 * Thu Jul 14 2022 Chris Roberts - 4.6.0-0.5.master
 - Fixes #34898 - Add ACS refresh cron job
 

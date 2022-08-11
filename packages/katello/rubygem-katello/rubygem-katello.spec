@@ -6,7 +6,7 @@
 %global foreman_max_version 3.5
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource pre.master
+%global prereleasesource rc1
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.6.0
 %global release 3
@@ -244,6 +244,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.3.rc1
+- Release rubygem-katello 4.6.0rc1
+
 * Thu Jun 16 2022 Ian Ballou <ianballou67@gmail.com> 4.6.0-0.3.pre.master
 - Bump pulp_ansible_client requirement to at least 0.13.1 but not more than 0.14
 
