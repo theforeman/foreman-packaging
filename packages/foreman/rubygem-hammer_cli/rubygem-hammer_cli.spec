@@ -5,8 +5,6 @@
 %global gem_name hammer_cli
 
 %global release 1
-%global prereleasesource pre.develop
-%global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_bindir:%global _root_bindir %{_bindir}}
 %{!?_root_mandir:%global _root_mandir %{_mandir}}
@@ -124,6 +122,9 @@ install -m 0644 .%{gem_instdir}/config/cli_config.template.yml \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 11 2022 vagrant - 3.4.0-1
+- Release rubygem-hammer_cli 3.4.0
+
 * Tue May 10 2022 Odilon Sousa <osousa@redhat.com> - 3.4.0-0.1.pre.develop
 - Bump version to 3.4-develop
 
