@@ -11,7 +11,7 @@
 Summary: The Foreman/Satellite maintenance tool
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Group: Development/Languages
 License: GPLv3
@@ -87,12 +87,12 @@ install -d -m0750 %{buildroot}%{_localstatedir}/log/%{directory_name}
 install -d -m0750 %{buildroot}%{_sysconfdir}/%{directory_name}
 install -D -m0640 %{buildroot}%{gem_instdir}/config/foreman_maintain.yml.packaging %{buildroot}%{_sysconfdir}/%{directory_name}/foreman_maintain.yml
 
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
+install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.conf %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.conf
+install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/foreman-protector.whitelist %{buildroot}%{_sysconfdir}/yum/pluginconf.d/foreman-protector.whitelist
 %if 0%{?rhel} > 7
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/dnf/foreman-protector.py %{buildroot}%{dnfplugindir}/foreman-protector.py
+install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/dnf/foreman-protector.py %{buildroot}%{dnfplugindir}/foreman-protector.py
 %else
-install -D -m0640 %{buildroot}%{gem_instdir}/extras/foreman_protector/yum/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
+install -D -m0644 %{buildroot}%{gem_instdir}/extras/foreman_protector/yum/foreman-protector.py %{buildroot}%{yumplugindir}/foreman-protector.py
 %endif
 install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 
@@ -138,6 +138,9 @@ install -D -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/%{gem_name}
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Aug 15 2022 Evgeni Golov - 1:1.1.3-2
+- Fixes #35366 - make foreman-protector work as non-root
+
 * Fri Jul 01 2022 Amit Upadhye <upadhyeammit@gmail.com> 1:1.1.3-1
 - Update to 1.1.3
 
