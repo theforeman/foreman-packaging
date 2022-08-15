@@ -143,6 +143,10 @@ def build_dependency_matrix(gems: dict, project: str='foreman') -> Generator[dic
         path = Path('packages') / project / f'rubygem-{name}' / f'rubygem-{name}.spec'
         if path.is_file():
             spec = Spec(path)
+
+            if spec.is_nightly:
+                continue
+
             try:
                 current_version = spec.version
             except subprocess.CalledProcessError as e:  # pylint: disable=invalid-name
