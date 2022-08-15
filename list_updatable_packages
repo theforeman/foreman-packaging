@@ -22,7 +22,7 @@ class Spec:
         self.path = path
         spec = path.read_text()
         self.lines = spec.splitlines()
-        self._globals = None
+        self._globals: Optional[dict] = None
 
     @property
     def directory(self) -> str:
@@ -61,7 +61,7 @@ class Spec:
         return 'prereleasesource' in self.globals
 
     @property
-    def gem_name(self) -> str:
+    def gem_name(self) -> Optional[str]:
         return self.globals.get('gem_name')
 
     @property
@@ -77,7 +77,7 @@ def find_specs() -> Generator[Spec, None, None]:
         if spec.template in SUPPORTED_TEMPLATES and not spec.is_nightly:
             yield spec
 
-def parse_gemfile_lock(project: str) -> dict:
+def parse_gemfile_lock(project: str) -> list[dict]:
     gemfile_lock = fetch_gemfile_lock(project)
 
     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -136,7 +136,7 @@ def build_plugin_matrix(specs: Iterable[Spec]) -> Generator[dict, None, None]:
                 }
                 yield entry
 
-def build_dependency_matrix(gems: dict, project: str='foreman') -> Generator[dict, None, None]:
+def build_dependency_matrix(gems: list[dict], project: str='foreman') -> Generator[dict, None, None]:
     if DEBUG: print(f'Building dependency matrix for {project}')
     for gem in gems:
         name = gem['name']
