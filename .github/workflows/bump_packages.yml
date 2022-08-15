@@ -119,4 +119,4 @@ jobs:
         body: |
           foreman-packaging update packages Github Action failed
 
-          ${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
