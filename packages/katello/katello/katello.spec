@@ -5,10 +5,10 @@
 %global confdir common
 %global prereleasesource master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
-%global release 5
+%global release 1
 
 Name:       katello
-Version:    4.6.0
+Version:    4.7.0
 Release:    %{?prerelease:0.}%{release}%{?prerelease}%{?dist}
 Summary:    A package for managing application life-cycle for Linux systems
 BuildArch:  noarch
@@ -132,6 +132,9 @@ Provides a federation of katello services
 # the files section is empty, but without it no RPM will be generated
 
 %changelog
+* Mon Aug 15 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.1.master
+- Update to version 4.7
+
 * Thu Jul 14 2022 Chris Roberts - 4.6.0-0.5.master
 - Fixes #34898 - Add ACS refresh cron job
 
