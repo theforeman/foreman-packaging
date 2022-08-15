@@ -67,6 +67,12 @@ class Spec:
         cmd = ['rpmspec', '--srpm', '--query', '--queryformat=%{version}', self.path.as_posix()]
         return subprocess.check_output(cmd, stderr=subprocess.DEVNULL, universal_newlines=True)
 
+    def __eq__(self, other):
+        return self.path == other.path
+
+    def __hash__(self):
+        return hash(self.path)
+
 
 def find_gemfile_lock_specs(ci_job: str, subdir: str) -> Generator[Tuple[Spec, str], None, None]:
     """
@@ -124,8 +130,27 @@ def latest_version(spec: Spec) -> str:
     raise ValueError('Unable to determine latest version', spec)
 
 
-def build_matrix(specs: Iterable[Tuple[Spec, Optional[str]]]) -> Generator[dict, None, None]:
+def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> dict[Spec, Optional[str]]:
+    """
+    Merge specs
+
+    This can process the same spec file multiple times. If a spec is already listed but without a
+    version, it will take the more specific constraint. The last entry is used if a constraint was
+    already given while a warning is printed.
+    """
+    result: dict[Spec, Optional[str]] = {}
     for spec, new_version in specs:
+        if result.get(spec) not in (None, new_version):
+            # TODO: GH annotation?
+            print(f'Found conflict for {spec.package_name}: {result[spec]} != {new_version}', file=sys.stderr)
+            result[spec] = 'CONFLICT'
+        else:
+            result[spec] = new_version
+    return result
+
+
+def build_matrix(specs: dict[Spec, Optional[str]]) -> Generator[dict, None, None]:
+    for spec, new_version in specs.items():
         try:
             current_version = spec.version
         except subprocess.CalledProcessError as e:  # pylint: disable=invalid-name
@@ -153,7 +178,7 @@ def main() -> None:
         find_gemfile_lock_specs('katello-master-source-release', 'katello'),
     )
 
-    matrix = list(build_matrix(specs))
+    matrix = list(build_matrix(merge_specs(specs)))
 
     if 'GITHUB_ACTION' in os.environ:
         directories = [entry['directory'] for entry in matrix]
