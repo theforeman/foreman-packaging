@@ -6,7 +6,7 @@ import subprocess
 import sys
 from itertools import chain
 from pathlib import Path
-from typing import Generator, Iterable, Mapping, Optional, Tuple
+from typing import Dict, Generator, Iterable, Mapping, Optional, Tuple
 
 import requests
 import tempfile
@@ -20,7 +20,7 @@ class Spec:
         self.path = path
         spec = path.read_text()
         self.lines = spec.splitlines()
-        self._globals: Optional[dict] = None
+        self._globals: Optional[Mapping[str, str]] = None
 
     @property
     def directory(self) -> str:
@@ -99,7 +99,7 @@ def find_packaged_specs() -> Generator[Tuple[Spec, None], None, None]:
             yield spec, None
 
 
-def parse_gemfile_lock(gemfile_lock: str) -> list[dict]:
+def parse_gemfile_lock(gemfile_lock: str) -> Iterable[Mapping[str, str]]:
     with tempfile.TemporaryDirectory() as tmpdirname:
         with open(f'{tmpdirname}/Gemfile.lock', 'w') as fp:
             fp.write(gemfile_lock)
@@ -110,8 +110,6 @@ def parse_gemfile_lock(gemfile_lock: str) -> list[dict]:
         if DEBUG: print('Parsing Gemfile.lock')
         script = Path(__file__).absolute().parent / 'parse-gemfile-lock'
         return json.loads(subprocess.check_output([script], universal_newlines=True, cwd=tmpdirname))
-
-    return {}
 
 
 def fetch_gemfile_lock(url) -> str:
@@ -130,7 +128,7 @@ def latest_version(spec: Spec) -> str:
     raise ValueError('Unable to determine latest version', spec)
 
 
-def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> dict[Spec, Optional[str]]:
+def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> Mapping[Spec, Optional[str]]:
     """
     Merge specs
 
@@ -138,7 +136,7 @@ def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> dict[Spec, Optio
     version, it will take the more specific constraint. The last entry is used if a constraint was
     already given while a warning is printed.
     """
-    result: dict[Spec, Optional[str]] = {}
+    result: Dict[Spec, Optional[str]] = {}
     for spec, new_version in specs:
         if result.get(spec) not in (None, new_version):
             # TODO: GH annotation?
@@ -149,7 +147,7 @@ def merge_specs(specs: Iterable[Tuple[Spec, Optional[str]]]) -> dict[Spec, Optio
     return result
 
 
-def build_matrix(specs: dict[Spec, Optional[str]]) -> Generator[dict, None, None]:
+def build_matrix(specs: Mapping[Spec, Optional[str]]) -> Generator[Mapping[str, Optional[str]], None, None]:
     for spec, new_version in specs.items():
         try:
             current_version = spec.version
