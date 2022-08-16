@@ -9,7 +9,7 @@
 %global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.1
+Version: 4.0.2
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -21,26 +21,23 @@ Autoreq: 0
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.15.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) < 11.0.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 %description
@@ -114,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Tue Aug 16 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.2-1
+- Update to 4.0.2
+
 * Fri Jun 03 2022 Nadja Heitmann <nadjah@atix.de> 4.0.1-1
 - Update to 4.0.1
 - Add ENC preview tab for Host details
