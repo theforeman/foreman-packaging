@@ -51,15 +51,9 @@ generate_gem_package() {
 
 add_to_all_tito_props() {
 	add_to_tito_props $TITO_TAG
-	if [[ $TITO_TAG == "foreman-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
-		add_to_tito_props foreman-nightly-el8
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-rhel7" ]] || [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
-		add_to_tito_props foreman-plugins-nightly-el8
-	elif [[ $TITO_TAG == "foreman-client-nightly-rhel7" ]] ; then
-		add_to_tito_props foreman-client-nightly-el8
+	if [[ $TITO_TAG == "foreman-client-nightly-el8" ]] ; then
+		add_to_tito_props foreman-client-nightly-rhel7
 		add_to_tito_props foreman-client-nightly-el9
-	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
-		add_to_tito_props katello-nightly-el8
 	fi
 }
 
@@ -88,19 +82,6 @@ add_gem_to_comps() {
 	local tag=$1
 	local distro=${tag##*-}
 
-	if [[ $distro == rhel7 ]] ; then
-		if [[ $TEMPLATE_NAME == "nonscl" ]] || [[ $TEMPLATE_NAME == "smart_proxy_plugin" ]] ; then
-			local comps_scl="nonscl"
-			local comps_package="${PACKAGE_NAME}"
-		else
-			local comps_scl=""
-			local comps_package="tfm-${PACKAGE_NAME}"
-		fi
-	else
-			local comps_scl=""
-			local comps_package="${PACKAGE_NAME}"
-	fi
-
 	# TODO: figure this out for katello
 	if [[ $tag == foreman-plugins-* ]]; then
 		local comps_file="foreman-plugins"
@@ -108,7 +89,7 @@ add_gem_to_comps() {
 		local comps_file="foreman"
 	fi
 
-	./add_to_comps.rb comps/comps-${comps_file}-${distro}.xml $comps_package $comps_scl
+	./add_to_comps.rb comps/comps-${comps_file}-${distro}.xml $PACKAGE_NAME
 	./comps_doc.sh
 	git add comps/
 }
@@ -155,9 +136,7 @@ ROOT=$(git rev-parse --show-toplevel)
 REWRITE_ON_SAME_VERSION=${REWRITE_ON_SAME_VERSION:-true}
 
 if [[ -z $TEMPLATE_NAME ]] ; then
-	if [[ $GEM_NAME == smart_proxy_*_core ]] ; then
-		TEMPLATE_NAME="scl"
-	elif [[ $GEM_NAME == smart_proxy_* ]] ; then
+	if [[ $GEM_NAME == smart_proxy_* ]] ; then
 		TEMPLATE_NAME="smart_proxy_plugin"
 	elif [[ $GEM_NAME == foreman_* ]] ; then
 		TEMPLATE_NAME="foreman_plugin"
@@ -167,12 +146,8 @@ if [[ -z $TEMPLATE_NAME ]] ; then
 fi
 
 if [[ -z $TITO_TAG ]] ; then
-	if [[ $TEMPLATE_NAME == smart_proxy_plugin ]] ; then
-		TITO_TAG="foreman-plugins-nightly-nonscl-rhel7"
-	elif [[ $TEMPLATE_NAME == *_plugin ]] ; then
-		TITO_TAG="foreman-plugins-nightly-rhel7"
-	elif [[ $GEM_NAME == smart_proxy_*_core ]] ; then
-		TITO_TAG="foreman-plugins-nightly-rhel7"
+	if [[ $TEMPLATE_NAME == *_plugin ]] ; then
+		TITO_TAG="foreman-plugins-nightly-el8"
 	fi
 fi
 
