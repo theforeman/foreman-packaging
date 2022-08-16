@@ -3,7 +3,7 @@
 NPM_MODULE_NAME=$1
 VERSION=${2:-auto}
 STRATEGY=$3
-TITO_TAG=foreman-nightly-rhel7
+TITO_TAG=foreman-nightly-el8
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 
@@ -90,11 +90,10 @@ add_to_tito_props() {
 }
 
 add_npm_to_comps() {
-  local comps_scl=""
   local comps_package="${PACKAGE_NAME}"
   local comps_file="foreman"
 
-  ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+  ./add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package
   ./comps_doc.sh
   git add comps/
 }

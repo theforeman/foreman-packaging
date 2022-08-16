@@ -2,7 +2,7 @@
 
 PYPI_NAME=$1
 VERSION=${2:-auto}
-TITO_TAG=${3:-foreman-nightly-nonscl-rhel7}
+TITO_TAG=${3:-foreman-nightly-el8}
 DISTRO=${TITO_TAG##*-}
 BASE_DIR=${4:-foreman}
 TEMPLATE=${5:-fedora}
@@ -84,20 +84,15 @@ add_to_tito_props() {
 
 add_pypi_to_comps() {
   local comps_packages=$(rpmspec --query --builtrpms --queryformat '%{NAME}\n' $PACKAGE_DIR/*.spec)
-  if [[ $TITO_TAG == katello-pulpcore-* ]]; then
-    local comps_file="katello-pulpcore"
-    local comps_scl=""
-  elif [[ $TITO_TAG == katello-* ]]; then
+  if [[ $TITO_TAG == katello-* ]]; then
     local comps_file="katello-server"
-    local comps_scl="nonscl"
   else
     local comps_file="foreman"
-    local comps_scl="nonscl"
   fi
 
   for comps_package in ${comps_packages}; do
     if [[ $comps_package != *-debuginfo ]] && [[ $comps_package != *-debugsource ]] ; then
-      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package $comps_scl
+      ${SCRIPT_ROOT}/add_to_comps.rb comps/comps-${comps_file}-${DISTRO}.xml $comps_package
     fi
   done
   ${SCRIPT_ROOT}/comps_doc.sh
@@ -105,14 +100,12 @@ add_pypi_to_comps() {
 }
 
 add_pypi_to_manifest() {
-	if [[ $TITO_TAG == "foreman-nightly-nonscl-rhel7" ]] ; then
-		local section="foreman_nonscl_packages"
-	elif [[ $TITO_TAG == "foreman-plugins-nightly-nonscl-rhel7" ]] ; then
-		local section="plugin_nonscl_packages"
-	elif [[ $TITO_TAG == "katello-nightly-rhel7" ]] ; then
+	if [[ $TITO_TAG == "foreman-nightly-el8" ]] ; then
+		local section="foreman_core_packages"
+	elif [[ $TITO_TAG == "foreman-plugins-nightly-el8" ]] ; then
+		local section="foreman_plugin_packages"
+	elif [[ $TITO_TAG == "katello-nightly-el8" ]] ; then
 		local section="katello_packages"
-	elif [[ $TITO_TAG == "katello-pulpcore-nightly-el7" ]] ; then
-		local section="pulpcore_packages"
 	else
 		# TODO: client packages
 		local section=""
