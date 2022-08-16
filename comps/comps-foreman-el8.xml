@@ -220,8 +220,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman</packagereq>
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
-      <packagereq type="default">rubygem-hirb</packagereq>
-      <packagereq type="default">rubygem-hirb-unicode-steakknife</packagereq>
       <packagereq type="default">rubygem-hocon</packagereq>
       <packagereq type="default">rubygem-http-cookie</packagereq>
       <packagereq type="default">rubygem-httpclient</packagereq>
@@ -446,8 +444,6 @@
       <packagereq type="default">rubygem-hammer_cli_foreman-doc</packagereq>
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
-      <packagereq type="default">rubygem-hirb-doc</packagereq>
-      <packagereq type="default">rubygem-hirb-unicode-steakknife-doc</packagereq>
       <packagereq type="default">rubygem-hocon-doc</packagereq>
       <packagereq type="default">rubygem-httpclient-doc</packagereq>
       <packagereq type="default">rubygem-http-cookie-doc</packagereq>

@@ -205,8 +205,6 @@ whitelist = dynflow-utils
   rubygem-hammer_cli_foreman
   rubygem-hashie
   rubygem-highline
-  rubygem-hirb
-  rubygem-hirb-unicode-steakknife
   rubygem-hocon
   rubygem-httpclient
   rubygem-http-cookie

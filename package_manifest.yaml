@@ -215,8 +215,6 @@ foreman_core_packages:
       source_system: jenkins
     rubygem-hashie: {}
     rubygem-highline: {}
-    rubygem-hirb-unicode-steakknife: {}
-    rubygem-hirb: {}
     rubygem-hocon: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
