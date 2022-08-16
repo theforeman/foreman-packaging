@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+require 'nokogiri'
+
+def print_usage
+  usage = <<-USAGE
+remove_from_comps - removes packagereqs for a package to a comps xml file
+
+Usage #{$0} comps-file package-name [package-name]
+
+Examples:
+  #{$0} comps/comps-foreman-el8.xml nodejs-example
+  #{$0} comps/comps-foreman-el8.xml nodejs-example nodejs-other-example
+
+Return codes:
+
+  0 - successfully removed or not present in comps
+  1 - wrong arguments
+USAGE
+  puts usage
+end
+
+if ARGV.length < 2
+  print_usage
+  exit(1)
+end
+
+filename = ARGV.shift
+comps = Nokogiri::XML(File.open(filename)) { |config| config.noblanks }
+
+ARGV.each do |package_name|
+  comps.xpath("//packagelist/packagereq[.='#{package_name}']").map(&:remove)
+  comps.xpath("//packagelist/packagereq[.='#{package_name}-doc']").map(&:remove)
+end
+
+File.write(filename, comps.to_xml)
+exit 0
