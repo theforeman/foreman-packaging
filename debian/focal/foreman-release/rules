@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 include /usr/share/dpkg/pkg-info.mk
 
-FOREMAN_VERSION:=$(shell echo '$(DEB_VERSION_UPSTREAM)' | sed 's/9999.*/nightly/')
+FOREMAN_VERSION:=$(shell echo '$(DEB_VERSION_UPSTREAM)' | sed -E 's/9999.*/nightly/; s/([0-9]+\.[0-9]+).*/\1/')
 RELEASE:=$(shell bash -c 'source /etc/os-release && echo $$VERSION_CODENAME')
 
 override_dh_auto_build:
