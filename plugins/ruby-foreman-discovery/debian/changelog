@@ -1,3 +1,9 @@
+ruby-foreman-discovery (21.0.2-1) stable; urgency=low
+
+  * 21.0.2 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Tue, 16 Aug 2022 10:44:00 +0000
+
 ruby-foreman-discovery (21.0.1-2) stable; urgency=low
 
   * Use foreman-plugin.mk
