@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+import argparse
+from pathlib import Path
+
+from ruamel.yaml import YAML
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('package', nargs='+', help='Name of the package(s) to add')
+    parser.add_argument('--filename', help='Path to the manifest', default='package_manifest.yaml')
+
+    args = parser.parse_args()
+
+    manifest_path = Path(args.filename)
+
+    yaml = YAML(typ='rt')
+    yaml.default_flow_style = False
+    yaml.explicit_start = True
+    yaml.preserve_quotes = True
+    yaml.indent(sequence=4, offset=2)
+
+    try:
+        manifest = yaml.load(manifest_path.read_text())
+    except FileNotFoundError:
+        parser.error(f'Manifest {manifest_path} was not found')
+
+    for section in manifest.values():
+        try:
+            hosts = section['hosts']
+        except KeyError:
+            pass
+        else:
+            for package in args.package:
+                hosts.pop(package, None)
+
+    with manifest_path.open('w') as manifest_fp:
+        yaml.dump(manifest, manifest_fp)
+
+
+if __name__ == '__main__':
+    main()

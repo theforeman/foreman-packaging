@@ -199,9 +199,7 @@ the location of your packages.
 
 ## HOWTO: removing a package
 
-1. `git rm -r rubygem-example/`
-1. Remove all entries (both main package and doc) from `package_manifest.yaml`,
-   `comps/` and `rel-eng/tito.props`
+1. `./remove_package rubygem-example`
 1. On merge, untag all builds from nightly Koji tags (`untag-build --all`) and
    block the package (`block-pkg`)
 
