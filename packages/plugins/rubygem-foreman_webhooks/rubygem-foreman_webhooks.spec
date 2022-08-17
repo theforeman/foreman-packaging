@@ -8,7 +8,7 @@
 
 Summary:    Plugin for Foreman that allows to configure Webhooks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.3
+Version:    3.0.4
 Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
@@ -17,25 +17,22 @@ Source0:    https://rubygems.org/gems/%{gem_name}-%{version}%{?prever}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5.0
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
+Requires: ruby >= 2.5.0
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5.0
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5.0
+BuildRequires: ruby >= 2.5.0
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 2.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 2.0.0
 # end package.json devDependencies BuildRequires
 
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
@@ -111,6 +108,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 17 2022 Oleh Fedorenko <ofedoren@redhat.com> 3.0.4-1
+- Update to 3.0.4
+
 * Fri Jun 03 2022 Oleh Fedorenko <ofedoren@redhat.com> 3.0.3-1
 - Update to 3.0.3
 
