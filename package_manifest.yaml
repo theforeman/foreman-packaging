@@ -773,7 +773,6 @@ foreman_plugin_packages:
     rubygem-timeliness: {}
     rubygem-ttfunk: {}
     rubygem-vault: {}
-    rubygem-wicked: {}
     rubygem-zscheduler: {}
     yggdrasil-worker-forwarder: {}
 

@@ -499,7 +499,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-timeliness
   rubygem-ttfunk
   rubygem-vault
-  rubygem-wicked
   rubygem-zscheduler
   yggdrasil-worker-forwarder
 
