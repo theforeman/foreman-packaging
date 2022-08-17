@@ -155,7 +155,6 @@
       <packagereq type="default">rubygem-rqrcode</packagereq>
       <packagereq type="default">rubygem-ruby-hmac</packagereq>
       <packagereq type="default">rubygem-ruby-nmap</packagereq>
-      <packagereq type="default">rubygem-safe_yaml</packagereq>
       <packagereq type="default">rubygem-sentry-raven</packagereq>
       <packagereq type="default">rubygem-smart-proxy-probing</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd</packagereq>
@@ -329,7 +328,6 @@
       <packagereq type="default">rubygem-rqrcode-doc</packagereq>
       <packagereq type="default">rubygem-ruby-hmac-doc</packagereq>
       <packagereq type="default">rubygem-ruby-nmap-doc</packagereq>
-      <packagereq type="default">rubygem-safe_yaml-doc</packagereq>
       <packagereq type="default">rubygem-sentry-raven-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_acd-doc</packagereq>
       <packagereq type="default">rubygem-smart_proxy_ansible-doc</packagereq>

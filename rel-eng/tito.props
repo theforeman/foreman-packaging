@@ -469,7 +469,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-rqrcode
   rubygem-ruby-hmac
   rubygem-ruby-nmap
-  rubygem-safe_yaml
   rubygem-sentry-raven
   rubygem-smart_proxy_acd
   rubygem-smart_proxy_ansible
