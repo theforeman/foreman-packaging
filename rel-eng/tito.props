@@ -229,7 +229,6 @@ whitelist = dynflow-utils
   rubygem-mime-types
   rubygem-mime-types-data
   rubygem-mini_mime
-  rubygem-mini_portile2
   rubygem-msgpack
   rubygem-multi_json
   rubygem-multipart-post
