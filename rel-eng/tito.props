@@ -498,7 +498,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-smart_proxy_salt
   rubygem-smart_proxy_shellhooks
   rubygem-smart_proxy_spacewalk
-  rubygem-systemu
   rubygem-timeliness
   rubygem-ttfunk
   rubygem-vault
