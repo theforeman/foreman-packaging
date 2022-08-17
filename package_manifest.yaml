@@ -657,7 +657,6 @@ foreman_plugin_packages:
     rubygem-azure_mgmt_storage: {}
     rubygem-azure_mgmt_subscriptions: {}
     rubygem-bcrypt_pbkdf: {}
-    rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
     rubygem-dry-configurable: {}
     rubygem-dry-container: {}
