@@ -298,7 +298,6 @@ whitelist = dynflow-utils
   rubygem-sidekiq
   rubygem-signet
   rubygem-sinatra
-  rubygem-spice-html5-rails
   rubygem-sprockets
   rubygem-sprockets-rails
   rubygem-sqlite3
