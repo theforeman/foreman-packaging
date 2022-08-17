@@ -305,7 +305,6 @@ whitelist = dynflow-utils
   rubygem-statsd-instrument
   rubygem-text
   rubygem-thor
-  rubygem-thread_safe
   rubygem-tilt
   rubygem-tzinfo
   rubygem-uber

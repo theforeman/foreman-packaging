@@ -312,7 +312,6 @@ foreman_core_packages:
     rubygem-text: {}
     rubygem-tilt: {}
     rubygem-thor: {}
-    rubygem-thread_safe: {}
     rubygem-tzinfo: {}
     rubygem-uber: {}
     rubygem-uglifier: {}
