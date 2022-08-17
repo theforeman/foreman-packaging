@@ -190,7 +190,6 @@
       <packagereq type="default">rubygem-fog-openstack</packagereq>
       <packagereq type="default">rubygem-fog-ovirt</packagereq>
       <packagereq type="default">rubygem-fog-vsphere</packagereq>
-      <packagereq type="default">rubygem-fog-xenserver</packagereq>
       <packagereq type="default">rubygem-fog-xml</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass</packagereq>
       <packagereq type="default">rubygem-foreman_maintain</packagereq>
@@ -412,7 +411,6 @@
       <packagereq type="default">rubygem-fog-openstack-doc</packagereq>
       <packagereq type="default">rubygem-fog-ovirt-doc</packagereq>
       <packagereq type="default">rubygem-fog-vsphere-doc</packagereq>
-      <packagereq type="default">rubygem-fog-xenserver-doc</packagereq>
       <packagereq type="default">rubygem-fog-xml-doc</packagereq>
       <packagereq type="default">rubygem-font-awesome-sass-doc</packagereq>
       <packagereq type="default">rubygem-foreman_maintain-doc</packagereq>
