@@ -130,7 +130,6 @@ whitelist = dynflow-utils
   rubygem-apipie-rails
   rubygem-audited
   rubygem-autoprefixer-rails
-  rubygem-awesome_print
   rubygem-bcrypt
   rubygem-bootstrap-sass
   rubygem-builder
