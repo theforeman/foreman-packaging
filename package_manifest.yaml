@@ -660,7 +660,6 @@ foreman_plugin_packages:
     rubygem-bcrypt_pbkdf: {}
     rubygem-bootstrap-datepicker-rails: {}
     rubygem-chunky_png: {}
-    rubygem-commonjs: {}
     rubygem-dry-configurable: {}
     rubygem-dry-container: {}
     rubygem-dry-core: {}
