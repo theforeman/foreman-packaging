@@ -236,7 +236,6 @@ foreman_core_packages:
     rubygem-mime-types: {}
     rubygem-mime-types-data: {}
     rubygem-mini_mime: {}
-    rubygem-mini_portile2: {}
     rubygem-msgpack: {}
     rubygem-multipart-post: {}
     rubygem-multi_json: {}
