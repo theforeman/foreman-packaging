@@ -32,7 +32,6 @@
       <packagereq type="default">rubygem-azure_mgmt_storage</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_subscriptions</packagereq>
       <packagereq type="default">rubygem-bcrypt_pbkdf</packagereq>
-      <packagereq type="default">rubygem-bootstrap-datepicker-rails</packagereq>
       <packagereq type="default">rubygem-chef-api</packagereq>
       <packagereq type="default">rubygem-chunky_png</packagereq>
       <packagereq type="default">rubygem-dalli</packagereq>
@@ -205,7 +204,6 @@
       <packagereq type="default">rubygem-azure_mgmt_storage-doc</packagereq>
       <packagereq type="default">rubygem-azure_mgmt_subscriptions-doc</packagereq>
       <packagereq type="default">rubygem-bcrypt_pbkdf-doc</packagereq>
-      <packagereq type="default">rubygem-bootstrap-datepicker-rails-doc</packagereq>
       <packagereq type="default">rubygem-chef-api-doc</packagereq>
       <packagereq type="default">rubygem-chunky_png-doc</packagereq>
       <packagereq type="default">rubygem-dalli-doc</packagereq>
