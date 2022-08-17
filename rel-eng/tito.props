@@ -175,7 +175,6 @@ whitelist = dynflow-utils
   rubygem-fog-openstack
   rubygem-fog-ovirt
   rubygem-fog-vsphere
-  rubygem-fog-xenserver
   rubygem-fog-xml
   rubygem-font-awesome-sass
   rubygem-foreman_maintain
