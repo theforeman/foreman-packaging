@@ -8,7 +8,7 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
+Version: 1.2.0
 Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
@@ -99,6 +99,15 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Thu Aug 18 2022 Manuel Laug <laugmanuel@gmail.com> - 1.2.0-1
+- Update to 1.2.0
+
+* Mon May 09 2022 Evgeni Golov - 1.1.0-3
+- log plugin installation in posttrans
+
+* Fri Apr 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.1.0-2
+- Stop generaing apipie cache
+
 * Thu Oct 21 2021 Manuel Laug <laugmanuel@gmail.com> - 1.1.0-1
 - Update to 1.1.0
 
