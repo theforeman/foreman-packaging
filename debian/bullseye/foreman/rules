@@ -22,6 +22,10 @@ build:
 	/bin/cp config/dynflow/worker.yml.example config/dynflow/worker.yml
 	/bin/mkdir -p ./vendor/cache
 	echo 'gem "thor", "1.1.0"' >> Gemfile
+	# rack-protection and sinatra have to be the same version
+	# foreman pulls in rack-protection via sidekiq, f-tasks needs sinatra
+	# let foreman.deb provide both gems in the cache, so that they always match
+	echo 'gem "sinatra"' >> bundler.d/debian.rb
 	/bin/rm -f bundler.d/test.rb bundler.d/development.rb
 	/bin/sed -i '2i  gem "puma-status"' bundler.d/service.rb
 	$(BUNDLE) install
