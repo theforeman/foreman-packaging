@@ -8,8 +8,8 @@
 %global foreman_min_version 2.3
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.1.0
-Release: 3%{?foremandist}%{?dist}
+Version: 1.2.0
+Release: 1%{?foremandist}%{?dist}
 Summary: Adds support for using credentials from Hashicorp Vault
 Group: Applications/Systems
 License: GPLv3
@@ -99,6 +99,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Aug 18 2022 Manuel Laug <laugmanuel@gmail.com> - 1.2.0-1
+- Update to 1.2.0
+
 * Mon May 09 2022 Evgeni Golov - 1.1.0-3
 - log plugin installation in posttrans
 
