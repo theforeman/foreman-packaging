@@ -1,3 +1,9 @@
+foreman (3.5.0-2) stable; urgency=low
+
+  * explicitly vendor sinatra
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 18 Aug 2022 14:14:39 +0200
+
 foreman (3.5.0-1) stable; urgency=low
 
   * Bump changelog to 3.5.0 to match VERSION
