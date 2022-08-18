@@ -1,4 +1,10 @@
-ruby-foreman-tasks (6.0.2) stable; urgency=low
+ruby-foreman-tasks (6.0.2-2) stable; urgency=low
+
+  * don't vendor sinatra and its gems, this is now provided by foreman
+
+ -- Evgeni Golov <evgeni@debian.org>  Tue, 11 Oct 2022 16:05:03 +0200
+
+ruby-foreman-tasks (6.0.2-1) stable; urgency=low
 
   * 6.0.2 released
 
