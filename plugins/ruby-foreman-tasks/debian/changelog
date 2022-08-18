@@ -1,6 +1,7 @@
 ruby-foreman-tasks (7.0.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk
+  * don't vendor sinatra and its gems, this is now provided by foreman
 
  -- Evgeni Golov <evgeni@debian.org>  Thu, 18 Aug 2022 11:38:03 +0200
 
