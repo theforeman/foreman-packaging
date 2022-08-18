@@ -1,3 +1,9 @@
+foreman (3.3.1-2) stable; urgency=low
+
+  * explicitly vendor sinatra
+
+ -- Evgeni Golov <evgeni@debian.org>  Thu, 11 Oct 2022 15:37:41 +0200
+
 foreman (3.3.1-1) stable; urgency=low
 
   * 3.3.1 released
