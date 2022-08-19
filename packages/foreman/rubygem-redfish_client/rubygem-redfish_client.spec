@@ -46,11 +46,11 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%{gem_instdir}/.codeclimate.yml
+%exclude %{gem_instdir}/.codeclimate.yml
 %exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
-%{gem_instdir}/.simplecov
+%exclude %{gem_instdir}/.simplecov
 %exclude %{gem_instdir}/.yardopts
 %{gem_instdir}/bin
 %{gem_libdir}
