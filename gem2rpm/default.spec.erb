@@ -34,6 +34,7 @@ config.rules[:ignore] << '.codecov.yml'
 config.rules[:ignore] << '.ruby-gemset'
 config.rules[:ignore] << '.autotest'
 config.rules[:ignore] << '.circleci'
+config.rules[:ignore] << '.simplecov'
 -%>
 %global gem_name <%= spec.name %>
 <% unless spec.extensions.empty? -%>
