@@ -37,7 +37,7 @@
 Summary: SaltStack support for Foreman Smart-Proxy
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Group: Applications/System
 License: GPLv3
 URL: https://github.com/theforeman/smart_proxy_salt
@@ -126,13 +126,19 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/foreman-node
 sed -ri 'sX.*/usr/bin/ruby|/usr/bin/env ruby.*$X\#\!/usr/bin/%{?scl:%{scl_prefix}}rubyX' .%{_bindir}/salt_python_wrapper
 
-# autosign runner, reactor, key file
+# runners
 mkdir -p %{buildroot}%{salt_proxy_runners_dir}
 mv %{buildroot}%{gem_instdir}/salt/minion_auth/srv/salt/_runners/* \
    %{buildroot}%{salt_proxy_runners_dir}
+mv %{buildroot}%{gem_instdir}/salt/report_upload/srv/salt/_runners/* \
+   %{buildroot}%{salt_proxy_runners_dir}
+# reactors
 mkdir -p %{buildroot}%{salt_proxy_reactors_dir}
 mv %{buildroot}%{gem_instdir}/salt/minion_auth/foreman_minion_auth.sls \
    %{buildroot}%{salt_proxy_reactors_dir}/
+mv %{buildroot}%{gem_instdir}/salt/report_upload/foreman_report_upload.sls \
+   %{buildroot}%{salt_proxy_reactors_dir}/
+# grains
 mkdir -p %{buildroot}%{salt_state_grains_dir}
 touch %{buildroot}%{salt_state_grains_dir}/autosign_key
 
@@ -197,6 +203,9 @@ if [ ! -f %{salt_state_grains_dir}/autosign_key ] ; then
 fi
 
 %changelog
+* Thu Aug 18 2022 Bastian Schmidt <schmidt@atix.de> 5.0.0-4
+- Add automatic report upload via reactor
+
 * Mon May 09 2022 Eric D. Helms <ericdhelms@gmail.com> - 5.0.0-3
 - Drop unused smart_proxy_dynflow_core_bundlerd_dir macro
 
