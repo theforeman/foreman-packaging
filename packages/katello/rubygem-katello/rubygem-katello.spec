@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
-%global release 1
+%global release 2
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -215,6 +215,11 @@ cp -pa .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
+for asset in bastion bastion_katello
+do
+  ln -s %{gem_instdir}/public/assets/${asset} %{buildroot}%{foreman_dir}/public/assets/${asset}
+done
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE.txt
@@ -232,6 +237,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
+%{foreman_dir}/public/assets/bastion
+%{foreman_dir}/public/assets/bastion_katello
 %{foreman_webpack_foreman}
 %{foreman_webpack_plugin}
 
@@ -244,6 +252,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 22 2022 Evgeni Golov - 4.7.0-0.2.pre.master
+- Fixes #35409 - symlink legacy katello assets from foreman assets
+
 * Mon Aug 15 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.1.pre.master
 - Update to version 4.7
 
