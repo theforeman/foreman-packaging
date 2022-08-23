@@ -1,93 +1,85 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
-# Generated from net-ssh-2.2.1.gem by gem2rpm -*- rpm-spec -*-
+# template: default
 %global gem_name net-ssh
 
+Name: rubygem-%{gem_name}
+Version: 7.0.1
+Release: 1%{?dist}
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.0
-Release: 3%{?dist}
-Group: Development/Languages
 License: MIT
 URL: https://github.com/net-ssh/net-ssh
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release) >= 2
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}ruby(release) >= 2
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby
+
+# start specfile generated dependencies
+Requires: ruby >= 2.6
+BuildRequires: ruby >= 2.6
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
-Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
+Net::SSH: a pure-Ruby implementation of the SSH2 client protocol. It allows
+you to write programs that invoke and interact with processes on remote
+servers, via SSH2.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}
-
+Documentation for %{name}.
 
 %prep
-%setup -n %{pkg_name}-%{version} -q -c -T
-mkdir -p .%{gem_dir}
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-# file-not-utf8 correction
-pushd %{buildroot}%{gem_instdir}
-iconv --from=ISO-8859-1 --to=UTF-8 THANKS.txt > THANKS.txt.new && \
-touch -r THANKS.txt THANKS.txt.new && \
-mv THANKS.txt.new THANKS.txt
-popd
-
-# replace shebangs to prevent SCL packages depending on non-SCL Ruby
-find %{buildroot}%{gem_instdir}/support/ -name *.rb -exec \
-  sed -ri '1sX/usr/bin/rubyX/usr/bin/env rubyX' {} +
-
 %files
-%defattr(-, root, root, -)
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.dockerignore
+%exclude %{gem_instdir}/.github
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
+%doc %{gem_instdir}/CHANGES.txt
+%exclude %{gem_instdir}/Dockerfile
+%exclude %{gem_instdir}/Dockerfile.openssl3
+%exclude %{gem_instdir}/ISSUE_TEMPLATE.md
+%license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/Manifest
+%exclude %{gem_instdir}/appveyor.yml
+%exclude %{gem_instdir}/docker-compose.yml
 %{gem_libdir}
-%doc %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/net-ssh-public_cert.pem
+%exclude %{gem_instdir}/support
 %exclude %{gem_cache}
 %{gem_spec}
 
 %files doc
-%defattr(-, root, root, -)
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.rdoc
-%doc %{gem_instdir}/THANKS.txt
-%doc %{gem_instdir}/CHANGES.txt
-%{gem_instdir}/Gemfile*
-%{gem_instdir}/Manifest
+%{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile.noed25519
+%doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
-%{gem_instdir}/support
-# Required to run tests
-%{gem_instdir}/net-ssh.gemspec
-%{gem_instdir}/net-ssh-public_cert.pem
-%exclude %{gem_instdir}/.*
-%exclude %{gem_instdir}/appveyor.yml
-%exclude %{gem_instdir}/ISSUE_TEMPLATE.md
+%doc %{gem_instdir}/THANKS.txt
+%exclude %{gem_instdir}/net-ssh.gemspec
 
 %changelog
+* Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.0.1-1
+- Update to 7.0.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-3
 - Rebuild against rh-ruby27
 
