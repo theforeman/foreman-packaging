@@ -169,6 +169,7 @@ find %{buildroot}%{gem_instdir}/<%= spec.bindir %> -type f | xargs chmod a+x
 %{foreman_bundlerd_plugin}
 <% if has_assets -%>
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 <% end -%>
 <% if has_cronjob -%>
 %config(noreplace) %{_sysconfdir}/cron.d/%{gem_name}
