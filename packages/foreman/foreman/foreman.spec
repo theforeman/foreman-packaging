@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 2
+%global release 3
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -834,6 +834,7 @@ GEMFILE
 %%%{name}_pluginconf_dir %{_sysconfdir}/%{name}/plugins
 # Common assets locations
 %%%{name}_assets_plugin %%{gem_instdir}/public/assets/%%{gem_name}
+%%%{name}_assets_foreman %%{foreman_dir}/public/assets/%%{gem_name}
 # Common webpack locations
 %%%{name}_webpack_plugin %%{gem_instdir}/public/webpack/%%{gem_name}
 %%%{name}_webpack_foreman %%{foreman_dir}/public/webpack/%%{gem_name}
@@ -880,6 +881,8 @@ popd \\
 rm -rf ./usr \\
 %%{?-a:mkdir -p %%{buildroot}%%{foreman_dir}/public/apipie-cache/plugin} \\
 %%{?-a:ln -s %%{%{name}_apipie_cache_plugin} %%{buildroot}%%{%{name}_apipie_cache_foreman}} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/assets} \\
+%%{?-s:[ -e %%{buildroot}%%{%{name}_assets_plugin} ] && ln -s %%{%{name}_assets_plugin} %%{buildroot}%%{%{name}_assets_foreman}} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && mkdir -p %%{buildroot}%%{foreman_dir}/public/webpack} \\
 %%{?-s:[ -e %%{buildroot}%%{%{name}_webpack_plugin} ] && ln -s %%{%{name}_webpack_plugin} %%{buildroot}%%{%{name}_webpack_foreman}} \\
 %%{?-s:rm -f %%{buildroot}%%{%{name}_webpack_plugin}/*.js.map} \\
@@ -1005,6 +1008,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Aug 23 2022 Evgeni Golov - 3.5.0-0.3.develop
+- Refs #35409 - Include sprockets-based assets in plugin macros
+
 * Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.2.develop
 - Drop /var/lib/foreman/tmp
 
