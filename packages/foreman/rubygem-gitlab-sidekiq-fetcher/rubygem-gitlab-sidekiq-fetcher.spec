@@ -2,7 +2,7 @@
 %global gem_name gitlab-sidekiq-fetcher
 
 Name: rubygem-%{gem_name}
-Version: 0.6.1
+Version: 0.8.0
 Release: 1%{?dist}
 Summary: Reliable fetch extension for Sidekiq
 License: LGPL-3.0
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/tests
 
 %changelog
+* Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 0.8.0-1
+- Update to 0.8.0
+
 * Sun Jul 24 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.6.1-1
 - Update to 0.6.1
 
