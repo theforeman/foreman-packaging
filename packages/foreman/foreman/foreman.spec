@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 1
+%global release 2
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -728,8 +728,6 @@ install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/plugins
 install -d -m0755 %{buildroot}%{_sysconfdir}/%{name}/dynflow
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
-install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp
-install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/tmp/pids
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}
 install -d -m0750 %{buildroot}%{_localstatedir}/log/%{name}/plugins
@@ -1007,6 +1005,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.2.develop
+- Drop /var/lib/foreman/tmp
+
 * Wed Aug 10 2022 Patrick Creech <pcreech@redhat.com> - 3.5.0-0.1.develop
 - Bump version to 3.5-develop
 
