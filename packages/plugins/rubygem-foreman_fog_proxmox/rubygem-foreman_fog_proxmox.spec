@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.14.0
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Foreman plugin that adds Proxmox VE compute resource using fog-proxmox
 Group: Applications/Systems
 License: GPLv3
@@ -100,6 +100,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -119,6 +120,9 @@ fi
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 0.14.0-4
+- Refs #35409 - Include sprockets assets
+
 * Mon May 09 2022 Evgeni Golov - 0.14.0-3
 - log plugin installation in posttrans
 
