@@ -98,6 +98,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -110,6 +111,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 21.0.2-2
+- Refs #35409 - Include sprockets assets
+
 * Mon May 09 2022 Evgeni Golov - 21.0.1-2
 - log plugin installation in posttrans
 
