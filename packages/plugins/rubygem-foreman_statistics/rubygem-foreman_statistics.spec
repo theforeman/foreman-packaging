@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 2.0.1
-Release: 3%{?foremandist}%{?dist}
+Release: 4%{?foremandist}%{?dist}
 Summary: Add Statistics and Trends
 Group: Applications/Systems
 License: GPLv3
@@ -104,6 +104,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -117,6 +118,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 2.0.1-4
+- Refs #35409 - Include sprockets assets
+
 * Mon May 09 2022 Evgeni Golov - 2.0.1-3
 - log plugin installation in posttrans
 
