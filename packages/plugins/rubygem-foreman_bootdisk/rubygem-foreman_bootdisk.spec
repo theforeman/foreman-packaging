@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 19.0.5
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Create boot disks to provision hosts with Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -106,6 +106,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 
@@ -118,6 +119,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 19.0.5-3
+- Refs #35409 - Include sprockets assets
+
 * Mon May 09 2022 Evgeni Golov - 19.0.5-2
 - log plugin installation in posttrans
 
