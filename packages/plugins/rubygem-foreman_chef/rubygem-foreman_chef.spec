@@ -9,7 +9,7 @@
 Summary:    Plugin for Chef integration with Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
 Version:    0.10.0
-Release:    2%{?foremandist}%{?dist}
+Release:    3%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_chef
@@ -90,6 +90,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -97,6 +98,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/Rakefile
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 0.10.0-3
+- Refs #35409 - Include sprockets assets
+
 * Tue Apr 06 2021 Eric D. Helms <ericdhelms@gmail.com> - 0.10.0-2
 - Rebuild plugins for Ruby 2.7
 
