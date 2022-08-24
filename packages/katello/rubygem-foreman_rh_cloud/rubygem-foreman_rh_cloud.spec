@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.39
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
 License: GPLv3
@@ -118,6 +118,7 @@ cp -a .%{gem_dir}/* \
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -129,6 +130,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 5.0.39-2
+- Refs #35409 - Include sprockets assets
+
 * Mon Jun 13 2022 Evgeni Golov 5.0.39-1
 - Update to 5.0.39
 
