@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 1.8.20
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Suse Customer Center plugin for Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -94,6 +94,7 @@ cp -a .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -102,6 +103,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 1.8.20-2
+- Refs #35409 - Include sprockets assets
+
 * Thu Jun 02 2022 Nadja Heitmann <nadjah@atix.de> 1.8.20-1
 - Update to 1.8.20
 - Support upstream_authentication_token for Katello > 4.3
