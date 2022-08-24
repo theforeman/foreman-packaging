@@ -1,2 +1,0 @@
-debian/reports.rb usr/share/foreman-proxy/bundler.d
-settings.d/reports.yml etc/foreman-proxy/settings.d

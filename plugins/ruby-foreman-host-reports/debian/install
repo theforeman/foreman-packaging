@@ -1,4 +1,0 @@
-foreman_host_reports.rb           usr/share/foreman/bundler.d
-cache                             usr/share/foreman/vendor
-webpack/foreman_host_reports      var/lib/foreman/public/webpack
-assets                            var/lib/foreman/public
