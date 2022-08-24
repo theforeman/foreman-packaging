@@ -820,7 +820,6 @@ foreman_proxy_plugin_packages:
     rubygem-smart_proxy_pulp: {}
     rubygem-smart_proxy_realm_ad_plugin: {}
     rubygem-smart_proxy_remote_execution_ssh: {}
-    rubygem-smart_proxy_reports: {}
     rubygem-smart_proxy_salt: {}
     rubygem-smart_proxy_shellhooks: {}
     rubygem-smart_proxy_spacewalk: {}
