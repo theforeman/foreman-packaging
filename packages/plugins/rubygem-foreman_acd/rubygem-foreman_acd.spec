@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 0.9.3
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin to provide application centric deployment and self service portal
 Group: Applications/Systems
 License: GPLv3
@@ -121,6 +121,7 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
 %attr(-,foreman,foreman) %{_root_localstatedir}/lib/foreman/%{gem_name}
@@ -136,6 +137,9 @@ mkdir -p %{buildroot}%{_root_localstatedir}/lib/foreman/%{gem_name}/ansible-play
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 0.9.3-2
+- Refs #35409 - Include sprockets assets
+
 * Fri Jul 15 2022 Bernhard Suttner <suttner@atix.de> 0.9.3-1
 - Update to 0.9.3
 
