@@ -10,7 +10,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 7.0.0
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: Foreman plugin for showing tasks information for resources and users
 Group: Applications/Systems
 License: GPLv3
@@ -161,6 +161,7 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_dir}/script/foreman-debug.d/60-dynflow_debug
 %config(noreplace) %{_root_sysconfdir}/logrotate.d/%{gem_name}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 %{gem_instdir}/public/assets/foreman_tasks/
 %{foreman_webpack_plugin}
 %{foreman_webpack_foreman}
@@ -177,6 +178,9 @@ type foreman-selinux-relabel >/dev/null 2>&1 && foreman-selinux-relabel 2>&1 >/d
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 7.0.0-2
+- Refs #35409 - Include sprockets assets
+
 * Fri Jul 15 2022 Adam Ruzicka <aruzicka@redhat.com> 7.0.0-1
 - Update to 7.0.0
 
