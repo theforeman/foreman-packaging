@@ -2,7 +2,7 @@
 %global gem_name ancestry
 
 Name: rubygem-%{gem_name}
-Version: 3.2.1
+Version: 4.2.0
 Release: 1%{?dist}
 Summary: Organize ActiveRecord model into a tree structure
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/stefankroes/ancestry
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.0.0
-BuildRequires: ruby >= 2.0.0
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Wed Aug 24 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 4.2.0-1
+- Update to 4.2.0
+
 * Fri Jul 22 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.2.1-1
 - Update to 3.2.1
 
