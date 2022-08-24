@@ -9,7 +9,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 4.0.0
-Release: 2%{?foremandist}%{?dist}
+Release: 3%{?foremandist}%{?dist}
 Summary: Adds status checks of the VMWare VMs to Foreman
 Group: Applications/Systems
 License: GPLv3+
@@ -89,6 +89,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -100,6 +101,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 4.0.0-3
+- Refs #35409 - Include sprockets assets
+
 * Mon May 09 2022 Evgeni Golov - 4.0.0-2
 - log plugin installation in posttrans
 
