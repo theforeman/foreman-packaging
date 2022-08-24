@@ -8,7 +8,7 @@
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
 Version: 5.0.1
-Release: 1%{?foremandist}%{?dist}
+Release: 2%{?foremandist}%{?dist}
 Summary: This plug-in adds support for the Omaha procotol to The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -90,6 +90,7 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
 
 %files doc
 %doc %{gem_docdir}
@@ -101,6 +102,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Wed Aug 24 2022 Evgeni Golov - 5.0.1-2
+- Refs #35409 - Include sprockets assets
+
 * Thu May 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 5.0.1-1
 - Update to 5.0.1
 
