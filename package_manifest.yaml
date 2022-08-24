@@ -735,7 +735,6 @@ foreman_plugin_packages:
     rubygem-hammer_cli_foreman_azure_rm: {}
     rubygem-hammer_cli_foreman_bootdisk: {}
     rubygem-hammer_cli_foreman_discovery: {}
-    rubygem-hammer_cli_foreman_host_reports: {}
     rubygem-hammer_cli_foreman_kubevirt: {}
     rubygem-hammer_cli_foreman_leapp: {}
     rubygem-hammer_cli_foreman_openscap: {}
