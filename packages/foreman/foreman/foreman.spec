@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 3
+%global release 4
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -43,13 +43,13 @@ Requires: rubygem(rails) >= 6.1.6.1
 Requires: rubygem(rails) < 6.1.7.0
 Requires: rubygem(rest-client) >= 2.0.0
 Requires: rubygem(rest-client) < 3
-Requires: rubygem(audited) >= 4.9.0
-Requires: rubygem(audited) < 5
-Requires: rubygem(will_paginate) >= 3.1.7
-Requires: rubygem(will_paginate) < 4
-Requires: rubygem(ancestry) >= 3.0.7
-Requires: rubygem(ancestry) < 4
-Requires: rubygem(scoped_search) >= 4.1.8
+Requires: rubygem(audited) >= 5.0
+Requires: rubygem(audited) < 6.0
+Requires: rubygem(will_paginate) >= 3.3
+Requires: rubygem(will_paginate) < 4.0
+Requires: rubygem(ancestry) >= 4.0
+Requires: rubygem(ancestry) < 5.0
+Requires: rubygem(scoped_search) >= 4.1.10
 Requires: rubygem(scoped_search) < 5
 Requires: rubygem(ldap_fluff) >= 0.5.0
 Requires: rubygem(ldap_fluff) < 1.0
@@ -59,8 +59,8 @@ Requires: rubygem(apipie-dsl) >= 2.2.6
 Requires: rubygem(rdoc) < 6.4
 Requires: rubygem(rabl) >= 0.15.0
 Requires: rubygem(rabl) < 1
-Requires: rubygem(oauth) >= 0.5.4
-Requires: rubygem(oauth) < 1
+Requires: rubygem(oauth) >= 1.0
+Requires: rubygem(oauth) < 2.0
 Requires: rubygem(deep_cloneable) >= 3
 Requires: rubygem(deep_cloneable) < 4
 Requires: rubygem(validates_lengths_from_database) >= 0.5
@@ -84,7 +84,7 @@ Requires: rubygem(logging) < 3.0.0
 Requires: rubygem(fog-core) >= 2.1
 Requires: rubygem(fog-core) < 3.0
 Requires: rubygem(net-scp)
-Requires: rubygem(net-ssh) = 4.2.0
+Requires: rubygem(net-ssh)
 Requires: rubygem(net-ldap) >= 0.16.0
 Requires: rubygem(net-ping)
 Requires: rubygem(activerecord-session_store) >= 2.0.0
@@ -145,13 +145,13 @@ BuildRequires: rubygem(rails) >= 6.1.6.1
 BuildRequires: rubygem(rails) < 6.1.7.0
 BuildRequires: rubygem(rest-client) >= 2.0.0
 BuildRequires: rubygem(rest-client) < 3
-BuildRequires: rubygem(audited) >= 4.9.0
-BuildRequires: rubygem(audited) < 5
-BuildRequires: rubygem(will_paginate) >= 3.1.7
-BuildRequires: rubygem(will_paginate) < 4
-BuildRequires: rubygem(ancestry) >= 3.0.7
-BuildRequires: rubygem(ancestry) < 4
-BuildRequires: rubygem(scoped_search) >= 4.1.8
+BuildRequires: rubygem(audited) >= 5.0
+BuildRequires: rubygem(audited) < 6.0
+BuildRequires: rubygem(will_paginate) >= 3.3
+BuildRequires: rubygem(will_paginate) < 4.0
+BuildRequires: rubygem(ancestry) >= 4.0
+BuildRequires: rubygem(ancestry) < 5.0
+BuildRequires: rubygem(scoped_search) >= 4.1.10
 BuildRequires: rubygem(scoped_search) < 5
 BuildRequires: rubygem(ldap_fluff) >= 0.5.0
 BuildRequires: rubygem(ldap_fluff) < 1.0
@@ -161,8 +161,8 @@ BuildRequires: rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: rubygem(rdoc) < 6.4
 BuildRequires: rubygem(rabl) >= 0.15.0
 BuildRequires: rubygem(rabl) < 1
-BuildRequires: rubygem(oauth) >= 0.5.4
-BuildRequires: rubygem(oauth) < 1
+BuildRequires: rubygem(oauth) >= 1.0
+BuildRequires: rubygem(oauth) < 2.0
 BuildRequires: rubygem(deep_cloneable) >= 3
 BuildRequires: rubygem(deep_cloneable) < 4
 BuildRequires: rubygem(validates_lengths_from_database) >= 0.5
@@ -186,7 +186,7 @@ BuildRequires: rubygem(logging) < 3.0.0
 BuildRequires: rubygem(fog-core) >= 2.1
 BuildRequires: rubygem(fog-core) < 3.0
 BuildRequires: rubygem(net-scp)
-BuildRequires: rubygem(net-ssh) = 4.2.0
+BuildRequires: rubygem(net-ssh)
 BuildRequires: rubygem(net-ldap) >= 0.16.0
 BuildRequires: rubygem(net-ping)
 BuildRequires: rubygem(activerecord-session_store) >= 2.0.0
@@ -1008,6 +1008,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Aug 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.4.develop
+- Update Gem and NPM dependencies
+
 * Tue Aug 23 2022 Evgeni Golov - 3.5.0-0.3.develop
 - Refs #35409 - Include sprockets-based assets in plugin macros
 
