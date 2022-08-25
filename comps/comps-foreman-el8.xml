@@ -334,6 +334,7 @@
       <packagereq type="default">rubygem-unicode</packagereq>
       <packagereq type="default">rubygem-unicode-display_width</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database</packagereq>
+      <packagereq type="default">rubygem-version_gem</packagereq>
       <packagereq type="default">rubygem-webpack-rails</packagereq>
       <packagereq type="default">rubygem-websocket-driver</packagereq>
       <packagereq type="default">rubygem-websocket-extensions</packagereq>
@@ -528,8 +529,8 @@
       <packagereq type="default">rubygem-ruby-libvirt-doc</packagereq>
       <packagereq type="default">rubygem-ruby_parser-doc</packagereq>
       <packagereq type="default">rubygem-safemode-doc</packagereq>
+      <packagereq type="default">rubygem-sassc-doc</packagereq>
       <packagereq type="default">rubygem-sassc-rails-doc</packagereq>
-      <packagereq type="default">rubygem-sass-doc</packagereq>
       <packagereq type="default">rubygem-sass-rails-doc</packagereq>
       <packagereq type="default">rubygem-scoped_search-doc</packagereq>
       <packagereq type="default">rubygem-sd_notify-doc</packagereq>
@@ -558,6 +559,7 @@
       <packagereq type="default">rubygem-unicode-display_width-doc</packagereq>
       <packagereq type="default">rubygem-unicode-doc</packagereq>
       <packagereq type="default">rubygem-validates_lengths_from_database-doc</packagereq>
+      <packagereq type="default">rubygem-version_gem-doc</packagereq>
       <packagereq type="default">rubygem-webpack-rails-doc</packagereq>
       <packagereq type="default">rubygem-websocket-driver-doc</packagereq>
       <packagereq type="default">rubygem-websocket-extensions-doc</packagereq>

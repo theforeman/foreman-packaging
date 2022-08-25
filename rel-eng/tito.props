@@ -319,6 +319,7 @@ whitelist = dynflow-utils
   rubygem-unicode
   rubygem-unicode-display_width
   rubygem-validates_lengths_from_database
+  rubygem-version_gem
   rubygem-webpack-rails
   rubygem-websocket-driver
   rubygem-websocket-extensions
