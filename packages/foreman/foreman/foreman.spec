@@ -5,7 +5,7 @@
 %global rake /usr/bin/rake
 
 %global release 7
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
 Name:    foreman
@@ -84,7 +84,7 @@ Requires: rubygem(logging) < 3.0.0
 Requires: rubygem(fog-core) >= 2.1
 Requires: rubygem(fog-core) < 3.0
 Requires: rubygem(net-scp)
-Requires: rubygem(net-ssh) = 4.2.0
+Requires: rubygem(net-ssh)
 Requires: rubygem(net-ldap) >= 0.16.0
 Requires: rubygem(net-ping)
 Requires: rubygem(activerecord-session_store) >= 2.0.0
@@ -186,7 +186,7 @@ BuildRequires: rubygem(logging) < 3.0.0
 BuildRequires: rubygem(fog-core) >= 2.1
 BuildRequires: rubygem(fog-core) < 3.0
 BuildRequires: rubygem(net-scp)
-BuildRequires: rubygem(net-ssh) = 4.2.0
+BuildRequires: rubygem(net-ssh)
 BuildRequires: rubygem(net-ldap) >= 0.16.0
 BuildRequires: rubygem(net-ping)
 BuildRequires: rubygem(activerecord-session_store) >= 2.0.0
@@ -1010,6 +1010,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Aug 25 2022 Patrick Creech <pcreech@redhat.com> - 3.4.0-0.7.rc2
+- Release foreman 3.4.0rc2
+
 * Tue Aug 23 2022 Evgeni Golov - 3.4.0-0.7.rc1
 - Refs #35409 - Include sprockets-based assets in plugin macros
 
