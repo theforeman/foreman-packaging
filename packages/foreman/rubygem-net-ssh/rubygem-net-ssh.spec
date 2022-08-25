@@ -2,7 +2,7 @@
 %global gem_name net-ssh
 
 Name: rubygem-%{gem_name}
-Version: 7.0.1
+Version: 6.1.0
 Release: 1%{?dist}
 Summary: Net::SSH: a pure-Ruby implementation of the SSH2 client protocol
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/net-ssh/net-ssh
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.6
-BuildRequires: ruby >= 2.6
+Requires: ruby >= 2.3
+BuildRequires: ruby >= 2.3
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -48,19 +48,15 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.dockerignore
-%exclude %{gem_instdir}/.github
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
+%exclude %{gem_instdir}/.travis.yml
 %doc %{gem_instdir}/CHANGES.txt
-%exclude %{gem_instdir}/Dockerfile
-%exclude %{gem_instdir}/Dockerfile.openssl3
 %exclude %{gem_instdir}/ISSUE_TEMPLATE.md
 %license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/Manifest
 %exclude %{gem_instdir}/appveyor.yml
-%exclude %{gem_instdir}/docker-compose.yml
 %{gem_libdir}
 %exclude %{gem_instdir}/net-ssh-public_cert.pem
 %exclude %{gem_instdir}/support
@@ -77,8 +73,8 @@ cp -a .%{gem_dir}/* \
 %exclude %{gem_instdir}/net-ssh.gemspec
 
 %changelog
-* Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 7.0.1-1
-- Update to 7.0.1
+* Thu Aug 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.1.0-1
+- Update to 6.1.0
 
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 4.2.0-3
 - Rebuild against rh-ruby27
