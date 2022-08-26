@@ -1,49 +1,44 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name rails-i18n
 
+Name: rubygem-%{gem_name}
+Version: 7.0.5
+Release: 1%{?dist}
 Summary: Common locale data and translations for Rails i18n
-Name: %{?scl_prefix}rubygem-%{gem_name}
-
-Version: 6.0.0
-Release: 3%{?dist}
-Group: Development/Ruby
 License: MIT
 URL: https://github.com/svenfuchs/rails-i18n
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}rubygems
-Requires: %{?scl_prefix}rubygem(i18n) >= 0.7
-Requires: %{?scl_prefix}rubygem(i18n) < 2
-Requires: %{?scl_prefix}rubygem(railties) >= 6.0
-Requires: %{?scl_prefix}rubygem(railties) < 7.0
-Requires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}rubygems
+
+# start specfile generated dependencies
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel >= 1.8.11
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
+# end specfile generated dependencies
 
 %description
 A set of common locale data and translations to internationalize and/or
 localize your Rails applications.
 
+
 %package doc
-BuildArch:  noarch
-Requires:   %{?scl_prefix}%{pkg_name} = %{version}-%{release}
-%{?scl:Obsoletes: ruby193-rubygem-%{gem_name}-doc}
-Summary:    Documentation for rubygem-%{gem_name}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
+BuildArch: noarch
 
 %description doc
-This package contains documentation for rubygem-%{gem_name}.
+Documentation for %{name}.
 
 %prep
-%setup -q -c -T
-%{?scl:scl enable %{scl} - <<EOF}
-%gem_install -n %{SOURCE0}
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
+# Create the gem as gem install only works on a gem file
+gem build ../%{gem_name}-%{version}.gemspec
+
+# %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
+# by default, so that we can move it into the buildroot in %%install
+%gem_install
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -52,9 +47,9 @@ cp -a .%{gem_dir}/* \
 
 %files
 %dir %{gem_instdir}
+%license %{gem_instdir}/MIT-LICENSE.txt
 %{gem_libdir}
 %{gem_instdir}/rails
-%doc %{gem_instdir}/MIT-LICENSE.txt
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -64,6 +59,9 @@ cp -a .%{gem_dir}/* \
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Fri Aug 26 2022 Foreman Packaging Automation <packaging@theforeman.org> 7.0.5-1
+- Update to 7.0.5
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 6.0.0-3
 - Rebuild against rh-ruby27
 
