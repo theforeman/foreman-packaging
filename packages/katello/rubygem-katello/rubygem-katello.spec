@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
-%global release 2
+%global release 3
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -232,7 +232,7 @@ done
 %{gem_instdir}/locale
 %{gem_instdir}/public/assets/bastion
 %{gem_instdir}/public/assets/bastion_katello
-%{gem_instdir}/vendor
+%exclude %{gem_instdir}/vendor
 %exclude %{gem_cache}
 %{gem_spec}
 %{foreman_bundlerd_plugin}
@@ -252,6 +252,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Fri Aug 26 2022 Evgeni Golov - 4.7.0-0.3.pre.master
+- Don't ship the vendor dir, it's only need during build
+
 * Mon Aug 22 2022 Evgeni Golov - 4.7.0-0.2.pre.master
 - Fixes #35409 - symlink legacy katello assets from foreman assets
 
