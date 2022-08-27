@@ -10,8 +10,29 @@ EXCLUDED_REQUIRES = {
   'Requires' => ['activerecord-nulldb-adapter']
 }
 
-def package(gem)
-  return "rubygem(#{gem})"
+def build_requirement(dependency)
+  name = "rubygem(#{dependency.name})"
+
+  requirements = []
+
+  dependency.requirement.requirements.each do |op, version|
+    if op == '~>'
+      requirements << "#{name} >= #{version}" << "#{name} < #{version.bump}.0"
+    elsif op == '>=' && version.to_s == '0'
+      # handled later
+    elsif op != '!=' # != is not supported in RPM
+      requirements << "#{name} #{op} #{version}"
+    end
+  end
+
+  case requirements.length
+  when 0
+    name
+  when 1
+    requirements.first
+  else
+    "(#{requirements.join(' with ')})"
+  end
 end
 
 unless File.file?(filename)
@@ -33,20 +54,7 @@ bundler.dependencies.each do |dependency|
       next if EXCLUDED_REQUIRES[req].include?(dependency.name)
 
       requires[group][req] = [] unless requires[group].key?(req)
-
-      target = requires[group][req]
-      name = package(dependency.name)
-
-      dependency.requirement.requirements.each do |op, version|
-        if op == '~>'
-          target << "#{name} >= #{version}"
-          target << "#{name} < #{version.bump}.0"
-        elsif op == '>=' && version.to_s == '0'
-          target << name
-        elsif op != '!=' # != is not supported in RPM
-          target << "#{name} #{op} #{version}"
-        end
-      end
+      requires[group][req] << build_requirement(dependency)
     end
   end
 end
