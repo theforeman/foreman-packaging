@@ -46,8 +46,12 @@ def get_requirement(version):
 def get_requirements(dependencies, fmt, excludes):
     for package, version in sorted(dependencies.items()):
         if not is_excluded(package, excludes):
-            for requirement in get_requirement(version):
-                yield fmt.format(package, requirement)
+            name = f"npm({package})"
+            requirements = [f'{name} {requirement}' for requirement in get_requirement(version)]
+            if len(requirements) > 1:
+                yield fmt.format(f'({" with ".join(requirements)})')
+            else:
+                yield fmt.format(requirements[0])
 
 
 def get_npm_sections(packages, excludes):
@@ -55,7 +59,7 @@ def get_npm_sections(packages, excludes):
         for requires in ('BuildRequires', 'Requires'):
             trigger = '{} {}\n'.format(section, requires)
             deps = packages.get(section, {})
-            requirements = list(get_requirements(deps, requires + ': npm({}) {}\n', excludes))
+            requirements = list(get_requirements(deps, requires + ': {}\n', excludes))
             yield trigger, requirements
 
 
