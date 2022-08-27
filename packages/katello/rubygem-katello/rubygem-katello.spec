@@ -3,7 +3,8 @@
 %global plugin_name katello
 %global foreman_min_version 3.9
 %global foreman_max_version 3.10
-%global prereleasesource pre.master
+%global git_branch master
+%global prereleasesource pre.%{git_branch}
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.11.0
 %global release 2
@@ -14,7 +15,11 @@ Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Content and Subscription Management plugin for Foreman
 License: GPLv2
 URL: https://theforeman.org/plugins/katello
+%if "%{prereleasesource}" == "pre.%{git_branch}"
+Source0: https://ci.theforeman.org/job/%{gem_name}-%{git_branch}-source-release/lastSuccessfulBuild/artifact/%{gem_name}-%{version}%{?prerelease}.gem
+%else
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
+%endif
 
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}

@@ -6,7 +6,8 @@
 %global plugin_name katello
 
 %global release 1
-%global prereleasesource pre.master
+%global git_branch master
+%global prereleasesource pre.%{git_branch}
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 
 %{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
@@ -19,7 +20,11 @@ Summary: Katello commands for Hammer
 Group: Development/Languages
 License: GPLv3
 URL: https://github.com/Katello/hammer-cli-katello
+%if "%{prereleasesource}" == "pre.%{git_branch}"
+Source0: https://ci.theforeman.org/job/hammer-cli-katello-%{git_branch}-source-release/lastSuccessfulBuild/artifact/%{gem_name}-%{version}%{?prerelease}.gem
+%else
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
+%endif
 
 # start specfile generated dependencies
 Requires: %{?scl_prefix_ruby}ruby(release)

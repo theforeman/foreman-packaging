@@ -10,3 +10,6 @@ downloaded_rpms
 
 SRPMs/
 mock_builds/
+
+*-develop.tar.bz2
+*.pre.master.gem

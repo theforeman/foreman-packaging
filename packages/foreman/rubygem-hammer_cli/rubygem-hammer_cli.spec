@@ -13,7 +13,11 @@ Release: %{?prerelease:0.}%{release}%{?prerelease}%{?nightly}%{?dist}
 Summary: Universal command-line interface
 License: GPLv3
 URL: https://github.com/theforeman/hammer-cli
+%if "%{prereleasesource}" == "pre.develop"
+Source0: https://ci.theforeman.org/job/hammer-cli-master-source-release/lastSuccessfulBuild/artifact/pkg/%{gem_name}-%{version}%{?prerelease}.gem
+%else
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}%{?prerelease}.gem
+%endif
 
 # start specfile generated dependencies
 Requires: ruby

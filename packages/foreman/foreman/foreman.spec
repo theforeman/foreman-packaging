@@ -16,7 +16,11 @@ Summary: Systems Management web application
 Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
+%if "%{prereleasesource}" == "develop"
+Source0: https://ci.theforeman.org/job/%{name}-%{prereleasesource}-source-release/lastSuccessfulBuild/artifact/pkg/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%else
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%endif
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles

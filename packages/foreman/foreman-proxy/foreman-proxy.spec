@@ -13,7 +13,11 @@ Summary:        Restful Proxy for DNS, DHCP, TFTP, PuppetCA and Puppet
 Group:          Applications/System
 License:        GPLv3+
 URL:            https://theforeman.org/projects/smart-proxy
+%if "%{prereleasesource}" == "develop"
+Source0:        https://ci.theforeman.org/job/smart-proxy-%{prereleasesource}-source-release/lastSuccessfulBuild/artifact/pkg/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%else
 Source0:        https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+%endif
 Source1:        %{name}.tmpfiles
 Source2:        logrotate.conf
 
