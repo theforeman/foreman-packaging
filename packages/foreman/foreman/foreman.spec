@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -17,6 +17,7 @@ Group:  Applications/System
 License: GPLv3+ with exceptions
 URL: https://theforeman.org
 Source0: https://downloads.theforeman.org/%{name}/%{name}-%{version}%{?prerelease:-}%{?prerelease}.tar.bz2
+Source1: gen-gem-buildreqs
 Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
@@ -110,60 +111,14 @@ BuildRequires: rubygem(bigdecimal)
 BuildRequires: gettext
 BuildRequires: /usr/bin/ruby
 BuildRequires: rubygems
+BuildRequires: rubygem(bundler)
 BuildRequires: rubygem(rake) >= 0.8.3
 BuildRequires: rubygem(bundler_ext)
 BuildRequires: /usr/bin/npx
 BuildRequires: make
-BuildRequires: (rubygem(rss) or ruby-default-gems < 3.0)
 Requires: (rubygem(rss) or ruby-default-gems < 3.0)
 BuildRequires: (rubygem(rexml) or ruby-default-gems < 3.0)
 Requires: (rubygem(rexml) or ruby-default-gems < 3.0)
-
-# start specfile default BuildRequires
-BuildRequires: (rubygem(rails) >= 7.0.3 with rubygem(rails) < 7.1.0)
-BuildRequires: (rubygem(rest-client) >= 2.0.0 with rubygem(rest-client) < 3)
-BuildRequires: (rubygem(audited) >= 5.0 with rubygem(audited) < 6.0)
-BuildRequires: (rubygem(will_paginate) >= 3.3 with rubygem(will_paginate) < 4.0)
-BuildRequires: (rubygem(ancestry) >= 4.0 with rubygem(ancestry) < 5.0)
-BuildRequires: (rubygem(scoped_search) >= 4.1.10 with rubygem(scoped_search) < 5)
-BuildRequires: (rubygem(ldap_fluff) >= 0.7.0 with rubygem(ldap_fluff) < 1.0)
-BuildRequires: (rubygem(apipie-rails) >= 0.8.0 with rubygem(apipie-rails) < 2)
-BuildRequires: rubygem(apipie-dsl) >= 2.6.2
-BuildRequires: rubygem(rdoc)
-BuildRequires: (rubygem(rabl) >= 0.15.0 with rubygem(rabl) < 1)
-BuildRequires: (rubygem(oauth) >= 1.0 with rubygem(oauth) < 2.0)
-BuildRequires: (rubygem(deep_cloneable) >= 3 with rubygem(deep_cloneable) < 4)
-BuildRequires: (rubygem(validates_lengths_from_database) >= 0.5 with rubygem(validates_lengths_from_database) < 1.0)
-BuildRequires: (rubygem(friendly_id) >= 5.4.2 with rubygem(friendly_id) < 6)
-BuildRequires: (rubygem(secure_headers) >= 6.3 with rubygem(secure_headers) < 8)
-BuildRequires: (rubygem(safemode) >= 1.4 with rubygem(safemode) < 2)
-BuildRequires: (rubygem(fast_gettext) >= 2.1 with rubygem(fast_gettext) < 3.0)
-BuildRequires: (rubygem(gettext_i18n_rails) >= 1.8 with rubygem(gettext_i18n_rails) < 2.0)
-BuildRequires: (rubygem(rails-i18n) >= 7.0 with rubygem(rails-i18n) < 8.0)
-BuildRequires: (rubygem(logging) >= 1.8.0 with rubygem(logging) < 3.0.0)
-BuildRequires: (rubygem(fog-core) >= 2.1 with rubygem(fog-core) < 3.0)
-BuildRequires: rubygem(net-scp)
-BuildRequires: rubygem(net-ssh)
-BuildRequires: rubygem(net-ldap) >= 0.16.0
-BuildRequires: rubygem(net-ping)
-BuildRequires: (rubygem(activerecord-session_store) >= 2.0.0 with rubygem(activerecord-session_store) < 3)
-BuildRequires: (rubygem(sprockets) >= 4.0 with rubygem(sprockets) < 5.0)
-BuildRequires: (rubygem(sprockets-rails) >= 3.0 with rubygem(sprockets-rails) < 4.0)
-BuildRequires: (rubygem(responders) >= 3.0 with rubygem(responders) < 4.0)
-BuildRequires: (rubygem(roadie-rails) >= 3.0 with rubygem(roadie-rails) < 4.0)
-BuildRequires: (rubygem(deacon) >= 1.0 with rubygem(deacon) < 2.0)
-BuildRequires: (rubygem(mail) >= 2.7 with rubygem(mail) < 3.0)
-BuildRequires: (rubygem(sshkey) >= 2.0 with rubygem(sshkey) < 3.0)
-BuildRequires: (rubygem(dynflow) >= 1.6.5 with rubygem(dynflow) < 2.0.0)
-BuildRequires: rubygem(daemons)
-BuildRequires: (rubygem(bcrypt) >= 3.1 with rubygem(bcrypt) < 4.0)
-BuildRequires: rubygem(get_process_mem)
-BuildRequires: (rubygem(rack-cors) >= 1.1 with rubygem(rack-cors) < 2.0)
-BuildRequires: (rubygem(jwt) >= 2.2.2 with rubygem(jwt) < 3.0)
-BuildRequires: (rubygem(graphql) >= 1.13.0 with rubygem(graphql) < 1.14.0)
-BuildRequires: rubygem(graphql-batch)
-BuildRequires: rubygem(activerecord-nulldb-adapter)
-# end specfile default BuildRequires
 
 # assets
 BuildRequires: nodejs-packaging
@@ -269,19 +224,9 @@ BuildRequires: (npm(uuid) >= 3.3.2 with npm(uuid) < 4.0.0)
 BuildRequires: (npm(yup) >= 0.29.3 with npm(yup) < 1.0.0)
 # end package.json dependencies BuildRequires
 
-# start specfile assets BuildRequires
-BuildRequires: (rubygem(patternfly-sass) >= 3.59.4 with rubygem(patternfly-sass) < 3.60.0)
-BuildRequires: (rubygem(gettext_i18n_rails_js) >= 1.4 with rubygem(gettext_i18n_rails_js) < 2.0)
-BuildRequires: (rubygem(po_to_json) >= 1.1 with rubygem(po_to_json) < 2.0)
-BuildRequires: (rubygem(execjs) >= 1.4.0 with rubygem(execjs) < 3.0)
-BuildRequires: (rubygem(terser) >= 1.1 with rubygem(terser) < 2.0)
-BuildRequires: (rubygem(sass-rails) >= 6.0 with rubygem(sass-rails) < 7.0)
-# end specfile assets BuildRequires
-
-# start specfile facter BuildRequires
-BuildRequires: rubygem(facter)
-# end specfile facter BuildRequires
-
+%generate_buildrequires
+# Generate rubygem BuildRequires with a script that uses bundler
+%{SOURCE1}
 
 %package cli
 Summary: Foreman CLI
@@ -985,6 +930,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Jul 10 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.16.0-0.7.develop
+- Use generated build dependencies if available
+
 * Wed Jul 09 2025 MariaAga <mariaaga@redhat.com> - 3.16.0-0.6.develop
 - move theforeman/vendors dependencies to foreman core
 

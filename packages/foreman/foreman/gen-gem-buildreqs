@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+require 'bundler'
+
+options = {}
+OptionParser.new do |opts|
+  opts.on('--gemfile GEMFILE', 'Path to Gemfile')
+  opts.on('--groups', 'Bundler groups to include')
+end.parse!(into: options)
+
+FILENAME = options.fetch(:gemfile, 'Gemfile')
+INCLUDED_GROUPS = options.fetch(:groups, 'default:assets:facter').split(':').map(&:to_sym)
+
+unless File.file?(FILENAME)
+  warn "File #{FILENAME} is not an existing file"
+  exit 1
+end
+
+bundler = Dir.chdir(File.dirname(FILENAME)) do
+  Bundler.load
+end
+
+bundler.dependencies.each do |dependency|
+  next unless (dependency.groups & INCLUDED_GROUPS).any?
+
+  name = "rubygem(#{dependency.name})"
+
+  reqs = []
+  dependency.requirement.requirements.each do |op, version|
+    if op == '~>'
+      reqs << "#{name} >= #{version}" << "#{name} < #{version.bump}.0"
+    elsif op == '>=' && version.to_s == '0'
+      # No real requirement, handled elsewhere
+    elsif op != '!=' # != is not supported in RPM
+      reqs << "#{name} #{op} #{version}"
+    end
+  end
+
+  requirement = case reqs.size
+                when 0
+                  name
+                when 1
+                  reqs.first
+                else
+                  "(#{reqs.join(' with ')})"
+                end
+  puts requirement
+end
