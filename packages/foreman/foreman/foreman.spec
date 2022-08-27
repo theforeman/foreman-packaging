@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 4
+%global release 5
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -75,8 +75,8 @@ Requires: rubygem(fast_gettext) >= 1.4
 Requires: rubygem(fast_gettext) < 2.0
 Requires: rubygem(gettext_i18n_rails) >= 1.8
 Requires: rubygem(gettext_i18n_rails) < 2.0
-Requires: rubygem(rails-i18n) >= 6.0
-Requires: rubygem(rails-i18n) < 7.0
+Requires: rubygem(rails-i18n) >= 7.0
+Requires: rubygem(rails-i18n) < 8.0
 Requires: rubygem(i18n) >= 1.1
 Requires: rubygem(i18n) < 2.0
 Requires: rubygem(logging) >= 1.8.0
@@ -177,8 +177,8 @@ BuildRequires: rubygem(fast_gettext) >= 1.4
 BuildRequires: rubygem(fast_gettext) < 2.0
 BuildRequires: rubygem(gettext_i18n_rails) >= 1.8
 BuildRequires: rubygem(gettext_i18n_rails) < 2.0
-BuildRequires: rubygem(rails-i18n) >= 6.0
-BuildRequires: rubygem(rails-i18n) < 7.0
+BuildRequires: rubygem(rails-i18n) >= 7.0
+BuildRequires: rubygem(rails-i18n) < 8.0
 BuildRequires: rubygem(i18n) >= 1.1
 BuildRequires: rubygem(i18n) < 2.0
 BuildRequires: rubygem(logging) >= 1.8.0
@@ -1008,6 +1008,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Sat Aug 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.5.develop
+- Update rails-i18n dependency
+
 * Thu Aug 25 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.4.develop
 - Update Gem and NPM dependencies
 
