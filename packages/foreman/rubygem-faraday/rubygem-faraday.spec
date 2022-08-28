@@ -2,7 +2,7 @@
 %global gem_name faraday
 
 Name: rubygem-%{gem_name}
-Version: 1.8.0
+Version: 1.10.2
 Release: 1%{?dist}
 Summary: HTTP/REST API client library
 License: MIT
@@ -60,6 +60,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Aug 28 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.10.2-1
+- Update to 1.10.2
+
 * Wed Jul 13 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.8.0-1
 - Update to 1.8.0
 
