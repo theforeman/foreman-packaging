@@ -1,3 +1,9 @@
+ruby-foreman-remote-execution (8.0.0-1) stable; urgency=low
+
+  * 8.0.0 released
+
+ -- Foreman Packaging Automation <packaging@theforeman.org>  Sun, 28 Aug 2022 04:31:48 +0000
+
 ruby-foreman-remote-execution (7.1.0-2) stable; urgency=low
 
   * Use foreman-plugin.mk
