@@ -1,91 +1,78 @@
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-
+# template: default
 %global gem_name gssapi
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 1.2.0
-Release: 8%{?dist}
+Name: rubygem-%{gem_name}
+Version: 1.3.1
+Release: 1%{?dist}
 Summary: A FFI wrapper around the system GSSAPI library
-Group: Development/Languages
 License: MIT
-URL: http://github.com/zenchild/gssapi
+URL: https://github.com/zenchild/gssapi
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(ffi) >= 1.0.1
-Requires: krb5-libs
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
-BuildRequires: %{?scl_prefix_ruby}ruby >= 1.8.7
+
+# start specfile generated dependencies
+Requires: ruby >= 1.8.7
+BuildRequires: ruby >= 1.8.7
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
+# end specfile generated dependencies
 
 %description
 A FFI wrapper around the system GSSAPI library. Please make sure and read
-the Yard docs or standard GSSAPI documentation if you have any questions.
+the
+Yard docs or standard GSSAPI documentation if you have any questions.
 There is also a class called GSSAPI::Simple that wraps many of the common
-features used for GSSAPI.
+features
+used for GSSAPI.
 
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
 Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{name}
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
-cp -pa .%{gem_dir}/* \
+cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
-rm -f %{buildroot}%{gem_instdir}/%{gem_name}.gemspec
-
 
 %files
 %dir %{gem_instdir}
+%exclude %{gem_instdir}/.gitignore
+%license %{gem_instdir}/COPYING
+%{gem_instdir}/VERSION
 %{gem_libdir}
+%exclude %{gem_instdir}/preamble
 %exclude %{gem_cache}
 %{gem_spec}
-%{gem_instdir}/Rakefile
-%{gem_instdir}/VERSION
-%exclude %{gem_instdir}/test
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/README.md
-%doc %{gem_instdir}/COPYING
 %doc %{gem_instdir}/Changelog.md
-%doc %{gem_instdir}/Gemfile
+%{gem_instdir}/Gemfile
+%doc %{gem_instdir}/README.md
+%{gem_instdir}/Rakefile
 %{gem_instdir}/examples
-%doc %{gem_instdir}/preamble
+%exclude %{gem_instdir}/gssapi.gemspec
+%{gem_instdir}/test
 
 %changelog
+* Sun Aug 28 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.3.1-1
+- Update to 1.3.1
+
 * Thu Mar 11 2021 Eric D. Helms <ericdhelms@gmail.com> - 1.2.0-8
 - Rebuild against rh-ruby27
 
