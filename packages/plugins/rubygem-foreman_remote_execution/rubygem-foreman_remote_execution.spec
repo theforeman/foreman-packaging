@@ -10,8 +10,8 @@
 
 Summary:    Plugin that brings remote execution capabilities to Foreman
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    7.1.0
-Release:    2%{?foremandist}%{?dist}
+Version:    8.0.0
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_remote_execution
@@ -21,37 +21,29 @@ BuildRequires: systemd
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.1.0
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(deface)
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.0.2
-BuildRequires: %{?scl_prefix}rubygem(dynflow) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.1.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(deface)
+BuildRequires: rubygem(dynflow) >= 1.0.2
+BuildRequires: rubygem(dynflow) < 2.0.0
+BuildRequires: rubygem(foreman-tasks) >= 5.1.0
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 8.0.0
-BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) >= 4.8.126
-BuildRequires: %{?scl_prefix}npm(@patternfly/react-catalog-view-extension) < 5.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 10.1.0
-BuildRequires: %{?scl_prefix}npm(graphql) >= 15.5.0
-BuildRequires: %{?scl_prefix}npm(graphql) < 16.0.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) >= 2.11.0
-BuildRequires: %{?scl_prefix}npm(graphql-tag) < 3.0.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 8.0.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.0
+BuildRequires: npm(@theforeman/builder) < 11.0.0
+BuildRequires: npm(graphql) >= 15.5.0
+BuildRequires: npm(graphql) < 16.0.0
+BuildRequires: npm(graphql-tag) >= 2.11.0
+BuildRequires: npm(graphql-tag) < 3.0.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -167,6 +159,9 @@ install -Dp -m0644 %{buildroot}%{gem_instdir}/extra/cockpit/settings.yml.example
 %{foreman_plugin_log}
 
 %changelog
+* Sun Aug 28 2022 Foreman Packaging Automation <packaging@theforeman.org> 8.0.0-1
+- Update to 8.0.0
+
 * Wed Aug 24 2022 Evgeni Golov - 7.1.0-2
 - Refs #35409 - Include legacy assets in foreman_remote_execution
 
