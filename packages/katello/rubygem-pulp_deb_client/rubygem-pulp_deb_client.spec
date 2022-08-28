@@ -2,8 +2,8 @@
 %global gem_name pulp_deb_client
 
 Name: rubygem-%{gem_name}
-Version: 2.18.0
-Release: 2%{?dist}
+Version: 2.18.1
+Release: 1%{?dist}
 Summary: Pulp 3 DEB plugin API Ruby Gem
 License: GPLv2+
 URL: https://github.com/pulp/pulp_deb
@@ -65,6 +65,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/spec
 
 %changelog
+* Sun Aug 28 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.18.1-1
+- Update to 2.18.1
+
 * Thu Jul 14 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 2.18.0-2
 - Allow faraday 1.x
 - Regenerate spec
