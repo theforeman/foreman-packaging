@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 6
+%global release 7
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -334,6 +334,7 @@ Requires: rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
 Requires: genisoimage
+Requires: python3-websockify
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
@@ -366,6 +367,7 @@ Requires: rubygem(fog-ovirt) >= 2.0.1
 Requires: rubygem(fog-ovirt) < 3
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
+Requires: python3-websockify
 
 %description ovirt
 Meta package to install requirements for oVirt compute resource support.
@@ -398,6 +400,7 @@ Requires: rubygem(rbvmomi) >= 2.0
 Requires: rubygem(rbvmomi) < 3.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
+Requires: python3-websockify
 
 %description vmware
 Meta package to install requirements for VMware compute resource support.
@@ -703,11 +706,6 @@ webpack --bail --config config/webpack.config.js
 rm db/schema.rb
 
 %install
-%if 0%{?fedora} || 0%{?rhel} >= 8
-sed -i 's|#!/usr/bin/python|#!/usr/bin/python3|g' extras/noVNC/*.py
-sed -i 's|#!/usr/bin/env python|#!/usr/bin/python3|g' extras/noVNC/websockify/*.py
-%endif
-
 rm -rf %{buildroot}
 
 #install man pages
@@ -1004,6 +1002,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Tue Aug 30 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.7.develop
+- Depend on websockify if needed
+
 * Mon Aug 29 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.6.develop
 - Update Gem and NPM dependencies
 
