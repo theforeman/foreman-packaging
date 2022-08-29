@@ -3,7 +3,7 @@
 %define repo_dir %{_sysconfdir}/yum.repos.d
 %define repo_dist %{dist}
 
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global release 3
 
@@ -68,6 +68,9 @@ rm -rf %{buildroot}
 %config %{repo_dir}/*.repo
 
 %changelog
+* Mon Aug 29 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.3.rc2
+- Release katello-repos 4.6.0rc2
+
 * Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.3.rc1
 - Release katello-repos 4.6.0rc1
 
