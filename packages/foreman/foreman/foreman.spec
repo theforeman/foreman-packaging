@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 5
+%global release 6
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -53,8 +53,8 @@ Requires: rubygem(scoped_search) >= 4.1.10
 Requires: rubygem(scoped_search) < 5
 Requires: rubygem(ldap_fluff) >= 0.5.0
 Requires: rubygem(ldap_fluff) < 1.0
-Requires: rubygem(apipie-rails) >= 0.5.17
-Requires: rubygem(apipie-rails) < 0.6.0
+Requires: rubygem(apipie-rails) >= 0.8.0
+Requires: rubygem(apipie-rails) < 0.9.0
 Requires: rubygem(apipie-dsl) >= 2.2.6
 Requires: rubygem(rdoc) < 6.4
 Requires: rubygem(rabl) >= 0.15.0
@@ -77,8 +77,6 @@ Requires: rubygem(gettext_i18n_rails) >= 1.8
 Requires: rubygem(gettext_i18n_rails) < 2.0
 Requires: rubygem(rails-i18n) >= 7.0
 Requires: rubygem(rails-i18n) < 8.0
-Requires: rubygem(i18n) >= 1.1
-Requires: rubygem(i18n) < 2.0
 Requires: rubygem(logging) >= 1.8.0
 Requires: rubygem(logging) < 3.0.0
 Requires: rubygem(fog-core) >= 2.1
@@ -155,8 +153,8 @@ BuildRequires: rubygem(scoped_search) >= 4.1.10
 BuildRequires: rubygem(scoped_search) < 5
 BuildRequires: rubygem(ldap_fluff) >= 0.5.0
 BuildRequires: rubygem(ldap_fluff) < 1.0
-BuildRequires: rubygem(apipie-rails) >= 0.5.17
-BuildRequires: rubygem(apipie-rails) < 0.6.0
+BuildRequires: rubygem(apipie-rails) >= 0.8.0
+BuildRequires: rubygem(apipie-rails) < 0.9.0
 BuildRequires: rubygem(apipie-dsl) >= 2.2.6
 BuildRequires: rubygem(rdoc) < 6.4
 BuildRequires: rubygem(rabl) >= 0.15.0
@@ -179,8 +177,6 @@ BuildRequires: rubygem(gettext_i18n_rails) >= 1.8
 BuildRequires: rubygem(gettext_i18n_rails) < 2.0
 BuildRequires: rubygem(rails-i18n) >= 7.0
 BuildRequires: rubygem(rails-i18n) < 8.0
-BuildRequires: rubygem(i18n) >= 1.1
-BuildRequires: rubygem(i18n) < 2.0
 BuildRequires: rubygem(logging) >= 1.8.0
 BuildRequires: rubygem(logging) < 3.0.0
 BuildRequires: rubygem(fog-core) >= 2.1
@@ -1008,6 +1004,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Aug 29 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.6.develop
+- Update Gem and NPM dependencies
+
 * Sat Aug 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.5.develop
 - Update rails-i18n dependency
 
