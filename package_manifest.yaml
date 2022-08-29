@@ -108,6 +108,7 @@ foreman_core_packages:
     foreman-bootloaders-redhat: {}
     keycloak-httpd-client-install: {}
     pcp-mmvstatsd: {}
+    python-websockify: {}
     rubygem-activerecord-nulldb-adapter: {}
     rubygem-activerecord-session_store: {}
     rubygem-addressable: {}

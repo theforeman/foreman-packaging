@@ -106,6 +106,7 @@ whitelist = dynflow-utils
   puppet-agent-puppet-strings
   puppet-agent-rgen
   puppet-agent-yard
+  python-websockify
   rubygem-actioncable
   rubygem-actionmailbox
   rubygem-actionmailer
