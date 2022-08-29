@@ -6,7 +6,7 @@
 %global foreman_max_version 3.5
 %global plugin_name katello
 %global gem_name katello
-%global prereleasesource rc1
+%global prereleasesource rc2
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.6.0
 %global release 3
@@ -50,7 +50,6 @@ Requires: %{?scl_prefix}rubygem(pg)
 Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(faraday) < 1.9
 Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
 Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
@@ -92,7 +91,6 @@ BuildRequires: %{?scl_prefix}rubygem(pg)
 BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
 BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
 BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(faraday) < 1.9
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
 BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
 BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
@@ -215,6 +213,11 @@ cp -pa .%{gem_dir}/* \
 %foreman_bundlerd_file
 %foreman_precompile_plugin -s
 
+for asset in bastion bastion_katello
+do
+  ln -s %{gem_instdir}/public/assets/${asset} %{buildroot}%{foreman_dir}/public/assets/${asset}
+done
+
 %files
 %dir %{gem_instdir}
 %license %{gem_instdir}/LICENSE.txt
@@ -232,6 +235,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_spec}
 %{foreman_bundlerd_plugin}
 %{foreman_assets_plugin}
+%{foreman_assets_foreman}
+%{foreman_dir}/public/assets/bastion
+%{foreman_dir}/public/assets/bastion_katello
 %{foreman_webpack_foreman}
 %{foreman_webpack_plugin}
 
@@ -244,6 +250,9 @@ cp -pa .%{gem_dir}/* \
 %{gem_instdir}/webpack
 
 %changelog
+* Mon Aug 29 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.3.rc2
+- Release rubygem-katello 4.6.0rc2
+
 * Thu Aug 11 2022 Patrick Creech <pcreech@redhat.com> - 4.6.0-0.3.rc1
 - Release rubygem-katello 4.6.0rc1
 
