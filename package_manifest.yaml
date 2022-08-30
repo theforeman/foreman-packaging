@@ -12,6 +12,9 @@ packages:
   vars:
     rpmlint_rc_file: "{{ inventory_dir }}/.rpmlintrc"
     build_package_use_koji_build: true
+    macros:
+      foremandist: "{{ foremandist }}"
+      nightly: "{{ '.' + lookup('pipe', 'date +%Y%m%d%H%M%S') + 'git' + nightly_githash[:7] if nightly_githash is defined else omit }}"
   children:
     foreman_packages: {}
     plugin_packages: {}
@@ -25,8 +28,7 @@ foreman_packages:
     koji_tags:
       - name: "foreman-{{ foreman_version }}-el8"
         dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
+        macros: "{{ macros }}"
     releasers:
       - koji-foreman
     nightly_releaser: koji-foreman-jenkins
@@ -53,8 +55,7 @@ plugin_packages:
     koji_tags:
       - name: "foreman-plugins-{{ foreman_version }}-el8"
         dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
+        macros: "{{ macros }}"
     releasers:
       - koji-foreman-plugins
     nightly_releaser: koji-foreman-plugins-jenkins
@@ -544,8 +545,7 @@ katello_packages:
     koji_tags:
       - name: "katello-{{ katello_version }}-el8"
         dist: '.el8'
-        macros:
-          foremandist: "{{ foremandist }}"
+        macros: "{{ macros }}"
     releasers:
       - koji-katello
     nightly_releaser: koji-katello-jenkins
