@@ -507,11 +507,9 @@ whitelist =
   foreman-release
   foreman_ygg_worker
   gofer
-  jsoncpp
   katello-host-tools
   katello-pull-transport-migrate
   python-psutil
-  qpid-proton
   rubygem-foreman_scap_client
   tracer
   yggdrasil
