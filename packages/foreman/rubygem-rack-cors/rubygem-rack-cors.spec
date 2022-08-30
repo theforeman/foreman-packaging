@@ -2,7 +2,7 @@
 %global gem_name rack-cors
 
 Name: rubygem-%{gem_name}
-Version: 1.0.6
+Version: 1.1.1
 Release: 1%{?dist}
 Summary: Middleware for enabling Cross-Origin Resource Sharing in Rack apps
 License: MIT
@@ -63,6 +63,9 @@ cp -a .%{gem_dir}/* \
 %{gem_instdir}/test
 
 %changelog
+* Tue Aug 30 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.1.1-1
+- Update to 1.1.1
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.0.6-1
 - Update to 1.0.6
 
