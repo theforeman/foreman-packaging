@@ -447,7 +447,6 @@ whitelist = ansible-collection-theforeman-foreman
   rubygem-multi_xml
   rubygem-netbox-client-ruby
   rubygem-net-ssh-gateway
-  rubygem-net-ssh-krb
   rubygem-net-ssh-multi
   rubygem-newt
   rubygem-openscap
