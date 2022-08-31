@@ -591,6 +591,7 @@ foreman_plugin_packages:
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
     python-docutils: {}
+    python-lockfile: {}
     python-pbr: {}
     python-pexpect: {}
     rubygem-acts_as_list: {}
