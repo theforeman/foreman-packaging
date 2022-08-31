@@ -9,6 +9,7 @@
     <packagelist>
       <packagereq type="default">ansible-collection-theforeman-foreman</packagereq>
       <packagereq type="default">ansible-collection-theforeman-operations</packagereq>
+      <packagereq type="default">ansible-runner</packagereq>
       <packagereq type="default">ansiblerole-foreman_scap_client</packagereq>
       <packagereq type="default">ansiblerole-insights-client</packagereq>
       <packagereq type="default">ansiblerole-satellite-receptor-installer</packagereq>
@@ -22,6 +23,7 @@
       <packagereq type="default">nodejs-react-json-tree</packagereq>
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
+      <packagereq type="default">python39-ansible-runner</packagereq>
       <packagereq type="default">python39-daemon</packagereq>
       <packagereq type="default">python39-docutils</packagereq>
       <packagereq type="default">python39-lockfile</packagereq>
