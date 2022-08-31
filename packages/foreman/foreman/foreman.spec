@@ -9,7 +9,7 @@
 %global scl_ruby_bin /usr/bin/%{?scl:%{scl_prefix}}ruby
 %global scl_rake /usr/bin/%{?scl:%{scl_prefix}}rake
 
-%global release 1
+%global release 2
 
 Name:    foreman
 Version: 3.3.0
@@ -46,6 +46,8 @@ Requires: %{scl}-runtime < 8
 Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
+Requires: /usr/sbin/sendmail
+
 Requires(pre):  shadow-utils
 Requires(post): chkconfig
 Requires(post): systemd-sysv
@@ -1047,6 +1049,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 31 2022 Evgeni Golov - 3.3.0-2
+- Fixes #35461 - Require /usr/sbin/sendmail to be available
+
 * Thu Jun 09 2022 Odilon Sousa <osousa@redhat.com> - 3.3.0-1
 - Release foreman 3.3.0
 
