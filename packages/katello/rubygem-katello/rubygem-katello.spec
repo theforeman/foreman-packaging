@@ -9,7 +9,7 @@
 %global prereleasesource pre.master
 %global prerelease %{?prereleasesource:.}%{?prereleasesource}
 %global mainver 4.7.0
-%global release 3
+%global release 4
 
 Name:    %{?scl_prefix}rubygem-%{gem_name}
 Summary: Content and Subscription Management plugin for Foreman
@@ -21,105 +21,60 @@ License: GPLv2
 URL:     https://theforeman.org/plugins/katello
 Source0: https://rubygems.org/downloads/%{gem_name}-%{version}%{?prerelease}.gem
 
-Autoreq: 0
-
 Requires: foreman-postgresql
 Requires: foreman < %{foreman_max_version}
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby < 3
-Requires: %{?scl_prefix_ruby}ruby(rubygems) > 1.3.1
-Requires: %{?scl_prefix}rubygem(rails)
-Requires: %{?scl_prefix_ruby}rubygem(json)
-Requires: %{?scl_prefix}rubygem(oauth)
-Requires: %{?scl_prefix}rubygem(rest-client)
-Requires: %{?scl_prefix}rubygem(rabl)
-Requires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
-Requires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
-Requires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
-Requires: %{?scl_prefix}rubygem(activerecord-import)
-Requires: %{?scl_prefix}rubygem(qpid_proton)
-Requires: %{?scl_prefix}rubygem(stomp)
-Requires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.9
-Requires: %{?scl_prefix}rubygem(gettext_i18n_rails)
-Requires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-Requires: %{?scl_prefix}rubygem(fx) < 1.0
-Requires: %{?scl_prefix}rubygem(pg)
-Requires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
-Requires: %{?scl_prefix}rubygem(runcible) < 3.0.0
-Requires: %{?scl_prefix}rubygem(anemone)
-Requires: %{?scl_prefix}rubygem(faraday) < 1.9
-Requires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
-Requires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
-Requires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.13.1
-Requires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.14
-Requires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.10.0
-Requires: %{?scl_prefix}rubygem(pulp_container_client) < 2.11.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.18.0
-Requires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.19.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.17.0
-Requires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.18.0
-Requires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
-Requires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.6.0
-Requires: %{?scl_prefix}rubygem(pulp_python_client) < 3.7.0
-Requires: %{?scl_prefix}rubygem(pulp_ostree_client)
-Requires: %{?scl_prefix}rubygem(deface) >= 1.0.2
-Requires: %{?scl_prefix}rubygem(deface) < 2.0.0
-Requires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
-Requires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
+Requires: ruby >= 2.5
+Requires: ruby < 3
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(rails)
-BuildRequires: %{?scl_prefix_ruby}rubygem(json)
-BuildRequires: %{?scl_prefix}rubygem(oauth)
-BuildRequires: %{?scl_prefix}rubygem(rest-client)
-BuildRequires: %{?scl_prefix}rubygem(rabl)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks) >= 5.0
-BuildRequires: %{?scl_prefix}rubygem(foreman_remote_execution) >= 3.0
-BuildRequires: %{?scl_prefix}rubygem(dynflow) >= 1.6.1
-BuildRequires: %{?scl_prefix}rubygem(activerecord-import)
-BuildRequires: %{?scl_prefix}rubygem(qpid_proton)
-BuildRequires: %{?scl_prefix}rubygem(stomp)
-BuildRequires: %{?scl_prefix}rubygem(scoped_search) >= 4.1.9
-BuildRequires: %{?scl_prefix}rubygem(gettext_i18n_rails)
-BuildRequires: %{?scl_prefix}rubygem(apipie-rails) >= 0.5.14
-BuildRequires: %{?scl_prefix}rubygem(fx) < 1.0
-BuildRequires: %{?scl_prefix}rubygem(pg)
-BuildRequires: %{?scl_prefix}rubygem(runcible) >= 2.13.0
-BuildRequires: %{?scl_prefix}rubygem(runcible) < 3.0.0
-BuildRequires: %{?scl_prefix}rubygem(anemone)
-BuildRequires: %{?scl_prefix}rubygem(faraday) < 1.9
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) >= 3.18.0
-BuildRequires: %{?scl_prefix}rubygem(pulpcore_client) < 3.19.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) >= 1.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_file_client) < 1.11.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) >= 0.13.1
-BuildRequires: %{?scl_prefix}rubygem(pulp_ansible_client) < 0.14
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) >= 2.10.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_container_client) < 2.11.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) >= 2.18.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_deb_client) < 2.19.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) >= 3.17.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_rpm_client) < 3.18.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_certguard_client) < 2.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) >= 3.6.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_python_client) < 3.7.0
-BuildRequires: %{?scl_prefix}rubygem(pulp_ostree_client)
-BuildRequires: %{?scl_prefix}rubygem(deface) >= 1.0.2
-BuildRequires: %{?scl_prefix}rubygem(deface) < 2.0.0
-BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) >= 1.1.0
-BuildRequires: %{?scl_prefix}rubygem(angular-rails-templates) < 1.2
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}ruby < 3
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel > 1.3.1
+Requires: ruby >= 2.5
+Requires: ruby < 3
+BuildRequires: ruby >= 2.5
+BuildRequires: ruby < 3
+BuildRequires: rubygems-devel > 1.3.1
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(rails)
+BuildRequires: rubygem(json)
+BuildRequires: rubygem(oauth)
+BuildRequires: rubygem(rest-client)
+BuildRequires: rubygem(rabl)
+BuildRequires: rubygem(foreman-tasks) >= 5.0
+BuildRequires: rubygem(foreman_remote_execution) >= 7.1.0
+BuildRequires: rubygem(dynflow) >= 1.6.1
+BuildRequires: rubygem(activerecord-import)
+BuildRequires: rubygem(qpid_proton)
+BuildRequires: rubygem(stomp)
+BuildRequires: rubygem(scoped_search) >= 4.1.9
+BuildRequires: rubygem(gettext_i18n_rails)
+BuildRequires: rubygem(apipie-rails) >= 0.5.14
+BuildRequires: rubygem(fx) < 1.0
+BuildRequires: rubygem(pg)
+BuildRequires: rubygem(runcible) >= 2.13.0
+BuildRequires: rubygem(runcible) < 3.0.0
+BuildRequires: rubygem(anemone)
+BuildRequires: rubygem(pulpcore_client) >= 3.18.0
+BuildRequires: rubygem(pulpcore_client) < 3.19.0
+BuildRequires: rubygem(pulp_file_client) >= 1.10.0
+BuildRequires: rubygem(pulp_file_client) < 1.11.0
+BuildRequires: rubygem(pulp_ansible_client) >= 0.13.1
+BuildRequires: rubygem(pulp_ansible_client) < 0.14
+BuildRequires: rubygem(pulp_container_client) >= 2.10.0
+BuildRequires: rubygem(pulp_container_client) < 2.11.0
+BuildRequires: rubygem(pulp_deb_client) >= 2.18.0
+BuildRequires: rubygem(pulp_deb_client) < 2.19.0
+BuildRequires: rubygem(pulp_rpm_client) >= 3.17.0
+BuildRequires: rubygem(pulp_rpm_client) < 3.18.0
+BuildRequires: rubygem(pulp_certguard_client) < 2.0
+BuildRequires: rubygem(pulp_python_client) >= 3.6.0
+BuildRequires: rubygem(pulp_python_client) < 3.7.0
+BuildRequires: rubygem(pulp_ostree_client)
+BuildRequires: rubygem(deface) >= 1.0.2
+BuildRequires: rubygem(deface) < 2.0.0
+BuildRequires: rubygem(angular-rails-templates) >= 1.1.0
+BuildRequires: rubygem(angular-rails-templates) < 1.2
 # end specfile generated dependencies
 Obsoletes: %{?scl_prefix}rubygem-%{gem_name}_ostree
 Obsoletes: %{?scl_prefix}rubygem-pulp_2to3_migration_client
@@ -127,21 +82,21 @@ Obsoletes: %{?scl_prefix}rubygem-bastion
 %{?scl:Obsoletes: ruby193-rubygem-%{gem_name}}
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+BuildRequires: npm(@theforeman/builder) >= 6.0.0
 # end package.json devDependencies BuildRequires
 # start package.json dependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(angular) = 1.8.2
-BuildRequires: %{?scl_prefix}npm(bootstrap-select) = 1.13.18
-BuildRequires: %{?scl_prefix}npm(downshift) >= 5.4.2
-BuildRequires: %{?scl_prefix}npm(downshift) < 6.0.0
-BuildRequires: %{?scl_prefix}npm(ngreact) >= 0.5.0
-BuildRequires: %{?scl_prefix}npm(ngreact) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(query-string) >= 6.1.0
-BuildRequires: %{?scl_prefix}npm(query-string) < 7.0.0
-BuildRequires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
-BuildRequires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
-BuildRequires: %{?scl_prefix}npm(use-deep-compare-effect) >= 1.6.1
-BuildRequires: %{?scl_prefix}npm(use-deep-compare-effect) < 2.0.0
+BuildRequires: npm(angular) = 1.8.2
+BuildRequires: npm(bootstrap-select) = 1.13.18
+BuildRequires: npm(downshift) >= 5.4.2
+BuildRequires: npm(downshift) < 6.0.0
+BuildRequires: npm(ngreact) >= 0.5.0
+BuildRequires: npm(ngreact) < 1.0.0
+BuildRequires: npm(query-string) >= 6.1.0
+BuildRequires: npm(query-string) < 7.0.0
+BuildRequires: npm(react-bootstrap) >= 0.32.1
+BuildRequires: npm(react-bootstrap) < 1.0.0
+BuildRequires: npm(use-deep-compare-effect) >= 1.6.1
+BuildRequires: npm(use-deep-compare-effect) < 2.0.0
 # end package.json dependencies BuildRequires
 
 %description
@@ -164,21 +119,21 @@ Summary:    Rebuild the assets for %{pkg_name}
 
 Requires: foreman-assets >= %{foreman_min_version}
 # start package.json devDependencies Requires
-Requires: %{?scl_prefix}npm(@theforeman/builder) >= 6.0.0
+Requires: npm(@theforeman/builder) >= 6.0.0
 # end package.json devDependencies Requires
 # start package.json dependencies Requires
-Requires: %{?scl_prefix}npm(angular) = 1.8.2
-Requires: %{?scl_prefix}npm(bootstrap-select) = 1.13.18
-Requires: %{?scl_prefix}npm(downshift) >= 5.4.2
-Requires: %{?scl_prefix}npm(downshift) < 6.0.0
-Requires: %{?scl_prefix}npm(ngreact) >= 0.5.0
-Requires: %{?scl_prefix}npm(ngreact) < 1.0.0
-Requires: %{?scl_prefix}npm(query-string) >= 6.1.0
-Requires: %{?scl_prefix}npm(query-string) < 7.0.0
-Requires: %{?scl_prefix}npm(react-bootstrap) >= 0.32.1
-Requires: %{?scl_prefix}npm(react-bootstrap) < 1.0.0
-Requires: %{?scl_prefix}npm(use-deep-compare-effect) >= 1.6.1
-Requires: %{?scl_prefix}npm(use-deep-compare-effect) < 2.0.0
+Requires: npm(angular) = 1.8.2
+Requires: npm(bootstrap-select) = 1.13.18
+Requires: npm(downshift) >= 5.4.2
+Requires: npm(downshift) < 6.0.0
+Requires: npm(ngreact) >= 0.5.0
+Requires: npm(ngreact) < 1.0.0
+Requires: npm(query-string) >= 6.1.0
+Requires: npm(query-string) < 7.0.0
+Requires: npm(react-bootstrap) >= 0.32.1
+Requires: npm(react-bootstrap) < 1.0.0
+Requires: npm(use-deep-compare-effect) >= 1.6.1
+Requires: npm(use-deep-compare-effect) < 2.0.0
 # end package.json dependencies Requires
 
 %description assets
@@ -252,6 +207,9 @@ done
 %{gem_instdir}/webpack
 
 %changelog
+* Wed Aug 31 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.7.0-0.4.pre.master
+- Update Gem and NPM dependencies
+
 * Fri Aug 26 2022 Evgeni Golov - 4.7.0-0.3.pre.master
 - Don't ship the vendor dir, it's only need during build
 
