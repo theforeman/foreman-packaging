@@ -23,6 +23,7 @@
       <packagereq type="default">puppet-foreman_scap_client</packagereq>
       <packagereq type="default">puppetlabs-stdlib</packagereq>
       <packagereq type="default">python39-docutils</packagereq>
+      <packagereq type="default">python39-lockfile</packagereq>
       <packagereq type="default">python39-pbr</packagereq>
       <packagereq type="default">python39-pexpect</packagereq>
       <packagereq type="default">rubygem-acts_as_list</packagereq>
