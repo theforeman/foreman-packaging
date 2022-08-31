@@ -155,6 +155,7 @@ foreman_core_packages:
     rubygem-faraday-em_synchrony: {}
     rubygem-faraday-excon: {}
     rubygem-faraday-httpclient: {}
+    rubygem-faraday-multipart: {}
     rubygem-faraday-net_http: {}
     rubygem-faraday-net_http_persistent: {}
     rubygem-faraday-patron: {}
