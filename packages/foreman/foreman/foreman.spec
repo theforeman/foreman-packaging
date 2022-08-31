@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 7
+%global release 8
 %global prereleasesource rc2
 %global prerelease %{?prereleasesource}
 
@@ -30,6 +30,8 @@ Requires: rubygem(bundler_ext)
 Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
+Requires: /usr/sbin/sendmail
+
 Requires(pre):  shadow-utils
 Requires(post): systemd-sysv
 Requires(post): systemd-units
@@ -1010,6 +1012,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 31 2022 Evgeni Golov - 3.4.0-0.8.rc2
+- Fixes #35461 - Require /usr/sbin/sendmail to be available
+
 * Thu Aug 25 2022 Patrick Creech <pcreech@redhat.com> - 3.4.0-0.7.rc2
 - Release foreman 3.4.0rc2
 
