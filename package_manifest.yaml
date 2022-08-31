@@ -160,6 +160,7 @@ foreman_core_packages:
     rubygem-faraday-net_http_persistent: {}
     rubygem-faraday-patron: {}
     rubygem-faraday-rack: {}
+    rubygem-faraday-retry: {}
     rubygem-fast_gettext: {}
     rubygem-ffi: {}
     rubygem-fog-aws: {}
