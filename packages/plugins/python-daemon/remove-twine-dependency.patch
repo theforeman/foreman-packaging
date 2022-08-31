@@ -1,0 +1,12 @@
+diff --git a/setup.py b/setup.py
+index 32d18df..b4d2622 100644
+--- a/setup.py
++++ b/setup.py
+@@ -66,7 +66,6 @@ setup_kwargs = dict(
+         zip_safe=False,
+         setup_requires=[
+             "docutils",
+-            "twine",
+             ],
+         test_suite="setup.test_suite",
+         tests_require=test_requirements,
