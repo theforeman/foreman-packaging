@@ -590,6 +590,7 @@ foreman_plugin_packages:
       strategy: bundle
     puppet-foreman_scap_client: {}
     puppetlabs-stdlib: {}
+    python-daemon: {}
     python-docutils: {}
     python-pbr: {}
     python-pexpect: {}
