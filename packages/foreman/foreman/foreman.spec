@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 7
+%global release 8
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -30,6 +30,8 @@ Requires: rubygem(bundler_ext)
 Requires: wget
 Requires: /etc/cron.d
 Requires: gawk
+Requires: /usr/sbin/sendmail
+
 Requires(pre):  shadow-utils
 Requires(post): systemd-sysv
 Requires(post): systemd-units
@@ -1002,6 +1004,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Wed Aug 31 2022 Evgeni Golov - 3.5.0-0.8.develop
+- Fixes #35461 - Require /usr/sbin/sendmail to be available
+
 * Tue Aug 30 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.7.develop
 - Depend on websockify if needed
 
