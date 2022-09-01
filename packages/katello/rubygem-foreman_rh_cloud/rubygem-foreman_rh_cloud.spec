@@ -1,58 +1,37 @@
 # template: foreman_plugin
-%{?scl:%scl_package rubygem-%{gem_name}}
-%{!?scl:%global pkg_name %{name}}
-%{!?_root_sysconfdir:%global _root_sysconfdir %{_sysconfdir}}
-
 %global gem_name foreman_rh_cloud
 %global plugin_name rh_cloud
-%global foreman_min_version 2.5
+%global foreman_min_version 3.4
 
-Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.39
-Release: 2%{?foremandist}%{?dist}
+Name: rubygem-%{gem_name}
+Version: 6.0.42
+Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
-Group: Applications/Systems
 License: GPLv3
 URL: https://github.com/theforeman/foreman_rh_cloud
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
-Autoreq: 0
-
-Obsoletes: %{?scl_prefix}rubygem-redhat_access
-Obsoletes: %{?scl_prefix}rubygem-redhat_access_lib
-
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload
-Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
-
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(katello)
-Requires: %{?scl_prefix}rubygem(foreman_ansible)
-Requires: %{?scl_prefix}rubygem(foreman-tasks)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(katello)
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(katello)
+BuildRequires: rubygem(foreman_ansible)
+BuildRequires: rubygem(foreman-tasks)
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 7.8.0
+BuildRequires: npm(@theforeman/builder) >= 10.1.1
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -63,36 +42,23 @@ Foreman plugin that process & upload data to Red Hat Cloud.
 
 
 %package doc
-Summary: Documentation for %{pkg_name}
-Group: Documentation
-Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Summary: Documentation for %{name}
+Requires: %{name} = %{version}-%{release}
 BuildArch: noarch
 
 %description doc
-Documentation for %{pkg_name}.
+Documentation for %{name}.
 
 %prep
-%{?scl:scl enable %{scl} - << \EOF}
-gem unpack %{SOURCE0}
-%{?scl:EOF}
-
-%setup -q -D -T -n  %{gem_name}-%{version}
-
-%{?scl:scl enable %{scl} - << \EOF}
-gem spec %{SOURCE0} -l --ruby > %{gem_name}.gemspec
-%{?scl:EOF}
+%setup -q -n  %{gem_name}-%{version}
 
 %build
 # Create the gem as gem install only works on a gem file
-%{?scl:scl enable %{scl} - << \EOF}
-gem build %{gem_name}.gemspec
-%{?scl:EOF}
+gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
 # by default, so that we can move it into the buildroot in %%install
-%{?scl:scl enable %{scl} - << \EOF}
 %gem_install
-%{?scl:EOF}
 
 %install
 mkdir -p %{buildroot}%{gem_dir}
@@ -130,6 +96,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 01 2022 Shimon Shtein <sshtein@redhat.com> 6.0.42-1
+- Update to 6.0.42-1
+
 * Wed Aug 24 2022 Evgeni Golov - 5.0.39-2
 - Refs #35409 - Include sprockets assets
 
