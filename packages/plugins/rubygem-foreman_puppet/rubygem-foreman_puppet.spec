@@ -6,10 +6,10 @@
 %global gem_name foreman_puppet
 %global plugin_name puppet
 %global foreman_min_version 3.0
-%global release 2
+%global release 1
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.2
+Version: 4.0.3
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -112,6 +112,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Thu Sep 01 2022 Ron Lavi <1ronlavi@gmail.com> 4.0.3-1
+- Update to 4.0.3
+
 * Wed Aug 24 2022 Evgeni Golov - 4.0.2-2
 - Refs #35409 - Include sprockets assets
 
