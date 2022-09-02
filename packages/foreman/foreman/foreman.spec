@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 8
+%global release 9
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -336,7 +336,7 @@ Requires: rubygem(ruby-libvirt) < 1.0
 # end specfile libvirt Requires
 Requires: %{name} = %{version}-%{release}
 Requires: genisoimage
-Requires: python3-websockify
+Requires: /usr/bin/websockify
 Obsoletes: foreman-virt < 1.0.0
 Provides: foreman-virt = 1.0.0
 
@@ -369,7 +369,7 @@ Requires: rubygem(fog-ovirt) >= 2.0.1
 Requires: rubygem(fog-ovirt) < 3
 # end specfile ovirt Requires
 Requires: %{name} = %{version}-%{release}
-Requires: python3-websockify
+Requires: /usr/bin/websockify
 
 %description ovirt
 Meta package to install requirements for oVirt compute resource support.
@@ -402,7 +402,7 @@ Requires: rubygem(rbvmomi) >= 2.0
 Requires: rubygem(rbvmomi) < 3.0
 # end specfile vmware Requires
 Requires: %{name} = %{version}-%{release}
-Requires: python3-websockify
+Requires: /usr/bin/websockify
 
 %description vmware
 Meta package to install requirements for VMware compute resource support.
@@ -1004,6 +1004,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Sep 02 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.9.develop
+- Depend on /usr/bin/websockify
+
 * Wed Aug 31 2022 Evgeni Golov - 3.5.0-0.8.develop
 - Fixes #35461 - Require /usr/sbin/sendmail to be available
 
