@@ -9,7 +9,7 @@
 %global release 2
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.0.2
+Version: 4.0.3
 Release: %{?prerelease:0.}%{release}%{?prerelease}%{?foremandist}%{?dist}
 Summary: Adds puppet ENC features
 Group: Applications/Systems
@@ -112,6 +112,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 04 2022 Foreman Packaging Automation <packaging@theforeman.org> 4.0.3-2
+- Update to 4.0.3
+
 * Wed Aug 24 2022 Evgeni Golov - 4.0.2-2
 - Refs #35409 - Include sprockets assets
 
