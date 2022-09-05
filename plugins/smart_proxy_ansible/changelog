@@ -1,3 +1,9 @@
+ruby-smart-proxy-ansible (3.4.1-1) stable; urgency=low
+
+  * 3.4.1 released
+
+ -- Stejskal Leos <github@stejskalleos.cz>  Mon, 05 Sep 2022 11:20:07 +0000
+
 ruby-smart-proxy-ansible (3.4.0-1) stable; urgency=low
 
   * 3.4.0 released
