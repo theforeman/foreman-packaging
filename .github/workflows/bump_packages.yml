@@ -13,6 +13,7 @@ jobs:
   rpm_list:
     name: 'Gather RPMs'
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'theforeman'
     outputs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
@@ -64,6 +65,7 @@ jobs:
   deb_list:
     name: 'Gather debs'
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'theforeman'
     outputs:
       matrix: ${{ steps.set_list.outputs.matrix }}
     steps:
