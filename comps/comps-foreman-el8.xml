@@ -222,6 +222,7 @@
       <packagereq type="default">rubygem-hashie</packagereq>
       <packagereq type="default">rubygem-highline</packagereq>
       <packagereq type="default">rubygem-hocon</packagereq>
+      <packagereq type="default">rubygem-http-accept</packagereq>
       <packagereq type="default">rubygem-http-cookie</packagereq>
       <packagereq type="default">rubygem-httpclient</packagereq>
       <packagereq type="default">rubygem-i18n</packagereq>
@@ -444,6 +445,7 @@
       <packagereq type="default">rubygem-hashie-doc</packagereq>
       <packagereq type="default">rubygem-highline-doc</packagereq>
       <packagereq type="default">rubygem-hocon-doc</packagereq>
+      <packagereq type="default">rubygem-http-accept-doc</packagereq>
       <packagereq type="default">rubygem-httpclient-doc</packagereq>
       <packagereq type="default">rubygem-http-cookie-doc</packagereq>
       <packagereq type="default">rubygem-i18n-doc</packagereq>

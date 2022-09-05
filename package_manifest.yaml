@@ -217,6 +217,7 @@ foreman_core_packages:
     rubygem-hashie: {}
     rubygem-highline: {}
     rubygem-hocon: {}
+    rubygem-http-accept: {}
     rubygem-httpclient: {}
     rubygem-http-cookie: {}
     rubygem-ipaddress: {}
