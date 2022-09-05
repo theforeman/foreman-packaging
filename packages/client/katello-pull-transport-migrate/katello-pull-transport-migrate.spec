@@ -1,12 +1,12 @@
 Name:           katello-pull-transport-migrate
 Version:        1.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An RPM that migrates katello-agent users to the new pull transport
 BuildArch:      noarch
 
 License:        LGPLv2
-URL:            https://github.com/theforeman/foreman-packaging/tree/rpm/develop/packages/client/katello-pull-transport-migrate
-Source0:        https://github.com/theforeman/%{name}/archive/refs/tags/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+URL:            https://github.com/theforeman/katello-pull-transport-migrate
+Source0:        %{url}/archive/refs/tags/%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 Requires:       yggdrasil
 Requires:       foreman_ygg_worker
@@ -36,5 +36,8 @@ SYSCONFDIR=%{_sysconfdir} SBINDIR=%{_sbindir} %{_sbindir}/%{name}
 %license LICENSE.md
 
 %changelog
+* Mon Sep 05 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.1-2
+- Correct website
+
 * Wed May 25 2022 Eric D. Helms <ericdhelms@gmail.com> - 1.0.1-1
 - Release 1.0.1
