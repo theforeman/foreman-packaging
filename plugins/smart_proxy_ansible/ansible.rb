@@ -1,1 +1,1 @@
-gem 'smart_proxy_ansible', '3.4.0'
+gem 'smart_proxy_ansible', '3.4.1'
