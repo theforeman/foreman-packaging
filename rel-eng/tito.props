@@ -310,6 +310,7 @@ whitelist = dynflow-utils
   rubygem-text
   rubygem-thor
   rubygem-tilt
+  rubygem-trailblazer-option
   rubygem-tzinfo
   rubygem-uber
   rubygem-uglifier
