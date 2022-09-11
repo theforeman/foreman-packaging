@@ -8,8 +8,8 @@
 
 Summary:    Plugin for Foreman that allows to configure Webhooks
 Name:       %{?scl_prefix}rubygem-%{gem_name}
-Version:    3.0.4
-Release:    2%{?foremandist}%{?dist}
+Version:    3.0.5
+Release:    1%{?foremandist}%{?dist}
 Group:      Applications/Systems
 License:    GPLv3
 URL:        https://github.com/theforeman/foreman_webhooks
@@ -109,6 +109,9 @@ cp -pa .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 3.0.5-1
+- Update to 3.0.5
+
 * Wed Aug 24 2022 Evgeni Golov - 3.0.4-2
 - Refs #35409 - Include sprockets assets
 
