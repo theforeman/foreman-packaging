@@ -8,8 +8,8 @@
 %global foreman_min_version 2.5
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 5.0.39
-Release: 2%{?foremandist}%{?dist}
+Version: 6.0.42
+Release: 1%{?foremandist}%{?dist}
 Summary: Connects Foreman with Red Hat Cloud services
 Group: Applications/Systems
 License: GPLv3
@@ -26,33 +26,25 @@ Obsoletes: %{?scl_prefix}rubygem-foreman_inventory_upload-doc
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(katello)
-Requires: %{?scl_prefix}rubygem(foreman_ansible)
-Requires: %{?scl_prefix}rubygem(foreman-tasks)
+Requires: ruby
 BuildRequires: foreman-assets >= %{foreman_min_version}
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(katello)
-BuildRequires: %{?scl_prefix}rubygem(foreman_ansible)
-BuildRequires: %{?scl_prefix}rubygem(foreman-tasks)
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
+BuildRequires: rubygem(katello)
+BuildRequires: rubygem(foreman_ansible)
+BuildRequires: rubygem(foreman-tasks)
 # end specfile generated dependencies
 
 # start package.json devDependencies BuildRequires
-BuildRequires: %{?scl_prefix}npm(@babel/core) >= 7.7.0
-BuildRequires: %{?scl_prefix}npm(@babel/core) < 7.8.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) >= 2.5.0
-BuildRequires: %{?scl_prefix}npm(@redhat-cloud-services/frontend-components) < 3.0.0
-BuildRequires: %{?scl_prefix}npm(@theforeman/builder) >= 8.16.0
-BuildRequires: %{?scl_prefix}npm(jed) >= 1.1.1
-BuildRequires: %{?scl_prefix}npm(jed) < 1.2.0
+BuildRequires: npm(@babel/core) >= 7.7.0
+BuildRequires: npm(@babel/core) < 7.8.0
+BuildRequires: npm(@theforeman/builder) >= 8.16.0
+BuildRequires: npm(jed) >= 1.1.1
+BuildRequires: npm(jed) < 1.2.0
 # end package.json devDependencies BuildRequires
 
 # start package.json dependencies BuildRequires
@@ -130,6 +122,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 6.0.42-1
+- Update to 6.0.42
+
 * Wed Aug 24 2022 Evgeni Golov - 5.0.39-2
 - Refs #35409 - Include sprockets assets
 
