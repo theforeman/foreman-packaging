@@ -7,8 +7,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.6
-Release: 3%{?foremandist}%{?dist}
+Version: 2.2.7
+Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -17,35 +17,12 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
 Requires: foreman >= %{foreman_min_version}
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(azure_mgmt_resources) >= 0.18.1
-Requires: %{?scl_prefix}rubygem(azure_mgmt_resources) < 0.19
-Requires: %{?scl_prefix}rubygem(azure_mgmt_network) >= 0.26.1
-Requires: %{?scl_prefix}rubygem(azure_mgmt_network) < 0.27
-Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.23.0
-Requires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.24
-Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.22.0
-Requires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.23
-Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.5
-Requires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
+Requires: ruby
 BuildRequires: foreman-plugin >= %{foreman_min_version}
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_resources) >= 0.18.1
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_resources) < 0.19
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_network) >= 0.26.1
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_network) < 0.27
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) >= 0.23.0
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_storage) < 0.24
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) >= 0.22.0
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_compute) < 0.23
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) >= 0.18.5
-BuildRequires: %{?scl_prefix}rubygem(azure_mgmt_subscriptions) < 0.19
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby
+BuildRequires: ruby
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 Provides: foreman-plugin-%{plugin_name} = %{version}
 # end specfile generated dependencies
 
@@ -114,6 +91,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Sun Sep 11 2022 Foreman Packaging Automation <packaging@theforeman.org> 2.2.7-1
+- Update to 2.2.7
+
 * Mon May 09 2022 Evgeni Golov - 2.2.6-3
 - log plugin installation in posttrans
 
