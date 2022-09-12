@@ -7,8 +7,8 @@
 %global foreman_min_version 1.17
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 2.2.6
-Release: 3%{?foremandist}%{?dist}
+Version: 2.2.7
+Release: 1%{?foremandist}%{?dist}
 Summary: Azure Resource Manager as a compute resource for The Foreman
 Group: Applications/Systems
 License: GPLv3
@@ -114,6 +114,9 @@ cp -a .%{gem_dir}/* \
 %{foreman_plugin_log}
 
 %changelog
+* Mon Sep 12 2022 Odilon Sousa <osousa@redhat.com> - 2.2.7-1
+- Release rubygem-foreman_azure_rm 2.2.7
+
 * Mon May 09 2022 Evgeni Golov - 2.2.6-3
 - log plugin installation in posttrans
 
