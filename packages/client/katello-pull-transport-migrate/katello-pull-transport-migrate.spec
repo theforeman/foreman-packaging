@@ -1,6 +1,6 @@
 Name:           katello-pull-transport-migrate
-Version:        1.0.1
-Release:        2%{?dist}
+Version:        1.0.2
+Release:        1%{?dist}
 Summary:        An RPM that migrates katello-agent users to the new pull transport
 BuildArch:      noarch
 
@@ -36,6 +36,9 @@ SYSCONFDIR=%{_sysconfdir} SBINDIR=%{_sbindir} %{_sbindir}/%{name}
 %license LICENSE.md
 
 %changelog
+* Tue Sep 13 2022 Adam Ruzicka <aruzicka@redhat.com> - 1.0.2-1
+- Release 1.0.2
+
 * Mon Sep 05 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.1-2
 - Correct website
 
