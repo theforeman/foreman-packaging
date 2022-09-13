@@ -1,3 +1,9 @@
+ruby-foreman-ansible (7.1.4) stable; urgency=low
+
+  * 7.1.4 released
+
+ -- Stejskal Leos <github@stejskalleos.cz>  Tue, 13 Sep 2022 08:45:51 +0000
+
 ruby-foreman-ansible (7.1.2) stable; urgency=low
 
   * 7.1.2 released
