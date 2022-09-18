@@ -9,7 +9,7 @@
 %global hammer_confdir %{_root_sysconfdir}/hammer
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?foremandist}%{?dist}
 Summary: Foreman Webhooks plugin for Hammer CLI
 Group: Development/Languages
@@ -20,16 +20,10 @@ Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 Autoreq: 0
 
 # start specfile generated dependencies
-Requires: %{?scl_prefix_ruby}ruby(release)
-Requires: %{?scl_prefix_ruby}ruby >= 2.5
-Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) >= 2.0.0
-Requires: %{?scl_prefix}rubygem(hammer_cli_foreman) < 4.0.0
-BuildRequires: %{?scl_prefix_ruby}ruby(release)
-BuildRequires: %{?scl_prefix_ruby}ruby >= 2.5
-BuildRequires: %{?scl_prefix_ruby}rubygems-devel
+Requires: ruby >= 2.5
+BuildRequires: ruby >= 2.5
+BuildRequires: rubygems-devel
 BuildArch: noarch
-Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}
 # end specfile generated dependencies
 
 %description
@@ -92,6 +86,9 @@ install -m 0644 .%{gem_instdir}/config/%{plugin_name}.yml \
 %doc %{gem_instdir}/config
 
 %changelog
+* Sun Sep 18 2022 Foreman Packaging Automation <packaging@theforeman.org> 0.0.4-1
+- Update to 0.0.4
+
 * Wed Jun 01 2022 Oleh Fedorenko <ofedoren@redhat.com> 0.0.3-1
 - Update to 0.0.3
 
