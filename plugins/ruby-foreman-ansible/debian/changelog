@@ -1,3 +1,9 @@
+ruby-foreman-ansible (9.0.1-1) stable; urgency=low
+
+  * 9.0.1 released
+
+ -- nofaralfasi <nalfassi@redhat.com>  Wed, 21 Sep 2022 13:44:10 +0300
+
 ruby-foreman-ansible (8.0.1-1) stable; urgency=low
 
   * 8.0.1 released
