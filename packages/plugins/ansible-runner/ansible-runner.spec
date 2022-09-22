@@ -2,7 +2,7 @@
 
 Name:           %{pypi_name}
 Version:        2.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A tool and python library to interface with Ansible
 
 License:        ASL 2.0
@@ -31,6 +31,7 @@ Requires:       python%{python3_pkgversion}-pyyaml
 Requires:       python%{python3_pkgversion}-setuptools
 Requires:       python%{python3_pkgversion}-daemon
 Requires:       python%{python3_pkgversion}-six
+Requires:       python%{python3_pkgversion}-packaging
 Requires:       python%{python3_version}dist(pexpect) >= 4.6
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
@@ -65,6 +66,9 @@ ln -s %{_bindir}/ansible-runner-%{python3_version} %{buildroot}/%{_bindir}/ansib
 %{_datadir}/ansible-runner/*
 
 %changelog
+* Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 2.2.1-2
+- Add requires for python-packaging
+
 * Tue Jun 21 2022 Dimitri Savineau <dsavinea@redhat.com> - 2.2.1-1
 - Ansible Runner 2.2.1-1
 
