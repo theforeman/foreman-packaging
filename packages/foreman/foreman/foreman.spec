@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 9
+%global release 10
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -103,16 +103,16 @@ Requires: rubygem(webpack-rails) >= 0.9.8
 Requires: rubygem(webpack-rails) < 0.10.0
 Requires: rubygem(mail) >= 2.7
 Requires: rubygem(mail) < 3.0
-Requires: rubygem(sshkey) >= 1.9
-Requires: rubygem(sshkey) < 2.0
+Requires: rubygem(sshkey) >= 2.0
+Requires: rubygem(sshkey) < 3.0
 Requires: rubygem(dynflow) >= 1.6.5
 Requires: rubygem(dynflow) < 2.0.0
 Requires: rubygem(daemons)
 Requires: rubygem(bcrypt) >= 3.1
 Requires: rubygem(bcrypt) < 4.0
 Requires: rubygem(get_process_mem)
-Requires: rubygem(rack-cors) >= 1.0.2
-Requires: rubygem(rack-cors) < 1.1.0
+Requires: rubygem(rack-cors) >= 1.1
+Requires: rubygem(rack-cors) < 2.0
 Requires: rubygem(jwt) >= 2.2.2
 Requires: rubygem(jwt) < 2.3.0
 Requires: rubygem(graphql) >= 1.8.0
@@ -203,16 +203,16 @@ BuildRequires: rubygem(webpack-rails) >= 0.9.8
 BuildRequires: rubygem(webpack-rails) < 0.10.0
 BuildRequires: rubygem(mail) >= 2.7
 BuildRequires: rubygem(mail) < 3.0
-BuildRequires: rubygem(sshkey) >= 1.9
-BuildRequires: rubygem(sshkey) < 2.0
+BuildRequires: rubygem(sshkey) >= 2.0
+BuildRequires: rubygem(sshkey) < 3.0
 BuildRequires: rubygem(dynflow) >= 1.6.5
 BuildRequires: rubygem(dynflow) < 2.0.0
 BuildRequires: rubygem(daemons)
 BuildRequires: rubygem(bcrypt) >= 3.1
 BuildRequires: rubygem(bcrypt) < 4.0
 BuildRequires: rubygem(get_process_mem)
-BuildRequires: rubygem(rack-cors) >= 1.0.2
-BuildRequires: rubygem(rack-cors) < 1.1.0
+BuildRequires: rubygem(rack-cors) >= 1.1
+BuildRequires: rubygem(rack-cors) < 2.0
 BuildRequires: rubygem(jwt) >= 2.2.2
 BuildRequires: rubygem(jwt) < 2.3.0
 BuildRequires: rubygem(graphql) >= 1.8.0
@@ -1004,6 +1004,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.10.develop
+- Bump dependencies
+
 * Fri Sep 02 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.9.develop
 - Depend on /usr/bin/websockify
 
