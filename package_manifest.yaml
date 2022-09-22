@@ -596,6 +596,7 @@ foreman_plugin_packages:
     python-lockfile: {}
     python-pbr: {}
     python-pexpect: {}
+    python-ptyprocess: {}
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
