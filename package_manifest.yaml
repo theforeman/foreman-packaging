@@ -594,9 +594,11 @@ foreman_plugin_packages:
     python-daemon: {}
     python-docutils: {}
     python-lockfile: {}
+    python-packaging: {}
     python-pbr: {}
     python-pexpect: {}
     python-ptyprocess: {}
+    python-pyparsing: {}
     rubygem-acts_as_list: {}
     rubygem-angular-rails-templates: {}
     rubygem-aws-eventstream: {}
