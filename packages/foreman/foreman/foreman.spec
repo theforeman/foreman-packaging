@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 13
+%global release 14
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -21,6 +21,9 @@ Source3: %{name}.logrotate
 Source4: %{name}.cron.d
 Source5: %{name}.tmpfiles
 BuildArch:  noarch
+
+# Plugin was removed in Foreman 3.3, 3.5 includes DB cleanup
+Obsoletes: rubygem-foreman_docker < 5.0.0-4
 
 Requires: ruby(release)
 Requires: rubygems
@@ -1002,6 +1005,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Oct 17 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.14.develop
+- Obsolete foreman_docker (#35538)
+
 * Wed Sep 28 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.13.develop
 - Update graphql dependency
 
