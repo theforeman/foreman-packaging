@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        4.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pexpect allows easy control of interactive console applications
 
 License:        ISC license
@@ -25,6 +25,7 @@ BuildArch:      noarch
 %package -n     python%{python3_pkgversion}-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python%{python3_pkgversion}-%{pypi_name}}
+Requires:       python%{python3_pkgversion}-ptyprocess
 
 
 %description -n python%{python3_pkgversion}-%{pypi_name}
@@ -62,5 +63,8 @@ set -ex
 
 
 %changelog
+* Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.8.0-2
+- Add requires on python-ptyprocess
+
 * Wed Aug 31 2022 Eric D. Helms <ericdhelms@gmail.com> - 4.8.0-1
 - Initial package.
