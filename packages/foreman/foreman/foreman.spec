@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 10
+%global release 11
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -614,8 +614,8 @@ Meta Package to install requirements for journald logging support
 Summary: Foreman Redis caching support
 Group:  Applications/System
 # start specfile redis Requires
-Requires: rubygem(redis) >= 4.0
-Requires: rubygem(redis) < 5.0
+Requires: rubygem(redis) >= 4.5.0
+Requires: rubygem(redis) < 4.6.0
 # end specfile redis Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -629,11 +629,9 @@ Meta Package to install requirements for Redis caching support
 Summary: Foreman Dynflow's Sidekiq executor
 Group:  Applications/System
 # start specfile dynflow_sidekiq Requires
-Requires: rubygem(sidekiq) >= 5.0
-Requires: rubygem(sidekiq) < 6.0
+Requires: rubygem(sidekiq) >= 6.3.0
+Requires: rubygem(sidekiq) < 6.4.0
 Requires: rubygem(gitlab-sidekiq-fetcher)
-Requires: rubygem(sd_notify) >= 0.1
-Requires: rubygem(sd_notify) < 1.0
 # end specfile dynflow_sidekiq Requires
 Requires: %{name} = %{version}-%{release}
 
@@ -1004,6 +1002,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Fri Sep 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.11.develop
+- Update Sidekiq dependencies
+
 * Thu Sep 22 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.10.develop
 - Bump dependencies
 
