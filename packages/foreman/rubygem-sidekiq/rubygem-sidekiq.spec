@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 6.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Simple, efficient background processing for Ruby
 License: LGPL-3.0
 URL: https://sidekiq.org
@@ -58,7 +58,7 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %license %{gem_instdir}/LICENSE
 %{gem_instdir}/bin
 %{gem_libdir}
-%exclude %{gem_instdir}/web
+%{gem_instdir}/web
 %exclude %{gem_cache}
 %{gem_spec}
 
@@ -68,6 +68,9 @@ find %{buildroot}%{gem_instdir}/bin -type f | xargs chmod a+x
 %exclude %{gem_instdir}/sidekiq.gemspec
 
 %changelog
+* Fri Sep 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 6.3.1-2
+- Include web directory
+
 * Tue Aug 23 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 6.3.1-1
 - Update to 6.3.1
 
