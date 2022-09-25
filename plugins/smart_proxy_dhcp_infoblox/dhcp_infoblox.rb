@@ -1,1 +1,1 @@
-gem 'smart_proxy_dhcp_infoblox', '0.0.16'
+gem 'smart_proxy_dhcp_infoblox', '0.0.17'
