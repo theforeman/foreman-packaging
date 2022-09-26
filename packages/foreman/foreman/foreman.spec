@@ -4,7 +4,7 @@
 %global dynflow_sidekiq_service_name dynflow-sidekiq@
 %global rake /usr/bin/rake
 
-%global release 11
+%global release 12
 %global prereleasesource develop
 %global prerelease %{?prereleasesource}
 
@@ -95,8 +95,8 @@ Requires: rubygem(sprockets-rails) >= 3.0
 Requires: rubygem(sprockets-rails) < 4.0
 Requires: rubygem(responders) >= 3.0
 Requires: rubygem(responders) < 4.0
-Requires: rubygem(roadie-rails) >= 2.0
-Requires: rubygem(roadie-rails) < 3.0
+Requires: rubygem(roadie-rails) >= 3.0
+Requires: rubygem(roadie-rails) < 4.0
 Requires: rubygem(deacon) >= 1.0
 Requires: rubygem(deacon) < 2.0
 Requires: rubygem(webpack-rails) >= 0.9.8
@@ -195,8 +195,8 @@ BuildRequires: rubygem(sprockets-rails) >= 3.0
 BuildRequires: rubygem(sprockets-rails) < 4.0
 BuildRequires: rubygem(responders) >= 3.0
 BuildRequires: rubygem(responders) < 4.0
-BuildRequires: rubygem(roadie-rails) >= 2.0
-BuildRequires: rubygem(roadie-rails) < 3.0
+BuildRequires: rubygem(roadie-rails) >= 3.0
+BuildRequires: rubygem(roadie-rails) < 4.0
 BuildRequires: rubygem(deacon) >= 1.0
 BuildRequires: rubygem(deacon) < 2.0
 BuildRequires: rubygem(webpack-rails) >= 0.9.8
@@ -1002,6 +1002,9 @@ exit 0
 %systemd_postun %{name}.socket
 
 %changelog
+* Mon Sep 26 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 3.5.0-0.12.develop
+- Update roadie-rails dependency
+
 * Fri Sep 23 2022 Eric D. Helms <ericdhelms@gmail.com> - 3.5.0-0.11.develop
 - Update Sidekiq dependencies
 
