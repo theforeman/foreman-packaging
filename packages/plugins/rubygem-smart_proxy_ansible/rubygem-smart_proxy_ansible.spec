@@ -29,6 +29,7 @@ Requires: ansible
 %else
 Requires: (ansible or ansible-core)
 %endif
+Requires: ansible-runner >= 2
 
 Requires: ansible-collection-theforeman-foreman
 
