@@ -2,7 +2,7 @@
 %global gem_name graphql
 
 Name: rubygem-%{gem_name}
-Version: 1.8.18
+Version: 1.13.16
 Release: 1%{?dist}
 Summary: A GraphQL language and runtime for Ruby
 License: MIT
@@ -10,8 +10,8 @@ URL: https://github.com/rmosolgo/graphql-ruby
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
 
 # start specfile generated dependencies
-Requires: ruby >= 2.2.0
-BuildRequires: ruby >= 2.2.0
+Requires: ruby >= 2.4.0
+BuildRequires: ruby >= 2.4.0
 BuildRequires: rubygems-devel
 BuildArch: noarch
 # end specfile generated dependencies
@@ -55,9 +55,11 @@ cp -a .%{gem_dir}/* \
 %files doc
 %doc %{gem_docdir}
 %doc %{gem_instdir}/readme.md
-%{gem_instdir}/spec
 
 %changelog
+* Tue Sep 27 2022 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> 1.13.16-1
+- Update to 1.13.16
+
 * Wed Jul 13 2022 Foreman Packaging Automation <packaging@theforeman.org> 1.8.18-1
 - Update to 1.8.18
 
