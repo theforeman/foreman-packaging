@@ -5,6 +5,7 @@
 Name: rubygem-%{gem_name}
 Version: 3.21.6
 Release: 1%{?dist}
+Epoch: 1
 Summary: Protocol Buffers
 License: BSD-3-Clause
 URL: https://developers.google.com/protocol-buffers
